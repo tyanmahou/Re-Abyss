@@ -89,6 +89,8 @@ namespace abyss
 					return false;
 			}
 			ScalableWindow::DrawBlackBars();
+
+			::DrawFps();
 		}
 		return true;
 	}
