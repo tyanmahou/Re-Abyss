@@ -166,6 +166,12 @@
     <ClCompile Include="src\app\AbyssDream.cpp" />
     <ClCompile Include="src\app\Application.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledLayer.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledObject.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledProperty.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledReader.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledSets.cpp" />
+    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -282,6 +288,15 @@
   <ItemGroup>
     <ClInclude Include="src\app\AbyssDream.hpp" />
     <ClInclude Include="src\app\Application.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledDef.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledLayer.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledObject.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledProperty.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledReader.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledSets.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledUtil.hpp" />
+    <ClInclude Include="src\vendor\s3dTiled\TiledMap.hpp" />
+    <ClInclude Include="src\view\effects\Bubble.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -61,7 +61,7 @@ namespace abyss
 	{
 		Window::SetTitle(appName);
 		Window::Resize(windowSize);
-		Graphics::SetBackground(Palette::White);
+		Graphics::SetBackground(Palette::Black);
 		System::SetExitEvent((Input::KeyAlt + Input::KeyF4).clicked | WindowEvent::CloseButton);
 #ifdef USE_SCALABLE_WINDOW
 		ham::ScalableWindow::Setup(windowSize);
