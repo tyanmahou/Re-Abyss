@@ -1,8 +1,4 @@
-#include "../include/S3DTiled/TiledObject.hpp"
-
-#include<Siv3D/XMLReader.hpp>
-#include<Siv3D/Parse.hpp>
-
+#include <S3DTiled/TiledObject.hpp>
 
 namespace s3dTiled
 {

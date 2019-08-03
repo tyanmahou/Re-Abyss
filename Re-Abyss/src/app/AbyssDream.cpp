@@ -2,7 +2,8 @@
 #include<Siv3D/String.hpp>
 #include<Siv3D/Vector2D.hpp>
 
-#include"../vendor/S3DTiled/include/S3DTiled.hpp"
+#include <S3DTiled.hpp>
+
 #include"../view/effects/Bubble.hpp"
 namespace abyss
 {
@@ -10,8 +11,8 @@ namespace abyss
 
 	const TiledMap& Map()
 	{
-		static TiledReader t(L"work/stage0/stage0.tmx");
-		return t.getTiledMap();
+		static TiledMap t(L"work/stage0/stage0.tmx");
+		return t;
 	}
 	bool AbyssDream::update() const
 	{
@@ -33,11 +34,13 @@ namespace abyss
 		tex4.uv(0, 0, 1, 1).draw();
 
 		ClearPrint();
-		if (!Map().drawLayer(L"map", { 0,0,960,520 }))
-		{
-			Println(L"failed map");
+		Map().draw();
+		if (auto layer = Map().getLayer(L"map")) {
+			layer->then([](const TileLayer& layer) {
+				Println(layer.getName());
+			});
 		}
-		Map().drawLayer(L"front",{ 0,0,960,520 });
+
 		Graphics2D::SetBlendState(BlendState::Additive);
 		e.update();
 		Graphics2D::SetBlendState(BlendState::Default);

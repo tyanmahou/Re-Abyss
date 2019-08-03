@@ -1,9 +1,8 @@
-#pragma once
 #include "TiledParser.hpp"
-#include "../ITileSet.hpp"
+#include "../TiledSets/TileSetBase.hpp"
+#include "../TiledMap/CTiledMap.hpp"
 
-#include "../../include/S3DTiled/TiledMap.hpp"
-#include "../../include/S3DTiled/TiledLayer.hpp"
+#include <S3DTiled/TiledLayer.hpp>
 
 #include <Siv3D/Types.hpp>
 #include <Siv3D/Color.hpp>
@@ -36,12 +35,11 @@ namespace
 	public:
 		TmxParser() = default;
 
-		bool parse(const s3d::FilePath& path, TiledMap& map)
+		std::shared_ptr<CTiledMap> parse(const s3d::FilePath& path)
 		{
-
 			XMLReader xml(path, XMLDocumentType::File);
 			if (!xml) {
-				return false;
+				return nullptr;
 			}
 			this->m_parentPath = FileSystem::ParentPath(path);
 
@@ -56,29 +54,29 @@ namespace
 				Parse<int32>(root.attribute(L"tilewidth").value_or(L"0")),
 				Parse<int32>(root.attribute(L"tileheight").value_or(L"0"))
 			};
-			map.init(mapSize, tileSize);
+			auto map = std::make_shared<CTiledMap>(mapSize, tileSize);
 
 			if (auto && col = root.attribute(L"backgroundcolor")) {
-				map.setBackGroundColor(ParseTiledColor(root.attribute(L"backgroundcolor").value()));
+				map->setBackGroundColor(ParseTiledColor(root.attribute(L"backgroundcolor").value()));
 			}
 
 			for (auto elm = root.firstChild(); elm; elm = elm.nextSibling()) {
 				if (auto && layer = this->tryParseLayer(elm)) {
-					map.addLayer(TiledLayer(layer));
+					map->addLayer(TiledLayer(layer));
 				}
 				else if (auto && tileSet = this->tryTileSet(elm)) {
-					map.addTileSet(std::move(tileSet));
+					map->addTileSet(std::move(tileSet));
 				}
 				else if (elm.name() == L"properties") {
-					map.setProps(this->parseProps(elm));
+					map->setProps(this->parseProps(elm));
 				}
 
 			}
 
-			return true;
+			return map;
 		}
 	private:
-		std::shared_ptr<ILayer> tryParseLayer(XMLElement xml)
+		std::shared_ptr<TiledLayerBase> tryParseLayer(XMLElement xml)
 		{
 			if (xml.name() == L"imagelayer") {
 				return this->parseImageLayer(xml);
@@ -93,7 +91,7 @@ namespace
 			return nullptr;
 		}
 
-		void parseLayerCommon(ILayer* layer, XMLElement xml)
+		void parseLayerCommon(TiledLayerBase* layer, XMLElement xml)
 		{
 			// common
 			layer->setName(xml.attribute(L"name").value_or(L""));
@@ -105,7 +103,7 @@ namespace
 
 			// ÉvÉçÉpÉeÉBÇÕäKëwÇ™â∫Ç™ÇÈÇÃÇ≈Ç±Ç±Ç≈ÇÕéÊìæÇµÇ»Ç¢
 		}
-		std::shared_ptr<ILayer> parseImageLayer(XMLElement xml)
+		std::shared_ptr<TiledLayerBase> parseImageLayer(XMLElement xml)
 		{
 			auto layer = std::make_shared<ImageLayer>();
 			this->parseLayerCommon(layer.get(), xml);
@@ -121,7 +119,7 @@ namespace
 			return layer;
 		}
 
-		std::shared_ptr<ILayer> parseObjectGroup(XMLElement xml)
+		std::shared_ptr<TiledLayerBase> parseObjectGroup(XMLElement xml)
 		{
 			auto layer = std::make_shared<ObjectGroup>();
 			this->parseLayerCommon(layer.get(), xml);
@@ -138,7 +136,7 @@ namespace
 		}
 
 
-		std::shared_ptr<ILayer> parseTileLayer(XMLElement xml)
+		std::shared_ptr<TiledLayerBase> parseTileLayer(XMLElement xml)
 		{
 			auto layer = std::make_shared<TileLayer>();
 			this->parseLayerCommon(layer.get(), xml);
@@ -293,7 +291,7 @@ namespace
 			return ret;
 		}
 
-		std::unique_ptr<ITileSet> tryTileSet(XMLElement xml)
+		std::unique_ptr<TileSetBase> tryTileSet(XMLElement xml)
 		{
 			if (xml.name() != L"tileset") {
 				return nullptr;
@@ -306,7 +304,7 @@ namespace
 			}
 		}
 
-		void parseTileSetCommon(ITileSet * tileSet, XMLElement xml)
+		void parseTileSetCommon(TileSetBase* tileSet, XMLElement xml)
 		{
 			tileSet->setFirstGId(Parse<GId>(xml.attribute(L"firstgid").value_or(L"0")));
 			tileSet->setTileCount(Parse<uint32>(xml.attribute(L"tilecount").value_or(L"0")));
@@ -315,7 +313,7 @@ namespace
 			// animationÇÕäKëwÇ™â∫Ç™ÇÈÇÃÇ≈Ç±Ç±Ç≈ÇÕÇ‚ÇÁÇ»Ç¢
 		}
 
-		void tryParseTileInfo(ITileSet * tileSet, TileId tileId, XMLElement xml)
+		void tryParseTileInfo(TileSetBase* tileSet, TileId tileId, XMLElement xml)
 		{
 			for (auto elm = xml.firstChild(); elm; elm = elm.nextSibling()) {
 				if (elm.name() == L"animation") {
@@ -326,7 +324,7 @@ namespace
 				}
 			}
 		}
-		std::unique_ptr<ITileSet> parseUniformTileSet(XMLElement xml)
+		std::unique_ptr<TileSetBase> parseUniformTileSet(XMLElement xml)
 		{
 			auto tileSet = std::make_unique<UniformTileSet>();
 			this->parseTileSetCommon(tileSet.get(), xml);
@@ -348,7 +346,7 @@ namespace
 			return tileSet;
 		}
 
-		std::unique_ptr<ITileSet> parseVariousTileSet(XMLElement xml)
+		std::unique_ptr<TileSetBase> parseVariousTileSet(XMLElement xml)
 		{
 			auto tileSet = std::make_unique<VariousTileSet>();
 			this->parseTileSetCommon(tileSet.get(), xml);
@@ -374,9 +372,9 @@ namespace
 }
 namespace s3dTiled
 {
-	bool ParseTmx(const s3d::FilePath& path, TiledMap& map)
+	std::shared_ptr<CTiledMap> ParseTmx(const s3d::FilePath& path)
 	{
 		TmxParser parser;
-		return parser.parse(path, map);
+		return parser.parse(path);
 	}
 }

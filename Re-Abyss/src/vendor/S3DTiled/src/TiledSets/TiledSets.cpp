@@ -1,6 +1,6 @@
-#pragma once
-#include "../include/S3DTiled/TiledSets.hpp"
-#include "ITileSet.hpp"
+#include "TiledSets.hpp"
+#include "TileSetBase.hpp"
+
 #include <Siv3D/TextureRegion.hpp>
 
 using namespace s3d;
@@ -11,12 +11,11 @@ namespace s3dTiled
 	{
 		friend class TiledSets;
 
-		Array<std::unique_ptr<ITileSet>> m_tileSets;
+		Array<std::unique_ptr<TileSetBase>> m_tileSets;
 		std::unordered_map<GId, uint32> m_gIdTileIndexMap; // gIdÇ©ÇÁtileÉZÉbÉgÇ÷ÇÃåüçıÇO(1)Ç…ÇµÇ‹Ç∑
-		Size m_tileSize;
 
 	public:
-		void addTileSet(std::unique_ptr<ITileSet>&& tileSet)
+		void addTileSet(std::unique_ptr<TileSetBase>&& tileSet)
 		{
 			m_tileSets.push_back(std::move(tileSet));
 
@@ -27,7 +26,7 @@ namespace s3dTiled
 			}
 		}
 
-		ITileSet* getTileSet(GId gId) const
+		TileSetBase* getTileSet(GId gId) const
 		{
 			return m_tileSets[m_gIdTileIndexMap.at(gId)].get();
 		}
@@ -43,23 +42,13 @@ namespace s3dTiled
 		return pImpl->getTileSet(gId)->getTextureRegion(gId);
 	}
 
-	void TiledSets::addTileSet(std::unique_ptr<ITileSet>&& tileSet) const
+	s3d::Optional<TiledProperty> TiledSets::getProperty(GId gId, const s3d::String& key) const
+	{
+		return pImpl->getTileSet(gId)->getProperty(gId, key);
+	}
+
+	void TiledSets::addTileSet(std::unique_ptr<TileSetBase>&& tileSet) const
 	{
 		pImpl->addTileSet(std::move(tileSet));
-	}
-
-	bool TiledSets::needAxisAdjust(GId gId) const
-	{
-		return pImpl->getTileSet(gId)->needAxisAjust();
-	}
-
-	void TiledSets::setTileSize(const s3d::Size& size) const
-	{
-		pImpl->m_tileSize = size;
-	}
-
-	Size TiledSets::getTileSize() const
-	{
-		return pImpl->m_tileSize;
 	}
 }

@@ -1,9 +1,12 @@
-#include "ITileSet.hpp"
+#include "TileSetBase.hpp"
+
 #include <Siv3D/TextureRegion.hpp>
 using namespace s3d;
 
 namespace s3dTiled
 {
+	// TiledAnimation
+
 	TiledAnimation::TiledAnimation():
 		m_stopwatch(true)
 	{
@@ -32,50 +35,63 @@ namespace s3dTiled
 		return 0;
 	}
 
-	void ITileSet::setFirstGId(GId gId)
+	// TileSetBase
+
+	void TileSetBase::setFirstGId(GId gId)
 	{
 		this->m_firstGId = gId;
 	}
 
-	void ITileSet::setTileCount(s3d::uint32 count)
+	void TileSetBase::setTileCount(s3d::uint32 count)
 	{
 		this->m_tileCount = count;
 	}
 
-	void ITileSet::setColumns(s3d::uint32 columns)
+	void TileSetBase::setColumns(s3d::uint32 columns)
 	{
 		this->m_columns = columns;
 	}
 
-	void ITileSet::addAnimation(TileId tileId, TiledAnimation&& animetion)
+	void TileSetBase::addAnimation(TileId tileId, TiledAnimation&& animetion)
 	{
 		m_animations.emplace(tileId, std::move(animetion));
 	}
 
-	void ITileSet::addProps(TileId tileId, TiledProperties&& props)
+	void TileSetBase::addProps(TileId tileId, TiledProperties&& props)
 	{
 		m_props.emplace(tileId, std::move(props));
 	}
 
-	GId ITileSet::getFirstGId() const
+	s3d::Optional<TiledProperty> TileSetBase::getProperty(GId gId, const s3d::String& key) const
+	{
+		TileId tileId = gId - m_firstGId;
+
+		if (m_props.find(tileId) == m_props.end()) {
+			return s3d::none;
+		}
+		const auto& props = m_props.at(tileId);
+
+		if (props.find(key) == props.end()) {
+			return s3d::none;
+		}
+		return props.at(key);
+	}
+
+	GId TileSetBase::getFirstGId() const
 	{
 		return m_firstGId;
 	}
 
-	s3d::uint32 ITileSet::getTileCount() const
+	s3d::uint32 TileSetBase::getTileCount() const
 	{
 		return m_tileCount;
 	}
 
-	bool ITileSet::isContain(GId gId) const
+	bool TileSetBase::isContain(GId gId) const
 	{
 		return m_firstGId <= gId && gId < m_firstGId + m_tileCount;
 	}
 
-	bool ITileSet::needAxisAjust() const
-	{
-		return m_needAxisAjust;
-	}
 
 	// UniformTileSet
 
@@ -99,12 +115,6 @@ namespace s3dTiled
 		int32 x = tileId % m_columns;
 		int32 y = tileId / m_columns;
 		return m_texture({ m_tileSize.x * x, m_tileSize.y * y }, m_tileSize);
-	}
-
-
-	VariousTileSet::VariousTileSet()
-	{
-		this->m_needAxisAjust = true;
 	}
 
 	void VariousTileSet::addTexture(TileId tileId, const s3d::Texture& texture)

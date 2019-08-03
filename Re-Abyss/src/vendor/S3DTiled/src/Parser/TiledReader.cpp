@@ -1,10 +1,12 @@
-#include "../include/S3DTiled/TiledReader.hpp"
-#include "../include/S3DTiled/TiledMap.hpp"
+#include "TiledReader.hpp"
+#include "TiledParser.hpp"
+#include "../TiledMap/CTiledMap.hpp"
 
-#include "Parser/TiledParser.hpp"
+#include <S3DTiled/TiledMap.hpp>
 
 #include <Siv3D/String.hpp>
 #include <Siv3D/FileSystem.hpp>
+
 using namespace s3d;
 
 namespace s3dTiled
@@ -13,17 +15,17 @@ namespace s3dTiled
 	{
 		friend TiledReader;
 	private:
-		TiledMap m_map;
+		std::shared_ptr<CTiledMap> m_map;
 
 		bool open(const FilePath& path, TiledFileType fileType)
 		{
 			if (fileType == TiledFileType::Tmx || FileSystem::Extension(path) == L"tmx") {
-				return ParseTmx(path, m_map);
+				m_map = ParseTmx(path);
 			}
 			else if (fileType == TiledFileType::Json || FileSystem::Extension(path) == L"json") {
 				// TODO Json Parse
 			}
-			return false;
+			return static_cast<bool>(m_map);
 		}
 	public:
 		CTiledReader() = default;
@@ -49,9 +51,9 @@ namespace s3dTiled
 
 	TiledReader::operator bool() const
 	{
-		return pImpl->m_map;
+		return static_cast<bool>(pImpl->m_map);
 	}
-	const TiledMap& TiledReader::getTiledMap() const
+	std::shared_ptr<CTiledMap> TiledReader::getTiledMap() const
 	{
 		return pImpl->m_map;
 	}

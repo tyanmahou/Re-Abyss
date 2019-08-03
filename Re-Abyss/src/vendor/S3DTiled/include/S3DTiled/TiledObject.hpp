@@ -1,11 +1,13 @@
 #pragma once
+
+#include "TiledTypes.hpp"
+#include "TiledProperty.hpp"
+
 #include<Siv3D/Vector2D.hpp>
 #include<Siv3D/String.hpp>
 #include<Siv3D/Optional.hpp>
 #include<Siv3D/Shape.hpp>
 
-#include "TiledDef.hpp"
-#include "TiledProperty.hpp"
 
 namespace s3dTiled
 {
@@ -21,6 +23,6 @@ namespace s3dTiled
 		s3d::Optional<GId> gId;
 
 		void setProps(TiledProperties&& props);
-		s3d::Optional<TiledProperty> getProperty(const s3d::String& name) const;
+		s3d::Optional<TiledProperty> getProperty(const s3d::String& key) const;
 	};
 }

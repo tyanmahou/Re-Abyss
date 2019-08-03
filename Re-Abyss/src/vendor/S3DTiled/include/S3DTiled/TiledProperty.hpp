@@ -1,4 +1,5 @@
 #pragma once
+
 #include<Siv3D/Fwd.hpp>
 #include<Siv3D/Color.hpp>
 

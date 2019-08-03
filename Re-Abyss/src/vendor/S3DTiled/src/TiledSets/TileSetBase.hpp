@@ -1,11 +1,12 @@
 #pragma once
-#include "../include/S3DTiled/TiledDef.hpp"
-#include "../include/S3DTiled/TiledProperty.hpp"
 
-#include<Siv3D/Stopwatch.hpp>
-#include<Siv3D/Array.hpp>
-#include<Siv3D/Vector2D.hpp>
-#include<Siv3D/Texture.hpp>
+#include <S3DTiled/TiledTypes.hpp>
+#include <S3DTiled/TiledProperty.hpp>
+
+#include <Siv3D/Stopwatch.hpp>
+#include <Siv3D/Array.hpp>
+#include <Siv3D/Vector2D.hpp>
+#include <Siv3D/Texture.hpp>
 
 namespace s3dTiled
 {
@@ -28,7 +29,7 @@ namespace s3dTiled
 		TileId calcCurrentTileId();
 	};
 
-	class ITileSet
+	class TileSetBase
 	{
 	protected:
 		GId m_firstGId;
@@ -36,7 +37,6 @@ namespace s3dTiled
 		s3d::uint32 m_columns;
 		std::unordered_map<TileId, TiledAnimation> m_animations;
 		std::unordered_map<TileId, TiledProperties> m_props;
-		bool m_needAxisAjust = false;
 	public:
 
 		void setFirstGId(GId gId);
@@ -45,6 +45,7 @@ namespace s3dTiled
 
 		void addAnimation(TileId tileId, TiledAnimation&& animetion);
 		void addProps(TileId tileId, TiledProperties&& props);
+		s3d::Optional<TiledProperty> getProperty(GId gId, const s3d::String& key) const;
 
 		GId getFirstGId() const;
 
@@ -52,15 +53,13 @@ namespace s3dTiled
 
 		bool isContain(GId gId) const;
 
-		bool needAxisAjust() const;
-
 		virtual s3d::TextureRegion getTextureRegion(GId gId) = 0;
 	};
 
 	/// <summary>
 	/// 均一のタイルセット
 	/// </summary>
-	class UniformTileSet : public ITileSet
+	class UniformTileSet : public TileSetBase
 	{
 	private:
 		s3d::Size m_tileSize;
@@ -77,12 +76,12 @@ namespace s3dTiled
 	/// <summary>
 	/// バラバラのタイルセット
 	/// </summary>
-	class VariousTileSet : public ITileSet
+	class VariousTileSet : public TileSetBase
 	{
 	private:
 		std::unordered_map<TileId, s3d::Texture> m_textures;
 	public:
-		VariousTileSet();
+		VariousTileSet() = default;
 
 		void addTexture(TileId tileId, const s3d::Texture& texture);
 

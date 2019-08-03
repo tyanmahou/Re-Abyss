@@ -1,29 +1,36 @@
 #pragma once
-#include "TiledDef.hpp"
+
+#include "TiledTypes.hpp"
+
 #include <memory>
 
 namespace s3dTiled
 {
-	class ITileSet;
 	class TiledLayer;
+	class CTiledMap;
 
 	class TiledMap
 	{
-		class CTiledMap;
 		std::shared_ptr<CTiledMap> pImpl;
 	public:
 		TiledMap() = default;
 
-		void init(const s3d::Size& mapSize, const s3d::Size& tileSize);
+		TiledMap(const s3d::FilePath& path, TiledFileType fileType = TiledFileType::Unspecified);
 
-		void setBackGroundColor(const s3d::Color& color);
-		void addLayer(const TiledLayer& layer) const;
-		void addTileSet(std::unique_ptr<ITileSet>&& tileSet) const;
+		bool open(const s3d::FilePath& path, TiledFileType fileType = TiledFileType::Unspecified);
 
-		void setProps(TiledProperties&& props) const;
+		const s3d::Size& getMapSize() const;
+		const s3d::Size& getTileSize() const;
+
+		s3d::Optional<TiledProperty> getProperty(const s3d::String& key) const;
 
 		s3d::Optional<TiledLayer> getLayer(const s3d::String& name)const;
 
+		s3d::TextureRegion getTile(GId gId) const;
+		s3d::Optional<TiledProperty> getTileProperty(GId gId, const s3d::String& key) const;
+
+		void draw(const s3d::Rect& rect) const;
+		void draw() const;
 		bool drawLayer(const s3d::String& name, const s3d::Rect& rect) const;
 
 		operator bool() const;

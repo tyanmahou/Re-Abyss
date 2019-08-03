@@ -1,20 +1,15 @@
 #pragma once
+
+#include<S3DTiled/TiledTypes.hpp>
+
 #include<Siv3D/Fwd.hpp>
 #include<Siv3D/Optional.hpp>
+
 #include<memory>
 
 namespace s3dTiled
 {
-	class TiledMap;
-	/// <summary>
-	/// Tiledのファイル形式
-	/// </summary>
-	enum class TiledFileType
-	{
-		Unspecified,
-		Tmx,
-		Json
-	};
+	class CTiledMap;
 
 	/// <summary>
 	/// Tiled読み込み
@@ -32,12 +27,11 @@ namespace s3dTiled
 
 		explicit TiledReader(const s3d::FilePath& path, TiledFileType fileType = TiledFileType::Unspecified);
 
-
 		bool open(const s3d::FilePath& path, TiledFileType fileType = TiledFileType::Unspecified);
 
 		operator bool() const;
 
-		const TiledMap& getTiledMap() const;
+		std::shared_ptr<CTiledMap> getTiledMap() const;
 	};
 }
 
