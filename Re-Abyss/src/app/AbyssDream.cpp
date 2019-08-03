@@ -2,16 +2,16 @@
 #include<Siv3D/String.hpp>
 #include<Siv3D/Vector2D.hpp>
 
-#include"../vendor/s3dTiled/TiledMap.hpp"
+#include"../vendor/S3DTiled/include/S3DTiled.hpp"
 #include"../view/effects/Bubble.hpp"
 namespace abyss
 {
 	using namespace s3dTiled;
 
-	TiledMap& Map()
+	const TiledMap& Map()
 	{
-		static TiledMap t(L"work/stage0/stage0.tmx");
-		return t;
+		static TiledReader t(L"work/stage0/stage0.tmx");
+		return t.getTiledMap();
 	}
 	bool AbyssDream::update() const
 	{

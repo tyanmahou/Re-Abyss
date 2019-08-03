@@ -2,8 +2,6 @@
 #include<Siv3D/Fwd.hpp>
 #include<Siv3D/Color.hpp>
 
-#include<unordered_map>
-
 namespace s3dTiled
 {
 		/// <summary>
@@ -27,23 +25,26 @@ namespace s3dTiled
 			{
 				bool b;
 				s3d::Color col;
-				float f;
+				double f;
 				s3d::int32 i;
 				s3d::String* str;
 			};
 		public:
 			TiledProperty();
-			TiledProperty(s3d::XMLElement xml, const s3d::FilePath& parentPath = L"");
-			// TiledProperty(const s3d::JSONObject& xml, const s3d::FilePath& parentPath);
-
 			TiledProperty(const TiledProperty& other);
-			// TiledProperty(TiledProperty&& other);
+			TiledProperty(TiledProperty&& other);
+
+			TiledProperty(bool b);
+			TiledProperty(const s3d::Color& col);
+			TiledProperty(double f);
+			TiledProperty(s3d::int32 i);
+			TiledProperty(const s3d::String& str);
 
 			~TiledProperty();
 
 			bool toBool() const;
 			s3d::Color toColor() const;
-			float toFloat() const;
+			double toFloat() const;
 			s3d::int32 toInt() const;
 			const s3d::String& toString() const;
 
@@ -52,16 +53,6 @@ namespace s3dTiled
 			void clear();
 
 			TiledProperty& operator =(const TiledProperty& other);
-			// TiledProperty& operator =(TiledProperty&& other);
+			TiledProperty& operator =(TiledProperty&& other);
 		};
-
-		/// <summary>
-		/// プロパティのマップ
-		/// </summary>
-		using TiledProperties = std::unordered_map<s3d::String, TiledProperty>;
-
-		/// <summary>
-		/// プロパティのセット
-		/// </summary>
-		void ParseProps(s3d::XMLElement map, TiledProperties& props, const s3d::FilePath& parentPath);
 }

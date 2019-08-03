@@ -1,11 +1,12 @@
 #pragma once
 #include"TiledDef.hpp"
-#include<Siv3D/Fwd.hpp>
 
 #include<memory>
 
 namespace s3dTiled
 {
+	class ITileSet;
+
 	class TiledSets
 	{
 		class CTiledSets;
@@ -15,7 +16,8 @@ namespace s3dTiled
 
 		s3d::TextureRegion getTile(GId gId) const;
 
-		void pushTileSet(s3d::XMLElement xml, const s3d::FilePath& parentPath) const;
+		void addTileSet(std::unique_ptr<ITileSet>&& tileSet) const;
+
 		/// <summary>
 		/// é≤ï‚ê≥Ç™ïKóvÇ©Ç«Ç§Ç©
 		/// </summary>
