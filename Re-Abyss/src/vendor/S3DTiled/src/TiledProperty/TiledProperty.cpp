@@ -49,21 +49,41 @@ namespace s3dTiled
 	{
 		return this->b;
 	}
+	TiledProperty::operator bool() const
+	{
+		return this->toBool();
+	}
 	Color TiledProperty::toColor() const
 	{
 		return this->col;
+	}
+	TiledProperty::operator s3d::Color() const
+	{
+		return this->toColor();
 	}
 	double TiledProperty::toFloat() const
 	{
 		return this->f;
 	}
+	TiledProperty::operator double() const
+	{
+		return this->toFloat();
+	}
 	int32 TiledProperty::toInt() const
 	{
 		return this->i;
 	}
+	TiledProperty::operator s3d::int32() const
+	{
+		return this->toInt();
+	}
 	const String& TiledProperty::toString() const
 	{
 		return *this->str;
+	}
+	TiledProperty::operator s3d::String() const
+	{
+		return this->toString();
 	}
 	TiledProperty::Type TiledProperty::getType() const
 	{

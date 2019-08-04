@@ -158,29 +158,33 @@ namespace s3dTiled
 		if (!m_visible) {
 			return false;
 		}
+		Size tileSize = map.getTileSize();
+		Size mapSize = map.getMapSize();
 
-		Vec2 tileSize = map.getTileSize();
+		GId xStart = static_cast<GId>(Max(0, (rect.x - rect.w)/ tileSize.x));
+		GId yStart = static_cast<GId>(Max(0, (rect.y - rect.h) / tileSize.y));
 
-		GId xStart = static_cast<GId>(rect.x / tileSize.x);
-		GId yStart = static_cast<GId>(rect.y / tileSize.y);
-
-		GId xEnd = xStart + static_cast<GId>(rect.w / tileSize.x);
-		GId yEnd = yStart + static_cast<GId>(rect.h / tileSize.y);
-
-
+		GId xEnd = Min<GId>(mapSize.x, xStart + static_cast<GId>(rect.w * 3 / tileSize.x));
+		GId yEnd = Min<GId>(mapSize.y, yStart + static_cast<GId>(rect.h * 3/ tileSize.y));
 		for (GId y = yStart; y < yEnd; ++y) {
 			for (GId x = xStart; x < xEnd; ++x) {
 				GId gId = m_gIds[y][x];
-				if (gId == 0) {
+				if (gId <= 0) {
 					continue;
 				}
 				auto&& texture = map.getTile(gId);
 				Vec2 pos = { x * tileSize.x, y * tileSize.y };
 				// À•W‚Ì’²®
 				pos.y -= (texture.size.y - tileSize.y);
+
+				RectF drawRegion{ pos, texture.size };
+				if (!rect.intersects(drawRegion)) {
+					continue;
+				}
 				texture.draw(pos);
 			}
 		}
+
 		return true;
 	}
 
@@ -191,7 +195,7 @@ namespace s3dTiled
 
 	// ObjectGroup
 
-	void ObjectGroup::addObject(TiledObject && obj)
+	void ObjectGroup::addObject(TiledObject&& obj)
 	{
 		this->m_objects.push_back(std::move(obj));
 	}
@@ -201,7 +205,7 @@ namespace s3dTiled
 		return m_objects;
 	}
 
-	bool ObjectGroup::draw(const TiledMap& map, const Rect & rect) const
+	bool ObjectGroup::draw(const TiledMap& map, const Rect& rect) const
 	{
 		if (!m_visible) {
 			return false;

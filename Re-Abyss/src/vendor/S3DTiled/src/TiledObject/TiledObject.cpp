@@ -15,4 +15,9 @@ namespace s3dTiled
 		return s3d::none;
 	}
 
+	s3d::RectF TiledObject::toRectF() const
+	{
+		return shape.storage.rectF.movedBy(pos);
+	}
+
 }

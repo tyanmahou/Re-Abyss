@@ -24,5 +24,7 @@ namespace s3dTiled
 
 		void setProps(TiledProperties&& props);
 		s3d::Optional<TiledProperty> getProperty(const s3d::String& key) const;
+
+		s3d::RectF toRectF() const;
 	};
 }

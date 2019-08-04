@@ -11,11 +11,11 @@ namespace abyss
 		double m_deflection;
 		Vec2 m_pos;
 	public:
-		BubbleEffect() :
+		BubbleEffect(const Vec2& offset = {0, 0}) :
 			m_maxRadius(Random(40.0, 240.0)),
 			m_speed(Random(-2.0, -0.5)),
 			m_deflection(Random(0.0, 400.0)),
-			m_pos(RandomVec2({ -120,560,1080,240 }))
+			m_pos(RandomVec2({ offset + Vec2{-120 - 480, 260}, {1080,240} }))
 		{}
 
 		bool update(double t) override
@@ -25,7 +25,7 @@ namespace abyss
 			const double r = Min(m_maxRadius, EaseOut(0.0, m_maxRadius, Easing::Cubic, t));
 			m_pos.y += m_speed;
 			Vec2 pos = m_pos + Vec2{ m_deflection * Sin(t),0.0 };
-			Circle(pos, r).draw(ColorF(1, 0.1));
+			Circle(pos, r).draw(ColorF(1, 0.2));
 			return m_pos.y + r >= 0;
 		}
 	};

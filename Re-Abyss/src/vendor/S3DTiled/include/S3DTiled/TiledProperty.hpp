@@ -44,10 +44,19 @@ namespace s3dTiled
 			~TiledProperty();
 
 			bool toBool() const;
+			operator bool() const;
+
 			s3d::Color toColor() const;
+			operator s3d::Color() const;
+
 			double toFloat() const;
+			operator double() const;
+
 			s3d::int32 toInt() const;
+			operator s3d::int32() const;
+
 			const s3d::String& toString() const;
+			operator s3d::String() const;
 
 			Type getType()const;
 
