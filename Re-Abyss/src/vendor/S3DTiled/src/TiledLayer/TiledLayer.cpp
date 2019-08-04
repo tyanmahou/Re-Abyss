@@ -81,6 +81,17 @@ namespace s3dTiled
 		}
 		return false;
 	}
+	bool TiledLayer::then(std::function<void(const GroupLayer&)> callback) const
+	{
+		if (pImpl->getType() != LayerType::GroupLayer) {
+			return false;
+		}
+		if (auto layer = dynamic_cast<GroupLayer*>(pImpl.get())) {
+			callback(*layer);
+			return true;
+		}
+		return false;
+	}
 	// TiledLayerBase
 
 	void TiledLayerBase::setVisible(bool visible)
@@ -115,11 +126,21 @@ namespace s3dTiled
 		this->m_offset = offset;
 	}
 
+	const s3d::Vec2& TiledLayerBase::getOffset() const
+	{
+		return m_offset;
+	}
+
 	// ImageLayer
 
 	void ImageLayer::setTexture(s3d::Texture texture)
 	{
 		m_texture = texture;
+	}
+
+	const s3d::Texture& ImageLayer::getTexture() const
+	{
+		return m_texture;
 	}
 
 	bool ImageLayer::draw(const TiledMap& /*map*/, const Rect& rect) const
@@ -236,5 +257,24 @@ namespace s3dTiled
 	LayerType ObjectGroup::getType() const
 	{
 		return LayerType::ObjectGroup;
+	}
+	void GroupLayer::addLayer(const TiledLayer& layer)
+	{
+		m_layers.push_back(layer);
+	}
+	const s3d::Array<TiledLayer>& GroupLayer::getLayers() const
+	{
+		return m_layers;
+	}
+	bool GroupLayer::draw(const TiledMap& map, const s3d::Rect& rect) const
+	{
+		for (auto&& layer: m_layers) {
+			layer.draw(map, rect);
+		}
+		return true;
+	}
+	LayerType GroupLayer::getType() const
+	{
+		return LayerType::GroupLayer;
 	}
 }

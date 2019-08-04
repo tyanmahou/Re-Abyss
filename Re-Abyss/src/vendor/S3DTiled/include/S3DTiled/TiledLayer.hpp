@@ -20,12 +20,14 @@ namespace s3dTiled
 	class ImageLayer;
 	class TileLayer;
 	class ObjectGroup;
+	class GroupLayer;
 
 	enum class LayerType
 	{
 		ImageLayer,
 		TileLayer,
 		ObjectGroup,
+		GroupLayer,
 		None
 	};
 
@@ -95,6 +97,13 @@ namespace s3dTiled
 		/// <param name="callback">コールバック</param>
 		/// <returns>コールバックが呼ばれたらtrue</returns>
 		bool then(std::function<void(const ObjectGroup&)> callback) const;
+
+		/// <summary>
+		/// レイヤータイプが GroupLayer の場合にコールバックを呼ぶ
+		/// </summary>
+		/// <param name="callback">コールバック</param>
+		/// <returns>コールバックが呼ばれたらtrue</returns>
+		bool then(std::function<void(const GroupLayer&)> callback) const;
 	};
 
 	class TiledLayerBase
@@ -120,6 +129,7 @@ namespace s3dTiled
 		const s3d::String& getName() const;
 
 		void setOffset(const s3d::Vec2& offset);
+		const s3d::Vec2& getOffset() const;
 	};
 	/// <summary>
 	/// ImageLayer
@@ -130,6 +140,7 @@ namespace s3dTiled
 		s3d::Texture m_texture;
 	public:
 		void setTexture(s3d::Texture texture);
+		const s3d::Texture& getTexture() const;
 
 		bool draw(const TiledMap& map, const s3d::Rect& rect) const override;
 		LayerType getType() const override;
@@ -164,6 +175,24 @@ namespace s3dTiled
 
 		void addObject(TiledObject&& obj);
 		const s3d::Array<TiledObject>& getObjects() const;
+
+		bool draw(const TiledMap& map, const s3d::Rect& rect) const override;
+
+		LayerType getType() const override;
+	};
+
+	/// <summary>
+	/// GroupLayer
+	/// </summary>
+	class GroupLayer : public TiledLayerBase
+	{
+	private:
+		s3d::Array<TiledLayer> m_layers;
+
+	public:
+		GroupLayer() = default;
+		void addLayer(const TiledLayer& layer);
+		const s3d::Array<TiledLayer>&  getLayers() const;
 
 		bool draw(const TiledMap& map, const s3d::Rect& rect) const override;
 

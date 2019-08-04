@@ -88,6 +88,9 @@ namespace
 			else if (xml.name() == L"objectgroup") {
 				return this->parseObjectGroup(xml);
 			}
+			else if (xml.name() == L"group") {
+				return this->parseGroupLayer(xml);
+			}
 			return nullptr;
 		}
 
@@ -163,6 +166,22 @@ namespace
 						y++;
 					}
 					layer->setGrid(std::move(grid));
+				}
+				else if (elm.name() == L"properties") {
+					layer->setProps(this->parseProps(elm));
+				}
+			}
+			return layer;
+		}
+
+		std::shared_ptr<TiledLayerBase> parseGroupLayer(XMLElement xml)
+		{
+			auto layer = std::make_shared<GroupLayer>();
+			this->parseLayerCommon(layer.get(), xml);
+
+			for (auto elm = xml.firstChild(); elm; elm = elm.nextSibling()) {
+				if (auto&& child = this->tryParseLayer(elm)) {
+					layer->addLayer(TiledLayer(child));
 				}
 				else if (elm.name() == L"properties") {
 					layer->setProps(this->parseProps(elm));
