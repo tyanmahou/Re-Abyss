@@ -1,20 +1,12 @@
 #pragma once
 #include <Siv3D/Rectangle.hpp>
-
+#include "Forward.hpp"
 namespace s3dTiled
 {
 	struct TiledObject;
 }
 namespace abyss
 {
-	enum class Forward
-	{
-		Up = 0x1,
-		Down = 0x2,
-		Left = 0x4,
-		Right = 0x8,
-	};
-
 	struct RoomBorders
 	{
 		double up = 0, down = 0, left = 0, right = 0;

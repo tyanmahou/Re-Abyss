@@ -5,6 +5,7 @@
 #include "../model/Room.hpp"
 #include "../model/BgModel.hpp"
 #include <S3DTiled.hpp>
+#include "../model/PlayerModel.hpp"
 
 using namespace s3dTiled;
 
@@ -14,10 +15,12 @@ namespace abyss
 	{
 		TiledMap map;
 
-		Vec2 pos;
+		PlayerModel m_player;
 		GameCamera m_camera;
 		Array<Room> m_rooms;
 		Array<BgModel> m_bgs;
+
+	
 	public:
 		Impl() = default;
 
@@ -32,32 +35,33 @@ namespace abyss
 		}
 		void init()
 		{
-			pos = {480, 720};
+			m_player.setPos({ 480, 720 });
 			map.open(L"work/stage0/stage0.tmx");
-			map.getLayer(L"room")->then([this](const ObjectGroup& layer) {
+			map.getLayer(L"room")->then([this](const ObjectGroup & layer) {
 				for (const auto& obj : layer.getObjects()) {
 					m_rooms.emplace_back(obj);
 				}
-			});
+				});
 			m_camera.setRoom(m_rooms[0]);
-			m_camera.update(pos);
+			m_camera.update(m_player.getPos());
 
-			map.getLayer(L"bgs")->then([&](const GroupLayer& layer) {
+			map.getLayer(L"bgs")->then([&](const GroupLayer & layer) {
 				for (const auto& child : layer.getLayers()) {
-					child.then([&](const ImageLayer& i) {
+					child.then([&](const ImageLayer & i) {
 						m_bgs.emplace_back(i);
-					});
+						});
 				}
-			});
+				});
 		}
 
 		void update()
 		{
-			pos.x += (Input::KeyRight.pressed - Input::KeyLeft.pressed) * 200 * TimeUtil::Delta();
-			pos.y += (Input::KeyDown.pressed - Input::KeyUp.pressed) * 200 * TimeUtil::Delta();
-
+			double dt = TimeUtil::Delta();
+			m_player.update(dt);
+			Vec2 pos = m_player.getPos();
 			m_camera.update(pos);
 			m_camera.adjustPos(pos);
+			m_player.setPos(pos);
 
 			if (!m_camera.isCameraWork() && !m_camera.carentRoom().getRegion().intersects(pos)) {
 				if (auto && next = this->getNextRoom(pos)) {
@@ -80,7 +84,7 @@ namespace abyss
 			constexpr SamplerState YClamp(
 				TextureAddressMode::Wrap,
 				TextureAddressMode::Clamp,
-				TextureAddressMode::Wrap, 
+				TextureAddressMode::Wrap,
 				TextureFilter::MinMagMipLinear
 			);
 
@@ -98,9 +102,11 @@ namespace abyss
 
 				map.drawLayer(L"back", rect);
 				map.drawLayer(L"map", rect);
-				Circle(pos, 20).draw(Palette::Red);
+
+				m_player.draw();
+
 				map.drawLayer(L"front", rect);
-				// 
+				 
 				Graphics2D::SetBlendState(BlendState::Additive);
 				e.update();
 				Graphics2D::SetBlendState(BlendState::Default);
@@ -108,7 +114,7 @@ namespace abyss
 
 		}
 	};
-	MainScene::MainScene():
+	MainScene::MainScene() :
 		m_pImpl(std::make_shared<Impl>())
 	{
 	}
