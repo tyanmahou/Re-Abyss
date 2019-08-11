@@ -76,7 +76,7 @@ namespace abyss
 
 			auto cameraPos = m_camera.getPos();
 			int32 f = System::FrameCount();
-			if (f % 80 == 0) {
+			if (f % 160 == 0) {
 				e.add<BubbleEffect>(cameraPos);
 				e.setSpeed(0.1);
 			}

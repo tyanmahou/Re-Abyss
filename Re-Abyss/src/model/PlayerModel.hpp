@@ -14,6 +14,7 @@ namespace abyss
 			Stay,
 			Swim,
 			Float,
+			Dive,
 			Damge
 		};
 	private:

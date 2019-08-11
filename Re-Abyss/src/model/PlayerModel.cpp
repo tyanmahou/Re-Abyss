@@ -51,9 +51,13 @@ namespace
 					y = 240;
 				}
 				else {
-					y = 80 * (timer / 60 % 2);
+					y = 80 * (timer / 30 % 2);
 				}
 				m_texture(L"player_swim.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(pos);
+			}break;
+			case PlayerModel::Motation::Dive: {
+				double y = 80 * (timer / 30 % 2);
+				m_texture(L"player_dive.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(pos);
 			}break;
 			case PlayerModel::Motation::Damge: {
 				m_texture(L"player_damage.png", { isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(pos);
@@ -124,6 +128,9 @@ namespace abyss
 		if (Abs(m_body.pos.x - prevPos.x))
 		{
 			m_motation = Motation::Swim;
+		}
+		if (m_body.vellocity.y > maxGravity) {
+			m_motation = Motation::Dive;
 		}
 	}
 	void PlayerModel::draw() const
