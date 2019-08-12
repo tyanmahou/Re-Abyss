@@ -8,7 +8,7 @@ namespace abyss
 	{
 		s3d::uint64 m_currentTime;
 		double m_delta = 0;
-
+		double m_time = 0;
 		static TimeUtil* Instance()
 		{
 			static TimeUtil instance;
@@ -28,5 +28,6 @@ namespace abyss
 		bool update() override;
 
 		static double Delta();
+		static double Time();
 	};
 }

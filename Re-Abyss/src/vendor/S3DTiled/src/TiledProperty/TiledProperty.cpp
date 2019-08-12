@@ -6,7 +6,8 @@ namespace s3dTiled
 {
 	TiledProperty::TiledProperty() :
 		m_type(Type::None)
-	{}
+	{
+	}
 
 	TiledProperty::TiledProperty(const TiledProperty & other)
 	{
@@ -176,7 +177,6 @@ namespace s3dTiled
 			break;
 		}
 		this->m_type = other.m_type;
-
 		other.m_type = Type::None;
 
 		return *this;

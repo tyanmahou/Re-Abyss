@@ -9,6 +9,7 @@ namespace abyss
 		s3d::uint64 prevTime = m_currentTime;
 		m_currentTime = s3d::Time::GetNanosec();
 		m_delta = static_cast<double>(m_currentTime - prevTime) / 1'000'000'000.0;
+		m_time = static_cast<double>(m_currentTime) / 1'000'000'000.0;
 	}
 	TimeUtil::TimeUtil()
 	{
@@ -35,5 +36,9 @@ namespace abyss
 	double TimeUtil::Delta()
 	{
 		return Instance()->m_delta;
+	}
+	double TimeUtil::Time()
+	{
+		return Instance()->m_time;
 	}
 }

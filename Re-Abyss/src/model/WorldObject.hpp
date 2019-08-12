@@ -9,7 +9,7 @@ namespace abyss
 	{
 	protected:
 		WorldModel* m_pWorld = nullptr;
-
+		bool m_isActive = true;
 	public:
 		WorldObject() = default;
 		virtual ~ WorldObject() = default;

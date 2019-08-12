@@ -1,24 +1,12 @@
 #pragma once
 #include "Room.hpp"
-
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Transformer2D.hpp>
 #include <Siv3D/Graphics.hpp>
 #include <Siv3D/Stopwatch.hpp>
 
 namespace abyss
 {
-	//
-	struct Transformer2D : s3d::Transformer2D
-	{
-
-		Transformer2D(const s3d::Mat3x2& mat, bool transformMouse = false)
-			: s3d::Transformer2D(
-				s3d::Graphics2D::GetTransform().inverse()* mat* s3d::Graphics2D::GetTransform(),
-				transformMouse)
-		{}
-
-	};
+	struct Transformer2D;
 
 	class GameCamera
 	{

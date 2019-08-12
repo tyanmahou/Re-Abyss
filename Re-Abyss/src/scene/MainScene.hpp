@@ -5,8 +5,8 @@ namespace abyss
 {
 	class MainScene : public AppScene::Scene
 	{
-		class Impl;
-		std::shared_ptr<Impl> m_pImpl;
+		class Controller;
+		std::unique_ptr<Controller> m_pImpl;
 	public:
 		MainScene();
 		void init()override;

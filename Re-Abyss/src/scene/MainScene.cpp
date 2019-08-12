@@ -1,121 +1,108 @@
 #include "MainScene.hpp"
-#include "../view/effects/Bubble.hpp"
-#include "../util/TimeUtil.hpp"
-#include "../model/GameCamera.hpp"
-#include "../model/Room.hpp"
-#include "../model/BgModel.hpp"
-#include <S3DTiled.hpp>
-#include "../model/PlayerModel.hpp"
 
-using namespace s3dTiled;
+#include "../model/scene/MainSceneModel.hpp"
+#include "../view/scene/MainSceneView.h"
 
 namespace abyss
 {
-	class MainScene::Impl
+	enum class FieldType
 	{
-		TiledMap map;
+		None = 0x0,
+		Floor = 0x1,
+		Ladder = 0x2,
+	};
 
-		PlayerModel m_player;
-		GameCamera m_camera;
-		Array<Room> m_rooms;
-		Array<BgModel> m_bgs;
-
-	
+	class MainScene::Controller
+	{
+		std::unique_ptr<MainSceneModel> m_model;
+		std::unique_ptr<MainSceneView> m_view;
 	public:
-		Impl() = default;
-
-		Optional<Room> getNextRoom(const Vec2& _pos)
+		Controller() :
+			m_model(std::make_unique<MainSceneModel>()),
+			m_view(std::make_unique<MainSceneView>(m_model.get()))
 		{
-			for (const auto& room : m_rooms) {
-				if (room.getRegion().intersects(_pos)) {
-					return room;
-				}
-			}
-			return s3d::none;
+		
 		}
+
+
 		void init()
 		{
-			m_player.setPos({ 480, 720 });
-			map.open(L"work/stage0/stage0.tmx");
-			map.getLayer(L"room")->then([this](const ObjectGroup & layer) {
-				for (const auto& obj : layer.getObjects()) {
-					m_rooms.emplace_back(obj);
-				}
-				});
-			m_camera.setRoom(m_rooms[0]);
-			m_camera.update(m_player.getPos());
+			m_model->init();
+			//map.getLayer(L"map")->then([&](const TileLayer & layer) {
+			//	const auto& grid = layer.getGrid();
+			//	auto size = map.getTileSize();
 
-			map.getLayer(L"bgs")->then([&](const GroupLayer & layer) {
-				for (const auto& child : layer.getLayers()) {
-					child.then([&](const ImageLayer & i) {
-						m_bgs.emplace_back(i);
-						});
-				}
-				});
+			//	std::unordered_map<GId, FieldType> fieldTypeMap;
+			//	auto getFieldType = [&](GId gId)-> FieldType {
+			//		if (gId <= 0) {
+			//			return FieldType::None;
+			//		}
+			//		if (fieldTypeMap.find(gId) != fieldTypeMap.end()) {
+			//			return fieldTypeMap[gId];
+			//		}
+			//		bool isLadder = map.getTileProperty(gId, L"ladder").has_value();
+			//		if (isLadder) {
+			//			return fieldTypeMap[gId] = FieldType::Ladder;
+			//		}
+			//		return fieldTypeMap[gId] = FieldType::Floor;
+			//	};
+
+			//	auto getMapType = [&](uint32 x, uint32 y) {
+			//		if (x < 0 || x >= grid.width) {
+			//			return FieldType::None;
+			//		}
+			//		if (y < 0 || y >= grid.height) {
+			//			return FieldType::None;
+			//		}
+			//		return getFieldType(grid[y][x]);
+			//	};
+
+			//	for (uint32 y = 0; y < grid.height; ++y) {
+			//		for (uint32 x = 0; x < grid.width; ++x) {
+			//			GId gId = grid[y][x];
+			//			if (gId <= 0) {
+			//				continue;
+			//			}
+			//			auto type = getFieldType(gId);
+			//			if (type != FieldType::Floor) {
+			//				continue;
+			//			}
+			//			ColDirection col = collision::None;
+
+			//			if (getMapType(x, y - 1) != FieldType::Floor) {
+			//				col = col | collision::Up;
+			//			}
+
+			//			if (getMapType(x, y + 1) != FieldType::Floor) {
+			//				col = col | collision::Down;
+			//			}
+			//			if (getMapType(x - 1, y) != FieldType::Floor) {
+			//				col = col | collision::Left;
+			//			}
+			//			if (getMapType(x + 1, y) != FieldType::Floor) {
+			//				col = col | collision::Right;
+			//			}
+
+			//			Vec2 pos = Vec2{ size.x * x, size.y * y } +static_cast<Vec2>(size) / 2;
+			//			world.createObject<FloorModel>(col, pos, map.getTile(gId).size);
+			//		}
+			//	}
+			//	});
 		}
 
 		void update()
 		{
-			double dt = TimeUtil::Delta();
-			m_player.update(dt);
-			Vec2 pos = m_player.getPos();
-			m_camera.update(pos);
-			m_camera.adjustPos(pos);
-			m_player.setPos(pos);
-
-			if (!m_camera.isCameraWork() && !m_camera.carentRoom().getRegion().intersects(pos)) {
-				if (auto && next = this->getNextRoom(pos)) {
-					m_camera.startCameraWork(*next).withPlayerPos(pos);
-				}
-			}
+			m_model->update();
+			m_view->update();
 		}
 
 		void draw() const
 		{
-			static s3d::Effect e;
-
-			auto cameraPos = m_camera.getPos();
-			int32 f = System::FrameCount();
-			if (f % 160 == 0) {
-				e.add<BubbleEffect>(cameraPos);
-				e.setSpeed(0.1);
-			}
-
-			constexpr SamplerState YClamp(
-				TextureAddressMode::Wrap,
-				TextureAddressMode::Clamp,
-				TextureAddressMode::Wrap,
-				TextureFilter::MinMagMipLinear
-			);
-
-
-			RectF rect = m_camera.screenRegion();
-			{
-				auto t2d = m_camera.getTransformer();
-
-				Graphics2D::SetSamplerState(YClamp);
-				for (const auto& bg : m_bgs) {
-					bg.draw(cameraPos);
-				}
-
-				Graphics2D::SetSamplerState(SamplerState::Default2D);
-
-				map.drawLayer(L"back", rect);
-				map.drawLayer(L"map", rect);
-
-				m_player.draw();
-
-				map.drawLayer(L"front", rect);
-				 
-				Graphics2D::SetBlendState(BlendState::Additive);
-				e.update();
-				Graphics2D::SetBlendState(BlendState::Default);
-			}
-
+			m_view->draw();
 		}
 	};
 	MainScene::MainScene() :
-		m_pImpl(std::make_shared<Impl>())
+		m_pImpl(std::make_unique<Controller>())
 	{
 	}
 	void MainScene::init()

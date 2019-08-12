@@ -1,5 +1,7 @@
 #include "GameCamera.hpp"
 #include "../common/Constants.hpp"
+#include "../util/ScopedState.hpp"
+
 #include <Siv3D/Easing.hpp>
 #include <Siv3D/Math.hpp>
 

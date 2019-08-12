@@ -10,18 +10,22 @@ namespace
 {
 	enum class WindowSize
 	{
-		Hurf,
 		Default,
+		Hurf,
+		FullScrren
 	};
 	void ChangeWindowSize(WindowSize windowSize)
 	{
 		switch (windowSize)
 		{
+		case WindowSize::Default:
+			Window::Resize(Window::BaseSize());
+			break;
 		case WindowSize::Hurf:
 			Window::Resize(Window::BaseSize() / 2);
 			break;
-		case WindowSize::Default:
-			Window::Resize(Window::BaseSize());
+		case WindowSize::FullScrren:
+			Window::SetFullscreen(true, {1280, 720});
 			break;
 		}
 	}
@@ -29,13 +33,19 @@ namespace
 	{
 		static WindowSize ws = WindowSize::Default;
 
+		if (ws != WindowSize::FullScrren && Window::IsFullSceen()) {
+			Window::SetFullscreen(false, { 1280, 720 });
+		}
 		switch (ws)
 		{
-		case WindowSize::Hurf:
-			ws = WindowSize::Default;
-			break;
 		case WindowSize::Default:
 			ws = WindowSize::Hurf;
+			break;
+		case WindowSize::Hurf:
+			ws = WindowSize::FullScrren;
+			break;
+		case WindowSize::FullScrren:
+			ws = WindowSize::Default;
 			break;
 		default:
 			break;
