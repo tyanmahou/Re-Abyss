@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SIV3D_20160812_VS2019)\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\src\vendor\S3DTiled\include;$(SIV3D_20160812_VS2019)\Inc;$(IncludePath)</IncludePath>
     <LibraryPath>$(SIV3D_20160812_VS2019)\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -81,7 +81,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SIV3D_20160812_VS2019)\Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\src\vendor\S3DTiled\include;$(SIV3D_20160812_VS2019)\Inc;$(IncludePath)</IncludePath>
     <LibraryPath>$(SIV3D_20160812_VS2019)\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,15 +163,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\app\AbyssDream.cpp" />
-    <ClCompile Include="src\app\Application.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledLayer.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledObject.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledProperty.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledReader.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledSets.cpp" />
-    <ClCompile Include="src\vendor\s3dTiled\TiledMap\TiledUtil.cpp" />
+    <ClCompile Include="src\common\AbyssDream.cpp" />
+    <ClCompile Include="src\common\Application.cpp" />
+    <ClCompile Include="src\common\Game.cpp" />
+    <ClCompile Include="src\model\BgModel.cpp" />
+    <ClCompile Include="src\model\Collision.cpp" />
+    <ClCompile Include="src\model\GameCamera.cpp" />
+    <ClCompile Include="src\model\objects\FloorModel.cpp" />
+    <ClCompile Include="src\model\objects\PlayerModel.cpp" />
+    <ClCompile Include="src\model\objects\PlayerShotModel.cpp" />
+    <ClCompile Include="src\model\Room.cpp" />
+    <ClCompile Include="src\model\scene\MainSceneModel.cpp" />
+    <ClCompile Include="src\model\WorldModel.cpp" />
+    <ClCompile Include="src\scene\MainScene.cpp" />
+    <ClCompile Include="src\util\ScopedState.cpp" />
+    <ClCompile Include="src\util\TexturePacker.cpp" />
+    <ClCompile Include="src\util\TimeUtil.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\Parser\TiledReader.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\Parser\TmxParser.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledLayer\TiledLayer.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledMap\CTiledMap.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledMap\TiledMap.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledObject\TiledObject.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledProperty\TiledProperty.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledSets\TiledSets.cpp" />
+    <ClCompile Include="src\vendor\S3DTiled\src\TiledSets\TileSetBase.cpp" />
+    <ClCompile Include="src\view\scene\MainSceneView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -286,17 +304,44 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\app\AbyssDream.hpp" />
-    <ClInclude Include="src\app\Application.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledDef.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledLayer.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledObject.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledProperty.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledReader.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledSets.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap\TiledUtil.hpp" />
-    <ClInclude Include="src\vendor\s3dTiled\TiledMap.hpp" />
+    <ClInclude Include="src\common\AbyssDream.hpp" />
+    <ClInclude Include="src\common\Application.hpp" />
+    <ClInclude Include="src\common\Constants.hpp" />
+    <ClInclude Include="src\common\Game.hpp" />
+    <ClInclude Include="src\model\BgModel.hpp" />
+    <ClInclude Include="src\model\Collision.hpp" />
+    <ClInclude Include="src\model\Forward.hpp" />
+    <ClInclude Include="src\model\GameCamera.hpp" />
+    <ClInclude Include="src\model\ICollider.hpp" />
+    <ClInclude Include="src\model\objects\FloorModel.hpp" />
+    <ClInclude Include="src\model\objects\PlayerModel.hpp" />
+    <ClInclude Include="src\model\objects\PlayerShotModel.hpp" />
+    <ClInclude Include="src\model\Physics.hpp" />
+    <ClInclude Include="src\model\Room.hpp" />
+    <ClInclude Include="src\model\scene\MainSceneModel.hpp" />
+    <ClInclude Include="src\model\WorldModel.hpp" />
+    <ClInclude Include="src\model\WorldObject.hpp" />
+    <ClInclude Include="src\scene\MainScene.hpp" />
+    <ClInclude Include="src\scene\SceneBase.hpp" />
+    <ClInclude Include="src\util\CommonUtil.hpp" />
+    <ClInclude Include="src\util\Periodic.hpp" />
+    <ClInclude Include="src\util\ScopedState.hpp" />
+    <ClInclude Include="src\util\Singleton.hpp" />
+    <ClInclude Include="src\util\TexturePacker.hpp" />
+    <ClInclude Include="src\util\TimeUtil.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledMap.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledObject.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledProperty.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledTypes.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\src\Parser\TiledParser.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\src\Parser\TiledReader.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\src\TiledMap\CTiledMap.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TiledSets.hpp" />
+    <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TileSetBase.hpp" />
     <ClInclude Include="src\view\effects\Bubble.hpp" />
+    <ClInclude Include="src\view\scene\MainSceneView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
