@@ -7,40 +7,43 @@ namespace s3dTiled
 	TiledProperty::TiledProperty() :
 		m_type(Type::None)
 	{
+		memset(&m_storage, 0, sizeof(m_storage));
 	}
 
-	TiledProperty::TiledProperty(const TiledProperty & other)
+	TiledProperty::TiledProperty(const TiledProperty & other) :
+		m_type(Type::None)
 	{
 		*this = other;
 	}
-	TiledProperty::TiledProperty(TiledProperty && other)
+	TiledProperty::TiledProperty(TiledProperty && other) :
+		m_type(Type::None)
 	{
 		*this = std::move(other);
 	}
 	TiledProperty::TiledProperty(bool b):
-		m_type(Type::Bool),
-		b(b)
+		m_type(Type::Bool)
 	{
+		m_storage.b = b;
 	}
 	TiledProperty::TiledProperty(const s3d::Color& col):
-		m_type(Type::Color),
-		col(col)
+		m_type(Type::Color)
 	{
+		m_storage.col = col;
 	}
 	TiledProperty::TiledProperty(double f):
-		m_type(Type::Float),
-		f(f)
+		m_type(Type::Float)
 	{
+		m_storage.f = f;
 	}
 	TiledProperty::TiledProperty(s3d::int32 i):
-		m_type(Type::Int),
-		i(i)
+		m_type(Type::Int)
 	{
+		m_storage.i = i;
 	}
 	TiledProperty::TiledProperty(const s3d::String& str):
-		m_type(Type::String),
-		str(new String(str))
+		m_type(Type::String)
 	{
+		m_storage.str = new String(str);
 	}
 	TiledProperty::~TiledProperty()
 	{
@@ -48,7 +51,7 @@ namespace s3dTiled
 	}
 	bool TiledProperty::toBool() const
 	{
-		return this->b;
+		return this->m_storage.b;
 	}
 	TiledProperty::operator bool() const
 	{
@@ -56,7 +59,7 @@ namespace s3dTiled
 	}
 	Color TiledProperty::toColor() const
 	{
-		return this->col;
+		return this->m_storage.col;
 	}
 	TiledProperty::operator s3d::Color() const
 	{
@@ -64,7 +67,7 @@ namespace s3dTiled
 	}
 	double TiledProperty::toFloat() const
 	{
-		return this->f;
+		return this->m_storage.f;
 	}
 	TiledProperty::operator double() const
 	{
@@ -72,7 +75,7 @@ namespace s3dTiled
 	}
 	int32 TiledProperty::toInt() const
 	{
-		return this->i;
+		return this->m_storage.i;
 	}
 	TiledProperty::operator s3d::int32() const
 	{
@@ -80,7 +83,7 @@ namespace s3dTiled
 	}
 	const String& TiledProperty::toString() const
 	{
-		return *this->str;
+		return *this->m_storage.str;
 	}
 	TiledProperty::operator s3d::String() const
 	{
@@ -95,20 +98,20 @@ namespace s3dTiled
 		switch (this->m_type)
 		{
 		case Type::Bool:
-			this->b = false;
+			this->m_storage.b = false;
 			break;
 		case Type::Color:
-			this->col = Color();
+			this->m_storage.col = Color();
 			break;
 		case Type::Float:
-			this->f = 0.0;
+			this->m_storage.f = 0.0;
 			break;
 		case Type::Int:
-			this->i = 0;
+			this->m_storage.i = 0;
 			break;
 		case Type::String:
-			delete this->str;
-			this->str = nullptr;
+			delete this->m_storage.str;
+			this->m_storage.str = nullptr;
 			break;
 		default:
 			break;
@@ -127,22 +130,22 @@ namespace s3dTiled
 		switch (other.m_type)
 		{
 		case Type::Bool:
-			this->b = other.b;
+			this->m_storage.b = other.m_storage.b;
 			break;
 		case Type::Color:
-			this->col = other.col;
+			this->m_storage.col = other.m_storage.col;
 			break;
 		case Type::Float:
-			this->f = other.f;
+			this->m_storage.f = other.m_storage.f;
 			break;
 		case Type::Int:
-			this->i = other.i;
+			this->m_storage.i = other.m_storage.i;
 			break;
 		case Type::String:
-			if (this->str == nullptr) {
-				this->str = new String();
+			if (this->m_storage.str == nullptr) {
+				this->m_storage.str = new String();
 			}
-			*this->str = *other.str;
+			*this->m_storage.str = *other.m_storage.str;
 			break;
 		default:
 			break;
@@ -159,25 +162,26 @@ namespace s3dTiled
 		switch (other.m_type)
 		{
 		case Type::Bool:
-			this->b = other.b;
+			this->m_storage.b = other.m_storage.b;
 			break;
 		case Type::Color:
-			this->col = other.col;
+			this->m_storage.col = other.m_storage.col;
 			break;
 		case Type::Float:
-			this->f = other.f;
+			this->m_storage.f = other.m_storage.f;
 			break;
 		case Type::Int:
-			this->i = other.i;
+			this->m_storage.i = other.m_storage.i;
 			break;
 		case Type::String:
-			this->str = other.str;
+			this->m_storage.str = other.m_storage.str;
 			break;
 		default:
 			break;
 		}
 		this->m_type = other.m_type;
 		other.m_type = Type::None;
+		memset(&other.m_storage, 0, sizeof(other.m_storage));
 
 		return *this;
 	}

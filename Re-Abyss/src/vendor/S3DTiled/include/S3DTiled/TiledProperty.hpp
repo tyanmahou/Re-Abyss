@@ -29,7 +29,7 @@ namespace s3dTiled
 				double f;
 				s3d::int32 i;
 				s3d::String* str;
-			};
+			}m_storage;
 		public:
 			TiledProperty();
 			TiledProperty(const TiledProperty& other);
