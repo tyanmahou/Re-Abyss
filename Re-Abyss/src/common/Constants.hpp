@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/Color.hpp>
 
 namespace abyss
 {
@@ -20,7 +21,9 @@ namespace abyss
 
 			constexpr s3d::int32 SmallCharge = 10;
 			constexpr s3d::int32 MediumCharge = 60;
+			constexpr s3d::Color MediumChargeColorBase{ 128, 128, 255 };
 			constexpr s3d::int32 BigCharge = 120;
+			constexpr s3d::Color BigChargeColorBase{255, 255, 0};
 		}
 	}
 }

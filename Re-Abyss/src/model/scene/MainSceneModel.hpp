@@ -3,8 +3,8 @@
 #include "../GameCamera.hpp"
 #include "../Room.hpp"
 #include "../BgModel.hpp"
+#include "../MapInfoModel.hpp"
 #include "../objects/PlayerModel.hpp"
-#include "../objects/FloorModel.hpp"
 #include "../WorldModel.hpp"
 
 namespace abyss
@@ -18,7 +18,7 @@ namespace abyss
 		GameCamera m_camera;
 		Array<Room> m_rooms;
 		Array<BgModel> m_bgs;
-
+		Array<MapInfoModel> m_mapInfos;
 	public:
 		MainSceneModel();
 
@@ -31,6 +31,7 @@ namespace abyss
 		void addBgModel(const BgModel& bg);
 		const Array<BgModel>& getBgs() const;
 
+		void addMapInfoModel(const MapInfoModel& info);
 		const WorldModel& getWorld() const;
 	};
 }

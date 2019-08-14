@@ -74,8 +74,8 @@ namespace
 			if (charge > 10) {
 				Graphics2D::SetBlendState(BlendState::Additive);
 				double a = 0.5 * Periodic::Triangle0_1(0.2s);
-				ColorF color = charge >= Constants::Player::BigCharge ? ColorF(1, 1, 0):
-					charge >= Constants::Player::MediumCharge ? ColorF(0.5,0.5,1):
+				ColorF color = charge >= Constants::Player::BigCharge ? Constants::Player::BigChargeColorBase :
+					charge >= Constants::Player::MediumCharge ? Constants::Player::MediumChargeColorBase :
 					ColorF(1);
 				Circle(pos, 80 * (1 - Periodic::Sawtooth0_1(0.6s))).drawFrame(1, 1, color.setAlpha(a));
 				double s = 100 * Periodic::Triangle0_1(0.3s);

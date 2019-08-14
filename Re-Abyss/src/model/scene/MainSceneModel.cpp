@@ -1,4 +1,5 @@
 #include "MainSceneModel.hpp"
+#include "../factory/MapFactory.hpp"
 
 using namespace abyss;
 namespace
@@ -26,6 +27,13 @@ namespace abyss
 		m_camera.setRoom(m_rooms[0]);
 		m_camera.update(m_player->getPos());
 		world.registerObject(m_player);
+
+		MapFactory factory;
+		for (const auto& map : m_mapInfos) {
+			if (auto obj = factory.create(map)) {
+				world.registerObject(obj);
+			}
+		}
 	}
 
 	void MainSceneModel::update()
@@ -61,6 +69,10 @@ namespace abyss
 	const Array<BgModel>& MainSceneModel::getBgs() const
 	{
 		return m_bgs;
+	}
+	void MainSceneModel::addMapInfoModel(const MapInfoModel& info)
+	{
+		m_mapInfos.push_back(info);
 	}
 	const WorldModel& MainSceneModel::getWorld() const
 	{

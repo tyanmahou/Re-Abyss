@@ -169,6 +169,7 @@
     <ClCompile Include="src\common\Game.cpp" />
     <ClCompile Include="src\model\BgModel.cpp" />
     <ClCompile Include="src\model\Collision.cpp" />
+    <ClCompile Include="src\model\factory\MapFactory.cpp" />
     <ClCompile Include="src\model\GameCamera.cpp" />
     <ClCompile Include="src\model\objects\FloorModel.cpp" />
     <ClCompile Include="src\model\objects\PlayerModel.cpp" />
@@ -310,9 +311,12 @@
     <ClInclude Include="src\common\Game.hpp" />
     <ClInclude Include="src\model\BgModel.hpp" />
     <ClInclude Include="src\model\Collision.hpp" />
+    <ClInclude Include="src\model\CollisionPairHash.hpp" />
+    <ClInclude Include="src\model\factory\MapFactory.hpp" />
     <ClInclude Include="src\model\Forward.hpp" />
     <ClInclude Include="src\model\GameCamera.hpp" />
     <ClInclude Include="src\model\ICollider.hpp" />
+    <ClInclude Include="src\model\MapInfoModel.hpp" />
     <ClInclude Include="src\model\objects\FloorModel.hpp" />
     <ClInclude Include="src\model\objects\PlayerModel.hpp" />
     <ClInclude Include="src\model\objects\PlayerShotModel.hpp" />
@@ -341,6 +345,7 @@
     <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TiledSets.hpp" />
     <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TileSetBase.hpp" />
     <ClInclude Include="src\view\effects\Bubble.hpp" />
+    <ClInclude Include="src\view\effects\PlayerShotEffect.hpp" />
     <ClInclude Include="src\view\scene\MainSceneView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
