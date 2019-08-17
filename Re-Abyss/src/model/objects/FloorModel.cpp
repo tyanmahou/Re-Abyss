@@ -13,7 +13,7 @@ namespace abyss
 	}
 	s3d::Shape FloorModel::getCollider() const
 	{
-		return static_cast<Shape>(RectF(m_pos - m_size/2, m_size));
+		return static_cast<Shape>(this->region());
 	}
 	s3d::RectF FloorModel::region() const
 	{

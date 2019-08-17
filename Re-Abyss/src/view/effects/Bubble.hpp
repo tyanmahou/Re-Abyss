@@ -25,7 +25,7 @@ namespace abyss
 			const double r = Min(m_maxRadius, EaseOut(0.0, m_maxRadius, Easing::Cubic, t));
 			m_pos.y += m_speed;
 			Vec2 pos = m_pos + Vec2{ m_deflection * Sin(t),0.0 };
-			Circle(pos, r).draw(ColorF(1, 0.2));
+			Circle(pos, r).draw(ColorF(0.5, 0.2));
 			return m_pos.y + r >= 0;
 		}
 	};

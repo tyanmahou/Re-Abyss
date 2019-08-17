@@ -3,7 +3,7 @@
 #include "../../common/Constants.hpp"
 #include "../WorldModel.hpp"
 #include "../../view/effects/PlayerShotEffect.hpp"
-
+#include "../../util/Periodic.hpp"
 #include <Siv3D.hpp>
 
 namespace
@@ -14,9 +14,9 @@ namespace
 	{
 		static const std::unordered_map<PlayerShotModel::Type, double> rMap{
 			{PlayerShotModel::Type::Normal, 5},
-			{PlayerShotModel::Type::Small, 10},
-			{PlayerShotModel::Type::Medium, 20},
-			{PlayerShotModel::Type::Big, 30},
+			{PlayerShotModel::Type::Small, 8},
+			{PlayerShotModel::Type::Medium, 16},
+			{PlayerShotModel::Type::Big, 24},
 		};
 		return rMap.at(type);
 	}
@@ -77,7 +77,32 @@ namespace abyss
 	}
 	void PlayerShotModel::draw() const
 	{
-		this->getColliderCircle().draw();
+		static Texture tex(L"work/player/player_shot.png");
+
+		double x = 0, y = 0;
+		double size = 0;
+		double timer = Periodic::Sawtooth0_1(0.3s);
+		if (m_type == Type::Normal) {
+			y = 10 * static_cast<int>(timer * 2);
+			size = 10;
+		}
+		else if (m_type == Type::Small) {
+			x = 10;
+			y = 20 * static_cast<int>(timer * 2);
+			size = 20;
+		}
+		else if (m_type == Type::Medium) {
+			x = 30 + 40 * static_cast<int>(timer * 4);
+			size = 40;
+		}
+		else {
+			x = 60 * static_cast<int>(timer * 4);
+			y = 40;
+			size = 60;
+		}
+		auto tile = tex(x, y, size, size);
+		(m_body.forward == Forward::Right ? tile : tile.mirror()).drawAt(m_body.pos);
+		//this->getColliderCircle().draw(ColorF(0, 0.5));
 	}
 	s3d::Shape PlayerShotModel::getCollider() const
 	{

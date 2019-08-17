@@ -15,7 +15,9 @@ namespace abyss
 			m_model(std::make_unique<MainSceneModel>()),
 			m_view(std::make_unique<MainSceneView>(m_model.get()))
 		{
-		
+			SoundAsset::Register(L"test", L"resources/sounds/bgms/stage_0.wav");
+			SoundAsset(L"test").setLoop(true);
+			SoundAsset(L"test").play();
 		}
 
 

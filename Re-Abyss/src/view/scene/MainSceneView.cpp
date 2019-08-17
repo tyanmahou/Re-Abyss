@@ -85,13 +85,19 @@ namespace
 			switch (ret.type)
 			{
 			case FieldType::Floor:
-				if (ret.col = calcColDirectrion(x, y)) {
+				ret.col = calcColDirectrion(x, y);
+				if (ret.col != 0) {
 					return ret;
 				}
 				break;
-			default:
-				return s3d::none;
+			case FieldType::Ladder:
+				ret.col = collision::None;
+				if (getFieldType(x, y - 1) == FieldType::None) {
+					ret.col = collision::Up;
+				}
+				return ret;
 			}
+			return s3d::none;
 		}
 	public:
 		MapLayerParser(const TiledMap& tiledMap, const Grid<GId>& grid) :
@@ -178,6 +184,11 @@ namespace abyss
 				}
 			}
 			m_tiledMap.drawLayer(L"back", rect);
+
+			// Todo current next
+			if (!camera.carentRoom().passable(Forward::Down)) {
+				RectF(rect.x, rect.y + rect.size.y - 40, rect.w, 40).draw({ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1)});
+			}
 			m_tiledMap.drawLayer(L"map", rect);
 
 			// world;
