@@ -1,6 +1,8 @@
 #include "ScopedState.hpp"
 #include <Siv3D/Graphics2D.hpp>
 
+using namespace s3d;
+
 namespace abyss
 {
 	void ScopedRenderStates2D::clear()
@@ -33,5 +35,22 @@ namespace abyss
 		m_oldSamplerState(s3d::Graphics2D::GetSamplerState())
 	{
 		s3d::Graphics2D::SetSamplerState(samplerState);
+	}
+
+	ScopedStencilMask::ScopedStencilMask(std::function<void()> base, s3d::StencilFunc stencilFunc, s3d::uint8 stencilValue):
+		m_oldStencilState(Graphics2D::GetStencilState()),
+		m_oldStencilValue(Graphics2D::GetStencilValue())
+	{
+		Graphics2D::SetStencilState(StencilState::Replace);
+		Graphics2D::SetStencilValue(stencilValue);
+
+		base();
+
+		Graphics2D::SetStencilState(StencilState::Test(stencilFunc));
+	}
+	ScopedStencilMask::~ScopedStencilMask()
+	{
+		Graphics2D::SetStencilState(m_oldStencilState);
+		Graphics2D::SetStencilValue(m_oldStencilValue);
 	}
 }

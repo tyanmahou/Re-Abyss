@@ -33,4 +33,15 @@ namespace abyss
 		ScopedRenderStates2D(const s3d::BlendState& blendState);
 		ScopedRenderStates2D(const s3d::SamplerState& samplerState);
 	};
+
+	class ScopedStencilMask : s3d::Uncopyable
+	{
+	private:
+		s3d::StencilState m_oldStencilState;
+		s3d::uint8 m_oldStencilValue;
+		std::function<void()> m_mask;
+	public:
+		ScopedStencilMask(std::function<void()> base, s3d::StencilFunc stencilFunc, s3d::uint8 stencilValue = 1);
+		~ScopedStencilMask();
+	};
 }

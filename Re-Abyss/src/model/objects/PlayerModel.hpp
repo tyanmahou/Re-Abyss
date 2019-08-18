@@ -5,6 +5,11 @@
 #include "../Collision.hpp"
 namespace abyss
 {
+	class FloorModel;
+	class LadderModel;
+	class DoorModel;
+	class PenetrateFloorModel;
+
 	// íÚéqèÛë‘
 	struct LadderState
 	{
@@ -75,6 +80,7 @@ namespace abyss
 			Damge,
 			Ladder,
 			LadderTop,
+			Door,
 			Shoting
 		};
 
@@ -98,7 +104,10 @@ namespace abyss
 		void draw() const override;
 		Shape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
-
+		void onCollisionStay(FloorModel* col);
+		void onCollisionStay(LadderModel* col);
+		void onCollisionStay(PenetrateFloorModel* col);
+		void onCollisionStay(DoorModel* door);
 		void setPos(const Vec2& pos);
 		const Vec2& getPos() const;
 		const Vec2& getVellocity() const;

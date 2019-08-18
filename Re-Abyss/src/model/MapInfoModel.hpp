@@ -9,6 +9,7 @@ namespace abyss
 		None = 0x0,
 		Floor = 0x1,
 		Ladder = 0x2,
+		Penetrate = 0x4,
 	};
 
 	struct MapInfoModel
@@ -17,5 +18,6 @@ namespace abyss
 		s3d::Vec2 pos;
 		s3d::Vec2 size;
 		ColDirection col;
+		bool canDown;
 	};
 }

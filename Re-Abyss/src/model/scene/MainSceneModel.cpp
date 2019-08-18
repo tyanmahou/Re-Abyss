@@ -1,5 +1,6 @@
 #include "MainSceneModel.hpp"
 #include "../factory/MapFactory.hpp"
+#include "../objects/DoorModel.hpp"
 
 using namespace abyss;
 namespace
@@ -23,8 +24,8 @@ namespace abyss
 
 	void MainSceneModel::init()
 	{
-		m_player->setPos({ 480, 720 });
-		m_camera.setRoom(m_rooms[0]);
+		m_player->setPos({ 480, 2000 });
+		m_camera.setRoom(::GetNextRoom(m_player->getPos(), m_rooms).value());
 		m_camera.update(m_player->getPos());
 		world.registerObject(m_player);
 
@@ -34,20 +35,29 @@ namespace abyss
 				world.registerObject(obj);
 			}
 		}
+		for (const auto& door : m_doorInfos) {
+			if (auto && nextRoom = ::GetNextRoom(door.targetPos, m_rooms)) {
+				world.createObject<DoorModel>(door, *nextRoom);
+			}
+		}
 	}
 
 	void MainSceneModel::update()
 	{
-		world.update();
+		if (!m_camera.isCameraWork()) {
+			world.update();
+		}
 
 		Vec2 pos = m_player->getPos();
 		m_camera.update(pos);
 		m_camera.adjustPos(pos);
 		m_player->setPos(pos);
-
+		if (m_camera.isOutOfRoomDeath(pos)) {
+			return;
+		}
 		if (!m_camera.isCameraWork() && !m_camera.carentRoom().getRegion().intersects(pos)) {
 			if (auto && next = ::GetNextRoom(pos, m_rooms)) {
-				m_camera.startCameraWork(*next).withPlayerPos(pos);
+				m_camera.startCameraWork(*next, pos);
 			}
 		}
 	}
@@ -73,6 +83,10 @@ namespace abyss
 	void MainSceneModel::addMapInfoModel(const MapInfoModel& info)
 	{
 		m_mapInfos.push_back(info);
+	}
+	void MainSceneModel::addDoorInfoModel(const DoorInfoModel& info)
+	{
+		m_doorInfos.push_back(info);
 	}
 	const WorldModel& MainSceneModel::getWorld() const
 	{

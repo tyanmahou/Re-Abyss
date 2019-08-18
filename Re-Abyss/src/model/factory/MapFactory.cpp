@@ -1,5 +1,5 @@
 #include "MapFactory.hpp"
-#include "../objects/FloorModel.hpp"
+#include "../objects/PenetrateFloorModel.hpp"
 #include "../objects/LadderModel.hpp"
 #include "../MapInfoModel.hpp"
 namespace abyss
@@ -11,6 +11,9 @@ namespace abyss
 		}
 		if (info.type == FieldType::Ladder) {
 			return std::make_shared<LadderModel>((info.col & collision::Up) != 0, info.pos, info.size);
+		}
+		if (info.type == FieldType::Penetrate) {
+			return std::make_shared<PenetrateFloorModel>(info.pos, info.size, info.canDown);
 		}
 		return nullptr;
 	}

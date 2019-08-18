@@ -36,6 +36,10 @@ namespace
 			if (isLadder) {
 				return m_fieldTypeMap[gId] = FieldType::Ladder;
 			}
+			bool isPenetrate = m_tiledMap.getTileProperty(gId, L"penetrate").has_value();
+			if (isPenetrate) {
+				return m_fieldTypeMap[gId] = FieldType::Penetrate;
+			}
 			return m_fieldTypeMap[gId] = FieldType::Floor;
 		}
 
@@ -89,12 +93,15 @@ namespace
 				if (ret.col != 0) {
 					return ret;
 				}
-				break;
 			case FieldType::Ladder:
 				ret.col = collision::None;
 				if (getFieldType(x, y - 1) == FieldType::None) {
 					ret.col = collision::Up;
 				}
+				return ret;
+			case FieldType::Penetrate:
+				ret.col = collision::Up;
+				ret.canDown = m_tiledMap.getTileProperty(gId, L"can_down").has_value();
 				return ret;
 			}
 			return s3d::none;
@@ -149,10 +156,22 @@ namespace abyss
 		m_tiledMap.getLayer(L"map")->then(
 			[&](const TileLayer & layer) {
 				MapLayerParser(m_tiledMap, layer.getGrid()).forEach(
-					[&](const MapInfoModel& info) {
+					[&](const MapInfoModel & info) {
 						m_pModel->addMapInfoModel(info);
 					}
 				);
+			}
+		);
+
+		// ”àî•ñ
+		m_tiledMap.getLayer(L"door")->then(
+			[this](const ObjectGroup & layer) {
+				for (const auto& obj : layer.getObjects()) {
+					Vec2 targetPos{ obj.getProperty(L"x").value_or(0.0), obj.getProperty(L"y").value_or(0.0) };
+					Vec2 size = m_tiledMap.getTile(*obj.gId).size;
+					Vec2 pos = obj.pos + Vec2{size.x / 2, -size.y / 2};
+					m_pModel->addDoorInfoModel({pos, targetPos, size});
+				}
 			}
 		);
 	}
@@ -185,11 +204,11 @@ namespace abyss
 			}
 			m_tiledMap.drawLayer(L"back", rect);
 
-			// Todo current next
-			if (!camera.carentRoom().passable(Forward::Down)) {
-				RectF(rect.x, rect.y + rect.size.y - 40, rect.w, 40).draw({ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1)});
-			}
+			// dead line
+			camera.drawDeathLine();
+
 			m_tiledMap.drawLayer(L"map", rect);
+			m_tiledMap.drawLayer(L"door", rect);
 
 			// world;
 			m_pModel->getWorld().draw();
@@ -201,6 +220,9 @@ namespace abyss
 
 				m_bubbleGenerator.update();
 			}
+
+			camera.drawCameraWork();
 		}
+		// UI
 	}
 }

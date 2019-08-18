@@ -1,12 +1,15 @@
 #include "PlayerModel.hpp"
 #include "PlayerShotModel.hpp"
-#include "FloorModel.hpp"
+#include "PenetrateFloorModel.hpp"
 #include "LadderModel.hpp"
+#include "DoorModel.hpp"
 #include "../WorldModel.hpp"
+#include "../GameCamera.hpp"
 #include "../../common/Constants.hpp"
 
 #include "../../util/TexturePacker.hpp"
 #include "../../util/Periodic.hpp"
+
 namespace
 {
 	using namespace abyss;
@@ -77,6 +80,10 @@ namespace
 			}break;
 			case PlayerModel::Motation::LadderTop: {
 				m_texture(L"player_ladder.png", { 80, 0 }, { 40, 80 }).drawAt(pos);
+			}break;
+			case PlayerModel::Motation::Door: {
+
+				m_texture(L"player_door.png", { 40 * static_cast<int>(Periodic::Sawtooth0_1(1s) * 2), 0 }, { 40, 80 }).drawAt(pos);
 			}break;
 			default:
 				break;
@@ -321,57 +328,102 @@ namespace abyss
 		if (col->getTag() == L"floor") {
 			// è∞
 			auto* floor = static_cast<FloorModel*>(col);
-			auto c = floor->getCol();
-			if (m_body.vellocity.y > 0) c &= ~collision::Down;
-			if (m_body.vellocity.y < 0) c &= ~collision::Up;
-			if (m_body.vellocity.x > 0) c &= ~collision::Right;
-			if (m_body.vellocity.x < 0) c &= ~collision::Left;
-
-			this->collisionAndUpdateMotation(floor->region(), c);
+			this->onCollisionStay(floor);
 		}
 		else if (col->getTag() == L"ladder") {
 			// íÚéq
 			auto* ladder = static_cast<LadderModel*>(col);
-			if (ladder->isTop()) {
-				auto&& ladderRegion = ladder->region();
-				if (!m_ladderState) {
-					this->collisionAndUpdateMotation(ladderRegion, collision::Up);
+			this->onCollisionStay(ladder);
+		}
+		else if (col->getTag() == L"penetrate_floor") {
+			// ä—í è∞
+			auto* floor = static_cast<PenetrateFloorModel*>(col);
+			this->onCollisionStay(floor);
+		}
+		else if (col->getTag() == L"door") {
+			// î‡
+			auto* door = static_cast<DoorModel*>(col);
+			this->onCollisionStay(door);
+		}
+	}
+	void PlayerModel::onCollisionStay(FloorModel* col)
+	{
+		auto c = col->getCol();
+		if (m_body.vellocity.y > 0) c &= ~collision::Down;
+		if (m_body.vellocity.y < 0) c &= ~collision::Up;
+		if (m_body.vellocity.x > 0) c &= ~collision::Right;
+		if (m_body.vellocity.x < 0) c &= ~collision::Left;
+
+		this->collisionAndUpdateMotation(col->region(), c);
+	}
+	void PlayerModel::onCollisionStay(LadderModel* ladder)
+	{
+		if (ladder->isTop()) {
+			auto&& ladderRegion = ladder->region();
+			if (!m_ladderState) {
+				this->collisionAndUpdateMotation(ladderRegion, collision::Up);
+			}
+			else {
+				static int ladderTopTimer = 0;
+				//è„í[Ç…Ç´ÇΩÇÁèÛë‘Çë@à€Ç∑ÇÈ
+				if (m_body.pos.y <= ladderRegion.y) {
+					if (!m_ladderState.isLadderTop()) {
+						ladderTopTimer = 0;
+						m_ladderState.setLadderTop();
+						m_motation = Motation::LadderTop;
+					}
+					m_body.pos.y = ladderRegion.y;
 				}
 				else {
-					static int ladderTopTimer = 0;
-					//è„í[Ç…Ç´ÇΩÇÁèÛë‘Çë@à€Ç∑ÇÈ
-					if (m_body.pos.y <= ladderRegion.y) {
-						if (!m_ladderState.isLadderTop()) {
-							ladderTopTimer = 0;
-							m_ladderState.setLadderTop();
-							m_motation = Motation::LadderTop;
-						}
-						m_body.pos.y = ladderRegion.y;
-					}
-					else {
-						m_ladderState.cancelLadderTop();
-					}
-					if (m_ladderState.isLadderTop() && Input::KeyUp.pressed) {
-						++ladderTopTimer;
-					}
-					if (m_ladderState.isLadderTop() && (Input::KeyUp.clicked || ladderTopTimer > 5)) {
-						m_body.pos.y = ladderRegion.y - this->region().h / 2.0;
-						m_ladderState = LadderState::None;
-						ladderTopTimer = 0;
-					}
+					m_ladderState.cancelLadderTop();
+				}
+				if (m_ladderState.isLadderTop() && Input::KeyUp.pressed) {
+					++ladderTopTimer;
+				}
+				if (m_ladderState.isLadderTop() && (Input::KeyUp.clicked || ladderTopTimer > 5)) {
+					m_body.pos.y = ladderRegion.y - this->region().h / 2.0;
+					m_ladderState = LadderState::None;
+					ladderTopTimer = 0;
 				}
 			}
-			if (ladder->getCenterLine().intersects(this->region())) {
-				m_ladderState.setCanLadder();
+		}
+		if (ladder->getCenterLine().intersects(this->region())) {
+			m_ladderState.setCanLadder();
 
-				if (!m_ladderState.isLadder() && // íÚéqèÛë‘Ç∂Ç·Ç»Ç¢
-					(!ladder->isTop() && Input::KeyUp.clicked || Input::KeyDown.clicked) // è„â∫âüÇµÇΩ
-					) {
-					m_ladderState.setIsLadder();
-					m_motation = Motation::Ladder;
-					m_body.pos.x = ladder->getPos().x;
-				}
+			if (!m_ladderState.isLadder() && // íÚéqèÛë‘Ç∂Ç·Ç»Ç¢
+				(!ladder->isTop() && Input::KeyUp.clicked || Input::KeyDown.clicked) // è„â∫âüÇµÇΩ
+				) {
+				m_ladderState.setIsLadder();
+				m_motation = Motation::Ladder;
+				m_body.pos.x = ladder->getPos().x;
+				m_body.pos.y -= 2 * (Input::KeyUp.clicked - Input::KeyDown.clicked);
 			}
+		}
+	}
+	void PlayerModel::onCollisionStay(PenetrateFloorModel* col)
+	{
+		auto c = col->getCol();
+		if (m_body.vellocity.y < 0) c &= ~collision::Up;
+
+		auto colDirection = this->collisionAndUpdateMotation(col->region(), c);
+		if ((colDirection & collision::Up) && col->canDown() && Input::KeyDown.clicked) {
+			// ç~ÇËÇÈ
+			m_body.pos.y += 10.0;
+		}
+	}
+	void PlayerModel::onCollisionStay(DoorModel* door)
+	{
+		if (Input::KeyUp.clicked) {
+			// move door
+			m_motation = Motation::Door;
+			m_body.vellocity = Vec2::Zero;
+			GameCamera::Main()->startDoorCameraWork(
+				*door,
+				m_body.pos, 
+				[&]() {
+					this->m_motation = Motation::Stay;
+				}
+			);
 		}
 	}
 	RectF PlayerModel::region() const
