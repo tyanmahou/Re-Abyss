@@ -1,8 +1,8 @@
 #include "WorldUseCase.hpp"
-#include "../../application/util/Collision.hpp"
-#include "../model/object/PlayerModel.hpp"
+#include <application/util/Collision.hpp>
+#include <application/util/TimeUtil.hpp>
+#include <domain/model/object/PlayerModel.hpp>
 
-#include "../../application/util/TimeUtil.hpp"
 
 #include <Siv3D.hpp>
 

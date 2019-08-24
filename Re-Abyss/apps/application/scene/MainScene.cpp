@@ -1,20 +1,19 @@
 #include "MainScene.hpp"
 
 #include "../../presentation/presenter/MainPresenter.hpp"
-
-//#include "../view/scene/MainSceneView.h"
+#include "../../presentation/view/main/MainView.hpp"
 
 namespace abyss
 {
 
 	class MainScene::Controller
 	{
+		std::shared_ptr<IMainView> m_view;
 		std::unique_ptr<IMainPresenter> m_presenter;
-		//std::unique_ptr<MainSceneView> m_view;
 	public:
 		Controller() :
-			m_presenter(std::make_unique<MainPresenter>())
-			//,m_view(std::make_unique<MainSceneView>(m_model.get()))
+			m_view(std::make_shared<MainView>()),
+			m_presenter(std::make_unique<MainPresenter>(m_view))
 		{
 			SoundAsset::Register(L"test", L"resources/sounds/bgms/stage_0.wav");
 			SoundAsset(L"test").setLoop(true);
@@ -25,6 +24,7 @@ namespace abyss
 		void init()
 		{
 			//m_model->init();
+			m_view->update();
 		}
 
 		void update()
@@ -35,7 +35,7 @@ namespace abyss
 
 		void draw() const
 		{
-			//m_view->draw();
+			m_view->draw();
 		}
 	};
 	MainScene::MainScene() :

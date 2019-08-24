@@ -1,4 +1,24 @@
-//#include "MainSceneView.h"
+#include "MainView.hpp"
+
+namespace abyss
+{
+	const IWorldObjectViewFactory* MainView::getFactory() const
+	{
+		return &m_worldObjViewFactory;
+	}
+	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view, s3d::int32 layer)
+	{
+		m_woldView.addView(std::move(view), layer);
+	}
+	void MainView::update()
+	{
+		m_woldView.update();
+	}
+	void MainView::draw() const
+	{
+		m_woldView.draw();
+	}
+}
 //#include "../../model/scene/MainSceneModel.hpp"
 //#include "../../model/MapInfoModel.hpp"
 //#include "../effects/Bubble.hpp"

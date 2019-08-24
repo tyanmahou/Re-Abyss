@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../model/object/WorldObject.hpp"
-#include "../../application/util/CollisionPairHash.hpp"
+#include "WorldObservable.hpp"
+#include <domain/model/object/WorldObject.hpp>
+#include <application/util/CollisionPairHash.hpp>
 
 #include <Siv3D/Array.hpp>
 #include <Siv3D/Effect.hpp>
@@ -12,7 +13,7 @@ namespace abyss
 {
 	class PlayerModel;
 
-	class WorldUseCase
+	class WorldUseCase: public WorldObservable
 	{
 		PlayerModel* m_playerModel = nullptr;
 
@@ -23,6 +24,7 @@ namespace abyss
 		std::unordered_set<CollisionPairHash> m_currentCollision;
 
 		s3d::Effect m_effect;
+
 	public:
 		template<class T, class... Args>
 		void createObject(Args&& ... args)
@@ -41,7 +43,6 @@ namespace abyss
 
 		s3d::Effect& getEffect();
 	};
-
 }
 
 

@@ -27,5 +27,10 @@ namespace abyss
 		bool isDelete() const override;
 
 		s3d::Circle getColliderCircle() const;
+
+		Type getType() const;
+		Forward getForward() const;
+		const Vec2& getPos() const;
+
 	};
 }

@@ -1,3 +1,37 @@
+#include "MainPresenter.hpp"
+
+#include "../../domain/model/object/PlayerModel.hpp"
+#include "../../domain/model/object/PlayerShotModel.hpp"
+#include "../view/main/MainView.hpp"
+#include "../view/main/object/PlayerView.hpp"
+
+namespace
+{
+	using namespace abyss;
+
+	template<class Type>
+	auto NotifyCreateObject(const std::shared_ptr<IMainView>& view, const std::shared_ptr<Type>& object, s3d::int32 layer)
+		->std::enable_if_t<std::is_base_of<WorldObject, Type>::value>
+	{
+		if (auto objView = view->getFactory()->createViewFromModel(object)) {
+			view->addWorldObjectView(std::move(objView), layer);
+		}
+	}
+}
+namespace abyss
+{
+	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
+		m_view(view)
+	{
+		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerModel> & model, s3d::int32 layer) {
+			::NotifyCreateObject<PlayerModel>(this->m_view, model, layer);
+		});
+		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerShotModel> & model, s3d::int32 layer) {
+			::NotifyCreateObject<PlayerShotModel>(this->m_view, model, layer);
+		});
+	}
+}
+
 //#include "MainSceneModel.hpp"
 //#include "../factory/MapFactory.hpp"
 //#include "../objects/DoorModel.hpp"
@@ -93,3 +127,5 @@
 //		return world;
 //	}
 //}
+
+

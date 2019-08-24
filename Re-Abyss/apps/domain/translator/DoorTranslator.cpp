@@ -1,4 +1,4 @@
-#include "DoorTranslator.hpp"
+#include <domain/translator/DoorTranslator.hpp>
 
 namespace abyss
 {
