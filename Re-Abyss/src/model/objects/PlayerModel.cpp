@@ -136,7 +136,7 @@ namespace abyss
 		}
 
 		// チャージショット
-		if (input.released) {
+		if (!input.pressed && m_charge > 0) {
 			return m_charge >= Constants::Player::SmallCharge;
 		}
 
