@@ -78,100 +78,112 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="apps\application\common\AbyssDream.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledSets\TiledSets.cpp">
+    <ClCompile Include="apps\application\common\Application.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledSets\TileSetBase.cpp">
+    <ClCompile Include="apps\application\common\Game.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledProperty\TiledProperty.cpp">
+    <ClCompile Include="apps\application\scene\MainScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledObject\TiledObject.cpp">
+    <ClCompile Include="apps\application\util\Collision.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledMap\CTiledMap.cpp">
+    <ClCompile Include="apps\application\util\ScopedState.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledMap\TiledMap.cpp">
+    <ClCompile Include="apps\application\util\TexturePacker.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\TiledLayer\TiledLayer.cpp">
+    <ClCompile Include="apps\application\util\TimeUtil.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\Parser\TiledReader.cpp">
+    <ClCompile Include="apps\data\datastore\WorldDataStore.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\S3DTiled\src\Parser\TmxParser.cpp">
+    <ClCompile Include="apps\domain\translator\DoorTranslator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\view\scene\MainSceneView.cpp">
+    <ClCompile Include="apps\domain\translator\MapTranslator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\ScopedState.cpp">
+    <ClCompile Include="apps\presentation\view\fade\Fade.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\TexturePacker.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\Parser\TiledReader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\TimeUtil.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\Parser\TmxParser.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene\MainScene.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledLayer\TiledLayer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\BgModel.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledMap\CTiledMap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\Collision.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledMap\TiledMap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\GameCamera.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledObject\TiledObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\Room.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledProperty\TiledProperty.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\WorldModel.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledSets\TiledSets.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\scene\MainSceneModel.cpp">
+    <ClCompile Include="apps\vendor\S3DTiled\src\TiledSets\TileSetBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\FloorModel.cpp">
+    <ClCompile Include="apps\Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\PlayerModel.cpp">
+    <ClCompile Include="apps\stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\PlayerShotModel.cpp">
+    <ClCompile Include="apps\data\datastore\parser\MapEntityParser.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\AbyssDream.cpp">
+    <ClCompile Include="apps\presentation\view\main\MainSceneView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\Application.cpp">
+    <ClCompile Include="apps\domain\usecase\WorldUseCase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\common\Game.cpp">
+    <ClCompile Include="apps\domain\model\object\DoorModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\factory\MapFactory.cpp">
+    <ClCompile Include="apps\domain\model\object\FloorModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\LadderModel.cpp">
+    <ClCompile Include="apps\domain\model\object\LadderModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\PenetrateFloorModel.cpp">
+    <ClCompile Include="apps\domain\model\object\PenetrateFloorModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\view\fade\Fade.cpp">
+    <ClCompile Include="apps\domain\model\object\PlayerModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\model\objects\DoorModel.cpp">
+    <ClCompile Include="apps\domain\model\object\PlayerShotModel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\presentation\presenter\MainPresenter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\RoomModel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\BgModel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\GameCamera.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -417,6 +429,7 @@
     <None Include="Example\Well\Well.wavefrontobj">
       <Filter>リソース ファイル\Example\Well</Filter>
     </None>
+    <None Include="apps\stdafx.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\dll(x64)\libmpg123\COPYING.txt">
@@ -488,148 +501,169 @@
     </Font>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\view\effects\Bubble.hpp">
+    <ClInclude Include="apps\application\common\AbyssDream.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TiledSets.hpp">
+    <ClInclude Include="apps\application\common\Application.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\src\TiledSets\TileSetBase.hpp">
+    <ClInclude Include="apps\application\common\Constants.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\src\TiledMap\CTiledMap.hpp">
+    <ClInclude Include="apps\application\common\Game.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\src\Parser\TiledParser.hpp">
+    <ClInclude Include="apps\application\scene\MainScene.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\src\Parser\TiledReader.hpp">
+    <ClInclude Include="apps\application\scene\SceneBase.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp">
+    <ClInclude Include="apps\application\util\Collision.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledMap.hpp">
+    <ClInclude Include="apps\application\util\CollisionPairHash.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledObject.hpp">
+    <ClInclude Include="apps\application\util\CommonUtil.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledProperty.hpp">
+    <ClInclude Include="apps\application\util\Periodic.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled\TiledTypes.hpp">
+    <ClInclude Include="apps\application\util\ScopedState.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\view\scene\MainSceneView.h">
+    <ClInclude Include="apps\application\util\Singleton.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\CommonUtil.hpp">
+    <ClInclude Include="apps\application\util\TexturePacker.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Periodic.hpp">
+    <ClInclude Include="apps\application\util\TimeUtil.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\ScopedState.hpp">
+    <ClInclude Include="apps\application\util\TypeTraits.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\Singleton.hpp">
+    <ClInclude Include="apps\data\datastore\WorldDataStore.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\TexturePacker.hpp">
+    <ClInclude Include="apps\data\entity\DoorEntity.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\TimeUtil.hpp">
+    <ClInclude Include="apps\data\entity\MapEntity.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\MainScene.hpp">
+    <ClInclude Include="apps\data\entity\PlayerEntity.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\scene\SceneBase.hpp">
+    <ClInclude Include="apps\data\entity\RoomEntity.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\BgModel.hpp">
+    <ClInclude Include="apps\domain\repository\WorldRepository.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\Collision.hpp">
+    <ClInclude Include="apps\domain\translator\DoorTranslator.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\Forward.hpp">
+    <ClInclude Include="apps\presentation\view\effects\Bubble.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\GameCamera.hpp">
+    <ClInclude Include="apps\presentation\view\effects\PlayerShotEffect.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\ICollider.hpp">
+    <ClInclude Include="apps\presentation\view\fade\Fade.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\Physics.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\Room.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledMap.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\WorldModel.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledObject.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\WorldObject.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledProperty.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\scene\MainSceneModel.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledTypes.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\FloorModel.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\PlayerModel.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\src\Parser\TiledParser.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\PlayerShotModel.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\src\Parser\TiledReader.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\AbyssDream.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\src\TiledMap\CTiledMap.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\Application.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\src\TiledSets\TiledSets.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\Constants.hpp">
+    <ClInclude Include="apps\vendor\S3DTiled\src\TiledSets\TileSetBase.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\common\Game.hpp">
+    <ClInclude Include="apps\data\datastore\parser\MapEntityParser.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\vendor\S3DTiled\include\S3DTiled.hpp">
+    <ClInclude Include="apps\application\types\Forward.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\MapInfoModel.hpp">
+    <ClInclude Include="apps\application\types\Physics.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\factory\MapFactory.hpp">
+    <ClInclude Include="apps\presentation\view\main\MainSceneView.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\CollisionPairHash.hpp">
+    <ClInclude Include="apps\domain\model\object\WorldObject.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\view\effects\PlayerShotEffect.hpp">
+    <ClInclude Include="apps\domain\model\object\ICollider.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\LadderModel.hpp">
+    <ClInclude Include="apps\domain\usecase\WorldUseCase.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\PenetrateFloorModel.hpp">
+    <ClInclude Include="apps\domain\model\object\DoorModel.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\view\fade\Fade.hpp">
+    <ClInclude Include="apps\domain\model\object\FloorModel.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\TypeTraits.hpp">
+    <ClInclude Include="apps\domain\model\object\LadderModel.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\DoorInfoModel.hpp">
+    <ClInclude Include="apps\domain\model\object\PenetrateFloorModel.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\model\objects\DoorModel.hpp">
+    <ClInclude Include="apps\domain\model\object\PlayerModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\object\PlayerShotModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\translator\RoomTranslator.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\translator\MapTranslator.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\presentation\presenter\MainPresenter.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\RoomModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\BgModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\GameCamera.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
