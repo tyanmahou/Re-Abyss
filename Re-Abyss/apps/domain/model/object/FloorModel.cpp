@@ -5,9 +5,7 @@
 namespace abyss
 {
 	FloorModel::FloorModel(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
-		m_col(col),
-		m_pos(pos),
-		m_size(size)
+		MapModel(col, pos, size)
 	{
 		this->tag = L"floor";
 	}
@@ -18,9 +16,5 @@ namespace abyss
 	s3d::RectF FloorModel::region() const
 	{
 		return RectF{ m_pos - m_size / 2, m_size };
-	}
-	ColDirection FloorModel::getCol() const
-	{
-		return m_col;
 	}
 }

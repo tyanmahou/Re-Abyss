@@ -10,11 +10,10 @@ namespace abyss
 
 	class WorldView : public IView
 	{
-		using Views = std::multimap<s3d::int32, std::unique_ptr<IWorldObjectView>>;
+		using Views = s3d::Array<std::unique_ptr<IWorldObjectView>>;
 		Views m_objectViews;
-
 	public:
-		void addView(std::unique_ptr<IWorldObjectView>&& view, s3d::int32 layer);
+		void addView(std::unique_ptr<IWorldObjectView>&& view);
 		void update() override;
 		void draw()const override;
 	};

@@ -3,8 +3,8 @@
 #include "PenetrateFloorModel.hpp"
 #include "LadderModel.hpp"
 #include "DoorModel.hpp"
-#include "../../usecase/WorldUseCase/WorldUseCase.hpp"
-#include "../GameCamera.hpp"
+#include "../../usecase/WorldUseCase.hpp"
+//#include "../GameCamera.hpp"
 #include "../../../application/common/Constants.hpp"
 
 namespace abyss
@@ -17,7 +17,6 @@ namespace abyss
 			// チャージなし
 			return true;
 		}
-
 
 		// チャージ
 		if (input.pressed) {
@@ -151,6 +150,7 @@ namespace abyss
 				m_motation = Motation::Damge;
 			}
 		}
+		Println(m_body.pos);
 	}
 	void PlayerModel::draw() const
 	{

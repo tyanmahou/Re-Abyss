@@ -96,9 +96,6 @@
     <ClCompile Include="apps\application\util\TimeUtil.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="apps\data\datastore\WorldDataStore.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="apps\domain\translator\MapTranslator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -165,12 +162,6 @@
     <ClCompile Include="apps\domain\model\RoomModel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="apps\domain\model\BgModel.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="apps\domain\model\GameCamera.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="apps\presentation\view\main\object\PlayerView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -196,6 +187,42 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="apps\domain\usecase\WorldUseCase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\repository\StageRepository.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\data\datastore\StageDataStore.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\usecase\StageUseCase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\translator\RoomTranslator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\presentation\view\main\BubbleGenerator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\object\MapModel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\presentation\view\main\BackGroundView.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\CameraModel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\presentation\view\main\CameraView.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\usecase\CameraUseCase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\domain\model\CameraWork.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\presentation\view\main\CameraWorkView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -552,9 +579,6 @@
     <ClInclude Include="apps\application\util\TypeTraits.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="apps\data\datastore\WorldDataStore.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="apps\data\entity\DoorEntity.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -565,9 +589,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="apps\data\entity\RoomEntity.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="apps\domain\repository\WorldRepository.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="apps\presentation\view\effects\Bubble.hpp">
@@ -657,12 +678,6 @@
     <ClInclude Include="apps\domain\model\RoomModel.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="apps\domain\model\BgModel.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="apps\domain\model\GameCamera.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="apps\presentation\view\main\WorldView.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -697,6 +712,45 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="apps\domain\usecase\WorldObservable.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\usecase\StageUseCase.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\repository\StageRepository.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\data\datastore\StageDataStore.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\presentation\view\main\BubbleGenerator.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\object\MapModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\presentation\view\main\BackGroundView.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\data\entity\BackGroundEntity.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\presentation\view\main\CameraView.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\CameraModel.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\usecase\CameraUseCase.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\usecase\CameraObservable.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\domain\model\CameraWork.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\presentation\view\main\CameraWorkView.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

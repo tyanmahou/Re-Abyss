@@ -4,33 +4,28 @@
 
 namespace abyss
 {
-	void WorldView::addView(std::unique_ptr<IWorldObjectView>&& view, s3d::int32 layer)
+	void WorldView::addView(std::unique_ptr<IWorldObjectView>&& view)
 	{
-		m_objectViews.emplace(layer, std::move(view));
+		m_objectViews.push_back(std::move(view));
 	}
 
 	void WorldView::update()
 	{
 		for (auto&& obj : m_objectViews) {
-			obj.second->update();
+			obj->update();
 		}
 
 		// delete
-		for (auto it = m_objectViews.begin(); it != m_objectViews.end();) {
-			if (it->second->isDelete()) {
-				it = m_objectViews.erase(it);
-			}
-			else {
-				++it;
-			}
-		}
+		s3d::Erase_if(m_objectViews, [](const Views::value_type & obj) {
+			return obj->isDelete();
+		});
 	}
 
 	void WorldView::draw() const
 	{
 		// draw
 		for (auto&& obj : m_objectViews) {
-			obj.second->draw();
+			obj->draw();
 		}
 	}
 }

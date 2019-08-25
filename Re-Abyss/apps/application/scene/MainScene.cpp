@@ -24,13 +24,12 @@ namespace abyss
 		void init()
 		{
 			//m_model->init();
-			m_view->update();
 		}
 
 		void update()
 		{
-			//m_model->update();
-			//m_view->update();
+			m_presenter->update();
+			m_view->update();
 		}
 
 		void draw() const

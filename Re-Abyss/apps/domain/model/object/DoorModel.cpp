@@ -1,16 +1,17 @@
 #include "DoorModel.hpp"
+#include <data/entity/DoorEntity.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-	//DoorModel::DoorModel(const DoorInfoModel& info, const Room& nextRoom):
-	//	m_pos(info.pos),
-	//	m_targetPos(info.targetPos),
-	//	m_size(info.size),
-	//	m_nextRoom(nextRoom)
-	//{
-	//	this->tag = L"door";
-	//}
+	DoorModel::DoorModel(const DoorEntity& entity, const RoomModel& nextRoom):
+		m_pos(entity.pos),
+		m_targetPos(entity.targetPos),
+		m_size(entity.size),
+		m_nextRoom(nextRoom)
+	{
+		this->tag = L"door";
+	}
 	s3d::Shape DoorModel::getCollider() const
 	{
 		return static_cast<s3d::Shape>(Circle(m_pos, 10));

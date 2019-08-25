@@ -3,13 +3,13 @@
 
 namespace abyss
 {
-	class WorldObject;
+	class MapModel;
 	struct MapEntity;
 
 	class MapTranslator
 	{
 	public:
 		MapTranslator() = default;
-		std::shared_ptr<WorldObject> create(const MapEntity&);
+		std::shared_ptr<MapModel> create(const MapEntity&);
 	};
 }

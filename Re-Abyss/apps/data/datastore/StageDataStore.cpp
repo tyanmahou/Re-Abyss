@@ -1,4 +1,4 @@
-#include "WorldDataStore.hpp"
+#include "StageDataStore.hpp"
 
 
 #include "parser/MapEntityParser.hpp"
@@ -9,11 +9,11 @@
 using namespace s3dTiled;
 namespace abyss
 {
-	TiledWorldDataStore::TiledWorldDataStore(const s3d::String& filePath):
+	TiledStageDataStore::TiledStageDataStore(const s3d::String& filePath) :
 		m_tiledMap(filePath)
 	{}
 
-	s3d::Array<DoorEntity> TiledWorldDataStore::getDoorEntity() const
+	s3d::Array<DoorEntity> TiledStageDataStore::getDoorEntity() const
 	{
 		s3d::Array<DoorEntity> ret;
 		// î‡èÓïÒ
@@ -30,7 +30,7 @@ namespace abyss
 		return ret;
 	}
 
-	s3d::Array<MapEntity> TiledWorldDataStore::getMapEntity() const
+	s3d::Array<MapEntity> TiledStageDataStore::getMapEntity() const
 	{
 		s3d::Array<MapEntity> ret;
 		// è∞èÓïÒ
@@ -46,7 +46,7 @@ namespace abyss
 		);
 		return ret;
 	}
-	s3d::Array<RoomEntity> TiledWorldDataStore::getRoomEntity() const
+	s3d::Array<RoomEntity> TiledStageDataStore::getRoomEntity() const
 	{
 		s3d::Array<RoomEntity> ret;
 
@@ -54,7 +54,7 @@ namespace abyss
 		m_tiledMap.getLayer(L"room")->then(
 			[&ret](const ObjectGroup & layer) {
 				for (const auto& obj : layer.getObjects()) {
-					
+
 					s3d::uint8 passbleBits = 0;
 					if (obj.getProperty(L"up").value_or(false)) {
 						passbleBits |= static_cast<uint8>(Forward::Up);
@@ -69,6 +69,31 @@ namespace abyss
 						passbleBits |= static_cast<uint8>(Forward::Right);
 					}
 					ret.push_back({ obj.toRectF(), passbleBits });
+				}
+			}
+		);
+		return ret;
+	}
+	s3d::Array<BackGroundEntity> TiledStageDataStore::getBackGroundEntity() const
+	{
+		s3d::Array<BackGroundEntity> ret;
+
+		auto toEntity = [](const ImageLayer & layer)
+		{
+			BackGroundEntity e;
+			e.texture = layer.getTexture();
+			e.offset = layer.getOffset();
+			e.loop = { layer.getProperty(L"loopX").value_or(false),layer.getProperty(L"loopY").value_or(false) };
+			e.rate = { layer.getProperty(L"rateX").value_or(1.0), layer.getProperty(L"rateY").value_or(1.0) };
+			return e;
+		};
+		// îwåièÓïÒéÊìæ
+		m_tiledMap.getLayer(L"bgs")->then(
+			[&](const GroupLayer & layer) {
+				for (const auto& child : layer.getLayers()) {
+					child.then([&](const ImageLayer & i) {
+						ret.push_back(toEntity(i));
+					});
 				}
 			}
 		);

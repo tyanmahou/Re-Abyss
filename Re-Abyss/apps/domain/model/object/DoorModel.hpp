@@ -4,6 +4,8 @@
 
 namespace abyss
 {
+	struct DoorEntity;
+
 	class DoorModel : public WorldObject
 	{
 	private:
@@ -12,8 +14,8 @@ namespace abyss
 		s3d::Vec2 m_size;
 		RoomModel m_nextRoom;
 
-	public:/*
-		DoorModel(const DoorInfoModel& info, const Room& nextRoom);*/
+	public:
+		DoorModel(const DoorEntity& entity, const RoomModel& nextRoom);
 		s3d::Shape getCollider() const override;
 
 		const RoomModel& getNextRoom() const;

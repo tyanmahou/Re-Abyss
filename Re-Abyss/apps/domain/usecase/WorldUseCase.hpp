@@ -15,7 +15,7 @@ namespace abyss
 
 	class WorldUseCase: public WorldObservable
 	{
-		PlayerModel* m_playerModel = nullptr;
+		std::shared_ptr<PlayerModel> m_playerModel = nullptr;
 
 		s3d::Array<std::shared_ptr<WorldObject>> m_reserves;
 		s3d::Array<std::shared_ptr<WorldObject>> m_objects;
@@ -25,6 +25,8 @@ namespace abyss
 
 		s3d::Effect m_effect;
 
+		void pushObject(const std::shared_ptr<WorldObject>& obj);
+
 	public:
 		template<class T, class... Args>
 		void createObject(Args&& ... args)
@@ -33,15 +35,23 @@ namespace abyss
 			this->registerObject(obj);
 		}
 
-		void registerObject(const std::shared_ptr<WorldObject>& obj);
+		template<class Type>
+		auto registerObject(const std::shared_ptr<Type>& object)
+			->std::enable_if_t<std::is_base_of<WorldObject, Type>::value>
+		{
+			this->onCreateWorldObject(object);
+			this->pushObject(object);
+		}
 
 		void registerObject(const std::shared_ptr<PlayerModel>& obj);
 
 		void update();
-
+		void reset();
 		void draw()const;
 
 		s3d::Effect& getEffect();
+
+		PlayerModel* getPlayer()const;
 	};
 }
 

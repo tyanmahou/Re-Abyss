@@ -1,9 +1,9 @@
 #include "PlayerShotModel.hpp"
-#include "../GameCamera.hpp"
+//#include "../GameCamera.hpp"
 #include "../../../application/common/Constants.hpp"
-#include "../../usecase/WorldUseCase/WorldUseCase.hpp"
+#include <domain/usecase/WorldUseCase.hpp>
 
-#include "../../../presentation/view/effects/PlayerShotEffect.hpp"
+#include <presentation/view/effects/PlayerShotEffect.hpp>
 
 namespace
 {

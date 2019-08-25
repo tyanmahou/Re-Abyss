@@ -8,6 +8,12 @@
 
 namespace abyss
 {
+	void WorldUseCase::pushObject(const std::shared_ptr<WorldObject>& obj)
+	{
+		obj->setWorld(this);
+		obj->setId(m_objIdCounter++);
+		m_reserves.push_back(obj);
+	}
 	void WorldUseCase::update()
 	{
 		double dt = TimeUtil::Delta();
@@ -62,6 +68,16 @@ namespace abyss
 		});
 	}
 
+	void WorldUseCase::reset()
+	{
+		m_reserves.clear();
+		m_objects.clear();
+		m_currentCollision.clear();
+		if (m_playerModel) {
+			m_objects.push_back(m_playerModel);
+		}
+	}
+
 	void WorldUseCase::draw() const
 	{
 		m_effect.update();
@@ -73,15 +89,14 @@ namespace abyss
 	{
 		return m_effect;
 	}
-	void WorldUseCase::registerObject(const std::shared_ptr<WorldObject>& obj)
+	PlayerModel* WorldUseCase::getPlayer() const
 	{
-		obj->setWorld(this);
-		obj->setId(m_objIdCounter++);
-		m_reserves.push_back(obj);
+		return m_playerModel.get();
 	}
 	void WorldUseCase::registerObject(const std::shared_ptr<PlayerModel>& obj)
 	{
-		m_playerModel = obj.get();
-		this->registerObject(static_cast<std::shared_ptr<WorldObject>>(obj));
+		m_playerModel = obj;
+		this->onCreateWorldObject(obj);
+		this->pushObject(obj);
 	}
 }

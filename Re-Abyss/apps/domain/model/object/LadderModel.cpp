@@ -3,10 +3,8 @@
 
 namespace abyss
 {
-	LadderModel::LadderModel(bool isTop, const s3d::Vec2& pos, const s3d::Vec2& size):
-		m_isTop(isTop),
-		m_pos(pos),
-		m_size(size)
+	LadderModel::LadderModel(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
+		MapModel(col, pos, size)
 	{
 		this->tag = L"ladder";
 	}
@@ -26,12 +24,9 @@ namespace abyss
 	}
 	bool LadderModel::isTop() const
 	{
-		return m_isTop;
+		return (m_col & collision::Up) != 0;
 	}
-	const s3d::Vec2& LadderModel::getPos() const
-	{
-		return m_pos;
-	}
+
 	void LadderModel::draw() const
 	{
 #ifdef DEBUG

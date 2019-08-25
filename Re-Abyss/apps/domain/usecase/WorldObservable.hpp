@@ -12,7 +12,7 @@ namespace abyss
 	class WorldObservable
 	{
 		template<class T>
-		using CreateNotify = std::function<void(const std::shared_ptr<T>&, s3d::int32)>;
+		using CreateNotify = std::function<void(const std::shared_ptr<T>&)>;
 
 #define OnCreateObject(Type)\
     private:\
@@ -22,10 +22,10 @@ namespace abyss
 		{\
 			m_onCreate##Type = callback;\
 		}\
-		inline void onCreateWorldObject(const std::shared_ptr<Type>& obj, s3d::int32 layer)\
+		inline void onCreateWorldObject(const std::shared_ptr<Type>& obj)\
 		{\
 			if (m_onCreate##Type) {\
-				m_onCreate##Type(obj, layer);\
+				m_onCreate##Type(obj);\
 			}\
 		}
 

@@ -1,4 +1,5 @@
 #include "MainView.hpp"
+#include <application/util/ScopedState.hpp>
 
 namespace abyss
 {
@@ -6,71 +7,64 @@ namespace abyss
 	{
 		return &m_worldObjViewFactory;
 	}
-	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view, s3d::int32 layer)
+	void MainView::createCameraView(const CameraModel& pCamera)
 	{
-		m_woldView.addView(std::move(view), layer);
+		m_cameraView = std::make_unique<CameraView>(&pCamera);
+	}
+	void MainView::setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)
+	{
+	}
+	void MainView::addBackGroundView(const BackGroundVM& bg)
+	{
+		m_bg.addBackGround(bg);
+	}
+	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view)
+	{
+		m_woldView.addView(std::move(view));
 	}
 	void MainView::update()
 	{
+		auto cameraPos = m_cameraView->getCameraPos();
+		m_bg.setPos(cameraPos);
 		m_woldView.update();
+		m_bubbles.setPos(cameraPos);
+		m_bubbles.update();
+
+		if (m_cameraWorkView)
+		{
+			if (m_cameraWorkView->isEnd()) {
+				m_cameraWorkView = nullptr;
+			}
+		}
 	}
 	void MainView::draw() const
 	{
-		m_woldView.draw();
+		{
+			auto t2d = m_cameraView->getTransformer();
+			m_bg.draw();
+			// back
+			m_cameraView->drawDeathLine();
+			// door
+			// map
+
+			m_woldView.draw();
+
+			//front
+
+			m_bubbles.draw();
+
+			if (m_cameraWorkView) {
+				m_cameraWorkView->draw();
+			}
+		}
 	}
 }
-//#include "../../model/scene/MainSceneModel.hpp"
-//#include "../../model/MapInfoModel.hpp"
-//#include "../effects/Bubble.hpp"
-//#include "../../util/ScopedState.hpp"
-//
-//#include <Siv3D.hpp>
-//
-//using namespace s3dTiled;
-//using namespace abyss;
-//namespace
-//{
-//	// clamp
-//	constexpr SamplerState YClamp(
-//		TextureAddressMode::Wrap,
-//		TextureAddressMode::Clamp,
-//		TextureAddressMode::Wrap,
-//		TextureFilter::MinMagMipLinear
-//	);
-//}
+
 //
 //namespace abyss
 //{
-//	MainSceneView::MainSceneView(MainSceneModel* const pModel) :
-//		m_pModel(pModel)
-//	{
-//		m_bubbleGenerator.setSpeed(0.1);
-//
-//		m_tiledMap.open(L"work/stage0/stage0.tmx");
-//
-//		// ”wŒiî•ñŽæ“¾
-//		m_tiledMap.getLayer(L"bgs")->then(
-//			[&](const GroupLayer & layer) {
-//				for (const auto& child : layer.getLayers()) {
-//					child.then([&](const ImageLayer & i) {
-//						m_pModel->addBgModel(i);
-//						});
-//				}
-//			}
-//		);
-//
-//
-//	}
-//	MainSceneView::~MainSceneView()
-//	{}
-//
-//	void MainSceneView::update()
-//	{
-//		int32 f = System::FrameCount();
-//		if (f % 160 == 0) {
-//			m_bubbleGenerator.add<BubbleEffect>(m_pModel->getCamera().getPos());
-//		}
-//	}
+
+
 //
 //	void MainSceneView::draw() const
 //	{
