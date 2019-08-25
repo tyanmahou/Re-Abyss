@@ -26,13 +26,4 @@ namespace abyss
 	{
 		return (m_col & collision::Up) != 0;
 	}
-
-	void LadderModel::draw() const
-	{
-#ifdef DEBUG
-		Color c = m_isTop ? Palette::Red : Palette::Blue;
-		this->region().draw(c.setAlpha(128));
-		this->getCenterLine().draw(5, c.setAlpha(128));
-#endif // DEBUG
-	}
 }

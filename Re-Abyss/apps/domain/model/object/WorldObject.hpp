@@ -29,7 +29,6 @@ namespace abyss
 		}
 		virtual void start() {}
 		virtual void update(double /*dt*/) {}
-		virtual void draw()const {}
 
 		void setActive(bool active) 
 		{

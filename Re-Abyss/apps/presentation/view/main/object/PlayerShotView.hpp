@@ -14,6 +14,8 @@ namespace abyss
 	public:
 		PlayerShotView(std::shared_ptr<PlayerShotModel> pModel);
 
+		void start()override;
+		void update() override;
 		void draw()const override;
 		bool isDelete() const override;
 	};

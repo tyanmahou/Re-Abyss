@@ -14,7 +14,5 @@ namespace abyss
 		s3d::RectF region() const;
 		s3d::Line getCenterLine() const;
 		bool isTop() const;
-
-		void draw()const override;
 	};
 }

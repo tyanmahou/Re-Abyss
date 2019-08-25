@@ -1,14 +1,69 @@
 #include "PlayerShotView.hpp"
 #include "../../../domain/model/object/PlayerShotModel.hpp"
-#include "../../../application/util/Periodic.hpp"
+
 #include <Siv3D.hpp>
 
+#include <application/common/Constants.hpp>
+#include <application/util/Periodic.hpp>
+#include <presentation/view/main/WorldView.hpp>
+#include <presentation/view/effects/PlayerShotEffect.hpp>
+
+namespace
+{
+	using namespace abyss;
+
+	Color TypeToColor(PlayerShotModel::Type type)
+	{
+		using namespace Constants::Player;
+		static const std::unordered_map<PlayerShotModel::Type, Color> colorMap{
+			{PlayerShotModel::Type::Normal, ColorF(1)},
+			{PlayerShotModel::Type::Small, ColorF(1)},
+			{PlayerShotModel::Type::Medium, MediumChargeColorBase},
+			{PlayerShotModel::Type::Big, BigChargeColorBase},
+		};
+		return colorMap.at(type);
+	}
+}
 namespace abyss
 {
 	PlayerShotView::PlayerShotView(std::shared_ptr<PlayerShotModel> pModel) :
 		m_texture(L"work/player/player_shot.png"),
 		m_pModel(pModel)
-	{}
+	{
+
+	}
+
+	void PlayerShotView::start()
+	{
+		auto pModel = m_pModel.lock();
+		if (!pModel) {
+			return;
+		}
+		auto  type = pModel->getType();
+		auto r = pModel->getColliderCircle().r;
+		auto pos = pModel->getPos();
+
+		// effect
+		if (type != PlayerShotModel::Type::Normal) {
+			m_pWorldView->getEffect().add<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
+		}
+	}
+
+	void PlayerShotView::update()
+	{
+		auto pModel = m_pModel.lock();
+		if (!pModel) {
+			return;
+		}
+		auto  type = pModel->getType();
+		auto r = pModel->getColliderCircle().r;
+		auto pos = pModel->getPos();
+
+		// effect
+		if (System::FrameCount() % 2 && (type == PlayerShotModel::Type::Big || type == PlayerShotModel::Type::Medium)) {
+			m_pWorldView->getEffect().add<PlayerShotEffect>(pos, r, ::TypeToColor(type));
+		}
+	}
 
 	void PlayerShotView::draw() const
 	{

@@ -66,7 +66,7 @@ namespace abyss
 			m_woldView.draw();
 
 			//front
-			m_stageView.draw(L"floor", screen);
+			m_stageView.draw(L"front", screen);
 
 			m_bubbles.draw();
 

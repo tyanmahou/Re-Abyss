@@ -2,8 +2,7 @@
 #include "../../../application/common/Constants.hpp"
 #include <domain/usecase/WorldUseCase.hpp>
 #include <domain/model/CameraModel.hpp>
-
-#include <presentation/view/effects/PlayerShotEffect.hpp>
+#include <unordered_map>
 
 namespace
 {
@@ -18,17 +17,6 @@ namespace
 			{PlayerShotModel::Type::Big, 24},
 		};
 		return rMap.at(type);
-	}
-	Color TypeToColor(PlayerShotModel::Type type)
-	{
-		using namespace Constants::Player;
-		static const std::unordered_map<PlayerShotModel::Type, Color> colorMap{
-			{PlayerShotModel::Type::Normal, ColorF(1)},
-			{PlayerShotModel::Type::Small, ColorF(1)},
-			{PlayerShotModel::Type::Medium, MediumChargeColorBase},
-			{PlayerShotModel::Type::Big, BigChargeColorBase},
-		};
-		return colorMap.at(type);
 	}
 }
 namespace abyss
@@ -56,28 +44,18 @@ namespace abyss
 	}
 	void PlayerShotModel::start()
 	{
-		// effect
-		if (m_type != Type::Normal) {
-			m_pWorld->getEffect().add<PlayerShotFiringEffect>(m_body.pos, ::TypeToR(m_type), ::TypeToColor(m_type));
-		}
+
 	}
 	void PlayerShotModel::update(double /*dt*/)
 	{
 		m_body.pos += m_body.vellocity;
 
-		// effect
-		if (System::FrameCount() % 2 && (m_type == Type::Big || m_type == Type::Medium)) {
-			m_pWorld->getEffect().add<PlayerShotEffect>(m_body.pos, ::TypeToR(m_type), ::TypeToColor(m_type));
-		}
 		// ‰æ–ÊŠO”»’è
 		if (!m_pWorld->getCamera()->inRoom(this->getColliderCircle())) {
 			m_isActive = false;
 		}
 	}
-	void PlayerShotModel::draw() const
-	{
 
-	}
 	s3d::Shape PlayerShotModel::getCollider() const
 	{
 		return static_cast<s3d::Shape>(this->getColliderCircle());
@@ -103,7 +81,7 @@ namespace abyss
 	{
 		return m_body.forward;
 	}
-	const Vec2& PlayerShotModel::getPos() const
+	const s3d::Vec2& PlayerShotModel::getPos() const
 	{
 		return m_body.pos;
 	}

@@ -89,10 +89,6 @@ namespace abyss
 		}
 	}
 
-	s3d::Effect& WorldUseCase::getEffect()
-	{
-		return m_effect;
-	}
 	PlayerModel* WorldUseCase::getPlayer() const
 	{
 		return m_playerModel.get();

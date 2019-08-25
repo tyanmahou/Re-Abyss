@@ -25,8 +25,6 @@ namespace abyss
 		s3d::uint64 m_objIdCounter = 0;
 		std::unordered_set<CollisionPairHash> m_currentCollision;
 
-		s3d::Effect m_effect;
-
 		void pushObject(const std::shared_ptr<WorldObject>& obj);
 
 	public:
@@ -49,8 +47,6 @@ namespace abyss
 
 		void update();
 		void reset();
-
-		s3d::Effect& getEffect();
 
 		PlayerModel* getPlayer()const;
 
