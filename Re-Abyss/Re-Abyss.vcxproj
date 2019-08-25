@@ -338,9 +338,11 @@
     <ClInclude Include="apps\application\common\Application.hpp" />
     <ClInclude Include="apps\application\common\Constants.hpp" />
     <ClInclude Include="apps\application\common\Game.hpp" />
+    <ClInclude Include="apps\application\util\Observable.hpp" />
     <ClInclude Include="apps\data\datastore\parser\MapEntityParser.hpp" />
     <ClInclude Include="apps\data\datastore\StageDataStore.hpp" />
     <ClInclude Include="apps\data\entity\BackGroundEntity.hpp" />
+    <ClInclude Include="apps\data\entity\LayerViewEntity.hpp" />
     <ClInclude Include="apps\data\entity\PlayerEntity.hpp" />
     <ClInclude Include="apps\data\entity\RoomEntity.hpp" />
     <ClInclude Include="apps\domain\model\CameraWork.hpp" />
@@ -366,6 +368,7 @@
     <ClInclude Include="apps\domain\model\RoomModel.hpp" />
     <ClInclude Include="apps\domain\usecase\CameraObservable.hpp" />
     <ClInclude Include="apps\domain\usecase\CameraUseCase.hpp" />
+    <ClInclude Include="apps\domain\usecase\StageObservable.hpp" />
     <ClInclude Include="apps\domain\usecase\StageUseCase.hpp" />
     <ClInclude Include="apps\domain\usecase\WorldUseCase.hpp" />
     <ClInclude Include="apps\domain\model\object\WorldObject.hpp" />
@@ -389,6 +392,7 @@
     <ClInclude Include="apps\presentation\view\main\object\PlayerShotView.hpp" />
     <ClInclude Include="apps\presentation\view\main\object\PlayerView.hpp" />
     <ClInclude Include="apps\presentation\view\main\object\WorldObjectViewFactory.hpp" />
+    <ClInclude Include="apps\presentation\view\main\StageLayerView.hpp" />
     <ClInclude Include="apps\presentation\view\main\WorldView.hpp" />
     <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled.hpp" />
     <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp" />

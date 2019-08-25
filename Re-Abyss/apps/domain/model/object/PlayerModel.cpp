@@ -150,7 +150,6 @@ namespace abyss
 				m_motation = Motation::Damge;
 			}
 		}
-		Println(m_body.pos);
 	}
 	void PlayerModel::draw() const
 	{

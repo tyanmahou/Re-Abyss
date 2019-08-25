@@ -5,6 +5,8 @@
 #include "../view/main/MainView.hpp"
 #include "../view/main/object/PlayerView.hpp"
 
+#include <data/datastore/StageDataStore.hpp>
+
 namespace
 {
 	using namespace abyss;
@@ -21,13 +23,20 @@ namespace
 namespace abyss
 {
 	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
-		m_view(view),
-		m_stageUseCase(L"work/stage0/stage0.tmx")
+		m_view(view)
 	{
-		// ”wŒi“o˜^
-		for (const auto& bg : m_stageUseCase.getBgs()) {
-			m_view->addBackGroundView(BackGroundVM(bg));
-		}
+		// •`‰æî•ñ‚ðview‚É“n‚·
+		auto onLoadStageFile = [this](IStageDataStore * dataStore) {
+			// ”wŒi“o˜^
+			for (const auto& bg : dataStore->getBackGroundEntity()) {
+				m_view->addBackGroundView(BackGroundVM(bg));
+			}
+			// ƒ}ƒbƒv•`‰æ“o˜^
+			for (const auto& layer : dataStore->getLayerViewEntity()) {
+				m_view->addLayerView(layer.layerName, layer.drawCallback);
+			}
+		};
+		m_stageUseCase.onLoadStageFile().subscribe(onLoadStageFile);
 
 		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerModel> & model) {
 			::NotifyCreateObject<PlayerModel>(this->m_view, model);
@@ -36,17 +45,20 @@ namespace abyss
 			::NotifyCreateObject<PlayerShotModel>(this->m_view, model);
 		});
 
-		if (auto room = m_stageUseCase.init(m_worldUseCase)){
-			m_cameraUseCase.setRoom(*room);
-		}
-		m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());
-
-		m_cameraUseCase.onNextRoom().subscribe([&](CameraUseCase * camera) {
+		auto onNextRoom = [&](CameraUseCase * camera) {
 			if (auto next = m_stageUseCase.initRoom(m_worldUseCase)) {
 				Vec2 pos = m_worldUseCase.getPlayer()->getPos();
 				camera->startCameraWork(*next, pos);
 			}
-		});
+		};
+		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
+
+		// init
+		m_stageUseCase.load(L"work/stage0/stage0.tmx");
+		if (auto room = m_stageUseCase.init(m_worldUseCase)){
+			m_cameraUseCase.setRoom(*room);
+		}
+		m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());
 
 		m_view->createCameraView(m_cameraUseCase.getCamera());
 	}

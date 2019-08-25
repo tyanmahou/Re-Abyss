@@ -93,10 +93,29 @@ namespace abyss
 				for (const auto& child : layer.getLayers()) {
 					child.then([&](const ImageLayer & i) {
 						ret.push_back(toEntity(i));
-					});
+						});
 				}
 			}
 		);
+		return ret;
+	}
+	s3d::Array<LayerViewEntity> TiledStageDataStore::getLayerViewEntity() const
+	{
+		s3d::Array<LayerViewEntity> ret;
+
+		s3d::Array<s3d::String> layerName{
+			L"back", L"map", L"door",L"front"
+		};
+		auto map = m_tiledMap;
+		for (auto&& name : layerName) {
+			ret.emplace_back(
+				name,
+				[map, name](const s3d::RectF & rect){
+					map.drawLayer(name, rect);
+				}
+			);
+		}
+
 		return ret;
 	}
 }

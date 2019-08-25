@@ -24,9 +24,14 @@ namespace
 }
 namespace abyss
 {
-	StageUseCase::StageUseCase(const s3d::FilePath& path):
-		m_stageData(path)
+
+	StageUseCase::StageUseCase()
 	{
+	}
+	void StageUseCase::load(const s3d::FilePath& path)
+	{
+		auto store = m_stageData.load(path);
+		this->onLoadStageFile().notify(store.get());
 	}
 	s3d::Optional<RoomModel> StageUseCase::init(WorldUseCase& world)
 	{
@@ -68,9 +73,5 @@ namespace abyss
 		}
 
 		return nextRoom;
-	}
-	const s3d::Array<BackGroundEntity>& StageUseCase::getBgs() const
-	{
-		return m_stageData.getBgs();
 	}
 }

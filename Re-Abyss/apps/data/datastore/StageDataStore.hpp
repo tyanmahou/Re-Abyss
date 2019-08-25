@@ -4,6 +4,7 @@
 #include "../entity/MapEntity.hpp"
 #include "../entity/RoomEntity.hpp"
 #include "../entity/BackGroundEntity.hpp"
+#include "../entity/LayerViewEntity.hpp"
 
 #include<Siv3D/Array.hpp>
 #include<S3DTiled.hpp>
@@ -14,12 +15,6 @@ namespace s3d
 }
 namespace abyss
 {
-	struct DoorEntity;
-	struct MapEntity;
-	struct PlayerEntity;
-	struct RoomEntity;
-
-	struct BackGroundEntity;
 
 	class IStageDataStore
 	{
@@ -29,6 +24,7 @@ namespace abyss
 		virtual s3d::Array<RoomEntity> getRoomEntity()const = 0;
 
 		virtual s3d::Array<BackGroundEntity> getBackGroundEntity()const = 0;
+		virtual s3d::Array<LayerViewEntity> getLayerViewEntity() const = 0;
 	};
 
 	class TiledStageDataStore : public IStageDataStore
@@ -41,5 +37,6 @@ namespace abyss
 		s3d::Array<RoomEntity> getRoomEntity()const override;
 
 		s3d::Array<BackGroundEntity> getBackGroundEntity()const override;
+		s3d::Array<LayerViewEntity> getLayerViewEntity() const override;
 	};
 }

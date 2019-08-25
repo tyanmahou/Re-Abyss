@@ -13,10 +13,15 @@ namespace abyss
 	}
 	void MainView::setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)
 	{
+		m_cameraWorkView = std::move(view);
 	}
 	void MainView::addBackGroundView(const BackGroundVM& bg)
 	{
 		m_bg.addBackGround(bg);
+	}
+	void MainView::addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)> view)
+	{
+		m_stageView.addView(layer, view);
 	}
 	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view)
 	{
@@ -41,15 +46,23 @@ namespace abyss
 	{
 		{
 			auto t2d = m_cameraView->getTransformer();
+			auto screen = m_cameraView->screenRegion();
+
 			m_bg.draw();
+
 			// back
+			m_stageView.draw(L"back", screen);
+
 			m_cameraView->drawDeathLine();
-			// door
 			// map
+			m_stageView.draw(L"map", screen);
+			// door
+			m_stageView.draw(L"door", screen);
 
 			m_woldView.draw();
 
 			//front
+			m_stageView.draw(L"floor", screen);
 
 			m_bubbles.draw();
 

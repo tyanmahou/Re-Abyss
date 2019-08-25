@@ -2,13 +2,16 @@
 
 namespace abyss
 {
-	StageRepository::StageRepository(const s3d::FilePath& path):
-		m_dataStore(std::make_unique<TiledStageDataStore>(path)),
-		m_rooms(m_dataStore->getRoomEntity()),
-		m_maps(m_dataStore->getMapEntity()),
-		m_doors(m_dataStore->getDoorEntity()),
-		m_bgs(m_dataStore->getBackGroundEntity())
+	StageRepository::StageRepository() 
 	{}
+	std::unique_ptr<IStageDataStore> StageRepository::load(const s3d::FilePath& path)
+	{
+		auto dataStore = std::make_unique<TiledStageDataStore>(path);
+		m_rooms = dataStore->getRoomEntity();
+		m_maps = dataStore->getMapEntity();
+		m_doors = dataStore->getDoorEntity();
+		return dataStore;
+	}
 	const s3d::Array<RoomEntity>& StageRepository::getRooms() const
 	{
 		return m_rooms;
@@ -20,9 +23,5 @@ namespace abyss
 	const s3d::Array<DoorEntity>& StageRepository::getDoors() const
 	{
 		return m_doors;
-	}
-	const s3d::Array<BackGroundEntity>& StageRepository::getBgs() const
-	{
-		return m_bgs;
 	}
 }
