@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
-
+#include <Siv3D/Texture.hpp>
 namespace abyss
 {
 	struct BackGroundEntity

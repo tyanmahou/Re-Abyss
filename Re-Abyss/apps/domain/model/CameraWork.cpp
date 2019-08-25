@@ -1,6 +1,7 @@
 #include "CameraWork.hpp"
 #include "CameraModel.hpp"
 #include "RoomModel.hpp"
+#include <Siv3D.hpp>
 
 namespace abyss
 {

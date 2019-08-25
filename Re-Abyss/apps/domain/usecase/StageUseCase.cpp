@@ -46,9 +46,6 @@ namespace abyss
 	}
 	bool StageUseCase::initRoom(WorldUseCase& world, const RoomModel& nextRoom)
 	{		
-		// 登録オブジェクトのリセット
-		world.reset();
-
 		MapTranslator mapTranslator;
 		for (const auto& map : m_stageData.getMaps()) {
 			if (!nextRoom.getRegion().intersects(map.pos)) {

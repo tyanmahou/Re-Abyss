@@ -62,6 +62,14 @@ namespace abyss
 			}
 		}
 
+		// 通知のイベントを一括送信
+		if (!m_eventTriggers.empty()) {
+			for (auto&& trigger : m_eventTriggers) {
+				trigger();
+			}
+			m_eventTriggers.clear();
+		}
+
 		// オブジェクトの削除
 		Erase_if(m_objects, [](const std::shared_ptr<WorldObject> & obj) {
 			return obj->isDelete();
@@ -100,7 +108,7 @@ namespace abyss
 	void WorldUseCase::registerObject(const std::shared_ptr<PlayerModel>& obj)
 	{
 		m_playerModel = obj;
-		this->onCreateWorldObject(obj);
+		this->notifyCreateWorldObject(obj);
 		this->pushObject(obj);
 	}
 }

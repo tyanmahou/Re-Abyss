@@ -2,7 +2,7 @@
 
 #include"../IView.hpp"
 #include <Siv3D/Effect.hpp>
-
+#include <Siv3D/Vector2D.hpp>
 namespace abyss
 {
 	class BubbleGenerator :public IView

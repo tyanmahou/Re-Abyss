@@ -308,7 +308,7 @@ namespace abyss
 			// move door
 			m_motion = Motion::Door;
 			m_body.vellocity = Vec2::Zero;
-			m_pWorld->onIntoDoor().notify(this, door);
+			m_pWorld->notifyIntoDoor(this, door);
 		}
 	}
 	RectF PlayerModel::region() const

@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <Siv3D/Fwd.hpp>
-
+#include <Siv3D/Array.hpp>
 namespace abyss
 {
 	class WorldObject;
@@ -15,6 +15,8 @@ namespace abyss
 	{
 		template<class T>
 		using CreateNotify = Observable<void(const std::shared_ptr<T>&)>;
+	protected:
+		s3d::Array<std::function<void()>> m_eventTriggers;
 
 #define OnCreateObject(Type)\
     private:\
@@ -24,9 +26,9 @@ namespace abyss
 		{\
 			m_onCreate##Type.subscribe(callback);\
 		}\
-		inline void onCreateWorldObject(const std::shared_ptr<Type>& obj)\
+		inline void notifyCreateWorldObject(const std::shared_ptr<Type>& obj)\
 		{\
-            m_onCreate##Type.notify(obj);\
+            m_eventTriggers.push_back([=](){m_onCreate##Type.notify(obj);});\
 		}
 
 		OnCreateObject(WorldObject)
@@ -42,6 +44,10 @@ namespace abyss
 		inline Observable<void(PlayerModel*, DoorModel*)>& onIntoDoor()
 		{
 			return m_onIntoDoor;
+		}
+		inline void notifyIntoDoor(PlayerModel* player,DoorModel* door)
+		{
+			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
 		}
 	};
 }

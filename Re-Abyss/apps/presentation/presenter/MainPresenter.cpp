@@ -1,10 +1,10 @@
 #include "MainPresenter.hpp"
 
-#include "../../domain/model/object/PlayerModel.hpp"
-#include "../../domain/model/object/PlayerShotModel.hpp"
+#include <domain/model/object/PlayerModel.hpp>
+#include <domain/model/object/PlayerShotModel.hpp>
 #include <domain/model/object/DoorModel.hpp>
-#include "../view/main/MainView.hpp"
-#include "../view/main/object/PlayerView.hpp"
+#include <presentation/view/main/MainView.hpp>
+#include <presentation/view/main/object/PlayerView.hpp>
 
 #include <data/datastore/StageDataStore.hpp>
 
@@ -50,20 +50,20 @@ namespace abyss
 			auto fadeInCallback = [player]() {
 				player->setMotion(PlayerModel::Motion::Stay);
 			};
+			m_worldUseCase.reset();
 			m_cameraUseCase.startDoorCameraWork(*doorModel, player->getPos(), fadeInCallback);
 		};
 		m_worldUseCase.onIntoDoor().subscribe(onIntoDoor);
 
 		auto onOutSideRoom = [&](const Vec2 & pos) {
 			if (auto next = m_stageUseCase.findRoom(pos)) {
+				m_worldUseCase.reset();
 				m_cameraUseCase.startCameraWork(*next, pos);
 			}
 		};
 		m_cameraUseCase.onOutSideRoom().subscribe(onOutSideRoom);
 		auto onNextRoom = [&](const RoomModel & room) {
 			m_stageUseCase.initRoom(m_worldUseCase, room);
-			//Vec2 pos = m_worldUseCase.getPlayer()->getPos();
-
 		};
 		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
 		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork> & work) {

@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
+#include <Siv3D/Array.hpp>
 #include <map>
 #include <memory>
 #include "object/IWorldObjectView.hpp"

@@ -2,6 +2,7 @@
 
 #include <application/common/Constants.hpp>
 #include <application/util/ScopedState.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss
 {

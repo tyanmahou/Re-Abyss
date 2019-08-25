@@ -41,7 +41,7 @@ namespace abyss
 		auto registerObject(const std::shared_ptr<Type>& object)
 			->std::enable_if_t<std::is_base_of<WorldObject, Type>::value>
 		{
-			this->onCreateWorldObject(object);
+			this->notifyCreateWorldObject(object);
 			this->pushObject(object);
 		}
 

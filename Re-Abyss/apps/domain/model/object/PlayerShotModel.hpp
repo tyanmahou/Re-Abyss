@@ -29,7 +29,7 @@ namespace abyss
 
 		Type getType() const;
 		Forward getForward() const;
-		const Vec2& getPos() const;
+		const s3d::Vec2& getPos() const;
 
 	};
 }

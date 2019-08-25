@@ -15,7 +15,7 @@ namespace abyss
 
 		bool canNextRoom(const s3d::Vec2& pos) const;
 
-		void setCameraPos(const Vec2& pos);
+		void setCameraPos(const s3d::Vec2& pos);
 		void adjustPlayerPos();
 	public:
 		void setPlayer(PlayerModel* pPlayer);
