@@ -33,5 +33,7 @@ namespace abyss
 		s3d::Shape getCollider() const override;
 		s3d::RectF region()const;
 		Motion getMotion()const;
+
+		void reverse();
 	};
 }

@@ -74,9 +74,6 @@ namespace abyss
 		Erase_if(m_objects, [](const std::shared_ptr<WorldObject> & obj) {
 			return obj->isDelete();
 		});
-
-		ClearPrint();
-		Println(m_objects.size());
 	}
 
 	void WorldUseCase::reset()
