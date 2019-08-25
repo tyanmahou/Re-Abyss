@@ -18,4 +18,13 @@ namespace abyss
 		return m_col;
 	}
 
+	s3d::RectF MapModel::region() const
+	{
+		return s3d::RectF{ m_pos - m_size / 2, m_size };
+	}
+
+	s3d::Shape MapModel::getCollider() const
+	{
+		return static_cast<s3d::Shape>(this->region());
+	}
 }

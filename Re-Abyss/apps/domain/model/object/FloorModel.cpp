@@ -9,12 +9,6 @@ namespace abyss
 	{
 		this->tag = L"floor";
 	}
-	s3d::Shape FloorModel::getCollider() const
-	{
-		return static_cast<Shape>(this->region());
-	}
-	s3d::RectF FloorModel::region() const
-	{
-		return RectF{ m_pos - m_size / 2, m_size };
-	}
+
+
 }

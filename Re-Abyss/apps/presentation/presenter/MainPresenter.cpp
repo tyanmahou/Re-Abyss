@@ -2,6 +2,7 @@
 
 #include <domain/model/object/PlayerModel.hpp>
 #include <domain/model/object/PlayerShotModel.hpp>
+#include <domain/model/object/SlimeModel.hpp>
 #include <domain/model/object/DoorModel.hpp>
 #include <presentation/view/main/MainView.hpp>
 #include <presentation/view/main/object/PlayerView.hpp>
@@ -45,6 +46,9 @@ namespace abyss
 		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerShotModel> & model) {
 			::NotifyCreateObject<PlayerShotModel>(this->m_view, model);
 			});
+		m_worldUseCase.subscribe([this](const std::shared_ptr<SlimeModel> & model) {
+			::NotifyCreateObject<SlimeModel>(this->m_view, model);
+		});
 
 		auto onIntoDoor = [&](PlayerModel * player, DoorModel * doorModel) {
 			auto fadeInCallback = [player]() {

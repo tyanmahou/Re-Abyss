@@ -3,6 +3,8 @@
 #include "../entity/DoorEntity.hpp"
 #include "../entity/MapEntity.hpp"
 #include "../entity/RoomEntity.hpp"
+#include "../entity/EnemyEntity.hpp"
+
 #include "../entity/BackGroundEntity.hpp"
 #include "../entity/LayerViewEntity.hpp"
 
@@ -22,6 +24,7 @@ namespace abyss
 		virtual s3d::Array<DoorEntity> getDoorEntity()const = 0;
 		virtual s3d::Array<MapEntity> getMapEntity()const = 0;
 		virtual s3d::Array<RoomEntity> getRoomEntity()const = 0;
+		virtual s3d::Array<EnemyEntity> getEnemyEntity()const = 0;
 
 		virtual s3d::Array<BackGroundEntity> getBackGroundEntity()const = 0;
 		virtual s3d::Array<LayerViewEntity> getLayerViewEntity() const = 0;
@@ -35,6 +38,7 @@ namespace abyss
 		s3d::Array<DoorEntity> getDoorEntity()const override;
 		s3d::Array<MapEntity> getMapEntity()const override;
 		s3d::Array<RoomEntity> getRoomEntity()const override;
+		s3d::Array<EnemyEntity> getEnemyEntity()const override;
 
 		s3d::Array<BackGroundEntity> getBackGroundEntity()const override;
 		s3d::Array<LayerViewEntity> getLayerViewEntity() const override;

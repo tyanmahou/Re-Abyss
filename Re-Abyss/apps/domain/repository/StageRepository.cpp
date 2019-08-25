@@ -10,6 +10,8 @@ namespace abyss
 		m_rooms = dataStore->getRoomEntity();
 		m_maps = dataStore->getMapEntity();
 		m_doors = dataStore->getDoorEntity();
+		m_enemies = dataStore->getEnemyEntity();
+
 		return dataStore;
 	}
 	const s3d::Array<RoomEntity>& StageRepository::getRooms() const
@@ -23,5 +25,9 @@ namespace abyss
 	const s3d::Array<DoorEntity>& StageRepository::getDoors() const
 	{
 		return m_doors;
+	}
+	const s3d::Array<EnemyEntity>& StageRepository::getEnemies() const
+	{
+		return m_enemies;
 	}
 }

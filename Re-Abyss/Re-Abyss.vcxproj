@@ -167,8 +167,11 @@
   <ItemGroup>
     <ClCompile Include="apps\data\datastore\parser\MapEntityParser.cpp" />
     <ClCompile Include="apps\domain\model\CameraWork.cpp" />
+    <ClCompile Include="apps\domain\model\object\EnemyModel.cpp" />
     <ClCompile Include="apps\domain\model\object\MapModel.cpp" />
+    <ClCompile Include="apps\domain\model\object\SlimeModel.cpp" />
     <ClCompile Include="apps\domain\repository\StageRepository.cpp" />
+    <ClCompile Include="apps\domain\translator\EnemyTranslator.cpp" />
     <ClCompile Include="apps\domain\translator\RoomTranslator.cpp" />
     <ClCompile Include="apps\domain\usecase\CameraUseCase.cpp" />
     <ClCompile Include="apps\domain\usecase\StageUseCase.cpp" />
@@ -201,6 +204,7 @@
     <ClCompile Include="apps\presentation\view\main\object\PlayerShotView.cpp" />
     <ClCompile Include="apps\presentation\view\main\object\PlayerView.cpp" />
     <ClCompile Include="apps\presentation\view\main\MainViewFactory.cpp" />
+    <ClCompile Include="apps\presentation\view\main\object\SlimeView.cpp" />
     <ClCompile Include="apps\presentation\view\main\WorldView.cpp" />
     <ClCompile Include="apps\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -342,13 +346,17 @@
     <ClInclude Include="apps\data\datastore\parser\MapEntityParser.hpp" />
     <ClInclude Include="apps\data\datastore\StageDataStore.hpp" />
     <ClInclude Include="apps\data\entity\BackGroundEntity.hpp" />
+    <ClInclude Include="apps\data\entity\EnemyEntity.hpp" />
     <ClInclude Include="apps\data\entity\LayerViewEntity.hpp" />
     <ClInclude Include="apps\data\entity\PlayerEntity.hpp" />
     <ClInclude Include="apps\data\entity\RoomEntity.hpp" />
     <ClInclude Include="apps\domain\model\CameraWork.hpp" />
+    <ClInclude Include="apps\domain\model\object\EnemyModel.hpp" />
     <ClInclude Include="apps\domain\model\object\MapModel.hpp" />
+    <ClInclude Include="apps\domain\model\object\SlimeModel.hpp" />
     <ClInclude Include="apps\domain\repository\StageRepository.hpp" />
     <ClInclude Include="apps\domain\translator\DoorTranslator.hpp" />
+    <ClInclude Include="apps\domain\translator\EnemyTranslator.hpp" />
     <ClInclude Include="apps\domain\translator\MapTranslator.hpp" />
     <ClInclude Include="apps\domain\translator\RoomTranslator.hpp" />
     <ClInclude Include="apps\application\util\Collision.hpp" />
@@ -392,6 +400,7 @@
     <ClInclude Include="apps\presentation\view\main\object\PlayerShotView.hpp" />
     <ClInclude Include="apps\presentation\view\main\object\PlayerView.hpp" />
     <ClInclude Include="apps\presentation\view\main\MainViewFactory.hpp" />
+    <ClInclude Include="apps\presentation\view\main\object\SlimeView.hpp" />
     <ClInclude Include="apps\presentation\view\main\StageLayerView.hpp" />
     <ClInclude Include="apps\presentation\view\main\WorldView.hpp" />
     <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled.hpp" />

@@ -2,10 +2,12 @@
 #include <domain/translator/RoomTranslator.hpp>
 #include <domain/translator/MapTranslator.hpp>
 #include <domain/translator/DoorTranslator.hpp>
+#include <domain/translator/EnemyTranslator.hpp>
 #include <domain/model/RoomModel.hpp>
 #include <domain/model/object/PlayerModel.hpp>
 #include <domain/model/object/MapModel.hpp>
 #include <domain/model/object/DoorModel.hpp>
+#include <domain/model/object/SlimeModel.hpp>
 #include <domain/usecase/WorldUseCase.hpp>
 
 namespace
@@ -64,6 +66,15 @@ namespace abyss
 				if (auto obj = doorTranslator.create(door, *toRoom)) {
 					world.registerObject(obj);
 				}
+			}
+		}
+		EnemyTranslator enemyTranslator;
+		for (const auto& enemy : m_stageData.getEnemies()) {
+			if (!nextRoom.getRegion().intersects(enemy.pos)) {
+				continue;
+			}
+			if (auto obj = enemyTranslator.create(enemy)) {
+				world.registerObject(std::dynamic_pointer_cast<SlimeModel>(obj));
 			}
 		}
 

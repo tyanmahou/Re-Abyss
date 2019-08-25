@@ -9,6 +9,7 @@ namespace abyss
 	class WorldObject;
 	class PlayerModel;
 	class DoorModel;
+	class SlimeModel;
 	class PlayerShotModel;
 
 	class WorldObservable
@@ -34,7 +35,7 @@ namespace abyss
 		OnCreateObject(WorldObject)
 		OnCreateObject(PlayerModel)
 		OnCreateObject(PlayerShotModel)
-
+		OnCreateObject(SlimeModel)
 #undef OnCreateObject
 
 	private:

@@ -74,6 +74,42 @@ namespace abyss
 		);
 		return ret;
 	}
+	s3d::Array<EnemyEntity> TiledStageDataStore::getEnemyEntity() const
+	{
+		s3d::Array<EnemyEntity> ret;
+
+		static const std::unordered_map<String, EnemyType> toTypeMap{
+			{L"slime", EnemyType::Slime}
+		};
+		static auto toType = [&](const String & type) {
+			if (toTypeMap.find(type) != toTypeMap.end()) {
+				return toTypeMap.at(type);
+			}
+			return EnemyType::None;
+		};
+		static auto toEntity = [&](const TiledObject & obj)
+		{
+			auto gId = *obj.gId;
+			EnemyEntity e;
+			e.type = EnemyType::Slime;// toType(m_tiledMap.getTileProperty(gId, L"type").value_or(L"none"));
+			Vec2 size = m_tiledMap.getTile(gId).size;
+			e.pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
+			return e;
+		};
+
+		// “G
+		m_tiledMap.getLayer(L"enemy")->then(
+			[&](const ObjectGroup & layer) {
+				for (const auto& obj : layer.getObjects()) {
+					EnemyEntity e = toEntity(obj);
+					if (e.type != EnemyType::None) {
+						ret.push_back(e);
+					}
+				}
+			}
+		);
+		return ret;
+	}
 	s3d::Array<BackGroundEntity> TiledStageDataStore::getBackGroundEntity() const
 	{
 		s3d::Array<BackGroundEntity> ret;
