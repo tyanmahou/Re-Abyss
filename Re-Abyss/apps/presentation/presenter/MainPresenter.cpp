@@ -78,7 +78,7 @@ namespace abyss
 			m_cameraUseCase.setRoom(*room);
 		}
 		m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());
-		m_worldUseCase.setCamera(&m_cameraUseCase);
+		m_worldUseCase.setCamera(&m_cameraUseCase.getCamera());
 
 		m_view->createCameraView(m_cameraUseCase.getCamera());
 	}

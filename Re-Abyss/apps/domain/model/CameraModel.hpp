@@ -30,5 +30,10 @@ namespace abyss
 		void setPos(const s3d::Vec2 pos);
 		const s3d::Vec2& getPos()const;
 
+		template<class T>
+		bool inRoom(const T& shape)const
+		{
+			return m_currentRoom.getRegion().intersects(shape);
+		}
 	};
 }

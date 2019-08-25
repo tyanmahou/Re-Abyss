@@ -12,11 +12,11 @@
 namespace abyss
 {
 	class PlayerModel;
-	class CameraUseCase;
+	class CameraModel;
 
 	class WorldUseCase: public WorldObservable
 	{
-		CameraUseCase* m_pCamera;
+		const CameraModel* m_pCamera;
 		std::shared_ptr<PlayerModel> m_playerModel = nullptr;
 
 		s3d::Array<std::shared_ptr<WorldObject>> m_reserves;
@@ -54,8 +54,8 @@ namespace abyss
 
 		PlayerModel* getPlayer()const;
 
-		void setCamera(CameraUseCase* camera);
-		CameraUseCase* getCamera()const;
+		void setCamera(const CameraModel* camera);
+		const CameraModel* getCamera()const;
 
 	};
 }

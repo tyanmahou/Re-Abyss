@@ -97,11 +97,11 @@ namespace abyss
 	{
 		return m_playerModel.get();
 	}
-	void WorldUseCase::setCamera(CameraUseCase* camera)
+	void WorldUseCase::setCamera(const CameraModel* camera)
 	{
 		m_pCamera = camera;
 	}
-	CameraUseCase* WorldUseCase::getCamera() const
+	const CameraModel* WorldUseCase::getCamera() const
 	{
 		return m_pCamera;
 	}

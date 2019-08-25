@@ -1,7 +1,7 @@
 #include "PlayerShotModel.hpp"
-//#include "../GameCamera.hpp"
 #include "../../../application/common/Constants.hpp"
 #include <domain/usecase/WorldUseCase.hpp>
+#include <domain/model/CameraModel.hpp>
 
 #include <presentation/view/effects/PlayerShotEffect.hpp>
 
@@ -70,9 +70,9 @@ namespace abyss
 			m_pWorld->getEffect().add<PlayerShotEffect>(m_body.pos, ::TypeToR(m_type), ::TypeToColor(m_type));
 		}
 		// ‰æ–ÊŠO”»’è
-		//if (!GameCamera::Main()->carentRoom().getRegion().intersects(this->getColliderCircle())) {
-		//	m_isActive = false;
-		//}
+		if (!m_pWorld->getCamera()->inRoom(this->getColliderCircle())) {
+			m_isActive = false;
+		}
 	}
 	void PlayerShotModel::draw() const
 	{
