@@ -66,6 +66,9 @@ namespace abyss
 		Erase_if(m_objects, [](const std::shared_ptr<WorldObject> & obj) {
 			return obj->isDelete();
 		});
+
+		ClearPrint();
+		Println(m_objects.size());
 	}
 
 	void WorldUseCase::reset()
@@ -78,13 +81,6 @@ namespace abyss
 		}
 	}
 
-	void WorldUseCase::draw() const
-	{
-		m_effect.update();
-		for (const auto& obj : m_objects) {
-			obj->draw();
-		}
-	}
 	s3d::Effect& WorldUseCase::getEffect()
 	{
 		return m_effect;
@@ -92,6 +88,14 @@ namespace abyss
 	PlayerModel* WorldUseCase::getPlayer() const
 	{
 		return m_playerModel.get();
+	}
+	void WorldUseCase::setCamera(CameraUseCase* camera)
+	{
+		m_pCamera = camera;
+	}
+	CameraUseCase* WorldUseCase::getCamera() const
+	{
+		return m_pCamera;
 	}
 	void WorldUseCase::registerObject(const std::shared_ptr<PlayerModel>& obj)
 	{

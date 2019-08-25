@@ -1,4 +1,6 @@
 #include "CameraWork.hpp"
+#include "CameraModel.hpp"
+#include "RoomModel.hpp"
 
 namespace abyss
 {
@@ -31,6 +33,49 @@ namespace abyss
 		m_playerMove(playerMove),
 		m_callback(callback)
 	{}
+
+	std::shared_ptr<RoomMoveCameraWork> RoomMoveCameraWork::Create(
+		const CameraModel& camera,
+		const s3d::Vec2 & playerPos,
+		std::function<void()> callback, 
+		double milliSec
+	){
+		const auto& current = camera.carentRoom();
+		const auto& next = camera.nextRoom();
+		Vec2 cameraPos = camera.getPos();
+
+		Vec2 from = current.cameraBorderAdjusted(cameraPos);
+		Vec2 to = next->cameraBorderAdjusted(cameraPos);
+
+		// プレイヤーの位置計算
+		Vec2 target = playerPos;
+		Vec2 v = to - from;
+
+		bool isHorizontal = Math::Abs(v.x) > Math::Abs(v.y);
+		auto border = current.borders();
+		if (isHorizontal) {
+			if (v.x > 0) {
+				target.x = border.right + 40;
+			}
+			else {
+				target.x = border.left - 40;
+			}
+		}
+		else {
+			if (v.y > 0) {
+				target.y = border.down + 40;
+			}
+			else {
+				target.y = border.up - 40;
+			}
+		}
+		return std::make_shared<RoomMoveCameraWork>(
+			std::make_pair(from, to),
+			std::make_pair(playerPos, target),
+			callback,
+			milliSec
+		);
+	}
 
 	Vec2 RoomMoveCameraWork::calcCameraPos() const
 	{

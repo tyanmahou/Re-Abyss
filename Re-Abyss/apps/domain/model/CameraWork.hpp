@@ -5,6 +5,10 @@
 
 namespace abyss
 {
+	class CameraModel;
+	class RoomModel;
+	class DoorModel;
+
 	class ICameraWork
 	{
 	protected:
@@ -35,6 +39,12 @@ namespace abyss
 			const std::pair<Vec2, Vec2>& playerMove,
 			std::function<void()> callback,
 			double animeMilliSec
+		);
+		static std::shared_ptr<RoomMoveCameraWork> Create(
+			const CameraModel& camera,
+			const s3d::Vec2& playerPos, 
+			std::function<void()> callback, 
+			double milliSec
 		);
 	protected:
 		Vec2 calcCameraPos() const override;

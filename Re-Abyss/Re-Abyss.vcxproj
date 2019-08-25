@@ -200,7 +200,7 @@
     <ClCompile Include="apps\presentation\view\main\CameraWorkView.cpp" />
     <ClCompile Include="apps\presentation\view\main\object\PlayerShotView.cpp" />
     <ClCompile Include="apps\presentation\view\main\object\PlayerView.cpp" />
-    <ClCompile Include="apps\presentation\view\main\object\WorldObjectViewFactory.cpp" />
+    <ClCompile Include="apps\presentation\view\main\MainViewFactory.cpp" />
     <ClCompile Include="apps\presentation\view\main\WorldView.cpp" />
     <ClCompile Include="apps\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -391,7 +391,7 @@
     <ClInclude Include="apps\presentation\view\main\object\IWorldObjectView.hpp" />
     <ClInclude Include="apps\presentation\view\main\object\PlayerShotView.hpp" />
     <ClInclude Include="apps\presentation\view\main\object\PlayerView.hpp" />
-    <ClInclude Include="apps\presentation\view\main\object\WorldObjectViewFactory.hpp" />
+    <ClInclude Include="apps\presentation\view\main\MainViewFactory.hpp" />
     <ClInclude Include="apps\presentation\view\main\StageLayerView.hpp" />
     <ClInclude Include="apps\presentation\view\main\WorldView.hpp" />
     <ClInclude Include="apps\vendor\S3DTiled\include\S3DTiled.hpp" />

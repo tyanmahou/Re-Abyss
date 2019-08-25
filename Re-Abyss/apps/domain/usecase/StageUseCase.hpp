@@ -17,7 +17,9 @@ namespace abyss
 
 		void load(const s3d::FilePath& path);
 
-		s3d::Optional<RoomModel> init(WorldUseCase& world);
-		s3d::Optional<RoomModel> initRoom(WorldUseCase& world);
+		s3d::Optional<RoomModel> findRoom(const Vec2& pos);
+
+		bool init(WorldUseCase& world, const RoomModel& nextRoom);
+		bool initRoom(WorldUseCase& world, const RoomModel& nextRoom);
 	};
 }

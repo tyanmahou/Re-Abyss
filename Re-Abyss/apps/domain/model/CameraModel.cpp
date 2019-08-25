@@ -22,7 +22,7 @@ namespace abyss
 	}
 	void CameraModel::setPos(const s3d::Vec2 pos)
 	{
-		m_pos = m_currentRoom.cameraBorderAdjusted(pos);
+		m_pos = pos;
 	}
 	const s3d::Vec2& CameraModel::getPos() const
 	{

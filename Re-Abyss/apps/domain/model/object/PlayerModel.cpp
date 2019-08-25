@@ -3,9 +3,10 @@
 #include "PenetrateFloorModel.hpp"
 #include "LadderModel.hpp"
 #include "DoorModel.hpp"
-#include "../../usecase/WorldUseCase.hpp"
-//#include "../GameCamera.hpp"
-#include "../../../application/common/Constants.hpp"
+
+#include <domain/usecase/WorldUseCase.hpp>
+
+#include <application/common/Constants.hpp>
 
 namespace abyss
 {
@@ -126,20 +127,20 @@ namespace abyss
 		// ƒ‚[ƒVƒ‡ƒ“
 		if (m_ladderState) {
 			if (m_ladderState.isLadderTop()) {
-				m_motation = Motation::LadderTop;
+				m_motion = Motion::LadderTop;
 			}
 			else {
-				m_motation = Motation::Ladder;
+				m_motion = Motion::Ladder;
 			}
 		}
 		else {
-			m_motation = Motation::Float;
+			m_motion = Motion::Float;
 			if (rightPressed || leftPressed)
 			{
-				m_motation = Motation::Swim;
+				m_motion = Motion::Swim;
 			}
 			if (m_body.vellocity.y > Constants::Player::MaxGravity) {
-				m_motation = Motation::Dive;
+				m_motion = Motion::Dive;
 			}
 
 			if (Input::KeyD.clicked)
@@ -147,15 +148,9 @@ namespace abyss
 				m_body.vellocity = { m_body.forward == Forward::Left ? 3.5 : -3.5,-3.5 };
 			}
 			if (Input::KeyD.pressed) {
-				m_motation = Motation::Damge;
+				m_motion = Motion::Damge;
 			}
 		}
-	}
-	void PlayerModel::draw() const
-	{
-		//static PlayerView view;
-
-		//view.draw(this);
 	}
 
 	void PlayerModel::setPos(const Vec2& pos)
@@ -173,9 +168,14 @@ namespace abyss
 		return m_body.vellocity;
 	}
 
-	PlayerModel::Motation PlayerModel::getMotion() const
+	void PlayerModel::setMotion(Motion motion)
 	{
-		return m_motation;
+		m_motion = motion;
+	}
+
+	PlayerModel::Motion PlayerModel::getMotion() const
+	{
+		return m_motion;
 	}
 
 	Forward PlayerModel::getForward() const
@@ -199,11 +199,11 @@ namespace abyss
 		m_body.pos = collision.first;
 
 		if (collision.second & collision::Up) {
-			if (m_motation == Motation::Float && m_body.vellocity.x == 0) {
-				m_motation = Motation::Stay;
+			if (m_motion == Motion::Float && m_body.vellocity.x == 0) {
+				m_motion = Motion::Stay;
 			}
-			else if (m_motation == Motation::Swim && Abs(m_body.vellocity.x) > 1.5) {
-				m_motation = Motation::Run;
+			else if (m_motion == Motion::Swim && Abs(m_body.vellocity.x) > 1.5) {
+				m_motion = Motion::Run;
 			}
 			if (m_body.vellocity.y > 0) {
 				m_body.vellocity.y = 0;
@@ -261,7 +261,7 @@ namespace abyss
 					if (!m_ladderState.isLadderTop()) {
 						ladderTopTimer = 0;
 						m_ladderState.setLadderTop();
-						m_motation = Motation::LadderTop;
+						m_motion = Motion::LadderTop;
 					}
 					m_body.pos.y = ladderRegion.y;
 				}
@@ -285,7 +285,7 @@ namespace abyss
 				(!ladder->isTop() && Input::KeyUp.clicked || Input::KeyDown.clicked) // ã‰º‰Ÿ‚µ‚½
 				) {
 				m_ladderState.setIsLadder();
-				m_motation = Motation::Ladder;
+				m_motion = Motion::Ladder;
 				m_body.pos.x = ladder->getPos().x;
 				m_body.pos.y -= 2 * (Input::KeyUp.clicked - Input::KeyDown.clicked);
 			}
@@ -306,15 +306,9 @@ namespace abyss
 	{
 		if (Input::KeyUp.clicked) {
 			// move door
-			m_motation = Motation::Door;
+			m_motion = Motion::Door;
 			m_body.vellocity = Vec2::Zero;
-			//GameCamera::Main()->startDoorCameraWork(
-			//	*door,
-			//	m_body.pos, 
-			//	[&]() {
-			//		this->m_motation = Motation::Stay;
-			//	}
-			//);
+			m_pWorld->onIntoDoor().notify(this, door);
 		}
 	}
 	RectF PlayerModel::region() const

@@ -23,7 +23,7 @@ namespace abyss
 
 		void init()
 		{
-			//m_model->init();
+			this->update();
 		}
 
 		void update()

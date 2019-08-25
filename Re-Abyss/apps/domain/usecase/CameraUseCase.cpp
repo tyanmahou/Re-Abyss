@@ -1,7 +1,8 @@
 #include "CameraUseCase.hpp"
 #include <domain/model/CameraWork.hpp>
 #include <domain/model/object/PlayerModel.hpp>
-
+#include <domain/model/object/DoorModel.hpp>
+#include <domain/model/RoomModel.hpp>
 namespace abyss
 {
 	bool CameraUseCase::canNextRoom(const s3d::Vec2& pos) const
@@ -22,7 +23,7 @@ namespace abyss
 			}
 		}
 		else {
-			cameraPos = pos;
+			cameraPos = m_camera.carentRoom().cameraBorderAdjusted(pos);
 		}
 		m_camera.setPos(Math::Ceil(cameraPos));
 	}
@@ -53,16 +54,55 @@ namespace abyss
 			return;
 		}
 		if (this->canNextRoom(pos)) {
-			this->onNextRoom().notify(this);
+			this->onOutSideRoom().notify(pos);
 		}
 	}
 	void CameraUseCase::startCameraWork(const RoomModel& nextRoom, const s3d::Vec2& playerPos, std::function<void()> callback, double milliSec)
 	{
-		m_camera.setRoom(nextRoom);
+		assert(milliSec > 0);
+		m_camera.setNextRoom(nextRoom);
+		if (!callback) {
+			callback = [this, nextRoom]() {
+				this->setRoom(nextRoom);
+			};
+		}
+		m_cameraWork = RoomMoveCameraWork::Create(m_camera, playerPos, callback, milliSec);
+	}
+	void CameraUseCase::startDoorCameraWork(
+		const DoorModel& door,
+		const s3d::Vec2& playerPos, 
+		std::function<void()> fadeInCallback, 
+		std::function<void()> fadeOutCallback,
+		double milliSec
+	) {
+		const auto& nextRoom = door.getNextRoom();
+		m_camera.setNextRoom(nextRoom);
+		if (!fadeOutCallback) {
+			fadeOutCallback = [this, nextRoom]() {
+				this->setRoom(nextRoom);
+			};
+		}
+		const auto& current = m_camera.carentRoom();
+		Vec2 playerFrom = door.fixedVisiterPos();
+		Vec2 playerTo = door.getTargetPos();
+		Vec2 from = current.cameraBorderAdjusted(playerFrom);
+		Vec2 to = nextRoom.cameraBorderAdjusted(playerTo);
+
+		auto work = std::make_shared<DoorCameraWork>(
+			std::make_pair(from, to),
+			std::make_pair(playerFrom, playerTo),
+			playerPos,
+			fadeInCallback,
+			fadeOutCallback,
+			milliSec
+		);
+		m_cameraWork = work;
+		this->onStartDoorCameraWork().notify(work);
 	}
 	void CameraUseCase::setRoom(const RoomModel& room)
 	{
 		m_camera.setRoom(room);
+		this->onNextRoom().notify(room);
 	}
 	bool CameraUseCase::isCameraWork() const
 	{
@@ -72,71 +112,4 @@ namespace abyss
 	{
 		return m_camera;
 	}
-	//void GameCamera::startCameraWork(const Room& nextRoom, const s3d::Vec2& playerPos, std::function<void()> callback, double milliSec)
-	//{
-	//	assert(milliSec > 0);
-
-	//	m_nextRoom = nextRoom;
-
-	//	Vec2 from = m_currentRoom.cameraBorderAdjusted(m_pos);
-	//	Vec2 to = nextRoom.cameraBorderAdjusted(m_pos);
-	//	if (!callback) {
-	//		callback = [this, nextRoom]() {
-	//			this->setRoom(nextRoom);
-	//		};
-	//	}
-
-	//	// プレイヤーの位置計算
-	//	Vec2 target = playerPos;
-	//	Vec2 v = to - from;
-
-	//	bool isHorizontal = Math::Abs(v.x) > Math::Abs(v.y);
-	//	auto border = m_currentRoom.borders();
-	//	if (isHorizontal) {
-	//		if (v.x > 0) {
-	//			target.x = border.right + 40;
-	//		}
-	//		else {
-	//			target.x = border.left - 40;
-	//		}
-	//	}
-	//	else {
-	//		if (v.y > 0) {
-	//			target.y = border.down + 40;
-	//		}
-	//		else {
-	//			target.y = border.up - 40;
-	//		}
-	//	}
-	//	m_cameraWork = std::make_shared<RoomMoveCameraWork>(
-	//		std::make_pair(from, to),
-	//		std::make_pair(playerPos, target),
-	//		callback,
-	//		milliSec
-	//		);
-	//}
-
-	//void GameCamera::startDoorCameraWork(const DoorModel& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, std::function<void()> fadeOutCallback, double milliSec)
-	//{
-	//	m_nextRoom = door.getNextRoom();
-	//	Vec2 playerFrom = door.fixedVisiterPos();
-	//	Vec2 playerTo = door.getTargetPos();
-	//	Vec2 from = m_currentRoom.cameraBorderAdjusted(playerFrom);
-	//	Vec2 to = m_nextRoom->cameraBorderAdjusted(playerTo);
-
-	//	if (!fadeOutCallback) {
-	//		fadeOutCallback = [this]() {
-	//			this->setRoom(*m_nextRoom);
-	//		};
-	//	}
-	//	m_cameraWork = std::make_shared<DoorCameraWork>(
-	//		std::make_pair(from, to),
-	//		std::make_pair(playerFrom, playerTo),
-	//		playerPos,
-	//		fadeInCallback,
-	//		fadeOutCallback,
-	//		milliSec
-	//		);
-	//}
-
 }

@@ -24,7 +24,6 @@ namespace abyss
 		void draw() const override;
 		s3d::Shape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
-		bool isDelete() const override;
 
 		s3d::Circle getColliderCircle() const;
 

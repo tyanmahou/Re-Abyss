@@ -4,6 +4,7 @@
 namespace abyss
 {
 	class PlayerModel;
+	class DoorModel;
 	class ICameraWork;
 
 	class CameraUseCase : public CamraObservable
@@ -21,13 +22,13 @@ namespace abyss
 		void update();
 
 		void startCameraWork(const RoomModel& nextRoom, const s3d::Vec2& playerPos, std::function<void()> callback = nullptr, double milliSec = 2000);
-		//void startDoorCameraWork(
-		//	const DoorModel& door,
-		//	const s3d::Vec2& playerPos,
-		//	std::function<void()> fadeInCallback = nullptr,
-		//	std::function<void()> fadeOutCallback = nullptr,
-		//	double milliSec = 2000
-		//);
+		void startDoorCameraWork(
+			const DoorModel& door,
+			const s3d::Vec2& playerPos,
+			std::function<void()> fadeInCallback = nullptr,
+			std::function<void()> fadeOutCallback = nullptr,
+			double milliSec = 2000
+		);
 
 		void setRoom(const RoomModel& room);
 		bool isCameraWork()const;

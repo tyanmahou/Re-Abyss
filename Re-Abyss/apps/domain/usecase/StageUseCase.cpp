@@ -33,27 +33,25 @@ namespace abyss
 		auto store = m_stageData.load(path);
 		this->onLoadStageFile().notify(store.get());
 	}
-	s3d::Optional<RoomModel> StageUseCase::init(WorldUseCase& world)
+	s3d::Optional<RoomModel> StageUseCase::findRoom(const Vec2& pos)
+	{
+		return ::GetNextRoom(pos, m_stageData.getRooms());
+	}
+	bool StageUseCase::init(WorldUseCase& world, const RoomModel& nextRoom)
 	{
 		world.createObject<PlayerModel>();
 		//
 		world.getPlayer()->setPos({ 480, 2000 });
-		return this->initRoom(world);
+		return this->initRoom(world, nextRoom);
 	}
-	s3d::Optional<RoomModel> StageUseCase::initRoom(WorldUseCase& world)
-	{
-		Vec2 pos = world.getPlayer()->getPos();
-		auto nextRoom = ::GetNextRoom(pos, m_stageData.getRooms());
-		if (!nextRoom) {
-			return s3d::none;
-		}
-		
+	bool StageUseCase::initRoom(WorldUseCase& world, const RoomModel& nextRoom)
+	{		
 		// 登録オブジェクトのリセット
 		world.reset();
 
 		MapTranslator mapTranslator;
 		for (const auto& map : m_stageData.getMaps()) {
-			if (!nextRoom->getRegion().intersects(map.pos)) {
+			if (!nextRoom.getRegion().intersects(map.pos)) {
 				continue;
 			}
 			if (auto obj = mapTranslator.create(map)) {
@@ -62,7 +60,7 @@ namespace abyss
 		}
 		DoorTranslator doorTranslator;
 		for (const auto& door : m_stageData.getDoors()) {
-			if(!nextRoom->getRegion().intersects(door.pos)){
+			if(!nextRoom.getRegion().intersects(door.pos)){
 				continue;
 			}
 			if (auto && toRoom = ::GetNextRoom(door.targetPos, m_stageData.getRooms())) {
@@ -72,6 +70,6 @@ namespace abyss
 			}
 		}
 
-		return nextRoom;
+		return true;
 	}
 }

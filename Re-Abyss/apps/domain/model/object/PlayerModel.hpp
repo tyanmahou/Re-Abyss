@@ -71,7 +71,7 @@ namespace abyss
 	{
 		// class Action;
 	public:
-		enum class Motation
+		enum class Motion
 		{
 			Stay,
 			Swim,
@@ -85,12 +85,10 @@ namespace abyss
 			Shoting
 		};
 
-
-
 	private:
 		Physics m_body;
 		int32 m_hp;
-		Motation m_motation;
+		Motion m_motion;
 
 		int32 m_charge;
 		LadderState m_ladderState;
@@ -102,7 +100,6 @@ namespace abyss
 	public:
 		PlayerModel();
 		void update(double dt) override;
-		void draw() const override;
 		Shape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
 		void onCollisionStay(FloorModel* col);
@@ -113,7 +110,8 @@ namespace abyss
 		const Vec2& getPos() const;
 		const Vec2& getVellocity() const;
 
-		Motation getMotion() const;
+		void setMotion(Motion motion);
+		Motion getMotion() const;
 		Forward getForward() const;
 
 		int32 getCharge() const;

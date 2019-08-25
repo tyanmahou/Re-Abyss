@@ -27,9 +27,21 @@ namespace abyss
 		{
 			return m_id;
 		}
-		virtual void start() {};
-		virtual void update(double /*dt*/) {};
-		virtual void draw()const {};
-		virtual bool isDelete() const { return false; };
+		virtual void start() {}
+		virtual void update(double /*dt*/) {}
+		virtual void draw()const {}
+
+		void setActive(bool active) 
+		{
+			m_isActive = active;
+		}
+		void destroy()
+		{
+			this->setActive(false);
+		}
+		bool isDelete() const
+		{ 
+			return !m_isActive;
+		}
 	};
 }

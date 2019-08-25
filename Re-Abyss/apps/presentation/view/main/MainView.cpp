@@ -3,9 +3,9 @@
 
 namespace abyss
 {
-	const IWorldObjectViewFactory* MainView::getFactory() const
+	const IMainViewFactory* MainView::getFactory() const
 	{
-		return &m_worldObjViewFactory;
+		return &m_viewFactory;
 	}
 	void MainView::createCameraView(const CameraModel& pCamera)
 	{
@@ -14,6 +14,10 @@ namespace abyss
 	void MainView::setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)
 	{
 		m_cameraWorkView = std::move(view);
+	}
+	MainView::MainView():
+		m_viewFactory(this)
+	{
 	}
 	void MainView::addBackGroundView(const BackGroundVM& bg)
 	{
@@ -71,51 +75,8 @@ namespace abyss
 			}
 		}
 	}
+	CameraView* MainView::getCameraView() const
+	{
+		return m_cameraView.get();
+	}
 }
-
-//
-//namespace abyss
-//{
-
-
-//
-//	void MainSceneView::draw() const
-//	{
-//		const auto& camera = m_pModel->getCamera();
-//		auto cameraPos = camera.getPos();
-//		RectF rect = camera.screenRegion();
-//
-//		// in camera
-//		{
-//			auto t2d = camera.getTransformer();
-//			// BG
-//			{
-//				abyss::ScopedRenderStates2D state(YClamp);
-//				for (const auto& bg : m_pModel->getBgs()) {
-//					bg.draw(cameraPos);
-//				}
-//			}
-//			m_tiledMap.drawLayer(L"back", rect);
-//
-//			// dead line
-//			camera.drawDeathLine();
-//
-//			m_tiledMap.drawLayer(L"map", rect);
-//			m_tiledMap.drawLayer(L"door", rect);
-//
-//			// world;
-//			m_pModel->getWorld().draw();
-//
-//			m_tiledMap.drawLayer(L"front", rect);
-//			// bubble
-//			{
-//				abyss::ScopedRenderStates2D state(BlendState::Additive);
-//
-//				m_bubbleGenerator.update();
-//			}
-//
-//			camera.drawCameraWork();
-//		}
-//		// UI
-//	}
-//}

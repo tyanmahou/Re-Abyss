@@ -11,7 +11,10 @@ namespace abyss
 	template<class Ret, class... Args>
 	class Observable<Ret(Args...)>
 	{
-		std::function<Ret(Args...)> m_event;
+	public:
+		using value_type = std::function<Ret(Args...)>;
+	private:
+		value_type m_event;
 
 	public:
 		void subscribe(std::function<Ret(Args...)> callback)
@@ -35,7 +38,10 @@ namespace abyss
 	template<class... Args>
 	class Observable<void(Args...)>
 	{
-		std::function<void(Args...)> m_event;
+	public:
+		using value_type = std::function<void(Args...)>;
+	private:
+		value_type m_event;
 
 	public:
 		void subscribe(std::function<void(Args...)> callback)

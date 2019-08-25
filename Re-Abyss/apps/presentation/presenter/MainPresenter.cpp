@@ -2,6 +2,7 @@
 
 #include "../../domain/model/object/PlayerModel.hpp"
 #include "../../domain/model/object/PlayerShotModel.hpp"
+#include <domain/model/object/DoorModel.hpp>
 #include "../view/main/MainView.hpp"
 #include "../view/main/object/PlayerView.hpp"
 
@@ -40,25 +41,44 @@ namespace abyss
 
 		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerModel> & model) {
 			::NotifyCreateObject<PlayerModel>(this->m_view, model);
-		});
+			});
 		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerShotModel> & model) {
 			::NotifyCreateObject<PlayerShotModel>(this->m_view, model);
-		});
+			});
 
-		auto onNextRoom = [&](CameraUseCase * camera) {
-			if (auto next = m_stageUseCase.initRoom(m_worldUseCase)) {
-				Vec2 pos = m_worldUseCase.getPlayer()->getPos();
-				camera->startCameraWork(*next, pos);
+		auto onIntoDoor = [&](PlayerModel * player, DoorModel * doorModel) {
+			auto fadeInCallback = [player]() {
+				player->setMotion(PlayerModel::Motion::Stay);
+			};
+			m_cameraUseCase.startDoorCameraWork(*doorModel, player->getPos(), fadeInCallback);
+		};
+		m_worldUseCase.onIntoDoor().subscribe(onIntoDoor);
+
+		auto onOutSideRoom = [&](const Vec2 & pos) {
+			if (auto next = m_stageUseCase.findRoom(pos)) {
+				m_cameraUseCase.startCameraWork(*next, pos);
 			}
 		};
-		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
+		m_cameraUseCase.onOutSideRoom().subscribe(onOutSideRoom);
+		auto onNextRoom = [&](const RoomModel & room) {
+			m_stageUseCase.initRoom(m_worldUseCase, room);
+			//Vec2 pos = m_worldUseCase.getPlayer()->getPos();
 
+		};
+		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
+		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork> & work) {
+			auto view = m_view->getFactory()->createViewFromModel(work);
+			m_view->setCameraWorkView(std::move(view));
+		};
+		m_cameraUseCase.onStartDoorCameraWork().subscribe(onStartDoorCameraWork);
 		// init
 		m_stageUseCase.load(L"work/stage0/stage0.tmx");
-		if (auto room = m_stageUseCase.init(m_worldUseCase)){
+		if (auto room = m_stageUseCase.findRoom({ 480, 2000 })) {
+			m_stageUseCase.init(m_worldUseCase, *room);
 			m_cameraUseCase.setRoom(*room);
 		}
 		m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());
+		m_worldUseCase.setCamera(&m_cameraUseCase);
 
 		m_view->createCameraView(m_cameraUseCase.getCamera());
 	}

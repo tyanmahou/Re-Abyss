@@ -91,10 +91,6 @@ namespace abyss
 		}
 	}
 
-	bool PlayerShotModel::isDelete() const
-	{
-		return !m_isActive;
-	}
 	s3d::Circle PlayerShotModel::getColliderCircle() const
 	{
 		return s3d::Circle(m_body.pos, ::TypeToR(m_type));
