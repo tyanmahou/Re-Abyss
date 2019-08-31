@@ -792,5 +792,11 @@
     <ClInclude Include="apps\presentation\view\main\object\SlimeView.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="apps\domain\model\object\WorldVisiter.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\application\util\Visitor.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
