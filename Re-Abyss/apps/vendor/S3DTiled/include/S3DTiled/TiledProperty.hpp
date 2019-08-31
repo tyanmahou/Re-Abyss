@@ -30,6 +30,8 @@ namespace s3dTiled
 				s3d::int32 i;
 				s3d::String* str;
 			}m_storage;
+
+			void reset(Type type);
 		public:
 			TiledProperty();
 			TiledProperty(const TiledProperty& other);

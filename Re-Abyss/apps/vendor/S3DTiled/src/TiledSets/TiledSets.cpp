@@ -22,7 +22,7 @@ namespace s3dTiled
 			// gIdからtilesetへのマッピングを作成
 			const auto& last = m_tileSets.back();
 			for (TileId id = 0; id < last->getTileCount(); ++id) {
-				m_gIdTileIndexMap[last->getFirstGId() + id] = m_tileSets.size() - 1;
+				m_gIdTileIndexMap[last->getFirstGId() + id] = static_cast<s3d::uint32>(m_tileSets.size()) - 1;
 			}
 		}
 

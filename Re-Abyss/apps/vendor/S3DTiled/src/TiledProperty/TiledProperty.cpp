@@ -118,14 +118,28 @@ namespace s3dTiled
 		}
 		this->m_type = Type::None;
 	}
+	void TiledProperty::reset(Type type)
+	{
+		if (m_type == type) {
+			return;
+		}
+		this->clear();
+		switch (type)
+		{
+		case s3dTiled::TiledProperty::Type::String:
+			m_storage.str = new String();
+			break;
+		default:
+			break;
+		}
+		m_type = type;
+	}
 	TiledProperty& TiledProperty::operator=(const TiledProperty & other)
 	{
 		if (this == &other) {
 			return *this;
 		}
-		if (this->m_type != other.m_type) {
-			this->clear();
-		}
+		this->reset(other.m_type);
 
 		switch (other.m_type)
 		{
@@ -150,7 +164,6 @@ namespace s3dTiled
 		default:
 			break;
 		}
-		this->m_type = other.m_type;
 		return *this;
 	}
 	TiledProperty& TiledProperty::operator=(TiledProperty && other)

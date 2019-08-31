@@ -91,7 +91,7 @@ namespace abyss
 		{
 			auto gId = *obj.gId;
 			EnemyEntity e;
-			e.type = EnemyType::Slime;// toType(m_tiledMap.getTileProperty(gId, L"type").value_or(L"none"));
+			e.type = toType(m_tiledMap.getTileProperty(gId, L"type").value_or(s3d::String(L"none")));
 			Vec2 size = m_tiledMap.getTile(gId).size;
 			e.pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
 			return e;
