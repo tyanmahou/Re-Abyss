@@ -13,8 +13,10 @@ namespace abyss
 		s3d::Ellipse,
 		s3d::Vec2
 	>;
-
-	struct Shape : ShapeVariant
+	/// <summary>
+	/// “–‚½‚è”»’è‚ÉŽg—p‚·‚éŒ^
+	/// </summary>
+	struct CShape : ShapeVariant
 	{
 		using ShapeVariant::variant;
 	};

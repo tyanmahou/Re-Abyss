@@ -346,7 +346,7 @@
     <ClInclude Include="apps\application\common\Application.hpp" />
     <ClInclude Include="apps\application\common\Constants.hpp" />
     <ClInclude Include="apps\application\common\Game.hpp" />
-    <ClInclude Include="apps\application\types\Shape.hpp" />
+    <ClInclude Include="apps\application\types\CShape.hpp" />
     <ClInclude Include="apps\application\util\Observable.hpp" />
     <ClInclude Include="apps\application\util\Visitor.hpp" />
     <ClInclude Include="apps\data\datastore\parser\MapEntityParser.hpp" />

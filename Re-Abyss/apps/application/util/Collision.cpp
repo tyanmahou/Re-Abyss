@@ -1,4 +1,5 @@
 #include "Collision.hpp"
+#include "../types/CShape.hpp"
 
 #include <Siv3D.hpp>
 
@@ -11,6 +12,8 @@ namespace {
 	template<class T, class U>
 	struct has_intersects<T, U, std::void_t<decltype(s3d::Geometry2D::Intersect(std::declval<T&>(), std::declval<U&>()))>> : std::true_type
 	{};
+	template<class T, class U>
+	constexpr bool has_intersects_v = has_intersects<T, U>::value;
 
 	template<class T, class U>
 	auto FailSafeIntersects(const T& a, const U& b)->std::enable_if_t<has_intersects<T, U>::value, bool>
@@ -30,20 +33,20 @@ namespace {
 	{
 		switch (b.type())
 		{
-		case Shape::Type::Point:       return FailSafeIntersects(a, b.storage.point);
-		case Shape::Type::Vec2:        return FailSafeIntersects(a, b.storage.vec2);
-		case Shape::Type::LineInt:     return FailSafeIntersects(a, b.storage.lineInt);
-		case Shape::Type::Line:        return FailSafeIntersects(a, b.storage.line);
-		case Shape::Type::Rect:        return FailSafeIntersects(a, b.storage.rect);
-		case Shape::Type::RectF:       return FailSafeIntersects(a, b.storage.rectF);
-		case Shape::Type::Circle:      return FailSafeIntersects(a, b.storage.circle);
-		case Shape::Type::Ellipse:     return FailSafeIntersects(a, b.storage.ellipse);
-		case Shape::Type::Triangle:    return FailSafeIntersects(a, b.storage.triangle);
-		case Shape::Type::Quad:        return FailSafeIntersects(a, *b.storage.quad);
-		case Shape::Type::RoundRect:   return FailSafeIntersects(a, b.storage.roundRect);
-		case Shape::Type::LineString:  return FailSafeIntersects(a, *b.storage.lineString);
-		case Shape::Type::Polygon:	   return FailSafeIntersects(a, *b.storage.polygon);
-		case Shape::Type::MultiPolygon:return FailSafeIntersects(a, *b.storage.multiPolygon);
+		case s3d::Shape::Type::Point:       return FailSafeIntersects(a, b.storage.point);
+		case s3d::Shape::Type::Vec2:        return FailSafeIntersects(a, b.storage.vec2);
+		case s3d::Shape::Type::LineInt:     return FailSafeIntersects(a, b.storage.lineInt);
+		case s3d::Shape::Type::Line:        return FailSafeIntersects(a, b.storage.line);
+		case s3d::Shape::Type::Rect:        return FailSafeIntersects(a, b.storage.rect);
+		case s3d::Shape::Type::RectF:       return FailSafeIntersects(a, b.storage.rectF);
+		case s3d::Shape::Type::Circle:      return FailSafeIntersects(a, b.storage.circle);
+		case s3d::Shape::Type::Ellipse:     return FailSafeIntersects(a, b.storage.ellipse);
+		case s3d::Shape::Type::Triangle:    return FailSafeIntersects(a, b.storage.triangle);
+		case s3d::Shape::Type::Quad:        return FailSafeIntersects(a, *b.storage.quad);
+		case s3d::Shape::Type::RoundRect:   return FailSafeIntersects(a, b.storage.roundRect);
+		case s3d::Shape::Type::LineString:  return FailSafeIntersects(a, *b.storage.lineString);
+		case s3d::Shape::Type::Polygon:	   return FailSafeIntersects(a, *b.storage.polygon);
+		case s3d::Shape::Type::MultiPolygon:return FailSafeIntersects(a, *b.storage.multiPolygon);
 		default:
 			break;
 		}
@@ -56,24 +59,32 @@ namespace abyss
 	{
 		switch (a.type())
 		{
-		case Shape::Type::Point:       return IntersectsShape(a.storage.point, b);
-		case Shape::Type::Vec2:        return IntersectsShape(a.storage.vec2, b);
-		case Shape::Type::LineInt:     return IntersectsShape(a.storage.lineInt, b);
-		case Shape::Type::Line:        return IntersectsShape(a.storage.line, b);
-		case Shape::Type::Rect:        return IntersectsShape(a.storage.rect, b);
-		case Shape::Type::RectF:       return IntersectsShape(a.storage.rectF, b);
-		case Shape::Type::Circle:      return IntersectsShape(a.storage.circle, b);
-		case Shape::Type::Ellipse:     return IntersectsShape(a.storage.ellipse, b);
-		case Shape::Type::Triangle:    return IntersectsShape(a.storage.triangle, b);
-		case Shape::Type::Quad:        return IntersectsShape(*a.storage.quad, b);
-		case Shape::Type::RoundRect:   return IntersectsShape(a.storage.roundRect, b);
-		case Shape::Type::LineString:  return IntersectsShape(*a.storage.lineString, b);
-		case Shape::Type::Polygon:     return IntersectsShape(*a.storage.polygon, b);
-		case Shape::Type::MultiPolygon:return IntersectsShape(*a.storage.multiPolygon, b);
+		case s3d::Shape::Type::Point:       return IntersectsShape(a.storage.point, b);
+		case s3d::Shape::Type::Vec2:        return IntersectsShape(a.storage.vec2, b);
+		case s3d::Shape::Type::LineInt:     return IntersectsShape(a.storage.lineInt, b);
+		case s3d::Shape::Type::Line:        return IntersectsShape(a.storage.line, b);
+		case s3d::Shape::Type::Rect:        return IntersectsShape(a.storage.rect, b);
+		case s3d::Shape::Type::RectF:       return IntersectsShape(a.storage.rectF, b);
+		case s3d::Shape::Type::Circle:      return IntersectsShape(a.storage.circle, b);
+		case s3d::Shape::Type::Ellipse:     return IntersectsShape(a.storage.ellipse, b);
+		case s3d::Shape::Type::Triangle:    return IntersectsShape(a.storage.triangle, b);
+		case s3d::Shape::Type::Quad:        return IntersectsShape(*a.storage.quad, b);
+		case s3d::Shape::Type::RoundRect:   return IntersectsShape(a.storage.roundRect, b);
+		case s3d::Shape::Type::LineString:  return IntersectsShape(*a.storage.lineString, b);
+		case s3d::Shape::Type::Polygon:     return IntersectsShape(*a.storage.polygon, b);
+		case s3d::Shape::Type::MultiPolygon:return IntersectsShape(*a.storage.multiPolygon, b);
 		default:
 			break;
 		}
 		return false;
+	}
+	bool Intersects(const CShape& a, const CShape& b)
+	{
+		std::visit([](const auto& a, const auto& b) {
+			if constexpr (has_intersects_v<decltype(a), decltype(b)>) {
+				s3d::Geometry2D::Intersect(a, b);
+			}
+		}, a, b);
 	}
 	std::pair<s3d::Vec2, s3d::uint8> collision::Collision(const s3d::RectF& rect, const s3d::Ellipse& ellipse, s3d::uint8 col)
 	{

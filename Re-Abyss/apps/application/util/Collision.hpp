@@ -5,6 +5,10 @@ namespace abyss
 {
 	bool Intersects(const s3d::Shape& a, const s3d::Shape& b);
 
+	struct CShape;
+
+	bool Intersects(const CShape& a, const CShape& b);
+
 	using ColDirection = s3d::uint8;
 	namespace collision
 	{
