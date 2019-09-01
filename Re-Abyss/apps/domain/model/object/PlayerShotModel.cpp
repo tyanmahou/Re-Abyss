@@ -56,9 +56,9 @@ namespace abyss
 		}
 	}
 
-	s3d::Shape PlayerShotModel::getCollider() const
+	CShape PlayerShotModel::getCollider() const
 	{
-		return static_cast<s3d::Shape>(this->getColliderCircle());
+		return this->getColliderCircle();
 	}
 
 	void PlayerShotModel::onCollisionStay(ICollider* col)

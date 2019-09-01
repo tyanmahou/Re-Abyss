@@ -23,8 +23,8 @@ namespace abyss
 		return s3d::RectF{ m_pos - m_size / 2, m_size };
 	}
 
-	s3d::Shape MapModel::getCollider() const
+	CShape MapModel::getCollider() const
 	{
-		return static_cast<s3d::Shape>(this->region());
+		return this->region();
 	}
 }

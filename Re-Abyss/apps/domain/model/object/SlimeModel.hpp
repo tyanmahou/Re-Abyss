@@ -30,7 +30,7 @@ namespace abyss
 		void onCollisionEnter(ICollider* col) override;
 		void onCollisionStay(ICollider* col) override;
 
-		s3d::Shape getCollider() const override;
+		CShape getCollider() const override;
 		s3d::RectF region()const;
 		Motion getMotion()const;
 

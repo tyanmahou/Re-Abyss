@@ -16,7 +16,7 @@ namespace abyss
 
 	public:
 		DoorModel(const DoorEntity& entity, const RoomModel& nextRoom);
-		s3d::Shape getCollider() const override;
+		CShape getCollider() const override;
 
 		const RoomModel& getNextRoom() const;
 		const s3d::Vec2& getPos() const;

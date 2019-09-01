@@ -21,7 +21,7 @@ namespace abyss
 		PlayerShotModel(const s3d::Vec2& pos, Forward forward, s3d::int32 charge);
 		void start() override;
 		void update(double dt) override;
-		s3d::Shape getCollider() const override;
+		CShape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
 
 		s3d::Circle getColliderCircle() const;

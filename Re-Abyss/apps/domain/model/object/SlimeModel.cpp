@@ -38,9 +38,9 @@ namespace abyss
 
 			m_onCollision = false;
 		}
-		s3d::Shape getCollider() const override
+		CShape getCollider() const override
 		{
-			return static_cast<s3d::Shape>(m_pos);
+			return m_pos;
 		}
 
 		void onCollisionStay(ICollider* col) override
@@ -135,9 +135,9 @@ namespace abyss
 		}
 	}
 
-	s3d::Shape SlimeModel::getCollider() const
+	CShape SlimeModel::getCollider() const
 	{
-		return static_cast<s3d::Shape>(this->region());
+		return this->region();
 	}
 
 	s3d::RectF SlimeModel::region() const

@@ -17,6 +17,6 @@ namespace abyss
 		const s3d::Vec2& getPos() const;
 		ColDirection getCol() const;
 		s3d::RectF region() const;
-		s3d::Shape getCollider() const override;
+		CShape getCollider() const override;
 	};
 }

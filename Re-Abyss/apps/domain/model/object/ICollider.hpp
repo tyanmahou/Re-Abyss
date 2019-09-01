@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/String.hpp>
-#include <Siv3D/Shape.hpp>
+#include <application/types/CShape.hpp>
 
 namespace abyss
 {
@@ -11,7 +11,7 @@ namespace abyss
 		s3d::String layer;
 	public:
 
-		virtual s3d::Shape getCollider() const = 0;
+		virtual CShape getCollider() const = 0;
 
 		virtual void onCollisionEnter(ICollider*);
 		virtual void onCollisionStay(ICollider*);

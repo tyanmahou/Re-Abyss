@@ -100,7 +100,7 @@ namespace abyss
 	public:
 		PlayerModel();
 		void update(double dt) override;
-		Shape getCollider() const override;
+		CShape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
 		void onCollisionStay(FloorModel* col);
 		void onCollisionStay(LadderModel* col);

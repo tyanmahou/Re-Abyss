@@ -80,9 +80,12 @@ namespace abyss
 	}
 	bool Intersects(const CShape& a, const CShape& b)
 	{
-		std::visit([](const auto& a, const auto& b) {
+		return std::visit([](const auto& a, const auto& b) {
 			if constexpr (has_intersects_v<decltype(a), decltype(b)>) {
-				s3d::Geometry2D::Intersect(a, b);
+				return s3d::Geometry2D::Intersect(a, b);
+			}
+			else {
+				return false;
 			}
 		}, a, b);
 	}

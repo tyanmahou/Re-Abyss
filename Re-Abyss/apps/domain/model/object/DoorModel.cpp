@@ -12,9 +12,9 @@ namespace abyss
 	{
 		this->tag = L"door";
 	}
-	s3d::Shape DoorModel::getCollider() const
+	CShape DoorModel::getCollider() const
 	{
-		return static_cast<s3d::Shape>(Circle(m_pos, 10));
+		return Circle(m_pos, 10);
 	}
 	const RoomModel& DoorModel::getNextRoom() const
 	{

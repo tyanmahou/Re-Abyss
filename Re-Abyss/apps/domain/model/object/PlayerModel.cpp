@@ -188,9 +188,9 @@ namespace abyss
 		return m_charge;
 	}
 
-	Shape PlayerModel::getCollider() const
+	CShape PlayerModel::getCollider() const
 	{
-		return static_cast<Shape>(this->region());
+		return this->region();
 	}
 
 	ColDirection PlayerModel::collisionAndUpdateMotation(const RectF& region, ColDirection col)
