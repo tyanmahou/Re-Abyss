@@ -41,13 +41,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -117,6 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -156,6 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -342,6 +344,7 @@
     <ClInclude Include="apps\application\common\Application.hpp" />
     <ClInclude Include="apps\application\common\Constants.hpp" />
     <ClInclude Include="apps\application\common\Game.hpp" />
+    <ClInclude Include="apps\application\types\Shape.hpp" />
     <ClInclude Include="apps\application\util\Observable.hpp" />
     <ClInclude Include="apps\application\util\Visitor.hpp" />
     <ClInclude Include="apps\data\datastore\parser\MapEntityParser.hpp" />
@@ -354,8 +357,8 @@
     <ClInclude Include="apps\domain\model\CameraWork.hpp" />
     <ClInclude Include="apps\domain\model\object\EnemyModel.hpp" />
     <ClInclude Include="apps\domain\model\object\MapModel.hpp" />
-    <ClInclude Include="apps\domain\model\object\WorldVisiter.hpp" />
     <ClInclude Include="apps\domain\model\object\SlimeModel.hpp" />
+    <ClInclude Include="apps\domain\visitor\WorldVisitor.hpp" />
     <ClInclude Include="apps\domain\repository\StageRepository.hpp" />
     <ClInclude Include="apps\domain\translator\DoorTranslator.hpp" />
     <ClInclude Include="apps\domain\translator\EnemyTranslator.hpp" />

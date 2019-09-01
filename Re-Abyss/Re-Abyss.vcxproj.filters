@@ -792,10 +792,13 @@
     <ClInclude Include="apps\presentation\view\main\object\SlimeView.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="apps\domain\model\object\WorldVisiter.hpp">
+    <ClInclude Include="apps\application\util\Visitor.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="apps\application\util\Visitor.hpp">
+    <ClInclude Include="apps\domain\visitor\WorldVisitor.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\application\types\Shape.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
