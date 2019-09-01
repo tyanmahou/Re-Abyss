@@ -174,10 +174,12 @@
     <ClCompile Include="apps\domain\model\object\MapModel.cpp" />
     <ClCompile Include="apps\domain\model\object\SlimeModel.cpp" />
     <ClCompile Include="apps\domain\model\object\WorldObject.cpp" />
+    <ClCompile Include="apps\domain\model\WorldModel.cpp" />
     <ClCompile Include="apps\domain\repository\StageRepository.cpp" />
     <ClCompile Include="apps\domain\translator\EnemyTranslator.cpp" />
     <ClCompile Include="apps\domain\translator\RoomTranslator.cpp" />
     <ClCompile Include="apps\domain\usecase\CameraUseCase.cpp" />
+    <ClCompile Include="apps\domain\usecase\CollisionUseCase.cpp" />
     <ClCompile Include="apps\domain\usecase\StageUseCase.cpp" />
     <ClCompile Include="apps\Main.cpp" />
     <ClCompile Include="apps\application\common\AbyssDream.cpp" />
@@ -201,6 +203,7 @@
     <ClCompile Include="apps\application\util\TexturePacker.cpp" />
     <ClCompile Include="apps\application\util\TimeUtil.cpp" />
     <ClCompile Include="apps\presentation\presenter\MainPresenter.cpp" />
+    <ClCompile Include="apps\presentation\presenter\WorldPresenter.cpp" />
     <ClCompile Include="apps\presentation\view\main\BackGroundView.cpp" />
     <ClCompile Include="apps\presentation\view\main\BubbleGenerator.cpp" />
     <ClCompile Include="apps\presentation\view\main\CameraView.cpp" />
@@ -360,6 +363,8 @@
     <ClInclude Include="apps\domain\model\object\EnemyModel.hpp" />
     <ClInclude Include="apps\domain\model\object\MapModel.hpp" />
     <ClInclude Include="apps\domain\model\object\SlimeModel.hpp" />
+    <ClInclude Include="apps\domain\model\WorldModel.hpp" />
+    <ClInclude Include="apps\domain\usecase\CollisionUseCase.hpp" />
     <ClInclude Include="apps\domain\visitor\ViewVisitor.hpp" />
     <ClInclude Include="apps\domain\visitor\WorldVisitor.hpp" />
     <ClInclude Include="apps\domain\repository\StageRepository.hpp" />
@@ -399,6 +404,7 @@
     <ClInclude Include="apps\application\util\TypeTraits.hpp" />
     <ClInclude Include="apps\domain\usecase\WorldObservable.hpp" />
     <ClInclude Include="apps\presentation\presenter\MainPresenter.hpp" />
+    <ClInclude Include="apps\presentation\presenter\WorldPresenter.hpp" />
     <ClInclude Include="apps\presentation\view\IView.hpp" />
     <ClInclude Include="apps\presentation\view\main\BackGroundView.hpp" />
     <ClInclude Include="apps\presentation\view\main\BubbleGenerator.hpp" />

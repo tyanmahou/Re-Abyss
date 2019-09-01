@@ -3,9 +3,9 @@
 
 namespace abyss
 {
-	const IMainViewFactory* MainView::getFactory() const
+	const MainViewFactory& MainView::getFactory() const
 	{
-		return &m_viewFactory;
+		return m_viewFactory;
 	}
 	void MainView::createCameraView(const CameraModel& pCamera)
 	{

@@ -23,7 +23,7 @@ namespace abyss
 		virtual void addBackGroundView(const BackGroundVM& bg) = 0;
 		virtual void addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)>) = 0;
 		virtual void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) = 0;
-		virtual const IMainViewFactory* getFactory()const = 0;
+		virtual const MainViewFactory& getFactory()const = 0;
 
 		virtual void createCameraView(const CameraModel& pCamera) = 0;
 		virtual void setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view) = 0;
@@ -49,7 +49,7 @@ namespace abyss
 		void addBackGroundView(const BackGroundVM& bg)override;
 		void addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)> view)override;
 		void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) override;
-		const IMainViewFactory* getFactory()const override;
+		const MainViewFactory& getFactory()const override;
 		void createCameraView(const CameraModel& pCamera)override;
 		void setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)override;
 

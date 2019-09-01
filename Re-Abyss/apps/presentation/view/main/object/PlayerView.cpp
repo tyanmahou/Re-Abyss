@@ -3,6 +3,7 @@
 #include "../../../application/common/Constants.hpp"
 #include "../../../application/util/Periodic.hpp"
 
+
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -105,7 +106,7 @@ namespace abyss
 			Graphics2D::SetBlendState(BlendState::Default);
 		}
 	}
-	PlayerView::PlayerView(std::shared_ptr<PlayerModel> pPlayer):
+	PlayerView::PlayerView(std::shared_ptr<PlayerModel> pPlayer) :
 		m_texture(L"work/player/player.json"),
 		m_pPlayer(pPlayer)
 	{}
@@ -121,5 +122,4 @@ namespace abyss
 	{
 		return m_pPlayer.expired();
 	}
-
 }

@@ -5,6 +5,7 @@
 
 #include <presentation/view/main/MainView.hpp>
 #include <presentation/view/main/object/PlayerView.hpp>
+#include <presentation/view/main/object/SlimeView.hpp>
 
 #include <data/datastore/StageDataStore.hpp>
 
@@ -26,20 +27,12 @@ namespace abyss
 		};
 		m_stageUseCase.onLoadStageFile().subscribe(onLoadStageFile);
 
-		auto onCreateObject = [this](std::shared_ptr<WorldObject> obj)
-		{
-			obj->accept([=](const auto& model) {
-				using T = std::decay_t<decltype(model)>;
-				//auto m = std::dynamic_pointer_cast<T>(obj);
-				//if (!m) {
-				//	return;
-				//}
-				//if (auto objView = m_view->getFactory()->createViewFromModel(m)) {
-				//	m_view->addWorldObjectView(std::move(objView));
-				//}
-			});
+		auto onCreateObject = [this](const auto& model) {
+			if (auto view = m_view->getFactory().createFromModel(model)) {
+				m_view->addWorldObjectView(std::move(view));
+			}
 		};
-		m_worldUseCase.onCreateObject().subscribe(onCreateObject);
+		m_worldUseCase.subsucrimeCreateObject(std::move(onCreateObject));
 
 		auto onIntoDoor = [&](PlayerModel* player, const DoorModel& doorModel) {
 			auto fadeInCallback = [player]() {
@@ -62,7 +55,7 @@ namespace abyss
 		};
 		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
 		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork>& work) {
-			auto view = m_view->getFactory()->createViewFromModel(work);
+			auto view = m_view->getFactory().createFromCameraWork(work);
 			m_view->setCameraWorkView(std::move(view));
 		};
 		m_cameraUseCase.onStartDoorCameraWork().subscribe(onStartDoorCameraWork);

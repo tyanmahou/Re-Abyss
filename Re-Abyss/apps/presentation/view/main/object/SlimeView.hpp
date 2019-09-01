@@ -1,5 +1,6 @@
 #pragma once
 #include "IWorldObjectView.hpp"
+#include "../MainViewFactory.hpp"
 #include <Siv3D/Texture.hpp>
 
 namespace abyss

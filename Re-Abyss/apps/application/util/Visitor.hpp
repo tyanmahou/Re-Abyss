@@ -78,7 +78,7 @@ namespace abyss
 
 		std::unique_ptr<_base> m_storage;
 	public:
-
+		Visitor() = default;
 		template<class F>
 		Visitor(F&& f) :
 			m_storage(std::make_unique<_func<F>>(std::forward<F>(f)))
@@ -89,5 +89,14 @@ namespace abyss
 		{
 			return m_storage->visit(std::forward<Arg>(arg));
 		}
+
+		Visitor& operator =(Visitor&& other)
+		{
+			m_storage = std::move(other.m_storage);
+			return *this;
+		}
 	};
+
+	template<class ...Accepter>
+	using ConstVisitor = Visitor<const Accepter...>;
 }

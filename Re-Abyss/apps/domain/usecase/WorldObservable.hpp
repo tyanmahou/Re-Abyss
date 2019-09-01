@@ -5,6 +5,9 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Array.hpp>
 #include <domain/model/object/DoorModel.hpp>
+
+#include <domain/visitor/ViewVisitor.hpp>
+
 namespace abyss
 {
 	class WorldObject;
@@ -18,7 +21,7 @@ namespace abyss
 
 	private:
 		Observable<void(PlayerModel*, const DoorModel&)> m_onIntoDoor;
-		Observable<void(std::shared_ptr<WorldObject>)> m_onCreateObject;
+		ViewVisitor m_onCreateObject;
 	public:
 		inline Observable<void(PlayerModel*, const DoorModel&)>& onIntoDoor()
 		{
@@ -29,13 +32,14 @@ namespace abyss
 			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
 		}
 
-		inline Observable<void(std::shared_ptr<WorldObject>)>& onCreateObject()
+		inline void subsucrimeCreateObject(ViewVisitor&& visiter)
 		{
-			return m_onCreateObject;
+			m_onCreateObject = std::move(visiter);
 		}
-		inline void notifyCreateObject(std::shared_ptr<WorldObject> obj)
+		template<class T>
+		inline void notifyCreateObject(const std::shared_ptr<T>& obj)
 		{
-			m_eventTriggers.push_back([=]() {m_onCreateObject.notify(obj); });
+			m_eventTriggers.push_back([=]() {m_onCreateObject.visit(obj); });
 		}
 	};
 }
