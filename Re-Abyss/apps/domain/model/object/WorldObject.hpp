@@ -44,6 +44,6 @@ namespace abyss
 			return !m_isActive;
 		}
 
-		virtual void accept(const WorldVisitor& visitor);
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

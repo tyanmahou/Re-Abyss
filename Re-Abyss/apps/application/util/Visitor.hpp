@@ -43,7 +43,7 @@ namespace abyss
 		template<class F, class Head, class... Tail>
 		struct _func2 : _func2<F, Tail...>
 		{
-			void visit(Head& a) const override
+			void visit([[maybe_unused]] Head& a) const override
 			{
 				if constexpr (std::is_invocable_v<F, Head&>) {
 					return m_func(a);
@@ -60,7 +60,7 @@ namespace abyss
 			_func2(F f) :
 				m_func(f)
 			{}
-			void visit(Last& a) const override
+			void visit([[maybe_unused]] Last& a) const override
 			{
 				if constexpr(std::is_invocable_v<F, Last&>) {
 					return m_func(a);

@@ -216,26 +216,24 @@ namespace abyss
 	}
 	void PlayerModel::onCollisionStay(ICollider* col)
 	{
-		if (col->getTag() == L"floor") {
-			// è∞
-			auto* floor = static_cast<FloorModel*>(col);
-			this->onCollisionStay(floor);
-		}
-		else if (col->getTag() == L"ladder") {
-			// íÚéq
-			auto* ladder = static_cast<LadderModel*>(col);
-			this->onCollisionStay(ladder);
-		}
-		else if (col->getTag() == L"penetrate_floor") {
-			// ä—í è∞
-			auto* floor = static_cast<PenetrateFloorModel*>(col);
-			this->onCollisionStay(floor);
-		}
-		else if (col->getTag() == L"door") {
-			// î‡
-			auto* door = static_cast<DoorModel*>(col);
-			this->onCollisionStay(door);
-		}
+		col->accept(overloaded{
+			[this](FloorModel& floor) {
+				// è∞
+				this->onCollisionStay(&floor);
+			},
+			[this](LadderModel& ladder) {
+				// íÚéq
+				this->onCollisionStay(&ladder);
+			},
+			[this](PenetrateFloorModel& floor) {
+				// ä—í è∞
+				this->onCollisionStay(&floor);
+			},
+			[this](DoorModel& door) {
+				// î‡
+				this->onCollisionStay(&door);
+			}
+		});
 	}
 	void PlayerModel::onCollisionStay(FloorModel* col)
 	{

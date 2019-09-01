@@ -46,9 +46,9 @@ namespace abyss
 
 		void onCollisionStay(ICollider* col) override
 		{
-			if (auto map = dynamic_cast<MapModel*>(col)) {
+			col->accept([this](MapModel&) {
 				m_onCollision = true;
-			}
+			});
 		}
 	};
 	void SlimeModel::onCollision(MapModel* map)
@@ -122,18 +122,16 @@ namespace abyss
 
 	void SlimeModel::onCollisionEnter(ICollider* col)
 	{
-		if (col->getTag() == L"floor" || col->getTag() == L"ladder" || col->getTag() == L"penetrate_floor") {
-			auto* map = static_cast<MapModel*>(col);
-			this->onCollision(map);
-		}
+		col->accept([this](MapModel& map) {
+			this->onCollision(&map);
+		});
 	}
 
 	void SlimeModel::onCollisionStay(ICollider* col)
 	{
-		if (col->getTag() == L"floor" || col->getTag() == L"ladder" || col->getTag() == L"penetrate_floor") {
-			auto* map = static_cast<MapModel*>(col);
-			this->onCollision(map);
-		}
+		col->accept([this](MapModel& map) {
+			this->onCollision(&map);
+		});
 	}
 
 	CShape SlimeModel::getCollider() const
