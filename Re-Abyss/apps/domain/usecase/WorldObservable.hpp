@@ -10,38 +10,15 @@ namespace abyss
 	class WorldObject;
 	class PlayerModel;
 	class DoorModel;
-	class SlimeModel;
-	class PlayerShotModel;
 
 	class WorldObservable
 	{
-		template<class T>
-		using CreateNotify = Observable<void(const std::shared_ptr<T>&)>;
 	protected:
 		s3d::Array<std::function<void()>> m_eventTriggers;
 
-#define OnCreateObject(Type)\
-    private:\
-		CreateNotify<Type> m_onCreate##Type;\
-    public:\
-		inline void subscribe(CreateNotify<Type>::value_type callback)\
-		{\
-			m_onCreate##Type.subscribe(callback);\
-		}\
-		inline void notifyCreateWorldObject(const std::shared_ptr<Type>& obj)\
-		{\
-            m_eventTriggers.push_back([=](){m_onCreate##Type.notify(obj);});\
-		}
-
-		OnCreateObject(WorldObject)
-		OnCreateObject(PlayerModel)
-		OnCreateObject(PlayerShotModel)
-		OnCreateObject(SlimeModel)
-#undef OnCreateObject
-
 	private:
 		Observable<void(PlayerModel*, const DoorModel&)> m_onIntoDoor;
-
+		Observable<void(std::shared_ptr<WorldObject>)> m_onCreateObject;
 	public:
 		inline Observable<void(PlayerModel*, const DoorModel&)>& onIntoDoor()
 		{
@@ -50,6 +27,15 @@ namespace abyss
 		inline void notifyIntoDoor(PlayerModel* player, const DoorModel& door)
 		{
 			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
+		}
+
+		inline Observable<void(std::shared_ptr<WorldObject>)>& onCreateObject()
+		{
+			return m_onCreateObject;
+		}
+		inline void notifyCreateObject(std::shared_ptr<WorldObject> obj)
+		{
+			m_eventTriggers.push_back([=]() {m_onCreateObject.notify(obj); });
 		}
 	};
 }

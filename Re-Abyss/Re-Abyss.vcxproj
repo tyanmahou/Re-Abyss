@@ -360,6 +360,7 @@
     <ClInclude Include="apps\domain\model\object\EnemyModel.hpp" />
     <ClInclude Include="apps\domain\model\object\MapModel.hpp" />
     <ClInclude Include="apps\domain\model\object\SlimeModel.hpp" />
+    <ClInclude Include="apps\domain\visitor\ViewVisitor.hpp" />
     <ClInclude Include="apps\domain\visitor\WorldVisitor.hpp" />
     <ClInclude Include="apps\domain\repository\StageRepository.hpp" />
     <ClInclude Include="apps\domain\translator\DoorTranslator.hpp" />

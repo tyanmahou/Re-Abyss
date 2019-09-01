@@ -807,5 +807,8 @@
     <ClInclude Include="apps\application\types\CShape.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="apps\domain\visitor\ViewVisitor.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -101,7 +101,7 @@ namespace abyss
 	void WorldUseCase::registerObject(const std::shared_ptr<PlayerModel>& obj)
 	{
 		m_playerModel = obj;
-		this->notifyCreateWorldObject(obj);
+		this->notifyCreateObject(obj);
 		this->pushObject(obj);
 	}
 }

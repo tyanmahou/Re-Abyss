@@ -1,34 +1,20 @@
 #include "MainPresenter.hpp"
 
 #include <domain/model/object/PlayerModel.hpp>
-#include <domain/model/object/PlayerShotModel.hpp>
-#include <domain/model/object/SlimeModel.hpp>
-#include <domain/model/object/DoorModel.hpp>
+#include <domain/visitor/WorldVisitor.hpp>
+
 #include <presentation/view/main/MainView.hpp>
 #include <presentation/view/main/object/PlayerView.hpp>
 
 #include <data/datastore/StageDataStore.hpp>
 
-namespace
-{
-	using namespace abyss;
-
-	template<class Type>
-	auto NotifyCreateObject(const std::shared_ptr<IMainView>& view, const std::shared_ptr<Type>& object)
-		->std::enable_if_t<std::is_base_of<WorldObject, Type>::value>
-	{
-		if (auto objView = view->getFactory()->createViewFromModel(object)) {
-			view->addWorldObjectView(std::move(objView));
-		}
-	}
-}
 namespace abyss
 {
 	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
 		m_view(view)
 	{
 		// •`‰æî•ñ‚ðview‚É“n‚·
-		auto onLoadStageFile = [this](IStageDataStore * dataStore) {
+		auto onLoadStageFile = [this](IStageDataStore* dataStore) {
 			// ”wŒi“o˜^
 			for (const auto& bg : dataStore->getBackGroundEntity()) {
 				m_view->addBackGroundView(BackGroundVM(bg));
@@ -40,17 +26,22 @@ namespace abyss
 		};
 		m_stageUseCase.onLoadStageFile().subscribe(onLoadStageFile);
 
-		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerModel> & model) {
-			::NotifyCreateObject<PlayerModel>(this->m_view, model);
+		auto onCreateObject = [this](std::shared_ptr<WorldObject> obj)
+		{
+			obj->accept([=](const auto& model) {
+				using T = std::decay_t<decltype(model)>;
+				//auto m = std::dynamic_pointer_cast<T>(obj);
+				//if (!m) {
+				//	return;
+				//}
+				//if (auto objView = m_view->getFactory()->createViewFromModel(m)) {
+				//	m_view->addWorldObjectView(std::move(objView));
+				//}
 			});
-		m_worldUseCase.subscribe([this](const std::shared_ptr<PlayerShotModel> & model) {
-			::NotifyCreateObject<PlayerShotModel>(this->m_view, model);
-			});
-		m_worldUseCase.subscribe([this](const std::shared_ptr<SlimeModel> & model) {
-			::NotifyCreateObject<SlimeModel>(this->m_view, model);
-		});
+		};
+		m_worldUseCase.onCreateObject().subscribe(onCreateObject);
 
-		auto onIntoDoor = [&](PlayerModel * player, const DoorModel& doorModel) {
+		auto onIntoDoor = [&](PlayerModel* player, const DoorModel& doorModel) {
 			auto fadeInCallback = [player]() {
 				player->setMotion(PlayerModel::Motion::Stay);
 			};
@@ -59,18 +50,18 @@ namespace abyss
 		};
 		m_worldUseCase.onIntoDoor().subscribe(onIntoDoor);
 
-		auto onOutSideRoom = [&](const Vec2 & pos) {
+		auto onOutSideRoom = [&](const Vec2& pos) {
 			if (auto next = m_stageUseCase.findRoom(pos)) {
 				m_worldUseCase.reset();
 				m_cameraUseCase.startCameraWork(*next, pos);
 			}
 		};
 		m_cameraUseCase.onOutSideRoom().subscribe(onOutSideRoom);
-		auto onNextRoom = [&](const RoomModel & room) {
+		auto onNextRoom = [&](const RoomModel& room) {
 			m_stageUseCase.initRoom(m_worldUseCase, room);
 		};
 		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
-		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork> & work) {
+		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork>& work) {
 			auto view = m_view->getFactory()->createViewFromModel(work);
 			m_view->setCameraWorkView(std::move(view));
 		};

@@ -74,7 +74,7 @@ namespace abyss
 				continue;
 			}
 			if (auto obj = enemyTranslator.create(enemy)) {
-				world.registerObject(std::dynamic_pointer_cast<SlimeModel>(obj));
+				world.registerObject(obj);
 			}
 		}
 
