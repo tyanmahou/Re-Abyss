@@ -4,6 +4,7 @@
 namespace abyss
 {
 	class WorldUseCase;
+	class WorldVisitor;
 
 	class WorldObject : public ICollider
 	{
@@ -42,5 +43,7 @@ namespace abyss
 		{ 
 			return !m_isActive;
 		}
+
+		virtual void accept(const WorldVisitor& visitor);
 	};
 }

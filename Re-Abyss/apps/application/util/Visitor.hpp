@@ -134,7 +134,7 @@ namespace abyss
 		{}
 
 		template<class Arg>
-		void visit(Arg&& arg)
+		void visit(Arg&& arg) const
 		{
 			return m_storage->visit(std::forward<Arg>(arg));
 		}
