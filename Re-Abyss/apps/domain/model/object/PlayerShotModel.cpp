@@ -65,9 +65,11 @@ namespace abyss
 
 	void PlayerShotModel::onCollisionStay(ICollider* col)
 	{
-		if (m_type != Type::Big && col->getTag() == L"floor") {
-			// •Ç‚É“–‚½‚Á‚ÄÁ‚¦‚é
-			m_isActive = false;
+		if (m_type != Type::Big) {
+			col->accept([this](FloorModel&) {
+				// •Ç‚É“–‚½‚Á‚ÄÁ‚¦‚é
+				m_isActive = false;
+			});
 		}
 	}
 

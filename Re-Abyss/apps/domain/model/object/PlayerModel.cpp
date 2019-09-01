@@ -217,38 +217,38 @@ namespace abyss
 	void PlayerModel::onCollisionStay(ICollider* col)
 	{
 		col->accept(overloaded{
-			[this](FloorModel& floor) {
+			[this](const FloorModel& floor) {
 				// è∞
-				this->onCollisionStay(&floor);
+				this->onCollisionStay(floor);
 			},
-			[this](LadderModel& ladder) {
+			[this](const LadderModel& ladder) {
 				// íÚéq
-				this->onCollisionStay(&ladder);
+				this->onCollisionStay(ladder);
 			},
-			[this](PenetrateFloorModel& floor) {
+			[this](const PenetrateFloorModel& floor) {
 				// ä—í è∞
-				this->onCollisionStay(&floor);
+				this->onCollisionStay(floor);
 			},
-			[this](DoorModel& door) {
+			[this](const DoorModel& door) {
 				// î‡
-				this->onCollisionStay(&door);
+				this->onCollisionStay(door);
 			}
 		});
 	}
-	void PlayerModel::onCollisionStay(FloorModel* col)
+	void PlayerModel::onCollisionStay(const FloorModel& col)
 	{
-		auto c = col->getCol();
+		auto c = col.getCol();
 		if (m_body.vellocity.y > 0) c &= ~collision::Down;
 		if (m_body.vellocity.y < 0) c &= ~collision::Up;
 		if (m_body.vellocity.x > 0) c &= ~collision::Right;
 		if (m_body.vellocity.x < 0) c &= ~collision::Left;
 
-		this->collisionAndUpdateMotation(col->region(), c);
+		this->collisionAndUpdateMotation(col.region(), c);
 	}
-	void PlayerModel::onCollisionStay(LadderModel* ladder)
+	void PlayerModel::onCollisionStay(const LadderModel& ladder)
 	{
-		if (ladder->isTop()) {
-			auto&& ladderRegion = ladder->region();
+		if (ladder.isTop()) {
+			auto&& ladderRegion = ladder.region();
 			if (!m_ladderState) {
 				this->collisionAndUpdateMotation(ladderRegion, collision::Up);
 			}
@@ -276,31 +276,31 @@ namespace abyss
 				}
 			}
 		}
-		if (ladder->getCenterLine().intersects(this->region())) {
+		if (ladder.getCenterLine().intersects(this->region())) {
 			m_ladderState.setCanLadder();
 
 			if (!m_ladderState.isLadder() && // íÚéqèÛë‘Ç∂Ç·Ç»Ç¢
-				(!ladder->isTop() && Input::KeyUp.clicked || Input::KeyDown.clicked) // è„â∫âüÇµÇΩ
+				(!ladder.isTop() && Input::KeyUp.clicked || Input::KeyDown.clicked) // è„â∫âüÇµÇΩ
 				) {
 				m_ladderState.setIsLadder();
 				m_motion = Motion::Ladder;
-				m_body.pos.x = ladder->getPos().x;
+				m_body.pos.x = ladder.getPos().x;
 				m_body.pos.y -= 2 * (Input::KeyUp.clicked - Input::KeyDown.clicked);
 			}
 		}
 	}
-	void PlayerModel::onCollisionStay(PenetrateFloorModel* col)
+	void PlayerModel::onCollisionStay(const PenetrateFloorModel& col)
 	{
-		auto c = col->getCol();
+		auto c = col.getCol();
 		if (m_body.vellocity.y < 0) c &= ~collision::Up;
 
-		auto colDirection = this->collisionAndUpdateMotation(col->region(), c);
-		if ((colDirection & collision::Up) && col->canDown() && Input::KeyDown.clicked) {
+		auto colDirection = this->collisionAndUpdateMotation(col.region(), c);
+		if ((colDirection & collision::Up) && col.canDown() && Input::KeyDown.clicked) {
 			// ç~ÇËÇÈ
 			m_body.pos.y += 10.0;
 		}
 	}
-	void PlayerModel::onCollisionStay(DoorModel* door)
+	void PlayerModel::onCollisionStay(const DoorModel& door)
 	{
 		if (Input::KeyUp.clicked) {
 			// move door

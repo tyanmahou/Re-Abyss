@@ -102,10 +102,10 @@ namespace abyss
 		void update(double dt) override;
 		CShape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
-		void onCollisionStay(FloorModel* col);
-		void onCollisionStay(LadderModel* col);
-		void onCollisionStay(PenetrateFloorModel* col);
-		void onCollisionStay(DoorModel* door);
+		void onCollisionStay(const FloorModel& col);
+		void onCollisionStay(const LadderModel& col);
+		void onCollisionStay(const PenetrateFloorModel& col);
+		void onCollisionStay(const DoorModel& door);
 		void setPos(const Vec2& pos);
 		const Vec2& getPos() const;
 		const Vec2& getVellocity() const;

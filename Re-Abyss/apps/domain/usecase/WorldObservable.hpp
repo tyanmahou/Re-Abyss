@@ -4,6 +4,7 @@
 #include <memory>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Array.hpp>
+#include <domain/model/object/DoorModel.hpp>
 namespace abyss
 {
 	class WorldObject;
@@ -39,14 +40,14 @@ namespace abyss
 #undef OnCreateObject
 
 	private:
-		Observable<void(PlayerModel*, DoorModel*)> m_onIntoDoor;
+		Observable<void(PlayerModel*, const DoorModel&)> m_onIntoDoor;
 
 	public:
-		inline Observable<void(PlayerModel*, DoorModel*)>& onIntoDoor()
+		inline Observable<void(PlayerModel*, const DoorModel&)>& onIntoDoor()
 		{
 			return m_onIntoDoor;
 		}
-		inline void notifyIntoDoor(PlayerModel* player,DoorModel* door)
+		inline void notifyIntoDoor(PlayerModel* player, const DoorModel& door)
 		{
 			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
 		}

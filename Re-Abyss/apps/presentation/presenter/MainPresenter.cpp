@@ -50,12 +50,12 @@ namespace abyss
 			::NotifyCreateObject<SlimeModel>(this->m_view, model);
 		});
 
-		auto onIntoDoor = [&](PlayerModel * player, DoorModel * doorModel) {
+		auto onIntoDoor = [&](PlayerModel * player, const DoorModel& doorModel) {
 			auto fadeInCallback = [player]() {
 				player->setMotion(PlayerModel::Motion::Stay);
 			};
 			m_worldUseCase.reset();
-			m_cameraUseCase.startDoorCameraWork(*doorModel, player->getPos(), fadeInCallback);
+			m_cameraUseCase.startDoorCameraWork(doorModel, player->getPos(), fadeInCallback);
 		};
 		m_worldUseCase.onIntoDoor().subscribe(onIntoDoor);
 
