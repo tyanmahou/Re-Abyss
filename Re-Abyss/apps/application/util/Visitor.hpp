@@ -1,6 +1,7 @@
 #pragma once
 #include<utility>
 #include<memory>
+#include<type_traits>
 
 namespace abyss
 {
@@ -23,71 +24,37 @@ namespace abyss
 	class Visitor
 	{
 		template<class U>
-		struct _ivisiter
+		struct _ivisitor
 		{
 			virtual void visit(U&) const = 0;
-			virtual ~_ivisiter() = default;
+			virtual ~_ivisitor() = default;
 		};
 
-		template<class Head, class... Tail>
-		struct _base2 : _ivisiter<Head>, _base2<Tail...>
+		template<class... Is>
+		struct _base2 : Is...
 		{
-			using _ivisiter<Head>::visit;
-			using _base2<Tail...>::visit;
+			using Is::visit...;
 		};
-		template<class Last>
-		struct _base2<Last> : _ivisiter<Last>
+		struct _base : _base2<_ivisitor<Accepter>...>
 		{
-			using _ivisiter<Last>::visit;
-		};
-		struct _base : _base2<Accepter...>
-		{
-			using _base2<Accepter...>::visit;
-		};
-
-		template<class F, class Void, class Head, class... Tail>
-		struct _func2 : _func2<F, Void, Tail...>
-		{
-			void visit(Head&) const override
-			{};
-			using _func2<F, Void, Tail...>::_func2;
-			using _func2<F, Void, Tail...>::visit;
+			using _base2<_ivisitor<Accepter>...>::visit;
 		};
 
 		template<class F, class Head, class... Tail>
-		struct _func2<
-			F,
-			decltype(std::declval<F>()(std::declval<Head&>())),
-			Head, 
-			Tail...
-        > : _func2<F, void,Tail...>
+		struct _func2 : _func2<F, Tail...>
 		{
 			void visit(Head& a) const override
 			{
-				return this->m_func(a);
+				if constexpr (std::is_invocable_v<F, Head&>) {
+					return m_func(a);
+				}
 			};
-			using _func2<F, void, Tail...>::_func2;
-			using _func2<F, void, Tail...>::visit;
-		};
-
-		template<class F, class Void, class Last>
-		struct _func2<F, Void, Last> : _base
-		{
-			F m_func;
-			_func2(F f) :
-				m_func(f)
-			{}
-			void visit(Last&) const override
-			{};
-			using _base::visit;
+			using _func2<F, Tail...>::_func2;
+			using _func2<F, Tail...>::visit;
 		};
 
 		template<class F, class Last>
-		struct _func2<
-			F, 
-			decltype(std::declval<F>()(std::declval<Last&>())),
-			Last
-		> : _base
+		struct _func2<F,Last> : _base
 		{
 			F m_func;
 			_func2(F f) :
@@ -95,16 +62,18 @@ namespace abyss
 			{}
 			void visit(Last& a) const override
 			{
-				return m_func(a);
+				if constexpr(std::is_invocable_v<F, Last&>) {
+					return m_func(a);
+				}
 			};
 			using _base::visit;
 		};
 
 		template<class F>
-		struct _func : _func2<F, void, Accepter...>
+		struct _func : _func2<F, Accepter...>
 		{
-			using _func2<F, void, Accepter...>::_func2;
-			using _func2<F, void, Accepter...>::visit;
+			using _func2<F, Accepter...>::_func2;
+			using _func2<F, Accepter...>::visit;
 		};
 
 		std::unique_ptr<_base> m_storage;
