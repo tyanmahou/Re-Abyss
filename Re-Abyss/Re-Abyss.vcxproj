@@ -170,6 +170,7 @@
     <ClCompile Include="apps\data\datastore\parser\MapEntityParser.cpp" />
     <ClCompile Include="apps\domain\model\CameraWork.cpp" />
     <ClCompile Include="apps\domain\model\object\EnemyModel.cpp" />
+    <ClCompile Include="apps\domain\model\object\ICollider.cpp" />
     <ClCompile Include="apps\domain\model\object\MapModel.cpp" />
     <ClCompile Include="apps\domain\model\object\SlimeModel.cpp" />
     <ClCompile Include="apps\domain\repository\StageRepository.cpp" />

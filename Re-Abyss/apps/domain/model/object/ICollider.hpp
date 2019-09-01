@@ -8,17 +8,16 @@ namespace abyss
 	{
 	protected:
 		s3d::String tag;
+		s3d::String layer;
 	public:
 
 		virtual s3d::Shape getCollider() const = 0;
 
-		virtual void onCollisionEnter(ICollider*){}
-		virtual void onCollisionStay(ICollider*){}
-		virtual void onCollisionExit(ICollider*) {}
+		virtual void onCollisionEnter(ICollider*);
+		virtual void onCollisionStay(ICollider*);
+		virtual void onCollisionExit(ICollider*);
 
-		const s3d::String& getTag() const
-		{
-			return tag;
-		}
+		const s3d::String& getTag() const;
+		const s3d::String& getLayer() const;
 	};
 }

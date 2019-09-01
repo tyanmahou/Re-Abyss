@@ -237,6 +237,9 @@
     <ClCompile Include="apps\presentation\view\main\object\SlimeView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="apps\domain\model\object\ICollider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
