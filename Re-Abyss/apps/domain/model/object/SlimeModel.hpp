@@ -35,5 +35,6 @@ namespace abyss
 		Motion getMotion()const;
 
 		void reverse();
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

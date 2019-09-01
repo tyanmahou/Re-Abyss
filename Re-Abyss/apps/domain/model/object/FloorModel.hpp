@@ -11,5 +11,7 @@ namespace abyss
 	{
 	public:
 		FloorModel(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
+
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

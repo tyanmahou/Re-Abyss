@@ -1,5 +1,7 @@
 #include "DoorModel.hpp"
 #include <data/entity/DoorEntity.hpp>
+#include <domain/visitor/WorldVisitor.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -33,5 +35,9 @@ namespace abyss
 		Vec2 ret = m_pos;
 		ret.y += (m_size.y - visitSize.y) / 2.0;
 		return ret;
+	}
+	void DoorModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 }

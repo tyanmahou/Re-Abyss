@@ -19,4 +19,8 @@ namespace abyss
 	{
 		return (m_col & collision::Up) != 0;
 	}
+	void LadderModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
+	}
 }

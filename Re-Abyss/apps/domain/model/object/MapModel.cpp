@@ -1,4 +1,5 @@
 #include "MapModel.hpp"
+#include <domain/visitor/WorldVisitor.hpp>
 
 namespace abyss
 {
@@ -26,5 +27,9 @@ namespace abyss
 	CShape MapModel::getCollider() const
 	{
 		return this->region();
+	}
+	void MapModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 }

@@ -1,6 +1,8 @@
 #include "PlayerShotModel.hpp"
-#include "../../../application/common/Constants.hpp"
+#include <application/common/Constants.hpp>
+
 #include <domain/usecase/WorldUseCase.hpp>
+#include <domain/visitor/WorldVisitor.hpp>
 #include <domain/model/CameraModel.hpp>
 #include <unordered_map>
 
@@ -84,5 +86,9 @@ namespace abyss
 	const s3d::Vec2& PlayerShotModel::getPos() const
 	{
 		return m_body.pos;
+	}
+	void PlayerShotModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 }

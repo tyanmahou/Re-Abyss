@@ -5,7 +5,7 @@
 #include "DoorModel.hpp"
 
 #include <domain/usecase/WorldUseCase.hpp>
-
+#include <domain/visitor/WorldVisitor.hpp>
 #include <application/common/Constants.hpp>
 
 namespace abyss
@@ -315,5 +315,9 @@ namespace abyss
 	{
 		const Vec2 size = { 22, 80 };
 		return { m_body.pos - size / 2, size };
+	}
+	void PlayerModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 }

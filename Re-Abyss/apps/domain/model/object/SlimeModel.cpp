@@ -6,6 +6,7 @@
 
 #include <domain/model/object/PlayerModel.hpp>
 #include <domain/usecase/WorldUseCase.hpp>
+#include <domain/visitor/WorldVisitor.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss
@@ -160,6 +161,11 @@ namespace abyss
 		}else if (m_body.forward == Forward::Right) {
 			m_body.forward = Forward::Left;
 		}
+	}
+
+	void SlimeModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 
 }

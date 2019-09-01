@@ -19,5 +19,6 @@ namespace abyss
 		const s3d::Vec2& getVellocity()const;
 
 		Forward getForward()const;
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

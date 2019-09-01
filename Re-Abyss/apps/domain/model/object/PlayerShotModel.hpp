@@ -1,6 +1,6 @@
 #pragma once
 #include "WorldObject.hpp"
-#include "../../../application/types/Physics.hpp"
+#include <application/types/Physics.hpp>
 
 namespace abyss
 {
@@ -30,5 +30,6 @@ namespace abyss
 		Forward getForward() const;
 		const s3d::Vec2& getPos() const;
 
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

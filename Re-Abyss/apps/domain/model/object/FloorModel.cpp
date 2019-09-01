@@ -1,5 +1,5 @@
 #include "FloorModel.hpp"
-
+#include <domain/visitor/WorldVisitor.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -10,5 +10,8 @@ namespace abyss
 		this->tag = L"floor";
 	}
 
-
+	void FloorModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
+	}
 }

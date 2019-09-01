@@ -18,5 +18,7 @@ namespace abyss
 		ColDirection getCol() const;
 		s3d::RectF region() const;
 		CShape getCollider() const override;
+
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "MapModel.hpp"
-
+#include <domain/visitor/WorldVisitor.hpp>
 #include <Siv3D/Fwd.hpp>
 
 namespace abyss
@@ -12,5 +12,7 @@ namespace abyss
 
 		s3d::Line getCenterLine() const;
 		bool isTop() const;
+
+		void accept(const WorldVisitor& visitor) override;
 	};
 }

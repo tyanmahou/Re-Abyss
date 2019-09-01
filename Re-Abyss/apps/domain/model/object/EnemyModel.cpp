@@ -1,4 +1,5 @@
 #include "EnemyModel.hpp"
+#include <domain/visitor/WorldVisitor.hpp>
 
 namespace abyss
 {
@@ -19,5 +20,9 @@ namespace abyss
 	Forward EnemyModel::getForward() const
 	{
 		return m_body.forward;
+	}
+	void EnemyModel::accept(const WorldVisitor& visitor)
+	{
+		visitor.visit(*this);
 	}
 }

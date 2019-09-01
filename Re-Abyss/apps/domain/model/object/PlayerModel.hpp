@@ -117,5 +117,7 @@ namespace abyss
 		int32 getCharge() const;
 
 		RectF region() const;
+
+		void accept(const WorldVisitor& visitor) override;
 	};
 }
