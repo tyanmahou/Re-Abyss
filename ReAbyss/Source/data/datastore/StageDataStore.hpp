@@ -6,7 +6,6 @@
 #include "../entity/EnemyEntity.hpp"
 
 #include "../entity/BackGroundEntity.hpp"
-#include "../entity/LayerViewEntity.hpp"
 
 #include<Siv3D/Array.hpp>
 #include<S3DTiled.hpp>
@@ -27,7 +26,6 @@ namespace abyss
 		virtual s3d::Array<EnemyEntity> getEnemyEntity()const = 0;
 
 		virtual s3d::Array<BackGroundEntity> getBackGroundEntity()const = 0;
-		virtual s3d::Array<LayerViewEntity> getLayerViewEntity() const = 0;
 	};
 
 	class TiledStageDataStore : public IStageDataStore
@@ -41,6 +39,7 @@ namespace abyss
 		s3d::Array<EnemyEntity> getEnemyEntity()const override;
 
 		s3d::Array<BackGroundEntity> getBackGroundEntity()const override;
-		s3d::Array<LayerViewEntity> getLayerViewEntity() const override;
+
+		const s3dTiled::TiledMap& getTiledMap()const;
 	};
 }

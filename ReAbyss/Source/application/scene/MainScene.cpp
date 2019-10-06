@@ -3,7 +3,7 @@
 #include<domain/usecase/StageUseCase.hpp>
 
 //#include "../../presentation/presenter/MainPresenter.hpp"
-//#include "../../presentation/view/main/MainView.hpp"
+#include <presentation/view/main/MainView.hpp>
 
 namespace abyss
 {
@@ -14,6 +14,9 @@ namespace abyss
 			auto stageDataStore = std::make_unique<TiledStageDataStore>(stageFilePath);
 			auto stageRepository = std::make_unique<StageRepository>(*stageDataStore);
 			auto stageUseCase = std::make_unique<StageUseCase>(std::move(stageRepository));
+
+			// View
+			auto stageView = std::make_unique<TiledStageView>(stageDataStore->getTiledMap());
 		}
 	}
 

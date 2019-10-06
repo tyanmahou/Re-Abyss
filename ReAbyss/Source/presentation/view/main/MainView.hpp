@@ -9,7 +9,7 @@
 
 #include "CameraView.hpp"
 #include "CameraWorkView.hpp"
-#include "StageLayerView.hpp"
+#include "StageView.hpp"
 
 namespace abyss
 {
@@ -21,7 +21,6 @@ namespace abyss
 	{
 	public:
 		virtual void addBackGroundView(const BackGroundVM& bg) = 0;
-		virtual void addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)>) = 0;
 		virtual void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) = 0;
 		virtual const MainViewFactory& getFactory()const = 0;
 
@@ -41,13 +40,12 @@ namespace abyss
 
 		std::unique_ptr<CameraView> m_cameraView;
 		std::unique_ptr<ICameraWorkView> m_cameraWorkView;
-		StageLayerView m_stageView;
+		std::unique_ptr<IStageView> m_stageView;
 
 	public:
 		MainView();
 
 		void addBackGroundView(const BackGroundVM& bg)override;
-		void addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)> view)override;
 		void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) override;
 		const MainViewFactory& getFactory()const override;
 		void createCameraView(const CameraModel& pCamera)override;

@@ -23,10 +23,6 @@ namespace abyss
 	{
 		m_bg.addBackGround(bg);
 	}
-	void MainView::addLayerView(const s3d::String& layer, std::function<void(const s3d::RectF&)> view)
-	{
-		m_stageView.addView(layer, view);
-	}
 	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view)
 	{
 		m_woldView.addView(std::move(view));
@@ -55,18 +51,18 @@ namespace abyss
 			m_bg.draw();
 
 			// back
-			m_stageView.draw(U"back", screen);
+			m_stageView->drawLayer(U"back", screen);
 
 			m_cameraView->drawDeathLine();
 			// map
-			m_stageView.draw(U"map", screen);
+			m_stageView->drawLayer(U"map", screen);
 			// door
-			m_stageView.draw(U"door", screen);
+			m_stageView->drawLayer(U"door", screen);
 
 			m_woldView.draw();
 
 			//front
-			m_stageView.draw(U"front", screen);
+			m_stageView->drawLayer(U"front", screen);
 
 			m_bubbles.draw();
 

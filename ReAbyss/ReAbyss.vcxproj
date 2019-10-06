@@ -271,6 +271,7 @@
     <ClCompile Include="Source\presentation\view\main\object\PlayerShotView.cpp" />
     <ClCompile Include="Source\presentation\view\main\object\PlayerView.cpp" />
     <ClCompile Include="Source\presentation\view\main\object\SlimeView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\StageView.cpp" />
     <ClCompile Include="Source\presentation\view\main\WorldView.cpp" />
     <ClCompile Include="Source\vendor\S3DTiled\src\Parser\TiledReader.cpp" />
     <ClCompile Include="Source\vendor\S3DTiled\src\Parser\TmxParser.cpp" />
@@ -304,7 +305,6 @@
     <ClInclude Include="Source\data\entity\BackGroundEntity.hpp" />
     <ClInclude Include="Source\data\entity\DoorEntity.hpp" />
     <ClInclude Include="Source\data\entity\EnemyEntity.hpp" />
-    <ClInclude Include="Source\data\entity\LayerViewEntity.hpp" />
     <ClInclude Include="Source\data\entity\MapEntity.hpp" />
     <ClInclude Include="Source\data\entity\PlayerEntity.hpp" />
     <ClInclude Include="Source\data\entity\RoomEntity.hpp" />
@@ -352,7 +352,7 @@
     <ClInclude Include="Source\presentation\view\main\object\PlayerShotView.hpp" />
     <ClInclude Include="Source\presentation\view\main\object\PlayerView.hpp" />
     <ClInclude Include="Source\presentation\view\main\object\SlimeView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\StageLayerView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\StageView.hpp" />
     <ClInclude Include="Source\presentation\view\main\WorldView.hpp" />
     <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled.hpp" />
     <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp" />

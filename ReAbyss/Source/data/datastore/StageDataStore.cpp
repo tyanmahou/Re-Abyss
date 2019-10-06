@@ -135,23 +135,8 @@ namespace abyss
 		);
 		return ret;
 	}
-	s3d::Array<LayerViewEntity> TiledStageDataStore::getLayerViewEntity() const
+	const s3dTiled::TiledMap& TiledStageDataStore::getTiledMap() const
 	{
-		s3d::Array<LayerViewEntity> ret;
-
-		s3d::Array<s3d::String> layerName{
-			U"back", U"map", U"door",U"front"
-		};
-		auto map = m_tiledMap;
-		for (auto&& name : layerName) {
-			ret.emplace_back(
-				name,
-				[map, name](const s3d::RectF & rect){
-					map.drawLayer(name, rect);
-				}
-			);
-		}
-
-		return ret;
+		return m_tiledMap;
 	}
 }

@@ -509,6 +509,9 @@
     <ClCompile Include="Source\domain\actor\PlayerActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\presentation\view\main\StageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled.hpp">
@@ -599,9 +602,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\data\entity\EnemyEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\data\entity\LayerViewEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\data\entity\MapEntity.hpp">
@@ -697,9 +697,6 @@
     <ClInclude Include="Source\presentation\view\main\MainViewFactory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\presentation\view\main\StageLayerView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\presentation\view\main\WorldView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -755,6 +752,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\domain\actor\PlayerActor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\presentation\view\main\StageView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

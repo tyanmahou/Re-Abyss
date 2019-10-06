@@ -19,10 +19,6 @@ namespace abyss
 			for (const auto& bg : dataStore->getBackGroundEntity()) {
 				m_view->addBackGroundView(BackGroundVM(bg));
 			}
-			// ƒ}ƒbƒv•`‰æ“o˜^
-			for (const auto& layer : dataStore->getLayerViewEntity()) {
-				m_view->addLayerView(layer.layerName, layer.drawCallback);
-			}
 		};
 
 		auto onCreateObject = [this](const auto& model) {
