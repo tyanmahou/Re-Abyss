@@ -29,9 +29,4 @@ namespace abyss
 	{
 		func(t, std::forward<Args>(args)...);
 	}
-
-	template<class ...Args>
-	using FadeArgsFunc_t = void(*)(double, Args...);
-
-	using FadeFunc_t = FadeArgsFunc_t<>;
 }

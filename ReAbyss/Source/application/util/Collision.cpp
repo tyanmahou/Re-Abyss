@@ -8,15 +8,15 @@ namespace {
 	template<class T, class U>
 	concept HasIntersects = requires(T & a, U& b)
 	{
-		s3d::Geometry2D::Intersect(a, b);
+		{s3d::Geometry2D::Intersect(a, b)}->bool;
 	};
 }
 namespace abyss
 {
 	bool Intersects(const CShape& a, const CShape& b)
 	{
-		return std::visit([](const auto& a, const auto& b) {
-			if constexpr (HasIntersects<decltype(a), decltype(b)>) {
+		return std::visit([]<class T, class U>([[maybe_unused]]const T& a, [[maybe_unused]]const U& b) {
+			if constexpr (HasIntersects<T, U>) {
 				return s3d::Geometry2D::Intersect(a, b);
 			}
 			else {
@@ -24,6 +24,7 @@ namespace abyss
 			}
 		}, a, b);
 	}
+
 	std::pair<s3d::Vec2, s3d::uint8> collision::Collision(const s3d::RectF& rect, const s3d::Ellipse& ellipse, s3d::uint8 col)
 	{
 		bool up = (col & Up) != 0;
