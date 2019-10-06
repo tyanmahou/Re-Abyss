@@ -1,20 +1,21 @@
 #pragma once
 #include "ICollider.hpp"
+#include <domain/visitor/ActVisitor.hpp>
 
 namespace abyss
 {
 	class WorldUseCase;
-	class WorldVisitor;
+	class ActVisitor;
 
-	class WorldObject : public ICollider
+	class IActor : public ICollider
 	{
 	protected:
 		WorldUseCase* m_pWorld = nullptr;
 		s3d::uint64 m_id;
 		bool m_isActive = true;
 	public:
-		WorldObject() = default;
-		virtual ~ WorldObject() = default;
+		IActor() = default;
+		virtual ~IActor() = default;
 
 		void setWorld(WorldUseCase*const pWorld)
 		{
@@ -44,6 +45,6 @@ namespace abyss
 			return !m_isActive;
 		}
 
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

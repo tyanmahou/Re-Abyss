@@ -4,7 +4,7 @@
 
 namespace abyss
 {
-	class WorldVisitor;
+	class ActVisitor;
 
 	class ICollider
 	{
@@ -22,6 +22,6 @@ namespace abyss
 		const s3d::String& getTag() const;
 		const s3d::String& getLayer() const;
 
-		virtual void accept(const WorldVisitor&) = 0;
+		virtual void accept(const ActVisitor&) = 0;
 	};
 }

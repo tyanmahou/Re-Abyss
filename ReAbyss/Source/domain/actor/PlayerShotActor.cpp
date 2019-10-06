@@ -1,8 +1,7 @@
-#include "PlayerShotModel.hpp"
+#include "PlayerShotActor.hpp"
 #include <application/common/Constants.hpp>
 
 #include <domain/usecase/WorldUseCase.hpp>
-#include <domain/visitor/WorldVisitor.hpp>
 #include <domain/model/CameraModel.hpp>
 #include <unordered_map>
 
@@ -10,20 +9,20 @@ namespace
 {
 	using namespace abyss;
 
-	double TypeToR(PlayerShotModel::Type type)
+	double TypeToR(PlayerShotActor::Type type)
 	{
-		static const std::unordered_map<PlayerShotModel::Type, double> rMap{
-			{PlayerShotModel::Type::Normal, 5},
-			{PlayerShotModel::Type::Small, 8},
-			{PlayerShotModel::Type::Medium, 16},
-			{PlayerShotModel::Type::Big, 24},
+		static const std::unordered_map<PlayerShotActor::Type, double> rMap{
+			{PlayerShotActor::Type::Normal, 5},
+			{PlayerShotActor::Type::Small, 8},
+			{PlayerShotActor::Type::Medium, 16},
+			{PlayerShotActor::Type::Big, 24},
 		};
 		return rMap.at(type);
 	}
 }
 namespace abyss
 {
-	PlayerShotModel::PlayerShotModel(const s3d::Vec2& pos, Forward forward, s3d::int32 charge)
+	PlayerShotActor::PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge)
 	{
 		using namespace Constants::Player;
 		m_body.pos = pos;
@@ -44,11 +43,11 @@ namespace abyss
 			m_type = Type::Normal;
 		}
 	}
-	void PlayerShotModel::start()
+	void PlayerShotActor::start()
 	{
 
 	}
-	void PlayerShotModel::update(double /*dt*/)
+	void PlayerShotActor::update(double /*dt*/)
 	{
 		m_body.pos += m_body.vellocity;
 
@@ -58,38 +57,38 @@ namespace abyss
 		}
 	}
 
-	CShape PlayerShotModel::getCollider() const
+	CShape PlayerShotActor::getCollider() const
 	{
 		return this->getColliderCircle();
 	}
 
-	void PlayerShotModel::onCollisionStay(ICollider* col)
+	void PlayerShotActor::onCollisionStay(ICollider* col)
 	{
 		if (m_type != Type::Big) {
-			col->accept([this](FloorModel&) {
+			col->accept([this](FloorActor&) {
 				// ï«Ç…ìñÇΩÇ¡Çƒè¡Ç¶ÇÈ
 				m_isActive = false;
 			});
 		}
 	}
 
-	s3d::Circle PlayerShotModel::getColliderCircle() const
+	s3d::Circle PlayerShotActor::getColliderCircle() const
 	{
 		return s3d::Circle(m_body.pos, ::TypeToR(m_type));
 	}
-	PlayerShotModel::Type PlayerShotModel::getType() const
+	PlayerShotActor::Type PlayerShotActor::getType() const
 	{
 		return m_type;
 	}
-	Forward PlayerShotModel::getForward() const
+	Forward PlayerShotActor::getForward() const
 	{
 		return m_body.forward;
 	}
-	const s3d::Vec2& PlayerShotModel::getPos() const
+	const s3d::Vec2& PlayerShotActor::getPos() const
 	{
 		return m_body.pos;
 	}
-	void PlayerShotModel::accept(const WorldVisitor& visitor)
+	void PlayerShotActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
 	}

@@ -1,13 +1,13 @@
 #include "WorldUseCase.hpp"
 #include <application/util/Collision.hpp>
-#include <domain/model/object/PlayerModel.hpp>
+#include <domain/actor/PlayerActor.hpp>
 
 
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-	void WorldUseCase::pushObject(const std::shared_ptr<WorldObject>& obj)
+	void WorldUseCase::pushObject(const std::shared_ptr<IActor>& obj)
 	{
 		obj->setWorld(this);
 		obj->setId(m_objIdCounter++);
@@ -70,7 +70,7 @@ namespace abyss
 		}
 
 		// オブジェクトの削除
-		Erase_if(m_objects, [](const std::shared_ptr<WorldObject> & obj) {
+		Erase_if(m_objects, [](const std::shared_ptr<IActor> & obj) {
 			return obj->isDelete();
 		});
 	}
@@ -85,7 +85,7 @@ namespace abyss
 		}
 	}
 
-	PlayerModel* WorldUseCase::getPlayer() const
+	PlayerActor* WorldUseCase::getPlayer() const
 	{
 		return m_playerModel.get();
 	}
@@ -97,7 +97,7 @@ namespace abyss
 	{
 		return m_pCamera;
 	}
-	void WorldUseCase::registerObject(const std::shared_ptr<PlayerModel>& obj)
+	void WorldUseCase::registerObject(const std::shared_ptr<PlayerActor>& obj)
 	{
 		m_playerModel = obj;
 		this->notifyCreateObject(obj);

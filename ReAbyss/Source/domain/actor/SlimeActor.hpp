@@ -1,12 +1,12 @@
 #pragma once
-#include "EnemyModel.hpp"
+#include "EnemyActor.hpp"
 
 namespace abyss
 {
 	class MapModel;
 	class ISlimeView;
 
-	class SlimeModel : public EnemyModel
+	class SlimeActor : public EnemyActor
 	{
 	public:
 		enum class Motion
@@ -23,9 +23,9 @@ namespace abyss
 		Motion m_motion = Motion::Walk;
 
 		bool m_onCollision = false;
-		void onCollision(const MapModel& map);
+		void onCollision(const MapActor& map);
 	public:
-		SlimeModel(const s3d::Vec2& pos, Forward forward = Forward::Left);
+		SlimeActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
 		void start()override;
 		void update(double)override;
@@ -41,6 +41,6 @@ namespace abyss
 		void reverse();
 
 		void setView(std::unique_ptr<ISlimeView>&& pView);
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

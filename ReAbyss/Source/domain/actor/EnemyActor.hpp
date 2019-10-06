@@ -1,24 +1,24 @@
 #pragma once
-#include "WorldObject.hpp"
 
+#include "IActor.hpp"
 #include <application/types/Physics.hpp>
 
 namespace abyss
 {
-	class EnemyModel : public WorldObject
+	class EnemyActor : public IActor
 	{
 	protected:
 		Physics m_body;
 		s3d::int32 m_hp;
 	public:
-		EnemyModel() = default;
+		EnemyActor() = default;
 
-		EnemyModel(const s3d::Vec2& pos, Forward forward = Forward::Left);
+		EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
 		const s3d::Vec2& getPos()const;
 		const s3d::Vec2& getVellocity()const;
 
 		Forward getForward()const;
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

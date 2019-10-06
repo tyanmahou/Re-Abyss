@@ -4,15 +4,15 @@
 #include <memory>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Array.hpp>
-#include <domain/model/object/DoorModel.hpp>
+#include <domain/actor/DoorActor.hpp>
 
 #include <domain/visitor/ViewVisitor.hpp>
 
 namespace abyss
 {
-	class WorldObject;
-	class PlayerModel;
-	class DoorModel;
+	class IActor;
+	class PlayerActor;
+	class DoorActor;
 
 	class WorldObservable
 	{
@@ -20,14 +20,14 @@ namespace abyss
 		s3d::Array<std::function<void()>> m_eventTriggers;
 
 	private:
-		Observable<void(PlayerModel*, const DoorModel&)> m_onIntoDoor;
+		Observable<void(PlayerActor*, const DoorActor&)> m_onIntoDoor;
 		ViewVisitor m_onCreateObject;
 	public:
-		inline Observable<void(PlayerModel*, const DoorModel&)>& onIntoDoor()
+		inline Observable<void(PlayerActor*, const DoorActor&)>& onIntoDoor()
 		{
 			return m_onIntoDoor;
 		}
-		inline void notifyIntoDoor(PlayerModel* player, const DoorModel& door)
+		inline void notifyIntoDoor(PlayerActor* player, const DoorActor& door)
 		{
 			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
 		}

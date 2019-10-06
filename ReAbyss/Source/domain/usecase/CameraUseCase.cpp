@@ -1,7 +1,7 @@
 #include "CameraUseCase.hpp"
 #include <domain/model/CameraWork.hpp>
-#include <domain/model/object/PlayerModel.hpp>
-#include <domain/model/object/DoorModel.hpp>
+#include <domain/actor/PlayerActor.hpp>
+#include <domain/actor/DoorActor.hpp>
 #include <domain/model/RoomModel.hpp>
 namespace abyss
 {
@@ -40,7 +40,7 @@ namespace abyss
 		}
 		m_pPlayer->setPos(pos);
 	}
-	void CameraUseCase::setPlayer(PlayerModel* pPlayer)
+	void CameraUseCase::setPlayer(PlayerActor* pPlayer)
 	{
 		m_pPlayer = pPlayer;
 	}
@@ -57,8 +57,12 @@ namespace abyss
 			this->onOutSideRoom().notify(pos);
 		}
 	}
-	void CameraUseCase::startCameraWork(const RoomModel& nextRoom, const s3d::Vec2& playerPos, std::function<void()> callback, double milliSec)
-	{
+	void CameraUseCase::startCameraWork(
+		const RoomModel& nextRoom,
+		const s3d::Vec2& playerPos,
+		std::function<void()> callback,
+		double milliSec
+	){
 		assert(milliSec > 0);
 		m_camera.setNextRoom(nextRoom);
 		if (!callback) {
@@ -69,7 +73,7 @@ namespace abyss
 		m_cameraWork = RoomMoveCameraWork::Create(m_camera, playerPos, callback, milliSec);
 	}
 	void CameraUseCase::startDoorCameraWork(
-		const DoorModel& door,
+		const DoorActor& door,
 		const s3d::Vec2& playerPos, 
 		std::function<void()> fadeInCallback, 
 		std::function<void()> fadeOutCallback,

@@ -1,10 +1,10 @@
 #pragma once
-#include "WorldObject.hpp"
+#include "IActor.hpp"
 #include <application/types/Physics.hpp>
 
 namespace abyss
 {
-	class PlayerShotModel : public WorldObject
+	class PlayerShotActor : public IActor
 	{
 	public:
 		enum class Type
@@ -18,7 +18,7 @@ namespace abyss
 		Type m_type;
 		Physics m_body;
 	public:
-		PlayerShotModel(const s3d::Vec2& pos, Forward forward, s3d::int32 charge);
+		PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge);
 		void start() override;
 		void update(double dt) override;
 		CShape getCollider() const override;
@@ -30,6 +30,6 @@ namespace abyss
 		Forward getForward() const;
 		const s3d::Vec2& getPos() const;
 
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

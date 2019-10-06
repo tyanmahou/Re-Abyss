@@ -1,12 +1,12 @@
 #pragma once
-#include "WorldObject.hpp"
-#include "../RoomModel.hpp"
+#include "IActor.hpp"
+#include <domain/model/RoomModel.hpp>
 
 namespace abyss
 {
 	struct DoorEntity;
 
-	class DoorModel : public WorldObject
+	class DoorActor : public IActor
 	{
 	private:
 		s3d::Vec2 m_pos;
@@ -15,13 +15,13 @@ namespace abyss
 		RoomModel m_nextRoom;
 
 	public:
-		DoorModel(const DoorEntity& entity, const RoomModel& nextRoom);
+		DoorActor(const DoorEntity& entity, const RoomModel& nextRoom);
 		CShape getCollider() const override;
 
 		const RoomModel& getNextRoom() const;
 		const s3d::Vec2& getPos() const;
 		const s3d::Vec2& getTargetPos() const;
 		s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

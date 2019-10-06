@@ -1,7 +1,6 @@
 #include "MainPresenter.hpp"
 
-#include <domain/model/object/PlayerModel.hpp>
-#include <domain/visitor/WorldVisitor.hpp>
+#include <domain/actor/PlayerActor.hpp>
 
 #include <presentation/view/main/MainView.hpp>
 #include <presentation/view/main/object/PlayerView.hpp>
@@ -33,9 +32,9 @@ namespace abyss
 		};
 		m_worldUseCase.subsucrimeCreateObject(std::move(onCreateObject));
 
-		auto onIntoDoor = [&](PlayerModel* player, const DoorModel& doorModel) {
+		auto onIntoDoor = [&](PlayerActor* player, const DoorActor& doorModel) {
 			auto fadeInCallback = [player]() {
-				player->setMotion(PlayerModel::Motion::Stay);
+				player->setMotion(PlayerActor::Motion::Stay);
 			};
 			m_worldUseCase.reset();
 			m_cameraUseCase.startDoorCameraWork(doorModel, player->getPos(), fadeInCallback);

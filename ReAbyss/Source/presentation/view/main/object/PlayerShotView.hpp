@@ -4,15 +4,15 @@
 
 namespace abyss
 {
-	class PlayerShotModel;
+	class PlayerShotActor;
 
 	class PlayerShotView : public IWorldObjectView
 	{
 		s3d::Texture m_texture;
-		std::weak_ptr<PlayerShotModel> m_pModel;
+		std::weak_ptr<PlayerShotActor> m_pModel;
 
 	public:
-		PlayerShotView(std::shared_ptr<PlayerShotModel> pModel);
+		PlayerShotView(std::shared_ptr<PlayerShotActor> pModel);
 
 		void start()override;
 		void update() override;

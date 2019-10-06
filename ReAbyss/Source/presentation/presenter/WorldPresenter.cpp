@@ -5,7 +5,7 @@ void abyss::WorldPresenter::update()
 {
 	m_worldModel.update();
 	// Õ“Ë
-	m_collisionUseCase->collisionAll(m_worldModel.getObjects());
+	m_collisionUseCase->collisionAll(m_worldModel.getActors());
 
 	m_worldModel.erase();
 }

@@ -4,17 +4,17 @@
 
 namespace abyss
 {
-	class WorldObject;
+	class IActor;
 
-	class PlayerModel;
-	class PlayerShotModel;
+	class PlayerActor;
+	class PlayerShotActor;
 
-	class SlimeModel;
+	class SlimeActor;
 
 	using ViewVisitor = ConstVisitor<
-		std::shared_ptr<WorldObject>,
-		std::shared_ptr<PlayerModel>,
-		std::shared_ptr<PlayerShotModel>,
-		std::shared_ptr<SlimeModel>
+		std::shared_ptr<IActor>,
+		std::shared_ptr<PlayerActor>,
+		std::shared_ptr<PlayerShotActor>,
+		std::shared_ptr<SlimeActor>
 	>;
 }

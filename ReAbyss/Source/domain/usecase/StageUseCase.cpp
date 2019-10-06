@@ -4,16 +4,16 @@
 #include <domain/translator/DoorTranslator.hpp>
 #include <domain/translator/EnemyTranslator.hpp>
 #include <domain/model/RoomModel.hpp>
-#include <domain/model/object/PlayerModel.hpp>
-#include <domain/model/object/MapModel.hpp>
-#include <domain/model/object/DoorModel.hpp>
-#include <domain/model/object/SlimeModel.hpp>
+#include <domain/actor/PlayerActor.hpp>
+#include <domain/actor/MapActor.hpp>
+#include <domain/actor/DoorActor.hpp>
+#include <domain/actor/SlimeActor.hpp>
 #include <domain/usecase/WorldUseCase.hpp>
 
 namespace
 {
 	using namespace abyss;
-	Optional<RoomModel> GetNextRoom(const Vec2& pos, const Array<RoomEntity>& rooms)
+	Optional<RoomModel> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
 	{
 		RoomTranslator translator;
 		for (const auto& room : rooms) {
@@ -31,13 +31,13 @@ namespace abyss
 		m_stageData(std::move(repository))
 	{}
 
-	s3d::Optional<RoomModel> StageUseCase::findRoom(const Vec2& pos)
+	s3d::Optional<RoomModel> StageUseCase::findRoom(const s3d::Vec2& pos)
 	{
 		return ::GetNextRoom(pos, m_stageData->getRooms());
 	}
 	bool StageUseCase::init(WorldUseCase& world, const RoomModel& nextRoom)
 	{
-		world.createObject<PlayerModel>();
+		world.createObject<PlayerActor>();
 		//
 		world.getPlayer()->setPos({ 480, 2000 });
 		return this->initRoom(world, nextRoom);

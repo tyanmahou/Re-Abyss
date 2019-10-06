@@ -1,10 +1,10 @@
 #pragma once
-#include "WorldObject.hpp"
-#include "../../../application/util/Collision.hpp"
+#include "IActor.hpp"
+#include <application/util/Collision.hpp>
 
 namespace abyss
 {
-	class MapModel :public WorldObject
+	class MapActor :public IActor
 	{
 	protected:
 		ColDirection m_col;
@@ -12,13 +12,13 @@ namespace abyss
 		s3d::Vec2 m_size;
 
 	public:
-		MapModel(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
+		MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
 
 		const s3d::Vec2& getPos() const;
 		ColDirection getCol() const;
 		s3d::RectF region() const;
 		CShape getCollider() const override;
 
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

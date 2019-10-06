@@ -5,15 +5,15 @@
 
 namespace abyss
 {
-	class SlimeModel;
+	class SlimeActor;
 
 	class SlimeView : public IWorldObjectView
 	{
 		s3d::Texture m_texture;
-		std::weak_ptr<SlimeModel> m_pModel;
+		std::weak_ptr<SlimeActor> m_pModel;
 
 	public:
-		SlimeView(std::shared_ptr<SlimeModel> pModel);
+		SlimeView(std::shared_ptr<SlimeActor> pModel);
 
 		void draw()const override;
 		bool isDelete() const override;

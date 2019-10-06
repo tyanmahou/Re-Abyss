@@ -1,5 +1,5 @@
 #include "PlayerShotView.hpp"
-#include "../../../domain/model/object/PlayerShotModel.hpp"
+#include <domain/actor/PlayerShotActor.hpp>
 
 #include <Siv3D.hpp>
 
@@ -11,21 +11,21 @@ namespace
 {
 	using namespace abyss;
 
-	Color TypeToColor(PlayerShotModel::Type type)
+	Color TypeToColor(PlayerShotActor::Type type)
 	{
 		using namespace Constants::Player;
-		static const std::unordered_map<PlayerShotModel::Type, Color> colorMap{
-			{PlayerShotModel::Type::Normal, ColorF(1)},
-			{PlayerShotModel::Type::Small, ColorF(1)},
-			{PlayerShotModel::Type::Medium, MediumChargeColorBase},
-			{PlayerShotModel::Type::Big, BigChargeColorBase},
+		static const std::unordered_map<PlayerShotActor::Type, Color> colorMap{
+			{PlayerShotActor::Type::Normal, ColorF(1)},
+			{PlayerShotActor::Type::Small, ColorF(1)},
+			{PlayerShotActor::Type::Medium, MediumChargeColorBase},
+			{PlayerShotActor::Type::Big, BigChargeColorBase},
 		};
 		return colorMap.at(type);
 	}
 }
 namespace abyss
 {
-	PlayerShotView::PlayerShotView(std::shared_ptr<PlayerShotModel> pModel) :
+	PlayerShotView::PlayerShotView(std::shared_ptr<PlayerShotActor> pModel) :
 		m_texture(U"work/player/player_shot.png"),
 		m_pModel(pModel)
 	{
@@ -43,7 +43,7 @@ namespace abyss
 		auto pos = pModel->getPos();
 
 		// effect
-		if (type != PlayerShotModel::Type::Normal) {
+		if (type != PlayerShotActor::Type::Normal) {
 			m_pWorldView->getEffect().add<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
 		}
 	}
@@ -59,14 +59,14 @@ namespace abyss
 		auto pos = pModel->getPos();
 
 		// effect
-		if (Scene::FrameCount() % 2 && (type == PlayerShotModel::Type::Big || type == PlayerShotModel::Type::Medium)) {
+		if (Scene::FrameCount() % 2 && (type == PlayerShotActor::Type::Big || type == PlayerShotActor::Type::Medium)) {
 			m_pWorldView->getEffect().add<PlayerShotEffect>(pos, r, ::TypeToColor(type));
 		}
 	}
 
 	void PlayerShotView::draw() const
 	{
-		using Type = PlayerShotModel::Type;
+		using Type = PlayerShotActor::Type;
 		auto model = m_pModel.lock();
 
 		auto type = model->getType();

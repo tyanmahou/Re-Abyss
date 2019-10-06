@@ -1,15 +1,15 @@
 #pragma once
 #include <Siv3D.hpp>
-#include "WorldObject.hpp"
+#include "IActor.hpp"
 #include "../../../application/types/Physics.hpp"
 #include "../../../application/util/Collision.hpp"
 
 namespace abyss
 {
-	class FloorModel;
-	class LadderModel;
-	class DoorModel;
-	class PenetrateFloorModel;
+	class FloorActor;
+	class LadderActor;
+	class DoorActor;
+	class PenetrateFloorActor;
 
 	// íÚéqèÛë‘
 	struct LadderState
@@ -67,7 +67,7 @@ namespace abyss
 			state = static_cast<State>(state & ~CanLadder);
 		}
 	};
-	class PlayerModel : public WorldObject
+	class PlayerActor : public IActor
 	{
 		// class Action;
 	public:
@@ -98,14 +98,14 @@ namespace abyss
 
 		ColDirection collisionAndUpdateMotation(const RectF& region, ColDirection col);
 	public:
-		PlayerModel();
+		PlayerActor();
 		void update(double dt) override;
 		CShape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
-		void onCollisionStay(const FloorModel& col);
-		void onCollisionStay(const LadderModel& col);
-		void onCollisionStay(const PenetrateFloorModel& col);
-		void onCollisionStay(const DoorModel& door);
+		void onCollisionStay(const FloorActor& col);
+		void onCollisionStay(const LadderActor& col);
+		void onCollisionStay(const PenetrateFloorActor& col);
+		void onCollisionStay(const DoorActor& door);
 		void setPos(const Vec2& pos);
 		const Vec2& getPos() const;
 		const Vec2& getVellocity() const;
@@ -118,6 +118,6 @@ namespace abyss
 
 		RectF region() const;
 
-		void accept(const WorldVisitor& visitor) override;
+		void accept(const ActVisitor& visitor) override;
 	};
 }

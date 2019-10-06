@@ -5,16 +5,16 @@
 #include <memory>
 namespace abyss
 {
-	class WorldObject;
+	class IActor;
 
 	class WorldModel
 	{
-		s3d::Array<std::shared_ptr<WorldObject>> m_reserves;
-		s3d::Array<std::shared_ptr<WorldObject>> m_objects;
+		s3d::Array<std::shared_ptr<IActor>> m_reserves;
+		s3d::Array<std::shared_ptr<IActor>> m_actors;
 
 		s3d::uint64 m_objIdCounter = 0;
 	public:
-		void pushObject(const std::shared_ptr<WorldObject>& obj);
+		void pushActor(const std::shared_ptr<IActor>& obj);
 		
 		void update();
 		void draw()const;
@@ -23,7 +23,7 @@ namespace abyss
 
 		void clear();
 
-		s3d::Array<std::shared_ptr<WorldObject>>& getObjects();
-		const s3d::Array<std::shared_ptr<WorldObject>>& getObjects() const;
+		s3d::Array<std::shared_ptr<IActor>>& getActors();
+		const s3d::Array<std::shared_ptr<IActor>>& getActors() const;
 	};
 }

@@ -3,13 +3,13 @@
 
 namespace abyss
 {
-	class EnemyModel;
+	class EnemyActor;
 	struct EnemyEntity;
 
 	class EnemyTranslator
 	{
 	public:
 		EnemyTranslator() = default;
-		std::shared_ptr<EnemyModel> create(const EnemyEntity&);
+		std::shared_ptr<EnemyActor> create(const EnemyEntity&);
 	};
 }

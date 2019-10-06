@@ -1,16 +1,15 @@
-#include "PlayerModel.hpp"
-#include "PlayerShotModel.hpp"
-#include "PenetrateFloorModel.hpp"
-#include "LadderModel.hpp"
-#include "DoorModel.hpp"
+#include "PlayerActor.hpp"
+#include "PlayerShotActor.hpp"
+#include "PenetrateFloorActor.hpp"
+#include "LadderActor.hpp"
+#include "DoorActor.hpp"
 
 #include <domain/usecase/WorldUseCase.hpp>
-#include <domain/visitor/WorldVisitor.hpp>
 #include <application/common/Constants.hpp>
 
 namespace abyss
 {
-	bool PlayerModel::attack()
+	bool PlayerActor::attack()
 	{
 		constexpr Key input = KeyX;
 
@@ -35,7 +34,7 @@ namespace abyss
 		m_charge = 0;
 		return false;
 	}
-	void PlayerModel::nomarlMove()
+	void PlayerActor::nomarlMove()
 	{
 		const bool rightPressed = KeyRight.pressed();
 		const bool leftPressed = KeyLeft.pressed();
@@ -76,7 +75,7 @@ namespace abyss
 		}
 		m_body.pos += m_body.vellocity;
 	}
-	void PlayerModel::ladderMove()
+	void PlayerActor::ladderMove()
 	{
 		m_body.vellocity = { 0,0 };
 		m_body.pos.y += 2.0 * (KeyDown.pressed() - KeyUp.pressed());
@@ -86,7 +85,7 @@ namespace abyss
 		}
 	}
 
-	PlayerModel::PlayerModel() :
+	PlayerActor::PlayerActor() :
 		m_charge(0),
 		m_ladderState(LadderState::None)
 	{
@@ -95,7 +94,7 @@ namespace abyss
 		m_body.forward = Forward::Right;
 	}
 
-	void PlayerModel::update(double /*dt*/)
+	void PlayerActor::update(double /*dt*/)
 	{
 		const Vec2 prevPos = m_body.pos;
 
@@ -118,7 +117,7 @@ namespace abyss
 		}
 		// UŒ‚
 		if (this->attack()) {
-			m_pWorld->createObject<PlayerShotModel>(m_body.pos, m_body.forward, m_charge);
+			m_pWorld->createObject<PlayerShotActor>(m_body.pos, m_body.forward, m_charge);
 			m_charge = 0;
 		}
 
@@ -153,47 +152,47 @@ namespace abyss
 		}
 	}
 
-	void PlayerModel::setPos(const Vec2& pos)
+	void PlayerActor::setPos(const Vec2& pos)
 	{
 		m_body.pos = pos;
 	}
 
-	const Vec2& PlayerModel::getPos() const
+	const Vec2& PlayerActor::getPos() const
 	{
 		return m_body.pos;
 	}
 
-	const Vec2& PlayerModel::getVellocity() const
+	const Vec2& PlayerActor::getVellocity() const
 	{
 		return m_body.vellocity;
 	}
 
-	void PlayerModel::setMotion(Motion motion)
+	void PlayerActor::setMotion(Motion motion)
 	{
 		m_motion = motion;
 	}
 
-	PlayerModel::Motion PlayerModel::getMotion() const
+	PlayerActor::Motion PlayerActor::getMotion() const
 	{
 		return m_motion;
 	}
 
-	Forward PlayerModel::getForward() const
+	Forward PlayerActor::getForward() const
 	{
 		return m_body.forward;
 	}
 
-	int32 PlayerModel::getCharge() const
+	int32 PlayerActor::getCharge() const
 	{
 		return m_charge;
 	}
 
-	CShape PlayerModel::getCollider() const
+	CShape PlayerActor::getCollider() const
 	{
 		return this->region();
 	}
 
-	ColDirection PlayerModel::collisionAndUpdateMotation(const RectF& region, ColDirection col)
+	ColDirection PlayerActor::collisionAndUpdateMotation(const RectF& region, ColDirection col)
 	{
 		auto collision = collision::Collision(region, this->region(), col);
 		m_body.pos = collision.first;
@@ -214,28 +213,28 @@ namespace abyss
 		}
 		return collision.second;
 	}
-	void PlayerModel::onCollisionStay(ICollider* col)
+	void PlayerActor::onCollisionStay(ICollider* col)
 	{
 		col->accept(overloaded{
-			[this](const FloorModel& floor) {
+			[this](const FloorActor& floor) {
 				// °
 				this->onCollisionStay(floor);
 			},
-			[this](const LadderModel& ladder) {
+			[this](const LadderActor& ladder) {
 				// ’òŽq
 				this->onCollisionStay(ladder);
 			},
-			[this](const PenetrateFloorModel& floor) {
+			[this](const PenetrateFloorActor& floor) {
 				// ŠÑ’Ê°
 				this->onCollisionStay(floor);
 			},
-			[this](const DoorModel& door) {
+			[this](const DoorActor& door) {
 				// ”à
 				this->onCollisionStay(door);
 			}
 		});
 	}
-	void PlayerModel::onCollisionStay(const FloorModel& col)
+	void PlayerActor::onCollisionStay(const FloorActor& col)
 	{
 		auto c = col.getCol();
 		if (m_body.vellocity.y > 0) c &= ~collision::Down;
@@ -245,7 +244,7 @@ namespace abyss
 
 		this->collisionAndUpdateMotation(col.region(), c);
 	}
-	void PlayerModel::onCollisionStay(const LadderModel& ladder)
+	void PlayerActor::onCollisionStay(const LadderActor& ladder)
 	{
 		if (ladder.isTop()) {
 			auto&& ladderRegion = ladder.region();
@@ -289,7 +288,7 @@ namespace abyss
 			}
 		}
 	}
-	void PlayerModel::onCollisionStay(const PenetrateFloorModel& col)
+	void PlayerActor::onCollisionStay(const PenetrateFloorActor& col)
 	{
 		auto c = col.getCol();
 		if (m_body.vellocity.y < 0) c &= ~collision::Up;
@@ -300,7 +299,7 @@ namespace abyss
 			m_body.pos.y += 10.0;
 		}
 	}
-	void PlayerModel::onCollisionStay(const DoorModel& door)
+	void PlayerActor::onCollisionStay(const DoorActor& door)
 	{
 		if (KeyUp.down()) {
 			// move door
@@ -309,12 +308,12 @@ namespace abyss
 			m_pWorld->notifyIntoDoor(this, door);
 		}
 	}
-	RectF PlayerModel::region() const
+	RectF PlayerActor::region() const
 	{
 		const Vec2 size = { 22, 80 };
 		return { m_body.pos - size / 2, size };
 	}
-	void PlayerModel::accept(const WorldVisitor& visitor)
+	void PlayerActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
 	}

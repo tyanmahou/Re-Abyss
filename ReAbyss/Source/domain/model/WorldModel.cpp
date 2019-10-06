@@ -1,12 +1,12 @@
 #include "WorldModel.hpp"
-#include <domain/model/object/WorldObject.hpp>
+#include <domain/actor/IActor.hpp>
 
 #include <Siv3D/Utility.hpp>
 #include <Siv3D/Scene.hpp>
 
 namespace abyss
 {
-	void WorldModel::pushObject(const std::shared_ptr<WorldObject>& obj)
+	void WorldModel::pushActor(const std::shared_ptr<IActor>& obj)
 	{
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
@@ -18,39 +18,39 @@ namespace abyss
 		if (!m_reserves.empty()) {
 			for (auto& obj : m_reserves) {
 				obj->start();
-				m_objects.push_back(std::move(obj));
+				m_actors.push_back(std::move(obj));
 			}
 			m_reserves.clear();
 		}
 
-		for (auto& obj : m_objects) {
+		for (auto& obj : m_actors) {
 			obj->update(dt);
 		}
 	}
 	void WorldModel::draw() const
 	{
-		for (auto& obj : m_objects) {
+		for (auto& obj : m_actors) {
 			obj->draw();
 		}
 	}
 	void WorldModel::erase()
 	{
-		s3d::Erase_if(m_objects, [](const std::shared_ptr<WorldObject>& obj) {
+		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
 			return obj->isDelete();
 		});
 	}
 	void WorldModel::clear()
 	{
 		m_reserves.clear();
-		m_objects.clear();
+		m_actors.clear();
 		m_objIdCounter = 0;
 	}
-	s3d::Array<std::shared_ptr<WorldObject>>& WorldModel::getObjects()
+	s3d::Array<std::shared_ptr<IActor>>& WorldModel::getActors()
 	{
-		return m_objects;
+		return m_actors;
 	}
-	const s3d::Array<std::shared_ptr<WorldObject>>& WorldModel::getObjects() const
+	const s3d::Array<std::shared_ptr<IActor>>& WorldModel::getActors() const
 	{
-		return m_objects;
+		return m_actors;
 	}
 }

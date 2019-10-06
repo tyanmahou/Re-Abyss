@@ -1,10 +1,10 @@
 #include "CollisionUseCase.hpp"
-#include <domain/model/object/WorldObject.hpp>
+#include <domain/actor/IActor.hpp>
 #include <application/util/Collision.hpp>
 
 namespace abyss
 {
-	void SimpleCollision::collisionAll(s3d::Array<std::shared_ptr<WorldObject>>& objects)
+	void SimpleCollision::collisionAll(s3d::Array<std::shared_ptr<IActor>>& objects)
 	{
 		// Collision
 		auto prevCollision = std::move(this->m_currentCollision);

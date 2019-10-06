@@ -3,13 +3,13 @@
 
 namespace abyss
 {
-	class DoorModel;
+	class DoorActor;
 	class RoomModel;
 	struct DoorEntity;
 
 	class DoorTranslator
 	{
 	public:
-		std::shared_ptr<DoorModel> create(const DoorEntity& entity, const RoomModel& room) const;
+		std::shared_ptr<DoorActor> create(const DoorEntity& entity, const RoomModel& room) const;
 	};
 }

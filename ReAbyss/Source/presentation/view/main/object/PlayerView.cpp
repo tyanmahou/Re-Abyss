@@ -1,6 +1,6 @@
 #include "PlayerView.hpp"
-#include "../../../domain/model/object/PlayerModel.hpp"
-#include "../../../application/common/Constants.hpp"
+#include <domain/actor/PlayerActor.hpp>
+#include <application/common/Constants.hpp>
 
 
 #include <Siv3D.hpp>
@@ -19,11 +19,11 @@ namespace abyss
 
 		switch (pPlayer->getMotion())
 		{
-		case PlayerModel::Motion::Stay: {
+		case PlayerActor::Motion::Stay: {
 			int page = timer % 240 <= 10 ? 1 : 0;
 			m_texture(U"player_stay.png", { isRight ? 40 : 0, 80 * page }, { 40, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Float: {
+		case PlayerActor::Motion::Float: {
 			double y = 160;
 			if (v.y < -1.6) {
 				y = 0;
@@ -37,11 +37,11 @@ namespace abyss
 
 			m_texture(U"player_float.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Run: {
+		case PlayerActor::Motion::Run: {
 			int x = static_cast<int>(Periodic::Tringle0_1(1.2s) * 5) * 60;
 			m_texture(U"player_run.png", { x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Swim: {
+		case PlayerActor::Motion::Swim: {
 			double y = 0;
 			if (v.y < -1.6) {
 				y = 160;
@@ -54,21 +54,21 @@ namespace abyss
 			}
 			m_texture(U"player_swim.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Dive: {
+		case PlayerActor::Motion::Dive: {
 			double y = 80 * (timer / 30 % 2);
 			m_texture(U"player_dive.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Damge: {
+		case PlayerActor::Motion::Damge: {
 			Color c = timer / 6 % 2 ? Color(255, 128, 128, 128) : Palette::White;
 			m_texture(U"player_damage.png", { isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(pos, c);
 		}break;
-		case PlayerModel::Motion::Ladder: {
+		case PlayerActor::Motion::Ladder: {
 			m_texture(U"player_ladder.png", { 40 * (static_cast<int>(pos.y / 30) % 2), 0 }, { 40, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::LadderTop: {
+		case PlayerActor::Motion::LadderTop: {
 			m_texture(U"player_ladder.png", { 80, 0 }, { 40, 80 }).drawAt(pos);
 		}break;
-		case PlayerModel::Motion::Door: {
+		case PlayerActor::Motion::Door: {
 
 			m_texture(U"player_door.png", { 40 * static_cast<int>(Periodic::Sawtooth0_1(1s) * 2), 0 }, { 40, 80 }).drawAt(pos);
 		}break;
@@ -111,7 +111,7 @@ namespace abyss
 			}
 		}
 	}
-	PlayerView::PlayerView(std::shared_ptr<PlayerModel> pPlayer) :
+	PlayerView::PlayerView(std::shared_ptr<PlayerActor> pPlayer) :
 		m_texture(U"work/player/player.json"),
 		m_pPlayer(pPlayer)
 	{}

@@ -1,23 +1,22 @@
-#include "SlimeModel.hpp"
-#include "FloorModel.hpp"
+#include "SlimeActor.hpp"
+#include "FloorActor.hpp"
 
 #include <application/util/Collision.hpp>
 #include <application/common/Constants.hpp>
 
-#include <domain/model/object/PlayerModel.hpp>
+#include <domain/actor/PlayerActor.hpp>
 #include <domain/usecase/WorldUseCase.hpp>
-#include <domain/visitor/WorldVisitor.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss
 {
-	class SlimeModel::Cencer : public WorldObject
+	class SlimeActor::Cencer : public IActor
 	{
 		Vec2 m_pos;
 		bool m_onCollision = true;
-		SlimeModel* m_parent;
+		SlimeActor* m_parent;
 	public:
-		Cencer(SlimeModel* p):
+		Cencer(SlimeActor* p):
 			m_parent(p)
 		{
 		}
@@ -26,7 +25,7 @@ namespace abyss
 			if (!m_isActive) {
 				return;
 			}
-			if (!m_onCollision && m_parent->getMotion() == SlimeModel::Motion::Walk) {
+			if (!m_onCollision && m_parent->getMotion() == SlimeActor::Motion::Walk) {
 				m_parent->reverse();
 			}
 			auto isLeft = m_parent->getForward() == Forward::Left;
@@ -46,12 +45,12 @@ namespace abyss
 
 		void onCollisionStay(ICollider* col) override
 		{
-			col->accept([this](MapModel&) {
+			col->accept([this](MapActor&) {
 				m_onCollision = true;
 			});
 		}
 	};
-	void SlimeModel::onCollision(const MapModel& map)
+	void SlimeActor::onCollision(const MapActor& map)
 	{
 		auto c = map.getCol();
 		if (m_body.vellocity.y > 0) c &= ~collision::Down;
@@ -77,19 +76,19 @@ namespace abyss
 		}
 	}
 
-	SlimeModel::SlimeModel(const s3d::Vec2& pos, Forward forward) :
-		EnemyModel(pos, forward)
+	SlimeActor::SlimeActor(const s3d::Vec2& pos, Forward forward) :
+		EnemyActor(pos, forward)
 	{
 		m_hp = 10;
 		m_body.accel.y = 0.2;
 		m_onCollision = true;
 	}
 
-	void SlimeModel::start()
+	void SlimeActor::start()
 	{
 	}
 
-	void SlimeModel::update(double)
+	void SlimeActor::update(double)
 	{
 		if (!m_cencer) {
 			m_cencer = std::make_shared<Cencer>(this);
@@ -120,30 +119,30 @@ namespace abyss
 		m_onCollision = false;
 	}
 
-	void SlimeModel::draw() const
+	void SlimeActor::draw() const
 	{
 	}
 
-	void SlimeModel::onCollisionEnter(ICollider* col)
+	void SlimeActor::onCollisionEnter(ICollider* col)
 	{
-		col->accept([this](const MapModel& map) {
+		col->accept([this](const MapActor& map) {
 			this->onCollision(map);
 		});
 	}
 
-	void SlimeModel::onCollisionStay(ICollider* col)
+	void SlimeActor::onCollisionStay(ICollider* col)
 	{
-		col->accept([this](const MapModel& map) {
+		col->accept([this](const MapActor& map) {
 			this->onCollision(map);
 		});
 	}
 
-	CShape SlimeModel::getCollider() const
+	CShape SlimeActor::getCollider() const
 	{
 		return this->region();
 	}
 
-	s3d::RectF SlimeModel::region() const
+	s3d::RectF SlimeActor::region() const
 	{
 		if (m_motion == Motion::Walk) {
 			return s3d::RectF(m_body.pos.x - 35.0 / 2, m_body.pos.y + 20 -25, 35, 25);
@@ -151,12 +150,12 @@ namespace abyss
 		return s3d::RectF(m_body.pos.x - 16, m_body.pos.y - 16, 32, 32);
 	}
 
-	SlimeModel::Motion SlimeModel::getMotion() const
+	SlimeActor::Motion SlimeActor::getMotion() const
 	{
 		return m_motion;
 	}
 
-	void SlimeModel::reverse()
+	void SlimeActor::reverse()
 	{
 		if (m_body.forward == Forward::Left) {
 			m_body.forward = Forward::Right;
@@ -165,12 +164,12 @@ namespace abyss
 		}
 	}
 
-	void SlimeModel::setView(std::unique_ptr<ISlimeView>&& pView)
+	void SlimeActor::setView(std::unique_ptr<ISlimeView>&& pView)
 	{
 		//m_pView = std::move(pView);
 	}
 
-	void SlimeModel::accept(const WorldVisitor& visitor)
+	void SlimeActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
 	}
