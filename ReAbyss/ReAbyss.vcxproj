@@ -302,7 +302,6 @@
     <ClInclude Include="Source\application\util\Visitor.hpp" />
     <ClInclude Include="Source\data\datastore\parser\MapEntityParser.hpp" />
     <ClInclude Include="Source\data\datastore\StageDataStore.hpp" />
-    <ClInclude Include="Source\data\entity\BackGroundEntity.hpp" />
     <ClInclude Include="Source\data\entity\DoorEntity.hpp" />
     <ClInclude Include="Source\data\entity\EnemyEntity.hpp" />
     <ClInclude Include="Source\data\entity\MapEntity.hpp" />

@@ -595,9 +595,6 @@
     <ClInclude Include="Source\application\util\Visitor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\data\entity\BackGroundEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\data\entity\DoorEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -13,14 +13,6 @@ namespace abyss
 	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
 		m_view(view)
 	{
-		// •`‰æî•ñ‚ðview‚É“n‚·
-		auto onLoadStageFile = [this](IStageDataStore* dataStore) {
-			// ”wŒi“o˜^
-			for (const auto& bg : dataStore->getBackGroundEntity()) {
-				m_view->addBackGroundView(BackGroundVM(bg));
-			}
-		};
-
 		auto onCreateObject = [this](const auto& model) {
 			if (auto view = m_view->getFactory().createFromModel(model)) {
 				m_view->addWorldObjectView(std::move(view));

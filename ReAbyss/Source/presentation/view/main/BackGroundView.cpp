@@ -11,19 +11,15 @@ namespace
 }
 namespace abyss
 {
-	BackGroundVM::BackGroundVM(const BackGroundEntity& data) :
-		m_data(data)
-	{}
-
 	void BackGroundVM::draw(const s3d::Vec2& pos) const
 	{
 		const auto& screen = Constants::GameScreenSize;
 
-		double u = m_data.loop.x ? (pos.x - screen.x / 2 - m_data.offset.x) / screen.x / m_data.rate.x : 0;
-		double v = m_data.loop.y ? (pos.y - screen.y / 2 - m_data.offset.y) / screen.y / m_data.rate.y : 0;
-		double x = m_data.loop.x ? pos.x : m_data.offset.x + m_data.texture.size().x / 2;
-		double y = m_data.loop.y ? pos.y : m_data.offset.y + m_data.texture.size().y / 2;
-		m_data.texture.uv(u, v, 1, 1).drawAt({ x, y });
+		double u = loop.x ? (pos.x - screen.x / 2 - offset.x) / screen.x / rate.x : 0;
+		double v = loop.y ? (pos.y - screen.y / 2 - offset.y) / screen.y / rate.y : 0;
+		double x = loop.x ? pos.x : offset.x + texture.size().x / 2;
+		double y = loop.y ? pos.y : offset.y + texture.size().y / 2;
+		texture.uv(u, v, 1, 1).drawAt({ x, y });
 	}
 
 	void BackGroundView::addBackGround(const BackGroundVM & bg)
@@ -31,15 +27,11 @@ namespace abyss
 		m_bgs.push_back(bg);
 	}
 
-	void BackGroundView::setPos(const s3d::Vec2 & pos)
-	{
-		m_pos = pos;
-	}
-	void BackGroundView::draw() const
+	void BackGroundView::draw(const s3d::Vec2& pos) const
 	{
 		ScopedRenderStates2D state(YClamp);
 		for (const auto& bg : m_bgs) {
-			bg.draw(m_pos);
+			bg.draw(pos);
 		}
 	}
 

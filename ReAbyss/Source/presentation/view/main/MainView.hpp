@@ -5,8 +5,6 @@
 #include "WorldView.hpp"
 #include "MainViewFactory.hpp"
 #include "BubbleGenerator.hpp"
-#include "BackGroundView.hpp"
-
 #include "CameraView.hpp"
 #include "CameraWorkView.hpp"
 #include "StageView.hpp"
@@ -20,7 +18,6 @@ namespace abyss
 	class IMainView : public IView
 	{
 	public:
-		virtual void addBackGroundView(const BackGroundVM& bg) = 0;
 		virtual void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) = 0;
 		virtual const MainViewFactory& getFactory()const = 0;
 
@@ -31,7 +28,6 @@ namespace abyss
 	class MainView : public IMainView
 	{
 	private:
-		BackGroundView m_bg;
 
 		WorldView m_woldView;
 		MainViewFactory m_viewFactory;
@@ -45,7 +41,6 @@ namespace abyss
 	public:
 		MainView();
 
-		void addBackGroundView(const BackGroundVM& bg)override;
 		void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) override;
 		const MainViewFactory& getFactory()const override;
 		void createCameraView(const CameraModel& pCamera)override;

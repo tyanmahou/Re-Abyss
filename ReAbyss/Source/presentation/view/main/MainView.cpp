@@ -19,10 +19,6 @@ namespace abyss
 		m_viewFactory(this)
 	{
 	}
-	void MainView::addBackGroundView(const BackGroundVM& bg)
-	{
-		m_bg.addBackGround(bg);
-	}
 	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view)
 	{
 		m_woldView.addView(std::move(view));
@@ -30,7 +26,6 @@ namespace abyss
 	void MainView::update()
 	{
 		auto cameraPos = m_cameraView->getCameraPos();
-		m_bg.setPos(cameraPos);
 		m_woldView.update();
 		m_bubbles.setPos(cameraPos);
 		m_bubbles.update();
@@ -47,8 +42,10 @@ namespace abyss
 		{
 			auto t2d = m_cameraView->getTransformer();
 			auto screen = m_cameraView->screenRegion();
+			const auto& cameraPos = m_cameraView->getCameraPos();
 
-			m_bg.draw();
+			// ”wŒi
+			m_stageView->drawBg(cameraPos);
 
 			// back
 			m_stageView->drawLayer(U"back", screen);

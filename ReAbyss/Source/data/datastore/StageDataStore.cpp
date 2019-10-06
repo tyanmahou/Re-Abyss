@@ -110,31 +110,7 @@ namespace abyss
 		);
 		return ret;
 	}
-	s3d::Array<BackGroundEntity> TiledStageDataStore::getBackGroundEntity() const
-	{
-		s3d::Array<BackGroundEntity> ret;
 
-		auto toEntity = [](const ImageLayer & layer)
-		{
-			BackGroundEntity e;
-			e.texture = layer.getTexture();
-			e.offset = layer.getOffset();
-			e.loop = { layer.getProperty(U"loopX").value_or(false),layer.getProperty(U"loopY").value_or(false) };
-			e.rate = { layer.getProperty(U"rateX").value_or(1.0), layer.getProperty(U"rateY").value_or(1.0) };
-			return e;
-		};
-		// ”wŒiî•ñŽæ“¾
-		m_tiledMap.getLayer(U"bgs")->then(
-			[&](const GroupLayer & layer) {
-				for (const auto& child : layer.getLayers()) {
-					child.then([&](const ImageLayer & i) {
-						ret.push_back(toEntity(i));
-						});
-				}
-			}
-		);
-		return ret;
-	}
 	const s3dTiled::TiledMap& TiledStageDataStore::getTiledMap() const
 	{
 		return m_tiledMap;

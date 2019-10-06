@@ -1,26 +1,27 @@
 #pragma once
-#include <data/entity/BackGroundEntity.hpp>
-#include "../IView.hpp"
+#include<Siv3D/Vector2D.hpp>
+#include<Siv3D/Texture.hpp>
+#include<Siv3D/Array.hpp>
 
 namespace abyss
 {
-	class BackGroundVM
+	struct BackGroundVM
 	{
-		BackGroundEntity m_data;
-	public:
-		BackGroundVM(const BackGroundEntity& data);
+		s3d::Texture texture;
+		s3d::Vec2 offset;
+
+		s3d::Vector2D<bool> loop;
+		s3d::Vec2 rate;
 
 		void draw(const s3d::Vec2& pos)const;
 	};
 
-	class BackGroundView : public IView
+	class BackGroundView
 	{
 	private:
 		s3d::Array<BackGroundVM> m_bgs;
-		s3d::Vec2 m_pos;
 	public:
 		void addBackGround(const BackGroundVM& bg);
-		void setPos(const s3d::Vec2& pos);
-		void draw()const override;
+		void draw(const s3d::Vec2& pos)const;
 	};
 }
