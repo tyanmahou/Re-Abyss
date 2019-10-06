@@ -22,7 +22,7 @@ namespace abyss
 		std::shared_ptr<IMainView> m_view;
 		
 		WorldUseCase m_worldUseCase;
-		StageUseCase m_stageUseCase;
+		std::unique_ptr<IStageUseCase> m_stageUseCase;
 		CameraUseCase m_cameraUseCase;
 
 	public:

@@ -331,7 +331,6 @@
     <ClInclude Include="Source\domain\usecase\CameraObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\CameraUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\CollisionUseCase.hpp" />
-    <ClInclude Include="Source\domain\usecase\StageObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp" />

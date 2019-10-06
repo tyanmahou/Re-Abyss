@@ -694,9 +694,6 @@
     <ClInclude Include="Source\domain\usecase\CollisionUseCase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\usecase\StageObservable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

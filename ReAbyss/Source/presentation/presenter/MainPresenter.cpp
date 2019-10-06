@@ -25,7 +25,6 @@ namespace abyss
 				m_view->addLayerView(layer.layerName, layer.drawCallback);
 			}
 		};
-		m_stageUseCase.onLoadStageFile().subscribe(onLoadStageFile);
 
 		auto onCreateObject = [this](const auto& model) {
 			if (auto view = m_view->getFactory().createFromModel(model)) {
@@ -44,14 +43,14 @@ namespace abyss
 		m_worldUseCase.onIntoDoor().subscribe(onIntoDoor);
 
 		auto onOutSideRoom = [&](const Vec2& pos) {
-			if (auto next = m_stageUseCase.findRoom(pos)) {
+			if (auto next = m_stageUseCase->findRoom(pos)) {
 				m_worldUseCase.reset();
 				m_cameraUseCase.startCameraWork(*next, pos);
 			}
 		};
 		m_cameraUseCase.onOutSideRoom().subscribe(onOutSideRoom);
 		auto onNextRoom = [&](const RoomModel& room) {
-			m_stageUseCase.initRoom(m_worldUseCase, room);
+			m_stageUseCase->initRoom(m_worldUseCase, room);
 		};
 		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
 		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork>& work) {
@@ -60,9 +59,8 @@ namespace abyss
 		};
 		m_cameraUseCase.onStartDoorCameraWork().subscribe(onStartDoorCameraWork);
 		// init
-		m_stageUseCase.load(U"work/stage0/stage0.tmx");
-		if (auto room = m_stageUseCase.findRoom({ 480, 2000 })) {
-			m_stageUseCase.init(m_worldUseCase, *room);
+		if (auto room = m_stageUseCase->findRoom({ 480, 2000 })) {
+			m_stageUseCase->init(m_worldUseCase, *room);
 			m_cameraUseCase.setRoom(*room);
 		}
 		m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());

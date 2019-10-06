@@ -1,10 +1,21 @@
 #include "MainScene.hpp"
 
+#include<domain/usecase/StageUseCase.hpp>
+
 //#include "../../presentation/presenter/MainPresenter.hpp"
 //#include "../../presentation/view/main/MainView.hpp"
 
 namespace abyss
 {
+	namespace di
+	{
+		void Create(const String& stageFilePath)
+		{
+			auto stageDataStore = std::make_unique<TiledStageDataStore>(stageFilePath);
+			auto stageRepository = std::make_unique<StageRepository>(*stageDataStore);
+			auto stageUseCase = std::make_unique<StageUseCase>(std::move(stageRepository));
+		}
+	}
 
 	class MainScene::Controller
 	{
@@ -18,6 +29,8 @@ namespace abyss
 			//SoundAsset::Register(L"test", L"resources/sounds/bgms/stage_0.wav");
 			//SoundAsset(L"test").setLoop(true);
 			//SoundAsset(L"test").play();
+
+			// U"work/stage0/stage0.tmx"
 		}
 
 
