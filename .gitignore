@@ -388,7 +388,7 @@ siv3d.a
 Screenshot/
 AS_DEBUG/
 
-include/
+## include/
 lib/
 
 ## Application
