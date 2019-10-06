@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5e29afb7-bc20-41d9-b142-6b96ce06b21f}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ReAbyss</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\Source\vendor\S3DTiled\include;$(ProjectDir)\Source;$(SIV3D_0_4_1)\include;$(SIV3D_0_4_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SIV3D_0_4_1)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
+    <TargetName>$(ProjectName)(debug)</TargetName>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)\Source\vendor\S3DTiled\include;$(ProjectDir)\Source;$(SIV3D_0_4_1)\include;$(SIV3D_0_4_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SIV3D_0_4_1)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)App"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)App"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="App\engine\texture\box-shadow\128.png" />
+    <Image Include="App\engine\texture\box-shadow\16.png" />
+    <Image Include="App\engine\texture\box-shadow\256.png" />
+    <Image Include="App\engine\texture\box-shadow\32.png" />
+    <Image Include="App\engine\texture\box-shadow\64.png" />
+    <Image Include="App\engine\texture\box-shadow\8.png" />
+    <Image Include="App\example\bay.jpg" />
+    <Image Include="App\example\particle.png" />
+    <Image Include="App\example\siv3d-kun.png" />
+    <Image Include="App\example\windmill.png" />
+    <Image Include="App\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="App\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App\engine\emoji\noto7_dictionary.dat" />
+    <None Include="App\engine\font\fontawesome\fontawesome-brands.otf.zstdcmp" />
+    <None Include="App\engine\font\fontawesome\fontawesome-solid.otf.zstdcmp" />
+    <None Include="App\engine\font\mplus\LICENSE_E" />
+    <None Include="App\engine\font\mplus\mplus-1p-black.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-bold.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-heavy.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-light.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-medium.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-regular.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-thin.ttf.zstdcmp" />
+    <None Include="App\engine\font\noto\NotoColorEmoji.ttf.zstdcmp" />
+    <None Include="App\engine\font\noto\NotoEmoji-Regular.ttf.zstdcmp" />
+    <None Include="App\engine\objdetect\haarcascade\eye.xml.zstdcmp" />
+    <None Include="App\engine\objdetect\haarcascade\eye_eyeglasses.xml.zstdcmp" />
+    <None Include="App\engine\objdetect\haarcascade\face_anime.xml.zstdcmp" />
+    <None Include="App\engine\objdetect\haarcascade\frontal_catface.xml.zstdcmp" />
+    <None Include="App\engine\objdetect\haarcascade\frontal_face_alt2.xml.zstdcmp" />
+    <None Include="App\engine\shader\copy.ps" />
+    <None Include="App\engine\shader\fullscreen_triangle_draw.ps" />
+    <None Include="App\engine\shader\fullscreen_triangle_draw.vs" />
+    <None Include="App\engine\shader\fullscreen_triangle_resolve.ps" />
+    <None Include="App\engine\shader\fullscreen_triangle_resolve.vs" />
+    <None Include="App\engine\shader\gaussian_blur_9.ps" />
+    <None Include="App\engine\shader\round_dot.ps" />
+    <None Include="App\engine\shader\sdf.ps" />
+    <None Include="App\engine\shader\shape.ps" />
+    <None Include="App\engine\shader\sprite.vs" />
+    <None Include="App\engine\shader\square_dot.ps" />
+    <None Include="App\engine\shader\texture.ps" />
+    <None Include="App\engine\soundfont\GMGSx.sf2.zstdcmp" />
+    <None Include="App\example\config\config.csv" />
+    <None Include="App\example\config\config.ini" />
+    <None Include="App\example\config\config.json" />
+    <None Include="App\example\config\config.toml" />
+    <None Include="App\example\font\NotoSansCJKjp\README" />
+    <None Include="App\example\font\Pecita\LICENSE" />
+    <None Include="App\example\svm\a1a_testing" />
+    <None Include="App\example\svm\a1a_training" />
+    <None Include="App\example\test.toml" />
+    <None Include="App\nlp\japanese\jumanpp\LICENSE" />
+    <None Include="App\nlp\japanese\jumanpp\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="App\engine\font\fontawesome\LICENSE.txt" />
+    <Text Include="App\engine\font\noto\LICENSE_OFL.txt" />
+    <Text Include="App\example\font\AnnyantRoman\readme.txt" />
+    <Text Include="App\example\font\NotoSansCJKjp\LICENSE_OFL.txt" />
+    <Text Include="App\example\LICENSE.txt" />
+    <Text Include="App\example\script\paint.txt" />
+    <Text Include="App\example\script\test.txt" />
+    <Text Include="App\example\test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="App\example\font\AnnyantRoman\AnnyantRoman.ttf" />
+    <Font Include="App\example\font\NotoSansCJKjp\NotoSansCJKjp-Regular.otf" />
+    <Font Include="App\example\font\Pecita\Pecita.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="App\example\shot.mp3" />
+    <Media Include="App\example\test.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="App\example\config\config.xml" />
+    <Xml Include="App\example\test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App\example\shader\2d\default_shape.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\default_texture.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\game_of_life.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\grayscale.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\multi_texture_blend.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\multi_texture_mask.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\poisson_disk.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\posterize.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\rgb_shift.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\rgb_to_bgr.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="App\example\shader\2d\swirl.hlsl">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\application\common\AbyssDream.cpp" />
+    <ClCompile Include="Source\application\common\Application.cpp" />
+    <ClCompile Include="Source\application\common\Game.cpp" />
+    <ClCompile Include="Source\application\scene\MainScene.cpp" />
+    <ClCompile Include="Source\application\util\Collision.cpp" />
+    <ClCompile Include="Source\application\util\TexturePacker.cpp" />
+    <ClCompile Include="Source\data\datastore\parser\MapEntityParser.cpp" />
+    <ClCompile Include="Source\data\datastore\StageDataStore.cpp" />
+    <ClCompile Include="Source\domain\model\CameraModel.cpp" />
+    <ClCompile Include="Source\domain\model\CameraWork.cpp" />
+    <ClCompile Include="Source\domain\model\object\DoorModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\EnemyModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\FloorModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\ICollider.cpp" />
+    <ClCompile Include="Source\domain\model\object\LadderModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\MapModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\PenetrateFloorModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\PlayerModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\PlayerShotModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\SlimeModel.cpp" />
+    <ClCompile Include="Source\domain\model\object\WorldObject.cpp" />
+    <ClCompile Include="Source\domain\model\RoomModel.cpp" />
+    <ClCompile Include="Source\domain\model\WorldModel.cpp" />
+    <ClCompile Include="Source\domain\repository\StageRepository.cpp" />
+    <ClCompile Include="Source\domain\translator\DoorTranslator.cpp" />
+    <ClCompile Include="Source\domain\translator\EnemyTranslator.cpp" />
+    <ClCompile Include="Source\domain\translator\MapTranslator.cpp" />
+    <ClCompile Include="Source\domain\translator\RoomTranslator.cpp" />
+    <ClCompile Include="Source\domain\usecase\CameraUseCase.cpp" />
+    <ClCompile Include="Source\domain\usecase\CollisionUseCase.cpp" />
+    <ClCompile Include="Source\domain\usecase\StageUseCase.cpp" />
+    <ClCompile Include="Source\domain\usecase\WorldUseCase.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\presentation\presenter\MainPresenter.cpp" />
+    <ClCompile Include="Source\presentation\presenter\WorldPresenter.cpp" />
+    <ClCompile Include="Source\presentation\view\fade\Fade.cpp" />
+    <ClCompile Include="Source\presentation\view\main\BackGroundView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\BubbleGenerator.cpp" />
+    <ClCompile Include="Source\presentation\view\main\CameraView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\CameraWorkView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\MainView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\MainViewFactory.cpp" />
+    <ClCompile Include="Source\presentation\view\main\object\PlayerShotView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\object\PlayerView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\object\SlimeView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\WorldView.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\Parser\TiledReader.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\Parser\TmxParser.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledLayer\TiledLayer.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledMap\CTiledMap.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledMap\TiledMap.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledObject\TiledObject.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledProperty\TiledProperty.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledSets\TiledSets.cpp" />
+    <ClCompile Include="Source\vendor\S3DTiled\src\TiledSets\TileSetBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\application\common\AbyssDream.hpp" />
+    <ClInclude Include="Source\application\common\Application.hpp" />
+    <ClInclude Include="Source\application\common\Constants.hpp" />
+    <ClInclude Include="Source\application\common\Game.hpp" />
+    <ClInclude Include="Source\application\scene\MainScene.hpp" />
+    <ClInclude Include="Source\application\scene\SceneBase.hpp" />
+    <ClInclude Include="Source\application\types\CShape.hpp" />
+    <ClInclude Include="Source\application\types\Forward.hpp" />
+    <ClInclude Include="Source\application\types\Physics.hpp" />
+    <ClInclude Include="Source\application\util\Collision.hpp" />
+    <ClInclude Include="Source\application\util\CollisionPairHash.hpp" />
+    <ClInclude Include="Source\application\util\CommonUtil.hpp" />
+    <ClInclude Include="Source\application\util\Observable.hpp" />
+    <ClInclude Include="Source\application\util\Singleton.hpp" />
+    <ClInclude Include="Source\application\util\TexturePacker.hpp" />
+    <ClInclude Include="Source\application\util\Visitor.hpp" />
+    <ClInclude Include="Source\data\datastore\parser\MapEntityParser.hpp" />
+    <ClInclude Include="Source\data\datastore\StageDataStore.hpp" />
+    <ClInclude Include="Source\data\entity\BackGroundEntity.hpp" />
+    <ClInclude Include="Source\data\entity\DoorEntity.hpp" />
+    <ClInclude Include="Source\data\entity\EnemyEntity.hpp" />
+    <ClInclude Include="Source\data\entity\LayerViewEntity.hpp" />
+    <ClInclude Include="Source\data\entity\MapEntity.hpp" />
+    <ClInclude Include="Source\data\entity\PlayerEntity.hpp" />
+    <ClInclude Include="Source\data\entity\RoomEntity.hpp" />
+    <ClInclude Include="Source\domain\model\CameraModel.hpp" />
+    <ClInclude Include="Source\domain\model\CameraWork.hpp" />
+    <ClInclude Include="Source\domain\model\object\DoorModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\EnemyModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\FloorModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\ICollider.hpp" />
+    <ClInclude Include="Source\domain\model\object\LadderModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\MapModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\PenetrateFloorModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\PlayerModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\PlayerShotModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\SlimeModel.hpp" />
+    <ClInclude Include="Source\domain\model\object\WorldObject.hpp" />
+    <ClInclude Include="Source\domain\model\RoomModel.hpp" />
+    <ClInclude Include="Source\domain\model\WorldModel.hpp" />
+    <ClInclude Include="Source\domain\repository\StageRepository.hpp" />
+    <ClInclude Include="Source\domain\translator\DoorTranslator.hpp" />
+    <ClInclude Include="Source\domain\translator\EnemyTranslator.hpp" />
+    <ClInclude Include="Source\domain\translator\MapTranslator.hpp" />
+    <ClInclude Include="Source\domain\translator\RoomTranslator.hpp" />
+    <ClInclude Include="Source\domain\usecase\CameraObservable.hpp" />
+    <ClInclude Include="Source\domain\usecase\CameraUseCase.hpp" />
+    <ClInclude Include="Source\domain\usecase\CollisionUseCase.hpp" />
+    <ClInclude Include="Source\domain\usecase\StageObservable.hpp" />
+    <ClInclude Include="Source\domain\usecase\StageUseCase.hpp" />
+    <ClInclude Include="Source\domain\usecase\WorldObservable.hpp" />
+    <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp" />
+    <ClInclude Include="Source\domain\visitor\ViewVisitor.hpp" />
+    <ClInclude Include="Source\domain\visitor\WorldVisitor.hpp" />
+    <ClInclude Include="Source\presentation\presenter\MainPresenter.hpp" />
+    <ClInclude Include="Source\presentation\presenter\WorldPresenter.hpp" />
+    <ClInclude Include="Source\presentation\view\effects\Bubble.hpp" />
+    <ClInclude Include="Source\presentation\view\effects\PlayerShotEffect.hpp" />
+    <ClInclude Include="Source\presentation\view\fade\Fade.hpp" />
+    <ClInclude Include="Source\presentation\view\IView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\BackGroundView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\BubbleGenerator.hpp" />
+    <ClInclude Include="Source\presentation\view\main\CameraView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\CameraWorkView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\MainView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\MainViewFactory.hpp" />
+    <ClInclude Include="Source\presentation\view\main\object\IWorldObjectView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\object\PlayerShotView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\object\PlayerView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\object\SlimeView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\StageLayerView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\WorldView.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledLayer.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledMap.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledObject.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledProperty.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled\TiledTypes.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\src\Parser\TiledParser.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\src\Parser\TiledReader.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\src\TiledMap\CTiledMap.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\src\TiledSets\TiledSets.hpp" />
+    <ClInclude Include="Source\vendor\S3DTiled\src\TiledSets\TileSetBase.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

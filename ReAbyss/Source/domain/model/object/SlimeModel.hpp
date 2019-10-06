@@ -1,0 +1,46 @@
+#pragma once
+#include "EnemyModel.hpp"
+
+namespace abyss
+{
+	class MapModel;
+	class ISlimeView;
+
+	class SlimeModel : public EnemyModel
+	{
+	public:
+		enum class Motion
+		{
+			Walk,
+			Jump
+		};
+	private:
+		//std::unique_ptr<ISlimeView> m_pView;
+
+		class Cencer;
+		std::shared_ptr<Cencer> m_cencer;
+
+		Motion m_motion = Motion::Walk;
+
+		bool m_onCollision = false;
+		void onCollision(const MapModel& map);
+	public:
+		SlimeModel(const s3d::Vec2& pos, Forward forward = Forward::Left);
+
+		void start()override;
+		void update(double)override;
+		void draw()const;
+
+		void onCollisionEnter(ICollider* col) override;
+		void onCollisionStay(ICollider* col) override;
+
+		CShape getCollider() const override;
+		s3d::RectF region()const;
+		Motion getMotion()const;
+
+		void reverse();
+
+		void setView(std::unique_ptr<ISlimeView>&& pView);
+		void accept(const WorldVisitor& visitor) override;
+	};
+}
