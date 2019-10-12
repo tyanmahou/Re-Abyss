@@ -455,9 +455,6 @@
     <ClCompile Include="Source\presentation\view\main\MainView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\presentation\view\main\MainViewFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\presentation\view\main\WorldView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -471,9 +468,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\presentation\presenter\MainPresenter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\presentation\presenter\WorldPresenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\domain\actor\ICollider.cpp">
@@ -510,6 +504,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\presentation\view\main\StageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\domain\facade\WorldFacade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -628,9 +625,6 @@
     <ClInclude Include="Source\domain\model\WorldModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\visitor\ViewVisitor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\domain\repository\StageRepository.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -691,9 +685,6 @@
     <ClInclude Include="Source\presentation\view\main\MainView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\presentation\view\main\MainViewFactory.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\presentation\view\main\WorldView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -710,9 +701,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\presentation\presenter\MainPresenter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\presentation\presenter\WorldPresenter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\domain\actor\ICollider.hpp">
@@ -752,6 +740,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\presentation\view\main\StageView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\presentation\view\actor\IActorView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\domain\facade\WorldFacade.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

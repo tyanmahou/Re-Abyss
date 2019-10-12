@@ -16,6 +16,9 @@ namespace abyss
 		virtual void reset() = 0;
 	};
 
+	/// <summary>
+	/// ƒVƒ“ƒvƒ‹‚È‚ ‚½‚è”»’è
+	/// </summary>
 	class SimpleCollision : public ICollisionUseCase
 	{
 		std::unordered_set<CollisionPairHash> m_currentCollision;

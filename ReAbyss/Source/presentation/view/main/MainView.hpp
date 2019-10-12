@@ -3,7 +3,6 @@
 #include <Siv3D/Effect.hpp>
 #include "../IView.hpp"
 #include "WorldView.hpp"
-#include "MainViewFactory.hpp"
 #include "BubbleGenerator.hpp"
 #include "CameraView.hpp"
 #include "CameraWorkView.hpp"
@@ -18,9 +17,6 @@ namespace abyss
 	class IMainView : public IView
 	{
 	public:
-		virtual void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) = 0;
-		virtual const MainViewFactory& getFactory()const = 0;
-
 		virtual void createCameraView(const CameraModel& pCamera) = 0;
 		virtual void setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view) = 0;
 	};
@@ -30,7 +26,6 @@ namespace abyss
 	private:
 
 		WorldView m_woldView;
-		MainViewFactory m_viewFactory;
 
 		BubbleGenerator m_bubbles;
 
@@ -41,8 +36,6 @@ namespace abyss
 	public:
 		MainView();
 
-		void addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view) override;
-		const MainViewFactory& getFactory()const override;
 		void createCameraView(const CameraModel& pCamera)override;
 		void setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)override;
 

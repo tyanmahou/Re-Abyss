@@ -39,7 +39,6 @@ namespace abyss
 		auto registerObject(const std::shared_ptr<Type>& object)
 			->std::enable_if_t<std::is_base_of<IActor, Type>::value>
 		{
-			this->notifyCreateObject(object);
 			this->pushObject(object);
 		}
 

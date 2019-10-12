@@ -1,7 +1,6 @@
 #pragma once
 #include "IWorldObjectView.hpp"
 #include <application/util/TexturePacker.hpp>
-#include "../MainViewFactory.hpp"
 namespace abyss
 {
 	class PlayerActor;

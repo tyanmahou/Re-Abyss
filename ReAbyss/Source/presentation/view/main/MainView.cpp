@@ -3,10 +3,6 @@
 
 namespace abyss
 {
-	const MainViewFactory& MainView::getFactory() const
-	{
-		return m_viewFactory;
-	}
 	void MainView::createCameraView(const CameraModel& pCamera)
 	{
 		m_cameraView = std::make_unique<CameraView>(&pCamera);
@@ -15,18 +11,13 @@ namespace abyss
 	{
 		m_cameraWorkView = std::move(view);
 	}
-	MainView::MainView():
-		m_viewFactory(this)
+	MainView::MainView()
 	{
 	}
-	void MainView::addWorldObjectView(std::unique_ptr<IWorldObjectView>&& view)
-	{
-		m_woldView.addView(std::move(view));
-	}
+
 	void MainView::update()
 	{
 		auto cameraPos = m_cameraView->getCameraPos();
-		m_woldView.update();
 		m_bubbles.setPos(cameraPos);
 		m_bubbles.update();
 

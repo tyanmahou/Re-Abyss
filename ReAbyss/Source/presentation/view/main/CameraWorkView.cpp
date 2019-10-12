@@ -3,7 +3,6 @@
 #include <presentation/view/main/CameraView.hpp>
 #include <presentation/view/fade/Fade.hpp>
 #include <presentation/view/main/MainView.hpp>
-#include <presentation/view/main/MainViewFactory.hpp>
 
 namespace abyss
 {

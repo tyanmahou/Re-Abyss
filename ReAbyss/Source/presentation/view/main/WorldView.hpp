@@ -1,25 +1,24 @@
 #pragma once
-#include <Siv3D/Fwd.hpp>
-#include <Siv3D/Array.hpp>
+
 #include <Siv3D/Effect.hpp>
 
-#include <memory>
-#include "object/IWorldObjectView.hpp"
 
 namespace abyss
 {
-	class IWorldObjectView;
+	class WorldModel;
 
-	class WorldView : public IView
+	class WorldView
 	{
-		using Views = s3d::Array<std::unique_ptr<IWorldObjectView>>;
-		Views m_objectViews;
+		WorldModel* m_pModel;
 
 		s3d::Effect m_effect;
 	public:
-		void addView(std::unique_ptr<IWorldObjectView>&& view);
-		void update() override;
-		void draw()const override;
+		inline void setWorldModel(WorldModel* const pModel)
+		{
+			this->m_pModel = pModel;
+		}
+
+		void draw()const;
 
 		s3d::Effect& getEffect();
 	};

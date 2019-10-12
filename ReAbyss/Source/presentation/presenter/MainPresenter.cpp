@@ -13,13 +13,6 @@ namespace abyss
 	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
 		m_view(view)
 	{
-		auto onCreateObject = [this](const auto& model) {
-			if (auto view = m_view->getFactory().createFromModel(model)) {
-				m_view->addWorldObjectView(std::move(view));
-			}
-		};
-		m_worldUseCase.subsucrimeCreateObject(std::move(onCreateObject));
-
 		auto onIntoDoor = [&](PlayerActor* player, const DoorActor& doorModel) {
 			auto fadeInCallback = [player]() {
 				player->setMotion(PlayerActor::Motion::Stay);
@@ -41,8 +34,8 @@ namespace abyss
 		};
 		m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
 		auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork>& work) {
-			auto view = m_view->getFactory().createFromCameraWork(work);
-			m_view->setCameraWorkView(std::move(view));
+			//auto view = m_view->getFactory().createFromCameraWork(work);
+			//m_view->setCameraWorkView(std::move(view));
 		};
 		m_cameraUseCase.onStartDoorCameraWork().subscribe(onStartDoorCameraWork);
 		// init

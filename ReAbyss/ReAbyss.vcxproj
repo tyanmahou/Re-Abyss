@@ -234,6 +234,7 @@
     <ClCompile Include="Source\application\util\TexturePacker.cpp" />
     <ClCompile Include="Source\data\datastore\parser\MapEntityParser.cpp" />
     <ClCompile Include="Source\data\datastore\StageDataStore.cpp" />
+    <ClCompile Include="Source\domain\facade\WorldFacade.cpp" />
     <ClCompile Include="Source\domain\model\CameraModel.cpp" />
     <ClCompile Include="Source\domain\model\CameraWork.cpp" />
     <ClCompile Include="Source\domain\actor\DoorActor.cpp" />
@@ -260,14 +261,12 @@
     <ClCompile Include="Source\domain\usecase\WorldUseCase.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\presentation\presenter\MainPresenter.cpp" />
-    <ClCompile Include="Source\presentation\presenter\WorldPresenter.cpp" />
     <ClCompile Include="Source\presentation\view\fade\Fade.cpp" />
     <ClCompile Include="Source\presentation\view\main\BackGroundView.cpp" />
     <ClCompile Include="Source\presentation\view\main\BubbleGenerator.cpp" />
     <ClCompile Include="Source\presentation\view\main\CameraView.cpp" />
     <ClCompile Include="Source\presentation\view\main\CameraWorkView.cpp" />
     <ClCompile Include="Source\presentation\view\main\MainView.cpp" />
-    <ClCompile Include="Source\presentation\view\main\MainViewFactory.cpp" />
     <ClCompile Include="Source\presentation\view\main\object\PlayerShotView.cpp" />
     <ClCompile Include="Source\presentation\view\main\object\PlayerView.cpp" />
     <ClCompile Include="Source\presentation\view\main\object\SlimeView.cpp" />
@@ -307,6 +306,7 @@
     <ClInclude Include="Source\data\entity\MapEntity.hpp" />
     <ClInclude Include="Source\data\entity\PlayerEntity.hpp" />
     <ClInclude Include="Source\data\entity\RoomEntity.hpp" />
+    <ClInclude Include="Source\domain\facade\WorldFacade.hpp" />
     <ClInclude Include="Source\domain\model\CameraModel.hpp" />
     <ClInclude Include="Source\domain\model\CameraWork.hpp" />
     <ClInclude Include="Source\domain\actor\DoorActor.hpp" />
@@ -333,10 +333,9 @@
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp" />
-    <ClInclude Include="Source\domain\visitor\ViewVisitor.hpp" />
     <ClInclude Include="Source\domain\visitor\ActVisitor.hpp" />
     <ClInclude Include="Source\presentation\presenter\MainPresenter.hpp" />
-    <ClInclude Include="Source\presentation\presenter\WorldPresenter.hpp" />
+    <ClInclude Include="Source\presentation\view\actor\IActorView.hpp" />
     <ClInclude Include="Source\presentation\view\effects\Bubble.hpp" />
     <ClInclude Include="Source\presentation\view\effects\PlayerShotEffect.hpp" />
     <ClInclude Include="Source\presentation\view\fade\Fade.hpp" />
@@ -346,7 +345,6 @@
     <ClInclude Include="Source\presentation\view\main\CameraView.hpp" />
     <ClInclude Include="Source\presentation\view\main\CameraWorkView.hpp" />
     <ClInclude Include="Source\presentation\view\main\MainView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\MainViewFactory.hpp" />
     <ClInclude Include="Source\presentation\view\main\object\IWorldObjectView.hpp" />
     <ClInclude Include="Source\presentation\view\main\object\PlayerShotView.hpp" />
     <ClInclude Include="Source\presentation\view\main\object\PlayerView.hpp" />
