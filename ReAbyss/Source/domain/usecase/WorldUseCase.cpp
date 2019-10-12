@@ -9,7 +9,6 @@ namespace abyss
 {
 	void WorldUseCase::pushObject(const std::shared_ptr<IActor>& obj)
 	{
-		obj->setWorld(this);
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
 	}

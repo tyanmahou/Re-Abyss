@@ -1,8 +1,7 @@
 #include "PlayerShotActor.hpp"
 #include <application/common/Constants.hpp>
-
-#include <domain/usecase/WorldUseCase.hpp>
-#include <domain/model/CameraModel.hpp>
+#include <domain/facade/WorldFacade.hpp>
+#include <presentation/view/actor/PlayerShotView.hpp>
 #include <unordered_map>
 
 namespace
@@ -91,5 +90,10 @@ namespace abyss
 	void PlayerShotActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
+	}
+
+	std::unique_ptr<IActorView> PlayerShotActor::createView() const
+	{
+		return std::make_unique<PlayerShotView>(this);
 	}
 }

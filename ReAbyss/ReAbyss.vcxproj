@@ -267,9 +267,9 @@
     <ClCompile Include="Source\presentation\view\main\CameraView.cpp" />
     <ClCompile Include="Source\presentation\view\main\CameraWorkView.cpp" />
     <ClCompile Include="Source\presentation\view\main\MainView.cpp" />
-    <ClCompile Include="Source\presentation\view\main\object\PlayerShotView.cpp" />
-    <ClCompile Include="Source\presentation\view\main\object\PlayerView.cpp" />
-    <ClCompile Include="Source\presentation\view\main\object\SlimeView.cpp" />
+    <ClCompile Include="Source\presentation\view\actor\PlayerShotView.cpp" />
+    <ClCompile Include="Source\presentation\view\actor\PlayerView.cpp" />
+    <ClCompile Include="Source\presentation\view\actor\SlimeView.cpp" />
     <ClCompile Include="Source\presentation\view\main\StageView.cpp" />
     <ClCompile Include="Source\presentation\view\main\WorldView.cpp" />
     <ClCompile Include="Source\vendor\S3DTiled\src\Parser\TiledReader.cpp" />
@@ -345,10 +345,9 @@
     <ClInclude Include="Source\presentation\view\main\CameraView.hpp" />
     <ClInclude Include="Source\presentation\view\main\CameraWorkView.hpp" />
     <ClInclude Include="Source\presentation\view\main\MainView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\object\IWorldObjectView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\object\PlayerShotView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\object\PlayerView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\object\SlimeView.hpp" />
+    <ClInclude Include="Source\presentation\view\actor\PlayerShotView.hpp" />
+    <ClInclude Include="Source\presentation\view\actor\PlayerView.hpp" />
+    <ClInclude Include="Source\presentation\view\actor\SlimeView.hpp" />
     <ClInclude Include="Source\presentation\view\main\StageView.hpp" />
     <ClInclude Include="Source\presentation\view\main\WorldView.hpp" />
     <ClInclude Include="Source\vendor\S3DTiled\include\S3DTiled.hpp" />

@@ -1,12 +1,10 @@
 #include "PlayerShotView.hpp"
 #include <domain/actor/PlayerShotActor.hpp>
-
-#include <Siv3D.hpp>
-
+#include <domain/facade/WorldFacade.hpp>
 #include <application/common/Constants.hpp>
-#include <presentation/view/main/WorldView.hpp>
 #include <presentation/view/effects/PlayerShotEffect.hpp>
 
+#include <Siv3D.hpp>
 namespace
 {
 	using namespace abyss;
@@ -25,51 +23,35 @@ namespace
 }
 namespace abyss
 {
-	PlayerShotView::PlayerShotView(std::shared_ptr<PlayerShotActor> pModel) :
+	PlayerShotView::PlayerShotView(const PlayerShotActor* pModel) :
 		m_texture(U"work/player/player_shot.png"),
 		m_pModel(pModel)
-	{
-
-	}
+	{}
 
 	void PlayerShotView::start()
 	{
-		auto pModel = m_pModel.lock();
-		if (!pModel) {
-			return;
-		}
-		auto  type = pModel->getType();
-		auto r = pModel->getColliderCircle().r;
-		auto pos = pModel->getPos();
+		auto type = m_pModel->getType();
+		auto r = m_pModel->getColliderCircle().r;
+		auto pos = m_pModel->getPos();
 
 		// effect
 		if (type != PlayerShotActor::Type::Normal) {
-			m_pWorldView->getEffect().add<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
-		}
-	}
-
-	void PlayerShotView::update()
-	{
-		auto pModel = m_pModel.lock();
-		if (!pModel) {
-			return;
-		}
-		auto  type = pModel->getType();
-		auto r = pModel->getColliderCircle().r;
-		auto pos = pModel->getPos();
-
-		// effect
-		if (Scene::FrameCount() % 2 && (type == PlayerShotActor::Type::Big || type == PlayerShotActor::Type::Medium)) {
-			m_pWorldView->getEffect().add<PlayerShotEffect>(pos, r, ::TypeToColor(type));
+			m_pWorld->addEffect<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
 		}
 	}
 
 	void PlayerShotView::draw() const
 	{
 		using Type = PlayerShotActor::Type;
-		auto model = m_pModel.lock();
 
-		auto type = model->getType();
+		const auto type = m_pModel->getType();
+		auto r = m_pModel->getColliderCircle().r;
+		auto pos = m_pModel->getPos();
+
+		// effect
+		if (Scene::FrameCount() % 2 && (type == PlayerShotActor::Type::Big || type == PlayerShotActor::Type::Medium)) {
+			m_pWorld->addEffect<PlayerShotEffect>(pos, r, ::TypeToColor(type));
+		}
 
 		double x = 0, y = 0;
 		double size = 0;
@@ -93,12 +75,6 @@ namespace abyss
 			size = 60;
 		}
 		auto tile = m_texture(x, y, size, size);
-		(model->getForward() == Forward::Right ? tile : tile.mirrored()).drawAt(model->getPos());
+		(m_pModel->getForward() == Forward::Right ? tile : tile.mirrored()).drawAt(m_pModel->getPos());
 	}
-
-	bool PlayerShotView::isDelete() const
-	{
-		return m_pModel.expired();
-	}
-
 }

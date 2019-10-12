@@ -26,7 +26,7 @@ namespace abyss
 		}
 		inline void notifyIntoDoor(PlayerActor* player, const DoorActor& door)
 		{
-			m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
+			//m_eventTriggers.push_back([=]() {m_onIntoDoor.notify(player, door); });
 		}
 	};
 }

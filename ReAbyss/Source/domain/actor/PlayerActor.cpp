@@ -4,7 +4,8 @@
 #include "LadderActor.hpp"
 #include "DoorActor.hpp"
 
-#include <domain/usecase/WorldUseCase.hpp>
+#include <domain/facade/WorldFacade.hpp>
+#include <presentation/view/actor/PlayerView.hpp>
 #include <application/common/Constants.hpp>
 
 namespace abyss
@@ -117,7 +118,7 @@ namespace abyss
 		}
 		// UŒ‚
 		if (this->attack()) {
-			m_pWorld->createObject<PlayerShotActor>(m_body.pos, m_body.forward, m_charge);
+			m_pWorld->create<PlayerShotActor>(m_body.pos, m_body.forward, m_charge);
 			m_charge = 0;
 		}
 
@@ -305,7 +306,7 @@ namespace abyss
 			// move door
 			m_motion = Motion::Door;
 			m_body.vellocity = Vec2::Zero();
-			m_pWorld->notifyIntoDoor(this, door);
+			//m_pWorld->notifyIntoDoor(this, door);
 		}
 	}
 	RectF PlayerActor::region() const
@@ -316,5 +317,9 @@ namespace abyss
 	void PlayerActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
+	}
+	std::unique_ptr<IActorView> PlayerActor::createView() const
+	{
+		return std::make_unique<PlayerView>(this);
 	}
 }

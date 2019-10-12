@@ -2,17 +2,18 @@
 
 namespace abyss
 {
-	class WorldView;
+	class World;
 
 	class IActorView
 	{
 	protected:
-		WorldView* m_pWorld;
+		World* m_pWorld;
 	public:
-		inline void setWorld()
+		inline void setWorld(World* pWorld)
 		{
-
+			this->m_pWorld = pWorld;
 		}
+		virtual void start(){}
 		virtual void draw()const = 0;
 	};
 }

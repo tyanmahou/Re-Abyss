@@ -4,7 +4,6 @@
 namespace abyss
 {
 	class MapModel;
-	class ISlimeView;
 
 	class SlimeActor : public EnemyActor
 	{
@@ -15,8 +14,6 @@ namespace abyss
 			Jump
 		};
 	private:
-		//std::unique_ptr<ISlimeView> m_pView;
-
 		class Cencer;
 		std::shared_ptr<Cencer> m_cencer;
 
@@ -40,7 +37,8 @@ namespace abyss
 
 		void reverse();
 
-		void setView(std::unique_ptr<ISlimeView>&& pView);
 		void accept(const ActVisitor& visitor) override;
+
+		std::unique_ptr<IActorView> createView() const override;
 	};
 }

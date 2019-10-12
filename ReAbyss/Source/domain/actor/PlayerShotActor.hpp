@@ -31,5 +31,7 @@ namespace abyss
 		const s3d::Vec2& getPos() const;
 
 		void accept(const ActVisitor& visitor) override;
+
+		std::unique_ptr<IActorView> createView() const override;
 	};
 }

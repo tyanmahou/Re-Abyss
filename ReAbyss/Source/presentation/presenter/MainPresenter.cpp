@@ -3,9 +3,6 @@
 #include <domain/actor/PlayerActor.hpp>
 
 #include <presentation/view/main/MainView.hpp>
-#include <presentation/view/main/object/PlayerView.hpp>
-#include <presentation/view/main/object/SlimeView.hpp>
-
 #include <data/datastore/StageDataStore.hpp>
 
 namespace abyss

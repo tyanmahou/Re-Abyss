@@ -1,21 +1,20 @@
 #pragma once
-#include "IWorldObjectView.hpp"
+#include "IActorView.hpp"
 #include <application/util/TexturePacker.hpp>
 namespace abyss
 {
 	class PlayerActor;
 
-	class PlayerView : public IWorldObjectView
+	class PlayerView : public IActorView
 	{
 		TexturePacker m_texture;
-		std::weak_ptr<PlayerActor> m_pPlayer;
+		const PlayerActor* m_pModel;
 
 		void drawPlayer()const;
 		void drawCharge()const;
 	public:
-		PlayerView(std::shared_ptr<PlayerActor> pPlayer);
+		PlayerView(const PlayerActor* pModel);
 
 		void draw()const override;
-		bool isDelete() const override;
 	};
 }

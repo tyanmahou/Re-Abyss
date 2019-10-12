@@ -9,15 +9,13 @@ namespace abyss
 {
 	void PlayerView::drawPlayer() const
 	{
-		auto pPlayer = m_pPlayer.lock();
-
-		Vec2 pos = Math::Ceil(pPlayer->getPos());
-		Vec2 v = pPlayer->getVellocity();
+		Vec2 pos = Math::Ceil(m_pModel->getPos());
+		Vec2 v = m_pModel->getVellocity();
 		int timer = Scene::FrameCount();
 
-		bool isRight = pPlayer->getForward() == Forward::Right;
+		bool isRight = m_pModel->getForward() == Forward::Right;
 
-		switch (pPlayer->getMotion())
+		switch (m_pModel->getMotion())
 		{
 		case PlayerActor::Motion::Stay: {
 			int page = timer % 240 <= 10 ? 1 : 0;
@@ -78,10 +76,8 @@ namespace abyss
 	}
 	void PlayerView::drawCharge() const
 	{
-		auto pPlayer = m_pPlayer.lock();
-
-		Vec2 pos = Math::Ceil(pPlayer->getPos());
-		int32 charge = pPlayer->getCharge();
+		Vec2 pos = Math::Ceil(m_pModel->getPos());
+		int32 charge = m_pModel->getCharge();
 
 		if (charge > 10) {
 			ScopedRenderStates2D t2d(BlendState::Additive);
@@ -111,9 +107,9 @@ namespace abyss
 			}
 		}
 	}
-	PlayerView::PlayerView(std::shared_ptr<PlayerActor> pPlayer) :
+	PlayerView::PlayerView(const PlayerActor* pModel) :
 		m_texture(U"work/player/player.json"),
-		m_pPlayer(pPlayer)
+		m_pModel(pModel)
 	{}
 	void PlayerView::draw() const
 	{
@@ -121,10 +117,5 @@ namespace abyss
 
 		// ƒ`ƒƒ[ƒW
 		this->drawCharge();
-	}
-
-	bool PlayerView::isDelete() const
-	{
-		return m_pPlayer.expired();
 	}
 }

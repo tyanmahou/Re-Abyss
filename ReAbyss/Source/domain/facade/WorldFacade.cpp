@@ -3,12 +3,12 @@
 
 namespace abyss
 {
-	WorldFacade::WorldFacade(std::unique_ptr<ICollisionUseCase>&& collision):
+	World::World(std::unique_ptr<ICollisionUseCase>&& collision):
 		m_collisionUseCase(std::move(collision))
 	{
 		m_worldView.setWorldModel(&m_worldModel);
 	}
-	void WorldFacade::update()
+	void World::update()
 	{
 		m_worldModel.update();
 		// è’ìÀ
@@ -16,7 +16,7 @@ namespace abyss
 
 		m_worldModel.erase();
 	}
-	void WorldFacade::draw() const
+	void World::draw() const
 	{
 		m_worldView.draw();
 	}

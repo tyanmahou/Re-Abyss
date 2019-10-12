@@ -5,7 +5,9 @@
 #include <application/common/Constants.hpp>
 
 #include <domain/actor/PlayerActor.hpp>
-#include <domain/usecase/WorldUseCase.hpp>
+#include <domain/facade/WorldFacade.hpp>
+
+#include <presentation/view/actor/SlimeView.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss
@@ -92,7 +94,7 @@ namespace abyss
 	{
 		if (!m_cencer) {
 			m_cencer = std::make_shared<Cencer>(this);
-			m_pWorld->registerObject(m_cencer);
+			m_pWorld->regist(m_cencer);
 		}
 		if (m_body.forward == Forward::Left) {
 			m_body.vellocity.x = -1.0f;
@@ -164,14 +166,14 @@ namespace abyss
 		}
 	}
 
-	void SlimeActor::setView(std::unique_ptr<ISlimeView>&& pView)
-	{
-		//m_pView = std::move(pView);
-	}
-
 	void SlimeActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
+	}
+
+	std::unique_ptr<IActorView> SlimeActor::createView() const
+	{
+		return std::make_unique<SlimeView>(this);
 	}
 
 }

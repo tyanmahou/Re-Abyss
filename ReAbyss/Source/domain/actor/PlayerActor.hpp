@@ -119,5 +119,7 @@ namespace abyss
 		RectF region() const;
 
 		void accept(const ActVisitor& visitor) override;
+
+		std::unique_ptr<IActorView> createView() const override;
 	};
 }
