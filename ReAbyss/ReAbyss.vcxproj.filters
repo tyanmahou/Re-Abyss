@@ -428,9 +428,6 @@
     <ClCompile Include="Source\domain\usecase\CameraUseCase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\domain\usecase\CollisionUseCase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\domain\usecase\StageUseCase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -507,6 +504,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\presentation\view\actor\PlayerView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\domain\model\CollisionModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -646,9 +646,6 @@
     <ClInclude Include="Source\domain\usecase\CameraUseCase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\usecase\CollisionUseCase.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -743,6 +740,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\presentation\view\actor\PlayerView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\domain\usecase\GameMainUseCase.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\domain\model\CollisionModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

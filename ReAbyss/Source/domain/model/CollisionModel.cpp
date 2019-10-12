@@ -1,4 +1,4 @@
-#include "CollisionUseCase.hpp"
+#include "CollisionModel.hpp"
 #include <domain/actor/IActor.hpp>
 #include <application/util/Collision.hpp>
 

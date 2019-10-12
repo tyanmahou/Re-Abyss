@@ -256,7 +256,7 @@
     <ClCompile Include="Source\domain\translator\MapTranslator.cpp" />
     <ClCompile Include="Source\domain\translator\RoomTranslator.cpp" />
     <ClCompile Include="Source\domain\usecase\CameraUseCase.cpp" />
-    <ClCompile Include="Source\domain\usecase\CollisionUseCase.cpp" />
+    <ClCompile Include="Source\domain\model\CollisionModel.cpp" />
     <ClCompile Include="Source\domain\usecase\StageUseCase.cpp" />
     <ClCompile Include="Source\domain\usecase\WorldUseCase.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -329,7 +329,8 @@
     <ClInclude Include="Source\domain\translator\RoomTranslator.hpp" />
     <ClInclude Include="Source\domain\usecase\CameraObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\CameraUseCase.hpp" />
-    <ClInclude Include="Source\domain\usecase\CollisionUseCase.hpp" />
+    <ClInclude Include="Source\domain\model\CollisionModel.hpp" />
+    <ClInclude Include="Source\domain\usecase\GameMainUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp" />

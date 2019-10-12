@@ -9,7 +9,7 @@ namespace abyss
 {
 	class IActor;
 
-	class ICollisionUseCase
+	class ICollisionModel
 	{
 	public:
 		virtual void collisionAll(s3d::Array<std::shared_ptr<IActor>>&) = 0;
@@ -19,7 +19,7 @@ namespace abyss
 	/// <summary>
 	/// ƒVƒ“ƒvƒ‹‚È‚ ‚½‚è”»’è
 	/// </summary>
-	class SimpleCollision : public ICollisionUseCase
+	class SimpleCollision : public ICollisionModel
 	{
 		std::unordered_set<CollisionPairHash> m_currentCollision;
 	public:

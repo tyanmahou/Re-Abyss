@@ -8,7 +8,7 @@
 #include <domain/actor/MapActor.hpp>
 #include <domain/actor/DoorActor.hpp>
 #include <domain/actor/SlimeActor.hpp>
-#include <domain/usecase/WorldUseCase.hpp>
+#include <domain/facade/WorldFacade.hpp>
 
 namespace
 {
@@ -35,14 +35,14 @@ namespace abyss
 	{
 		return ::GetNextRoom(pos, m_stageData->getRooms());
 	}
-	bool StageUseCase::init(WorldUseCase& world, const RoomModel& nextRoom)
+	bool StageUseCase::init(World& world, const RoomModel& nextRoom)
 	{
-		world.createObject<PlayerActor>();
+		world.create<PlayerActor>();
 		//
 		world.getPlayer()->setPos({ 480, 2000 });
 		return this->initRoom(world, nextRoom);
 	}
-	bool StageUseCase::initRoom(WorldUseCase& world, const RoomModel& nextRoom)
+	bool StageUseCase::initRoom(World& world, const RoomModel& nextRoom)
 	{		
 		MapTranslator mapTranslator;
 		for (const auto& map : m_stageData->getMaps()) {
@@ -50,7 +50,7 @@ namespace abyss
 				continue;
 			}
 			if (auto obj = mapTranslator.create(map)) {
-				world.registerObject(obj);
+				world.regist(obj);
 			}
 		}
 		DoorTranslator doorTranslator;
@@ -60,7 +60,7 @@ namespace abyss
 			}
 			if (auto && toRoom = ::GetNextRoom(door.targetPos, m_stageData->getRooms())) {
 				if (auto obj = doorTranslator.create(door, *toRoom)) {
-					world.registerObject(obj);
+					world.regist(obj);
 				}
 			}
 		}
@@ -70,7 +70,7 @@ namespace abyss
 				continue;
 			}
 			if (auto obj = enemyTranslator.create(enemy)) {
-				world.registerObject(obj);
+				world.regist(obj);
 			}
 		}
 

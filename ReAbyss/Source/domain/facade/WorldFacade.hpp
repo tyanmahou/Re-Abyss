@@ -12,25 +12,32 @@ namespace abyss
 
 	class PlayerActor;
 
-	class ICollisionUseCase;
+	class ICollisionModel;
 	class IWorldView;
 
 	class World
 	{
 	private:
 		WorldModel m_worldModel;
-		std::unique_ptr<ICollisionUseCase> m_collisionUseCase;
+		std::unique_ptr<ICollisionModel> m_collision;
 		WorldView m_worldView;
-	public:
-		World() = default;
 
-		World(std::unique_ptr<ICollisionUseCase>&& collision);
+		std::shared_ptr<PlayerActor> m_pPlayer;
+		CameraModel* m_pCamera;
+	public:
+		World();
 
 		void update();
+
+		void reset();
+
 		void draw()const;
 
-		PlayerActor* getPlayer()const { return nullptr; }
-		CameraModel* getCamera()const { return nullptr; }
+		inline void setPlayer(const std::shared_ptr<PlayerActor>& pPlayer){ m_pPlayer = pPlayer; }
+		inline const std::shared_ptr<PlayerActor>& getPlayer()const { return m_pPlayer; }
+
+		inline void setCamera(CameraModel* pCamera){ m_pCamera = pCamera; }
+		inline CameraModel* getCamera()const { return m_pCamera; }
 
 		template<class Type, class... Args>
 		void addEffect(Args&& ... args)
