@@ -258,7 +258,6 @@
     <ClCompile Include="Source\domain\usecase\CameraUseCase.cpp" />
     <ClCompile Include="Source\domain\model\CollisionModel.cpp" />
     <ClCompile Include="Source\domain\usecase\StageUseCase.cpp" />
-    <ClCompile Include="Source\domain\usecase\WorldUseCase.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\presentation\presenter\MainPresenter.cpp" />
     <ClCompile Include="Source\presentation\view\fade\Fade.cpp" />
@@ -266,7 +265,7 @@
     <ClCompile Include="Source\presentation\view\main\BubbleGenerator.cpp" />
     <ClCompile Include="Source\presentation\view\main\CameraView.cpp" />
     <ClCompile Include="Source\presentation\view\main\CameraWorkView.cpp" />
-    <ClCompile Include="Source\presentation\view\main\MainView.cpp" />
+    <ClCompile Include="Source\presentation\view\main\MainSceneView.cpp" />
     <ClCompile Include="Source\presentation\view\actor\PlayerShotView.cpp" />
     <ClCompile Include="Source\presentation\view\actor\PlayerView.cpp" />
     <ClCompile Include="Source\presentation\view\actor\SlimeView.cpp" />
@@ -306,6 +305,7 @@
     <ClInclude Include="Source\data\entity\MapEntity.hpp" />
     <ClInclude Include="Source\data\entity\PlayerEntity.hpp" />
     <ClInclude Include="Source\data\entity\RoomEntity.hpp" />
+    <ClInclude Include="Source\domain\actor\LadderState.hpp" />
     <ClInclude Include="Source\domain\facade\WorldFacade.hpp" />
     <ClInclude Include="Source\domain\model\CameraModel.hpp" />
     <ClInclude Include="Source\domain\model\CameraWork.hpp" />
@@ -330,10 +330,7 @@
     <ClInclude Include="Source\domain\usecase\CameraObservable.hpp" />
     <ClInclude Include="Source\domain\usecase\CameraUseCase.hpp" />
     <ClInclude Include="Source\domain\model\CollisionModel.hpp" />
-    <ClInclude Include="Source\domain\usecase\GameMainUseCase.hpp" />
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp" />
-    <ClInclude Include="Source\domain\usecase\WorldObservable.hpp" />
-    <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp" />
     <ClInclude Include="Source\domain\visitor\ActVisitor.hpp" />
     <ClInclude Include="Source\presentation\presenter\MainPresenter.hpp" />
     <ClInclude Include="Source\presentation\view\actor\IActorView.hpp" />
@@ -345,7 +342,7 @@
     <ClInclude Include="Source\presentation\view\main\BubbleGenerator.hpp" />
     <ClInclude Include="Source\presentation\view\main\CameraView.hpp" />
     <ClInclude Include="Source\presentation\view\main\CameraWorkView.hpp" />
-    <ClInclude Include="Source\presentation\view\main\MainView.hpp" />
+    <ClInclude Include="Source\presentation\view\main\MainSceneView.hpp" />
     <ClInclude Include="Source\presentation\view\actor\PlayerShotView.hpp" />
     <ClInclude Include="Source\presentation\view\actor\PlayerView.hpp" />
     <ClInclude Include="Source\presentation\view\actor\SlimeView.hpp" />

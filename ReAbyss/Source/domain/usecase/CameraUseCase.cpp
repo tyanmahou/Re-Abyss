@@ -40,9 +40,13 @@ namespace abyss
 		}
 		m_pPlayer->setPos(pos);
 	}
-	void CameraUseCase::setPlayer(PlayerActor* pPlayer)
+	void CameraUseCase::initPlayer(const std::shared_ptr<PlayerActor>& pPlayer)
 	{
 		m_pPlayer = pPlayer;
+
+		m_pPlayer->onIntoDoor().subscribe([this](const DoorActor* door) {
+			m_pIntoDoor = door;
+		});
 	}
 	void CameraUseCase::update()
 	{

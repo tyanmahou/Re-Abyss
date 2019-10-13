@@ -431,9 +431,6 @@
     <ClCompile Include="Source\domain\usecase\StageUseCase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\domain\usecase\WorldUseCase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\presentation\view\fade\Fade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -447,9 +444,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\presentation\view\main\CameraWorkView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\presentation\view\main\MainView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\presentation\view\main\WorldView.cpp">
@@ -507,6 +501,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\domain\model\CollisionModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\presentation\view\main\MainSceneView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -649,12 +646,6 @@
     <ClInclude Include="Source\domain\usecase\StageUseCase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\usecase\WorldObservable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\domain\usecase\WorldUseCase.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\presentation\view\effects\Bubble.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -677,9 +668,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\presentation\view\main\CameraWorkView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\presentation\view\main\MainView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\presentation\view\main\WorldView.hpp">
@@ -742,10 +730,13 @@
     <ClInclude Include="Source\presentation\view\actor\PlayerView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\usecase\GameMainUseCase.hpp">
+    <ClInclude Include="Source\domain\model\CollisionModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\domain\model\CollisionModel.hpp">
+    <ClInclude Include="Source\domain\actor\LadderState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\presentation\view\main\MainSceneView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

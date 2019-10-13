@@ -1,5 +1,4 @@
 #pragma once
-#include "../IView.hpp"
 #include <memory>
 namespace abyss
 {
@@ -7,13 +6,14 @@ namespace abyss
 	//class RoomMoveCameraWork;
 	class DoorCameraWork;
 
-	class ICameraWorkView: public IView
+	class ICameraWorkView
 	{
 	protected:
 		const CameraView* const m_pCameraView = nullptr;
 	public:
 		ICameraWorkView(const CameraView* const);
-
+		virtual ~ICameraWorkView();
+		virtual void draw() const = 0;
 		virtual bool isEnd()const = 0;
 	};
 

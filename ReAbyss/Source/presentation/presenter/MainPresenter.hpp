@@ -1,7 +1,5 @@
 #pragma once
-#include "../view/main/MainView.hpp"
 
-#include <domain/usecase/WorldUseCase.hpp>
 #include <domain/usecase/StageUseCase.hpp>
 #include <domain/usecase/CameraUseCase.hpp>
 
@@ -15,19 +13,19 @@ namespace abyss
 	public:
 		virtual ~IMainPresenter() = default;
 		virtual void update() = 0;
+
+		virtual Observable<void(const std::shared_ptr<DoorCameraWork>&)>& onStartDoorCameraWork() = 0;
 	};
 
 	class MainPresenter : public IMainPresenter
 	{
-		std::shared_ptr<IMainView> m_view;
-		
-		WorldUseCase m_worldUseCase;
 		std::unique_ptr<IStageUseCase> m_stageUseCase;
 		CameraUseCase m_cameraUseCase;
 
 	public:
 
-		MainPresenter(std::shared_ptr<IMainView> view);
+		MainPresenter();
 		void update();
+		Observable<void(const std::shared_ptr<DoorCameraWork>&)>& onStartDoorCameraWork() override;
 	};
 }

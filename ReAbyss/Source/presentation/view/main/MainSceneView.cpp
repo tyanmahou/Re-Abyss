@@ -1,21 +1,25 @@
-#include "MainView.hpp"
+#include "MainSceneView.hpp"
+#include <presentation/presenter/MainPresenter.hpp>
+
+#include <presentation/view/main/CameraWorkView.hpp>
+#include <presentation/view/main/CameraView.hpp>
+#include <presentation/view/main/StageView.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-	void MainView::createCameraView(const CameraModel& pCamera)
+	MainSceneView::MainSceneView(const std::shared_ptr<IMainPresenter>& presenter):
+		IMainSceneView(presenter)
 	{
-		m_cameraView = std::make_unique<CameraView>(&pCamera);
-	}
-	void MainView::setCameraWorkView(std::unique_ptr<ICameraWorkView>&& view)
-	{
-		m_cameraWorkView = std::move(view);
-	}
-	MainView::MainView()
-	{
+		// ドア移動のカメラワーク
+		auto onStartDoorCameraWork = [this](const std::shared_ptr<DoorCameraWork>& work) {
+			this->m_cameraWorkView = std::make_unique<DoorCameraWorkView>(this->m_cameraView.get(), work);
+		};
+		this->m_presenter->onStartDoorCameraWork().subscribe(onStartDoorCameraWork);
 	}
 
-	void MainView::update()
+	void MainSceneView::update()
 	{
 		auto cameraPos = m_cameraView->getCameraPos();
 		m_bubbles.setPos(cameraPos);
@@ -28,7 +32,8 @@ namespace abyss
 			}
 		}
 	}
-	void MainView::draw() const
+
+	void MainSceneView::draw() const
 	{
 		{
 			auto t2d = m_cameraView->getTransformer();
@@ -47,7 +52,7 @@ namespace abyss
 			// door
 			m_stageView->drawLayer(U"door", screen);
 
-			m_woldView.draw();
+			//m_woldView.draw();
 
 			//front
 			m_stageView->drawLayer(U"front", screen);
@@ -58,9 +63,5 @@ namespace abyss
 				m_cameraWorkView->draw();
 			}
 		}
-	}
-	CameraView* MainView::getCameraView() const
-	{
-		return m_cameraView.get();
 	}
 }

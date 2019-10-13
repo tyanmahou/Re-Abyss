@@ -1,14 +1,11 @@
 #include "MainPresenter.hpp"
 
 #include <domain/actor/PlayerActor.hpp>
-
-#include <presentation/view/main/MainView.hpp>
 #include <data/datastore/StageDataStore.hpp>
 
 namespace abyss
 {
-	MainPresenter::MainPresenter(std::shared_ptr<IMainView> view) :
-		m_view(view)
+	MainPresenter::MainPresenter() 
 	{
 		//auto onIntoDoor = [&](PlayerActor* player, const DoorActor& doorModel) {
 		//	auto fadeInCallback = [player]() {
@@ -30,11 +27,7 @@ namespace abyss
 		//	m_stageUseCase->initRoom(m_worldUseCase, room);
 		//};
 		//m_cameraUseCase.onNextRoom().subscribe(onNextRoom);
-		//auto onStartDoorCameraWork = [&](const std::shared_ptr<DoorCameraWork>& work) {
-		//	//auto view = m_view->getFactory().createFromCameraWork(work);
-		//	//m_view->setCameraWorkView(std::move(view));
-		//};
-		//m_cameraUseCase.onStartDoorCameraWork().subscribe(onStartDoorCameraWork);
+
 		//// init
 		//if (auto room = m_stageUseCase->findRoom({ 480, 2000 })) {
 		//	m_stageUseCase->init(m_worldUseCase, *room);
@@ -42,15 +35,17 @@ namespace abyss
 		//}
 		//m_cameraUseCase.setPlayer(m_worldUseCase.getPlayer());
 		//m_worldUseCase.setCamera(&m_cameraUseCase.getCamera());
-
-		//m_view->createCameraView(m_cameraUseCase.getCamera());
 	}
 	void MainPresenter::update()
 	{
 		if (!m_cameraUseCase.isCameraWork()) {
-			m_worldUseCase.update();
+			//m_worldUseCase.update();
 		}
 		m_cameraUseCase.update();
+	}
+	Observable<void(const std::shared_ptr<DoorCameraWork>&)>& MainPresenter::onStartDoorCameraWork()
+	{
+		return m_cameraUseCase.onStartDoorCameraWork();
 	}
 }
 

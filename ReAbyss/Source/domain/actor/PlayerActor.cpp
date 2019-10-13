@@ -306,7 +306,7 @@ namespace abyss
 			// move door
 			m_motion = Motion::Door;
 			m_body.vellocity = Vec2::Zero();
-			//m_pWorld->notifyIntoDoor(this, door);
+			this->onIntoDoor().notify(&door);
 		}
 	}
 	RectF PlayerActor::region() const
@@ -321,5 +321,10 @@ namespace abyss
 	std::unique_ptr<IActorView> PlayerActor::createView() const
 	{
 		return std::make_unique<PlayerView>(this);
+	}
+
+	std::shared_ptr<PlayerActor> PlayerActor::Create()
+	{
+		return std::make_shared<PlayerActor>();
 	}
 }

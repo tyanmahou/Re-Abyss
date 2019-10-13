@@ -37,9 +37,11 @@ namespace abyss
 	}
 	bool StageUseCase::init(World& world, const RoomModel& nextRoom)
 	{
-		world.create<PlayerActor>();
-		//
-		world.getPlayer()->setPos({ 480, 2000 });
+		auto player = PlayerActor::Create();
+		player->setPos({ 480, 2000 });
+		world.setPlayer(player);
+		world.regist(player);
+
 		return this->initRoom(world, nextRoom);
 	}
 	bool StageUseCase::initRoom(World& world, const RoomModel& nextRoom)
