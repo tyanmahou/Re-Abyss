@@ -1,4 +1,4 @@
-name: CI
+name: cpplint
 
 on: [push]
 
@@ -9,8 +9,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: action-cpp-lint
-      uses: CyberZHG/github-action-cpp-lint@0.0.2
-      with:
-        args: |
-          --filter=-legal,-whitespace,-runtime/indentation_namespace,-runtime/explicit,-runtime/references,-build/header_guard,-build/include,-build/namespaces,-readability/todo --recursive Re-Abyss/app/*
+    - uses: actions/setup-python@v1
+    - name: install cpplint
+      run: pip install cpplint
+    - name: cpplint
+      run: .github/workflows/do_cpplint.sh
