@@ -13,4 +13,6 @@ jobs:
     - name: install cpplint
       run: pip install cpplint
     - name: cpplint
-      run: .github/workflows/do_cpplint.sh
+      run: |
+        chmod +x .github/workflows/do_cpplint.sh
+        .github/workflows/do_cpplint.sh
