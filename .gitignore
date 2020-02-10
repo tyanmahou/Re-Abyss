@@ -392,5 +392,6 @@ AS_DEBUG/
 lib/
 
 ## Application
-[Ww]ork
-[Rr]esources
+[Ww]ork/
+[Rr]esources/
+[Vv]endor/
