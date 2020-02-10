@@ -12,6 +12,7 @@ filters=(
     "-build/include"
 #    "-build/namespaces"
     "-readability/todo"
+    "-readability/namespace"
 )
 
 command="cpplint "
