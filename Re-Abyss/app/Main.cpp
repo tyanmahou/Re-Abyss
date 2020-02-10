@@ -1,7 +1,6 @@
 ﻿
 # include <Siv3D.hpp> // OpenSiv3D v0.4.2
 
-using namespace std;
 
 void Main()
 {
