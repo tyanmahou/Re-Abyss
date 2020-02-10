@@ -10,7 +10,7 @@ filters=(
     "-runtime/references"
     "-build/header_guard"
     "-build/include"
-#    "-build/namespaces"
+    "-build/namespaces"
     "-readability/todo"
     "-readability/namespace"
 )
