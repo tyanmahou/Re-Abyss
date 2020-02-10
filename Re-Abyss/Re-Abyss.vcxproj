@@ -77,6 +77,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)"</Command>
@@ -102,6 +103,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)"</Command>
@@ -111,6 +113,8 @@
     <ClCompile Include="app\commons\base\IApplication.cpp" />
     <ClCompile Include="app\commons\Game.cpp" />
     <ClCompile Include="app\commons\MainApp.cpp" />
+    <ClCompile Include="app\datastores\parser\MapEntityParser.cpp" />
+    <ClCompile Include="app\datastores\StageDataStore.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\scenes\MainScene.cpp" />
     <ClCompile Include="app\utils\Collision.cpp" />
@@ -124,10 +128,20 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game.hpp" />
     <ClInclude Include="app\commons\MainApp.hpp" />
+    <ClInclude Include="app\datastores\parser\MapEntityParser.hpp" />
+    <ClInclude Include="app\datastores\StageDataStore.hpp" />
+    <ClInclude Include="app\entities\DoorEntity.hpp" />
+    <ClInclude Include="app\entities\EnemyEntity.hpp" />
+    <ClInclude Include="app\entities\MapEntity.hpp" />
+    <ClInclude Include="app\entities\PlayerEntity.hpp" />
+    <ClInclude Include="app\entities\RoomEntity.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\MainScene.hpp" />
+    <ClInclude Include="app\StaticLibs.hpp" />
+    <ClInclude Include="app\types\ColDirection.hpp" />
     <ClInclude Include="app\types\CollisionPairHash.hpp" />
     <ClInclude Include="app\types\CShape.hpp" />
+    <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\utils\Collision.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />

@@ -1,5 +1,6 @@
 ﻿
 #include <abyss/commons/MainApp.hpp>
+#include "StaticLibs.hpp"
 
 void Main()
 {

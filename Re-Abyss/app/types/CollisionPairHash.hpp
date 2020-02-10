@@ -28,9 +28,9 @@ namespace abyss
 namespace std 
 {
 	template<>
-	struct hash<forss::CollisionPairHash>
+	struct hash<abyss::CollisionPairHash>
 	{
-		size_t operator ()(const forss::CollisionPairHash& col) const
+		size_t operator ()(const abyss::CollisionPairHash& col) const
 		{
 			s3d::uint64 shift = (col.id2 << 32) | (col.id2 >> 32);
 			return static_cast<size_t>(col.id1 ^ shift);
