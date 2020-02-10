@@ -24,10 +24,10 @@ do
     else
         command+=","
     fi
-    command+="{$filter}"
+    command+="$filter"
 done
 
-command+=" --recursive {$file}"
+command+=" --recursive $file"
 
 echo ${command}
 ${command}
