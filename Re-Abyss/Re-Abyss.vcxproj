@@ -108,13 +108,29 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\commons\base\IApplication.cpp" />
+    <ClCompile Include="app\commons\Game.cpp" />
+    <ClCompile Include="app\commons\MainApp.cpp" />
     <ClCompile Include="App\Main.cpp" />
+    <ClCompile Include="app\scenes\MainScene.cpp" />
+    <ClCompile Include="app\utils\Collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\commons\base\IApplication.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
+    <ClInclude Include="app\commons\Fwd.hpp" />
+    <ClInclude Include="app\commons\Game.hpp" />
+    <ClInclude Include="app\commons\MainApp.hpp" />
+    <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
+    <ClInclude Include="app\scenes\MainScene.hpp" />
+    <ClInclude Include="app\types\CollisionPairHash.hpp" />
+    <ClInclude Include="app\types\CShape.hpp" />
+    <ClInclude Include="app\utils\Collision.hpp" />
+    <ClInclude Include="app\utils\Singleton.hpp" />
+    <ClInclude Include="app\utils\Visitor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
