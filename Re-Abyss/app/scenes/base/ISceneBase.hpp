@@ -31,10 +31,10 @@ namespace abyss
 
     namespace SceneName
     {
-#define FORSS_SCENE_NAME(name) inline constexpr auto name = U#name
+#define ABYSS_SCENE_NAME(name) inline constexpr auto name = U#name
 
-        FORSS_SCENE_NAME(Main);
+        ABYSS_SCENE_NAME(Main);
 
-#undef FORSS_SCENE_NAME
+#undef ABYSS_SCENE_NAME
     }
 }
