@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Re-Abyss", "Re-Abyss\Re-Abyss.vcxproj", "{79F69C72-4B0F-4BFF-850C-849FA58D7526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79F69C72-4B0F-4BFF-850C-849FA58D7526}.Debug|x64.ActiveCfg = Debug|x64
+		{79F69C72-4B0F-4BFF-850C-849FA58D7526}.Debug|x64.Build.0 = Debug|x64
+		{79F69C72-4B0F-4BFF-850C-849FA58D7526}.Release|x64.ActiveCfg = Release|x64
+		{79F69C72-4B0F-4BFF-850C-849FA58D7526}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC323713-06DD-4A80-A3D3-8ABE45E0DBF4}
+	EndGlobalSection
+EndGlobal
