@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: action-cpp-lint
+      uses: CyberZHG/github-action-cpp-lint@0.0.2
