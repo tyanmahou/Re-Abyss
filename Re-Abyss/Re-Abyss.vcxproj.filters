@@ -39,6 +39,9 @@
     <ClCompile Include="app\datastores\parser\MapEntityParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\repositories\StageRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -110,6 +113,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\StaticLibs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\repositories\StageRepository.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

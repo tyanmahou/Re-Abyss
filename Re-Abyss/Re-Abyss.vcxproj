@@ -116,6 +116,7 @@
     <ClCompile Include="app\datastores\parser\MapEntityParser.cpp" />
     <ClCompile Include="app\datastores\StageDataStore.cpp" />
     <ClCompile Include="App\Main.cpp" />
+    <ClCompile Include="app\repositories\StageRepository.cpp" />
     <ClCompile Include="app\scenes\MainScene.cpp" />
     <ClCompile Include="app\utils\Collision.cpp" />
   </ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="app\entities\MapEntity.hpp" />
     <ClInclude Include="app\entities\PlayerEntity.hpp" />
     <ClInclude Include="app\entities\RoomEntity.hpp" />
+    <ClInclude Include="app\repositories\StageRepository.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\MainScene.hpp" />
     <ClInclude Include="app\StaticLibs.hpp" />

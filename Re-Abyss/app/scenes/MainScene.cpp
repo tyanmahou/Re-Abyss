@@ -1,8 +1,20 @@
 ﻿#include "MainScene.hpp"
 
+#include <abyss/datastores/StageDataStore.hpp>
+#include <abyss/repositories/StageRepository.hpp>
+
+namespace abyss::di
+{
+    void CreateMainScene(const FilePath& stageTmx)
+    {
+        // stage
+        auto stageDataStore = std::make_unique<TiledStageDataStore>(stageTmx);
+        auto stageRepository = std::make_unique<StageRepository>(*stageDataStore);
+
+    }
+}
 namespace abyss
 {
-
 	class MainScene::Controller
 	{
 	public:
