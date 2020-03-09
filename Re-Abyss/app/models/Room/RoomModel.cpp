@@ -51,19 +51,19 @@ namespace abyss
 	s3d::Vec2 RoomModel::cameraBorderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->cameraBorders();
-		//左端
 		if (pos.x < border.left) {
+			//左端
 			pos.x = border.left;
-		}//右端
-		else if (pos.x > border.right) {
+		} else if (pos.x > border.right) {
+			//右端
 			pos.x = border.right;
 		}
 
-		//上端
 		if (pos.y < border.up) {
+			//上端
 			pos.y = border.up;
-		}//下端
-		else if (pos.y > border.down) {
+		} else if (pos.y > border.down) {
+			//下端
 			pos.y = border.down;
 		}
 		return pos;
@@ -80,16 +80,16 @@ namespace abyss
 	s3d::Vec2 RoomModel::borderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->borders();
-		//左端
 		if (!this->passable(Forward::Left) && pos.x < border.left) {
+			//左端
 			pos.x = border.left;
-		}//右端
-		else if (!this->passable(Forward::Right) && pos.x > border.right) {
+		} else if (!this->passable(Forward::Right) && pos.x > border.right) {
+			//右端
 			pos.x = border.right;
 		}
 
-		//上端
 		if (!this->passable(Forward::Up) && pos.y < border.up) {
+			//上端
 			pos.y = border.up;
 		}
 		//下端

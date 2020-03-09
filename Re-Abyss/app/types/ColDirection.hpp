@@ -165,7 +165,7 @@ namespace abyss
                 ignore |= Down;
             } else if (vellocity.y < 0) {
                 ignore |= Up;
-            };
+            }
             if (vellocity.x > 0) {
                 ignore |= Right;
             } else if (vellocity.x < 0) {

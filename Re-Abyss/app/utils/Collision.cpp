@@ -45,23 +45,20 @@ namespace abyss::collision
 		Vec2 fromSize = from.size;
 
 
-		// ブロックの上端
 		if (up && comePos.y + comeSize.y / 2 - (fromPos.y - fromSize.y / 2) < 10) {
+			// ブロックの上端
 			retCol = retCol | ColDirection::Up;
 			comePos.y = fromPos.y - (comeSize.y + fromSize.y) / 2;
-		}
-		// ブロックの下端
-		else if (down && fromPos.y + fromSize.y / 2 - (comePos.y - comeSize.y / 2) < 10) {
+		} else if (down && fromPos.y + fromSize.y / 2 - (comePos.y - comeSize.y / 2) < 10) {
+			// ブロックの下端
 			retCol = retCol | ColDirection::Down;
 			comePos.y = fromPos.y + (comeSize.y + fromSize.y) / 2;
-		}
-		//ブロックの左端
-		else if (left && comePos.x + comeSize.x / 2 - (fromPos.x - fromSize.x / 2) < 10) {
+		} else if (left && comePos.x + comeSize.x / 2 - (fromPos.x - fromSize.x / 2) < 10) {
+			//ブロックの左端
 			retCol = retCol | ColDirection::Left;
 			comePos.x = fromPos.x - (comeSize.x + fromSize.x) / 2;
-		}
-		//ブロックの右端
-		else if (right && fromPos.x + fromSize.x / 2 - (comePos.x - comeSize.x / 2) < 10) {
+		} else if (right && fromPos.x + fromSize.x / 2 - (comePos.x - comeSize.x / 2) < 10) {
+			//ブロックの右端
 			retCol = retCol | ColDirection::Right;
 			comePos.x = fromPos.x + (comeSize.x + fromSize.x) / 2;
 		}

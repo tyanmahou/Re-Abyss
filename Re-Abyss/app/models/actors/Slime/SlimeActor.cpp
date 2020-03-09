@@ -32,8 +32,7 @@ namespace abyss
 			auto isLeft = m_parent->getForward() == Forward::Left;
 			if (isLeft) {
 				m_pos = m_parent->getPos() + Vec2{-20, 20};
-			}
-			else {
+			} else {
 				m_pos = m_parent->getPos() + Vec2{ 20, 20 };
 			}
 
@@ -85,7 +84,7 @@ namespace abyss
 	{
 	}
 
-	void SlimeActor::update(double)
+	void SlimeActor::update([[maybe_unused]]double dt)
 	{
 		if (!m_cencer) {
 			m_cencer = std::make_shared<Cencer>(this);

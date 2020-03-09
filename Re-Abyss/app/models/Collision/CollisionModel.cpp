@@ -26,8 +26,7 @@ namespace abyss
 					// onStay
 					(*it1)->onCollisionStay(it2->get());
 					(*it2)->onCollisionStay(it1->get());
-				}
-				else {
+				} else {
 					if (prevCollision.find(hash) == prevCollision.end()) {
 						// onExit
 						(*it1)->onCollisionExit(it2->get());

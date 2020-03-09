@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #pragma warning(push)
 #pragma warning(disable:26812)
 
 namespace abyss
 {
-	// ’òqó‘Ô
+	// æ¢¯å­çŠ¶æ…‹
 	struct LadderState
 	{
 		enum State

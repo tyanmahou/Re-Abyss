@@ -2,15 +2,15 @@
 
 namespace abyss
 {
-	void ICollider::onCollisionEnter(ICollider*)
+	void ICollider::onCollisionEnter([[maybe_unused]] ICollider* collider)
 	{
 	}
 
-	void ICollider::onCollisionStay(ICollider*)
+	void ICollider::onCollisionStay([[maybe_unused]] ICollider* collider)
 	{
 	}
 
-	void ICollider::onCollisionExit(ICollider*)
+	void ICollider::onCollisionExit([[maybe_unused]] ICollider* collider)
 	{
 	}
 

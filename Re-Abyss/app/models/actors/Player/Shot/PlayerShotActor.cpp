@@ -30,14 +30,11 @@ namespace abyss
 		m_body.vellocity.x = forward == Forward::Right ? speed : -speed;
 		if (charge >= BigCharge) {
 			m_type = Type::Big;
-		}
-		else if (charge >= MediumCharge) {
+		} else if (charge >= MediumCharge) {
 			m_type = Type::Medium;
-		}
-		else if (charge >= SmallCharge) {
+		} else if (charge >= SmallCharge) {
 			m_type = Type::Small;
-		}
-		else {
+		} else {
 			m_type = Type::Normal;
 		}
 	}
@@ -45,7 +42,7 @@ namespace abyss
 	{
 
 	}
-	void PlayerShotActor::update(double /*dt*/)
+	void PlayerShotActor::update([[maybe_unused]]double dt)
 	{
 		m_body.pos += m_body.vellocity;
 
