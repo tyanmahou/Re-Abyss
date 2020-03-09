@@ -1,0 +1,31 @@
+﻿#pragma once
+#include<memory>
+#include <unordered_set>
+
+#include<Siv3D/Array.hpp>
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/types/CollisionPairHash.hpp>
+
+namespace abyss
+{
+	/// <summary>
+	/// 当たり判定インターフェース
+	/// </summary>
+	class ICollisionModel
+	{
+	public:
+		virtual void collisionAll(const s3d::Array<std::shared_ptr<IActor>>&) = 0;
+		virtual void reset() = 0;
+	};
+
+	/// <summary>
+	/// シンプルなあたり判定
+	/// </summary>
+	class SimpleCollision : public ICollisionModel
+	{
+		std::unordered_set<CollisionPairHash> m_currentCollision;
+	public:
+		void collisionAll(const s3d::Array<std::shared_ptr<IActor>>& objects) override;
+		void reset()override;
+	};
+}

@@ -7,23 +7,52 @@
 namespace abyss
 {
 	/// <summary>
+	/// Entities
+	/// </summary>
+	struct RoomEntity;
+
+	/// <summary>
+	/// Models
+	/// </summary>
+	class WorldModel;
+	class RoomModel;
+	class ICollisionModel;
+	class ICameraWork;
+
+	// Models/Actors
+	class ICollider;
+	class IActor;
+	class PlayerActor;
+	class PlayerShotActor;
+	class EnemyActor;
+	class SlimeActor;
+	class MapActor;
+	class FloorActor;
+	class PenetrateFloorActor;
+	class LadderActor;
+	class DoorActor;
+
+	/// <summary>
+	/// Repositories
+	/// </summary>
+	class IStageRepository;
+
+	/// <summary>
+	/// Views
+	/// </summary>
+	class WorldView;
+	class IActorView;
+	class SlimeView;
+	struct SlimeViewModel;
+
+	/// <summary>
 	/// Types
 	/// </summary>
 	struct CShape;
-
-	/// <summary>
-	/// Actors
-	/// </summary>
-	class IActor;
-	class PlayerActor;
+	class ColDirection;
 
 	/// <summary>
 	/// Visitor
 	/// </summary>
 	class ActVisitor;
-
-	/// <summary>
-	/// Views
-	/// </summary>
-	class IActorView;
 }
