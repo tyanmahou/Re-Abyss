@@ -2,18 +2,28 @@
 
 #include <Siv3D.hpp>
 
-#include<abyss/repositories/StageRepository.hpp>
+#include <abyss/models/actors/Player/PlayerActor.hpp>
+#include <abyss/models/World/WorldModel.hpp>
+
+#include <abyss/repositories/StageRepository.hpp>
+
+#include <abyss/translators/Room/RoomTranslator.hpp>
+#include <abyss/translators/Map/MapTranslator.hpp>
+#include <abyss/translators/Enemy/EnemyTranslator.hpp>
+#include <abyss/translators/Door/DoorTranslator.hpp>
+
+
 namespace
 {
 	using namespace abyss;
+
 	Optional<RoomModel> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
 	{
-		//RoomTranslator translator;
-		//for (const auto& room : rooms) {
-		//	if (room.m_region.intersects(pos)) {
-		//		return translator.create(room);
-		//	}
-		//}
+		for (const auto& room : rooms) {
+			if (room.m_region.intersects(pos)) {
+				return RoomTranslator::ToModel(room);
+			}
+		}
 		return s3d::none;
 	}
 }
@@ -30,44 +40,42 @@ namespace abyss
 	}
 	bool StageModel::init(WorldModel& world, const RoomModel& nextRoom)
 	{
-		//auto player = PlayerActor::Create();
-		//player->setPos({ 480, 2000 });
-		//world.setPlayer(player);
-		//world.regist(player);
+		auto player = PlayerActor::Create();
+		player->setPos({ 480, 2000 });
+		world.setPlayer(player);
+		world.regist(player);
 
 		return this->initRoom(world, nextRoom);
 	}
 	bool StageModel::initRoom(WorldModel& world, const RoomModel& nextRoom)
 	{
-		//MapTranslator mapTranslator;
-		//for (const auto& map : m_stageData->getMaps()) {
-		//	if (!nextRoom.getRegion().intersects(map.pos)) {
-		//		continue;
-		//	}
-		//	if (auto obj = mapTranslator.create(map)) {
-		//		world.regist(obj);
-		//	}
-		//}
-		//DoorTranslator doorTranslator;
-		//for (const auto& door : m_stageData->getDoors()) {
-		//	if (!nextRoom.getRegion().intersects(door.pos)) {
-		//		continue;
-		//	}
-		//	if (auto&& toRoom = ::GetNextRoom(door.targetPos, m_stageData->getRooms())) {
-		//		if (auto obj = doorTranslator.create(door, *toRoom)) {
-		//			world.regist(obj);
-		//		}
-		//	}
-		//}
-		//EnemyTranslator enemyTranslator;
-		//for (const auto& enemy : m_stageData->getEnemies()) {
-		//	if (!nextRoom.getRegion().intersects(enemy.pos)) {
-		//		continue;
-		//	}
-		//	if (auto obj = enemyTranslator.create(enemy)) {
-		//		world.regist(obj);
-		//	}
-		//}
+		for (const auto& map : m_stageData->getMaps()) {
+			if (!nextRoom.getRegion().intersects(map.pos)) {
+				continue;
+			}
+			if (auto obj = MapTranslator::ToActorPtr(map)) {
+				world.regist(obj);
+			}
+		}
+		for (const auto& door : m_stageData->getDoors()) {
+			if (!nextRoom.getRegion().intersects(door.pos)) {
+				continue;
+			}
+			if (auto&& toRoom = ::GetNextRoom(door.targetPos, m_stageData->getRooms())) {
+				if (auto obj = DoorTranslator::ToActorPtr(door, *toRoom)) {
+					world.regist(obj);
+				}
+			}
+		}
+		EnemyTranslator enemyTranslator;
+		for (const auto& enemy : m_stageData->getEnemies()) {
+			if (!nextRoom.getRegion().intersects(enemy.pos)) {
+				continue;
+			}
+			if (auto obj = EnemyTranslator::ToActorPtr(enemy)) {
+				world.regist(obj);
+			}
+		}
 
 		return true;
 	}

@@ -35,14 +35,14 @@ namespace abyss
         m_callback(callback)
     {}
 
-    std::shared_ptr<RoomMoveCameraWork> RoomMoveCameraWork::Create(
+    std::unique_ptr<RoomMoveCameraWork> RoomMoveCameraWork::Create(
         const CameraModel& camera,
         const s3d::Vec2& playerPos,
         std::function<void()> callback,
         double milliSec
     )
     {
-        const auto& current = camera.carentRoom();
+        const auto& current = camera.currentRoom();
         const auto& next = camera.nextRoom();
         Vec2 cameraPos = camera.getPos();
 
@@ -68,12 +68,12 @@ namespace abyss
                 target.y = border.up - 40;
             }
         }
-        return std::make_shared<RoomMoveCameraWork>(
+        return std::make_unique<RoomMoveCameraWork>(
             std::make_pair(from, to),
             std::make_pair(playerPos, target),
             callback,
             milliSec
-            );
+        );
     }
 
     Vec2 RoomMoveCameraWork::calcCameraPos() const

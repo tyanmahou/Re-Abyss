@@ -1,5 +1,7 @@
 ﻿#include "WorldModel.hpp"
 #include <abyss/models/Collision/CollisionModel.hpp>
+#include <abyss/models/actors/Player/PlayerActor.hpp>
+
 namespace abyss
 {
     WorldModel::WorldModel():
@@ -18,9 +20,9 @@ namespace abyss
     {
         m_actorsModel.clear();
         m_collision->reset();
-        //if (m_pPlayer) {
-        //    m_worldModel.pushActor(m_pPlayer);
-        //}
+        if (m_pPlayer) {
+            m_actorsModel.pushActor(m_pPlayer);
+        }
     }
 
     void WorldModel::draw() const

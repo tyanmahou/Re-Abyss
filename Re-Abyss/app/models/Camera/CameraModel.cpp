@@ -1,4 +1,4 @@
-#include "CameraModel.hpp"
+﻿#include "CameraModel.hpp"
 
 using namespace s3d;
 
@@ -28,7 +28,7 @@ namespace abyss
 	{
 		return m_pos;
 	}
-	const RoomModel & CameraModel::carentRoom() const
+	const RoomModel & CameraModel::currentRoom() const
 	{
 		return m_currentRoom;
 	}

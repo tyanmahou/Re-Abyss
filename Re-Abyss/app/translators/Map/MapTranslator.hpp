@@ -1,15 +1,14 @@
-#pragma once
+﻿#pragma once
 #include <memory>
+
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/models/actors/Map/MapActor.hpp>
 
 namespace abyss
 {
-	class MapActor;
-	struct MapEntity;
-
 	class MapTranslator
 	{
 	public:
-		MapTranslator() = default;
-		std::shared_ptr<MapActor> create(const MapEntity&);
+		static std::shared_ptr<MapActor> ToActorPtr(const MapEntity&);
 	};
 }

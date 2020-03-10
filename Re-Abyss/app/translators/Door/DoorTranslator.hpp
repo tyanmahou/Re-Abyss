@@ -1,15 +1,13 @@
-#pragma once
+﻿#pragma once
 #include <memory>
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/models/actors/Door/DoorActor.hpp>
 
 namespace abyss
 {
-	class DoorActor;
-	class RoomModel;
-	struct DoorEntity;
-
 	class DoorTranslator
 	{
 	public:
-		std::shared_ptr<DoorActor> create(const DoorEntity& entity, const RoomModel& room) const;
+		static std::shared_ptr<DoorActor> ToActorPtr(const DoorEntity& entity, const RoomModel& room);
 	};
 }

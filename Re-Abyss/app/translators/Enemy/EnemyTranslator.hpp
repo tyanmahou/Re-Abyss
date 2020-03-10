@@ -1,15 +1,13 @@
-#pragma once
+﻿#pragma once
 #include <memory>
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/models/actors/Enemy/EnemyActor.hpp>
 
 namespace abyss
 {
-	class EnemyActor;
-	struct EnemyEntity;
-
 	class EnemyTranslator
 	{
 	public:
-		EnemyTranslator() = default;
-		std::shared_ptr<EnemyActor> create(const EnemyEntity&);
+		static std::shared_ptr<EnemyActor> ToActorPtr(const EnemyEntity&);
 	};
 }

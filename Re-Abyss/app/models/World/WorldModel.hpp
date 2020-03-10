@@ -11,7 +11,7 @@ namespace abyss
         ActorsModel m_actorsModel;
         std::unique_ptr<ICollisionModel> m_collision;
 
-        std::shared_ptr<PlayerActor> m_player;
+        std::shared_ptr<PlayerActor> m_pPlayer;
 
         WorldView m_view;
     public:
@@ -38,6 +38,8 @@ namespace abyss
 
         inline WorldView& getView() {return m_view;}
         inline const WorldView& getView()const { return m_view; }
-        inline std::shared_ptr<PlayerActor> getPlayer()const { return m_player; }
+
+        inline void setPlayer(const std::shared_ptr<PlayerActor>& player) { m_pPlayer = player; }
+        inline std::shared_ptr<PlayerActor> getPlayer()const { return m_pPlayer; }
     };
 }

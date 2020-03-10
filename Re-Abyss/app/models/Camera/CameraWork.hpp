@@ -41,7 +41,7 @@ namespace abyss
             std::function<void()> callback,
             double animeMilliSec
         );
-        static std::shared_ptr<RoomMoveCameraWork> Create(
+        static std::unique_ptr<RoomMoveCameraWork> Create(
             const CameraModel& camera,
             const s3d::Vec2& playerPos,
             std::function<void()> callback,

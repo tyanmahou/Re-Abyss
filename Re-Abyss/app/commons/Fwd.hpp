@@ -10,6 +10,9 @@ namespace abyss
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
+	struct MapEntity;
+	struct EnemyEntity;
+	struct DoorEntity;
 
 	/// <summary>
 	/// Models
@@ -17,6 +20,7 @@ namespace abyss
 	class WorldModel;
 	class RoomModel;
 	class ICollisionModel;
+	class CameraModel;
 	class ICameraWork;
 
 	// Models/Actors

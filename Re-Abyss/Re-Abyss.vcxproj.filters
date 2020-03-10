@@ -75,13 +75,7 @@
     <ClCompile Include="app\views\World\WorldView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\MainScene\MainSceneModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\World\WorldModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Camera\CameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\actors\Player\PlayerActor.cpp">
@@ -109,6 +103,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\actors\Door\DoorActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Map\MapTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Door\DoorTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Camera\CameraController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -226,12 +232,6 @@
     <ClInclude Include="app\views\World\WorldView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\MainScene\MainSceneModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\models\actors\Player\PlayerActor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -266,6 +266,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\actors\Door\DoorActor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Map\MapTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Door\DoorTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\Camera\CameraController.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

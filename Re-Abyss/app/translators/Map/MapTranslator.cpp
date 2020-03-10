@@ -1,12 +1,12 @@
-#include "MapTranslator.hpp"
-#include <data/entity/MapEntity.hpp>
+﻿#include "MapTranslator.hpp"
+#include <abyss/entities/MapEntity.hpp>
 
-#include <domain/actor/PenetrateFloorActor.hpp>
-#include <domain/actor/LadderActor.hpp>
+#include <abyss/models/actors/PenetrateFloor/PenetrateFloorActor.hpp>
+#include <abyss/models/actors/Ladder/LadderActor.hpp>
 
 namespace abyss
 {
-	std::shared_ptr<MapActor> MapTranslator::create(const MapEntity& entity)
+	std::shared_ptr<MapActor> MapTranslator::ToActorPtr(const MapEntity& entity)
 	{
 		if (entity.type == MapType::Floor) {
 			return std::make_shared<FloorActor>(entity.col, entity.pos, entity.size);

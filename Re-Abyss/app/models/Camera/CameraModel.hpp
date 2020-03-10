@@ -23,7 +23,7 @@ namespace abyss
 		bool isOutOfRoomDeath(const s3d::Vec2& pos) const;
 
 		void setRoom(const RoomModel& room);
-		const RoomModel& carentRoom() const;
+		const RoomModel& currentRoom() const;
 
 		void setNextRoom(const s3d::Optional<RoomModel>& room);
 		const s3d::Optional<RoomModel>& nextRoom() const;
