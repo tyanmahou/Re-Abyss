@@ -20,7 +20,8 @@ namespace
 }
 namespace abyss
 {
-	PlayerShotActor::PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge)
+	PlayerShotActor::PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge):
+		PlayerShotView(this)
 	{
 		using namespace Constants::Player;
 		m_body.pos = pos;
@@ -40,7 +41,7 @@ namespace abyss
 	}
 	void PlayerShotActor::start()
 	{
-
+		PlayerShotView::start();
 	}
 	void PlayerShotActor::update([[maybe_unused]]double dt)
 	{
@@ -86,5 +87,9 @@ namespace abyss
 	void PlayerShotActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
+	}
+	void PlayerShotActor::draw() const
+	{
+		PlayerShotView::draw();
 	}
 }

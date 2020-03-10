@@ -1,10 +1,13 @@
 ﻿#pragma once
 #include <abyss/models/actors/base/IActor.hpp>
 #include <abyss/types/Physics.hpp>
+#include <abyss/views/actors/Player/Shot/PlayerShotView.hpp>
 
 namespace abyss
 {
-	class PlayerShotActor : public IActor
+	class PlayerShotActor : 
+		public IActor,
+		public PlayerShotView
 	{
 	public:
 		enum class Type
@@ -31,5 +34,6 @@ namespace abyss
 		const s3d::Vec2& getPos() const;
 
 		void accept(const ActVisitor& visitor) override;
+		void draw() const override;
 	};
 }

@@ -67,7 +67,6 @@ namespace abyss
 				}
 			}
 		}
-		EnemyTranslator enemyTranslator;
 		for (const auto& enemy : m_stageData->getEnemies()) {
 			if (!nextRoom.getRegion().intersects(enemy.pos)) {
 				continue;

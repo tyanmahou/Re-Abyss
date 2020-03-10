@@ -1,20 +1,34 @@
-﻿#include "SlimeView.hpp"
+﻿//#include "SlimeView.hpp"
+
 #include <Siv3D.hpp>
 
+#include <abyss/models/actors/Slime/SlimeActor.hpp>
+#include <abyss/views/actors/Slime/SlimeViewModel.hpp>
+
+namespace
+{
+    using namespace abyss;
+    SlimeViewModel ToViewModel(const SlimeActor& actor)
+    {
+        return SlimeViewModel{
+            .motion = actor.getMotion(),
+            .forward = actor.getForward(),
+            .pos = actor.getPos(),
+            .vellocity = actor.getVellocity(),
+        };
+    }
+}
 namespace abyss
 {
-    SlimeView::SlimeView() :
+    SlimeView::SlimeView(const SlimeActor* const pModel) :
+        IActorView(pModel),
+        m_pModel(pModel),
         m_texture(U"work/enemy/slime/slime.png")
     {}
 
-    void SlimeView::setViewModel(const SlimeViewModel& viewModel)
-    {
-        m_viewModel = viewModel;
-    }
-
     void SlimeView::draw() const
     {
-        auto&& [motion, forward, pos, vellocity] = m_viewModel;
+        auto&& [motion, forward, pos, vellocity] = ::ToViewModel(*m_pModel);
 
         bool isLeft = forward == Forward::Left;
         switch (motion) {

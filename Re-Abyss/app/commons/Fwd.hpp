@@ -46,6 +46,10 @@ namespace abyss
 	/// </summary>
 	class WorldView;
 	class IActorView;
+	class PlayerView;
+	struct PlayerViewModel;
+	class PlayerShotView;
+	struct PlayerShotViewModel;
 	class SlimeView;
 	struct SlimeViewModel;
 

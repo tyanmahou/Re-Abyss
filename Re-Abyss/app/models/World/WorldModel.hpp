@@ -21,16 +21,15 @@ namespace abyss
         void reset();
         void draw() const;
 
-
         template<class Type, class... Args>
-        void create(Args&& ... args) requires IsActor<Type>
+        void create(Args&& ... args) //requires IsActor<Type>
         {
             auto obj = std::make_shared<Type>(std::forward<Args>(args)...);
             this->regist(obj);
         }
 
         template<class Type>
-        void regist(const std::shared_ptr<Type>& actor) requires IsActor<Type>
+        void regist(const std::shared_ptr<Type>& actor) //requires IsActor<Type>
         {
             actor->setWorld(this);
             m_actorsModel.pushActor(actor);

@@ -1,14 +1,18 @@
 ﻿#pragma once
-#include <abyss/models/actors/base/IActor.hpp>
-#include <abyss/types/Physics.hpp>
 
 #include <Siv3D.hpp>
+
+#include <abyss/models/actors/base/IActor.hpp>
+#include <abyss/types/Physics.hpp>
+#include <abyss/views/actors/Player/PlayerView.hpp>
 
 #include "LadderState.hpp"
 
 namespace abyss
 {
-	class PlayerActor : public IActor
+	class PlayerActor: 
+		public IActor,
+		public PlayerView
 	{
 	public:
 		enum class Motion
@@ -59,6 +63,7 @@ namespace abyss
 		RectF region() const;
 
 		void accept(const ActVisitor& visitor) override;
+		void draw() const override;
 
 		static std::shared_ptr<PlayerActor> Create();
 	};

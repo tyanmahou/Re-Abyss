@@ -73,7 +73,8 @@ namespace abyss
 	}
 
 	SlimeActor::SlimeActor(const s3d::Vec2& pos, Forward forward) :
-		EnemyActor(pos, forward)
+		EnemyActor(pos, forward),
+		SlimeView(this)
 	{
 		m_hp = 10;
 		m_body.accel.y = 0.2;
@@ -82,6 +83,7 @@ namespace abyss
 
 	void SlimeActor::start()
 	{
+		SlimeView::start();
 	}
 
 	void SlimeActor::update([[maybe_unused]]double dt)
@@ -117,6 +119,7 @@ namespace abyss
 
 	void SlimeActor::draw() const
 	{
+		SlimeView::draw();
 	}
 
 	void SlimeActor::onCollisionEnter(ICollider* col)

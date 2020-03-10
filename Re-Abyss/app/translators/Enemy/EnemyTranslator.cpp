@@ -1,7 +1,7 @@
 ﻿#include "EnemyTranslator.hpp"
 
 #include <abyss/entities/EnemyEntity.hpp>
-#include <abyss/translators/Slime/SlimeTranslator.hpp>
+#include <abyss/models/actors/Slime/SlimeActor.hpp>
 
 namespace abyss
 {
@@ -9,7 +9,7 @@ namespace abyss
     {
 		switch (entity.type) {
 		case EnemyType::Slime:
-			return SlimeTranslator::ToActorPtr(entity);
+			return std::make_shared<SlimeActor>(entity.pos);
 		default:
 			break;
 		}

@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "ICollider.hpp"
 #include <abyss/visitors/ActVisitor.hpp>
-#include <abyss/views/actors/base/IActorView.hpp>
 
 namespace abyss
 {
@@ -19,6 +18,10 @@ namespace abyss
 		inline void setWorld(WorldModel* const pWorld)
 		{
 			m_pWorld = pWorld;
+		}
+		inline WorldModel* getWorld() const
+		{
+			return m_pWorld;
 		}
 		inline void setId(s3d::uint64 id)
 		{

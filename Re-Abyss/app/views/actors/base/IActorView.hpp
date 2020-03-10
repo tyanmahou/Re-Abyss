@@ -6,12 +6,10 @@ namespace abyss
 	class IActorView
 	{
 	protected:
-		WorldView* m_pWorld;
+		WorldView* const m_pWorldView;
 	public:
-		inline void setWorld(WorldView* pWorld)
-		{
-			this->m_pWorld = pWorld;
-		}
+		IActorView(WorldView* const pWorldView);
+		IActorView(const IActor* const pActor);
 		virtual void start() {}
 		virtual void draw()const = 0;
 	};

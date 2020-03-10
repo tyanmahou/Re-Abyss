@@ -1,11 +1,13 @@
 ﻿#pragma once
 #include <abyss/models/actors/Enemy/EnemyActor.hpp>
-
+#include <abyss/views/actors/Slime/SlimeView.hpp>
 namespace abyss
 {
 	class MapModel;
 
-	class SlimeActor : public EnemyActor
+	class SlimeActor : 
+		public EnemyActor,
+		public SlimeView
 	{
 	public:
 		enum class Motion

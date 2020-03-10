@@ -83,6 +83,7 @@ namespace abyss
     }
 
     PlayerActor::PlayerActor() :
+        PlayerView(this),
         m_charge(0),
         m_ladderState(LadderState::None)
     {
@@ -301,6 +302,10 @@ namespace abyss
     void PlayerActor::accept(const ActVisitor& visitor)
     {
         visitor.visit(*this);
+    }
+    void PlayerActor::draw() const
+    {
+        PlayerView::draw();
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {
