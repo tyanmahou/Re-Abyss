@@ -43,7 +43,7 @@ namespace abyss
             }
         }
     }
-    void DoorCameraWork::draw(const Camera* const pCamera) const
+    void DoorCameraWork::draw(const CameraView* const pCamera) const
     {
         m_view->draw(pCamera);
     }

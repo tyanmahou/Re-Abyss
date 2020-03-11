@@ -7,6 +7,8 @@ namespace abyss
     WorldModel::WorldModel():
         m_collision(std::make_unique<SimpleCollision>())
     {}
+    WorldModel::~WorldModel()
+    {}
     void WorldModel::update()
     {
         m_actorsModel.update();

@@ -90,24 +90,6 @@
     <ClCompile Include="app\views\actors\base\IActorView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\BubbleGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\BackGroundView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\BackGroundVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\StageView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\CameraView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\WorldView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\CameraModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -115,9 +97,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\WorldModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\StageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\RoomModel.cpp">
@@ -154,6 +133,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Camera\CameraView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\StageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BubbleGenerator\BubbleGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\World\WorldView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Stage\StageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -307,24 +310,6 @@
     <ClInclude Include="app\views\actors\Slime\SlimeViewModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\BubbleGenerator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\BackGroundView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\BackGroundVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\StageView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\CameraView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\WorldView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\ActionSystemView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -335,9 +320,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\WorldModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\StageModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\RoomModel.hpp">
@@ -356,9 +338,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\EnemyTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\ActionSystemModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp">
@@ -380,6 +359,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Camera\CameraView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Stage\StageView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BubbleGenerator\BubbleGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\World\WorldView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Stage\BackGround\BackGroundView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\Stage\StageModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

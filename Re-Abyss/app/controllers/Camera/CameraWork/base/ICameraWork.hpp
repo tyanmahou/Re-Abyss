@@ -19,15 +19,19 @@ namespace abyss
         virtual ~ICameraWork() = default;
 
         virtual void update() {}
-        virtual void draw(const Camera* const) const {}
+        virtual void draw(const CameraView* const) const {}
 
         virtual s3d::Vec2 calcCameraPos() const = 0;
         virtual s3d::Optional<s3d::Vec2> calcPlayerPos() const;
+
+        virtual void onStart() {}
 
         bool isEnd() const;
         virtual void onEnd() {}
 
         double elapsed() const;
 
+        bool isActive() const;
+        void start();
     };
 }

@@ -34,6 +34,9 @@ namespace abyss
 		m_stageData(std::move(repository))
 	{}
 
+	StageModel::~StageModel()
+	{}
+
 	s3d::Optional<RoomModel> StageModel::findRoom(const s3d::Vec2& pos)
 	{
 		return ::GetNextRoom(pos, m_stageData->getRooms());

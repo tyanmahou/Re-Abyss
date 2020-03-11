@@ -1,38 +1,47 @@
 ﻿#include "MainScene.hpp"
 
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/models/Stage/StageModel.hpp>
 #include <abyss/datastores/StageDataStore.hpp>
 #include <abyss/repositories/StageRepository.hpp>
 
 namespace abyss::di
 {
-    void CreateMainScene(const FilePath& stageTmx)
+    std::unique_ptr<ActionSystem> CreateActionSystem(const FilePath& stageTmx)
     {
         // stage
         auto stageDataStore = std::make_unique<TiledStageDataStore>(stageTmx);
         auto stageRepository = std::make_unique<StageRepository>(*stageDataStore);
-
+		auto stageModel = std::make_unique<StageModel>(std::move(stageRepository));
+		return std::make_unique<ActionSystem>(std::move(stageModel));
     }
 }
 namespace abyss
 {
 	class MainScene::Controller
 	{
-	public:
-		Controller([[maybe_unused]] const MainScene::InitData& init)
-		{}
+		std::unique_ptr<ActionSystem> m_actionSystem;
 
+	public:
+		Controller([[maybe_unused]] const MainScene::InitData& init):
+			m_actionSystem(di::CreateActionSystem(U"work/stage0/stage0.tmx"))
+		{
+			this->init();
+		}
 
 		void init()
 		{
+			m_actionSystem->init();
 		}
 
 		void update()
 		{
+			m_actionSystem->update();
 		}
 
 		void draw() const
 		{
-			Circle(Window::ClientCenter(), 30).draw();
+			m_actionSystem->draw();
 		}
 	};
 

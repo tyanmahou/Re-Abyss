@@ -30,6 +30,7 @@ namespace abyss
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
+	class StageModel;
 
 	// Models/Actors
 	class ICollider;
@@ -50,8 +51,15 @@ namespace abyss
 	class IStageRepository;
 
 	/// <summary>
+	/// Types
+	/// </summary>
+	struct CShape;
+	class ColDirection;
+
+	/// <summary>
 	/// Views
 	/// </summary>
+	
 	class WorldView;
 	class IActorView;
 	class PlayerView;
@@ -61,15 +69,7 @@ namespace abyss
 	class SlimeView;
 	struct SlimeViewModel;
 
-	/// <summary>
-	/// Types
-	/// </summary>
-	struct CShape;
-	class ColDirection;
-
-	/// <summary>
-	/// Views
-	/// </summary>
+	class CameraView;
 	class DoorCameraWorkView;
 
 	/// <summary>

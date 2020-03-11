@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include <abyss/models/ActorsModel.hpp>
-#include <abyss/views/WorldView.hpp>
+#include <abyss/views/World/WorldView.hpp>
 #include <abyss/commons/Concept.hpp>
 namespace abyss
 {
@@ -16,6 +16,7 @@ namespace abyss
         WorldView m_view;
     public:
         WorldModel();
+        ~WorldModel();
 
         void update();
         void reset();

@@ -15,7 +15,7 @@ namespace abyss
 
 	public:
 		StageModel(std::unique_ptr<IStageRepository>&& repository) noexcept;
-
+		~StageModel();
 		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos);
 		bool init(WorldModel& world, const RoomModel& nextRoom);
 		bool initRoom(WorldModel& world, const RoomModel& nextRoom);

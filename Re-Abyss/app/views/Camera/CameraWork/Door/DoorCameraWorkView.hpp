@@ -10,6 +10,6 @@ namespace abyss
 		const DoorCameraWork* const m_pWork;
 	public:
 		DoorCameraWorkView(const DoorCameraWork*const pCameraWork);
-		void draw(const Camera*const pCamera) const;
+		void draw(const CameraView*const pCamera) const;
 	};
 }

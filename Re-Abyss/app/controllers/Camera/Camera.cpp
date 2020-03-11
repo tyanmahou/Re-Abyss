@@ -1,10 +1,11 @@
 ﻿#include "Camera.hpp"
 
-#include <abyss/models/CameraModel.hpp>
 #include <abyss/models/RoomModel.hpp>
+#include <abyss/models/Stage/StageModel.hpp>
 
 #include <abyss/models/actors/Player/PlayerActor.hpp>
 #include <abyss/models/actors/Door/DoorActor.hpp>
+#include <abyss/views/Camera/CameraView.hpp>
 
 #include "CameraWork/Door/DoorCameraWork.hpp"
 #include "CameraWork/RoomMove/RoomMoveCameraWork.hpp"
@@ -16,10 +17,18 @@ namespace abyss
 		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
 	}
 
-	void Camera::setCameraPos(const s3d::Vec2& pos)
+	Camera::Event Camera::setCameraPos(const s3d::Vec2& pos)
 	{
+		Event event = Event::Nothing;
+
 		Vec2 cameraPos = m_camera->getPos();
 		if (this->isCameraWork()) {
+			if (!m_cameraWork->isActive()) {
+				m_cameraWork->start();
+				m_cameraWork->onStart();
+
+				event = Event::OnCameraWorkStart;
+			}
 			m_cameraWork->update();
 			cameraPos = m_cameraWork->calcCameraPos();
 
@@ -27,16 +36,19 @@ namespace abyss
 				m_cameraWork->onEnd();
 				m_cameraWork = nullptr;
 				m_camera->setNextRoom(s3d::none);
+
+				event = Event::OnCameraWorkEnd;
 			}
 		} else {
 			cameraPos = m_camera->currentRoom().cameraBorderAdjusted(pos);
 		}
 		m_camera->setPos(Math::Ceil(cameraPos));
+		return event;
 	}
 
-	void Camera::adjustPlayerPos()
+	void Camera::adjustPlayerPos(PlayerActor& player)
 	{
-		Vec2 pos = m_pPlayer->getPos();
+		Vec2 pos = player.getPos();
 		if (this->isCameraWork()) {
 			if (auto playerPos = m_cameraWork->calcPlayerPos()) {
 				pos = playerPos.value();
@@ -44,21 +56,32 @@ namespace abyss
 		} else {
 			pos = m_camera->currentRoom().borderAdjusted(pos);
 		}
-		m_pPlayer->setPos(pos);
+		player.setPos(pos);
 	}
 
-	void Camera::update()
-	{
-		const Vec2& pos = m_pPlayer->getPos();
-		this->setCameraPos(pos);
-		this->adjustPlayerPos();
+	Camera::Camera():
+		m_camera(std::make_unique<CameraModel>())
+	{}
 
+	Camera::~Camera()
+	{}
+
+	Camera::Event Camera::update(PlayerActor& player)
+	{
+		const Vec2& pos =player.getPos();
+		auto event = this->setCameraPos(pos);
+		this->adjustPlayerPos(player);
+
+		if (event == Event::Nothing) {
+			return event;
+		}
 		if (m_camera->isOutOfRoomDeath(pos)) {
-			return;
+			return Event::OnOutOfRoomDeath;
 		}
 		if (this->canNextRoom(pos)) {
-			// this->onOutSideRoom().notify(pos);
+			return Event::OnOutOfRoom;
 		}
+		return event;
 	}
 
 	void Camera::startCameraWork(
@@ -113,6 +136,18 @@ namespace abyss
     }
     s3d::RectF Camera::screenRegion() const
     {
-        return s3d::RectF();
+		return this->createView().screenRegion();
     }
+	void Camera::setRoom(const RoomModel& room) const
+	{
+		m_camera->setRoom(room);
+	}
+	const RoomModel& Camera::getCurrentRoom() const
+	{
+		return m_camera->currentRoom();
+	}
+	CameraView Camera::createView() const
+	{
+		return CameraView(m_camera.get(), m_cameraWork.get());
+	}
 }

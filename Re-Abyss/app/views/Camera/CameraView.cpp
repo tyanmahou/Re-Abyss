@@ -1,13 +1,16 @@
 ﻿#include "CameraView.hpp"
 
+#include <Siv3D.hpp>
+
 #include <abyss/models/CameraModel.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <Siv3D.hpp>
+#include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
 
 namespace abyss
 {
-	CameraView::CameraView(const CameraModel* const pCamera) :
-		m_pCamera(pCamera)
+	CameraView::CameraView(const CameraModel* const pCamera, const ICameraWork* const pCameraWork) :
+		m_pCamera(pCamera),
+		m_pCameraWork(pCameraWork)
 	{}
 
 	const s3d::Vec2& CameraView::getCameraPos() const
@@ -38,5 +41,12 @@ namespace abyss
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
 		return Transformer2D(s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2 + Constants::GameScreenOffset), Transformer2D::Target::SetLocal);
+	}
+	void CameraView::drawCameraWork() const
+	{
+		if (!m_pCameraWork) {
+			return;
+		}
+		m_pCameraWork->draw(this);
 	}
 }

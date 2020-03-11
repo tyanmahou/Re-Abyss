@@ -1,6 +1,6 @@
 ﻿#include "DoorCameraWorkView.hpp"
 #include <abyss/controllers/Camera/CameraWork/Door/DoorCameraWork.hpp>
-#include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/views/Camera/CameraView.hpp>
 
 #include <abyss/views/Fade/Fade.hpp>
 
@@ -9,7 +9,7 @@ namespace abyss
 	DoorCameraWorkView::DoorCameraWorkView(const DoorCameraWork* const pCameraWork):
 		m_pWork(pCameraWork)
 	{}
-	void DoorCameraWorkView::draw(const Camera* const pCamera) const
+	void DoorCameraWorkView::draw(const CameraView* const pCamera) const
 	{
 		using State = DoorCameraWork::State;
 

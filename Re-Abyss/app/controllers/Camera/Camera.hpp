@@ -4,22 +4,33 @@
 #include <Siv3D/Fwd.hpp>
 
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/models/CameraModel.hpp>
 
 namespace abyss
 {
     class Camera
     {
-		std::shared_ptr<CameraModel> m_camera;
+	public:
+		enum class Event
+		{
+			Nothing,
+			OnCameraWorkStart,
+			OnCameraWorkEnd,
+			OnOutOfRoom,
+			OnOutOfRoomDeath,
+		};
+	private:
+		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 
-		std::shared_ptr<PlayerActor> m_pPlayer;
-
 		bool canNextRoom(const s3d::Vec2& pos) const;
-		void setCameraPos(const s3d::Vec2& pos);
-		void adjustPlayerPos();
+		Event setCameraPos(const s3d::Vec2& pos);
+		void adjustPlayerPos(PlayerActor& player);
 	public:
+		Camera();
+		~Camera();
 
-		void update();
+		Event update(PlayerActor& player);
 
 		/// <summary>
 		/// 部屋移動のカメラワーク開始
@@ -53,6 +64,34 @@ namespace abyss
 
 		bool isCameraWork() const;
 
+		/// <summary>
+		/// View作成
+		/// </summary>
+		/// <returns></returns>
+		CameraView createView() const;
+
+		/// <summary>
+		/// スクリーンの範囲取得
+		/// </summary>
+		/// <returns></returns>
 		s3d::RectF screenRegion() const;
+
+		/// <summary>
+		/// 現在の部屋取得
+		/// </summary>
+		/// <returns></returns>
+		void setRoom(const RoomModel& room) const;
+
+		/// <summary>
+		/// 現在の部屋取得
+		/// </summary>
+		/// <returns></returns>
+		const RoomModel& getCurrentRoom() const;
+
+		template<class T>
+		bool inRoom(const T& shape)const
+		{
+			return m_camera->inRoom(shape);
+		}
     };
 }

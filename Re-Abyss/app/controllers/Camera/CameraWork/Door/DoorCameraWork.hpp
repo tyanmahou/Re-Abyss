@@ -33,7 +33,7 @@ namespace abyss
         s3d::Vec2 calcCameraPos() const override;
         s3d::Optional<s3d::Vec2> calcPlayerPos() const override;
         void update() override;
-        void draw(const Camera* const) const override;
+        void draw(const CameraView* const) const override;
         void onEnd() override;
 
     private:
