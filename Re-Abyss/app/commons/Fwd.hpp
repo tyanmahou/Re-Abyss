@@ -7,6 +7,15 @@
 namespace abyss
 {
 	/// <summary>
+	/// Controllers
+	/// </summary>
+	class Camera;
+	class ICameraWork;
+	class DoorCameraWork;
+	class RoomMoveCameraWork;
+	class World;
+
+	/// <summary>
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
@@ -21,7 +30,6 @@ namespace abyss
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
-	class ICameraWork;
 
 	// Models/Actors
 	class ICollider;
@@ -58,6 +66,11 @@ namespace abyss
 	/// </summary>
 	struct CShape;
 	class ColDirection;
+
+	/// <summary>
+	/// Views
+	/// </summary>
+	class DoorCameraWorkView;
 
 	/// <summary>
 	/// Visitor

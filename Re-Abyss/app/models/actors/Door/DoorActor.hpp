@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <abyss/models/actors/base/IActor.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/RoomModel.hpp>
 
 namespace abyss
 {

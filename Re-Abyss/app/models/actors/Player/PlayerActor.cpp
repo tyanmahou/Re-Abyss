@@ -4,7 +4,7 @@
 #include <abyss/models/actors/Ladder/LadderActor.hpp>
 #include <abyss/models/actors/Door/DoorActor.hpp>
 
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/Collision.hpp>
 

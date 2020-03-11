@@ -5,7 +5,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/RoomModel.hpp>
 namespace abyss
 {
     class StageModel

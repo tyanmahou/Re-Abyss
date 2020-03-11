@@ -7,7 +7,7 @@
 
 namespace abyss
 {
-    class CameraController
+    class Camera
     {
 		std::shared_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
@@ -52,5 +52,7 @@ namespace abyss
 		);
 
 		bool isCameraWork() const;
+
+		s3d::RectF screenRegion() const;
     };
 }

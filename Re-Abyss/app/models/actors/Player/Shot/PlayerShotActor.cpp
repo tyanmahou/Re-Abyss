@@ -2,7 +2,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <unordered_map>
 
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 namespace
 {
 	using namespace abyss;

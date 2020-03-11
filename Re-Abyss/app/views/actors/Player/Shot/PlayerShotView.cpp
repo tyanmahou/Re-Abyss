@@ -5,7 +5,7 @@
 #include <abyss/models/actors/Player/Shot/PlayerShotActor.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/views/effects/PlayerShotEffect.hpp>
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 
 namespace
 {

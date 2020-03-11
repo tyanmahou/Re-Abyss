@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include <abyss/models/actors/ActorsModel.hpp>
-#include <abyss/views/World/WorldView.hpp>
+#include <abyss/models/ActorsModel.hpp>
+#include <abyss/views/WorldView.hpp>
 #include <abyss/commons/Concept.hpp>
 namespace abyss
 {

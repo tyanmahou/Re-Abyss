@@ -48,33 +48,6 @@
     <ClCompile Include="app\models\actors\base\IActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Room\RoomModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\actors\ActorsModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Collision\CollisionModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Camera\CameraModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Camera\CameraWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Stage\StageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\World\WorldView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\World\WorldModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\actors\Player\PlayerActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,18 +75,6 @@
     <ClCompile Include="app\models\actors\Door\DoorActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Map\MapTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Door\DoorTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Camera\CameraController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -127,6 +88,72 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\actors\base\IActorView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BubbleGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGroundView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGroundVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\StageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\CameraView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\WorldView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\CameraModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\ActorsModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\WorldModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\StageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\RoomModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\CollisionModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\DoorTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\RoomTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\MapTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\EnemyTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Fade\Fade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -214,33 +241,6 @@
     <ClInclude Include="app\commons\Concept.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Room\RoomModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\actors\ActorsModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Collision\CollisionModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraWork.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\World\WorldModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Stage\StageModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\World\WorldView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\models\actors\Player\PlayerActor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -277,18 +277,6 @@
     <ClInclude Include="app\models\actors\Door\DoorActor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\translators\Map\MapTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Door\DoorTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraController.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\actors\base\IActorView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -317,6 +305,81 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\actors\Slime\SlimeViewModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BubbleGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BackGroundView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BackGroundVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\StageView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\CameraView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\WorldView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\ActionSystemView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\CameraModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\ActorsModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\WorldModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\StageModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\RoomModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\CollisionModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\DoorTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\RoomTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\MapTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\EnemyTranslator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\ActionSystemModel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\Camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Fade\Fade.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

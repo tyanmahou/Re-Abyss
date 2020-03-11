@@ -3,14 +3,14 @@
 #include <Siv3D.hpp>
 
 #include <abyss/models/actors/Player/PlayerActor.hpp>
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 
 #include <abyss/repositories/StageRepository.hpp>
 
-#include <abyss/translators/Room/RoomTranslator.hpp>
-#include <abyss/translators/Map/MapTranslator.hpp>
-#include <abyss/translators/Enemy/EnemyTranslator.hpp>
-#include <abyss/translators/Door/DoorTranslator.hpp>
+#include <abyss/translators/RoomTranslator.hpp>
+#include <abyss/translators/MapTranslator.hpp>
+#include <abyss/translators/EnemyTranslator.hpp>
+#include <abyss/translators/DoorTranslator.hpp>
 
 
 namespace

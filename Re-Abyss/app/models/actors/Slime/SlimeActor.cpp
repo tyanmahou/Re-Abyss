@@ -2,7 +2,7 @@
 
 #include <abyss/models/actors/Player/PlayerActor.hpp>
 #include <abyss/models/actors/Floor/FloorActor.hpp>
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 
 #include <abyss/utils/Collision.hpp>
 #include <abyss/commons/Constants.hpp>

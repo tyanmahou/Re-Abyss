@@ -1,21 +1,22 @@
-﻿#include "CameraController.hpp"
+﻿#include "Camera.hpp"
 
-#include <abyss/models/Camera/CameraModel.hpp>
-#include <abyss/models/Camera/CameraWork.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/CameraModel.hpp>
+#include <abyss/models/RoomModel.hpp>
 
 #include <abyss/models/actors/Player/PlayerActor.hpp>
 #include <abyss/models/actors/Door/DoorActor.hpp>
 
+#include "CameraWork/Door/DoorCameraWork.hpp"
+#include "CameraWork/RoomMove/RoomMoveCameraWork.hpp"
 
 namespace abyss
 {
-	bool CameraController::canNextRoom(const s3d::Vec2& pos) const
+	bool Camera::canNextRoom(const s3d::Vec2& pos) const
 	{
 		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
 	}
 
-	void CameraController::setCameraPos(const s3d::Vec2& pos)
+	void Camera::setCameraPos(const s3d::Vec2& pos)
 	{
 		Vec2 cameraPos = m_camera->getPos();
 		if (this->isCameraWork()) {
@@ -33,7 +34,7 @@ namespace abyss
 		m_camera->setPos(Math::Ceil(cameraPos));
 	}
 
-	void CameraController::adjustPlayerPos()
+	void Camera::adjustPlayerPos()
 	{
 		Vec2 pos = m_pPlayer->getPos();
 		if (this->isCameraWork()) {
@@ -46,7 +47,7 @@ namespace abyss
 		m_pPlayer->setPos(pos);
 	}
 
-	void CameraController::update()
+	void Camera::update()
 	{
 		const Vec2& pos = m_pPlayer->getPos();
 		this->setCameraPos(pos);
@@ -60,7 +61,7 @@ namespace abyss
 		}
 	}
 
-	void CameraController::startCameraWork(
+	void Camera::startCameraWork(
 		const RoomModel& nextRoom, 
 		const s3d::Vec2& playerPos, 
 		std::function<void()> callback,
@@ -75,7 +76,7 @@ namespace abyss
 		}
 		m_cameraWork = RoomMoveCameraWork::Create(*m_camera, playerPos, callback, milliSec);
 	}
-	void CameraController::startDoorCameraWork(
+	void Camera::startDoorCameraWork(
         const DoorActor& door, 
         const s3d::Vec2& playerPos, 
         std::function<void()> fadeInCallback, 
@@ -106,8 +107,12 @@ namespace abyss
 			milliSec
 		);
     }
-    bool CameraController::isCameraWork() const
+    bool Camera::isCameraWork() const
     {
         return m_cameraWork != nullptr;
+    }
+    s3d::RectF Camera::screenRegion() const
+    {
+        return s3d::RectF();
     }
 }

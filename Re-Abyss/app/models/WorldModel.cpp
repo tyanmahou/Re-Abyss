@@ -1,5 +1,5 @@
 ﻿#include "WorldModel.hpp"
-#include <abyss/models/Collision/CollisionModel.hpp>
+#include <abyss/models/CollisionModel.hpp>
 #include <abyss/models/actors/Player/PlayerActor.hpp>
 
 namespace abyss

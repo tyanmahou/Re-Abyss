@@ -1,6 +1,6 @@
 ﻿#include "IActorView.hpp"
 #include <abyss/models/actors/base/IActor.hpp>
-#include <abyss/models/World/WorldModel.hpp>
+#include <abyss/models/WorldModel.hpp>
 
 namespace abyss
 {
