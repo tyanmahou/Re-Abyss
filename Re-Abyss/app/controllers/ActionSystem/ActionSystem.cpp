@@ -2,6 +2,7 @@
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
+#include <abyss/views/Stage/base/IStageView.hpp>
 
 namespace abyss
 {
@@ -71,27 +72,21 @@ namespace abyss
         // in camera
         {
             auto t2d = cameraView.getTransformer();
-            auto screen = cameraView.screenRegion();
-            const auto& cameraPos = cameraView.getCameraPos();
 
-            //// 背景
-            //m_stageView->drawBg(cameraPos);
+            auto*const stageView = m_stage->getView();
 
-            //// back
-            //m_stageView->drawLayer(U"back", screen);
+            // 背面
+            stageView->drawBack(cameraView);
 
-            //m_cameraView->drawDeathLine();
-            //// map
-            //m_stageView->drawLayer(U"map", screen);
-            //// door
-            //m_stageView->drawLayer(U"door", screen);
+            cameraView.drawDeathLine();
+
+            // 中面
+            stageView->drawMiddle(cameraView);
 
             m_world.draw();
 
-            ////front
-            //m_stageView->drawLayer(U"front", screen);
-
-            //m_bubbles.draw();
+            // 全面
+            stageView->drawFront(cameraView);
 
             cameraView.drawCameraWork();
         }

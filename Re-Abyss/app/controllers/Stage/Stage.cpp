@@ -12,6 +12,7 @@
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Door/DoorTranslator.hpp>
 
+#include <abyss/views/Stage/base/IStageView.hpp>
 
 namespace
 {
@@ -30,8 +31,9 @@ namespace
 namespace abyss
 {
 
-	Stage::Stage(std::unique_ptr<IStageRepository>&& repository) noexcept :
-		m_stageData(std::move(repository))
+	Stage::Stage(std::unique_ptr<IStageRepository>&& repository, std::unique_ptr<IStageView>&& view) noexcept :
+		m_stageData(std::move(repository)),
+		m_view(std::move(view))
 	{}
 
 	Stage::~Stage()

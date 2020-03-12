@@ -1,5 +1,7 @@
-﻿#include "StageView.hpp"
+﻿#include "TiledStageView.hpp"
 #include <Siv3D.hpp>
+#include <abyss/views/Camera/CameraView.hpp>
+
 
 namespace abyss
 {
@@ -32,5 +34,33 @@ namespace abyss
 	void TiledStageView::drawLayer(const s3d::String& layer, const s3d::RectF& rect) const
 	{
 		m_map.drawLayer(layer, rect);
+	}
+
+	void TiledStageView::drawBack(const CameraView& camera) const
+	{
+		auto&& screen = camera.screenRegion();
+
+		// 背景
+		this->drawBg(camera.getCameraPos());
+
+		// back obj
+		this->drawLayer(U"back", screen);
+	}
+	void TiledStageView::drawMiddle(const CameraView& camera) const
+	{
+		auto&& screen = camera.screenRegion();
+
+		// map
+		this->drawLayer(U"map", screen);
+		// door
+		this->drawLayer(U"door", screen);	
+	}
+	void TiledStageView::drawFront(const CameraView& camera) const
+	{
+		auto&& screen = camera.screenRegion();
+		// front obj
+		this->drawLayer(U"front", screen);
+
+		m_bubbles.draw(camera.getCameraPos());
 	}
 }

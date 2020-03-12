@@ -161,9 +161,6 @@
     <ClCompile Include="app\controllers\Stage\Stage.cpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Stage\StageView.cpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
@@ -212,12 +209,6 @@
     <ClCompile Include="app\commons\Game\Game.cpp">
       <Filter>Source Files\Commons\Game</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\Stage\StageDataStore.cpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="app\repositories\Stage\StageRepository.cpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClCompile>
@@ -238,6 +229,18 @@
     </ClCompile>
     <ClCompile Include="app\utils\Collision\Collision.cpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\TiledStageView.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -348,9 +351,6 @@
     <ClInclude Include="app\controllers\Stage\Stage.hpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Stage\StageView.hpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="app\visitors\ActVisitor.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
@@ -417,12 +417,6 @@
     <ClInclude Include="app\commons\Game\Game.hpp">
       <Filter>Source Files\Commons\Game</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="app\datastores\Stage\StageDataStore.hpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="app\entities\Door\DoorEntity.hpp">
       <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClInclude>
@@ -455,6 +449,19 @@
     </ClInclude>
     <ClInclude Include="app\utils\Collision\Collision.hpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
+    <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
+    <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
+    <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
+    <ClInclude Include="app\views\Stage\TiledStageView.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

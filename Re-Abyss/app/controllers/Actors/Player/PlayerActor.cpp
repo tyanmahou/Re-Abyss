@@ -206,22 +206,22 @@ namespace abyss
     {
         col->accept(overloaded{
             [this](const FloorActor& floor) {
-            // 床
-            this->onCollisionStay(floor);
-        },
-        [this](const LadderActor& ladder) {
-            // 梯子
-            this->onCollisionStay(ladder);
-        },
-        [this](const PenetrateFloorActor& floor) {
-            // 貫通床
-            this->onCollisionStay(floor);
-        },
-        [this](const DoorActor& door) {
-            // 扉
-            this->onCollisionStay(door);
-        }
-            });
+                // 床
+                this->onCollisionStay(floor);
+            },
+            [this](const LadderActor& ladder) {
+                // 梯子
+                this->onCollisionStay(ladder);
+            },
+            [this](const PenetrateFloorActor& floor) {
+                // 貫通床
+                this->onCollisionStay(floor);
+            },
+            [this](const DoorActor& door) {
+                // 扉
+                this->onCollisionStay(door);
+            }
+        });
     }
 
     void PlayerActor::onCollisionStay(const FloorActor& col)

@@ -129,9 +129,10 @@
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp" />
-    <ClCompile Include="app\datastores\Stage\StageDataStore.cpp" />
+    <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
+    <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
@@ -156,7 +157,7 @@
     <ClCompile Include="app\views\Camera\CameraView.cpp" />
     <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp" />
     <ClCompile Include="app\views\Fade\Fade.cpp" />
-    <ClCompile Include="app\views\Stage\StageView.cpp" />
+    <ClCompile Include="app\views\Stage\TiledStageView.cpp" />
     <ClCompile Include="app\views\World\WorldView.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,8 +186,9 @@
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
+    <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
-    <ClInclude Include="app\datastores\Stage\StageDataStore.hpp" />
+    <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
     <ClInclude Include="app\entities\Door\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
@@ -195,9 +197,11 @@
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
+    <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
+    <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
     <ClInclude Include="app\repositories\Stage\StageRepository.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\Main\MainScene.hpp" />
@@ -222,6 +226,7 @@
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotViewModel.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeView.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeViewModel.hpp" />
+    <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
     <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp" />
@@ -230,7 +235,7 @@
     <ClInclude Include="app\views\Stage\BackGround\BackGroundView.hpp" />
     <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\Fade\Fade.hpp" />
-    <ClInclude Include="app\views\Stage\StageView.hpp" />
+    <ClInclude Include="app\views\Stage\TiledStageView.hpp" />
     <ClInclude Include="app\views\World\WorldView.hpp" />
     <ClInclude Include="app\visitors\ActVisitor.hpp" />
   </ItemGroup>

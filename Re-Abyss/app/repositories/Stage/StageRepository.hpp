@@ -1,18 +1,10 @@
 ﻿#pragma once
 #include <Siv3D/Array.hpp>
-#include <abyss/datastores/Stage/StageDataStore.hpp>
+#include <abyss/datastores/Stage/base/IStageDataStore.hpp>
+#include "base/IStageRepository.hpp"
 
 namespace abyss
 {
-	class IStageRepository
-	{
-	public:
-		virtual const s3d::Array<RoomEntity>& getRooms() const = 0;
-		virtual const s3d::Array<MapEntity>& getMaps() const = 0;
-		virtual const s3d::Array<DoorEntity>& getDoors() const = 0;
-		virtual const s3d::Array<EnemyEntity>& getEnemies() const = 0;
-	};
-
 	class StageRepository : public IStageRepository
 	{
 		s3d::Array<RoomEntity> m_rooms;

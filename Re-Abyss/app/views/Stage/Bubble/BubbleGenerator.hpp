@@ -7,11 +7,9 @@ namespace abyss
 	class BubbleGenerator
 	{
 		s3d::Effect m_effect;
-		s3d::Vec2 m_pos;
 	public:
 		BubbleGenerator();
-		void setPos(s3d::Vec2& pos);
-		void update();
-		void draw()const;
+		void update() const;
+		void draw(const s3d::Vec2& pos)const;
 	};
 }

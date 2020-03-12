@@ -9,6 +9,7 @@ namespace abyss
 	/// <summary>
 	/// Controllers
 	/// </summary>
+	class ActionSystem;
 	class Camera;
 	class ICameraWork;
 	class DoorCameraWork;
@@ -71,6 +72,8 @@ namespace abyss
 
 	class CameraView;
 	class DoorCameraWorkView;
+
+	class IStageView;
 
 	/// <summary>
 	/// Visitor

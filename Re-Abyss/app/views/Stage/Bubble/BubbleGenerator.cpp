@@ -7,20 +7,14 @@ namespace abyss
 	{
 		m_effect.setSpeed(0.1);
 	}
-	void BubbleGenerator::setPos(s3d::Vec2& pos)
-	{
-		m_pos = pos;
-	}
-	void BubbleGenerator::update()
+
+	void BubbleGenerator::draw(const s3d::Vec2& pos) const
 	{
 		int32 f = Scene::FrameCount();
 		if (f % 160 == 0) {
-			m_effect.add<BubbleEffect>(m_pos);
+			m_effect.add<BubbleEffect>(pos);
 		}
-	}
 
-	void BubbleGenerator::draw() const
-	{
 		ScopedRenderStates2D state(BlendState::Additive);
 		m_effect.update();
 	}

@@ -1,6 +1,6 @@
 ﻿#include "CollisionModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/utils/Collision.hpp>
+#include <abyss/utils/Collision/Collision.hpp>
 
 namespace abyss
 {
