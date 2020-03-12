@@ -1,4 +1,4 @@
-#include "Fade.hpp"
+ï»¿#include "Fade.hpp"
 
 
 #include <Siv3D.hpp>
@@ -14,7 +14,7 @@ namespace
 		return std::move(img);
 	}
 
-	//”÷’²®
+	//å¾®èª¿æ•´
 	bool FadeBase(const s3d::RectF& rect, double& t)
 	{
 		if (t > 0.75)
@@ -37,7 +37,7 @@ namespace abyss
 {
 	namespace Fade
 	{
-		//ƒfƒtƒHƒ‹ƒg
+		//ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ
 		void Default(double t)
 		{
 			if (!::FadeBase(t))
@@ -45,7 +45,7 @@ namespace abyss
 			Scene::Rect().draw(g_fadeColor);
 		}
 
-		//3ŸŠÖ”“I‚ÉL‚ª‚é‰~Œ`ƒ}ƒXƒN
+		//3æ¬¡é–¢æ•°çš„ã«åºƒãŒã‚‹å††å½¢ãƒã‚¹ã‚¯
 		void SmoothCircle(double t, const s3d::RectF& rect, const s3d::Vec2& pos)
 		{
 			if (!::FadeBase(rect, t))
