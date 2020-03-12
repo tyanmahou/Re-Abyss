@@ -2,7 +2,7 @@
 #include <memory>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/actors/Map/MapActor.hpp>
+#include <abyss/controllers/Actors/Map/MapActor.hpp>
 
 namespace abyss
 {

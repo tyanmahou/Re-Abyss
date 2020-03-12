@@ -1,7 +1,7 @@
 ﻿#include "MainScene.hpp"
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
-#include <abyss/models/Stage/StageModel.hpp>
+#include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/datastores/StageDataStore.hpp>
 #include <abyss/repositories/StageRepository.hpp>
 
@@ -12,8 +12,8 @@ namespace abyss::di
         // stage
         auto stageDataStore = std::make_unique<TiledStageDataStore>(stageTmx);
         auto stageRepository = std::make_unique<StageRepository>(*stageDataStore);
-		auto stageModel = std::make_unique<StageModel>(std::move(stageRepository));
-		return std::make_unique<ActionSystem>(std::move(stageModel));
+		auto stage = std::make_unique<Stage>(std::move(stageRepository));
+		return std::make_unique<ActionSystem>(std::move(stage));
     }
 }
 namespace abyss

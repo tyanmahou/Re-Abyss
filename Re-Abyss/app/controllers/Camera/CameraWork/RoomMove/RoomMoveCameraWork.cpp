@@ -1,7 +1,7 @@
 ﻿#include "RoomMoveCameraWork.hpp"
 #include <Siv3D.hpp>
 
-#include <abyss/models/CameraModel.hpp>
+#include <abyss/models/Camera/CameraModel.hpp>
 
 namespace abyss
 {

@@ -2,7 +2,7 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/models/CameraModel.hpp>
+#include <abyss/models/Camera/CameraModel.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
 

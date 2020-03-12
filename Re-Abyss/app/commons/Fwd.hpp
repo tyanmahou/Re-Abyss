@@ -14,6 +14,8 @@ namespace abyss
 	class DoorCameraWork;
 	class RoomMoveCameraWork;
 	class World;
+	class Stage;
+
 
 	/// <summary>
 	/// Entities
@@ -26,11 +28,9 @@ namespace abyss
 	/// <summary>
 	/// Models
 	/// </summary>
-	class WorldModel;
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
-	class StageModel;
 
 	// Models/Actors
 	class ICollider;

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/actors/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/Door/DoorActor.hpp>
 
 namespace abyss
 {

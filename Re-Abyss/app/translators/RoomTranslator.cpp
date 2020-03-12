@@ -1,5 +1,5 @@
 ﻿#include "RoomTranslator.hpp"
-#include <abyss/models/RoomModel.hpp>
+#include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/entities/RoomEntity.hpp>
 
 namespace abyss

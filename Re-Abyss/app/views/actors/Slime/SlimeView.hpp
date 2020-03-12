@@ -2,7 +2,7 @@
 #include <Siv3D/Texture.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-#include <abyss/views/actors/base/IActorView.hpp>
+#include <abyss/views/Actors/base/IActorView.hpp>
 
 namespace abyss
 {

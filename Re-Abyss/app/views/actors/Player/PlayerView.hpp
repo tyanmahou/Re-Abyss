@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/views/actors/base/IActorView.hpp>
+#include <abyss/views/Actors/base/IActorView.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 namespace abyss

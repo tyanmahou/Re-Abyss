@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/actors/Enemy/EnemyActor.hpp>
+#include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 
 namespace abyss
 {

@@ -1,10 +1,10 @@
 ﻿#include "Camera.hpp"
 
-#include <abyss/models/RoomModel.hpp>
-#include <abyss/models/Stage/StageModel.hpp>
+#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/controllers/Stage/Stage.hpp>
 
-#include <abyss/models/actors/Player/PlayerActor.hpp>
-#include <abyss/models/actors/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/Actors/Door/DoorActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 #include "CameraWork/Door/DoorCameraWork.hpp"

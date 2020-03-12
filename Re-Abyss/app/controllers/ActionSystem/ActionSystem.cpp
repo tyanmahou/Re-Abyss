@@ -1,6 +1,6 @@
 ﻿#include "ActionSystem.hpp"
-#include <abyss/models/Stage/StageModel.hpp>
-#include <abyss/models/actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/Stage/Stage.hpp>
+#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 namespace abyss
@@ -10,7 +10,7 @@ namespace abyss
         s_main = this;
     }
 
-    ActionSystem::ActionSystem(std::unique_ptr<StageModel> && stage):
+    ActionSystem::ActionSystem(std::unique_ptr<Stage> && stage):
         ActionSystem()
     {
         m_stage = std::move(stage);
@@ -96,7 +96,7 @@ namespace abyss
             cameraView.drawCameraWork();
         }
     }
-    void ActionSystem::setStage(std::unique_ptr<StageModel>&& stage)
+    void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
     {
         m_stage = std::move(stage);
     }

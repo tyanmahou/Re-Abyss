@@ -2,10 +2,10 @@
 #include "PlayerShotViewModel.hpp"
 
 #include <Siv3D.hpp>
-#include <abyss/models/actors/Player/Shot/PlayerShotActor.hpp>
+#include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/effects/PlayerShotEffect.hpp>
-#include <abyss/models/WorldModel.hpp>
+#include <abyss/controllers/World/World.hpp>
+#include "PlayerShotEffect.hpp"
 
 namespace
 {

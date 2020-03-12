@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/models/WorldModel.hpp>
+#include <abyss/controllers/World/World.hpp>
 
 namespace abyss
 {
@@ -12,11 +12,11 @@ namespace abyss
         inline static ActionSystem* s_main = nullptr;
 
         Camera m_camera;
-        WorldModel m_world;
-        std::unique_ptr<StageModel> m_stage;
+        World m_world;
+        std::unique_ptr<Stage> m_stage;
     public:
         ActionSystem();
-        ActionSystem(std::unique_ptr<StageModel>&& stage);
+        ActionSystem(std::unique_ptr<Stage>&& stage);
 
         ~ActionSystem();
 
@@ -24,7 +24,7 @@ namespace abyss
         void update();
         void draw() const;
 
-        void setStage(std::unique_ptr<StageModel>&& stage);
+        void setStage(std::unique_ptr<Stage>&& stage);
 
         static ActionSystem* const Main();
         static Camera* const MainCamera();

@@ -4,7 +4,7 @@
 #include <Siv3D/Fwd.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/CameraModel.hpp>
+#include <abyss/models/Camera/CameraModel.hpp>
 
 namespace abyss
 {

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include <abyss/models/actors/Player/Shot/PlayerShotActor.hpp>
+#include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 
 namespace abyss
 {

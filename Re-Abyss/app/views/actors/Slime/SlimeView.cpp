@@ -2,8 +2,8 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/models/actors/Slime/SlimeActor.hpp>
-#include <abyss/views/actors/Slime/SlimeViewModel.hpp>
+#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+#include <abyss/views/Actors/Slime/SlimeViewModel.hpp>
 
 namespace
 {
