@@ -72,7 +72,7 @@ namespace abyss
 		auto event = this->setCameraPos(pos);
 		this->adjustPlayerPos(player);
 
-		if (event == Event::Nothing) {
+		if (event != Event::Nothing) {
 			return event;
 		}
 		if (m_camera->isOutOfRoomDeath(pos)) {
@@ -112,7 +112,7 @@ namespace abyss
 		m_camera->setNextRoom(nextRoom);
 		if (!fadeOutCallback) {
 			fadeOutCallback = [this, nextRoom]() {
-				//this->setRoom(nextRoom);
+				this->setRoom(nextRoom);
 			};
 		}
 		const auto& current = m_camera->currentRoom();

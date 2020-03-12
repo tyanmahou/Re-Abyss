@@ -27,6 +27,6 @@ namespace abyss
         void setStage(std::unique_ptr<Stage>&& stage);
 
         static ActionSystem* const Main();
-        static Camera* const MainCamera();
+        static Camera* const Camera();
     };
 }

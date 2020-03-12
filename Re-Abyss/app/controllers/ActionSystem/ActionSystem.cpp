@@ -99,7 +99,7 @@ namespace abyss
     {
         return s_main;
     }
-    Camera* const ActionSystem::MainCamera()
+    Camera* const ActionSystem::Camera()
     {
         return s_main ? &s_main->m_camera: nullptr;
     }

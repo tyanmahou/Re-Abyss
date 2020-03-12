@@ -23,7 +23,7 @@ namespace abyss
         m_actorsHolder.clear();
         m_collision->reset();
         if (m_pPlayer) {
-            m_actorsHolder.pushActor(m_pPlayer);
+            m_actorsHolder.directPushActor(m_pPlayer);
         }
     }
 

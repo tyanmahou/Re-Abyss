@@ -12,6 +12,11 @@ namespace abyss
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
 	}
+	void ActorsHolder::directPushActor(const std::shared_ptr<IActor>& obj)
+	{
+		obj->setId(m_objIdCounter++);
+		m_actors.push_back(obj);
+	}
 	void ActorsHolder::update()
 	{
 		double dt = s3d::Scene::DeltaTime();

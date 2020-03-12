@@ -5,6 +5,8 @@
 #include <abyss/controllers/Actors/Door/DoorActor.hpp>
 
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/Collision/Collision.hpp>
 
@@ -291,7 +293,9 @@ namespace abyss
             // move door
             m_motion = Motion::Door;
             m_body.vellocity = Vec2::Zero();
-            //this->onIntoDoor().notify(&door);
+            ActionSystem::Camera()->startDoorCameraWork(door, m_body.pos, [this]() {
+                this->m_motion = Motion::Stay;
+            });
         }
     }
     RectF PlayerActor::region() const
