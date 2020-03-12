@@ -6,7 +6,7 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/utils/Collision.hpp>
+#include <abyss/utils/Collision/Collision.hpp>
 
 namespace abyss
 {

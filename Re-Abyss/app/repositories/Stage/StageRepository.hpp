@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <Siv3D/Array.hpp>
-#include <abyss/datastores/StageDataStore.hpp>
+#include <abyss/datastores/Stage/StageDataStore.hpp>
 
 namespace abyss
 {

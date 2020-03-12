@@ -1,5 +1,5 @@
 ﻿#include "MapTranslator.hpp"
-#include <abyss/entities/MapEntity.hpp>
+#include <abyss/entities/Map/MapEntity.hpp>
 
 #include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
 #include <abyss/controllers/Actors/Ladder/LadderActor.hpp>

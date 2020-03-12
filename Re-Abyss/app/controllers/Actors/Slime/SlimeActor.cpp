@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/Floor/FloorActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
-#include <abyss/utils/Collision.hpp>
+#include <abyss/utils/Collision/Collision.hpp>
 #include <abyss/commons/Constants.hpp>
 
 

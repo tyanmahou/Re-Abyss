@@ -5,12 +5,12 @@
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
-#include <abyss/repositories/StageRepository.hpp>
+#include <abyss/repositories/Stage/StageRepository.hpp>
 
-#include <abyss/translators/RoomTranslator.hpp>
-#include <abyss/translators/MapTranslator.hpp>
-#include <abyss/translators/EnemyTranslator.hpp>
-#include <abyss/translators/DoorTranslator.hpp>
+#include <abyss/translators/Room/RoomTranslator.hpp>
+#include <abyss/translators/Map/MapTranslator.hpp>
+#include <abyss/translators/Enemy/EnemyTranslator.hpp>
+#include <abyss/translators/Door/DoorTranslator.hpp>
 
 
 namespace

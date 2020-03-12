@@ -2,8 +2,8 @@
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/datastores/StageDataStore.hpp>
-#include <abyss/repositories/StageRepository.hpp>
+#include <abyss/datastores/Stage/StageDataStore.hpp>
+#include <abyss/repositories/Stage/StageRepository.hpp>
 
 namespace abyss::di
 {

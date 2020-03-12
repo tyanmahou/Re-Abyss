@@ -46,7 +46,7 @@ namespace abyss
 
         // effect
         if (type != PlayerShotActor::Type::Normal) {
-            m_pWorldView->addEffect<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
+            //m_pWorldView->addEffect<PlayerShotFiringEffect>(pos, r, ::TypeToColor(type));
         }
     }
 
@@ -58,7 +58,7 @@ namespace abyss
 
         // effect
         if (Scene::FrameCount() % 2 && (type == PlayerShotActor::Type::Big || type == PlayerShotActor::Type::Medium)) {
-            m_pWorldView->addEffect<PlayerShotEffect>(pos, r, ::TypeToColor(type));
+            //m_pWorldView->addEffect<PlayerShotEffect>(pos, r, ::TypeToColor(type));
         }
 
         double x = 0, y = 0;

@@ -1,5 +1,5 @@
 ﻿#include "DoorActor.hpp"
-#include <abyss/entities/DoorEntity.hpp>
+#include <abyss/entities/Door/DoorEntity.hpp>
 
 #include <Siv3D.hpp>
 

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <unordered_map>
 #include <S3DTiled.hpp>
-#include <abyss/entities/MapEntity.hpp>
+#include <abyss/entities/Map/MapEntity.hpp>
 
 
 namespace abyss

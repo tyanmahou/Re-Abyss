@@ -1,5 +1,5 @@
 ﻿#include "Game.hpp"
-#include <abyss/scenes/MainScene.hpp>
+#include <abyss/scenes/Main/MainScene.hpp>
 
 namespace abyss
 {

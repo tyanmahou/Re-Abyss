@@ -3,8 +3,8 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/String.hpp>
 
-#include "Game.hpp"
-#include "Constants.hpp"
+#include <abyss/commons/Game/Game.hpp>
+#include <abyss/commons/Constants.hpp>
 
 namespace abyss
 {

@@ -1,6 +1,6 @@
 ﻿#include "EnemyTranslator.hpp"
 
-#include <abyss/entities/EnemyEntity.hpp>
+#include <abyss/entities/Enemy/EnemyEntity.hpp>
 #include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
 
 namespace abyss

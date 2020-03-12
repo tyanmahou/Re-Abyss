@@ -1,5 +1,5 @@
 ﻿
-#include <abyss/commons/MainApp.hpp>
+#include <abyss/commons/Application/MainApp.hpp>
 #include "StaticLibs.hpp"
 
 void Main()

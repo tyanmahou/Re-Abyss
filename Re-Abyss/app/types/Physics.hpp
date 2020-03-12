@@ -1,10 +1,11 @@
-#pragma once
+﻿#pragma once
 #include "Forward.hpp"
 
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss
 {
+	// TODO model側にうつしたい
 	struct Physics
 	{
 		s3d::Vec2 pos;

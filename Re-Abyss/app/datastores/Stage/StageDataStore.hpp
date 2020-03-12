@@ -4,11 +4,10 @@
 #include <Siv3D/Array.hpp>
 #include <S3DTiled.hpp>
 
-#include <abyss/entities/PlayerEntity.hpp>
-#include <abyss/entities/DoorEntity.hpp>
-#include <abyss/entities/MapEntity.hpp>
-#include <abyss/entities/RoomEntity.hpp>
-#include <abyss/entities/EnemyEntity.hpp>
+#include <abyss/entities/Door/DoorEntity.hpp>
+#include <abyss/entities/Map/MapEntity.hpp>
+#include <abyss/entities/Room/RoomEntity.hpp>
+#include <abyss/entities/Enemy/EnemyEntity.hpp>
 
 namespace abyss
 {

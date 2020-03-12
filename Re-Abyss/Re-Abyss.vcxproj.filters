@@ -5,159 +5,239 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem">
+      <UniqueIdentifier>{65c533bf-0a60-40da-89cf-a9dcb8773ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors">
+      <UniqueIdentifier>{4ed75028-8fad-4bb3-8c11-26a92e0281b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Player">
+      <UniqueIdentifier>{113a4507-7d43-4764-ac77-bc3e860a1e60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Enemy">
+      <UniqueIdentifier>{834760a1-922b-44e8-b4fc-709a9922fb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Enemy\Slime">
+      <UniqueIdentifier>{452b5457-3fa5-428e-b92e-c7f8f6866e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Map">
+      <UniqueIdentifier>{c8295ea9-8dad-4065-8db3-074c170b0418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Door">
+      <UniqueIdentifier>{b1986559-b1a3-4159-a830-44f2630ed560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Camera">
+      <UniqueIdentifier>{1af9ce78-e608-4e06-bc4a-8d717b70cd27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Camera\CameraWork">
+      <UniqueIdentifier>{fd42a3c3-1637-4b82-abaf-e84d986f7f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Stage">
+      <UniqueIdentifier>{562437fb-1526-4393-94e3-ff6fe0ba3fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Stage\Bubble">
+      <UniqueIdentifier>{2ee81209-1d6f-45bf-af5e-d50fff6eedb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Stage\BackGround">
+      <UniqueIdentifier>{1f8a51b4-54db-4d88-8871-fd324db532ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Collision">
+      <UniqueIdentifier>{d5820315-c637-4401-a369-03e1a368c14a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{cb95d633-8062-4ad4-bb2d-68e6692e96ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commons">
+      <UniqueIdentifier>{86768428-2965-4fce-8fe2-43b7cf034278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commons\Game">
+      <UniqueIdentifier>{bba1475b-a1fc-48eb-a005-6b1f9c66396e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commons\Appication">
+      <UniqueIdentifier>{e9fcbc7c-6720-46a7-8e0a-706489fbd8c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{2f2501c0-3e06-471a-972c-831f116069ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Fade">
+      <UniqueIdentifier>{6ad2f113-d0f6-4232-9d2a-903ae595e2e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\MainScene">
+      <UniqueIdentifier>{d2797583-4281-400f-be5e-adcbdc0ccb91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Types">
+      <UniqueIdentifier>{e183fa2c-e2d1-4683-8104-3381bf8acc55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Room">
+      <UniqueIdentifier>{9c02b681-0f1c-4102-9523-ae897d215dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\World">
+      <UniqueIdentifier>{e81f234b-b699-4392-9701-b9a31d26dd71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\base">
+      <UniqueIdentifier>{dd1261e5-51f8-487e-9da0-53650b32a525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Player\Shot">
+      <UniqueIdentifier>{3878cdaf-0eef-4653-9f87-88d0cb953f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Map\Floor">
+      <UniqueIdentifier>{4d7eddaa-cfc5-4f85-86a3-dd5ccfc4e954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Map\Ladder">
+      <UniqueIdentifier>{c29f224d-6213-440f-bfb4-4730756fc2f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActionSystem\Actors\Map\PenetarteFloor">
+      <UniqueIdentifier>{296a6191-5e06-409a-85dd-2c83b739b276}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\utils\Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\scenes\MainScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\commons\base\IApplication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\commons\MainApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\StageDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\parser\MapEntityParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\repositories\StageRepository.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\DoorTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\RoomTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\MapTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\EnemyTranslator.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp">
+      <Filter>Source Files\ActionSystem</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Camera\Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Fade\Fade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Camera\CameraView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\StageView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\World\WorldView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Stage\Stage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\World\World.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Camera\CameraModel.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Camera\CameraView.cpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Collision\CollisionModel.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Room\RoomModel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\base\ICollider.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="app\views\Fade\Fade.cpp">
+      <Filter>Source Files\Scene\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
+      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Room\RoomModel.cpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\World\World.cpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\World\WorldView.cpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Stage\Stage.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\StageView.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\base\IActorView.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Player\PlayerView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Slime\SlimeView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="app\controllers\Actors\base\ICollider.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Player\Shot\PlayerShotActor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotView.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Player\PlayerView.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Slime\SlimeView.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Application\MainApp.cpp">
+      <Filter>Source Files\Commons\Appication</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Application\base\IApplication.cpp">
+      <Filter>Source Files\Commons\Appication</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Game\Game.cpp">
+      <Filter>Source Files\Commons\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Stage\StageDataStore.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\repositories\Stage\StageRepository.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\Main\MainScene.cpp">
+      <Filter>Source Files\Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Door\DoorTranslator.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Map\MapTranslator.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Collision\Collision.cpp">
+      <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,218 +246,215 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app\commons\Constants.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Fwd.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Game.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Collision.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Singleton.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Visitor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\types\CollisionPairHash.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\types\CShape.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\base\ISceneBase.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\MainScene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\base\IApplication.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\MainApp.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\datastores\StageDataStore.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\DoorEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\EnemyEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\MapEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\PlayerEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\RoomEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\types\ColDirection.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\datastores\parser\MapEntityParser.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\types\Forward.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\StaticLibs.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\repositories\StageRepository.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Concept.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\types\Physics.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\visitors\ActVisitor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\DoorTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\RoomTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\MapTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\EnemyTranslator.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\Camera.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Fade\Fade.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Camera\CameraView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\StageView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\World\WorldView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\BackGround\BackGroundView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Stage\Stage.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
+      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\World\World.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Collision\CollisionModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Room\RoomModel.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\views\Stage\BackGround\BackGroundView.hpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\controllers\Camera\Camera.hpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\base\ICollider.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\models\Camera\CameraModel.hpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Camera\CameraView.hpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\Collision\CollisionModel.hpp">
+      <Filter>Source Files\ActionSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="app\types\CShape.hpp">
+      <Filter>Source Files\ActionSystem\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\views\Fade\Fade.hpp">
+      <Filter>Source Files\Scene\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="app\types\Forward.hpp">
+      <Filter>Source Files\ActionSystem\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="app\types\ColDirection.hpp">
+      <Filter>Source Files\ActionSystem\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="app\types\CollisionPairHash.hpp">
+      <Filter>Source Files\ActionSystem\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Concept.hpp">
+      <Filter>Source Files\Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Constants.hpp">
+      <Filter>Source Files\Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Fwd.hpp">
+      <Filter>Source Files\Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\base\ISceneBase.hpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="app\types\Physics.hpp">
+      <Filter>Source Files\ActionSystem\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Singleton.hpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Visitor.hpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="app\models\Room\RoomModel.hpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\World\WorldView.hpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\World\World.hpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Stage\Stage.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Stage\StageView.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\visitors\ActVisitor.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actors\base\IActorView.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotEffect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotViewModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\PlayerView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\PlayerViewModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Slime\SlimeView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Slime\SlimeViewModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Player\LadderState.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="app\controllers\Actors\base\ICollider.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Player\Shot\PlayerShotActor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotEffect.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotView.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotViewModel.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\PlayerView.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\PlayerViewModel.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Player\LadderState.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Slime\SlimeView.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Slime\SlimeViewModel.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Application\MainApp.hpp">
+      <Filter>Source Files\Commons\Appication</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Application\base\IApplication.hpp">
+      <Filter>Source Files\Commons\Appication</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Game\Game.hpp">
+      <Filter>Source Files\Commons\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Stage\StageDataStore.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Door\DoorEntity.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Map\MapEntity.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Room\RoomEntity.hpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="app\repositories\Stage\StageRepository.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Main\MainScene.hpp">
+      <Filter>Source Files\Scene\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Door\DoorTranslator.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Map\MapTranslator.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
+      <Filter>Source Files\ActionSystem\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Collision\Collision.hpp">
+      <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
