@@ -2,6 +2,7 @@
 
 
 #include <Siv3D.hpp>
+#include <abyss/commons/Constants.hpp>
 
 namespace
 {
@@ -56,12 +57,32 @@ namespace abyss
 			{
 				return ((t - 0.3f) * (t - 0.3f) * (t - 0.3f) + 0.027) / 0.37f;
 			};
+			constexpr uint32 width = static_cast<uint32>(Constants::GameScreenSize.x);
+			constexpr uint32 height = static_cast<uint32>(Constants::GameScreenSize.y);
+			static RenderTexture rt(width, height);
+			static RenderTexture rt2(width, height);
+			static const PixelShader ps(U"resources/shaders/not_equal_mask.hlsl" ,{ { U"PSConstants2D", 0 } });
 
+			rt.clear(ColorF(1.0, 1.0));
+			{
+				ScopedRenderTarget2D target(rt);
+				Circle(pos - Constants::GameScreenOffset, Scene::Width() * func(1.0 - t)).draw(Palette::Black);
+			}
+			rt2.clear(ColorF(0.0, 1.0));
+			{
+				ScopedRenderTarget2D target(rt2);
+				rect.movedBy(-Constants::GameScreenOffset).draw(g_fadeColor);
+			}
+			Graphics2D::SetTexture(1, rt);
+			{
+				ScopedCustomShader2D shader(ps);
+				rt2.draw(rect.pos);
+			}
 			//ScopedStencilMask mask(
 			//[t,pos]{Circle(pos, Window::BaseWidth() * func(1.0 - t)).draw(); },
 			//StencilFunc::NotEqual
 			//);
-			rect.draw(g_fadeColor);
+			//rect.draw(g_fadeColor);
 		}
 	}
 

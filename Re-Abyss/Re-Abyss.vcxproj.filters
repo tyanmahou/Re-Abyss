@@ -463,5 +463,6 @@
     <ClInclude Include="app\views\Stage\TiledStageView.hpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
   </ItemGroup>
 </Project>
