@@ -101,15 +101,15 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_2)\include;$(SIV3D_0_4_2)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_2)\lib\Windows;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
-    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_2)\include;$(SIV3D_0_4_2)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_2)\lib\Windows;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
-    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -118,8 +118,8 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_2)\include;$(SIV3D_0_4_2)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_2)\lib\Windows;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
-    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -136,9 +136,10 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -153,9 +154,10 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -180,9 +182,10 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -219,8 +222,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
     <ClCompile Include="tests\tests\Sample\SampleCatch.cpp" />
     <ClCompile Include="tests\tests\testing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\Re-Abyss\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
