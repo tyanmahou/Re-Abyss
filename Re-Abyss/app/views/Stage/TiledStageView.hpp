@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include<Siv3D/Fwd.hpp>
 #include<S3DTiled.hpp>
@@ -6,6 +6,7 @@
 #include "base/IStageView.hpp"
 #include "BackGround/BackGroundView.hpp"
 #include "Bubble/BubbleGenerator.hpp"
+#include "Wave/WaveShader.hpp"
 
 namespace abyss
 {
@@ -14,7 +15,7 @@ namespace abyss
 		s3dTiled::TiledMap m_map;
 		BackGroundView m_bgView;
 		BubbleGenerator m_bubbles;
-
+		WaveShader m_waveShader;
 		void drawBg(const s3d::Vec2& pos)const;
 		void drawLayer(const s3d::String& layer, const s3d::RectF& rect)const;
 	public:

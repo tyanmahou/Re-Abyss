@@ -6,15 +6,26 @@
 
 #include <Siv3D.hpp>
 
-bool abyss::tests::TestRunner::run() const
+namespace abyss::tests
 {
-    Console.open();
-    return Catch::Session().run() == 0;
-}
+    TestRunner::TestRunner()
+    {
+        Console.open();
+    }
+    TestRunner::~TestRunner()
+    {
+    }
 
-void abyss::tests::TestRunner::waitKey() const
-{
-    static_cast<void>(std::getchar());
+    bool abyss::tests::TestRunner::run() const
+    {
+        return Catch::Session().run() == 0;
+    }
+
+    void abyss::tests::TestRunner::waitKey() const
+    {
+        static_cast<void>(std::getchar());
+    }
+
 }
 
 #endif // ABYSS_DO_TEST

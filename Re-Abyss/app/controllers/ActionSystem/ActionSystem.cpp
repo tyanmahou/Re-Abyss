@@ -1,4 +1,4 @@
-﻿#include "ActionSystem.hpp"
+#include "ActionSystem.hpp"
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
@@ -11,7 +11,7 @@ namespace abyss
         s_main = this;
     }
 
-    ActionSystem::ActionSystem(std::unique_ptr<Stage> && stage):
+    ActionSystem::ActionSystem(std::unique_ptr<Stage>&& stage) :
         ActionSystem()
     {
         m_stage = std::move(stage);
@@ -26,8 +26,8 @@ namespace abyss
     void ActionSystem::init()
     {
         if (auto room = m_stage->findRoom({ 480, 2000 })) {
-        	m_stage->init(m_world, *room);
-        	m_camera.setRoom(*room);
+            m_stage->init(m_world, *room);
+            m_camera.setRoom(*room);
         }
     }
 
@@ -42,7 +42,7 @@ namespace abyss
         case OnCameraWorkStart:
         {
             // カメラワークが開始したらアクターのリセット
-            m_world.reset(); 
+            m_world.reset();
         }
         break;
         case OnCameraWorkEnd:
@@ -73,7 +73,7 @@ namespace abyss
         {
             auto t2d = cameraView.getTransformer();
 
-            auto*const stageView = m_stage->getView();
+            auto* const stageView = m_stage->getView();
 
             // 背面
             stageView->drawBack(cameraView);
@@ -93,7 +93,7 @@ namespace abyss
                 rt.clear(ColorF(0.0, 1.0));
                 {
                     ScopedRenderTarget2D target(rt);
-                    Circle(m_world.getPlayer()->getPos(), 500).draw(ColorF(1,1), ColorF(1, 0));
+                    Circle(m_world.getPlayer()->getPos(), 500).draw(ColorF(1, 1), ColorF(1, 0));
                     Circle(m_world.getPlayer()->getPos(), 200).draw(ColorF(1, 1), ColorF(1, 0));
                 }
                 ScopedRenderStates2D state(BlendState::Multiplicative);
@@ -112,6 +112,6 @@ namespace abyss
     }
     Camera* const ActionSystem::Camera()
     {
-        return s_main ? &s_main->m_camera: nullptr;
+        return s_main ? &s_main->m_camera : nullptr;
     }
 }

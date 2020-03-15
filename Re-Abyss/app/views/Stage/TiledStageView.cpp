@@ -1,4 +1,4 @@
-﻿#include "TiledStageView.hpp"
+#include "TiledStageView.hpp"
 #include <Siv3D.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
@@ -38,13 +38,15 @@ namespace abyss
 
 	void TiledStageView::drawBack(const CameraView& camera) const
 	{
-		auto&& screen = camera.screenRegion();
+		m_waveShader.apply(camera, [&] {
+			auto&& screen = camera.screenRegion();
 
-		// 背景
-		this->drawBg(camera.getCameraPos());
+			// 背景
+			this->drawBg(camera.getCameraPos());
 
-		// back obj
-		this->drawLayer(U"back", screen);
+			// back obj
+			this->drawLayer(U"back", screen);
+		});
 	}
 	void TiledStageView::drawMiddle(const CameraView& camera) const
 	{

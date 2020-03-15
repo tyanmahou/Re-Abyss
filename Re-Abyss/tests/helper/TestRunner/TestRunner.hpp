@@ -5,6 +5,8 @@ namespace abyss::tests
     class TestRunner
     {
     public:
+        TestRunner();
+        ~TestRunner();
         bool run() const;
         void waitKey() const;
     };

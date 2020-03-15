@@ -96,6 +96,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MinimalRebuild>false</MinimalRebuild>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -120,6 +121,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,6 +148,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -207,6 +210,7 @@
     <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp" />
     <ClCompile Include="app\views\Fade\Fade.cpp" />
     <ClCompile Include="app\views\Stage\TiledStageView.cpp" />
+    <ClCompile Include="app\views\Stage\Wave\WaveShader.cpp" />
     <ClCompile Include="app\views\World\WorldView.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
@@ -289,6 +293,7 @@
     <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\Fade\Fade.hpp" />
     <ClInclude Include="app\views\Stage\TiledStageView.hpp" />
+    <ClInclude Include="app\views\Stage\Wave\WaveShader.hpp" />
     <ClInclude Include="app\views\World\WorldView.hpp" />
     <ClInclude Include="app\visitors\ActVisitor.hpp" />
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
