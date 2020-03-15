@@ -242,6 +242,15 @@
     <ClCompile Include="app\views\Stage\TiledStageView.cpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClCompile>
+    <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\Stage\StageCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\testing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -464,5 +473,6 @@
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
+    <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
   </ItemGroup>
 </Project>

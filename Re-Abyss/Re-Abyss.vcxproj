@@ -140,7 +140,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);ABYSS_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);ABYSS_DEBUG;ABYSS_DO_TEST</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -208,6 +208,9 @@
     <ClCompile Include="app\views\Fade\Fade.cpp" />
     <ClCompile Include="app\views\Stage\TiledStageView.cpp" />
     <ClCompile Include="app\views\World\WorldView.cpp" />
+    <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
+    <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
+    <ClCompile Include="tests\tests\testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -288,6 +291,7 @@
     <ClInclude Include="app\views\Stage\TiledStageView.hpp" />
     <ClInclude Include="app\views\World\WorldView.hpp" />
     <ClInclude Include="app\visitors\ActVisitor.hpp" />
+    <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

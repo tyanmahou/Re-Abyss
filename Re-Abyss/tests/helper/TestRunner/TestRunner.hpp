@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#if ABYSS_DO_TEST
 namespace abyss::tests
 {
     class TestRunner
@@ -9,5 +9,4 @@ namespace abyss::tests
         void waitKey() const;
     };
 }
-
-#define RunTest Main
+#endif // ABYSS_DO_TEST

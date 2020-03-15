@@ -1,4 +1,5 @@
 ﻿#include "TestRunner.hpp"
+#if ABYSS_DO_TEST
 
 #define CATCH_CONFIG_RUNNER
 #include <ThirdParty/Catch2/catch.hpp>
@@ -16,3 +17,4 @@ void abyss::tests::TestRunner::waitKey() const
     static_cast<void>(std::getchar());
 }
 
+#endif // ABYSS_DO_TEST

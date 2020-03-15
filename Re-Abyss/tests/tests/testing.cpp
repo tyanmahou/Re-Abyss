@@ -1,4 +1,5 @@
-﻿#include "../helper/TestRunner/TestRunner.hpp"
+﻿#if ABYSS_DO_TEST
+#include "../helper/TestRunner/TestRunner.hpp"
 
 void RunTest()
 {
@@ -7,3 +8,5 @@ void RunTest()
         runner.waitKey();
     }
 }
+
+#endif ABYSS_DO_TEST

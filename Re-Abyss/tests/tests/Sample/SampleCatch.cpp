@@ -1,4 +1,5 @@
-﻿#include <ThirdParty/Catch2/catch.hpp>
+﻿#if ABYSS_DO_TEST
+#include <ThirdParty/Catch2/catch.hpp>
 
 namespace abyss::tests
 {
@@ -7,3 +8,4 @@ namespace abyss::tests
         REQUIRE(1 == 1);
     }
 }
+#endif ABYSS_DO_TEST
