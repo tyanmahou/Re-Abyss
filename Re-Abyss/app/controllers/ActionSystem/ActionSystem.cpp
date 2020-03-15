@@ -77,7 +77,6 @@ namespace abyss
 
             // 背面
             stageView->drawBack(cameraView);
-
             cameraView.drawDeathLine();
 
             // 中面
@@ -88,6 +87,18 @@ namespace abyss
             // 全面
             stageView->drawFront(cameraView);
 
+            //TODO 本採用するかは未定
+            {
+                static RenderTexture rt(960, 520);
+                rt.clear(ColorF(0.0, 1.0));
+                {
+                    ScopedRenderTarget2D target(rt);
+                    Circle(m_world.getPlayer()->getPos(), 500).draw(ColorF(1,1), ColorF(1, 0));
+                    Circle(m_world.getPlayer()->getPos(), 200).draw(ColorF(1, 1), ColorF(1, 0));
+                }
+                ScopedRenderStates2D state(BlendState::Multiplicative);
+                rt.draw(cameraView.screenRegion().pos);
+            }
             cameraView.drawCameraWork();
         }
     }
