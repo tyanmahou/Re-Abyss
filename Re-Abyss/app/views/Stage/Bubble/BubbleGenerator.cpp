@@ -13,6 +13,7 @@ namespace abyss
 		int32 f = Scene::FrameCount();
 		if (f % 160 == 0) {
 			m_effect.add<BubbleEffect>(pos);
+			m_effect.add<BubbleEffect>(pos, BubbleEffect::Small{});
 		}
 
 		ScopedRenderStates2D state(BlendState::Additive);
