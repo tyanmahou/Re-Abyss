@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/ColDirection.hpp>
 
@@ -18,6 +18,7 @@ namespace abyss
 		s3d::Vec2 pos;
 		s3d::Vec2 size;
 		ColDirection col;
+		ColDirection aroundFloor; // 周辺フロア情報
 		bool canDown;
 	};
 }

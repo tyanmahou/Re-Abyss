@@ -1,4 +1,4 @@
-﻿#include "MapEntityParser.hpp"
+#include "MapEntityParser.hpp"
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -50,6 +50,24 @@ namespace abyss
         }
         return col;
     }
+    ColDirection TiledMapEntityParser::calcAroundFloor(s3d::uint32 x, s3d::uint32 y)
+    {
+        ColDirection col = ColDirection::None;
+        if (getFieldType(x, y - 1) == MapType::Floor) {
+            col = col | ColDirection::Up;
+        }
+
+        if (getFieldType(x, y + 1) == MapType::Floor) {
+            col = col | ColDirection::Down;
+        }
+        if (getFieldType(x - 1, y) == MapType::Floor) {
+            col = col | ColDirection::Left;
+        }
+        if (getFieldType(x + 1, y) == MapType::Floor) {
+            col = col | ColDirection::Right;
+        }
+        return col;
+    }
     s3d::Optional<MapEntity> TiledMapEntityParser::tryToMapInfoModel(s3d::uint32 x, s3d::uint32 y)
     {
         GId gId = m_grid[y][x];
@@ -61,7 +79,7 @@ namespace abyss
         auto size = m_tiledMap.getTileSize();
         ret.pos = Vec2{ size.x * x, size.y * y } +static_cast<Vec2>(size) / 2;
         ret.size = m_tiledMap.getTile(gId).size;
-
+        ret.aroundFloor = calcAroundFloor(x, y);
         switch (ret.type) {
         case MapType::Floor:
             ret.col = calcColDirectrion(x, y);

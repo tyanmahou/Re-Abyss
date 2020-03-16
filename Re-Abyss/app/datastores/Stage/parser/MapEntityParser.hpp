@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <unordered_map>
 #include <S3DTiled.hpp>
 #include <abyss/entities/Map/MapEntity.hpp>
@@ -25,6 +25,7 @@ namespace abyss
 		MapType getFieldType(s3d::uint32 x, s3d::uint32 y);
 
 		ColDirection calcColDirectrion(s3d::uint32 x, s3d::uint32 y);
+		ColDirection calcAroundFloor(s3d::uint32 x, s3d::uint32 y);
 
 		s3d::Optional<MapEntity> tryToMapInfoModel(s3d::uint32 x, s3d::uint32 y);
 	public:

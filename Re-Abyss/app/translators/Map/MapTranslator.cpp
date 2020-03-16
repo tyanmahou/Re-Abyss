@@ -1,4 +1,4 @@
-﻿#include "MapTranslator.hpp"
+#include "MapTranslator.hpp"
 #include <abyss/entities/Map/MapEntity.hpp>
 
 #include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
@@ -15,7 +15,7 @@ namespace abyss
 			return std::make_shared<LadderActor>(entity.col, entity.pos, entity.size);
 		}
 		if (entity.type == MapType::Penetrate) {
-			return std::make_shared<PenetrateFloorActor>(entity.pos, entity.size, entity.canDown);
+			return std::make_shared<PenetrateFloorActor>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
 		}
 		return nullptr;
 	}

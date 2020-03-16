@@ -281,8 +281,12 @@ namespace abyss
         if (m_body.vellocity.y < 0) {
             c.ignored(ColDirection::Up);
         }
-        auto colDirection = this->collisionAndUpdateMotion(col.region(), c);
-        if (colDirection.isUp() && col.canDown() && Game::Input().down().down()) {
+        const auto& region = col.region();
+        auto colDirection = this->collisionAndUpdateMotion(region, c);
+        if (colDirection.isUp() && 
+            col.tryDown(this->region()) &&
+            Game::Input().down().down()
+        ) {
             // 降りる
             m_body.pos.y += 10.0;
         }
