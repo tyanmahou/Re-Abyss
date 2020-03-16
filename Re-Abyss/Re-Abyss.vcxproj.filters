@@ -254,6 +254,9 @@
     <ClCompile Include="app\views\Stage\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\InputManager\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -478,5 +481,6 @@
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
     <ClInclude Include="app\views\Stage\Wave\WaveShader.hpp" />
+    <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿#include "Game.hpp"
+#include "Game.hpp"
 #include <abyss/scenes/Main/MainScene.hpp>
 
 namespace abyss
@@ -6,7 +6,7 @@ namespace abyss
 	class Game::Impl
 	{
 		AppScene m_scene;
-
+		InputManager m_input;
 		void registerScene()
 		{
 			m_scene.add<MainScene>(SceneName::Main);
@@ -21,6 +21,11 @@ namespace abyss
 		{
 			return m_scene.update();
 		}
+
+		const InputManager& input() const
+		{
+			return m_input;
+		}
 	};
 
 	Game::Game() :
@@ -31,4 +36,8 @@ namespace abyss
 	{
 		return Instance()->m_pImpl->update();
 	}
+    const InputManager& Game::Input()
+    {
+		return Instance()->m_pImpl->input();
+    }
 }

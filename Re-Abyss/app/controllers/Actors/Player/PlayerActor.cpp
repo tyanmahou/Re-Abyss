@@ -1,4 +1,4 @@
-﻿#include "PlayerActor.hpp"
+#include "PlayerActor.hpp"
 #include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 #include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
 #include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
@@ -9,12 +9,12 @@
 
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/Collision/Collision.hpp>
-
+#include <abyss/commons/Game/Game.hpp>
 namespace abyss
 {
     bool PlayerActor::attack()
     {
-        constexpr Key input = KeyX;
+        const auto& input = Game::Input().attack();
 
         if (input.down()) {
             // チャージなし
@@ -39,15 +39,14 @@ namespace abyss
     }
     void PlayerActor::nomarlMove()
     {
-        const bool rightPressed = KeyRight.pressed();
-        const bool leftPressed = KeyLeft.pressed();
+        const bool rightPressed = Game::Input().right().pressed();
+        const bool leftPressed = Game::Input().left().pressed();
 
         constexpr double Accel = 0.1;
         m_body.accel.x = Accel * (rightPressed - leftPressed);
-
         // ジャンプ
         constexpr double JumpPower = -6;
-        if (KeyZ.down()) {
+        if (Game::Input().jump().down()) {
             m_body.vellocity.y = JumpPower;
         }
 
@@ -57,7 +56,7 @@ namespace abyss
             m_body.vellocity.x = Constants::Player::MaxSpeed;
         } else if (m_body.vellocity.x < -Constants::Player::MaxSpeed) {
             m_body.vellocity.x = -Constants::Player::MaxSpeed;
-        } else if ((KeyRight.pressed() - KeyLeft.pressed()) == 0) {
+        } else if ((rightPressed - leftPressed) == 0) {
             if (m_body.vellocity.x > 0) {
                 m_body.vellocity.x -= 0.05;
             } else if (m_body.vellocity.x < 0) {
@@ -70,7 +69,7 @@ namespace abyss
         if (m_body.vellocity.y > Constants::Player::MaxGravity) {
             m_body.vellocity.y = Constants::Player::MaxGravity;
         }
-        if (KeyDown.pressed()) {
+        if (Game::Input().down().pressed()) {
             m_body.vellocity.y = Constants::Player::DiveSpeed;
         }
         m_body.pos += m_body.vellocity;
@@ -78,8 +77,8 @@ namespace abyss
     void PlayerActor::ladderMove()
     {
         m_body.vellocity = { 0,0 };
-        m_body.pos.y += 2.0 * (KeyDown.pressed() - KeyUp.pressed());
-        if (KeyZ.down()) {
+        m_body.pos.y += 2.0 * (Game::Input().down().pressed() - Game::Input().up().pressed());
+        if (Game::Input().A().down()) {
             m_ladderState = LadderState::None;
         }
     }
@@ -98,8 +97,8 @@ namespace abyss
     {
         const Vec2 prevPos = m_body.pos;
 
-        const bool rightPressed = KeyRight.pressed();
-        const bool leftPressed = KeyLeft.pressed();
+        const bool rightPressed = Game::Input().right().pressed();
+        const bool leftPressed = Game::Input().left().pressed();
         if (rightPressed) {
             m_body.forward = Forward::Right;
         } else if (leftPressed) {
@@ -134,13 +133,14 @@ namespace abyss
             if (m_body.vellocity.y > Constants::Player::MaxGravity) {
                 m_motion = Motion::Dive;
             }
-
+#if ABYSS_DEBUG
             if (KeyD.down()) {
                 m_body.vellocity = { m_body.forward == Forward::Left ? 3.5 : -3.5,-3.5 };
             }
             if (KeyD.pressed()) {
                 m_motion = Motion::Damge;
             }
+#endif
         }
     }
 
@@ -252,10 +252,10 @@ namespace abyss
                 } else {
                     m_ladderState.cancelLadderTop();
                 }
-                if (m_ladderState.isLadderTop() && KeyUp.pressed()) {
+                if (m_ladderState.isLadderTop() && Game::Input().up().pressed()) {
                     ++ladderTopTimer;
                 }
-                if (m_ladderState.isLadderTop() && (KeyUp.down() || ladderTopTimer > 5)) {
+                if (m_ladderState.isLadderTop() && (Game::Input().up().down() || ladderTopTimer > 5)) {
                     m_body.pos.y = ladderRegion.y - this->region().h / 2.0;
                     m_ladderState = LadderState::None;
                     ladderTopTimer = 0;
@@ -266,12 +266,12 @@ namespace abyss
             m_ladderState.setCanLadder();
 
             if (!m_ladderState.isLadder() && // 梯子状態じゃない
-                (!ladder.isTop() && KeyUp.down() || KeyDown.down()) // 上下押した
+                (!ladder.isTop() && Game::Input().up().down() || Game::Input().down().down()) // 上下押した
             ) {
                 m_ladderState.setIsLadder();
                 m_motion = Motion::Ladder;
                 m_body.pos.x = ladder.getPos().x;
-                m_body.pos.y -= 2 * (KeyUp.down() - KeyDown.down());
+                m_body.pos.y -= 2 * (Game::Input().up().down() - Game::Input().down().down());
             }
         }
     }
@@ -282,14 +282,14 @@ namespace abyss
             c.ignored(ColDirection::Up);
         }
         auto colDirection = this->collisionAndUpdateMotion(col.region(), c);
-        if (colDirection.isUp() && col.canDown() && KeyDown.down()) {
+        if (colDirection.isUp() && col.canDown() && Game::Input().down().down()) {
             // 降りる
             m_body.pos.y += 10.0;
         }
     }
     void PlayerActor::onCollisionStay(const DoorActor& door)
     {
-        if (KeyUp.down()) {
+        if (Game::Input().up().down()) {
             // move door
             m_motion = Motion::Door;
             m_body.vellocity = Vec2::Zero();

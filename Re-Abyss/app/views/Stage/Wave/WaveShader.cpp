@@ -22,7 +22,7 @@ namespace abyss
         ConstantBuffer<WaveParam> m_cb;
     public:
         Impl() :
-            m_rt(uint32(Constants::GameScreenSize.x), uint32(Constants::GameScreenSize.y)),
+            m_rt(static_cast<uint32>(Constants::GameScreenSize.x), static_cast<uint32>(Constants::GameScreenSize.y)),
             m_ps(U"resources/shaders/wave.hlsl", { { U"PSConstants2D", 0 } })
         {}
 
