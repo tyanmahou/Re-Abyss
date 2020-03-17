@@ -14,11 +14,12 @@ namespace abyss
             B,
 
             Up,
+            Right,
             Down,
             Left,
-            Right,
 
             Start,
+            MAX,
 
             Jump = A,
             Attack = B,
@@ -52,9 +53,9 @@ namespace abyss
         inline static constexpr AbyssKey B{ AbyssKey::B };
 
         inline static constexpr AbyssKey Up{ AbyssKey::Up };
+        inline static constexpr AbyssKey Right{ AbyssKey::Right };
         inline static constexpr AbyssKey Down{ AbyssKey::Down };
         inline static constexpr AbyssKey Left{ AbyssKey::Left };
-        inline static constexpr AbyssKey Right{ AbyssKey::Right };
 
         inline static constexpr AbyssKey Start{ AbyssKey::Right };
 

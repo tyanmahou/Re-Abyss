@@ -266,6 +266,12 @@
     <ClCompile Include="app\views\World\Light\LightView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\InputManager\KeyPovD8\KeyPovD8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -494,5 +500,8 @@
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\views\World\Light\LightView.hpp" />
     <ClInclude Include="app\views\World\Light\LightVM.hpp" />
+    <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
+    <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
+    <ClInclude Include="app\commons\InputManager\InputState\InputState.hpp" />
   </ItemGroup>
 </Project>
