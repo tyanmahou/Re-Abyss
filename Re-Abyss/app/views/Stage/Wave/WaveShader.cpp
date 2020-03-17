@@ -35,8 +35,9 @@ namespace abyss
                 drawer();
             }
             {
-                m_cb->width = static_cast<float>(Constants::GameScreenSize.x);
-                m_cb->height = static_cast<float>(Constants::GameScreenSize.y);
+                constexpr auto ScreenSizeF = Constants::GameScreenSize_v<float>;
+                m_cb->width = ScreenSizeF.x;
+                m_cb->height = ScreenSizeF.y;
                 m_cb->timer = static_cast<float>(Scene::Time());
                 Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
                 ScopedCustomShader2D shader(m_ps);

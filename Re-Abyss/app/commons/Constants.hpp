@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Vector2D.hpp>
 
 /// <summary>
@@ -11,8 +11,13 @@ namespace abyss::Constants
     // 解像度
     inline constexpr s3d::Size AppResolution{ 960, 540 };
 
-    inline constexpr s3d::Vec2 GameScreenSize{ 960, 520 };
-    inline constexpr s3d::Vec2 GameScreenOffset{ 0, 20 };
+	template<class Type>
+	inline constexpr s3d::Vector2D<Type> GameScreenSize_v{960, 520};
+	template<class Type>
+	inline constexpr s3d::Vector2D<Type> GameScreenOffset_v{0, 20};
+
+    inline constexpr s3d::Vec2 GameScreenSize = GameScreenSize_v<double>;
+    inline constexpr s3d::Vec2 GameScreenOffset = GameScreenOffset_v<double>;
 
 	// Game
 	// TODO: 外部ファイルに出したい

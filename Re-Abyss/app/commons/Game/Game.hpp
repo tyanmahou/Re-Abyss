@@ -2,7 +2,6 @@
 
 # include <memory>
 # include <abyss/utils/Singleton.hpp>
-# include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss
 {
@@ -16,6 +15,5 @@ namespace abyss
 		Game();
 	public:
 		static bool Update();
-		static const InputManager& Input();
 	};
 }

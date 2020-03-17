@@ -1,29 +1,64 @@
 #pragma once
 #include <memory>
-#include <Siv3D/KeyGroup.hpp>
+#include <Siv3D/Duration.hpp>
+#include <abyss/utils/Singleton.hpp>
+
 namespace abyss
 {
-    class InputManager
+    class AbyssKey
     {
+    public:
+        enum KeyType
+        {
+            A,
+            B,
+
+            Up,
+            Down,
+            Left,
+            Right,
+
+            Start,
+
+            Jump = A,
+            Attack = B,
+        };
+    private:
+        KeyType m_type;
+    public:
+        constexpr AbyssKey(KeyType type):
+            m_type(type)
+        {}
+
+        bool up() const;
+        bool down() const;
+        bool pressed() const;
+
+        s3d::Duration pressedDuration() const;
+    };
+    class InputManager : protected Singleton<InputManager>
+    {
+        friend class Singleton<InputManager>;
+        friend class AbyssKey;
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
-    public:
         InputManager();
         ~InputManager();
+    public:
+        static void Update();
 
-        const s3d::KeyGroup& jump() const;
-        const s3d::KeyGroup& attack() const;
+        inline static constexpr AbyssKey A{ AbyssKey::A };
+        inline static constexpr AbyssKey B{ AbyssKey::B };
 
-        const s3d::KeyGroup& up() const;
-        const s3d::KeyGroup& down() const;
-        const s3d::KeyGroup& right() const;
-        const s3d::KeyGroup& left() const;
+        inline static constexpr AbyssKey Up{ AbyssKey::Up };
+        inline static constexpr AbyssKey Down{ AbyssKey::Down };
+        inline static constexpr AbyssKey Left{ AbyssKey::Left };
+        inline static constexpr AbyssKey Right{ AbyssKey::Right };
 
-        const s3d::KeyGroup& start() const;
+        inline static constexpr AbyssKey Start{ AbyssKey::Right };
 
-        const s3d::KeyGroup& A() const;
-        const s3d::KeyGroup& B() const;
-
+        inline static constexpr AbyssKey Jump{ AbyssKey::Jump };
+        inline static constexpr AbyssKey Attack{ AbyssKey::Attack };
     };
 }

@@ -257,6 +257,15 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Light\LightModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\World\Light\LightVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\World\Light\LightView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -482,5 +491,8 @@
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
     <ClInclude Include="app\views\Stage\Wave\WaveShader.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\models\Light\LightModel.hpp" />
+    <ClInclude Include="app\views\World\Light\LightView.hpp" />
+    <ClInclude Include="app\views\World\Light\LightVM.hpp" />
   </ItemGroup>
 </Project>

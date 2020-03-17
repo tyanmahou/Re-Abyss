@@ -1,8 +1,10 @@
-﻿#include "PlayerShotActor.hpp"
+#include "PlayerShotActor.hpp"
 #include <abyss/commons/Constants.hpp>
 #include <unordered_map>
 
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+
 namespace
 {
 	using namespace abyss;
@@ -48,9 +50,9 @@ namespace abyss
 		m_body.pos += m_body.vellocity;
 
 		// 画面外判定
-		//if (!m_pWorld->getCamera()->inRoom(this->getColliderCircle())) {
-		//	m_isActive = false;
-		//}
+		if (!ActionSystem::Camera()->inRoom(this->getColliderCircle())) {
+			m_isActive = false;
+		}
 	}
 
 	CShape PlayerShotActor::getCollider() const
