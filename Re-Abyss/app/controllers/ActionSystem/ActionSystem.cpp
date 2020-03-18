@@ -33,6 +33,8 @@ namespace abyss
 
     void ActionSystem::update()
     {
+        m_light.clear();
+
         if (!m_camera.isCameraWork()) {
             m_world.update();
         }
@@ -87,6 +89,8 @@ namespace abyss
             // 全面
             stageView->drawFront(cameraView);
 
+            m_light.draw(cameraView);
+
             cameraView.drawCameraWork();
         }
     }
@@ -101,5 +105,9 @@ namespace abyss
     Camera* const ActionSystem::Camera()
     {
         return s_main ? &s_main->m_camera : nullptr;
+    }
+    Light* const ActionSystem::Light()
+    {
+        return s_main ? &s_main->m_light: nullptr;
     }
 }

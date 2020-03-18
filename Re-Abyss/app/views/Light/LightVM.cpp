@@ -1,7 +1,6 @@
 #include "LightVM.hpp"
-#include <Siv3D/Circle.hpp>
-#include <Siv3D/Color.hpp>
 
+#include <Siv3D.hpp>
 namespace abyss
 {
     LightVM::LightVM(const s3d::Vec2& pos, double range, double brightness):
@@ -16,8 +15,7 @@ namespace abyss
     {
         using namespace s3d;
         constexpr ColorF outerColor{ 1.0, 0.0 };
-
-        Circle(m_pos, m_range * 2.5).draw(ColorF(1, m_brightness), outerColor);
-        Circle(m_pos, m_range).draw(ColorF(1, m_brightness), outerColor);
+        const double sin0_1 = s3d::Periodic::Sine0_1(5s);
+        Circle(m_pos, m_range / 2.0 + 10 * sin0_1).draw(ColorF(1, m_brightness * (0.4 + sin0_1 * 0.6)), outerColor);
     }
 }

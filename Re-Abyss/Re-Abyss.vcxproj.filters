@@ -260,16 +260,19 @@
     <ClCompile Include="app\models\Light\LightModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\World\Light\LightVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\World\Light\LightView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\InputManager\KeyPovD8\KeyPovD8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Light\LightView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Light\LightVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Light\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -498,10 +501,11 @@
     <ClInclude Include="app\views\Stage\Wave\WaveShader.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
-    <ClInclude Include="app\views\World\Light\LightView.hpp" />
-    <ClInclude Include="app\views\World\Light\LightVM.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\commons\InputManager\InputState\InputState.hpp" />
+    <ClInclude Include="app\controllers\Light\Light.hpp" />
+    <ClInclude Include="app\views\Light\LightView.hpp" />
+    <ClInclude Include="app\views\Light\LightVM.hpp" />
   </ItemGroup>
 </Project>

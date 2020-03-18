@@ -1,8 +1,9 @@
 #pragma once
 #include <Siv3D/Array.hpp>
 #include <Siv3D/RenderTexture.hpp>
-#include "LightVM.hpp"
+#include <abyss/commons/Fwd.hpp>
 
+#include "LightVM.hpp"
 namespace abyss
 {
     class LightView
@@ -12,8 +13,10 @@ namespace abyss
 
         s3d::Array<LightVM> m_rights;
     public:
+        LightView();
+
         void clear();
         void push(const LightVM& light);
-        void draw(const s3d::Vec2& pos) const;
+        void draw(const CameraView& camera) const;
     };
 }

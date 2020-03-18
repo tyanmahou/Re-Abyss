@@ -1,9 +1,10 @@
-﻿//#include "PlayerView.hpp"
+//#include "PlayerView.hpp"
 #include "PlayerViewModel.hpp"
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 
 namespace
 {
@@ -134,5 +135,7 @@ namespace abyss
 
         // チャージ
         this->drawCharge();
+
+        ActionSystem::Light()->addLight({m_pModel->getPos(), 500});
     }
 }

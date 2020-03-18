@@ -1,10 +1,12 @@
-﻿//#include "PlayerShotView.hpp"
+//#include "PlayerShotView.hpp"
 #include "PlayerShotViewModel.hpp"
 
 #include <Siv3D.hpp>
 #include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+
 #include "PlayerShotEffect.hpp"
 
 namespace
@@ -81,5 +83,7 @@ namespace abyss
         }
         auto tile = m_texture(x, y, size, size);
         (forward == Forward::Right ? tile : tile.mirrored()).drawAt(pos);
+
+        ActionSystem::Light()->addLight({pos, r * 5});
     }
 }
