@@ -48,7 +48,7 @@ namespace abyss
             return U"Gamepad-POV-D8_" + names[m_code];
         }
 
-        return U"Gamepad-POV" + ToString(m_code);
+        return U"Gamepad-POV-D8" + ToString(m_code);
     }
 
     void KeyPovD8Updater::update()

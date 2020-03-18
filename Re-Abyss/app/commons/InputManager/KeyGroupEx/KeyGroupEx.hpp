@@ -28,30 +28,30 @@ namespace abyss
             virtual s3d::String name() const = 0;
         };
         template <IsKeyType Type>
-        class KeyAny : public IKey
+        class KeyAny final : public IKey
         {
             Type m_key;
         public:
             KeyAny(const Type& key):
                 m_key(key)
             {}
-            bool down() const override final
+            bool down() const final
             {
                 return m_key.down();
             }
-            bool pressed() const override final
+            bool pressed() const final
             {
                 return m_key.pressed();
             }
-            bool up() const override final
+            bool up() const final
             {
                 return m_key.up();
             }
-            s3d::Duration pressedDuration() const override final
+            s3d::Duration pressedDuration() const final
             {
                 return m_key.pressedDuration();
             }
-            s3d::String name() const override final
+            s3d::String name() const final
             {
                 return m_key.name();
             }
