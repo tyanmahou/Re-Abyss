@@ -73,7 +73,7 @@ namespace abyss
         m_ladderState(LadderState::None)
     {
         this->tag = U"player";
-        m_body.setForward(Forward::Right);
+        m_body.setForward(Forward::Right).setDeccelX(180).setMaxSpeedX(240);
     }
 
     void PlayerActor::update([[maybe_unused]]double dt)

@@ -360,9 +360,6 @@
     <ClInclude Include="app\scenes\base\ISceneBase.hpp">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Physics.hpp">
-      <Filter>Source Files\ActionSystem\Types</Filter>
-    </ClInclude>
     <ClInclude Include="app\utils\Singleton.hpp">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>

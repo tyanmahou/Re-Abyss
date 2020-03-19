@@ -1,14 +1,14 @@
-﻿#pragma once
+#pragma once
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/types/Physics.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
 
 namespace abyss
 {
 	class EnemyActor : public IActor
 	{
 	protected:
-		Physics m_body;
+		BodyModel m_body;
 		s3d::int32 m_hp;
 	public:
 		EnemyActor() = default;

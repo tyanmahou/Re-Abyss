@@ -25,12 +25,16 @@ namespace abyss
 	PlayerShotActor::PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge):
 		PlayerShotView(this)
 	{
-		using namespace Constants::Player;
-		m_body.pos = pos;
-		m_body.forward = forward;
+		constexpr double speed = 14*60;
 
-		constexpr double speed = 14;
-		m_body.vellocity.x = forward == Forward::Right ? speed : -speed;
+		using namespace Constants::Player;
+		m_body
+			.setPos(pos)
+			.setForward(forward)
+			.noneResistanced()
+			.setVelocityX(forward == Forward::Right ? speed : -speed)
+			;
+
 		if (charge >= BigCharge) {
 			m_type = Type::Big;
 		} else if (charge >= MediumCharge) {
@@ -47,7 +51,7 @@ namespace abyss
 	}
 	void PlayerShotActor::update([[maybe_unused]]double dt)
 	{
-		m_body.pos += m_body.vellocity;
+		m_body.update(dt);
 
 		// 画面外判定
 		if (!ActionSystem::Camera()->inRoom(this->getColliderCircle())) {
@@ -72,7 +76,7 @@ namespace abyss
 
 	s3d::Circle PlayerShotActor::getColliderCircle() const
 	{
-		return s3d::Circle(m_body.pos, ::TypeToR(m_type));
+		return s3d::Circle(m_body.getPos(), ::TypeToR(m_type));
 	}
 	PlayerShotActor::Type PlayerShotActor::getType() const
 	{
@@ -80,11 +84,11 @@ namespace abyss
 	}
 	Forward PlayerShotActor::getForward() const
 	{
-		return m_body.forward;
+		return m_body.getForward();
 	}
 	const s3d::Vec2& PlayerShotActor::getPos() const
 	{
-		return m_body.pos;
+		return m_body.getPos();
 	}
 	void PlayerShotActor::accept(const ActVisitor& visitor)
 	{

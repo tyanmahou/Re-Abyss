@@ -1,4 +1,4 @@
-﻿#include "SlimeActor.hpp"
+#include "SlimeActor.hpp"
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/Actors/Floor/FloorActor.hpp>
@@ -53,22 +53,22 @@ namespace abyss
 	void SlimeActor::onCollision(const MapActor& map)
 	{
 		auto c = map.getCol();
-		c.ignoredForVelocity(m_body.vellocity);
+		c.ignoredForVelocity(m_body.getVelocity());
 
 		Vec2 before = this->region().center();
 		auto[after, colDir] = collision::Collision(map.region(), this->region(), c);
 
-		m_body.pos += (after - before);
+		m_body.addPos(after - before);
 
 		if (colDir.isUp()) {
 			m_onCollision = true;
 			m_motion = Motion::Walk;
 		}
 		if (colDir.isRight()) {
-			m_body.forward = Forward::Right;
+			m_body.setForward(Forward::Right);
 		}
 		if (colDir.isLeft()) {
-			m_body.forward = Forward::Left;
+			m_body.setForward(Forward::Left);
 		}
 	}
 
@@ -77,8 +77,8 @@ namespace abyss
 		SlimeView(this)
 	{
 		m_hp = 10;
-		m_body.accel.y = 0.2;
 		m_onCollision = true;
+		m_body.setMaxSpeedX(60);
 	}
 
 	void SlimeActor::start()
@@ -92,24 +92,19 @@ namespace abyss
 			m_cencer = std::make_shared<Cencer>(this);
 			m_pWorld->regist(m_cencer);
 		}
-		if (m_body.forward == Forward::Left) {
-			m_body.vellocity.x = -1.0f;
+		if (m_body.getForward() == Forward::Left) {
+			m_body.setAccelX(-720.0);
 		}
-		if (m_body.forward == Forward::Right) {
-			m_body.vellocity.x = 1.0f;
+		if (m_body.getForward() == Forward::Right) {
+			m_body.setAccelX(720.0f);
 		}
-
-		m_body.vellocity += m_body.accel;
 
 		// 前方　かつ　半径　100以内
-		Vec2 d = m_pWorld->getPlayer()->getPos() - m_body.pos;
-		if (m_body.vellocity.x * d.x > 0 && d.length() <= 150 && m_onCollision) {
-			m_body.vellocity.y = -5.5;
+		Vec2 d = m_pWorld->getPlayer()->getPos() - m_body.getPos();
+		if (m_body.getVelocity().x * d.x > 0 && d.length() <= 150 && m_onCollision) {
+			m_body.jumpToHeight(80);
 		}
-		if (m_body.vellocity.y > Constants::Player::MaxGravity) {
-			m_body.vellocity.y = Constants::Player::MaxGravity;
-		}
-		m_body.pos += m_body.vellocity;
+		m_body.update(dt);
 
 		if (!m_onCollision) {
 			m_motion = Motion::Jump;
@@ -144,9 +139,9 @@ namespace abyss
 	s3d::RectF SlimeActor::region() const
 	{
 		if (m_motion == Motion::Walk) {
-			return s3d::RectF(m_body.pos.x - 35.0 / 2, m_body.pos.y + 20 -25, 35, 25);
+			return s3d::RectF(m_body.getPos().x - 35.0 / 2, m_body.getPos().y + 20 -25, 35, 25);
 		}
-		return s3d::RectF(m_body.pos.x - 16, m_body.pos.y - 16, 32, 32);
+		return s3d::RectF(m_body.getPos().x - 16, m_body.getPos().y - 16, 32, 32);
 	}
 
 	SlimeActor::Motion SlimeActor::getMotion() const
@@ -156,11 +151,7 @@ namespace abyss
 
 	void SlimeActor::reverse()
 	{
-		if (m_body.forward == Forward::Left) {
-			m_body.forward = Forward::Right;
-		}else if (m_body.forward == Forward::Right) {
-			m_body.forward = Forward::Left;
-		}
+		m_body.reversed();
 	}
 
 	void SlimeActor::accept(const ActVisitor& visitor)

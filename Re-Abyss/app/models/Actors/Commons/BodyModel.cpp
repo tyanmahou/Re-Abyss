@@ -73,6 +73,16 @@ namespace abyss
     {
         return m_velocity;
     }
+    BodyModel& BodyModel::setMaxSpeedX(double speed)
+    {
+        m_maxSpeedX = speed;
+        return *this;
+    }
+    BodyModel& BodyModel::setMaxSpeedX(s3d::None_t)
+    {
+        m_maxSpeedX = s3d::none;
+        return *this;
+    }
     BodyModel& BodyModel::setMaxVelocityY(double velocity)
     {
         m_maxVelocityY = velocity;
@@ -138,6 +148,27 @@ namespace abyss
     void BodyModel::jump(double speed)
     {
         m_velocity.y = -speed;
+    }
+    void BodyModel::jumpToHeight(double height)
+    {
+        double v = s3d::Sqrt(2 * m_accel.y * height);
+        this->jump(v);
+    }
+    BodyModel& BodyModel::noneResistanced()
+    {
+        return this->setAccel({ 0, 0 })
+            .setDeccelX(0)
+            .setMaxVelocityY(s3d::none)
+            .setMaxSpeedX(s3d::none);
+    }
+    BodyModel& BodyModel::reversed()
+    {
+        if (m_forward == Forward::Left) {
+            m_forward = Forward::Right;
+        } else if (m_forward == Forward::Right) {
+            m_forward = Forward::Left;
+        }
+        return *this;
     }
     s3d::RectF BodyModel::region() const
     {

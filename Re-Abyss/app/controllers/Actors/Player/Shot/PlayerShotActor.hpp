@@ -1,6 +1,6 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/types/Physics.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/views/Actors/Player/Shot/PlayerShotView.hpp>
 
 namespace abyss
@@ -19,7 +19,7 @@ namespace abyss
 		};
 	private:
 		Type m_type;
-		Physics m_body;
+		BodyModel m_body;
 	public:
 		PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge);
 		void start() override;
