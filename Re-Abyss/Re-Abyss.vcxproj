@@ -191,6 +191,7 @@
     <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionModel.cpp" />
     <ClCompile Include="app\models\Light\LightModel.cpp" />
@@ -266,6 +267,7 @@
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />

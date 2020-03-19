@@ -1,0 +1,146 @@
+#include "BodyModel.hpp"
+#include <Siv3D/Math.hpp>
+namespace abyss
+{
+
+    void BodyModel::update(double dt)
+    {
+        // 速度更新
+        m_velocity += m_accel * dt;
+
+        m_maxSpeedX.then([this](double max) {
+            if (m_velocity.x > max) {
+                m_velocity.x = max;
+            } else if (m_velocity.x < -max) {
+                m_velocity.x = -max;
+            }
+        });
+
+        if (m_accel.x == 0.0) {
+            if (m_velocity.x > 0) {
+                m_velocity.x -= m_deccelX * dt;
+            } else if (m_velocity.x < 0) {
+                m_velocity.x += m_deccelX * dt;
+            }
+            if (s3d::Abs(m_velocity.x) < 0.6) {
+                m_velocity.x = 0;
+            }
+        }
+        m_maxVelocityY.then([this](double max) {
+            if (m_velocity.y > max) {
+                m_velocity.y = max;
+            }
+        });
+        // 座標更新
+        m_pos += m_velocity * dt;
+    }
+    BodyModel& BodyModel::setAccel(const s3d::Vec2& accel)
+    {
+        m_accel = accel;
+        return *this;
+    }
+    BodyModel& BodyModel::setAccelX(double accel)
+    {
+        m_accel.x = accel;
+        return *this;
+    }
+    BodyModel& BodyModel::setAccelY(double accel)
+    {
+        m_accel.y = accel;
+        return *this;
+    }
+    BodyModel& BodyModel::setDeccelX(double deccel)
+    {
+        m_deccelX = deccel;
+        return *this;
+    }
+    BodyModel& BodyModel::setVelocity(const s3d::Vec2& velocity)
+    {
+        m_velocity = velocity;
+        return *this;
+    }
+    BodyModel& BodyModel::setVelocityX(double velocity)
+    {
+        m_velocity.x = velocity;
+        return *this;
+    }
+    BodyModel& BodyModel::setVelocityY(double velocity)
+    {
+        m_velocity.y = velocity;
+        return *this;
+    }
+    const s3d::Vec2& BodyModel::getVelocity() const
+    {
+        return m_velocity;
+    }
+    BodyModel& BodyModel::setMaxVelocityY(double velocity)
+    {
+        m_maxVelocityY = velocity;
+        return *this;
+    }
+    BodyModel& BodyModel::setMaxVelocityY(s3d::None_t)
+    {
+        m_maxVelocityY = s3d::none;
+        return *this;
+    }
+    BodyModel& BodyModel::setPos(const s3d::Vec2 & pos)
+    {
+        m_pos = pos;
+        return *this;
+    }
+    BodyModel& BodyModel::setPosX(double x)
+    {
+        m_pos.x = x;
+        return *this;
+    }
+    BodyModel& BodyModel::setPosY(double y)
+    {
+        m_pos.y = y;
+        return *this;
+    }
+    BodyModel& BodyModel::addPos(const s3d::Vec2& deltaPos)
+    {
+        m_pos += deltaPos;
+        return *this;
+    }
+    BodyModel& BodyModel::addPosX(double deltaX)
+    {
+        m_pos.x += deltaX;
+        return *this;
+    }
+    BodyModel& BodyModel::addPosY(double deltaY)
+    {
+        m_pos.y += deltaY;
+        return *this;
+    }
+    BodyModel& BodyModel::setSize(const s3d::Vec2& size)
+    {
+        m_size = size;
+        return *this;
+    }
+    const s3d::Vec2& BodyModel::getSize() const
+    {
+        return m_size;
+    }
+    const s3d::Vec2& BodyModel::getPos() const
+    {
+        return m_pos;
+    }
+    BodyModel& BodyModel::setForward(Forward forward)
+    {
+        m_forward = forward;
+        return *this;
+    }
+    Forward BodyModel::getForward() const
+    {
+        return m_forward;
+    }
+    void BodyModel::jump(double speed)
+    {
+        m_velocity.y = -speed;
+    }
+    s3d::RectF BodyModel::region() const
+    {
+        return { m_pos - m_size / 2, m_size };
+    }
+}

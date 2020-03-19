@@ -39,9 +39,9 @@ namespace abyss
         case PlayerActor::Motion::Float:
         {
             double y = 160;
-            if (v.y < -1.6) {
+            if (v.y < -1.6 * 60) {
                 y = 0;
-            } else if (v.y < -0.8) {
+            } else if (v.y < -0.8 * 60) {
                 y = 80;
             } else {
                 y = 80 * (timer / 30 % 2) + 160;
@@ -57,9 +57,9 @@ namespace abyss
         case PlayerActor::Motion::Swim:
         {
             double y = 0;
-            if (v.y < -1.6) {
+            if (v.y < -1.6 * 60) {
                 y = 160;
-            } else if (v.y < -0.8) {
+            } else if (v.y < -0.8 * 60) {
                 y = 240;
             } else {
                 y = 80 * (timer / 30 % 2);

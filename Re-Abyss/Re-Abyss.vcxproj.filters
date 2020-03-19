@@ -275,6 +275,9 @@
     <ClCompile Include="app\controllers\Light\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -507,5 +510,6 @@
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
   </ItemGroup>
 </Project>

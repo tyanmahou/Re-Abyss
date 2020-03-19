@@ -1,9 +1,9 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/types/Physics.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/views/actors/Player/PlayerView.hpp>
 
 #include "LadderState.hpp"
@@ -30,14 +30,14 @@ namespace abyss
 		};
 
 	private:
-		Physics m_body;
+		BodyModel m_body;
 		int32 m_hp;
 		Motion m_motion;
 
 		int32 m_charge;
 		LadderState m_ladderState;
 		bool attack();
-		void nomarlMove();
+		void nomarlMove(double dt);
 		void ladderMove();
 
 		ColDirection collisionAndUpdateMotion(const RectF& region, ColDirection col);
