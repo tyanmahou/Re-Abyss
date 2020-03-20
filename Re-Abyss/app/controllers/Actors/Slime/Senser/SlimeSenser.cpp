@@ -4,7 +4,7 @@
 
 namespace abyss
 {
-	void SlimeSenser::update(double)
+	void SlimeSenser::update([[maybe_unused]]double dt)
 	{
 		if (!m_isActive) {
 			return;

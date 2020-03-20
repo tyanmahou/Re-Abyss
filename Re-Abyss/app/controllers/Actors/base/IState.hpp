@@ -37,9 +37,9 @@ namespace abyss
 
 		virtual void draw() const {}
 
-		virtual void onCollisionEnter(ICollider*) {};
-		virtual void onCollisionStay(ICollider*) {};
-		virtual void onCollisionExit(ICollider*) {};
+		virtual void onCollisionEnter(ICollider*) {}
+		virtual void onCollisionStay(ICollider*) {}
+		virtual void onCollisionExit(ICollider*) {}
 
 		void init(StateManager<Actor, StateKey>* manager)
 		{
