@@ -1,5 +1,6 @@
 #include "SlimeSenser.hpp"
 #include <abyss/commons/ActInclude.hpp>
+#include <abyss/debug/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {
@@ -9,7 +10,6 @@ namespace abyss
 			return;
 		}
 		if (!m_onCollision && m_parent->isWalk()) {
-			Print << U"reverse";
 			m_parent->getBody().reversed();
 		}
 		auto isLeft = m_parent->getForward() == Forward::Left;
@@ -24,7 +24,11 @@ namespace abyss
 
 	void SlimeSenser::draw() const
 	{
-		Circle(m_pos, 10).draw(ColorF(1, 0, 0, 0.5));
+#if ABYSS_DEBUG
+		if (DebugManager::IsDrawColider()) {
+			Circle(m_pos, 10).draw(ColorF(1, 0, 0, 0.5));
+		}
+#endif
 	}
 
 	CShape SlimeSenser::getCollider() const

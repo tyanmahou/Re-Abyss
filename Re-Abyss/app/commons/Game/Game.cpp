@@ -1,6 +1,7 @@
 #include "Game.hpp"
 
 #include <abyss/scenes/Main/MainScene.hpp>
+#include <abyss/debug/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {
@@ -19,6 +20,9 @@ namespace abyss
 
 		bool update()
 		{
+#if ABYSS_DEBUG
+			DebugManager::Update();
+#endif
 			return m_scene.update();
 		}
 	};

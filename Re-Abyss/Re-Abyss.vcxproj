@@ -192,6 +192,7 @@
     <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
+    <ClCompile Include="app\debug\DebugManager\DebugManager.cpp" />
     <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
+    <ClInclude Include="app\debug\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Door\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
