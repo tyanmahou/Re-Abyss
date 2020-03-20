@@ -1,4 +1,5 @@
-﻿#include <ThirdParty/Catch2/catch.hpp>
+#if ABYSS_DO_TEST
+#include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/repositories/Stage/base/IStageRepository.hpp>
 #include <abyss/views/Stage/base/IStageView.hpp>
@@ -71,3 +72,4 @@ namespace abyss::tests
         }
     }
 }
+#endif

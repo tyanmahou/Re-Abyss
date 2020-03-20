@@ -17,6 +17,18 @@ namespace abyss
 	class World;
 	class Stage;
 
+	/// Controllers/Actors
+	class ICollider;
+	class IActor;
+	class PlayerActor;
+	class PlayerShotActor;
+	class EnemyActor;
+	class SlimeActor;
+	class MapActor;
+	class FloorActor;
+	class PenetrateFloorActor;
+	class LadderActor;
+	class DoorActor;
 
 	/// <summary>
 	/// Entities
@@ -33,18 +45,8 @@ namespace abyss
 	class ICollisionModel;
 	class CameraModel;
 
-	// Models/Actors
-	class ICollider;
-	class IActor;
-	class PlayerActor;
-	class PlayerShotActor;
-	class EnemyActor;
-	class SlimeActor;
-	class MapActor;
-	class FloorActor;
-	class PenetrateFloorActor;
-	class LadderActor;
-	class DoorActor;
+	// Models/Components
+	class BodyModel;
 
 	/// <summary>
 	/// Repositories

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <abyss/controllers/ActorsHolder/ActorsHolder.hpp>
 #include <abyss/views/World/WorldView.hpp>
@@ -41,5 +41,6 @@ namespace abyss
 
         inline void setPlayer(const std::shared_ptr<PlayerActor>& player) { m_pPlayer = player; }
         inline std::shared_ptr<PlayerActor> getPlayer()const { return m_pPlayer; }
+        const s3d::Vec2& getPlayerPos() const;
     };
 }

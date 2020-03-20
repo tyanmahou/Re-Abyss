@@ -1,4 +1,4 @@
-﻿#include "World.hpp"
+#include "World.hpp"
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
@@ -31,6 +31,11 @@ namespace abyss
     {
         m_actorsHolder.draw();
         m_view.draw();
+    }
+
+    const s3d::Vec2& World::getPlayerPos() const
+    {
+        return m_pPlayer->getPos();
     }
 
     

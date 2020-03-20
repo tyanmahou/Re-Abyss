@@ -1,8 +1,12 @@
-﻿#include "IActor.hpp"
+#include "IActor.hpp"
 
 namespace abyss
 {
-	void IActor::accept(const ActVisitor& visitor)
+    void IActor::setup()
+    {
+        m_components.setup();
+    }
+    void IActor::accept(const ActVisitor& visitor)
 	{
 		visitor.visit(*this);
 	}

@@ -278,6 +278,15 @@
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeJumpState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeWalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -503,5 +512,12 @@
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
+    <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
+    <ClInclude Include="app\models\Actors\base\ComponentsHolder.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeJumpState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeWalkState.hpp" />
+    <ClInclude Include="app\commons\ActInclude.hpp" />
   </ItemGroup>
 </Project>

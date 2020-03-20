@@ -8,13 +8,14 @@ namespace abyss
 	class EnemyActor : public IActor
 	{
 	protected:
-		BodyModel m_body;
+		BodyModel* m_body;
 		s3d::int32 m_hp;
 	public:
 		EnemyActor() = default;
 
 		EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
+		void start() override;
 		const s3d::Vec2& getPos()const;
 		const s3d::Vec2& getVellocity()const;
 

@@ -1,8 +1,4 @@
-#include "PlayerActor.hpp"
-#include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
-#include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
-#include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
-#include <abyss/controllers/Actors/Door/DoorActor.hpp>
+#include <abyss/commons/ActInclude.hpp>
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
@@ -10,6 +6,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/Collision/Collision.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+
 namespace abyss
 {
     bool PlayerActor::attack()

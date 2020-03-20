@@ -1,4 +1,4 @@
-#include "PlayerShotActor.hpp"
+#include <abyss/commons/ActInclude.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <unordered_map>
 

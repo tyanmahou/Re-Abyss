@@ -180,6 +180,9 @@
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\Shot\PlayerShotActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeJumpState.cpp" />
+    <ClCompile Include="app\controllers\Actors\Slime\SlimeWalkState.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
@@ -228,6 +231,7 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\commons\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\commons\Concept.hpp" />
@@ -241,6 +245,7 @@
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ICollider.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />
@@ -251,6 +256,9 @@
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\PlayerShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeJumpState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\SlimeWalkState.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
@@ -267,6 +275,8 @@
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
+    <ClInclude Include="app\models\Actors\base\ComponentsHolder.hpp" />
+    <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />

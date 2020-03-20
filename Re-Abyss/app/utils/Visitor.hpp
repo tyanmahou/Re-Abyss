@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <utility>
 #include <memory>
 #include <type_traits>
@@ -45,6 +45,8 @@ namespace abyss
 		{
 			void visit([[maybe_unused]] Head& a) const override
 			{
+				static_assert(sizeof(Head) >= 1);
+
 				if constexpr (std::is_invocable_v<F, Head&>) {
 					return this->m_func(a);
 				}
@@ -62,6 +64,8 @@ namespace abyss
 			{}
 			void visit([[maybe_unused]] Last& a) const override
 			{
+				static_assert(sizeof(Last) >= 1);
+
 				if constexpr (std::is_invocable_v<F, Last&>) {
 					return m_func(a);
 				}

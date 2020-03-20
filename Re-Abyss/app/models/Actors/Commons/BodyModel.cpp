@@ -132,6 +132,11 @@ namespace abyss
     {
         return m_size;
     }
+    BodyModel& BodyModel::setPivot(const s3d::Vec2& pivot)
+    {
+        m_pivot = pivot;
+        return *this;
+    }
     const s3d::Vec2& BodyModel::getPos() const
     {
         return m_pos;
@@ -170,8 +175,12 @@ namespace abyss
         }
         return *this;
     }
+    bool BodyModel::isForward(Forward f) const
+    {
+        return m_forward == f;
+    }
     s3d::RectF BodyModel::region() const
     {
-        return { m_pos - m_size / 2, m_size };
+        return { m_pos + m_pivot - m_size / 2, m_size };
     }
 }
