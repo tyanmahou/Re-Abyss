@@ -278,13 +278,16 @@
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\SlimeBaseState.cpp">
+    <ClCompile Include="app\controllers\Actors\Slime\State\SlimeBaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\SlimeJumpState.cpp">
+    <ClCompile Include="app\controllers\Actors\Slime\State\SlimeJumpState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\SlimeWalkState.cpp">
+    <ClCompile Include="app\controllers\Actors\Slime\State\SlimeWalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Slime\Senser\SlimeSenser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -512,12 +515,11 @@
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
-    <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
-    <ClInclude Include="app\models\Actors\base\ComponentsHolder.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\SlimeJumpState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\SlimeBaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\SlimeWalkState.hpp" />
     <ClInclude Include="app\commons\ActInclude.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\State\SlimeWalkState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\State\SlimeBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\State\SlimeJumpState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />
   </ItemGroup>
 </Project>

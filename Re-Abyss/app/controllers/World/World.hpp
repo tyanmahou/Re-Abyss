@@ -23,10 +23,11 @@ namespace abyss
         void draw() const;
 
         template<class Type, class... Args>
-        void create(Args&& ... args) //requires IsActor<Type>
+        std::shared_ptr<Type> create(Args&& ... args) //requires IsActor<Type>
         {
             auto obj = std::make_shared<Type>(std::forward<Args>(args)...);
             this->regist(obj);
+            return obj;
         }
 
         template<class Type>

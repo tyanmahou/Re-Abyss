@@ -106,6 +106,7 @@ namespace abyss
 				}
 				m_current = nullptr;
 				m_current = m_factories[key]();
+				m_currentState = key;
 				m_nextState = s3d::none;
 			});
 			if (m_current) {
@@ -146,6 +147,11 @@ namespace abyss
 		Actor* getActor()const
 		{
 			return m_actor;
+		}
+
+		const StateKey& getState()const
+		{
+			return m_currentState;
 		}
 	};
 }

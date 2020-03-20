@@ -4,11 +4,10 @@
 #include <Siv3D/Optional.hpp>
 
 #include <abyss/types/Forward.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
 
 namespace abyss
 {
-    class BodyModel : public IComponent
+    class BodyModel
     {
     private:
         s3d::Vec2 m_pos{0, 0};
@@ -26,7 +25,7 @@ namespace abyss
         s3d::Vec2 m_size{ 0, 0 };
     public:
         BodyModel() = default;
-        void setup()override{}
+       
         void update(double dt);
 
         BodyModel& setAccel(const s3d::Vec2& accel);

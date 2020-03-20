@@ -26,7 +26,6 @@ namespace abyss
 			auto registing = std::move(m_reserves);
 			m_reserves.clear();
 			for (auto& obj : registing) {
-				obj->setup();
 				obj->start();
 				m_actors.push_back(std::move(obj));
 			}

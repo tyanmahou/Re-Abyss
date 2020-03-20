@@ -8,7 +8,7 @@ namespace abyss
 	class EnemyActor : public IActor
 	{
 	protected:
-		BodyModel* m_body;
+		BodyModel m_body;
 		s3d::int32 m_hp;
 	public:
 		EnemyActor() = default;
@@ -21,5 +21,11 @@ namespace abyss
 
 		Forward getForward()const;
 		void accept(const ActVisitor& visitor) override;
+
+		const BodyModel& getBody()const;
+		BodyModel& getBody();
+
+		CShape getCollider() const override;
+		s3d::RectF region()const;
 	};
 }
