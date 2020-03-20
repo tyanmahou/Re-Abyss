@@ -1,9 +1,11 @@
 #pragma once
-#include <abyss/types/Forward.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Slime
+#include <abyss/types/Forward.hpp>
+#include <abyss/commons/Fwd.hpp>
+
+namespace abyss
 {
     class SlimeVM
     {
@@ -15,7 +17,7 @@ namespace abyss::Slime
 
     public:
         SlimeVM();
-
+        void bind(const SlimeActor& actor);
         void drawWalk() const;
         void drawJump() const;
     };

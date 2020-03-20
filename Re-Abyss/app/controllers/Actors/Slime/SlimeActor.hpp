@@ -1,11 +1,11 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
-#include <abyss/views/Actors/Slime/SlimeView.hpp>
+#include <abyss/commons/Fwd.hpp>
+
 namespace abyss
 {
 	class SlimeActor : 
-		public EnemyActor,
-		public SlimeView
+		public EnemyActor
 	{
 	public:
 		enum class Motion
@@ -16,7 +16,7 @@ namespace abyss
 	private:
 		class Cencer;
 		std::shared_ptr<Cencer> m_cencer;
-
+		std::shared_ptr<SlimeVM> m_view;
 		Motion m_motion = Motion::Walk;
 
 		bool m_onCollision = false;

@@ -208,7 +208,7 @@
     <ClCompile Include="app\views\Actors\base\IActorView.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerView.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotView.cpp" />
-    <ClCompile Include="app\views\Actors\Slime\SlimeView.cpp" />
+    <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp" />
@@ -295,8 +295,7 @@
     <ClInclude Include="app\views\Actors\Player\PlayerViewModel.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotView.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotViewModel.hpp" />
-    <ClInclude Include="app\views\Actors\Slime\SlimeView.hpp" />
-    <ClInclude Include="app\views\Actors\Slime\SlimeViewModel.hpp" />
+    <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />

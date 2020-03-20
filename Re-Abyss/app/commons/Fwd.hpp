@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 /// <summary>
 ///  前方宣言
@@ -67,8 +67,7 @@ namespace abyss
 	struct PlayerViewModel;
 	class PlayerShotView;
 	struct PlayerShotViewModel;
-	class SlimeView;
-	struct SlimeViewModel;
+	class SlimeVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

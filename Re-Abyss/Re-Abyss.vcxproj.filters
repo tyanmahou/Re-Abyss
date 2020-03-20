@@ -188,9 +188,6 @@
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\Slime\SlimeView.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
     </ClCompile>
@@ -276,6 +273,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -423,12 +423,6 @@
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Actors\Slime\SlimeView.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Slime\SlimeViewModel.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClInclude>
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClInclude>
@@ -508,5 +502,6 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
+    <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
   </ItemGroup>
 </Project>

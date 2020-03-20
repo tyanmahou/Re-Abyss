@@ -1,4 +1,4 @@
-﻿#include "ActorsHolder.hpp"
+#include "ActorsHolder.hpp"
 
 #include <Siv3D/Utility.hpp>
 #include <Siv3D/Scene.hpp>
@@ -22,11 +22,13 @@ namespace abyss
 		double dt = s3d::Scene::DeltaTime();
 
 		if (!m_reserves.empty()) {
-			for (auto& obj : m_reserves) {
+			// startでregistされてもいいようにここでmove
+			auto registing = std::move(m_reserves);
+			m_reserves.clear();
+			for (auto& obj : registing) {
 				obj->start();
 				m_actors.push_back(std::move(obj));
 			}
-			m_reserves.clear();
 		}
 
 		for (auto& obj : m_actors) {

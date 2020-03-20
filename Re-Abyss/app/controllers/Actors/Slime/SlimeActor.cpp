@@ -6,7 +6,7 @@
 
 #include <abyss/utils/Collision/Collision.hpp>
 #include <abyss/commons/Constants.hpp>
-
+#include <abyss/views/Actors/Slime/SlimeVM.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss
@@ -74,7 +74,7 @@ namespace abyss
 
 	SlimeActor::SlimeActor(const s3d::Vec2& pos, Forward forward) :
 		EnemyActor(pos, forward),
-		SlimeView(this)
+		m_view(std::make_shared<SlimeVM>())
 	{
 		m_hp = 10;
 		m_onCollision = true;
@@ -83,15 +83,14 @@ namespace abyss
 
 	void SlimeActor::start()
 	{
-		SlimeView::start();
-	}
-
-	void SlimeActor::update([[maybe_unused]]double dt)
-	{
 		if (!m_cencer) {
 			m_cencer = std::make_shared<Cencer>(this);
 			m_pWorld->regist(m_cencer);
 		}
+	}
+
+	void SlimeActor::update([[maybe_unused]]double dt)
+	{
 		if (m_body.getForward() == Forward::Left) {
 			m_body.setAccelX(-720.0);
 		}
@@ -99,7 +98,7 @@ namespace abyss
 			m_body.setAccelX(720.0f);
 		}
 
-		// 前方　かつ　半径　100以内
+		// 前方　かつ　半径　150以内
 		Vec2 d = m_pWorld->getPlayer()->getPos() - m_body.getPos();
 		if (m_body.getVelocity().x * d.x > 0 && d.length() <= 150 && m_onCollision) {
 			m_body.jumpToHeight(80);
@@ -114,7 +113,8 @@ namespace abyss
 
 	void SlimeActor::draw() const
 	{
-		SlimeView::draw();
+		m_view->bind(*this);
+		m_view->drawWalk();
 	}
 
 	void SlimeActor::onCollisionEnter(ICollider* col)
