@@ -8,7 +8,7 @@ namespace abyss
 		bool canDown,
 		ColDirection aroundFloor
 	):
-		FloorActor(ColDirection::Up, pos, size),
+		MapActor(ColDirection::Up, pos - s3d::Vec2{ 0, 17.5 }, size - s3d::Vec2{0, 35}),
 		m_canDown(canDown),
 		m_aroundFloor(aroundFloor)
 	{

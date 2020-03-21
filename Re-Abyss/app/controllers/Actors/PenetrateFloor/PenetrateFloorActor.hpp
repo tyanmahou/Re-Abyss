@@ -1,10 +1,10 @@
 #pragma once
 
-#include <abyss/controllers/Actors/Floor/FloorActor.hpp>
+#include <abyss/controllers/Actors/Map/MapActor.hpp>
 
 namespace abyss
 {
-	class PenetrateFloorActor : public FloorActor
+	class PenetrateFloorActor : public MapActor
 	{
 		bool m_canDown;
 		ColDirection m_aroundFloor;
