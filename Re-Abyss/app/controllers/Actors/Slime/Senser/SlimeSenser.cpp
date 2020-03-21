@@ -1,6 +1,6 @@
 #include "SlimeSenser.hpp"
 #include <abyss/commons/ActInclude.hpp>
-#include <abyss/debug/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {

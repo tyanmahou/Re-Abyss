@@ -4,7 +4,7 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
-#include <abyss/debug/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {

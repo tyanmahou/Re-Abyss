@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 #include <abyss/scenes/Main/MainScene.hpp>
-#include <abyss/debug/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {

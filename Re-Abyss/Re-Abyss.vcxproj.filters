@@ -290,7 +290,7 @@
     <ClCompile Include="app\controllers\Actors\Slime\Senser\SlimeSenser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\debug\DebugManager\DebugManager.cpp">
+    <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -524,6 +524,6 @@
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeJumpState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />
-    <ClInclude Include="app\debug\DebugManager\DebugManager.hpp" />
+    <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
   </ItemGroup>
 </Project>
