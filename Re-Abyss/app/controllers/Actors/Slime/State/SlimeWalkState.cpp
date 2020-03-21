@@ -17,7 +17,7 @@ namespace abyss
         SlimeBaseState::update(dt);
 
         s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
-        if (m_onCollision && m_body->getVelocity().x * d.x > 0 && d.length() <= 100) {
+        if (m_onCollision && m_body->getVelocity().x * d.x > 0 && d.length() <= 200) {
             this->changeState(SlimeActor::Jump);
         }
         m_onCollision = false;
