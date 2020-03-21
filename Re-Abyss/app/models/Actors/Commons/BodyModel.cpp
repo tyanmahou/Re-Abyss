@@ -5,6 +5,7 @@ namespace abyss
 
     void BodyModel::update(double dt)
     {
+        m_prevPos = m_pos;
         // 速度更新
         m_velocity += m_accel * dt;
 
@@ -93,6 +94,12 @@ namespace abyss
         m_maxVelocityY = s3d::none;
         return *this;
     }
+    BodyModel& BodyModel::initPos(const s3d::Vec2& pos)
+    {
+        m_pos = pos;
+        m_prevPos = pos;
+        return *this;
+    }
     BodyModel& BodyModel::setPos(const s3d::Vec2 & pos)
     {
         m_pos = pos;
@@ -140,6 +147,10 @@ namespace abyss
     const s3d::Vec2& BodyModel::getPos() const
     {
         return m_pos;
+    }
+    const s3d::Vec2& BodyModel::getPrevPos() const
+    {
+        return m_prevPos;
     }
     BodyModel& BodyModel::setForward(Forward forward)
     {

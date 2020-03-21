@@ -7,6 +7,7 @@
 #include <abyss/utils/Collision/Collision.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
 namespace abyss
 {
     bool PlayerActor::attack()
@@ -166,7 +167,7 @@ namespace abyss
 
     ColDirection PlayerActor::collisionAndUpdateMotion(const RectF& region, ColDirection col)
     {
-        auto collision = collision::Collision(region, this->region(), col);
+        auto collision = collision::CollisionByPrevPos(region, this->region(), m_body.getPrevPos(), col);
         m_body.setPos(collision.first);
 
         if (collision.second.isUp()) {
@@ -294,6 +295,11 @@ namespace abyss
     void PlayerActor::draw() const
     {
         PlayerView::draw();
+#if ABYSS_DEBUG
+        if (DebugManager::IsDrawColider()) {
+            this->region().draw(ColorF(1, 0, 0, 0.5));
+        }
+#endif
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {

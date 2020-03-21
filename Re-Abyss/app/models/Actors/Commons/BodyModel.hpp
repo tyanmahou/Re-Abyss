@@ -10,6 +10,7 @@ namespace abyss
     class BodyModel
     {
     private:
+        s3d::Vec2 m_prevPos{ 0, 0 };
         s3d::Vec2 m_pos{0, 0};
         s3d::Vec2 m_pivot{ 0, 0 };
 
@@ -45,6 +46,7 @@ namespace abyss
         BodyModel& setMaxVelocityY(double velocity);
         BodyModel& setMaxVelocityY(s3d::None_t);
 
+        BodyModel& initPos(const s3d::Vec2& pos);
         BodyModel& setPos(const s3d::Vec2& pos);
         BodyModel& setPosX(double x);
         BodyModel& setPosY(double y);
@@ -53,6 +55,7 @@ namespace abyss
         BodyModel& addPosY(double deltaY);
 
         const s3d::Vec2& getPos() const;
+        const s3d::Vec2& getPrevPos() const;
 
         BodyModel& setForward(Forward forward);
 

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <tuple>
 #include <Siv3D/Fwd.hpp>
@@ -13,5 +13,6 @@ namespace abyss
 	namespace collision
 	{
 		std::pair<s3d::Vec2, ColDirection> Collision(const s3d::RectF& from, const s3d::RectF& come, ColDirection col);
+		std::pair<s3d::Vec2, ColDirection> CollisionByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::Vec2& prevPos, ColDirection col);
 	}
 }
