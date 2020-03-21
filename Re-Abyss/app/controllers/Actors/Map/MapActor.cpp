@@ -31,4 +31,11 @@ namespace abyss
 	{
 		visitor.visit(*this);
 	}
+    MapColInfo MapActor::getMapColInfo() const
+    {
+		return {
+			.region = this->region(),
+			.col = m_col
+		};
+    }
 }

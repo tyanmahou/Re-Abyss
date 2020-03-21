@@ -527,5 +527,6 @@
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
+    <ClInclude Include="app\types\MapColInfo.hpp" />
   </ItemGroup>
 </Project>

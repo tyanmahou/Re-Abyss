@@ -1,5 +1,7 @@
 #include "BodyModel.hpp"
 #include <Siv3D/Math.hpp>
+#include <abyss/models/Collision/FixPos.hpp>
+
 namespace abyss
 {
 
@@ -189,6 +191,20 @@ namespace abyss
     bool BodyModel::isForward(Forward f) const
     {
         return m_forward == f;
+    }
+    ColDirection BodyModel::fixPos(const MapColInfo& info)
+    {
+        auto c = info.col;
+        c.ignoredForVelocity(m_velocity);
+
+        auto selfRegion = this->region();
+        s3d::Vec2 before = selfRegion.center();
+        
+        auto [after, colDir] = FixPos::ByPrevPos(info.region, selfRegion, m_prevPos, c);
+
+        this->addPos(after - before);
+
+        return colDir;
     }
     s3d::RectF BodyModel::region() const
     {

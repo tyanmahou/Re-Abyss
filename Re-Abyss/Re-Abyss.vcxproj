@@ -300,6 +300,7 @@
     <ClInclude Include="app\types\CollisionPairHash.hpp" />
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
+    <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />

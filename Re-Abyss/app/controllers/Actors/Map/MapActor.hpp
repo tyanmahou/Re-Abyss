@@ -1,6 +1,6 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/types/MapColInfo.hpp>
 
 namespace abyss
 {
@@ -20,5 +20,7 @@ namespace abyss
 		CShape getCollider() const override;
 
 		void accept(const ActVisitor& visitor) override;
+
+		MapColInfo getMapColInfo() const;
 	};
 }

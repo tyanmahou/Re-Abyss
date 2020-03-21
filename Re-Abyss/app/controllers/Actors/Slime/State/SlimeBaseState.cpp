@@ -1,7 +1,4 @@
 #include "SlimeBaseState.hpp"
-#include <abyss/controllers/Actors/Map/MapActor.hpp>
-
-#include <abyss/models/Collision/FixPos.hpp>
 #include <abyss/commons/ActInclude.hpp>
 namespace abyss
 {
@@ -23,14 +20,8 @@ namespace abyss
     void SlimeBaseState::onCollisionStay(ICollider * col)
     {
         col->accept([this](const MapActor& map) {
-            auto c = map.getCol();
-            c.ignoredForVelocity(m_body->getVelocity());
 
-            s3d::Vec2 before = m_body->region().center();
-            auto [after, colDir] = FixPos::ByPrevPos(map.region(), m_body->region(),m_body->getPrevPos(), c);
-
-            m_body->addPos(after - before);
-
+            auto colDir = m_body->fixPos(map.getMapColInfo());
             if (colDir.isUp()) {
                 onColisionMapUp();
             }

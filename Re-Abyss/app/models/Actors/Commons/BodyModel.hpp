@@ -3,6 +3,7 @@
 #include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Optional.hpp>
 
+#include <abyss/types/MapColInfo.hpp>
 #include <abyss/types/Forward.hpp>
 
 namespace abyss
@@ -75,6 +76,8 @@ namespace abyss
         BodyModel& reversed();
 
         bool isForward(Forward f) const;
+
+        ColDirection fixPos(const MapColInfo& info);
     public:
         inline static constexpr double DefaultGravity = 720.0;
         inline static constexpr double DefaultMaxVelocityY = 78;
