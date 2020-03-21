@@ -224,9 +224,6 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Collision\Collision.cpp">
-      <Filter>Source Files\ActionSystem\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClCompile>
@@ -291,6 +288,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Collision\FixPos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Collision\CollisionUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -489,9 +492,6 @@
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Collision\Collision.hpp">
-      <Filter>Source Files\ActionSystem\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
@@ -525,5 +525,7 @@
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeJumpState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
+    <ClInclude Include="app\models\Collision\FixPos.hpp" />
+    <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
   </ItemGroup>
 </Project>

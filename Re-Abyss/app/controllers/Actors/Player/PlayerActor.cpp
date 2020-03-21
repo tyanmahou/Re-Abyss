@@ -4,7 +4,7 @@
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 
 #include <abyss/commons/Constants.hpp>
-#include <abyss/utils/Collision/Collision.hpp>
+#include <abyss/models/Collision/FixPos.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss
@@ -166,7 +166,7 @@ namespace abyss
 
     ColDirection PlayerActor::collisionAndUpdateMotion(const RectF& region, ColDirection col)
     {
-        auto collision = collision::CollisionByPrevPos(region, this->region(), m_body.getPrevPos(), col);
+        auto collision = FixPos::ByPrevPos(region, this->region(), m_body.getPrevPos(), col);
         m_body.setPos(collision.first);
 
         if (collision.second.isUp()) {

@@ -1,37 +1,10 @@
-#include "Collision.hpp"
-
+#include "FixPos.hpp"
 #include <Siv3D.hpp>
-
-#include <abyss/types/CShape.hpp>
-
-namespace
-{
-    template<class T, class U>
-    concept HasIntersects = requires(T & a, U & b)
-    {
-        { s3d::Geometry2D::Intersect(a, b) }->bool;
-    };
-}
 
 namespace abyss
 {
-    bool Intersects(const CShape& a, const CShape& b)
+    FixPos::Result FixPos::ByLatestPos(const s3d::RectF& from, const s3d::RectF& come, ColDirection col)
     {
-        return std::visit([]<class T, class U>([[maybe_unused]] const T & a, [[maybe_unused]] const U & b)
-        {
-            if constexpr (HasIntersects<T, U>) {
-                return s3d::Geometry2D::Intersect(a, b);
-            } else {
-                return false;
-            }
-        }, a, b);
-    }
-}
-
-namespace abyss::collision
-{
-	std::pair<s3d::Vec2, ColDirection> Collision(const s3d::RectF& from, const s3d::RectF& come, ColDirection col)
-	{
 		bool up = (col & ColDirection::Up);
 		bool down = (col & ColDirection::Down);
 		bool left = (col & ColDirection::Left);
@@ -63,8 +36,9 @@ namespace abyss::collision
 			comePos.x = fromPos.x + (comeSize.x + fromSize.x) / 2;
 		}
 		return { comePos, retCol };
-	}
-    std::pair<s3d::Vec2, ColDirection> CollisionByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::Vec2& prevPos, ColDirection col)
+    }
+
+    FixPos::Result FixPos::ByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::Vec2& prevPos, ColDirection col)
     {
 		Vec2 comePos = come.center();
 		Vec2 comeSize = come.size;
@@ -109,5 +83,6 @@ namespace abyss::collision
 		}
 
 		return { comePos, retCol };
-    }
+	}
+
 }

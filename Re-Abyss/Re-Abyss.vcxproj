@@ -199,6 +199,8 @@
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionModel.cpp" />
+    <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
+    <ClCompile Include="app\models\Collision\FixPos.cpp" />
     <ClCompile Include="app\models\Light\LightModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
     <ClCompile Include="app\controllers\World\World.cpp" />
@@ -208,7 +210,6 @@
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp" />
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
-    <ClCompile Include="app\utils\Collision\Collision.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\views\Actors\base\IActorView.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerView.cpp" />
@@ -282,6 +283,8 @@
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />
+    <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
+    <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
     <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
@@ -297,7 +300,6 @@
     <ClInclude Include="app\types\CollisionPairHash.hpp" />
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
-    <ClInclude Include="app\utils\Collision\Collision.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />

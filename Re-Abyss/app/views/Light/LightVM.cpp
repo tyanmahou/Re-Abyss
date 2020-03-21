@@ -16,6 +16,7 @@ namespace abyss
         using namespace s3d;
         constexpr ColorF outerColor{ 1.0, 0.0 };
         const double sin0_1 = s3d::Periodic::Sine0_1(5s);
-        Circle(m_pos, m_range / 2.0 + 10 * sin0_1).draw(ColorF(1, m_brightness * (0.4 + sin0_1 * 0.6)), outerColor);
+        const double alpha = Min(1.0, m_brightness * (0.4 + sin0_1 * 0.6) * 60 * Scene::DeltaTime());
+        Circle(m_pos, m_range / 2.0 + 10 * sin0_1).draw(ColorF(1, alpha), outerColor);
     }
 }

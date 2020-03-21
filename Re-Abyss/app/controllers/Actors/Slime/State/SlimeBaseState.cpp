@@ -1,7 +1,7 @@
 #include "SlimeBaseState.hpp"
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 
-#include <abyss/utils/Collision/Collision.hpp>
+#include <abyss/models/Collision/FixPos.hpp>
 #include <abyss/commons/ActInclude.hpp>
 namespace abyss
 {
@@ -27,7 +27,7 @@ namespace abyss
             c.ignoredForVelocity(m_body->getVelocity());
 
             s3d::Vec2 before = m_body->region().center();
-            auto [after, colDir] = collision::Collision(map.region(), m_body->region(), c);
+            auto [after, colDir] = FixPos::ByPrevPos(map.region(), m_body->region(),m_body->getPrevPos(), c);
 
             m_body->addPos(after - before);
 

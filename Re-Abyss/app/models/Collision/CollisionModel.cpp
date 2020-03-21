@@ -1,6 +1,6 @@
-﻿#include "CollisionModel.hpp"
+#include "CollisionModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/utils/Collision/Collision.hpp>
+#include <abyss/models/Collision/CollisionUtil.hpp>
 
 namespace abyss
 {
@@ -16,7 +16,7 @@ namespace abyss
 					continue;
 				}
 				CollisionPairHash hash((*it1)->getId(), (*it2)->getId());
-				if (abyss::Intersects((*it1)->getCollider(), (*it2)->getCollider())) {
+				if (ColisionUtil::Intersects((*it1)->getCollider(), (*it2)->getCollider())) {
 					m_currentCollision.insert(hash);
 					if (prevCollision.find(hash) != prevCollision.end()) {
 						// onEnter
