@@ -24,8 +24,8 @@ namespace abyss
             ScopedRenderTarget2D target(m_rt);
             Transformer2D t2d(Mat3x2::Translate(-Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
             // 徐々に暗くする
-            camera.screenRegion().draw(ColorF(0, 0.1));
-            //ScopedRenderStates2D state(BlendState::Additive);
+            const double alpha = Min(1.0, 6.0 * Scene::DeltaTime());
+            camera.screenRegion().draw(ColorF(0, alpha));
             for (const auto& light : m_rights) {
                 light.draw();
             }
