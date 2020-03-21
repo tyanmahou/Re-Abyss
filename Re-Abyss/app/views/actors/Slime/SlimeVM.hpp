@@ -3,7 +3,6 @@
 #include <Siv3D/Texture.hpp>
 
 #include <abyss/types/Forward.hpp>
-#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -17,7 +16,10 @@ namespace abyss
 
     public:
         SlimeVM();
-        void bind(const SlimeActor& actor);
+        SlimeVM& setForward(const Forward& forward);
+        SlimeVM& setPos(const s3d::Vec2& pos);
+        SlimeVM& setVelocity(const s3d::Vec2& velocity);
+
         void drawWalk() const;
         void drawJump() const;
     };

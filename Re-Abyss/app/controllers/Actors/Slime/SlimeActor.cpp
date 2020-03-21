@@ -47,8 +47,10 @@ namespace abyss
 	}
 	SlimeVM* SlimeActor::getBindedView() const
 	{
-		m_view->bind(*this);
-		return m_view.get();
+		return &m_view->setForward(this->getForward())
+			.setPos(this->getPos())
+			.setVelocity(this->getVellocity())
+			;
 	}
 	bool SlimeActor::isWalk() const
 	{

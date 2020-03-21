@@ -1,17 +1,27 @@
 #include "SlimeVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+
 namespace abyss
 {
     SlimeVM::SlimeVM():
         m_texture(U"work/enemy/slime/slime.png")
     {}
-    void SlimeVM::bind(const SlimeActor & actor)
+    SlimeVM& SlimeVM::setForward(const Forward & forward)
     {
-        m_forward = actor.getForward();
-        m_pos = actor.getPos();
-        m_velocity = actor.getVellocity();
+        m_forward = forward;
+        return *this;
     }
+    SlimeVM& SlimeVM::setPos(const s3d::Vec2& pos)
+    {
+        m_pos = pos;
+        return *this;
+    }
+    SlimeVM& SlimeVM::setVelocity(const s3d::Vec2& velocity)
+    {
+        m_velocity = velocity;
+        return *this;
+    }
+
     void SlimeVM::drawWalk() const
     {
         bool isLeft = m_forward == Forward::Left;
