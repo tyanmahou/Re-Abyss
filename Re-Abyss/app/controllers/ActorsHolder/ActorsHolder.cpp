@@ -4,6 +4,7 @@
 #include <Siv3D/Scene.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {
@@ -39,6 +40,11 @@ namespace abyss
 	{
 		for (auto& obj : m_actors) {
 			obj->draw();
+#if ABYSS_DEBUG
+			if (DebugManager::IsDrawColider()) {
+				DebugManager::DrawColider(obj->getCollider());
+			}
+#endif
 		}
 	}
 	void ActorsHolder::erase()

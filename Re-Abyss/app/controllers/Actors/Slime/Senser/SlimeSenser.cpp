@@ -1,6 +1,5 @@
 #include "SlimeSenser.hpp"
 #include <abyss/commons/ActInclude.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {
@@ -24,11 +23,6 @@ namespace abyss
 
 	void SlimeSenser::draw() const
 	{
-#if ABYSS_DEBUG
-		if (DebugManager::IsDrawColider()) {
-			Circle(m_pos, 10).draw(ColorF(1, 0, 0, 0.5));
-		}
-#endif
 	}
 
 	CShape SlimeSenser::getCollider() const

@@ -3,6 +3,7 @@
 #if ABYSS_DEBUG
 #include <memory>
 #include <abyss/utils/Singleton.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -17,6 +18,8 @@ namespace abyss
     public:
         static void Update();
         static bool IsDrawColider();
+
+        static void DrawColider(const CShape& colider);
     };
 }
 

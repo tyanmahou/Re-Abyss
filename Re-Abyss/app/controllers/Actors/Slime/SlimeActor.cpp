@@ -4,7 +4,6 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
 {
@@ -35,12 +34,6 @@ namespace abyss
 	void SlimeActor::draw() const
 	{
 		m_state.draw();
-
-#if ABYSS_DEBUG
-		if (DebugManager::IsDrawColider()) {
-			this->region().draw(s3d::ColorF(1, 0, 0, 0.5));
-		}
-#endif
 	}
 
 	void SlimeActor::onCollisionStay(ICollider* col)

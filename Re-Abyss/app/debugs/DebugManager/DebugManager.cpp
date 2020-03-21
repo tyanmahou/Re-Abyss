@@ -1,6 +1,8 @@
 #if ABYSS_DEBUG
 #include "DebugManager.hpp"
 #include <Siv3D.hpp>
+#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Visitor.hpp>
 
 namespace abyss
 {
@@ -40,6 +42,19 @@ namespace abyss
     bool DebugManager::IsDrawColider()
     {
         return Instance()->m_pImpl->m_isDrawColider;
+    }
+    void DebugManager::DrawColider(const CShape& colider)
+    {
+        constexpr ColorF color = ColorF(1, 0, 0, 0.4);
+        std::visit(overloaded{
+            [&color](const auto& c) {
+                c.draw(color);
+            },
+            [&color](const Vec2& c) {
+                Shape2D::Cross(5, 2, c).draw(color);
+            },
+            []([[maybe_unused]]const None_t&) {}
+        }, colider);
     }
 }
 

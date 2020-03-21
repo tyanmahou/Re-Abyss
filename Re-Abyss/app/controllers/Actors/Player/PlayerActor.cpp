@@ -7,7 +7,6 @@
 #include <abyss/utils/Collision/Collision.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
 namespace abyss
 {
     bool PlayerActor::attack()
@@ -295,11 +294,6 @@ namespace abyss
     void PlayerActor::draw() const
     {
         PlayerView::draw();
-#if ABYSS_DEBUG
-        if (DebugManager::IsDrawColider()) {
-            this->region().draw(ColorF(1, 0, 0, 0.5));
-        }
-#endif
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {

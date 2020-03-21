@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <variant>
 
 #include <Siv3D/Rectangle.hpp>
@@ -14,7 +14,8 @@ namespace abyss
 		s3d::RectF,
 		s3d::Circle,
 		s3d::Ellipse,
-		s3d::Vec2
+		s3d::Vec2,
+		s3d::None_t
 	>;
 
 	/// <summary>
