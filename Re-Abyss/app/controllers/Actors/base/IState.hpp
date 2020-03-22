@@ -85,7 +85,7 @@ namespace abyss
 		StateManager& add(const StateKey& state)
 		{
 			auto factory = [=]() {
-				auto state = std::make_shared<Type>();
+				State state = std::make_shared<Type>();
 				state->init(this);
 				state->setup();
 				state->start();

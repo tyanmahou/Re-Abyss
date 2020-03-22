@@ -42,6 +42,9 @@ namespace abyss
     void PlayerBaseState::start()
     {
         (*m_body)
+            .setAccelY(BodyModel::DefaultGravity)
+            .setVelocity({0, 0})
+            .setMaxVelocityY(BodyModel::DefaultMaxVelocityY)
             .setDeccelX(180)
             .setMaxSpeedX(240);
     }

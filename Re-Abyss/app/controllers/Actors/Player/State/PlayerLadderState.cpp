@@ -7,7 +7,7 @@ namespace abyss
 {
     void PlayerLadderState::onMove(double dt)
     {
-        double veocityY = 120.0 * dt * (InputManager::Down.pressed() - InputManager::Up.pressed());
+        double veocityY = 120.0 * (InputManager::Down.pressed() - InputManager::Up.pressed());
         m_body->setVelocity({ 0, veocityY });
         m_body->update(dt);
         if (InputManager::A.down()) {
@@ -16,6 +16,7 @@ namespace abyss
     }
     void PlayerLadderState::onLanding()
     {
+        m_isLanding = true;
         this->changeState(PlayerActor::State::Swim);
     }
     void PlayerLadderState::onCollisionStay(const LadderActor& ladder)
@@ -59,7 +60,11 @@ namespace abyss
     }
     void PlayerLadderState::onDraw(const PlayerVM& view) const
     {
-        if (this->isLadderTop()) {
+        if (m_isLanding) {
+            view.drawStateStay();
+        }else if (!m_canLadder) {
+            view.drawStateFloat();
+        }else if (this->isLadderTop()) {
             view.drawStateLadderTop();
         } else {
             view.drawStateLadder();

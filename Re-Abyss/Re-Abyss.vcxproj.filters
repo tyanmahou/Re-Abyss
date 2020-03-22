@@ -302,6 +302,15 @@
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Player\State\PlayerBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Player\State\PlayerSwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Player\State\PlayerLadderState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -524,5 +533,8 @@
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\models\Actors\Player\LadderStateModel.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\State\PlayerBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\State\PlayerSwimState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\State\PlayerLadderState.hpp" />
   </ItemGroup>
 </Project>
