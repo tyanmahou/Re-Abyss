@@ -4,7 +4,7 @@ namespace abyss
 {
     void SlimeBaseState::setup()
     {
-        m_body = &m_actor->getBody();
+        m_body = this->binded<BodyModel>();
     }
     void SlimeBaseState::update(double dt)
     {

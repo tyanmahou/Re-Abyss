@@ -15,8 +15,10 @@ namespace abyss
 		m_hp = 10;
 		m_body.setMaxSpeedX(60);
 
-		m_state.add<SlimeWalkState>(State::Walk);
-		m_state.add<SlimeJumpState>(State::Jump);
+		m_state
+			.add<SlimeWalkState>(State::Walk)
+			.add<SlimeJumpState>(State::Jump)
+			.bind<BodyModel>(&SlimeActor::m_body);
 	}
 
 	void SlimeActor::start()
