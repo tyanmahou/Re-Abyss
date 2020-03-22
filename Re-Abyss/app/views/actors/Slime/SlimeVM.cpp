@@ -3,8 +3,14 @@
 
 namespace abyss
 {
+    // todo flyweightのいい感じにする
+    static Texture Get()
+    {
+        static Texture tex(U"resources/images/actors/Slime/slime.png");
+        return tex;
+    }
     SlimeVM::SlimeVM():
-        m_texture(U"work/enemy/slime/slime.png")
+        m_texture(Get())
     {}
     SlimeVM& SlimeVM::setForward(const Forward & forward)
     {

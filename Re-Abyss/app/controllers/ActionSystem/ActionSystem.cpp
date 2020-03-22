@@ -110,4 +110,8 @@ namespace abyss
     {
         return s_main ? &s_main->m_light: nullptr;
     }
+    World* const ActionSystem::World()
+    {
+        return s_main ? &s_main->m_world : nullptr;
+    }
 }

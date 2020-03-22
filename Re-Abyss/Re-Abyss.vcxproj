@@ -179,6 +179,7 @@
     <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\Shot\PlayerShotActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\Senser\SlimeSenser.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\State\SlimeBaseState.cpp" />
@@ -197,6 +198,7 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
@@ -213,7 +215,7 @@
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\views\Actors\base\IActorView.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerView.cpp" />
-    <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotView.cpp" />
+    <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp" />
@@ -258,6 +260,7 @@
     <ClInclude Include="app\controllers\Actors\Player\LadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\PlayerShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeBaseState.hpp" />
@@ -281,6 +284,8 @@
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
@@ -308,8 +313,7 @@
     <ClInclude Include="app\views\Actors\base\IActorView.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerView.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerViewModel.hpp" />
-    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotView.hpp" />
-    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotViewModel.hpp" />
+    <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp" />

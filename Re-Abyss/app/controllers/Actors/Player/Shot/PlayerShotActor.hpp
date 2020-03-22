@@ -1,27 +1,26 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/views/Actors/Player/Shot/PlayerShotView.hpp>
+#include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/controllers/Actors/base/IState.hpp>
 
 namespace abyss
 {
 	class PlayerShotActor : 
-		public IActor,
-		public PlayerShotView
+		public IActor
 	{
 	public:
-		enum class Type
+		enum State
 		{
-			Normal,
-			Small,
-			Medium,
-			Big,
+			Base,
 		};
 	private:
-		Type m_type;
+		PlayerShotModel m_shot;
 		BodyModel m_body;
+		StateManager<PlayerShotActor> m_state;
+		std::shared_ptr<PlayerShotVM> m_view;
 	public:
-		PlayerShotActor(const s3d::Vec2& pos, Forward forward, s3d::int32 charge);
+		PlayerShotActor(const s3d::Vec2& pos, Forward forward, double charge);
 		void start() override;
 		void update(double dt) override;
 		CShape getCollider() const override;
@@ -29,11 +28,9 @@ namespace abyss
 
 		s3d::Circle getColliderCircle() const;
 
-		Type getType() const;
-		Forward getForward() const;
-		const s3d::Vec2& getPos() const;
-
 		void accept(const ActVisitor& visitor) override;
 		void draw() const override;
+
+		PlayerShotVM* getBindedView()const;
 	};
 }

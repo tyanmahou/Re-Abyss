@@ -68,8 +68,7 @@ namespace abyss
 	class IActorView;
 	class PlayerView;
 	struct PlayerViewModel;
-	class PlayerShotView;
-	struct PlayerShotViewModel;
+	class PlayerShotVM;
 	class SlimeVM;
 
 	class CameraView;

@@ -27,10 +27,8 @@ namespace abyss::Constants
 		inline constexpr double DiveSpeed = 2.2;
 		inline constexpr double MaxSpeed = 4;
 
-		inline constexpr s3d::int32 SmallCharge = 10;
-		inline constexpr s3d::int32 MediumCharge = 60;
-		inline constexpr s3d::Color MediumChargeColorBase{ 128, 128, 255 };
-		inline constexpr s3d::int32 BigCharge = 120;
-		inline constexpr s3d::Color BigChargeColorBase{ 255, 255, 0 };
+		inline constexpr double SmallCharge = 10;
+		inline constexpr double MediumCharge = 60;
+		inline constexpr double BigCharge = 120;
 	}
 }

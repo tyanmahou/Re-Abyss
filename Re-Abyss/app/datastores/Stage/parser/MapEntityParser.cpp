@@ -86,6 +86,7 @@ namespace abyss
             if (ret.col) {
                 return ret;
             }
+            break;
         case MapType::Ladder:
             ret.col = ColDirection::None;
             if (getFieldType(x, y - 1) == MapType::None) {

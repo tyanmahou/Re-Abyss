@@ -37,6 +37,11 @@ namespace abyss
             m_actorsHolder.pushActor(actor);
         }
 
+        template<class Type, class... Args>
+        void addEffect(Args&& ... args)
+        {
+            m_view.addEffect<Type>(std::forward<Args>(args)...);
+        }
         inline WorldView& getView() {return m_view;}
         inline const WorldView& getView()const { return m_view; }
 

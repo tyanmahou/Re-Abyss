@@ -12,14 +12,21 @@ namespace abyss
 	template <class Actor, class StateKey = typename Actor::State>
 	class IState : s3d::Uncopyable
 	{
+	private:
+		StateManager<Actor, StateKey>* m_manager;
 	protected:
 		Actor* m_actor;
 
-		StateManager<Actor, StateKey>* m_manager;
 
 		void changeState(const StateKey& next)
 		{
 			m_manager->changeState(next);
+		}
+
+		template<class Module>
+		Module* binded() const
+		{
+			return m_manager->binded<Module>();
 		}
 	public:
 
@@ -34,12 +41,11 @@ namespace abyss
 		virtual void update([[maybe_unused]]double dt) {}
 
 		virtual void end() {}
-
-		virtual void draw() const {}
-
 		virtual void onCollisionEnter(ICollider*) {}
 		virtual void onCollisionStay(ICollider*) {}
 		virtual void onCollisionExit(ICollider*) {}
+
+		virtual void draw() const {}
 
 		void init(StateManager<Actor, StateKey>* manager)
 		{
@@ -66,6 +72,9 @@ namespace abyss
 		s3d::Optional<StateKey> m_nextState;
 
 		Actor*const  m_actor;
+
+		template<class Module>
+		static inline Module Actor::* s_bind = nullptr;
 	public:
 
 		StateManager(Actor* actor): 
@@ -152,6 +161,22 @@ namespace abyss
 		const StateKey& getState()const
 		{
 			return m_currentState;
+		}
+
+		template<class Module>
+		const StateManager& bind(Module Actor::* memPtr) const
+		{
+			s_bind<Module> = memPtr;
+			return *this;
+		}
+
+		template<class Module>
+		Module* binded() const
+		{
+			if (!s_bind<Module>) {
+				return nullptr;
+			}
+			return &(m_actor->*s_bind<Module>);
 		}
 	};
 }

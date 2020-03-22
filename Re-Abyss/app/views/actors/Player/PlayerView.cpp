@@ -104,9 +104,9 @@ namespace abyss
             double a = 0.5 * Periodic::Triangle0_1(0.2s);
             ColorF color;
             if (charge >= Constants::Player::BigCharge) {
-                color = Constants::Player::BigChargeColorBase;
+                color = ColorF(1,1,0);
             } else if (charge >= Constants::Player::MediumCharge) {
-                color = Constants::Player::MediumChargeColorBase;
+                color = ColorF(0.5,0.5,1,0);
             } else {
                 color = ColorF(1);
             }
@@ -127,7 +127,7 @@ namespace abyss
     PlayerView::PlayerView(const PlayerActor* const pModel) :
         IActorView(pModel),
         m_pModel(pModel),
-        m_texture(U"work/player/player.json")
+        m_texture(U"resources/images/actors/Player/player.json")
     {}
     void PlayerView::draw() const
     {

@@ -1,4 +1,4 @@
-﻿#include "MainScene.hpp"
+#include "MainScene.hpp"
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/factories/ActionSystem/ActionSystemFactory.hpp>
@@ -11,7 +11,7 @@ namespace abyss
 
 	public:
 		Controller([[maybe_unused]] const MainScene::InitData& init):
-			m_actionSystem(ActionSystemFactory::CreateFromTmx(U"work/stage0/stage0.tmx"))
+			m_actionSystem(ActionSystemFactory::CreateFromTmx(U"resources/maps/stage0.tmx"))
 		{
 			this->init();
 		}
