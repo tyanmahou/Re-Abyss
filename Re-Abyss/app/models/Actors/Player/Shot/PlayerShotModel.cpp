@@ -1,6 +1,7 @@
 #include "PlayerShotModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/ColorDef.hpp>
 
 namespace
 {
@@ -38,10 +39,10 @@ namespace
     {
         using enum PlayerShotType;
         static const std::unordered_map<PlayerShotType, Color> colorMap{
-            {Normal, ColorF(1)},
-            {Small, ColorF(1)},
-            {Medium, ColorF(0.5, 0.5, 1.0)},
-            {Big,  ColorF(1.0, 1.0, 0)},
+            {Normal, ColorDef::Shot::NormalCharge},
+            {Small, ColorDef::Shot::NormalCharge},
+            {Medium, ColorDef::Shot::MediumCharge},
+            {Big, ColorDef::Shot::BigCharge},
         };
         return colorMap.at(type);
     }

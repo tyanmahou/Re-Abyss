@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #pragma warning(push)
 #pragma warning(disable:26812)
@@ -6,7 +6,7 @@
 namespace abyss
 {
 	// 梯子状態
-	struct LadderState
+	struct LadderStateModel
 	{
 		enum State
 		{
@@ -14,9 +14,10 @@ namespace abyss
 			IsLadder = 0x1,
 			IsLadderTop = 0x3,
 			CanLadder = 0x4,
-		}state;
+		}state = None;
 
-		LadderState(State s) :
+		LadderStateModel() = default;
+		LadderStateModel(State s) :
 			state(s)
 		{}
 

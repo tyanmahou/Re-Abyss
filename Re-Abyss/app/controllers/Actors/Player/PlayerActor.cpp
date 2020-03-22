@@ -6,6 +6,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/models/Collision/FixPos.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/views/Actors/Player/PlayerVM.hpp>
 
 namespace abyss
 {
@@ -60,14 +61,14 @@ namespace abyss
         pos.y += 2.0 * (InputManager::Down.pressed() - InputManager::Up.pressed());
         m_body.setPos(pos);
         if (InputManager::A.down()) {
-            m_ladderState = LadderState::None;
+            m_ladderState = LadderStateModel::None;
         }
     }
 
     PlayerActor::PlayerActor() :
-        PlayerView(this),
         m_charge(0),
-        m_ladderState(LadderState::None)
+        m_ladderState(LadderStateModel::None),
+        m_state(this)
     {
         this->tag = U"player";
         m_body.setForward(Forward::Right).setDeccelX(180).setMaxSpeedX(240);
@@ -179,7 +180,7 @@ namespace abyss
                 m_body.setVelocityY(0);
             }
             if (m_ladderState.isLadder()) {
-                m_ladderState.state = LadderState::None;
+                m_ladderState.state = LadderStateModel::None;
             }
         }
         return collision.second;
@@ -237,7 +238,7 @@ namespace abyss
                 }
                 if (m_ladderState.isLadderTop() && (InputManager::Up.down() || ladderTopTimer > 5)) {
                     m_body.setPosY(ladderRegion.y - this->region().h / 2.0);
-                    m_ladderState = LadderState::None;
+                    m_ladderState = LadderStateModel::None;
                     ladderTopTimer = 0;
                 }
             }
@@ -293,7 +294,14 @@ namespace abyss
     }
     void PlayerActor::draw() const
     {
-        PlayerView::draw();
+        m_state.draw();
+    }
+    PlayerVM* PlayerActor::getBindedView() const
+    {
+        return &m_view->setPos(m_body.getPos())
+            .setVelocity(m_body.getVelocity())
+            .setForward(m_body.getForward())
+            .setCharge(m_charge);
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {

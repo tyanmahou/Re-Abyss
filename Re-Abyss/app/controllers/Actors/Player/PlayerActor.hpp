@@ -4,17 +4,29 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/views/actors/Player/PlayerView.hpp>
-
-#include "LadderState.hpp"
+#include <abyss/models/Actors/Player/ChargeModel.hpp>
+#include <abyss/models/Actors/Player/LadderStateModel.hpp>
+#include <abyss/controllers/Actors/base/IState.hpp>
 
 namespace abyss
 {
 	class PlayerActor: 
-		public IActor,
-		public PlayerView
+		public IActor
 	{
 	public:
+		enum class State
+		{
+			Stay,
+			Swim,
+			Run,
+			Float,
+			Dive,
+			Damge,
+			Ladder,
+			LadderTop,
+			Door,
+			Shoting
+		};
 		enum class Motion
 		{
 			Stay,
@@ -35,7 +47,11 @@ namespace abyss
 		Motion m_motion;
 
 		int32 m_charge;
-		LadderState m_ladderState;
+		LadderStateModel m_ladderState;
+
+		StateManager<PlayerActor> m_state;
+		std::shared_ptr<PlayerVM> m_view;
+
 		bool attack();
 		void nomarlMove(double dt);
 		void ladderMove();
@@ -64,6 +80,7 @@ namespace abyss
 
 		void accept(const ActVisitor& visitor) override;
 		void draw() const override;
+		PlayerVM* getBindedView()const;
 
 		static std::shared_ptr<PlayerActor> Create();
 	};

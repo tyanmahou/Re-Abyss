@@ -44,8 +44,6 @@ namespace abyss
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
-
-	// Models/Components
 	class BodyModel;
 
 	/// <summary>
@@ -65,9 +63,7 @@ namespace abyss
 	/// </summary>
 	
 	class WorldView;
-	class IActorView;
-	class PlayerView;
-	struct PlayerViewModel;
+	class PlayerVM;
 	class PlayerShotVM;
 	class SlimeVM;
 

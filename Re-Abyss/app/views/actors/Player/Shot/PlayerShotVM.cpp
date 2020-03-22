@@ -26,7 +26,7 @@ namespace abyss
         double r = m_shot.toRadius();
 
         // effect
-        if (Scene::FrameCount() % 2 && m_shot > PlayerShotType::Medium) {
+        if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot > PlayerShotType::Medium) {
             ActionSystem::World()->addEffect<PlayerShotEffect>(m_pos, r, m_shot.toColorF());
         }
 

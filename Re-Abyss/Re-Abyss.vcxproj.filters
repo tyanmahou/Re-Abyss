@@ -164,9 +164,6 @@
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\base\IActorView.cpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\base\ICollider.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
@@ -174,9 +171,6 @@
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Player\PlayerView.cpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp">
@@ -302,6 +296,12 @@
     <ClCompile Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -414,9 +414,6 @@
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Actors\base\IActorView.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="app\controllers\Actors\base\ICollider.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
@@ -427,15 +424,6 @@
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\PlayerView.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\PlayerViewModel.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Player\LadderState.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
@@ -532,5 +520,9 @@
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\ChargeModel.hpp" />
+    <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
+    <ClInclude Include="app\commons\ColorDef.hpp" />
+    <ClInclude Include="app\models\Actors\Player\LadderStateModel.hpp" />
   </ItemGroup>
 </Project>
