@@ -180,7 +180,7 @@ namespace abyss
                 m_body.setVelocityY(0);
             }
             if (m_ladderState.isLadder()) {
-                m_ladderState.state = LadderStateModel::None;
+                m_ladderState = LadderStateModel::None;
             }
         }
         return collision.second;

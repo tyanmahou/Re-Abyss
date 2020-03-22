@@ -1,3 +1,4 @@
+#pragma once
 #include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 
 namespace abyss
