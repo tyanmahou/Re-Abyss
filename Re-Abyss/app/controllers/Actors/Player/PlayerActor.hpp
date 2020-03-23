@@ -4,6 +4,7 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/FootModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
 
@@ -21,6 +22,7 @@ namespace abyss
 		};
 	private:
 		BodyModel m_body;
+		FootModel m_foot;
 		ChargeModel m_charge;
 		int32 m_hp;
 
@@ -31,6 +33,8 @@ namespace abyss
 	public:
 		PlayerActor();
 		void update(double dt) override;
+		void lastUpdate(double dt) override;
+
 		CShape getCollider() const override;
 		void onCollisionStay(ICollider* col) override;
 		void setPos(const Vec2& pos);

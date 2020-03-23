@@ -27,20 +27,7 @@ namespace abyss
             m_body->addPosY(10.0);
         }
     }
-    void PlayerSwimState::onCollisionStay(const LadderActor & ladder)
-    {
-        if (ladder.isTop()) {
-            this->fixPos(ladder.getMapColInfo());
-        }
-        if (ladder.getCenterLine().intersects(m_body->region())) {
-            if (!ladder.isTop() && InputManager::Up.down() || InputManager::Down.down()) {
-                // 上下押した
-                m_body->setPosX(ladder.getPos().x);
-                m_body->addPosY(-2 * (InputManager::Up.down() - InputManager::Down.down()));
-                this->changeState(PlayerActor::State::Ladder);
-            }
-        }
-    }
+
     void PlayerSwimState::onCollisionStay(const DoorActor & col)
     {
         if (InputManager::Up.down()) {
@@ -67,6 +54,20 @@ namespace abyss
             m_motion = Motion::Dive;
         }
     }
+    void PlayerSwimState::lastUpdate([[maybe_unused]]double dt)
+    {
+        if (m_foot->isLadder()) {
+            bool canUp = !m_foot->isLadderTop() && InputManager::Up.down();
+            bool canDown = (m_foot->isLadderTop() || !m_foot->isLanding()) && InputManager::Down.down();
+            
+            if (canUp || canDown) {
+                m_body->setPosX(*m_foot->getLadderPosX());
+                m_body->addPosY(-2 * (canUp - canDown));
+                this->changeState(PlayerActor::State::Ladder);
+                m_motion = Motion::Ladder;
+            }
+        }
+    }
     void PlayerSwimState::onDraw(const PlayerVM& view) const
     {
         switch (m_motion) {
@@ -76,6 +77,7 @@ namespace abyss
         case Motion::Float: return view.drawStateFloat();
         case Motion::Dive: return view.drawStateDive();
         case Motion::Door: return view.drawStateDoor();
+        case Motion::Ladder: return view.drawStateLadder();
         default:
             break;
         }

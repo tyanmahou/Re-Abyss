@@ -20,6 +20,7 @@ namespace abyss
             .add<PlayerSwimState>(State::Swim)
             .add<PlayerLadderState>(State::Ladder)
             .bind<BodyModel>(&PlayerActor::m_body)
+            .bind<FootModel>(&PlayerActor::m_foot)
             .bind<ChargeModel>(&PlayerActor::m_charge)
         ;
     }
@@ -33,6 +34,11 @@ namespace abyss
         //if (KeyD.pressed()) {
         //    m_motion = Motion::Damge;
         //}
+    }
+
+    void PlayerActor::lastUpdate(double dt)
+    {
+        m_state.lastUpdate(dt);
     }
 
     void PlayerActor::setPos(const Vec2& pos)

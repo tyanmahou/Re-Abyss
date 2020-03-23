@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <memory>
 
 #include <Siv3D/Array.hpp>
@@ -18,7 +18,8 @@ namespace abyss
 		void pushActor(const std::shared_ptr<IActor>& obj);
 		void directPushActor(const std::shared_ptr<IActor>& obj);
 
-		void update();
+		void update(double dt);
+		void lastUpdate(double dt);
 		void draw()const;
 
 		void erase();

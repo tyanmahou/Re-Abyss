@@ -14,6 +14,7 @@ namespace abyss
             if (m_body->getVelocity().y > 0) {
                 m_body->setVelocityY(0);
             }
+            *m_foot |= FootModel::Landing;
             this->onLanding();
         }
         return col;
@@ -26,17 +27,27 @@ namespace abyss
     {
         this->fixPos(col.getMapColInfo());
     }
-    void PlayerBaseState::onCollisionStay(const LadderActor & col)
+    void PlayerBaseState::onCollisionStay(const LadderActor & ladder)
     {
-        if (col.isTop()) {
-            this->fixPos(col.getMapColInfo());
+        if (ladder.isTop()) {
+            this->onCollisionStayLadderTop(ladder);
         }
+        if (ladder.getCenterLine().intersects(m_body->region())) {
+            m_foot->setLadderPosX(ladder.getPos().x);
+            auto state = ladder.isTop() ? FootModel::LadderTop : FootModel::Ladder;
+            (*m_foot) |= state;
+        }
+    }
+    void PlayerBaseState::onCollisionStayLadderTop(const LadderActor& ladder)
+    {
+        this->fixPos(ladder.getMapColInfo());
     }
     void PlayerBaseState::onCollisionStay([[maybe_unused]]const DoorActor & col)
     {}
     void PlayerBaseState::setup()
     {
         m_body = this->binded<BodyModel>();
+        m_foot = this->binded<FootModel>();
         m_charge = this->binded<ChargeModel>();
     }
     void PlayerBaseState::start()
@@ -84,6 +95,7 @@ namespace abyss
             double charge = m_charge->pop();
             m_actor->getWorld()->create<PlayerShotActor>(m_body->getPos(), m_body->getForward(), charge);
         }
+        m_foot->reset();
     }
     void PlayerBaseState::onCollisionStay(ICollider * col)
     {

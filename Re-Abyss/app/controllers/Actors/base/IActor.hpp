@@ -32,7 +32,8 @@ namespace abyss
 			return m_id;
 		}
 		inline virtual void start() {}
-		inline virtual void update(double /*dt*/) {}
+		inline virtual void update([[maybe_unused]]double dt) {}
+		inline virtual void lastUpdate([[maybe_unused]] double dt) {}
 		inline virtual void draw()const {}
 
 		inline void setActive(bool active)

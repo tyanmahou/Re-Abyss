@@ -16,31 +16,25 @@ namespace abyss
     }
     void PlayerLadderState::onLanding()
     {
-        m_isLanding = true;
         this->changeState(PlayerActor::State::Swim);
     }
-    void PlayerLadderState::onCollisionStay(const LadderActor& ladder)
+    void PlayerLadderState::onCollisionStayLadderTop(const LadderActor& ladder)
     {
-        if (ladder.isTop()) {
-            auto&& ladderRegion = ladder.region();
+        auto&& ladderRegion = ladder.region();
 
-            //上端にきたら状態を繊維する
-            if (m_body->getPos().y <= ladderRegion.y) {
-                if (!m_isTop) {
-                    m_ladderTopTimer = 0;
-                    m_isTop = true;
-                }
-                m_body->setPosY(ladderRegion.y);
-            } else {
-                m_isTop = false;
+        //上端にきたら状態を繊維する
+        if (m_body->getPos().y <= ladderRegion.y) {
+            if (!m_isTop) {
+                m_ladderTopTimer = 0;
+                m_isTop = true;
             }
-            if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
-                m_body->setPosY(ladderRegion.y - m_body->region().h / 2.0);
-                this->changeState(PlayerActor::State::Swim);
-            }
+            m_body->setPosY(ladderRegion.y);
+        } else {
+            m_isTop = false;
         }
-        if (ladder.getCenterLine().intersects(m_body->region())) {
-            m_canLadder = true;
+        if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
+            m_body->setPosY(ladderRegion.y - m_body->region().h / 2.0);
+            this->changeState(PlayerActor::State::Swim);
         }
     }
     void PlayerLadderState::start()
@@ -49,22 +43,20 @@ namespace abyss
     }
     void PlayerLadderState::update(double dt)
     {
-        if (!m_canLadder) {
-            this->changeState(PlayerActor::State::Swim);
-        }
         PlayerBaseState::update(dt);
-        m_canLadder = false;
         if (m_isTop && InputManager::Up.pressed()) {
             m_ladderTopTimer += 60 * dt;
         }
     }
+    void PlayerLadderState::lastUpdate([[maybe_unused]]double dt)
+    {
+        if (!m_foot->isLadder()) {
+            this->changeState(PlayerActor::State::Swim);
+        }
+    }
     void PlayerLadderState::onDraw(const PlayerVM& view) const
     {
-        if (m_isLanding) {
-            view.drawStateStay();
-        }else if (!m_canLadder) {
-            view.drawStateFloat();
-        }else if (this->isLadderTop()) {
+        if (this->isLadderTop()) {
             view.drawStateLadderTop();
         } else {
             view.drawStateLadder();

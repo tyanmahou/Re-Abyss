@@ -13,6 +13,7 @@ namespace abyss
             Float,
             Dive,
             Door,
+            Ladder,
         };
 
     private:
@@ -21,11 +22,11 @@ namespace abyss
         void onLanding()override;
 
         void onCollisionStay(const PenetrateFloorActor& col) override;
-        void onCollisionStay(const LadderActor& col) override;
         void onCollisionStay(const DoorActor& col) override;
 
         void start() override;
         void update(double dt)override;
+        void lastUpdate(double dt)override;
         void onDraw(const PlayerVM& view)const override;
     };
 }

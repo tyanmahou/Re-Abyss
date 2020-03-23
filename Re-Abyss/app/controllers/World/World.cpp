@@ -11,9 +11,13 @@ namespace abyss
     {}
     void World::update()
     {
-        m_actorsHolder.update();
+        double dt = s3d::Scene::DeltaTime();
+
+        m_actorsHolder.update(dt);
         // 衝突
         m_collision->collisionAll(m_actorsHolder.getActors());
+
+        m_actorsHolder.lastUpdate(dt);
 
         m_actorsHolder.erase();
     }

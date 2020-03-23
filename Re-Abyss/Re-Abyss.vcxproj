@@ -201,6 +201,7 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
@@ -290,8 +291,8 @@
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\ChargeModel.hpp" />
-    <ClInclude Include="app\models\Actors\Player\LadderStateModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />

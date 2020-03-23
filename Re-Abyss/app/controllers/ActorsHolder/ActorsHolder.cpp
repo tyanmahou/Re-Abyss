@@ -1,7 +1,6 @@
 #include "ActorsHolder.hpp"
 
 #include <Siv3D/Utility.hpp>
-#include <Siv3D/Scene.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
@@ -18,10 +17,8 @@ namespace abyss
 		obj->setId(m_objIdCounter++);
 		m_actors.push_back(obj);
 	}
-	void ActorsHolder::update()
+	void ActorsHolder::update(double dt)
 	{
-		double dt = s3d::Scene::DeltaTime();
-
 		if (!m_reserves.empty()) {
 			// startでregistされてもいいようにここでmove
 			auto registing = std::move(m_reserves);
@@ -34,6 +31,12 @@ namespace abyss
 
 		for (auto& obj : m_actors) {
 			obj->update(dt);
+		}
+	}
+	void ActorsHolder::lastUpdate(double dt)
+	{
+		for (auto& obj : m_actors) {
+			obj->lastUpdate(dt);
 		}
 	}
 	void ActorsHolder::draw() const
