@@ -2,6 +2,7 @@
 
 #include <abyss/scenes/Main/MainScene.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/controllers/World/WorldTime.hpp>
 
 namespace abyss
 {
@@ -20,6 +21,7 @@ namespace abyss
 
 		bool update()
 		{
+			WorldTime::Update();
 #if ABYSS_DEBUG
 			DebugManager::Update();
 #endif

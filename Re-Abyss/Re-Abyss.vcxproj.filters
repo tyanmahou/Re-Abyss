@@ -314,6 +314,21 @@
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\HPModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Time\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\TimerEx\TimerEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\World\WorldTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -539,5 +554,10 @@
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerLadderState.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
+    <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
+    <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
+    <ClInclude Include="app\utils\Time\Time.hpp" />
+    <ClInclude Include="app\controllers\World\WorldTime.hpp" />
   </ItemGroup>
 </Project>

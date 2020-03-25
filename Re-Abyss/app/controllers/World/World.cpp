@@ -1,4 +1,6 @@
 #include "World.hpp"
+#include "WorldTime.hpp"
+
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
@@ -11,7 +13,7 @@ namespace abyss
     {}
     void World::update()
     {
-        double dt = s3d::Scene::DeltaTime();
+        double dt = WorldTime::DeltaTime();
 
         m_actorsHolder.update(dt);
         // 衝突
