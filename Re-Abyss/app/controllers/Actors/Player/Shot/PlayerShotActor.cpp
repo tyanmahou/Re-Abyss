@@ -1,5 +1,6 @@
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/views/Actors/Player/Shot/PlayerShotVM.hpp>
+#include <abyss/commons/LayerGroup.hpp>
 #include "State/PlayerShotBaseState.hpp"
 
 namespace abyss
@@ -8,6 +9,7 @@ namespace abyss
 		m_shot(charge),
 		m_state(this)
 	{
+		this->layer = LayerGroup::Player;
 		m_state
 			.add<PlayerShotBaseState>(State::Base)
 			.bind<BodyModel>(&PlayerShotActor::m_body)
@@ -20,6 +22,7 @@ namespace abyss
 			.noneResistanced()
 			.setVelocityX(forward == Forward::Right ? speed : -speed)
 			;
+		m_power = m_shot.toPower();
 		m_view = std::make_shared<PlayerShotVM>(m_shot, forward);
 	}
 	void PlayerShotActor::start()

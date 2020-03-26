@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Visitor.hpp>
 
@@ -7,6 +7,8 @@ namespace abyss
 
 	using ActVisitorBase = Visitor<
 		IActor,
+		Attacker,
+		Receiver,
 
 		PlayerActor,
 		PlayerShotActor,

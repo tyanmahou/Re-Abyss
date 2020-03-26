@@ -1,5 +1,6 @@
 #include "WorldTime.hpp"
 #include <Siv3D/Stopwatch.hpp>
+#include <Siv3D/Math.hpp>
 
 namespace abyss
 {
@@ -19,7 +20,7 @@ namespace abyss
             auto prevTime = m_currentRealTime;
 
             m_currentRealTime = m_stopwatch.sF();
-            m_deltaTimeSec = (m_currentRealTime - prevTime) * m_timeScale;
+            m_deltaTimeSec = s3d::Min(m_currentRealTime - prevTime, 0.1) * m_timeScale;
             m_totalTimeSec += m_deltaTimeSec;
         }
         double time() const

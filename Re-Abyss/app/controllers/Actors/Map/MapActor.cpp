@@ -1,4 +1,5 @@
 #include "MapActor.hpp"
+#include <abyss/commons/LayerGroup.hpp>
 
 namespace abyss
 {
@@ -6,7 +7,9 @@ namespace abyss
 		m_col(col),
 		m_pos(pos),
 		m_size(size)
-	{}
+	{
+		this->layer = LayerGroup::Map;
+	}
 
 	const s3d::Vec2& MapActor::getPos() const
 	{

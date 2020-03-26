@@ -27,10 +27,10 @@ namespace abyss
 
     void PlayerShotBaseState::onCollisionStay(ICollider * col)
     {
-        col->accept([this](FloorActor&) {
+        col->accept([this](const Receiver&) {
             if (!m_shot->isBig()) {
 
-                // 壁に当たって消える
+                // 当たって消える
                 m_actor->destroy();
             }
         });

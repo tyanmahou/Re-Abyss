@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/FootModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
@@ -11,7 +12,8 @@
 namespace abyss
 {
 	class PlayerActor: 
-		public IActor
+		public IActor,
+		public Receiver
 	{
 	public:
 		enum class State

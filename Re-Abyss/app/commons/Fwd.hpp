@@ -20,6 +20,8 @@ namespace abyss
 	/// Controllers/Actors
 	class ICollider;
 	class IActor;
+	class Attacker;
+	class Receiver;
 	class PlayerActor;
 	class PlayerShotActor;
 	class EnemyActor;

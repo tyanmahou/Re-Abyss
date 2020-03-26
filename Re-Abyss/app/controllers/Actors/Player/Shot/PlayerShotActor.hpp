@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
@@ -7,7 +8,8 @@
 namespace abyss
 {
 	class PlayerShotActor : 
-		public IActor
+		public IActor,
+		public Attacker
 	{
 	public:
 		enum State

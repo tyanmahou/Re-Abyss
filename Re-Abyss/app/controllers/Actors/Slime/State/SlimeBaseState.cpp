@@ -17,6 +17,11 @@ namespace abyss
     }
     void SlimeBaseState::draw() const
     {}
+    void SlimeBaseState::onCollisionEnter(ICollider* col)
+    {
+        m_actor->EnemyActor::onCollisionEnter(col);
+    }
+
     void SlimeBaseState::onCollisionStay(ICollider * col)
     {
         col->accept([this](const MapActor& map) {

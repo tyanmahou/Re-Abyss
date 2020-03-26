@@ -1,4 +1,5 @@
-#include "EnemyActor.hpp"
+#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/commons/ActInclude.hpp>
 
 namespace abyss
 {
@@ -7,6 +8,7 @@ namespace abyss
 		m_body.setPos(pos);
 		m_body.setForward(forward);
 		this->tag = U"enemy";
+		this->layer = LayerGroup::Enemy;
 	}
 	void EnemyActor::start()
 	{}
@@ -42,4 +44,15 @@ namespace abyss
 	{
 		return m_body.region();
 	}
+	void EnemyActor::onCollisionEnter(ICollider* col)
+	{
+		col->accept([this](const Attacker& attacker) {
+			if (m_hp.damage(attacker.getPower()) && m_hp.isDead()) {
+				m_isActive = false;
+				this->onDead();
+			}
+		});
+	}
+	void EnemyActor::onDead()
+	{}
 }

@@ -12,7 +12,13 @@ namespace abyss
         HPModel();
         HPModel(s3d::int32 hp, double invincibleTimeSec = 0.0);
 
-        void damage(s3d::int32 power);
+        HPModel& setHp(s3d::int32 hp);
+        HPModel& setInvincibleTime(double invincibleTimeSec);
+
+        s3d::int32 value() const;
+        bool damage(s3d::int32 power);
+
+        bool isDead() const;
 
         bool isInInvincibleTime() const;
     };

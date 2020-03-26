@@ -20,6 +20,7 @@ namespace abyss
 	public:
 		PlayerShotModel(double charge);
 
+		s3d::int32 toPower()const;
 		double toRadius() const;
 		s3d::ColorF toColorF() const;
 

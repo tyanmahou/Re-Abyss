@@ -1,6 +1,7 @@
 #include "State/PlayerSwimState.hpp"
 #include "State/PlayerLadderState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/commons/LayerGroup.hpp>
 
 namespace abyss
 {
@@ -9,6 +10,7 @@ namespace abyss
         m_view(std::make_shared<PlayerVM>())
     {
         this->tag = U"player";
+        this->layer = LayerGroup::Player;
         m_body
             .setSize({ 22, 80 })
             .setForward(Forward::Right)

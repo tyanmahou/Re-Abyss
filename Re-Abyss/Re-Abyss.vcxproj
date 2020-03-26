@@ -257,10 +257,13 @@
     <ClInclude Include="app\commons\InputManager\InputState\InputState.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
+    <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />

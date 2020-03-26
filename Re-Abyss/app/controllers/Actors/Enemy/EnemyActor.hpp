@@ -1,15 +1,21 @@
 #pragma once
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/controllers/Actors/base/Attacker.hpp>
+#include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/HPModel.hpp>
 
 namespace abyss
 {
-	class EnemyActor : public IActor
+	class EnemyActor : 
+		public IActor,
+		public Attacker,
+		public Receiver
 	{
 	protected:
 		BodyModel m_body;
-		s3d::int32 m_hp;
+		HPModel m_hp;
 	public:
 		EnemyActor() = default;
 
@@ -27,5 +33,9 @@ namespace abyss
 
 		CShape getCollider() const override;
 		s3d::RectF region()const;
+
+		void onCollisionEnter(ICollider* col) override;
+
+		virtual void onDead();
 	};
 }

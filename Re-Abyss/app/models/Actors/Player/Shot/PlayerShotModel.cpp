@@ -46,12 +46,28 @@ namespace
         };
         return colorMap.at(type);
     }
+
+    s3d::int32 TypeToPower(PlayerShotType type)
+    {
+        using enum PlayerShotType;
+        static const std::unordered_map<PlayerShotType, s3d::int32> powerMap{
+            {Normal, 2},
+            {Small, 3},
+            {Medium, 6},
+            {Big, 12},
+        };
+        return powerMap.at(type);
+    }
 }
 namespace abyss
 {
     PlayerShotModel::PlayerShotModel(double charge):
         m_type(::ChargeToType(charge))
     {}
+    s3d::int32 PlayerShotModel::toPower() const
+    {
+        return ::TypeToPower(m_type);
+    }
     double PlayerShotModel::toRadius() const
     {
         return ::TypeToRadius(m_type);
