@@ -1,5 +1,7 @@
 #include "SlimeVM.hpp"
 #include <Siv3D.hpp>
+#include <abyss/commons/ColorDef.hpp>
+#include <abyss/controllers/World/WorldTime.hpp>
 
 namespace abyss
 {
@@ -28,12 +30,18 @@ namespace abyss
         return *this;
     }
 
+    SlimeVM& SlimeVM::setIsDamaging(bool isDamaging)
+    {
+        m_isDamaging = isDamaging;
+        return *this;
+    }
+
     void SlimeVM::drawWalk() const
     {
         bool isLeft = m_forward == Forward::Left;
-        int32 time = static_cast<int32>(Periodic::Square0_1(1s));
+        int32 time = static_cast<int32>(Periodic::Square0_1(1s, WorldTime::Time()));
         auto tex = m_texture(40 * time, 0, 40, 40);
-        (isLeft ? tex : tex.mirrored()).drawAt(m_pos);
+        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
 
     void SlimeVM::drawJump() const
@@ -42,7 +50,7 @@ namespace abyss
 
         int32 page = m_velocity.y > 0 ? 1 : 0;
         auto tex = m_texture(40 * page, 40, 40, 40);
-        (isLeft ? tex : tex.mirrored()).drawAt(m_pos);
+        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
 
 }

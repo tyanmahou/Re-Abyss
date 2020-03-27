@@ -3,6 +3,18 @@
 
 namespace abyss::ColorDef
 {
+    inline constexpr s3d::ColorF OnDamage(double time)
+    {
+        return static_cast<s3d::int32>(time * 10.0) % 2 ? s3d::ColorF(1.0, 0.5, 0.5, 0.5) : s3d::ColorF(1.0);
+    }
+    inline constexpr s3d::ColorF OnDamage(bool isDamaging, double time)
+    {
+        if (!isDamaging) {
+            return s3d::Palette::White;
+        }
+        return OnDamage(time);
+    }
+
     namespace Shot
     {
         inline constexpr s3d::ColorF BigCharge{ 1.0, 1.0, 0.0 };

@@ -14,11 +14,14 @@ namespace abyss
         s3d::Vec2 m_pos;
         s3d::Vec2 m_velocity;
 
+        bool m_isDamaging = false;
     public:
         SlimeVM();
         SlimeVM& setForward(const Forward& forward);
         SlimeVM& setPos(const s3d::Vec2& pos);
         SlimeVM& setVelocity(const s3d::Vec2& velocity);
+
+        SlimeVM& setIsDamaging(bool isDamaging);
 
         void drawWalk() const;
         void drawJump() const;

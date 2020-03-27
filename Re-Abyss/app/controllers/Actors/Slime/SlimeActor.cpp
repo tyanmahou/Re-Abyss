@@ -12,7 +12,7 @@ namespace abyss
 		m_view(std::make_shared<SlimeVM>()),
 		m_state(this)
 	{
-		m_hp.setHp(6).setInvincibleTime(0.1);
+		m_hp.setHp(6).setInvincibleTime(0.2);
 		m_body.setMaxSpeedX(60);
 
 		m_state
@@ -57,10 +57,15 @@ namespace abyss
 		return &m_view->setForward(this->getForward())
 			.setPos(this->getPos())
 			.setVelocity(this->getVellocity())
+			.setIsDamaging(this->m_hp.isInInvincibleTime())
 			;
 	}
 	bool SlimeActor::isWalk() const
 	{
 		return m_state.getState() == State::Walk;
+	}
+	void SlimeActor::onDead()
+	{
+		m_senser->destroy();
 	}
 }

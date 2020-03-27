@@ -37,5 +37,7 @@ namespace abyss
 		SlimeVM* getBindedView()const;
 
 		bool isWalk()const;
+
+		void onDead()override;
 	};
 }
