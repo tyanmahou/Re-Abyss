@@ -1,5 +1,6 @@
 #include "State/PlayerSwimState.hpp"
 #include "State/PlayerLadderState.hpp"
+#include "State/PlayerDamageState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 
@@ -21,21 +22,18 @@ namespace abyss
         m_state
             .add<PlayerSwimState>(State::Swim)
             .add<PlayerLadderState>(State::Ladder)
+            .add<PlayerDamageState>(State::Damage)
             .bind<BodyModel>(&PlayerActor::m_body)
             .bind<FootModel>(&PlayerActor::m_foot)
             .bind<ChargeModel>(&PlayerActor::m_charge)
-        ;
+            .bind<HPModel>(&PlayerActor::m_hp)
+            ;
+        m_hp.setHp(6).setInvincibleTime(2.0);
     }
 
     void PlayerActor::update(double dt)
     {
         m_state.update(dt);
-        //if (KeyD.down()) {
-        //    m_body.setVelocity({ m_body.getForward() == Forward::Left ? 3.5 : -3.5,-3.5 });
-        //}
-        //if (KeyD.pressed()) {
-        //    m_motion = Motion::Damge;
-        //}
     }
 
     void PlayerActor::lastUpdate(double dt)
@@ -66,9 +64,9 @@ namespace abyss
     {
         return m_body.region();
     }
-    void PlayerActor::accept(const ActVisitor& visitor)
+    bool PlayerActor::accept(const ActVisitor& visitor)
     {
-        visitor.visit(*this);
+        return visitor.visit(*this);
     }
     void PlayerActor::draw() const
     {
@@ -79,7 +77,9 @@ namespace abyss
         return &m_view->setPos(m_body.getPos())
             .setVelocity(m_body.getVelocity())
             .setForward(m_body.getForward())
-            .setCharge(m_charge.getCharge());
+            .setCharge(m_charge.getCharge())
+            .setIsDamaging(m_hp.isInInvincibleTime())
+            ;
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {

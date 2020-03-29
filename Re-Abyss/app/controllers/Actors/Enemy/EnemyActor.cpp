@@ -24,9 +24,9 @@ namespace abyss
 	{
 		return m_body.getForward();
 	}
-	void EnemyActor::accept(const ActVisitor& visitor)
+	bool EnemyActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 	const BodyModel& EnemyActor::getBody() const
 	{

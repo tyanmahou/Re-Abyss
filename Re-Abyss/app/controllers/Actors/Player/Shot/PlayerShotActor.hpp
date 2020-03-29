@@ -30,7 +30,7 @@ namespace abyss
 
 		s3d::Circle getColliderCircle() const;
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 		void draw() const override;
 
 		PlayerShotVM* getBindedView()const;

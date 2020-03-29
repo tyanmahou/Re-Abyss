@@ -1,4 +1,3 @@
-#include <abyss/commons/ActInclude.hpp>
 #include <abyss/views/Actors/Player/Shot/PlayerShotVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 #include "State/PlayerShotBaseState.hpp"
@@ -47,9 +46,10 @@ namespace abyss
 		return s3d::Circle(m_body.getPos(), m_shot.toRadius());
 	}
 
-	void PlayerShotActor::accept(const ActVisitor& visitor)
+	bool PlayerShotActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(static_cast<Attacker&>(*this)) || 
+			visitor.visit(static_cast<IActor&>(*this));
 	}
 	void PlayerShotActor::draw() const
 	{

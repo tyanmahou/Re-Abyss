@@ -30,9 +30,9 @@ namespace abyss
 	{
 		return this->region();
 	}
-	void MapActor::accept(const ActVisitor& visitor)
+	bool MapActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
     MapColInfo MapActor::getMapColInfo() const
     {

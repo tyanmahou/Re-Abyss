@@ -48,9 +48,9 @@ namespace abyss
 		m_state.onCollisionStay(col);
 	}
 
-	void SlimeActor::accept(const ActVisitor& visitor)
+	bool SlimeActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 	SlimeVM* SlimeActor::getBindedView() const
 	{

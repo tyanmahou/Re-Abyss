@@ -1,5 +1,6 @@
 #include "SlimeSenser.hpp"
 #include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
 
 namespace abyss
 {

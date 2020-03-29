@@ -11,6 +11,6 @@ namespace abyss
 	public:
 		FloorActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 	};
 }

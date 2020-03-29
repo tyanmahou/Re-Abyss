@@ -181,6 +181,7 @@
     <ClCompile Include="app\controllers\Actors\Player\Shot\PlayerShotActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\Player\State\PlayerDamageState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerLadderState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerSwimState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\Senser\SlimeSenser.cpp" />
@@ -274,6 +275,7 @@
     <ClInclude Include="app\controllers\Actors\Player\Shot\PlayerShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\State\PlayerShotBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\State\PlayerDamageState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerLadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />

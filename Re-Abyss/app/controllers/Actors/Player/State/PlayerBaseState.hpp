@@ -9,6 +9,7 @@ namespace abyss
         BodyModel* m_body;
         FootModel* m_foot;
         ChargeModel* m_charge;
+        HPModel* m_hp;
 
         virtual void onMove(double dt);
         virtual void onLanding(){}

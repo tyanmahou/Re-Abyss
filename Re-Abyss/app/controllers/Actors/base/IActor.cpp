@@ -2,8 +2,8 @@
 
 namespace abyss
 {
-    void IActor::accept(const ActVisitor& visitor)
+    bool IActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 }

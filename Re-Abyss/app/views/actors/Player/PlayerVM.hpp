@@ -13,6 +13,11 @@ namespace abyss
         s3d::Vec2 m_velocity;
         Forward m_forward;
         double m_charge;
+
+        bool m_isDamaging = false;
+
+        s3d::ColorF calcColor() const;
+
     public:
         PlayerVM();
 
@@ -20,6 +25,9 @@ namespace abyss
         PlayerVM& setVelocity(const s3d::Vec2& v);
         PlayerVM& setForward(const Forward& forward);
         PlayerVM& setCharge(double charge);
+
+        PlayerVM& setIsDamaging(bool isDamaging);
+
 
         void drawStateStay() const;
         void drawStateFloat() const;

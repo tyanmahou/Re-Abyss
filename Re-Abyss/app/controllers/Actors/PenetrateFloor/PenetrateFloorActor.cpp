@@ -18,9 +18,9 @@ namespace abyss
 	{
 		return m_canDown;
 	}
-	void PenetrateFloorActor::accept(const ActVisitor& visitor)
+	bool PenetrateFloorActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
     bool PenetrateFloorActor::tryDown(const s3d::RectF& region) const
     {

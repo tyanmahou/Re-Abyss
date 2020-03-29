@@ -32,7 +32,7 @@ namespace abyss
 		void onCollisionEnter(ICollider* col) override;
 		void onCollisionStay(ICollider* col) override;
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 
 		SlimeVM* getBindedView()const;
 

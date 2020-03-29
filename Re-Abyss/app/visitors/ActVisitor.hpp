@@ -11,10 +11,8 @@ namespace abyss
 		Receiver,
 
 		PlayerActor,
-		PlayerShotActor,
 
 		EnemyActor,
-		SlimeActor,
 
 		MapActor,
 		FloorActor,

@@ -26,7 +26,7 @@ namespace abyss
 		template<class U>
 		struct _ivisitor
 		{
-			virtual void visit(U&) const = 0;
+			virtual bool visit(U&) const = 0;
 			virtual ~_ivisitor() = default;
 		};
 
@@ -43,12 +43,15 @@ namespace abyss
 		template<class F, class Head, class... Tail>
 		struct _func2 : _func2<F, Tail...>
 		{
-			void visit([[maybe_unused]] Head& a) const override
+			bool visit([[maybe_unused]] Head& a) const override
 			{
 				static_assert(sizeof(Head) >= 1);
 
 				if constexpr (std::is_invocable_v<F, Head&>) {
-					return this->m_func(a);
+					this->m_func(a);
+					return true;
+				} else {
+					return false;
 				}
 			};
 			using _func2<F, Tail...>::_func2;
@@ -62,12 +65,15 @@ namespace abyss
 			_func2(F f) :
 				m_func(f)
 			{}
-			void visit([[maybe_unused]] Last& a) const override
+			bool visit([[maybe_unused]] Last& a) const override
 			{
 				static_assert(sizeof(Last) >= 1);
 
 				if constexpr (std::is_invocable_v<F, Last&>) {
-					return m_func(a);
+					m_func(a);
+					return true;
+				} else {
+					return false;
 				}
 			};
 			using _base::visit;
@@ -89,7 +95,7 @@ namespace abyss
 		{}
 
 		template<class Arg>
-		void visit(Arg&& arg) const
+		bool visit(Arg&& arg) const
 		{
 			return m_storage->visit(std::forward<Arg>(arg));
 		}

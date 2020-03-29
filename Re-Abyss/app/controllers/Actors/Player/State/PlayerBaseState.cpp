@@ -4,6 +4,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 
 namespace abyss
 {
@@ -49,6 +50,7 @@ namespace abyss
         m_body = this->binded<BodyModel>();
         m_foot = this->binded<FootModel>();
         m_charge = this->binded<ChargeModel>();
+        m_hp = this->binded<HPModel>();
     }
     void PlayerBaseState::start()
     {
@@ -115,6 +117,12 @@ namespace abyss
             [this](const DoorActor& door) {
                 // 扉
                 this->onCollisionStay(door);
+            }
+        });
+
+        col->accept([this](const Attacker& attack) {
+            if (m_hp->damage(attack.getPower())) {
+                this->changeState(PlayerActor::State::Damage);
             }
         });
     }

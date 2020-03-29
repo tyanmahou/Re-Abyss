@@ -9,8 +9,8 @@ namespace abyss
 		this->tag = U"floor";
 	}
 
-	void FloorActor::accept(const ActVisitor& visitor)
+	bool FloorActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 }

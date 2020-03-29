@@ -49,6 +49,6 @@ namespace abyss
 			return !m_isActive;
 		}
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 	};
 }

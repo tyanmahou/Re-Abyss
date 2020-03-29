@@ -1,4 +1,4 @@
-﻿#include "DoorActor.hpp"
+#include "DoorActor.hpp"
 #include <abyss/entities/Door/DoorEntity.hpp>
 
 #include <Siv3D.hpp>
@@ -35,8 +35,8 @@ namespace abyss
 		ret.y += (m_size.y - visitSize.y) / 2.0;
 		return ret;
 	}
-	void DoorActor::accept(const ActVisitor& visitor)
+	bool DoorActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 }

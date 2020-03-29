@@ -1,4 +1,4 @@
-﻿#include "LadderActor.hpp"
+#include "LadderActor.hpp"
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -19,8 +19,8 @@ namespace abyss
 	{
 		return (m_col & ColDirection::Up) != ColDirection::None;
 	}
-	void LadderActor::accept(const ActVisitor& visitor)
+	bool LadderActor::accept(const ActVisitor& visitor)
 	{
-		visitor.visit(*this);
+		return visitor.visit(*this);
 	}
 }

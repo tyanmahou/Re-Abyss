@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/String.hpp>
 
 #include <abyss/commons/Fwd.hpp>
@@ -22,6 +22,6 @@ namespace abyss
 		const s3d::String& getTag() const;
 		const s3d::String& getLayer() const;
 
-		virtual void accept(const ActVisitor&) = 0;
+		virtual bool accept(const ActVisitor&) = 0;
 	};
 }

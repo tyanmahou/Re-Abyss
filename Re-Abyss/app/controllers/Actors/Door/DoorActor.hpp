@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
 
@@ -20,6 +20,6 @@ namespace abyss
 		const s3d::Vec2& getPos() const;
 		const s3d::Vec2& getTargetPos() const;
 		s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 	};
 }

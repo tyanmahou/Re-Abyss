@@ -1,6 +1,8 @@
 #include "PlayerShotVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/World/WorldTime.hpp>
+
 #include "PlayerShotEffect.hpp"
 namespace abyss
 {
@@ -26,13 +28,13 @@ namespace abyss
         double r = m_shot.toRadius();
 
         // effect
-        if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot > PlayerShotType::Medium) {
+        if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot >= PlayerShotType::Medium) {
             ActionSystem::World()->addEffect<PlayerShotEffect>(m_pos, r, m_shot.toColorF());
         }
 
         double x = 0, y = 0;
         double size = 0;
-        double timer = Periodic::Sawtooth0_1(0.3s);
+        double timer = Periodic::Sawtooth0_1(0.3s, WorldTime::Time());
         if (m_shot.isNormal()) {
             y = 10 * static_cast<int>(timer * 2);
             size = 10;

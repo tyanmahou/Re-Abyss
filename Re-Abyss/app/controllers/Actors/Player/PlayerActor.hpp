@@ -6,6 +6,7 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/FootModel.hpp>
+#include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
 
@@ -19,14 +20,14 @@ namespace abyss
 		enum class State
 		{
 			Swim,
-			Damge,
+			Damage,
 			Ladder,
 		};
 	private:
 		BodyModel m_body;
 		FootModel m_foot;
 		ChargeModel m_charge;
-		int32 m_hp;
+		HPModel m_hp;
 
 
 		StateManager<PlayerActor> m_state;
@@ -43,7 +44,7 @@ namespace abyss
 		const Vec2& getPos() const;
 		RectF region() const;
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 		void draw() const override;
 		PlayerVM* getBindedView()const;
 

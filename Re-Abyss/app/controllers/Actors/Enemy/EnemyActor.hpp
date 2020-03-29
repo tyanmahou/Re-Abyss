@@ -26,7 +26,7 @@ namespace abyss
 		const s3d::Vec2& getVellocity()const;
 
 		Forward getForward()const;
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 
 		const BodyModel& getBody()const;
 		BodyModel& getBody();

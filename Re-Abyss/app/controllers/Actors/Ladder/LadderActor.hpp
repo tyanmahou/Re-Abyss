@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 
 namespace abyss
@@ -11,6 +11,6 @@ namespace abyss
 		s3d::Line getCenterLine() const;
 		bool isTop() const;
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 	};
 }

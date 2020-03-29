@@ -5,10 +5,8 @@
 /// </summary>
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
-#include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
 
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
 
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 #include <abyss/controllers/Actors/Floor/FloorActor.hpp>

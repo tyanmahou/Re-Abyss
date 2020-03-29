@@ -19,7 +19,7 @@ namespace abyss
 		s3d::RectF region() const;
 		CShape getCollider() const override;
 
-		void accept(const ActVisitor& visitor) override;
+		bool accept(const ActVisitor& visitor) override;
 
 		MapColInfo getMapColInfo() const;
 	};
