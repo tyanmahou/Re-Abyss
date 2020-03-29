@@ -184,6 +184,10 @@
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerDamageState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerLadderState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerSwimState.cpp" />
+    <ClCompile Include="app\controllers\Actors\RollingTako\RollingTakoActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoRunState.cpp" />
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\Senser\SlimeSenser.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\State\SlimeBaseState.cpp" />
@@ -194,6 +198,7 @@
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
     <ClCompile Include="app\controllers\World\WorldTime.cpp" />
+    <ClCompile Include="app\datastores\Stage\parser\EnemyEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
@@ -226,6 +231,7 @@
     <ClCompile Include="app\utils\Time\Time.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotVM.cpp" />
+    <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp" />
@@ -278,6 +284,10 @@
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerDamageState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerLadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerSwimState.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoRunState.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\SlimeSenser.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeBaseState.hpp" />
@@ -289,11 +299,15 @@
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
+    <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Door\DoorEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\controllers\Camera\Camera.hpp" />
@@ -336,6 +350,7 @@
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp" />

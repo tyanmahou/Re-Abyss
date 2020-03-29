@@ -332,6 +332,24 @@
     <ClCompile Include="app\controllers\Actors\Player\State\PlayerDamageState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Stage\parser\EnemyEntityParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\RollingTako\RollingTakoActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoRunState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\RollingTako\State\RollingTakoWaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -566,5 +584,14 @@
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerDamageState.hpp" />
+    <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\CaptainTakoEntity.hpp" />
+    <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
+    <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoRunState.hpp" />
+    <ClInclude Include="app\controllers\Actors\RollingTako\State\RollingTakoWaitState.hpp" />
   </ItemGroup>
 </Project>

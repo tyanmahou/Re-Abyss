@@ -12,7 +12,7 @@ namespace abyss
 		m_view(std::make_shared<SlimeVM>()),
 		m_state(this)
 	{
-		m_hp.setHp(6).setInvincibleTime(0.2);
+		m_hp.setHp(6);
 		m_body.setMaxSpeedX(60);
 
 		m_state
@@ -36,11 +36,6 @@ namespace abyss
 	void SlimeActor::draw() const
 	{
 		m_state.draw();
-	}
-
-	void SlimeActor::onCollisionEnter(ICollider* col)
-	{
-		m_state.onCollisionEnter(col);
 	}
 
 	void SlimeActor::onCollisionStay(ICollider* col)

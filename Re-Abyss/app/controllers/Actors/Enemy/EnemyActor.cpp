@@ -3,10 +3,12 @@
 
 namespace abyss
 {
-	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
+	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward):
+		m_hp(1, 0.2)
 	{
-		m_body.setPos(pos);
-		m_body.setForward(forward);
+		m_body
+			.setPos(pos)
+			.setForward(forward);
 		this->tag = U"enemy";
 		this->layer = LayerGroup::Enemy;
 	}
@@ -44,8 +46,9 @@ namespace abyss
 	{
 		return m_body.region();
 	}
-	void EnemyActor::onCollisionEnter(ICollider* col)
-	{
+
+    void EnemyActor::onCollisionStay(ICollider* col)
+    {
 		col->accept([this](const Attacker& attacker) {
 			if (m_hp.damage(attacker.getPower()) && m_hp.isDead()) {
 				m_isActive = false;

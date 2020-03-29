@@ -21,7 +21,7 @@ namespace abyss
 	{
 		return m_doors;
 	}
-	const s3d::Array<EnemyEntity>& StageRepository::getEnemies() const
+	const s3d::Array<std::shared_ptr<EnemyEntity>>& StageRepository::getEnemies() const
 	{
 		return m_enemies;
 	}

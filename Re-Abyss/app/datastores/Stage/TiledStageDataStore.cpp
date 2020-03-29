@@ -1,6 +1,7 @@
-﻿#include "TiledStageDataStore.hpp"
+#include "TiledStageDataStore.hpp"
 
 #include "parser/MapEntityParser.hpp"
+#include "parser/EnemyEntityParser.hpp"
 
 #include <Siv3D.hpp>
 #include <abyss/types/Forward.hpp>
@@ -74,36 +75,17 @@ namespace abyss
 		);
 		return ret;
 	}
-	s3d::Array<EnemyEntity> TiledStageDataStore::getEnemyEntity() const
+	s3d::Array<std::shared_ptr<EnemyEntity>> TiledStageDataStore::getEnemyEntity() const
 	{
-		s3d::Array<EnemyEntity> ret;
-
-		static const std::unordered_map<String, EnemyType> toTypeMap{
-			{U"slime", EnemyType::Slime}
-		};
-		static auto toType = [&](const String & type) {
-			if (toTypeMap.find(type) != toTypeMap.end()) {
-				return toTypeMap.at(type);
-			}
-			return EnemyType::None;
-		};
-		static auto toEntity = [&](const TiledObject & obj)
-		{
-			auto gId = *obj.gId;
-			EnemyEntity e;
-			e.type = toType(m_tiledMap.getTileProperty(gId, U"type").value_or(s3d::String(U"none")));
-			Vec2 size = m_tiledMap.getTile(gId).size;
-			e.pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
-			return e;
-		};
+		s3d::Array<std::shared_ptr<EnemyEntity>> ret;
 
 		// 敵
 		m_tiledMap.getLayer(U"enemy")->then(
 			[&](const ObjectGroup & layer) {
 				for (const auto& obj : layer.getObjects()) {
-					EnemyEntity e = toEntity(obj);
-					if (e.type != EnemyType::None) {
-						ret.push_back(e);
+					TiledEnemyEntityParser parser(obj);
+					if (auto e = parser.parse();e && e->type != EnemyType::None) {
+						ret.push_back(std::move(e));
 					}
 				}
 			}

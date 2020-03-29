@@ -38,6 +38,7 @@ namespace abyss
 	struct RoomEntity;
 	struct MapEntity;
 	struct EnemyEntity;
+	struct RollingTakoEntity;
 	struct DoorEntity;
 
 	/// <summary>
@@ -68,6 +69,7 @@ namespace abyss
 	class PlayerVM;
 	class PlayerShotVM;
 	class SlimeVM;
+	class RollingTakoVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

@@ -29,7 +29,6 @@ namespace abyss
 		void update(double)override;
 		void draw()const;
 
-		void onCollisionEnter(ICollider* col) override;
 		void onCollisionStay(ICollider* col) override;
 
 		bool accept(const ActVisitor& visitor) override;

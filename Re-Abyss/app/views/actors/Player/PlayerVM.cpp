@@ -118,7 +118,6 @@ namespace abyss
     }
     void PlayerVM::drawStateDamage() const
     {
-        int32 timer = GetTimeInt32();
         bool isRight = m_forward == Forward::Right;
 
         m_texture(U"player_damage.png", { isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());

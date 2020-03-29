@@ -34,7 +34,7 @@ namespace abyss
 		CShape getCollider() const override;
 		s3d::RectF region()const;
 
-		void onCollisionEnter(ICollider* col) override;
+		void onCollisionStay(ICollider* col) override;
 
 		virtual void onDead();
 	};

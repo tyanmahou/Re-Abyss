@@ -15,7 +15,7 @@ namespace abyss::tests
         s3d::Array<RoomEntity> rooms;
         s3d::Array<MapEntity> maps;
         s3d::Array<DoorEntity> doors;
-        s3d::Array<EnemyEntity> enemys;
+        s3d::Array<std::shared_ptr<EnemyEntity>> enemys;
     public:
         Test_StageRepository()
         {
@@ -35,7 +35,7 @@ namespace abyss::tests
         {
             return doors;
         }
-        const s3d::Array<EnemyEntity>& getEnemies() const
+        const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const
         {
             return enemys;
         }

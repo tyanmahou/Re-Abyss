@@ -1,15 +1,13 @@
 #pragma once
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+#include <abyss/controllers/Actors/RollingTako/RollingTakoActor.hpp>
 
 namespace abyss
 {
-
-    class SlimeBaseState : public IState<SlimeActor>
+    class RollingTakoBaseState : public IState<RollingTakoActor>
     {
     protected:
         BodyModel* m_body;
-        // 
-        virtual void onColisionMapUp(){}
+
     public:
         void setup()override;
 

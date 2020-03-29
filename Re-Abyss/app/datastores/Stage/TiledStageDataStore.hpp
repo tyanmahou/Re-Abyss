@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D/Fwd.hpp>
 #include <S3DTiled.hpp>
@@ -17,7 +17,7 @@ namespace abyss
 		s3d::Array<DoorEntity> getDoorEntity()const override;
 		s3d::Array<MapEntity> getMapEntity()const override;
 		s3d::Array<RoomEntity> getRoomEntity()const override;
-		s3d::Array<EnemyEntity> getEnemyEntity()const override;
+		s3d::Array<std::shared_ptr<EnemyEntity>> getEnemyEntity()const override;
 
 		const s3dTiled::TiledMap& getTiledMap()const;
 	};
