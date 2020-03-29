@@ -25,13 +25,16 @@ namespace abyss
 #if ABYSS_DEBUG
 			DebugManager::Update();
 #endif
+
 			return m_scene.update();
 		}
 	};
 
 	Game::Game() :
 		m_pImpl(std::make_shared<Impl>())
-	{}
+	{
+		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
+	}
 
 	bool Game::Update()
 	{

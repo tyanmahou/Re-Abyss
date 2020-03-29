@@ -23,7 +23,7 @@ namespace abyss
 		StateManager<SlimeActor> m_state;
 		std::shared_ptr<SlimeVM> m_view;
 	public:
-		SlimeActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
+		SlimeActor(const SlimeEntity& entity);
 
 		void start()override;
 		void update(double)override;

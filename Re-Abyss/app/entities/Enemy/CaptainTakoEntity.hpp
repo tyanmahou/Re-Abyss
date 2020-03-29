@@ -3,7 +3,7 @@
 
 namespace abyss
 {
-	struct CaptainTako : EnemyEntity
+	struct CaptainTakoEntity : EnemyEntity
 	{
 
 	};

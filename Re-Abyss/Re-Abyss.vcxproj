@@ -171,6 +171,10 @@
     <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ICollider.cpp" />
+    <ClCompile Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp" />
@@ -229,6 +233,7 @@
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
     <ClCompile Include="app\utils\Time\Time.cpp" />
+    <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotVM.cpp" />
     <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp" />
@@ -271,6 +276,10 @@
     <ClInclude Include="app\controllers\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />
@@ -348,6 +357,7 @@
     <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
+    <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
     <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />

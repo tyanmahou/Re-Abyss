@@ -35,6 +35,7 @@ namespace abyss
                 drawer();
             }
             {
+                ScopedRenderStates2D state(SamplerState::Default2D);
                 constexpr auto ScreenSizeF = Constants::GameScreenSize_v<float>;
                 m_cb->width = ScreenSizeF.x;
                 m_cb->height = ScreenSizeF.y;

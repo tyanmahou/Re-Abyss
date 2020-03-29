@@ -49,7 +49,7 @@ namespace
 
 	std::shared_ptr<EnemyEntity> ParseCaptainTako(const s3dTiled::TiledObject& obj)
 	{
-		auto ret = std::make_shared<CaptainTako>();
+		auto ret = std::make_shared<CaptainTakoEntity>();
 		ret->type = EnemyType::CaptainTako;
 		return ParseCommon(ret, obj);
 	}

@@ -33,7 +33,7 @@ namespace abyss
     void RollingTakoVM::drawRun() const
     {
         bool isRight = m_forward == Forward::Right;
-        int32 time = static_cast<int32>(Periodic::Square0_1(0.1s, WorldTime::Time()));
+        int32 time = static_cast<int32>(Periodic::Square0_1(0.2s, WorldTime::Time()));
         auto tex = m_texture(60 * time, 60, 60, 60);
         tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }

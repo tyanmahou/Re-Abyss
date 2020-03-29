@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <functional>
 
 #include <Siv3D/Fwd.hpp>
@@ -92,6 +92,12 @@ namespace abyss
 		bool inRoom(const T& shape)const
 		{
 			return m_camera->inRoom(shape);
+		}
+
+		template<class T>
+		bool inScreen(const T& shape)const
+		{
+			return this->screenRegion().intersects(shape);
 		}
     };
 }

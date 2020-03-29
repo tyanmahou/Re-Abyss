@@ -3,12 +3,13 @@
 #include "Senser/SlimeSenser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/entities/Enemy/SlimeEntity.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
 
 namespace abyss
 {
-	SlimeActor::SlimeActor(const s3d::Vec2& pos, Forward forward) :
-		EnemyActor(pos, forward),
+	SlimeActor::SlimeActor(const SlimeEntity& entity) :
+		EnemyActor(entity.pos, entity.forward),
 		m_view(std::make_shared<SlimeVM>()),
 		m_state(this)
 	{
