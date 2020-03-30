@@ -629,5 +629,6 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\CaptainTakoShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\State\CaptainTakoShotBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.hpp" />
+    <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
   </ItemGroup>
 </Project>

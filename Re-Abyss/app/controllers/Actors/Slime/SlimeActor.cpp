@@ -63,5 +63,6 @@ namespace abyss
 	void SlimeActor::onDead()
 	{
 		m_senser->destroy();
+		EnemyActor::onDead();
 	}
 }

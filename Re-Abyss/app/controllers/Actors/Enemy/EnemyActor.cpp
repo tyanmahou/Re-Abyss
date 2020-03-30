@@ -1,5 +1,7 @@
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/World/World.hpp>
+#include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 
 namespace abyss
 {
@@ -57,5 +59,7 @@ namespace abyss
 		});
 	}
 	void EnemyActor::onDead()
-	{}
+	{
+		m_pWorld->addEffect<EnemyDeadEffect>(this->getPos());
+	}
 }

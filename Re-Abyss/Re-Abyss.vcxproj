@@ -366,6 +366,7 @@
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
     <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
