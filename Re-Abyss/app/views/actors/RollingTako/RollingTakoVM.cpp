@@ -15,7 +15,7 @@ namespace abyss
     }
     RollingTakoVM& RollingTakoVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = pos;
+        m_pos = s3d::Ceil(pos);
         return *this;
     }
     RollingTakoVM& RollingTakoVM::setIsDamaging(bool isDamaging)
