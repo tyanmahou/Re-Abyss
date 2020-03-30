@@ -10,7 +10,7 @@ namespace abyss
     void CaptainTakoChargeState::update(double dt)
     {
         if (m_chargeTimer.reachedZero()) {
-            this->changeState(CaptainTakoActor::State::Wait);
+            this->changeState(CaptainTakoActor::State::Attack);
         }
         CaptainTakoBaseState::update(dt);
     }

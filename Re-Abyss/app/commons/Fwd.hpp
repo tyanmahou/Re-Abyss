@@ -73,6 +73,7 @@ namespace abyss
 	class SlimeVM;
 	class RollingTakoVM;
 	class CaptainTakoVM;
+	class CaptainTakoShotVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

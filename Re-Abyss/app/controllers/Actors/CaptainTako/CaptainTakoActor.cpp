@@ -2,6 +2,7 @@
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
 #include "State/CaptainTakoWaitState.hpp"
 #include "State/CaptainTakoChargeState.hpp"
+#include "State/CaptainTakoAttackState.hpp"
 
 namespace abyss
 {
@@ -16,6 +17,7 @@ namespace abyss
         m_state
             .add<CaptainTakoWaitState>(State::Wait)
             .add<CaptainTakoChargeState>(State::Charge)
+            .add<CaptainTakoAttackState>(State::Attack)
             .bind<BodyModel>(&CaptainTakoActor::m_body)
             ;
     }

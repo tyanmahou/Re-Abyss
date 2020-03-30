@@ -365,6 +365,18 @@
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\CaptainTakoShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\State\CaptainTakoShotBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -613,5 +625,9 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.hpp" />
+    <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\CaptainTakoShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\State\CaptainTakoShotBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.hpp" />
   </ItemGroup>
 </Project>
