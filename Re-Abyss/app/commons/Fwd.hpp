@@ -41,6 +41,7 @@ namespace abyss
 	struct SlimeEntity;
 	struct RollingTakoEntity;
 	struct CaptainTakoEntity;
+	struct IkalienEntity;
 	struct DoorEntity;
 
 	/// <summary>
@@ -74,6 +75,7 @@ namespace abyss
 	class RollingTakoVM;
 	class CaptainTakoVM;
 	class CaptainTakoShotVM;
+	class IkalienVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

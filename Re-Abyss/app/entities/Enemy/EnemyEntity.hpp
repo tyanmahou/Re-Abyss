@@ -9,6 +9,7 @@ namespace abyss
 		Slime,
 		RollingTako,
 		CaptainTako,
+		Ikalien,
 	};
 	struct EnemyEntity
 	{

@@ -377,6 +377,24 @@
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Ikalien\IkalienModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -630,5 +648,12 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\State\CaptainTakoShotBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
+    <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
+    <ClInclude Include="app\entities\Enemy\IkalienEntity.hpp" />
+    <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
+    <ClInclude Include="app\models\Actors\Ikalien\IkalienModel.hpp" />
+    <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
   </ItemGroup>
 </Project>

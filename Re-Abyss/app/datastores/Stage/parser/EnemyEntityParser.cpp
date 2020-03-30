@@ -3,6 +3,7 @@
 #include <abyss/entities/Enemy/SlimeEntity.hpp>
 #include <abyss/entities/Enemy/RollingTakoEntity.hpp>
 #include <abyss/entities/Enemy/CaptainTakoEntity.hpp>
+#include <abyss/entities/Enemy/IkalienEntity.hpp>
 
 using namespace s3d;
 using namespace s3dTiled;
@@ -16,6 +17,7 @@ namespace
 			{U"slime", EnemyType::Slime},
 			{U"rolling_tako", EnemyType::RollingTako},
 			{U"captain_tako", EnemyType::CaptainTako},
+			{U"ikalien", EnemyType::Ikalien},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -54,6 +56,13 @@ namespace
 		return ParseCommon(ret, obj);
 	}
 	
+	std::shared_ptr<EnemyEntity> ParseIkalien(const s3dTiled::TiledObject& obj)
+	{
+		auto ret = std::make_shared<IkalienEntity>();
+		ret->type = EnemyType::Ikalien;
+		return ParseCommon(ret, obj);
+	}
+
 	std::shared_ptr<EnemyEntity> Parse(EnemyType type, const s3dTiled::TiledObject& obj)
 	{
 		switch (type) {
@@ -63,6 +72,8 @@ namespace
 			return ParseRollingTako(obj);
 		case EnemyType::CaptainTako:
 			return ParseCaptainTako(obj);
+		case EnemyType::Ikalien:
+			return ParseIkalien(obj);
 		default:
 			break;
 		}

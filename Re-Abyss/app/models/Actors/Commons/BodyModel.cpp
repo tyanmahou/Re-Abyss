@@ -146,6 +146,14 @@ namespace abyss
         m_pivot = pivot;
         return *this;
     }
+    const s3d::Vec2& BodyModel::getPivot() const
+    {
+        return m_pivot;
+    }
+    s3d::Vec2 BodyModel::getPivotPos() const
+    {
+        return m_pos + m_pivot;
+    }
     const s3d::Vec2& BodyModel::getPos() const
     {
         return m_pos;
