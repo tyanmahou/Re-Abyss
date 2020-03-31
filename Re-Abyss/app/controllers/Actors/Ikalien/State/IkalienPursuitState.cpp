@@ -29,6 +29,7 @@ namespace abyss
         Vec2 nextPivot = Mat3x2::Rotate(rotate).transform(pivotOffset);
         m_body->setPivot(nextPivot);
 
+        m_body->setVelocity(m_ikalien->getDir() * 30);
         m_body->update(dt);
         if (m_timer.reachedZero()) {
             this->changeState(IkalienActor::State::Swim);
@@ -36,7 +37,7 @@ namespace abyss
     }
     void IkalienPursuitState::draw() const
     {
-        m_actor->getBindedView()->drawWait();
+        m_actor->getBindedView()->drawPursuit();
     }
 
 }

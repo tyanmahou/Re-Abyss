@@ -14,6 +14,12 @@ namespace abyss
         return *this;
     }
 
+    IkalienVM& IkalienVM::setVelocity(const s3d::Vec2& velocity)
+    {
+        m_velocity = velocity;
+        return *this;
+    }
+
     IkalienVM& IkalienVM::setRotate(double rotate)
     {
         m_rotate = rotate;
@@ -29,7 +35,28 @@ namespace abyss
     void IkalienVM::drawWait() const
     {
         double t = WorldTime::Time();
-        int32 page = static_cast<int32>(Periodic::Sine0_1(1.5s, t) * 4.0);
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(1.5s, t) * 4.0);
+        auto tex = m_texture(80 * page, 80, 80, 80);
+        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, t));
+    }
+
+    void IkalienVM::drawPursuit() const
+    {
+        this->drawWait();
+    }
+
+    void IkalienVM::drawSwim() const
+    {
+        double t = WorldTime::Time();
+        int32 page = 0;
+        double velocityLen = m_velocity.length();
+        if (velocityLen >= 300) {
+            page = 3;
+        } else if(velocityLen >= 280) {
+            page = 2;
+        } else if (velocityLen >= 260) {
+            page = 1;
+        }
         auto tex = m_texture(80 * page, 0, 80, 80);
         tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, t));
     }

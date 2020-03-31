@@ -12,14 +12,14 @@ namespace abyss
     }
     void IkalienSwimState::update(double dt)
     {
-        if (m_body->getVelocity().length() <= 10) {
+        if (m_body->getVelocity().length() <= 30) {
             this->changeState(IkalienActor::State::Pursuit);
         }
         m_body->update(dt);
     }
     void IkalienSwimState::draw() const
     {
-        m_actor->getBindedView()->drawWait();
+        m_actor->getBindedView()->drawSwim();
     }
 
 }

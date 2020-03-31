@@ -1,5 +1,6 @@
 #include "State/IkalienPursuitState.hpp"
 #include "State/IkalienSwimState.hpp"
+#include "State/IkalienWaitState.hpp"
 #include <abyss/entities/Enemy/IkalienEntity.hpp>
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
 
@@ -14,6 +15,7 @@ namespace abyss
         m_body.noneResistanced().setPivot({0, -15});
 
         m_state
+            .add<IkalienWaitState>(State::Wait)
             .add<IkalienPursuitState>(State::Pursuit)
             .add<IkalienSwimState>(State::Swim)
             .bind<BodyModel>(&IkalienActor::m_body)
@@ -43,6 +45,7 @@ namespace abyss
     IkalienVM* IkalienActor::getBindedView() const
     {
         return &m_view->setPos(m_body.getPos())
+            .setVelocity(m_body.getVelocity())
             .setRotate(m_ikalien.getRotate())
             .setIsDamaging(m_hp.isInInvincibleTime());
     }

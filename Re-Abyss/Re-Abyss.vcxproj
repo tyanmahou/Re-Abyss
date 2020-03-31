@@ -185,6 +185,7 @@
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.cpp" />
+    <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp" />
     <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp" />
@@ -300,6 +301,7 @@
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp" />
     <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp" />

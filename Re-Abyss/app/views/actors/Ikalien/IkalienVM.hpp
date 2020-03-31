@@ -12,16 +12,20 @@ namespace abyss
         s3d::Texture m_texture;
 
         s3d::Vec2 m_pos;
+        s3d::Vec2 m_velocity;
         double m_rotate = 0.0;
 
         bool m_isDamaging = false;
     public:
         IkalienVM();
         IkalienVM& setPos(const s3d::Vec2& pos);
+        IkalienVM& setVelocity(const s3d::Vec2& velocity);
         IkalienVM& setRotate(double rotate);
 
         IkalienVM& setIsDamaging(bool isDamaging);
 
         void drawWait() const;
+        void drawPursuit() const;
+        void drawSwim() const;
     };
 }
