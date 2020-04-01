@@ -124,16 +124,16 @@ namespace abyss
 		m_center = m_size / 2.0;
 		return *this;
 	}
-	TexturePacker::Texture& TexturePacker::Texture::rotated(double angle)
+	const TexturePacker::Texture& TexturePacker::Texture::rotated(double angle)
 	{
 		m_angle = angle;
 		return *this;
 	}
-	TexturePacker::Texture& TexturePacker::Texture::rotatedAt(double x, double y, double angle)
+	const TexturePacker::Texture& TexturePacker::Texture::rotatedAt(double x, double y, double angle)
 	{
 		return this->rotatedAt({ x, y }, angle);
 	}
-	TexturePacker::Texture& TexturePacker::Texture::rotatedAt(const s3d::Vec2& pos, double angle)
+	const TexturePacker::Texture& TexturePacker::Texture::rotatedAt(const s3d::Vec2& pos, double angle)
 	{
 		m_center = pos;
 		return this->rotated(angle);

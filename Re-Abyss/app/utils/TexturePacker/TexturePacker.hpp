@@ -45,9 +45,9 @@ namespace abyss
 		TexturePacker::Texture& scaled(const s3d::Vec2& scale);
 		TexturePacker::Texture& scaled(double sx, double sy);
 
-		TexturePacker::Texture& rotated(double angle);
-		TexturePacker::Texture& rotatedAt(double x, double y, double angle);
-		TexturePacker::Texture& rotatedAt(const s3d::Vec2& pos, double angle);
+		const TexturePacker::Texture& rotated(double angle);
+		const TexturePacker::Texture& rotatedAt(double x, double y, double angle);
+		const TexturePacker::Texture& rotatedAt(const s3d::Vec2& pos, double angle);
 
 		s3d::Quad draw(double x, double y, const s3d::ColorF& diffuse = s3d::Palette::White) const;
 
