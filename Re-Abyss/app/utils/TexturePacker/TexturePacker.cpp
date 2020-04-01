@@ -95,6 +95,27 @@ namespace abyss
 		m_center(frame.size / 2.0)
 	{}
 
+	s3d::TexturedQuad TexturePacker::Texture::getFixedQuad() const
+	{
+		auto uvRect = m_frame.rotated ? RectF{ 
+			m_frame.size.y - m_uvRect.pos.y - m_uvRect.size.y,
+			m_uvRect.pos.x,
+			m_uvRect.size.y,
+			m_uvRect.size.x
+		} : m_uvRect; 
+		auto size = m_frame.rotated ? Vec2{ m_size.y, m_size.x } : m_size;
+		auto center = m_frame.rotated ? Vec2{ m_size.y - m_center.y, m_center.x } : m_center;
+		auto angle = m_frame.rotated ? m_angle - Math::Constants::HalfPi : m_angle;
+		auto doMirror = m_frame.rotated ? m_fliped : m_mirrored;
+		auto doFlip = m_frame.rotated ? m_mirrored : m_fliped;
+
+		return m_texture(m_frame.pos + uvRect.pos, uvRect.size)
+			.resized(size)
+			.mirrored(doMirror)
+			.flipped(doFlip)
+			.rotatedAt(center, angle);
+	}
+
 	TexturePacker::Texture& TexturePacker::Texture::operator()(const s3d::Vec2 & pos, const s3d::Vec2 & size)
 	{
 		m_uvRect.set(pos, size);
@@ -102,6 +123,10 @@ namespace abyss
 		m_center = m_size / 2.0;
 
 		return *this;
+	}
+	TexturePacker::Texture& TexturePacker::Texture::operator()(double x, double y, double w, double h)
+	{
+		return (*this)({x, y}, {w, h});
 	}
 	TexturePacker::Texture& TexturePacker::Texture::resized(const s3d::Vec2& size)
 	{
@@ -138,25 +163,20 @@ namespace abyss
 		m_center = pos;
 		return this->rotated(angle);
 	}
-#define FIX_PARAM \
-	auto uvRect = m_frame.rotated ? RectF{\
-	    m_frame.size.y - m_uvRect.pos.y - m_uvRect.size.y,\
-	    m_uvRect.pos.x,\
-	    m_uvRect.size.y,\
-	    m_uvRect.size.x\
-	} : m_uvRect;\
-	auto size = m_frame.rotated ? Vec2{ m_size.y, m_size.x } : m_size;\
-	auto center = m_frame.rotated ? Vec2{ m_size.y - m_center.y, m_center.x } : m_center;\
-	auto angle = m_frame.rotated ? m_angle - Math::Constants::HalfPi : m_angle;
+	TexturePacker::Texture& TexturePacker::Texture::mirrored(bool doMirror)
+	{
+		m_mirrored = doMirror;
+		return *this;
+	}
+	TexturePacker::Texture& TexturePacker::Texture::fliped(bool doFlip)
+	{
+		m_fliped = doFlip;
+		return *this;
+	}
 
 	s3d::Quad TexturePacker::Texture::draw(double x, double y, const s3d::ColorF& diffuse) const
 	{
-		FIX_PARAM
-
-		return m_texture(m_frame.pos + uvRect.pos, uvRect.size)
-			.resized(size)
-			.rotatedAt(center, angle)
-			.draw(x, y, diffuse);
+		return this->getFixedQuad().draw(x, y, diffuse);
 	}
 	s3d::Quad TexturePacker::Texture::draw(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
 	{
@@ -164,12 +184,7 @@ namespace abyss
 	}
 	s3d::Quad TexturePacker::Texture::drawAt(double x, double y, const s3d::ColorF& diffuse) const
 	{
-		FIX_PARAM
-
-		return m_texture(m_frame.pos + uvRect.pos, uvRect.size)
-			.resized(size)
-			.rotatedAt(center, angle)
-			.drawAt(x, y, diffuse);
+		return this->getFixedQuad().drawAt(x, y, diffuse);
 	}
 	s3d::Quad TexturePacker::Texture::drawAt(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
 	{

@@ -5,11 +5,13 @@
 #include <abyss/entities/Enemy/RollingTakoEntity.hpp>
 #include <abyss/entities/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/entities/Enemy/IkalienEntity.hpp>
+#include <abyss/entities/Enemy/LaunSharkEntity.hpp>
 
 #include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
 #include <abyss/controllers/Actors/RollingTako/RollingTakoActor.hpp>
 #include <abyss/controllers/Actors/CaptainTako/CaptainTakoActor.hpp>
 #include <abyss/controllers/Actors/Ikalien/IkalienActor.hpp>
+#include <abyss/controllers/Actors/LaunShark/LaunSharkActor.hpp>
 
 namespace abyss
 {
@@ -22,6 +24,7 @@ namespace abyss
 			CASE_ENEMY(RollingTako);
 			CASE_ENEMY(CaptainTako);
 			CASE_ENEMY(Ikalien);
+			CASE_ENEMY(LaunShark);
 		default:
 			break;
 		}

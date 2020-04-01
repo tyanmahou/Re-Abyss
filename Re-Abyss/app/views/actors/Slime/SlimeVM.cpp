@@ -21,7 +21,7 @@ namespace abyss
     }
     SlimeVM& SlimeVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = pos;
+        m_pos = Math::Ceil(pos);
         return *this;
     }
     SlimeVM& SlimeVM::setVelocity(const s3d::Vec2& velocity)

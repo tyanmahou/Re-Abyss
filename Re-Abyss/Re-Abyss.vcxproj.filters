@@ -398,6 +398,18 @@
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -660,5 +672,11 @@
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
     <ClInclude Include="app\entities\Enemy\LaunSharkEntity.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.hpp" />
   </ItemGroup>
 </Project>

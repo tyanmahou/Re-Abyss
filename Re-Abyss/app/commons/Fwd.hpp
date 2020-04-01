@@ -25,7 +25,6 @@ namespace abyss
 	class PlayerActor;
 	class PlayerShotActor;
 	class EnemyActor;
-	class SlimeActor;
 	class MapActor;
 	class FloorActor;
 	class PenetrateFloorActor;
@@ -42,6 +41,7 @@ namespace abyss
 	struct RollingTakoEntity;
 	struct CaptainTakoEntity;
 	struct IkalienEntity;
+	struct LaunSharkEntity;
 	struct DoorEntity;
 
 	/// <summary>
@@ -76,6 +76,7 @@ namespace abyss
 	class CaptainTakoVM;
 	class CaptainTakoShotVM;
 	class IkalienVM;
+	class LaunSharkVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

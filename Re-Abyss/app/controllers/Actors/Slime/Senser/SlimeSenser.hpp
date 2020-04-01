@@ -4,6 +4,8 @@
 
 namespace abyss
 {
+	class SlimeActor;
+
     class SlimeSenser : public IActor
     {
 		s3d::Vec2 m_pos;

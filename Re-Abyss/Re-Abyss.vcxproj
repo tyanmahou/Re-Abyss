@@ -187,6 +187,9 @@
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.cpp" />
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp" />
     <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
@@ -245,6 +248,7 @@
     <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp" />
+    <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotVM.cpp" />
     <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp" />
@@ -303,6 +307,11 @@
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp" />
     <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
@@ -383,6 +392,7 @@
     <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
     <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />

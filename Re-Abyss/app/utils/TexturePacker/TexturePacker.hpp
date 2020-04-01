@@ -33,11 +33,17 @@ namespace abyss
 		s3d::Vec2 m_size;
 		double m_angle;
 		s3d::Vec2 m_center;
+
+		bool m_mirrored = false;
+		bool m_fliped = false;
 	private:
 		Texture(const s3d::Texture& texture, const Frame& frame);
+
+		s3d::TexturedQuad getFixedQuad() const;
 	public:
 
 		TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
+		TexturePacker::Texture& operator()(double x, double y, double w, double h);
 
 		TexturePacker::Texture& resized(const s3d::Vec2& size);
 
@@ -48,6 +54,9 @@ namespace abyss
 		const TexturePacker::Texture& rotated(double angle);
 		const TexturePacker::Texture& rotatedAt(double x, double y, double angle);
 		const TexturePacker::Texture& rotatedAt(const s3d::Vec2& pos, double angle);
+
+		TexturePacker::Texture& mirrored(bool doMirror = true);
+		TexturePacker::Texture& fliped(bool doFlip = true);
 
 		s3d::Quad draw(double x, double y, const s3d::ColorF& diffuse = s3d::Palette::White) const;
 
