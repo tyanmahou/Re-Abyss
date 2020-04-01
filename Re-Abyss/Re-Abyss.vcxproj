@@ -335,6 +335,7 @@
     <ClInclude Include="app\entities\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\IkalienEntity.hpp" />
+    <ClInclude Include="app\entities\Enemy\LaunSharkEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />

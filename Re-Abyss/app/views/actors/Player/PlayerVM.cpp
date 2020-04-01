@@ -68,7 +68,7 @@ namespace abyss
         bool isRight = m_forward == Forward::Right;
 
         int32 page = timer % 240 <= 10 ? 1 : 0;
-        m_texture(U"player_stay.png", { isRight ? 40 : 0, 80 * page }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"stay")({ isRight ? 40 : 0, 80 * page }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateFloat() const
     {
@@ -84,14 +84,14 @@ namespace abyss
             y = 80 * (timer / 30 % 2) + 160;
         }
 
-        m_texture(U"player_float.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"float")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRun() const
     {
         bool isRight = m_forward == Forward::Right;
 
         int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, WorldTime::Time()) * 5) * 60;
-        m_texture(U"player_run.png", { x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"run")({ x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwim() const
     {
@@ -106,7 +106,7 @@ namespace abyss
         } else {
             y = 80 * (timer / 30 % 2);
         }
-        m_texture(U"player_swim.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"swim")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDive() const
     {
@@ -114,25 +114,25 @@ namespace abyss
         bool isRight = m_forward == Forward::Right;
 
         double y = 80 * (timer / 30 % 2);
-        m_texture(U"player_dive.png", { isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"dive")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDamage() const
     {
         bool isRight = m_forward == Forward::Right;
 
-        m_texture(U"player_damage.png", { isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"damage")({ isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadder() const
     {
-        m_texture(U"player_ladder.png", { 40 * (static_cast<int32>(m_pos.y / 30) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder")({ 40 * (static_cast<int32>(m_pos.y / 30) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTop() const
     {
-        m_texture(U"player_ladder.png", { 80, 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder")({ 80, 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDoor() const
     {
-        m_texture(U"player_door.png", { 40 * static_cast<int32>(Periodic::Sawtooth0_1(1s) * 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"door")({ 40 * static_cast<int32>(Periodic::Sawtooth0_1(1s) * 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawCharge() const
     {

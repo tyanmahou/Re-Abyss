@@ -10,6 +10,7 @@ namespace abyss
 		RollingTako,
 		CaptainTako,
 		Ikalien,
+		LaunShark
 	};
 	struct EnemyEntity
 	{

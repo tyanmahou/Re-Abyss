@@ -659,5 +659,6 @@
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
+    <ClInclude Include="app\entities\Enemy\LaunSharkEntity.hpp" />
   </ItemGroup>
 </Project>

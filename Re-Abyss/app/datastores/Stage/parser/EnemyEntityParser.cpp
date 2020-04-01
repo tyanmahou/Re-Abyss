@@ -4,6 +4,7 @@
 #include <abyss/entities/Enemy/RollingTakoEntity.hpp>
 #include <abyss/entities/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/entities/Enemy/IkalienEntity.hpp>
+#include <abyss/entities/Enemy/LaunSharkEntity.hpp>
 
 using namespace s3d;
 using namespace s3dTiled;
@@ -18,6 +19,7 @@ namespace
 			{U"rolling_tako", EnemyType::RollingTako},
 			{U"captain_tako", EnemyType::CaptainTako},
 			{U"ikalien", EnemyType::Ikalien},
+			{U"laun_shark", EnemyType::LaunShark},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -34,51 +36,31 @@ namespace
 		}
 		return entity;
 	}
-	std::shared_ptr<EnemyEntity> ParseSlime(const s3dTiled::TiledObject& obj)
-	{
-		auto ret = std::make_shared<SlimeEntity>();
-		ret->type = EnemyType::Slime;
-		return ParseCommon(ret, obj);
-	}
 
-	std::shared_ptr<EnemyEntity> ParseRollingTako(const s3dTiled::TiledObject& obj)
-	{
-		auto ret = std::make_shared<RollingTakoEntity>();
-		ret->type = EnemyType::RollingTako;
-		ret->wait = obj.getProperty(U"wait").value_or(true);
-		return ParseCommon(ret, obj);
-	}
-
-	std::shared_ptr<EnemyEntity> ParseCaptainTako(const s3dTiled::TiledObject& obj)
-	{
-		auto ret = std::make_shared<CaptainTakoEntity>();
-		ret->type = EnemyType::CaptainTako;
-		return ParseCommon(ret, obj);
-	}
-	
-	std::shared_ptr<EnemyEntity> ParseIkalien(const s3dTiled::TiledObject& obj)
-	{
-		auto ret = std::make_shared<IkalienEntity>();
-		ret->type = EnemyType::Ikalien;
-		return ParseCommon(ret, obj);
-	}
+#define PARSE_ENEMY(Name, ...) case EnemyType::##Name :\
+{\
+    auto it = std::make_shared<Name##Entity>();\
+    it->type = EnemyType::##Name;\
+    __VA_ARGS__\
+	return ParseCommon(it, obj);\
+}
 
 	std::shared_ptr<EnemyEntity> Parse(EnemyType type, const s3dTiled::TiledObject& obj)
 	{
 		switch (type) {
-		case EnemyType::Slime:
-			return ParseSlime(obj);
-		case EnemyType::RollingTako:
-			return ParseRollingTako(obj);
-		case EnemyType::CaptainTako:
-			return ParseCaptainTako(obj);
-		case EnemyType::Ikalien:
-			return ParseIkalien(obj);
+			PARSE_ENEMY(Slime);
+			PARSE_ENEMY(RollingTako, {
+				it->wait = obj.getProperty(U"wait").value_or(true);
+			});
+			PARSE_ENEMY(CaptainTako);
+			PARSE_ENEMY(Ikalien);
+			PARSE_ENEMY(LaunShark);
 		default:
 			break;
 		}
 		return nullptr;
 	}
+#undef PARSE_ENEMY
 }
 namespace abyss
 {

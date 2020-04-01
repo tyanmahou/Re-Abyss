@@ -3,6 +3,6 @@
 
 namespace abyss
 {
-	struct IkalienEntity : EnemyEntity
-	{};
+    struct LaunSharkEntity : EnemyEntity
+    {};
 }
