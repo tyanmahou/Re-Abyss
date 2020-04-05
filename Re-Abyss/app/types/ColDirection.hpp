@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -173,6 +173,7 @@ namespace abyss
             }
             return this->ignored(ignore);
         }
+
     public:
         static constexpr value_type None  = 0x00;
         static constexpr value_type Up    = 0x01;

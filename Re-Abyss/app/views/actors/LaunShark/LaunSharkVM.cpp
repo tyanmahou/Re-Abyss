@@ -33,7 +33,7 @@ namespace abyss
     void LaunSharkVM::drawAttack() const
     {
         bool isRight = m_forward == Forward::Right;
-        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(1s, WorldTime::Time()) * 8);
+        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(0.8s, WorldTime::Time()) * 8);
         m_texture(U"attack")({ 120 * (page / 4), 80 * (page %  4) }, { 120, 80 }).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
     void LaunSharkVM::drawLauncher(double launcherTime) const
@@ -43,7 +43,7 @@ namespace abyss
         int32 page = static_cast<int32>(Periodic::Square0_1(1s, WorldTime::Time()));
 
         auto color = ColorDef::OnDamage(m_isDamaging, WorldTime::Time());
-        auto mousePos = m_pos + Vec2{ isRight ? -60: 30, page == 1 ? -26 : -30};
+        auto mousePos = m_pos + Vec2{ isRight ? 30 : -60, page == 1 ? -26 : -30};
         Vec2 lancherPos{
             mousePos.x + (isRight ? -50 : 50) * (1.0 - launcherTime),
             mousePos.y

@@ -47,6 +47,7 @@ namespace abyss
 	/// <summary>
 	/// Models
 	/// </summary>
+	struct RoomBorders;
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
@@ -77,6 +78,7 @@ namespace abyss
 	class CaptainTakoShotVM;
 	class IkalienVM;
 	class LaunSharkVM;
+	class LaunSharkShotVM;
 
 	class CameraView;
 	class DoorCameraWorkView;

@@ -85,4 +85,43 @@ namespace abyss
 		return { comePos, retCol };
 	}
 
+	FixPos::Result FixPos::InnerByLatestPos(const s3d::RectF& from, const s3d::Vec2& come, ColDirection col)
+	{
+		Vec2 ret = come;
+		uint8 retCol = ColDirection::None;
+
+		bool up = (col & ColDirection::Up);
+		bool down = (col & ColDirection::Down);
+		bool left = (col & ColDirection::Left);
+		bool right = (col & ColDirection::Right);
+
+		auto borderUp = from.y;
+		auto borderDown = from.y + from.h;
+		auto borderLeft = from.x;
+		auto borderRight = from.x + from.w;
+
+		if (right && come.x < borderLeft) {
+			//左端
+			ret.x = borderLeft;
+			retCol = retCol | ColDirection::Right;
+
+		} else if (left && come.x > borderRight) {
+			//右端
+			ret.x = borderRight;
+			retCol = retCol | ColDirection::Left;
+		}
+
+		if (down && come.y < borderUp) {
+			//上端
+			ret.y = borderUp;
+			retCol = retCol | ColDirection::Down;
+
+		} else if (up && come.y > borderDown) {
+			//上端
+			ret.y = borderDown;
+			retCol = retCol | ColDirection::Up;
+		}
+
+		return { ret , retCol };
+	}
 }

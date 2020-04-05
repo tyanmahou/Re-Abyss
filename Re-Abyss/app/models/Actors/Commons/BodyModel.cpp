@@ -1,9 +1,14 @@
 #include "BodyModel.hpp"
 #include <Siv3D/Math.hpp>
 #include <abyss/models/Collision/FixPos.hpp>
+#include <abyss/models/Room/RoomModel.hpp>
 
 namespace abyss
 {
+    BodyModel::BodyModel()
+    {
+        m_maxVelocity.y = DefaultMaxVelocityY;
+    }
 
     void BodyModel::update(double dt)
     {
@@ -11,11 +16,14 @@ namespace abyss
         // 速度更新
         m_velocity += m_accel * dt;
 
-        m_maxSpeedX.then([this](double max) {
+        m_maxVelocity.x.then([this](double max) {
             if (m_velocity.x > max) {
                 m_velocity.x = max;
-            } else if (m_velocity.x < -max) {
-                m_velocity.x = -max;
+            }
+        });
+        m_minVelocity.x.then([this](double min) {
+            if (m_velocity.x < min) {
+                m_velocity.x = min;
             }
         });
 
@@ -29,11 +37,17 @@ namespace abyss
                 m_velocity.x = 0;
             }
         }
-        m_maxVelocityY.then([this](double max) {
+        m_maxVelocity.y.then([this](double max) {
             if (m_velocity.y > max) {
                 m_velocity.y = max;
             }
         });
+        m_minVelocity.y.then([this](double min) {
+            if (m_velocity.y < min) {
+                m_velocity.y = min;
+            }
+        });
+
         // 座標更新
         m_pos += m_velocity * dt;
     }
@@ -78,22 +92,50 @@ namespace abyss
     }
     BodyModel& BodyModel::setMaxSpeedX(double speed)
     {
-        m_maxSpeedX = speed;
+        double absSpeed = s3d::Math::Abs(speed);
+        m_maxVelocity.x = absSpeed;
+        m_minVelocity.x = -absSpeed;
         return *this;
     }
     BodyModel& BodyModel::setMaxSpeedX(s3d::None_t)
     {
-        m_maxSpeedX = s3d::none;
+        m_maxVelocity.x = s3d::none;
+        m_minVelocity.x = s3d::none;
         return *this;
+    }
+    BodyModel& BodyModel::setMaxSpeedY(double speed)
+    {
+        double absSpeed = s3d::Math::Abs(speed);
+        m_maxVelocity.y = absSpeed;
+        m_minVelocity.y = -absSpeed;
+        return *this;
+    }
+    BodyModel& BodyModel::setMaxSpeedY(s3d::None_t)
+    {
+        m_maxVelocity.y = s3d::none;
+        m_minVelocity.y = s3d::none;
+        return *this;
+    }
+    BodyModel& BodyModel::setMaxSpeed(const s3d::Vec2& speed)
+    {
+        return this->
+            setMaxSpeedX(speed.x)
+            .setMaxSpeedY(speed.y);
+    }
+    BodyModel& BodyModel::setMaxSpeed(s3d::None_t)
+    {
+        return this->
+            setMaxSpeedX(s3d::none)
+            .setMaxSpeedY(s3d::none);
     }
     BodyModel& BodyModel::setMaxVelocityY(double velocity)
     {
-        m_maxVelocityY = velocity;
+        m_maxVelocity.y = velocity;
         return *this;
     }
     BodyModel& BodyModel::setMaxVelocityY(s3d::None_t)
     {
-        m_maxVelocityY = s3d::none;
+        m_maxVelocity.y = s3d::none;
         return *this;
     }
     BodyModel& BodyModel::initPos(const s3d::Vec2& pos)
@@ -184,8 +226,7 @@ namespace abyss
     {
         return this->setAccel({ 0, 0 })
             .setDeccelX(0)
-            .setMaxVelocityY(s3d::none)
-            .setMaxSpeedX(s3d::none);
+            .setMaxSpeed(s3d::none);
     }
     BodyModel& BodyModel::reversed()
     {
@@ -209,6 +250,19 @@ namespace abyss
         s3d::Vec2 before = selfRegion.center();
         
         auto [after, colDir] = FixPos::ByPrevPos(info.region, selfRegion, m_prevPos, c);
+
+        this->addPos(after - before);
+
+        return colDir;
+    }
+    ColDirection BodyModel::fixPos(const RoomModel& room, bool isStrict)
+    {
+        auto c = isStrict ? ColDirection(ColDirection::All) : room.getCol();
+        c.ignoredForVelocity(m_velocity);
+
+        s3d::Vec2 before = this->region().center();
+
+        auto [after, colDir] = FixPos::InnerByLatestPos(room.getRegion(), before, c);
 
         this->addPos(after - before);
 

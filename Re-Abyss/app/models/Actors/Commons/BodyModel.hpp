@@ -5,6 +5,7 @@
 
 #include <abyss/types/MapColInfo.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -16,8 +17,9 @@ namespace abyss
         s3d::Vec2 m_pivot{ 0, 0 };
 
         s3d::Vec2 m_velocity{0, 0};
-        s3d::Optional<double> m_maxSpeedX;
-        s3d::Optional<double> m_maxVelocityY = DefaultMaxVelocityY;
+
+        s3d::Vector2D <s3d::Optional<double>> m_minVelocity;
+        s3d::Vector2D <s3d::Optional<double>> m_maxVelocity;
 
         s3d::Vec2 m_accel{0, DefaultGravity};
         double m_deccelX = 0.0;
@@ -26,7 +28,7 @@ namespace abyss
 
         s3d::Vec2 m_size{ 0, 0 };
     public:
-        BodyModel() = default;
+        BodyModel();
        
         void update(double dt);
 
@@ -43,6 +45,12 @@ namespace abyss
 
         BodyModel& setMaxSpeedX(double speed);
         BodyModel& setMaxSpeedX(s3d::None_t);
+
+        BodyModel& setMaxSpeedY(double speed);
+        BodyModel& setMaxSpeedY(s3d::None_t);
+
+        BodyModel& setMaxSpeed(const s3d::Vec2& speed);
+        BodyModel& setMaxSpeed(s3d::None_t);
 
         BodyModel& setMaxVelocityY(double velocity);
         BodyModel& setMaxVelocityY(s3d::None_t);
@@ -80,6 +88,8 @@ namespace abyss
         bool isForward(Forward f) const;
 
         ColDirection fixPos(const MapColInfo& info);
+        ColDirection fixPos(const RoomModel& room, bool isStrict = true);
+
     public:
         inline static constexpr double DefaultGravity = 720.0;
         inline static constexpr double DefaultMaxVelocityY = 78;

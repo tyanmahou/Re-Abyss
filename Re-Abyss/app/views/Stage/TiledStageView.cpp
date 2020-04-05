@@ -16,7 +16,7 @@ namespace abyss
 				for (const auto& child : layer.getLayers()) {
 					child.then([&](const ImageLayer& i) {
 						BackGroundVM vm{
-							.texture = i.getTexture(),
+							.texture = map.loadTexture(i.getImagePath()),
 							.offset = i.getOffset(),
 							.loop = { i.getProperty(U"loopX").value_or(false),i.getProperty(U"loopY").value_or(false) },
 							.rate = { i.getProperty(U"rateX").value_or(1.0), i.getProperty(U"rateY").value_or(1.0) }

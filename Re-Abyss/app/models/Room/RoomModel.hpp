@@ -1,7 +1,8 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D/Rectangle.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -33,5 +34,8 @@ namespace abyss
 
 		RoomBorders borders()const;
 		s3d::Vec2 borderAdjusted(s3d::Vec2 pos) const;
+		s3d::Vec2 strictBorderAdjusted(s3d::Vec2 pos) const;
+
+		ColDirection getCol() const;
     };
 }

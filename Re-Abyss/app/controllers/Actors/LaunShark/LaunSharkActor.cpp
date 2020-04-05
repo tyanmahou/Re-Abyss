@@ -17,11 +17,19 @@ namespace abyss
             .setSize({120, 40});
         m_state
             .add<LaunSharkSwimState>(State::Swim)
-            .bind<BodyModel>(&LaunSharkActor::m_body);
+            .add<LaunSharkLauncherState>(State::Launcher)
+            .add<LaunSharkAttackState>(State::Attack)
+            .bind<BodyModel>(&LaunSharkActor::m_body)
+            .bind<TimeCounterModel>(&LaunSharkActor::m_timeCounter)
+            ;
     }
     void LaunSharkActor::update(double dt)
     {
         m_state.update(dt);
+    }
+    void LaunSharkActor::lastUpdate(double dt)
+    {
+        m_state.lastUpdate(dt);
     }
     void LaunSharkActor::draw() const
     {

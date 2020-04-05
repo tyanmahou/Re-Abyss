@@ -7,8 +7,8 @@ namespace abyss
 {
     void IkalienSwimState::start()
     {
-        m_body->setVelocity(m_ikalien->getDir() * 360.0);
-        m_body->setAccel(-m_ikalien->getDir() * 360);
+        m_body->setVelocity(m_rotate->getDir() * 360.0);
+        m_body->setAccel(-m_rotate->getDir() * 360);
     }
     void IkalienSwimState::update(double dt)
     {

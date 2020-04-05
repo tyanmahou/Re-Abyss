@@ -2,6 +2,7 @@
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
+#include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
 
 namespace abyss
 {
@@ -16,14 +17,14 @@ namespace abyss
             Attack
         };
     private:
-        bool m_isWait;
-
+        TimeCounterModel m_timeCounter;
         StateManager<LaunSharkActor> m_state;
         std::shared_ptr<LaunSharkVM> m_view;
     public:
         LaunSharkActor(const LaunSharkEntity& entity);
 
         void update(double dt)override;
+        void lastUpdate(double dt)override;
         void draw()const;
 
         void onCollisionStay(ICollider* col) override;

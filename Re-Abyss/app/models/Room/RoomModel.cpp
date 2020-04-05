@@ -1,5 +1,6 @@
-﻿#include "RoomModel.hpp"
+#include "RoomModel.hpp"
 #include <abyss/commons/Constants.hpp>
+#include <abyss/types/ColDirection.hpp>
 
 using namespace s3d;
 
@@ -95,5 +96,43 @@ namespace abyss
 		//下端
 		// 下は落ちて死ぬ判定があるので調整はいらない
 		return pos;
+	}
+    s3d::Vec2 RoomModel::strictBorderAdjusted(s3d::Vec2 pos) const
+    {
+		auto border = this->borders();
+		if (pos.x < border.left) {
+			//左端
+			pos.x = border.left;
+		} else if (pos.x > border.right) {
+			//右端
+			pos.x = border.right;
+		}
+
+		if (pos.y < border.up) {
+			//上端
+			pos.y = border.up;
+		} else if (pos.y > border.down) {
+			//上端
+			pos.y = border.down;
+		}
+
+		return pos;
+    }
+	ColDirection RoomModel::getCol() const
+	{
+		ColDirection col = ColDirection::None;
+		if (!this->passable(Forward::Up)) {
+			col |= ColDirection::Down;
+		}
+		if (!this->passable(Forward::Down)) {
+			col |= ColDirection::Up;
+		}
+		if (!this->passable(Forward::Left)) {
+			col |= ColDirection::Right;
+		}
+		if (!this->passable(Forward::Right)) {
+			col |= ColDirection::Left;
+		}
+		return col;
 	}
 }

@@ -18,6 +18,7 @@ namespace abyss
     public:
         static void Update();
         static bool IsDrawColider();
+        static bool DisableDarkNess();
 
         static void DrawColider(const CShape& colider);
     };

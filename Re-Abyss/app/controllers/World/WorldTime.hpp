@@ -3,6 +3,8 @@
 #include <Siv3D/Duration.hpp>
 #include <abyss/utils/Singleton.hpp>
 
+using namespace std::literals;
+
 namespace abyss
 {
     class WorldTime : protected Singleton<WorldTime>

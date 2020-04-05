@@ -188,7 +188,14 @@
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\LaunSharkShotActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotPursuitState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotWaitState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.cpp" />
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp" />
     <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp" />
@@ -208,6 +215,7 @@
     <ClCompile Include="app\controllers\Actors\Slime\State\SlimeBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\State\SlimeJumpState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\State\SlimeWalkState.cpp" />
+    <ClCompile Include="app\controllers\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
@@ -225,7 +233,8 @@
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
-    <ClCompile Include="app\models\Actors\Ikalien\IkalienModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
@@ -249,6 +258,7 @@
     <ClCompile Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp" />
     <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp" />
+    <ClCompile Include="app\views\Actors\LaunShark\Shot\LaunSharkShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\PlayerShotVM.cpp" />
     <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp" />
@@ -308,6 +318,11 @@
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\LaunSharkShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotPursuitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.hpp" />
@@ -330,6 +345,7 @@
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeJumpState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\State\SlimeWalkState.hpp" />
+    <ClInclude Include="app\controllers\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
@@ -357,7 +373,8 @@
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\IkalienModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\ChargeModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
@@ -393,6 +410,7 @@
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\Shot\LaunSharkShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\PlayerShotVM.hpp" />
     <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />

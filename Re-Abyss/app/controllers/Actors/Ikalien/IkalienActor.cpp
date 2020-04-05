@@ -19,7 +19,7 @@ namespace abyss
             .add<IkalienPursuitState>(State::Pursuit)
             .add<IkalienSwimState>(State::Swim)
             .bind<BodyModel>(&IkalienActor::m_body)
-            .bind<IkalienModel>(&IkalienActor::m_ikalien)
+            .bind<RotateModel>(&IkalienActor::m_rotate)
             ;
     }
     void IkalienActor::update(double dt)
@@ -46,7 +46,7 @@ namespace abyss
     {
         return &m_view->setPos(m_body.getPos())
             .setVelocity(m_body.getVelocity())
-            .setRotate(m_ikalien.getRotate())
+            .setRotate(m_rotate.getRotate())
             .setIsDamaging(m_hp.isInInvincibleTime());
     }
 }

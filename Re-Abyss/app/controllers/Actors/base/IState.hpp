@@ -12,6 +12,8 @@ namespace abyss
     template <class Actor, class StateKey = typename Actor::State>
     class IState : s3d::Uncopyable
     {
+    public:
+        using State = StateKey;
     private:
         StateManager<Actor, StateKey>* m_manager;
     protected:

@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
-#include <abyss/models/Actors/Ikalien/IkalienModel.hpp>
+#include <abyss/models/Actors/Commons/RotateModel.hpp>
 
 namespace abyss
 {
@@ -17,7 +17,7 @@ namespace abyss
             Swim,
         };
     private:
-        IkalienModel m_ikalien;
+        RotateModel m_rotate;
         StateManager<IkalienActor> m_state;
         std::shared_ptr<IkalienVM> m_view;
     public:

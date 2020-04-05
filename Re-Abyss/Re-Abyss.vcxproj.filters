@@ -383,9 +383,6 @@
     <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Ikalien\IkalienModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -408,6 +405,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\utils\ActorUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\LaunShark\Shot\LaunSharkShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\LaunSharkShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotWaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotPursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -666,7 +696,6 @@
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\entities\Enemy\IkalienEntity.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\IkalienModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
@@ -678,5 +707,14 @@
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkAttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkLauncherState.hpp" />
+    <ClInclude Include="app\controllers\Actors\utils\ActorUtils.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\Shot\LaunSharkShotVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\LaunSharkShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotBaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotWaitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotPursuitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.hpp" />
   </ItemGroup>
 </Project>

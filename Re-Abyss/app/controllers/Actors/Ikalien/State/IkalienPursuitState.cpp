@@ -17,19 +17,19 @@ namespace abyss
     {
         s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
         constexpr double speed = s3d::Math::ToRadians(60);
-        double rotate = m_ikalien->getRotate();
-        if (m_ikalien->getDir().cross(d) > 0) {
+        double rotate = m_rotate->getRotate();
+        if (m_rotate->getDir().cross(d) > 0) {
             rotate +=  speed * dt;
         } else {
             rotate -= speed * dt;
         }
-        m_ikalien->setRotate(rotate);
+        m_rotate->setRotate(rotate);
 
         constexpr s3d::Vec2 pivotOffset{ 0, -15 };
         Vec2 nextPivot = Mat3x2::Rotate(rotate).transform(pivotOffset);
         m_body->setPivot(nextPivot);
 
-        m_body->setVelocity(m_ikalien->getDir() * 30);
+        m_body->setVelocity(m_rotate->getDir() * 30);
         m_body->update(dt);
         if (m_timer.reachedZero()) {
             this->changeState(IkalienActor::State::Swim);
