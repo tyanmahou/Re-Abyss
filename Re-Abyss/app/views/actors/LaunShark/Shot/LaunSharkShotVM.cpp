@@ -11,7 +11,7 @@ namespace abyss
 
     LaunSharkShotVM& LaunSharkShotVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = s3d::Ceil(pos);
+        m_pos = s3d::Round(pos);
         return *this;
     }
     LaunSharkShotVM& LaunSharkShotVM::setRotate(double rotate)

@@ -16,7 +16,7 @@ namespace abyss
     }
     CaptainTakoVM& CaptainTakoVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = s3d::Ceil(pos);
+        m_pos = s3d::Round(pos);
         return *this;
     }
     CaptainTakoVM& CaptainTakoVM::setIsDamaging(bool isDamaging)
@@ -41,8 +41,8 @@ namespace abyss
         constexpr Vec2 rawSize{40, 40};
         auto tex = m_texture({ 40 * page, 40 }, rawSize);
         const double scale = 1.0 + (chargeTime * 0.4);
-        const Vec2 size = s3d::Ceil(rawSize * scale);
-        const Vec2 pos = s3d::Ceil(m_pos - size / 2.0 - Vec2{0, (size.y -rawSize.y) / 2.0});
+        const Vec2 size = s3d::Round(rawSize * scale);
+        const Vec2 pos = s3d::Round(m_pos - size / 2.0 - Vec2{0, (size.y -rawSize.y) / 2.0});
         tex.mirrored(isRight).resized(size).draw(pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time(), color));
     }
 }

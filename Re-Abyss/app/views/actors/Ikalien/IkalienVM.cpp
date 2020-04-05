@@ -10,7 +10,7 @@ namespace abyss
     {}
     IkalienVM& IkalienVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = pos;
+        m_pos = s3d::Round(pos);
         return *this;
     }
 

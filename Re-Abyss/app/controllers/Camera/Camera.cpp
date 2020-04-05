@@ -1,4 +1,4 @@
-﻿#include "Camera.hpp"
+#include "Camera.hpp"
 
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
@@ -42,7 +42,7 @@ namespace abyss
 		} else {
 			cameraPos = m_camera->currentRoom().cameraBorderAdjusted(pos);
 		}
-		m_camera->setPos(Math::Ceil(cameraPos));
+		m_camera->setPos(Math::Round(cameraPos));
 		return event;
 	}
 
