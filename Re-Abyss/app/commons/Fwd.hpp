@@ -16,6 +16,7 @@ namespace abyss
 	class RoomMoveCameraWork;
 	class World;
 	class Stage;
+	class Params;
 
 	/// Controllers/Actors
 	class ICollider;
@@ -45,6 +46,12 @@ namespace abyss
 	struct DoorEntity;
 
 	/// <summary>
+	/// Entities/Params
+	/// </summary>
+	struct ParamEntity;
+	struct LaunSharkParam;
+
+	/// <summary>
 	/// Models
 	/// </summary>
 	struct RoomBorders;
@@ -57,6 +64,8 @@ namespace abyss
 	/// Repositories
 	/// </summary>
 	class IStageRepository;
+	template<class Entity>
+	class IParamsRepository;
 
 	/// <summary>
 	/// Types

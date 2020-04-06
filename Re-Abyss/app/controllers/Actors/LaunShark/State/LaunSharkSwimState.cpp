@@ -1,7 +1,6 @@
 #include "LaunSharkSwimState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -9,22 +8,26 @@ namespace abyss
     void LaunSharkSwimState::onCollisionMap(ColDirection col)
     {
         LaunSharkBaseState::onCollisionMap(col);
-        if (col.isLeft() || col.isRight()) {
+        double time = LaunSharkParam::Swim().onCollisionWaitTimeSec;
+        if ((col.isLeft() || col.isRight()) && m_waitTimer.sF() <= 0.5) {
             m_waitTimer.set(0.5s);
         }
     }
     LaunSharkSwimState::LaunSharkSwimState():
-        m_waitTimer(1.5s, true, WorldTime::TimeMicroSec)
+        m_waitTimer(LaunSharkParam::Swim().waitTimeSec, true, WorldTime::TimeMicroSec)
     {}
     void LaunSharkSwimState::start()
     {
         m_body
-            ->setMaxSpeedX(180)
-            .setSize({ 120, 40 });
+            ->setMaxSpeedX(LaunSharkParam::Swim().maxSpeedX)
+            .setSize(LaunSharkParam::Base().size);
     }
     void LaunSharkSwimState::update(double dt)
     {
-        m_body->setVelocityY(20 * s3d::Cos(m_timeCounter->getTotalTime()));
+        const auto& param = LaunSharkParam::Swim();
+        double coefficient = Math::TwoPi / param.movePeriodSec;
+        m_body->setVelocityY(param.moveRangeY * coefficient *
+            s3d::Cos(m_timeCounter->getTotalTime() *  coefficient));
 
         this->LaunSharkBaseState::update(dt);
 
@@ -33,9 +36,9 @@ namespace abyss
             double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;
             if (f * d.x > 0) {
                 auto distance = d.length();
-                if (distance <= 200) {
+                if (distance <= param.attackRange) {
                     this->changeState(LaunSharkActor::State::Attack);
-                }else if (distance <= 500) {
+                }else if (distance <= param.launcherRange) {
                     this->changeState(LaunSharkActor::State::Launcher);
                 } 
             }

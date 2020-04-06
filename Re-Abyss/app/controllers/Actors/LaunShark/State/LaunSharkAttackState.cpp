@@ -8,17 +8,21 @@
 namespace abyss
 {
     LaunSharkAttackState::LaunSharkAttackState():
-        m_attackTimer(4s, true, WorldTime::TimeMicroSec)
+        m_attackTimer(LaunSharkParam::Attack().attackTimeSec, true, WorldTime::TimeMicroSec)
     {}
 
     void LaunSharkAttackState::start()
     {
-        m_body->setSize({ 120, 60 });
+        m_body->setSize(LaunSharkParam::Attack().size);
     }
 
     void LaunSharkAttackState::update(double dt)
     {
-        m_body->setVelocityY(40 * 2 * s3d::Cos(m_timeCounter->getTotalTime() * 2));
+        const auto& param = LaunSharkParam::Attack();
+        
+        double coefficient = Math::TwoPi / param.movePeriodSec;
+        m_body->setVelocityY(param.moveRangeY * coefficient *
+            s3d::Cos(m_timeCounter->getTotalTime() * coefficient));
 
         this->LaunSharkBaseState::update(dt);
 

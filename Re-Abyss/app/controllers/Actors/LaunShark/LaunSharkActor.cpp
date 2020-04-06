@@ -2,7 +2,6 @@
 #include "State/LaunSharkAttackState.hpp"
 #include "State/LaunSharkLauncherState.hpp"
 #include <abyss/entities/Enemy/LaunSharkEntity.hpp>
-#include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 
 namespace abyss
 {
@@ -11,10 +10,11 @@ namespace abyss
         m_state(this),
         m_view(std::make_shared<LaunSharkVM>())
     {
-        m_hp.setHp(10);
+        const auto& baseParam = LaunSharkParam::Base();
+        m_hp.setHp(baseParam.hp);
         m_body
             .noneResistanced()
-            .setSize({120, 40});
+            .setSize(baseParam.size);
         m_state
             .add<LaunSharkSwimState>(State::Swim)
             .add<LaunSharkLauncherState>(State::Launcher)

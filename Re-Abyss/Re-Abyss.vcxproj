@@ -171,6 +171,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.cpp" />
     <ClCompile Include="app\commons\InputManager\KeyPovD8\KeyPovD8.cpp" />
+    <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ICollider.cpp" />
@@ -231,6 +232,8 @@
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp" />
     <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp" />
+    <ClCompile Include="app\factories\Params\ParamsFactory.cpp" />
+    <ClCompile Include="app\factories\Stage\StageFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
@@ -303,6 +306,7 @@
     <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\commons\LayerGroup.hpp" />
+    <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
@@ -358,7 +362,10 @@
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
+    <ClInclude Include="app\commons\Params.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
+    <ClInclude Include="app\datastores\Params\base\IParamsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Params\TomlParamsDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
@@ -372,12 +379,16 @@
     <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
+    <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
+    <ClInclude Include="app\entities\Params\ParamsGetter.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\controllers\Camera\Camera.hpp" />
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
+    <ClInclude Include="app\factories\Params\ParamsFactory.hpp" />
+    <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
@@ -392,6 +403,8 @@
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
+    <ClInclude Include="app\repositories\Params\base\IParamsRepository.hpp" />
+    <ClInclude Include="app\repositories\Params\ParamsRepository.hpp" />
     <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
     <ClInclude Include="app\repositories\Stage\StageRepository.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
@@ -413,6 +426,7 @@
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
+    <ClInclude Include="app\utils\TomlBind\TomlBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />

@@ -3,6 +3,7 @@
 #include <abyss/scenes/Main/MainScene.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/factories/Params/ParamsFactory.hpp>
 
 namespace abyss
 {
@@ -16,6 +17,7 @@ namespace abyss
 	public:
 		Impl()
 		{
+			ParamsFactory::Bind();
 			this->registerScene();
 		}
 

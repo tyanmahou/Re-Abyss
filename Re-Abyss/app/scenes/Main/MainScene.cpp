@@ -2,13 +2,14 @@
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/factories/ActionSystem/ActionSystemFactory.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 namespace abyss
 {
 	class MainScene::Controller
 	{
 		std::unique_ptr<ActionSystem> m_actionSystem;
-
+		ResourceManager m_recources;
 	public:
 		Controller([[maybe_unused]] const MainScene::InitData& init):
 			m_actionSystem(ActionSystemFactory::CreateFromTmx(U"resources/maps/stage0.tmx"))

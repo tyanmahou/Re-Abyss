@@ -32,5 +32,6 @@ namespace abyss
         static Camera* const Camera();
         static Light* const Light();
         static World* const World();
+
     };
 }
