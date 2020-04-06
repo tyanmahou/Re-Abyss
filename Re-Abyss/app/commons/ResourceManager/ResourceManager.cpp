@@ -53,17 +53,17 @@ namespace abyss
     }
     s3d::Texture ResourceManager::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexture(path + prefix);
+        return m_pImpl->loadTexture(prefix + path);
     }
 
     TexturePacker ResourceManager::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexturePacker(path + prefix);
+        return m_pImpl->loadTexturePacker(prefix + path);
     }
 
     s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadPs(path + prefix);
+        return m_pImpl->loadPs(prefix + path);
     }
 
     ResourceManager* ResourceManager::Main()
@@ -73,6 +73,6 @@ namespace abyss
 
     const s3d::TOMLValue& ResourceManager::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadToml(path + prefix);
+        return m_pImpl->loadToml(prefix + path);
     }
 }

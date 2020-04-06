@@ -10,8 +10,8 @@
 namespace abyss
 {
     LaunSharkLauncherState::LaunSharkLauncherState():
-        m_attackTimer(LaunSharkParam::Launcher().attackTimeSec, true, WorldTime::TimeMicroSec),
-        m_waitTimer(LaunSharkParam::Launcher().waitTimeSec, false, WorldTime::TimeMicroSec)
+        m_attackTimer(1.2, true, WorldTime::TimeMicroSec),
+        m_waitTimer(0.8, false, WorldTime::TimeMicroSec)
     {}
     void LaunSharkLauncherState::start()
     {

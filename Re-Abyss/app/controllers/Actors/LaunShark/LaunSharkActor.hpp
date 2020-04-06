@@ -4,7 +4,6 @@
 #include <abyss/controllers/Actors/base/IState.hpp>
 #include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
 
-#include <abyss/entities/Params/Actors/LaunSharkParam.hpp>
 #include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 
 namespace abyss

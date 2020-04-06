@@ -31,7 +31,7 @@ namespace abyss
     void LaunSharkBaseState::update(double dt)
     {
         m_timeCounter->update(dt);
-        double accelX = LaunSharkParam::Base().accelX;
+        double accelX = 360.0;
         if (m_body->isForward(Forward::Left)) {
             m_body->setAccelX(-accelX);
         } else if (m_body->isForward(Forward::Right)) {

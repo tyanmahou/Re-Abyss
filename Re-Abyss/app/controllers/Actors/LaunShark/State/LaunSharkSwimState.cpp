@@ -8,25 +8,24 @@ namespace abyss
     void LaunSharkSwimState::onCollisionMap(ColDirection col)
     {
         LaunSharkBaseState::onCollisionMap(col);
-        double time = LaunSharkParam::Swim().onCollisionWaitTimeSec;
+        double time = 0.5;
         if ((col.isLeft() || col.isRight()) && m_waitTimer.sF() <= 0.5) {
             m_waitTimer.set(0.5s);
         }
     }
     LaunSharkSwimState::LaunSharkSwimState():
-        m_waitTimer(LaunSharkParam::Swim().waitTimeSec, true, WorldTime::TimeMicroSec)
+        m_waitTimer(2.0, true, WorldTime::TimeMicroSec)
     {}
     void LaunSharkSwimState::start()
     {
         m_body
-            ->setMaxSpeedX(LaunSharkParam::Swim().maxSpeedX)
-            .setSize(LaunSharkParam::Base().size);
+            ->setMaxSpeedX(180)
+            .setSize({ 120, 60 });
     }
     void LaunSharkSwimState::update(double dt)
     {
-        const auto& param = LaunSharkParam::Swim();
-        double coefficient = Math::TwoPi / param.movePeriodSec;
-        m_body->setVelocityY(param.moveRangeY * coefficient *
+        double coefficient = Math::TwoPi / 6.0;
+        m_body->setVelocityY(20 * coefficient *
             s3d::Cos(m_timeCounter->getTotalTime() *  coefficient));
 
         this->LaunSharkBaseState::update(dt);
@@ -36,9 +35,9 @@ namespace abyss
             double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;
             if (f * d.x > 0) {
                 auto distance = d.length();
-                if (distance <= param.attackRange) {
+                if (distance <= 200) {
                     this->changeState(LaunSharkActor::State::Attack);
-                }else if (distance <= param.launcherRange) {
+                }else if (distance <= 500) {
                     this->changeState(LaunSharkActor::State::Launcher);
                 } 
             }

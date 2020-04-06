@@ -1,10 +1,9 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/entities/Params/ParamsGetter.hpp>
 #include <abyss/utils/TomlBind/TomlBind.hpp>
 namespace abyss
 {
-    struct LaunSharkParam : ParamsGetter<LaunSharkParam>
+    struct LaunSharkParam
     {
         struct
         {
@@ -39,32 +38,11 @@ namespace abyss
             double waitTimeSec;
 
         }launcher;
-        struct ViewParam
+        struct
         {
             double swimAnimeTimeSec;
             double attackAnimeTimeSec;
         }view;
-
-        static decltype(auto) Base()
-        {
-            return Get()->base;
-        }
-        static decltype(auto) Swim()
-        {
-            return Get()->swim;
-        }
-        static decltype(auto) Attack()
-        {
-            return Get()->attack;
-        }
-        static decltype(auto) Launcher()
-        {
-            return Get()->launcher;
-        }
-        static decltype(auto) View()
-        {
-            return Get()->view;
-        }
     };
 
     template<>

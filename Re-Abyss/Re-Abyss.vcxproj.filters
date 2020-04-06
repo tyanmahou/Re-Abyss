@@ -443,9 +443,6 @@
     <ClCompile Include="app\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\Params\ParamsFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\factories\Stage\StageFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -730,15 +727,8 @@
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TomlBind.hpp" />
-    <ClInclude Include="app\datastores\Params\TomlParamsDataStore.hpp" />
-    <ClInclude Include="app\datastores\Params\base\IParamsDataStore.hpp" />
-    <ClInclude Include="app\repositories\Params\ParamsRepository.hpp" />
-    <ClInclude Include="app\repositories\Params\base\IParamsRepository.hpp" />
-    <ClInclude Include="app\factories\Params\ParamsFactory.hpp" />
     <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
     <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
-    <ClInclude Include="app\commons\Params.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
-    <ClInclude Include="app\entities\Params\ParamsGetter.hpp" />
   </ItemGroup>
 </Project>

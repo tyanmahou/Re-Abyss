@@ -2,7 +2,6 @@
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/factories/Stage/StageFactory.hpp>
-#include <abyss/factories/Params/ParamsFactory.hpp>
 
 namespace abyss
 {

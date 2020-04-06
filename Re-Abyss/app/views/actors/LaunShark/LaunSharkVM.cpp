@@ -3,8 +3,6 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/entities/Params/Actors/LaunSharkParam.hpp>
-
 namespace abyss
 {
     LaunSharkVM::LaunSharkVM():
@@ -28,14 +26,14 @@ namespace abyss
     void LaunSharkVM::drawSwim() const
     {
         bool isRight = m_forward == Forward::Right;
-        double animeTimeSec = LaunSharkParam::View().swimAnimeTimeSec;
+        double animeTimeSec = 1.0;
         int32 time = static_cast<int32>(Periodic::Square0_1(animeTimeSec, WorldTime::Time()));
         m_texture(U"wait")({ 0, 60 * time }, { 120, 60 }).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
     void LaunSharkVM::drawAttack() const
     {
         bool isRight = m_forward == Forward::Right;
-        double animeTimeSec = LaunSharkParam::View().attackAnimeTimeSec;
+        double animeTimeSec = 0.8;
 
         int32 page = static_cast<int32>(Periodic::Sawtooth0_1(animeTimeSec, WorldTime::Time()) * 8);
         m_texture(U"attack")({ 120 * (page / 4), 80 * (page %  4) }, { 120, 80 }).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));

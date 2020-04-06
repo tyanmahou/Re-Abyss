@@ -9,7 +9,7 @@ namespace abyss
 {
     namespace Path
     {
-        inline s3d::FilePath ResourcePath = U"resoureces/";
+        inline s3d::FilePath ResourcePath = U"resources/";
         inline s3d::FilePath ImagePath = ResourcePath + U"images/";
         inline s3d::FilePath MapPath = ResourcePath + U"maps/";
         inline s3d::FilePath ParamPath = ResourcePath + U"maps/";
@@ -32,7 +32,7 @@ namespace abyss
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const;
 
         template<class Entity>
-        const Entity& loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const
+        Entity loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const
         {
             return TomlBind<Entity>{}(this->loadToml(path, prefix));
         }

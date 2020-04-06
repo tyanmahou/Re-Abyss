@@ -10,11 +10,10 @@ namespace abyss
         m_state(this),
         m_view(std::make_shared<LaunSharkVM>())
     {
-        const auto& baseParam = LaunSharkParam::Base();
-        m_hp.setHp(baseParam.hp);
+        m_hp.setHp(10);
         m_body
             .noneResistanced()
-            .setSize(baseParam.size);
+            .setSize({120, 40});
         m_state
             .add<LaunSharkSwimState>(State::Swim)
             .add<LaunSharkLauncherState>(State::Launcher)
@@ -49,5 +48,4 @@ namespace abyss
             .setForward(m_body.getForward())
             .setIsDamaging(m_hp.isInInvincibleTime());
     }
-
 }
