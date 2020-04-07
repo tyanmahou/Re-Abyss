@@ -287,7 +287,7 @@
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\testing.cpp" />
-    <ClCompile Include="tests\tests\TomlBind\TomlBindCatch.cpp" />
+    <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -420,7 +420,7 @@
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
-    <ClInclude Include="app\utils\TomlBind\TomlBind.hpp" />
+    <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />

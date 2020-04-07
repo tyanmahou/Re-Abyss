@@ -1,6 +1,6 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/utils/TomlBind/TomlBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
 namespace abyss::tests
 {
@@ -68,9 +68,9 @@ namespace abyss::tests
 
     TEST_CASE("TomlBind. Test")
     {
-        TOMLReader  toml(U"tests/data/TomlBind/config.toml");
+        TOMLReader  toml(U"tests/data/TOMLBind/config.toml");
 
-        Config config = TomlBinding<Config>(toml);
+        Config config = TOMLBinding<Config>(toml);
 
         SECTION("test normal")
         {

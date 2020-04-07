@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/utils/TomlBind/TomlBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLBind.hpp>
 namespace abyss
 {
     struct RollingTakoParam

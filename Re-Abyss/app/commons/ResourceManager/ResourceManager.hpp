@@ -3,7 +3,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/String.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/utils/TomlBind/TomlBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
 namespace abyss
 {
@@ -34,7 +34,7 @@ namespace abyss
         template<class Entity>
         Entity loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const
         {
-            return TomlBind<Entity>{}(this->loadToml(path, prefix));
+            return TOMLBind<Entity>{}(this->loadToml(path, prefix));
         }
     private:
         inline static ResourceManager* s_main = nullptr;

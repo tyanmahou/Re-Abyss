@@ -4,15 +4,15 @@
 namespace abyss
 {
     template<class Type>
-    struct TomlBind
+    struct TOMLBind
     {
         Type operator()(const s3d::TOMLValue& toml);
     };
 
     template<class Type>
-    Type TomlBinding(const s3d::TOMLValue& toml)
+    Type TOMLBinding(const s3d::TOMLValue& toml)
     {
-        return TomlBind<Type>{}(toml);
+        return TOMLBind<Type>{}(toml);
     }
 }
 
@@ -23,7 +23,7 @@ namespace abyss
  namespace abyss
  {
      template<>
-     struct TomlBind<Hoge>
+     struct TOMLBind<Hoge>
      {
          Hoge operator()(const s3d::TOMLValue& toml){
              // something
@@ -39,7 +39,7 @@ namespace abyss
     namespace detail
     {
         template<class Type>
-        concept IsAutoTomlBindable = requires(Type a)
+        concept IsAutoTOMLBindable = requires(Type a)
         {
             typename Type::TOML_BIND_BEGIN_ID;
             typename Type::TOML_BIND_END_ID;
@@ -55,22 +55,24 @@ namespace abyss
         concept SivArrayAs = IsSivArray<Type>::value;
 
         template<int Num>
-        struct TomlBindId
+        struct TOMLBindId
         {
             const s3d::TOMLValue& toml;
         };
 
         template <class T, class Id = typename T::TOML_BIND_BEGIN_ID>
-        struct AutoTomlBind {};
+        struct AutoTOMLBind {};
 
-        template <IsAutoTomlBindable T, int Num>
-        struct AutoTomlBind<T, TomlBindId<Num>>
+        template <IsAutoTOMLBindable T, int Num>
+        struct AutoTOMLBind<T, TOMLBindId<Num>>
         {
             void operator()(T& ret, const s3d::TOMLValue& toml)
             {
-                (ret, TomlBindId<Num>{toml});
-                if constexpr (!std::is_same_v<typename T::TOML_BIND_END_ID, TomlBindId<Num + 1>>) {
-                    AutoTomlBind<T, TomlBindId<Num + 1>>{}.operator()(ret, toml);
+                if constexpr (std::is_void_v<decltype((ret, TOMLBindId<Num>{toml}))>) {
+                    (ret, TOMLBindId<Num>{toml});
+                }
+                if constexpr (!std::is_same_v<typename T::TOML_BIND_END_ID, TOMLBindId<Num + 1>>) {
+                    AutoTOMLBind<T, TOMLBindId<Num + 1>>{}.operator()(ret, toml);
                 }
             }
         };
@@ -78,8 +80,8 @@ namespace abyss
         template <class Value>
         Value GetData(const s3d::TOMLValue& toml)
         {
-            if constexpr (IsAutoTomlBindable<Value>) {
-                return TomlBind<Value>{}(toml);
+            if constexpr (IsAutoTOMLBindable<Value>) {
+                return TOMLBind<Value>{}(toml);
             } else {
                 return toml.get<Value>();
             }
@@ -103,13 +105,13 @@ namespace abyss
         }
     }
 
-    template<detail::IsAutoTomlBindable T>
-    struct TomlBind<T>
+    template<detail::IsAutoTOMLBindable T>
+    struct TOMLBind<T>
     {
         T operator()(const s3d::TOMLValue& toml)
         {
             T ret;
-            detail::AutoTomlBind<T>{}(ret, toml);
+            detail::AutoTOMLBind<T>{}(ret, toml);
             return ret;
         }
     };
@@ -118,11 +120,11 @@ namespace abyss
 }
 
 
-#define TOML_BIND_BEGIN using TOML_BIND_BEGIN_ID = abyss::detail::TomlBindId<__COUNTER__>
-#define TOML_BIND_END using TOML_BIND_END_ID = abyss::detail::TomlBindId<__COUNTER__>
-#define TOML_BIND_PARAM(Value, TomlKey)\
-]] void operator, (const abyss::detail::TomlBindId<__COUNTER__>& id)\
+#define TOML_BIND_BEGIN using TOML_BIND_BEGIN_ID = abyss::detail::TOMLBindId<__COUNTER__>
+#define TOML_BIND_END using TOML_BIND_END_ID = abyss::detail::TOMLBindId<__COUNTER__>
+#define TOML_BIND_PARAM(Value, TOMLKey)\
+]] void operator, (const abyss::detail::TOMLBindId<__COUNTER__>& id)\
 {\
     using Type = decltype(Value);\
-    Value = abyss::detail::GetData<Type>(id.toml[U##TomlKey]);\
+    Value = abyss::detail::GetData<Type>(id.toml[U##TOMLKey]);\
 }[[
