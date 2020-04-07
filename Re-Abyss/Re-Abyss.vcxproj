@@ -287,6 +287,7 @@
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\testing.cpp" />
+    <ClCompile Include="tests\tests\TomlBind\TomlBindCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -376,6 +377,7 @@
     <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
     <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
+    <ClInclude Include="app\entities\Params\Actors\RollingTakoParam.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\controllers\Camera\Camera.hpp" />
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />

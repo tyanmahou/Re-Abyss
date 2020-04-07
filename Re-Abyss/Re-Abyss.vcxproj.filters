@@ -449,6 +449,9 @@
     <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\TomlBind\TomlBindCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -730,5 +733,6 @@
     <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
     <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
+    <ClInclude Include="app\entities\Params\Actors\RollingTakoParam.hpp" />
   </ItemGroup>
 </Project>
