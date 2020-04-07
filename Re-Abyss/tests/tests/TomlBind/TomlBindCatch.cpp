@@ -9,17 +9,21 @@ namespace abyss::tests
         struct Pos
         {
             TOML_BIND_BEGIN;
-            TOML_BIND_PARAM(x, "x")
+
+            [[TOML_BIND_PARAM(x, "x")]]
             double x;
-            TOML_BIND_PARAM(y, "y")
+
+            [[TOML_BIND_PARAM(y, "y")]]
             double y;
+
             TOML_BIND_END;
         };
         TOML_BIND_BEGIN;
 
-        TOML_BIND_PARAM(label, "label")
+        [[TOML_BIND_PARAM(label, "label")]]
         String label;
-        TOML_BIND_PARAM(pos, "pos")
+
+        [[TOML_BIND_PARAM(pos, "pos")]]
         Pos pos;
 
         TOML_BIND_END;
@@ -30,16 +34,16 @@ namespace abyss::tests
         {
             TOML_BIND_BEGIN;
 
-            TOML_BIND_PARAM(title, "title")
+            [[TOML_BIND_PARAM(title, "title")]]
             String title;
 
-            TOML_BIND_PARAM(width, "width")
+            [[TOML_BIND_PARAM(width, "width")]]
             int32 width;
 
-            TOML_BIND_PARAM(height, "height")
+            [[TOML_BIND_PARAM(height, "height")]]
             int32 height;
 
-            TOML_BIND_PARAM(sizable, "sizable")
+            [[TOML_BIND_PARAM(sizable, "sizable")]]
             bool sizable;
 
             TOML_BIND_END;
@@ -47,17 +51,18 @@ namespace abyss::tests
 
         TOML_BIND_BEGIN;
 
-        TOML_BIND_PARAM(window, "Window")
+        [[TOML_BIND_PARAM(window, "Window")]]
         Window window;
 
-        TOML_BIND_PARAM(sceneBackGround, "Scene.background")
+        [[TOML_BIND_PARAM(sceneBackGround, "Scene.background")]]
         ColorF sceneBackGround;
 
-        TOML_BIND_PARAM(values, "Array.values")
+        [[TOML_BIND_PARAM(values, "Array.values")]]
         Array<int32> values;
 
-        TOML_BIND_PARAM(items, "Items")
+        [[TOML_BIND_PARAM(items, "Items")]]
         Array<Item> items;
+
         TOML_BIND_END;
     };
 

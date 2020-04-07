@@ -121,8 +121,8 @@ namespace abyss
 #define TOML_BIND_BEGIN using TOML_BIND_BEGIN_ID = abyss::detail::TomlBindId<__COUNTER__>
 #define TOML_BIND_END using TOML_BIND_END_ID = abyss::detail::TomlBindId<__COUNTER__>
 #define TOML_BIND_PARAM(Value, TomlKey)\
-void operator, (const abyss::detail::TomlBindId<__COUNTER__>& id)\
+]] void operator, (const abyss::detail::TomlBindId<__COUNTER__>& id)\
 {\
     using Type = decltype(Value);\
     Value = abyss::detail::GetData<Type>(id.toml[U##TomlKey]);\
-}
+}[[
