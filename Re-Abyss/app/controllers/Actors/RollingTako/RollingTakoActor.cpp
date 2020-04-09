@@ -1,6 +1,6 @@
 #include <abyss/entities/Enemy/RollingTakoEntity.hpp>
 #include <abyss/views/Actors/RollingTako/RollingTakoVM.hpp>
-
+#include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
 #include "State/RollingTakoWaitState.hpp"
 #include "State/RollingTakoRunState.hpp"
 
@@ -12,11 +12,11 @@ namespace abyss
         m_state(this),
         m_view(std::make_unique<RollingTakoVM>())
     {
-        m_hp.setHp(6);
+        m_hp.setHp(RollingTakoParam::Base::Hp);
         m_body
-            .setSize({45, 45})
-            .setPivot({0, 7.5})
-            .setMaxSpeedX(200);
+            .setSize(RollingTakoParam::Base::Size)
+            .setPivot(RollingTakoParam::Base::Pivot)
+            .setMaxSpeedX(RollingTakoParam::Run::MaxSpeedX);
 
         m_state
             .add<RollingTakoWaitState>(State::Wait)

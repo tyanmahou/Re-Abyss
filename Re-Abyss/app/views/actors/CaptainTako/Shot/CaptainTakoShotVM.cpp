@@ -1,11 +1,12 @@
 #include "CaptainTakoShotVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 namespace abyss
 {
     CaptainTakoShotVM::CaptainTakoShotVM():
-        m_texture(U"resources/images/actors/CaptainTako/tako_shot.png")
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/CaptainTako/tako_shot.png"))
     {}
     CaptainTakoShotVM& CaptainTakoShotVM::setForward(const Forward & forward)
     {

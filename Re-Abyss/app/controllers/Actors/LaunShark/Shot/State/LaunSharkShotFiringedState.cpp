@@ -1,11 +1,12 @@
 #include "LaunSharkShotFiringedState.hpp"
+#include <abyss/params/Actors/LaunShark/LaunSharkShotParam.hpp>
 
 namespace abyss
 {
     void LaunSharkShotFiringedState::start()
     {
-        m_body->setAccel(m_rotate->getDir9() * 120);
-        m_body->setMaxSpeed(m_rotate->getDir9() * 360.0);
+        m_body->setAccel(m_rotate->getDir9() * LaunSharkShotParam::Firinged::Accel);
+        m_body->setMaxSpeed(m_rotate->getDir9() * LaunSharkShotParam::Firinged::MaxSpeed);
     }
     void LaunSharkShotFiringedState::update(double dt)
     {

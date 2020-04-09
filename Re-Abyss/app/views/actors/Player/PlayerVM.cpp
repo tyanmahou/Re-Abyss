@@ -1,20 +1,21 @@
 #include "PlayerVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
-
-namespace 
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/params/Actors/Player/PlayerParam.hpp>
+#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
+namespace
 {
     using namespace abyss;
 
     ColorF ChargeToColor(double charge)
     {
-        if (charge >= Constants::Player::BigCharge) {
+        if (charge >= PlayerShotParam::Big::Charge) {
             return ColorDef::Shot::BigCharge;
-        } else if (charge >= Constants::Player::MediumCharge) {
+        } else if (charge >= PlayerShotParam::Medium::Charge) {
             return ColorDef::Shot::MediumCharge;
         } else {
             return ColorF(1);
@@ -33,7 +34,7 @@ namespace abyss
         return ColorDef::OnDamage(m_isDamaging, WorldTime::Time());
     }
     PlayerVM::PlayerVM():
-        m_texture(U"resources/images/actors/Player/player.json")
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
     PlayerVM& PlayerVM::setPos(const s3d::Vec2& pos)
     {
@@ -136,7 +137,7 @@ namespace abyss
     }
     void PlayerVM::drawCharge() const
     {
-        if (m_charge <= Constants::Player::SmallCharge) {
+        if (m_charge <= PlayerShotParam::Small::Charge) {
             return;
         }
         ScopedRenderStates2D t2d(BlendState::Additive);
@@ -151,9 +152,9 @@ namespace abyss
             .rotated(Math::QuarterPi * Periodic::Square0_1(0.6s, WorldTime::Time()))
             .drawFrame(1, 1, color.setA(0.5 - a));
 
-        if (m_charge >= Constants::Player::BigCharge) {
+        if (m_charge >= PlayerShotParam::Big::Charge) {
             Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 30 + 30).draw(color.setA(a));
-        } else if (m_charge >= Constants::Player::MediumCharge) {
+        } else if (m_charge >= PlayerShotParam::Medium::Charge) {
             Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 5 + 30).draw(color.setA(a));
         }
     }

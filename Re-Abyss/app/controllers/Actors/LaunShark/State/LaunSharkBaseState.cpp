@@ -1,7 +1,7 @@
 #include "LaunSharkBaseState.hpp"
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
-
+#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
 namespace abyss
 {
 
@@ -31,7 +31,7 @@ namespace abyss
     void LaunSharkBaseState::update(double dt)
     {
         m_timeCounter->update(dt);
-        double accelX = 360.0;
+        double accelX = LaunSharkParam::Base::AccelX;
         if (m_body->isForward(Forward::Left)) {
             m_body->setAccelX(-accelX);
         } else if (m_body->isForward(Forward::Right)) {

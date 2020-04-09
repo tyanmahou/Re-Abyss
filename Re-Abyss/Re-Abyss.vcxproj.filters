@@ -452,6 +452,9 @@
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -730,9 +733,16 @@
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\LaunSharkShotFiringedState.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
-    <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
-    <ClInclude Include="app\entities\Params\Actors\RollingTakoParam.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
+    <ClInclude Include="app\params\Actors\RollingTako\RollingTakoParam.hpp" />
+    <ClInclude Include="app\params\Actors\LaunShark\LaunSharkParam.hpp" />
+    <ClInclude Include="app\params\Actors\Slime\SlimeParam.hpp" />
+    <ClInclude Include="app\params\Actors\Ikalien\IkalienParam.hpp" />
+    <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoParam.hpp" />
+    <ClInclude Include="app\params\Actors\LaunShark\LaunSharkShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Player\PlayerShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Player\PlayerParam.hpp" />
   </ItemGroup>
 </Project>

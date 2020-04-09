@@ -266,6 +266,7 @@
     <ClCompile Include="app\utils\Time\Time.cpp" />
     <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.cpp" />
+    <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp" />
     <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp" />
     <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp" />
     <ClCompile Include="app\views\Actors\LaunShark\Shot\LaunSharkShotVM.cpp" />
@@ -376,8 +377,14 @@
     <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
     <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Map\MapEntity.hpp" />
-    <ClInclude Include="app\entities\Params\Actors\LaunSharkParam.hpp" />
-    <ClInclude Include="app\entities\Params\Actors\RollingTakoParam.hpp" />
+    <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoParam.hpp" />
+    <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Ikalien\IkalienParam.hpp" />
+    <ClInclude Include="app\params\Actors\LaunShark\LaunSharkParam.hpp" />
+    <ClInclude Include="app\params\Actors\LaunShark\LaunSharkShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Player\PlayerParam.hpp" />
+    <ClInclude Include="app\params\Actors\Player\PlayerShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\RollingTako\RollingTakoParam.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\controllers\Camera\Camera.hpp" />
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />
@@ -399,6 +406,7 @@
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
+    <ClInclude Include="app\params\Actors\Slime\SlimeParam.hpp" />
     <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
     <ClInclude Include="app\repositories\Stage\StageRepository.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />

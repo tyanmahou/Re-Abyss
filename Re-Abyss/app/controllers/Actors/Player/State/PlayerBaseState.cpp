@@ -1,10 +1,10 @@
 #include "PlayerBaseState.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Player/Shot/PlayerShotActor.hpp>
+#include <abyss/params/Actors/Player/PlayerParam.hpp>
 
 namespace abyss
 {
@@ -58,23 +58,21 @@ namespace abyss
             .setAccelY(BodyModel::DefaultGravity)
             .setVelocity({0, 0})
             .setMaxVelocityY(BodyModel::DefaultMaxVelocityY)
-            .setDeccelX(180)
-            .setMaxSpeedX(240);
+            .setDeccelX(PlayerParam::Swim::DeccelX)
+            .setMaxSpeedX(PlayerParam::Swim::MaxSpeedX);
     }
     void PlayerBaseState::onMove(double dt)
     {
         const bool rightPressed = InputManager::Right.pressed();
         const bool leftPressed = InputManager::Left.pressed();
 
-        constexpr double Accel = 360;
-        m_body->setAccelX(Accel * (rightPressed - leftPressed));
+        m_body->setAccelX(PlayerParam::Swim::AccelX *(rightPressed - leftPressed));
         // ジャンプ
-        constexpr double JumpPower = 360;
         if (InputManager::Jump.down()) {
-            m_body->jump(JumpPower);
+            m_body->jumpToHeight(PlayerParam::Swim::JumpHeight);
         }
         if (InputManager::Down.pressed()) {
-            m_body->setMaxVelocityY(Constants::Player::DiveSpeed * 60);
+            m_body->setMaxVelocityY(PlayerParam::Swim::DiveSpeed);
         } else {
             m_body->setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
         }

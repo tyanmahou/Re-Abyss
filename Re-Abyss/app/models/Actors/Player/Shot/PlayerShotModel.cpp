@@ -1,7 +1,7 @@
 #include "PlayerShotModel.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/ColorDef.hpp>
+#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
 
 namespace
 {
@@ -9,30 +9,26 @@ namespace
 
     PlayerShotType ChargeToType(double charge)
     {
-        using namespace Constants::Player;
-        using enum PlayerShotType;
-
-        if (charge >= BigCharge) {
-            return Big;
-        } else if (charge >= MediumCharge) {
-            return Medium;
-        } else if (charge >= SmallCharge) {
-            return Small;
+        if (charge >= PlayerShotParam::Big::Charge) {
+            return PlayerShotType::Big;
+        } else if (charge >= PlayerShotParam::Medium::Charge) {
+            return PlayerShotType::Medium;
+        } else if (charge >= PlayerShotParam::Small::Charge) {
+            return PlayerShotType::Small;
         } else {
-            return Normal;
+            return PlayerShotType::Normal;
         }
     }
 
     double TypeToRadius(PlayerShotType type)
     {
-        using enum PlayerShotType;
-        static const std::unordered_map<PlayerShotType, double> rMap{
-            {Normal, 5},
-            {Small, 8},
-            {Medium, 16},
-            {Big, 24},
-        };
-        return rMap.at(type);
+        switch (type) {
+        case PlayerShotType::Normal: return PlayerShotParam::Normal::Radius;
+        case PlayerShotType::Small: return PlayerShotParam::Small::Radius;
+        case PlayerShotType::Medium: return PlayerShotParam::Medium::Radius;
+        case PlayerShotType::Big: return PlayerShotParam::Big::Radius;
+        }
+        return 0.0;
     }
 
     Color TypeToColor(PlayerShotType type)
@@ -49,14 +45,13 @@ namespace
 
     s3d::int32 TypeToPower(PlayerShotType type)
     {
-        using enum PlayerShotType;
-        static const std::unordered_map<PlayerShotType, s3d::int32> powerMap{
-            {Normal, 2},
-            {Small, 3},
-            {Medium, 6},
-            {Big, 12},
-        };
-        return powerMap.at(type);
+        switch (type) {
+        case PlayerShotType::Normal: return PlayerShotParam::Normal::Power;
+        case PlayerShotType::Small: return PlayerShotParam::Small::Power;
+        case PlayerShotType::Medium: return PlayerShotParam::Medium::Power;
+        case PlayerShotType::Big: return PlayerShotParam::Big::Power;
+        }
+        return 1;
     }
 }
 namespace abyss

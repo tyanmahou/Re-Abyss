@@ -3,6 +3,7 @@
 #include "State/CaptainTakoWaitState.hpp"
 #include "State/CaptainTakoChargeState.hpp"
 #include "State/CaptainTakoAttackState.hpp"
+#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
 
 namespace abyss
 {
@@ -11,8 +12,8 @@ namespace abyss
         m_state(this),
         m_view(std::make_unique<CaptainTakoVM>())
     {
-        m_hp.setHp(10);
-        m_body.setSize({ 32, 38 }).setPivot({ 0, 1 });
+        m_hp.setHp(CaptainTakoParam::Base::Hp);
+        m_body.setSize(CaptainTakoParam::Base::Size).setPivot(CaptainTakoParam::Base::Pivot);
 
         m_state
             .add<CaptainTakoWaitState>(State::Wait)

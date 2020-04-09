@@ -2,11 +2,13 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 namespace abyss
 {
     IkalienVM::IkalienVM():
-        m_texture(U"resources/images/actors/Ikalien/ikalien.png")
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Ikalien/ikalien.png"))
     {}
     IkalienVM& IkalienVM::setPos(const s3d::Vec2& pos)
     {
@@ -35,7 +37,7 @@ namespace abyss
     void IkalienVM::drawWait() const
     {
         double t = WorldTime::Time();
-        int32 page = static_cast<int32>(Periodic::Triangle0_1(1.5s, t) * 4.0);
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(IkalienParam::View::WaitAnimeTimeSec, t) * 4.0);
         auto tex = m_texture(80 * page, 80, 80, 80);
         tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, t));
     }

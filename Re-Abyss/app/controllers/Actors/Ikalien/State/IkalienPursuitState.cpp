@@ -3,6 +3,7 @@
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
 #include <Siv3D.hpp>
 namespace abyss
 {
@@ -16,7 +17,7 @@ namespace abyss
     void IkalienPursuitState::update(double dt)
     {
         s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
-        constexpr double speed = s3d::Math::ToRadians(60);
+        const double speed = s3d::Math::ToRadians(IkalienParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir().cross(d) > 0) {
             rotate +=  speed * dt;
@@ -25,11 +26,10 @@ namespace abyss
         }
         m_rotate->setRotate(rotate);
 
-        constexpr s3d::Vec2 pivotOffset{ 0, -15 };
-        Vec2 nextPivot = Mat3x2::Rotate(rotate).transform(pivotOffset);
+        Vec2 nextPivot = Mat3x2::Rotate(rotate).transform(IkalienParam::Base::Pivot);
         m_body->setPivot(nextPivot);
 
-        m_body->setVelocity(m_rotate->getDir() * 30);
+        m_body->setVelocity(m_rotate->getDir() * IkalienParam::Pursuit::Speed);
         m_body->update(dt);
         if (m_timer.reachedZero()) {
             this->changeState(IkalienActor::State::Swim);

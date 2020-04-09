@@ -3,6 +3,7 @@
 #include "State/IkalienWaitState.hpp"
 #include <abyss/entities/Enemy/IkalienEntity.hpp>
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
+#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
 
 namespace abyss
 {
@@ -11,8 +12,8 @@ namespace abyss
         m_state(this),
         m_view(std::make_shared<IkalienVM>())
     {
-        m_hp.setHp(6);
-        m_body.noneResistanced().setPivot({0, -15});
+        m_hp.setHp(IkalienParam::Base::Hp);
+        m_body.noneResistanced().setPivot(IkalienParam::Base::Pivot);
 
         m_state
             .add<IkalienWaitState>(State::Wait)
@@ -32,7 +33,7 @@ namespace abyss
     }
     CShape IkalienActor::getCollider() const
     {
-        return s3d::Circle(m_body.getPivotPos(), 18);
+        return s3d::Circle(m_body.getPivotPos(), IkalienParam::Base::ColRadius);
     }
     void IkalienActor::onCollisionStay(ICollider* col)
     {

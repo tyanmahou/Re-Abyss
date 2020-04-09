@@ -1,11 +1,11 @@
 #include "CaptainTakoChargeState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
-
+#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
 namespace abyss
 {
     CaptainTakoChargeState::CaptainTakoChargeState():
-        m_chargeTimer(2.0, true, WorldTime::TimeMicroSec)
+        m_chargeTimer(CaptainTakoParam::Charge::TimeSec, true, WorldTime::TimeMicroSec)
     {}
     void CaptainTakoChargeState::update(double dt)
     {

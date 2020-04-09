@@ -1,6 +1,7 @@
 #include "LaunSharkSwimState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -8,24 +9,24 @@ namespace abyss
     void LaunSharkSwimState::onCollisionMap(ColDirection col)
     {
         LaunSharkBaseState::onCollisionMap(col);
-        double time = 0.5;
-        if ((col.isLeft() || col.isRight()) && m_waitTimer.sF() <= 0.5) {
-            m_waitTimer.set(0.5s);
+        double time = LaunSharkParam::Swim::OnCollisionWaitTimeSec;
+        if ((col.isLeft() || col.isRight()) && m_waitTimer.sF() <= time) {
+            m_waitTimer.set(Duration(time));
         }
     }
     LaunSharkSwimState::LaunSharkSwimState():
-        m_waitTimer(2.0, true, WorldTime::TimeMicroSec)
+        m_waitTimer(LaunSharkParam::Swim::WaitTimeSec, true, WorldTime::TimeMicroSec)
     {}
     void LaunSharkSwimState::start()
     {
         m_body
-            ->setMaxSpeedX(180)
-            .setSize({ 120, 60 });
+            ->setMaxSpeedX(LaunSharkParam::Swim::MaxSpeedX)
+            .setSize(LaunSharkParam::Base::Size);
     }
     void LaunSharkSwimState::update(double dt)
     {
-        double coefficient = Math::TwoPi / 6.0;
-        m_body->setVelocityY(20 * coefficient *
+        double coefficient = Math::TwoPi / LaunSharkParam::Swim::MovePeriodSec;
+        m_body->setVelocityY(LaunSharkParam::Swim::MoveRangeY * coefficient *
             s3d::Cos(m_timeCounter->getTotalTime() *  coefficient));
 
         this->LaunSharkBaseState::update(dt);
@@ -35,9 +36,9 @@ namespace abyss
             double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;
             if (f * d.x > 0) {
                 auto distance = d.length();
-                if (distance <= 200) {
+                if (distance <= LaunSharkParam::Swim::AttackRange) {
                     this->changeState(LaunSharkActor::State::Attack);
-                }else if (distance <= 500) {
+                }else if (distance <= LaunSharkParam::Swim::LauncherRange) {
                     this->changeState(LaunSharkActor::State::Launcher);
                 } 
             }

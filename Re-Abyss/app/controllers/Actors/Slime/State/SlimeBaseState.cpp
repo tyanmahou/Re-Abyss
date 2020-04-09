@@ -1,5 +1,7 @@
 #include "SlimeBaseState.hpp"
 #include <abyss/commons/ActInclude.hpp>
+#include <abyss/params/Actors/Slime/SlimeParam.hpp>
+
 namespace abyss
 {
     void SlimeBaseState::setup()
@@ -9,9 +11,9 @@ namespace abyss
     void SlimeBaseState::update(double dt)
     {
         if (m_body->isForward(Forward::Left)) {
-            m_body->setAccelX(-720.0);
+            m_body->setAccelX(-SlimeParam::Walk::AccelX);
         }else if (m_body->isForward(Forward::Right)) {
-            m_body->setAccelX(720.0f);
+            m_body->setAccelX(SlimeParam::Walk::AccelX);
         }
         m_body->update(dt);
     }

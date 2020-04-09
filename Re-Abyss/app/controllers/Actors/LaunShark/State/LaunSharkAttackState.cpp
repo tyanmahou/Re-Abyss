@@ -4,23 +4,22 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
-
+#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
 namespace abyss
 {
     LaunSharkAttackState::LaunSharkAttackState():
-        m_attackTimer(4.0, true, WorldTime::TimeMicroSec)
+        m_attackTimer(LaunSharkParam::Attack::AttackTimeSec, true, WorldTime::TimeMicroSec)
     {}
 
     void LaunSharkAttackState::start()
     {
-        m_body->setSize({120, 60});
+        m_body->setSize(LaunSharkParam::Attack::Size);
     }
 
     void LaunSharkAttackState::update(double dt)
     {
-        double coefficient = Math::TwoPi / 3.0;
-        m_body->setVelocityY(40 * coefficient *
-            s3d::Cos(m_timeCounter->getTotalTime() * coefficient));
+        double coefficient = Math::TwoPi / LaunSharkParam::Attack::MovePeriodSec;
+        m_body->setVelocityY(LaunSharkParam::Attack::MoveRangeY * coefficient * s3d::Cos(m_timeCounter->getTotalTime() * coefficient));
 
         this->LaunSharkBaseState::update(dt);
 

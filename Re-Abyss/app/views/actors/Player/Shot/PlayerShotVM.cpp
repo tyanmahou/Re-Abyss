@@ -2,12 +2,13 @@
 #include <Siv3D.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 #include "PlayerShotEffect.hpp"
 namespace abyss
 {
     PlayerShotVM::PlayerShotVM(const PlayerShotModel& shot, Forward forward):
-        m_texture(U"resources/images/actors/Player/player_shot.png"),
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Player/player_shot.png")),
         m_shot(shot),
         m_forward(forward)
     {}

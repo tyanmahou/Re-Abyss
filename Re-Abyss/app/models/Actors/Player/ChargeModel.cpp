@@ -1,6 +1,7 @@
 #include "ChargeModel.hpp"
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
 
 namespace abyss
 {
@@ -21,15 +22,15 @@ namespace abyss
         if (input.pressed()) {
             m_charge += 60 * dt;
 
-            if (m_charge >= Constants::Player::BigCharge) {
-                m_charge = Constants::Player::BigCharge;
+            if (m_charge >= PlayerShotParam::Big::Charge) {
+                m_charge = PlayerShotParam::Big::Charge;
             }
             return false;
         }
 
         // チャージショット
         if (!input.pressed() && m_charge > 0) {
-            return m_charge >= Constants::Player::SmallCharge;
+            return m_charge >= PlayerShotParam::Small::Charge;
         }
 
         m_charge = 0;

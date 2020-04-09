@@ -2,6 +2,7 @@
 #include "State/PlayerLadderState.hpp"
 #include "State/PlayerDamageState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/params/Actors/Player/PlayerParam.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 
 namespace abyss
@@ -13,10 +14,8 @@ namespace abyss
         this->tag = U"player";
         this->layer = LayerGroup::Player;
         m_body
-            .setSize({ 22, 80 })
+            .setSize(PlayerParam::Base::Size)
             .setForward(Forward::Right)
-            .setDeccelX(180)
-            .setMaxSpeedX(240)
         ;
 
         m_state
@@ -28,7 +27,9 @@ namespace abyss
             .bind<ChargeModel>(&PlayerActor::m_charge)
             .bind<HPModel>(&PlayerActor::m_hp)
             ;
-        m_hp.setHp(6).setInvincibleTime(2.0);
+        m_hp
+            .setHp(PlayerParam::Base::Hp)
+            .setInvincibleTime(PlayerParam::Base::InvincibleTime);
     }
 
     void PlayerActor::update(double dt)

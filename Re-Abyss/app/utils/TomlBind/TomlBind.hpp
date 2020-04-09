@@ -1,6 +1,6 @@
 #pragma once
+#include <concepts>
 #include <Siv3D/TOMLReader.hpp>
-
 namespace abyss
 {
     template<class Type>
@@ -38,6 +38,12 @@ namespace abyss
 {
     namespace detail
     {
+        template<int Num>
+        struct TOMLBindId
+        {
+            const s3d::TOMLValue& toml;
+        };
+
         template<class Type>
         concept IsAutoTOMLBindable = requires(Type a)
         {
@@ -46,19 +52,20 @@ namespace abyss
         };
 
         template<class Type>
-        struct IsSivArray : std::false_type {};
+        struct IsSivArray_impl : std::false_type {};
 
         template<class Type, class Allocator>
-        struct IsSivArray<s3d::Array<Type, Allocator>> : std::true_type {};
+        struct IsSivArray_impl<s3d::Array<Type, Allocator>> : std::true_type {};
 
         template<class Type>
-        concept SivArrayAs = IsSivArray<Type>::value;
+        concept IsSivArray = IsSivArray_impl<Type>::value;
 
-        template<int Num>
-        struct TOMLBindId
+        template<class Type, int Num>
+        concept IsTOMLBindCallable = requires(Type a, TOMLBindId<Num> id)
         {
-            const s3d::TOMLValue& toml;
+            { (a, id) } -> std::same_as<void>;
         };
+
 
         template <class T, class Id = typename T::TOML_BIND_BEGIN_ID>
         struct AutoTOMLBind {};
@@ -68,7 +75,7 @@ namespace abyss
         {
             void operator()(T& ret, const s3d::TOMLValue& toml)
             {
-                if constexpr (std::is_void_v<decltype((ret, TOMLBindId<Num>{toml}))>) {
+                if constexpr (IsTOMLBindCallable<T, Num>) {
                     (ret, TOMLBindId<Num>{toml});
                 }
                 if constexpr (!std::is_same_v<typename T::TOML_BIND_END_ID, TOMLBindId<Num + 1>>) {
@@ -87,7 +94,7 @@ namespace abyss
             }
         }
 
-        template <SivArrayAs Value>
+        template <IsSivArray Value>
         Value GetData(const s3d::TOMLValue& toml)
         {
             using Elm = typename Value::value_type;

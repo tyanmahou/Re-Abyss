@@ -1,6 +1,7 @@
 #include <abyss/views/Actors/Player/Shot/PlayerShotVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 #include "State/PlayerShotBaseState.hpp"
+#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
 
 namespace abyss
 {
@@ -14,12 +15,11 @@ namespace abyss
 			.bind<BodyModel>(&PlayerShotActor::m_body)
 			.bind<PlayerShotModel>(&PlayerShotActor::m_shot);
 
-		constexpr double speed = 14*60;
 		m_body
 			.setPos(pos)
 			.setForward(forward)
 			.noneResistanced()
-			.setVelocityX(forward == Forward::Right ? speed : -speed)
+			.setVelocityX(forward * PlayerShotParam::Base::Speed)
 			;
 		m_power = m_shot.toPower();
 		m_view = std::make_shared<PlayerShotVM>(m_shot, forward);

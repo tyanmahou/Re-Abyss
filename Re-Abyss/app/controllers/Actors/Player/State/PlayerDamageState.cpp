@@ -1,6 +1,7 @@
 #include "PlayerDamageState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/params/Actors/Player/PlayerParam.hpp>
 
 namespace abyss
 {
@@ -17,10 +18,10 @@ namespace abyss
             ->setAccelX(0)
             .setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
 
-        constexpr Vec2 knockBackSpeed{ 210, 210 };
+        const Vec2& knockBackSpeed = PlayerParam::Damage::KnockBackSpeed;
 
         const Vec2 velocity{ 
-            m_body->getForward() == Forward::Left ? knockBackSpeed.x : -knockBackSpeed.x,
+            m_body->getForward() *  -knockBackSpeed.x,
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);

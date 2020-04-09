@@ -9,12 +9,12 @@ namespace abyss
 {
     namespace Path
     {
-        inline s3d::FilePath ResourcePath = U"resources/";
-        inline s3d::FilePath ImagePath = ResourcePath + U"images/";
-        inline s3d::FilePath MapPath = ResourcePath + U"maps/";
-        inline s3d::FilePath ParamPath = ResourcePath + U"maps/";
-        inline s3d::FilePath ShaderPath = ResourcePath + U"shader/";
-        inline s3d::FilePath SoundPath = ResourcePath + U"sound/";
+        inline static s3d::FilePath ResourcePath = U"resources/";
+        inline static s3d::FilePath ImagePath = ResourcePath + U"images/";
+        inline static s3d::FilePath MapPath = ResourcePath + U"maps/";
+        inline static s3d::FilePath ParamPath = ResourcePath + U"params/";
+        inline static s3d::FilePath ShaderPath = ResourcePath + U"shader/";
+        inline static s3d::FilePath SoundPath = ResourcePath + U"sound/";
     }
     class ResourceManager
     {

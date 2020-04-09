@@ -1,7 +1,7 @@
 #include "State/CaptainTakoShotBaseState.hpp"
 #include <abyss/views/Actors/CaptainTako/Shot/CaptainTakoShotVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
-
+#include <abyss/params/Actors/CaptainTako/CaptainTakoShotParam.hpp>
 
 namespace abyss
 {
@@ -15,12 +15,11 @@ namespace abyss
             .add<CaptainTakoShotBaseState>(State::Base)
             .bind<BodyModel>(&CaptainTakoShotActor::m_body);
 
-        constexpr double speed = 7 * 60;
         m_body
             .setPos(pos)
             .setForward(forward)
             .noneResistanced()
-            .setVelocityX(forward == Forward::Right ? speed : -speed)
+            .setVelocityX(forward == Forward::Right ? CaptainTakoShotParam::Base::Speed : - CaptainTakoShotParam::Base::Speed)
             ;
         m_power = 1;
     }
@@ -47,7 +46,7 @@ namespace abyss
 
     s3d::Circle CaptainTakoShotActor::getColliderCircle() const
     {
-        return s3d::Circle(m_body.getPos(), 5);
+        return s3d::Circle(m_body.getPos(), CaptainTakoShotParam::Base::ColRadius);
     }
 
     bool CaptainTakoShotActor::accept(const ActVisitor& visitor)

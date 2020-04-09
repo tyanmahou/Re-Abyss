@@ -3,13 +3,14 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/controllers/Actors/CaptainTako/Shot/CaptainTakoShotActor.hpp>
-
+#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
 namespace abyss
 {
     using namespace std::literals;
 
     CaptainTakoAttackState::CaptainTakoAttackState():
-        m_intervalTimer(0.1, false, WorldTime::TimeMicroSec)
+        m_intervalTimer(CaptainTakoParam::Attack::IntervalTimeSec, false, WorldTime::TimeMicroSec),
+        m_attackCount(CaptainTakoParam::Attack::AttackCount)
     {}
 
     void CaptainTakoAttackState::update(double dt)
@@ -22,7 +23,7 @@ namespace abyss
             };
             auto pos =  m_body->getPos() + fixedOffset;
             this->m_actor->getWorld()->create<CaptainTakoShotActor>(pos, m_body->getForward());
-            m_intervalTimer.restart(0.1s);
+            m_intervalTimer.restart();
             if (++m_currentAttackCount >= m_attackCount) {
                 this->changeState(CaptainTakoActor::State::Wait);
             }

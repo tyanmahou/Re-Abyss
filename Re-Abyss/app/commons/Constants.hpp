@@ -18,17 +18,4 @@ namespace abyss::Constants
 
     inline constexpr s3d::Vec2 GameScreenSize = GameScreenSize_v<double>;
     inline constexpr s3d::Vec2 GameScreenOffset = GameScreenOffset_v<double>;
-
-	// Game
-	// TODO: 外部ファイルに出したい
-	namespace Player
-	{
-		inline constexpr double MaxGravity = 1.3;
-		inline constexpr double DiveSpeed = 2.2;
-		inline constexpr double MaxSpeed = 4;
-
-		inline constexpr double SmallCharge = 10;
-		inline constexpr double MediumCharge = 60;
-		inline constexpr double BigCharge = 120;
-	}
 }

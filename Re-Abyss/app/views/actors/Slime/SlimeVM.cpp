@@ -2,17 +2,13 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/params/Actors/Slime/SlimeParam.hpp>
 
 namespace abyss
 {
-    // todo flyweightのいい感じにする
-    static Texture Get()
-    {
-        static Texture tex(U"resources/images/actors/Slime/slime.png");
-        return tex;
-    }
     SlimeVM::SlimeVM():
-        m_texture(Get())
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Slime/Slime.png"))
     {}
     SlimeVM& SlimeVM::setForward(const Forward & forward)
     {
@@ -39,7 +35,7 @@ namespace abyss
     void SlimeVM::drawWalk() const
     {
         bool isLeft = m_forward == Forward::Left;
-        int32 time = static_cast<int32>(Periodic::Square0_1(1s, WorldTime::Time()));
+        int32 time = static_cast<int32>(Periodic::Square0_1(SlimeParam::View::WalkAnimeTimeSec, WorldTime::Time()));
         auto tex = m_texture(40 * time, 0, 40, 40);
         (isLeft ? tex : tex.mirrored()).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }

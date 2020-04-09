@@ -3,6 +3,7 @@
 #include "State/LaunSharkShotFiringedState.hpp"
 #include <abyss/commons/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
+#include <abyss/params/Actors/LaunShark/LaunSharkShotParam.hpp>
 
 namespace abyss
 {
@@ -17,8 +18,8 @@ namespace abyss
         m_body
             .setPos(pos)
             .noneResistanced()
-            .setSize({30, 10});
-        m_hp.setHp(4).setInvincibleTime(0.2);
+            .setSize(LaunSharkShotParam::Base::Size);
+        m_hp.setHp(LaunSharkShotParam::Base::Hp).setInvincibleTime(0.2);
         m_state
             .add<LaunSharkShotWaitState>(State::Wait)
             .add<LaunSharkShotPursuitState>(State::Pursuit)

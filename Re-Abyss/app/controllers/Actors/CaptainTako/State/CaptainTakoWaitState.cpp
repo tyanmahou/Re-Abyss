@@ -2,11 +2,12 @@
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
 
 namespace abyss
 {
     CaptainTakoWaitState::CaptainTakoWaitState() :
-        m_waitTimer(2.0, true, WorldTime::TimeMicroSec)
+        m_waitTimer(CaptainTakoParam::Wait::TimeSec, true, WorldTime::TimeMicroSec)
     {}
     void CaptainTakoWaitState::update(double dt)
     {

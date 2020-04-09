@@ -2,11 +2,12 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
-
+#include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 namespace abyss
 {
     RollingTakoVM::RollingTakoVM():
-        m_texture(U"resources/images/actors/RollingTako/rolling_tako.png")
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/RollingTako/rolling_tako.png"))
     {}
     RollingTakoVM& RollingTakoVM::setForward(const Forward & forward)
     {
@@ -26,14 +27,14 @@ namespace abyss
     void RollingTakoVM::drawWait() const
     {
         bool isRight = m_forward == Forward::Right;
-        int32 time = static_cast<int32>(Periodic::Square0_1(1s, WorldTime::Time()));
+        int32 time = static_cast<int32>(Periodic::Square0_1(RollingTakoParam::View::WaitAnimeTimeSec, WorldTime::Time()));
         auto tex = m_texture(60 * time, 0, 60, 60);
         tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
     void RollingTakoVM::drawRun() const
     {
         bool isRight = m_forward == Forward::Right;
-        int32 time = static_cast<int32>(Periodic::Square0_1(0.2s, WorldTime::Time()));
+        int32 time = static_cast<int32>(Periodic::Square0_1(RollingTakoParam::View::RunAnimeTimeSec, WorldTime::Time()));
         auto tex = m_texture(60 * time, 60, 60, 60);
         tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }

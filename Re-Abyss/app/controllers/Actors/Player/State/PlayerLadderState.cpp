@@ -2,12 +2,13 @@
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
+#include <abyss/params/Actors/Player/PlayerParam.hpp>
 
 namespace abyss
 {
     void PlayerLadderState::onMove(double dt)
     {
-        double veocityY = 120.0 * (InputManager::Down.pressed() - InputManager::Up.pressed());
+        double veocityY = PlayerParam::Ladder::Speed * (InputManager::Down.pressed() - InputManager::Up.pressed());
         m_body->setVelocity({ 0, veocityY });
         m_body->update(dt);
         if (InputManager::A.down()) {

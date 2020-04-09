@@ -2,13 +2,14 @@
 
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
 #include <Siv3D.hpp>
 namespace abyss
 {
     void IkalienSwimState::start()
     {
-        m_body->setVelocity(m_rotate->getDir() * 360.0);
-        m_body->setAccel(-m_rotate->getDir() * 360);
+        m_body->setVelocity(m_rotate->getDir() * IkalienParam::Swim::Speed);
+        m_body->setAccel(-m_rotate->getDir() * IkalienParam::Swim::Deccel);
     }
     void IkalienSwimState::update(double dt)
     {

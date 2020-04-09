@@ -6,12 +6,13 @@
 #include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 
 #include <abyss/controllers/Actors/LaunShark/Shot/LaunSharkShotActor.hpp>
+#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
 
 namespace abyss
 {
     LaunSharkLauncherState::LaunSharkLauncherState():
-        m_attackTimer(1.2, true, WorldTime::TimeMicroSec),
-        m_waitTimer(0.8, false, WorldTime::TimeMicroSec)
+        m_attackTimer(LaunSharkParam::Launcher::AttackTimeSec, true, WorldTime::TimeMicroSec),
+        m_waitTimer(LaunSharkParam::Launcher::WaitTimeSec, false, WorldTime::TimeMicroSec)
     {}
     void LaunSharkLauncherState::start()
     {
@@ -24,7 +25,7 @@ namespace abyss
             if (!m_out) {
                 if (!m_waitTimer.isRunning()) {
                     m_waitTimer.start();
-                    int32 page = static_cast<int32>(Periodic::Square0_1(1s, WorldTime::Time()));
+                    int32 page = static_cast<int32>(Periodic::Square0_1(LaunSharkParam::View::SwimAnimeTimeSec, WorldTime::Time()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
                     m_actor->getWorld()->create<LaunSharkShotActor>(shotPos, m_body->getForward());
