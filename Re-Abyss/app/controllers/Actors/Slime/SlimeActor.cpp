@@ -34,7 +34,10 @@ namespace abyss
 	{
 		m_state.update(dt);
 	}
-
+	void SlimeActor::lastUpdate(double dt)
+	{
+		m_state.lastUpdate(dt);
+	}
 	void SlimeActor::draw() const
 	{
 		m_state.draw();

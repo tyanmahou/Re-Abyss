@@ -25,8 +25,7 @@ namespace abyss
 
     void ActionSystem::init()
     {
-        if (auto room = m_stage->findRoom({ 480, 2000 })) {
-            m_stage->init(m_world, *room);
+        if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
         }
     }

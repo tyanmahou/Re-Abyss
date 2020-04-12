@@ -3,8 +3,9 @@
 
 namespace abyss
 {
-    struct Door_Entity : GimmickEntity
+    struct DoorEntity : GimmickEntity
     {
         s3d::int32 startId;
+        s3d::Vec2 size;
     };
 }

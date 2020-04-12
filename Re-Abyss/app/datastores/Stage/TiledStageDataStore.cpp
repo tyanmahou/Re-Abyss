@@ -2,6 +2,7 @@
 
 #include "parser/MapEntityParser.hpp"
 #include "parser/EnemyEntityParser.hpp"
+#include "parser/GimmickEntityParser.hpp"
 
 #include <Siv3D.hpp>
 #include <abyss/types/Forward.hpp>
@@ -13,23 +14,6 @@ namespace abyss
 	TiledStageDataStore::TiledStageDataStore(const s3d::String& filePath) :
 		m_tiledMap(filePath)
 	{}
-
-	s3d::Array<DoorEntity> TiledStageDataStore::getDoorEntity() const
-	{
-		s3d::Array<DoorEntity> ret;
-		// 扉情報
-		m_tiledMap.getLayer(U"door")->then(
-			[this, &ret](const ObjectGroup & layer) {
-				for (const auto& obj : layer.getObjects()) {
-					Vec2 targetPos{ obj.getProperty(U"x").value_or(0.0), obj.getProperty(U"y").value_or(0.0) };
-					Vec2 size = m_tiledMap.getTile(*obj.gId).size;
-					Vec2 pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
-					ret.push_back({ pos, targetPos, size });
-				}
-			}
-		);
-		return ret;
-	}
 
 	s3d::Array<MapEntity> TiledStageDataStore::getMapEntity() const
 	{
@@ -92,6 +76,24 @@ namespace abyss
 		);
 		return ret;
 	}
+
+    s3d::Array<std::shared_ptr<GimmickEntity>> TiledStageDataStore::getGimmickEntity() const
+    {
+		s3d::Array<std::shared_ptr<GimmickEntity>> ret;
+
+		// ギミック
+		m_tiledMap.getLayer(U"gimmick")->then(
+			[&](const ObjectGroup& layer) {
+			for (const auto& obj : layer.getObjects()) {
+				TiledGimmickEntityParser parser(obj);
+				if (auto e = parser.parse(); e && e->type != GimmickType::None) {
+					ret.push_back(std::move(e));
+				}
+			}
+		}
+		);
+		return ret;
+    }
 
 	const s3dTiled::TiledMap& TiledStageDataStore::getTiledMap() const
 	{

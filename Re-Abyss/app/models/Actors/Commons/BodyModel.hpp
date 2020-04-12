@@ -88,7 +88,7 @@ namespace abyss
         bool isForward(Forward f) const;
 
         ColDirection fixPos(const MapColInfo& info);
-        ColDirection fixPos(const RoomModel& room, bool isStrict = true);
+        ColDirection fixPos(const RoomModel& room, bool isStrict = false);
 
     public:
         inline static constexpr double DefaultGravity = 720.0;

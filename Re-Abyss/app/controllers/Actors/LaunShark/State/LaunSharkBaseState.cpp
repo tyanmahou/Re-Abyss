@@ -41,7 +41,7 @@ namespace abyss
     }
     void LaunSharkBaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom())) {
+        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom(), true)) {
             this->onCollisionMap(colDir);
         }
     }

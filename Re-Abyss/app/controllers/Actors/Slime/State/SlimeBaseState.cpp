@@ -1,5 +1,6 @@
 #include "SlimeBaseState.hpp"
 #include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/params/Actors/Slime/SlimeParam.hpp>
 
 namespace abyss
@@ -10,11 +11,7 @@ namespace abyss
     }
     void SlimeBaseState::update(double dt)
     {
-        if (m_body->isForward(Forward::Left)) {
-            m_body->setAccelX(-SlimeParam::Walk::AccelX);
-        }else if (m_body->isForward(Forward::Right)) {
-            m_body->setAccelX(SlimeParam::Walk::AccelX);
-        }
+        m_body->setAccelX(m_body->getForward() * SlimeParam::Walk::AccelX);
         m_body->update(dt);
     }
     void SlimeBaseState::draw() const
@@ -37,5 +34,16 @@ namespace abyss
         });
 
         m_actor->EnemyActor::onCollisionStay(col);
+    }
+    void SlimeBaseState::lastUpdate([[maybe_unused]]double dt)
+    {
+        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom())) {
+            if (colDir.isRight()) {
+                m_body->setForward(Forward::Right);
+            }
+            if (colDir.isLeft()) {
+                m_body->setForward(Forward::Left);
+            }
+        }
     }
 }

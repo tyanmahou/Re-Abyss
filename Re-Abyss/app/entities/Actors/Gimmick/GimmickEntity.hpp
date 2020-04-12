@@ -6,13 +6,12 @@ namespace abyss
 	enum class GimmickType
 	{
 		None,
-		Start,
+		StartPos,
 		Door
 	};
 	struct GimmickEntity
 	{
 		GimmickType type;
 		s3d::Vec2 pos;
-		Forward forward;
 	};
 }

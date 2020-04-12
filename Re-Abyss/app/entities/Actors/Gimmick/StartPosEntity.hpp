@@ -3,8 +3,9 @@
 
 namespace abyss
 {
-    struct StartEntity : GimmickEntity
+    struct StartPosEntity : GimmickEntity
     { 
         s3d::int32 startId;
+        Forward forward;
     };
 }

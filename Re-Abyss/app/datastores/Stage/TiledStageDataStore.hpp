@@ -14,10 +14,10 @@ namespace abyss
 		s3dTiled::TiledMap m_tiledMap;
 	public:
 		TiledStageDataStore(const s3d::String& filePath);
-		s3d::Array<DoorEntity> getDoorEntity()const override;
 		s3d::Array<MapEntity> getMapEntity()const override;
 		s3d::Array<RoomEntity> getRoomEntity()const override;
 		s3d::Array<std::shared_ptr<EnemyEntity>> getEnemyEntity()const override;
+		s3d::Array<std::shared_ptr<GimmickEntity>> getGimmickEntity()const override;
 
 		const s3dTiled::TiledMap& getTiledMap()const;
 	};

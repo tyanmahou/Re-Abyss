@@ -81,17 +81,18 @@ namespace abyss
 	s3d::Vec2 RoomModel::borderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->borders();
-		if (!this->passable(Forward::Left) && pos.x < border.left) {
+		constexpr double epsilon = 1.0;
+		if (!this->passable(Forward::Left) && pos.x < border.left + epsilon) {
 			//左端
-			pos.x = border.left;
-		} else if (!this->passable(Forward::Right) && pos.x > border.right) {
+			pos.x = border.left + epsilon;
+		} else if (!this->passable(Forward::Right) && pos.x > border.right - epsilon) {
 			//右端
-			pos.x = border.right;
+			pos.x = border.right - epsilon;
 		}
 
-		if (!this->passable(Forward::Up) && pos.y < border.up) {
+		if (!this->passable(Forward::Up) && pos.y < border.up + epsilon) {
 			//上端
-			pos.y = border.up;
+			pos.y = border.up + epsilon;
 		}
 		//下端
 		// 下は落ちて死ぬ判定があるので調整はいらない
@@ -123,9 +124,6 @@ namespace abyss
 		ColDirection col = ColDirection::None;
 		if (!this->passable(Forward::Up)) {
 			col |= ColDirection::Down;
-		}
-		if (!this->passable(Forward::Down)) {
-			col |= ColDirection::Up;
 		}
 		if (!this->passable(Forward::Left)) {
 			col |= ColDirection::Right;

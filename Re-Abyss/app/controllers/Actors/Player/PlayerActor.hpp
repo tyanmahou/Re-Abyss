@@ -42,6 +42,8 @@ namespace abyss
 		void onCollisionStay(ICollider* col) override;
 		void setPos(const Vec2& pos);
 		const Vec2& getPos() const;
+		void setForward(const Forward& forward);
+
 		RectF region() const;
 
 		bool accept(const ActVisitor& visitor) override;
@@ -49,5 +51,5 @@ namespace abyss
 		PlayerVM* getBindedView()const;
 
 		static std::shared_ptr<PlayerActor> Create();
-	};
+    };
 }

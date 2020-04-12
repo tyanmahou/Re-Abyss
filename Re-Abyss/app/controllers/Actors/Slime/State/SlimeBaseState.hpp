@@ -18,5 +18,6 @@ namespace abyss
         void draw() const override;
 
         void onCollisionStay(ICollider* col) override;
+        void lastUpdate(double dt);
     };
 }

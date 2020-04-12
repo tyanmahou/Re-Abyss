@@ -1,21 +1,19 @@
 #include "DoorActor.hpp"
-#include <abyss/entities/Door/DoorEntity.hpp>
-
+#include <abyss/commons/LayerGroup.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-	DoorActor::DoorActor(const DoorEntity& entity, const RoomModel& nextRoom):
-		m_pos(entity.pos),
-		m_targetPos(entity.targetPos),
-		m_size(entity.size),
+	DoorActor::DoorActor(const DoorModel& door, const RoomModel& nextRoom):
+		m_door(door),
 		m_nextRoom(nextRoom)
 	{
+		this->layer = LayerGroup::Gimmick;
 		this->tag = U"door";
 	}
 	CShape DoorActor::getCollider() const
 	{
-		return Circle(m_pos, 10);
+		return Circle(this->getPos(), 10);
 	}
 	const RoomModel& DoorActor::getNextRoom() const
 	{
@@ -23,17 +21,15 @@ namespace abyss
 	}
 	const s3d::Vec2& DoorActor::getPos() const
 	{
-		return m_pos;
+		return m_door.getPos();
 	}
 	const Vec2& DoorActor::getTargetPos() const
 	{
-		return m_targetPos;
+		return m_door.getTargetPos();
 	}
 	s3d::Vec2 DoorActor::fixedVisiterPos(const s3d::Vec2& visitSize) const
 	{
-		Vec2 ret = m_pos;
-		ret.y += (m_size.y - visitSize.y) / 2.0;
-		return ret;
+		return m_door.fixedVisiterPos(visitSize);
 	}
 	bool DoorActor::accept(const ActVisitor& visitor)
 	{

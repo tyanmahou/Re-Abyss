@@ -56,7 +56,7 @@ namespace abyss
 		// map
 		this->drawLayer(U"map", screen);
 		// door
-		this->drawLayer(U"door", screen);	
+		//this->drawLayer(U"door", screen);	
 	}
 	void TiledStageView::drawFront(const CameraView& camera) const
 	{

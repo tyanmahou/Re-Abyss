@@ -233,6 +233,7 @@
     <ClCompile Include="app\controllers\Light\Light.cpp" />
     <ClCompile Include="app\controllers\World\WorldTime.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\EnemyEntityParser.cpp" />
+    <ClCompile Include="app\datastores\Stage\parser\GimmickEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
@@ -247,8 +248,11 @@
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
+    <ClCompile Include="app\models\Actors\Door\DoorModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
+    <ClCompile Include="app\models\Actors\StartPos\StartPosListModel.cpp" />
+    <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
@@ -263,8 +267,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="app\translators\Door\DoorTranslator.cpp" />
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp" />
+    <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
@@ -381,13 +385,13 @@
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
+    <ClInclude Include="app\datastores\Stage\parser\GimmickEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />
-    <ClInclude Include="app\entities\Actors\Gimmick\StartEntity.hpp" />
-    <ClInclude Include="app\entities\Door\DoorEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\EnemyEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\IkalienEntity.hpp" />
@@ -396,6 +400,9 @@
     <ClInclude Include="app\entities\Actors\Enemy\SchieldEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Map\MapEntity.hpp" />
+    <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
+    <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
+    <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoParam.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\CaptainTakoShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Ikalien\IkalienParam.hpp" />
@@ -434,8 +441,8 @@
     <ClInclude Include="app\scenes\Main\MainScene.hpp" />
     <ClInclude Include="app\StaticLibs.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
-    <ClInclude Include="app\translators\Door\DoorTranslator.hpp" />
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp" />
+    <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\translators\Map\MapTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\types\ColDirection.hpp" />

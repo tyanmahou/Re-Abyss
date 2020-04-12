@@ -1,19 +1,18 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Actors/Door/DoorModel.hpp>
 
 namespace abyss
 {
 	class DoorActor : public IActor
 	{
 	private:
-		s3d::Vec2 m_pos;
-		s3d::Vec2 m_targetPos;
-		s3d::Vec2 m_size;
+		DoorModel m_door;
 		RoomModel m_nextRoom;
 
 	public:
-		DoorActor(const DoorEntity& entity, const RoomModel& nextRoom);
+		DoorActor(const DoorModel& door, const RoomModel& nextRoom);
 		CShape getCollider() const override;
 
 		const RoomModel& getNextRoom() const;

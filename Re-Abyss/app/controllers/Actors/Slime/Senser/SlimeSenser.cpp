@@ -10,8 +10,7 @@ namespace abyss
 		if (!m_isActive) {
 			return;
 		}
-		if (!ActionSystem::Camera()->getCurrentRoom().getRegion().intersects(m_pos) ||
-			!m_onCollision && m_parent->isWalk()) {
+		if (!m_onCollision && m_parent->isWalk()) {
 			m_parent->getBody().reversed();
 		}
 		auto isLeft = m_parent->getForward() == Forward::Left;

@@ -38,5 +38,6 @@ namespace abyss
 		bool isWalk()const;
 
 		void onDead()override;
-	};
+        void lastUpdate(double dt) override;
+    };
 }

@@ -44,6 +44,8 @@ namespace abyss
 	struct IkalienEntity;
 	struct LaunSharkEntity;
 	struct SchieldEntity;
+	struct GimmickEntity;
+	struct StartPosEntity;
 	struct DoorEntity;
 
 	/// <summary>

@@ -203,9 +203,6 @@
     <ClCompile Include="app\scenes\Main\MainScene.cpp">
       <Filter>Source Files\Scene\MainScene</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Door\DoorTranslator.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
-    </ClCompile>
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
@@ -482,6 +479,21 @@
     <ClCompile Include="app\controllers\Actors\Schield\Shot\State\SchieldShotBaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Stage\parser\GimmickEntityParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Door\DoorModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\StartPos\StartPosListModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -630,9 +642,6 @@
     <ClInclude Include="app\commons\Game\Game.hpp">
       <Filter>Source Files\Commons\Game</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\Door\DoorEntity.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
-    </ClInclude>
     <ClInclude Include="app\entities\Room\RoomEntity.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
@@ -641,9 +650,6 @@
     </ClInclude>
     <ClInclude Include="app\scenes\Main\MainScene.hpp">
       <Filter>Source Files\Scene\MainScene</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Door\DoorTranslator.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
@@ -761,7 +767,6 @@
     <ClInclude Include="app\params\Actors\Player\PlayerShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Player\PlayerParam.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />
-    <ClInclude Include="app\entities\Actors\Gimmick\StartEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\EnemyEntity.hpp">
@@ -786,5 +791,11 @@
     <ClInclude Include="app\views\Actors\Schield\Shot\SchieldShotVM.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\SchieldShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\State\SchieldShotBaseState.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
+    <ClInclude Include="app\datastores\Stage\parser\GimmickEntityParser.hpp" />
+    <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
+    <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
+    <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
+    <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
   </ItemGroup>
 </Project>

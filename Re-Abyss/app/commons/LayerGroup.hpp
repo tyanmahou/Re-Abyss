@@ -5,6 +5,7 @@ namespace abyss::LayerGroup
 {
     inline static s3d::String Player = U"Player";
     inline static s3d::String Enemy = U"Enemy";
+    inline static s3d::String Gimmick = U"Gimmick";
     inline static s3d::String Item = U"Item";
     inline static s3d::String Map = U"Map";
 }
