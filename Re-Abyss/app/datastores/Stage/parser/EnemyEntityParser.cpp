@@ -1,10 +1,11 @@
 #include "EnemyEntityParser.hpp"
-#include <abyss/entities/Enemy/EnemyEntity.hpp>
-#include <abyss/entities/Enemy/SlimeEntity.hpp>
-#include <abyss/entities/Enemy/RollingTakoEntity.hpp>
-#include <abyss/entities/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/entities/Enemy/IkalienEntity.hpp>
-#include <abyss/entities/Enemy/LaunSharkEntity.hpp>
+#include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
+#include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
+#include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
+#include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
+#include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
+#include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
+#include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 
 using namespace s3d;
 using namespace s3dTiled;
@@ -20,6 +21,7 @@ namespace
 			{U"captain_tako", EnemyType::CaptainTako},
 			{U"ikalien", EnemyType::Ikalien},
 			{U"laun_shark", EnemyType::LaunShark},
+			{U"schield", EnemyType::Schield},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -55,6 +57,7 @@ namespace
 			PARSE_ENEMY(CaptainTako);
 			PARSE_ENEMY(Ikalien);
 			PARSE_ENEMY(LaunShark);
+			PARSE_ENEMY(Schield);
 		default:
 			break;
 		}

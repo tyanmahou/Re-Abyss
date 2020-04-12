@@ -13,6 +13,8 @@
 #include <abyss/params/Actors/Player/PlayerShotParam.hpp>
 #include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
 #include <abyss/params/Actors/Slime/SlimeParam.hpp>
+#include <abyss/params/Actors/Schield/SchieldParam.hpp>
+#include <abyss/params/Actors/Schield/SchieldShotParam.hpp>
 
 namespace
 {
@@ -33,6 +35,9 @@ namespace
 		resource.loadToml<RollingTakoParam>(U"Actors/RollingTako/param.toml");
 
 		resource.loadToml<SlimeParam>(U"Actors/Slime/param.toml");
+
+		resource.loadToml<SchieldParam>(U"Actors/Schield/param.toml");
+		resource.loadToml<SchieldShotParam>(U"Actors/Schield/shot_param.toml");
 	}
 }
 namespace abyss

@@ -455,6 +455,33 @@
     <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\SchieldActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Schield\SchieldVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\State\SchieldBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\State\SchieldWaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\State\SchieldAttackPlusState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\State\SchieldAttackCrossState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Schield\Shot\SchieldShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\Shot\SchieldShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Schield\Shot\State\SchieldShotBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -606,12 +633,6 @@
     <ClInclude Include="app\entities\Door\DoorEntity.hpp">
       <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\Enemy\EnemyEntity.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="app\entities\Map\MapEntity.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
-    </ClInclude>
     <ClInclude Include="app\entities\Room\RoomEntity.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
@@ -689,9 +710,6 @@
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\PlayerDamageState.hpp" />
-    <ClInclude Include="app\entities\Enemy\SlimeEntity.hpp" />
-    <ClInclude Include="app\entities\Enemy\RollingTakoEntity.hpp" />
-    <ClInclude Include="app\entities\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
     <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
     <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
@@ -709,13 +727,11 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoAttackState.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
-    <ClInclude Include="app\entities\Enemy\IkalienEntity.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienSwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\IkalienWaitState.hpp" />
-    <ClInclude Include="app\entities\Enemy\LaunSharkEntity.hpp" />
     <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LaunSharkBaseState.hpp" />
@@ -744,5 +760,31 @@
     <ClInclude Include="app\params\Actors\LaunShark\LaunSharkShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Player\PlayerShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Player\PlayerParam.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\StartEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\CaptainTakoEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\EnemyEntity.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Actors\Enemy\IkalienEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\LaunSharkEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\RollingTakoEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\SchieldEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\SlimeEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Map\MapEntity.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Schield\SchieldActor.hpp" />
+    <ClInclude Include="app\params\Actors\Schield\SchieldParam.hpp" />
+    <ClInclude Include="app\params\Actors\Schield\SchieldShotParam.hpp" />
+    <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\State\SchieldBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\State\SchieldAttackPlusState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\State\SchieldAttackCrossState.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\State\SchieldWaitState.hpp" />
+    <ClInclude Include="app\views\Actors\Schield\Shot\SchieldShotVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\Shot\SchieldShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Schield\Shot\State\SchieldShotBaseState.hpp" />
   </ItemGroup>
 </Project>

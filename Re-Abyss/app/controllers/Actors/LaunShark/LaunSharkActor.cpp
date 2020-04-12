@@ -1,7 +1,7 @@
 #include "State/LaunSharkSwimState.hpp"
 #include "State/LaunSharkAttackState.hpp"
 #include "State/LaunSharkLauncherState.hpp"
-#include <abyss/entities/Enemy/LaunSharkEntity.hpp>
+#include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
 namespace abyss
 {

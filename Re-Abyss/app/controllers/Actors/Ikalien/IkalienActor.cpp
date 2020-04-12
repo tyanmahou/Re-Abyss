@@ -1,7 +1,7 @@
 #include "State/IkalienPursuitState.hpp"
 #include "State/IkalienSwimState.hpp"
 #include "State/IkalienWaitState.hpp"
-#include <abyss/entities/Enemy/IkalienEntity.hpp>
+#include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
 #include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
 

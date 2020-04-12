@@ -13,7 +13,11 @@ namespace abyss
 
         void update(double dt) override;
 
+        void lastUpdate(double dt) override;
+
         void draw() const override;
+
+        void onCollisionMap(ColDirection colDir);
 
         void onCollisionStay(ICollider* col) override;
     };

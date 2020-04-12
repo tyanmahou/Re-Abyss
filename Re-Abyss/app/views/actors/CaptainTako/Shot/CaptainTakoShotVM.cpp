@@ -6,7 +6,7 @@
 namespace abyss
 {
     CaptainTakoShotVM::CaptainTakoShotVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/CaptainTako/tako_shot.png"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))
     {}
     CaptainTakoShotVM& CaptainTakoShotVM::setForward(const Forward & forward)
     {
@@ -22,7 +22,7 @@ namespace abyss
     {
         double timer = Periodic::Sawtooth0_1(0.3s, WorldTime::Time());
         int32 page = static_cast<int32>(timer * 2);
-        auto tile = m_texture(0, page, 10, 10);
+        auto tile = m_texture(U"shot_e10x10")(0, page * 10, 10, 10);
         tile.mirrored(m_forward == Forward::Right).drawAt(m_pos);
     }
 }

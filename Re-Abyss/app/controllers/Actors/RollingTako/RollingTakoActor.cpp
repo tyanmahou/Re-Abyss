@@ -1,4 +1,4 @@
-#include <abyss/entities/Enemy/RollingTakoEntity.hpp>
+#include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
 #include <abyss/views/Actors/RollingTako/RollingTakoVM.hpp>
 #include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
 #include "State/RollingTakoWaitState.hpp"
@@ -30,6 +30,10 @@ namespace abyss
     void RollingTakoActor::update(double dt)
     {
         m_state.update(dt);
+    }
+    void RollingTakoActor::lastUpdate(double dt)
+    {
+        m_state.lastUpdate(dt);
     }
     void RollingTakoActor::draw() const
     {

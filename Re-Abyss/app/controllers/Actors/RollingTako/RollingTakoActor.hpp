@@ -23,6 +23,7 @@ namespace abyss
         RollingTakoActor(const RollingTakoEntity& entity);
 
         void update(double dt)override;
+        void lastUpdate(double dt) override;
         void draw()const;
 
         void onCollisionStay(ICollider* col) override;

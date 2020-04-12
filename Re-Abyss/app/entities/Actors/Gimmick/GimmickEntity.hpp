@@ -3,18 +3,15 @@
 #include <abyss/types/Forward.hpp>
 namespace abyss
 {
-	enum class EnemyType
+	enum class GimmickType
 	{
 		None,
-		Slime,
-		RollingTako,
-		CaptainTako,
-		Ikalien,
-		LaunShark
+		Start,
+		Door
 	};
-	struct EnemyEntity
+	struct GimmickEntity
 	{
-		EnemyType type;
+		GimmickType type;
 		s3d::Vec2 pos;
 		Forward forward;
 	};

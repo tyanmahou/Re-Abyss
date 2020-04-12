@@ -1,6 +1,6 @@
 #include "RollingTakoBaseState.hpp"
 #include <abyss/commons/ActInclude.hpp>
-
+#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 namespace abyss
 {
     void RollingTakoBaseState::setup()
@@ -11,9 +11,28 @@ namespace abyss
     {
         m_body->update(dt);
     }
+
+    void RollingTakoBaseState::lastUpdate([[maybe_unused]] double dt)
+    {
+        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom())) {
+            this->onCollisionMap(colDir);
+        }
+    }
+
     void RollingTakoBaseState::draw() const
     {
 
+    }
+    void RollingTakoBaseState::onCollisionMap(ColDirection colDir)
+    {
+        if (colDir.isRight()) {
+            m_body->setVelocityX(0);
+            m_body->setForward(Forward::Right);
+        }
+        if (colDir.isLeft()) {
+            m_body->setVelocityX(0);
+            m_body->setForward(Forward::Left);
+        }
     }
     void RollingTakoBaseState::onCollisionStay(ICollider* col)
     {

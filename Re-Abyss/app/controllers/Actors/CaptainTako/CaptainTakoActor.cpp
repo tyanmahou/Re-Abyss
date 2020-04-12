@@ -1,4 +1,4 @@
-#include <abyss/entities/Enemy/CaptainTakoEntity.hpp>
+#include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
 #include "State/CaptainTakoWaitState.hpp"
 #include "State/CaptainTakoChargeState.hpp"

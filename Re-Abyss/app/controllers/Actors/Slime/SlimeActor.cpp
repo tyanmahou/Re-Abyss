@@ -3,7 +3,7 @@
 #include "Senser/SlimeSenser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/entities/Enemy/SlimeEntity.hpp>
+#include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Slime/SlimeParam.hpp>
 

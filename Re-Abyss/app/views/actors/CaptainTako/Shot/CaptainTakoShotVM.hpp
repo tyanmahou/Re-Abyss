@@ -1,13 +1,13 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Texture.hpp>
+#include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 #include <abyss/types/Forward.hpp>
 namespace abyss
 {
     class CaptainTakoShotVM
     {
-        s3d::Texture m_texture;
+        TexturePacker m_texture;
         Forward m_forward;
         s3d::Vec2 m_pos;
     public:

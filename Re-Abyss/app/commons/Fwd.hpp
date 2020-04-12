@@ -43,6 +43,7 @@ namespace abyss
 	struct CaptainTakoEntity;
 	struct IkalienEntity;
 	struct LaunSharkEntity;
+	struct SchieldEntity;
 	struct DoorEntity;
 
 	/// <summary>
@@ -88,6 +89,8 @@ namespace abyss
 	class IkalienVM;
 	class LaunSharkVM;
 	class LaunSharkShotVM;
+	class SchieldVM;
+	class SchieldShotVM;
 
 	class CameraView;
 	class DoorCameraWorkView;
