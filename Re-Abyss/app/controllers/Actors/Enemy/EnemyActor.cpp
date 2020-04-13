@@ -60,6 +60,6 @@ namespace abyss
 	}
 	void EnemyActor::onDead()
 	{
-		m_pWorld->addEffect<EnemyDeadEffect>(this->getPos());
+		getModule<World>()->addEffect<EnemyDeadEffect>(this->getPos());
 	}
 }

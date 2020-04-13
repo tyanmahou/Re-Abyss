@@ -1,9 +1,9 @@
 #include "IkalienPursuitState.hpp"
 
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
-#include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
+#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
 namespace abyss
 {
@@ -16,7 +16,7 @@ namespace abyss
     }
     void IkalienPursuitState::update(double dt)
     {
-        s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
         const double speed = s3d::Math::ToRadians(IkalienParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir().cross(d) > 0) {

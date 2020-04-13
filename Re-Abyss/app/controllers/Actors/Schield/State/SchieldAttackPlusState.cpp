@@ -27,9 +27,9 @@ namespace abyss
         if (!m_isAttack && m_timer.progress0_1() >= 0.5) {
             m_isAttack = true;
             const auto& pos = m_body->getPos();
-            m_actor->getWorld()->create<SchieldShotActor>(pos + s3d::Vec2{ -55, 10 }, s3d::Vec2{-1, 0});
-            m_actor->getWorld()->create<SchieldShotActor>(pos + s3d::Vec2{ 55, 10 }, s3d::Vec2{ 1, 0 });
-            m_actor->getWorld()->create<SchieldShotActor>(pos + s3d::Vec2{ 0, -27 }, s3d::Vec2{ 0, -1 });
+            m_actor->getModule<World>()->create<SchieldShotActor>(pos + s3d::Vec2{ -55, 10 }, s3d::Vec2{-1, 0});
+            m_actor->getModule<World>()->create<SchieldShotActor>(pos + s3d::Vec2{ 55, 10 }, s3d::Vec2{ 1, 0 });
+            m_actor->getModule<World>()->create<SchieldShotActor>(pos + s3d::Vec2{ 0, -27 }, s3d::Vec2{ 0, -1 });
         }
     }
 

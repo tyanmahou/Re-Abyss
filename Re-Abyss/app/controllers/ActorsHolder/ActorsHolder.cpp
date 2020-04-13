@@ -12,11 +12,6 @@ namespace abyss
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
 	}
-	void ActorsHolder::directPushActor(const std::shared_ptr<IActor>& obj)
-	{
-		obj->setId(m_objIdCounter++);
-		m_actors.push_back(obj);
-	}
 	void ActorsHolder::update(double dt)
 	{
 		if (!m_reserves.empty()) {
@@ -58,9 +53,20 @@ namespace abyss
 	}
 	void ActorsHolder::clear()
 	{
-		m_reserves.clear();
-		m_actors.clear();
+		auto isDestroyOnLoad = [](const std::shared_ptr<IActor>& obj) {
+			return !obj->isDontDestoryOnLoad();
+		};
+		s3d::Erase_if(m_reserves, isDestroyOnLoad);
+		s3d::Erase_if(m_actors, isDestroyOnLoad);
 		m_objIdCounter = 0;
+
+		for (auto& actor : m_actors) {
+			actor->setId(m_objIdCounter++);
+		}
+		for (auto& actor : m_reserves) {
+			actor->setId(m_objIdCounter++);
+		}
+
 	}
 	s3d::Array<std::shared_ptr<IActor>>& ActorsHolder::getActors()
 	{

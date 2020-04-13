@@ -63,6 +63,12 @@ namespace abyss
         return *this;
     }
 
+    PlayerVM& PlayerVM::setManager(ActManager* pManager)
+    {
+        m_pManager = pManager;
+        return *this;
+    }
+
     void PlayerVM::drawStateStay() const
     {
         int32 timer = GetTimeInt32();
@@ -160,6 +166,6 @@ namespace abyss
     }
     void PlayerVM::drawLight() const
     {
-        ActionSystem::Light()->addLight({ m_pos, 700 });
+        m_pManager->getModule<Light>()->addLight({ m_pos, 700 });
     }
 }

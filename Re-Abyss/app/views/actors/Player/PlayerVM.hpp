@@ -3,6 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -15,7 +16,7 @@ namespace abyss
         double m_charge;
 
         bool m_isDamaging = false;
-
+        ActManager* m_pManager = nullptr;
         s3d::ColorF calcColor() const;
 
     public:
@@ -27,6 +28,7 @@ namespace abyss
         PlayerVM& setCharge(double charge);
 
         PlayerVM& setIsDamaging(bool isDamaging);
+        PlayerVM& setManager(ActManager* pManager);
 
 
         void drawStateStay() const;

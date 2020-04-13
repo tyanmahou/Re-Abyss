@@ -13,6 +13,12 @@ namespace abyss
         m_forward(forward)
     {}
 
+    PlayerShotVM& PlayerShotVM::setManager(ActManager * pManager)
+    {
+        m_pManager = pManager;
+        return *this;
+    }
+
     PlayerShotVM& PlayerShotVM::setPos(const s3d::Vec2 & pos)
     {
         m_pos = s3d::Round(pos);
@@ -21,7 +27,7 @@ namespace abyss
     void PlayerShotVM::addShotFiringEffect()
     {
         if (!m_shot.isNormal()) {
-            ActionSystem::World()->addEffect<PlayerShotFiringEffect>(m_pos, m_shot.toRadius(), m_shot.toColorF());
+            m_pManager->getModule<World>()->addEffect<PlayerShotFiringEffect>(m_pos, m_shot.toRadius(), m_shot.toColorF());
         }
     }
     void PlayerShotVM::draw()
@@ -30,7 +36,7 @@ namespace abyss
 
         // effect
         if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot >= PlayerShotType::Medium) {
-            ActionSystem::World()->addEffect<PlayerShotEffect>(m_pos, r, m_shot.toColorF());
+            m_pManager->getModule<World>()->addEffect<PlayerShotEffect>(m_pos, r, m_shot.toColorF());
         }
 
         double x = 0, y = 0;
@@ -54,6 +60,6 @@ namespace abyss
         auto tile = m_texture(x, y, size, size);
         (m_forward == Forward::Right ? tile : tile.mirrored()).drawAt(m_pos);
 
-        ActionSystem::Light()->addLight({ m_pos, r * 5 });
+        m_pManager->getModule<Light>()->addLight({ m_pos, r * 5 });
     }
 }

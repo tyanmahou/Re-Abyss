@@ -37,7 +37,7 @@ namespace abyss
     }
     void SlimeBaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom())) {
+        if (auto colDir = m_body->fixPos(m_actor->getModule<Camera>()->getCurrentRoom())) {
             if (colDir.isRight()) {
                 m_body->setForward(Forward::Right);
             }

@@ -14,7 +14,7 @@ namespace abyss
     {
         SchieldBaseState::update(dt);
 
-        if (m_timer.reachedZero() && ActionSystem::Camera()->inScreen(m_body->getPos())) {
+        if (m_timer.reachedZero() && m_actor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState(SchieldActor::State::AttackPlus);
         }
     }

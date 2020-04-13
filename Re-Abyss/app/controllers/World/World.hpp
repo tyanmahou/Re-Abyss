@@ -11,13 +11,14 @@ namespace abyss
         ActorsHolder m_actorsHolder;
         std::unique_ptr<ICollisionModel> m_collision;
 
-        std::shared_ptr<PlayerActor> m_pPlayer;
-
         WorldView m_view;
+
+        ActManager* m_pManager = nullptr;
     public:
         World();
         ~World();
 
+        void setManager(ActManager* pManager);
         void update();
         void reset();
         void draw() const;
@@ -33,7 +34,7 @@ namespace abyss
         template<class Type>
         void regist(const std::shared_ptr<Type>& actor) //requires IsActor<Type>
         {
-            actor->setWorld(this);
+            actor->setManager(m_pManager);
             m_actorsHolder.pushActor(actor);
         }
 
@@ -44,9 +45,5 @@ namespace abyss
         }
         inline WorldView& getView() {return m_view;}
         inline const WorldView& getView()const { return m_view; }
-
-        inline void setPlayer(const std::shared_ptr<PlayerActor>& player) { m_pPlayer = player; }
-        inline std::shared_ptr<PlayerActor> getPlayer()const { return m_pPlayer; }
-        const s3d::Vec2& getPlayerPos() const;
     };
 }

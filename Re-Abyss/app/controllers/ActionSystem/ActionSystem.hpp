@@ -2,6 +2,7 @@
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Light/Light.hpp>
+#include <abyss/controllers/ActionSystem/ActManager.hpp>
 
 namespace abyss
 {
@@ -10,12 +11,12 @@ namespace abyss
     /// </summary>
     class ActionSystem
     {
-        inline static ActionSystem* s_main = nullptr;
-
         Camera m_camera;
         Light m_light;
         World m_world;
         std::unique_ptr<Stage> m_stage;
+
+        ActManager m_manager;
     public:
         ActionSystem();
         ActionSystem(std::unique_ptr<Stage>&& stage);
@@ -27,11 +28,5 @@ namespace abyss
         void draw() const;
 
         void setStage(std::unique_ptr<Stage>&& stage);
-
-        static ActionSystem* const Main();
-        static Camera* const Camera();
-        static Light* const Light();
-        static World* const World();
-
     };
 }

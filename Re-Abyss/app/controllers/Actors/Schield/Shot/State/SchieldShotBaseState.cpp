@@ -15,7 +15,7 @@ namespace abyss
     {
         m_body->update(dt);
         // 画面外判定
-        if (!ActionSystem::Camera()->inRoom(m_actor->getColliderCircle())) {
+        if (!m_actor->getModule<Camera>()->inRoom(m_actor->getColliderCircle())) {
             m_actor->destroy();
         }
     }

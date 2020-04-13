@@ -60,6 +60,6 @@ namespace abyss
 		if (!m_view) {
 			return nullptr;
 		}
-		return &m_view->setPos(m_body.getPos());
+		return &m_view->setPos(m_body.getPos()).setManager(m_pManager);
 	}
 }

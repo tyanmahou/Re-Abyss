@@ -8,7 +8,11 @@ namespace abyss
 {
     ActionSystem::ActionSystem()
     {
-        s_main = this;
+        m_manager
+            .set(&m_camera)
+            .set(&m_light)
+            .set(&m_world);
+        m_world.setManager(&m_manager);
     }
 
     ActionSystem::ActionSystem(std::unique_ptr<Stage>&& stage) :
@@ -18,9 +22,6 @@ namespace abyss
     }
     ActionSystem::~ActionSystem()
     {
-        if (s_main == this) {
-            s_main = nullptr;
-        }
     }
 
     void ActionSystem::init()
@@ -37,7 +38,7 @@ namespace abyss
         if (!m_camera.isCameraWork()) {
             m_world.update();
         }
-        auto& player = *m_world.getPlayer();
+        auto& player = *m_manager.getModule<PlayerActor>();
         switch (auto event = m_camera.update(player)) {
             using enum Camera::Event;
         case OnCameraWorkStart:
@@ -88,7 +89,7 @@ namespace abyss
             // 全面
             stageView->drawFront(cameraView);
 
-            m_light.draw(cameraView);
+            //m_light.draw(cameraView);
 
             cameraView.drawCameraWork();
         }
@@ -96,21 +97,5 @@ namespace abyss
     void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
     {
         m_stage = std::move(stage);
-    }
-    ActionSystem* const ActionSystem::Main()
-    {
-        return s_main;
-    }
-    Camera* const ActionSystem::Camera()
-    {
-        return s_main ? &s_main->m_camera : nullptr;
-    }
-    Light* const ActionSystem::Light()
-    {
-        return s_main ? &s_main->m_light: nullptr;
-    }
-    World* const ActionSystem::World()
-    {
-        return s_main ? &s_main->m_world : nullptr;
     }
 }

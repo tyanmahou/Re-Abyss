@@ -26,7 +26,7 @@ namespace abyss
 	void SlimeActor::start()
 	{
 		if (!m_senser) {
-			m_senser = m_pWorld->create<SlimeSenser>(this);
+			m_senser = getModule<World>()->create<SlimeSenser>(this);
 		}
 	}
 

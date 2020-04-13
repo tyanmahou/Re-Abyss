@@ -14,7 +14,7 @@ namespace abyss
 
     void RollingTakoBaseState::lastUpdate([[maybe_unused]] double dt)
     {
-        if (auto colDir = m_body->fixPos(ActionSystem::Camera()->getCurrentRoom())) {
+        if (auto colDir = m_body->fixPos(m_actor->getModule<Camera>()->getCurrentRoom())) {
             this->onCollisionMap(colDir);
         }
     }

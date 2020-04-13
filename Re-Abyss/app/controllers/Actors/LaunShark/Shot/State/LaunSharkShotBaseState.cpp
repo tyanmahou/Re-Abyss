@@ -7,7 +7,7 @@ namespace abyss
 {
     void LaunSharkShotBaseState::destroy()
     {
-        m_actor->getWorld()->addEffect<EnemyDeadEffect>(m_body->getPos());
+        m_actor->getModule<World>()->addEffect<EnemyDeadEffect>(m_body->getPos());
 
         m_actor->destroy();
     }

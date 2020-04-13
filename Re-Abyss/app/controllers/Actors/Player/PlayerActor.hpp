@@ -35,6 +35,7 @@ namespace abyss
 
 	public:
 		PlayerActor();
+		void start()override;
 		void update(double dt) override;
 		void lastUpdate(double dt) override;
 

@@ -4,6 +4,7 @@
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/PlayerParam.hpp>
 #include <abyss/commons/LayerGroup.hpp>
+#include <abyss/controllers/ActionSystem/ActManager.hpp>
 
 namespace abyss
 {
@@ -11,6 +12,8 @@ namespace abyss
         m_state(this),
         m_view(std::make_shared<PlayerVM>())
     {
+        this->m_isDontDestoryOnLoad = true;
+
         this->tag = U"player";
         this->layer = LayerGroup::Player;
         m_body
@@ -31,7 +34,10 @@ namespace abyss
             .setHp(PlayerParam::Base::Hp)
             .setInvincibleTime(PlayerParam::Base::InvincibleTime);
     }
-
+    void PlayerActor::start()
+    {
+        m_pManager->set(this);
+    }
     void PlayerActor::update(double dt)
     {
         m_state.update(dt);
@@ -85,6 +91,7 @@ namespace abyss
             .setForward(m_body.getForward())
             .setCharge(m_charge.getCharge())
             .setIsDamaging(m_hp.isInInvincibleTime())
+            .setManager(m_pManager)
             ;
     }
     std::shared_ptr<PlayerActor> PlayerActor::Create()

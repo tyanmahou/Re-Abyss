@@ -72,7 +72,6 @@ namespace abyss
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 
-        world.setPlayer(player);
         world.regist(player);
 
         auto nextRoom = this->findRoom(initStartPos->getPos());

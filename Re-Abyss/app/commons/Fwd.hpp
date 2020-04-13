@@ -10,13 +10,14 @@ namespace abyss
 	/// Controllers
 	/// </summary>
 	class ActionSystem;
+	class ActManager;
 	class Camera;
 	class ICameraWork;
 	class DoorCameraWork;
 	class RoomMoveCameraWork;
 	class World;
 	class Stage;
-	class Params;
+	class Light;
 
 	/// Controllers/Actors
 	class ICollider;

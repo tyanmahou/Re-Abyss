@@ -1,5 +1,5 @@
 #include "SlimeWalkState.hpp"
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Slime/SlimeParam.hpp>
 
@@ -17,7 +17,7 @@ namespace abyss
     {
         SlimeBaseState::update(dt);
 
-        s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
         if (m_onCollision && m_body->getVelocity().x * d.x > 0 && d.length() <= SlimeParam::Walk::SearchRange) {
             this->changeState(SlimeActor::Jump);
         }

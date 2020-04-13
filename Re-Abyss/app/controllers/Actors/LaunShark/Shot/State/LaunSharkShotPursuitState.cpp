@@ -1,6 +1,6 @@
 #include "LaunSharkShotPursuitState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
 
 #include <abyss/params/Actors/LaunShark/LaunSharkShotParam.hpp>
 
@@ -14,7 +14,7 @@ namespace abyss
 
     void LaunSharkShotPursuitState::update(double dt)
     {
-        s3d::Vec2 d = m_actor->getWorld()->getPlayerPos() - m_body->getPos();
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
         const double speed = s3d::Math::ToRadians(LaunSharkShotParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir9().cross(d) > 0) {

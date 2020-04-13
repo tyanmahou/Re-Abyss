@@ -22,7 +22,7 @@ namespace abyss
                 offset.y
             };
             auto pos =  m_body->getPos() + fixedOffset;
-            this->m_actor->getWorld()->create<CaptainTakoShotActor>(pos, m_body->getForward());
+            this->m_actor->getModule<World>()->create<CaptainTakoShotActor>(pos, m_body->getForward());
             m_intervalTimer.restart();
             if (++m_currentAttackCount >= m_attackCount) {
                 this->changeState(CaptainTakoActor::State::Wait);

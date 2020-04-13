@@ -11,7 +11,7 @@ namespace abyss
     {}
     void CaptainTakoWaitState::update(double dt)
     {
-        if (m_waitTimer.reachedZero() && ActionSystem::Camera()->inScreen(m_body->getPos())) {
+        if (m_waitTimer.reachedZero() && m_actor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState(CaptainTakoActor::State::Charge);
         }
         CaptainTakoBaseState::update(dt);

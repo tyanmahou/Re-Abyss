@@ -5,7 +5,7 @@ namespace abyss
 {
     void IkalienWaitState::update([[maybe_unused]]double dt)
     {
-        if (ActionSystem::Camera()->inScreen(m_body->getPos())) {
+        if (m_actor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState(IkalienActor::State::Pursuit);
         }
     }

@@ -93,7 +93,7 @@ namespace abyss
         // 攻撃
         if (m_charge->update(dt)) {
             double charge = m_charge->pop();
-            m_actor->getWorld()->create<PlayerShotActor>(m_body->getPos(), m_body->getForward(), charge);
+            m_actor->getModule<World>()->create<PlayerShotActor>(m_body->getPos(), m_body->getForward(), charge);
         }
         m_foot->reset();
     }

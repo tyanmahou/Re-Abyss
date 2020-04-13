@@ -2,15 +2,20 @@
 #include "WorldTime.hpp"
 
 #include <abyss/models/Collision/CollisionModel.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/ActionSystem/ActManager.hpp>
 
 namespace abyss
 {
     World::World():
         m_collision(std::make_unique<SimpleCollision>())
-    {}
+    {
+    }
     World::~World()
     {}
+    void World::setManager(ActManager* pManager)
+    {
+        m_pManager = pManager;
+    }
     void World::update()
     {
         double dt = WorldTime::DeltaTime();
@@ -28,9 +33,6 @@ namespace abyss
     {
         m_actorsHolder.clear();
         m_collision->reset();
-        if (m_pPlayer) {
-            m_actorsHolder.directPushActor(m_pPlayer);
-        }
     }
 
     void World::draw() const
@@ -38,11 +40,4 @@ namespace abyss
         m_actorsHolder.draw();
         m_view.draw();
     }
-
-    const s3d::Vec2& World::getPlayerPos() const
-    {
-        return m_pPlayer->getPos();
-    }
-
-    
 }

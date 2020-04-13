@@ -1,27 +1,28 @@
 #pragma once
 #include "ICollider.hpp"
 #include <abyss/visitors/ActVisitor.hpp>
+#include <abyss/controllers/ActionSystem/ActManager.hpp>
 
 namespace abyss
 {
 	class IActor : public ICollider
 	{
 	protected:
-		World* m_pWorld = nullptr;
+		ActManager* m_pManager = nullptr;
 		s3d::uint64 m_id;
 		bool m_isActive = true;
-
+		bool m_isDontDestoryOnLoad = false;
 	public:
 		IActor() = default;
 		virtual ~IActor() = default;
 
-		inline void setWorld(World* const pWorld)
+		inline void setManager(ActManager* const pManager)
 		{
-			m_pWorld = pWorld;
+			m_pManager = pManager;
 		}
-		inline World* getWorld() const
+		inline ActManager* getManager() const
 		{
-			return m_pWorld;
+			return m_pManager;
 		}
 		inline void setId(s3d::uint64 id)
 		{
@@ -49,6 +50,19 @@ namespace abyss
 			return !m_isActive;
 		}
 
+		inline bool isDontDestoryOnLoad() const
+		{
+			return m_isDontDestoryOnLoad;
+		}
 		bool accept(const ActVisitor& visitor) override;
+
+		template<class T>
+		T* getModule() const
+		{
+			if (!m_pManager) {
+				return nullptr;
+			}
+			return m_pManager->getModule<T>();
+		}
 	};
 }
