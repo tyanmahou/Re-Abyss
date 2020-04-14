@@ -20,7 +20,7 @@ namespace abyss
             auto tex = s3d::Texture(path);
 #if ABYSS_DEBUG
             if (!tex) {
-                DebugLog::Print << U"Failed Load:" << path;
+                DebugLog::PrintCache << U"Failed Load:" << path;
             }
 #endif
             return m_textureCache[path] = tex;
@@ -33,7 +33,7 @@ namespace abyss
             auto tex = TexturePacker(path);
 #if ABYSS_DEBUG
             if (!tex) {
-                DebugLog::Print << U"Failed Load:" << path;
+                DebugLog::PrintCache << U"Failed Load:" << path;
             }
 #endif
             return m_texturePackerCache[path] = tex;
@@ -46,7 +46,7 @@ namespace abyss
             auto ps = s3d::PixelShader(path, { { U"PSConstants2D", 0 } });
 #if ABYSS_DEBUG
             if (!ps) {
-                DebugLog::Print << U"Failed Load:" << path;
+                DebugLog::PrintCache << U"Failed Load:" << path;
             }
 #endif
             return m_psCache[path] = ps;
@@ -59,7 +59,7 @@ namespace abyss
             auto toml = TOMLReader(path);
 #if ABYSS_DEBUG
             if (!toml) {
-                DebugLog::Print << U"Failed Load:" << path;
+                DebugLog::PrintCache << U"Failed Load:" << path;
             }
 #endif
             return m_tomlCache[path] = toml;
