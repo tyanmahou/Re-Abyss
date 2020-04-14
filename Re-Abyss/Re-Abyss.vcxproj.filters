@@ -497,6 +497,9 @@
     <ClCompile Include="app\controllers\ActionSystem\ActManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\DebugLog\DebugLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -801,5 +804,6 @@
     <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />
+    <ClInclude Include="app\debugs\DebugLog\DebugLog.hpp" />
   </ItemGroup>
 </Project>

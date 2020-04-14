@@ -239,6 +239,7 @@
     <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
+    <ClCompile Include="app\debugs\DebugLog\DebugLog.cpp" />
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp" />
     <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp" />
     <ClCompile Include="app\factories\Stage\StageFactory.cpp" />
@@ -390,6 +391,7 @@
     <ClInclude Include="app\datastores\Stage\parser\GimmickEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
+    <ClInclude Include="app\debugs\DebugLog\DebugLog.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />

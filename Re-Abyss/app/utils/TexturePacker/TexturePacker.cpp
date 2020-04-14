@@ -69,8 +69,15 @@ namespace abyss
 
 		TexturePacker::Texture operator()(const s3d::String& fileName) const
 		{
+			if (m_frames.find(fileName) == m_frames.end()) {
+				return Texture(m_texture, Frame{});
+			}
 			const Frame& frame = m_frames.at(fileName);
 			return Texture(m_texture, frame);
+		}
+		explicit operator bool()const
+		{
+			return !m_texture.isEmpty() && !m_frames.empty();
 		}
 	};
 	TexturePacker::TexturePacker(const s3d::FilePath& json):
@@ -84,6 +91,11 @@ namespace abyss
 	TexturePacker::Texture TexturePacker::operator()(const s3d::String& fileName) const
 	{
 		return (*pImpl)(fileName);
+	}
+
+    TexturePacker::operator bool() const
+    {
+		return static_cast<bool>(*pImpl);
 	}
 	
 	TexturePacker::Texture::Texture(const s3d::Texture& texture, const Frame& frame):

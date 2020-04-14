@@ -1,4 +1,6 @@
 #include "ResourceManager.hpp"
+#include <abyss/debugs/DebugLog/DebugLog.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -15,28 +17,52 @@ namespace abyss
             if (m_textureCache.find(path) != m_textureCache.end()) {
                 return m_textureCache[path];
             }
-            return m_textureCache[path] = s3d::Texture(path);
+            auto tex = s3d::Texture(path);
+#if ABYSS_DEBUG
+            if (!tex) {
+                DebugLog::Print << U"Failed Load:" << path;
+            }
+#endif
+            return m_textureCache[path] = tex;
         }
         TexturePacker loadTexturePacker(const s3d::FilePath& path)
         {
             if (m_texturePackerCache.find(path) != m_texturePackerCache.end()) {
                 return m_texturePackerCache[path];
             }
-            return m_texturePackerCache[path] = TexturePacker(path);
+            auto tex = TexturePacker(path);
+#if ABYSS_DEBUG
+            if (!tex) {
+                DebugLog::Print << U"Failed Load:" << path;
+            }
+#endif
+            return m_texturePackerCache[path] = tex;
         }
         PixelShader loadPs(const s3d::FilePath& path)
         {
             if (m_psCache.find(path) != m_psCache.end()) {
                 return m_psCache[path];
             }
-            return m_psCache[path] = s3d::PixelShader(path, { { U"PSConstants2D", 0 } });
+            auto ps = s3d::PixelShader(path, { { U"PSConstants2D", 0 } });
+#if ABYSS_DEBUG
+            if (!ps) {
+                DebugLog::Print << U"Failed Load:" << path;
+            }
+#endif
+            return m_psCache[path] = ps;
         }
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path)
         {
             if (m_tomlCache.find(path) != m_tomlCache.end()) {
                 return m_tomlCache[path];
             }
-            return m_tomlCache[path] = TOMLReader(path);
+            auto toml = TOMLReader(path);
+#if ABYSS_DEBUG
+            if (!toml) {
+                DebugLog::Print << U"Failed Load:" << path;
+            }
+#endif
+            return m_tomlCache[path] = toml;
         }
     };
 

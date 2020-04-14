@@ -19,7 +19,8 @@ namespace abyss
 		TexturePacker(const s3d::FilePath& json);
 		TexturePacker(const s3d::Texture& texture, const s3d::FilePath& json);
 
-		TexturePacker::Texture operator()(const s3d::String& fileName)const;
+		[[nodiscard]] TexturePacker::Texture operator()(const s3d::String& fileName)const;
+		[[nodiscard]] explicit operator bool()const;
 	};
 
 	class TexturePacker::Texture
@@ -42,21 +43,21 @@ namespace abyss
 		s3d::TexturedQuad getFixedQuad() const;
 	public:
 
-		TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
-		TexturePacker::Texture& operator()(double x, double y, double w, double h);
+		[[nodiscard]] TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
+		[[nodiscard]] TexturePacker::Texture& operator()(double x, double y, double w, double h);
 
-		TexturePacker::Texture& resized(const s3d::Vec2& size);
+		[[nodiscard]] TexturePacker::Texture& resized(const s3d::Vec2& size);
 
-		TexturePacker::Texture& scaled(double scale);
-		TexturePacker::Texture& scaled(const s3d::Vec2& scale);
-		TexturePacker::Texture& scaled(double sx, double sy);
+		[[nodiscard]] TexturePacker::Texture& scaled(double scale);
+		[[nodiscard]] TexturePacker::Texture& scaled(const s3d::Vec2& scale);
+		[[nodiscard]] TexturePacker::Texture& scaled(double sx, double sy);
 
-		const TexturePacker::Texture& rotated(double angle);
-		const TexturePacker::Texture& rotatedAt(double x, double y, double angle);
-		const TexturePacker::Texture& rotatedAt(const s3d::Vec2& pos, double angle);
+		[[nodiscard]] const TexturePacker::Texture& rotated(double angle);
+		[[nodiscard]] const TexturePacker::Texture& rotatedAt(double x, double y, double angle);
+		[[nodiscard]] const TexturePacker::Texture& rotatedAt(const s3d::Vec2& pos, double angle);
 
-		TexturePacker::Texture& mirrored(bool doMirror = true);
-		TexturePacker::Texture& fliped(bool doFlip = true);
+		[[nodiscard]] TexturePacker::Texture& mirrored(bool doMirror = true);
+		[[nodiscard]] TexturePacker::Texture& fliped(bool doFlip = true);
 
 		s3d::Quad draw(double x, double y, const s3d::ColorF& diffuse = s3d::Palette::White) const;
 

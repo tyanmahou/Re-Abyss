@@ -1,4 +1,4 @@
-﻿// Windowのサイズをスケーリング可能にするか
+// Windowのサイズをスケーリング可能にするか
 // #define USE_SCALABLE_WINDOW
 
 #include "IApplication.hpp"
@@ -90,7 +90,6 @@ namespace abyss
 	bool IApplication::run() const
 	{
 		while (System::Update()) {
-			ClearPrint();
 			::DrawFps();
 
 			if (KeyF4.down()) {
