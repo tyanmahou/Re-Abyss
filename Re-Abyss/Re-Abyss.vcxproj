@@ -231,8 +231,11 @@
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
+    <ClCompile Include="app\controllers\Decor\Decor.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
     <ClCompile Include="app\controllers\World\WorldTime.cpp" />
+    <ClCompile Include="app\datastores\BackGround\TiledBackGroundDataStore.cpp" />
+    <ClCompile Include="app\datastores\Decor\TiledDacorDataStore.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\EnemyEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\GimmickEntityParser.cpp" />
     <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp" />
@@ -289,6 +292,8 @@
     <ClCompile Include="app\views\Actors\Schield\SchieldVM.cpp" />
     <ClCompile Include="app\views\Actors\Schield\Shot\SchieldShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp" />
+    <ClCompile Include="app\views\Decor\Common\CommonDecorView.cpp" />
+    <ClCompile Include="app\views\Decor\Map\MapDecorView.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp" />
     <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp" />
@@ -384,8 +389,14 @@
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
+    <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
+    <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
+    <ClInclude Include="app\datastores\BackGround\TiledBackGroundDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TiledDacorDataStore.hpp" />
+    <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
     <ClInclude Include="app\datastores\Stage\parser\GimmickEntityParser.hpp" />
@@ -404,6 +415,7 @@
     <ClInclude Include="app\entities\Actors\Enemy\SchieldEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Map\MapEntity.hpp" />
+    <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
@@ -475,6 +487,9 @@
     <ClInclude Include="app\controllers\Actors\Schield\State\SchieldBaseState.hpp" />
     <ClInclude Include="app\views\Actors\Schield\Shot\SchieldShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
+    <ClInclude Include="app\views\Decor\base\IDecorView.hpp" />
+    <ClInclude Include="app\views\Decor\Common\CommonDecorView.hpp" />
+    <ClInclude Include="app\views\Decor\Map\MapDecorView.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />

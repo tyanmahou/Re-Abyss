@@ -2,16 +2,32 @@
 #include <abyss/debugs/DebugLog/DebugLog.hpp>
 
 #include <Siv3D.hpp>
+#include<S3DTiled.hpp>
 
 namespace abyss
 {
     class ResourceManager::Impl
     {
+        s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
     public:
+        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
+        {
+            if (m_tmxCache.find(path) != m_tmxCache.end()) {
+                return m_tmxCache[path];
+            }
+            auto tmx = s3dTiled::TiledMap(path);
+#if ABYSS_DEBUG
+            if (!tmx) {
+                DebugLog::PrintCache << U"Failed Load:" << path;
+            }
+#endif
+            return m_tmxCache[path] = tmx;
+        }
+
         s3d::Texture loadTexture(const s3d::FilePath& path)
         {
             if (m_textureCache.find(path) != m_textureCache.end()) {
@@ -76,6 +92,10 @@ namespace abyss
         if (s_main == this) {
             s_main = nullptr;
         }
+    }
+    s3dTiled::TiledMap ResourceManager::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
+    {
+        return m_pImpl->loadTmx(prefix + path);
     }
     s3d::Texture ResourceManager::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {

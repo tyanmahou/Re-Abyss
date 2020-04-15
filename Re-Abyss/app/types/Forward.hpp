@@ -27,6 +27,7 @@ namespace abyss
         if (a == Forward::Down) {
             return b;
         }
+        return b;
     }
     inline double operator * (double a, const Forward& b)
     {

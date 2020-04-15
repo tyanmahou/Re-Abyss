@@ -17,7 +17,12 @@ namespace abyss
             const auto& doorEntity = static_cast<const DoorEntity&>(entity);
             if (auto startPos = m_pStage->findStartPos(doorEntity.startId)) {
                 if (auto room = m_pStage->findRoom(startPos->getPos())) {
-                    DoorModel door(doorEntity.pos, startPos->getPos(), doorEntity.size);
+                    DoorModel door{
+                        doorEntity.pos, 
+                        startPos->getPos(),
+                        startPos->getForward(),
+                        doorEntity.size
+                    };
                     return std::make_shared<DoorActor>(door, *room);
                 }
             }

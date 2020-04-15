@@ -5,6 +5,11 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
+namespace s3dTiled
+{
+    class TiledMap;
+}
+
 namespace abyss
 {
     namespace Path
@@ -25,6 +30,7 @@ namespace abyss
         ResourceManager();
         ~ResourceManager();
 
+        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath);
         s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         TexturePacker loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         s3d::PixelShader loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;

@@ -2,9 +2,15 @@
 
 namespace abyss
 {
-    DoorModel::DoorModel(const s3d::Vec2& pos, const s3d::Vec2& targetPos, const s3d::Vec2& size):
+    DoorModel::DoorModel(
+        const s3d::Vec2& pos, 
+        const s3d::Vec2& targetPos, 
+        Forward targetForward, 
+        const s3d::Vec2& size
+    ):
         m_pos(pos),
         m_targetPos(targetPos),
+        m_targetForward(targetForward),
         m_size(size)
     {}
 

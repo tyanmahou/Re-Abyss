@@ -46,7 +46,7 @@ namespace abyss
 			this->drawBg(camera.getCameraPos());
 		});
 		// back obj
-		this->drawLayer(U"back", screen);
+		//this->drawLayer(U"back", screen);
 
 	}
 	void TiledStageView::drawMiddle(const CameraView& camera) const
@@ -54,7 +54,7 @@ namespace abyss
 		auto&& screen = camera.screenRegion();
 
 		// map
-		this->drawLayer(U"map", screen);
+		//this->drawLayer(U"map", screen);
 		// door
 		//this->drawLayer(U"door", screen);	
 	}
@@ -62,7 +62,7 @@ namespace abyss
 	{
 		auto&& screen = camera.screenRegion();
 		// front obj
-		this->drawLayer(U"front", screen);
+		//this->drawLayer(U"front", screen);
 
 		m_bubbles.draw(camera.getCameraPos());
 	}

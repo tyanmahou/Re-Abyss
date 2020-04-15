@@ -53,7 +53,7 @@ namespace abyss
 					if (obj.getProperty(U"right").value_or(false)) {
 						passbleBits |= static_cast<uint8>(Forward::Right);
 					}
-					ret.push_back({ obj.toRectF(), passbleBits });
+					ret.push_back({ obj.id, obj.toRectF(), passbleBits });
 				}
 			}
 		);

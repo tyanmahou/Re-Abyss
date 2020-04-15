@@ -1,11 +1,12 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Rectangle.hpp>
 
 namespace abyss
 {
 	struct RoomEntity
 	{
-		s3d::RectF m_region;
-		s3d::uint8 m_passbleBits;
+		s3d::uint32 roomId;
+		s3d::RectF region;
+		s3d::uint8 passbleBits;
 	};
 }

@@ -5,6 +5,8 @@
 #include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
 #include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/controllers/Actors/Door/DoorActor.hpp>
+
 namespace abyss
 {
     void PlayerSwimState::onLanding()
@@ -33,6 +35,7 @@ namespace abyss
         if (InputManager::Up.down()) {
             m_motion = Motion::Door;
             m_body->setVelocity(Vec2::Zero());
+            m_body->setForward(col.getTargetForward());
             m_actor->getModule<Camera>()->startDoorCameraWork(col, m_body->getPos(), [this]() {
                 this->m_motion = Motion::Stay;
             });

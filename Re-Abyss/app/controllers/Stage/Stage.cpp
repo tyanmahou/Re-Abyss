@@ -23,7 +23,7 @@ namespace
     Optional<RoomModel> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
     {
         for (const auto& room : rooms) {
-            if (room.m_region.intersects(pos)) {
+            if (room.region.intersects(pos)) {
                 return RoomTranslator::ToModel(room);
             }
         }

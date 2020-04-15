@@ -6,6 +6,7 @@
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/GimmickEntity.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {

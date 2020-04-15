@@ -27,6 +27,10 @@ namespace abyss
 	{
 		return m_door.getTargetPos();
 	}
+	Forward DoorActor::getTargetForward() const
+	{
+		return m_door.getTargetForward();
+	}
 	s3d::Vec2 DoorActor::fixedVisiterPos(const s3d::Vec2& visitSize) const
 	{
 		return m_door.fixedVisiterPos(visitSize);

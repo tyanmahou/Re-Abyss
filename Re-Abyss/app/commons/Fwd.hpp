@@ -37,6 +37,7 @@ namespace abyss
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
+
 	struct MapEntity;
 	struct EnemyEntity;
 	struct SlimeEntity;
@@ -49,11 +50,8 @@ namespace abyss
 	struct StartPosEntity;
 	struct DoorEntity;
 
-	/// <summary>
-	/// Entities/Params
-	/// </summary>
-	struct ParamEntity;
-	struct LaunSharkParam;
+	struct BackGroundEntity;
+	struct DecorEntity;
 
 	/// <summary>
 	/// Models
@@ -99,6 +97,7 @@ namespace abyss
 	class DoorCameraWorkView;
 
 	class IStageView;
+	class IDecorView;
 
 	/// <summary>
 	/// Visitor

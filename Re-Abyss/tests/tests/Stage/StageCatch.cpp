@@ -19,8 +19,8 @@ namespace abyss::tests
     public:
         Test_StageRepository()
         {
-            rooms.push_back(RoomEntity{ Room1 , 0});
-            rooms.push_back(RoomEntity{ Room2 , 0 });
+            rooms.push_back(RoomEntity{ 0, Room1 , 0});
+            rooms.push_back(RoomEntity{ 1, Room2 , 0 });
         }
         ~Test_StageRepository() = default;
         const s3d::Array<RoomEntity>& getRooms() const

@@ -18,6 +18,7 @@ namespace abyss
 		const RoomModel& getNextRoom() const;
 		const s3d::Vec2& getPos() const;
 		const s3d::Vec2& getTargetPos() const;
+		Forward getTargetForward() const;
 		s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 		bool accept(const ActVisitor& visitor) override;
 	};
