@@ -6,8 +6,8 @@ namespace abyss
 {
     enum class DecorGroup
     {
-        Back = 0,
-        Front = 1,
+        Back,
+        Front,
     };
 
     struct DecorEntity

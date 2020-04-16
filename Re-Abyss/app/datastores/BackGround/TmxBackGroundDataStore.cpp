@@ -1,15 +1,11 @@
-#include "TiledBackGroundDataStore.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include "TmxBackGroundDataStore.hpp"
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 
 namespace abyss
 {
 	using namespace s3dTiled;
 
-    TiledBackGroundDataStore::TiledBackGroundDataStore(const s3d::String& mapName):
-        m_tiledMap(ResourceManager::Main()->loadTmx(mapName + U".tmx"))
-    {}
-    s3d::Array<BackGroundEntity> TiledBackGroundDataStore::select() const
+    s3d::Array<BackGroundEntity> TmxBackGroundDataStore::select() const
     {
         s3d::Array<BackGroundEntity> ret;
 		auto parser = [&](const GroupLayer& layer) {
@@ -27,7 +23,7 @@ namespace abyss
 				});
 			}
 		};
-		m_tiledMap.getLayer(U"bgs")->then(parser);
+		m_tmx.getLayer(U"bgs")->then(parser);
         return ret;
     }
 }

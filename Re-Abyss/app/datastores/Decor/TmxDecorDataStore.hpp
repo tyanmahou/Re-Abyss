@@ -1,14 +1,16 @@
 #pragma once
 #include <S3DTiled.hpp>
+#include <abyss/datastores/base/TmxDataStore.hpp>
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 
 namespace abyss
 {
-    class TiledDecorDataStore : public IDecorDataStore
+    class TmxDecorDataStore :
+        public TmxDataStore,
+        public IDecorDataStore
     {
-        s3dTiled::TiledMap m_tiledMap;
     public:
-        TiledDecorDataStore(const s3d::String& mapName);
+        using TmxDataStore::TmxDataStore;
 
         s3d::Array<DecorEntity> select(DecorGroup group)const override;
     };

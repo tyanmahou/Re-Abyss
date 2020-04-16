@@ -11,6 +11,7 @@ namespace abyss
 	};
 	struct GimmickEntity
 	{
+		s3d::uint32 id;
 		GimmickType type;
 		s3d::Vec2 pos;
 	};

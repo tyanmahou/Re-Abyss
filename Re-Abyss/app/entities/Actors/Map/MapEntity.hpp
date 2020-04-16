@@ -14,6 +14,7 @@ namespace abyss
 
 	struct MapEntity
 	{
+		s3d::uint32 id;
 		MapType type;
 		s3d::Vec2 pos;
 		s3d::Vec2 size;

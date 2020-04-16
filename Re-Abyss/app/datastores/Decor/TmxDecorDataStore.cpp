@@ -1,13 +1,9 @@
-#include "TiledDacorDataStore.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include "TmxDecorDataStore.hpp"
 namespace abyss
 {
 	using namespace s3dTiled;
 
-    TiledDecorDataStore::TiledDecorDataStore(const s3d::String& mapName):
-        m_tiledMap(ResourceManager::Main()->loadTmx(mapName + U".tmx"))
-    {}
-    s3d::Array<DecorEntity> TiledDecorDataStore::select(DecorGroup group) const
+    s3d::Array<DecorEntity> TmxDecorDataStore::select(DecorGroup group) const
     {
         static const std::unordered_map<DecorGroup, s3d::String> toLayerNameMap{
             {DecorGroup::Back, U"back"},
@@ -31,7 +27,7 @@ namespace abyss
                 ret.push_back(entity);
             }
 		};
-        if (auto&& decor = m_tiledMap.getLayer(U"decor")) {
+        if (auto&& decor = m_tmx.getLayer(U"decor")) {
             decor->then([&](const GroupLayer& layer) {
                 if (auto l = layer.getLayer(toLayerNameMap.at(group))) {
                     l->then(parser);

@@ -15,6 +15,7 @@ namespace abyss
 	};
 	struct EnemyEntity
 	{
+		s3d::uint32 id;
 		EnemyType type;
 		s3d::Vec2 pos;
 		Forward forward;

@@ -509,10 +509,40 @@
     <ClCompile Include="app\controllers\Decor\Decor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\BackGround\TiledBackGroundDataStore.cpp">
+    <ClCompile Include="app\datastores\base\TmxDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Decor\TiledDacorDataStore.cpp">
+    <ClCompile Include="app\datastores\Decor\TmxDecorAnimationDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\BackGround\TmxBackGroundDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Enemy\TmxEnemyDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Gimmick\TmxGimmickDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Map\TmxMapDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Actors\Map\parser\TmxMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -825,10 +855,29 @@
     <ClInclude Include="app\views\Decor\Map\MapDecorView.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
-    <ClInclude Include="app\datastores\BackGround\TiledBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TiledDacorDataStore.hpp" />
+    <ClInclude Include="app\entities\Decor\DecorAnimationEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\DecorGraphicsEntity.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IDecorGraphicsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IDecorAnimationDataStore.hpp" />
+    <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorAnimationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
+    <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
+    <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
+    <ClInclude Include="app\services\Stage\StageService.hpp" />
+    <ClInclude Include="app\datastores\Actors\Gimmick\base\IGimmickDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Enemy\base\IEnemyDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Map\base\IMapDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Enemy\TmxEnemyDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Gimmick\TmxGimmickDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Map\TmxMapDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
+    <ClInclude Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.hpp" />
+    <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
   </ItemGroup>
 </Project>
