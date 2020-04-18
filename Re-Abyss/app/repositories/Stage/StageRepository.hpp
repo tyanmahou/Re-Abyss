@@ -12,7 +12,7 @@ namespace abyss
 		s3d::Array<std::shared_ptr<EnemyEntity>> m_enemies;
 		s3d::Array<std::shared_ptr<GimmickEntity>> m_gimmicks;
 	public:
-		StageRepository(const IStageDataStore& dataStore);
+		StageRepository(const std::shared_ptr<IStageDataStore>& dataStore);
 
 		const s3d::Array<RoomEntity>& getRooms() const;
 		const s3d::Array<MapEntity>& getMaps() const;

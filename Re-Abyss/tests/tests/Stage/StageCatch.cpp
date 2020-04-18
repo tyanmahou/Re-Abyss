@@ -43,8 +43,8 @@ namespace abyss::tests
 
     TEST_CASE("Stage. findRoom Test")
     {
-        auto rep = std::make_unique<Test_StageRepository>();
-        Stage stage(std::move(rep), nullptr);
+        auto rep = std::make_shared<Test_StageRepository>();
+        Stage stage(rep, nullptr, nullptr, nullptr);
 
         SECTION("find border min: pos (0, 0)")
         {

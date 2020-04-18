@@ -1,15 +1,25 @@
 #pragma once
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <map>
+#include <abyss/views/Decor/DecorView.hpp>
+
 
 namespace abyss
 {
     class Decor
     {
-        std::map<s3d::int32, s3d::Array<IDecorView>> m_decors;
+        std::shared_ptr<IDecorService> m_decorService;
+        std::shared_ptr<DecorGraphicsManager> m_manager;
+
+        DecorView m_view;
     public:
-        void init(Camera& camera);
+        Decor(
+            const std::shared_ptr<IDecorService>& service,
+            const std::shared_ptr<DecorGraphicsManager>& manager
+        );
+        void init(const Camera& camera);
+
+        void draw(s3d::int32 order, const s3d::RectF& screen) const;
     };
 
     namespace DecorOrder

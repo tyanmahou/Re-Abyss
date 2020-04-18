@@ -17,8 +17,7 @@ namespace abyss
 		auto parse = [&](const TileLayer& layer) {
 			TmxMapParser parser(m_tmx, layer.getGrid(), useAroundFilter);
 			parser.forEach([&](const MapEntity& info) {
-				// TODO
-				//ret.push_back(info);
+				ret.push_back(std::make_shared<MapEntity>(info));
 			});
 		};
 		layer->then(parse);

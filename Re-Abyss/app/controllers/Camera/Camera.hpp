@@ -88,6 +88,12 @@ namespace abyss
 		/// <returns></returns>
 		const RoomModel& getCurrentRoom() const;
 
+		/// <summary>
+		/// 次の部屋取得
+		/// </summary>
+		/// <returns></returns>
+		const s3d::Optional<RoomModel>& nextRoom()const;
+
 		template<class T>
 		bool inRoom(const T& shape)const
 		{

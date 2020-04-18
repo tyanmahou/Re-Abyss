@@ -22,7 +22,7 @@ namespace abyss
                     .size = size,
                     .rotation = obj.rotation,
                     .isMirrored = obj.isMirrored,
-                    .isFliped = obj.isFliped,
+                    .isFlipped = obj.isFliped,
                 };
                 ret.push_back(entity);
             }

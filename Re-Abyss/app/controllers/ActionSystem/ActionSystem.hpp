@@ -14,12 +14,12 @@ namespace abyss
         Camera m_camera;
         Light m_light;
         World m_world;
-        std::unique_ptr<Stage> m_stage;
+        std::shared_ptr<Stage> m_stage;
 
         ActManager m_manager;
     public:
         ActionSystem();
-        ActionSystem(std::unique_ptr<Stage>&& stage);
+        ActionSystem(const std::shared_ptr<Stage>& stage);
 
         ~ActionSystem();
 

@@ -44,12 +44,12 @@ namespace abyss
 {
 	class MainScene::Controller
 	{
-		std::unique_ptr<ActionSystem> m_actionSystem;
+		std::shared_ptr<ActionSystem> m_actionSystem;
 		ResourceManager m_resources;
 	public:
-		Controller([[maybe_unused]] const MainScene::InitData& init):
-			m_actionSystem(ActionSystemFactory::CreateFromTmx(U"resources/maps/stage0.tmx"))
+		Controller([[maybe_unused]] const MainScene::InitData& init)
 		{
+			m_actionSystem = ActionSystemFactory::CreateFromTmx(U"stage0");
 			this->init();
 		}
 

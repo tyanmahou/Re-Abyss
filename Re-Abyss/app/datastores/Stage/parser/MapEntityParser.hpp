@@ -22,7 +22,7 @@ namespace abyss
 
 		MapType getFieldType(GId gId);
 
-		MapType getFieldType(s3d::uint32 x, s3d::uint32 y);
+		MapType getFieldType(s3d::int32 x, s3d::int32 y);
 
 		ColDirection calcColDirectrion(s3d::uint32 x, s3d::uint32 y);
 		ColDirection calcAroundFloor(s3d::uint32 x, s3d::uint32 y);

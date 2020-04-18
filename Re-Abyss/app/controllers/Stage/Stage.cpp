@@ -4,6 +4,7 @@
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Decor/Decor.hpp>
 
 #include <abyss/repositories/Stage/StageRepository.hpp>
 
@@ -15,7 +16,6 @@
 #include <abyss/views/Stage/base/IStageView.hpp>
 
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
-
 namespace
 {
     using namespace abyss;
@@ -47,10 +47,16 @@ namespace
 }
 namespace abyss
 {
-
-    Stage::Stage(std::unique_ptr<IStageRepository>&& repository, std::unique_ptr<IStageView>&& view) noexcept :
-        m_stageData(std::move(repository)),
-        m_view(std::move(view))
+    Stage::Stage(
+        std::shared_ptr<IStageRepository> repository,
+        std::shared_ptr<IStageView> view,
+        std::shared_ptr<Decor> decor,
+        std::shared_ptr<BackGround> backGround
+    ):
+        m_stageData(repository),
+        m_view(view),
+        m_decor(decor),
+        m_backGround(backGround)
     {
         m_startPos = GetStartPosList(m_stageData->getGimmicks());
     }
@@ -80,6 +86,10 @@ namespace abyss
         }
         this->initRoom(world, *nextRoom);
         return nextRoom;
+    }
+    void Stage::initDecor(const Camera& camera) const
+    {
+        m_decor->init(camera);
     }
     bool Stage::initRoom(World& world, const RoomModel& nextRoom)
     {

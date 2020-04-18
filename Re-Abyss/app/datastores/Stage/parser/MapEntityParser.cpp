@@ -21,7 +21,7 @@ namespace abyss
         }
         return m_fieldTypeMap[gId] = MapType::Floor;
     }
-    MapType TiledMapEntityParser::getFieldType(s3d::uint32 x, s3d::uint32 y)
+    MapType TiledMapEntityParser::getFieldType(s3d::int32 x, s3d::int32 y)
 
     {
         if (x < 0 || x >= m_grid.width()) {

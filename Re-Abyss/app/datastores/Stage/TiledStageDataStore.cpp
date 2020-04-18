@@ -6,13 +6,14 @@
 
 #include <Siv3D.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 namespace abyss
 {
     using namespace s3dTiled;
 
 	TiledStageDataStore::TiledStageDataStore(const s3d::String& filePath) :
-		m_tiledMap(filePath)
+		m_tiledMap(ResourceManager::Main()->loadTmx(filePath + U".tmx"))
 	{}
 
 	s3d::Array<MapEntity> TiledStageDataStore::getMapEntity() const

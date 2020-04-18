@@ -21,7 +21,7 @@ namespace abyss
         }
         return m_fieldTypeMap[gId] = MapType::Floor;
     }
-    MapType TmxMapParser::getFieldType(s3d::uint32 x, s3d::uint32 y)
+    MapType TmxMapParser::getFieldType(s3d::int32 x, s3d::int32 y)
 
     {
         if (x < 0 || x >= m_grid.width()) {
@@ -32,7 +32,7 @@ namespace abyss
         }
         return getFieldType(m_grid[y][x]);
     };
-    ColDirection TmxMapParser::calcColDirectrion(s3d::uint32 x, s3d::uint32 y)
+    ColDirection TmxMapParser::calcColDirectrion(s3d::int32 x, s3d::int32 y)
     {
         ColDirection col = ColDirection::None;
         if (getFieldType(x, y - 1) != MapType::Floor) {
@@ -50,7 +50,7 @@ namespace abyss
         }
         return col;
     }
-    ColDirection TmxMapParser::calcAroundFloor(s3d::uint32 x, s3d::uint32 y)
+    ColDirection TmxMapParser::calcAroundFloor(s3d::int32 x, s3d::int32 y)
     {
         ColDirection col = ColDirection::None;
         if (getFieldType(x, y - 1) == MapType::Floor) {
@@ -68,7 +68,7 @@ namespace abyss
         }
         return col;
     }
-    s3d::Optional<MapEntity> TmxMapParser::tryToMapInfoModel(s3d::uint32 x, s3d::uint32 y)
+    s3d::Optional<MapEntity> TmxMapParser::tryToMapInfoModel(s3d::int32 x, s3d::int32 y)
     {
         GId gId = m_grid[y][x];
         if (gId <= 0) {
@@ -80,6 +80,8 @@ namespace abyss
         ret.pos = Vec2{ size.x * x, size.y * y } +static_cast<Vec2>(size) / 2;
         ret.size = m_tiledMap.getTile(gId).size;
         ret.aroundFloor = calcAroundFloor(x, y);
+        ret.id = x + size.y * y;
+        ret.gId = gId;
         switch (ret.type) {
         case MapType::Floor:
             ret.col = calcColDirectrion(x, y);
@@ -109,7 +111,7 @@ namespace abyss
     {
         for (uint32 y = 0; y < m_grid.height(); ++y) {
             for (uint32 x = 0; x < m_grid.width(); ++x) {
-                if (auto info = this->tryToMapInfoModel(x, y)) {
+                if (auto info = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y))) {
                     callback(*info);
                 }
             }

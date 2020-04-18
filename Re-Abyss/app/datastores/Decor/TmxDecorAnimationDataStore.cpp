@@ -14,8 +14,8 @@ namespace abyss
             }
             prevGId = frame.from;
             DecorAnimationEntity entity{
-                .fromGId = slot,
-                .slot = 0,
+                .fromGId = frame.from,
+                .slot = slot,
                 .toGId = frame.to,
                 .timeMilliSec = static_cast<double>(frame.duration)
             };

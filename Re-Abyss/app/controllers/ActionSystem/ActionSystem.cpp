@@ -15,10 +15,10 @@ namespace abyss
         m_world.setManager(&m_manager);
     }
 
-    ActionSystem::ActionSystem(std::unique_ptr<Stage>&& stage) :
+    ActionSystem::ActionSystem(const std::shared_ptr<Stage>& stage) :
         ActionSystem()
     {
-        m_stage = std::move(stage);
+        m_stage = stage;
     }
     ActionSystem::~ActionSystem()
     {
@@ -29,6 +29,7 @@ namespace abyss
         if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
         }
+        m_stage->initDecor(m_camera);
     }
 
     void ActionSystem::update()
@@ -45,6 +46,7 @@ namespace abyss
         {
             // カメラワークが開始したらアクターのリセット
             m_world.reset();
+            m_stage->initDecor(m_camera);
         }
         break;
         case OnCameraWorkEnd:

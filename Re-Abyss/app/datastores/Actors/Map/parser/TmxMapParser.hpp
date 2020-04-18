@@ -15,12 +15,12 @@ namespace abyss
 		bool m_useAroundFilter;
 		MapType getFieldType(GId gId);
 
-		MapType getFieldType(s3d::uint32 x, s3d::uint32 y);
+		MapType getFieldType(s3d::int32 x, s3d::int32 y);
 
-		ColDirection calcColDirectrion(s3d::uint32 x, s3d::uint32 y);
-		ColDirection calcAroundFloor(s3d::uint32 x, s3d::uint32 y);
+		ColDirection calcColDirectrion(s3d::int32 x, s3d::int32 y);
+		ColDirection calcAroundFloor(s3d::int32 x, s3d::int32 y);
 
-		s3d::Optional<MapEntity> tryToMapInfoModel(s3d::uint32 x, s3d::uint32 y);
+		s3d::Optional<MapEntity> tryToMapInfoModel(s3d::int32 x, s3d::int32 y);
 	public:
 		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool useAroundFilter = true);
 

@@ -9,6 +9,7 @@ namespace abyss
     class StageFactory
     {
     public:
-        static std::unique_ptr<Stage> CreateFromTmx(const s3d::FilePath& tmx);
+        static std::shared_ptr<Stage> CreateFromTmx(const s3d::String& mapName);
+        static std::shared_ptr<Stage> CreateFromTmx(const DIContainer* container, const s3d::String& mapName);
     };
 }

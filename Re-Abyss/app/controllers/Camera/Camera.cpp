@@ -146,6 +146,10 @@ namespace abyss
 	{
 		return m_camera->currentRoom();
 	}
+    const s3d::Optional<RoomModel>& Camera::nextRoom() const
+    {
+		return m_camera->nextRoom();
+    }
 	CameraView Camera::createView() const
 	{
 		return CameraView(m_camera.get(), m_cameraWork.get());

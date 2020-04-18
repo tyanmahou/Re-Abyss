@@ -18,6 +18,9 @@ namespace abyss
 	class World;
 	class Stage;
 	class Light;
+	class Decor;
+	class DecorGraphicsManager;
+	class BackGround;
 
 	/// Controllers/Actors
 	class ICollider;
@@ -32,6 +35,16 @@ namespace abyss
 	class PenetrateFloorActor;
 	class LadderActor;
 	class DoorActor;
+
+	/// <summary>
+	/// Datastores
+	/// </summary>
+	class IGimmickDataStore;
+	class IMapDataStore;
+	class IDecorDataStore;
+	class IDecorGraphicsDataStore;
+	class IDecorAnimationDataStore;
+	class IBackGroundDataStore;
 
 	/// <summary>
 	/// Entities
@@ -52,6 +65,11 @@ namespace abyss
 
 	struct BackGroundEntity;
 	struct DecorEntity;
+	struct DecorGraphicsEntity;
+	struct DecorAnimationEntity;
+
+	// Factory
+	class DIContainer;
 
 	/// <summary>
 	/// Models
@@ -61,13 +79,19 @@ namespace abyss
 	class ICollisionModel;
 	class CameraModel;
 	class BodyModel;
+	class IDecorModel;
 
 	/// <summary>
 	/// Repositories
 	/// </summary>
 	class IStageRepository;
-	template<class Entity>
-	class IParamsRepository;
+
+	/// <summary>
+	/// Services
+	/// </summary>
+	class IDecorService;
+	class IDecorGraphicsService;
+	class IBackGroundService;
 
 	/// <summary>
 	/// Types
@@ -97,7 +121,9 @@ namespace abyss
 	class DoorCameraWorkView;
 
 	class IStageView;
-	class IDecorView;
+	class DecorView;
+	class IDecorVM;
+	class BackGroundVM;
 
 	/// <summary>
 	/// Visitor

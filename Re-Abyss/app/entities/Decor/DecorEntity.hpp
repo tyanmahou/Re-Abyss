@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/String.hpp>
 
 namespace abyss
 {
@@ -19,6 +20,6 @@ namespace abyss
         s3d::Vec2 size;
         double rotation;
         bool isMirrored = false;
-        bool isFliped = false;
+        bool isFlipped = false;
     };
 }

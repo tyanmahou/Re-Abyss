@@ -1,6 +1,7 @@
 #include "WaveShader.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 namespace
@@ -23,7 +24,7 @@ namespace abyss
     public:
         Impl() :
             m_rt(static_cast<uint32>(Constants::GameScreenSize.x), static_cast<uint32>(Constants::GameScreenSize.y)),
-            m_ps(U"resources/shaders/wave.hlsl", { { U"PSConstants2D", 0 } })
+            m_ps(ResourceManager::Main()->loadPs(U"wave.hlsl"))
         {}
 
         void apply(const CameraView& camera, std::function<void()> drawer)

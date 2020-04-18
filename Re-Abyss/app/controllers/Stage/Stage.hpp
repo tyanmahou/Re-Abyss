@@ -13,15 +13,25 @@ namespace abyss
     class Stage
     {
     private:
-		std::unique_ptr<IStageRepository> m_stageData;
-		std::unique_ptr<IStageView> m_view;
+		std::shared_ptr<IStageRepository> m_stageData;
+		std::shared_ptr<IStageView> m_view;
+
+		std::shared_ptr<Decor> m_decor;
+		std::shared_ptr<BackGround> m_backGround;
 
 		StartPosListModel m_startPos;
 	public:
-		Stage(std::unique_ptr<IStageRepository>&& repository, std::unique_ptr<IStageView>&& view) noexcept;
+		Stage(
+			std::shared_ptr<IStageRepository> repository,
+			std::shared_ptr<IStageView> view,
+			std::shared_ptr<Decor> decor,
+			std::shared_ptr<BackGround> backGround
+		);
 		~Stage();
 		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos) const;
 		s3d::Optional<RoomModel> init(World& world);
+
+		void initDecor(const Camera& camera) const;
 		bool initRoom(World& world, const RoomModel& nextRoom);
 
 		s3d::Optional<StartPosModel> findStartPos(const s3d::int32 startId) const;

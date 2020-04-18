@@ -1,8 +1,9 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D/Array.hpp>
 
 #include "BackGroundVM.hpp"
+#include "Wave/WaveShader.hpp"
 
 namespace abyss
 {
@@ -10,8 +11,9 @@ namespace abyss
 	{
 	private:
 		s3d::Array<BackGroundVM> m_bgs;
+		WaveShader m_waveShader;
 	public:
 		void addBackGround(const BackGroundVM& bg);
-		void draw(const s3d::Vec2& pos)const;
+		void draw(const CameraView& camera)const;
 	};
 }

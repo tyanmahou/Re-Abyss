@@ -2,11 +2,11 @@
 
 namespace abyss
 {
-	StageRepository::StageRepository(const IStageDataStore& dataStore):
-		m_rooms(dataStore.getRoomEntity()),
-		m_maps(dataStore.getMapEntity()),
-		m_gimmicks(dataStore.getGimmickEntity()),
-		m_enemies(dataStore.getEnemyEntity())
+	StageRepository::StageRepository(const std::shared_ptr<IStageDataStore>& dataStore):
+		m_rooms(dataStore->getRoomEntity()),
+		m_maps(dataStore->getMapEntity()),
+		m_gimmicks(dataStore->getGimmickEntity()),
+		m_enemies(dataStore->getEnemyEntity())
 	{}
 
 	const s3d::Array<RoomEntity>& StageRepository::getRooms() const

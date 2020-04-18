@@ -131,12 +131,6 @@
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Stage\BackGround\BackGroundView.cpp">
-      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\BackGround\BackGroundVM.cpp">
-      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
@@ -221,9 +215,6 @@
     <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Stage\TiledStageView.cpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -231,9 +222,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\testing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
@@ -500,12 +488,6 @@
     <ClCompile Include="app\debugs\DebugLog\DebugLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Decor\Common\CommonDecorView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Decor\Map\MapDecorView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Decor\Decor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -545,6 +527,69 @@
     <ClCompile Include="app\datastores\Actors\Map\parser\TmxMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\factories\DIContainer\DIContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Decor\DecorService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\base\IDecorGraphicsDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\base\IDecorAnimationDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Decor\DecorGraphicsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\factories\Decor\DecorFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Decor\DecorView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Decor\Common\CommonDecorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Decor\Map\MapDecorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\BackGround\BackGroundService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGround\BackGroundView.cpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGround\BackGroundVM.cpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\BackGround\BackGround.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Stage\StageView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\factories\BackGround\BackGroundFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -563,12 +608,6 @@
     </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\BackGround\BackGroundVM.hpp">
-      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\BackGround\BackGroundView.hpp">
-      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
@@ -721,12 +760,8 @@
     <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
-    <ClInclude Include="app\views\Stage\TiledStageView.hpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
-    <ClInclude Include="app\views\Stage\Wave\WaveShader.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
@@ -850,9 +885,6 @@
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />
     <ClInclude Include="app\debugs\DebugLog\DebugLog.hpp" />
-    <ClInclude Include="app\views\Decor\base\IDecorView.hpp" />
-    <ClInclude Include="app\views\Decor\Common\CommonDecorView.hpp" />
-    <ClInclude Include="app\views\Decor\Map\MapDecorView.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
@@ -879,5 +911,35 @@
     <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
+    <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
+    <ClInclude Include="app\services\Decor\DecorService.hpp" />
+    <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
+    <ClInclude Include="app\controllers\Decor\DecorGraphicsManager.hpp" />
+    <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
+    <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
+    <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
+    <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
+    <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
+    <ClInclude Include="app\models\Decor\Door\DoorDecorModel.hpp" />
+    <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
+    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
+    <ClInclude Include="app\views\Decor\DecorView.hpp" />
+    <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
+    <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
+    <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
+    <ClInclude Include="app\views\Decor\Door\DoorDecorVM.hpp" />
+    <ClInclude Include="app\views\Stage\StageView.hpp" />
+    <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
+    <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
+    <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
+    <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
+    <ClInclude Include="app\views\BackGround\BackGroundView.hpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BackGround\BackGroundVM.hpp">
+      <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\BackGround\Wave\WaveShader.hpp" />
+    <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
   </ItemGroup>
 </Project>
