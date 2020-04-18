@@ -32,7 +32,9 @@ namespace abyss
     }
     std::shared_ptr<IDecorModel> DecorTranslator::toModel(const DoorEntity& entity)const
     {
-        return nullptr;
+        auto model = std::make_shared<DoorDecorModel>(entity.pos, entity.size, entity.kind);
+        model->setType(DecorType::Door);
+        return model;
     }
     std::shared_ptr<IDecorModel> DecorTranslator::toModel(const MapEntity& entity)const
     {
@@ -50,7 +52,7 @@ namespace abyss
         }break;
         case DecorType::Door:
         {
-
+            return std::make_shared<DoorDecorVM>(static_cast<const DoorDecorModel&>(model));
         }break;
         case DecorType::Map:
         {

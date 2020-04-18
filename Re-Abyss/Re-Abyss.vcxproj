@@ -279,6 +279,7 @@
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\models\Collision\FixPos.cpp" />
     <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp" />
+    <ClCompile Include="app\models\Decor\Door\DoorDecorModel.cpp" />
     <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp" />
     <ClCompile Include="app\models\Light\LightModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
@@ -318,6 +319,7 @@
     <ClCompile Include="app\controllers\Decor\DecorGraphicsManager.cpp" />
     <ClCompile Include="app\views\Decor\Common\CommonDecorVM.cpp" />
     <ClCompile Include="app\views\Decor\DecorView.cpp" />
+    <ClCompile Include="app\views\Decor\Door\DoorDecorVM.cpp" />
     <ClCompile Include="app\views\Decor\Map\MapDecorVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />

@@ -1,9 +1,11 @@
 #include "DecorService.hpp"
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
+#include <abyss/datastores/Actors/Gimmick/base/IGimmickDataStore.hpp>
 #include <abyss/datastores/Actors/Map/base/IMapDataStore.hpp>
 
-#include <abyss/translators/Decor/DecorTranslator.hpp>
+#include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
 
+#include <abyss/translators/Decor/DecorTranslator.hpp>
 namespace abyss
 {
     DecorService::DecorService(
@@ -29,6 +31,11 @@ namespace abyss
         // custom
         for (const auto& entity : map->select(false)) {
             m_custom.push_back(translator.toModel(*entity));
+        }
+        for (const auto& entity : gimmick->select()) {
+            if (entity->type == GimmickType::Door) {
+                m_custom.push_back(translator.toModel(static_cast<const DoorEntity&>(*entity)));
+            }
         }
     }
 }
