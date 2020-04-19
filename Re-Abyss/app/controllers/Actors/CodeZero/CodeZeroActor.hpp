@@ -7,6 +7,7 @@ namespace abyss
 {
     struct CodeZeroEntity;
     class CodeZeroHeadActor;
+    class CodeZeroHandActor;
     class CodeZeroBodyVM;
 
     class CodeZeroActor :
@@ -22,6 +23,8 @@ namespace abyss
         std::shared_ptr<CodeZeroBodyVM> m_view;
 
         std::shared_ptr<CodeZeroHeadActor> m_head;
+        std::shared_ptr<CodeZeroHandActor> m_leftHand;
+        std::shared_ptr<CodeZeroHandActor> m_rightHand;
 
     public:
         CodeZeroActor(const CodeZeroEntity& entity);
@@ -37,5 +40,8 @@ namespace abyss
         CodeZeroBodyVM* getBindedView()const;
 
         void onDead() override;
+
+        CodeZeroHandActor* getLeftHand()const { return m_leftHand.get(); }
+        CodeZeroHandActor* getRightHand()const { return m_rightHand.get(); }
     };
 }

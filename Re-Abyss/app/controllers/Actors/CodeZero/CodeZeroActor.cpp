@@ -4,6 +4,7 @@
 #include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
 
 #include <abyss/controllers/Actors/CodeZero/Head/CodeZeroHeadActor.hpp>
+#include <abyss/controllers/Actors/CodeZero/Hand/CodeZeroHandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
 namespace abyss
@@ -22,7 +23,10 @@ namespace abyss
 
     void CodeZeroActor::start()
     {
-        this->m_pManager->getModule<World>()->create<CodeZeroHeadActor>(this, &m_hp);
+        auto* const world = this->m_pManager->getModule<World>();
+        m_head = world->create<CodeZeroHeadActor>(this, &m_hp);
+        m_leftHand = world->create<CodeZeroHandActor>(this, CodeZeroHandActor::Left);
+        m_rightHand = world->create<CodeZeroHandActor>(this, CodeZeroHandActor::Right);
     }
 
     void CodeZeroActor::update(double dt)

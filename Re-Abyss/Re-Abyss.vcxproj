@@ -184,8 +184,13 @@
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\CaptainTakoWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttakWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\CodeZeroHandActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp" />
@@ -307,6 +312,7 @@
     <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.cpp" />
     <ClCompile Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.cpp" />
+    <ClCompile Include="app\views\Actors\CodeZero\Hand\CodeZeroHandVM.cpp" />
     <ClCompile Include="app\views\Actors\CodeZero\Head\CodeZeroHeadVM.cpp" />
     <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp" />
     <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp" />
@@ -372,8 +378,13 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoChargeState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\CaptainTakoWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttakWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\CodeZeroHandActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
@@ -541,6 +552,7 @@
     <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\CaptainTako\Shot\CaptainTakoShotVM.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Hand\CodeZeroHandVM.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Head\CodeZeroHeadVM.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
