@@ -16,6 +16,8 @@ namespace abyss
         m_state.add<CodeZeroBaseState>(State::Base);
         m_body.noneResistanced();
         m_hp.setHp(CodeZeroParam::Base::Hp);
+
+        m_order = -99;
     }
 
     void CodeZeroActor::start()

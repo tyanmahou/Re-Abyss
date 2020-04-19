@@ -33,6 +33,7 @@ namespace abyss
         m_hp
             .setHp(PlayerParam::Base::Hp)
             .setInvincibleTime(PlayerParam::Base::InvincibleTime);
+        m_order = 10;
     }
     void PlayerActor::start()
     {

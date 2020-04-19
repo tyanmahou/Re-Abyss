@@ -12,6 +12,7 @@ namespace abyss
 		s3d::uint64 m_id;
 		bool m_isActive = true;
 		bool m_isDontDestoryOnLoad = false;
+		s3d::int32 m_order = 0;
 	public:
 		IActor() = default;
 		virtual ~IActor() = default;
@@ -54,6 +55,12 @@ namespace abyss
 		{
 			return m_isDontDestoryOnLoad;
 		}
+
+		inline s3d::int32 getOrder() const
+		{
+			return m_order;
+		}
+
 		bool accept(const ActVisitor& visitor) override;
 
 		template<class T>
