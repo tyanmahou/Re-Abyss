@@ -249,10 +249,6 @@
     <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp" />
-    <ClCompile Include="app\datastores\Stage\parser\EnemyEntityParser.cpp" />
-    <ClCompile Include="app\datastores\Stage\parser\GimmickEntityParser.cpp" />
-    <ClCompile Include="app\datastores\Stage\parser\MapEntityParser.cpp" />
-    <ClCompile Include="app\datastores\Stage\TiledStageDataStore.cpp" />
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
     <ClCompile Include="app\debugs\DebugLog\DebugLog.cpp" />
@@ -284,11 +280,11 @@
     <ClCompile Include="app\models\Light\LightModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
     <ClCompile Include="app\controllers\World\World.cpp" />
-    <ClCompile Include="app\repositories\Stage\StageRepository.cpp" />
     <ClCompile Include="app\scenes\Main\MainScene.cpp" />
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp" />
     <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
+    <ClCompile Include="app\services\Stage\StageService.cpp" />
     <ClCompile Include="app\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">Create</PrecompiledHeader>
@@ -443,11 +439,6 @@
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
-    <ClInclude Include="app\datastores\Stage\base\IStageDataStore.hpp" />
-    <ClInclude Include="app\datastores\Stage\parser\EnemyEntityParser.hpp" />
-    <ClInclude Include="app\datastores\Stage\parser\GimmickEntityParser.hpp" />
-    <ClInclude Include="app\datastores\Stage\parser\MapEntityParser.hpp" />
-    <ClInclude Include="app\datastores\Stage\TiledStageDataStore.hpp" />
     <ClInclude Include="app\debugs\DebugLog\DebugLog.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
@@ -504,8 +495,6 @@
     <ClInclude Include="app\params\Actors\Schield\SchieldParam.hpp" />
     <ClInclude Include="app\params\Actors\Schield\SchieldShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Slime\SlimeParam.hpp" />
-    <ClInclude Include="app\repositories\Stage\base\IStageRepository.hpp" />
-    <ClInclude Include="app\repositories\Stage\StageRepository.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\Main\MainScene.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
@@ -514,6 +503,7 @@
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
+    <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
     <ClInclude Include="app\StaticLibs.hpp" />
     <ClInclude Include="app\stdafx.hpp" />

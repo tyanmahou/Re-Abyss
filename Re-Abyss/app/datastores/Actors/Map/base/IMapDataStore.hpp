@@ -11,7 +11,7 @@ namespace abyss
 
         s3d::Array<std::shared_ptr<MapEntity>> selectFiltered() const
         {
-            return this->select(false);
+            return this->select(true);
         }
         virtual s3d::Array<std::shared_ptr<MapEntity>> select(bool useAroundFilter = true)const = 0;
     };

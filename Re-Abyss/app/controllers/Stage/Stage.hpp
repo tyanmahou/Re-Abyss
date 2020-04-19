@@ -13,7 +13,7 @@ namespace abyss
     class Stage
     {
     private:
-		std::shared_ptr<IStageRepository> m_stageData;
+		std::shared_ptr<IStageService> m_stageData;
 		std::shared_ptr<IStageView> m_view;
 
 		std::shared_ptr<Decor> m_decor;
@@ -22,7 +22,7 @@ namespace abyss
 		StartPosListModel m_startPos;
 	public:
 		Stage(
-			std::shared_ptr<IStageRepository> repository,
+			std::shared_ptr<IStageService> service,
 			std::shared_ptr<IStageView> view,
 			std::shared_ptr<Decor> decor,
 			std::shared_ptr<BackGround> backGround

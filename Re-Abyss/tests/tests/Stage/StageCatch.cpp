@@ -1,19 +1,20 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/repositories/Stage/base/IStageRepository.hpp>
+#include <abyss/services/Stage/base/IStageService.hpp>
 #include <abyss/views/Stage/base/IStageView.hpp>
+#include <abyss/entities/Room/RoomEntity.hpp>
 
 namespace abyss::tests
 {
-    class Test_StageRepository : public IStageRepository
+    class Test_StageRepository : public IStageService
     {
     public:
         inline static constexpr s3d::RectF Room1{ 0, 0, 100, 100 };
         inline static constexpr s3d::RectF Room2{ 100, 100, 100, 100 };
     private:
         s3d::Array<RoomEntity> rooms;
-        s3d::Array<MapEntity> maps;
+        s3d::Array<std::shared_ptr<MapEntity>> maps;
         s3d::Array<std::shared_ptr<GimmickEntity>> gimmicks;
         s3d::Array<std::shared_ptr<EnemyEntity>> enemys;
     public:
@@ -27,7 +28,7 @@ namespace abyss::tests
         {
             return rooms;
         }
-        const s3d::Array<MapEntity>& getMaps() const
+        const  s3d::Array<std::shared_ptr<MapEntity>>& getMaps() const
         {
             return maps;
         }

@@ -39,6 +39,8 @@ namespace abyss
 	/// <summary>
 	/// Datastores
 	/// </summary>
+	class IRoomDataStore;
+	class IEnemyDataStore;
 	class IGimmickDataStore;
 	class IMapDataStore;
 	class IDecorDataStore;
@@ -82,13 +84,9 @@ namespace abyss
 	class IDecorModel;
 
 	/// <summary>
-	/// Repositories
-	/// </summary>
-	class IStageRepository;
-
-	/// <summary>
 	/// Services
 	/// </summary>
+	class IStageService;
 	class IDecorService;
 	class IDecorGraphicsService;
 	class IBackGroundService;
@@ -116,7 +114,6 @@ namespace abyss
 	class LaunSharkShotVM;
 	class SchieldVM;
 	class SchieldShotVM;
-
 	class CameraView;
 	class DoorCameraWorkView;
 

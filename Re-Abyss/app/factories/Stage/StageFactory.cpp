@@ -1,7 +1,13 @@
 #include "StageFactory.hpp"
 #include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/datastores/Stage/TiledStageDataStore.hpp>
-#include <abyss/repositories/Stage/StageRepository.hpp>
+
+#include <abyss/datastores/Room/TmxRoomDataStore.hpp>
+#include <abyss/datastores/Actors/Map/TmxMapDataStore.hpp>
+#include <abyss/datastores/Actors/Enemy/TmxEnemyDataStore.hpp>
+#include <abyss/datastores/Actors/Gimmick/TmxGimmickDataStore.hpp>
+
+#include <abyss/services/Stage/StageService.hpp>
+
 #include <abyss/views/Stage/StageView.hpp>
 
 #include <abyss/factories/DIContainer/DIContainer.hpp>
@@ -21,17 +27,31 @@ namespace abyss
         auto decor = DecorFactory::CreateFromTmx(container, mapName);
         auto bg = BackGroundFactory::CreateFromTmx(container, mapName);
 
-        container->regist<IStageDataStore>([&mapName](const DIContainer*) {
-            return std::make_shared<TiledStageDataStore>(mapName);
+        // datastore
+        container->regist<IRoomDataStore>([&mapName](const DIContainer*) {
+            return std::make_shared<TmxRoomDataStore>(mapName);
         });
-        container->regist<IStageRepository>([&mapName](const DIContainer* c) {
-            return std::make_shared<StageRepository>(c->get<IStageDataStore>());
+        container->regist<IMapDataStore>([&mapName](const DIContainer*) {
+            return std::make_shared<TmxMapDataStore>(mapName);
+        });
+        container->regist<IEnemyDataStore>([&mapName](const DIContainer*) {
+            return std::make_shared<TmxEnemyDataStore>(mapName);
+        });
+        container->regist<IGimmickDataStore>([&mapName](const DIContainer*) {
+            return std::make_shared<TmxGimmickDataStore>(mapName);
         });
 
-        container->regist<IStageRepository>([&mapName](const DIContainer* c) {
-            return std::make_shared<StageRepository>(c->get<IStageDataStore>());
+        // service
+        container->regist<IStageService>([](const DIContainer* c) {
+            return std::make_shared<StageService>(
+                c->get<IRoomDataStore>(),
+                c->get<IMapDataStore>(),
+                c->get<IEnemyDataStore>(),
+                c->get<IGimmickDataStore>()
+            );
         });
 
+        // view
         container->regist<IStageView>([&](const DIContainer*) {
             auto view = std::make_shared<StageView>();
             view->setBg(bg.get());
@@ -40,7 +60,7 @@ namespace abyss
         });
         container->regist<Stage>([&](const DIContainer* c) {
             return std::make_shared<Stage>(
-                c->get<IStageRepository>(),
+                c->get<IStageService>(),
                 c->get<IStageView>(),
                 decor,
                 bg

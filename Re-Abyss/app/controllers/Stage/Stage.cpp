@@ -6,7 +6,12 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
 
-#include <abyss/repositories/Stage/StageRepository.hpp>
+#include <abyss/services/Stage/base/IStageService.hpp>
+
+#include <abyss/entities/Room/RoomEntity.hpp>
+#include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
+#include <abyss/entities/Actors/Map/MapEntity.hpp>
+#include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Map/MapTranslator.hpp>
@@ -15,7 +20,7 @@
 
 #include <abyss/views/Stage/base/IStageView.hpp>
 
-#include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
+
 namespace
 {
     using namespace abyss;
@@ -48,12 +53,12 @@ namespace
 namespace abyss
 {
     Stage::Stage(
-        std::shared_ptr<IStageRepository> repository,
+        std::shared_ptr<IStageService> service,
         std::shared_ptr<IStageView> view,
         std::shared_ptr<Decor> decor,
         std::shared_ptr<BackGround> backGround
     ):
-        m_stageData(repository),
+        m_stageData(service),
         m_view(view),
         m_decor(decor),
         m_backGround(backGround)
@@ -94,10 +99,10 @@ namespace abyss
     bool Stage::initRoom(World& world, const RoomModel& nextRoom)
     {
         for (const auto& map : m_stageData->getMaps()) {
-            if (!nextRoom.getRegion().intersects(map.pos)) {
+            if (!nextRoom.getRegion().intersects(map->pos)) {
                 continue;
             }
-            if (auto obj = MapTranslator::ToActorPtr(map)) {
+            if (auto obj = MapTranslator::ToActorPtr(*map)) {
                 world.regist(obj);
             }
         }
