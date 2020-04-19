@@ -61,6 +61,7 @@ namespace abyss
 	struct IkalienEntity;
 	struct LaunSharkEntity;
 	struct SchieldEntity;
+
 	struct GimmickEntity;
 	struct StartPosEntity;
 	struct DoorEntity;
@@ -103,6 +104,7 @@ namespace abyss
 	/// </summary>
 	
 	class WorldView;
+
 	class PlayerVM;
 	class PlayerShotVM;
 	class SlimeVM;

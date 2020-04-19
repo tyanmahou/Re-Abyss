@@ -15,7 +15,7 @@
 #include <abyss/params/Actors/Slime/SlimeParam.hpp>
 #include <abyss/params/Actors/Schield/SchieldParam.hpp>
 #include <abyss/params/Actors/Schield/SchieldShotParam.hpp>
-
+#include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
 namespace
 {
 	using namespace abyss;
@@ -38,6 +38,8 @@ namespace
 
 		resource.loadToml<SchieldParam>(U"Actors/Schield/param.toml");
 		resource.loadToml<SchieldShotParam>(U"Actors/Schield/shot_param.toml");
+
+		resource.loadToml<CodeZeroParam>(U"Actors/CodeZero/param.toml");
 	}
 }
 namespace abyss

@@ -8,12 +8,16 @@
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 
+#include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
+
 #include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
 #include <abyss/controllers/Actors/RollingTako/RollingTakoActor.hpp>
 #include <abyss/controllers/Actors/CaptainTako/CaptainTakoActor.hpp>
 #include <abyss/controllers/Actors/Ikalien/IkalienActor.hpp>
 #include <abyss/controllers/Actors/LaunShark/LaunSharkActor.hpp>
 #include <abyss/controllers/Actors/Schield/SchieldActor.hpp>
+
+#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
 
 namespace abyss
 {
@@ -28,6 +32,7 @@ namespace abyss
 			CASE_ENEMY(Ikalien);
 			CASE_ENEMY(LaunShark);
 			CASE_ENEMY(Schield);
+			CASE_ENEMY(CodeZero);
 		default:
 			break;
 		}

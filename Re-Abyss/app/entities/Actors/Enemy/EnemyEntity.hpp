@@ -11,7 +11,10 @@ namespace abyss
 		CaptainTako,
 		Ikalien,
 		LaunShark,
-		Schield
+		Schield,
+
+		// Boss
+		CodeZero,
 	};
 	struct EnemyEntity
 	{

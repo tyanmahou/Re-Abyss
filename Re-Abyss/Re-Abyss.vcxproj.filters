@@ -584,6 +584,15 @@
     <ClCompile Include="app\services\Stage\StageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -923,5 +932,10 @@
     <ClInclude Include="app\views\BackGround\Wave\WaveShader.hpp" />
     <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
+    <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.hpp" />
+    <ClInclude Include="app\params\Actors\CodeZero\CodeZeroParam.hpp" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,8 @@
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 
+#include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
+
 using namespace s3d;
 using namespace s3dTiled;
 using namespace abyss;
@@ -22,6 +24,8 @@ namespace
 			{U"ikalien", EnemyType::Ikalien},
 			{U"laun_shark", EnemyType::LaunShark},
 			{U"schield", EnemyType::Schield},
+
+			{U"code_zero", EnemyType::CodeZero},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -58,6 +62,7 @@ namespace
 			PARSE_ENEMY(Ikalien);
 			PARSE_ENEMY(LaunShark);
 			PARSE_ENEMY(Schield);
+			PARSE_ENEMY(CodeZero);
 		default:
 			break;
 		}
