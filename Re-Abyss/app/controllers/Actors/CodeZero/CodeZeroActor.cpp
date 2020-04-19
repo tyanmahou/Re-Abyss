@@ -3,6 +3,9 @@
 #include <abyss/views/Actors/CodeZero/Body/CodeZeroBodyVM.hpp>
 #include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
 
+#include <abyss/controllers/Actors/CodeZero/Head/CodeZeroHeadActor.hpp>
+#include <abyss/controllers/World/World.hpp>
+
 namespace abyss
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
@@ -13,6 +16,11 @@ namespace abyss
         m_state.add<CodeZeroBaseState>(State::Base);
         m_body.noneResistanced();
         m_hp.setHp(CodeZeroParam::Base::Hp);
+    }
+
+    void CodeZeroActor::start()
+    {
+        this->m_pManager->getModule<World>()->create<CodeZeroHeadActor>(this, &m_hp);
     }
 
     void CodeZeroActor::update(double dt)
@@ -38,6 +46,11 @@ namespace abyss
     CodeZeroBodyVM* CodeZeroActor::getBindedView() const
     {
         return &m_view->setPos(m_body.getPos());
+    }
+
+    void CodeZeroActor::onDead()
+    {
+        
     }
 
 }

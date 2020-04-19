@@ -593,6 +593,15 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Head\CodeZeroHeadVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -937,5 +946,8 @@
     <ClInclude Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.hpp" />
     <ClInclude Include="app\params\Actors\CodeZero\CodeZeroParam.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Head\CodeZeroHeadVM.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.hpp" />
   </ItemGroup>
 </Project>

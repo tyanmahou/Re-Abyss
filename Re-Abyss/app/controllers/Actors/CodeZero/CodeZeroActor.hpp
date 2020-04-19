@@ -6,6 +6,7 @@
 namespace abyss
 {
     struct CodeZeroEntity;
+    class CodeZeroHeadActor;
     class CodeZeroBodyVM;
 
     class CodeZeroActor :
@@ -19,9 +20,13 @@ namespace abyss
     private:
         StateManager<CodeZeroActor> m_state;
         std::shared_ptr<CodeZeroBodyVM> m_view;
+
+        std::shared_ptr<CodeZeroHeadActor> m_head;
+
     public:
         CodeZeroActor(const CodeZeroEntity& entity);
 
+        void start()override;
         void update(double dt)override;
         void draw()const;
 
@@ -30,5 +35,7 @@ namespace abyss
         bool accept(const ActVisitor& visitor) override;
 
         CodeZeroBodyVM* getBindedView()const;
+
+        void onDead() override;
     };
 }
