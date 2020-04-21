@@ -1,4 +1,6 @@
-#include "State/CodeZeroBaseState.hpp"
+#include "State/CodeZeroPhase1State.hpp"
+#include "State/CodeZeroPhase2State.hpp"
+#include "State/CodeZeroPhase3State.hpp"
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 #include <abyss/views/Actors/CodeZero/Body/CodeZeroBodyVM.hpp>
 #include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
@@ -7,6 +9,8 @@
 #include <abyss/controllers/Actors/CodeZero/Hand/CodeZeroHandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
+#include <abyss/debugs/DebugLog/DebugLog.hpp>
+
 namespace abyss
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
@@ -14,7 +18,12 @@ namespace abyss
         m_state(this),
         m_view(std::make_shared<CodeZeroBodyVM>())
     {
-        m_state.add<CodeZeroBaseState>(State::Base);
+        m_state
+            .add<CodeZeroPhase1State>(State::Phase1)
+            .add<CodeZeroPhase2State>(State::Phase2)
+            .add<CodeZeroPhase3State>(State::Phase3)
+            .bind<HPModel>(&CodeZeroActor::m_hp)
+            ;
         m_body.noneResistanced();
         m_hp.setHp(CodeZeroParam::Base::Hp);
 
@@ -37,6 +46,7 @@ namespace abyss
     void CodeZeroActor::draw() const
     {
         m_state.draw();
+        DebugLog::Print << U"HP: " << m_hp.value();
     }
 
     CShape CodeZeroActor::getCollider() const
@@ -56,7 +66,11 @@ namespace abyss
 
     void CodeZeroActor::onDead()
     {
-        
+        // todo
+        this->destroy();
+        m_head->destroy();
+        m_leftHand->destroy();
+        m_rightHand->destroy();
     }
 
 }

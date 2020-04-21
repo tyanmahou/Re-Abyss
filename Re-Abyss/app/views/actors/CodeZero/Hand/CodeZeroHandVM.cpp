@@ -26,7 +26,7 @@ namespace abyss
             .rotated(m_rotate)
             .drawAt(m_pos, color);
     }
-    void CodeZeroHandVM::drawAttackWait()
+    void CodeZeroHandVM::drawAttackWait()const
     {
         double t = Periodic::Sawtooth0_1(0.2s, WorldTime::Time());
         HSV hsv(360 * t, 0.5, 1.0);

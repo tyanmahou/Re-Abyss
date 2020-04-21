@@ -7,10 +7,9 @@ namespace abyss
     class CodeZeroHandAttackState final : public CodeZeroHandBaseState
     {
         bool m_isReturn = false;
-        void updateRight(double dt) override;
-        void updateLeft(double dt) override;
     public:
         CodeZeroHandAttackState();
         void start()override;
+        void update(double dt)override;
     };
 }

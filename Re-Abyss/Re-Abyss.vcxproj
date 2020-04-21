@@ -192,6 +192,9 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase1State.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.cpp" />
     <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp" />
@@ -269,6 +272,7 @@
     <ClCompile Include="app\factories\Stage\StageFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
+    <ClCompile Include="app\models\Actors\CodeZero\CodeZeroHandModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
@@ -386,6 +390,9 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase1State.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />
@@ -478,6 +485,7 @@
     <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
     <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />

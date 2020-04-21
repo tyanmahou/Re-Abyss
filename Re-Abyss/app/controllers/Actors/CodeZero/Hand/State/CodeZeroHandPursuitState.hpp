@@ -5,9 +5,8 @@ namespace abyss
 {
     class CodeZeroHandPursuitState final : public CodeZeroHandBaseState
     { 
-        void updateRight(double dt) override;
-        void updateLeft(double dt) override;
     public:
+        void update(double dt) override;
         void start()override;
     };
 }

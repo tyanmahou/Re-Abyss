@@ -620,6 +620,18 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase1State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\CodeZeroHandModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -973,5 +985,9 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttakWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase1State.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.hpp" />
   </ItemGroup>
 </Project>

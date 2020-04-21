@@ -30,7 +30,8 @@ namespace abyss
             .bind<BodyModel>(&CodeZeroHandActor::m_body)
             .bind<CodeZeroActor*>(&CodeZeroHandActor::m_parent)
             .bind<RotateModel>(&CodeZeroHandActor::m_rotate)
-        ;
+            .bind<CodeZeroHandModel>(&CodeZeroHandActor::m_hand)
+            ;
     }
 
     void CodeZeroHandActor::update(double dt)
@@ -73,6 +74,15 @@ namespace abyss
             return true;
         }
         return false;
+    }
+
+    bool CodeZeroHandActor::tryPursuit()
+    {
+        if (m_state.getState() != State::Pursuit) {
+            return false;
+        }
+        m_state.changeState(State::Pursuit);
+        return true;
     }
 
 }

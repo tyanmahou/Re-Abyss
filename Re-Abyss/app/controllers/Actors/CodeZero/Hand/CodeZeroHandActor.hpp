@@ -4,6 +4,7 @@
 #include <abyss/controllers/Actors/base/IState.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/CodeZero/CodeZeroHandModel.hpp>
 
 namespace abyss
 {
@@ -31,6 +32,7 @@ namespace abyss
         CodeZeroActor* m_parent;
         BodyModel m_body;
         RotateModel m_rotate;
+        CodeZeroHandModel m_hand;
         Kind m_kind;
         StateManager<CodeZeroHandActor> m_state;
         std::shared_ptr<CodeZeroHandVM> m_view;
@@ -50,5 +52,6 @@ namespace abyss
 
         void changeState(State state);
         bool tryAttack();
+        bool tryPursuit();
     };
 }

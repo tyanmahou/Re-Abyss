@@ -6,7 +6,7 @@ namespace abyss
     class CodeZeroBaseState : public IState<CodeZeroActor>
     {
     protected:
-        TimerEx m_attackIntervalTimer;
+        HPModel* m_hp;
     public:
         CodeZeroBaseState();
         void setup()override;

@@ -17,6 +17,9 @@ namespace abyss
         enum State
         {
             Base,
+            Phase1,
+            Phase2,
+            Phase3,
         };
     private:
         StateManager<CodeZeroActor> m_state;
@@ -43,5 +46,9 @@ namespace abyss
 
         CodeZeroHandActor* getLeftHand()const { return m_leftHand.get(); }
         CodeZeroHandActor* getRightHand()const { return m_rightHand.get(); }
+
+        bool isPhase1()const { return m_state.getState() == State::Phase1; }
+        bool isPhase2()const { return m_state.getState() == State::Phase2; }
+        bool isPhase3()const { return m_state.getState() == State::Phase3; }
     };
 }

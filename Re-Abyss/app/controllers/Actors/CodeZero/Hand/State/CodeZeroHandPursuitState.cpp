@@ -5,58 +5,34 @@
 
 namespace abyss
 {
-    void CodeZeroHandPursuitState::updateRight(double dt)
+    void CodeZeroHandPursuitState::update(double dt)
     {
-        double rotate = m_rotate->addRotate(dt).getRotate();
-        constexpr auto limit = Math::ToRadians(50);
-        if (rotate >= limit) {
-            m_rotate->setRotate(limit);
-        }
+        m_hand->updateRotate(*m_rotate, dt);
+
         auto playerPos = m_actor->getModule<PlayerActor>()->getPos();
-        const auto& pos = m_body->getPos();
-        if (playerPos.x - 60 >= pos.x) {
-            m_body->setVelocityX(CodeZeroParam::Hand::PursuitSpeed);
-        } else if (playerPos.x + 60 <= pos.x) {
-            m_body->setVelocityX(-CodeZeroParam::Hand::PursuitSpeed);
-        }
-
-        m_body->update(dt);
-
-        double border = m_parent->getPos().y - 250;
-        if (m_body->getPos().y <= border) {
-            m_body->setPosY(border);
-        }
-    }
-    void CodeZeroHandPursuitState::updateLeft(double dt)
-    {
-        double rotate = m_rotate->addRotate(dt).getRotate();
-        constexpr auto limit = Math::ToRadians(40);
-        if (rotate >= limit) {
-            m_rotate->setRotate(limit);
-        }
-        auto playerPos = m_actor->getModule<PlayerActor>()->getPos();
-        const auto& pos = m_body->getPos();
-        if (playerPos.y - 60 >= pos.y) {
-            m_body->setVelocityY(CodeZeroParam::Hand::PursuitSpeed);
-        } else if (playerPos.y + 60 <= pos.y) {
-            m_body->setVelocityY(-CodeZeroParam::Hand::PursuitSpeed);
-        }
-
-        m_body->update(dt);
-
-        double border = m_parent->getPos().x + 400;
-        if (m_body->getPos().x >= border) {
-            m_body->setPosX(border);
-        }
+        m_hand->updateForPursuit(
+            playerPos,
+            m_parent->getPos(),
+            *m_body,
+            dt
+        );
     }
     void CodeZeroHandPursuitState::start()
     {
         if (m_actor->isLeftHand()) {
-            m_body->setVelocityY(CodeZeroParam::Hand::PursuitSpeed);
-            m_body->setVelocityX(CodeZeroParam::Hand::SetUpSpeed);
+            if (m_parent->isPhase1() || m_parent->isPhase3()) {
+                *m_hand = CodeZeroHandModel::CreateLeftPhase1();
+            } else {
+                *m_hand = CodeZeroHandModel::CreateLeftPhase2();
+            }
         } else {
-            m_body->setVelocityY(-CodeZeroParam::Hand::SetUpSpeed);
-            m_body->setVelocityX(CodeZeroParam::Hand::PursuitSpeed);
+            if (m_parent->isPhase1() || m_parent->isPhase3()) {
+                *m_hand = CodeZeroHandModel::CreateRightPhase1();
+            } else {
+                *m_hand = CodeZeroHandModel::CreateRightPhase2();
+            }
         }
+
+        m_hand->startForPursuit(*m_body);
     }
 }

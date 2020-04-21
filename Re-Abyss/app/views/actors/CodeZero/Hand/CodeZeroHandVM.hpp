@@ -19,6 +19,6 @@ namespace abyss
         CodeZeroHandVM& setRotate(double rotate);
 
         void draw(const s3d::Color& color = Palette::White) const;
-        void drawAttackWait();
+        void drawAttackWait() const;
     };
 }
