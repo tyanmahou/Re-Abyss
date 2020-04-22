@@ -632,6 +632,12 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandShotChargeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -989,5 +995,11 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase3State.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\CodeZeroShotActor.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\CodeZeroShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\CodeZeroShotChargeEffect.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandShotChargeState.hpp" />
+    <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
   </ItemGroup>
 </Project>

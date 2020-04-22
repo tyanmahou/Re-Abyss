@@ -17,7 +17,9 @@ namespace abyss
         auto playerPos = m_actor->getModule<PlayerActor>()->getPos();
         auto pos = m_actor->getPos();
 
-        if (playerPos.x > pos.x + 200) {
+        if (m_parent->isShotCharge()) {
+            *m_forward = Forward::None;
+        }else if (playerPos.x > pos.x + 200) {
             *m_forward = Forward::Right;
         } else if (playerPos.x < pos.x - 200) {
             *m_forward = Forward::Left;

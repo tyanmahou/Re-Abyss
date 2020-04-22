@@ -5,9 +5,30 @@
 
 namespace abyss
 {
-    CodeZeroPhase2State::CodeZeroPhase2State() :
-        m_timer(3.0s, true, WorldTime::TimeMicroSec)
-    {}
+    CodeZeroPhase2State::CodeZeroPhase2State()
+    {
+        m_pattern
+            .sleep(3s)
+            .add([&]() {
+                m_actor->getLeftHand()->tryAttack();
+            })
+            .sleep(CodeZeroParam::Attack::IntervalTimeSec)
+            .add([&]() {
+                m_actor->getRightHand()->tryAttack();
+            })
+            .sleep(CodeZeroParam::Attack::IntervalTimeSec)
+            .add([&]() {
+                m_actor->getLeftHand()->tryAttack();
+            })
+            .sleep(2s)
+            .add([&]() {
+                m_actor->getLeftHand()->tryAttack();
+                m_actor->getRightHand()->tryAttack();
+            })
+            .sleep(4s)
+            .toStep(0)
+            ;
+    }
     void CodeZeroPhase2State::start()
     {
         m_actor->getLeftHand()->tryPursuit();
@@ -15,35 +36,10 @@ namespace abyss
     }
     void CodeZeroPhase2State::update([[maybe_unused]]double dt)
     {
-        if (!m_timer.reachedZero()) {
-                return;
-         }
         if (m_hp->value() <= CodeZeroParam::Base::Hp * 1 / 3) {
             this->changeState(State::Phase3);
             return;
         }
-        switch (m_step) {
-        case 0:
-            m_actor->getLeftHand()->tryAttack();
-            m_timer.restart(s3d::Duration(CodeZeroParam::Attack::IntervalTimeSec));
-            break;
-        case 1:
-            m_actor->getRightHand()->tryAttack();
-            m_timer.restart(s3d::Duration(CodeZeroParam::Attack::IntervalTimeSec));
-            break;
-        case 2:
-            m_actor->getLeftHand()->tryAttack();
-            m_timer.restart(2s);
-            break;
-        case 3:
-            m_actor->getLeftHand()->tryAttack();
-            m_actor->getRightHand()->tryAttack();
-            m_timer.restart(4s);
-            break;
-        default:
-            break;
-        }
-        ++m_step;
-        m_step %= 4;
+        m_pattern.update();
     }
 }

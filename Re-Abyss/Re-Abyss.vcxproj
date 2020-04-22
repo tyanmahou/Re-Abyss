@@ -186,6 +186,7 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttakWaitState.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandShotChargeState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\CodeZeroHandActor.cpp" />
@@ -276,6 +277,7 @@
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
     <ClCompile Include="app\models\Actors\Door\DoorModel.cpp" />
@@ -384,11 +386,13 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandAttakWaitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandShotChargeState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\CodeZeroHeadActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\CodeZeroHeadBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\CodeZeroHandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\CodeZeroHandPursuitState.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\CodeZeroShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroBaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase1State.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\CodeZeroPhase2State.hpp" />
@@ -486,6 +490,7 @@
     <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
@@ -549,6 +554,7 @@
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
+    <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
@@ -562,6 +568,8 @@
     <ClInclude Include="app\views\Actors\CodeZero\Body\CodeZeroBodyVM.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Hand\CodeZeroHandVM.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Head\CodeZeroHeadVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\CodeZeroShotChargeEffect.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\CodeZeroShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />

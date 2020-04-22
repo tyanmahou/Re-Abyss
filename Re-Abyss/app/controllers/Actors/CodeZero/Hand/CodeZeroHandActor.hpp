@@ -53,5 +53,11 @@ namespace abyss
         void changeState(State state);
         bool tryAttack();
         bool tryPursuit();
+        bool tryShotCharge();
+
+        bool isShotCharge()const
+        {
+            return m_state.getState() == State::ShotCharge;
+        }
     };
 }

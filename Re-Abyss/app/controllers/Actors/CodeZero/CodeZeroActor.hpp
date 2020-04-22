@@ -50,5 +50,6 @@ namespace abyss
         bool isPhase1()const { return m_state.getState() == State::Phase1; }
         bool isPhase2()const { return m_state.getState() == State::Phase2; }
         bool isPhase3()const { return m_state.getState() == State::Phase3; }
+        bool isShotCharge()const;
     };
 }

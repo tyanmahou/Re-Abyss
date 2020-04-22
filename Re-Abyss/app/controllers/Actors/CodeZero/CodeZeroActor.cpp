@@ -73,4 +73,9 @@ namespace abyss
         m_rightHand->destroy();
     }
 
+    bool CodeZeroActor::isShotCharge() const
+    {
+        return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();
+    }
+
 }

@@ -1,6 +1,7 @@
 #include "State/CodeZeroHandPursuitState.hpp"
 #include "State/CodeZeroHandAttakWaitState.hpp"
 #include "State/CodeZeroHandAttackState.hpp"
+#include "State/CodeZeroHandShotChargeState.hpp"
 #include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
 #include <abyss/views/Actors/CodeZero/Hand/CodeZeroHandVM.hpp>
@@ -27,6 +28,7 @@ namespace abyss
             .add<CodeZeroHandPursuitState>(State::Pursuit)
             .add<CodeZeroHandAttackWaitState>(State::AttackWait)
             .add<CodeZeroHandAttackState>(State::Attack)
+            .add<CodeZeroHandShotChargeState>(State::ShotCharge)
             .bind<BodyModel>(&CodeZeroHandActor::m_body)
             .bind<CodeZeroActor*>(&CodeZeroHandActor::m_parent)
             .bind<RotateModel>(&CodeZeroHandActor::m_rotate)
@@ -78,10 +80,19 @@ namespace abyss
 
     bool CodeZeroHandActor::tryPursuit()
     {
-        if (m_state.getState() != State::Pursuit) {
+        if (m_state.getState() == State::Attack || m_state.getState() == State::AttackWait) {
             return false;
         }
         m_state.changeState(State::Pursuit);
+        return true;
+    }
+
+    bool CodeZeroHandActor::tryShotCharge()
+    {
+        if (m_state.getState() != State::Pursuit) {
+            return false;
+        }
+        m_state.changeState(State::ShotCharge);
         return true;
     }
 

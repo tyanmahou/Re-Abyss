@@ -1,13 +1,13 @@
 #pragma once
 #include "CodeZeroBaseState.hpp"
+#include <abyss/models/Actors/Commons/PatternModel.hpp>
 
 namespace abyss
 {
     class CodeZeroPhase1State : public CodeZeroBaseState
     {
     private:
-        TimerEx m_timer;
-        s3d::int32 m_step = 0;
+        PatternModel m_pattern;
     public:
         CodeZeroPhase1State();
         void update(double dt) override;
