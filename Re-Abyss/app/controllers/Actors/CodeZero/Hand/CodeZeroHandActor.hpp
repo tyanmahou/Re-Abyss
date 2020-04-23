@@ -59,5 +59,9 @@ namespace abyss
         {
             return m_state.getState() == State::ShotCharge;
         }
+        bool isPursuit() const
+        {
+            return m_state.getState() == State::Pursuit;
+        }
     };
 }

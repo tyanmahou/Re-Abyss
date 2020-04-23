@@ -10,6 +10,7 @@ namespace abyss
         LoopQueue<std::function<void()>> m_events;
         TimerEx m_sleep;
         s3d::Array<size_t> m_eventStepNo;
+        s3d::Array<size_t> m_toStepCount;
     public:
         PatternModel();
         bool update();
@@ -19,5 +20,6 @@ namespace abyss
         PatternModel& sleep(const s3d::Duration& time);
 
         PatternModel& toStep(size_t step);
+        PatternModel& toStep(size_t step, size_t count);
     };
 }

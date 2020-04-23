@@ -53,7 +53,7 @@ namespace abyss
         if (InputManager::Left.pressed() || InputManager::Right.pressed()) {
             m_motion = Motion::Swim;
         }
-        if (m_body->getVelocity().y > BodyModel::DefaultGravity) {
+        if (m_body->getVelocity().y > BodyModel::DefaultMaxVelocityY) {
             m_motion = Motion::Dive;
         }
     }

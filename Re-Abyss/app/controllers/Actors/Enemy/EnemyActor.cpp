@@ -40,6 +40,10 @@ namespace abyss
 	{
 		return m_body;
 	}
+    const HPModel& EnemyActor::getHp() const
+    {
+		return m_hp;
+    }
 	CShape EnemyActor::getCollider() const
 	{
 		return  this->region();

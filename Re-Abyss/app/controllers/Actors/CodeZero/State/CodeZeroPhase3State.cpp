@@ -5,8 +5,7 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
-#include <abyss/views/Actors/CodeZero/Shot/CodeZeroShotChargeEffect.hpp>
-
+#include <abyss/controllers/Actors/CodeZero/Shot/ShotActor.hpp>
 namespace abyss
 {
     CodeZeroPhase3State::CodeZeroPhase3State()
@@ -19,7 +18,7 @@ namespace abyss
             })
             .sleep(1s)
             .add([&]() {
-                m_actor->getModule<World>()->addEffect<CodeZeroShotChargeEffect>(m_actor->getPos());
+                m_actor->getModule<World>()->create<CodeZero::Shot::ShotActor>(m_actor);
             })
             .sleep(3s)
             .add([&]() {
@@ -38,6 +37,9 @@ namespace abyss
             .add([&]() {
                  m_actor->getRightHand()->tryAttack();
              })
+            .sleep(3s)
+            .toStep(3, 1)
+            .toStep(0)
         ;
     }
     void CodeZeroPhase3State::start()

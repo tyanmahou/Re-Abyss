@@ -1,9 +1,9 @@
 #pragma once
 # include <Siv3D.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
-namespace abyss
+namespace abyss::CodeZero::Shot
 {
-    struct CodeZeroShotChargeEffect : IEffect
+    struct ShotChargeEffect : IEffect
     {
         struct Particle
         {
@@ -22,7 +22,7 @@ namespace abyss
         Vec2 m_pos;
         s3d::int32 m_count = 140;
 
-        CodeZeroShotChargeEffect(const Vec2& pos) :
+        ShotChargeEffect(const Vec2& pos) :
             m_pos(pos)
         {}
 
@@ -53,7 +53,6 @@ namespace abyss
                 Circle(particle.m_pos, 3).draw(particle.m_color.setA(1.0 - t));
 
             }
-            Circle(m_pos, t * 75).draw(ColorF(1.0, 0.0, 0.0, t*0.5));
             return t < 1.0;
         }
     };

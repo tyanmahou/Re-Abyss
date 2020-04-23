@@ -26,15 +26,28 @@ namespace abyss
     }
     PatternModel& PatternModel::sleep(const s3d::Duration & time)
     {
-        m_events.add([&, time]() {
+        m_events.add([this, time]() {
             m_sleep.restart(time);
         });
         return *this;
     }
     PatternModel& PatternModel::toStep(size_t step)
     {
-        m_events.add([&,step]() {
+        m_events.add([this, step]() {
             m_events.set(m_eventStepNo[step]);
+        });
+        return *this;
+    }
+    PatternModel& PatternModel::toStep(size_t step, size_t count)
+    {
+        m_toStepCount.push_back(0);
+        size_t index = m_toStepCount.size() - 1;
+        m_events.add([this, step, index, count]() {
+            if (++m_toStepCount[index] <= count) {
+                m_events.set(m_eventStepNo[step]);
+            } else {
+                m_toStepCount[index] = 0;
+            }
         });
         return *this;
     }

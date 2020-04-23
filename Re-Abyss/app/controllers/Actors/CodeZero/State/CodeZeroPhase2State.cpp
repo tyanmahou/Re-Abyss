@@ -37,7 +37,10 @@ namespace abyss
     void CodeZeroPhase2State::update([[maybe_unused]]double dt)
     {
         if (m_hp->value() <= CodeZeroParam::Base::Hp * 1 / 3) {
-            this->changeState(State::Phase3);
+            if (m_actor->getLeftHand()->isPursuit() &&
+                m_actor->getRightHand()->isPursuit()) {
+                this->changeState(State::Phase3);
+            }
             return;
         }
         m_pattern.update();
