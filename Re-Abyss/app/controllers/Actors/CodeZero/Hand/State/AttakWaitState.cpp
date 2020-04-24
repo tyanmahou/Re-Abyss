@@ -1,12 +1,12 @@
 #include "AttakWaitState.hpp"
 #include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
-#include <abyss/params/Actors/CodeZero/Param.hpp>
+#include <abyss/params/Actors/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 namespace abyss::CodeZero::Hand
 {
     AttackWaitState::AttackWaitState():
-        m_timer(Param::Hand::AttackWaitTimeSec, true, WorldTime::TimeMicroSec)
+        m_timer(HandParam::Attack::WaitTimeSec, true, WorldTime::TimeMicroSec)
     {}
 
     void AttackWaitState::start()

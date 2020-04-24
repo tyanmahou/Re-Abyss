@@ -27,5 +27,6 @@ namespace abyss
     void StageView::drawFront(const CameraView & camera) const
     {
         m_decor->draw(DecorOrder::Front, camera.screenRegion());
+        m_bubbles.draw(camera.getCameraPos());
     }
 }

@@ -8,15 +8,15 @@ namespace abyss::CodeZero
     Phase1State::Phase1State()
     {
         m_pattern
-            .sleep(3s)
+            .sleep(Param::Phase1::WaitRestart)
             .add([&]() {
                 m_actor->getLeftHand()->tryAttack();
             })
-            .sleep(Param::Attack::IntervalTimeSec)
+            .sleep(Param::Phase1::WaitAttack)
             .add([&]() {
                 m_actor->getRightHand()->tryAttack();
             })
-            .sleep(3s)
+            .sleep(Param::Phase1::WaitRestart)
             .toStep(0)
         ;
     }

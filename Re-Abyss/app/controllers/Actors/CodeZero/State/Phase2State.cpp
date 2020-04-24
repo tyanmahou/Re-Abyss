@@ -8,24 +8,24 @@ namespace abyss::CodeZero
     Phase2State::Phase2State()
     {
         m_pattern
-            .sleep(3s)
+            .sleep(Param::Phase2::WaitInit)
             .add([&]() {
                 m_actor->getLeftHand()->tryAttack();
             })
-            .sleep(Param::Attack::IntervalTimeSec)
+            .sleep(Param::Phase2::WaitAttack)
             .add([&]() {
                 m_actor->getRightHand()->tryAttack();
             })
-            .sleep(Param::Attack::IntervalTimeSec)
+            .sleep(Param::Phase2::WaitAttack)
             .add([&]() {
                 m_actor->getLeftHand()->tryAttack();
             })
-            .sleep(2s)
+            .sleep(Param::Phase2::WaitDualAttack)
             .add([&]() {
                 m_actor->getLeftHand()->tryAttack();
                 m_actor->getRightHand()->tryAttack();
             })
-            .sleep(4s)
+            .sleep(Param::Phase2::WaitRestart)
             .toStep(0)
             ;
     }

@@ -3,7 +3,7 @@
 #include "State/AttackState.hpp"
 #include "State/ShotChargeState.hpp"
 #include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
-#include <abyss/params/Actors/CodeZero/Param.hpp>
+#include <abyss/params/Actors/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 
@@ -48,7 +48,7 @@ namespace abyss::CodeZero::Hand
 
     CShape HandActor::getCollider() const
     {
-        return s3d::Circle(m_body.getPos(), Param::Hand::ColRadius);
+        return s3d::Circle(m_body.getPos(), HandParam::Base::ColRadius);
     }
 
     bool HandActor::accept(const ActVisitor& visitor)

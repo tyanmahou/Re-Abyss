@@ -11,33 +11,33 @@ namespace abyss::CodeZero
     Phase3State::Phase3State()
     {
         m_pattern
-            .sleep(3s)
+            .sleep(Param::Phase3::WaitRestart)
             .add([&]() {
                 m_actor->getRightHand()->tryShotCharge();
                 m_actor->getLeftHand()->tryShotCharge();
             })
-            .sleep(1s)
+            .sleep(Param::Phase3::WaitShot)
             .add([&]() {
                 m_actor->getModule<World>()->create<Shot::ShotActor>(m_actor);
             })
-            .sleep(3s)
+            .sleep(Param::Phase3::WaitPursuit)
             .add([&]() {
                 m_actor->getLeftHand()->tryPursuit();
                 m_actor->getRightHand()->tryPursuit();
             })
-            .sleep(2s)
+            .sleep(Param::Phase3::WaitInitAttack)
             .add([&]() {
                 m_actor->getRightHand()->tryAttack();
              })
-            .sleep(Param::Attack::IntervalTimeSec)
+            .sleep(Param::Phase3::WaitAttack)
             .add([&]() {
                  m_actor->getLeftHand()->tryAttack();
              })
-            .sleep(Param::Attack::IntervalTimeSec)
+            .sleep(Param::Phase3::WaitAttack)
             .add([&]() {
                  m_actor->getRightHand()->tryAttack();
              })
-            .sleep(3s)
+            .sleep(Param::Phase3::WaitRestart)
             .toStep(3, 1)
             .toStep(0)
         ;

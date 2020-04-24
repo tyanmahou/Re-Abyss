@@ -5,7 +5,7 @@
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/views/Actors/CodeZero/Shot/ShotVM.hpp>
 #include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
-
+#include <abyss/params/Actors/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {
     ShotActor::ShotActor(CodeZeroActor* parent):
@@ -46,7 +46,7 @@ namespace abyss::CodeZero::Shot
 
     CShape ShotActor::getCollider() const
     {
-        return s3d::Circle(m_body.getPos(), 70 * m_scale.get());
+        return s3d::Circle(m_body.getPos(), ShotParam::Base::ColRadius * m_scale.get());
     }
     bool ShotActor::accept(const ActVisitor& visitor)
     {

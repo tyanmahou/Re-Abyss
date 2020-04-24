@@ -3,12 +3,12 @@
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
 #include <abyss/views/Actors/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/views/Actors/CodeZero/Shot/ShotVM.hpp>
-
+#include <abyss/params/Actors/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {
     void WaitState::start()
     {
-        m_scale->setTo(1.0, 3.0);
+        m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_actor
             ->getModule<World>()
             ->addEffect<ShotChargeEffect>(m_body->getPos());

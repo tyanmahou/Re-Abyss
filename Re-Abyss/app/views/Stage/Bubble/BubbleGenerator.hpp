@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D/Effect.hpp>
 #include <Siv3D/Vector2D.hpp>
@@ -9,7 +9,7 @@ namespace abyss
 		s3d::Effect m_effect;
 	public:
 		BubbleGenerator();
-		void update() const;
+
 		void draw(const s3d::Vec2& pos)const;
 	};
 }
