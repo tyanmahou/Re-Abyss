@@ -4,42 +4,47 @@
 #include <abyss/factories/ActionSystem/ActionSystemFactory.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
-#include <abyss/params/Actors/CaptainTako/CaptainTakoShotParam.hpp>
-#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
-#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
-#include <abyss/params/Actors/LaunShark/LaunSharkShotParam.hpp>
-#include <abyss/params/Actors/Player/PlayerParam.hpp>
-#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
-#include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
-#include <abyss/params/Actors/Slime/SlimeParam.hpp>
-#include <abyss/params/Actors/Schield/SchieldParam.hpp>
-#include <abyss/params/Actors/Schield/SchieldShotParam.hpp>
-#include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
+#include <abyss/params/Actors/CaptainTako/Param.hpp>
+#include <abyss/params/Actors/CaptainTako/ShotParam.hpp>
+#include <abyss/params/Actors/Ikalien/Param.hpp>
+#include <abyss/params/Actors/LaunShark/Param.hpp>
+#include <abyss/params/Actors/LaunShark/ShotParam.hpp>
+#include <abyss/params/Actors/Player/Param.hpp>
+#include <abyss/params/Actors/Player/ShotParam.hpp>
+#include <abyss/params/Actors/RollingTako/Param.hpp>
+#include <abyss/params/Actors/Slime/Param.hpp>
+#include <abyss/params/Actors/Schield/Param.hpp>
+#include <abyss/params/Actors/Schield/ShotParam.hpp>
+#include <abyss/params/Actors/CodeZero/Param.hpp>
+#include <abyss/params/Actors/CodeZero/HandParam.hpp>
+#include <abyss/params/Actors/CodeZero/ShotParam.hpp>
+
 namespace
 {
 	using namespace abyss;
 	void PreloadResourece(const ResourceManager& resource)
 	{
-		resource.loadToml<CaptainTakoParam>(U"Actors/CaptainTako/param.toml");
-		resource.loadToml<CaptainTakoShotParam>(U"Actors/CaptainTako/shot_param.toml");
+		resource.loadToml<CaptainTako::Param>(U"Actors/CaptainTako/param.toml");
+		resource.loadToml<CaptainTako::ShotParam>(U"Actors/CaptainTako/shot_param.toml");
 
-		resource.loadToml<IkalienParam>(U"Actors/Ikalien/param.toml");
+		resource.loadToml<Ikalien::Param>(U"Actors/Ikalien/param.toml");
 
-		resource.loadToml<PlayerParam>(U"Actors/Player/param.toml");
-		resource.loadToml<PlayerShotParam>(U"Actors/Player/shot_param.toml");
+		resource.loadToml<Player::Param>(U"Actors/Player/param.toml");
+		resource.loadToml<Player::ShotParam>(U"Actors/Player/shot_param.toml");
 
-		resource.loadToml<LaunSharkParam>(U"Actors/LaunShark/param.toml");
-		resource.loadToml<LaunSharkShotParam>(U"Actors/LaunShark/shot_param.toml");
+		resource.loadToml<LaunShark::Param>(U"Actors/LaunShark/param.toml");
+		resource.loadToml<LaunShark::ShotParam>(U"Actors/LaunShark/shot_param.toml");
 
-		resource.loadToml<RollingTakoParam>(U"Actors/RollingTako/param.toml");
+		resource.loadToml<RollingTako::Param>(U"Actors/RollingTako/param.toml");
 
-		resource.loadToml<SlimeParam>(U"Actors/Slime/param.toml");
+		resource.loadToml<Slime::Param>(U"Actors/Slime/param.toml");
 
-		resource.loadToml<SchieldParam>(U"Actors/Schield/param.toml");
-		resource.loadToml<SchieldShotParam>(U"Actors/Schield/shot_param.toml");
+		resource.loadToml<Schield::Param>(U"Actors/Schield/param.toml");
+		resource.loadToml<Schield::ShotParam>(U"Actors/Schield/shot_param.toml");
 
-		resource.loadToml<CodeZeroParam>(U"Actors/CodeZero/param.toml");
+		resource.loadToml<CodeZero::Param>(U"Actors/CodeZero/param.toml");
+		resource.loadToml<CodeZero::HandParam>(U"Actors/CodeZero/hand_param.toml");
+		resource.loadToml<CodeZero::ShotParam>(U"Actors/CodeZero/shot_param.toml");
 	}
 }
 namespace abyss

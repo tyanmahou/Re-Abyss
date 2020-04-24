@@ -5,17 +5,17 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/params/Actors/Player/PlayerParam.hpp>
-#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
+#include <abyss/params/Actors/Player/Param.hpp>
+#include <abyss/params/Actors/Player/ShotParam.hpp>
 namespace
 {
     using namespace abyss;
 
     ColorF ChargeToColor(double charge)
     {
-        if (charge >= PlayerShotParam::Big::Charge) {
+        if (charge >= Player::ShotParam::Big::Charge) {
             return ColorDef::Shot::BigCharge;
-        } else if (charge >= PlayerShotParam::Medium::Charge) {
+        } else if (charge >= Player::ShotParam::Medium::Charge) {
             return ColorDef::Shot::MediumCharge;
         } else {
             return ColorF(1);
@@ -27,7 +27,7 @@ namespace
     }
 }
 
-namespace abyss
+namespace abyss::Player
 {
     ColorF PlayerVM::calcColor() const
     {
@@ -143,7 +143,7 @@ namespace abyss
     }
     void PlayerVM::drawCharge() const
     {
-        if (m_charge <= PlayerShotParam::Small::Charge) {
+        if (m_charge <= ShotParam::Small::Charge) {
             return;
         }
         ScopedRenderStates2D t2d(BlendState::Additive);
@@ -158,9 +158,9 @@ namespace abyss
             .rotated(Math::QuarterPi * Periodic::Square0_1(0.6s, WorldTime::Time()))
             .drawFrame(1, 1, color.setA(0.5 - a));
 
-        if (m_charge >= PlayerShotParam::Big::Charge) {
+        if (m_charge >= ShotParam::Big::Charge) {
             Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 30 + 30).draw(color.setA(a));
-        } else if (m_charge >= PlayerShotParam::Medium::Charge) {
+        } else if (m_charge >= ShotParam::Medium::Charge) {
             Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 5 + 30).draw(color.setA(a));
         }
     }

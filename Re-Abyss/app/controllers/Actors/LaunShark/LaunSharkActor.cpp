@@ -1,23 +1,23 @@
-#include "State/LaunSharkSwimState.hpp"
-#include "State/LaunSharkAttackState.hpp"
-#include "State/LaunSharkLauncherState.hpp"
+#include "State/SwimState.hpp"
+#include "State/AttackState.hpp"
+#include "State/LauncherState.hpp"
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
-#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
-namespace abyss
+#include <abyss/params/Actors/LaunShark/Param.hpp>
+namespace abyss::LaunShark
 {
     LaunSharkActor::LaunSharkActor(const LaunSharkEntity& entity):
         EnemyActor(entity.pos, entity.forward),
         m_state(this),
         m_view(std::make_shared<LaunSharkVM>())
     {
-        m_hp.setHp(LaunSharkParam::Base::Hp);
+        m_hp.setHp(Param::Base::Hp);
         m_body
             .noneResistanced()
-            .setSize(LaunSharkParam::Base::Size);
+            .setSize(Param::Base::Size);
         m_state
-            .add<LaunSharkSwimState>(State::Swim)
-            .add<LaunSharkLauncherState>(State::Launcher)
-            .add<LaunSharkAttackState>(State::Attack)
+            .add<SwimState>(State::Swim)
+            .add<LauncherState>(State::Launcher)
+            .add<AttackState>(State::Attack)
             .bind<BodyModel>(&LaunSharkActor::m_body)
             .bind<TimeCounterModel>(&LaunSharkActor::m_timeCounter)
             ;

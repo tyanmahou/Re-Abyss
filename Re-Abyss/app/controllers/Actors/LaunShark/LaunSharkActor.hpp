@@ -8,6 +8,10 @@
 
 namespace abyss
 {
+    struct LaunSharkEntity;
+}
+namespace abyss::LaunShark
+{
     class LaunSharkActor :
         public EnemyActor
     {

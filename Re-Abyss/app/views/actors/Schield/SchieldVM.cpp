@@ -4,9 +4,9 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
-#include <abyss/params/Actors/Schield/SchieldParam.hpp>
+#include <abyss/params/Actors/Schield/Param.hpp>
 
-namespace abyss
+namespace abyss::Schield
 {
     SchieldVM::SchieldVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Schield/schield.json"))
@@ -30,7 +30,7 @@ namespace abyss
     {
         auto&& tex = m_texture(U"wait");
         bool isRight = m_forward == Forward::Right;
-        int32 page = static_cast<int32>(Periodic::Triangle0_1(SchieldParam::View::AnimeTimeSec, WorldTime::Time()) * 3.0);
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, WorldTime::Time()) * 3.0);
         tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
 

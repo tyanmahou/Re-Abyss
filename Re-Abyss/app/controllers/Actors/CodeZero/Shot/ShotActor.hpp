@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
 
-namespace abyss
+namespace abyss::CodeZero
 {
     class CodeZeroActor;
 }

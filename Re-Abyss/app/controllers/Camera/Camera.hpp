@@ -25,12 +25,12 @@ namespace abyss
 
 		bool canNextRoom(const s3d::Vec2& pos) const;
 		Event setCameraPos(const s3d::Vec2& pos);
-		void adjustPlayerPos(PlayerActor& player);
+		void adjustPlayerPos(Player::PlayerActor& player);
 	public:
 		Camera();
 		~Camera();
 
-		Event update(PlayerActor& player);
+		Event update(Player::PlayerActor& player);
 
 		/// <summary>
 		/// 部屋移動のカメラワーク開始
@@ -55,7 +55,7 @@ namespace abyss
 		/// <param name="fadeOutCallback"></param>
 		/// <param name="milliSec"></param>
 		void startDoorCameraWork(
-			const DoorActor& door,
+			const Door::DoorActor& door,
 			const s3d::Vec2& playerPos,
 			std::function<void()> fadeInCallback = nullptr,
 			std::function<void()> fadeOutCallback = nullptr,

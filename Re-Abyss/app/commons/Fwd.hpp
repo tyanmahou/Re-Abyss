@@ -27,14 +27,34 @@ namespace abyss
 	class IActor;
 	class Attacker;
 	class Receiver;
-	class PlayerActor;
-	class PlayerShotActor;
-	class EnemyActor;
-	class MapActor;
-	class FloorActor;
-	class PenetrateFloorActor;
-	class LadderActor;
-	class DoorActor;
+	namespace Player
+	{
+		class PlayerActor;
+	}
+	inline namespace Enemy
+	{
+		class EnemyActor;
+	}
+	inline namespace Map
+	{
+		class MapActor;
+	}
+	namespace Floor
+	{
+		class FloorActor;
+	}
+	namespace PenetrateFloor
+	{
+		class PenetrateFloorActor;
+	}
+	namespace Ladder
+	{
+		class LadderActor;
+	}
+	namespace Door
+	{
+		class DoorActor;
+	}
 
 	/// <summary>
 	/// Datastores
@@ -52,20 +72,9 @@ namespace abyss
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
-
 	struct MapEntity;
 	struct EnemyEntity;
-	struct SlimeEntity;
-	struct RollingTakoEntity;
-	struct CaptainTakoEntity;
-	struct IkalienEntity;
-	struct LaunSharkEntity;
-	struct SchieldEntity;
-
 	struct GimmickEntity;
-	struct StartPosEntity;
-	struct DoorEntity;
-
 	struct BackGroundEntity;
 	struct DecorEntity;
 	struct DecorGraphicsEntity;
@@ -104,18 +113,6 @@ namespace abyss
 	/// </summary>
 	
 	class WorldView;
-
-	class PlayerVM;
-	class PlayerShotVM;
-	class SlimeVM;
-	class RollingTakoVM;
-	class CaptainTakoVM;
-	class CaptainTakoShotVM;
-	class IkalienVM;
-	class LaunSharkVM;
-	class LaunSharkShotVM;
-	class SchieldVM;
-	class SchieldShotVM;
 	class CameraView;
 	class DoorCameraWorkView;
 

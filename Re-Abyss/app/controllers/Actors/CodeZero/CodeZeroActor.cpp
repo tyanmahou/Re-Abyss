@@ -1,31 +1,31 @@
-#include "State/CodeZeroPhase1State.hpp"
-#include "State/CodeZeroPhase2State.hpp"
-#include "State/CodeZeroPhase3State.hpp"
+#include "State/Phase1State.hpp"
+#include "State/Phase2State.hpp"
+#include "State/Phase3State.hpp"
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
-#include <abyss/views/Actors/CodeZero/Body/CodeZeroBodyVM.hpp>
-#include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
+#include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
+#include <abyss/params/Actors/CodeZero/Param.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/Head/CodeZeroHeadActor.hpp>
-#include <abyss/controllers/Actors/CodeZero/Hand/CodeZeroHandActor.hpp>
+#include <abyss/controllers/Actors/CodeZero/Head/HeadActor.hpp>
+#include <abyss/controllers/Actors/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
 #include <abyss/debugs/DebugLog/DebugLog.hpp>
 
-namespace abyss
+namespace abyss::CodeZero
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
         EnemyActor(entity.pos, entity.forward),
         m_state(this),
-        m_view(std::make_shared<CodeZeroBodyVM>())
+        m_view(std::make_shared<Body::BodyVM>())
     {
         m_state
-            .add<CodeZeroPhase1State>(State::Phase1)
-            .add<CodeZeroPhase2State>(State::Phase2)
-            .add<CodeZeroPhase3State>(State::Phase3)
+            .add<Phase1State>(State::Phase1)
+            .add<Phase2State>(State::Phase2)
+            .add<Phase3State>(State::Phase3)
             .bind<HPModel>(&CodeZeroActor::m_hp)
             ;
         m_body.noneResistanced();
-        m_hp.setHp(CodeZeroParam::Base::Hp);
+        m_hp.setHp(Param::Base::Hp);
 
         m_order = -99;
     }
@@ -33,9 +33,9 @@ namespace abyss
     void CodeZeroActor::start()
     {
         auto* const world = this->m_pManager->getModule<World>();
-        m_head = world->create<CodeZeroHeadActor>(this, &m_hp);
-        m_leftHand = world->create<CodeZeroHandActor>(this, CodeZeroHandActor::Left);
-        m_rightHand = world->create<CodeZeroHandActor>(this, CodeZeroHandActor::Right);
+        m_head = world->create<Head::HeadActor>(this, &m_hp);
+        m_leftHand = world->create<Hand::HandActor>(this, Hand::HandActor::Left);
+        m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Right);
     }
 
     void CodeZeroActor::update(double dt)
@@ -59,7 +59,7 @@ namespace abyss
         return visitor.visit(*this);
     }
 
-    CodeZeroBodyVM* CodeZeroActor::getBindedView() const
+    Body::BodyVM* CodeZeroActor::getBindedView() const
     {
         return &m_view->setPos(m_body.getPos());
     }

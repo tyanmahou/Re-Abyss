@@ -3,7 +3,7 @@
 
 namespace abyss
 {
-    enum DecorType
+    enum class DecorType
     {
         Common,
         Door,

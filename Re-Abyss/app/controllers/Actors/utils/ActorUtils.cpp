@@ -8,7 +8,7 @@ namespace abyss::ActorUtils
 {
     s3d::Vec2 PlayerDiffVec(const IActor& actor, const BodyModel& body)
     {
-        return actor.getModule<PlayerActor>()->getPos() - body.getPos();
+        return actor.getModule<Player::PlayerActor>()->getPos() - body.getPos();
     }
     bool IsPlayerFrontByDistance(const IActor& actor, const BodyModel& body, double range)
     {

@@ -1,24 +1,24 @@
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
-#include "State/CaptainTakoWaitState.hpp"
-#include "State/CaptainTakoChargeState.hpp"
-#include "State/CaptainTakoAttackState.hpp"
-#include <abyss/params/Actors/CaptainTako/CaptainTakoParam.hpp>
+#include "State/WaitState.hpp"
+#include "State/ChargeState.hpp"
+#include "State/AttackState.hpp"
+#include <abyss/params/Actors/CaptainTako/Param.hpp>
 
-namespace abyss
+namespace abyss::CaptainTako
 {
     CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity):
         EnemyActor(entity.pos, entity.forward),
         m_state(this),
         m_view(std::make_unique<CaptainTakoVM>())
     {
-        m_hp.setHp(CaptainTakoParam::Base::Hp);
-        m_body.setSize(CaptainTakoParam::Base::Size).setPivot(CaptainTakoParam::Base::Pivot);
+        m_hp.setHp(Param::Base::Hp);
+        m_body.setSize(Param::Base::Size).setPivot(Param::Base::Pivot);
 
         m_state
-            .add<CaptainTakoWaitState>(State::Wait)
-            .add<CaptainTakoChargeState>(State::Charge)
-            .add<CaptainTakoAttackState>(State::Attack)
+            .add<WaitState>(State::Wait)
+            .add<ChargeState>(State::Charge)
+            .add<AttackState>(State::Attack)
             .bind<BodyModel>(&CaptainTakoActor::m_body)
             ;
     }

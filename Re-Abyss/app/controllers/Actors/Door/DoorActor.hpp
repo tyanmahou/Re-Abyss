@@ -3,7 +3,7 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Actors/Door/DoorModel.hpp>
 
-namespace abyss
+namespace abyss::Door
 {
 	class DoorActor : public IActor
 	{

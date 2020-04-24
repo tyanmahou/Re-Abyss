@@ -3,7 +3,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 
-namespace abyss
+namespace abyss::Enemy
 {
 	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward):
 		m_hp(1, 0.2)

@@ -10,47 +10,49 @@
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
 #include <abyss/controllers/Actors/base/IState.hpp>
 
-namespace abyss
+namespace abyss::Player
 {
-	class PlayerActor: 
-		public IActor,
-		public Receiver
-	{
-	public:
-		enum class State
-		{
-			Swim,
-			Damage,
-			Ladder,
-		};
-	private:
-		BodyModel m_body;
-		FootModel m_foot;
-		ChargeModel m_charge;
-		HPModel m_hp;
+    class PlayerVM;
+
+    class PlayerActor :
+        public IActor,
+        public Receiver
+    {
+    public:
+        enum class State
+        {
+            Swim,
+            Damage,
+            Ladder,
+        };
+    private:
+        BodyModel m_body;
+        FootModel m_foot;
+        ChargeModel m_charge;
+        HPModel m_hp;
 
 
-		StateManager<PlayerActor> m_state;
-		std::shared_ptr<PlayerVM> m_view;
+        StateManager<PlayerActor> m_state;
+        std::shared_ptr<PlayerVM> m_view;
 
-	public:
-		PlayerActor();
-		void start()override;
-		void update(double dt) override;
-		void lastUpdate(double dt) override;
+    public:
+        PlayerActor();
+        void start()override;
+        void update(double dt) override;
+        void lastUpdate(double dt) override;
 
-		CShape getCollider() const override;
-		void onCollisionStay(ICollider* col) override;
-		void setPos(const Vec2& pos);
-		const Vec2& getPos() const;
-		void setForward(const Forward& forward);
+        CShape getCollider() const override;
+        void onCollisionStay(ICollider* col) override;
+        void setPos(const Vec2& pos);
+        const Vec2& getPos() const;
+        void setForward(const Forward& forward);
 
-		RectF region() const;
+        RectF region() const;
 
-		bool accept(const ActVisitor& visitor) override;
-		void draw() const override;
-		PlayerVM* getBindedView()const;
+        bool accept(const ActVisitor& visitor) override;
+        void draw() const override;
+        PlayerVM* getBindedView()const;
 
-		static std::shared_ptr<PlayerActor> Create();
+        static std::shared_ptr<PlayerActor> Create();
     };
 }

@@ -1,8 +1,5 @@
 #include "DecorTranslator.hpp"
 #include <Siv3D.hpp>
-#include <abyss/entities/Decor/DecorEntity.hpp>
-#include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
-#include <abyss/entities/Actors/Map/MapEntity.hpp>
 
 #include <abyss/models/Decor/Common/CommonDecorModel.hpp>
 #include <abyss/models/Decor/Door/DoorDecorModel.hpp>

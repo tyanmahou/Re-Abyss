@@ -6,7 +6,12 @@
 
 namespace abyss
 {
-	class SlimeSenser;
+	struct SlimeEntity;
+}
+namespace abyss::Slime
+{
+	class Senser;
+	class SlimeVM;
 
 	class SlimeActor : 
 		public EnemyActor
@@ -18,7 +23,7 @@ namespace abyss
 			Jump
 		};
 	private:
-		std::shared_ptr<SlimeSenser> m_senser;
+		std::shared_ptr<Senser> m_senser;
 
 		StateManager<SlimeActor> m_state;
 		std::shared_ptr<SlimeVM> m_view;

@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 
-namespace abyss
+namespace abyss::Floor
 {
 	class FloorActor : 
 		public MapActor,

@@ -4,7 +4,7 @@
 
 #include <abyss/types/Forward.hpp>
 
-namespace abyss
+namespace abyss::Slime
 {
     class SlimeVM
     {

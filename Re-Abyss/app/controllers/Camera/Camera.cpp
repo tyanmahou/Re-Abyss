@@ -46,7 +46,7 @@ namespace abyss
 		return event;
 	}
 
-	void Camera::adjustPlayerPos(PlayerActor& player)
+	void Camera::adjustPlayerPos(Player::PlayerActor& player)
 	{
 		Vec2 pos = player.getPos();
 		if (this->isCameraWork()) {
@@ -66,7 +66,7 @@ namespace abyss
 	Camera::~Camera()
 	{}
 
-	Camera::Event Camera::update(PlayerActor& player)
+	Camera::Event Camera::update(Player::PlayerActor& player)
 	{
 		const Vec2& pos =player.getPos();
 		auto event = this->setCameraPos(pos);
@@ -100,7 +100,7 @@ namespace abyss
 		m_cameraWork = RoomMoveCameraWork::Create(*m_camera, playerPos, callback, milliSec);
 	}
 	void Camera::startDoorCameraWork(
-        const DoorActor& door, 
+        const Door::DoorActor& door, 
         const s3d::Vec2& playerPos, 
         std::function<void()> fadeInCallback, 
         std::function<void()> fadeOutCallback,

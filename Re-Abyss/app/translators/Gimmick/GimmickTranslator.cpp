@@ -23,7 +23,7 @@ namespace abyss
                         startPos->getForward(),
                         doorEntity.size
                     };
-                    return std::make_shared<DoorActor>(door, *room);
+                    return std::make_shared<Door::DoorActor>(door, *room);
                 }
             }
         }

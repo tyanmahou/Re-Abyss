@@ -6,6 +6,12 @@
 
 namespace abyss
 {
+    struct IkalienEntity;
+}
+namespace abyss::Ikalien
+{
+    class IkalienVM;
+
     class IkalienActor :
         public EnemyActor
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Player::Shot
 {
 	/// <summary>
 	/// Player Shot type

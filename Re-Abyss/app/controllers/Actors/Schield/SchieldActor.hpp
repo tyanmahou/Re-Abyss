@@ -5,6 +5,12 @@
 
 namespace abyss
 {
+	struct SchieldEntity;
+}
+namespace abyss::Schield
+{
+	class SchieldVM;
+
 	class SchieldActor :
 		public EnemyActor
 	{

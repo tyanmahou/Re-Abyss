@@ -3,7 +3,7 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss
+namespace abyss::LaunShark
 {
     class LaunSharkVM
     {

@@ -1,8 +1,8 @@
 #include "CodeZeroHandModel.hpp"
 #include <Siv3D.hpp>
-#include <abyss/params/Actors/CodeZero/CodeZeroParam.hpp>
+#include <abyss/params/Actors/CodeZero/Param.hpp>
 
-namespace abyss
+namespace abyss::CodeZero
 {
     CodeZeroHandModel::CodeZeroHandModel(const s3d::Vec2& dir, double rotateLimit):
         m_dir(dir.normalized()),
@@ -22,23 +22,23 @@ namespace abyss
     void CodeZeroHandModel::startForPursuit(BodyModel& body)const
     {
         auto velocity =
-            m_dir * -CodeZeroParam::Hand::SetUpSpeed
-            + m_dirVertical * CodeZeroParam::Hand::PursuitSpeed;
+            m_dir * -Param::Hand::SetUpSpeed
+            + m_dirVertical * Param::Hand::PursuitSpeed;
         body.setVelocity(velocity);
     }
 
     void CodeZeroHandModel::updateForPursuit(const s3d::Vec2& target, const s3d::Vec2& parentPos, BodyModel& body, double dt)const
     {
         const auto& pos = body.getPos();
-        auto velocity = m_dir * -CodeZeroParam::Hand::SetUpSpeed;
+        auto velocity = m_dir * -Param::Hand::SetUpSpeed;
 
         {
             const auto targetVec = target - pos;
             if (auto distance = m_dirVertical.dot(targetVec); distance >= 60) {
-                velocity += m_dirVertical * CodeZeroParam::Hand::PursuitSpeed;
+                velocity += m_dirVertical * Param::Hand::PursuitSpeed;
                 body.setVelocity(velocity);
             } else if (distance <= -60) {
-                velocity -= m_dirVertical * CodeZeroParam::Hand::PursuitSpeed;
+                velocity -= m_dirVertical * Param::Hand::PursuitSpeed;
                 body.setVelocity(velocity);
             }
         }
@@ -62,7 +62,7 @@ namespace abyss
 
     void CodeZeroHandModel::startForAttack(BodyModel& body) const
     {
-        auto velocity = m_dir * CodeZeroParam::Hand::AttackSpeed;
+        auto velocity = m_dir * Param::Hand::AttackSpeed;
         body.setVelocity(velocity);
     }
 
@@ -77,7 +77,7 @@ namespace abyss
         const auto targetVec = parentPos - pos;
         if (auto distance = m_dir.dot(targetVec); !isReturn && distance <= -m_distance-40) {
             isReturn = true;
-            auto velocity = m_dir * -CodeZeroParam::Hand::AttackSpeed;
+            auto velocity = m_dir * -Param::Hand::AttackSpeed;
             body.setVelocity(velocity);
         } else if (isReturn && distance >= m_distance) {
             body.setPos(pos + m_dir * (distance - m_distance));

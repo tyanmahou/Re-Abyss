@@ -2,7 +2,7 @@
 #include <abyss/commons/LayerGroup.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss
+namespace abyss::Door
 {
 	DoorActor::DoorActor(const DoorModel& door, const RoomModel& nextRoom):
 		m_door(door),

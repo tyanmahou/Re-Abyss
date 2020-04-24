@@ -6,9 +6,22 @@
 namespace abyss
 {
     struct CodeZeroEntity;
-    class CodeZeroHeadActor;
-    class CodeZeroHandActor;
-    class CodeZeroBodyVM;
+}
+namespace abyss::CodeZero
+{
+    namespace Head
+    {
+        class HeadActor;
+    }
+    namespace Hand
+    {
+        class HandActor;
+    }
+    
+    namespace Body
+    {
+        class BodyVM;
+    }
 
     class CodeZeroActor :
         public EnemyActor
@@ -23,11 +36,11 @@ namespace abyss
         };
     private:
         StateManager<CodeZeroActor> m_state;
-        std::shared_ptr<CodeZeroBodyVM> m_view;
+        std::shared_ptr<Body::BodyVM> m_view;
 
-        std::shared_ptr<CodeZeroHeadActor> m_head;
-        std::shared_ptr<CodeZeroHandActor> m_leftHand;
-        std::shared_ptr<CodeZeroHandActor> m_rightHand;
+        std::shared_ptr<Head::HeadActor> m_head;
+        std::shared_ptr<Hand::HandActor> m_leftHand;
+        std::shared_ptr<Hand::HandActor> m_rightHand;
 
     public:
         CodeZeroActor(const CodeZeroEntity& entity);
@@ -40,12 +53,12 @@ namespace abyss
 
         bool accept(const ActVisitor& visitor) override;
 
-        CodeZeroBodyVM* getBindedView()const;
+        Body::BodyVM* getBindedView()const;
 
         void onDead() override;
 
-        CodeZeroHandActor* getLeftHand()const { return m_leftHand.get(); }
-        CodeZeroHandActor* getRightHand()const { return m_rightHand.get(); }
+        Hand::HandActor* getLeftHand()const { return m_leftHand.get(); }
+        Hand::HandActor* getRightHand()const { return m_rightHand.get(); }
 
         bool isPhase1()const { return m_state.getState() == State::Phase1; }
         bool isPhase2()const { return m_state.getState() == State::Phase2; }

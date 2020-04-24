@@ -1,10 +1,10 @@
 #include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
 #include <abyss/views/Actors/RollingTako/RollingTakoVM.hpp>
-#include <abyss/params/Actors/RollingTako/RollingTakoParam.hpp>
-#include "State/RollingTakoWaitState.hpp"
-#include "State/RollingTakoRunState.hpp"
+#include <abyss/params/Actors/RollingTako/Param.hpp>
+#include "State/WaitState.hpp"
+#include "State/RunState.hpp"
 
-namespace abyss
+namespace abyss::RollingTako
 {
     RollingTakoActor::RollingTakoActor(const RollingTakoEntity& entity):
         EnemyActor(entity.pos, entity.forward),
@@ -12,15 +12,15 @@ namespace abyss
         m_state(this),
         m_view(std::make_unique<RollingTakoVM>())
     {
-        m_hp.setHp(RollingTakoParam::Base::Hp);
+        m_hp.setHp(Param::Base::Hp);
         m_body
-            .setSize(RollingTakoParam::Base::Size)
-            .setPivot(RollingTakoParam::Base::Pivot)
-            .setMaxSpeedX(RollingTakoParam::Run::MaxSpeedX);
+            .setSize(Param::Base::Size)
+            .setPivot(Param::Base::Pivot)
+            .setMaxSpeedX(Param::Run::MaxSpeedX);
 
         m_state
-            .add<RollingTakoWaitState>(State::Wait)
-            .add<RollingTakoRunState>(State::Run)
+            .add<WaitState>(State::Wait)
+            .add<RunState>(State::Run)
             .bind<BodyModel>(&RollingTakoActor::m_body)
         ;
         if (!m_isWait) {

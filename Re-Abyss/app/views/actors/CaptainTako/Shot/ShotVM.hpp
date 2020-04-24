@@ -1,0 +1,20 @@
+#pragma once
+#include <Siv3D/Vector2D.hpp>
+#include <abyss/utils/TexturePacker/TexturePacker.hpp>
+
+#include <abyss/types/Forward.hpp>
+namespace abyss::CaptainTako::Shot
+{
+    class ShotVM
+    {
+        TexturePacker m_texture;
+        Forward m_forward;
+        s3d::Vec2 m_pos;
+    public:
+        ShotVM();
+        ShotVM& setForward(const Forward& forward);
+        ShotVM& setPos(const s3d::Vec2& pos);
+
+        void draw() const;
+    };
+}

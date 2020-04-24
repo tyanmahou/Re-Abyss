@@ -1,7 +1,7 @@
 #include "MapActor.hpp"
 #include <abyss/commons/LayerGroup.hpp>
 
-namespace abyss
+namespace abyss::Map
 {
 	MapActor::MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size) :
 		m_col(col),

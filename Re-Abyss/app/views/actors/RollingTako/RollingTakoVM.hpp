@@ -5,7 +5,7 @@
 
 #include <abyss/types/Forward.hpp>
 
-namespace abyss
+namespace abyss::RollingTako
 {
     class RollingTakoVM
     {

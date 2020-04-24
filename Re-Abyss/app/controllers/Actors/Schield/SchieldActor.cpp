@@ -1,11 +1,11 @@
-#include "State/SchieldWaitState.hpp"
-#include "State/SchieldAttackPlusState.hpp"
-#include "State/SchieldAttackCrossState.hpp"
+#include "State/WaitState.hpp"
+#include "State/AttackPlusState.hpp"
+#include "State/AttackCrossState.hpp"
 
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 #include <abyss/views/Actors/Schield/SchieldVM.hpp>
-#include <abyss/params/Actors/Schield/SchieldParam.hpp>
-namespace abyss
+#include <abyss/params/Actors/Schield/Param.hpp>
+namespace abyss::Schield
 {
     SchieldActor::SchieldActor(const SchieldEntity& entity):
         EnemyActor(entity.pos, entity.forward),
@@ -13,13 +13,13 @@ namespace abyss
         m_view(std::make_shared<SchieldVM>())
     {
         m_state
-            .add<SchieldWaitState>(State::Wait)
-            .add<SchieldAttackPlusState>(State::AttackPlus)
-            .add<SchieldAttackCrossState>(State::AttackCross)
+            .add<WaitState>(State::Wait)
+            .add<AttackPlusState>(State::AttackPlus)
+            .add<AttackCrossState>(State::AttackCross)
             .bind<BodyModel>(&SchieldActor::m_body)
         ;
-        m_body.setSize(SchieldParam::Base::Size);
-        m_hp.setHp(SchieldParam::Base::Hp);
+        m_body.setSize(Param::Base::Size);
+        m_hp.setHp(Param::Base::Hp);
     }
     void SchieldActor::update(double dt)
     {
@@ -32,7 +32,7 @@ namespace abyss
     s3d::Circle SchieldActor::getFaceCollider() const
     {
         s3d::Vec2 offset{ 53.0 * m_body.getForward(), 16};
-        return s3d::Circle(m_body.getPos() + offset, SchieldParam::Wait::FaceColRadius);
+        return s3d::Circle(m_body.getPos() + offset, Param::Wait::FaceColRadius);
     }
     CShape SchieldActor::getCollider() const
     {

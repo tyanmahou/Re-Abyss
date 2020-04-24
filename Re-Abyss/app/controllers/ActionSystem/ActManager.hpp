@@ -13,7 +13,7 @@ namespace abyss
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
 
-        PlayerActor* m_pPlayer = nullptr;
+        Player::PlayerActor* m_pPlayer = nullptr;
     public:
         ActManager& set(World* pWorld);
 
@@ -21,7 +21,7 @@ namespace abyss
 
         ActManager& set(Light* pLight);
 
-        ActManager& set(PlayerActor* pPlayer);
+        ActManager& set(Player::PlayerActor* pPlayer);
 
         template<class T>
         T* getModule() const;

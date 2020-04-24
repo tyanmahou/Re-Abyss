@@ -1,13 +1,13 @@
-#include "State/SlimeWalkState.hpp"
-#include "State/SlimeJumpState.hpp"
-#include "Senser/SlimeSenser.hpp"
+#include "State/WalkState.hpp"
+#include "State/JumpState.hpp"
+#include "Senser/Senser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
-#include <abyss/params/Actors/Slime/SlimeParam.hpp>
+#include <abyss/params/Actors/Slime/Param.hpp>
 
-namespace abyss
+namespace abyss::Slime
 {
 	SlimeActor::SlimeActor(const SlimeEntity& entity) :
 		EnemyActor(entity.pos, entity.forward),
@@ -18,15 +18,15 @@ namespace abyss
 		m_body.setMaxSpeedX(60);
 
 		m_state
-			.add<SlimeWalkState>(State::Walk)
-			.add<SlimeJumpState>(State::Jump)
+			.add<WalkState>(State::Walk)
+			.add<JumpState>(State::Jump)
 			.bind<BodyModel>(&SlimeActor::m_body);
 	}
 
 	void SlimeActor::start()
 	{
 		if (!m_senser) {
-			m_senser = getModule<World>()->create<SlimeSenser>(this);
+			m_senser = getModule<World>()->create<Senser>(this);
 		}
 	}
 

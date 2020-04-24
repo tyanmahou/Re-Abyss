@@ -10,16 +10,16 @@ namespace abyss
 		Attacker,
 		Receiver,
 
-		PlayerActor,
+		Player::PlayerActor,
 
-		EnemyActor,
+		Enemy::EnemyActor,
 
-		MapActor,
-		FloorActor,
-		PenetrateFloorActor,
-		LadderActor,
+		Map::MapActor,
+		Floor::FloorActor,
+		PenetrateFloor::PenetrateFloorActor,
+		Ladder::LadderActor,
 
-		DoorActor
+		Door::DoorActor
 	>;
 
 	class ActVisitor : protected ActVisitorBase

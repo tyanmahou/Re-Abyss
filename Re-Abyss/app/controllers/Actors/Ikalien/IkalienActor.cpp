@@ -1,24 +1,24 @@
-#include "State/IkalienPursuitState.hpp"
-#include "State/IkalienSwimState.hpp"
-#include "State/IkalienWaitState.hpp"
+#include "State/PursuitState.hpp"
+#include "State/SwimState.hpp"
+#include "State/WaitState.hpp"
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
-#include <abyss/params/Actors/Ikalien/IkalienParam.hpp>
+#include <abyss/params/Actors/Ikalien/Param.hpp>
 
-namespace abyss
+namespace abyss::Ikalien
 {
     IkalienActor::IkalienActor(const IkalienEntity& entity):
         EnemyActor(entity.pos, entity.forward),
         m_state(this),
         m_view(std::make_shared<IkalienVM>())
     {
-        m_hp.setHp(IkalienParam::Base::Hp);
-        m_body.noneResistanced().setPivot(IkalienParam::Base::Pivot);
+        m_hp.setHp(Param::Base::Hp);
+        m_body.noneResistanced().setPivot(Param::Base::Pivot);
 
         m_state
-            .add<IkalienWaitState>(State::Wait)
-            .add<IkalienPursuitState>(State::Pursuit)
-            .add<IkalienSwimState>(State::Swim)
+            .add<WaitState>(State::Wait)
+            .add<PursuitState>(State::Pursuit)
+            .add<SwimState>(State::Swim)
             .bind<BodyModel>(&IkalienActor::m_body)
             .bind<RotateModel>(&IkalienActor::m_rotate)
             ;
@@ -33,7 +33,7 @@ namespace abyss
     }
     CShape IkalienActor::getCollider() const
     {
-        return s3d::Circle(m_body.getPivotPos(), IkalienParam::Base::ColRadius);
+        return s3d::Circle(m_body.getPivotPos(), Param::Base::ColRadius);
     }
     void IkalienActor::onCollisionStay(ICollider* col)
     {

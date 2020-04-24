@@ -39,7 +39,7 @@ namespace abyss
         if (!m_camera.isCameraWork()) {
             m_world.update();
         }
-        auto& player = *m_manager.getModule<PlayerActor>();
+        auto& player = *m_manager.getModule<Player::PlayerActor>();
         switch (auto event = m_camera.update(player)) {
             using enum Camera::Event;
         case OnCameraWorkStart:

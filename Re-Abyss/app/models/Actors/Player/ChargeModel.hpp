@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss
+namespace abyss::Player
 {
     /// <summary>
     /// player attack charge

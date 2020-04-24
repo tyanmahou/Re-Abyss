@@ -3,8 +3,8 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/params/Actors/LaunShark/LaunSharkParam.hpp>
-namespace abyss
+#include <abyss/params/Actors/LaunShark/Param.hpp>
+namespace abyss::LaunShark
 {
     LaunSharkVM::LaunSharkVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/LaunShark/laun_shark.json"))
@@ -27,14 +27,14 @@ namespace abyss
     void LaunSharkVM::drawSwim() const
     {
         bool isRight = m_forward == Forward::Right;
-        int32 time = static_cast<int32>(Periodic::Square0_1(LaunSharkParam::View::SwimAnimeTimeSec, WorldTime::Time()));
+        int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, WorldTime::Time()));
         m_texture(U"wait")({ 0, 60 * time }, { 120, 60 }).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
     void LaunSharkVM::drawAttack() const
     {
         bool isRight = m_forward == Forward::Right;
 
-        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(LaunSharkParam::View::AttackAnimeTimeSec, WorldTime::Time()) * 8);
+        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(Param::View::AttackAnimeTimeSec, WorldTime::Time()) * 8);
         m_texture(U"attack")({ 120 * (page / 4), 80 * (page %  4) }, { 120, 80 }).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
     }
     void LaunSharkVM::drawLauncher(double launcherTime) const

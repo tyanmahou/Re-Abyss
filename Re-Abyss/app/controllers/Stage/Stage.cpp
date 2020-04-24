@@ -79,7 +79,7 @@ namespace abyss
         if (!initStartPos) {
             return s3d::none;
         }
-        auto player = PlayerActor::Create();
+        auto player = Player::PlayerActor::Create();
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 

@@ -5,6 +5,13 @@
 
 namespace abyss
 {
+    struct RollingTakoEntity;
+}
+
+namespace abyss::RollingTako
+{
+    class RollingTakoVM;
+
     class RollingTakoActor :
         public EnemyActor
     {

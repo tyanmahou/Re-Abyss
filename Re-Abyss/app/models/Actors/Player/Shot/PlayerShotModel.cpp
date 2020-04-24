@@ -1,19 +1,21 @@
 #include "PlayerShotModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/params/Actors/Player/PlayerShotParam.hpp>
+#include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Player;
+    using namespace abyss::Player::Shot;
 
     PlayerShotType ChargeToType(double charge)
     {
-        if (charge >= PlayerShotParam::Big::Charge) {
+        if (charge >= ShotParam::Big::Charge) {
             return PlayerShotType::Big;
-        } else if (charge >= PlayerShotParam::Medium::Charge) {
+        } else if (charge >= ShotParam::Medium::Charge) {
             return PlayerShotType::Medium;
-        } else if (charge >= PlayerShotParam::Small::Charge) {
+        } else if (charge >= ShotParam::Small::Charge) {
             return PlayerShotType::Small;
         } else {
             return PlayerShotType::Normal;
@@ -23,10 +25,10 @@ namespace
     double TypeToRadius(PlayerShotType type)
     {
         switch (type) {
-        case PlayerShotType::Normal: return PlayerShotParam::Normal::Radius;
-        case PlayerShotType::Small: return PlayerShotParam::Small::Radius;
-        case PlayerShotType::Medium: return PlayerShotParam::Medium::Radius;
-        case PlayerShotType::Big: return PlayerShotParam::Big::Radius;
+        case PlayerShotType::Normal: return ShotParam::Normal::Radius;
+        case PlayerShotType::Small: return ShotParam::Small::Radius;
+        case PlayerShotType::Medium: return ShotParam::Medium::Radius;
+        case PlayerShotType::Big: return ShotParam::Big::Radius;
         }
         return 0.0;
     }
@@ -46,15 +48,15 @@ namespace
     s3d::int32 TypeToPower(PlayerShotType type)
     {
         switch (type) {
-        case PlayerShotType::Normal: return PlayerShotParam::Normal::Power;
-        case PlayerShotType::Small: return PlayerShotParam::Small::Power;
-        case PlayerShotType::Medium: return PlayerShotParam::Medium::Power;
-        case PlayerShotType::Big: return PlayerShotParam::Big::Power;
+        case PlayerShotType::Normal: return ShotParam::Normal::Power;
+        case PlayerShotType::Small: return ShotParam::Small::Power;
+        case PlayerShotType::Medium: return ShotParam::Medium::Power;
+        case PlayerShotType::Big: return ShotParam::Big::Power;
         }
         return 1;
     }
 }
-namespace abyss
+namespace abyss::Player::Shot
 {
     PlayerShotModel::PlayerShotModel(double charge):
         m_type(::ChargeToType(charge))

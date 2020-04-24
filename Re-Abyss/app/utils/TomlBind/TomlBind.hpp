@@ -73,7 +73,7 @@ namespace abyss
         template <IsAutoTOMLBindable T, int Num>
         struct AutoTOMLBind<T, TOMLBindId<Num>>
         {
-            void operator()(T& ret, const s3d::TOMLValue& toml)
+            void operator()([[maybe_unused]]T& ret, const s3d::TOMLValue& toml)
             {
                 if constexpr (IsTOMLBindCallable<T, Num>) {
                     (ret, TOMLBindId<Num>{toml});

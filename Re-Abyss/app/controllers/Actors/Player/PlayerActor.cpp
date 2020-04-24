@@ -1,12 +1,12 @@
-#include "State/PlayerSwimState.hpp"
-#include "State/PlayerLadderState.hpp"
-#include "State/PlayerDamageState.hpp"
+#include "State/SwimState.hpp"
+#include "State/LadderState.hpp"
+#include "State/DamageState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/params/Actors/Player/PlayerParam.hpp>
+#include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
 
-namespace abyss
+namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
         m_state(this),
@@ -17,22 +17,22 @@ namespace abyss
         this->tag = U"player";
         this->layer = LayerGroup::Player;
         m_body
-            .setSize(PlayerParam::Base::Size)
+            .setSize(Param::Base::Size)
             .setForward(Forward::Right)
         ;
 
         m_state
-            .add<PlayerSwimState>(State::Swim)
-            .add<PlayerLadderState>(State::Ladder)
-            .add<PlayerDamageState>(State::Damage)
+            .add<SwimState>(State::Swim)
+            .add<LadderState>(State::Ladder)
+            .add<DamageState>(State::Damage)
             .bind<BodyModel>(&PlayerActor::m_body)
             .bind<FootModel>(&PlayerActor::m_foot)
             .bind<ChargeModel>(&PlayerActor::m_charge)
             .bind<HPModel>(&PlayerActor::m_hp)
             ;
         m_hp
-            .setHp(PlayerParam::Base::Hp)
-            .setInvincibleTime(PlayerParam::Base::InvincibleTime);
+            .setHp(Param::Base::Hp)
+            .setInvincibleTime(Param::Base::InvincibleTime);
         m_order = 10;
     }
     void PlayerActor::start()

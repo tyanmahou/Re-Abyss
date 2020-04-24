@@ -5,6 +5,12 @@
 
 namespace abyss
 {
+    struct CaptainTakoEntity;
+}
+namespace abyss::CaptainTako
+{
+    class CaptainTakoVM;
+
     class CaptainTakoActor :
         public EnemyActor
     {
