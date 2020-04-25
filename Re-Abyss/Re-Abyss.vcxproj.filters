@@ -659,6 +659,24 @@
     <ClCompile Include="app\controllers\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\CommonTalk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Event\Talk\MessageVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Event\Talk\MessageBoxVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Event\Talk\CursorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1029,5 +1047,12 @@
     <ClInclude Include="app\controllers\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\SwimState.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0.hpp" />
+    <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\CommonTalk.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
+    <ClInclude Include="app\views\Event\Talk\MessageVM.hpp" />
+    <ClInclude Include="app\views\Event\Talk\MessageBoxVM.hpp" />
+    <ClInclude Include="app\views\Event\Talk\CursorVM.hpp" />
   </ItemGroup>
 </Project>

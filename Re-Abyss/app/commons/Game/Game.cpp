@@ -15,10 +15,17 @@ namespace abyss
 		{
 			m_scene.add<MainScene>(SceneName::Main);
 		}
+
+		void loadFont()
+		{
+			FontAsset::Register(U"serif", 20, U"resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
+			FontAsset::Register(U"serifName", 17, U"resources/fonts/PixelMplus12-Bold.ttf", FontStyle::BoldBitmap);
+		}
 	public:
 		Impl()
 		{
 			this->registerScene();
+			this->loadFont();
 		}
 
 		bool update()

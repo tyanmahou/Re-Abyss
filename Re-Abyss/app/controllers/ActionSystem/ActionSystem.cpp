@@ -4,6 +4,8 @@
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Stage/base/IStageView.hpp>
 
+#include <abyss/controllers/Event/Talk/base/Serif.hpp>
+
 namespace abyss
 {
     ActionSystem::ActionSystem()
@@ -68,7 +70,20 @@ namespace abyss
             break;
         }
     }
-
+    
+    Event::Talk::Serif GetSerif()
+    {
+        using namespace Event::Talk;
+        SerifModel model;
+        model.setSide(SerifModel::Side::Left);
+        model.setActorName(U"?");
+        model.addMessage(U"ようこそ！わらわの第一研究施設へ");
+        model.addMessage(U"じゃが、ここに来たということは…\nそちも、あの女を追うものということ");
+        model.addMessage(U"心苦しいが\nただで返すわけにはいかんのぉ…\nあああああ");
+        Serif ret;
+        ret.setModel(std::move(model));
+        return ret;
+    }
     void ActionSystem::draw() const
     {
         auto cameraView = m_camera.createView();
@@ -95,6 +110,9 @@ namespace abyss
 
             cameraView.drawCameraWork();
         }
+        static Event::Talk::Serif s = GetSerif();
+        s.update();
+        s.draw();
     }
     void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
     {

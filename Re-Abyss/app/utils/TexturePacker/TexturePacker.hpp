@@ -40,8 +40,8 @@ namespace abyss
 	private:
 		Texture(const s3d::Texture& texture, const Frame& frame);
 
-		s3d::TexturedQuad getFixedQuad() const;
 	public:
+		[[nodiscard]] s3d::TexturedQuad getFixedQuad() const;
 
 		[[nodiscard]] TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
 		[[nodiscard]] TexturePacker::Texture& operator()(double x, double y, double w, double h);
