@@ -6,8 +6,6 @@ namespace abyss::Ikalien
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Pivot, "Base.pivot")]]
         [[TOML_BIND_PARAM(Base::ColRadius, "Base.colRadius")]]
@@ -41,7 +39,5 @@ namespace abyss::Ikalien
         {
             inline static double WaitAnimeTimeSec{ 1.5 };
         };
-
-        TOML_BIND_END;
     };
 }

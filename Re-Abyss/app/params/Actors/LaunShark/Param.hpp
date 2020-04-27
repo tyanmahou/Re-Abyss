@@ -5,8 +5,6 @@ namespace abyss::LaunShark
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
         [[TOML_BIND_PARAM(Base::AccelX, "Base.accelX")]]
@@ -64,7 +62,5 @@ namespace abyss::LaunShark
             inline static double SwimAnimeTimeSec{1.0};
             inline static double AttackAnimeTimeSec{0.8};
         };
-
-        TOML_BIND_END;
     };
 }

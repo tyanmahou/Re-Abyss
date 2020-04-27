@@ -6,8 +6,6 @@ namespace abyss::RollingTako
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
         [[TOML_BIND_PARAM(Base::Pivot, "Base.pivot")]]
@@ -39,7 +37,5 @@ namespace abyss::RollingTako
             inline static double WaitAnimeTimeSec{ 1.0 };
             inline static double RunAnimeTimeSec{ 0.2 };
         };
-
-        TOML_BIND_END;
     };
 }

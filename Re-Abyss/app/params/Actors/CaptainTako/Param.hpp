@@ -6,8 +6,6 @@ namespace abyss::CaptainTako
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
         [[TOML_BIND_PARAM(Base::Pivot, "Base.pivot")]]
@@ -45,7 +43,5 @@ namespace abyss::CaptainTako
             inline static double AnimeTimeSec{ 1.0 };
             inline static double ChargingAddScale{ 0.4 };
         };
-
-        TOML_BIND_END;
     };
 }

@@ -6,8 +6,6 @@ namespace abyss::CodeZero
 {
     struct ShotParam
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::ColRadius, "Base.colRadius")]]
         struct Base
         {
@@ -29,7 +27,5 @@ namespace abyss::CodeZero
             inline static double TimeSec{ 5.0 };
             inline static double EndToDeadTimeSec{ 3.5 };
         };
-
-        TOML_BIND_END;
     };
 }

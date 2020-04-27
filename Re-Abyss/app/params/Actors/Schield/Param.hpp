@@ -6,8 +6,6 @@ namespace abyss::Schield
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
         struct Base
@@ -37,6 +35,5 @@ namespace abyss::Schield
             inline static double AnimeTimeSec{ 1.0 };
             inline static double TransitionTimeSec{ 1.0 };
         };
-        TOML_BIND_END;
     };
 }

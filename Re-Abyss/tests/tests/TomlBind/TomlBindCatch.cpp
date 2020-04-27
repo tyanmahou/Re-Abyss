@@ -8,32 +8,22 @@ namespace abyss::tests
     {
         struct Pos
         {
-            TOML_BIND_BEGIN;
-
             [[TOML_BIND_PARAM(x, "x")]]
             double x;
 
             [[TOML_BIND_PARAM(y, "y")]]
             double y;
-
-            TOML_BIND_END;
         };
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(label, "label")]]
         String label;
 
         [[TOML_BIND_PARAM(pos, "pos")]]
         Pos pos;
-
-        TOML_BIND_END;
     };
     struct Config
     {
         struct Window
         {
-            TOML_BIND_BEGIN;
-
             [[TOML_BIND_PARAM(title, "title")]]
             String title;
 
@@ -45,11 +35,7 @@ namespace abyss::tests
 
             [[TOML_BIND_PARAM(sizable, "sizable")]]
             bool sizable;
-
-            TOML_BIND_END;
         };
-
-        TOML_BIND_BEGIN;
 
         [[TOML_BIND_PARAM(window, "Window")]]
         Window window;
@@ -62,8 +48,6 @@ namespace abyss::tests
 
         [[TOML_BIND_PARAM(items, "Items")]]
         Array<Item> items;
-
-        TOML_BIND_END;
     };
 
     TEST_CASE("TomlBind. Test")

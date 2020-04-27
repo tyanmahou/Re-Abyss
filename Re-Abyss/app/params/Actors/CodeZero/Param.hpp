@@ -6,8 +6,6 @@ namespace abyss::CodeZero
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         struct Base
         {
@@ -55,6 +53,5 @@ namespace abyss::CodeZero
             inline static double WaitAttack{ 1.2 };
             inline static double WaitRestart{ 3.0 };
         };
-        TOML_BIND_END;
     };
 }

@@ -6,8 +6,6 @@ namespace abyss::Schield
 {
     struct ShotParam
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Speed, "Base.speed")]]
         [[TOML_BIND_PARAM(Base::ColRadius, "Base.colRadius")]]
         struct Base
@@ -23,6 +21,5 @@ namespace abyss::Schield
             inline static double AnimeTimeSec{ 0.3 };
             inline static double RotateDeg{ 720.0 };
         };
-        TOML_BIND_END;
     };
 }

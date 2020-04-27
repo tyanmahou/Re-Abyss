@@ -5,8 +5,6 @@ namespace abyss::LaunShark
 {
     struct ShotParam
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
         struct Base
@@ -46,7 +44,5 @@ namespace abyss::LaunShark
         {
             inline static double AnimeTimeSec{ 0.25 };
         };
-
-        TOML_BIND_END;
     };
 }

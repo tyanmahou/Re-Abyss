@@ -6,8 +6,6 @@ namespace abyss::Player
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         [[TOML_BIND_PARAM(Base::InvincibleTime, "Base.invincibleTime")]]
         [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
@@ -43,6 +41,5 @@ namespace abyss::Player
         {
             inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
         };
-        TOML_BIND_END;
     };
 }

@@ -38,6 +38,7 @@ namespace abyss
 {
     namespace detail
     {
+        inline constexpr int BINDABLE_MAX_LINES = 500;
         template<int Num>
         struct TOMLBindId
         {
@@ -54,12 +55,6 @@ namespace abyss
             { TOMLBind<Type>{}(toml) }->std::same_as<Type>;
         };
 
-        template<class Type>
-        concept IsAutoTOMLBindable = requires(Type a)
-        {
-            typename Type::TOML_BIND_BEGIN_ID;
-            typename Type::TOML_BIND_END_ID;
-        };
 
         template<class Type>
         struct IsSivArray_impl : std::false_type {};
@@ -71,25 +66,28 @@ namespace abyss
         concept IsSivArray = IsSivArray_impl<Type>::value;
 
         template<class Type, int Num>
-        concept IsTOMLBindCallable = requires(Type a, TOMLBindId<Num> id)
+        concept IsTOMLBindIdCallable = requires(Type a, TOMLBindId<Num> id)
         {
             { a(id) } -> std::same_as<void>;
         };
 
         // FIXME constevalがコンパイラ対応しだい修正
-        template <IsAutoTOMLBindable Type, int Num>
+        template <class Type, int Num>
         constexpr /* consteval */ int NextTOMLBindId()
         {
-            if constexpr(Num == Type::TOML_BIND_END_ID::Value) {
-                return Type::TOML_BIND_END_ID::Value;
-            } else if constexpr (IsTOMLBindCallable<Type, Num + 1>) {
+            if constexpr (Num == BINDABLE_MAX_LINES) {
+                return BINDABLE_MAX_LINES;
+            } else if constexpr (IsTOMLBindIdCallable<Type, Num + 1>) {
                 return Num + 1;
             } else {
                 return NextTOMLBindId<Type, Num + 1>();
             }
         }
 
-        template <class Type, class Id = typename Type::TOML_BIND_BEGIN_ID>
+        template<class Type>
+        concept IsAutoTOMLBindable = (NextTOMLBindId<Type, 1>() != BINDABLE_MAX_LINES);
+
+        template <class Type, class Id = TOMLBindId<NextTOMLBindId<Type, 1>()>>
         struct AutoTOMLBind {};
 
         template <IsAutoTOMLBindable Type, int Num>
@@ -97,11 +95,11 @@ namespace abyss
         {
             void operator()([[maybe_unused]]Type& ret, const s3d::TOMLValue& toml)
             {
-                if constexpr (IsTOMLBindCallable<Type, Num>) {
+                if constexpr (IsTOMLBindIdCallable<Type, Num>) {
                     ret(TOMLBindId<Num>{toml});
                 }
                 [[maybe_unused]] constexpr int nextId = NextTOMLBindId<Type, Num>();
-                if constexpr (!std::is_same_v<typename Type::TOML_BIND_END_ID, TOMLBindId<nextId>>) {
+                if constexpr (nextId != BINDABLE_MAX_LINES) {
                     AutoTOMLBind<Type, TOMLBindId<nextId>>{}(ret, toml);
                 }
             }
@@ -149,12 +147,10 @@ namespace abyss
 
 }
 
-
-#define TOML_BIND_BEGIN using TOML_BIND_BEGIN_ID = abyss::detail::TOMLBindId<__LINE__>
-#define TOML_BIND_END using TOML_BIND_END_ID = abyss::detail::TOMLBindId<__LINE__>
 #define TOML_BIND_PARAM(Value, TOMLKey)\
-]] void operator()(const abyss::detail::TOMLBindId<__LINE__>& id)\
+]]  void operator()(const abyss::detail::TOMLBindId<__LINE__>& id)\
 {\
+    static_assert(__LINE__ - 2 < abyss::detail::BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
     Value = abyss::detail::GetData<Type>(id.toml[U##TOMLKey]);\
 }[[

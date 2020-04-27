@@ -5,8 +5,6 @@ namespace abyss::Player
 {
     struct ShotParam
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Speed, "Base.speed")]]
         struct Base
         {
@@ -50,7 +48,5 @@ namespace abyss::Player
             inline static double Radius{ 24 };
             inline static s3d::int32 Power{ 12 };
         };
-
-        TOML_BIND_END;
     };
 }

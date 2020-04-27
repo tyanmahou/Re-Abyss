@@ -6,8 +6,6 @@ namespace abyss::CodeZero
 {
     struct HandParam
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::ColRadius, "Base.colRadius")]]
         struct Base
         {
@@ -33,6 +31,5 @@ namespace abyss::CodeZero
             inline static double Speed{ 850.0 };
             inline static double WaitTimeSec{ 0.5 };
         };
-        TOML_BIND_END;
     };
 }

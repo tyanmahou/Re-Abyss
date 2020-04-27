@@ -6,8 +6,6 @@ namespace abyss::Slime
 {
     struct Param
     {
-        TOML_BIND_BEGIN;
-
         [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
         struct Base
         {
@@ -41,7 +39,5 @@ namespace abyss::Slime
         {
             inline static double WalkAnimeTimeSec{ 1.0 };
         };
-
-        TOML_BIND_END;
     };
 }
