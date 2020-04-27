@@ -67,6 +67,11 @@ namespace abyss
 			this->load(json);
 		}
 
+		bool isContain(const s3d::String& fileName) const
+		{
+			return m_frames.find(fileName) != m_frames.end();
+		}
+
 		TexturePacker::Texture operator()(const s3d::String& fileName) const
 		{
 			if (m_frames.find(fileName) == m_frames.end()) {
@@ -87,6 +92,10 @@ namespace abyss
 	TexturePacker::TexturePacker(const s3d::Texture& texture, const s3d::FilePath& json) :
 		pImpl(std::make_shared<Impl>(texture, json))
 	{
+	}
+	bool TexturePacker::isContain(const s3d::String& fileName) const
+	{
+		return pImpl->isContain(fileName);
 	}
 	TexturePacker::Texture TexturePacker::operator()(const s3d::String& fileName) const
 	{

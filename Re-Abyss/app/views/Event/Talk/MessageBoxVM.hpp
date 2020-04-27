@@ -7,7 +7,7 @@ namespace abyss::Event::Talk
 {
     class MessageBoxVM
     {
-        s3d::TexturedQuad m_icon;
+        s3d::TexturedQuad m_faceIcon;
         s3d::Texture m_boxTexture;
         s3d::Optional<s3d::String> m_name;
         bool m_isLeft = true;
@@ -18,6 +18,7 @@ namespace abyss::Event::Talk
         MessageBoxVM& setPos(const s3d::Vec2& pos);
         MessageBoxVM& setName(const s3d::Optional<s3d::String>& name);
         MessageBoxVM& setIsLeft(bool isLeft);
+        MessageBoxVM& setFaceIcon(const s3d::TexturedQuad& face);
         void draw() const;
     };
 }

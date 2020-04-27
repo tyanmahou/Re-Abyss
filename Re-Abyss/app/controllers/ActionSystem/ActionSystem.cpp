@@ -5,6 +5,7 @@
 #include <abyss/views/Stage/base/IStageView.hpp>
 
 #include <abyss/controllers/Event/Talk/base/Serif.hpp>
+#include <abyss/controllers/Event/Talk/base/FaceManager.hpp>
 
 namespace abyss
 {
@@ -75,13 +76,16 @@ namespace abyss
     {
         using namespace Event::Talk;
         SerifModel model;
-        model.setSide(SerifModel::Side::Left);
+        model.setSide(SerifModel::Side::Right);
         model.setActorName(U"?");
         model.addMessage(U"ようこそ！わらわの第一研究施設へ");
         model.addMessage(U"じゃが、ここに来たということは…\nそちも、あの女を追うものということ");
         model.addMessage(U"心苦しいが\nただで返すわけにはいかんのぉ…\nあああああ");
         Serif ret;
         ret.setModel(std::move(model));
+        auto face = std::make_shared<FaceManager>();
+        face->add(U"?", U"actors/CodeZero/face.json");
+        ret.setFaceManager(face);
         return ret;
     }
     void ActionSystem::draw() const

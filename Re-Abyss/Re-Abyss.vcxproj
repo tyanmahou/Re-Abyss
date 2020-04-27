@@ -257,6 +257,7 @@
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
     <ClCompile Include="app\controllers\Decor\Decor.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\base\FaceManager.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\CommonTalk.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
@@ -469,6 +470,7 @@
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\FaceManager.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\CommonTalk.hpp" />

@@ -19,6 +19,7 @@ namespace abyss
 		TexturePacker(const s3d::FilePath& json);
 		TexturePacker(const s3d::Texture& texture, const s3d::FilePath& json);
 
+		[[nodiscard]] bool isContain(const s3d::String& fileName) const;
 		[[nodiscard]] TexturePacker::Texture operator()(const s3d::String& fileName)const;
 		[[nodiscard]] explicit operator bool()const;
 	};
