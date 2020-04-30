@@ -1,6 +1,9 @@
 #include "GimmickTranslator.hpp"
 #include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
+#include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
+
 #include <abyss/controllers/Actors/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/EventTrigger/EventTriggerActor.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 
 namespace abyss
@@ -26,6 +29,11 @@ namespace abyss
                     return std::make_shared<Door::DoorActor>(door, *room);
                 }
             }
+        }
+        case GimmickType::EventTrigger:
+        {
+            const auto& eventTriggerEntity = static_cast<const EventTriggerEntity&>(entity);
+            return  std::make_shared<EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
         }
         default:
             break;

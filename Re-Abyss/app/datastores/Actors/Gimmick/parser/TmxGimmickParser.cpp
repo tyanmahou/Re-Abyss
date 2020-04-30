@@ -1,6 +1,7 @@
 #include "TmxGimmickParser.hpp"
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
+#include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
 
 using namespace s3d;
 using namespace s3dTiled;
@@ -13,6 +14,7 @@ namespace
 		static const std::unordered_map<String, GimmickType> toTypeMap{
 			{U"start_pos", GimmickType::StartPos},
 			{U"door", GimmickType::Door},
+			{U"event_trigger", GimmickType::EventTrigger},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -54,6 +56,9 @@ namespace
 				} else {
 					it->kind = DoorKind::Common;
 				}
+			});
+			PARSE_GIMMICK(EventTrigger, {
+				it->event = obj.getProperty(U"event").value_or(U"");
 			});
 		default:
 			break;

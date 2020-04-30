@@ -209,6 +209,7 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\State\Phase3State.cpp" />
     <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\EventTrigger\EventTriggerActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\State\BaseState.cpp" />
@@ -427,6 +428,7 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\EventTrigger\EventTriggerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\State\BaseState.hpp" />
@@ -501,6 +503,7 @@
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
     <ClInclude Include="app\entities\Decor\DecorAnimationEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />

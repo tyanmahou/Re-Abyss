@@ -6,6 +6,7 @@ namespace abyss
     {
         event->setManager(m_pManager);
         m_events.push(event);
+        return *this;
     }
 
     bool Events::update(double dt)

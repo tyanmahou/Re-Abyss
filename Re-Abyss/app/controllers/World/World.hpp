@@ -46,5 +46,16 @@ namespace abyss
         }
         inline WorldView& getView() {return m_view;}
         inline const WorldView& getView()const { return m_view; }
+
+        template<class Type>
+        const std::shared_ptr<Type>& find() const
+        {
+            for (const auto& actor : m_actorsHolder.getActors()) {
+                if (dynamic_cast<Type*>(actor.get())) {
+                    return std::dynamic_pointer_cast<Type>(actor);
+                }
+            }
+            return nullptr;
+        }
     };
 }

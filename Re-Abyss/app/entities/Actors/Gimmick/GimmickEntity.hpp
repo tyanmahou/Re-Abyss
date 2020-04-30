@@ -7,7 +7,8 @@ namespace abyss
 	{
 		None,
 		StartPos,
-		Door
+		Door,
+		EventTrigger,
 	};
 	struct GimmickEntity
 	{
