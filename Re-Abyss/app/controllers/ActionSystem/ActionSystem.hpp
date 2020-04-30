@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Light/Light.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
 
@@ -14,6 +15,7 @@ namespace abyss
         Camera m_camera;
         Light m_light;
         World m_world;
+        Events m_events;
         std::shared_ptr<Stage> m_stage;
 
         ActManager m_manager;

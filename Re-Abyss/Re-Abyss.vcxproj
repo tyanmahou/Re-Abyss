@@ -257,9 +257,12 @@
     <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
     <ClCompile Include="app\controllers\Decor\Decor.cpp" />
+    <ClCompile Include="app\controllers\Event\Events.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\FaceManager.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp" />
-    <ClCompile Include="app\controllers\Event\Talk\CommonTalk.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\base\TriggerEvent.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\base\TriggerManager.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\TalkEvent.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
     <ClCompile Include="app\controllers\World\WorldTime.cpp" />
     <ClCompile Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.cpp" />
@@ -315,6 +318,7 @@
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp" />
     <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
+    <ClCompile Include="app\services\Event\Talk\TalkService.cpp" />
     <ClCompile Include="app\services\Stage\StageService.cpp" />
     <ClCompile Include="app\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -470,10 +474,14 @@
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
+    <ClInclude Include="app\controllers\Event\base\IEvent.hpp" />
+    <ClInclude Include="app\controllers\Event\Events.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\FaceManager.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\CommonTalk.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\TriggerEvent.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossTalk0_0.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\datastores\Actors\Enemy\base\IEnemyDataStore.hpp" />
@@ -571,6 +579,7 @@
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
+    <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
     <ClInclude Include="app\StaticLibs.hpp" />

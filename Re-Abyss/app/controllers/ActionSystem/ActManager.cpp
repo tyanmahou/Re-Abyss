@@ -7,6 +7,11 @@ namespace abyss
         m_pWorld = pWorld;
         return *this;
     }
+    ActManager& ActManager::set(Events* pEvents)
+    {
+        m_pEvents = pEvents;
+        return *this;
+    }
     ActManager& ActManager::set(Camera* pCamera)
     {
         m_pCamera = pCamera;
@@ -28,6 +33,8 @@ namespace abyss
     {
         if constexpr (std::is_same_v<World, T>) {
             return m_pWorld;
+        } else if constexpr (std::is_same_v<Events, T>) {
+            return m_pEvents;
         } else if constexpr (std::is_same_v<Camera, T>) {
             return m_pCamera;
         } else if constexpr (std::is_same_v<Light, T>) {
@@ -37,6 +44,7 @@ namespace abyss
         }
     }
     template World* ActManager::getModule<World>() const;
+    template Events* ActManager::getModule<Events>() const;
     template Camera* ActManager::getModule<Camera>() const;
     template Light* ActManager::getModule<Light>() const;
     template Player::PlayerActor* ActManager::getModule<Player::PlayerActor>() const;

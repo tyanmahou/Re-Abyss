@@ -659,9 +659,6 @@
     <ClCompile Include="app\controllers\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\CommonTalk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -678,6 +675,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Event\Talk\base\FaceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\base\TriggerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\base\TriggerEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\TalkEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Event\Talk\TalkService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1050,13 +1062,18 @@
     <ClInclude Include="app\controllers\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\SwimState.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\CommonTalk.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
     <ClInclude Include="app\views\Event\Talk\MessageVM.hpp" />
     <ClInclude Include="app\views\Event\Talk\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\Event\Talk\CursorVM.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\FaceManager.hpp" />
+    <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
+    <ClInclude Include="app\controllers\Event\base\IEvent.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossTalk0_0.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\base\TriggerEvent.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
+    <ClInclude Include="app\controllers\Event\Events.hpp" />
   </ItemGroup>
 </Project>

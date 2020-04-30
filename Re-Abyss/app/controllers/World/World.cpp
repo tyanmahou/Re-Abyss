@@ -16,6 +16,10 @@ namespace abyss
     {
         m_pManager = pManager;
     }
+    void World::init()
+    {
+        m_actorsHolder.init();
+    }
     void World::update()
     {
         double dt = WorldTime::DeltaTime();

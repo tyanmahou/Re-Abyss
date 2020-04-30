@@ -1,11 +1,10 @@
 #include "ActionSystem.hpp"
+#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Stage/base/IStageView.hpp>
-
-#include <abyss/controllers/Event/Talk/base/Serif.hpp>
-#include <abyss/controllers/Event/Talk/base/FaceManager.hpp>
+#include <abyss/services/Event/Talk/TalkService.hpp>
 
 namespace abyss
 {
@@ -14,7 +13,9 @@ namespace abyss
         m_manager
             .set(&m_camera)
             .set(&m_light)
-            .set(&m_world);
+            .set(&m_world)
+            .set(&m_events)
+            ;
         m_world.setManager(&m_manager);
     }
 
@@ -39,7 +40,8 @@ namespace abyss
     {
         m_light.clear();
 
-        if (!m_camera.isCameraWork()) {
+        double dt = WorldTime::DeltaTime();
+        if (!m_camera.isCameraWork() && !m_events.update(dt)) {
             m_world.update();
         }
         auto& player = *m_manager.getModule<Player::PlayerActor>();
@@ -71,23 +73,6 @@ namespace abyss
             break;
         }
     }
-    
-    Event::Talk::Serif GetSerif()
-    {
-        using namespace Event::Talk;
-        SerifModel model;
-        model.setSide(SerifModel::Side::Right);
-        model.setActorName(U"?");
-        model.addMessage(U"ようこそ！わらわの第一研究施設へ");
-        model.addMessage(U"じゃが、ここに来たということは…\nそちも、あの女を追うものということ");
-        model.addMessage(U"心苦しいが\nただで返すわけにはいかんのぉ…\nあああああ");
-        Serif ret;
-        ret.setModel(std::move(model));
-        auto face = std::make_shared<FaceManager>();
-        face->add(U"?", U"actors/CodeZero/face.json");
-        ret.setFaceManager(face);
-        return ret;
-    }
     void ActionSystem::draw() const
     {
         auto cameraView = m_camera.createView();
@@ -114,9 +99,7 @@ namespace abyss
 
             cameraView.drawCameraWork();
         }
-        static Event::Talk::Serif s = GetSerif();
-        s.update();
-        s.draw();
+        m_events.draw();
     }
     void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
     {

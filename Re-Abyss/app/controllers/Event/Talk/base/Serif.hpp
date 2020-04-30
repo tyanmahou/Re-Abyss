@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/controllers/Event/base/IEvent.hpp>
 #include <abyss/models/Event/Talk/SerifModel.hpp>
 
 namespace abyss::Event::Talk
@@ -8,7 +9,7 @@ namespace abyss::Event::Talk
     class CursorVM;
     class FaceManager;
 
-    class Serif
+    class Serif : public IEvent
     {
         SerifModel m_serif;
         std::shared_ptr<MessageVM> m_messageView;
@@ -21,7 +22,7 @@ namespace abyss::Event::Talk
         ~Serif();
         void setModel(SerifModel&& model);
         void setFaceManager(const std::shared_ptr<FaceManager>& faceManager);
-        bool update();
-        void draw()const;
+        bool update(double dt) override;
+        void draw()const override;
     };
 }

@@ -7,13 +7,8 @@
 
 namespace abyss
 {
-	void ActorsHolder::pushActor(const std::shared_ptr<IActor>& obj)
-	{
-		obj->setId(m_objIdCounter++);
-		m_reserves.push_back(obj);
-	}
-	void ActorsHolder::update(double dt)
-	{
+    void ActorsHolder::init()
+    {
 		if (!m_reserves.empty()) {
 			// startでregistされてもいいようにここでmove
 			auto registing = std::move(m_reserves);
@@ -26,6 +21,15 @@ namespace abyss
 				return a->getOrder() < b->getOrder();
 			});
 		}
+	}
+    void ActorsHolder::pushActor(const std::shared_ptr<IActor>& obj)
+	{
+		obj->setId(m_objIdCounter++);
+		m_reserves.push_back(obj);
+	}
+	void ActorsHolder::update(double dt)
+	{
+		this->init();
 
 		for (auto& obj : m_actors) {
 			obj->update(dt);

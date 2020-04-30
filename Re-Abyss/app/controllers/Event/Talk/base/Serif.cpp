@@ -24,7 +24,7 @@ namespace abyss::Event::Talk
     {
         m_faceManager = faceManager;
     }
-    bool Serif::update()
+    bool Serif::update([[maybe_unused]] double dt)
     {
         return m_serif.update();
     }

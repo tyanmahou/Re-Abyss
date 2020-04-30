@@ -16,6 +16,7 @@ namespace abyss
 	class DoorCameraWork;
 	class RoomMoveCameraWork;
 	class World;
+	class Events;
 	class Stage;
 	class Light;
 	class Decor;

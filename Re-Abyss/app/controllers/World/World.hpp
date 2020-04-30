@@ -19,6 +19,7 @@ namespace abyss
         ~World();
 
         void setManager(ActManager* pManager);
+        void init();
         void update();
         void reset();
         void draw() const;

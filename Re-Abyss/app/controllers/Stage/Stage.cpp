@@ -125,7 +125,7 @@ namespace abyss
                 world.regist(obj);
             }
         }
-
+        world.init();
         return true;
     }
     s3d::Optional<StartPosModel> Stage::findStartPos(const s3d::int32 startId)const

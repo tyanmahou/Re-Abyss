@@ -10,12 +10,15 @@ namespace abyss
     {
     private:
         World* m_pWorld = nullptr;
+        Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
 
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
         ActManager& set(World* pWorld);
+
+        ActManager& set(Events* pEvents);
 
         ActManager& set(Camera* pCamera);
 
