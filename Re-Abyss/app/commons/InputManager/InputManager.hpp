@@ -57,7 +57,7 @@ namespace abyss
         inline static constexpr AbyssKey Down{ AbyssKey::Down };
         inline static constexpr AbyssKey Left{ AbyssKey::Left };
 
-        inline static constexpr AbyssKey Start{ AbyssKey::Right };
+        inline static constexpr AbyssKey Start{ AbyssKey::Start };
 
         inline static constexpr AbyssKey Jump{ AbyssKey::Jump };
         inline static constexpr AbyssKey Attack{ AbyssKey::Attack };

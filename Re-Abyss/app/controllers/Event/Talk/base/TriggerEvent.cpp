@@ -6,6 +6,7 @@ namespace abyss::Event::Talk
     void TriggerEvent::init()
     {
         m_event = (*m_triggerManager)[m_triggerName];
+        (*m_triggerManager)[m_triggerName] = nullptr;
         if (!m_event) {
             return;
         }

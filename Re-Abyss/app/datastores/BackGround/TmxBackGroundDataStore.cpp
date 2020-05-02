@@ -11,14 +11,18 @@ namespace abyss
 		auto parser = [&](const GroupLayer& layer) {
 			for (const auto& child : layer.getLayers()) {
 				child.then([&](const ImageLayer& i) {
-					BackGroundEntity entity{
-						.id = i.getId(),
-						.name = i.getName(),
-						.filePath = i.getImagePath(),
-						.offset = i.getOffset(),
-						.loop = { i.getProperty(U"loopX").value_or(false),i.getProperty(U"loopY").value_or(false) },
-						.rate = { i.getProperty(U"rateX").value_or(1.0), i.getProperty(U"rateY").value_or(1.0) }
-					};
+					BackGroundEntity entity;
+					entity.id = i.getId();
+					entity.name = i.getName();
+					entity.filePath = i.getImagePath();
+					entity.offset = i.getOffset();
+					entity.fix = { i.getProperty(U"fixX").value_or(false),i.getProperty(U"fixY").value_or(false) };
+					if (auto rateX = i.getProperty(U"rateX")) {
+						entity.rate.x = rateX->toFloat();
+					}
+					if (auto rateY = i.getProperty(U"rateY")) {
+						entity.rate.y = rateY->toFloat();
+					}
 					ret.push_back(std::move(entity));
 				});
 			}

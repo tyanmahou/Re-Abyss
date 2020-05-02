@@ -9,7 +9,7 @@ namespace abyss
         return BackGroundVM(
             entity.filePath, 
             entity.offset, 
-            entity.loop,
+            entity.fix,
             entity.rate
         );
     }

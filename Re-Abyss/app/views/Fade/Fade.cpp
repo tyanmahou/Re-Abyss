@@ -1,4 +1,4 @@
-﻿#include "Fade.hpp"
+#include "Fade.hpp"
 
 
 #include <Siv3D.hpp>

@@ -1,4 +1,5 @@
 #include "TalkEvent.hpp"
+#include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Event::Talk
 {
@@ -12,6 +13,10 @@ namespace abyss::Event::Talk
     bool TalkEvent::update(double dt)
     {
         if (m_events.empty()) {
+            return false;
+        }
+        if (InputManager::Start.down()) {
+            // skip
             return false;
         }
         if (!m_doneCurrentInit) {
