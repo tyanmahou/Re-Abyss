@@ -7,7 +7,8 @@ namespace abyss::CodeZero::Hand
 {
     HandVM::HandVM(Forward forward) :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/CodeZero/code_zero.json")),
-        m_forward(forward)
+        m_forward(forward),
+        m_rotate(0)
     {}
     HandVM& HandVM::setPos(const s3d::Vec2 & pos)
     {

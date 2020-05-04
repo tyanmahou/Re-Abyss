@@ -190,6 +190,7 @@
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\ChargeState.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp" />
+    <ClCompile Include="app\controllers\Actors\CodeZero\Demo\DemoActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\AttackState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\AttakWaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\ShotChargeState.cpp" />
@@ -409,6 +410,7 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\ChargeState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\CodeZero\Demo\DemoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\AttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\AttakWaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\ShotChargeState.hpp" />
