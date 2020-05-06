@@ -19,14 +19,7 @@ namespace abyss::Event::Talk::BossTalk0_0
             return false;
         }
         auto ref = m_codeZero.lock();
-        auto pos = ref->getPos();
-        if (pos.y <= m_targetPos.y) {
-            ref->setPos(m_targetPos);
-            return false;
-        }
-        pos.y += -120 * dt;
-        ref->setPos(pos);
-        return true;
+        return ref->moveToTarget(dt);
     }
 
     BossMove::~BossMove()

@@ -27,6 +27,7 @@ namespace abyss::CodeZero::Demo
     {
     private:
         s3d::Vec2 m_pos;
+        s3d::Vec2 m_targetPos;
         std::unique_ptr<Body::BodyVM> m_bodyVM;
         std::unique_ptr<Head::HeadVM> m_headVM;
         std::unique_ptr<Hand::HandVM> m_leftHandVM;
@@ -40,7 +41,7 @@ namespace abyss::CodeZero::Demo
         {
             return s3d::none;
         }
-
+        bool moveToTarget(double dt);
         void setPos(const s3d::Vec2& pos)
         {
             m_pos = pos;
@@ -48,6 +49,10 @@ namespace abyss::CodeZero::Demo
         const s3d::Vec2& getPos()const
         {
             return m_pos;
+        }
+        const s3d::Vec2& getTargetPos()const
+        {
+            return m_targetPos;
         }
     };
 

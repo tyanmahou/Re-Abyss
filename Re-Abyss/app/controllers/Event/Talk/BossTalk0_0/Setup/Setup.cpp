@@ -10,7 +10,7 @@ namespace abyss::Event::Talk::BossTalk0_0
         auto world = m_pManager->getModule<World>();
         auto codeZero = world->find<CodeZero::CodeZeroActor>();
         if (auto actor = codeZero.lock(); !codeZero.expired()) {
-            world->create<CodeZero::Demo::DemoActor>(actor->getPos() + s3d::Vec2{ 0, 400 });
+            world->create<CodeZero::Demo::DemoActor>(actor->getPos());
         }
 
         world->init();

@@ -719,6 +719,9 @@
     <ClCompile Include="app\utils\IntervalTimer\IntervalTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1110,5 +1113,6 @@
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
     <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
+    <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
   </ItemGroup>
 </Project>
