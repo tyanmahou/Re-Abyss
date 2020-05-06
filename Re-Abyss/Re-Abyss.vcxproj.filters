@@ -710,6 +710,9 @@
     <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\EffectEx\EffectEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1099,5 +1102,6 @@
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
   </ItemGroup>
 </Project>

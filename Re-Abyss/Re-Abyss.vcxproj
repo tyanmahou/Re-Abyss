@@ -337,6 +337,7 @@
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
+    <ClCompile Include="app\utils\EffectEx\EffectEx.cpp" />
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
@@ -607,6 +608,7 @@
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
+    <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
