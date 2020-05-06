@@ -1,12 +1,14 @@
 #pragma once
 
-#include <Siv3D/Effect.hpp>
 #include <Siv3D/Vector2D.hpp>
+#include <abyss/utils/EffectEx/EffectEx.hpp>
+#include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 namespace abyss
 {
 	class BubbleGenerator
 	{
-		s3d::Effect m_effect;
+		EffectEx m_effect;
+		IntervalTimer m_timer;
 	public:
 		BubbleGenerator();
 

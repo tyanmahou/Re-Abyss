@@ -338,6 +338,7 @@
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp" />
+    <ClCompile Include="app\utils\IntervalTimer\IntervalTimer.cpp" />
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
@@ -366,6 +367,7 @@
     <ClCompile Include="app\views\Event\Talk\CursorVM.cpp" />
     <ClCompile Include="app\views\Event\Talk\MessageBoxVM.cpp" />
     <ClCompile Include="app\views\Event\Talk\MessageVM.cpp" />
+    <ClCompile Include="app\views\Stage\Bubble\BubbleEffect.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundVM.cpp" />
@@ -609,6 +611,7 @@
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
+    <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />

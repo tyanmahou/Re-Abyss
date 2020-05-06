@@ -1,17 +1,17 @@
-﻿#include "BubbleGenerator.hpp"
+#include "BubbleGenerator.hpp"
 #include <abyss/views/Stage/Bubble/BubbleEffect.hpp>
-
+#include <abyss/controllers/World/WorldTime.hpp>
 namespace abyss
 {
-	BubbleGenerator::BubbleGenerator()
+	BubbleGenerator::BubbleGenerator():
+		m_effect(WorldTime::TimeMicroSec),
+		m_timer(3s, true, WorldTime::TimeMicroSec)
 	{
-		m_effect.setSpeed(0.1);
 	}
 
 	void BubbleGenerator::draw(const s3d::Vec2& pos) const
 	{
-		int32 f = Scene::FrameCount();
-		if (f % 160 == 0) {
+		if (m_timer.update()) {
 			m_effect.add<BubbleEffect>(pos);
 			m_effect.add<BubbleEffect>(pos, BubbleEffect::Small{});
 		}
