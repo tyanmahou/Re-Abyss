@@ -69,27 +69,32 @@ namespace abyss
 
         void update()
         {
-            if (m_previousTimeUs == 0) {
-                m_previousTimeUs = m_timeGetter().count();
-            }
             const uint64 currentTimeUs = m_timeGetter().count();
+            if (m_previousTimeUs == 0) {
+                m_previousTimeUs = currentTimeUs;
+            }
             const uint64 currentDeltaTimeUs = currentTimeUs - m_previousTimeUs;
             const int64 deltaUs = m_paused ? 0 : static_cast<int64>(currentDeltaTimeUs * m_speed);
+            m_previousTimeUs = currentTimeUs;
 
             double lastDeltaSec = deltaUs / 1'000'000.0;
 
             for (auto& effect : m_effects) {
                 effect.second += lastDeltaSec;
             }
-            s3d::Erase_if(m_effects, [](const std::pair<std::unique_ptr<IEffect>, double>& effect) {
-                auto&& [e, timeSec] = effect;
-                if (timeSec < 0.0) {
-                    return true;
-                }
-                // MEMO EffectExでは10秒制限も使用しないことにする
+            for (auto it = m_effects.begin(); it != m_effects.end();) {
+                const double timeSec = it->second;
 
-                return !e->update(timeSec);
-            });
+                if (timeSec < 0.0) {
+                    ++it;
+
+                    continue;
+                } else if (it->first->update(timeSec) == false) {
+                    it = m_effects.erase(it);
+                } else {
+                    ++it;
+                }
+            }
         }
 
         void clear()
