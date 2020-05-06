@@ -20,6 +20,11 @@ namespace abyss
 
         void setManager(ActManager* pManager);
         void init();
+
+        /// <summary>
+        /// 予約済みアクターを登録
+        /// </summary>
+        void flush();
         void update();
         void reset();
         void draw() const;
@@ -44,18 +49,18 @@ namespace abyss
         {
             m_view.addEffect<Type>(std::forward<Args>(args)...);
         }
-        inline WorldView& getView() {return m_view;}
-        inline const WorldView& getView()const { return m_view; }
+        [[nodiscard]] inline WorldView& getView() {return m_view;}
+        [[nodiscard]] inline const WorldView& getView()const { return m_view; }
 
         template<class Type>
-        const std::shared_ptr<Type>& find() const
+        [[nodiscard]] std::weak_ptr<Type> find() const
         {
             for (const auto& actor : m_actorsHolder.getActors()) {
                 if (dynamic_cast<Type*>(actor.get())) {
                     return std::dynamic_pointer_cast<Type>(actor);
                 }
             }
-            return nullptr;
+            return std::weak_ptr<Type>();
         }
     };
 }

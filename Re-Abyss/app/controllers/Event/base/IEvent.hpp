@@ -8,6 +8,7 @@ namespace abyss::Event
     protected:
         ActManager* m_pManager;
     public:
+        virtual ~IEvent() = default;
         void setManager(ActManager* manager)
         {
             m_pManager = manager;

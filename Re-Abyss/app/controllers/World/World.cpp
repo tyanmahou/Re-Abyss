@@ -18,7 +18,11 @@ namespace abyss
     }
     void World::init()
     {
-        m_actorsHolder.init();
+        this->flush();
+    }
+    void World::flush()
+    {
+        m_actorsHolder.flush();
     }
     void World::update()
     {

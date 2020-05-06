@@ -7,7 +7,7 @@
 
 namespace abyss
 {
-    void ActorsHolder::init()
+    void ActorsHolder::flush()
     {
 		if (!m_reserves.empty()) {
 			// startでregistされてもいいようにここでmove
@@ -29,7 +29,7 @@ namespace abyss
 	}
 	void ActorsHolder::update(double dt)
 	{
-		this->init();
+		this->flush();
 
 		for (auto& obj : m_actors) {
 			obj->update(dt);

@@ -3,6 +3,8 @@
 #include <abyss/controllers/Event/Talk/base/TriggerManager.hpp>
 #include <abyss/controllers/Event/Talk/base/Serif.hpp>
 #include <abyss/controllers/Event/Talk/base/TriggerEvent.hpp>
+
+#include <abyss/controllers/Event/Talk/BossTalk0_0/Build.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::Talk
@@ -15,6 +17,7 @@ namespace abyss::Event::Talk
         if (!json) {
             return talk;
         }
+        // 顔グラフィック
         auto faceManager = std::make_shared<FaceManager>();
         for (const auto& elm : json[U"actors"].arrayView()) {
             faceManager->add(
@@ -53,6 +56,12 @@ namespace abyss::Event::Talk
                 talk->addEvent(serif);
             }
         }
+        json[U"event"].getOpt<String>().then([&manager = *triggerManager](const String& name) {
+            // イベントビルド
+            if (name == U"BossTalk0-0") {
+                return BossTalk0_0::Build(manager);
+            }
+        });
         return talk;
     }
 }

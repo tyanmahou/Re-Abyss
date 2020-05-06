@@ -264,6 +264,10 @@
     <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\TriggerEvent.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\TriggerManager.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Build.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\TalkEvent.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
     <ClCompile Include="app\controllers\World\WorldTime.cpp" />
@@ -484,7 +488,10 @@
     <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\TriggerEvent.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossTalk0_0.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />

@@ -3,6 +3,19 @@
 
 namespace abyss::Event::Talk
 {
+    TalkEvent::~TalkEvent()
+    {
+        // 残りのイベントを処理する
+        while (!m_events.empty()) {
+            if (!m_doneCurrentInit) {
+                m_events.front()->setManager(m_pManager);
+                m_events.front()->init();
+                m_doneCurrentInit = true;
+            }
+            m_events.pop();
+            m_doneCurrentInit = false;
+        }
+    }
     TalkEvent& TalkEvent::addEvent(const std::shared_ptr<IEvent>& event)
     {
         m_events.push(event);

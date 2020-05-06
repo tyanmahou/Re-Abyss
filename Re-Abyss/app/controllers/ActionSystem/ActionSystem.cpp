@@ -17,6 +17,7 @@ namespace abyss
             .set(&m_events)
             ;
         m_world.setManager(&m_manager);
+        m_events.setManager(&m_manager);
     }
 
     ActionSystem::ActionSystem(const std::shared_ptr<Stage>& stage) :

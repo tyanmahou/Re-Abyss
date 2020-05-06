@@ -11,6 +11,8 @@ namespace abyss::Event::Talk
         std::queue<std::shared_ptr<IEvent>> m_events;
         bool m_doneCurrentInit = false;
     public:
+        ~TalkEvent() override;
+
         TalkEvent& addEvent(const std::shared_ptr<IEvent>& event);
 
         void init() override;

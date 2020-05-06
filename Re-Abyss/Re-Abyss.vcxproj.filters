@@ -698,6 +698,18 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\Demo\DemoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Build.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1077,12 +1089,15 @@
     <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
     <ClInclude Include="app\controllers\Event\base\IEvent.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossTalk0_0.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\TriggerEvent.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\controllers\Event\Events.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
     <ClInclude Include="app\controllers\Actors\EventTrigger\EventTriggerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Demo\DemoActor.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
   </ItemGroup>
 </Project>

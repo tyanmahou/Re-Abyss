@@ -7,10 +7,11 @@ namespace abyss::Event::Talk
 {
     class TriggerManager
     {
-        s3d::HashTable<s3d::String, std::shared_ptr<IEvent>> m_events;
+        using Factory_t = std::function<std::unique_ptr<IEvent>()>;
+        s3d::HashTable<s3d::String, Factory_t> m_events;
 
     public:
 
-        std::shared_ptr<IEvent>& operator[](const s3d::String& triggerName);
+        Factory_t& operator[](const s3d::String& triggerName);
     };
 }

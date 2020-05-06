@@ -15,7 +15,7 @@ namespace abyss
 
 		s3d::uint64 m_objIdCounter = 0;
 	public:
-		void init();
+		void flush();
 		void pushActor(const std::shared_ptr<IActor>& obj);
 		void update(double dt);
 		void lastUpdate(double dt);

@@ -10,10 +10,11 @@ namespace abyss::Event::Talk
     class TriggerEvent : public IEvent
     {
         s3d::String m_triggerName;
-        std::shared_ptr<IEvent> m_event;
+        std::unique_ptr<IEvent> m_event;
 
         std::shared_ptr<TriggerManager> m_triggerManager;
     public:
+        ~TriggerEvent() override;
         TriggerEvent& setName(const s3d::String& name)
         {
             m_triggerName = name;

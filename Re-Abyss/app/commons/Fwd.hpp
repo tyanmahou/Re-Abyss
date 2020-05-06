@@ -58,6 +58,18 @@ namespace abyss
 	}
 
 	/// <summary>
+	/// Controllers/Event
+	/// </summary>
+	namespace Event
+	{
+		namespace Talk
+		{
+			class FaceManager;
+			class TriggerManager;
+		}
+	}
+
+	/// <summary>
 	/// Datastores
 	/// </summary>
 	class IRoomDataStore;
