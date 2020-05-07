@@ -9,7 +9,7 @@
 
 namespace abyss::CodeZero::Demo
 {
-    DemoActor::DemoActor(const s3d::Vec2& pos):
+    DemoActor::DemoActor(const s3d::Vec2& pos) :
         m_pos(pos + s3d::Vec2{ 0, 400 }),
         m_targetPos(pos),
         m_bodyVM(std::make_unique<Body::BodyVM>()),
@@ -24,17 +24,16 @@ namespace abyss::CodeZero::Demo
     {
         const s3d::RectF maskArea(m_targetPos.x - 480.0, m_targetPos.y + 140, 960, 80);
 
-        maskArea.draw(s3d::ColorF(0,0.5));
-        auto mask = [maskArea] {
-            maskArea.draw(s3d::Palette::Black);
-        };
-        auto drawer = [this] {
+        {
+            auto mask = MaskUtil::Instance().notEqual([maskArea] {
+                maskArea.draw(s3d::Palette::Black);
+            });
+
             m_bodyVM->setPos(m_pos).draw();
             m_headVM->setPos(m_pos + Param::Head::Offset).draw();
             m_leftHandVM->setPos(m_pos + s3d::Vec2{ 110, 90 }).draw();
             m_rightHandVM->setPos(m_pos + s3d::Vec2{ -110, 90 }).draw();
-        };
-        MaskUtil::Draw(mask, drawer, MaskFunc::NotEqual);
+        }
     }
 
     bool DemoActor::moveToTarget(double dt)
