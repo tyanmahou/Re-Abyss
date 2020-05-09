@@ -58,7 +58,7 @@ namespace abyss::Player
             .setAccelY(BodyModel::DefaultGravity)
             .setVelocity({0, 0})
             .setMaxVelocityY(BodyModel::DefaultMaxVelocityY)
-            .setDeccelX(Param::Swim::DeccelX)
+            .setDecelX(Param::Swim::DecelX)
             .setMaxSpeedX(Param::Swim::MaxSpeedX);
     }
     void BaseState::onMove(double dt)

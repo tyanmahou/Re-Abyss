@@ -9,7 +9,7 @@ namespace abyss::Ikalien
     void SwimState::start()
     {
         m_body->setVelocity(m_rotate->getDir() * Param::Swim::Speed);
-        m_body->setAccel(-m_rotate->getDir() * Param::Swim::Deccel);
+        m_body->setAccel(-m_rotate->getDir() * Param::Swim::Decel);
     }
     void SwimState::update(double dt)
     {

@@ -29,9 +29,9 @@ namespace abyss
 
         if (m_accel.x == 0.0) {
             if (m_velocity.x > 0) {
-                m_velocity.x -= m_deccelX * dt;
+                m_velocity.x -= m_decelX * dt;
             } else if (m_velocity.x < 0) {
-                m_velocity.x += m_deccelX * dt;
+                m_velocity.x += m_decelX * dt;
             }
             if (s3d::Abs(m_velocity.x) < 0.6) {
                 m_velocity.x = 0;
@@ -66,9 +66,9 @@ namespace abyss
         m_accel.y = accel;
         return *this;
     }
-    BodyModel& BodyModel::setDeccelX(double deccel)
+    BodyModel& BodyModel::setDecelX(double decel)
     {
-        m_deccelX = deccel;
+        m_decelX = decel;
         return *this;
     }
     BodyModel& BodyModel::setVelocity(const s3d::Vec2& velocity)
@@ -225,7 +225,7 @@ namespace abyss
     BodyModel& BodyModel::noneResistanced()
     {
         return this->setAccel({ 0, 0 })
-            .setDeccelX(0)
+            .setDecelX(0)
             .setMaxSpeed(s3d::none);
     }
     BodyModel& BodyModel::reversed()

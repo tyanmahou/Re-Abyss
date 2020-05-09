@@ -17,14 +17,14 @@ namespace abyss::Player
         };
 
         [[TOML_BIND_PARAM(Swim::AccelX, "Swim.accelX")]]
-        [[TOML_BIND_PARAM(Swim::DeccelX, "Swim.deccelX")]]
+        [[TOML_BIND_PARAM(Swim::DecelX, "Swim.decelX")]]
         [[TOML_BIND_PARAM(Swim::MaxSpeedX, "Swim.maxSpeedX")]]
         [[TOML_BIND_PARAM(Swim::DiveSpeed, "Swim.diveSpeed")]]
         [[TOML_BIND_PARAM(Swim::JumpHeight, "Swim.jumpHeight")]]
         struct Swim
         {
             inline static double AccelX{ 360.0 };
-            inline static double DeccelX{ 180.0 };
+            inline static double DecelX{ 180.0 };
             inline static double MaxSpeedX{ 240.0 };
             inline static double DiveSpeed{ 150.0 };
             inline static double JumpHeight{ 90.0 };

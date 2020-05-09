@@ -27,11 +27,11 @@ namespace abyss::Ikalien
         };
 
         [[TOML_BIND_PARAM(Swim::Speed, "Swim.speed")]]
-        [[TOML_BIND_PARAM(Swim::Deccel, "Swim.deccel")]]
+        [[TOML_BIND_PARAM(Swim::Decel, "Swim.decel")]]
         struct Swim
         {
             inline static double Speed{ 360.0 };
-            inline static double Deccel{ 360.0 };
+            inline static double Decel{ 360.0 };
         };
 
         [[TOML_BIND_PARAM(View::WaitAnimeTimeSec, "View.waitAnimeTimeSec")]]

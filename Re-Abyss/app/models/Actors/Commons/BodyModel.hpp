@@ -22,7 +22,7 @@ namespace abyss
         s3d::Vector2D <s3d::Optional<double>> m_maxVelocity;
 
         s3d::Vec2 m_accel{0, DefaultGravity};
-        double m_deccelX = 0.0;
+        double m_decelX = 0.0;
 
         Forward m_forward{Forward::None};
 
@@ -36,7 +36,7 @@ namespace abyss
         BodyModel& setAccelX(double accel);
         BodyModel& setAccelY(double accel);
 
-        BodyModel& setDeccelX(double deccel);
+        BodyModel& setDecelX(double deccel);
 
         BodyModel& setVelocity(const s3d::Vec2& velocity);
         BodyModel& setVelocityX(double velocity);
