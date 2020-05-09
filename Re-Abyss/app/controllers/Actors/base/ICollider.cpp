@@ -1,4 +1,4 @@
-﻿#include "ICollider.hpp"
+#include "ICollider.hpp"
 
 namespace abyss
 {

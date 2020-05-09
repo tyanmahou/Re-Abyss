@@ -8,17 +8,10 @@ namespace abyss::Slime
 
     class Senser : public IActor
     {
-		s3d::Vec2 m_pos;
-		bool m_onCollision = true;
-		SlimeActor* m_parent;
+		Ref<PosModel> m_pos;
 	public:
-		Senser(SlimeActor* p) :
-			m_parent(p)
-		{}
-		void update(double)override;
-		void draw() const override;
-		CShape getCollider() const override;
+		Senser(SlimeActor* p);
 
-		void onCollisionStay(ICollider* col) override;
+		const s3d::Vec2& getPos() const;
     };
 }

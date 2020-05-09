@@ -8,5 +8,6 @@ namespace abyss
     namespace Time
     {
         s3d::Microseconds GetNow();
+        s3d::Microseconds FromSec(double sec);
     }
 }

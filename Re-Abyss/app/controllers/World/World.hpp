@@ -2,7 +2,7 @@
 
 #include <abyss/controllers/ActorsHolder/ActorsHolder.hpp>
 #include <abyss/views/World/WorldView.hpp>
-#include <abyss/commons/Concept.hpp>
+
 namespace abyss
 {
     class World
@@ -30,7 +30,8 @@ namespace abyss
         void draw() const;
 
         template<class Type, class... Args>
-        std::shared_ptr<Type> create(Args&& ... args) //requires IsActor<Type>
+        std::shared_ptr<Type> create(Args&& ... args) 
+            requires IsActor<Type>
         {
             auto obj = std::make_shared<Type>(std::forward<Args>(args)...);
             this->regist(obj);
@@ -38,7 +39,8 @@ namespace abyss
         }
 
         template<class Type>
-        void regist(const std::shared_ptr<Type>& actor) //requires IsActor<Type>
+        void regist(const std::shared_ptr<Type>& actor) 
+            requires IsActor<Type>
         {
             actor->setManager(m_pManager);
             m_actorsHolder.pushActor(actor);
@@ -53,14 +55,17 @@ namespace abyss
         [[nodiscard]] inline const WorldView& getView()const { return m_view; }
 
         template<class Type>
-        [[nodiscard]] std::weak_ptr<Type> find() const
+        [[nodiscard]] Ref<Type> find() const
+            requires IsActor<Type>
         {
-            for (const auto& actor : m_actorsHolder.getActors()) {
-                if (dynamic_cast<Type*>(actor.get())) {
-                    return std::dynamic_pointer_cast<Type>(actor);
-                }
-            }
-            return std::weak_ptr<Type>();
+            return m_actorsHolder.find<Type>();
+        }
+
+        template<class Type>
+        [[nodiscard]] s3d::Array<Ref<Type>> finds() const
+            requires IsComponent<Type>
+        {
+            return m_actorsHolder.finds<Type>();
         }
     };
 }

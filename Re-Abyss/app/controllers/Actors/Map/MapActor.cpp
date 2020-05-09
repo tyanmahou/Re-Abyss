@@ -1,19 +1,29 @@
 #include "MapActor.hpp"
 #include <abyss/commons/LayerGroup.hpp>
-
+#include <abyss/models/Actors/Map/ColliderModel.hpp>
 namespace abyss::Map
 {
 	MapActor::MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size) :
-		m_col(col),
-		m_pos(pos),
-		m_size(size)
+		m_col(col)
 	{
-		this->layer = LayerGroup::Map;
+		layer = LayerGroup::Map;
+		{
+			auto collider = std::make_shared<ColliderModel>(this, pos, size);
+			collider->setLayer(LayerGroup::Map);
+			this->addComponent(collider);
+			m_collider = collider;
+		}
+
 	}
 
 	const s3d::Vec2& MapActor::getPos() const
 	{
-		return m_pos;
+		return m_collider->getPos();
+	}
+
+	const s3d::Vec2& MapActor::getSize() const
+	{
+		return m_collider->getSize();
 	}
 
 	ColDirection MapActor::getCol() const
@@ -23,7 +33,7 @@ namespace abyss::Map
 
 	s3d::RectF MapActor::region() const
 	{
-		return s3d::RectF{ m_pos - m_size / 2, m_size };
+		return m_collider->region();
 	}
 
 	CShape MapActor::getCollider() const

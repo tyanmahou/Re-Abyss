@@ -61,7 +61,7 @@ namespace abyss
 				auto alpha = EaseInOut(Easing::Linear, 1.0 - t);
 				Circle(pos, Scene::Width() * func(1.0 - t)).draw(ColorF(0, alpha));
 			});
-			rect.movedBy(-Constants::GameScreenOffset).draw(g_fadeColor);
+			rect.draw(g_fadeColor);
 		}
 	}
 

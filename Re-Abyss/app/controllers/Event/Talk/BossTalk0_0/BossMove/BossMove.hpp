@@ -1,5 +1,5 @@
 #pragma once
-#include <memory>
+#include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/controllers/Event/base/IEvent.hpp>
 
 namespace abyss::CodeZero::Demo
@@ -13,7 +13,7 @@ namespace abyss::Event::Talk::BossTalk0_0
         void init()override;
         bool update(double dt) override;
     private:
-        std::weak_ptr<CodeZero::Demo::DemoActor> m_codeZero;
+        Ref<CodeZero::Demo::DemoActor> m_codeZero;
 
         s3d::Vec2 m_initPos;
         s3d::Vec2 m_targetPos;

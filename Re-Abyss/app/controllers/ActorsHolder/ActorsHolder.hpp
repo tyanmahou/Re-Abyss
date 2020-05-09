@@ -5,6 +5,8 @@
 #include <Siv3D/Fwd.hpp>
 
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/concepts/Actor.hpp>
+#include <abyss/concepts/Component.hpp>
 
 namespace abyss
 {
@@ -18,7 +20,7 @@ namespace abyss
 		void flush();
 		void pushActor(const std::shared_ptr<IActor>& obj);
 		void update(double dt);
-		void lastUpdate(double dt);
+		void lastUpdate();
 		void draw()const;
 
 		void erase();
@@ -27,5 +29,30 @@ namespace abyss
 
 		s3d::Array<std::shared_ptr<IActor>>& getActors();
 		const s3d::Array<std::shared_ptr<IActor>>& getActors() const;
+
+		template<class Type>
+		[[nodiscard]] Ref<Type> find() const
+			requires IsActor<Type>
+		{
+			for (const auto& actor : m_actors) {
+				if (dynamic_cast<Type*>(actor.get())) {
+					return std::dynamic_pointer_cast<Type>(actor);
+				}
+			}
+			return nullptr;
+		}
+
+		template<class Type>
+		[[nodiscard]] s3d::Array<Ref<Type>> finds() const
+			requires IsComponent<Type>
+		{
+			s3d::Array<Ref<Type>> ret;
+			for (const auto& actor : m_actors) {
+				if (auto c = actor->findComponent<Type>()) {
+					ret.push_back(c);
+				}
+			}
+			return ret;
+		}
 	};
 }

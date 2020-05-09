@@ -105,6 +105,9 @@ namespace abyss
 	class CameraModel;
 	class BodyModel;
 	class IDecorModel;
+	class IColliderModel;
+	class ActorTimeModel;
+	class PosModel;
 
 	/// <summary>
 	/// Services

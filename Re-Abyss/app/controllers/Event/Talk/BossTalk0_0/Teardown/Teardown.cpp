@@ -6,9 +6,9 @@ namespace abyss::Event::Talk::BossTalk0_0
     void Teardown::init()
     {
         auto world = m_pManager->getModule<World>();
-        auto demoCodeZero = world->find<CodeZero::Demo::DemoActor>();
-        if (auto actor = demoCodeZero.lock(); !demoCodeZero.expired()) {
-            actor->destroy();
+       
+        if (auto demoCodeZero = world->find<CodeZero::Demo::DemoActor>()) {
+            demoCodeZero->destroy();
         }
     }
 

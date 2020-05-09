@@ -8,27 +8,25 @@ namespace abyss::Event::Talk::BossTalk0_0
     {
         auto world = m_pManager->getModule<World>();
         m_codeZero = world->find<CodeZero::Demo::DemoActor>();
-        m_initPos = m_codeZero.lock()->getPos();
+        m_initPos = m_codeZero->getPos();
 
         m_targetPos = m_initPos - s3d::Vec2{ 0, 400 };
     }
 
     bool BossMove::update(double dt)
     {
-        if (m_codeZero.expired()) {
+        if (!m_codeZero) {
             return false;
         }
-        auto ref = m_codeZero.lock();
-        return ref->moveToTarget(dt);
+        return m_codeZero->moveToTarget(dt);
     }
 
     BossMove::~BossMove()
     {
-        if (m_codeZero.expired()) {
+        if (!m_codeZero) {
             return ;
         }
-        auto ref = m_codeZero.lock();
-        ref->setPos(m_targetPos);
+        m_codeZero->setPos(m_targetPos);
     }
 
 }

@@ -3,6 +3,7 @@
 
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/models/Actors/base/IColliderModel.hpp>
 
 namespace abyss
 {
@@ -31,8 +32,9 @@ namespace abyss
         m_actorsHolder.update(dt);
         // 衝突
         m_collision->collisionAll(m_actorsHolder.getActors());
+        m_collision->collisionAll(this->finds<IColliderModel>());
 
-        m_actorsHolder.lastUpdate(dt);
+        m_actorsHolder.lastUpdate();
 
         m_actorsHolder.erase();
     }

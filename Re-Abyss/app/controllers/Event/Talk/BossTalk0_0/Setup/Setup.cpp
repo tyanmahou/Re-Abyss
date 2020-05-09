@@ -8,9 +8,9 @@ namespace abyss::Event::Talk::BossTalk0_0
     void Setup::init()
     {
         auto world = m_pManager->getModule<World>();
-        auto codeZero = world->find<CodeZero::CodeZeroActor>();
-        if (auto actor = codeZero.lock(); !codeZero.expired()) {
-            world->create<CodeZero::Demo::DemoActor>(actor->getPos());
+        
+        if (auto codeZero = world->find<CodeZero::CodeZeroActor>()) {
+            world->create<CodeZero::Demo::DemoActor>(codeZero->getPos());
         }
 
         world->init();

@@ -3,7 +3,6 @@
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>
-
 namespace abyss
 {
     class DebugManager::Impl
@@ -12,6 +11,8 @@ namespace abyss
         bool m_isDrawColider = false;
         bool m_disableDarkNess = false;
         int m_frameRate = 60;
+
+        bool m_showFps = false;
         void update()
         {
             if (Key1.down()) {
@@ -30,7 +31,12 @@ namespace abyss
                 m_frameRate = 60;
                 Graphics::SetTargetFrameRateHz(s3d::none);
             }
-
+            if (KeyF7.down()) {
+                m_showFps ^= true;
+            }
+            if (m_showFps) {
+                Print << Profiler::FPS();
+            }
         }
     };
     DebugManager::DebugManager():

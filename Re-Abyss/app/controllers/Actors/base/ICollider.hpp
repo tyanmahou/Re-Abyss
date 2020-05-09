@@ -13,7 +13,7 @@ namespace abyss
 		s3d::String layer;
 	public:
 
-		virtual CShape getCollider() const = 0;
+		virtual CShape getCollider() const { return s3d::none; }
 
 		virtual void onCollisionEnter(ICollider*);
 		virtual void onCollisionStay(ICollider*);

@@ -1,42 +1,27 @@
 #include "Senser.hpp"
-#include <abyss/commons/ActInclude.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+
+#include <abyss/models/Actors/Slime/Sencer/MainUpdateModel.hpp>
+#include <abyss/models/Actors/Slime/Sencer/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Slime/Sencer/CollisionModel.hpp>
+#include <abyss/models/Actors/Commons/PosModel.hpp>
+#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
 namespace abyss::Slime
 {
-	void Senser::update([[maybe_unused]]double dt)
+	Senser::Senser(SlimeActor* p)
 	{
-		if (this->isDestroyed()) {
-			return;
-		}
-		if (!m_onCollision && m_parent->isWalk()) {
-			m_parent->getBody().reversed();
-		}
-		auto isLeft = m_parent->getForward() == Forward::Left;
-		if (isLeft) {
-			m_pos = m_parent->getPos() + Vec2{ -20, 20 };
-		} else {
-			m_pos = m_parent->getPos() + Vec2{ 20, 20 };
-		}
+		m_pos = this->addComponent<PosModel>();
+		this->addComponent<Sencer::MainUpdateModel>(this);
+		this->addComponent<Sencer::ParentCtrlModel>(p);
+		this->addComponent<Sencer::CollisionModel>();
 
-		m_onCollision = false;
-	}
-
-	void Senser::draw() const
-	{
-	}
-
-	CShape Senser::getCollider() const
-	{
-		return m_pos;
-	}
-
-	void Senser::onCollisionStay(ICollider* col)
-	{
-		col->accept([this](MapActor&) {
-			m_onCollision = true;
+		this->addComponent<CustomColliderModel>(this)
+			->setColFunc([this]() {
+			return this->getPos();
 		});
 	}
-
+	const s3d::Vec2& Senser::getPos() const
+	{
+		return m_pos->getPos();
+	}
 }

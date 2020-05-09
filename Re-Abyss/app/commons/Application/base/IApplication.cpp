@@ -57,17 +57,6 @@ namespace
 
 		::ChangeWindowSize(ws);
 	}
-
-	void DrawFps()
-	{
-		static bool showFps = false;
-		if (KeyF7.down()) {
-			showFps ^= true;
-		}
-		if (showFps) {
-			Print << Profiler::FPS();
-		}
-	}
 }
 namespace abyss
 {
@@ -90,7 +79,6 @@ namespace abyss
 	bool IApplication::run() const
 	{
 		while (System::Update()) {
-			::DrawFps();
 
 			if (KeyF4.down()) {
 				::ChangeWindowSize();

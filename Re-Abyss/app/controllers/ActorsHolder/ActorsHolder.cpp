@@ -4,6 +4,8 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
+#include <abyss/models/Actors/base/IColliderModel.hpp>
 
 namespace abyss
 {
@@ -14,6 +16,7 @@ namespace abyss
 			auto registing = std::move(m_reserves);
 			m_reserves.clear();
 			for (auto& obj : registing) {
+				obj->setup();
 				obj->start();
 				m_actors.push_back(std::move(obj));
 			}
@@ -35,13 +38,14 @@ namespace abyss
 			if (!obj->isActive()) {
 				continue;
 			}
-			obj->update(dt);
+			obj->updateTime(dt);
+			obj->update();
 		}
 	}
-	void ActorsHolder::lastUpdate(double dt)
+	void ActorsHolder::lastUpdate()
 	{
 		for (auto& obj : m_actors) {
-			obj->lastUpdate(dt);
+			obj->lastUpdate();
 		}
 	}
 	void ActorsHolder::draw() const
@@ -53,7 +57,9 @@ namespace abyss
 			obj->draw();
 #if ABYSS_DEBUG
 			if (DebugManager::IsDrawColider()) {
-				DebugManager::DrawColider(obj->getCollider());
+				for (auto&& collider : obj->findComponents<IColliderModel>()) {
+					DebugManager::DrawColider(collider->getCollider());
+				}
 			}
 #endif
 		}
