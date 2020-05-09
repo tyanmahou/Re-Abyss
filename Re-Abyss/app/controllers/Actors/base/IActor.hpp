@@ -44,6 +44,10 @@ namespace abyss
 		{
 			m_isActive = active;
 		}
+		inline bool isActive() const
+		{
+			return m_isActive;
+		}
 		inline void destroy()
 		{
 			m_isDestroyed = true;

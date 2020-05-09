@@ -11,7 +11,13 @@ namespace abyss
 		this->m_currentCollision.clear();
 
 		for (auto it1 = objects.begin(); it1 != objects.end(); ++it1) {
+			if (!(*it1)->isActive()) {
+				continue;
+			}
 			for (auto it2 = it1 + 1; it2 != objects.end(); ++it2) {
+				if (!(*it2)->isActive()) {
+					continue;
+				}
 				if ((*it1)->getLayer() == (*it2)->getLayer()) {
 					continue;
 				}

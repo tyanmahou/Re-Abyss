@@ -32,6 +32,9 @@ namespace abyss
 		this->flush();
 
 		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
 			obj->update(dt);
 		}
 	}
@@ -44,6 +47,9 @@ namespace abyss
 	void ActorsHolder::draw() const
 	{
 		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
 			obj->draw();
 #if ABYSS_DEBUG
 			if (DebugManager::IsDrawColider()) {
