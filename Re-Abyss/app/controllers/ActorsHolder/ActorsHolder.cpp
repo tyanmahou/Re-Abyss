@@ -55,7 +55,7 @@ namespace abyss
 	void ActorsHolder::erase()
 	{
 		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			return obj->isDelete();
+			return obj->isDestroyed();
 		});
 	}
 	void ActorsHolder::clear()

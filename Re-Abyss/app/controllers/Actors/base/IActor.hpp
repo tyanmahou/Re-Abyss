@@ -7,6 +7,8 @@ namespace abyss
 {
 	class IActor : public ICollider
 	{
+	private:
+		bool m_isDestroyed = false;
 	protected:
 		ActManager* m_pManager = nullptr;
 		s3d::uint64 m_id;
@@ -44,13 +46,12 @@ namespace abyss
 		}
 		inline void destroy()
 		{
-			this->setActive(false);
+			m_isDestroyed = true;
 		}
-		inline bool isDelete() const
+		inline bool isDestroyed() const
 		{
-			return !m_isActive;
+			return m_isDestroyed;
 		}
-
 		inline bool isDontDestoryOnLoad() const
 		{
 			return m_isDontDestoryOnLoad;

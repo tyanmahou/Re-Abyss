@@ -7,7 +7,7 @@ namespace abyss::Slime
 {
 	void Senser::update([[maybe_unused]]double dt)
 	{
-		if (!m_isActive) {
+		if (this->isDestroyed()) {
 			return;
 		}
 		if (!m_onCollision && m_parent->isWalk()) {

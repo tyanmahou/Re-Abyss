@@ -57,7 +57,7 @@ namespace abyss::Enemy
     {
 		col->accept([this](const Attacker& attacker) {
 			if (m_hp.damage(attacker.getPower()) && m_hp.isDead()) {
-				m_isActive = false;
+				this->destroy();
 				this->onDead();
 			}
 		});
