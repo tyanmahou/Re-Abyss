@@ -3,14 +3,10 @@
 #include <abyss/models/Collision/CollisionUtil.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
-#include "..\Actors\Slime\Sencer\CollisionModel.hpp"
-
 namespace abyss
 {
 	void SimpleCollision::collisionAll(const s3d::Array<Ref<IColliderModel>>& colliders)
 	{
-		DebugLog::Print << colliders.size();
 		// Collision
 		auto prevCollision = std::move(this->m_currentCollision);
 		this->m_currentCollision.clear();
