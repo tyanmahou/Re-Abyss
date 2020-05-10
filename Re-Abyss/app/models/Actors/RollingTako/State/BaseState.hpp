@@ -3,7 +3,7 @@
 
 namespace abyss::RollingTako
 {
-    class BaseState : public IState<RollingTakoActor>
+    class BaseState : public exp::IState<RollingTakoActor>
     {
     protected:
         BodyModel* m_body;
@@ -19,6 +19,6 @@ namespace abyss::RollingTako
 
         void onCollisionMap(ColDirection colDir);
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
     };
 }

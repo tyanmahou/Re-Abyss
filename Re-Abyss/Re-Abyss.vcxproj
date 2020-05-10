@@ -237,9 +237,6 @@
     <ClCompile Include="app\controllers\Actors\Player\State\LadderState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\SwimState.cpp" />
     <ClCompile Include="app\controllers\Actors\RollingTako\RollingTakoActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\BaseState.cpp" />
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\RunState.cpp" />
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Schield\SchieldActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Schield\Shot\ShotActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Schield\Shot\State\BaseState.cpp" />
@@ -311,6 +308,9 @@
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\RollingTako\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\RollingTako\State\RunState.cpp" />
+    <ClCompile Include="app\models\Actors\RollingTako\State\WaitState.cpp" />
     <ClCompile Include="app\models\Actors\Slime\DeadCallbackModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\CollisionModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\MainUpdateModel.cpp" />
@@ -480,9 +480,6 @@
     <ClInclude Include="app\controllers\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\SwimState.hpp" />
     <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\RunState.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\SchieldActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\State\BaseState.hpp" />
@@ -574,6 +571,9 @@
     <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\RunState.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Slime\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\MainUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\CollisionModel.hpp" />

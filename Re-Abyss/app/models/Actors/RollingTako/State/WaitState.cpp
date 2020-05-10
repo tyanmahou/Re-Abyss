@@ -8,7 +8,7 @@ namespace abyss::RollingTako
 {
     void WaitState::update(double dt)
     {
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;
         if (f * d.x > 0 && d.length() <= Param::Wait::SearchRange) {
             this->changeState(State::Run);
@@ -18,6 +18,6 @@ namespace abyss::RollingTako
 
     void WaitState::draw() const
     {
-        m_actor->getBindedView()->drawWait();
+        m_pActor->getBindedView()->drawWait();
     }
 }

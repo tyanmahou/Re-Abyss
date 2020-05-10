@@ -548,15 +548,6 @@
     <ClCompile Include="app\controllers\Actors\Schield\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\RunState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\RollingTako\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\HandActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -756,6 +747,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Slime\DeadCallbackModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\RollingTako\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\RollingTako\State\RunState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\RollingTako\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1089,9 +1089,6 @@
     <ClInclude Include="app\controllers\Actors\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\RunState.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\HeadActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\BaseState.hpp" />
@@ -1176,5 +1173,8 @@
     <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\SenserCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\RunState.hpp" />
+    <ClInclude Include="app\models\Actors\RollingTako\State\WaitState.hpp" />
   </ItemGroup>
 </Project>

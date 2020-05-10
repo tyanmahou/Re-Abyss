@@ -15,6 +15,6 @@ namespace abyss::RollingTako
 
     void RunState::draw() const
     {
-        m_actor->getBindedView()->drawRun();
+        m_pActor->getBindedView()->drawRun();
     }
 }

@@ -5,7 +5,7 @@ namespace abyss::RollingTako
 {
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
+        m_body = this->m_pActor->findComponent<BodyModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -14,7 +14,7 @@ namespace abyss::RollingTako
 
     void BaseState::lastUpdate([[maybe_unused]] double dt)
     {
-        if (auto colDir = m_body->fixPos(m_actor->getModule<Camera>()->getCurrentRoom())) {
+        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom())) {
             this->onCollisionMap(colDir);
         }
     }
@@ -34,7 +34,7 @@ namespace abyss::RollingTako
             m_body->setForward(Forward::Left);
         }
     }
-    void BaseState::onCollisionStay(ICollider* col)
+    void BaseState::onCollisionStay(IActor* col)
     {
         col->accept([this](const MapActor& map) {
 
@@ -50,6 +50,6 @@ namespace abyss::RollingTako
             }
         });
 
-        m_actor->EnemyActor::onCollisionStay(col);
+        m_pActor->EnemyActor::onCollisionStay(col);
     }
 }

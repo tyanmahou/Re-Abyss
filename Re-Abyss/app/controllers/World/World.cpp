@@ -31,7 +31,6 @@ namespace abyss
 
         m_actorsHolder.update(dt);
         // 衝突
-        m_collision->collisionAll(m_actorsHolder.getActors());
         m_collision->collisionAll(this->finds<IColliderModel>());
 
         m_actorsHolder.lastUpdate();

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
 
 namespace abyss
 {
@@ -24,16 +24,10 @@ namespace abyss::RollingTako
     private:
         bool m_isWait;
 
-        StateManager<RollingTakoActor> m_state;
+        Ref<exp::StateModel<RollingTakoActor>> m_state;
         std::shared_ptr<RollingTakoVM> m_view;
     public:
         RollingTakoActor(const RollingTakoEntity& entity);
-
-        void update(double dt)override;
-        void lastUpdate(double dt) override;
-        void draw()const;
-
-        void onCollisionStay(ICollider* col) override;
 
         bool accept(const ActVisitor& visitor) override;
 
