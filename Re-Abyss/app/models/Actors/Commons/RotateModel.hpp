@@ -1,9 +1,9 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
-
+#include <abyss/models/Actors/base/IComponent.hpp>
 namespace abyss
 {
-    class RotateModel
+    class RotateModel : public IComponent
     {
     private:
         double m_rotate = 0;

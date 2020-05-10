@@ -1,22 +1,21 @@
 #include "PursuitState.hpp"
 
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/params/Actors/Ikalien/Param.hpp>
 #include <abyss/controllers/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Ikalien
 {
-    PursuitState::PursuitState():
-        m_timer(2s, true, WorldTime::TimeMicroSec)
+    PursuitState::PursuitState()
     {}
     void PursuitState::start()
     {
+        m_timer = TimerEx(2s, true, [this] {return m_pActor->getTime(); });
         m_body->noneResistanced();
     }
     void PursuitState::update(double dt)
     {
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(Param::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir().cross(d) > 0) {
@@ -37,7 +36,7 @@ namespace abyss::Ikalien
     }
     void PursuitState::draw() const
     {
-        m_actor->getBindedView()->drawPursuit();
+        m_pActor->getBindedView()->drawPursuit();
     }
 
 }

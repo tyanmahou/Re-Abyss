@@ -3,14 +3,12 @@
 
 namespace abyss::Ikalien
 {
-    class BaseState : public IState<IkalienActor>
+    class BaseState : public exp::IState<IkalienActor>
     {
     protected:
         BodyModel* m_body;
         RotateModel* m_rotate;
     public:
         void setup()override;
-
-        void onCollisionStay(ICollider* col) override;
     };
 }

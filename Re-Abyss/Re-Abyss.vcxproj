@@ -213,10 +213,6 @@
     <ClCompile Include="app\controllers\Actors\EventTrigger\EventTriggerActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ikalien\State\BaseState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ikalien\State\PursuitState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ikalien\State\SwimState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ikalien\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\Shot\ShotActor.cpp" />
@@ -304,6 +300,10 @@
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
     <ClCompile Include="app\models\Actors\Door\DoorModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp" />
+    <ClCompile Include="app\models\Actors\Ikalien\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\Ikalien\State\PursuitState.cpp" />
+    <ClCompile Include="app\models\Actors\Ikalien\State\SwimState.cpp" />
+    <ClCompile Include="app\models\Actors\Ikalien\State\WaitState.cpp" />
     <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
@@ -456,10 +456,6 @@
     <ClInclude Include="app\controllers\Actors\EventTrigger\EventTriggerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ikalien\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ikalien\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ikalien\State\SwimState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ikalien\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
@@ -569,6 +565,10 @@
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Ikalien\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Ikalien\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\Ikalien\State\SwimState.hpp" />
+    <ClInclude Include="app\models\Actors\Ikalien\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\RollingTako\State\BaseState.hpp" />

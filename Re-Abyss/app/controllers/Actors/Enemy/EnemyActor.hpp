@@ -27,7 +27,7 @@ namespace abyss
 
 			void start() override;
 			const s3d::Vec2& getPos()const;
-			const s3d::Vec2& getVellocity()const;
+			const s3d::Vec2& getVelocity()const;
 
 			Forward getForward()const;
 			bool accept(const ActVisitor& visitor) override;

@@ -44,7 +44,7 @@ namespace abyss::Slime
 	{
 		return &m_view->setForward(this->getForward())
 			.setPos(this->getPos())
-			.setVelocity(this->getVellocity())
+			.setVelocity(this->getVelocity())
 			.setIsDamaging(this->m_hpModel->isInInvincibleTime())
 			;
 	}

@@ -49,7 +49,5 @@ namespace abyss::RollingTako
                 m_body->setForward(Forward::Left);
             }
         });
-
-        m_pActor->EnemyActor::onCollisionStay(col);
     }
 }

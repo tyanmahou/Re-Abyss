@@ -5,14 +5,14 @@ namespace abyss::Ikalien
 {
     void WaitState::update([[maybe_unused]]double dt)
     {
-        if (m_actor->getModule<Camera>()->inScreen(m_body->getPos())) {
+        if (m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState(State::Pursuit);
         }
     }
 
     void WaitState::draw() const
     {
-        m_actor->getBindedView()->drawWait();
+        m_pActor->getBindedView()->drawWait();
     }
 
 }

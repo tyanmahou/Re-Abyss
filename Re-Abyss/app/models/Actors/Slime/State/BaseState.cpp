@@ -31,8 +31,6 @@ namespace abyss::Slime
                 m_body->setForward(Forward::Left);
             }
         });
-
-        m_pActor->EnemyActor::onCollisionStay(col);
     }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {

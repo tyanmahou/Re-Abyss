@@ -20,7 +20,7 @@ namespace abyss::Ikalien
     }
     void SwimState::draw() const
     {
-        m_actor->getBindedView()->drawSwim();
+        m_pActor->getBindedView()->drawSwim();
     }
 
 }

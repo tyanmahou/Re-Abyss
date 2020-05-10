@@ -27,7 +27,7 @@ namespace abyss::Enemy
 	{
 		return m_bodyModel->getPos();
 	}
-	const s3d::Vec2& EnemyActor::getVellocity() const
+	const s3d::Vec2& EnemyActor::getVelocity() const
 	{
 		return m_bodyModel->getVelocity();
 	}
