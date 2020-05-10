@@ -1185,5 +1185,6 @@
     <ClInclude Include="app\views\Actors\Schield\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
   </ItemGroup>
 </Project>

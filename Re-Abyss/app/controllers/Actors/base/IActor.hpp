@@ -42,7 +42,7 @@ namespace abyss
 		virtual void start() {}
 		void update();
 		void lastUpdate();
-		virtual void draw()const;
+		void draw()const;
 
 		virtual bool accept(const ActVisitor& visitor);
 

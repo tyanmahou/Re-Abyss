@@ -9,8 +9,10 @@
 #include <abyss/controllers/Actors/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
+#include <abyss/debugs/DebugLog/DebugLog.hpp>
+
 namespace abyss::CodeZero
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
@@ -35,6 +37,14 @@ namespace abyss::CodeZero
         }
         {
             this->attach<PatternModel>(this);
+        }
+        {
+            // デバッグでライフ表示 UIができるまで
+#if ABYSS_DEBUG
+            this->attach<CustomDrawModel>()->setDrawer([this] {
+                DebugLog::Print << m_hp->value();
+            });
+#endif
         }
         m_order = -99;
     }

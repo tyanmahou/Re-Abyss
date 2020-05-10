@@ -35,8 +35,6 @@ namespace abyss::CodeZero::Demo
     public:
         DemoActor(const s3d::Vec2& pos);
 
-        void draw() const override;
-
         bool moveToTarget(double dt);
         void setPos(const s3d::Vec2& pos)
         {

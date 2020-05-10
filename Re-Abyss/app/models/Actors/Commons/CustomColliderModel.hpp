@@ -4,6 +4,9 @@
 
 namespace abyss
 {
+    /// <summary>
+    /// 汎用当たり判定
+    /// </summary>
     class CustomColliderModel : 
         public IComponent,
         public IColliderModel

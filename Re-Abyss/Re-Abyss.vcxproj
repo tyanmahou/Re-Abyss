@@ -462,6 +462,7 @@
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\LaunShark\State\AttackState.hpp" />
     <ClInclude Include="app\models\Actors\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\LaunShark\State\LauncherState.hpp" />
