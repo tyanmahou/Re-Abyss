@@ -13,7 +13,7 @@ namespace abyss::Schield
     {
         abyss::DamageModel::setup();
 
-        m_state = m_pActor->findComponent<exp::StateModel<SchieldActor>>();
+        m_state = m_pActor->find<exp::StateModel<SchieldActor>>();
     }
     void DamageModel::onCollisionStay(IActor* col)
     {
@@ -21,7 +21,7 @@ namespace abyss::Schield
             // 待機中以外はダメージを受けない
             return;
         }
-        auto fromCol = col->findComponent<IColliderModel>()->getCollider();
+        auto fromCol = col->find<IColliderModel>()->getCollider();
         auto faceCol = m_state->getActor()->getFaceCollider();
         if (!ColisionUtil::Intersects(fromCol, faceCol)) {
             return;

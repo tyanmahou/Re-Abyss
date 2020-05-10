@@ -52,22 +52,22 @@ namespace abyss
 		T* getModule() const;
 
 		template<class Component>
-		Ref<Component> addComponent(const std::shared_ptr<Component>& component)
+		Ref<Component> attach(const std::shared_ptr<Component>& component)
 			requires IsComponent<Component>
 		;
 
 		template<class Component, class... Args>
-		Ref<Component> addComponent(Args&&... args)
+		Ref<Component> attach(Args&&... args)
 			requires
 			IsComponent<Component>&&
 			std::constructible_from<Component, Args...>
 		;
 
 		template<class Component>
-		[[nodiscard]] Ref<Component> findComponent() const;
+		[[nodiscard]] Ref<Component> find() const;
 
 		template<class Component>
-		[[nodiscard]] s3d::Array<Ref<Component>> findComponents() const;
+		[[nodiscard]] s3d::Array<Ref<Component>> finds() const;
 
 		s3d::Microseconds getTime() const;
 	};

@@ -7,8 +7,8 @@ namespace abyss::LaunShark
 {
     void BaseState::setup()
     {
-        m_body = m_pActor->findComponent<BodyModel>().get();
-        m_timeCounter = m_pActor->findComponent<TimeCounterModel>().get();
+        m_body = m_pActor->find<BodyModel>().get();
+        m_timeCounter = m_pActor->find<TimeCounterModel>().get();
     }
 
     void BaseState::tryReverse(ColDirection col)

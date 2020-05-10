@@ -13,18 +13,18 @@ namespace abyss::CodeZero::Head
         m_view(std::make_shared<HeadVM>())
     {
         {
-            m_parent = this->addComponent<ParentCtrlModel>(parent);
+            m_parent = this->attach<ParentCtrlModel>(parent);
         }
         {
-            m_head = this->addComponent<HeadModel>(this);
+            m_head = this->attach<HeadModel>(this);
         }
         {
-            this->addComponent<exp::StateModel<HeadActor>>(this)
+            this->attach<exp::StateModel<HeadActor>>(this)
                 ->add<BaseState>(State::Base)
                 ;
         }
         {
-            auto col = this->addComponent<CustomColliderModel>(this);
+            auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }

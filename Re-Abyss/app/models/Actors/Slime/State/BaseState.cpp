@@ -6,7 +6,7 @@ namespace abyss::Slime
 {
     void BaseState::setup()
     {
-        m_body = this->m_pActor->findComponent<BodyModel>().get();
+        m_body = this->m_pActor->find<BodyModel>().get();
     }
     void BaseState::update(double dt)
     {

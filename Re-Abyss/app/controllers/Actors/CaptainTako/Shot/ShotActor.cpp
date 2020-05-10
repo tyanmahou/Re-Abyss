@@ -12,18 +12,18 @@ namespace abyss::CaptainTako::Shot
         m_view(std::make_shared<ShotVM>())
     {
         {
-            auto col = this->addComponent<CustomColliderModel>(this);
+            auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }
 
         {
-            this->addComponent<exp::StateModel<ShotActor>>(this)
+            this->attach<exp::StateModel<ShotActor>>(this)
                 ->add<BaseState>(State::Base)
                 ;
         }
         {
-            (m_body = this->addComponent<BodyModel>(this))
+            (m_body = this->attach<BodyModel>(this))
                 ->setPos(pos)
                 .setForward(forward)
                 .noneResistanced()
@@ -31,7 +31,7 @@ namespace abyss::CaptainTako::Shot
                 ;
         }
         {
-            this->addComponent<DeadOnHItReceiverModel>(this);
+            this->attach<DeadOnHItReceiverModel>(this);
         }
         m_power = 1;
     }

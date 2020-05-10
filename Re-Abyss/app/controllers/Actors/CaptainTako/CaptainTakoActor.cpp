@@ -23,15 +23,15 @@ namespace abyss::CaptainTako
         }
 
         {
-            this->addComponent<exp::StateModel<CaptainTakoActor>>(this)
+            this->attach<exp::StateModel<CaptainTakoActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<ChargeState>(State::Charge)
                 .add<AttackState>(State::Attack)
                 ;
         }
         {
-            this->addComponent<DamageModel>(this);
-            this->addComponent<Enemy::DeadCallbackModel>(this);
+            this->attach<DamageModel>(this);
+            this->attach<Enemy::DeadCallbackModel>(this);
         }
     }
     bool CaptainTakoActor::accept(const ActVisitor & visitor)

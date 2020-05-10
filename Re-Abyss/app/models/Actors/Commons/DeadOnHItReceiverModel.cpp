@@ -19,7 +19,7 @@ namespace abyss
         }
         col->accept([this](const Receiver&) {
             // 当たって消える
-            for (auto&& callback : m_pActor->findComponents<IDeadCallbackModel>()) {
+            for (auto&& callback : m_pActor->finds<IDeadCallbackModel>()) {
                 callback->onDead();
             }
             if (m_isAutoDestroy) {

@@ -9,11 +9,11 @@ namespace abyss::Player::Shot
 {
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
-		m_shot = this->addComponent<PlayerShotModel>(charge);
-		(m_state = this->addComponent<exp::StateModel<ShotActor>>(this))
+		m_shot = this->attach<PlayerShotModel>(charge);
+		(m_state = this->attach<exp::StateModel<ShotActor>>(this))
 			->add<BaseState>(State::Base);
 
-		(m_body = this->addComponent<BodyModel>(this))
+		(m_body = this->attach<BodyModel>(this))
 			->setPos(pos)
 			.setForward(forward)
 			.noneResistanced()
@@ -23,7 +23,7 @@ namespace abyss::Player::Shot
 		m_power = m_shot->toPower();
 		m_view = std::make_shared<ShotVM>(*m_shot, forward);
 
-		auto collider = this->addComponent<CustomColliderModel>(this);
+		auto collider = this->attach<CustomColliderModel>(this);
 		collider->setColFunc([this] {
 			return this->getColliderCircle();
 		});
@@ -31,7 +31,7 @@ namespace abyss::Player::Shot
 
 		if (!m_shot->isBig()) {
 			// Bigじゃなければ壁にあたって破壊される
-			this->addComponent<DeadOnHItReceiverModel>(this);
+			this->attach<DeadOnHItReceiverModel>(this);
 		}
 	}
 	void ShotActor::start()

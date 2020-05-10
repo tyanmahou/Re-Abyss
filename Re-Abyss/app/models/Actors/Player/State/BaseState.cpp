@@ -47,10 +47,10 @@ namespace abyss::Player
     {}
     void BaseState::setup()
     {
-        m_body   = m_pActor->findComponent<BodyModel>().get();
-        m_foot   = m_pActor->findComponent<FootModel>().get();
-        m_charge = m_pActor->findComponent<ChargeModel>().get();
-        m_hp     = m_pActor->findComponent<HPModel>().get();
+        m_body   = m_pActor->find<BodyModel>().get();
+        m_foot   = m_pActor->find<FootModel>().get();
+        m_charge = m_pActor->find<ChargeModel>().get();
+        m_hp     = m_pActor->find<HPModel>().get();
     }
     void BaseState::start()
     {

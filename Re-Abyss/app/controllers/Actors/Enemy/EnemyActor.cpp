@@ -7,13 +7,13 @@ namespace abyss::Enemy
 	{
 		// Body
 		{
-			(m_body = this->addComponent<BodyModel>(this))
+			(m_body = this->attach<BodyModel>(this))
 				->initPos(pos)
 				.setForward(forward);
 		}
 		// HP
 		{
-			(m_hp = this->addComponent<HPModel>(this))
+			(m_hp = this->attach<HPModel>(this))
 				->setHp(1)
 				.setInvincibleTime(0.2);
 
@@ -21,7 +21,7 @@ namespace abyss::Enemy
 
 		// Collider
 		{
-			auto collider = this->addComponent<CustomColliderModel>(this);
+			auto collider = this->attach<CustomColliderModel>(this);
 			collider->setColFunc([this] {
 				return this->region();
 			});

@@ -9,7 +9,7 @@ namespace abyss
 	{}
 	void DamageModel::setup()
 	{
-		m_hp = m_pActor->findComponent<HPModel>();
+		m_hp = m_pActor->find<HPModel>();
 	}
 	DamageModel& DamageModel::setAutoDestroy(bool isAuto)
 	{
@@ -23,11 +23,11 @@ namespace abyss
 		}
 		col->accept([this](const Attacker& attacker) {
 			if (m_hp->damage(attacker.getPower())) {
-				for (auto&& callback : m_pActor->findComponents<IDamageCallbackModel>()) {
+				for (auto&& callback : m_pActor->finds<IDamageCallbackModel>()) {
 					callback->onDamaged();
 				}
 				if (m_hp->isDead()) {
-					for (auto&& callback : m_pActor->findComponents<IDeadCallbackModel>()) {
+					for (auto&& callback : m_pActor->finds<IDeadCallbackModel>()) {
 						callback->onDead();
 					}
 					if (m_isAutoDestroy) {

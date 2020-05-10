@@ -9,7 +9,7 @@ namespace abyss::Map
 		{
 			auto collider = std::make_shared<ColliderModel>(this, pos, size);
 			collider->setLayer(LayerGroup::Map);
-			this->addComponent(collider);
+			this->attach(collider);
 			m_collider = collider;
 		}
 

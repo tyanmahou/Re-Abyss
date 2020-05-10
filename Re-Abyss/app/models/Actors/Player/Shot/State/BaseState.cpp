@@ -7,8 +7,8 @@ namespace abyss::Player::Shot
 {
     void BaseState::setup()
     {    
-        m_body = this->m_pActor->findComponent<BodyModel>().get();
-        m_shot = this->m_pActor->findComponent<PlayerShotModel>().get();
+        m_body = this->m_pActor->find<BodyModel>().get();
+        m_shot = this->m_pActor->find<PlayerShotModel>().get();
     }
 
     void BaseState::start()

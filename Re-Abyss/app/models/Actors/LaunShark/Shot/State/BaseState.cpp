@@ -6,7 +6,7 @@ namespace abyss::LaunShark::Shot
 {
     void BaseState::setup()
     {
-        m_body = m_pActor->findComponent<BodyModel>().get();
-        m_rotate = m_pActor->findComponent<RotateModel>().get();
+        m_body = m_pActor->find<BodyModel>().get();
+        m_rotate = m_pActor->find<RotateModel>().get();
     }
 }

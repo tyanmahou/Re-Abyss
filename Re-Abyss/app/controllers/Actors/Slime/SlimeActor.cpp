@@ -20,20 +20,20 @@ namespace abyss::Slime
 		m_hp->setHp(Param::Base::Hp);
 		m_body
 			->setMaxSpeedX(Param::Walk::MaxSpeedX);
-		m_state = this->addComponent<exp::StateModel<SlimeActor>>(this);
+		m_state = this->attach<exp::StateModel<SlimeActor>>(this);
 		m_state
 			->add<WalkState>(State::Walk)
 			.add<JumpState>(State::Jump)
 			;
-		this->addComponent<DamageModel>(this);
-		this->addComponent<DeadCallbackModel>(this);
-		this->addComponent<SenserCtrlModel>();
+		this->attach<DamageModel>(this);
+		this->attach<DeadCallbackModel>(this);
+		this->attach<SenserCtrlModel>();
 	}
 
 	void SlimeActor::start()
 	{
 		auto m_senser = getModule<World>()->create<Senser>(this);
-		this->findComponent<SenserCtrlModel>()->set(m_senser);
+		this->find<SenserCtrlModel>()->set(m_senser);
 	}
 
 	bool SlimeActor::accept(const ActVisitor& visitor)

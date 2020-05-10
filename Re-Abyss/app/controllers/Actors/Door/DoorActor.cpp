@@ -10,7 +10,7 @@ namespace abyss::Door
 		m_door(door),
 		m_nextRoom(nextRoom)
 	{
-		auto col = this->addComponent<CustomColliderModel>(this);
+		auto col = this->attach<CustomColliderModel>(this);
 		col->setLayer(LayerGroup::Gimmick);
 
 		col->setColFunc([this] {return this->getCollider(); });

@@ -16,31 +16,31 @@ namespace abyss::LaunShark::Shot
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward):
         m_view(std::make_shared<ShotVM>())
     {
-        m_rotate = this->addComponent<RotateModel>();
+        m_rotate = this->attach<RotateModel>();
 
         if (forward == Forward::Right) {
             m_rotate->setRotate(s3d::Math::Constants::Pi);
         }
 
-        auto col = this->addComponent<CustomColliderModel>(this);
+        auto col = this->attach<CustomColliderModel>(this);
         col->setLayer(LayerGroup::Enemy);
         col->setColFunc([this] {return this->getCollider(); });
-        (m_body = this->addComponent<BodyModel>(this))
+        (m_body = this->attach<BodyModel>(this))
             ->setPos(pos)
             .noneResistanced()
             .setSize(ShotParam::Base::Size);
-        (m_hp = this->addComponent<HPModel>(this))
+        (m_hp = this->attach<HPModel>(this))
             ->setHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
 
-        this->addComponent<exp::StateModel<ShotActor>>(this)
+        this->attach<exp::StateModel<ShotActor>>(this)
             ->add<WaitState>(State::Wait)
             .add<PursuitState>(State::Pursuit)
             .add<FiringedState>(State::Firinged)
             ;
 
-        this->addComponent<DamageModel>(this);
-        this->addComponent<DeadOnHItReceiverModel>(this);
-        this->addComponent<Enemy::DeadCallbackModel>(this);
+        this->attach<DamageModel>(this);
+        this->attach<DeadOnHItReceiverModel>(this);
+        this->attach<Enemy::DeadCallbackModel>(this);
     }
     void ShotActor::start()
     {    

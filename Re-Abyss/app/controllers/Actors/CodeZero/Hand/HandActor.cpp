@@ -19,10 +19,10 @@ namespace abyss::CodeZero::Hand
         m_view = std::make_shared<HandVM>(forward);
 
         {
-            this->addComponent<ParentCtrlModel>(parent);
+            this->attach<ParentCtrlModel>(parent);
         }
         {
-            (m_state = this->addComponent<exp::StateModel<HandActor>>(this))
+            (m_state = this->attach<exp::StateModel<HandActor>>(this))
                 ->add<PursuitState>(State::Pursuit)
                 .add<AttackWaitState>(State::AttackWait)
                 .add<AttackState>(State::Attack)
@@ -30,20 +30,20 @@ namespace abyss::CodeZero::Hand
                 ;
         }
         {
-            auto col = this->addComponent<CustomColliderModel>(this);
+            auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }
         {
-            (m_body = this->addComponent<BodyModel>())
+            (m_body = this->attach<BodyModel>())
                 ->initPos(parent->getPos() + s3d::Vec2{ forward * -110, 90 })
                 .noneResistanced();
         }
         {
-            m_rotate = this->addComponent<RotateModel>();
+            m_rotate = this->attach<RotateModel>();
         }
         {
-            m_hand = this->addComponent<HandModel>();
+            m_hand = this->attach<HandModel>();
         }
     }
 

@@ -24,17 +24,17 @@ namespace abyss::CodeZero
             m_body->noneResistanced();
         }
         {
-            (m_state = this->addComponent<exp::StateModel<CodeZeroActor>>(this))
+            (m_state = this->attach<exp::StateModel<CodeZeroActor>>(this))
                 ->add<Phase1State>(State::Phase1)
                 .add<Phase2State>(State::Phase2)
                 .add<Phase3State>(State::Phase3)
                 ;
         }
         {
-            this->findComponent<CustomColliderModel>()->setActive(false);
+            this->find<CustomColliderModel>()->setActive(false);
         }
         {
-            this->addComponent<PatternModel>(this);
+            this->attach<PatternModel>(this);
         }
         m_order = -99;
     }

@@ -11,9 +11,9 @@ namespace abyss::Slime::Sencer
 	{}
 	void MainUpdateModel::setup()
     {
-        m_parentCtrl = m_pActor->findComponent<ParentCtrlModel>();
-        m_collision = m_pActor->findComponent<CollisionModel>();
-        m_pos = m_pActor->findComponent<PosModel>();
+        m_parentCtrl = m_pActor->find<ParentCtrlModel>();
+        m_collision = m_pActor->find<CollisionModel>();
+        m_pos = m_pActor->find<PosModel>();
     }
     void MainUpdateModel::onUpdate([[maybe_unused]]double dt)
     {

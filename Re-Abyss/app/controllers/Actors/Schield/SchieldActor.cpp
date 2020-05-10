@@ -22,14 +22,14 @@ namespace abyss::Schield
             m_body->setSize(Param::Base::Size);
         }
         {
-            (m_state = this->addComponent<exp::StateModel<SchieldActor>>(this))
+            (m_state = this->attach<exp::StateModel<SchieldActor>>(this))
                 ->add<WaitState>(State::Wait)
                 .add<AttackPlusState>(State::AttackPlus)
                 .add<AttackCrossState>(State::AttackCross)
                 ;
         }
-        this->addComponent<DamageModel>(this);
-        this->addComponent<Enemy::DeadCallbackModel>(this);
+        this->attach<DamageModel>(this);
+        this->attach<Enemy::DeadCallbackModel>(this);
     }
     s3d::Circle SchieldActor::getFaceCollider() const
     {

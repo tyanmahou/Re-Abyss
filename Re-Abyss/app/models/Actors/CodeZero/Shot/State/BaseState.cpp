@@ -6,9 +6,9 @@ namespace abyss::CodeZero::Shot
 {
     void BaseState::setup()
     {
-        m_parent = m_pActor->findComponent<ParentCtrlModel>().get();
-        m_body = m_pActor->findComponent<BodyModel>().get();
-        m_scale = m_pActor->findComponent<ScaleModel>().get();
+        m_parent = m_pActor->find<ParentCtrlModel>().get();
+        m_body = m_pActor->find<BodyModel>().get();
+        m_scale = m_pActor->find<ScaleModel>().get();
     }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {

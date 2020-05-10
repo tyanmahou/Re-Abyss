@@ -17,14 +17,14 @@ namespace abyss::LaunShark
         m_body
             ->noneResistanced()
             .setSize(Param::Base::Size);
-        this->addComponent<exp::StateModel<LaunSharkActor>>(this)
+        this->attach<exp::StateModel<LaunSharkActor>>(this)
             ->add<SwimState>(State::Swim)
             .add<LauncherState>(State::Launcher)
             .add<AttackState>(State::Attack)
             ;
-        this->addComponent<TimeCounterModel>();
-        this->addComponent<DamageModel>(this);
-        this->addComponent<Enemy::DeadCallbackModel>(this);
+        this->attach<TimeCounterModel>();
+        this->attach<DamageModel>(this);
+        this->attach<Enemy::DeadCallbackModel>(this);
     }
     
     bool LaunSharkActor::accept(const ActVisitor& visitor)

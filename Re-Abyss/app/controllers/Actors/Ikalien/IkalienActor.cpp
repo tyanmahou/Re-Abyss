@@ -19,17 +19,17 @@ namespace abyss::Ikalien
         m_hp->setHp(Param::Base::Hp);
         m_body->noneResistanced().setPivot(Param::Base::Pivot);
 
-        m_rotate = this->addComponent<RotateModel>();
+        m_rotate = this->attach<RotateModel>();
 
-        this->addComponent<exp::StateModel<IkalienActor>>(this)
+        this->attach<exp::StateModel<IkalienActor>>(this)
             ->add<WaitState>(State::Wait)
             .add<PursuitState>(State::Pursuit)
             .add<SwimState>(State::Swim)
         ;
-        this->addComponent<DamageModel>(this);
-        this->addComponent<Enemy::DeadCallbackModel>(this);
+        this->attach<DamageModel>(this);
+        this->attach<Enemy::DeadCallbackModel>(this);
 
-        this->findComponent<CustomColliderModel>()->setColFunc([this] {
+        this->find<CustomColliderModel>()->setColFunc([this] {
             return this->getCollider();
         });
     }

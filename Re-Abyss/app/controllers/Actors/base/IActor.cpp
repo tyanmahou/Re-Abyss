@@ -7,7 +7,7 @@ namespace abyss
 {
 	IActor::IActor()
 	{
-		m_time = this->addComponent<ActorTimeModel>();
+		m_time = this->attach<ActorTimeModel>();
 	}
 	void IActor::updateTime(double worldDt) const
 	{
@@ -20,7 +20,7 @@ namespace abyss
 	void IActor::update()
 	{
 		double dt = m_time->getDeltaTime();
-		for (auto&& com : this->findComponents<IUpdateModel>()) {
+		for (auto&& com : this->finds<IUpdateModel>()) {
 			com->onUpdate(dt);
 		}
 		this->update(dt);
@@ -28,14 +28,14 @@ namespace abyss
 	void IActor::lastUpdate()
 	{
 		double dt = m_time->getDeltaTime();
-		for (auto&& com : this->findComponents<ILastUpdateModel>()) {
+		for (auto&& com : this->finds<ILastUpdateModel>()) {
 			com->onLastUpdate(dt);
 		}
 		this->lastUpdate(dt);
 	}
 	void IActor::draw() const
 	{
-		for (auto&& com : this->findComponents<IDrawModel>()) {
+		for (auto&& com : this->finds<IDrawModel>()) {
 			com->onDraw();
 		}
 	}

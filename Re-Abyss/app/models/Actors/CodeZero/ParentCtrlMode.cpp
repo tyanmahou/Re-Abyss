@@ -10,7 +10,7 @@ namespace abyss::CodeZero
     }
     void ParentCtrlModel::setup()
     {
-        m_hp = m_parent->findComponent<HPModel>();
+        m_hp = m_parent->find<HPModel>();
     }
     Ref<HPModel> ParentCtrlModel::getHp() const
     {

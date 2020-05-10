@@ -8,7 +8,7 @@ namespace abyss::CaptainTako::Shot
 {
     void BaseState::setup()
     {
-        m_body = m_pActor->findComponent<BodyModel>().get();
+        m_body = m_pActor->find<BodyModel>().get();
     }
 
     void BaseState::start()

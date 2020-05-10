@@ -8,8 +8,8 @@ namespace abyss::CodeZero
     {}
     void BaseState::setup()
     {
-        m_hp = m_pActor->findComponent<HPModel>().get();
-        m_pattern = m_pActor->findComponent<PatternModel>().get();
+        m_hp = m_pActor->find<HPModel>().get();
+        m_pattern = m_pActor->find<PatternModel>().get();
     }
     void BaseState::update([[maybe_unused]]double dt)
     {

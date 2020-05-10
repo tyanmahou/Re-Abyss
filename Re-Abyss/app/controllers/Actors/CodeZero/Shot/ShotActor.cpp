@@ -13,26 +13,26 @@ namespace abyss::CodeZero::Shot
         m_view(std::make_shared<ShotVM>())
     {
         {
-            this->addComponent<ParentCtrlModel>(parent);
+            this->attach<ParentCtrlModel>(parent);
         }
         {
-            this->addComponent<exp::StateModel<ShotActor>>(this)
+            this->attach<exp::StateModel<ShotActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<PursuitState>(State::Pursuit)
                 .add<PursuitEndState>(State::PursuitEnd)
             ;
         }
         {
-            auto col = this->addComponent<CustomColliderModel>(this);
+            auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }
         {
-            (m_scale = this->addComponent<ScaleModel>())
+            (m_scale = this->attach<ScaleModel>())
                 ->set(0.0);
         }
         {
-            (m_body = this->addComponent<BodyModel>())
+            (m_body = this->attach<BodyModel>())
                 ->initPos(parent->getPos())
                 .noneResistanced();
         }

@@ -18,7 +18,7 @@ namespace abyss::Player
 
         // Collider
         {
-            auto col = this->addComponent<CustomColliderModel>(this);
+            auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Player);
             col->setColFunc([this]() {
                 return this->getCollider();
@@ -26,20 +26,20 @@ namespace abyss::Player
         }
         // Body
         {
-            (m_body = this->addComponent<BodyModel>(this))
+            (m_body = this->attach<BodyModel>(this))
                 ->setSize(Param::Base::Size)
                 .setForward(Forward::Right)
              ;
         }
         // HP
         {
-            (m_hp = this->addComponent<HPModel>(this))
+            (m_hp = this->attach<HPModel>(this))
                 ->setHp(Param::Base::Hp)
                 .setInvincibleTime(Param::Base::InvincibleTime);
         }
         // State
         {
-            (m_state = this->addComponent<exp::StateModel<PlayerActor>>(this))
+            (m_state = this->attach<exp::StateModel<PlayerActor>>(this))
                 ->add<SwimState>(State::Swim)
                 .add<LadderState>(State::Ladder)
                 .add<DamageState>(State::Damage)
@@ -47,11 +47,11 @@ namespace abyss::Player
         }
         // Charge
         {
-            m_charge = this->addComponent<ChargeModel>();
+            m_charge = this->attach<ChargeModel>();
         }
         // Foot
         {
-            m_foot = this->addComponent<FootModel>();
+            m_foot = this->attach<FootModel>();
         }
         m_order = 10;
     }

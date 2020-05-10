@@ -24,7 +24,7 @@ namespace abyss::RollingTako
                 .setMaxSpeedX(Param::Run::MaxSpeedX);
         }
         {
-            (m_state = this->addComponent<exp::StateModel<RollingTakoActor>>(this))
+            (m_state = this->attach<exp::StateModel<RollingTakoActor>>(this))
                 ->add<WaitState>(State::Wait)
                 .add<RunState>(State::Run)
             ;
@@ -32,8 +32,8 @@ namespace abyss::RollingTako
                 m_state->changeState(State::Run);
             }
         }
-        this->addComponent<DamageModel>(this);
-        this->addComponent<Enemy::DeadCallbackModel>(this);
+        this->attach<DamageModel>(this);
+        this->attach<Enemy::DeadCallbackModel>(this);
     }
 
     bool RollingTakoActor::accept(const ActVisitor & visitor)

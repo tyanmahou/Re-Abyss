@@ -11,7 +11,7 @@ namespace abyss::CodeZero::Head
     {}
     void HeadModel::setup()
     {
-        m_parentCtrl = m_pActor->findComponent<ParentCtrlModel>();
+        m_parentCtrl = m_pActor->find<ParentCtrlModel>();
     }
 
     s3d::Vec2 HeadModel::getPos() const

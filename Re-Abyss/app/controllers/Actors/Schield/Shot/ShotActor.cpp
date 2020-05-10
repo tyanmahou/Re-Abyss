@@ -13,25 +13,25 @@ namespace abyss::Schield::Shot
         m_view(std::make_shared<ShotVM>())
     {
         {
-            this->addComponent<exp::StateModel<ShotActor>>(this)
+            this->attach<exp::StateModel<ShotActor>>(this)
                 ->add<BaseState>(State::Base);
         }
         {
-            (m_body = this->addComponent<BodyModel>(this))
+            (m_body = this->attach<BodyModel>(this))
                 ->initPos(pos)
                 .noneResistanced()
                 .setVelocity(dir.normalized() * ShotParam::Base::Speed);
 
         }
         {
-            auto collider = this->addComponent<CustomColliderModel>(this);
+            auto collider = this->attach<CustomColliderModel>(this);
             collider->setColFunc([this] {
                 return this->getCollider();
             });
             collider->setLayer(LayerGroup::Enemy);
         }
         {
-            this->addComponent<DeadOnHItReceiverModel>(this);
+            this->attach<DeadOnHItReceiverModel>(this);
         }
         m_power = 1;
     }

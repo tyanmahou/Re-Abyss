@@ -10,12 +10,12 @@ namespace abyss::Slime
 {
 	Senser::Senser(SlimeActor* p)
 	{
-		m_pos = this->addComponent<PosModel>();
-		this->addComponent<Sencer::MainUpdateModel>(this);
-		this->addComponent<Sencer::ParentCtrlModel>(p);
-		this->addComponent<Sencer::CollisionModel>();
+		m_pos = this->attach<PosModel>();
+		this->attach<Sencer::MainUpdateModel>(this);
+		this->attach<Sencer::ParentCtrlModel>(p);
+		this->attach<Sencer::CollisionModel>();
 
-		this->addComponent<CustomColliderModel>(this)
+		this->attach<CustomColliderModel>(this)
 			->setColFunc([this]() {
 			return this->getPos();
 		});

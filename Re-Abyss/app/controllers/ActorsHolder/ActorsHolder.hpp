@@ -47,7 +47,7 @@ namespace abyss
 		{
 			s3d::Array<Ref<Type>> ret;
 			for (const auto& actor : m_actors) {
-				if (auto c = actor->findComponent<Type>()) {
+				if (auto c = actor->find<Type>()) {
 					ret.push_back(c);
 				}
 			}

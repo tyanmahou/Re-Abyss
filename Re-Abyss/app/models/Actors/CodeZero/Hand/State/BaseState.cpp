@@ -8,10 +8,10 @@ namespace abyss::CodeZero::Hand
     }
     void BaseState::setup()
     {
-        m_parent = m_pActor->findComponent<ParentCtrlModel>()->getParent();
-        m_body = m_pActor->findComponent<BodyModel>().get();
-        m_rotate = m_pActor->findComponent<RotateModel>().get();
-        m_hand = m_pActor->findComponent<HandModel>().get();
+        m_parent = m_pActor->find<ParentCtrlModel>()->getParent();
+        m_body = m_pActor->find<BodyModel>().get();
+        m_rotate = m_pActor->find<RotateModel>().get();
+        m_hand = m_pActor->find<HandModel>().get();
     }
     void BaseState::draw() const
     {

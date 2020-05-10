@@ -9,10 +9,10 @@ namespace abyss::CodeZero::Head
 {
     void BaseState::setup()
     {
-        auto parentCtrl = m_pActor->findComponent<ParentCtrlModel>();
+        auto parentCtrl = m_pActor->find<ParentCtrlModel>();
         m_hp = parentCtrl->getHp().get();
         m_parent = parentCtrl->getParent();
-        m_head = m_pActor->findComponent<HeadModel>().get();
+        m_head = m_pActor->find<HeadModel>().get();
     }
     void BaseState::update([[maybe_unused]]double dt)
     {
@@ -37,7 +37,7 @@ namespace abyss::CodeZero::Head
     {
         col->accept([this](const Attacker& attacker) {
             if (m_hp->damage(attacker.getPower()) && m_hp->isDead()) {
-                for (auto&& callback : m_parent->findComponents<IDeadCallbackModel>()) {
+                for (auto&& callback : m_parent->finds<IDeadCallbackModel>()) {
                     callback->onDead();
                 }
             }
