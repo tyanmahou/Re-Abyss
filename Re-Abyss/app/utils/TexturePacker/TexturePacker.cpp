@@ -153,6 +153,7 @@ namespace abyss
 	{
 		m_size = size;
 		m_center = m_size / 2;
+		return *this;
 	}
 	TexturePacker::Texture& TexturePacker::Texture::scaled(double scale)
 	{

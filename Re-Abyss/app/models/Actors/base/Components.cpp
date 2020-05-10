@@ -19,7 +19,9 @@ namespace abyss
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component)
         {
             if (m_table.find(key) != m_table.end()) {
+#if ABYSS_DEBUG
                 DebugLog::PrintCache << U"Multi Component:" << s3d::Unicode::Widen(key.name());
+#endif
                 return false;
             }
             m_table[key] = component;
