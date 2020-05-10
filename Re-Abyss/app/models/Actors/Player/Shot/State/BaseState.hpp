@@ -4,7 +4,7 @@
 namespace abyss::Player::Shot
 {
 
-    class BaseState : public IState<ShotActor>
+    class BaseState : public exp::IState<ShotActor>
     {
     protected:
         BodyModel* m_body;
@@ -17,7 +17,7 @@ namespace abyss::Player::Shot
 
         void update(double dt) override;
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
 
         void draw() const override;
     };

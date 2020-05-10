@@ -22,7 +22,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<CustomColliderModel>
+    struct ComponentTree<DamageModel>
     {
         using Base = ICollisionCallbackModel;
     };

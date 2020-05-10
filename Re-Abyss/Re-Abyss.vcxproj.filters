@@ -632,9 +632,6 @@
     <ClCompile Include="app\controllers\Actors\LaunShark\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Player\Shot\ShotActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClCompile>
@@ -747,6 +744,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Slime\SenserCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Slime\DeadCallbackModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1108,7 +1117,6 @@
     <ClInclude Include="app\controllers\Actors\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LauncherState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\SwimState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
@@ -1162,5 +1170,11 @@
     <ClInclude Include="app\models\Actors\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\models\Actors\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\SenserCtrlModel.hpp" />
   </ItemGroup>
 </Project>

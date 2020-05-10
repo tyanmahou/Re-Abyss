@@ -69,6 +69,8 @@ namespace abyss
 
 		template<class Component>
 		[[nodiscard]] s3d::Array<Ref<Component>> findComponents() const;
+
+		s3d::Microseconds getTime() const;
 	};
 }
 #include "IActor.ipp"

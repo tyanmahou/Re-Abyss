@@ -7,37 +7,37 @@ namespace abyss::Player::Shot
 {
     void BaseState::setup()
     {    
-        m_body = this->binded<BodyModel>();
-        m_shot = this->binded<PlayerShotModel>();
+        m_body = this->m_pActor->findComponent<BodyModel>().get();
+        m_shot = this->m_pActor->findComponent<PlayerShotModel>().get();
     }
 
     void BaseState::start()
     {
-        m_actor->getBindedView()->addShotFiringEffect();
+        m_pActor->getBindedView()->addShotFiringEffect();
     }
 
     void BaseState::update(double dt)
     {
         m_body->update(dt);
         // 画面外判定
-        if (!m_actor->getModule<Camera>()->inRoom(m_actor->getColliderCircle())) {
-            m_actor->destroy();
+        if (!m_pActor->getModule<Camera>()->inRoom(m_pActor->getColliderCircle())) {
+            m_pActor->destroy();
         }
     }
 
-    void BaseState::onCollisionStay(ICollider * col)
+    void BaseState::onCollisionStay(IActor * col)
     {
         col->accept([this](const Receiver&) {
             if (!m_shot->isBig()) {
 
                 // 当たって消える
-                m_actor->destroy();
+                m_pActor->destroy();
             }
         });
     }
 
     void BaseState::draw() const
     {
-        m_actor->getBindedView()->draw();
+        m_pActor->getBindedView()->draw();
     }
 }

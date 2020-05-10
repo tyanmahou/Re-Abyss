@@ -57,15 +57,12 @@ namespace abyss::experimental
 {
     HPModel::HPModel(IActor* pActor):
         m_hp(0),
+        m_invincibleTime(1.0, false, [pActor] {return pActor->getTime();}),
         m_pActor(pActor)
     {}
 
     void HPModel::setup()
     {
-        auto timer = m_pActor->findComponent<ActorTimeModel>();
-        m_invincibleTime = TimerEx(1.0, false, [timer] {
-            return timer.lock()->getTime();
-        });
     }
     HPModel& HPModel::setHp(s3d::int32 hp)
     {
@@ -75,7 +72,7 @@ namespace abyss::experimental
 
     HPModel& HPModel::setInvincibleTime(double invincibleTimeSec)
     {
-        m_invincibleTime.set(s3d::Duration(invincibleTimeSec));
+        m_invincibleTime = TimerEx(invincibleTimeSec, false, [this] {return m_pActor->getTime(); });
         return *this;
     }
 

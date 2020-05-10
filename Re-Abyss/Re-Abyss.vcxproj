@@ -232,7 +232,6 @@
     <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\Shot\ShotActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Player\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\BaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\DamageState.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\State\LadderState.cpp" />
@@ -307,12 +306,16 @@
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
     <ClCompile Include="app\models\Actors\Door\DoorModel.cpp" />
+    <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\Shot\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\Slime\DeadCallbackModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\CollisionModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\MainUpdateModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.cpp" />
+    <ClCompile Include="app\models\Actors\Slime\SenserCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\models\Actors\Slime\State\WalkState.cpp" />
@@ -472,7 +475,6 @@
     <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\State\LadderState.hpp" />
@@ -551,6 +553,8 @@
     <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
     <ClInclude Include="app\models\Actors\base\Components.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
@@ -567,10 +571,14 @@
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\MainUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\CollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\SenserCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\models\Actors\Slime\State\WalkState.hpp" />

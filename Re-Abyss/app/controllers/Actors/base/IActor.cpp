@@ -43,4 +43,8 @@ namespace abyss
 	{
 		return visitor.visit(*this);
 	}
+    s3d::Microseconds IActor::getTime() const
+    {
+		return m_time->getTime();
+    }
 }

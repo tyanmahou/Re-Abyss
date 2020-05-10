@@ -1,7 +1,5 @@
+#include "EnemyActor.hpp"
 #include <abyss/commons/LayerGroup.hpp>
-#include <abyss/commons/ActInclude.hpp>
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 namespace abyss::Enemy
 {
@@ -61,18 +59,8 @@ namespace abyss::Enemy
 	{
 		return m_bodyModel->region();
 	}
-
-    void EnemyActor::onCollisionStay(ICollider* col)
-    {
-		col->accept([this](const Attacker& attacker) {
-			if (m_hp.damage(attacker.getPower()) && m_hp.isDead()) {
-				this->destroy();
-				this->onDead();
-			}
-		});
-	}
 	void EnemyActor::onDead()
 	{
-		getModule<World>()->addEffect<EnemyDeadEffect>(this->getPos());
+		//getModule<World>()->addEffect<EnemyDeadEffect>(this->getPos());
 	}
 }

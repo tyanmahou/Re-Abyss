@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
+#include <abyss/models/Actors/base/IComponent.hpp>
 
 namespace abyss::Player::Shot
 {
@@ -14,7 +15,7 @@ namespace abyss::Player::Shot
 		Big,
 	};
 
-	class PlayerShotModel
+	class PlayerShotModel : public IComponent
 	{
 		PlayerShotType m_type;
 	public:

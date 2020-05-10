@@ -23,8 +23,6 @@ namespace abyss::Slime
 			Jump
 		};
 	private:
-		std::shared_ptr<Senser> m_senser;
-
 		Ref<exp::StateModel<SlimeActor>> m_state;
 		std::shared_ptr<SlimeVM> m_view;
 	public:
