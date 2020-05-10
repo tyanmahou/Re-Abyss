@@ -10,7 +10,7 @@ namespace abyss::Ikalien
     {}
     void PursuitState::start()
     {
-        m_timer = TimerEx(2s, true, [this] {return m_pActor->getTime(); });
+        m_timer = ActorUtils::CreateTimer(*m_pActor, 2.0);
         m_body->noneResistanced();
     }
     void PursuitState::update(double dt)

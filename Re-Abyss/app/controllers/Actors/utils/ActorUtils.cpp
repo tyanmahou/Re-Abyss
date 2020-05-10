@@ -16,4 +16,8 @@ namespace abyss::ActorUtils
         double f = body.isForward(Forward::Right) ? 1.0 : -1.0;
         return f * d.x > 0 && d.length() <= range;
     }
+    TimerEx CreateTimer(const IActor& actor, double sec, bool start)
+    {
+        return TimerEx(sec, start, [&] {return actor.getTime(); });
+    }
 }

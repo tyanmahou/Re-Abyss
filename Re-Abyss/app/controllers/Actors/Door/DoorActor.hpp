@@ -13,7 +13,7 @@ namespace abyss::Door
 
 	public:
 		DoorActor(const DoorModel& door, const RoomModel& nextRoom);
-		CShape getCollider() const override;
+		CShape getCollider() const;
 
 		const RoomModel& getNextRoom() const;
 		const s3d::Vec2& getPos() const;
