@@ -4,7 +4,7 @@
 #include <abyss/types/CShape.hpp>
 namespace abyss
 {
-    class IColliderModel : public IComponent
+    class IColliderModel : virtual public IComponent
     {
         IActor* m_pActor;
     protected:
@@ -15,10 +15,10 @@ namespace abyss
 
         virtual CShape getCollider() const = 0;
 
-        void setTag(const s3d::String& tag);
+        IColliderModel& setTag(const s3d::String& tag);
         const s3d::String& getTag() const;
 
-        void setLayer(const s3d::String& layer);
+        IColliderModel& setLayer(const s3d::String& layer);
         const s3d::String& getLayer() const;
 
         bool isActive() const;

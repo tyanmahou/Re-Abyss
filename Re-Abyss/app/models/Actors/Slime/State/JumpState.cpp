@@ -16,6 +16,6 @@ namespace abyss::Slime
     }
     void JumpState::draw() const
     {
-        m_actor->getBindedView()->drawJump();
+        m_pActor->getBindedView()->drawJump();
     }
 }

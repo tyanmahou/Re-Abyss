@@ -45,7 +45,7 @@ namespace abyss
 		virtual void start() {}
 		void update();
 		void lastUpdate();
-		virtual void draw()const {}
+		virtual void draw()const;
 
 		bool accept(const ActVisitor& visitor) override;
 

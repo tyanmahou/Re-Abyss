@@ -21,18 +21,23 @@ namespace abyss
         {}
         [[nodiscard]] T& operator *()const noexcept
         {
-            return *m_ptr.lock().get();
+            return *get();
         }
 
         [[nodiscard]] T* operator->()const noexcept
         {
+            return get();
+        }
+        [[nodiscard]] T* get() const noexcept
+        {
             return m_ptr.lock().get();
         }
-        explicit operator bool()const noexcept
+
+        [[nodiscard]] explicit operator bool()const noexcept
         {
             return !m_ptr.expired();
         }
-        std::shared_ptr<T> lock() const
+        [[nodiscard]] std::shared_ptr<T> lock() const
         {
             return m_ptr.lock();
         }

@@ -4,7 +4,7 @@
 namespace abyss::Slime
 {
 
-    class BaseState : public IState<SlimeActor>
+    class BaseState : public exp::IState<SlimeActor>
     {
     protected:
         BodyModel* m_body;
@@ -17,7 +17,7 @@ namespace abyss::Slime
 
         void draw() const override;
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
         void lastUpdate(double dt);
     };
 }

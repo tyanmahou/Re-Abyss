@@ -1,5 +1,7 @@
-#include "State/WalkState.hpp"
-#include "State/JumpState.hpp"
+#include <abyss/models/Actors/Slime/State/WalkState.hpp>
+#include <abyss/models/Actors/Slime/State/JumpState.hpp>
+#include <abyss/models/Actors/Commons/DamageModel.hpp>
+
 #include "Senser/Senser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
@@ -11,16 +13,16 @@ namespace abyss::Slime
 {
 	SlimeActor::SlimeActor(const SlimeEntity& entity) :
 		EnemyActor(entity.pos, entity.forward),
-		m_view(std::make_shared<SlimeVM>()),
-		m_state(this)
+		m_view(std::make_shared<SlimeVM>())
 	{
-		m_hp.setHp(6);
-		m_body.setMaxSpeedX(60);
-
+		m_bodyModel
+			->setMaxSpeedX(60);
+		m_state = this->addComponent<exp::StateModel<SlimeActor>>(this);
 		m_state
-			.add<WalkState>(State::Walk)
+			->add<WalkState>(State::Walk)
 			.add<JumpState>(State::Jump)
-			.bind<BodyModel>(&SlimeActor::m_body);
+			;
+		this->addComponent<DamageModel>(this);
 	}
 
 	void SlimeActor::start()
@@ -28,24 +30,6 @@ namespace abyss::Slime
 		if (!m_senser) {
 			m_senser = getModule<World>()->create<Senser>(this);
 		}
-	}
-
-	void SlimeActor::update([[maybe_unused]]double dt)
-	{
-		m_state.update(dt);
-	}
-	void SlimeActor::lastUpdate(double dt)
-	{
-		m_state.lastUpdate(dt);
-	}
-	void SlimeActor::draw() const
-	{
-		m_state.draw();
-	}
-
-	void SlimeActor::onCollisionStay(ICollider* col)
-	{
-		m_state.onCollisionStay(col);
 	}
 
 	bool SlimeActor::accept(const ActVisitor& visitor)
@@ -57,16 +41,11 @@ namespace abyss::Slime
 		return &m_view->setForward(this->getForward())
 			.setPos(this->getPos())
 			.setVelocity(this->getVellocity())
-			.setIsDamaging(this->m_hp.isInInvincibleTime())
+			.setIsDamaging(this->m_hpModel->isInInvincibleTime())
 			;
 	}
 	bool SlimeActor::isWalk() const
 	{
-		return m_state.getState() == State::Walk;
-	}
-	void SlimeActor::onDead()
-	{
-		m_senser->destroy();
-		EnemyActor::onDead();
+		return m_state->getState() == State::Walk;
 	}
 }

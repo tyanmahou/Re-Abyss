@@ -250,9 +250,6 @@
     <ClCompile Include="app\controllers\Actors\Schield\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\Senser\Senser.cpp" />
     <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Slime\State\BaseState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Slime\State\JumpState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\controllers\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
@@ -301,6 +298,7 @@
     <ClCompile Include="app\models\Actors\CodeZero\CodeZeroHandModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
@@ -315,6 +313,9 @@
     <ClCompile Include="app\models\Actors\Slime\Sencer\CollisionModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\MainUpdateModel.cpp" />
     <ClCompile Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.cpp" />
+    <ClCompile Include="app\models\Actors\Slime\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\Slime\State\JumpState.cpp" />
+    <ClCompile Include="app\models\Actors\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\models\Actors\StartPos\StartPosListModel.cpp" />
     <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
@@ -488,9 +489,6 @@
     <ClInclude Include="app\controllers\Actors\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\Senser.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\JumpState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\controllers\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
@@ -553,6 +551,7 @@
     <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
     <ClInclude Include="app\models\Actors\base\Components.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
@@ -562,6 +561,7 @@
     <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
@@ -571,6 +571,9 @@
     <ClInclude Include="app\models\Actors\Slime\Sencer\MainUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\CollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\JumpState.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />

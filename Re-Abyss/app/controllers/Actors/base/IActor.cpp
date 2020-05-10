@@ -1,7 +1,8 @@
 #include "IActor.hpp"
 #include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
-
+#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/models/Actors/base/IDrawModel.hpp>
 namespace abyss
 {
 	IActor::IActor()
@@ -26,7 +27,17 @@ namespace abyss
 	}
 	void IActor::lastUpdate()
 	{
-		this->lastUpdate(m_time->getDeltaTime());
+		double dt = m_time->getDeltaTime();
+		for (auto&& com : this->findComponents<ILastUpdateModel>()) {
+			com->onLastUpdate(dt);
+		}
+		this->lastUpdate(dt);
+	}
+	void IActor::draw() const
+	{
+		for (auto&& com : this->findComponents<IDrawModel>()) {
+			com->onDraw();
+		}
 	}
 	bool IActor::accept(const ActVisitor& visitor)
 	{

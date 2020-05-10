@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 namespace abyss
 {
-    class ICollisionCallbackModel : public IComponent
+    class ICollisionCallbackModel : virtual public IComponent
     {
     protected:
         bool m_isActive = true;

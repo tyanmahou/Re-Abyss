@@ -2,31 +2,40 @@
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
-
+#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 namespace abyss::Enemy
 {
-	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward):
-		m_hp(1, 0.2)
+	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
 	{
-		m_body
-			.setPos(pos)
+		// Body
+		m_bodyModel = this->addComponent<BodyModel>(this);
+		m_bodyModel
+			->initPos(pos)
 			.setForward(forward);
-		this->tag = U"enemy";
-		this->layer = LayerGroup::Enemy;
+		m_hpModel = this->addComponent<experimental::HPModel>(this);
+		m_hpModel->setHp(1)
+			.setInvincibleTime(0.2);
+
+		// Collider
+		auto collider = this->addComponent<CustomColliderModel>(this);
+		collider->setColFunc([this] {
+			return this->region();
+		});
+		collider->setLayer(LayerGroup::Enemy);
 	}
 	void EnemyActor::start()
 	{}
 	const s3d::Vec2& EnemyActor::getPos() const
 	{
-		return m_body.getPos();
+		return m_bodyModel->getPos();
 	}
 	const s3d::Vec2& EnemyActor::getVellocity() const
 	{
-		return m_body.getVelocity();
+		return m_bodyModel->getVelocity();
 	}
 	Forward EnemyActor::getForward() const
 	{
-		return m_body.getForward();
+		return m_bodyModel->getForward();
 	}
 	bool EnemyActor::accept(const ActVisitor& visitor)
 	{
@@ -34,11 +43,11 @@ namespace abyss::Enemy
 	}
 	const BodyModel& EnemyActor::getBody() const
 	{
-		return m_body;
+		return *m_bodyModel;
 	}
 	BodyModel& EnemyActor::getBody()
 	{
-		return m_body;
+		return *m_bodyModel;
 	}
     const HPModel& EnemyActor::getHp() const
     {
@@ -50,7 +59,7 @@ namespace abyss::Enemy
 	}
 	s3d::RectF EnemyActor::region() const
 	{
-		return m_body.region();
+		return m_bodyModel->region();
 	}
 
     void EnemyActor::onCollisionStay(ICollider* col)

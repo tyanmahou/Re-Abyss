@@ -530,15 +530,6 @@
     <ClCompile Include="app\controllers\Actors\Slime\Senser\Senser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\State\WalkState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\State\JumpState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Schield\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -744,6 +735,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\PosModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Slime\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Slime\State\JumpState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Slime\State\WalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1071,9 +1074,6 @@
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\ChargeState.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\Senser.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\JumpState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\State\AttackCrossState.hpp" />
@@ -1157,5 +1157,10 @@
     <ClInclude Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\JumpState.hpp" />
+    <ClInclude Include="app\models\Actors\Slime\State\WalkState.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
   </ItemGroup>
 </Project>

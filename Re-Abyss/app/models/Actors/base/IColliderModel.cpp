@@ -6,17 +6,19 @@ namespace abyss
     IColliderModel::IColliderModel(IActor* pActor):
         m_pActor(pActor)
     {}
-    void IColliderModel::setTag(const s3d::String& tag)
+    IColliderModel& IColliderModel::setTag(const s3d::String& tag)
     {
         m_tag = tag;
+        return *this;
     }
     const s3d::String& IColliderModel::getTag() const
     {
         return m_tag;
     }
-    void IColliderModel::setLayer(const s3d::String& layer)
+    IColliderModel& IColliderModel::setLayer(const s3d::String& layer)
     {
         m_layer = layer;
+        return *this;
     }
     const s3d::String& IColliderModel::getLayer() const
     {

@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 namespace abyss
 {
-    class ILastUpdateModel : public IComponent
+    class ILastUpdateModel : virtual public IComponent
     {
     public:
 

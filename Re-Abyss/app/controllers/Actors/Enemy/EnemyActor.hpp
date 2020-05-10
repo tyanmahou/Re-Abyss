@@ -18,6 +18,8 @@ namespace abyss
 		protected:
 			BodyModel m_body;
 			HPModel m_hp;
+			Ref<BodyModel> m_bodyModel;
+			Ref<experimental::HPModel> m_hpModel;
 		public:
 			EnemyActor() = default;
 

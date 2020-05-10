@@ -2,8 +2,6 @@
 #include <memory>
 #include <typeindex>
 #include <concepts>
-
-#include <Siv3D/HashTable.hpp>
 #include <Siv3D/Array.hpp>
 
 #include <abyss/models/Actors/base/IComponent.hpp>
@@ -25,7 +23,7 @@ namespace abyss
             void mapping(Components* c, const std::shared_ptr<IComponent>& component);
         };
         template<class ...Args>
-        struct MappingComponentTree<std::tuple<Args...>>
+        struct MappingComponentTree<MultiComponents<Args...>>
         {
             void mapping(Components* c, const std::shared_ptr<IComponent>& component)
             {

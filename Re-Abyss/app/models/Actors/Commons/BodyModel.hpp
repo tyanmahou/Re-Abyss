@@ -6,10 +6,10 @@
 #include <abyss/types/MapColInfo.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-
+#include <abyss/models/Actors/base/IComponent.hpp>
 namespace abyss
 {
-    class BodyModel
+    class BodyModel : public IComponent
     {
     private:
         s3d::Vec2 m_prevPos{ 0, 0 };
@@ -27,9 +27,12 @@ namespace abyss
         Forward m_forward{Forward::None};
 
         s3d::Vec2 m_size{ 0, 0 };
+
+        IActor* m_pActor;
     public:
         BodyModel();
-       
+        BodyModel(IActor* pActor);
+
         void update(double dt);
 
         BodyModel& setAccel(const s3d::Vec2& accel);

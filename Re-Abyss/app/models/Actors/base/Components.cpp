@@ -1,12 +1,14 @@
 #include "Components.hpp"
+#include <unordered_map>
+
 #include <abyss/debugs/DebugLog/DebugLog.hpp>
 
 namespace abyss
 {
     class Components::Impl
     {
-        s3d::HashTable<std::type_index, std::shared_ptr<IComponent>> m_table;
-        s3d::HashTable<std::type_index, s3d::Array<Ref<IComponent>>> m_tree;
+        std::unordered_map<std::type_index, std::shared_ptr<IComponent>> m_table;
+        std::unordered_map<std::type_index, s3d::Array<Ref<IComponent>>> m_tree;
     public:
         void setup()
         {

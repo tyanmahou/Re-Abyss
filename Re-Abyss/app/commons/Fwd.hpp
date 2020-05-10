@@ -106,9 +106,13 @@ namespace abyss
 	class BodyModel;
 	class IDecorModel;
 	class IColliderModel;
+	class CustomColliderModel;
 	class ActorTimeModel;
 	class PosModel;
-
+	namespace experimental
+	{
+		class HPModel;
+	}
 	/// <summary>
 	/// Services
 	/// </summary>

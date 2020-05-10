@@ -17,14 +17,17 @@ namespace abyss::Slime
     {
         BaseState::update(dt);
 
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         if (m_onCollision && m_body->getVelocity().x * d.x > 0 && d.length() <= Param::Walk::SearchRange) {
             this->changeState(State::Jump);
         }
+    }
+    void WalkState::onReflesh()
+    {
         m_onCollision = false;
     }
     void WalkState::draw() const
     {
-        m_actor->getBindedView()->drawWalk();
+        m_pActor->getBindedView()->drawWalk();
     }
 }

@@ -2,10 +2,10 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 namespace abyss
 {
-    class IUpdateModel : virtual public IComponent
+    class IDrawModel : virtual public IComponent
     {
     public:
 
-        virtual void onUpdate(double dt) = 0;
+        virtual void onDraw()const = 0;
     };
 }

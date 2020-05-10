@@ -1,5 +1,4 @@
 #pragma once
-#include <tuple>
 namespace abyss
 {
     class IComponent
@@ -11,11 +10,14 @@ namespace abyss
         virtual void setup() {}
     };
 
-    template<class T>
+    template <class ... Args>
+    struct MultiComponents{};
+
+    template <class T>
     struct ComponentTree
     {
         // using Base = A;
         // or
-        // using Base = std::tuple<A, B, C>;
+        // using Base = MultiComponents<A, B, C>;
     };
 }

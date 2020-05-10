@@ -10,6 +10,12 @@ namespace abyss
         m_maxVelocity.y = DefaultMaxVelocityY;
     }
 
+    BodyModel::BodyModel(IActor* pActor):
+        m_pActor(pActor)
+    {
+        m_maxVelocity.y = DefaultMaxVelocityY;
+    }
+
     void BodyModel::update(double dt)
     {
         m_prevPos = m_pos;

@@ -2,12 +2,11 @@
 #include <abyss/commons/ActInclude.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/params/Actors/Slime/Param.hpp>
-
 namespace abyss::Slime
 {
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
+        m_body = this->m_pActor->findComponent<BodyModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -17,7 +16,7 @@ namespace abyss::Slime
     void BaseState::draw() const
     {}
 
-    void BaseState::onCollisionStay(ICollider * col)
+    void BaseState::onCollisionStay(IActor * col)
     {
         col->accept([this](const MapActor& map) {
 
@@ -33,11 +32,11 @@ namespace abyss::Slime
             }
         });
 
-        m_actor->EnemyActor::onCollisionStay(col);
+        m_pActor->EnemyActor::onCollisionStay(col);
     }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(m_actor->getModule<Camera>()->getCurrentRoom())) {
+        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom())) {
             if (colDir.isRight()) {
                 m_body->setForward(Forward::Right);
             }
