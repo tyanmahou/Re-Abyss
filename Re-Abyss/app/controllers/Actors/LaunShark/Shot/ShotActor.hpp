@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/views/Actors/LaunShark/Shot/ShotVM.hpp>
 
 namespace abyss::LaunShark::Shot
@@ -24,22 +24,17 @@ namespace abyss::LaunShark::Shot
 			Firinged,
 		};
 	private:
-		BodyModel m_body;
-		RotateModel m_rotate;
-		HPModel m_hp;
-		StateManager<ShotActor> m_state;
+		Ref<BodyModel> m_body;
+		Ref<RotateModel> m_rotate;
+		Ref<experimental::HPModel> m_hp;
 		std::shared_ptr<ShotVM> m_view;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);
 		void start() override;
-		void update(double dt) override;
-		CShape getCollider() const override;
-		void onCollisionStay(ICollider* col) override;
-
+		CShape getCollider() const;
 		s3d::Quad getColliderQuad() const;
 
 		bool accept(const ActVisitor& visitor) override;
-		void draw() const override;
 
 		ShotVM* getBindedView()const;
 	};

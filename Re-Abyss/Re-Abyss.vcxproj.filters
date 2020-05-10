@@ -587,18 +587,6 @@
     <ClCompile Include="app\controllers\Actors\LaunShark\Shot\ShotActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\FiringedState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\LaunShark\State\AttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -756,6 +744,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Ikalien\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\FiringedState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1102,10 +1105,6 @@
     <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase1State.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\FiringedState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\AttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LauncherState.hpp" />
@@ -1176,5 +1175,10 @@
     <ClInclude Include="app\models\Actors\Ikalien\State\PursuitState.hpp" />
     <ClInclude Include="app\models\Actors\Ikalien\State\SwimState.hpp" />
     <ClInclude Include="app\models\Actors\Ikalien\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\FiringedState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
   </ItemGroup>
 </Project>

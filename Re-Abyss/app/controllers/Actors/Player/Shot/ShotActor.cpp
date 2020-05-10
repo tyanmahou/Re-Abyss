@@ -2,6 +2,7 @@
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Player/Shot/State/BaseState.hpp>
+#include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace abyss::Player::Shot
@@ -27,6 +28,11 @@ namespace abyss::Player::Shot
 			return this->getColliderCircle();
 		});
 		collider->setLayer(LayerGroup::Player);
+
+		if (!m_shot->isBig()) {
+			// Bigじゃなければ壁にあたって破壊される
+			this->addComponent<DeadOnHItReceiverModel>(this);
+		}
 	}
 	void ShotActor::start()
 	{}

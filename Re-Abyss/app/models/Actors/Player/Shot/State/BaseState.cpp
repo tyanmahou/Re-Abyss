@@ -25,17 +25,6 @@ namespace abyss::Player::Shot
         }
     }
 
-    void BaseState::onCollisionStay(IActor * col)
-    {
-        col->accept([this](const Receiver&) {
-            if (!m_shot->isBig()) {
-
-                // 当たって消える
-                m_pActor->destroy();
-            }
-        });
-    }
-
     void BaseState::draw() const
     {
         m_pActor->getBindedView()->draw();

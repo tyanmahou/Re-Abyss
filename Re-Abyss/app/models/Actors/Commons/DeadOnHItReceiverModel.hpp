@@ -5,18 +5,15 @@
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss
 {
-    class DamageModel : 
+    class DeadOnHItReceiverModel :
         public IComponent,
         public ICollisionCallbackModel
     {
-        Ref<experimental::HPModel> m_hp;
         IActor* m_pActor;
         bool m_isAutoDestroy = true;
     public:
-        DamageModel(IActor* pActor);
-
-        void setup() override;
-        DamageModel& setAutoDestroy(bool isAuto);
+        DeadOnHItReceiverModel(IActor* pActor);
+        DeadOnHItReceiverModel& setAutoDestroy(bool isAuto);
         void onCollisionStay(IActor* col)override;
     };
 }
@@ -24,7 +21,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<DamageModel>
+    struct ComponentTree<DeadOnHItReceiverModel>
     {
         using Base = ICollisionCallbackModel;
     };

@@ -3,12 +3,12 @@
 
 namespace abyss::LaunShark::Shot
 {
-    class PursuitState final : public BaseState
+    class WaitState final : public BaseState
     {
         TimerEx m_timer;
     public:
-        PursuitState();
-
+        WaitState();
+        void start() override;
         void update(double dt) override;
         void draw() const override;
     };

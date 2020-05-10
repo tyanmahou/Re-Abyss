@@ -9,9 +9,9 @@ namespace abyss::Enemy
         public IDeadCallbackModel
     {
     protected:
-        EnemyActor* m_pActor;
+        IActor* m_pActor;
     public:
-        DeadCallbackModel(EnemyActor* pActor);
+        DeadCallbackModel(IActor* pActor);
 
         void onDead() override;
     };

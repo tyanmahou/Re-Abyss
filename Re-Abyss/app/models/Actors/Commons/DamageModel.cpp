@@ -11,8 +11,16 @@ namespace abyss
 	{
 		m_hp = m_pActor->findComponent<experimental::HPModel>();
 	}
+	DamageModel& DamageModel::setAutoDestroy(bool isAuto)
+	{
+		m_isAutoDestroy = isAuto;
+		return *this;
+	}
 	void DamageModel::onCollisionStay(IActor* col)
     {
+		if (m_pActor->isDestroyed()) {
+			return;
+		}
 		col->accept([this](const Attacker& attacker) {
 			if (m_hp->damage(attacker.getPower())) {
 				for (auto&& callback : m_pActor->findComponents<IDamageCallbackModel>()) {
@@ -21,6 +29,9 @@ namespace abyss
 				if (m_hp->isDead()) {
 					for (auto&& callback : m_pActor->findComponents<IDeadCallbackModel>()) {
 						callback->onDead();
+					}
+					if (m_isAutoDestroy) {
+						m_pActor->destroy();
 					}
 				}
 			}

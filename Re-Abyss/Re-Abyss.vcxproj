@@ -216,10 +216,6 @@
     <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\Shot\ShotActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\BaseState.cpp" />
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\FiringedState.cpp" />
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\PursuitState.cpp" />
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\State\AttackState.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\State\BaseState.cpp" />
     <ClCompile Include="app\controllers\Actors\LaunShark\State\LauncherState.cpp" />
@@ -291,6 +287,7 @@
     <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
@@ -304,6 +301,10 @@
     <ClCompile Include="app\models\Actors\Ikalien\State\PursuitState.cpp" />
     <ClCompile Include="app\models\Actors\Ikalien\State\SwimState.cpp" />
     <ClCompile Include="app\models\Actors\Ikalien\State\WaitState.cpp" />
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\BaseState.cpp" />
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\FiringedState.cpp" />
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\PursuitState.cpp" />
+    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\WaitState.cpp" />
     <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
@@ -459,10 +460,6 @@
     <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\FiringedState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\AttackState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\State\LauncherState.hpp" />
@@ -559,6 +556,7 @@
     <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
@@ -569,6 +567,10 @@
     <ClInclude Include="app\models\Actors\Ikalien\State\PursuitState.hpp" />
     <ClInclude Include="app\models\Actors\Ikalien\State\SwimState.hpp" />
     <ClInclude Include="app\models\Actors\Ikalien\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\FiringedState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\RollingTako\State\BaseState.hpp" />

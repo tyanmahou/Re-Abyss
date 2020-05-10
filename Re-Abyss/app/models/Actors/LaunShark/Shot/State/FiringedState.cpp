@@ -15,7 +15,7 @@ namespace abyss::LaunShark::Shot
 
     void FiringedState::draw() const
     {
-        m_actor->getBindedView()->drawFiringed();
+        m_pActor->getBindedView()->drawFiringed();
     }
 
 }

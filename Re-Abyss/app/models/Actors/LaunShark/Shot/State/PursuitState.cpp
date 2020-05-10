@@ -12,9 +12,13 @@ namespace abyss::LaunShark::Shot
         m_timer(ShotParam::Pursuit::Time, true, WorldTime::TimeMicroSec)
     {}
 
+    void PursuitState::start()
+    {
+        m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
+    }
     void PursuitState::update(double dt)
     {
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_actor, *m_body);
+        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(ShotParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir9().cross(d) > 0) {
@@ -32,7 +36,7 @@ namespace abyss::LaunShark::Shot
 
     void PursuitState::draw() const
     {
-        this->m_actor->getBindedView()->drawFiringed();
+        m_pActor->getBindedView()->drawFiringed();
     }
 
 }

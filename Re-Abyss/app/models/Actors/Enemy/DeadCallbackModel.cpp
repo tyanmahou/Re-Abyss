@@ -5,13 +5,14 @@
 
 namespace abyss::Enemy
 {
-    DeadCallbackModel::DeadCallbackModel(EnemyActor* pActor):
+    DeadCallbackModel::DeadCallbackModel(IActor* pActor):
         m_pActor(pActor)
     {}
     void DeadCallbackModel::onDead()
     {
-        m_pActor->destroy();
-        m_pActor->getModule<World>()->addEffect<EnemyDeadEffect>(m_pActor->getPos());
+        if (auto body = m_pActor->findComponent<BodyModel>()) {
+            m_pActor->getModule<World>()->addEffect<EnemyDeadEffect>(body->getPos());
+        }
     }
 }
 
