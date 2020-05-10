@@ -44,7 +44,6 @@ namespace abyss
 
 		template<class Type>
 		[[nodiscard]] s3d::Array<Ref<Type>> finds() const
-			requires IsComponent<Type>
 		{
 			s3d::Array<Ref<Type>> ret;
 			for (const auto& actor : m_actors) {

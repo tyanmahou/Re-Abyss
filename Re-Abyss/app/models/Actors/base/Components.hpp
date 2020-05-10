@@ -15,13 +15,11 @@ namespace abyss
     {
         
         template<class T>
-        struct MappingComponentTree{};
-
-        template<IsComponent T>
-        struct MappingComponentTree<T>
+        struct MappingComponentTree
         {
             void mapping(Components* c, const std::shared_ptr<IComponent>& component);
         };
+
         template<class ...Args>
         struct MappingComponentTree<MultiComponents<Args...>>
         {
@@ -67,7 +65,6 @@ namespace abyss
 
         template<class Component>
         [[nodiscard]] Ref<Component> find() const
-            requires IsComponent<Component>
         {
             if (auto c = find(typeid(Component))) {
                 return RefCast<Component>(c);
@@ -77,7 +74,6 @@ namespace abyss
 
         template<class Component>
         [[nodiscard]] s3d::Array<Ref<Component>> finds() const
-            requires IsComponent<Component>
         {
             s3d::Array<Ref<Component>> ret;
             for (const auto& c : this->finds(typeid(Component))) {
@@ -92,7 +88,7 @@ namespace abyss
 
     namespace detail
     {
-        template<IsComponent T>
+        template<class T>
         void MappingComponentTree<T>::mapping(Components* c, const std::shared_ptr<IComponent>& component)
         {
             c->registTree(typeid(T), component);

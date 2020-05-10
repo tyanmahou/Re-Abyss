@@ -1,11 +1,10 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
 namespace abyss
 {
-    class ILastUpdateModel : virtual public IComponent
+    class ILastUpdateModel
     {
     public:
-
+        virtual ~ILastUpdateModel() = default;
         virtual void onLastUpdate(double dt) = 0;
     };
 }

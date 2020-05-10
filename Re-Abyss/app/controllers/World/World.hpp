@@ -63,7 +63,6 @@ namespace abyss
 
         template<class Type>
         [[nodiscard]] s3d::Array<Ref<Type>> finds() const
-            requires IsComponent<Type>
         {
             return m_actorsHolder.finds<Type>();
         }

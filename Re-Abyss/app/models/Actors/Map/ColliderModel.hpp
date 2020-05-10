@@ -1,10 +1,13 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
+#include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 
 namespace abyss::Map
 {
-    class ColliderModel : public IColliderModel
+    class ColliderModel : 
+        public IComponent,
+        public IColliderModel
     {
     private:
         s3d::Vec2 m_pos;

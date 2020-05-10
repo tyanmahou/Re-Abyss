@@ -1,10 +1,9 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/CShape.hpp>
 namespace abyss
 {
-    class IColliderModel : virtual public IComponent
+    class IColliderModel
     {
         IActor* m_pActor;
     protected:
@@ -12,7 +11,7 @@ namespace abyss
         s3d::String m_layer;
     public:
         IColliderModel(IActor* pActor);
-
+        virtual ~IColliderModel() = default;
         virtual CShape getCollider() const = 0;
 
         IColliderModel& setTag(const s3d::String& tag);

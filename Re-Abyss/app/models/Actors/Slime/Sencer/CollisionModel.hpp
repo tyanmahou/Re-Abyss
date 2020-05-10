@@ -1,9 +1,12 @@
 #pragma once
+#include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 
 namespace abyss::Slime::Sencer
 {
-    class CollisionModel : public ICollisionCallbackModel
+    class CollisionModel : 
+        public IComponent,
+        public ICollisionCallbackModel
     {
     private:
         bool m_onCollision = false;

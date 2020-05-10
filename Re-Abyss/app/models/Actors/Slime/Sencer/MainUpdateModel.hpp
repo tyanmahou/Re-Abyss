@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -8,7 +9,9 @@ namespace abyss::Slime::Sencer
     class ParentCtrlModel;
     class CollisionModel;
 
-    class MainUpdateModel : public IUpdateModel
+    class MainUpdateModel : 
+        public IComponent,
+        public IUpdateModel
     {
         IActor* m_pActor;
         Ref<ParentCtrlModel> m_parentCtrl;

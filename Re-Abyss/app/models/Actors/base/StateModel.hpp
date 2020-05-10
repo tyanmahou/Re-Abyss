@@ -2,6 +2,7 @@
 # include <Siv3D/Optional.hpp>
 # include <Siv3D/Uncopyable.hpp>
 # include <Siv3D/HashTable.hpp>
+# include <abyss/models/Actors/base/IComponent.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 # include <abyss/models/Actors/base/IUpdateModel.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
@@ -58,6 +59,7 @@ namespace abyss::exp
 
     template <class Actor, class StateKey = typename Actor::State>
     class StateModel : 
+        public IComponent,
         public IUpdateModel,
         public ILastUpdateModel,
         public IDrawModel,

@@ -71,13 +71,11 @@ namespace abyss
 	}
 	template<class Component>
 	Ref<Component> IActor::findComponent() const
-		requires IsComponent<Component>
 	{
 		return m_components.find<Component>();
 	}
 	template<class Component>
 	s3d::Array<Ref<Component>> IActor::findComponents() const
-		requires IsComponent<Component>
 	{
 		return m_components.finds<Component>();
 	}

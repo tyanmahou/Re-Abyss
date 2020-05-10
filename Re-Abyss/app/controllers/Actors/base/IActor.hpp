@@ -65,14 +65,10 @@ namespace abyss
 		;
 
 		template<class Component>
-		[[nodiscard]] Ref<Component> findComponent() const
-			requires IsComponent<Component>
-		;
+		[[nodiscard]] Ref<Component> findComponent() const;
 
 		template<class Component>
-		[[nodiscard]] s3d::Array<Ref<Component>> findComponents() const
-			requires IsComponent<Component>
-		;
+		[[nodiscard]] s3d::Array<Ref<Component>> findComponents() const;
 	};
 }
 #include "IActor.ipp"

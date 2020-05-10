@@ -1,9 +1,12 @@
 #pragma once
+#include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 
 namespace abyss
 {
-    class CustomColliderModel : public IColliderModel
+    class CustomColliderModel : 
+        public IComponent,
+        public IColliderModel
     {
     private:
         std::function<CShape()> m_getCol;
