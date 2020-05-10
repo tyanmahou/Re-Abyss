@@ -9,7 +9,7 @@ namespace abyss
 	{}
 	void DamageModel::setup()
 	{
-		m_hp = m_pActor->findComponent<experimental::HPModel>();
+		m_hp = m_pActor->findComponent<HPModel>();
 	}
 	DamageModel& DamageModel::setAutoDestroy(bool isAuto)
 	{

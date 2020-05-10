@@ -103,16 +103,18 @@ namespace abyss
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
-	class BodyModel;
 	class IDecorModel;
+
+	/// <summary>
+	/// Models / Components
+	/// </summary>
+	class BodyModel;
 	class IColliderModel;
 	class CustomColliderModel;
 	class ActorTimeModel;
 	class PosModel;
-	namespace experimental
-	{
-		class HPModel;
-	}
+	class HPModel;
+
 	/// <summary>
 	/// Services
 	/// </summary>

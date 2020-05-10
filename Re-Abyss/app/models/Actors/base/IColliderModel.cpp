@@ -1,6 +1,7 @@
 #include "IColliderModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+
 namespace abyss
 {
     IColliderModel::IColliderModel(IActor* pActor):
@@ -24,9 +25,14 @@ namespace abyss
     {
         return m_layer;
     }
+    IColliderModel& IColliderModel::setActive(bool isActive)
+    {
+        m_isActive = isActive;
+        return *this;
+    }
     bool IColliderModel::isActive() const
     {
-        return m_pActor->isActive();
+        return m_isActive && m_pActor->isActive();
     }
     s3d::uint64 IColliderModel::getId() const
     {

@@ -22,9 +22,13 @@ namespace abyss
         {
             return m_queue.size();
         }
-
+        bool isEmpty() const
+        {
+            return size() == 0;
+        }
         void clear()
         {
+            m_current = 0;
             return m_queue.clear();
         }
 

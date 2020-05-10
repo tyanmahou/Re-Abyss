@@ -17,8 +17,8 @@ namespace abyss::Slime
 		EnemyActor(entity.pos, entity.forward),
 		m_view(std::make_shared<SlimeVM>())
 	{
-		m_hpModel->setHp(Param::Base::Hp);
-		m_bodyModel
+		m_hp->setHp(Param::Base::Hp);
+		m_body
 			->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		m_state = this->addComponent<exp::StateModel<SlimeActor>>(this);
 		m_state
@@ -45,7 +45,7 @@ namespace abyss::Slime
 		return &m_view->setForward(this->getForward())
 			.setPos(this->getPos())
 			.setVelocity(this->getVelocity())
-			.setIsDamaging(this->m_hpModel->isInInvincibleTime())
+			.setIsDamaging(this->m_hp->isInInvincibleTime())
 			;
 	}
 	bool SlimeActor::isWalk() const

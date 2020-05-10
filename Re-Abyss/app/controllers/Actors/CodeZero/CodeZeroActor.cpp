@@ -1,6 +1,6 @@
-#include "State/Phase1State.hpp"
-#include "State/Phase2State.hpp"
-#include "State/Phase3State.hpp"
+#include <abyss/models/Actors/CodeZero/State/Phase1State.hpp>
+#include <abyss/models/Actors/CodeZero/State/Phase2State.hpp>
+#include <abyss/models/Actors/CodeZero/State/Phase3State.hpp>
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 #include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
@@ -10,48 +10,41 @@
 #include <abyss/controllers/World/World.hpp>
 
 #include <abyss/debugs/DebugLog/DebugLog.hpp>
-
+#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 namespace abyss::CodeZero
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
         EnemyActor(entity.pos, entity.forward),
-        m_state(this),
         m_view(std::make_shared<Body::BodyVM>())
     {
         {
-            m_hpModel->setHp(Param::Base::Hp);
+            m_hp->setHp(Param::Base::Hp);
         }
         {
-            m_bodyModel->noneResistanced();
+            m_body->noneResistanced();
         }
         {
-            m_state
-                .add<Phase1State>(State::Phase1)
+            (m_state = this->addComponent<exp::StateModel<CodeZeroActor>>(this))
+                ->add<Phase1State>(State::Phase1)
                 .add<Phase2State>(State::Phase2)
                 .add<Phase3State>(State::Phase3)
                 ;
         }
-
+        {
+            this->findComponent<CustomColliderModel>()->setActive(false);
+        }
+        {
+            this->addComponent<PatternModel>(this);
+        }
         m_order = -99;
     }
 
     void CodeZeroActor::start()
     {
         auto* const world = this->m_pManager->getModule<World>();
-        //m_head = world->create<Head::HeadActor>(this, &m_hpModel);
+        m_head = world->create<Head::HeadActor>(this);
         m_leftHand = world->create<Hand::HandActor>(this, Hand::HandActor::Left);
         m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Right);
-    }
-
-    void CodeZeroActor::update(double dt)
-    {
-        m_state.update(dt);
-    }
-
-    void CodeZeroActor::draw() const
-    {
-        m_state.draw();
-        DebugLog::Print << U"HP: " << m_hpModel->value();
     }
 
     CShape CodeZeroActor::getCollider() const
@@ -66,17 +59,17 @@ namespace abyss::CodeZero
 
     Body::BodyVM* CodeZeroActor::getBindedView() const
     {
-        return &m_view->setPos(m_bodyModel->getPos());
+        return &m_view->setPos(m_body->getPos());
     }
 
-    void CodeZeroActor::onDead()
-    {
-        // todo
-        this->destroy();
-        m_head->destroy();
-        m_leftHand->destroy();
-        m_rightHand->destroy();
-    }
+    //void CodeZeroActor::onDead()
+    //{
+    //    // todo
+    //    //this->destroy();
+    //    //m_head->destroy();
+    //    //m_leftHand->destroy();
+    //    //m_rightHand->destroy();
+    //}
 
     bool CodeZeroActor::isShotCharge() const
     {

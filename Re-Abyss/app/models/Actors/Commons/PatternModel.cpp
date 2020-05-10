@@ -1,14 +1,27 @@
 #include "PatternModel.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
-
+#include <abyss/controllers/Actors/base/IActor.hpp>
 namespace abyss
 {
     PatternModel::PatternModel():
         m_sleep(0.0, true, WorldTime::TimeMicroSec)
     {}
+    PatternModel::PatternModel(IActor * pActor):
+        m_pActor(pActor)
+    {}
+
+    void PatternModel::setup()
+    {
+        if (m_pActor) {
+            m_sleep = TimerEx(0.0, true, [this]() {return m_pActor->getTime(); });
+        }
+    }
     bool PatternModel::update()
     {
         if (!m_sleep.reachedZero()) {
+            return false;
+        }
+        if (m_events.size() == 0) {
             return false;
         }
         m_events.pop()();
@@ -49,6 +62,13 @@ namespace abyss
                 m_toStepCount[index] = 0;
             }
         });
+        return *this;
+    }
+    PatternModel& PatternModel::clear()
+    {
+        m_events.clear();
+        m_eventStepNo.clear();
+        m_toStepCount.clear();
         return *this;
     }
 }

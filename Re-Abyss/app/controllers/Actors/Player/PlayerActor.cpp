@@ -10,7 +10,8 @@ namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
         m_state(this),
-        m_view(std::make_shared<PlayerVM>())
+        m_view(std::make_shared<PlayerVM>()),
+        m_hp(this)
     {
         this->m_isDontDestoryOnLoad = true;
 

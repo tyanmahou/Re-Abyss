@@ -9,6 +9,8 @@ namespace abyss
     protected:
         s3d::String m_tag;
         s3d::String m_layer;
+
+        bool m_isActive = true;
     public:
         IColliderModel(IActor* pActor);
         virtual ~IColliderModel() = default;
@@ -20,6 +22,7 @@ namespace abyss
         IColliderModel& setLayer(const s3d::String& layer);
         const s3d::String& getLayer() const;
 
+        IColliderModel& setActive(bool isActive);
         bool isActive() const;
 
         s3d::uint64 getId() const;

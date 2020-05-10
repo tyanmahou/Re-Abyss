@@ -458,25 +458,10 @@
     <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\CodeZeroHandModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Shot\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Shot\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Shot\State\PursuitEndState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CodeZero\Shot\ShotActor.cpp">
@@ -519,36 +504,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CodeZero\Head\HeadActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Head\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\AttackState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\AttakWaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\State\ShotChargeState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\State\Phase1State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\State\Phase3State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\State\Phase2State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\LaunShark\Shot\ShotActor.cpp">
@@ -762,6 +717,57 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Schield\DamageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Head\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\ParentCtrlMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Head\HeadModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\AttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\AttakWaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\ShotChargeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Hand\HandModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\PursuitEndState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\State\Phase1State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\State\Phase2State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\CodeZero\State\Phase3State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1046,14 +1052,9 @@
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\CodeZeroHandModel.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\State\WaitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\State\PursuitEndState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Shot\ShotActor.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotChargeEffect.hpp" />
     <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotVM.hpp" />
@@ -1086,16 +1087,6 @@
     <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\HeadActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\AttackState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\AttakWaitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\State\ShotChargeState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase3State.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase2State.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\State\Phase1State.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
@@ -1184,5 +1175,22 @@
     <ClInclude Include="app\models\Actors\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Schield\DamageModel.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Head\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Head\HeadModel.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\AttackState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\AttakWaitState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\ShotChargeState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Hand\HandModel.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\PursuitEndState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\State\Phase1State.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\State\Phase2State.hpp" />
+    <ClInclude Include="app\models\Actors\CodeZero\State\Phase3State.hpp" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,9 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/CodeZero/Head/HeadModel.hpp>
 
 namespace abyss::CodeZero
 {
@@ -23,22 +24,16 @@ namespace abyss::CodeZero::Head
             Base,
         };
     private:
-        CodeZeroActor* m_parent;
-        HPModel* m_parentHp;
-        Forward m_forward;
+        Ref<HeadModel> m_head;
+        Ref<ParentCtrlModel> m_parent;
 
-        StateManager<HeadActor> m_state;
         std::shared_ptr<HeadVM> m_view;
     public:
-        HeadActor(CodeZeroActor* parent, HPModel* m_parentHp);
+        HeadActor(CodeZeroActor* parent);
 
         s3d::Vec2 getPos()const;
 
-        void update(double dt)override;
-        void draw()const;
-
-        CShape getCollider() const override;
-        void onCollisionStay(ICollider* col) override;
+        CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;
 
         HeadVM* getBindedView()const;

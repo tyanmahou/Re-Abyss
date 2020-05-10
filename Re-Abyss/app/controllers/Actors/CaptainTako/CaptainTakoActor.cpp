@@ -14,11 +14,11 @@ namespace abyss::CaptainTako
         m_view(std::make_unique<CaptainTakoVM>())
     {
         {
-            m_hpModel
+            m_hp
                 ->setHp(Param::Base::Hp);
         }
         {
-            m_bodyModel
+            m_body
                 ->setSize(Param::Base::Size).setPivot(Param::Base::Pivot);
         }
 
@@ -42,6 +42,6 @@ namespace abyss::CaptainTako
     {
         return &m_view->setPos(this->getPos())
             .setForward(this->getForward())
-            .setIsDamaging(m_hpModel->isInInvincibleTime());
+            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }

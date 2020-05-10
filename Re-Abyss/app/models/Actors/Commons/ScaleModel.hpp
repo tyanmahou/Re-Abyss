@@ -1,11 +1,13 @@
 #pragma once
 #include <Siv3D/Optional.hpp>
+#include <abyss/models/Actors/base/IComponent.hpp>
+
 namespace abyss
 {
     /// <summary>
     /// Scale制御
     /// </summary>
-    class ScaleModel
+    class ScaleModel : public IComponent
     {
         double m_scale = 1.0;
 

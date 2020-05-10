@@ -7,13 +7,13 @@ namespace abyss::Enemy
 	{
 		// Body
 		{
-			(m_bodyModel = this->addComponent<BodyModel>(this))
+			(m_body = this->addComponent<BodyModel>(this))
 				->initPos(pos)
 				.setForward(forward);
 		}
 		// HP
 		{
-			(m_hpModel = this->addComponent<experimental::HPModel>(this))
+			(m_hp = this->addComponent<HPModel>(this))
 				->setHp(1)
 				.setInvincibleTime(0.2);
 
@@ -32,15 +32,15 @@ namespace abyss::Enemy
 	{}
 	const s3d::Vec2& EnemyActor::getPos() const
 	{
-		return m_bodyModel->getPos();
+		return m_body->getPos();
 	}
 	const s3d::Vec2& EnemyActor::getVelocity() const
 	{
-		return m_bodyModel->getVelocity();
+		return m_body->getVelocity();
 	}
 	Forward EnemyActor::getForward() const
 	{
-		return m_bodyModel->getForward();
+		return m_body->getForward();
 	}
 	bool EnemyActor::accept(const ActVisitor& visitor)
 	{
@@ -48,15 +48,15 @@ namespace abyss::Enemy
 	}
 	const BodyModel& EnemyActor::getBody() const
 	{
-		return *m_bodyModel;
+		return *m_body;
 	}
 	BodyModel& EnemyActor::getBody()
 	{
-		return *m_bodyModel;
+		return *m_body;
 	}
-	const experimental::HPModel& EnemyActor::getHp() const
+	const HPModel& EnemyActor::getHp() const
     {
-		return *m_hpModel;
+		return *m_hp;
     }
 	CShape EnemyActor::getCollider() const
 	{
@@ -64,6 +64,6 @@ namespace abyss::Enemy
 	}
 	s3d::RectF EnemyActor::region() const
 	{
-		return m_bodyModel->region();
+		return m_body->region();
 	}
 }

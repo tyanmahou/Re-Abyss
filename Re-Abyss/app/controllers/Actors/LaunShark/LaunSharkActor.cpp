@@ -13,8 +13,8 @@ namespace abyss::LaunShark
         EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<LaunSharkVM>())
     {
-        m_hpModel->setHp(Param::Base::Hp);
-        m_bodyModel
+        m_hp->setHp(Param::Base::Hp);
+        m_body
             ->noneResistanced()
             .setSize(Param::Base::Size);
         this->addComponent<exp::StateModel<LaunSharkActor>>(this)
@@ -35,6 +35,6 @@ namespace abyss::LaunShark
     {
         return &m_view->setPos(this->getPos())
             .setForward(this->getForward())
-            .setIsDamaging(m_hpModel->isInInvincibleTime());
+            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }

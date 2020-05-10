@@ -26,7 +26,7 @@ namespace abyss::LaunShark::Shot
 	private:
 		Ref<BodyModel> m_body;
 		Ref<RotateModel> m_rotate;
-		Ref<experimental::HPModel> m_hp;
+		Ref<HPModel> m_hp;
 		std::shared_ptr<ShotVM> m_view;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);

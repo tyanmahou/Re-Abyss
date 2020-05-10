@@ -1,10 +1,11 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/CodeZero/CodeZeroHandModel.hpp>
+#include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/CodeZero/Hand/HandModel.hpp>
 
 namespace abyss::CodeZero
 {
@@ -32,20 +33,16 @@ namespace abyss::CodeZero::Hand
             Right
         };
     private:
-        CodeZeroActor* m_parent;
-        BodyModel m_body;
-        RotateModel m_rotate;
-        CodeZeroHandModel m_hand;
+        Ref<BodyModel> m_body;
+        Ref<RotateModel> m_rotate;
+        Ref<HandModel> m_hand;
         Kind m_kind;
-        StateManager<HandActor> m_state;
+        Ref<exp::StateModel<HandActor>> m_state;
         std::shared_ptr<HandVM> m_view;
     public:
         HandActor(CodeZeroActor* parent, Kind kind);
 
-        void update(double dt)override;
-        void draw()const;
-
-        CShape getCollider() const override;
+        CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;
 
         HandVM* getBindedView()const;
@@ -58,13 +55,7 @@ namespace abyss::CodeZero::Hand
         bool tryPursuit();
         bool tryShotCharge();
 
-        bool isShotCharge()const
-        {
-            return m_state.getState() == State::ShotCharge;
-        }
-        bool isPursuit() const
-        {
-            return m_state.getState() == State::Pursuit;
-        }
+        bool isShotCharge()const;
+        bool isPursuit() const;
     };
 }

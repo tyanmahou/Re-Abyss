@@ -2,8 +2,9 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
 
+#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
 
@@ -28,20 +29,13 @@ namespace abyss::CodeZero::Shot
             PursuitEnd,
         };
     private:
-        CodeZeroActor* m_parent;
-        BodyModel m_body;
-        ScaleModel m_scale;
-
-        StateManager<ShotActor> m_state;
+        Ref<BodyModel> m_body;
+        Ref<ScaleModel> m_scale;
         std::shared_ptr<ShotVM> m_view;
     public:
         ShotActor(CodeZeroActor* parent);
 
-        void update(double dt) override;
-        void lastUpdate(double dt) override;
-        void draw() const override;
-
-        CShape getCollider() const override;
+        CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;
 
         ShotVM* getBindedView()const;

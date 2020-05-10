@@ -29,7 +29,7 @@ namespace abyss::LaunShark::Shot
             ->setPos(pos)
             .noneResistanced()
             .setSize(ShotParam::Base::Size);
-        (m_hp = this->addComponent<experimental::HPModel>(this))
+        (m_hp = this->addComponent<HPModel>(this))
             ->setHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
 
         this->addComponent<exp::StateModel<ShotActor>>(this)

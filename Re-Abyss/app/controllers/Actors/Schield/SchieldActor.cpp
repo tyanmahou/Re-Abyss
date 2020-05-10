@@ -16,10 +16,10 @@ namespace abyss::Schield
         m_view(std::make_shared<SchieldVM>())
     {
         {
-            m_hpModel->setHp(Param::Base::Hp);
+            m_hp->setHp(Param::Base::Hp);
         }
         {
-            m_bodyModel->setSize(Param::Base::Size);
+            m_body->setSize(Param::Base::Size);
         }
         {
             (m_state = this->addComponent<exp::StateModel<SchieldActor>>(this))
@@ -40,10 +40,10 @@ namespace abyss::Schield
     {
         if (m_state->getState() == State::Wait) {
             s3d::Array<CShape> shapes;
-            shapes << this->getFaceCollider() << m_bodyModel->region();
+            shapes << this->getFaceCollider() << m_body->region();
             return shapes;
         }
-        return m_bodyModel->region();
+        return m_body->region();
     }
     bool SchieldActor::accept(const ActVisitor& visitor)
     {
@@ -53,6 +53,6 @@ namespace abyss::Schield
     {
         return &m_view->setPos(this->getPos())
             .setForward(this->getForward())
-            .setIsDamaging(m_hpModel->isInInvincibleTime());
+            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }

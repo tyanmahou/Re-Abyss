@@ -16,8 +16,8 @@ namespace abyss
 			public Receiver
 		{
 		protected:
-			Ref<BodyModel> m_bodyModel;
-			Ref<experimental::HPModel> m_hpModel;
+			Ref<BodyModel> m_body;
+			Ref<HPModel> m_hp;
 		public:
 			EnemyActor() = default;
 
@@ -32,7 +32,7 @@ namespace abyss
 
 			const BodyModel& getBody()const;
 			BodyModel& getBody();
-			const experimental::HPModel& getHp()const;
+			const HPModel& getHp()const;
 			CShape getCollider() const;
 			s3d::RectF region()const;
 		};

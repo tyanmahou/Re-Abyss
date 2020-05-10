@@ -16,8 +16,8 @@ namespace abyss::Ikalien
         EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<IkalienVM>())
     {
-        m_hpModel->setHp(Param::Base::Hp);
-        m_bodyModel->noneResistanced().setPivot(Param::Base::Pivot);
+        m_hp->setHp(Param::Base::Hp);
+        m_body->noneResistanced().setPivot(Param::Base::Pivot);
 
         m_rotate = this->addComponent<RotateModel>();
 
@@ -35,7 +35,7 @@ namespace abyss::Ikalien
     }
     CShape IkalienActor::getCollider() const
     {
-        return s3d::Circle(m_bodyModel->getPivotPos(), Param::Base::ColRadius);
+        return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
     }
     bool IkalienActor::accept(const ActVisitor & visitor)
     {
@@ -46,6 +46,6 @@ namespace abyss::Ikalien
         return &m_view->setPos(this->getPos())
             .setVelocity(this->getVelocity())
             .setRotate(m_rotate->getRotate())
-            .setIsDamaging(m_hpModel->isInInvincibleTime());
+            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }
