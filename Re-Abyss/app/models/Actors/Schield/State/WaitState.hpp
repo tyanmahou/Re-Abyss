@@ -9,8 +9,8 @@ namespace abyss::Schield
     public:
         WaitState();
 
+        void start() override;
         void update(double dt) override;
         void draw()const override;
-        void onCollisionStay(ICollider* col) override;
     };
 }

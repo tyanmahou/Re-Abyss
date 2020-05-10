@@ -35,10 +35,8 @@ namespace abyss
 			const BodyModel& getBody()const;
 			BodyModel& getBody();
 			const HPModel& getHp()const;
-			CShape getCollider() const override;
+			CShape getCollider() const;
 			s3d::RectF region()const;
-
-			virtual void onDead();
 		};
 	}
 }

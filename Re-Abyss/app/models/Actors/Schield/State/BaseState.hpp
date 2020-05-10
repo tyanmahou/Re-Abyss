@@ -3,7 +3,7 @@
 
 namespace abyss::Schield
 {
-    class BaseState : public IState<SchieldActor>
+    class BaseState : public exp::IState<SchieldActor>
     {
     protected:
         BodyModel* m_body;
@@ -13,6 +13,6 @@ namespace abyss::Schield
 
         void update(double dt) override;
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
     };
 }

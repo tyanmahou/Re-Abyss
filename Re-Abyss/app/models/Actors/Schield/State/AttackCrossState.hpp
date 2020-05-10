@@ -10,7 +10,7 @@ namespace abyss::Schield
         bool m_isAttack = false;
     public:
         AttackCrossState();
-
+        void start();
         void update(double dt) override;
         void draw()const override;
     };

@@ -55,7 +55,7 @@ namespace abyss::CodeZero
 
         Body::BodyVM* getBindedView()const;
 
-        void onDead() override;
+        void onDead();
 
         Hand::HandActor* getLeftHand()const { return m_leftHand.get(); }
         Hand::HandActor* getRightHand()const { return m_rightHand.get(); }

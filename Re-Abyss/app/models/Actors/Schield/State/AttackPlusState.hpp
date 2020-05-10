@@ -12,7 +12,7 @@ namespace abyss::Schield
     public:
         AttackPlusState();
 
-
+        void start();
         void update(double dt) override;
         void draw()const override;
     };

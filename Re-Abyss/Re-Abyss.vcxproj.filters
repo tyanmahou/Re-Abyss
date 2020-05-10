@@ -512,22 +512,7 @@
     <ClCompile Include="app\controllers\Actors\Slime\Senser\Senser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Schield\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\State\AttackCrossState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\State\AttackPlusState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CodeZero\Hand\HandActor.cpp">
@@ -759,6 +744,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\CaptainTako\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\State\AttackCrossState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\State\AttackPlusState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Schield\DamageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1080,12 +1083,7 @@
     <ClInclude Include="app\views\Actors\Schield\Shot\ShotVM.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\Senser.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\State\AttackCrossState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\State\AttackPlusState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\HeadActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Head\State\BaseState.hpp" />
@@ -1180,5 +1178,11 @@
     <ClInclude Include="app\models\Actors\CaptainTako\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\ChargeState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\State\AttackCrossState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\State\AttackPlusState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Schield\DamageModel.hpp" />
   </ItemGroup>
 </Project>

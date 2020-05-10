@@ -9,6 +9,7 @@ namespace abyss
         public IComponent,
         public ICollisionCallbackModel
     {
+    protected:
         Ref<experimental::HPModel> m_hp;
         IActor* m_pActor;
         bool m_isAutoDestroy = true;

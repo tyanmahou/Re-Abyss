@@ -6,20 +6,27 @@ namespace abyss::Enemy
 	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
 	{
 		// Body
-		m_bodyModel = this->addComponent<BodyModel>(this);
-		m_bodyModel
-			->initPos(pos)
-			.setForward(forward);
-		m_hpModel = this->addComponent<experimental::HPModel>(this);
-		m_hpModel->setHp(1)
-			.setInvincibleTime(0.2);
+		{
+			(m_bodyModel = this->addComponent<BodyModel>(this))
+				->initPos(pos)
+				.setForward(forward);
+		}
+		// HP
+		{
+			(m_hpModel = this->addComponent<experimental::HPModel>(this))
+				->setHp(1)
+				.setInvincibleTime(0.2);
+
+		}
 
 		// Collider
-		auto collider = this->addComponent<CustomColliderModel>(this);
-		collider->setColFunc([this] {
-			return this->region();
-		});
-		collider->setLayer(LayerGroup::Enemy);
+		{
+			auto collider = this->addComponent<CustomColliderModel>(this);
+			collider->setColFunc([this] {
+				return this->region();
+			});
+			collider->setLayer(LayerGroup::Enemy);
+		}
 	}
 	void EnemyActor::start()
 	{}
@@ -58,9 +65,5 @@ namespace abyss::Enemy
 	s3d::RectF EnemyActor::region() const
 	{
 		return m_bodyModel->region();
-	}
-	void EnemyActor::onDead()
-	{
-		//getModule<World>()->addEffect<EnemyDeadEffect>(this->getPos());
 	}
 }

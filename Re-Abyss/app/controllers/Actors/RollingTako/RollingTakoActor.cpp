@@ -14,18 +14,23 @@ namespace abyss::RollingTako
         m_isWait(entity.wait),
         m_view(std::make_unique<RollingTakoVM>())
     {
-        m_hpModel->setHp(Param::Base::Hp);
-        m_bodyModel
-            ->setSize(Param::Base::Size)
-            .setPivot(Param::Base::Pivot)
-            .setMaxSpeedX(Param::Run::MaxSpeedX);
-
-        (m_state = this->addComponent<exp::StateModel<RollingTakoActor>>(this))
-            ->add<WaitState>(State::Wait)
-            .add<RunState>(State::Run)
-        ;
-        if (!m_isWait) {
-            m_state->changeState(State::Run);
+        {
+            m_hpModel->setHp(Param::Base::Hp);
+        }
+        {
+            m_bodyModel
+                ->setSize(Param::Base::Size)
+                .setPivot(Param::Base::Pivot)
+                .setMaxSpeedX(Param::Run::MaxSpeedX);
+        }
+        {
+            (m_state = this->addComponent<exp::StateModel<RollingTakoActor>>(this))
+                ->add<WaitState>(State::Wait)
+                .add<RunState>(State::Run)
+            ;
+            if (!m_isWait) {
+                m_state->changeState(State::Run);
+            }
         }
         this->addComponent<DamageModel>(this);
         this->addComponent<Enemy::DeadCallbackModel>(this);
