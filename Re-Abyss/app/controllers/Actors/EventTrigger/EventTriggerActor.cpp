@@ -15,10 +15,6 @@ namespace abyss::EventTrigger
         this->getModule<Events>()->regist(event);
         this->destroy();
     }
-    CShape EventTriggerActor::getCollider() const
-    {
-        return s3d::none;
-    }
     bool EventTriggerActor::accept(const ActVisitor& visitor)
     {
         return visitor.visit(*this);

@@ -158,9 +158,6 @@
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\base\ICollider.cpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClCompile>
@@ -876,9 +873,6 @@
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\base\ICollider.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClInclude>
@@ -935,7 +929,6 @@
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
     <ClInclude Include="app\commons\ActInclude.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\models\Collision\FixPos.hpp" />

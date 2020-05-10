@@ -1,12 +1,11 @@
 #include "DamageState.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
 namespace abyss::Player
 {
-    DamageState::DamageState():
-        m_damageTimer(0.5s, true, WorldTime::TimeMicroSec)
+    DamageState::DamageState()
     {}
     void DamageState::onMove(double dt)
     {
@@ -14,6 +13,7 @@ namespace abyss::Player
     }
     void DamageState::start()
     {
+        m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);
         m_body
             ->setAccelX(0)
             .setMaxVelocityY(BodyModel::DefaultMaxVelocityY);

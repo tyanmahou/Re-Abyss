@@ -11,7 +11,6 @@ namespace abyss::EventTrigger
 		EventTriggerActor(const s3d::FilePath& path);
 		
 		void start()override;
-		CShape getCollider() const override;
 		bool accept(const ActVisitor& visitor) override;
 	};
 }

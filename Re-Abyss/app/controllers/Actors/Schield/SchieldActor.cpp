@@ -8,7 +8,7 @@
 
 #include <abyss/models/Actors/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
-
+#include <abyss/types/CShape.hpp>
 namespace abyss::Schield
 {
     SchieldActor::SchieldActor(const SchieldEntity& entity):

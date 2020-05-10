@@ -47,8 +47,6 @@ namespace abyss::CodeZero
 
         void start()override;
 
-        CShape getCollider() const override;
-
         bool accept(const ActVisitor& visitor) override;
 
         Body::BodyVM* getBindedView()const;

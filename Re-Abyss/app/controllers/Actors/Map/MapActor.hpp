@@ -20,7 +20,7 @@ namespace abyss
 			const s3d::Vec2& getSize() const;
 			ColDirection getCol() const;
 			s3d::RectF region() const;
-			CShape getCollider() const override;
+			CShape getCollider() const;
 
 			bool accept(const ActVisitor& visitor) override;
 

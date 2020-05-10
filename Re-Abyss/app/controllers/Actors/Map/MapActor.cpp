@@ -6,7 +6,6 @@ namespace abyss::Map
 	MapActor::MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size) :
 		m_col(col)
 	{
-		layer = LayerGroup::Map;
 		{
 			auto collider = std::make_shared<ColliderModel>(this, pos, size);
 			collider->setLayer(LayerGroup::Map);

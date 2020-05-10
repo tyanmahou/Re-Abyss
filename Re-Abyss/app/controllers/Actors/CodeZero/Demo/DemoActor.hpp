@@ -37,10 +37,6 @@ namespace abyss::CodeZero::Demo
 
         void draw() const override;
 
-        CShape getCollider() const
-        {
-            return s3d::none;
-        }
         bool moveToTarget(double dt);
         void setPos(const s3d::Vec2& pos)
         {

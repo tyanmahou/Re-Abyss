@@ -6,7 +6,6 @@ namespace abyss::Ladder
 	LadderActor::LadderActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
 		MapActor(col, pos, size)
 	{
-		this->tag = U"ladder";
 	}
 
 	s3d::Line LadderActor::getCenterLine() const

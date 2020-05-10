@@ -1,12 +1,11 @@
 #pragma once
-#include "ICollider.hpp"
 #include <abyss/visitors/ActVisitor.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
 #include <abyss/models/Actors/base/Components.hpp>
 
 namespace abyss
 {
-	class IActor : public ICollider
+	class IActor
 	{
 	private:
 		bool m_isDestroyed = false;
@@ -47,7 +46,7 @@ namespace abyss
 		void lastUpdate();
 		virtual void draw()const;
 
-		bool accept(const ActVisitor& visitor) override;
+		virtual bool accept(const ActVisitor& visitor);
 
 		template<class T>
 		T* getModule() const;

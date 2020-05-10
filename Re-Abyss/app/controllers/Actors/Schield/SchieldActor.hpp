@@ -28,7 +28,7 @@ namespace abyss::Schield
 		SchieldActor(const SchieldEntity& entity);
 
 		s3d::Circle getFaceCollider() const;
-		CShape getCollider()const override;
+		CShape getCollider()const;
 		bool accept(const ActVisitor& visitor) override;
 
 		SchieldVM* getBindedView()const;

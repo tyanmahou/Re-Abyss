@@ -47,11 +47,6 @@ namespace abyss::CodeZero
         m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Right);
     }
 
-    CShape CodeZeroActor::getCollider() const
-    {
-        return s3d::none;
-    }
-
     bool CodeZeroActor::accept(const ActVisitor& visitor)
     {
         return visitor.visit(*this);

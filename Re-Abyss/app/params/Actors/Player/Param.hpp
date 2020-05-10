@@ -36,9 +36,11 @@ namespace abyss::Player
             inline static double Speed{ 120.0 };
         };
 
+        [[TOML_BIND_PARAM(Damage::TimeSec, "Damage.timeSec")]]
         [[TOML_BIND_PARAM(Damage::KnockBackSpeed, "Damage.knockBackSpeed")]]
         struct Damage
         {
+            inline static double TimeSec{ 0.5 };
             inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
         };
     };

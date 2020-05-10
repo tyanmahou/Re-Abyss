@@ -181,7 +181,6 @@
     <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp" />
     <ClCompile Include="app\controllers\ActionSystem\ActManager.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\base\ICollider.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.cpp" />
     <ClCompile Include="app\models\Actors\CaptainTako\State\AttackState.cpp" />
@@ -426,8 +425,6 @@
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />
-    <ClInclude Include="app\controllers\Actors\base\ICollider.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\IState.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.hpp" />
