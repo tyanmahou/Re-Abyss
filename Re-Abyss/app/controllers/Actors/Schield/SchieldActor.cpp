@@ -22,7 +22,7 @@ namespace abyss::Schield
             m_body->setSize(Param::Base::Size);
         }
         {
-            (m_state = this->attach<exp::StateModel<SchieldActor>>(this))
+            (m_state = this->attach<StateModel<SchieldActor>>(this))
                 ->add<WaitState>(State::Wait)
                 .add<AttackPlusState>(State::AttackPlus)
                 .add<AttackCrossState>(State::AttackCross)

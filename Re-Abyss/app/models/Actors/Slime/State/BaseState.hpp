@@ -4,7 +4,7 @@
 namespace abyss::Slime
 {
 
-    class BaseState : public exp::IState<SlimeActor>
+    class BaseState : public IState<SlimeActor>
     {
     protected:
         BodyModel* m_body;

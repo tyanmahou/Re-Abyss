@@ -4,7 +4,7 @@
 
 namespace abyss::CodeZero
 {
-    class BaseState : public exp::IState<CodeZeroActor>
+    class BaseState : public IState<CodeZeroActor>
     {
     protected:
         HPModel* m_hp;

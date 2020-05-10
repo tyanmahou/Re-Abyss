@@ -21,7 +21,7 @@ namespace abyss::Ikalien
 
         m_rotate = this->attach<RotateModel>();
 
-        this->attach<exp::StateModel<IkalienActor>>(this)
+        this->attach<StateModel<IkalienActor>>(this)
             ->add<WaitState>(State::Wait)
             .add<PursuitState>(State::Pursuit)
             .add<SwimState>(State::Swim)

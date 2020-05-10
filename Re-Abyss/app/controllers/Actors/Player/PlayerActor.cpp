@@ -39,7 +39,7 @@ namespace abyss::Player
         }
         // State
         {
-            (m_state = this->attach<exp::StateModel<PlayerActor>>(this))
+            (m_state = this->attach<StateModel<PlayerActor>>(this))
                 ->add<SwimState>(State::Swim)
                 .add<LadderState>(State::Ladder)
                 .add<DamageState>(State::Damage)

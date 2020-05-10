@@ -21,7 +21,7 @@ namespace abyss::Player::Shot
 	private:
 		Ref<PlayerShotModel> m_shot;
 		Ref<BodyModel> m_body;
-		Ref<exp::StateModel<ShotActor>> m_state;
+		Ref<StateModel<ShotActor>> m_state;
 		std::shared_ptr<ShotVM> m_view;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward, double charge);

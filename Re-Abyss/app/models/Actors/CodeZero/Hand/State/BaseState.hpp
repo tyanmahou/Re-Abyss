@@ -3,7 +3,7 @@
 
 namespace abyss::CodeZero::Hand
 {
-    class BaseState : public exp::IState<HandActor>
+    class BaseState : public IState<HandActor>
     {
     protected:
         CodeZeroActor* m_parent;

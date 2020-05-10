@@ -13,7 +13,7 @@ namespace abyss::Schield::Shot
         m_view(std::make_shared<ShotVM>())
     {
         {
-            this->attach<exp::StateModel<ShotActor>>(this)
+            this->attach<StateModel<ShotActor>>(this)
                 ->add<BaseState>(State::Base);
         }
         {

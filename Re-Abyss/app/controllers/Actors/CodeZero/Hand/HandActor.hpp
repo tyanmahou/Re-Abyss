@@ -37,7 +37,7 @@ namespace abyss::CodeZero::Hand
         Ref<RotateModel> m_rotate;
         Ref<HandModel> m_hand;
         Kind m_kind;
-        Ref<exp::StateModel<HandActor>> m_state;
+        Ref<StateModel<HandActor>> m_state;
         std::shared_ptr<HandVM> m_view;
     public:
         HandActor(CodeZeroActor* parent, Kind kind);

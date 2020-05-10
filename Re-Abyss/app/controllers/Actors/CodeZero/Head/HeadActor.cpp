@@ -19,7 +19,7 @@ namespace abyss::CodeZero::Head
             m_head = this->attach<HeadModel>(this);
         }
         {
-            this->attach<exp::StateModel<HeadActor>>(this)
+            this->attach<StateModel<HeadActor>>(this)
                 ->add<BaseState>(State::Base)
                 ;
         }

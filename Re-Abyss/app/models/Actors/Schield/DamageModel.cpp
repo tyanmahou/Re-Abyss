@@ -13,7 +13,7 @@ namespace abyss::Schield
     {
         abyss::DamageModel::setup();
 
-        m_state = m_pActor->find<exp::StateModel<SchieldActor>>();
+        m_state = m_pActor->find<StateModel<SchieldActor>>();
     }
     void DamageModel::onCollisionStay(IActor* col)
     {

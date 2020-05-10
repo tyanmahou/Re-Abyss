@@ -23,7 +23,6 @@ namespace abyss
 		for (auto&& com : this->finds<IUpdateModel>()) {
 			com->onUpdate(dt);
 		}
-		this->update(dt);
 	}
 	void IActor::lastUpdate()
 	{
@@ -31,7 +30,6 @@ namespace abyss
 		for (auto&& com : this->finds<ILastUpdateModel>()) {
 			com->onLastUpdate(dt);
 		}
-		this->lastUpdate(dt);
 	}
 	void IActor::draw() const
 	{

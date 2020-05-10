@@ -10,7 +10,7 @@ namespace abyss::Player::Shot
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
 		m_shot = this->attach<PlayerShotModel>(charge);
-		(m_state = this->attach<exp::StateModel<ShotActor>>(this))
+		(m_state = this->attach<StateModel<ShotActor>>(this))
 			->add<BaseState>(State::Base);
 
 		(m_body = this->attach<BodyModel>(this))

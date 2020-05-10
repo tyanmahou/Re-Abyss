@@ -22,7 +22,7 @@ namespace abyss::Schield
 			AttackCross,
 		};
 	private:
-		Ref<exp::StateModel<SchieldActor>> m_state;
+		Ref<StateModel<SchieldActor>> m_state;
 		std::shared_ptr<SchieldVM> m_view;
 	public:
 		SchieldActor(const SchieldEntity& entity);

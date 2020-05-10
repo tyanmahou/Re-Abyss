@@ -23,7 +23,7 @@ namespace abyss::CaptainTako
         }
 
         {
-            this->attach<exp::StateModel<CaptainTakoActor>>(this)
+            this->attach<StateModel<CaptainTakoActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<ChargeState>(State::Charge)
                 .add<AttackState>(State::Attack)

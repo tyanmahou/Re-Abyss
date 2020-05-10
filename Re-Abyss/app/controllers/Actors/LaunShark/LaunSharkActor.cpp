@@ -17,7 +17,7 @@ namespace abyss::LaunShark
         m_body
             ->noneResistanced()
             .setSize(Param::Base::Size);
-        this->attach<exp::StateModel<LaunSharkActor>>(this)
+        this->attach<StateModel<LaunSharkActor>>(this)
             ->add<SwimState>(State::Swim)
             .add<LauncherState>(State::Launcher)
             .add<AttackState>(State::Attack)

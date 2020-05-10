@@ -24,7 +24,6 @@ namespace abyss
 	class BackGround;
 
 	/// Controllers/Actors
-	class ICollider;
 	class IActor;
 	class Attacker;
 	class Receiver;

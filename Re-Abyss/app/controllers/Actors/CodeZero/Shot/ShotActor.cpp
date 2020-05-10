@@ -16,7 +16,7 @@ namespace abyss::CodeZero::Shot
             this->attach<ParentCtrlModel>(parent);
         }
         {
-            this->attach<exp::StateModel<ShotActor>>(this)
+            this->attach<StateModel<ShotActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<PursuitState>(State::Pursuit)
                 .add<PursuitEndState>(State::PursuitEnd)

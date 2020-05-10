@@ -32,7 +32,7 @@ namespace abyss::Player
         Ref<HPModel> m_hp;
 
 
-        Ref<exp::StateModel<PlayerActor>> m_state;
+        Ref<StateModel<PlayerActor>> m_state;
         std::shared_ptr<PlayerVM> m_view;
 
     public:

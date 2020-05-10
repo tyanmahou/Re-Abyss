@@ -8,7 +8,7 @@
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 # include <abyss/models/Actors/base/IDrawModel.hpp>
 
-namespace abyss::exp
+namespace abyss
 {
 
     template <class Actor, class StateKey> class StateModel;
@@ -190,7 +190,7 @@ namespace abyss::exp
 namespace abyss
 {
     template<class T, class U>
-    struct ComponentTree<exp::StateModel<T, U>>
+    struct ComponentTree<StateModel<T, U>>
     {
         using Base = MultiComponents<
             IUpdateModel, 

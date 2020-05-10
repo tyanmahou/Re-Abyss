@@ -23,7 +23,7 @@ namespace abyss::Slime
 			Jump
 		};
 	private:
-		Ref<exp::StateModel<SlimeActor>> m_state;
+		Ref<StateModel<SlimeActor>> m_state;
 		std::shared_ptr<SlimeVM> m_view;
 	public:
 		SlimeActor(const SlimeEntity& entity);

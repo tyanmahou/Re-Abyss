@@ -24,7 +24,7 @@ namespace abyss::RollingTako
     private:
         bool m_isWait;
 
-        Ref<exp::StateModel<RollingTakoActor>> m_state;
+        Ref<StateModel<RollingTakoActor>> m_state;
         std::shared_ptr<RollingTakoVM> m_view;
     public:
         RollingTakoActor(const RollingTakoEntity& entity);

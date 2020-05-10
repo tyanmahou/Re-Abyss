@@ -22,7 +22,7 @@ namespace abyss::CodeZero::Hand
             this->attach<ParentCtrlModel>(parent);
         }
         {
-            (m_state = this->attach<exp::StateModel<HandActor>>(this))
+            (m_state = this->attach<StateModel<HandActor>>(this))
                 ->add<PursuitState>(State::Pursuit)
                 .add<AttackWaitState>(State::AttackWait)
                 .add<AttackState>(State::Attack)

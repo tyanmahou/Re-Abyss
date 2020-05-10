@@ -18,8 +18,6 @@ namespace abyss
 		bool m_isDontDestoryOnLoad = false;
 		s3d::int32 m_order = 0;
 		
-		virtual void update([[maybe_unused]] double dt) {}
-		virtual void lastUpdate([[maybe_unused]] double dt) {}
 	public:
 		IActor();
 		virtual ~IActor() = default;

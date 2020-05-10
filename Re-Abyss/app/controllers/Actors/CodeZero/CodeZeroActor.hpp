@@ -35,7 +35,7 @@ namespace abyss::CodeZero
             Phase3,
         };
     private:
-        Ref<exp::StateModel<CodeZeroActor>> m_state;
+        Ref<StateModel<CodeZeroActor>> m_state;
         std::shared_ptr<Body::BodyVM> m_view;
 
         Ref<Head::HeadActor> m_head;

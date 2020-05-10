@@ -32,7 +32,7 @@ namespace abyss::LaunShark::Shot
         (m_hp = this->attach<HPModel>(this))
             ->setHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
 
-        this->attach<exp::StateModel<ShotActor>>(this)
+        this->attach<StateModel<ShotActor>>(this)
             ->add<WaitState>(State::Wait)
             .add<PursuitState>(State::Pursuit)
             .add<FiringedState>(State::Firinged)

@@ -3,7 +3,7 @@
 
 namespace abyss::RollingTako
 {
-    class BaseState : public exp::IState<RollingTakoActor>
+    class BaseState : public IState<RollingTakoActor>
     {
     protected:
         BodyModel* m_body;
