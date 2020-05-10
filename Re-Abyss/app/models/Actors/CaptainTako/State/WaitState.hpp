@@ -3,11 +3,12 @@
 
 namespace abyss::CaptainTako
 {
-    class ChargeState : public BaseState
+    class WaitState : public BaseState
     {
-        TimerEx m_chargeTimer;
+        TimerEx m_waitTimer;
     public:
-        ChargeState();
+        WaitState();
+        void start() override;
         void update(double dt) override;
         void draw()const override;
     };

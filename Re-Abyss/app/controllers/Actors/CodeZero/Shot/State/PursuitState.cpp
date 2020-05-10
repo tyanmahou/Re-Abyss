@@ -1,6 +1,6 @@
 #include "PursuitState.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {

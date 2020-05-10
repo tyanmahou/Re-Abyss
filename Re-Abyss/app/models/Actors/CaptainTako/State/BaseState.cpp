@@ -5,7 +5,7 @@ namespace abyss::CaptainTako
 {
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
+        m_body = m_pActor->findComponent<BodyModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -13,12 +13,10 @@ namespace abyss::CaptainTako
     }
     void BaseState::draw() const
     {}
-    void BaseState::onCollisionStay(ICollider * col)
+    void BaseState::onCollisionStay(IActor * col)
     {
         col->accept([this](const MapActor& map) {
-            auto colDir = m_body->fixPos(map.getMapColInfo());
+            m_body->fixPos(map.getMapColInfo());
         });
-
-        m_actor->EnemyActor::onCollisionStay(col);
     }
 }

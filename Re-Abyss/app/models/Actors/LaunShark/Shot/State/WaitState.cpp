@@ -2,7 +2,7 @@
 #include <abyss/controllers/World/WorldTime.hpp>
 
 #include <abyss/params/Actors/LaunShark/ShotParam.hpp>
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 
 namespace abyss::LaunShark::Shot
 {

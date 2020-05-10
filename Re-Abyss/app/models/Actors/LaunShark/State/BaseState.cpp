@@ -7,8 +7,8 @@ namespace abyss::LaunShark
 {
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
-        m_timeCounter = this->binded<TimeCounterModel>();
+        m_body = m_pActor->findComponent<BodyModel>().get();
+        m_timeCounter = m_pActor->findComponent<TimeCounterModel>().get();
     }
 
     void BaseState::tryReverse(ColDirection col)
@@ -41,12 +41,12 @@ namespace abyss::LaunShark
     }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(m_actor->getModule<Camera>()->getCurrentRoom(), true)) {
+        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), true)) {
             this->onCollisionMap(colDir);
         }
     }
 
-    void BaseState::onCollisionStay(ICollider* col)
+    void BaseState::onCollisionStay(IActor* col)
     {
         col->accept([this](const MapActor& map) {
 
@@ -54,8 +54,6 @@ namespace abyss::LaunShark
                 this->onCollisionMap(colDir);
             }
         });
-
-        m_actor->EnemyActor::onCollisionStay(col);
     }
 
 }

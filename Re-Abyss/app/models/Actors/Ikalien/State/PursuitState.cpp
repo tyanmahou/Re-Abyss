@@ -2,7 +2,7 @@
 
 #include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
 #include <abyss/params/Actors/Ikalien/Param.hpp>
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Ikalien
 {

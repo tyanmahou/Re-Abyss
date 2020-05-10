@@ -1,6 +1,5 @@
 #include "PursuitState.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 
 #include <abyss/params/Actors/LaunShark/ShotParam.hpp>
 
@@ -8,8 +7,7 @@
 
 namespace abyss::LaunShark::Shot
 {
-    PursuitState::PursuitState() :
-        m_timer(ShotParam::Pursuit::Time, true, WorldTime::TimeMicroSec)
+    PursuitState::PursuitState()
     {}
 
     void PursuitState::start()

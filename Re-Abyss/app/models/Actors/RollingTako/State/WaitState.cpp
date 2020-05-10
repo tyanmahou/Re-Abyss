@@ -1,6 +1,6 @@
 #include "WaitState.hpp"
 
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/RollingTako/RollingTakoVM.hpp>
 #include <abyss/params/Actors/RollingTako/Param.hpp>
 

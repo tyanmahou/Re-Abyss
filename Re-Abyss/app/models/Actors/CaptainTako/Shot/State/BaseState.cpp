@@ -8,7 +8,7 @@ namespace abyss::CaptainTako::Shot
 {
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
+        m_body = m_pActor->findComponent<BodyModel>().get();
     }
 
     void BaseState::start()
@@ -20,22 +20,14 @@ namespace abyss::CaptainTako::Shot
     {
         m_body->update(dt);
         // 画面外判定
-        if (!m_actor->getModule<Camera>()->inRoom(m_actor->getColliderCircle())) {
-            m_actor->destroy();
+        if (!m_pActor->getModule<Camera>()->inRoom(m_pActor->getColliderCircle())) {
+            m_pActor->destroy();
         }
-    }
-
-    void BaseState::onCollisionStay(ICollider* col)
-    {
-        col->accept([this](const Receiver&) {
-            // 当たって消える
-            m_actor->destroy();
-        });
     }
 
     void BaseState::draw() const
     {
-        m_actor->getBindedView()->draw();
+        m_pActor->getBindedView()->draw();
     }
 
 }

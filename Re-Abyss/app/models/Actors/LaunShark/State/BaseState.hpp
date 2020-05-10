@@ -3,7 +3,7 @@
 
 namespace abyss::LaunShark
 {
-    class BaseState : public IState<LaunSharkActor>
+    class BaseState : public exp::IState<LaunSharkActor>
     {
     protected:
         BodyModel* m_body;
@@ -17,6 +17,6 @@ namespace abyss::LaunShark
         void setup()override;
 
         void lastUpdate(double dt) override;
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
     };
 }

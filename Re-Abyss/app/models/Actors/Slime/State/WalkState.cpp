@@ -1,5 +1,5 @@
 #include "WalkState.hpp"
-#include <abyss/controllers/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Slime/Param.hpp>
 

@@ -1,8 +1,9 @@
 #pragma once
+#include <abyss/models/Actors/base/IComponent.hpp>
 
 namespace abyss
 {
-    class TimeCounterModel
+    class TimeCounterModel : public IComponent
     {
         double m_totalTime = 0;
     public:

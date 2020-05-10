@@ -3,7 +3,7 @@
 
 namespace abyss::CaptainTako
 {
-    class BaseState : public IState<CaptainTakoActor>
+    class BaseState : public exp::IState<CaptainTakoActor>
     {
     protected:
         BodyModel* m_body;
@@ -15,6 +15,6 @@ namespace abyss::CaptainTako
 
         void draw() const override;
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
     };
 }

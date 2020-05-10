@@ -2,17 +2,17 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
+#include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 #include <abyss/params/Actors/LaunShark/Param.hpp>
 namespace abyss::LaunShark
 {
-    AttackState::AttackState():
-        m_attackTimer(Param::Attack::AttackTimeSec, true, WorldTime::TimeMicroSec)
+    AttackState::AttackState()
     {}
 
     void AttackState::start()
     {
+        m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::AttackTimeSec);
         m_body->setSize(Param::Attack::Size);
     }
 
@@ -30,7 +30,7 @@ namespace abyss::LaunShark
 
     void AttackState::draw() const
     {
-        m_actor->getBindedView()->drawAttack();
+        m_pActor->getBindedView()->drawAttack();
     }
 
 }
