@@ -33,7 +33,8 @@ namespace abyss::CodeZero
                 ;
         }
         {
-            this->find<CustomColliderModel>()->setActive(false);
+            // コライダーを使用しないので削除
+            this->detach<CustomColliderModel>();
         }
         {
             this->attach<PatternModel>(this);

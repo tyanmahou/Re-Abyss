@@ -49,16 +49,30 @@ namespace abyss
 		template<class T>
 		T* getModule() const;
 
+		/// <summary>
+		/// コンポーネントを付与
+		/// </summary>
 		template<class Component>
-		Ref<Component> attach(const std::shared_ptr<Component>& component)
+		Ref<Component> attach(const std::shared_ptr<Component>& component) const
 			requires IsComponent<Component>
 		;
 
+		/// <summary>
+		/// コンポーネントを構築して付与
+		/// </summary>
 		template<class Component, class... Args>
-		Ref<Component> attach(Args&&... args)
+		Ref<Component> attach(Args&&... args) const
 			requires
 			IsComponent<Component>&&
 			std::constructible_from<Component, Args...>
+		;
+
+		/// <summary>
+		/// コンポーネントを取り除きます
+		/// </summary>
+		template<class Component>
+		bool detach() const
+			requires IsComponent<Component>
 		;
 
 		template<class Component>

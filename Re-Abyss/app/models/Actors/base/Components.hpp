@@ -17,13 +17,13 @@ namespace abyss
         template<class T>
         struct MappingComponentTree
         {
-            void mapping(Components* c, const std::shared_ptr<IComponent>& component);
+            void mapping(const Components* c, const std::shared_ptr<IComponent>& component);
         };
 
         template<class ...Args>
         struct MappingComponentTree<MultiComponents<Args...>>
         {
-            void mapping(Components* c, const std::shared_ptr<IComponent>& component)
+            void mapping(const Components* c, const std::shared_ptr<IComponent>& component)
             {
                 (MappingComponentTree<Args>{}.mapping(c, component), ...);
             }
@@ -36,17 +36,19 @@ namespace abyss
         class Impl;
         std::shared_ptr<Impl> m_pImpl;
 
-        bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component);
+        bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component) const;
+        bool remove(const std::type_index& key) const;
+
         const Ref<IComponent>& find(const std::type_index& key) const;
         const s3d::Array<Ref<IComponent>>& finds(const std::type_index& key) const;
     public:
         Components();
 
         void setup() const;
-        void registTree(const std::type_index& key, const Ref<IComponent>& component);
+        void registTree(const std::type_index& key, const Ref<IComponent>& component) const;
 
         template<class Component>
-        Ref<Component> add(const std::shared_ptr<Component>& component)
+        Ref<Component> add(const std::shared_ptr<Component>& component) const
             requires IsComponent<Component>
         {
             detail::MappingComponentTree<Component>{}.mapping(this, component);
@@ -55,12 +57,19 @@ namespace abyss
         }
 
         template<class Component, class... Args>
-        Ref<Component> add(Args&&... args)
+        Ref<Component> add(Args&&... args) const
             requires
             IsComponent<Component> &&
             std::constructible_from<Component, Args...>
         {
             return add(std::make_shared<Component>(std::forward<Args>(args)...));
+        }
+
+        template<class Component>
+        bool remove() const
+            requires IsComponent<Component>
+        {
+            return remove(typeid(Component));
         }
 
         template<class Component>
@@ -89,7 +98,7 @@ namespace abyss
     namespace detail
     {
         template<class T>
-        void MappingComponentTree<T>::mapping(Components* c, const std::shared_ptr<IComponent>& component)
+        void MappingComponentTree<T>::mapping(const Components* c, const std::shared_ptr<IComponent>& component)
         {
             c->registTree(typeid(T), component);
             if constexpr (HasBaseComponent<T>) {

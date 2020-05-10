@@ -55,20 +55,28 @@ namespace abyss
 	}
 
 	template<class Component>
-	Ref<Component> IActor::attach(const std::shared_ptr<Component>& component)
+	Ref<Component> IActor::attach(const std::shared_ptr<Component>& component) const
 		requires IsComponent<Component>
 	{
 		return m_components.add<Component>(component);
 	}
 
 	template<class Component, class... Args>
-	Ref<Component> IActor::attach(Args&&... args)
+	Ref<Component> IActor::attach(Args&&... args) const
 		requires
 		IsComponent<Component>&&
 		std::constructible_from<Component, Args...>
 	{
 		return m_components.add<Component>(std::forward<Args>(args)...);
 	}
+
+	template<class Component>
+	bool IActor::detach() const
+		requires IsComponent<Component>
+	{
+		return m_components.remove<Component>();
+	}
+
 	template<class Component>
 	Ref<Component> IActor::find() const
 	{

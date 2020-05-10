@@ -27,7 +27,21 @@ namespace abyss
             m_table[key] = component;
             return true;
         }
+        bool remove(const std::type_index& key)
+        {
+            if (m_table.find(key) == m_table.end()) {
+                return false;
+            }
+            m_table.erase(key);
 
+            // treeからも削除
+            for (auto&& [k, coms] : m_tree) {
+                coms.remove_if([](const auto& c) {
+                    return !c;
+                });
+            }
+            return true;
+        }
         void registTree(const std::type_index& key, const Ref<IComponent>& component)
         {
             m_tree[key].push_back(component);
@@ -51,9 +65,14 @@ namespace abyss
         m_pImpl(std::make_shared<Impl>())
     {}
 
-    bool Components::add(const std::type_index& key, const std::shared_ptr<IComponent>& component)
+    bool Components::add(const std::type_index& key, const std::shared_ptr<IComponent>& component)const
     {
         return m_pImpl->add(key, component);
+    }
+
+    bool Components::remove(const std::type_index& key)const
+    {
+        return m_pImpl->remove(key);
     }
 
     const Ref<IComponent>& Components::find(const std::type_index& key) const
@@ -71,7 +90,7 @@ namespace abyss
         m_pImpl->setup();
     }
 
-    void Components::registTree(const std::type_index& key, const Ref<IComponent>& component)
+    void Components::registTree(const std::type_index& key, const Ref<IComponent>& component) const
     {
         m_pImpl->registTree(key, component);
     }
