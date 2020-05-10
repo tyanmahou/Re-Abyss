@@ -40,10 +40,10 @@ namespace abyss::Schield
     {
         if (m_state->getState() == State::Wait) {
             s3d::Array<CShape> shapes;
-            shapes << this->getFaceCollider() << m_body.region();
+            shapes << this->getFaceCollider() << m_bodyModel->region();
             return shapes;
         }
-        return m_body.region();
+        return m_bodyModel->region();
     }
     bool SchieldActor::accept(const ActVisitor& visitor)
     {

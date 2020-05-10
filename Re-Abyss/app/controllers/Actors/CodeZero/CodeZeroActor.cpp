@@ -18,14 +18,19 @@ namespace abyss::CodeZero
         m_state(this),
         m_view(std::make_shared<Body::BodyVM>())
     {
-        m_state
-            .add<Phase1State>(State::Phase1)
-            .add<Phase2State>(State::Phase2)
-            .add<Phase3State>(State::Phase3)
-            .bind<HPModel>(&CodeZeroActor::m_hp)
-            ;
-        m_body.noneResistanced();
-        m_hp.setHp(Param::Base::Hp);
+        {
+            m_hpModel->setHp(Param::Base::Hp);
+        }
+        {
+            m_bodyModel->noneResistanced();
+        }
+        {
+            m_state
+                .add<Phase1State>(State::Phase1)
+                .add<Phase2State>(State::Phase2)
+                .add<Phase3State>(State::Phase3)
+                ;
+        }
 
         m_order = -99;
     }
@@ -33,7 +38,7 @@ namespace abyss::CodeZero
     void CodeZeroActor::start()
     {
         auto* const world = this->m_pManager->getModule<World>();
-        m_head = world->create<Head::HeadActor>(this, &m_hp);
+        //m_head = world->create<Head::HeadActor>(this, &m_hpModel);
         m_leftHand = world->create<Hand::HandActor>(this, Hand::HandActor::Left);
         m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Right);
     }
@@ -46,7 +51,7 @@ namespace abyss::CodeZero
     void CodeZeroActor::draw() const
     {
         m_state.draw();
-        DebugLog::Print << U"HP: " << m_hp.value();
+        DebugLog::Print << U"HP: " << m_hpModel->value();
     }
 
     CShape CodeZeroActor::getCollider() const
@@ -61,7 +66,7 @@ namespace abyss::CodeZero
 
     Body::BodyVM* CodeZeroActor::getBindedView() const
     {
-        return &m_view->setPos(m_body.getPos());
+        return &m_view->setPos(m_bodyModel->getPos());
     }
 
     void CodeZeroActor::onDead()

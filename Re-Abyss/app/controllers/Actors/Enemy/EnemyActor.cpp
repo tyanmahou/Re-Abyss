@@ -54,9 +54,9 @@ namespace abyss::Enemy
 	{
 		return *m_bodyModel;
 	}
-    const HPModel& EnemyActor::getHp() const
+	const experimental::HPModel& EnemyActor::getHp() const
     {
-		return m_hp;
+		return *m_hpModel;
     }
 	CShape EnemyActor::getCollider() const
 	{

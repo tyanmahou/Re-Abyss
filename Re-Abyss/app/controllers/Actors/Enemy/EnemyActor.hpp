@@ -16,8 +16,6 @@ namespace abyss
 			public Receiver
 		{
 		protected:
-			BodyModel m_body;
-			HPModel m_hp;
 			Ref<BodyModel> m_bodyModel;
 			Ref<experimental::HPModel> m_hpModel;
 		public:
@@ -34,7 +32,7 @@ namespace abyss
 
 			const BodyModel& getBody()const;
 			BodyModel& getBody();
-			const HPModel& getHp()const;
+			const experimental::HPModel& getHp()const;
 			CShape getCollider() const;
 			s3d::RectF region()const;
 		};
