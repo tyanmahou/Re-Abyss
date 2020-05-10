@@ -677,18 +677,6 @@
     <ClCompile Include="app\models\Actors\CaptainTako\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\State\DamageState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\State\LadderState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\State\SwimState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\CaptainTako\State\AttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -768,6 +756,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\CodeZero\State\Phase3State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\State\DamageState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\State\LadderState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1161,10 +1161,6 @@
     <ClInclude Include="app\models\Actors\LaunShark\State\SwimState.hpp" />
     <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\State\BaseState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\State\DamageState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\State\LadderState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\State\SwimState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\ChargeState.hpp" />
@@ -1192,5 +1188,9 @@
     <ClInclude Include="app\models\Actors\CodeZero\State\Phase1State.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\models\Actors\CodeZero\State\Phase3State.hpp" />
+    <ClInclude Include="app\models\Actors\Player\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\State\DamageState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\State\LadderState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\State\SwimState.hpp" />
   </ItemGroup>
 </Project>

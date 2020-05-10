@@ -8,7 +8,7 @@
 #include <abyss/models/Actors/Commons/FootModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
-#include <abyss/controllers/Actors/base/IState.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
 
 namespace abyss::Player
 {
@@ -26,23 +26,21 @@ namespace abyss::Player
             Ladder,
         };
     private:
-        BodyModel m_body;
-        FootModel m_foot;
-        ChargeModel m_charge;
-        HPModel m_hp;
+        Ref<BodyModel> m_body;
+        Ref<FootModel> m_foot;
+        Ref<ChargeModel> m_charge;
+        Ref<HPModel> m_hp;
 
 
-        StateManager<PlayerActor> m_state;
+        Ref<exp::StateModel<PlayerActor>> m_state;
         std::shared_ptr<PlayerVM> m_view;
 
     public:
         PlayerActor();
         void start()override;
-        void update(double dt) override;
-        void lastUpdate(double dt) override;
 
-        CShape getCollider() const override;
-        void onCollisionStay(ICollider* col) override;
+        CShape getCollider() const;
+
         void setPos(const Vec2& pos);
         const Vec2& getPos() const;
         void setForward(const Forward& forward);
@@ -50,7 +48,6 @@ namespace abyss::Player
         RectF region() const;
 
         bool accept(const ActVisitor& visitor) override;
-        void draw() const override;
         PlayerVM* getBindedView()const;
 
         static std::shared_ptr<PlayerActor> Create();

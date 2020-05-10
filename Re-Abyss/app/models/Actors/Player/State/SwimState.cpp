@@ -36,7 +36,7 @@ namespace abyss::Player
             m_motion = Motion::Door;
             m_body->setVelocity(Vec2::Zero());
             m_body->setForward(col.getTargetForward());
-            m_actor->getModule<Camera>()->startDoorCameraWork(col, m_body->getPos(), [this]() {
+            m_pActor->getModule<Camera>()->startDoorCameraWork(col, m_body->getPos(), [this]() {
                 this->m_motion = Motion::Stay;
             });
         }

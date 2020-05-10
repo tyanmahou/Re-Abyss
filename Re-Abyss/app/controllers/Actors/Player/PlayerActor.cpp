@@ -1,6 +1,9 @@
-#include "State/SwimState.hpp"
-#include "State/LadderState.hpp"
-#include "State/DamageState.hpp"
+#include <abyss/models/Actors/Player/State/SwimState.hpp>
+#include <abyss/models/Actors/Player/State/LadderState.hpp>
+#include <abyss/models/Actors/Player/State/DamageState.hpp>
+
+#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/commons/LayerGroup.hpp>
@@ -9,60 +12,66 @@
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
-        m_state(this),
-        m_view(std::make_shared<PlayerVM>()),
-        m_hp(this)
+        m_view(std::make_shared<PlayerVM>())
     {
         this->m_isDontDestoryOnLoad = true;
 
-        this->tag = U"player";
-        this->layer = LayerGroup::Player;
-        m_body
-            .setSize(Param::Base::Size)
-            .setForward(Forward::Right)
-        ;
-
-        m_state
-            .add<SwimState>(State::Swim)
-            .add<LadderState>(State::Ladder)
-            .add<DamageState>(State::Damage)
-            .bind<BodyModel>(&PlayerActor::m_body)
-            .bind<FootModel>(&PlayerActor::m_foot)
-            .bind<ChargeModel>(&PlayerActor::m_charge)
-            .bind<HPModel>(&PlayerActor::m_hp)
+        // Collider
+        {
+            auto col = this->addComponent<CustomColliderModel>(this);
+            col->setLayer(LayerGroup::Player);
+            col->setColFunc([this]() {
+                return this->getCollider();
+            });
+        }
+        // Body
+        {
+            (m_body = this->addComponent<BodyModel>(this))
+                ->setSize(Param::Base::Size)
+                .setForward(Forward::Right)
+             ;
+        }
+        // HP
+        {
+            (m_hp = this->addComponent<HPModel>(this))
+                ->setHp(Param::Base::Hp)
+                .setInvincibleTime(Param::Base::InvincibleTime);
+        }
+        // State
+        {
+            (m_state = this->addComponent<exp::StateModel<PlayerActor>>(this))
+                ->add<SwimState>(State::Swim)
+                .add<LadderState>(State::Ladder)
+                .add<DamageState>(State::Damage)
             ;
-        m_hp
-            .setHp(Param::Base::Hp)
-            .setInvincibleTime(Param::Base::InvincibleTime);
+        }
+        // Charge
+        {
+            m_charge = this->addComponent<ChargeModel>();
+        }
+        // Foot
+        {
+            m_foot = this->addComponent<FootModel>();
+        }
         m_order = 10;
     }
     void PlayerActor::start()
     {
         m_pManager->set(this);
     }
-    void PlayerActor::update(double dt)
-    {
-        m_state.update(dt);
-    }
-
-    void PlayerActor::lastUpdate(double dt)
-    {
-        m_state.lastUpdate(dt);
-    }
-
     void PlayerActor::setPos(const Vec2& pos)
     {
-        m_body.setPos(pos);
+        m_body->setPos(pos);
     }
 
     void PlayerActor::setForward(const Forward& forward)
     {
-        m_body.setForward(forward);
+        m_body->setForward(forward);
     }
 
     const Vec2& PlayerActor::getPos() const
     {
-        return m_body.getPos();
+        return m_body->getPos();
     }
 
     CShape PlayerActor::getCollider() const
@@ -70,29 +79,21 @@ namespace abyss::Player
         return this->region();
     }
 
-    void PlayerActor::onCollisionStay(ICollider* col)
-    {
-        m_state.onCollisionStay(col);
-    }
     RectF PlayerActor::region() const
     {
-        return m_body.region();
+        return m_body->region();
     }
     bool PlayerActor::accept(const ActVisitor& visitor)
     {
         return visitor.visit(*this);
     }
-    void PlayerActor::draw() const
-    {
-        m_state.draw();
-    }
     PlayerVM* PlayerActor::getBindedView() const
     {
-        return &m_view->setPos(m_body.getPos())
-            .setVelocity(m_body.getVelocity())
-            .setForward(m_body.getForward())
-            .setCharge(m_charge.getCharge())
-            .setIsDamaging(m_hp.isInInvincibleTime())
+        return &m_view->setPos(this->getPos())
+            .setVelocity(m_body->getVelocity())
+            .setForward(m_body->getForward())
+            .setCharge(m_charge->getCharge())
+            .setIsDamaging(m_hp->isInInvincibleTime())
             .setManager(m_pManager)
             ;
     }

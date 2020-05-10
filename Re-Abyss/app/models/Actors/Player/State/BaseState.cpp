@@ -47,10 +47,10 @@ namespace abyss::Player
     {}
     void BaseState::setup()
     {
-        m_body = this->binded<BodyModel>();
-        m_foot = this->binded<FootModel>();
-        m_charge = this->binded<ChargeModel>();
-        m_hp = this->binded<HPModel>();
+        m_body   = m_pActor->findComponent<BodyModel>().get();
+        m_foot   = m_pActor->findComponent<FootModel>().get();
+        m_charge = m_pActor->findComponent<ChargeModel>().get();
+        m_hp     = m_pActor->findComponent<HPModel>().get();
     }
     void BaseState::start()
     {
@@ -93,11 +93,11 @@ namespace abyss::Player
         // 攻撃
         if (m_charge->update(dt)) {
             double charge = m_charge->pop();
-            m_actor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos(), m_body->getForward(), charge);
+            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos(), m_body->getForward(), charge);
         }
         m_foot->reset();
     }
-    void BaseState::onCollisionStay(ICollider * col)
+    void BaseState::onCollisionStay(IActor * col)
     {
         col->accept(overloaded{
             [this](const FloorActor& floor) {
@@ -126,7 +126,7 @@ namespace abyss::Player
     }
     void BaseState::draw() const
     {
-        auto view = m_actor->getBindedView();
+        auto view = m_pActor->getBindedView();
         if (!view) {
             return;
         }

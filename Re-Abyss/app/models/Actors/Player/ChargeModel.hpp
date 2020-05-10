@@ -1,11 +1,12 @@
 #pragma once
+#include <abyss/models/Actors/base/IComponent.hpp>
 
 namespace abyss::Player
 {
     /// <summary>
     /// player attack charge
     /// </summary>
-    class ChargeModel
+    class ChargeModel : public IComponent
     {
         double m_charge;
 

@@ -8,7 +8,7 @@ namespace abyss::Player
     using Ladder::LadderActor;
     using Door::DoorActor;
 
-    class BaseState : public IState<PlayerActor>
+    class BaseState : public exp::IState<PlayerActor>
     {
     protected:
         BodyModel* m_body;
@@ -34,7 +34,7 @@ namespace abyss::Player
 
         void update(double dt) override;
 
-        void onCollisionStay(ICollider* col) override;
+        void onCollisionStay(IActor* col) override;
 
         void draw() const override;
     };
