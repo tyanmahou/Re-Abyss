@@ -1,5 +1,5 @@
 #include "BaseState.hpp"
-#include <abyss/views/actors/CodeZero/Body/BodyVM.hpp>
+#include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::CodeZero

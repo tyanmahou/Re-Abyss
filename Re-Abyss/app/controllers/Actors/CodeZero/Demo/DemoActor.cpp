@@ -1,8 +1,8 @@
 #include "DemoActor.hpp"
 
-#include <abyss/views/actors/CodeZero/Body/BodyVM.hpp>
-#include <abyss/views/actors/CodeZero/Hand/HandVM.hpp>
-#include <abyss/views/actors/CodeZero/Head/HeadVM.hpp>
+#include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
+#include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
+#include <abyss/views/Actors/CodeZero/Head/HeadVM.hpp>
 #include <abyss/views/util/MaskUtil/MaskUtil.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 #include <abyss/types/Forward.hpp>

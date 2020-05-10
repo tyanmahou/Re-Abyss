@@ -233,9 +233,6 @@
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -249,9 +246,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp">
@@ -272,25 +266,13 @@
     <ClCompile Include="app\controllers\World\WorldTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\RollingTako\RollingTakoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp">
@@ -314,13 +296,7 @@
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Schield\SchieldActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Schield\SchieldVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp">
@@ -462,30 +438,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CodeZero\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CaptainTako\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Body\BodyVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Hand\HandVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Head\HeadVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\LaunShark\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Player\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Schield\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.cpp">
@@ -767,6 +719,54 @@
     <ClCompile Include="app\models\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\CaptainTako\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Body\BodyVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Hand\HandVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Head\HeadVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\CodeZero\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\LaunShark\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Player\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Schield\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Schield\SchieldVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -928,7 +928,6 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
-    <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\commons\ActInclude.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
@@ -937,7 +936,6 @@
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\ChargeModel.hpp" />
-    <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
@@ -948,14 +946,9 @@
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
-    <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
     <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.hpp" />
-    <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
-    <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
-    <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
-    <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
@@ -978,7 +971,6 @@
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Schield\SchieldActor.hpp" />
-    <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
@@ -1049,8 +1041,6 @@
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\controllers\Actors\CodeZero\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotChargeEffect.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotVM.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\CodeZero\Param.hpp" />
@@ -1065,16 +1055,6 @@
     <ClInclude Include="app\params\Actors\Schield\Param.hpp" />
     <ClInclude Include="app\params\Actors\Schield\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Slime\Param.hpp" />
-    <ClInclude Include="app\views\Actors\CaptainTako\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Body\BodyVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Hand\HandVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Head\HeadVM.hpp" />
-    <ClInclude Include="app\views\Actors\LaunShark\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Actors\Player\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\Schield\Shot\ShotVM.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Slime\Senser\Senser.hpp" />
     <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
@@ -1185,5 +1165,25 @@
     <ClInclude Include="app\models\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\SwimState.hpp" />
+    <ClInclude Include="app\views\Actors\CaptainTako\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Body\BodyVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Hand\HandVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Head\HeadVM.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotChargeEffect.hpp" />
+    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
+    <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
+    <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actors\Player\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
+    <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
+    <ClInclude Include="app\views\Actors\Schield\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
+    <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
   </ItemGroup>
 </Project>
