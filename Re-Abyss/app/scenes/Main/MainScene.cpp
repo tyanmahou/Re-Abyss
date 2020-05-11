@@ -19,6 +19,8 @@
 #include <abyss/params/Actors/CodeZero/HandParam.hpp>
 #include <abyss/params/Actors/CodeZero/ShotParam.hpp>
 
+#include <abyss/debugs/HotReload/HotReload.hpp>
+
 namespace
 {
 	using namespace abyss;
@@ -53,21 +55,54 @@ namespace abyss
 	{
 		std::shared_ptr<ActionSystem> m_actionSystem;
 		ResourceManager m_resources;
+
+		String mapName;
+
+#if ABYSS_DEBUG
+		Debug::HotReload m_reloader;
+#endif
 	public:
 		Controller([[maybe_unused]] const MainScene::InitData& init)
 		{
-			m_actionSystem = ActionSystemFactory::CreateFromTmx(U"stage0");
+			mapName = U"stage0";
+#if ABYSS_DEBUG
+			m_reloader
+				.setMessage(mapName)
+				.setCallback([this]() {
+				this->reload();
+			});
+#endif
 			this->init();
 		}
 
-		void init()
+		void reload()
 		{
+			this->m_resources.release();
+			{
+				this->init(true);
+			}
+		}
+		void init(bool isLockPlayer = false)
+		{
+			std::shared_ptr<Player::PlayerActor> player = nullptr;
+			if (isLockPlayer) {
+				player = m_actionSystem->lockPlayer();
+			}
+			m_actionSystem = ActionSystemFactory::CreateFromTmx(mapName);
+
 			::PreloadResourece(m_resources);
-			m_actionSystem->init();
+			if (player) {
+				m_actionSystem->init(player);
+			} else {
+				m_actionSystem->init();
+			}
 		}
 
 		void update()
 		{
+#if ABYSS_DEBUG
+			m_reloader.detection();
+#endif
 			m_actionSystem->update();
 		}
 

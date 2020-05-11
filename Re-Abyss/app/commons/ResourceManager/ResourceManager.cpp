@@ -80,6 +80,15 @@ namespace abyss
 #endif
             return m_tomlCache[path] = toml;
         }
+
+        void release()
+        {
+            m_tmxCache.clear();
+            m_textureCache.clear();
+            m_texturePackerCache.clear();
+            m_psCache.clear();
+            m_tomlCache.clear();
+        }
     };
 
     ResourceManager::ResourceManager():
@@ -112,13 +121,18 @@ namespace abyss
         return m_pImpl->loadPs(prefix + path);
     }
 
-    ResourceManager* ResourceManager::Main()
-    {
-        return s_main;
-    }
-
     const s3d::TOMLValue& ResourceManager::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadToml(prefix + path);
+    }
+
+    void ResourceManager::release() const
+    {
+        return m_pImpl->release();
+    }
+
+    ResourceManager* ResourceManager::Main()
+    {
+        return s_main;
     }
 }

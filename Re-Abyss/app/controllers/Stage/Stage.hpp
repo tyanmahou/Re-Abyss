@@ -29,7 +29,9 @@ namespace abyss
 		);
 		~Stage();
 		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos) const;
-		s3d::Optional<RoomModel> init(World& world);
+
+		s3d::Optional<RoomModel> init(World& world, const std::shared_ptr<Player::PlayerActor>& player);
+		s3d::Optional<RoomModel> init(World& world, s3d::int32 startId = 0);
 
 		void initDecor(const Camera& camera) const;
 		bool initRoom(World& world, const RoomModel& nextRoom);

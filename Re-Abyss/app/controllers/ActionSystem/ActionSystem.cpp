@@ -37,6 +37,14 @@ namespace abyss
         m_stage->initDecor(m_camera);
     }
 
+    void ActionSystem::init(const std::shared_ptr<Player::PlayerActor>& player)
+    {
+        if (auto room = m_stage->init(m_world, player)) {
+            m_camera.setRoom(*room);
+        }
+        m_stage->initDecor(m_camera);
+    }
+
     void ActionSystem::update()
     {
         m_light.clear();
@@ -105,5 +113,9 @@ namespace abyss
     void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
     {
         m_stage = std::move(stage);
+    }
+    std::shared_ptr<Player::PlayerActor> ActionSystem::lockPlayer() const
+    {
+        return m_world.find<Player::PlayerActor>().lock();
     }
 }

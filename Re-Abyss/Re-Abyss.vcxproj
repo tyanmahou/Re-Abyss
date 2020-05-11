@@ -183,6 +183,7 @@
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.cpp" />
     <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.cpp" />
+    <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
     <ClCompile Include="app\models\Actors\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\models\Actors\CaptainTako\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\CaptainTako\State\ChargeState.cpp" />
@@ -428,6 +429,7 @@
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.hpp" />
+    <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\CaptainTako\State\ChargeState.hpp" />

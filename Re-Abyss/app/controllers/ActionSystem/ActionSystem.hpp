@@ -26,9 +26,19 @@ namespace abyss
         ~ActionSystem();
 
         void init();
+
+        /// <summary>
+        /// プレイヤー情報を継承して初期化
+        /// デバッグモードなどで使用
+        /// </summary>
+        /// <param name="player"></param>
+        void init(const std::shared_ptr<Player::PlayerActor>& player);
+
         void update();
         void draw() const;
 
         void setStage(std::unique_ptr<Stage>&& stage);
+
+        std::shared_ptr<Player::PlayerActor> lockPlayer() const;
     };
 }

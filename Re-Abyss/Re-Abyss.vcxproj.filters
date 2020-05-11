@@ -767,6 +767,9 @@
     <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\HotReload\HotReload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1186,5 +1189,6 @@
     <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
+    <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
   </ItemGroup>
 </Project>

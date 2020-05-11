@@ -43,6 +43,8 @@ namespace abyss
         {
             return TOMLBind<Entity>{}(this->loadToml(path, prefix));
         }
+
+        void release() const;
     private:
         inline static ResourceManager* s_main = nullptr;
     public:

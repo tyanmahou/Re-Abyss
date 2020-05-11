@@ -73,9 +73,20 @@ namespace abyss
     {
         return ::GetNextRoom(pos, m_stageData->getRooms());
     }
-    s3d::Optional<RoomModel> Stage::init(World& world)
+    s3d::Optional<RoomModel> Stage::init(World& world, const std::shared_ptr<Player::PlayerActor>& player)
     {
-        auto initStartPos = m_startPos.find(0);
+        world.regist(player);
+
+        auto nextRoom = this->findRoom(player->getPos());
+        if (!nextRoom) {
+            return s3d::none;
+        }
+        this->initRoom(world, *nextRoom);
+        return nextRoom;
+    }
+    s3d::Optional<RoomModel> Stage::init(World& world, s3d::int32 startId)
+    {
+        auto initStartPos = m_startPos.find(startId);
         if (!initStartPos) {
             return s3d::none;
         }
@@ -83,14 +94,7 @@ namespace abyss
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 
-        world.regist(player);
-
-        auto nextRoom = this->findRoom(initStartPos->getPos());
-        if (!nextRoom) {
-            return s3d::none;
-        }
-        this->initRoom(world, *nextRoom);
-        return nextRoom;
+        return this->init(world, player);
     }
     void Stage::initDecor(const Camera& camera) const
     {
