@@ -20,7 +20,7 @@ namespace abyss
         {
             if (m_table.find(key) != m_table.end()) {
 #if ABYSS_DEBUG
-                DebugLog::PrintCache << U"Multi Component:" << s3d::Unicode::Widen(key.name());
+                Debug::Log::PrintCache << U"Multi Component:" << s3d::Unicode::Widen(key.name());
 #endif
                 return false;
             }

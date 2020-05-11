@@ -43,7 +43,7 @@ namespace abyss::CodeZero
             // デバッグでライフ表示 UIができるまで
 #if ABYSS_DEBUG
             this->attach<CustomDrawModel>()->setDrawer([this] {
-                DebugLog::Print << m_hp->value();
+                Debug::Log::Print << m_hp->value();
             });
 #endif
         }

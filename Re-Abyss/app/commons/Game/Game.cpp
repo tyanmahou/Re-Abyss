@@ -34,7 +34,7 @@ namespace abyss
 
 			WorldTime::Update();
 #if ABYSS_DEBUG
-			DebugLog::ClearAndPrintCached();
+			Debug::Log::ClearAndPrintCached();
 			Debug::DebugManager::Update();
 #endif
 

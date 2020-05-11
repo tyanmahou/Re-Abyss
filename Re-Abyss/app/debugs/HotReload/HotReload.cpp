@@ -33,7 +33,7 @@ namespace abyss::Debug
         if (!this->onModify()) {
             return false;
         }
-        DebugLog::PrintCache << U"Reload: " << m_message;
+        Debug::Log::PrintCache << U"Reload: " << m_message;
 
         if (m_callback) {
             m_callback();
