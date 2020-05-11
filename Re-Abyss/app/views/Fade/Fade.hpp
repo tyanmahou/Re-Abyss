@@ -2,7 +2,7 @@
 
 #include <functional>
 #include <Siv3D/Fwd.hpp>
-#include <abyss/commons/Concept.hpp>
+#include <abyss/concepts/Common.hpp>
 
 namespace abyss
 {

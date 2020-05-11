@@ -409,7 +409,6 @@
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
-    <ClInclude Include="app\commons\Concept.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
@@ -420,6 +419,7 @@
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
+    <ClInclude Include="app\concepts\Common.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />

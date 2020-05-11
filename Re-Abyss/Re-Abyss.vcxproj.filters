@@ -828,9 +828,6 @@
     <ClInclude Include="app\types\CollisionPairHash.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Concept.hpp">
-      <Filter>Source Files\Commons</Filter>
-    </ClInclude>
     <ClInclude Include="app\commons\Constants.hpp">
       <Filter>Source Files\Commons</Filter>
     </ClInclude>
@@ -1190,5 +1187,6 @@
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
+    <ClInclude Include="app\concepts\Common.hpp" />
   </ItemGroup>
 </Project>
