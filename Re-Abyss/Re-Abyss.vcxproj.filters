@@ -212,12 +212,6 @@
     <ClCompile Include="app\models\Light\LightModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\commons\InputManager\KeyPovD8\KeyPovD8.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Light\LightView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -770,6 +764,12 @@
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -918,9 +918,6 @@
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
-    <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
-    <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
-    <ClInclude Include="app\commons\InputManager\InputState\InputState.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
@@ -1188,5 +1185,8 @@
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\concepts\Common.hpp" />
+    <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
+    <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
+    <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
   </ItemGroup>
 </Project>

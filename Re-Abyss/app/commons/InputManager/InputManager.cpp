@@ -1,7 +1,7 @@
 #include "InputManager.hpp"
 #include <Siv3D.hpp>
-#include "KeyGroupEx/KeyGroupEx.hpp"
-#include "KeyPovD8/KeyPovD8.hpp"
+#include <abyss/utils/Key/KeyGroupEx/KeyGroupEx.hpp>
+#include <abyss/utils/Key/KeyPovD8/KeyPovD8.hpp>
 
 namespace abyss
 {

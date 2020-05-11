@@ -175,8 +175,8 @@
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
-    <ClCompile Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.cpp" />
-    <ClCompile Include="app\commons\InputManager\KeyPovD8\KeyPovD8.cpp" />
+    <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp" />
+    <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp" />
     <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp" />
     <ClCompile Include="app\controllers\ActionSystem\ActManager.cpp" />
@@ -413,9 +413,9 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
-    <ClInclude Include="app\commons\InputManager\InputState\InputState.hpp" />
-    <ClInclude Include="app\commons\InputManager\KeyGroupEx\KeyGroupEx.hpp" />
-    <ClInclude Include="app\commons\InputManager\KeyPovD8\KeyPovD8.hpp" />
+    <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
+    <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
+    <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />

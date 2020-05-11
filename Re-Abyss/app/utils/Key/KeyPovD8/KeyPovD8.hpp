@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Gamepad.hpp>
 
-#include <abyss/commons/InputManager/InputState/InputState.hpp>
+#include <abyss/utils/Key/InputState/InputState.hpp>
 #include <abyss/utils/Singleton.hpp>
 
 namespace abyss
