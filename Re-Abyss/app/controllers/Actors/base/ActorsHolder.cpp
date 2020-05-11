@@ -56,9 +56,9 @@ namespace abyss
 			}
 			obj->draw();
 #if ABYSS_DEBUG
-			if (DebugManager::IsDrawColider()) {
+			if (Debug::DebugManager::IsDrawColider()) {
 				for (auto&& collider : obj->finds<IColliderModel>()) {
-					DebugManager::DrawColider(collider->getCollider());
+					Debug::DebugManager::DrawColider(collider->getCollider());
 				}
 			}
 #endif

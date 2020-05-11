@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>
-namespace abyss
+namespace abyss::Debug
 {
     class DebugManager::Impl
     {

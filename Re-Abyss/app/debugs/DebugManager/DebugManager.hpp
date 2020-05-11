@@ -5,7 +5,7 @@
 #include <abyss/utils/Singleton.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Debug
 {
     class DebugManager : protected Singleton<DebugManager>
     { 

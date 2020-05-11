@@ -21,7 +21,7 @@ namespace abyss
     void Light::draw(const CameraView& camera) const
     {
 #if ABYSS_DEBUG
-        if (DebugManager::DisableDarkNess()) {
+        if (Debug::DebugManager::DisableDarkNess()) {
             return;
         }
 #endif
