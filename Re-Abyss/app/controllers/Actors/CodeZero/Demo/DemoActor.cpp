@@ -1,5 +1,6 @@
 #include "DemoActor.hpp"
 
+#include <abyss/commons/Constants.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
 #include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
 #include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
@@ -22,7 +23,7 @@ namespace abyss::CodeZero::Demo
 
         {
             auto draw = [this] {
-                const s3d::RectF maskArea(m_targetPos.x - 480.0, m_targetPos.y + 140, 960, 80);
+                const s3d::RectF maskArea(m_targetPos.x - Constants::GameScreenSize.x / 2.0f, m_targetPos.y + 140, Constants::GameScreenSize.x, 80);
 
                 {
                     auto mask = MaskUtil::Instance().notEqual([maskArea] {

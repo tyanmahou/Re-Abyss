@@ -131,9 +131,6 @@
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
       <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
@@ -770,6 +767,9 @@
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -788,9 +788,6 @@
     </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Camera\Camera.hpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
@@ -1190,5 +1187,8 @@
     <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

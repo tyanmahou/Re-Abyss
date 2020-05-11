@@ -283,7 +283,7 @@
     <ClCompile Include="app\factories\DIContainer\DIContainer.cpp" />
     <ClCompile Include="app\factories\Stage\StageFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
-    <ClCompile Include="app\controllers\ActorsHolder\ActorsHolder.cpp" />
+    <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Actors\base\Components.cpp" />
     <ClCompile Include="app\models\Actors\base\IColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\CodeZero\Hand\HandModel.cpp" />
@@ -612,7 +612,7 @@
     <ClInclude Include="app\controllers\Camera\Camera.hpp" />
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />
     <ClInclude Include="app\controllers\World\World.hpp" />
-    <ClInclude Include="app\controllers\ActorsHolder\ActorsHolder.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />

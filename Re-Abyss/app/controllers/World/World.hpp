@@ -1,6 +1,6 @@
 #pragma once
 
-#include <abyss/controllers/ActorsHolder/ActorsHolder.hpp>
+#include <abyss/controllers/Actors/base/ActorsHolder.hpp>
 #include <abyss/views/World/WorldView.hpp>
 
 namespace abyss
