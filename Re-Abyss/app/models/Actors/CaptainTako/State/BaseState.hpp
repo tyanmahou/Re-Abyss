@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/CaptainTako/CaptainTakoActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CaptainTako/CaptainTakoActor.hpp>
 
 namespace abyss::CaptainTako
 {

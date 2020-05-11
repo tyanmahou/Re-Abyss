@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/Schield/SchieldActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Schield/SchieldActor.hpp>
 
 namespace abyss::Schield
 {

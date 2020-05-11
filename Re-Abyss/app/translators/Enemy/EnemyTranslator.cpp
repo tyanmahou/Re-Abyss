@@ -10,14 +10,14 @@
 
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
-#include <abyss/controllers/Actors/RollingTako/RollingTakoActor.hpp>
-#include <abyss/controllers/Actors/CaptainTako/CaptainTakoActor.hpp>
-#include <abyss/controllers/Actors/Ikalien/IkalienActor.hpp>
-#include <abyss/controllers/Actors/LaunShark/LaunSharkActor.hpp>
-#include <abyss/controllers/Actors/Schield/SchieldActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
+#include <abyss/controllers/Actors/Enemy/RollingTako/RollingTakoActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CaptainTako/CaptainTakoActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Ikalien/IkalienActor.hpp>
+#include <abyss/controllers/Actors/Enemy/LaunShark/LaunSharkActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Schield/SchieldActor.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
 namespace abyss
 {

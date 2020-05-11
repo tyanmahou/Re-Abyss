@@ -1,5 +1,5 @@
 #include "SenserCtrlModel.hpp"
-#include <abyss/controllers/Actors/Slime/Senser/Senser.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/Senser/Senser.hpp>
 
 namespace abyss::Slime
 {

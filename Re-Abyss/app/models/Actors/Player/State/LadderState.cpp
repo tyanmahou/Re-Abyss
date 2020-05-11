@@ -1,7 +1,7 @@
 #include "LadderState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
+#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
 namespace abyss::Player

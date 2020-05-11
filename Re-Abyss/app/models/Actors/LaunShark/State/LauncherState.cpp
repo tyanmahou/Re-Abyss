@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
 
-#include <abyss/controllers/Actors/LaunShark/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/LaunShark/Param.hpp>
 
 namespace abyss::LaunShark

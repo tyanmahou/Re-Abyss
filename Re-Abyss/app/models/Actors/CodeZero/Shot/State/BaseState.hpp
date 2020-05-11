@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/CodeZero/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Shot/ShotActor.hpp>
 
 namespace abyss::CodeZero::Shot
 {

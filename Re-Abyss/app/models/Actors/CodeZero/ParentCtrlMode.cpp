@@ -1,5 +1,5 @@
 #include "ParentCtrlModel.hpp"
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
 namespace abyss::CodeZero
 {

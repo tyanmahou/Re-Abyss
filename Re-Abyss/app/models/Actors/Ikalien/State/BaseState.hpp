@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/Ikalien/IkalienActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Ikalien/IkalienActor.hpp>
 
 namespace abyss::Ikalien
 {

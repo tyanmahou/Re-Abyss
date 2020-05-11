@@ -5,7 +5,7 @@
 
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/views/Actors/CodeZero/Shot/ShotVM.hpp>
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {

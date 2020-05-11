@@ -5,8 +5,8 @@
 #include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/Head/HeadActor.hpp>
-#include <abyss/controllers/Actors/CodeZero/Hand/HandActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>

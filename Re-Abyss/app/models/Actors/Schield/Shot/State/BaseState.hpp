@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/Schield/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Schield/Shot/ShotActor.hpp>
 
 namespace abyss::Schield::Shot
 {

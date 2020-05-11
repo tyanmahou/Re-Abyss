@@ -119,9 +119,6 @@
     <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
       <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Door\DoorActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
@@ -160,18 +157,6 @@
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\SlimeActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Floor\FloorActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ladder\LadderActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Application\MainApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
@@ -257,18 +242,6 @@
     <ClCompile Include="app\controllers\World\WorldTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\RollingTako\RollingTakoActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ikalien\IkalienActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\LaunSharkActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -285,9 +258,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\SchieldActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp">
@@ -416,34 +386,10 @@
     <ClCompile Include="app\services\Stage\StageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\CodeZeroActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Slime\Senser\Senser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Schield\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Hand\HandActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Head\HeadActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\LaunShark\Shot\ShotActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Player\Shot\ShotActor.cpp">
@@ -480,12 +426,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Event\Events.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\EventTrigger\EventTriggerActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\CodeZero\Demo\DemoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Build.cpp">
@@ -770,6 +710,66 @@
     <ClCompile Include="app\debugs\Log\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Gimmick\EventTrigger\EventTriggerActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Gimmick\Door\DoorActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Head\HeadActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Ikalien\IkalienActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\LaunShark\Shot\ShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\LaunShark\LaunSharkActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Schield\SchieldActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Map\Floor\FloorActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Map\Ladder\LadderActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -809,9 +809,6 @@
     </ClInclude>
     <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp">
       <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Door\DoorActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
@@ -876,18 +873,6 @@
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Slime\SlimeActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Floor\FloorActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Ladder\LadderActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\PenetrateFloor\PenetrateFloorActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
-    </ClInclude>
     <ClInclude Include="app\commons\Application\MainApp.hpp">
       <Filter>Source Files\Commons\Appication</Filter>
     </ClInclude>
@@ -940,10 +925,6 @@
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
-    <ClInclude Include="app\controllers\Actors\RollingTako\RollingTakoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\CaptainTako\CaptainTakoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ikalien\IkalienActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
@@ -964,7 +945,6 @@
     <ClInclude Include="app\entities\Actors\Map\MapEntity.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Schield\SchieldActor.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
@@ -1029,11 +1009,9 @@
     <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\CodeZeroActor.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Shot\ShotActor.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actors\CaptainTako\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\CodeZero\Param.hpp" />
@@ -1048,12 +1026,6 @@
     <ClInclude Include="app\params\Actors\Schield\Param.hpp" />
     <ClInclude Include="app\params\Actors\Schield\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Slime\Param.hpp" />
-    <ClInclude Include="app\controllers\Actors\CaptainTako\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Slime\Senser\Senser.hpp" />
-    <ClInclude Include="app\controllers\Actors\Schield\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Hand\HandActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Head\HeadActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\LaunShark\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
@@ -1070,8 +1042,6 @@
     <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\controllers\Event\Events.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
-    <ClInclude Include="app\controllers\Actors\EventTrigger\EventTriggerActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\CodeZero\Demo\DemoActor.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Build.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
@@ -1188,5 +1158,35 @@
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
+    <ClInclude Include="app\controllers\Actors\Gimmick\EventTrigger\EventTriggerActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Gimmick\Door\DoorActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Head\HeadActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Ikalien\IkalienActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\Shot\ShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\LaunSharkActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Schield\SchieldActor.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Map\Floor\FloorActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Map\Ladder\LadderActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
+    </ClInclude>
+    <ClInclude Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

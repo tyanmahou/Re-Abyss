@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
 
 namespace abyss::Slime
 {

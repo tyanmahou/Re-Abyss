@@ -1,7 +1,7 @@
 #include "AttackState.hpp"
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
-#include <abyss/controllers/Actors/CaptainTako/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CaptainTako/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/CaptainTako/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 

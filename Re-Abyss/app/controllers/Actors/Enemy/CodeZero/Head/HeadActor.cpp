@@ -2,7 +2,7 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 #include <abyss/views/Actors/CodeZero/Head/HeadVM.hpp>

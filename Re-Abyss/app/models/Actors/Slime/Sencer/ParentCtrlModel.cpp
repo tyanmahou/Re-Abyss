@@ -1,5 +1,5 @@
 #include "ParentCtrlModel.hpp"
-#include <abyss/controllers/Actors/Slime/SlimeActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
 namespace abyss::Slime::Sencer

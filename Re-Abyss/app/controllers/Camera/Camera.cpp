@@ -4,7 +4,7 @@
 #include <abyss/controllers/Stage/Stage.hpp>
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
-#include <abyss/controllers/Actors/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 #include "CameraWork/Door/DoorCameraWork.hpp"

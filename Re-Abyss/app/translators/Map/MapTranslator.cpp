@@ -1,8 +1,8 @@
 #include "MapTranslator.hpp"
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
-#include <abyss/controllers/Actors/Floor/FloorActor.hpp>
-#include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
-#include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
+#include <abyss/controllers/Actors/Map/Floor/FloorActor.hpp>
+#include <abyss/controllers/Actors/Map/PenetrateFloor/PenetrateFloorActor.hpp>
+#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 
 namespace abyss
 {

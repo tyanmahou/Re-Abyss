@@ -2,10 +2,10 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
-#include <abyss/controllers/Actors/PenetrateFloor/PenetrateFloorActor.hpp>
-#include <abyss/controllers/Actors/Ladder/LadderActor.hpp>
+#include <abyss/controllers/Actors/Map/PenetrateFloor/PenetrateFloorActor.hpp>
+#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/controllers/Actors/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 
 namespace abyss::Player
 {

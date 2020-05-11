@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/CaptainTako/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CaptainTako/Shot/ShotActor.hpp>
 
 namespace abyss::CaptainTako::Shot
 {

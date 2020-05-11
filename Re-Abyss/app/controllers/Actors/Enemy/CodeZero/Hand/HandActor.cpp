@@ -5,7 +5,7 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>

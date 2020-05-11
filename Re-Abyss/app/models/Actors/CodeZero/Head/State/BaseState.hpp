@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/CodeZero/Head/HeadActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
 
 namespace abyss::CodeZero::Head
 {

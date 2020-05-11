@@ -1,5 +1,5 @@
 #include "HeadModel.hpp"
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 

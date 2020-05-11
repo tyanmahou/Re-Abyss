@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/LaunShark/LaunSharkActor.hpp>
+#include <abyss/controllers/Actors/Enemy/LaunShark/LaunSharkActor.hpp>
 
 namespace abyss::LaunShark
 {

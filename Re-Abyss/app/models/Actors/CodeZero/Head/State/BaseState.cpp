@@ -2,7 +2,7 @@
 #include <abyss/views/Actors/CodeZero/Head/HeadVM.hpp>
 #include <abyss/commons/ActInclude.hpp>
 
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
 namespace abyss::CodeZero::Head

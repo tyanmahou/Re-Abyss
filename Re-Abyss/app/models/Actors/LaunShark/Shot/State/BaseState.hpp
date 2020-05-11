@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/LaunShark/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
 
 namespace abyss::LaunShark::Shot
 {

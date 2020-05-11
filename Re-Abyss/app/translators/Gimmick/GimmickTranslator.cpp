@@ -2,8 +2,8 @@
 #include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
 
-#include <abyss/controllers/Actors/Door/DoorActor.hpp>
-#include <abyss/controllers/Actors/EventTrigger/EventTriggerActor.hpp>
+#include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/Gimmick/EventTrigger/EventTriggerActor.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 
 namespace abyss

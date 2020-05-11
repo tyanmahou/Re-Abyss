@@ -1,11 +1,11 @@
 #include "Phase3State.hpp"
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
-#include <abyss/controllers/Actors/CodeZero/Hand/HandActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
-#include <abyss/controllers/Actors/CodeZero/Shot/ShotActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/Shot/ShotActor.hpp>
 namespace abyss::CodeZero
 {
     Phase3State::Phase3State()

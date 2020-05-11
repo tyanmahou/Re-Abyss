@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/RollingTako/RollingTakoActor.hpp>
+#include <abyss/controllers/Actors/Enemy/RollingTako/RollingTakoActor.hpp>
 
 namespace abyss::RollingTako
 {

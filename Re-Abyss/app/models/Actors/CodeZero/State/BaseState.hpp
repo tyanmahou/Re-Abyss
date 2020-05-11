@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Actors/Commons/PatternModel.hpp>
 
 namespace abyss::CodeZero

@@ -1,6 +1,6 @@
 #include "PursuitState.hpp"
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
-#include <abyss/controllers/Actors/CodeZero/CodeZeroActor.hpp>
+#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/CodeZero/Param.hpp>
 
 namespace abyss::CodeZero::Hand
