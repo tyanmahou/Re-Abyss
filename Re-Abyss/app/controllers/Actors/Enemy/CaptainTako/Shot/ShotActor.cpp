@@ -1,7 +1,7 @@
-#include <abyss/models/Actors/CaptainTako/Shot/State/BaseState.hpp>
-#include <abyss/views/Actors/CaptainTako/Shot/ShotVM.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
+#include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
-#include <abyss/params/Actors/CaptainTako/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>

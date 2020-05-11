@@ -6,7 +6,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
-#include <abyss/models/Actors/StartPos/StartPosListModel.hpp>
+#include <abyss/models/Actors/Gimmick/StartPos/StartPosListModel.hpp>
 
 namespace abyss
 {

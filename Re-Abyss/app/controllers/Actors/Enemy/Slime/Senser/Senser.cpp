@@ -1,8 +1,8 @@
 #include "Senser.hpp"
 
-#include <abyss/models/Actors/Slime/Sencer/MainUpdateModel.hpp>
-#include <abyss/models/Actors/Slime/Sencer/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Slime/Sencer/CollisionModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/Sencer/MainUpdateModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/Sencer/CollisionModel.hpp>
 #include <abyss/models/Actors/Commons/PosModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 

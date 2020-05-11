@@ -3,8 +3,8 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/models/Actors/base/StateModel.hpp>
-#include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/CodeZero/Head/HeadModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 
 namespace abyss::CodeZero
 {

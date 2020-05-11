@@ -1,8 +1,8 @@
 #include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
-#include <abyss/views/Actors/RollingTako/RollingTakoVM.hpp>
-#include <abyss/params/Actors/RollingTako/Param.hpp>
-#include <abyss/models/Actors/RollingTako/State/WaitState.hpp>
-#include <abyss/models/Actors/RollingTako/State/RunState.hpp>
+#include <abyss/views/Actors/Enemy/RollingTako/RollingTakoVM.hpp>
+#include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
+#include <abyss/models/Actors/Enemy/RollingTako/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/RollingTako/State/RunState.hpp>
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>

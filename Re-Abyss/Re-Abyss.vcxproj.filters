@@ -260,15 +260,6 @@
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\StartPos\StartPosModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Door\DoorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\StartPos\StartPosListModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -461,28 +452,7 @@
     <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\Sencer\MainUpdateModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\Sencer\CollisionModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\PosModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\State\JumpState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\State\WalkState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
@@ -494,145 +464,10 @@
     <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\SenserCtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Slime\DeadCallbackModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\RollingTako\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\RollingTako\State\RunState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\RollingTako\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Ikalien\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Ikalien\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Ikalien\State\SwimState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Ikalien\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\FiringedState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\Shot\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\State\AttackState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\State\LauncherState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\LaunShark\State\SwimState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\utils\ActorUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CaptainTako\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CaptainTako\State\AttackState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CaptainTako\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CaptainTako\State\ChargeState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CaptainTako\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\State\AttackCrossState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\State\AttackPlusState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Schield\DamageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Head\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\ParentCtrlMode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Head\HeadModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\AttackState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\AttakWaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\State\ShotChargeState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Hand\HandModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\PursuitEndState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\Shot\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\State\Phase1State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\State\Phase2State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\CodeZero\State\Phase3State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Player\State\BaseState.cpp">
@@ -647,52 +482,13 @@
     <ClCompile Include="app\models\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\CaptainTako\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CaptainTako\CpatainTakoVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Body\BodyVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Hand\HandVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Head\HeadVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\CodeZero\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Ikalien\IkalienVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\LaunShark\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\LaunShark\LaunSharkVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\Player\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\RollingTako\RollingTakoVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Schield\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Schield\SchieldVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Actors\Slime\SlimeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp">
@@ -769,6 +565,210 @@
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CodeZero\Hand\HandVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CodeZero\Head\HeadVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\CodeZero\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\Ikalien\IkalienVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\RollingTako\RollingTakoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\Schield\Shot\ShotVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\Schield\SchieldVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Enemy\Slime\SlimeVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\AttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\ChargeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\ShotChargeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\HandModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\HeadModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\State\PursuitEndState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\State\Phase1State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\State\Phase2State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\State\Phase3State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CodeZero\ParentCtrlMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\SwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\State\AttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\State\LauncherState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\State\SwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\RunState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\State\AttackCrossState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\DamageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\State\JumpState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\State\WalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -946,9 +946,6 @@
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
     <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
-    <ClInclude Include="app\models\Actors\StartPos\StartPosModel.hpp" />
-    <ClInclude Include="app\models\Actors\Door\DoorModel.hpp" />
-    <ClInclude Include="app\models\Actors\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
@@ -1012,20 +1009,8 @@
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
-    <ClInclude Include="app\params\Actors\CaptainTako\Param.hpp" />
-    <ClInclude Include="app\params\Actors\CaptainTako\ShotParam.hpp" />
-    <ClInclude Include="app\params\Actors\CodeZero\Param.hpp" />
-    <ClInclude Include="app\params\Actors\CodeZero\HandParam.hpp" />
-    <ClInclude Include="app\params\Actors\CodeZero\ShotParam.hpp" />
-    <ClInclude Include="app\params\Actors\Ikalien\Param.hpp" />
-    <ClInclude Include="app\params\Actors\LaunShark\Param.hpp" />
-    <ClInclude Include="app\params\Actors\LaunShark\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Player\Param.hpp" />
     <ClInclude Include="app\params\Actors\Player\ShotParam.hpp" />
-    <ClInclude Include="app\params\Actors\RollingTako\Param.hpp" />
-    <ClInclude Include="app\params\Actors\Schield\Param.hpp" />
-    <ClInclude Include="app\params\Actors\Schield\ShotParam.hpp" />
-    <ClInclude Include="app\params\Actors\Slime\Param.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
@@ -1057,97 +1042,31 @@
     <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
-    <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\Sencer\MainUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\Sencer\CollisionModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\Sencer\ParentCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\State\JumpState.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\DeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Slime\SenserCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\RollingTako\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\RollingTako\State\RunState.hpp" />
-    <ClInclude Include="app\models\Actors\RollingTako\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\State\PursuitState.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\State\SwimState.hpp" />
-    <ClInclude Include="app\models\Actors\Ikalien\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\FiringedState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\PursuitState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\State\AttackState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\State\LauncherState.hpp" />
-    <ClInclude Include="app\models\Actors\LaunShark\State\SwimState.hpp" />
     <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
-    <ClInclude Include="app\models\Actors\CaptainTako\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CaptainTako\State\AttackState.hpp" />
-    <ClInclude Include="app\models\Actors\CaptainTako\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CaptainTako\State\ChargeState.hpp" />
-    <ClInclude Include="app\models\Actors\CaptainTako\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\State\AttackCrossState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\State\AttackPlusState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Schield\DamageModel.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Head\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Head\HeadModel.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\AttackState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\AttakWaitState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\PursuitState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\State\ShotChargeState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Hand\HandModel.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\PursuitEndState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\PursuitState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\Shot\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\State\Phase1State.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\State\Phase2State.hpp" />
-    <ClInclude Include="app\models\Actors\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\SwimState.hpp" />
-    <ClInclude Include="app\views\Actors\CaptainTako\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\CaptainTako\CpatainTakoVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Body\BodyVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Hand\HandVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Head\HeadVM.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotChargeEffect.hpp" />
-    <ClInclude Include="app\views\Actors\CodeZero\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
-    <ClInclude Include="app\views\Actors\Ikalien\IkalienVM.hpp" />
-    <ClInclude Include="app\views\Actors\LaunShark\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actors\Player\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
-    <ClInclude Include="app\views\Actors\RollingTako\RollingTakoVM.hpp" />
-    <ClInclude Include="app\views\Actors\Schield\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actors\Schield\SchieldVM.hpp" />
-    <ClInclude Include="app\views\Actors\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp">
@@ -1188,5 +1107,86 @@
     <ClInclude Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
     </ClInclude>
+    <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CodeZero\Hand\HandVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CodeZero\Head\HeadVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CodeZero\Shot\ShotChargeEffect.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\CodeZero\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\Ikalien\IkalienVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\RollingTako\RollingTakoVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\Schield\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\Schield\SchieldVM.hpp" />
+    <ClInclude Include="app\views\Actors\Enemy\Slime\SlimeVM.hpp" />
+    <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\ChargeState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttackState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\ShotChargeState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\HandModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\HeadModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\State\PursuitEndState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase1State.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase2State.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase3State.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\SwimState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\State\AttackState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\State\LauncherState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\State\SwimState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\RunState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\State\WaitState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\DamageModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\State\BaseState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\State\JumpState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\State\WalkState.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.hpp" />
+    <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosModel.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\CaptainTako\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\CaptainTako\ShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\CodeZero\HandParam.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\CodeZero\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\CodeZero\ShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\Ikalien\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\LaunShark\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\LaunShark\ShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\RollingTako\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\Schield\Param.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\Schield\ShotParam.hpp" />
+    <ClInclude Include="app\params\Actors\Enemy\Slime\Param.hpp" />
+    <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
   </ItemGroup>
 </Project>

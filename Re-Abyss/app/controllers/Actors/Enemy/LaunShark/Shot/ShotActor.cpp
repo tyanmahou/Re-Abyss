@@ -1,6 +1,6 @@
-#include <abyss/models/Actors/LaunShark/Shot/State/WaitState.hpp>
-#include <abyss/models/Actors/LaunShark/Shot/State/PursuitState.hpp>
-#include <abyss/models/Actors/LaunShark/Shot/State/FiringedState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/PursuitState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/FiringedState.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
@@ -9,7 +9,7 @@
 
 #include <abyss/commons/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
-#include <abyss/params/Actors/LaunShark/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 
 namespace abyss::LaunShark::Shot
 {

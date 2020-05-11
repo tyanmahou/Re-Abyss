@@ -1,12 +1,12 @@
-#include <abyss/models/Actors/Schield/State/WaitState.hpp>
-#include <abyss/models/Actors/Schield/State/AttackPlusState.hpp>
-#include <abyss/models/Actors/Schield/State/AttackCrossState.hpp>
+#include <abyss/models/Actors/Enemy/Schield/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/Schield/State/AttackPlusState.hpp>
+#include <abyss/models/Actors/Enemy/Schield/State/AttackCrossState.hpp>
 
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
-#include <abyss/views/Actors/Schield/SchieldVM.hpp>
-#include <abyss/params/Actors/Schield/Param.hpp>
+#include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
+#include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
-#include <abyss/models/Actors/Schield/DamageModel.hpp>
+#include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 #include <abyss/types/CShape.hpp>
 namespace abyss::Schield

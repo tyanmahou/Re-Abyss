@@ -1,9 +1,9 @@
-#include <abyss/models/Actors/CodeZero/State/Phase1State.hpp>
-#include <abyss/models/Actors/CodeZero/State/Phase2State.hpp>
-#include <abyss/models/Actors/CodeZero/State/Phase3State.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/State/Phase1State.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/State/Phase2State.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/State/Phase3State.hpp>
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
-#include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
-#include <abyss/params/Actors/CodeZero/Param.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>

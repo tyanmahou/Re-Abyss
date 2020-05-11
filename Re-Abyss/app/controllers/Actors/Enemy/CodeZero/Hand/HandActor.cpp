@@ -1,13 +1,13 @@
-#include <abyss/models/Actors/CodeZero/Hand/State/PursuitState.hpp>
-#include <abyss/models/Actors/CodeZero/Hand/State/AttakWaitState.hpp>
-#include <abyss/models/Actors/CodeZero/Hand/State/AttackState.hpp>
-#include <abyss/models/Actors/CodeZero/Hand/State/ShotChargeState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/AttackState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/params/Actors/CodeZero/HandParam.hpp>
-#include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
 
 namespace abyss::CodeZero::Hand

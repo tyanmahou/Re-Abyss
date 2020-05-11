@@ -4,8 +4,8 @@
 #include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/CodeZero/Hand/HandModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
 
 namespace abyss::CodeZero
 {

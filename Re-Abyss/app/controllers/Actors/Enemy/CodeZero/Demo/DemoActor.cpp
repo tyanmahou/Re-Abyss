@@ -2,11 +2,11 @@
 
 #include <abyss/commons/Constants.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
-#include <abyss/views/Actors/CodeZero/Body/BodyVM.hpp>
-#include <abyss/views/Actors/CodeZero/Hand/HandVM.hpp>
-#include <abyss/views/Actors/CodeZero/Head/HeadVM.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 #include <abyss/views/util/MaskUtil/MaskUtil.hpp>
-#include <abyss/params/Actors/CodeZero/Param.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/types/Forward.hpp>
 
 namespace abyss::CodeZero::Demo

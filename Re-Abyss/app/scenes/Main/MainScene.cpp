@@ -4,20 +4,20 @@
 #include <abyss/factories/ActionSystem/ActionSystemFactory.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-#include <abyss/params/Actors/CaptainTako/Param.hpp>
-#include <abyss/params/Actors/CaptainTako/ShotParam.hpp>
-#include <abyss/params/Actors/Ikalien/Param.hpp>
-#include <abyss/params/Actors/LaunShark/Param.hpp>
-#include <abyss/params/Actors/LaunShark/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
+#include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
+#include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
+#include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
-#include <abyss/params/Actors/RollingTako/Param.hpp>
-#include <abyss/params/Actors/Slime/Param.hpp>
-#include <abyss/params/Actors/Schield/Param.hpp>
-#include <abyss/params/Actors/Schield/ShotParam.hpp>
-#include <abyss/params/Actors/CodeZero/Param.hpp>
-#include <abyss/params/Actors/CodeZero/HandParam.hpp>
-#include <abyss/params/Actors/CodeZero/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
+#include <abyss/params/Actors/Enemy/Slime/Param.hpp>
+#include <abyss/params/Actors/Enemy/Schield/Param.hpp>
+#include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
 #include <abyss/debugs/HotReload/HotReload.hpp>
 

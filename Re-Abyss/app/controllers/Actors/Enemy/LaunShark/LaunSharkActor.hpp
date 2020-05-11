@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
 
-#include <abyss/views/Actors/LaunShark/LaunSharkVM.hpp>
+#include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
 
 namespace abyss
 {

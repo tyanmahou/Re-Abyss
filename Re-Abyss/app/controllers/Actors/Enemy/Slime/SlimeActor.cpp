@@ -1,15 +1,15 @@
-#include <abyss/models/Actors/Slime/State/WalkState.hpp>
-#include <abyss/models/Actors/Slime/State/JumpState.hpp>
+#include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
+#include <abyss/models/Actors/Enemy/Slime/State/JumpState.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 
 #include "Senser/Senser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
-#include <abyss/views/Actors/Slime/SlimeVM.hpp>
-#include <abyss/params/Actors/Slime/Param.hpp>
-#include <abyss/models/Actors/Slime/DeadCallbackModel.hpp>
-#include <abyss/models/Actors/Slime/SenserCtrlModel.hpp>
+#include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
+#include <abyss/params/Actors/Enemy/Slime/Param.hpp>
+#include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
 
 namespace abyss::Slime
 {

@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/base/StateModel.hpp>
-#include <abyss/views/Actors/LaunShark/Shot/ShotVM.hpp>
+#include <abyss/views/Actors/Enemy/LaunShark/Shot/ShotVM.hpp>
 
 namespace abyss::LaunShark::Shot
 {

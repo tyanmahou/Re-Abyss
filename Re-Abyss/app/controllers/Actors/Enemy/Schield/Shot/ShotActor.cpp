@@ -1,11 +1,11 @@
-#include <abyss/models/Actors/Schield/Shot/State/BaseState.hpp>
+#include <abyss/models/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 
-#include <abyss/views/Actors/Schield/Shot/ShotVM.hpp>
+#include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 #include <abyss/commons/LayerGroup.hpp>
-#include <abyss/params/Actors/Schield/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 
 namespace abyss::Schield::Shot
 {

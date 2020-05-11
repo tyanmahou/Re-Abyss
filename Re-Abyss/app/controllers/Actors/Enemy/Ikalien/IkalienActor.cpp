@@ -1,10 +1,10 @@
-#include <abyss/models/Actors/Ikalien/State/WaitState.hpp>
-#include <abyss/models/Actors/Ikalien/State/PursuitState.hpp>
-#include <abyss/models/Actors/Ikalien/State/SwimState.hpp>
+#include <abyss/models/Actors/Enemy/Ikalien/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/Ikalien/State/PursuitState.hpp>
+#include <abyss/models/Actors/Enemy/Ikalien/State/SwimState.hpp>
 
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
-#include <abyss/views/Actors/Ikalien/IkalienVM.hpp>
-#include <abyss/params/Actors/Ikalien/Param.hpp>
+#include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
+#include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>

@@ -1,8 +1,8 @@
-#include <abyss/models/Actors/LaunShark/State/SwimState.hpp>
-#include <abyss/models/Actors/LaunShark/State/AttackState.hpp>
-#include <abyss/models/Actors/LaunShark/State/LauncherState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/State/SwimState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/State/AttackState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/State/LauncherState.hpp>
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
-#include <abyss/params/Actors/LaunShark/Param.hpp>
+#include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>

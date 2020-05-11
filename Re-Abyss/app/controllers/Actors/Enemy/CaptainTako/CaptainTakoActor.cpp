@@ -1,9 +1,9 @@
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/views/Actors/CaptainTako/CpatainTakoVM.hpp>
-#include <abyss/models/Actors/CaptainTako/State/WaitState.hpp>
-#include <abyss/models/Actors/CaptainTako/State/ChargeState.hpp>
-#include <abyss/models/Actors/CaptainTako/State/AttackState.hpp>
-#include <abyss/params/Actors/CaptainTako/Param.hpp>
+#include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/State/ChargeState.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/State/AttackState.hpp>
+#include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>

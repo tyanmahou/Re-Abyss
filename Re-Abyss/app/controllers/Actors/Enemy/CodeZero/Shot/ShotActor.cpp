@@ -1,12 +1,12 @@
-#include <abyss/models/Actors/CodeZero/Shot/State/WaitState.hpp>
-#include <abyss/models/Actors/CodeZero/Shot/State/PursuitState.hpp>
-#include <abyss/models/Actors/CodeZero/Shot/State/PursuitEndState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Shot/State/PursuitState.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Shot/State/PursuitEndState.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
 #include <abyss/commons/LayerGroup.hpp>
-#include <abyss/views/Actors/CodeZero/Shot/ShotVM.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/params/Actors/CodeZero/ShotParam.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {
     ShotActor::ShotActor(CodeZeroActor* parent):
