@@ -5,7 +5,7 @@
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Stage/base/IStageView.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
-
+#include <abyss/commons/Constants.hpp>
 namespace abyss
 {
     ActionSystem::ActionSystem()
@@ -108,6 +108,8 @@ namespace abyss
 
             cameraView.drawCameraWork();
         }
+        constexpr RectF blackBand{0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y};
+        blackBand.draw(Palette::Black);
         m_events.draw();
     }
     void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
