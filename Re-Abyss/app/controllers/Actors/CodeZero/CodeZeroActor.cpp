@@ -11,7 +11,7 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::CodeZero
 {

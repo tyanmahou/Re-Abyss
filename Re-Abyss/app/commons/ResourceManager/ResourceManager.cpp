@@ -1,5 +1,5 @@
 #include "ResourceManager.hpp"
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 #include <Siv3D.hpp>
 #include<S3DTiled.hpp>

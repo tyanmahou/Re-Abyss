@@ -1,7 +1,7 @@
 #include "Components.hpp"
 #include <unordered_map>
 
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss
 {

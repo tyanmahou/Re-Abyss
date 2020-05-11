@@ -2,7 +2,7 @@
 
 #include <abyss/scenes/Main/MainScene.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
-#include <abyss/debugs/DebugLog/DebugLog.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
