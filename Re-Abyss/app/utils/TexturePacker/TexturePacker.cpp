@@ -49,7 +49,12 @@ namespace abyss
 				m_frames[FileSystem::BaseName(info.filename)] = info;
 			}
 			if (!m_texture) {
-				const FilePath& parent = FileSystem::ParentPath(json);
+				FilePath parent;
+				if (FileSystem::IsResource(json)) {
+					parent = U"/" + FileSystem::RelativePath(FileSystem::ParentPath(json.substr(1)));
+				} else {
+					parent = FileSystem::RelativePath(FileSystem::ParentPath(json));
+				}
 				auto imagePath = reader[U"meta.image"].getString();
 				m_texture = s3d::Texture(parent + imagePath);
 			}

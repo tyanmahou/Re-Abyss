@@ -177,6 +177,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
+    <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
     <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp" />
     <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp" />
     <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp" />
@@ -416,6 +417,7 @@
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
+    <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />

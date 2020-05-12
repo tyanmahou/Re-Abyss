@@ -1,5 +1,6 @@
 #include "ResourceManager.hpp"
 #include <abyss/debugs/Log/Log.hpp>
+#include <abyss/utils/FileUtil/FileUtil.hpp>
 
 #include <Siv3D.hpp>
 #include<S3DTiled.hpp>
@@ -14,13 +15,16 @@ namespace abyss
         s3d::HashTable<String, Audio> m_audioCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
+
+        bool m_isBuilded = true;
     public:
+
         s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
         {
             if (m_tmxCache.find(path) != m_tmxCache.end()) {
                 return m_tmxCache[path];
             }
-            auto tmx = s3dTiled::TiledMap(path);
+            auto tmx = s3dTiled::TiledMap(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
             if (!tmx) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -34,7 +38,7 @@ namespace abyss
             if (m_textureCache.find(path) != m_textureCache.end()) {
                 return m_textureCache[path];
             }
-            auto tex = s3d::Texture(path);
+            auto tex = s3d::Texture(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
             if (!tex) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -47,7 +51,7 @@ namespace abyss
             if (m_texturePackerCache.find(path) != m_texturePackerCache.end()) {
                 return m_texturePackerCache[path];
             }
-            auto tex = TexturePacker(path);
+            auto tex = TexturePacker(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
             if (!tex) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -60,7 +64,7 @@ namespace abyss
             if (m_audioCache.find(path) != m_audioCache.end()) {
                 return m_audioCache[path];
             }
-            auto audio = Audio(path);
+            auto audio = Audio(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
             if (!audio) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -73,7 +77,7 @@ namespace abyss
             if (m_psCache.find(path) != m_psCache.end()) {
                 return m_psCache[path];
             }
-            auto ps = s3d::PixelShader(path, { { U"PSConstants2D", 0 } });
+            auto ps = s3d::PixelShader(FileUtil::FixResource(path, m_isBuilded), { { U"PSConstants2D", 0 } });
 #if ABYSS_DEBUG
             if (!ps) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -86,7 +90,7 @@ namespace abyss
             if (m_tomlCache.find(path) != m_tomlCache.end()) {
                 return m_tomlCache[path];
             }
-            auto toml = TOMLReader(path);
+            auto toml = TOMLReader(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
             if (!toml) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -104,6 +108,11 @@ namespace abyss
             m_tomlCache.clear();
             m_audioCache.clear();
         }
+
+        void setIsBuilded(bool isBuilded)
+        {
+            m_isBuilded = isBuilded;
+        }
     };
 
     ResourceManager::ResourceManager():
@@ -119,36 +128,41 @@ namespace abyss
     }
     s3dTiled::TiledMap ResourceManager::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
     {
-        return m_pImpl->loadTmx(prefix + path);
+        return m_pImpl->loadTmx(FileUtil::FixRelativePath(prefix + path));
     }
     s3d::Texture ResourceManager::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexture(prefix + path);
+        return m_pImpl->loadTexture(FileUtil::FixRelativePath(prefix + path));
     }
 
     TexturePacker ResourceManager::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexturePacker(prefix + path);
+        return m_pImpl->loadTexturePacker(FileUtil::FixRelativePath(prefix + path));
     }
 
     s3d::Audio ResourceManager::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadAudio(prefix + path);
+        return m_pImpl->loadAudio(FileUtil::FixRelativePath(prefix + path));
     }
 
     s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadPs(prefix + path);
+        return m_pImpl->loadPs(FileUtil::FixRelativePath(prefix + path));
     }
 
     const s3d::TOMLValue& ResourceManager::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadToml(prefix + path);
+        return m_pImpl->loadToml(FileUtil::FixRelativePath(prefix + path));
     }
 
     void ResourceManager::release() const
     {
         return m_pImpl->release();
+    }
+
+    void ResourceManager::setIsBuilded(bool isBuilded) const
+    {
+        m_pImpl->setIsBuilded(isBuilded);
     }
 
     ResourceManager* ResourceManager::Main()

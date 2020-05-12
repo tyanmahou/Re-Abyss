@@ -1,0 +1,17 @@
+#pragma once
+#include <Siv3D/String.hpp>
+
+namespace abyss::FileUtil
+{
+    /// <summary>
+    /// 相対パスの ../ ./を排除する
+    /// ex Hoge/../Piyp/ => Hoge/
+    /// </summary>
+    s3d::FilePath FixRelativePath(const s3d::FilePath& path);
+
+    /// <summary>
+    /// Resource パスに修正する
+    /// </summary>
+    s3d::FilePath FixResource(const s3d::FilePath& path, bool useResource = true);
+
+}

@@ -22,6 +22,7 @@ namespace abyss
         inline static s3d::FilePath ShaderPath = ResourcePath + U"shaders/";
         inline static s3d::FilePath SoundPath = ResourcePath + U"sounds/";
     }
+
     class ResourceManager
     {
         class Impl;
@@ -47,6 +48,9 @@ namespace abyss
         }
 
         void release() const;
+
+
+        void setIsBuilded(bool isBuilded) const;
     private:
         inline static ResourceManager* s_main = nullptr;
     public:
