@@ -1,0 +1,1 @@
+find resources -name "*" -type f | xargs -I {} echo Resource\({}\)
