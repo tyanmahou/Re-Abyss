@@ -79,6 +79,8 @@ namespace abyss
 		{
 			this->m_resources.release();
 			{
+				// リロード時はリソースを直で
+				m_resources.setIsBuilded(false);
 				this->init(true);
 			}
 		}
