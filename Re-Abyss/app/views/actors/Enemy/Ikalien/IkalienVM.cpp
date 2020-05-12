@@ -8,7 +8,7 @@
 namespace abyss::Ikalien
 {
     IkalienVM::IkalienVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Ikalien/ikalien.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Ikalien/ikalien.png"))
     {}
     IkalienVM& IkalienVM::setPos(const s3d::Vec2& pos)
     {

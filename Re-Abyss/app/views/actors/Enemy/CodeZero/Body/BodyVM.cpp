@@ -5,7 +5,7 @@
 namespace abyss::CodeZero::Body
 {
     BodyVM::BodyVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/CodeZero/code_zero.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
 
     BodyVM& BodyVM::setPos(const s3d::Vec2 & pos)

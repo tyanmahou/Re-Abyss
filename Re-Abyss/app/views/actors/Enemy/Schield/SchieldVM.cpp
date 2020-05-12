@@ -9,7 +9,7 @@
 namespace abyss::Schield
 {
     SchieldVM::SchieldVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Schield/schield.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))
     {}
     SchieldVM& SchieldVM::setPos(const s3d::Vec2& pos)
     {

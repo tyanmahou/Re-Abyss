@@ -7,7 +7,7 @@
 namespace abyss::RollingTako
 {
     RollingTakoVM::RollingTakoVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/RollingTako/rolling_tako.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/RollingTako/rolling_tako.png"))
     {}
     RollingTakoVM& RollingTakoVM::setForward(const Forward & forward)
     {

@@ -8,7 +8,7 @@
 namespace abyss::Slime
 {
     SlimeVM::SlimeVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Slime/Slime.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Slime/Slime.png"))
     {}
     SlimeVM& SlimeVM::setForward(const Forward & forward)
     {

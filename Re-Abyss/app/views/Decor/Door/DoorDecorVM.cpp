@@ -5,6 +5,10 @@
 
 namespace abyss
 {
+    DoorDecorVM::DoorDecorVM(const DoorDecorModel& model) :
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Gimmick/Door/door.json")),
+        m_model(model)
+    {}
     void DoorDecorVM::drawCommon() const
     {
         double t = WorldTime::Time();
@@ -36,10 +40,7 @@ namespace abyss
         };
         RectF(pos - Vec2{ 23, 0 }, { 46, 60 }).draw(color);
     }
-    DoorDecorVM::DoorDecorVM(const DoorDecorModel& model):
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Door/door.json")),
-        m_model(model)
-    {}
+
     void DoorDecorVM::draw(const s3d::RectF & screen) const
     {
         if (!screen.intersects(m_model.region())) {

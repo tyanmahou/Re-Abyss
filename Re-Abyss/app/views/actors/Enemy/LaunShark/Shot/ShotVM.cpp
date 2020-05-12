@@ -7,7 +7,7 @@
 namespace abyss::LaunShark::Shot
 {
     ShotVM::ShotVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/LaunShark/laun_shark.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/LaunShark/laun_shark.json"))
     {}
 
     ShotVM& ShotVM::setPos(const s3d::Vec2& pos)

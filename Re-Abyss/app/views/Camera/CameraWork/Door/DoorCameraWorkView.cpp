@@ -2,7 +2,7 @@
 #include <abyss/controllers/Camera/CameraWork/Door/DoorCameraWork.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
-#include <abyss/views/Fade/Fade.hpp>
+#include <abyss/views/util/Fade/Fade.hpp>
 
 namespace abyss
 {

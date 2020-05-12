@@ -122,9 +122,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Fade\Fade.cpp">
-      <Filter>Source Files\Scene\Fade</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClCompile>
@@ -770,6 +767,9 @@
     <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\Fade\Fade.cpp">
+      <Filter>Source Files\Scene\Fade</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -812,9 +812,6 @@
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Fade\Fade.hpp">
-      <Filter>Source Files\Scene\Fade</Filter>
     </ClInclude>
     <ClInclude Include="app\types\Forward.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>
@@ -1188,5 +1185,8 @@
     <ClInclude Include="app\params\Actors\Enemy\Schield\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\Slime\Param.hpp" />
     <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
+    <ClInclude Include="app\views\util\Fade\Fade.hpp">
+      <Filter>Source Files\Scene\Fade</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

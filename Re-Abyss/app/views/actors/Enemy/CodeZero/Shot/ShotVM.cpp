@@ -6,7 +6,7 @@
 namespace abyss::CodeZero::Shot
 {
     ShotVM::ShotVM() :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/CodeZero/code_zero.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
     ShotVM& ShotVM::setPos(const s3d::Vec2& pos)
     {

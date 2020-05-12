@@ -8,7 +8,7 @@
 namespace abyss::CaptainTako
 {
     CaptainTakoVM::CaptainTakoVM() :
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/CaptainTako/captain_tako.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/CaptainTako/captain_tako.png"))
     {}
 
     CaptainTakoVM& CaptainTakoVM::setForward(const Forward& forward)

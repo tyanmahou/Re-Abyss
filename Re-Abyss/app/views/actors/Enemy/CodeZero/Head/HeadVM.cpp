@@ -8,7 +8,7 @@
 namespace abyss::CodeZero::Head
 {
     HeadVM::HeadVM() :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/CodeZero/code_zero.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
 
     HeadVM& HeadVM::setPos(const s3d::Vec2 & pos)

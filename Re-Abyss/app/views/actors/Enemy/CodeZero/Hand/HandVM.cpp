@@ -6,7 +6,7 @@
 namespace abyss::CodeZero::Hand
 {
     HandVM::HandVM(Forward forward) :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/CodeZero/code_zero.json")),
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json")),
         m_forward(forward),
         m_rotate(0)
     {}

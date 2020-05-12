@@ -11,6 +11,7 @@ namespace abyss
         s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
+        s3d::HashTable<String, Audio> m_audioCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
     public:
@@ -54,6 +55,19 @@ namespace abyss
 #endif
             return m_texturePackerCache[path] = tex;
         }
+        Audio loadAudio(const s3d::FilePath& path)
+        {
+            if (m_audioCache.find(path) != m_audioCache.end()) {
+                return m_audioCache[path];
+            }
+            auto audio = Audio(path);
+#if ABYSS_DEBUG
+            if (!audio) {
+                Debug::Log::PrintCache << U"Failed Load:" << path;
+            }
+#endif
+            return m_audioCache[path] = audio;
+        }
         PixelShader loadPs(const s3d::FilePath& path)
         {
             if (m_psCache.find(path) != m_psCache.end()) {
@@ -88,6 +102,7 @@ namespace abyss
             m_texturePackerCache.clear();
             m_psCache.clear();
             m_tomlCache.clear();
+            m_audioCache.clear();
         }
     };
 
@@ -114,6 +129,11 @@ namespace abyss
     TexturePacker ResourceManager::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexturePacker(prefix + path);
+    }
+
+    s3d::Audio ResourceManager::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadAudio(prefix + path);
     }
 
     s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
