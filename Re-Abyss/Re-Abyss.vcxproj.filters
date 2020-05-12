@@ -770,6 +770,9 @@
     <ClCompile Include="app\views\util\Fade\Fade.cpp">
       <Filter>Source Files\Scene\Fade</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1188,5 +1191,6 @@
     <ClInclude Include="app\views\util\Fade\Fade.hpp">
       <Filter>Source Files\Scene\Fade</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
   </ItemGroup>
 </Project>
