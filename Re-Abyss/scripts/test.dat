@@ -1,0 +1,1 @@
+find . -name "*.cpp" -type f | xargs -I {} echo Hello, {} !
