@@ -15,88 +15,51 @@ namespace abyss
         s3d::HashTable<String, Audio> m_audioCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
-
-        bool m_isBuilded = true;
-    public:
-
-        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
-        {
-            if (m_tmxCache.find(path) != m_tmxCache.end()) {
-                return m_tmxCache[path];
-            }
-            auto tmx = s3dTiled::TiledMap(FileUtil::FixResource(path, m_isBuilded));
 #if ABYSS_DEBUG
-            if (!tmx) {
+        bool m_isBuilded = false;
+#else
+        bool m_isBuilded = true;
+#endif
+    public:
+        template<class Type, class ReadType = Type, class ... Args> 
+        const Type& load(s3d::HashTable<String, Type>& cache, const s3d::FilePath& path, Args&&... args)
+        {
+            if (cache.find(path) != cache.end()) {
+                return cache[path];
+            }
+            ReadType rc(FileUtil::FixResource(path, m_isBuilded), std::forward<Args>(args)...);
+#if ABYSS_DEBUG
+            if (!rc) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
             }
 #endif
-            return m_tmxCache[path] = tmx;
+            return cache[path] = rc;
+        }
+
+        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
+        {
+            return this->load(m_tmxCache, path);
         }
 
         s3d::Texture loadTexture(const s3d::FilePath& path)
         {
-            if (m_textureCache.find(path) != m_textureCache.end()) {
-                return m_textureCache[path];
-            }
-            auto tex = s3d::Texture(FileUtil::FixResource(path, m_isBuilded));
-#if ABYSS_DEBUG
-            if (!tex) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_textureCache[path] = tex;
+            return this->load(m_textureCache, path);
         }
         TexturePacker loadTexturePacker(const s3d::FilePath& path)
         {
-            if (m_texturePackerCache.find(path) != m_texturePackerCache.end()) {
-                return m_texturePackerCache[path];
-            }
-            auto tex = TexturePacker(FileUtil::FixResource(path, m_isBuilded));
-#if ABYSS_DEBUG
-            if (!tex) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_texturePackerCache[path] = tex;
+            return this->load(m_texturePackerCache, path);
         }
         Audio loadAudio(const s3d::FilePath& path)
         {
-            if (m_audioCache.find(path) != m_audioCache.end()) {
-                return m_audioCache[path];
-            }
-            auto audio = Audio(FileUtil::FixResource(path, m_isBuilded));
-#if ABYSS_DEBUG
-            if (!audio) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_audioCache[path] = audio;
+            return this->load(m_audioCache, path);
         }
         PixelShader loadPs(const s3d::FilePath& path)
         {
-            if (m_psCache.find(path) != m_psCache.end()) {
-                return m_psCache[path];
-            }
-            auto ps = s3d::PixelShader(FileUtil::FixResource(path, m_isBuilded), { { U"PSConstants2D", 0 } });
-#if ABYSS_DEBUG
-            if (!ps) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_psCache[path] = ps;
+            return this->load<PixelShader>(m_psCache, path, Array<ConstantBufferBinding>{ { U"PSConstants2D", 0 } });
         }
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path)
         {
-            if (m_tomlCache.find(path) != m_tomlCache.end()) {
-                return m_tomlCache[path];
-            }
-            auto toml = TOMLReader(FileUtil::FixResource(path, m_isBuilded));
-#if ABYSS_DEBUG
-            if (!toml) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_tomlCache[path] = toml;
+            return this->load<TOMLValue, TOMLReader>(m_tomlCache, path);
         }
 
         void release()
