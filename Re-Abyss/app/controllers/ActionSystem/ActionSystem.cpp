@@ -15,9 +15,11 @@ namespace abyss
             .set(&m_light)
             .set(&m_world)
             .set(&m_events)
+            .set(&m_sound)
             ;
         m_world.setManager(&m_manager);
         m_events.setManager(&m_manager);
+        m_sound.setManager(&m_manager);
     }
 
     ActionSystem::ActionSystem(const std::shared_ptr<Stage>& stage) :

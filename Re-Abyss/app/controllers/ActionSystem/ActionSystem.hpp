@@ -3,6 +3,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Light/Light.hpp>
+#include <abyss/controllers/Sound/Sound.hpp>
 #include <abyss/controllers/ActionSystem/ActManager.hpp>
 
 namespace abyss
@@ -18,6 +19,7 @@ namespace abyss
         Events m_events;
         std::shared_ptr<Stage> m_stage;
 
+        Sound m_sound;
         ActManager m_manager;
     public:
         ActionSystem();

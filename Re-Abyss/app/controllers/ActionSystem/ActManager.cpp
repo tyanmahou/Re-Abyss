@@ -22,6 +22,11 @@ namespace abyss
         m_pLight = pLight;
         return *this;
     }
+    ActManager& ActManager::set(Sound* pSound)
+    {
+        m_pSound = pSound;
+        return *this;
+    }
     ActManager& ActManager::set(Player::PlayerActor* pPlayer)
     {
         m_pPlayer = pPlayer;
@@ -39,6 +44,8 @@ namespace abyss
             return m_pCamera;
         } else if constexpr (std::is_same_v<Light, T>) {
             return m_pLight;
+        } else if constexpr (std::is_same_v<Sound, T>) {
+            return m_pSound;
         } else if (std::is_same_v<Player::PlayerActor, T>) {
             return m_pPlayer;
         }
@@ -47,6 +54,7 @@ namespace abyss
     template Events* ActManager::getModule<Events>() const;
     template Camera* ActManager::getModule<Camera>() const;
     template Light* ActManager::getModule<Light>() const;
+    template Sound* ActManager::getModule<Sound>() const;
     template Player::PlayerActor* ActManager::getModule<Player::PlayerActor>() const;
 
 }

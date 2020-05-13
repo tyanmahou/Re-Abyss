@@ -1,6 +1,8 @@
 #include "EnemyActor.hpp"
 #include <abyss/commons/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
+
 namespace abyss::Enemy
 {
 	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
@@ -26,6 +28,11 @@ namespace abyss::Enemy
 				return this->region();
 			});
 			collider->setLayer(LayerGroup::Enemy);
+		}
+
+		// ダメージのコンポーネント
+		{
+			this->attach<DamageCallbackModel>(this);
 		}
 	}
 	void EnemyActor::start()

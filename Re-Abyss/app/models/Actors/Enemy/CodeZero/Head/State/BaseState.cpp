@@ -4,6 +4,7 @@
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+#include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
 namespace abyss::CodeZero::Head
 {
@@ -37,6 +38,9 @@ namespace abyss::CodeZero::Head
     {
         col->accept([this](const Attacker& attacker) {
             if (m_hp->damage(attacker.getPower()) && m_hp->isDead()) {
+                for (auto&& callback : m_parent->finds<IDamageCallbackModel>()) {
+                    callback->onDamaged();
+                }
                 for (auto&& callback : m_parent->finds<IDeadCallbackModel>()) {
                     callback->onDead();
                 }

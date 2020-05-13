@@ -13,7 +13,7 @@ namespace abyss
         Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
-
+        Sound* m_pSound = nullptr;
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
         ActManager& set(World* pWorld);
@@ -23,6 +23,8 @@ namespace abyss
         ActManager& set(Camera* pCamera);
 
         ActManager& set(Light* pLight);
+
+        ActManager& set(Sound* pSound);
 
         ActManager& set(Player::PlayerActor* pPlayer);
 

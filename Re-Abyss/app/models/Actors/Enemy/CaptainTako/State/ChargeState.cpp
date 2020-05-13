@@ -2,6 +2,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
+#include <abyss/controllers/Sound/Sound.hpp>
 namespace abyss::CaptainTako
 {
     ChargeState::ChargeState()
@@ -9,6 +10,7 @@ namespace abyss::CaptainTako
     void ChargeState::start()
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
+        m_pActor->getModule<Sound>()->playSe(U"Enemy/CaptainTako/charge.ogg", m_pActor->getPos());
     }
     void ChargeState::update(double dt)
     {

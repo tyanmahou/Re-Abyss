@@ -22,6 +22,7 @@ namespace abyss
 	class Decor;
 	class DecorGraphicsManager;
 	class BackGround;
+	class Sound;
 
 	/// Controllers/Actors
 	class IActor;
