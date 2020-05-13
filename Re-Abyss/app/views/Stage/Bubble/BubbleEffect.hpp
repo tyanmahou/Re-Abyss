@@ -16,21 +16,9 @@ namespace abyss
 		Vec2 m_pos;
 		ColorF m_color;
 	public:
-		BubbleEffect(const Vec2& offset = {0, 0}) :
-			m_maxRadius(Random(40.0, 240.0)),
-			m_speed(Random(-120.0, -6.0)),
-			m_deflection(Random(0.0, 400.0)),
-			m_pos(s3d::RandomVec2(RectF{ offset + CreateRangeOffset, CreateRangeSize })),
-			m_color(0.5, 0.2)
-		{}
+		BubbleEffect(const Vec2& offset = { 0, 0 });
 
-		BubbleEffect(const Vec2& offset, Small) :
-			m_maxRadius(Random(2, 3)),
-			m_speed(Random(-72.0, -36.0)),
-			m_deflection(Random(0.0, 400.0)),
-			m_pos(s3d::RandomVec2(RectF{ offset + CreateRangeOffset, CreateRangeSize })),
-			m_color(1.0, 0.9)
-		{}
+		BubbleEffect(const Vec2& offset, Small);
 
 		bool update(double t) override;
 	};
