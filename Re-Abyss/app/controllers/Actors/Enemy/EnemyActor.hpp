@@ -5,6 +5,7 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
 namespace abyss
 {

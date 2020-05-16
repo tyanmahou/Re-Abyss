@@ -12,6 +12,5 @@ namespace abyss
         {
             m_pManager = pManager;
         }
-        void playSe(const s3d::FilePath& path, const s3d::Vec2& pos) const;
     };
 }

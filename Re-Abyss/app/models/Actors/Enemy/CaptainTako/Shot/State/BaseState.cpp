@@ -1,6 +1,9 @@
 #include "BaseState.hpp"
 
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+
 #include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
 #include <abyss/commons/ActInclude.hpp>
 
@@ -13,7 +16,7 @@ namespace abyss::CaptainTako::Shot
 
     void BaseState::start()
     {
-
+        this->m_pActor->find<AudioSourceModel>()->playAt(U"Enemy/CaptainTako/shot.ogg");
     }
 
     void BaseState::update(double dt)

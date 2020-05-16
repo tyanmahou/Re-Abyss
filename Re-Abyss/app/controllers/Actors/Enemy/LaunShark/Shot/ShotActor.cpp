@@ -3,7 +3,9 @@
 #include <abyss/models/Actors/Enemy/LaunShark/Shot/State/FiringedState.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 
 
@@ -39,8 +41,10 @@ namespace abyss::LaunShark::Shot
             ;
 
         this->attach<DamageModel>(this);
+        this->attach<AudioSourceModel>(this);
         this->attach<DeadOnHItReceiverModel>(this);
         this->attach<Enemy::DeadCallbackModel>(this);
+        this->attach<Enemy::DamageCallbackModel>(this);
     }
     void ShotActor::start()
     {    

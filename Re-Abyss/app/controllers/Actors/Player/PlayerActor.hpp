@@ -6,6 +6,7 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/FootModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
 #include <abyss/models/Actors/base/StateModel.hpp>

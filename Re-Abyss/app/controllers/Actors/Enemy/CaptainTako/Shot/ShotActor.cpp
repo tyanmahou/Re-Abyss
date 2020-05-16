@@ -4,6 +4,7 @@
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 
 namespace abyss::CaptainTako::Shot
@@ -32,6 +33,9 @@ namespace abyss::CaptainTako::Shot
         }
         {
             this->attach<DeadOnHItReceiverModel>(this);
+        }
+        {
+            this->attach<AudioSourceModel>(this);
         }
         m_power = 1;
     }

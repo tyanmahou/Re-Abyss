@@ -34,6 +34,9 @@ namespace abyss::Enemy
 		{
 			this->attach<DamageCallbackModel>(this);
 		}
+		{
+			this->attach<AudioSourceModel>(this);
+		}
 	}
 	void EnemyActor::start()
 	{}

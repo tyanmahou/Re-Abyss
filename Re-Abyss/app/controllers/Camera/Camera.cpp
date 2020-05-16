@@ -150,6 +150,10 @@ namespace abyss
     {
 		return m_camera->nextRoom();
     }
+    const s3d::Vec2& Camera::getPos() const
+    {
+		return m_camera->getPos();
+    }
 	CameraView Camera::createView() const
 	{
 		return CameraView(m_camera.get(), m_cameraWork.get());

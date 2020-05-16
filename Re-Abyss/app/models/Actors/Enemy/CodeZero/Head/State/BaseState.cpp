@@ -37,12 +37,14 @@ namespace abyss::CodeZero::Head
     void BaseState::onCollisionStay(IActor* col)
     {
         col->accept([this](const Attacker& attacker) {
-            if (m_hp->damage(attacker.getPower()) && m_hp->isDead()) {
+            if (m_hp->damage(attacker.getPower())) {
                 for (auto&& callback : m_parent->finds<IDamageCallbackModel>()) {
                     callback->onDamaged();
                 }
-                for (auto&& callback : m_parent->finds<IDeadCallbackModel>()) {
-                    callback->onDead();
+                if (m_hp->isDead()) {
+                    for (auto&& callback : m_parent->finds<IDeadCallbackModel>()) {
+                        callback->onDead();
+                    }
                 }
             }
         });

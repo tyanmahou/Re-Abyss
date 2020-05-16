@@ -105,5 +105,11 @@ namespace abyss
 		{
 			return this->screenRegion().intersects(shape);
 		}
+
+		/// <summary>
+		/// カメラ座標取得
+		/// </summary>
+		/// <returns></returns>
+		const s3d::Vec2& getPos() const;
     };
 }

@@ -11,7 +11,6 @@ namespace abyss::Enemy
     {
     protected:
         IActor* m_pActor;
-        Ref<BodyModel> m_body;
     public:
         DamageCallbackModel(IActor* pActor);
 

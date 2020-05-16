@@ -6,13 +6,16 @@
 namespace abyss::Player
 {
     DamageState::DamageState()
-    {}
+    {
+    }
     void DamageState::onMove(double dt)
     {
         this->m_body->update(dt);
     }
     void DamageState::start()
     {
+        m_pActor->find<AudioSourceModel>()->play(U"Player/damage.ogg");
+
         m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);
         m_body
             ->setAccelX(0)

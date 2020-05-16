@@ -2,6 +2,7 @@
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
 
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -52,6 +53,10 @@ namespace abyss::Player
         // Foot
         {
             m_foot = this->attach<FootModel>();
+        }
+        // AudioSource
+        {
+            this->attach<AudioSourceModel>(this);
         }
         m_order = 10;
     }

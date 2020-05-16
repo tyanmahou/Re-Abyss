@@ -1,6 +1,8 @@
 #include "DamageCallbackModel.hpp"
 #include <abyss/controllers/ActionSystem/ActionSystem.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+
 namespace abyss::Enemy
 {
     DamageCallbackModel::DamageCallbackModel(IActor* pActor):
@@ -9,14 +11,13 @@ namespace abyss::Enemy
 
     void DamageCallbackModel::setup()
     {
-        m_body = m_pActor->find<BodyModel>();
     }
 
     void DamageCallbackModel::onDamaged()
     {
         m_pActor
-            ->getModule<Sound>()
-            ->playSe(U"Enemy/damage.wav", m_body->getPos());
+            ->find<AudioSourceModel>()
+            ->playAt(U"Enemy/damage.wav");
     }
 
 }
