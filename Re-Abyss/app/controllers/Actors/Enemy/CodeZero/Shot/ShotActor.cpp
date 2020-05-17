@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/Shot/State/PursuitEndState.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>

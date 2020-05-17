@@ -1,5 +1,5 @@
 #include "DoorActor.hpp"
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
 #include <Siv3D.hpp>

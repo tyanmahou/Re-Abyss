@@ -9,7 +9,7 @@
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 
 
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 

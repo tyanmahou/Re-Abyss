@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 
 namespace abyss::Schield::Shot

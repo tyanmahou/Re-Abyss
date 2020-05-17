@@ -1,5 +1,5 @@
 #include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Player/Shot/State/BaseState.hpp>

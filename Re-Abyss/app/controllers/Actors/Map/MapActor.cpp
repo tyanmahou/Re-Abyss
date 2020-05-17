@@ -1,5 +1,5 @@
 #include "MapActor.hpp"
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Map/ColliderModel.hpp>
 namespace abyss::Map
 {

@@ -1,5 +1,5 @@
 #include "EnemyActor.hpp"
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 

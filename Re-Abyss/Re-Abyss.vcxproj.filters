@@ -931,7 +931,6 @@
     <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
-    <ClInclude Include="app\commons\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
@@ -1208,5 +1207,8 @@
       <Filter>Source Files\ActionSystem</Filter>
     </ClInclude>
     <ClInclude Include="app\factories\System\SystemFactory.hpp" />
+    <ClInclude Include="app\controllers\UI\UI.hpp" />
+    <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
+    <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
   </ItemGroup>
 </Project>

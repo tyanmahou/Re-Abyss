@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss
 {

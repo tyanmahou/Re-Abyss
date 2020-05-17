@@ -1,6 +1,6 @@
 #include <abyss/models/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
 #include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>

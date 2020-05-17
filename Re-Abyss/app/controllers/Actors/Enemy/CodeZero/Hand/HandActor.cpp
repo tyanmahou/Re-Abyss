@@ -8,7 +8,7 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
-#include <abyss/commons/LayerGroup.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss::CodeZero::Hand
 {
