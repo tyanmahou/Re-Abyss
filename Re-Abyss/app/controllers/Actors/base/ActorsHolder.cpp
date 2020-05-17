@@ -45,6 +45,9 @@ namespace abyss
 	void ActorsHolder::lastUpdate()
 	{
 		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
 			obj->lastUpdate();
 		}
 	}

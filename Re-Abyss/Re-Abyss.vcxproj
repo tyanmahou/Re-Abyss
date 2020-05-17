@@ -176,6 +176,8 @@
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\controllers\Sound\Sound.cpp" />
+    <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp" />
+    <ClCompile Include="app\controllers\UI\UI.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\DamageCallbackModel.cpp" />
@@ -394,6 +396,7 @@
     <ClCompile Include="app\views\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Camera\CameraView.cpp" />
     <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp" />
+    <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp" />
     <ClCompile Include="app\views\util\Fade\Fade.cpp" />
     <ClCompile Include="app\views\Stage\StageView.cpp" />
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp" />
@@ -410,6 +413,7 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
@@ -420,6 +424,8 @@
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
+    <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
+    <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
@@ -715,6 +721,7 @@
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\Stage\StageView.hpp" />
     <ClInclude Include="app\views\BackGround\Wave\WaveShader.hpp" />

@@ -6,6 +6,9 @@
 #include <abyss/views/Stage/base/IStageView.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
 #include <abyss/commons/Constants.hpp>
+
+#include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
+
 namespace abyss
 {
     System::System()
@@ -16,10 +19,12 @@ namespace abyss
             .set(&m_world)
             .set(&m_events)
             .set(&m_sound)
+            .set(&m_userInterface)
             ;
         m_world.setManager(&m_manager);
         m_events.setManager(&m_manager);
         m_sound.setManager(&m_manager);
+        m_userInterface.setManager(&m_manager);
     }
 
     System::System(const std::shared_ptr<Stage>& stage) :
@@ -53,8 +58,9 @@ namespace abyss
 
         double dt = WorldTime::DeltaTime();
         if (!m_camera.isCameraWork() && !m_events.update(dt)) {
-            m_world.update();
+            m_world.update(dt);
         }
+        m_userInterface.update(dt);
         auto& player = *m_manager.getModule<Player::PlayerActor>();
         switch (auto event = m_camera.update(player)) {
             using enum Camera::Event;
@@ -112,7 +118,19 @@ namespace abyss
         }
         constexpr RectF blackBand{0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y};
         blackBand.draw(Palette::Black);
-        m_events.draw();
+        if (m_events.isEmpty()) {
+            m_userInterface.draw();
+        } else {
+            m_events.draw();
+        }
+        static ui::BossHPBarVM hpBar;
+        static double hp = 10;
+        if (KeyUp.down()) {
+            hp++;
+        } else if (KeyDown.down()) {
+            hp--;
+        }
+        hpBar.setHp(hp).setMaxHp(10).draw();
     }
     void System::setStage(std::unique_ptr<Stage>&& stage)
     {

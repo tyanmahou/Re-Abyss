@@ -33,4 +33,8 @@ namespace abyss
         }
         m_events.front()->draw();
     }
+    bool Events::isEmpty() const
+    {
+        return m_events.empty();
+    }
 }

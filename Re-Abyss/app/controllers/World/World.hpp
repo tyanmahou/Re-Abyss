@@ -25,7 +25,7 @@ namespace abyss
         /// 予約済みアクターを登録
         /// </summary>
         void flush();
-        void update();
+        void update(double dt);
         void reset();
         void draw() const;
 

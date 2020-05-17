@@ -154,6 +154,10 @@ namespace abyss
 	{
 		return (*this)({x, y}, {w, h});
 	}
+	TexturePacker::Texture& TexturePacker::Texture::uv(double u, double v, double w, double h)
+	{
+		return (*this)(u * m_size.x, v * m_size.y, w * m_size.x, h * m_size.y);
+	}
 	TexturePacker::Texture& TexturePacker::Texture::resized(const s3d::Vec2& size)
 	{
 		m_size = size;

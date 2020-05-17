@@ -785,6 +785,15 @@
     <ClCompile Include="app\factories\System\SystemFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\UI\UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1210,5 +1219,9 @@
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
+    <ClInclude Include="app\concepts\UI.hpp" />
+    <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
+    <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
+    <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
   </ItemGroup>
 </Project>

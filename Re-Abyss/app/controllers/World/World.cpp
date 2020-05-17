@@ -1,5 +1,4 @@
 #include "World.hpp"
-#include "WorldTime.hpp"
 
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
@@ -25,10 +24,8 @@ namespace abyss
     {
         m_actorsHolder.flush();
     }
-    void World::update()
+    void World::update(double dt)
     {
-        double dt = WorldTime::DeltaTime();
-
         m_actorsHolder.update(dt);
         // 衝突
         m_collision->collisionAll(this->finds<IColliderModel>());

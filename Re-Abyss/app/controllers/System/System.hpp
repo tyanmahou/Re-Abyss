@@ -4,6 +4,7 @@
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Light/Light.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
+#include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss
@@ -20,6 +21,8 @@ namespace abyss
         std::shared_ptr<Stage> m_stage;
 
         Sound m_sound;
+        UI m_userInterface;
+
         Manager m_manager;
     public:
         System();

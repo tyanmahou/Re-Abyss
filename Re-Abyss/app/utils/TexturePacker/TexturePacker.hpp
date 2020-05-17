@@ -47,6 +47,8 @@ namespace abyss
 		[[nodiscard]] TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
 		[[nodiscard]] TexturePacker::Texture& operator()(double x, double y, double w, double h);
 
+		[[nodiscard]] TexturePacker::Texture& uv(double u, double v, double w, double h);
+
 		[[nodiscard]] TexturePacker::Texture& resized(const s3d::Vec2& size);
 
 		[[nodiscard]] TexturePacker::Texture& scaled(double scale);
