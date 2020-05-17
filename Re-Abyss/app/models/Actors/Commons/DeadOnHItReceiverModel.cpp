@@ -1,5 +1,5 @@
 #include "DeadOnHItReceiverModel.hpp"
-#include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 namespace abyss

@@ -2,7 +2,7 @@
 
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 
-namespace abyss::PenetrateFloor
+namespace abyss::Map::PenetrateFloor
 {
 	class PenetrateFloorActor : public MapActor
 	{

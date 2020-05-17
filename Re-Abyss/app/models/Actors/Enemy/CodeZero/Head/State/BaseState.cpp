@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
-#include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>

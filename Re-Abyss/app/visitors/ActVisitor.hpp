@@ -15,9 +15,9 @@ namespace abyss
 		Enemy::EnemyActor,
 
 		Map::MapActor,
-		Floor::FloorActor,
-		PenetrateFloor::PenetrateFloorActor,
-		Ladder::LadderActor,
+		Map::Floor::FloorActor,
+		Map::PenetrateFloor::PenetrateFloorActor,
+		Map::Ladder::LadderActor,
 
 		Door::DoorActor
 	>;

@@ -1,7 +1,7 @@
 #include "LadderActor.hpp"
 #include <Siv3D.hpp>
 
-namespace abyss::Ladder
+namespace abyss::Map::Ladder
 {
 	LadderActor::LadderActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
 		MapActor(col, pos, size)

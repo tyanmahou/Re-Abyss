@@ -39,18 +39,19 @@ namespace abyss
 	inline namespace Map
 	{
 		class MapActor;
-	}
-	namespace Floor
-	{
-		class FloorActor;
-	}
-	namespace PenetrateFloor
-	{
-		class PenetrateFloorActor;
-	}
-	namespace Ladder
-	{
-		class LadderActor;
+
+		namespace Floor
+		{
+			class FloorActor;
+		}
+		namespace PenetrateFloor
+		{
+			class PenetrateFloorActor;
+		}
+		namespace Ladder
+		{
+			class LadderActor;
+		}
 	}
 	namespace Door
 	{

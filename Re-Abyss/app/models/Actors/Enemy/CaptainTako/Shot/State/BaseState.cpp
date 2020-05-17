@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
 #include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
-#include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/Actors/ActInclude.hpp>
 
 namespace abyss::CaptainTako::Shot
 {

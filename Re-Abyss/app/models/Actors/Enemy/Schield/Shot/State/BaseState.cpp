@@ -2,7 +2,7 @@
 
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
-#include <abyss/commons/ActInclude.hpp>
+#include <abyss/controllers/Actors/ActInclude.hpp>
 
 namespace abyss::Schield::Shot
 {

@@ -1,6 +1,6 @@
 #include "PenetrateFloorActor.hpp"
 
-namespace abyss::PenetrateFloor
+namespace abyss::Map::PenetrateFloor
 {
 	PenetrateFloorActor::PenetrateFloorActor(
 		const s3d::Vec2& pos,

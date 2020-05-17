@@ -410,7 +410,7 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app\commons\ActInclude.hpp" />
+    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
