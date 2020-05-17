@@ -13,12 +13,12 @@ namespace abyss
 
         WorldView m_view;
 
-        ActManager* m_pManager = nullptr;
+        Manager* m_pManager = nullptr;
     public:
         World();
         ~World();
 
-        void setManager(ActManager* pManager);
+        void setManager(Manager* pManager);
         void init();
 
         /// <summary>

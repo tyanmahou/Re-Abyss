@@ -2,11 +2,11 @@
 
 namespace abyss
 {
-	inline void IActor::setManager(ActManager* const pManager)
+	inline void IActor::setManager(Manager* const pManager)
 	{
 		m_pManager = pManager;
 	}
-	inline ActManager* IActor::getManager() const
+	inline Manager* IActor::getManager() const
 	{
 		return m_pManager;
 	}

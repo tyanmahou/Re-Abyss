@@ -12,10 +12,10 @@ namespace abyss::Player::Shot
 		s3d::Vec2 m_pos;
 		Forward m_forward;
 
-		ActManager* m_pManager;
+		Manager* m_pManager;
 	public:
 		ShotVM(const PlayerShotModel& shot, Forward forward);
-		ShotVM& setManager(ActManager* pManager);
+		ShotVM& setManager(Manager* pManager);
 		ShotVM& setPos(const s3d::Vec2& pos);
 
 		void addShotFiringEffect();

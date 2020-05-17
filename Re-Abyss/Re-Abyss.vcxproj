@@ -185,7 +185,7 @@
     <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp" />
     <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp" />
-    <ClCompile Include="app\controllers\ActionSystem\ActManager.cpp" />
+    <ClCompile Include="app\controllers\Manager\Manager.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.cpp" />
@@ -433,7 +433,7 @@
     <ClInclude Include="app\concepts\Common.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp" />
-    <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />
+    <ClInclude Include="app\controllers\Manager\Manager.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />

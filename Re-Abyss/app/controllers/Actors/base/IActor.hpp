@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/visitors/ActVisitor.hpp>
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/models/Actors/base/Components.hpp>
 
 namespace abyss
@@ -12,7 +12,7 @@ namespace abyss
 		Components m_components;
 		Ref<ActorTimeModel> m_time;
 	protected:
-		ActManager* m_pManager = nullptr;
+		Manager* m_pManager = nullptr;
 		s3d::uint64 m_id;
 		bool m_isActive = true;
 		bool m_isDontDestoryOnLoad = false;
@@ -22,8 +22,8 @@ namespace abyss
 		IActor();
 		virtual ~IActor() = default;
 
-		void setManager(ActManager* const pManager);
-		ActManager* getManager() const;
+		void setManager(Manager* const pManager);
+		Manager* getManager() const;
 
 		void setId(s3d::uint64 id);
 		s3d::uint64 getId() const;

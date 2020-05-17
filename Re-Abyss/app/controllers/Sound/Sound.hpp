@@ -6,9 +6,9 @@ namespace abyss
 {
     class Sound
     {
-        ActManager* m_pManager;
+        Manager* m_pManager;
     public:
-        void setManager(ActManager* pManager)
+        void setManager(Manager* pManager)
         {
             m_pManager = pManager;
         }

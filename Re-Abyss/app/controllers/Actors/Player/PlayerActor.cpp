@@ -8,7 +8,7 @@
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/commons/LayerGroup.hpp>
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss::Player
 {

@@ -2,7 +2,7 @@
 #include "WorldTime.hpp"
 
 #include <abyss/models/Collision/CollisionModel.hpp>
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 
 namespace abyss
@@ -13,7 +13,7 @@ namespace abyss
     }
     World::~World()
     {}
-    void World::setManager(ActManager* pManager)
+    void World::setManager(Manager* pManager)
     {
         m_pManager = pManager;
     }

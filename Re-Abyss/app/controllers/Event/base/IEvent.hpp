@@ -6,10 +6,10 @@ namespace abyss::Event
     class IEvent
     {
     protected:
-        ActManager* m_pManager;
+        Manager* m_pManager;
     public:
         virtual ~IEvent() = default;
-        void setManager(ActManager* manager)
+        void setManager(Manager* manager)
         {
             m_pManager = manager;
         }

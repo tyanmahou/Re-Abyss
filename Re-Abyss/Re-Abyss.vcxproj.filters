@@ -260,9 +260,6 @@
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\ActionSystem\ActManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Decor\Decor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -785,6 +782,9 @@
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Manager\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -959,7 +959,6 @@
     </ClInclude>
     <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
-    <ClInclude Include="app\controllers\ActionSystem\ActManager.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
@@ -1208,5 +1207,6 @@
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
+    <ClInclude Include="app\controllers\Manager\Manager.hpp" />
   </ItemGroup>
 </Project>

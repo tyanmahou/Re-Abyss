@@ -10,7 +10,7 @@ namespace abyss
 	/// Controllers
 	/// </summary>
 	class ActionSystem;
-	class ActManager;
+	class Manager;
 	class Camera;
 	class ICameraWork;
 	class DoorCameraWork;

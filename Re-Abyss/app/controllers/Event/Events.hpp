@@ -10,10 +10,10 @@ namespace abyss
     private:
         std::queue<std::shared_ptr<Event::IEvent>> m_events;
         bool m_doneCurrentInit = false;
-        ActManager* m_pManager;
+        Manager* m_pManager;
     public:
         Events& regist(const std::shared_ptr<Event::IEvent>& event);
-        Events& setManager(ActManager* pManager)
+        Events& setManager(Manager* pManager)
         {
             m_pManager = pManager;
             return *this;

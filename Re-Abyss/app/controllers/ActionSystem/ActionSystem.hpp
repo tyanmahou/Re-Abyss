@@ -4,7 +4,7 @@
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Light/Light.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss
 {
@@ -20,7 +20,7 @@ namespace abyss
         std::shared_ptr<Stage> m_stage;
 
         Sound m_sound;
-        ActManager m_manager;
+        Manager m_manager;
     public:
         ActionSystem();
         ActionSystem(const std::shared_ptr<Stage>& stage);

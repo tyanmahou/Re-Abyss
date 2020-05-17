@@ -6,7 +6,7 @@ namespace abyss
     /// <summary>
     /// ActionSystem Manager
     /// </summary>
-    class ActManager
+    class Manager
     {
     private:
         World* m_pWorld = nullptr;
@@ -16,17 +16,17 @@ namespace abyss
         Sound* m_pSound = nullptr;
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
-        ActManager& set(World* pWorld);
+        Manager& set(World* pWorld);
 
-        ActManager& set(Events* pEvents);
+        Manager& set(Events* pEvents);
 
-        ActManager& set(Camera* pCamera);
+        Manager& set(Camera* pCamera);
 
-        ActManager& set(Light* pLight);
+        Manager& set(Light* pLight);
 
-        ActManager& set(Sound* pSound);
+        Manager& set(Sound* pSound);
 
-        ActManager& set(Player::PlayerActor* pPlayer);
+        Manager& set(Player::PlayerActor* pPlayer);
 
         template<class T>
         T* getModule() const;

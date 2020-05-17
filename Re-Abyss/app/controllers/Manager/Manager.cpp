@@ -1,40 +1,40 @@
-#include "ActManager.hpp"
+#include "Manager.hpp"
 
 namespace abyss
 {
-    ActManager& ActManager::set(World* pWorld)
+    Manager& Manager::set(World* pWorld)
     {
         m_pWorld = pWorld;
         return *this;
     }
-    ActManager& ActManager::set(Events* pEvents)
+    Manager& Manager::set(Events* pEvents)
     {
         m_pEvents = pEvents;
         return *this;
     }
-    ActManager& ActManager::set(Camera* pCamera)
+    Manager& Manager::set(Camera* pCamera)
     {
         m_pCamera = pCamera;
         return *this;
     }
-    ActManager& ActManager::set(Light* pLight)
+    Manager& Manager::set(Light* pLight)
     {
         m_pLight = pLight;
         return *this;
     }
-    ActManager& ActManager::set(Sound* pSound)
+    Manager& Manager::set(Sound* pSound)
     {
         m_pSound = pSound;
         return *this;
     }
-    ActManager& ActManager::set(Player::PlayerActor* pPlayer)
+    Manager& Manager::set(Player::PlayerActor* pPlayer)
     {
         m_pPlayer = pPlayer;
         return *this;
     }
 
     template<class T>
-    T* ActManager::getModule() const
+    T* Manager::getModule() const
     {
         if constexpr (std::is_same_v<World, T>) {
             return m_pWorld;
@@ -50,11 +50,11 @@ namespace abyss
             return m_pPlayer;
         }
     }
-    template World* ActManager::getModule<World>() const;
-    template Events* ActManager::getModule<Events>() const;
-    template Camera* ActManager::getModule<Camera>() const;
-    template Light* ActManager::getModule<Light>() const;
-    template Sound* ActManager::getModule<Sound>() const;
-    template Player::PlayerActor* ActManager::getModule<Player::PlayerActor>() const;
+    template World* Manager::getModule<World>() const;
+    template Events* Manager::getModule<Events>() const;
+    template Camera* Manager::getModule<Camera>() const;
+    template Light* Manager::getModule<Light>() const;
+    template Sound* Manager::getModule<Sound>() const;
+    template Player::PlayerActor* Manager::getModule<Player::PlayerActor>() const;
 
 }

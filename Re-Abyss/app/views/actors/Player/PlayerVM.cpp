@@ -63,7 +63,7 @@ namespace abyss::Player
         return *this;
     }
 
-    PlayerVM& PlayerVM::setManager(ActManager* pManager)
+    PlayerVM& PlayerVM::setManager(Manager* pManager)
     {
         m_pManager = pManager;
         return *this;

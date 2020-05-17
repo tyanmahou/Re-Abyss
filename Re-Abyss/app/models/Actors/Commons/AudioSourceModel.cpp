@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/commons/Constants.hpp>

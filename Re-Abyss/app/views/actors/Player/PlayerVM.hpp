@@ -16,7 +16,7 @@ namespace abyss::Player
         double m_charge;
 
         bool m_isDamaging = false;
-        ActManager* m_pManager = nullptr;
+        Manager* m_pManager = nullptr;
         s3d::ColorF calcColor() const;
 
     public:
@@ -28,7 +28,7 @@ namespace abyss::Player
         PlayerVM& setCharge(double charge);
 
         PlayerVM& setIsDamaging(bool isDamaging);
-        PlayerVM& setManager(ActManager* pManager);
+        PlayerVM& setManager(Manager* pManager);
 
 
         void drawStateStay() const;

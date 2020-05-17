@@ -13,7 +13,7 @@ namespace abyss::Player::Shot
         m_forward(forward)
     {}
 
-    ShotVM& ShotVM::setManager(ActManager * pManager)
+    ShotVM& ShotVM::setManager(Manager * pManager)
     {
         m_pManager = pManager;
         return *this;

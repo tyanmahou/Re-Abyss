@@ -1,6 +1,6 @@
 #include "WaitState.hpp"
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/ActionSystem/ActManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
