@@ -98,9 +98,6 @@
     <ClCompile Include="App\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\ActionSystem\ActionSystem.cpp">
-      <Filter>Source Files\ActionSystem</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Camera\Camera.cpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
@@ -175,9 +172,6 @@
     </ClCompile>
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClCompile>
-    <ClCompile Include="app\factories\ActionSystem\ActionSystemFactory.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp">
       <Filter>Source Files</Filter>
@@ -785,6 +779,12 @@
     <ClCompile Include="app\controllers\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\System\System.cpp">
+      <Filter>Source Files\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="app\factories\System\SystemFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -794,9 +794,6 @@
   <ItemGroup>
     <ClInclude Include="app\StaticLibs.hpp">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\ActionSystem\ActionSystem.hpp">
-      <Filter>Source Files\ActionSystem</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
@@ -909,7 +906,6 @@
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
-    <ClInclude Include="app\factories\ActionSystem\ActionSystemFactory.hpp" />
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
@@ -1208,5 +1204,9 @@
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\controllers\Manager\Manager.hpp" />
+    <ClInclude Include="app\controllers\System\System.hpp">
+      <Filter>Source Files\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="app\factories\System\SystemFactory.hpp" />
   </ItemGroup>
 </Project>

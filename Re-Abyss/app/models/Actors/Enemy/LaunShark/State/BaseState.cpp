@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 #include <abyss/commons/ActInclude.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
 namespace abyss::LaunShark

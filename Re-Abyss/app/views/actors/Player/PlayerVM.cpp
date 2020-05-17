@@ -1,7 +1,7 @@
 #include "PlayerVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>

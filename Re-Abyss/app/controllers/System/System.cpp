@@ -1,4 +1,4 @@
-#include "ActionSystem.hpp"
+#include "System.hpp"
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
@@ -8,7 +8,7 @@
 #include <abyss/commons/Constants.hpp>
 namespace abyss
 {
-    ActionSystem::ActionSystem()
+    System::System()
     {
         m_manager
             .set(&m_camera)
@@ -22,16 +22,16 @@ namespace abyss
         m_sound.setManager(&m_manager);
     }
 
-    ActionSystem::ActionSystem(const std::shared_ptr<Stage>& stage) :
-        ActionSystem()
+    System::System(const std::shared_ptr<Stage>& stage) :
+        System()
     {
         m_stage = stage;
     }
-    ActionSystem::~ActionSystem()
+    System::~System()
     {
     }
 
-    void ActionSystem::init()
+    void System::init()
     {
         if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
@@ -39,7 +39,7 @@ namespace abyss
         m_stage->initDecor(m_camera);
     }
 
-    void ActionSystem::init(const std::shared_ptr<Player::PlayerActor>& player)
+    void System::init(const std::shared_ptr<Player::PlayerActor>& player)
     {
         if (auto room = m_stage->init(m_world, player)) {
             m_camera.setRoom(*room);
@@ -47,7 +47,7 @@ namespace abyss
         m_stage->initDecor(m_camera);
     }
 
-    void ActionSystem::update()
+    void System::update()
     {
         m_light.clear();
 
@@ -84,7 +84,7 @@ namespace abyss
             break;
         }
     }
-    void ActionSystem::draw() const
+    void System::draw() const
     {
         auto cameraView = m_camera.createView();
 
@@ -114,11 +114,11 @@ namespace abyss
         blackBand.draw(Palette::Black);
         m_events.draw();
     }
-    void ActionSystem::setStage(std::unique_ptr<Stage>&& stage)
+    void System::setStage(std::unique_ptr<Stage>&& stage)
     {
         m_stage = std::move(stage);
     }
-    std::shared_ptr<Player::PlayerActor> ActionSystem::lockPlayer() const
+    std::shared_ptr<Player::PlayerActor> System::lockPlayer() const
     {
         return m_world.find<Player::PlayerActor>().lock();
     }

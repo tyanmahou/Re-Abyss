@@ -4,7 +4,7 @@
 namespace abyss
 {
     /// <summary>
-    /// ActionSystem Manager
+    /// System Manager
     /// </summary>
     class Manager
     {

@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 

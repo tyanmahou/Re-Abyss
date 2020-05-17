@@ -1,6 +1,6 @@
 #include "WaitState.hpp"
 #include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 

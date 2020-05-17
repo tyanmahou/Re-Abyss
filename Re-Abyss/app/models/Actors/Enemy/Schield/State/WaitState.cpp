@@ -2,7 +2,7 @@
 #include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 
 namespace abyss::Schield
 {

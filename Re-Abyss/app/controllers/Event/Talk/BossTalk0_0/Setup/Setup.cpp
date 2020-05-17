@@ -1,5 +1,5 @@
 #include "Setup.hpp"
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Demo/DemoActor.hpp>
 

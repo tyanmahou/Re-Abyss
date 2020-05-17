@@ -1,6 +1,6 @@
 #include "WaitState.hpp"
 #include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 namespace abyss::Ikalien
 {
     void WaitState::update([[maybe_unused]]double dt)

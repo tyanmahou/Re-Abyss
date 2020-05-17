@@ -11,7 +11,7 @@ namespace abyss
     /// <summary>
     /// アクションのシステム
     /// </summary>
-    class ActionSystem
+    class System
     {
         Camera m_camera;
         Light m_light;
@@ -22,10 +22,10 @@ namespace abyss
         Sound m_sound;
         Manager m_manager;
     public:
-        ActionSystem();
-        ActionSystem(const std::shared_ptr<Stage>& stage);
+        System();
+        System(const std::shared_ptr<Stage>& stage);
 
-        ~ActionSystem();
+        ~System();
 
         void init();
 

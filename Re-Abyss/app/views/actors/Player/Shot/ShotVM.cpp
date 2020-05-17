@@ -1,6 +1,6 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/controllers/ActionSystem/ActionSystem.hpp>
+#include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
