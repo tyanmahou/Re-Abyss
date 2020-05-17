@@ -18,6 +18,9 @@ namespace abyss
 		String filename;
 		Vec2 pos;
 		Vec2 size;
+		Vec2 spriteSourcePos;
+		Vec2 spriteSourceSize;
+		Vec2 sourceSize;
 
 		bool rotated;
 	};
@@ -35,15 +38,35 @@ namespace abyss
 			for (const auto& elm : reader[U"frames"].arrayView()) {
 				Frame info;
 				info.filename = elm[U"filename"].getString();
-				const auto& frame = elm[U"frame"];
-				info.pos = {
-					frame[U"x"].get<double>(),
-					frame[U"y"].get<double>(),
-				};
-				info.size = {
-					frame[U"w"].get<double>(),
-					frame[U"h"].get<double>(),
-				};
+				{
+					const auto& frame = elm[U"frame"];
+					info.pos = {
+						frame[U"x"].get<double>(),
+						frame[U"y"].get<double>(),
+					};
+					info.size = {
+						frame[U"w"].get<double>(),
+						frame[U"h"].get<double>(),
+					};
+				}
+				{
+					const auto& source = elm[U"spriteSourceSize"];
+					info.spriteSourcePos = {
+						source[U"x"].get<double>(),
+						source[U"y"].get<double>(),
+					};
+					info.spriteSourceSize = {
+						source[U"w"].get<double>(),
+						source[U"h"].get<double>(),
+					};
+				}
+				{
+					const auto& source = elm[U"sourceSize"];
+					info.sourceSize = {
+						source[U"x"].get<double>(),
+						source[U"y"].get<double>(),
+					};
+				}
 				info.rotated = elm[U"rotated"].get<bool>();
 
 				m_frames[FileSystem::BaseName(info.filename)] = info;
@@ -135,7 +158,7 @@ namespace abyss
 		auto doMirror = m_frame.rotated ? m_fliped : m_mirrored;
 		auto doFlip = m_frame.rotated ? m_mirrored : m_fliped;
 
-		return m_texture(m_frame.pos + uvRect.pos, uvRect.size)
+		return m_texture(m_frame.pos+ uvRect.pos, uvRect.size)
 			.resized(size)
 			.mirrored(doMirror)
 			.flipped(doFlip)
@@ -207,7 +230,7 @@ namespace abyss
 
 	s3d::Quad TexturePacker::Texture::draw(double x, double y, const s3d::ColorF& diffuse) const
 	{
-		return this->getFixedQuad().draw(x, y, diffuse);
+		return this->getFixedQuad().draw(Vec2{ x, y }, diffuse);
 	}
 	s3d::Quad TexturePacker::Texture::draw(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
 	{
@@ -215,7 +238,7 @@ namespace abyss
 	}
 	s3d::Quad TexturePacker::Texture::drawAt(double x, double y, const s3d::ColorF& diffuse) const
 	{
-		return this->getFixedQuad().drawAt(x, y, diffuse);
+		return this->getFixedQuad().drawAt(Vec2{ x, y }, diffuse);
 	}
 	s3d::Quad TexturePacker::Texture::drawAt(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
 	{
