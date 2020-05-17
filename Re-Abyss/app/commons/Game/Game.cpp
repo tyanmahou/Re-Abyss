@@ -45,7 +45,7 @@ namespace abyss
 	Game::Game() :
 		m_pImpl(std::make_shared<Impl>())
 	{
-		//Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
+		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
 	}
 
 	bool Game::Update()
