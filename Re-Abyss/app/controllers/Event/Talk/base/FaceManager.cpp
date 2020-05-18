@@ -16,8 +16,8 @@ namespace abyss::Event::Talk
         const auto& texture = m_actors.at(actor);
         return texture.isContain(kind);
     }
-    s3d::TexturedQuad FaceManager::getFace(const s3d::String& actor, const s3d::String& kind) const
+    s3d::Texture FaceManager::getFace(const s3d::String& actor, const s3d::String& kind) const
     {
-        return m_actors.at(actor)(kind).getFixedQuad();
+        return m_actors.at(actor)(kind);
     }
 }

@@ -11,6 +11,6 @@ namespace abyss::Event::Talk
         void add(const s3d::String& actor, const s3d::FilePath& jsonPath);
 
         [[nodiscard]] bool isContain(const s3d::String& actor, const s3d::String& kind) const;
-        [[nodiscard]] s3d::TexturedQuad getFace(const s3d::String& actor, const s3d::String& kind) const;
+        [[nodiscard]] s3d::Texture getFace(const s3d::String& actor, const s3d::String& kind) const;
     };
 }

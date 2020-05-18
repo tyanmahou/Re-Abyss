@@ -22,7 +22,7 @@ namespace abyss::Event::Talk
         m_isLeft = isLeft;
         return *this;
     }
-    MessageBoxVM& MessageBoxVM::setFaceIcon(const s3d::TexturedQuad& face)
+    MessageBoxVM& MessageBoxVM::setFaceIcon(const s3d::Texture& face)
     {
         m_faceIcon = face;
         return *this;
@@ -32,7 +32,7 @@ namespace abyss::Event::Talk
 
         double iconOffset = m_isLeft ? -380 : 220;
         RectF(m_pos + Vec2{ iconOffset, -80 }, Vec2{ 160, 160 }).draw(Color(0, 190));
-        if (m_faceIcon.texture) {
+        if (m_faceIcon) {
             m_faceIcon.draw(m_pos + Vec2{ iconOffset, -80 });
         }
         m_boxTexture.mirrored(!m_isLeft).drawAt(m_pos);

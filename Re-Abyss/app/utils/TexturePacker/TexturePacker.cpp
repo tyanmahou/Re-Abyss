@@ -16,18 +16,19 @@ namespace abyss
 	struct TexturePacker::Frame
 	{
 		String filename;
-		Vec2 pos;
-		Vec2 size;
-		Vec2 spriteSourcePos;
-		Vec2 spriteSourceSize;
-		Vec2 sourceSize;
+		Size pos;
+		Size size;
+		Size spriteSourcePos;
+		Size spriteSourceSize;
+		Size sourceSize;
 
 		bool rotated;
 	};
 	class TexturePacker::Impl
 	{
-		s3d::Texture m_texture;
+		s3d::Image m_image;
 		std::unordered_map<String, Frame> m_frames;
+		std::unordered_map<String, Texture> m_textures;
 
 		void load(const s3d::FilePath& json)
 		{
@@ -41,37 +42,37 @@ namespace abyss
 				{
 					const auto& frame = elm[U"frame"];
 					info.pos = {
-						frame[U"x"].get<double>(),
-						frame[U"y"].get<double>(),
+						frame[U"x"].get<int32>(),
+						frame[U"y"].get<int32>(),
 					};
 					info.size = {
-						frame[U"w"].get<double>(),
-						frame[U"h"].get<double>(),
+						frame[U"w"].get<int32>(),
+						frame[U"h"].get<int32>(),
 					};
 				}
 				{
 					const auto& source = elm[U"spriteSourceSize"];
 					info.spriteSourcePos = {
-						source[U"x"].get<double>(),
-						source[U"y"].get<double>(),
+						source[U"x"].get<int32>(),
+						source[U"y"].get<int32>(),
 					};
 					info.spriteSourceSize = {
-						source[U"w"].get<double>(),
-						source[U"h"].get<double>(),
+						source[U"w"].get<int32>(),
+						source[U"h"].get<int32>(),
 					};
 				}
 				{
 					const auto& source = elm[U"sourceSize"];
 					info.sourceSize = {
-						source[U"w"].get<double>(),
-						source[U"h"].get<double>(),
+						source[U"w"].get<int32>(),
+						source[U"h"].get<int32>(),
 					};
 				}
 				info.rotated = elm[U"rotated"].get<bool>();
 
 				m_frames[FileSystem::BaseName(info.filename)] = info;
 			}
-			if (!m_texture) {
+			if (!m_image) {
 				FilePath parent;
 				if (FileSystem::IsResource(json)) {
 					parent = U"/" + FileSystem::RelativePath(FileSystem::ParentPath(json.substr(1)));
@@ -79,8 +80,30 @@ namespace abyss
 					parent = FileSystem::RelativePath(FileSystem::ParentPath(json));
 				}
 				auto imagePath = reader[U"meta.image"].getString();
-				m_texture = s3d::Texture(parent + imagePath);
+				m_image = s3d::Image(parent + imagePath);
 			}
+		}
+		s3d::Texture create(const s3d::String& fileName)
+		{
+			if (m_frames.find(fileName) == m_frames.end()) {
+				return s3d::Texture();
+			}
+			const Frame& frame = m_frames.at(fileName);
+			Image image(frame.sourceSize, ColorF(0, 0));
+
+			size_t endX = frame.spriteSourcePos.x + frame.spriteSourceSize.x;
+			size_t endY = frame.spriteSourcePos.y + frame.spriteSourceSize.y;
+			for (size_t y = frame.spriteSourcePos.y; y < endY; ++y) {
+				size_t srcY = y - frame.spriteSourcePos.y;
+				for (size_t x = frame.spriteSourcePos.x; x < endX; ++x) {
+					size_t srcX = x - frame.spriteSourcePos.x;
+
+					auto tmpX = !frame.rotated ? srcX : (frame.size.y - 1) - srcY;
+					auto tmpY = !frame.rotated ? srcY : srcX;
+					image[y][x] = m_image[tmpY + frame.pos.y][tmpX + frame.pos.x];
+				}
+			}
+			return s3d::Texture(image);
 		}
 	public:
 		Impl(const s3d::FilePath& json)
@@ -89,8 +112,8 @@ namespace abyss
 		}
 
 
-		Impl(const s3d::Texture& texture, const s3d::FilePath& json):
-			m_texture(texture)
+		Impl(const s3d::Image& image, const s3d::FilePath& json):
+			m_image(image)
 		{
 			this->load(json);
 		}
@@ -100,32 +123,31 @@ namespace abyss
 			return m_frames.find(fileName) != m_frames.end();
 		}
 
-		TexturePacker::Texture operator()(const s3d::String& fileName) const
+		Texture operator()(const s3d::String& fileName)
 		{
-			if (m_frames.find(fileName) == m_frames.end()) {
-				return Texture(m_texture, Frame{});
+			if (m_textures.find(fileName) != m_textures.end()) {
+				return m_textures[fileName];
 			}
-			const Frame& frame = m_frames.at(fileName);
-			return Texture(m_texture, frame);
+			return m_textures[fileName] = this->create(fileName);
 		}
 		explicit operator bool()const
 		{
-			return !m_texture.isEmpty() && !m_frames.empty();
+			return !m_image.isEmpty() && !m_frames.empty();
 		}
 	};
 	TexturePacker::TexturePacker(const s3d::FilePath& json):
 		pImpl(std::make_shared<Impl>(json))
 	{
 	}
-	TexturePacker::TexturePacker(const s3d::Texture& texture, const s3d::FilePath& json) :
-		pImpl(std::make_shared<Impl>(texture, json))
+	TexturePacker::TexturePacker(const s3d::Image& image, const s3d::FilePath& json) :
+		pImpl(std::make_shared<Impl>(image, json))
 	{
 	}
 	bool TexturePacker::isContain(const s3d::String& fileName) const
 	{
 		return pImpl->isContain(fileName);
 	}
-	TexturePacker::Texture TexturePacker::operator()(const s3d::String& fileName) const
+	Texture TexturePacker::operator()(const s3d::String& fileName) const
 	{
 		return (*pImpl)(fileName);
 	}
@@ -133,130 +155,5 @@ namespace abyss
     TexturePacker::operator bool() const
     {
 		return static_cast<bool>(*pImpl);
-	}
-	
-	TexturePacker::Texture::Texture(const s3d::Texture& texture, const Frame& frame):
-		m_texture(texture),
-		m_frame(frame),
-		m_offset(0, 0),
-		m_uvRect({0, 0}, frame.size),
-		m_size(frame.size),
-		m_angle(0),
-		m_center(frame.sourceSize / 2.0)
-	{}
-
-	s3d::TexturedQuad TexturePacker::Texture::getFixedQuad() const
-	{
-		auto uvRect = m_frame.rotated ? RectF{ 
-			m_frame.size.y - m_uvRect.pos.y - m_uvRect.size.y,
-			m_uvRect.pos.x,
-			m_uvRect.size.y,
-			m_uvRect.size.x
-		} : m_uvRect; 
-		auto size = m_frame.rotated ? Vec2{ m_size.y, m_size.x } : m_size;
-		auto center = m_frame.rotated ? Vec2{ m_size.y - m_center.y, m_center.x } : m_center;
-		auto angle = m_frame.rotated ? m_angle - Math::Constants::HalfPi : m_angle;
-		auto doMirror = m_frame.rotated ? m_fliped : m_mirrored;
-		auto doFlip = m_frame.rotated ? m_mirrored : m_fliped;
-
-		auto ret = m_texture(m_frame.pos+ uvRect.pos, uvRect.size)
-			.resized(size)
-			.mirrored(doMirror)
-			.flipped(doFlip)
-			.rotatedAt(center, angle);
-		ret.quad.moveBy(Mat3x2::Rotate(angle).transform((m_frame.spriteSourcePos + m_offset) * m_size / m_frame.size));
-		return ret;
-	}
-
-	TexturePacker::Texture& TexturePacker::Texture::operator()(const s3d::Vec2 & pos, const s3d::Vec2 & size)
-	{
-		auto srcFixPos = pos - m_frame.spriteSourcePos;
-		auto fixPos = srcFixPos;
-		fixPos.x = s3d::Clamp(fixPos.x, 0.0, m_frame.size.x);
-		fixPos.y = s3d::Clamp(fixPos.y, 0.0, m_frame.size.y);
-
-		m_offset = (fixPos - srcFixPos) - m_frame.spriteSourcePos;
-
-		auto fixSize = size;
-		fixSize.x = s3d::Max(0.0, s3d::Min(fixSize.x, m_frame.size.x));
-		fixSize.y = s3d::Max(0.0, s3d::Min(fixSize.y, m_frame.size.y));
-
-		m_uvRect.set(fixPos, fixSize);
-		m_size = m_uvRect.size;
-		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
-
-		return *this;
-	}
-	TexturePacker::Texture& TexturePacker::Texture::operator()(double x, double y, double w, double h)
-	{
-		return (*this)({x, y}, {w, h});
-	}
-	TexturePacker::Texture& TexturePacker::Texture::uv(double u, double v, double w, double h)
-	{
-		return (*this)(u * m_frame.sourceSize.x, v * m_frame.sourceSize.y, w * m_frame.sourceSize.x, h * m_frame.sourceSize.y);
-	}
-	TexturePacker::Texture& TexturePacker::Texture::resized(const s3d::Vec2& size)
-	{
-		auto scale = size / m_frame.sourceSize;
-		m_size = m_frame.size * scale;
-		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
-		return *this;
-	}
-	TexturePacker::Texture& TexturePacker::Texture::scaled(double scale)
-	{
-		return this->scaled(scale, scale);
-	}
-	TexturePacker::Texture& TexturePacker::Texture::scaled(const s3d::Vec2& scale)
-	{
-		return this->scaled(scale.x, scale.y);
-	}
-	TexturePacker::Texture& TexturePacker::Texture::scaled(double sx, double sy)
-	{
-		m_size.x *= sx;
-		m_size.y *= sy;
-
-		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
-		return *this;
-	}
-	const TexturePacker::Texture& TexturePacker::Texture::rotated(double angle)
-	{
-		m_angle = angle;
-		return *this;
-	}
-	const TexturePacker::Texture& TexturePacker::Texture::rotatedAt(double x, double y, double angle)
-	{
-		return this->rotatedAt({ x, y }, angle);
-	}
-	const TexturePacker::Texture& TexturePacker::Texture::rotatedAt(const s3d::Vec2& pos, double angle)
-	{
-		m_center = pos;
-		return this->rotated(angle);
-	}
-	TexturePacker::Texture& TexturePacker::Texture::mirrored(bool doMirror)
-	{
-		m_mirrored = doMirror;
-		return *this;
-	}
-	TexturePacker::Texture& TexturePacker::Texture::fliped(bool doFlip)
-	{
-		m_fliped = doFlip;
-		return *this;
-	}
-
-	s3d::Quad TexturePacker::Texture::draw(double x, double y, const s3d::ColorF& diffuse) const
-	{
-		return this->getFixedQuad().draw(Vec2{ x, y }, diffuse);
-	}
-	s3d::Quad TexturePacker::Texture::draw(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
-	{
-		return this->draw(pos.x, pos.y, diffuse);
-	}
-	s3d::Quad TexturePacker::Texture::drawAt(double x, double y, const s3d::ColorF& diffuse) const
-	{
-		return this->getFixedQuad().drawAt(Vec2{ x, y }, diffuse);
-	}
-	s3d::Quad TexturePacker::Texture::drawAt(const s3d::Vec2& pos, const s3d::ColorF& diffuse) const
-	{
-		return this->drawAt(pos.x, pos.y, diffuse);
 	}
 }

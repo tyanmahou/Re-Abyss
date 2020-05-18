@@ -28,7 +28,7 @@ namespace abyss::CodeZero::Shot
         }
         m_texture(U"shot")
             .mirrored(tmp%2==0)
-            .fliped(tmp%3==0)
+            .flipped(tmp%3==0)
             .scaled(m_scale + 0.2 * (tmp % 7 == 0))
             .drawAt(m_pos, ColorF(1.0, alpha));
     }
