@@ -7,7 +7,6 @@
 #include <abyss/services/Event/Talk/TalkService.hpp>
 #include <abyss/commons/Constants.hpp>
 
-#include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 
 namespace abyss
 {
@@ -123,14 +122,6 @@ namespace abyss
         } else {
             m_events.draw();
         }
-        static ui::BossHPBarVM hpBar;
-        static double hp = 10;
-        if (KeyUp.down()) {
-            hp++;
-        } else if (KeyDown.down()) {
-            hp--;
-        }
-        hpBar.setHp(hp).setMaxHp(10).draw();
     }
     void System::setStage(std::unique_ptr<Stage>&& stage)
     {

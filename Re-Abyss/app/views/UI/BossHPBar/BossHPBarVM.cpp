@@ -6,9 +6,9 @@ namespace
 {
     s3d::String GetType(double hp, double maxHp)
     {
-        if (hp >= maxHp * 2.0 / 3.0) {
+        if (hp > maxHp * 2.0 / 3.0) {
             return U"blue";
-        }else if (hp >= maxHp * 1.0 / 3.0) {
+        }else if (hp > maxHp * 1.0 / 3.0) {
             return U"yellow";
         }else {
             return U"red";

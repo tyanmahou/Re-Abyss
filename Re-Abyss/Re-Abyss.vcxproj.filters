@@ -794,6 +794,9 @@
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

@@ -1,10 +1,9 @@
 #include "UserInterfaceHolder.hpp"
-
 namespace abyss::ui
 {
     void UserInterfaceHolder::flush()
     {
-        if (m_uis.empty()) {
+        if (m_reserves.empty()) {
             return;
         }
         // startでregistされてもいいようにここでmove

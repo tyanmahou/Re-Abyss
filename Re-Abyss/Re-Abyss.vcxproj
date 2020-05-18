@@ -177,6 +177,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\controllers\Sound\Sound.cpp" />
     <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp" />
+    <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp" />
     <ClCompile Include="app\controllers\UI\UI.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
