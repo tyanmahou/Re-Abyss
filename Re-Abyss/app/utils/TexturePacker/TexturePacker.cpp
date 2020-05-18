@@ -63,8 +63,8 @@ namespace abyss
 				{
 					const auto& source = elm[U"sourceSize"];
 					info.sourceSize = {
-						source[U"x"].get<double>(),
-						source[U"y"].get<double>(),
+						source[U"w"].get<double>(),
+						source[U"h"].get<double>(),
 					};
 				}
 				info.rotated = elm[U"rotated"].get<bool>();
@@ -138,10 +138,11 @@ namespace abyss
 	TexturePacker::Texture::Texture(const s3d::Texture& texture, const Frame& frame):
 		m_texture(texture),
 		m_frame(frame),
+		m_offset(0, 0),
 		m_uvRect({0, 0}, frame.size),
 		m_size(frame.size),
 		m_angle(0),
-		m_center(frame.size / 2.0)
+		m_center(frame.sourceSize / 2.0)
 	{}
 
 	s3d::TexturedQuad TexturePacker::Texture::getFixedQuad() const
@@ -158,18 +159,31 @@ namespace abyss
 		auto doMirror = m_frame.rotated ? m_fliped : m_mirrored;
 		auto doFlip = m_frame.rotated ? m_mirrored : m_fliped;
 
-		return m_texture(m_frame.pos+ uvRect.pos, uvRect.size)
+		auto ret = m_texture(m_frame.pos+ uvRect.pos, uvRect.size)
 			.resized(size)
 			.mirrored(doMirror)
 			.flipped(doFlip)
 			.rotatedAt(center, angle);
+		ret.quad.moveBy(Mat3x2::Rotate(angle).transform((m_frame.spriteSourcePos + m_offset) * m_size / m_frame.size));
+		return ret;
 	}
 
 	TexturePacker::Texture& TexturePacker::Texture::operator()(const s3d::Vec2 & pos, const s3d::Vec2 & size)
 	{
-		m_uvRect.set(pos, size);
+		auto srcFixPos = pos - m_frame.spriteSourcePos;
+		auto fixPos = srcFixPos;
+		fixPos.x = s3d::Clamp(fixPos.x, 0.0, m_frame.size.x);
+		fixPos.y = s3d::Clamp(fixPos.y, 0.0, m_frame.size.y);
+
+		m_offset = (fixPos - srcFixPos) - m_frame.spriteSourcePos;
+
+		auto fixSize = size;
+		fixSize.x = s3d::Max(0.0, s3d::Min(fixSize.x, m_frame.size.x));
+		fixSize.y = s3d::Max(0.0, s3d::Min(fixSize.y, m_frame.size.y));
+
+		m_uvRect.set(fixPos, fixSize);
 		m_size = m_uvRect.size;
-		m_center = m_size / 2.0;
+		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
 
 		return *this;
 	}
@@ -179,12 +193,13 @@ namespace abyss
 	}
 	TexturePacker::Texture& TexturePacker::Texture::uv(double u, double v, double w, double h)
 	{
-		return (*this)(u * m_size.x, v * m_size.y, w * m_size.x, h * m_size.y);
+		return (*this)(u * m_frame.sourceSize.x, v * m_frame.sourceSize.y, w * m_frame.sourceSize.x, h * m_frame.sourceSize.y);
 	}
 	TexturePacker::Texture& TexturePacker::Texture::resized(const s3d::Vec2& size)
 	{
-		m_size = size;
-		m_center = m_size / 2;
+		auto scale = size / m_frame.sourceSize;
+		m_size = m_frame.size * scale;
+		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
 		return *this;
 	}
 	TexturePacker::Texture& TexturePacker::Texture::scaled(double scale)
@@ -200,7 +215,7 @@ namespace abyss
 		m_size.x *= sx;
 		m_size.y *= sy;
 
-		m_center = m_size / 2.0;
+		m_center = m_frame.sourceSize * m_size / m_frame.size / 2.0;
 		return *this;
 	}
 	const TexturePacker::Texture& TexturePacker::Texture::rotated(double angle)

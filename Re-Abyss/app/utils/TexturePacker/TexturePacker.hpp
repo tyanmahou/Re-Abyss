@@ -30,6 +30,7 @@ namespace abyss
 	private:
 		s3d::Texture m_texture;
 		const Frame& m_frame;
+		s3d::Vec2 m_offset;
 
 		s3d::RectF m_uvRect;
 		s3d::Vec2 m_size;
@@ -47,7 +48,7 @@ namespace abyss
 		[[nodiscard]] TexturePacker::Texture& operator()(const s3d::Vec2& pos, const s3d::Vec2& size);
 		[[nodiscard]] TexturePacker::Texture& operator()(double x, double y, double w, double h);
 
-		[[nodiscard]] TexturePacker::Texture& uv(double u, double v, double w, double h);
+		[[nodiscard]] TexturePacker::Texture& uv(double u, double y, double w, double h);
 
 		[[nodiscard]] TexturePacker::Texture& resized(const s3d::Vec2& size);
 
