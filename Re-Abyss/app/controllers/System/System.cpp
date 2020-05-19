@@ -56,7 +56,7 @@ namespace abyss
         m_light.clear();
 
         double dt = WorldTime::DeltaTime();
-        if (!m_camera.isCameraWork() && !m_events.update(dt)) {
+        if (!m_camera.isCameraWork() && m_events.isEmpty()) {
             m_world.update(dt);
         }
         m_userInterface.update(dt);
@@ -88,6 +88,8 @@ namespace abyss
         default:
             break;
         }
+
+        m_events.update(dt);
     }
     void System::draw() const
     {
@@ -117,11 +119,10 @@ namespace abyss
         }
         constexpr RectF blackBand{0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y};
         blackBand.draw(Palette::Black);
-        if (m_events.isEmpty()) {
-            m_userInterface.draw();
-        } else {
-            m_events.draw();
-        }
+        
+        m_events.draw();
+
+        m_userInterface.draw();
     }
     void System::setStage(std::unique_ptr<Stage>&& stage)
     {

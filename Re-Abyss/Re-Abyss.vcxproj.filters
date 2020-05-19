@@ -797,6 +797,9 @@
     <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1226,5 +1229,6 @@
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
   </ItemGroup>
 </Project>

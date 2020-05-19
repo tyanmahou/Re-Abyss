@@ -99,6 +99,10 @@ namespace abyss
             m_actor(actor)
         {}
 
+        void setup() override
+        {
+            this->stateUpdate();
+        }
         template <class Type>
         StateModel& add(const StateKey& state)
         {

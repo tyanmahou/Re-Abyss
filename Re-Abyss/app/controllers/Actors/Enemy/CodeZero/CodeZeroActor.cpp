@@ -8,13 +8,12 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/UI/UI.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
-#include <abyss/controllers/UI/BossHPBar/BossHPBar.hpp>
+
 
 namespace abyss::CodeZero
 {
@@ -59,8 +58,6 @@ namespace abyss::CodeZero
         m_head = world->create<Head::HeadActor>(this);
         m_leftHand = world->create<Hand::HandActor>(this, Hand::HandActor::Left);
         m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Right);
-
-        this->getModule<UI>()->create<ui::BossHPBar>(this);
     }
 
     bool CodeZeroActor::accept(const ActVisitor& visitor)
@@ -85,6 +82,14 @@ namespace abyss::CodeZero
     bool CodeZeroActor::isShotCharge() const
     {
         return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();
+    }
+
+    void CodeZeroActor::setActiveAll(bool active)
+    {
+        this->setActive(active);
+        m_head->setActive(active);
+        m_leftHand->setActive(active);
+        m_rightHand->setActive(active);
     }
 
 }

@@ -58,5 +58,7 @@ namespace abyss::CodeZero
         bool isPhase2()const { return m_state->getState() == State::Phase2; }
         bool isPhase3()const { return m_state->getState() == State::Phase3; }
         bool isShotCharge()const;
+
+        void setActiveAll(bool active);
     };
 }

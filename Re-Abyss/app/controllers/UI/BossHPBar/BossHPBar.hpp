@@ -28,5 +28,7 @@ namespace abyss::ui
         void start() override;
 
         void draw() const;
+
+        bool isFull() const;
     };
 }

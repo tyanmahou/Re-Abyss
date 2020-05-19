@@ -23,7 +23,7 @@ namespace abyss::ui
 
         auto hp = static_cast<double>(m_hpModel->getHp());
 
-        double add = m_maxHp / 2.0 * dt;
+        double add = m_maxHp * dt;
         if (m_hp - add >= hp) {
             m_hp -= add;
         } else if (m_hp + add <= hp) {
@@ -40,6 +40,11 @@ namespace abyss::ui
             ->setHp(m_hp)
             .setMaxHp(m_maxHp)
             .draw();
+    }
+
+    bool BossHPBar::isFull() const
+    {
+        return m_hp >= m_maxHp;
     }
 
 }

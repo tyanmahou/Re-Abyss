@@ -175,6 +175,7 @@
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
+    <ClCompile Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp" />
     <ClCompile Include="app\controllers\Sound\Sound.cpp" />
     <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp" />
     <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp" />
@@ -423,6 +424,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
+    <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />

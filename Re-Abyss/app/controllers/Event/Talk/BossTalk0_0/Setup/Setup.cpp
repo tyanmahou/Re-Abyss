@@ -11,9 +11,10 @@ namespace abyss::Event::Talk::BossTalk0_0
         
         if (auto codeZero = world->find<CodeZero::CodeZeroActor>()) {
             world->create<CodeZero::Demo::DemoActor>(codeZero->getPos());
+            codeZero->setActiveAll(false);
         }
 
-        world->init();
+        world->flush();
     }
 
     bool Setup::update([[maybe_unused]]double dt)
