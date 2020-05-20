@@ -6,6 +6,7 @@
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
+#include <abyss/views/Actors/Ooparts/Xto/XtoVM.hpp>
 namespace abyss::Player
 {
     ColDirection BaseState::fixPos(const MapColInfo& mapColInfo)
@@ -127,6 +128,11 @@ namespace abyss::Player
     }
     void BaseState::draw() const
     {
+        static Xto::XtoVM xto;
+        xto
+            .setPos(m_pActor->getPos() + Vec2{ m_pActor->getForward() * - 30 , -40 })
+            .setForward(m_pActor->getForward())
+            .draw();
         auto view = m_pActor->getBindedView();
         if (!view) {
             return;

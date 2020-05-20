@@ -45,6 +45,7 @@ namespace abyss::Player
         void setPos(const Vec2& pos);
         const Vec2& getPos() const;
         void setForward(const Forward& forward);
+        Forward getForward() const;
 
         RectF region() const;
 

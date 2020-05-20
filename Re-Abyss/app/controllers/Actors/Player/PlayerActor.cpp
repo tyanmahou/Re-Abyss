@@ -74,6 +74,11 @@ namespace abyss::Player
         m_body->setForward(forward);
     }
 
+    Forward PlayerActor::getForward() const
+    {
+        return m_body->getForward();
+    }
+
     const Vec2& PlayerActor::getPos() const
     {
         return m_body->getPos();

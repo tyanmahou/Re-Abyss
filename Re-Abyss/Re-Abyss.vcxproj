@@ -378,6 +378,7 @@
     <ClCompile Include="app\views\Actors\Enemy\Ikalien\IkalienVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.cpp" />
+    <ClCompile Include="app\views\Actors\Ooparts\Xto\XtoVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actors\Player\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\RollingTako\RollingTakoVM.cpp" />
@@ -700,6 +701,7 @@
     <ClInclude Include="app\views\Actors\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\Xto\XtoVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\RollingTako\RollingTakoVM.hpp" />
