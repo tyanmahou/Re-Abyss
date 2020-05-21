@@ -54,6 +54,10 @@ namespace abyss
 			class LadderActor;
 		}
 	}
+	namespace Ooparts
+	{
+		class OopartsActor;
+	}
 	namespace Door
 	{
 		class DoorActor;

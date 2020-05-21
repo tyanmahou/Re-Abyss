@@ -10,6 +10,8 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 
+#include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
@@ -63,6 +65,8 @@ namespace abyss::Player
     void PlayerActor::start()
     {
         m_pManager->set(this);
+        // todo 切り替え可能に
+        this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
     }
     void PlayerActor::setPos(const Vec2& pos)
     {
