@@ -13,7 +13,7 @@ namespace abyss
     void PatternModel::setup()
     {
         if (m_pActor) {
-            m_sleep = TimerEx(0.0, true, [this]() {return m_pActor->getTime(); });
+            m_sleep = TimerEx(0.0, true, [this]() {return m_pActor->getUpdateTime(); });
         }
     }
     bool PatternModel::update()

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/models/Actors/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/models/Actors/base/IPreDrawModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/commons/Fwd.hpp>
 
@@ -8,7 +8,7 @@ namespace abyss::Ooparts
 {
     class PursuitModel:
         public IComponent,
-        public ILastUpdateModel
+        public IPreDrawModel
     {
     private:
         IActor* m_pActor = nullptr;
@@ -20,7 +20,7 @@ namespace abyss::Ooparts
         PursuitModel(IActor* pActor, const Ref<BodyModel>& pParent);
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onPreDraw(double dt) override;
     };
 }
 
@@ -29,6 +29,6 @@ namespace abyss
     template<>
     struct ComponentTree<Ooparts::PursuitModel>
     {
-        using Base = ILastUpdateModel;
+        using Base = IPreDrawModel;
     };
 }

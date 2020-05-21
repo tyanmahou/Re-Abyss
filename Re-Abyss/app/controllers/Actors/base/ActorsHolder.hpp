@@ -19,7 +19,8 @@ namespace abyss
 	public:
 		void flush();
 		void pushActor(const std::shared_ptr<IActor>& obj);
-		void update(double dt);
+		void updateDeltaTime(double dt);
+		void update();
 		void lastUpdate();
 		void draw()const;
 

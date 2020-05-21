@@ -7,7 +7,7 @@ namespace abyss::Ooparts
     OopartsActor::OopartsActor(IActor* parent)
     {
         this->m_isDontDestoryOnLoad = true;
-        this->m_order = -1;
+        this->m_order = parent->getOrder() - 1;
 
         {
             // ボディと追従

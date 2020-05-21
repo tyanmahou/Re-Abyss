@@ -24,9 +24,13 @@ namespace abyss
     {
         m_actorsHolder.flush();
     }
-    void World::update(double dt)
+    void World::updateDeltaTime(double dt)
     {
-        m_actorsHolder.update(dt);
+        m_actorsHolder.updateDeltaTime(dt);
+    }
+    void World::update()
+    {
+        m_actorsHolder.update();
         // 衝突
         m_collision->collisionAll(this->finds<IColliderModel>());
 

@@ -37,7 +37,7 @@ namespace abyss
 
 		s3d::int32 getOrder() const;
 
-		void updateTime(double worldDt) const;
+		void updateDeltaTime(double worldDt) const;
 		void setup() const;
 		virtual void start() {}
 		void update();
@@ -48,6 +48,12 @@ namespace abyss
 
 		template<class T>
 		T* getModule() const;
+
+		s3d::Microseconds getUpdateTime() const;
+		double getUpdateTimeSec() const;
+
+		s3d::Microseconds getDrawTime() const;
+		double getDrawTimeSec() const;
 
 		/// <summary>
 		/// コンポーネントを付与
@@ -81,7 +87,6 @@ namespace abyss
 		template<class Component>
 		[[nodiscard]] s3d::Array<Ref<Component>> finds() const;
 
-		s3d::Microseconds getTime() const;
 	};
 }
 #include "IActor.ipp"

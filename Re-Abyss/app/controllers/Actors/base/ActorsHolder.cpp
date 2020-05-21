@@ -30,7 +30,13 @@ namespace abyss
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
 	}
-	void ActorsHolder::update(double dt)
+	void ActorsHolder::updateDeltaTime(double dt)
+	{
+		for (auto& obj : m_actors) {
+			obj->updateDeltaTime(dt);
+		}
+	}
+	void ActorsHolder::update()
 	{
 		this->flush();
 
@@ -38,7 +44,6 @@ namespace abyss
 			if (!obj->isActive()) {
 				continue;
 			}
-			obj->updateTime(dt);
 			obj->update();
 		}
 	}

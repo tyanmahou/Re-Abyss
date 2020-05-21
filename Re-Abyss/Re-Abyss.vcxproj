@@ -439,6 +439,7 @@
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />

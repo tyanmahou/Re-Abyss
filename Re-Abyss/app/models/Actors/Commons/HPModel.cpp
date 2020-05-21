@@ -7,7 +7,7 @@ namespace abyss
 {
     HPModel::HPModel(IActor* pActor):
         m_hp(0),
-        m_invincibleTime(1.0, false, [pActor] {return pActor->getTime();}),
+        m_invincibleTime(1.0, false, [pActor] {return pActor->getUpdateTime();}),
         m_pActor(pActor)
     {}
 
@@ -30,7 +30,7 @@ namespace abyss
 
     HPModel& HPModel::setInvincibleTime(double invincibleTimeSec)
     {
-        m_invincibleTime = TimerEx(invincibleTimeSec, false, [this] {return m_pActor->getTime(); });
+        m_invincibleTime = TimerEx(invincibleTimeSec, false, [this] {return m_pActor->getUpdateTime(); });
         return *this;
     }
 

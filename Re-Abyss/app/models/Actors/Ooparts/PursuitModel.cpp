@@ -17,7 +17,7 @@ namespace abyss::Ooparts
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void PursuitModel::onLastUpdate(double dt)
+    void PursuitModel::onPreDraw(double dt)
     {
         if (!m_pParent) {
             return;

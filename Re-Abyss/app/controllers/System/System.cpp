@@ -56,8 +56,10 @@ namespace abyss
         m_light.clear();
 
         double dt = WorldTime::DeltaTime();
+        m_world.updateDeltaTime(dt);
+
         if (!m_camera.isCameraWork() && m_events.isEmpty()) {
-            m_world.update(dt);
+            m_world.update();
         }
         m_userInterface.update(dt);
         auto& player = *m_manager.getModule<Player::PlayerActor>();

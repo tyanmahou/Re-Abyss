@@ -25,7 +25,14 @@ namespace abyss
         /// 予約済みアクターを登録
         /// </summary>
         void flush();
-        void update(double dt);
+
+        /// <summary>
+        /// アクターのデルタ時間を更新
+        /// </summary>
+        /// <param name="dt"></param>
+        void updateDeltaTime(double dt);
+
+        void update();
         void reset();
         void draw() const;
 

@@ -1254,5 +1254,6 @@
     <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
   </ItemGroup>
 </Project>

@@ -18,6 +18,6 @@ namespace abyss::ActorUtils
     }
     TimerEx CreateTimer(const IActor& actor, double sec, bool start)
     {
-        return TimerEx(sec, start, [&] {return actor.getTime(); });
+        return TimerEx(sec, start, [&] {return actor.getUpdateTime(); });
     }
 }
