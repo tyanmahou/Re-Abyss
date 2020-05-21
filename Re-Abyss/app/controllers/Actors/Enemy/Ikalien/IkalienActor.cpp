@@ -16,7 +16,7 @@ namespace abyss::Ikalien
         EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<IkalienVM>())
     {
-        m_hp->setHp(Param::Base::Hp);
+        m_hp->initHp(Param::Base::Hp);
         m_body->noneResistanced().setPivot(Param::Base::Pivot);
 
         m_rotate = this->attach<RotateModel>();

@@ -17,7 +17,7 @@ namespace abyss::Slime
 		EnemyActor(entity.pos, entity.forward),
 		m_view(std::make_shared<SlimeVM>())
 	{
-		m_hp->setHp(Param::Base::Hp);
+		m_hp->initHp(Param::Base::Hp);
 		m_body
 			->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		m_state = this->attach<StateModel<SlimeActor>>(this);

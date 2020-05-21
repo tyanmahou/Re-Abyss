@@ -16,7 +16,7 @@ namespace abyss::Schield
         m_view(std::make_shared<SchieldVM>())
     {
         {
-            m_hp->setHp(Param::Base::Hp);
+            m_hp->initHp(Param::Base::Hp);
         }
         {
             m_body->setSize(Param::Base::Size);

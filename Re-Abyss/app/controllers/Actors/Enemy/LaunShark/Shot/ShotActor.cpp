@@ -32,7 +32,7 @@ namespace abyss::LaunShark::Shot
             .noneResistanced()
             .setSize(ShotParam::Base::Size);
         (m_hp = this->attach<HPModel>(this))
-            ->setHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
+            ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
 
         this->attach<StateModel<ShotActor>>(this)
             ->add<WaitState>(State::Wait)

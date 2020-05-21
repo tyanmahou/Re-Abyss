@@ -19,7 +19,13 @@ namespace abyss
 
         void setup();
 
+        /// <summary>
+        /// HP/最大HPをセット
+        /// </summary>
+        /// <param name="hp"></param>
+        /// <returns></returns>
         HPModel& initHp(s3d::int32 hp);
+
         HPModel& setHp(s3d::int32 hp);
         HPModel& setInvincibleTime(double invincibleTimeSec);
 

@@ -16,7 +16,7 @@ namespace abyss::Enemy
 		// HP
 		{
 			(m_hp = this->attach<HPModel>(this))
-				->setHp(1)
+				->initHp(1)
 				.setInvincibleTime(0.2);
 
 		}

@@ -15,7 +15,7 @@ namespace abyss::RollingTako
         m_view(std::make_unique<RollingTakoVM>())
     {
         {
-            m_hp->setHp(Param::Base::Hp);
+            m_hp->initHp(Param::Base::Hp);
         }
         {
             m_body

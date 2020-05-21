@@ -37,7 +37,7 @@ namespace abyss::Player
         // HP
         {
             (m_hp = this->attach<HPModel>(this))
-                ->setHp(Param::Base::Hp)
+                ->initHp(Param::Base::Hp)
                 .setInvincibleTime(Param::Base::InvincibleTime);
         }
         // State

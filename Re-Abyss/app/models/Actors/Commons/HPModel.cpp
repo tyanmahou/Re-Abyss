@@ -23,8 +23,6 @@ namespace abyss
     HPModel& HPModel::setHp(s3d::int32 hp)
     {
         m_hp = hp;
-        // FIXME
-        m_maxHp = hp;
         return *this;
     }
 

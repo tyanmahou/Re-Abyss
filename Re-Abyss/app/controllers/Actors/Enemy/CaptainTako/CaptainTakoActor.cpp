@@ -15,7 +15,7 @@ namespace abyss::CaptainTako
     {
         {
             m_hp
-                ->setHp(Param::Base::Hp);
+                ->initHp(Param::Base::Hp);
         }
         {
             m_body

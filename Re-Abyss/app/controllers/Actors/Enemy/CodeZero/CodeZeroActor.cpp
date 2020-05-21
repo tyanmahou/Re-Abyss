@@ -22,7 +22,7 @@ namespace abyss::CodeZero
         m_view(std::make_shared<Body::BodyVM>())
     {
         {
-            m_hp->setHp(Param::Base::Hp);
+            m_hp->initHp(Param::Base::Hp);
         }
         {
             m_body->noneResistanced();
