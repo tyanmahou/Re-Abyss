@@ -16,8 +16,10 @@ namespace abyss::Ikalien
         double m_rotate = 0.0;
 
         bool m_isDamaging = false;
+        double m_time = 0;
     public:
         IkalienVM();
+        IkalienVM& setTime(double time);
         IkalienVM& setPos(const s3d::Vec2& pos);
         IkalienVM& setVelocity(const s3d::Vec2& velocity);
         IkalienVM& setRotate(double rotate);

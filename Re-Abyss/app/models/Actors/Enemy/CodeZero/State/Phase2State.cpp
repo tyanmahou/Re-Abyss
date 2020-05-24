@@ -1,6 +1,5 @@
 #include "Phase2State.hpp"
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
 namespace abyss::CodeZero

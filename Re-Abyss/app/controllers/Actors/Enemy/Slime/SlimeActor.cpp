@@ -42,7 +42,8 @@ namespace abyss::Slime
 	}
 	SlimeVM* SlimeActor::getBindedView() const
 	{
-		return &m_view->setForward(this->getForward())
+		return &m_view->setTime(this->getDrawTimeSec())
+			.setForward(this->getForward())
 			.setPos(this->getPos())
 			.setVelocity(this->getVelocity())
 			.setIsDamaging(this->m_hp->isInInvincibleTime())

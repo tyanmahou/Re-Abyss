@@ -66,7 +66,7 @@ namespace abyss::LaunShark::Shot
 
     ShotVM* ShotActor::getBindedView() const
     {
-        return &(*m_view)
+        return &m_view->setTime(this->getDrawTimeSec())
             .setPos(m_body->getPos())
             .setRotate(m_rotate->getRotate())
             .setIsDamaging(m_hp->isInInvincibleTime());

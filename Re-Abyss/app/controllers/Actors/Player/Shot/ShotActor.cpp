@@ -63,6 +63,9 @@ namespace abyss::Player::Shot
 		if (!m_view) {
 			return nullptr;
 		}
-		return &m_view->setPos(m_body->getPos()).setManager(m_pManager);
+		return &m_view
+			->setTime(this->getDrawTimeSec())
+			.setPos(m_body->getPos())
+			.setManager(m_pManager);
 	}
 }

@@ -1,7 +1,6 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 
 namespace abyss::Schield::Shot
@@ -9,7 +8,11 @@ namespace abyss::Schield::Shot
     ShotVM::ShotVM() :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))
     {}
-
+    ShotVM& ShotVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     ShotVM& ShotVM::setPos(const s3d::Vec2& pos)
     {
         m_pos = s3d::Round(pos);
@@ -18,11 +21,10 @@ namespace abyss::Schield::Shot
 
     void ShotVM::draw() const
     {
-        double t = WorldTime::Time();
-        double timer = Periodic::Sawtooth0_1(ShotParam::View::AnimeTimeSec, t);
+        double timer = Periodic::Sawtooth0_1(ShotParam::View::AnimeTimeSec, m_time);
         int32 page = static_cast<int32>(timer * 2);
         auto tile = m_texture(U"shot_c9")(0, page * 9, 9, 9);
-        tile.rotated(s3d::Math::ToRadians(ShotParam::View::RotateDeg) * t).drawAt(m_pos);
+        tile.rotated(s3d::Math::ToRadians(ShotParam::View::RotateDeg) * m_time).drawAt(m_pos);
     }
 
 }

@@ -1,7 +1,6 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 #include "ShotEffect.hpp"
@@ -19,6 +18,11 @@ namespace abyss::Player::Shot
         return *this;
     }
 
+    ShotVM& ShotVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     ShotVM& ShotVM::setPos(const s3d::Vec2 & pos)
     {
         m_pos = s3d::Round(pos);
@@ -41,7 +45,7 @@ namespace abyss::Player::Shot
 
         double x = 0, y = 0;
         double size = 0;
-        double timer = Periodic::Sawtooth0_1(0.3s, WorldTime::Time());
+        double timer = Periodic::Sawtooth0_1(0.3s, m_time);
         if (m_shot.isNormal()) {
             y = 10 * static_cast<int>(timer * 2);
             size = 10;

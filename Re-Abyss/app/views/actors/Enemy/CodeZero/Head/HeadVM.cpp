@@ -2,7 +2,6 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 namespace abyss::CodeZero::Head
@@ -10,6 +9,12 @@ namespace abyss::CodeZero::Head
     HeadVM::HeadVM() :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
+
+    HeadVM& HeadVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
 
     HeadVM& HeadVM::setPos(const s3d::Vec2 & pos)
     {
@@ -35,6 +40,6 @@ namespace abyss::CodeZero::Head
             return m_texture(U"head")(100, 0, 100, 100).mirrored(m_forward == Forward::Right);
         }();
 
-        tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
+        tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 }

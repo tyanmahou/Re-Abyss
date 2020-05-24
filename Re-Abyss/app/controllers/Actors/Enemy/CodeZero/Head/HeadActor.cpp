@@ -45,7 +45,8 @@ namespace abyss::CodeZero::Head
     }
     HeadVM* HeadActor::getBindedView() const
     {
-        return &m_view->setPos(this->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(this->getPos())
             .setForward(m_head->getForward())
             .setIsDamaging(m_parent->getHp()->isInInvincibleTime());
     }

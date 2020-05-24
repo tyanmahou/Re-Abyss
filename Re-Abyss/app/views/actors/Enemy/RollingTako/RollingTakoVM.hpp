@@ -15,8 +15,10 @@ namespace abyss::RollingTako
         s3d::Vec2 m_pos;
 
         bool m_isDamaging = false;
+        double m_time;
     public:
         RollingTakoVM();
+        RollingTakoVM& setTime(double time);
         RollingTakoVM& setForward(const Forward& forward);
         RollingTakoVM& setPos(const s3d::Vec2& pos);
 

@@ -33,7 +33,8 @@ namespace abyss::LaunShark
     }
     LaunSharkVM* LaunSharkActor::getBindedView() const
     {
-        return &m_view->setPos(this->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(this->getPos())
             .setForward(this->getForward())
             .setIsDamaging(m_hp->isInInvincibleTime());
     }

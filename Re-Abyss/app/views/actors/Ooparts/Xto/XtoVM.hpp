@@ -9,7 +9,7 @@ namespace abyss::Ooparts::Xto
     private:
         s3d::Texture m_texture;
 
-        void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color, double time) const override;
+        void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const override;
     public:
         XtoVM();
     };

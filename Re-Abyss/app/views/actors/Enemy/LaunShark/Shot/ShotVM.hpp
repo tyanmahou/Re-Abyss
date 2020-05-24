@@ -13,8 +13,11 @@ namespace abyss::LaunShark::Shot
         double m_rotate;
 
         bool m_isDamaging = false;
+        double m_time = 0;
     public:
         ShotVM();
+        ShotVM& setTime(double m_time);
+
         ShotVM& setPos(const s3d::Vec2& pos);
         ShotVM& setRotate(double rotate);
 

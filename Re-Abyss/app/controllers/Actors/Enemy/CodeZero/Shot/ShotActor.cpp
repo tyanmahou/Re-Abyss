@@ -51,7 +51,8 @@ namespace abyss::CodeZero::Shot
 
     ShotVM* ShotActor::getBindedView() const
     {
-        return &m_view->setPos(m_body->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(m_body->getPos())
             .setScale(m_scale->get());
     }
 

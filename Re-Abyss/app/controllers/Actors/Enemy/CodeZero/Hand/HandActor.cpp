@@ -60,8 +60,8 @@ namespace abyss::CodeZero::Hand
 
     HandVM* HandActor::getBindedView() const
     {
-        return &m_view
-            ->setPos(m_body->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(m_body->getPos())
             .setRotate(m_rotate->getRotate());
     }
 

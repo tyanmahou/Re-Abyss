@@ -31,9 +31,10 @@ namespace abyss::CodeZero::Demo
                     });
 
                     m_bodyVM->setPos(m_pos).draw();
-                    m_headVM->setPos(m_pos + Param::Head::Offset).draw();
-                    m_leftHandVM->setPos(m_pos + s3d::Vec2{ 110, 90 }).draw();
-                    m_rightHandVM->setPos(m_pos + s3d::Vec2{ -110, 90 }).draw();
+                    double time = this->getDrawTimeSec();
+                    m_headVM->setTime(time).setPos(m_pos + Param::Head::Offset).draw();
+                    m_leftHandVM->setTime(time).setPos(m_pos + s3d::Vec2{ 110, 90 }).draw();
+                    m_rightHandVM->setTime(time).setPos(m_pos + s3d::Vec2{ -110, 90 }).draw();
                 }
             };
             this->attach<CustomDrawModel>()->setDrawer(draw);

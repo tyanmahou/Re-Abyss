@@ -15,8 +15,11 @@ namespace abyss::Slime
         s3d::Vec2 m_velocity;
 
         bool m_isDamaging = false;
+        double m_time;
+
     public:
         SlimeVM();
+        SlimeVM& setTime(double time);
         SlimeVM& setForward(const Forward& forward);
         SlimeVM& setPos(const s3d::Vec2& pos);
         SlimeVM& setVelocity(const s3d::Vec2& velocity);

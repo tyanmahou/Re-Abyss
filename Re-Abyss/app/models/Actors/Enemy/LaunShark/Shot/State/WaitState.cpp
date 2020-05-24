@@ -1,5 +1,4 @@
 #include "WaitState.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
 
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>

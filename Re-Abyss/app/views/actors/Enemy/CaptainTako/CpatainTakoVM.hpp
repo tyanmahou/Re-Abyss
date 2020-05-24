@@ -15,8 +15,11 @@ namespace abyss::CaptainTako
         s3d::Vec2 m_pos;
 
         bool m_isDamaging = false;
+
+        double m_time = 0;
     public:
         CaptainTakoVM();
+        CaptainTakoVM& setTime(double time);
         CaptainTakoVM& setForward(const Forward& forward);
         CaptainTakoVM& setPos(const s3d::Vec2& pos);
 

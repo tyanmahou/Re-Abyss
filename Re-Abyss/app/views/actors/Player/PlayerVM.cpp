@@ -3,7 +3,6 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
@@ -21,9 +20,9 @@ namespace
             return ColorF(1);
         }
     }
-    int32 GetTimeInt32()
+    int32 GetTimeInt32(double time)
     {
-        return static_cast<int32>(WorldTime::Time() * 60);
+        return static_cast<int32>(time * 60);
     }
 }
 
@@ -31,11 +30,16 @@ namespace abyss::Player
 {
     ColorF PlayerVM::calcColor() const
     {
-        return ColorDef::OnDamage(m_isDamaging, WorldTime::Time());
+        return ColorDef::OnDamage(m_isDamaging, m_time);
     }
     PlayerVM::PlayerVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
+    PlayerVM& PlayerVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     PlayerVM& PlayerVM::setPos(const s3d::Vec2& pos)
     {
         m_pos = s3d::Round(pos);
@@ -71,7 +75,7 @@ namespace abyss::Player
 
     void PlayerVM::drawStateStay() const
     {
-        int32 timer = GetTimeInt32();
+        int32 timer = GetTimeInt32(m_time);
         bool isRight = m_forward == Forward::Right;
 
         int32 page = timer % 240 <= 10 ? 1 : 0;
@@ -79,7 +83,7 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateFloat() const
     {
-        int32 timer = GetTimeInt32();
+        int32 timer = GetTimeInt32(m_time);
         bool isRight = m_forward == Forward::Right;
 
         double y = 160;
@@ -97,12 +101,12 @@ namespace abyss::Player
     {
         bool isRight = m_forward == Forward::Right;
 
-        int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, WorldTime::Time()) * 5) * 60;
+        int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5) * 60;
         m_texture(U"run")({ x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwim() const
     {
-        int32 timer = GetTimeInt32();
+        int32 timer = GetTimeInt32(m_time);
         bool isRight = m_forward == Forward::Right;
 
         double y = 0;
@@ -117,7 +121,7 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateDive() const
     {
-        int32 timer = GetTimeInt32();
+        int32 timer = GetTimeInt32(m_time);
         bool isRight = m_forward == Forward::Right;
 
         double y = 80 * (timer / 30 % 2);
@@ -147,21 +151,21 @@ namespace abyss::Player
             return;
         }
         ScopedRenderStates2D t2d(BlendState::Additive);
-        double a = 0.5 * Periodic::Triangle0_1(0.2s, WorldTime::Time());
+        double a = 0.5 * Periodic::Triangle0_1(0.2s, m_time);
         
         ColorF color = ::ChargeToColor(m_charge);
 
-        Circle(m_pos, 80 * (1 - Periodic::Sawtooth0_1(0.6s, WorldTime::Time()))).drawFrame(1, 1, color.setA(a));
-        double s = 100 * Periodic::Triangle0_1(0.3s, WorldTime::Time());
+        Circle(m_pos, 80 * (1 - Periodic::Sawtooth0_1(0.6s, m_time))).drawFrame(1, 1, color.setA(a));
+        double s = 100 * Periodic::Triangle0_1(0.3s, m_time);
         RectF({ 0,0,s, s })
             .setCenter(m_pos)
-            .rotated(Math::QuarterPi * Periodic::Square0_1(0.6s, WorldTime::Time()))
+            .rotated(Math::QuarterPi * Periodic::Square0_1(0.6s, m_time))
             .drawFrame(1, 1, color.setA(0.5 - a));
 
         if (m_charge >= ShotParam::Big::Charge) {
-            Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 30 + 30).draw(color.setA(a));
+            Circle(m_pos, Periodic::Triangle0_1(0.3s, m_time) * 30 + 30).draw(color.setA(a));
         } else if (m_charge >= ShotParam::Medium::Charge) {
-            Circle(m_pos, Periodic::Triangle0_1(0.3s, WorldTime::Time()) * 5 + 30).draw(color.setA(a));
+            Circle(m_pos, Periodic::Triangle0_1(0.3s, m_time) * 5 + 30).draw(color.setA(a));
         }
     }
     void PlayerVM::drawLight() const

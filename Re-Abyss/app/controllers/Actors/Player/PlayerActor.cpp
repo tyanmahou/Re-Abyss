@@ -103,7 +103,8 @@ namespace abyss::Player
     }
     PlayerVM* PlayerActor::getBindedView() const
     {
-        return &m_view->setPos(this->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(this->getPos())
             .setVelocity(m_body->getVelocity())
             .setForward(m_body->getForward())
             .setCharge(m_charge->getCharge())

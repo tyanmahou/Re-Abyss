@@ -1,13 +1,13 @@
-﻿#pragma once
+#pragma once
 
-#include <Siv3D/Effect.hpp>
+#include <abyss/utils/EffectEx/EffectEx.hpp>
 
 namespace abyss
 {
     class WorldView
     {
     private:
-        s3d::Effect m_effect;
+        EffectEx m_effect;
     public:
         template<class Type, class... Args>
         void addEffect(Args&& ... args)

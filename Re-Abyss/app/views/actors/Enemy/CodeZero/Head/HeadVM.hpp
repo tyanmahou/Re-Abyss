@@ -14,8 +14,10 @@ namespace abyss::CodeZero::Head
         Forward m_forward;
 
         bool m_isDamaging = false;
+        double m_time = 0;
     public:
         HeadVM();
+        HeadVM& setTime(double time);
         HeadVM& setPos(const s3d::Vec2& pos);
         HeadVM& setForward(Forward forward);
         HeadVM& setIsDamaging(bool isDamaging);

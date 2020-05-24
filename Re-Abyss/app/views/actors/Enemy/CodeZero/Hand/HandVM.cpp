@@ -1,7 +1,6 @@
 #include "HandVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 namespace abyss::CodeZero::Hand
 {
@@ -10,6 +9,11 @@ namespace abyss::CodeZero::Hand
         m_forward(forward),
         m_rotate(0)
     {}
+    HandVM& HandVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     HandVM& HandVM::setPos(const s3d::Vec2 & pos)
     {
         m_pos = s3d::Round(pos);
@@ -29,7 +33,7 @@ namespace abyss::CodeZero::Hand
     }
     void HandVM::drawAttackWait()const
     {
-        double t = Periodic::Sawtooth0_1(0.2s, WorldTime::Time());
+        double t = Periodic::Sawtooth0_1(0.2s, m_time);
         HSV hsv(360 * t, 0.5, 1.0);
         this->draw(hsv.toColor());
     }

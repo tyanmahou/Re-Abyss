@@ -10,8 +10,11 @@ namespace abyss::CaptainTako::Shot
         TexturePacker m_texture;
         Forward m_forward;
         s3d::Vec2 m_pos;
+
+        double m_time = 0;
     public:
         ShotVM();
+        ShotVM& setTime(double time);
         ShotVM& setForward(const Forward& forward);
         ShotVM& setPos(const s3d::Vec2& pos);
 

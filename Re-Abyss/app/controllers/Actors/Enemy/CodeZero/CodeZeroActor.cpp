@@ -70,15 +70,6 @@ namespace abyss::CodeZero
         return &m_view->setPos(m_body->getPos());
     }
 
-    //void CodeZeroActor::onDead()
-    //{
-    //    // todo
-    //    //this->destroy();
-    //    //m_head->destroy();
-    //    //m_leftHand->destroy();
-    //    //m_rightHand->destroy();
-    //}
-
     bool CodeZeroActor::isShotCharge() const
     {
         return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();

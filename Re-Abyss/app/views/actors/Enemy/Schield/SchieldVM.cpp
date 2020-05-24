@@ -3,7 +3,6 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
 namespace abyss::Schield
@@ -11,6 +10,11 @@ namespace abyss::Schield
     SchieldVM::SchieldVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))
     {}
+    SchieldVM& SchieldVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     SchieldVM& SchieldVM::setPos(const s3d::Vec2& pos)
     {
         m_pos = s3d::Round(pos);
@@ -30,8 +34,8 @@ namespace abyss::Schield
     {
         auto&& tex = m_texture(U"wait");
         bool isRight = m_forward == Forward::Right;
-        int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, WorldTime::Time()) * 3.0);
-        tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
+        tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 
     void SchieldVM::drawToWait(double t) const
@@ -41,7 +45,7 @@ namespace abyss::Schield
         bool isRight = m_forward == Forward::Right;
         tex(150 * (page / 4) , 60 * (page % 4), 150, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
+            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 
     void SchieldVM::drawAttackPlus() const
@@ -56,7 +60,7 @@ namespace abyss::Schield
         bool isRight = m_forward == Forward::Right;
         tex(150 * (page / 4), 60 * (page % 4), 150, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
+            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 
     void SchieldVM::drawAttackCross() const
@@ -70,6 +74,6 @@ namespace abyss::Schield
         bool isRight = m_forward == Forward::Right;
         tex(120 * (page / 4), 60 * (page % 4), 120, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, WorldTime::Time()));
+            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 }

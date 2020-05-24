@@ -15,8 +15,10 @@ namespace abyss::Schield
         Forward m_forward;
 
         bool m_isDamaging = false;
+        double m_time = 0;
     public:
         SchieldVM();
+        SchieldVM& setTime(double time);
         SchieldVM& setPos(const s3d::Vec2& pos);
         SchieldVM& setForward(const Forward& forward);
 

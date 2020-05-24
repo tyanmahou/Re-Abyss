@@ -64,7 +64,8 @@ namespace abyss::CaptainTako::Shot
     ShotVM* ShotActor::getBindedView() const
     {
         return &m_view
-            ->setPos(m_body->getPos())
+            ->setTime(this->getDrawTimeSec())
+            .setPos(m_body->getPos())
             .setForward(m_body->getForward());
     }
 

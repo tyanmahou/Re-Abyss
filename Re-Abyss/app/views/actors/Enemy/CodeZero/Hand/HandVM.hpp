@@ -13,8 +13,10 @@ namespace abyss::CodeZero::Hand
         s3d::Vec2 m_pos;
         Forward m_forward;
         double  m_rotate;
+        double m_time = 0;
     public:
         HandVM(Forward forward);
+        HandVM& setTime(double time);
         HandVM& setPos(const s3d::Vec2& pos);
         HandVM& setRotate(double rotate);
 

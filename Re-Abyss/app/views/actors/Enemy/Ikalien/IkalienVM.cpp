@@ -1,7 +1,6 @@
 #include "IkalienVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
@@ -10,6 +9,11 @@ namespace abyss::Ikalien
     IkalienVM::IkalienVM():
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Ikalien/ikalien.png"))
     {}
+    IkalienVM& IkalienVM::setTime(double time)
+    {
+        m_time = time;
+        return *this;
+    }
     IkalienVM& IkalienVM::setPos(const s3d::Vec2& pos)
     {
         m_pos = s3d::Round(pos);
@@ -36,10 +40,9 @@ namespace abyss::Ikalien
 
     void IkalienVM::drawWait() const
     {
-        double t = WorldTime::Time();
-        int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::WaitAnimeTimeSec, t) * 4.0);
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::WaitAnimeTimeSec, m_time) * 4.0);
         auto tex = m_texture(80 * page, 80, 80, 80);
-        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, t));
+        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 
     void IkalienVM::drawPursuit() const
@@ -49,7 +52,6 @@ namespace abyss::Ikalien
 
     void IkalienVM::drawSwim() const
     {
-        double t = WorldTime::Time();
         int32 page = 0;
         double velocityLen = m_velocity.length();
         if (velocityLen >= 300) {
@@ -60,7 +62,7 @@ namespace abyss::Ikalien
             page = 1;
         }
         auto tex = m_texture(80 * page, 0, 80, 80);
-        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, t));
+        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
     }
 
 }

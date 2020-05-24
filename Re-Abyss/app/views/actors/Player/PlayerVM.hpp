@@ -16,12 +16,15 @@ namespace abyss::Player
         double m_charge;
 
         bool m_isDamaging = false;
+        double m_time = 0;
+
         Manager* m_pManager = nullptr;
         s3d::ColorF calcColor() const;
 
     public:
         PlayerVM();
 
+        PlayerVM& setTime(double time);
         PlayerVM& setPos(const s3d::Vec2& pos);
         PlayerVM& setVelocity(const s3d::Vec2& v);
         PlayerVM& setForward(const Forward& forward);

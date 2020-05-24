@@ -2,7 +2,6 @@
 
 #include <Siv3D.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
 
@@ -26,7 +25,7 @@ namespace abyss::LaunShark
             if (!m_out) {
                 if (!m_waitTimer.isRunning()) {
                     m_waitTimer.start();
-                    int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, WorldTime::Time()));
+                    int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getDrawTimeSec()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
                     m_pActor->getModule<World>()->create<Shot::ShotActor>(shotPos, m_body->getForward());

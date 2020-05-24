@@ -43,7 +43,8 @@ namespace abyss::Ikalien
     }
     IkalienVM* IkalienActor::getBindedView() const
     {
-        return &m_view->setPos(this->getPos())
+        return &m_view->setTime(this->getDrawTimeSec())
+            .setPos(this->getPos())
             .setVelocity(this->getVelocity())
             .setRotate(m_rotate->getRotate())
             .setIsDamaging(m_hp->isInInvincibleTime());
