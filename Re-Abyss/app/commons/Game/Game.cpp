@@ -5,6 +5,7 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/commons/Constants.hpp>
 
 namespace abyss
 {
@@ -37,7 +38,6 @@ namespace abyss
 			Debug::Log::ClearAndPrintCached();
 			Debug::DebugManager::Update();
 #endif
-
 			return m_scene.update();
 		}
 	};

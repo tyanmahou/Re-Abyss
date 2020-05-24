@@ -372,6 +372,7 @@
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
     <ClCompile Include="app\utils\Time\Time.cpp" />
+    <ClCompile Include="app\views\Actors\Common\KiraKiraEffect.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.cpp" />
@@ -700,6 +701,7 @@
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
+    <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />

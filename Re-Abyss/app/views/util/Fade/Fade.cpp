@@ -6,7 +6,7 @@
 #include <abyss/views/util/MaskUtil/MaskUtil.hpp>
 namespace
 {
-	Color g_fadeColor = Palette::Black;
+	Color g_fadeColor(35, 50, 80);
 
 	Image CreateImg(const Size& size = Scene::Size(), const Color& color = Palette::White)
 	{

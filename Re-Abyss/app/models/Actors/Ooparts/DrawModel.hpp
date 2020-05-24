@@ -13,6 +13,7 @@ namespace abyss::Ooparts
         OopartsActor* m_pActor;
     public:
         DrawModel(OopartsActor* pActor);
+        void setup() override;
         void onDraw() const override;
     };
 }

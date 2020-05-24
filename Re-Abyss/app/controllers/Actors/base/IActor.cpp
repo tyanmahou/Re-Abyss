@@ -56,6 +56,10 @@ namespace abyss
 	{
 		return m_time->getUpdateTimeSec();
 	}
+    std::function<s3d::Microseconds()> IActor::getUpdateTimer() const
+    {
+		return [this] {return this->getUpdateTime(); };
+    }
 	s3d::Microseconds IActor::getDrawTime() const
 	{
 		return m_time->getDrawTime();
@@ -63,5 +67,9 @@ namespace abyss
 	double IActor::getDrawTimeSec() const
 	{
 		return m_time->getDrawTimeSec();
+	}
+	std::function<s3d::Microseconds()> IActor::getDrawTimer() const
+	{
+		return [this] {return this->getDrawTime(); };
 	}
 }
