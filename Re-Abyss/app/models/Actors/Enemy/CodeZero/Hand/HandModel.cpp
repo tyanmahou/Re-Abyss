@@ -1,6 +1,7 @@
 #include "HandModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::CodeZero::Hand
 {
@@ -30,9 +31,18 @@ namespace abyss::CodeZero::Hand
     void HandModel::updateForPursuit(const s3d::Vec2& target, const s3d::Vec2& parentPos, BodyModel& body, double dt)const
     {
         const auto& pos = body.getPos();
-        auto velocity = m_dir * -HandParam::Setup::Speed;
-
+        Vec2 velocity{ 0,0 };
+        
         {
+            // 前方向の動き
+            // 目的地に向かって進む
+            Vec2 targetPos = parentPos - m_dir * m_distance;
+            auto vec = (targetPos - pos).normalized();
+            auto front = vec.projection(m_dir);
+            velocity += front * HandParam::Setup::Speed;
+        }
+        {
+            // 横方向の動き
             const auto targetVec = target - pos;
             if (auto distance = m_dirVertical.dot(targetVec); distance >= 60) {
                 velocity += m_dirVertical * HandParam::Pursuit::Speed;
@@ -42,16 +52,7 @@ namespace abyss::CodeZero::Hand
                 body.setVelocity(velocity);
             }
         }
-
         body.update(dt);
-
-        {
-            double border = m_distance;
-            const auto targetVec = parentPos - pos;
-            if (auto distance = m_dir.dot(targetVec); distance >= border) {
-                body.setPos(pos + m_dir * (distance - border));
-            }
-        }
     }
 
     void HandModel::startForAttackWait(BodyModel& body)const
@@ -80,7 +81,6 @@ namespace abyss::CodeZero::Hand
             auto velocity = m_dir * -HandParam::Attack::Speed;
             body.setVelocity(velocity);
         } else if (isReturn && distance >= m_distance) {
-            body.setPos(pos + m_dir * (distance - m_distance));
             callback();
         }
         body.update(dt);
