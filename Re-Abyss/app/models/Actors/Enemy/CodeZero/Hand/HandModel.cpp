@@ -6,8 +6,7 @@
 namespace abyss::CodeZero::Hand
 {
     HandModel::HandModel(const s3d::Vec2& dir, double rotateLimit):
-        m_dir(dir.normalized()),
-        m_dirVertical(m_dir.y, -m_dir.x),
+        m_axis(dir.normalized()),
         m_rotateLimit(rotateLimit),
         m_distance(dir.length())
     {
@@ -22,9 +21,7 @@ namespace abyss::CodeZero::Hand
     }
     void HandModel::startForPursuit(BodyModel& body)const
     {
-        auto velocity =
-            m_dir * -HandParam::Setup::Speed
-            + m_dirVertical * HandParam::Setup::Speed;
+        auto velocity = m_axis * Vec2{ -HandParam::Setup::Speed, HandParam::Setup::Speed };
         body.setVelocity(velocity);
     }
 
@@ -36,19 +33,18 @@ namespace abyss::CodeZero::Hand
         {
             // 前方向の動き
             // 目的地に向かって進む
-            Vec2 targetPos = parentPos - m_dir * m_distance;
+            Vec2 targetPos = parentPos - m_axis.sa(m_distance);
             auto vec = (targetPos - pos).normalized();
-            auto front = vec.projection(m_dir);
-            velocity += front * HandParam::Setup::Speed;
+            velocity += m_axis.sa(vec) * HandParam::Setup::Speed;
         }
         {
             // 横方向の動き
             const auto targetVec = target - pos;
-            if (auto distance = m_dirVertical.dot(targetVec); distance >= 60) {
-                velocity += m_dirVertical * HandParam::Pursuit::Speed;
+            if (auto distance = m_axis.t(targetVec); distance >= 60) {
+                velocity += m_axis.tb(HandParam::Pursuit::Speed);
                 body.setVelocity(velocity);
             } else if (distance <= -60) {
-                velocity -= m_dirVertical * HandParam::Pursuit::Speed;
+                velocity -= m_axis.tb(HandParam::Pursuit::Speed);
                 body.setVelocity(velocity);
             }
         }
@@ -57,13 +53,13 @@ namespace abyss::CodeZero::Hand
 
     void HandModel::startForAttackWait(BodyModel& body)const
     {
-        auto velocity = m_dir * -50;
+        auto velocity = m_axis.sa(-50);
         body.setVelocity(velocity);
     }
 
     void HandModel::startForAttack(BodyModel& body) const
     {
-        auto velocity = m_dir * HandParam::Attack::Speed;
+        auto velocity = m_axis.sa(HandParam::Attack::Speed);
         body.setVelocity(velocity);
     }
 
@@ -76,9 +72,9 @@ namespace abyss::CodeZero::Hand
     ) const{
         const auto& pos = body.getPos();
         const auto targetVec = parentPos - pos;
-        if (auto distance = m_dir.dot(targetVec); !isReturn && distance <= -m_distance-40) {
+        if (auto distance = m_axis.s(targetVec); !isReturn && distance <= -m_distance-40) {
             isReturn = true;
-            auto velocity = m_dir * -HandParam::Attack::Speed;
+            auto velocity = m_axis.sa(-HandParam::Attack::Speed);
             body.setVelocity(velocity);
         } else if (isReturn && distance >= m_distance) {
             callback();

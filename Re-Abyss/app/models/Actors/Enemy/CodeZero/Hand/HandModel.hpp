@@ -3,13 +3,13 @@
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/utils/Axis2/Axis2.hpp>
 
 namespace abyss::CodeZero::Hand
 {
     class HandModel : public IComponent
     {
-        s3d::Vec2 m_dir{};
-        s3d::Vec2 m_dirVertical{};
+        abyss::Axis2 m_axis;
         double m_distance = 0;
         double m_rotateLimit = 0;
     public:
