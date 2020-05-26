@@ -77,6 +77,7 @@ namespace abyss::CodeZero::Hand
             auto velocity = m_axis.sa(-HandParam::Attack::Speed);
             body.setVelocity(velocity);
         } else if (isReturn && distance >= m_distance) {
+            body.setPos(pos + m_axis.sa(distance - m_distance));
             callback();
         }
         body.update(dt);

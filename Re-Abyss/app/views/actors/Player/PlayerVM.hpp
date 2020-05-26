@@ -15,6 +15,7 @@ namespace abyss::Player
         Forward m_forward;
         double m_charge;
 
+        bool m_isAttacking = false;
         bool m_isDamaging = false;
         double m_time = 0;
 
@@ -30,6 +31,7 @@ namespace abyss::Player
         PlayerVM& setForward(const Forward& forward);
         PlayerVM& setCharge(double charge);
 
+        PlayerVM& setIsAttacking(bool isAttacking);
         PlayerVM& setIsDamaging(bool isDamaging);
         PlayerVM& setManager(Manager* pManager);
 
@@ -37,6 +39,7 @@ namespace abyss::Player
         void drawStateStay() const;
         void drawStateFloat() const;
         void drawStateRun() const;
+        void drawStateRunAtk() const;
         void drawStateSwim() const;
         void drawStateDive() const;
         void drawStateDamage() const;

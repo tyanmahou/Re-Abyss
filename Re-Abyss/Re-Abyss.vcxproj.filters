@@ -824,6 +824,9 @@
     <ClCompile Include="app\utils\Axis2\Axis2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\AttackCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1263,5 +1266,6 @@
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
+    <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
   </ItemGroup>
 </Project>

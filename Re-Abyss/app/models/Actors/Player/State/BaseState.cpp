@@ -5,6 +5,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
+#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 
 namespace abyss::Player
 {
@@ -94,7 +95,8 @@ namespace abyss::Player
         // 攻撃
         if (m_charge->update(dt)) {
             double charge = m_charge->pop();
-            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos(), m_body->getForward(), charge);
+            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
+            m_pActor->find<AttackCtrlModel>()->startAttack();
         }
         m_foot->reset();
     }

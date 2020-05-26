@@ -1,6 +1,7 @@
 #include <abyss/models/Actors/Player/State/SwimState.hpp>
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
+#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
@@ -60,6 +61,10 @@ namespace abyss::Player
         {
             this->attach<AudioSourceModel>(this);
         }
+        // AttackCtrl
+        {
+            this->attach<AttackCtrlModel>(this);
+        }
         m_order = 10;
     }
     void PlayerActor::start()
@@ -108,6 +113,7 @@ namespace abyss::Player
             .setVelocity(m_body->getVelocity())
             .setForward(m_body->getForward())
             .setCharge(m_charge->getCharge())
+            .setIsAttacking(this->find<AttackCtrlModel>()->isAttacking())
             .setIsDamaging(m_hp->isInInvincibleTime())
             .setManager(m_pManager)
             ;

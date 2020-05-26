@@ -6,6 +6,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
+
 namespace
 {
     using namespace abyss;
@@ -61,6 +62,12 @@ namespace abyss::Player
         return *this;
     }
 
+    PlayerVM& PlayerVM::setIsAttacking(bool isAttacking)
+    {
+        m_isAttacking = isAttacking;
+        return *this;
+    }
+
     PlayerVM& PlayerVM::setIsDamaging(bool isDamaging)
     {
         m_isDamaging = isDamaging;
@@ -99,10 +106,26 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateRun() const
     {
+        if (m_isAttacking) {
+            this->drawStateRunAtk();
+            return;
+        }
         bool isRight = m_forward == Forward::Right;
 
         int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5) * 60;
         m_texture(U"run")({ x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+    }
+    void PlayerVM::drawStateRunAtk() const
+    {
+        bool isRight = m_forward == Forward::Right;
+        auto page = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5);
+        if (page == 3) {
+            page = 1;
+        } else if (page == 4) {
+            page = 0;
+        }
+        int32 x = page * 80;
+        m_texture(U"run_atk")({ x, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwim() const
     {
