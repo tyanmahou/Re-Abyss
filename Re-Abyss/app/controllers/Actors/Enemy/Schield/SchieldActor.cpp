@@ -6,6 +6,7 @@
 #include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
+#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 #include <abyss/types/CShape.hpp>
@@ -27,6 +28,11 @@ namespace abyss::Schield
                 .add<AttackPlusState>(State::AttackPlus)
                 .add<AttackCrossState>(State::AttackCross)
                 ;
+        }
+        {
+            this->find<CustomColliderModel>()->setColFunc([this] {
+                return this->getCollider();
+            });
         }
         this->attach<DamageModel>(this);
         this->attach<Enemy::DeadCallbackModel>(this);
