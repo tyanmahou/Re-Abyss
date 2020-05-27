@@ -13,6 +13,7 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
+
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
