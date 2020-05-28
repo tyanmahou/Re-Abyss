@@ -11,9 +11,6 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
-#include <abyss/debugs/Log/Log.hpp>
-
-
 
 namespace abyss::CodeZero
 {
@@ -40,14 +37,6 @@ namespace abyss::CodeZero
         }
         {
             this->attach<PatternModel>(this);
-        }
-        {
-            // デバッグでライフ表示 UIができるまで
-#if ABYSS_DEBUG
-            this->attach<CustomDrawModel>()->setDrawer([this] {
-                Debug::Log::Print << m_hp->value();
-            });
-#endif
         }
         m_order = -99;
     }

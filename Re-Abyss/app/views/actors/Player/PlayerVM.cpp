@@ -83,7 +83,7 @@ namespace abyss::Player
     void PlayerVM::drawStateStay() const
     {
         if (m_isAttacking) {
-            this->drawStateSwimAtk();
+            this->drawStateStayAtk();
             return;
         }
         int32 timer = GetTimeInt32(m_time);
@@ -92,10 +92,16 @@ namespace abyss::Player
         int32 page = timer % 240 <= 10 ? 1 : 0;
         m_texture(U"stay")({ isRight ? 40 : 0, 80 * page }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
+    void PlayerVM::drawStateStayAtk() const
+    {
+        bool isRight = m_forward == Forward::Right;
+        m_texture(U"stay_atk")({ 0, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+
+    }
     void PlayerVM::drawStateFloat() const
     {
         if (m_isAttacking) {
-            this->drawStateSwimAtk();
+            this->drawStateDiveAtk();
             return;
         }
         int32 timer = GetTimeInt32(m_time);
@@ -164,7 +170,7 @@ namespace abyss::Player
     void PlayerVM::drawStateDive() const
     {
         if (m_isAttacking) {
-            this->drawStateSwimAtk();
+            this->drawStateDiveAtk();
             return;
         }
         int32 timer = GetTimeInt32(m_time);
@@ -172,6 +178,15 @@ namespace abyss::Player
 
         double y = 80 * (timer / 30 % 2);
         m_texture(U"dive")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+    }
+    void PlayerVM::drawStateDiveAtk() const
+    {
+        int32 timer = GetTimeInt32(m_time);
+        bool isRight = m_forward == Forward::Right;
+
+        //double y = 80 * (timer / 30 % 2);
+        m_texture(U"dive_atk")({ isRight ? 80 : 0, 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+
     }
     void PlayerVM::drawStateDamage() const
     {
