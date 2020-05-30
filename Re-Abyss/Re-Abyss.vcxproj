@@ -95,7 +95,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MinimalRebuild>false</MinimalRebuild>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -123,7 +123,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -153,7 +153,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
