@@ -1,6 +1,6 @@
 #include "DeadCallbackModel.hpp"
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 
 namespace abyss::Enemy
@@ -11,7 +11,7 @@ namespace abyss::Enemy
     void DeadCallbackModel::onDead()
     {
         if (auto body = m_pActor->find<BodyModel>()) {
-            m_pActor->getModule<World>()->addEffect<EnemyDeadEffect>(body->getPos());
+            m_pActor->getModule<Effects>()->addWorldFront<EnemyDeadEffect>(body->getPos());
         }
     }
 }

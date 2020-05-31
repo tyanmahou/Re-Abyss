@@ -13,6 +13,7 @@ namespace abyss
         Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
+        Effects* m_pEffects = nullptr;
         Sound* m_pSound = nullptr;
         UI* m_pUserInterface = nullptr;
         Player::PlayerActor* m_pPlayer = nullptr;
@@ -24,6 +25,8 @@ namespace abyss
         Manager& set(Camera* pCamera);
 
         Manager& set(Light* pLight);
+
+        Manager& set(Effects* pEffects);
 
         Manager& set(Sound* pSound);
 

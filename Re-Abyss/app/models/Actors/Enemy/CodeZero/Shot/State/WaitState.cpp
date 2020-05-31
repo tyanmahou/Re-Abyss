@@ -1,5 +1,5 @@
 #include "WaitState.hpp"
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
@@ -10,8 +10,8 @@ namespace abyss::CodeZero::Shot
     {
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
-            ->getModule<World>()
-            ->addEffect<ShotChargeEffect>(m_body->getPos());
+            ->getModule<Effects>()
+            ->addWorldFront<ShotChargeEffect>(m_body->getPos());
     }
 
     void WaitState::update(double dt)

@@ -178,6 +178,7 @@
     <ClCompile Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Ooparts\OopartsActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Ooparts\Xto\XtoActor.cpp" />
+    <ClCompile Include="app\controllers\Effects\Effects.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp" />
     <ClCompile Include="app\controllers\Sound\Sound.cpp" />
     <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp" />
@@ -417,7 +418,6 @@
     <ClCompile Include="app\views\Light\LightView.cpp" />
     <ClCompile Include="app\views\Light\LightVM.cpp" />
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
-    <ClCompile Include="app\views\World\WorldView.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\testing.cpp" />
@@ -438,6 +438,7 @@
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
+    <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
@@ -756,7 +757,6 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
-    <ClInclude Include="app\views\World\WorldView.hpp" />
     <ClInclude Include="app\visitors\ActVisitor.hpp" />
     <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
   </ItemGroup>

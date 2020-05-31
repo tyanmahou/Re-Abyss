@@ -1,7 +1,6 @@
 #pragma once
 
 #include <abyss/controllers/Actors/base/ActorsHolder.hpp>
-#include <abyss/views/World/WorldView.hpp>
 
 namespace abyss
 {
@@ -10,8 +9,6 @@ namespace abyss
     private:
         ActorsHolder m_actorsHolder;
         std::unique_ptr<ICollisionModel> m_collision;
-
-        WorldView m_view;
 
         Manager* m_pManager = nullptr;
     public:
@@ -52,14 +49,6 @@ namespace abyss
             actor->setManager(m_pManager);
             m_actorsHolder.pushActor(actor);
         }
-
-        template<class Type, class... Args>
-        void addEffect(Args&& ... args)
-        {
-            m_view.addEffect<Type>(std::forward<Args>(args)...);
-        }
-        [[nodiscard]] inline WorldView& getView() {return m_view;}
-        [[nodiscard]] inline const WorldView& getView()const { return m_view; }
 
         template<class Type>
         [[nodiscard]] Ref<Type> find() const

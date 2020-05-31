@@ -22,6 +22,11 @@ namespace abyss
         m_pLight = pLight;
         return *this;
     }
+    Manager& Manager::set(Effects* pEffects)
+    {
+        m_pEffects = pEffects;
+        return *this;
+    }
     Manager& Manager::set(Sound* pSound)
     {
         m_pSound = pSound;
@@ -49,6 +54,8 @@ namespace abyss
             return m_pCamera;
         } else if constexpr (std::is_same_v<Light, T>) {
             return m_pLight;
+        } else if constexpr (std::is_same_v<Effects, T>) {
+            return m_pEffects;
         } else if constexpr (std::is_same_v<Sound, T>) {
             return m_pSound;
         } else if constexpr (std::is_same_v<UI, T>) {
@@ -61,6 +68,7 @@ namespace abyss
     template Events* Manager::getModule<Events>() const;
     template Camera* Manager::getModule<Camera>() const;
     template Light* Manager::getModule<Light>() const;
+    template Effects* Manager::getModule<Effects>() const;
     template Sound* Manager::getModule<Sound>() const;
     template UI* Manager::getModule<UI>() const;
     template Player::PlayerActor* Manager::getModule<Player::PlayerActor>() const;

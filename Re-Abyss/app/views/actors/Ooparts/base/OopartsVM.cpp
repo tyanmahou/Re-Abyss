@@ -1,14 +1,13 @@
 #include "OopartsVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/views/Actors/Common/KiraKiraEffect.hpp>
+#include <abyss/controllers/System/System.hpp>
 
 namespace abyss::Ooparts
 {
     OopartsVM::OopartsVM():
-        m_effectTimer(0.05, true, [this] {return Time::FromSec(this->m_time); }),
-        m_effect([this] {return Time::FromSec(this->m_time); })
+        m_effectTimer(0.05, true, [this] {return Time::FromSec(this->m_time); })
     {
-        m_effect.setSpeed(1.5);
     }
     void OopartsVM::draw() const
     {
@@ -16,17 +15,18 @@ namespace abyss::Ooparts
         double alpha = 0.4 * Periodic::Triangle0_1(0.1s, m_time);
         constexpr double period = 0.8;
         {
-            ScopedRenderStates2D t2d(BlendState::Additive);
-            {
-                if (m_effectTimer.update()) {
-                    if (RandomBool(0.7)) {
-                        m_effect.add<KiraKiraEffect>(pos + RandomVec2({ -15, 15 }, { 0, 20 }));
-                    } else {
-                        m_effect.add<KiraKiraEffect>(pos + RandomVec2(17), KiraKiraEffect::Type2);
-                    }
+            auto* effects = m_pManager->getModule<Effects>();
+            if (m_effectTimer.update()) {
+                if (RandomBool(0.7)) {
+                    effects->addWorldBack<KiraKiraEffect>(pos + RandomVec2({ -15, 15 }, { 0, 20 }));
+                } else {
+                    effects->addWorldBack<KiraKiraEffect>(pos + RandomVec2(17), KiraKiraEffect::Type2);
                 }
-                m_effect.update();
             }
+        }
+        {
+            ScopedRenderStates2D t2d(BlendState::Additive);
+
             Circle(pos, 17 * (1 - Periodic::Sawtooth0_1(period, m_time))).drawFrame(0, 1, ColorF(1.0, alpha));
             double s = 25 * Periodic::Triangle0_1(period / 2.0, m_time);
             RectF({ 0,0,s, s })

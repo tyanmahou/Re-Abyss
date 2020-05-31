@@ -2,6 +2,8 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
 #include <abyss/models/Actors/Ooparts/DrawModel.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+
 namespace abyss::Ooparts
 {
     OopartsActor::OopartsActor(IActor* parent)
@@ -22,6 +24,13 @@ namespace abyss::Ooparts
         {
             // 描画
             this->attach<DrawModel>(this);
+        }
+    }
+
+    void OopartsActor::start()
+    {
+        if (auto* view = this->getBindedView()) {
+            view->setManager(m_pManager);
         }
     }
 

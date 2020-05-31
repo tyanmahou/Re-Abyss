@@ -11,6 +11,8 @@ namespace abyss
 
     bool KiraKiraEffect::update(double t)
     {
+        ScopedRenderStates2D t2d(BlendState::Additive);
+
         switch (m_type) {
         case Type1:
         {

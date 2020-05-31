@@ -137,9 +137,6 @@
     <ClCompile Include="app\controllers\World\World.cpp">
       <Filter>Source Files\ActionSystem\World</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\World\WorldView.cpp">
-      <Filter>Source Files\ActionSystem\World</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Stage\Stage.cpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClCompile>
@@ -836,6 +833,9 @@
     <ClCompile Include="app\models\Actors\Player\OopartsCtrlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Effects\Effects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -911,9 +911,6 @@
     </ClInclude>
     <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\World\WorldView.hpp">
-      <Filter>Source Files\ActionSystem\World</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\World\World.hpp">
       <Filter>Source Files\ActionSystem\World</Filter>
@@ -1279,5 +1276,6 @@
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
+    <ClInclude Include="app\controllers\Effects\Effects.hpp" />
   </ItemGroup>
 </Project>

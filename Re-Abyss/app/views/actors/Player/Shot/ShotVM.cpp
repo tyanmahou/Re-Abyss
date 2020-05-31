@@ -31,7 +31,7 @@ namespace abyss::Player::Shot
     void ShotVM::addShotFiringEffect()
     {
         if (!m_shot.isNormal()) {
-            m_pManager->getModule<World>()->addEffect<ShotFiringEffect>(m_pos, m_shot.toRadius(), m_shot.toColorF());
+            m_pManager->getModule<Effects>()->addWorldFront<ShotFiringEffect>(m_pos, m_shot.toRadius(), m_shot.toColorF());
         }
     }
     void ShotVM::draw()
@@ -40,7 +40,7 @@ namespace abyss::Player::Shot
 
         // effect
         if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot >= PlayerShotType::Medium) {
-            m_pManager->getModule<World>()->addEffect<ShotEffect>(m_pos, r, m_shot.toColorF());
+            m_pManager->getModule<Effects>()->addWorldFront<ShotEffect>(m_pos, r, m_shot.toColorF());
         }
 
         double x = 0, y = 0;

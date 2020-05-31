@@ -17,6 +17,7 @@ namespace abyss
             .set(&m_light)
             .set(&m_world)
             .set(&m_events)
+            .set(&m_effects)
             .set(&m_sound)
             .set(&m_userInterface)
             ;
@@ -110,7 +111,9 @@ namespace abyss
             // 中面
             stageView->drawMiddle(cameraView);
 
+            m_effects.update<EffectGroup::WorldBack>();
             m_world.draw();
+            m_effects.update<EffectGroup::WorldFront>();
 
             // 全面
             stageView->drawFront(cameraView);

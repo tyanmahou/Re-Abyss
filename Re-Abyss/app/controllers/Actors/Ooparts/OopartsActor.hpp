@@ -16,6 +16,7 @@ namespace abyss::Ooparts
     public:
         OopartsActor(IActor* parent);
 
+        void start() override;
         virtual OopartsVM* getBindedView() const = 0;
     };
 }

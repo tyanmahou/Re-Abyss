@@ -48,6 +48,5 @@ namespace abyss
     void World::draw() const
     {
         m_actorsHolder.draw();
-        m_view.draw();
     }
 }

@@ -5,12 +5,12 @@
 
 namespace abyss::Ooparts::Nyan
 {
-    abyss::Ooparts::Nyan::NyanActor::NyanActor(IActor* parent):
+    NyanActor::NyanActor(IActor* parent):
         OopartsActor(parent),
         m_view(std::make_shared<NyanVM>())
     {}
 
-    OopartsVM* abyss::Ooparts::Nyan::NyanActor::getBindedView() const
+    OopartsVM* NyanActor::getBindedView() const
     {
         return  &m_view
             ->setTime(this->getDrawTimeSec())
