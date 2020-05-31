@@ -196,11 +196,31 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateLadder() const
     {
-        m_texture(U"ladder")({ 40 * (static_cast<int32>(m_pos.y / 30) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        if (m_isAttacking) {
+            this->drawStateLadderAtk();
+            return;
+        }
+        m_texture(U"ladder")({ 40 * (static_cast<int32>(m_pos.y / 16) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+    }
+    void PlayerVM::drawStateLadderAtk() const
+    {
+        bool isRight = m_forward == Forward::Right;
+
+        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 80 * (static_cast<int32>(m_pos.y / 16) % 2) }, { 70, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTop() const
     {
+        if (m_isAttacking) {
+            this->drawStateLadderTopAtk();
+            return;
+        }
         m_texture(U"ladder")({ 80, 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+    }
+    void PlayerVM::drawStateLadderTopAtk() const
+    {
+        bool isRight = m_forward == Forward::Right;
+
+        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 160 }, { 70, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDoor() const
     {
