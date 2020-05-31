@@ -48,10 +48,11 @@ namespace abyss::Player
     {}
     void BaseState::setup()
     {
-        m_body   = m_pActor->find<BodyModel>().get();
-        m_foot   = m_pActor->find<FootModel>().get();
-        m_charge = m_pActor->find<ChargeModel>().get();
-        m_hp     = m_pActor->find<HPModel>().get();
+        m_body       = m_pActor->find<BodyModel>().get();
+        m_foot       = m_pActor->find<FootModel>().get();
+        m_charge     = m_pActor->find<ChargeModel>().get();
+        m_hp         = m_pActor->find<HPModel>().get();
+        m_attackCtrl = m_pActor->find<AttackCtrlModel>().get();
     }
     void BaseState::start()
     {
@@ -96,7 +97,7 @@ namespace abyss::Player
         if (m_charge->update(dt)) {
             double charge = m_charge->pop();
             m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
-            m_pActor->find<AttackCtrlModel>()->startAttack();
+            m_attackCtrl->startAttack();
         }
         m_foot->reset();
     }

@@ -6,7 +6,7 @@
 namespace abyss::Player
 {
     AttackCtrlModel::AttackCtrlModel(IActor* pActor):
-        m_timer(0.5s, false, pActor->getUpdateTimer()),
+        m_timer(0.4s, false, pActor->getUpdateTimer()),
         m_pActor(pActor)
     {}
 

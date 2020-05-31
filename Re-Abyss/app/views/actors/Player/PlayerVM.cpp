@@ -101,7 +101,7 @@ namespace abyss::Player
     void PlayerVM::drawStateFloat() const
     {
         if (m_isAttacking) {
-            this->drawStateSwimAtk();
+            this->drawStateFloatAtk();
             return;
         }
         int32 timer = GetTimeInt32(m_time);
@@ -117,6 +117,14 @@ namespace abyss::Player
         }
 
         m_texture(U"float")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+    }
+    void PlayerVM::drawStateFloatAtk() const
+    {
+        int32 timer = GetTimeInt32(m_time);
+        bool isRight = m_forward == Forward::Right;
+
+        double y = 80 * (timer / 30 % 2);
+        m_texture(U"float_atk")({ isRight ? 70 : 0, y }, { 70, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRun() const
     {

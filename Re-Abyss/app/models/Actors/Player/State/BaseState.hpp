@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 
 namespace abyss::Player
 {
@@ -15,6 +16,7 @@ namespace abyss::Player
         FootModel* m_foot;
         ChargeModel* m_charge;
         HPModel* m_hp;
+        AttackCtrlModel* m_attackCtrl;
 
         virtual void onMove(double dt);
         virtual void onLanding(){}

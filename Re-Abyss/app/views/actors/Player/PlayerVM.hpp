@@ -39,6 +39,7 @@ namespace abyss::Player
         void drawStateStay() const;
         void drawStateStayAtk() const;
         void drawStateFloat() const;
+        void drawStateFloatAtk() const;
         void drawStateRun() const;
         void drawStateRunAtk() const;
         void drawStateSwim() const;

@@ -8,12 +8,17 @@ namespace abyss::Player
 {
     void LadderState::onMove(double dt)
     {
+        if (InputManager::A.down()) {
+            this->changeState(State::Swim);
+            return;
+        }
+        if (m_attackCtrl->isAttacking()) {
+            return;
+        }
         double veocityY = Param::Ladder::Speed * (InputManager::Down.pressed() - InputManager::Up.pressed());
         m_body->setVelocity({ 0, veocityY });
         m_body->update(dt);
-        if (InputManager::A.down()) {
-            this->changeState(State::Swim);
-        }
+
     }
     void LadderState::onLanding()
     {
