@@ -1,5 +1,6 @@
 #include "XtoActor.hpp"
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+
 #include <abyss/views/Actors/Ooparts/Xto/XtoVM.hpp>
 
 namespace abyss::Ooparts::Xto

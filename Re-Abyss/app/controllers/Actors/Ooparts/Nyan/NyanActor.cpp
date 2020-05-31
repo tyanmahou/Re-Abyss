@@ -1,5 +1,6 @@
 #include "NyanActor.hpp"
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+
 #include <abyss/views/Actors/Ooparts/Nyan/NyanVM.hpp>
 
 namespace abyss::Ooparts::Nyan

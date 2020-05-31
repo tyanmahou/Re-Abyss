@@ -22,12 +22,18 @@ namespace abyss::Ooparts
         if (!m_pParent) {
             return;
         }
-        auto localTarget = Vec2{ m_pParent->getForward() * -20 , -40 };
+        if (m_isPursuit) {
+            double time = m_pActor->getDrawTimeSec();
 
-        auto diff = localTarget - m_localPos;
-        constexpr double speed = 60.0f;
-        m_localPos += diff.normalized() * speed * dt;
-
+            auto localTarget = Vec2{ m_pParent->getForward() * -20 , -40 };
+            localTarget += Vec2{
+                15 * s3d::Sin(time * 2.0),
+                10 * s3d::Sin(time * 4.0)
+            };
+            auto diff = localTarget - m_localPos;
+            constexpr double speed = 60.0f;
+            m_localPos += diff.normalized() * speed * dt;
+        }
         m_body->setForward(m_pParent->getForward());
         m_body->setPos(m_pParent->getPos() + m_localPos);
     }

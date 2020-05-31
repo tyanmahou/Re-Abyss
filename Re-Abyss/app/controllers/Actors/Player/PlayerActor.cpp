@@ -2,6 +2,8 @@
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
+#include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
+
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
@@ -66,13 +68,17 @@ namespace abyss::Player
         {
             this->attach<AttackCtrlModel>(this);
         }
+        {
+            this->attach<OopartsCtrlModel>(this);
+        }
         m_order = 10;
     }
     void PlayerActor::start()
     {
         m_pManager->set(this);
         // todo 切り替え可能に
-        this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
+        std::shared_ptr<Ooparts::OopartsActor> main = this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
+        this->find<OopartsCtrlModel>()->setMain(main);
     }
     void PlayerActor::setPos(const Vec2& pos)
     {

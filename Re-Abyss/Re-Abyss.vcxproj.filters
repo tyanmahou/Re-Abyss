@@ -833,6 +833,9 @@
     <ClCompile Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\OopartsCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1275,5 +1278,6 @@
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
+    <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
   </ItemGroup>
 </Project>

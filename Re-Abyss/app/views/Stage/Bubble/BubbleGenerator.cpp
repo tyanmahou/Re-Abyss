@@ -14,6 +14,8 @@ namespace abyss
 		if (m_timer.update()) {
 			m_effect.add<BubbleEffect>(pos);
 			m_effect.add<BubbleEffect>(pos, BubbleEffect::Small{});
+			m_effect.add<BubbleEffect>(pos, BubbleEffect::Small{});
+			m_effect.add<BubbleEffect>(pos, BubbleEffect::Small{});
 		}
 
 		ScopedRenderStates2D state(BlendState::Additive);

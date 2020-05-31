@@ -3,6 +3,8 @@
 
 namespace abyss::Ooparts
 {
+    class DrawModel;
+
     class OopartsVM;
 
     class OopartsActor:
@@ -10,6 +12,7 @@ namespace abyss::Ooparts
     {
     protected:
         Ref<BodyModel> m_body;
+
     public:
         OopartsActor(IActor* parent);
 

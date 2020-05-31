@@ -189,6 +189,7 @@
     <ClCompile Include="app\models\Actors\Ooparts\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Ooparts\PursuitModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\AttackCtrlModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\OopartsCtrlModel.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\Axis2\Axis2.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
@@ -451,6 +452,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />

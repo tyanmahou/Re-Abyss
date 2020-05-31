@@ -12,10 +12,7 @@ namespace abyss::Ooparts
     }
     void OopartsVM::draw() const
     {
-        auto pos = m_pos + Vec2{
-            15 * s3d::Sin(m_time * 2.0),
-            10 * s3d::Sin(m_time * 4.0)
-        };
+        const auto& pos = m_pos;
         double alpha = 0.4 * Periodic::Triangle0_1(0.1s, m_time);
         constexpr double period = 0.8;
         {

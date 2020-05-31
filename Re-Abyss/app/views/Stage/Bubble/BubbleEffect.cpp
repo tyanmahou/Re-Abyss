@@ -11,7 +11,7 @@ namespace abyss
 	{}
 
 	BubbleEffect::BubbleEffect(const Vec2& offset, Small) :
-	m_maxRadius(Random(2, 3)),
+	m_maxRadius(1),
 		m_speed(Random(-72.0, -36.0)),
 		m_deflection(Random(0.0, 400.0)),
 		m_pos(s3d::RandomVec2(RectF{ offset + CreateRangeOffset, CreateRangeSize })),
