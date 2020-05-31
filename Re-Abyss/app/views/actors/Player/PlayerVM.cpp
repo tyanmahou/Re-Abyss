@@ -34,7 +34,8 @@ namespace abyss::Player
         return ColorDef::OnDamage(m_isDamaging, m_time);
     }
     PlayerVM::PlayerVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json")),
+        m_xto(std::make_unique<XtoAtkVM>())
     {}
     PlayerVM& PlayerVM::setTime(double time)
     {
@@ -94,9 +95,17 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateStayAtk() const
     {
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"stay_atk")({ 0, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
-
+        auto drawer = [this]() {
+            bool isRight = m_forward == Forward::Right;
+            m_texture(U"stay_atk")({ 0, isRight ? 80 : 0 }, { 80, 80 })
+                .drawAt(m_pos, this->calcColor());
+        };
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{23 * m_forward, -2 })
+            .draw();
     }
     void PlayerVM::drawStateFloat() const
     {
@@ -120,11 +129,19 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateFloatAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
+        auto drawer = [this]() {
+            int32 timer = GetTimeInt32(m_time);
+            bool isRight = m_forward == Forward::Right;
 
-        double y = 80 * (timer / 30 % 2);
-        m_texture(U"float_atk")({ isRight ? 70 : 0, y }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+            double y = 80 * (timer / 30 % 2);
+            m_texture(U"float_atk")({ isRight ? 70 : 0, y }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ 26 * m_forward, -4 })
+            .draw();
     }
     void PlayerVM::drawStateRun() const
     {
@@ -139,15 +156,23 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateRunAtk() const
     {
-        bool isRight = m_forward == Forward::Right;
-        auto page = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5);
-        if (page == 3) {
-            page = 1;
-        } else if (page == 4) {
-            page = 0;
-        }
-        int32 x = page * 80;
-        m_texture(U"run_atk")({ x, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        auto drawer = [this]() {
+            bool isRight = m_forward == Forward::Right;
+            auto page = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5);
+            if (page == 3) {
+                page = 1;
+            } else if (page == 4) {
+                page = 0;
+            }
+            int32 x = page * 80;
+            m_texture(U"run_atk")({ x, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ 30 * m_forward, -3 })
+            .draw();
     }
     void PlayerVM::drawStateSwim() const
     {
@@ -170,10 +195,17 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateSwimAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"swim_atk")({ isRight ? 80 : 0, 80 * (timer / 30 % 2) }, { 80, 80 }).drawAt(m_pos, this->calcColor());
-
+        auto drawer = [this]() {
+            int32 timer = GetTimeInt32(m_time);
+            bool isRight = m_forward == Forward::Right;
+            m_texture(U"swim_atk")({ isRight ? 80 : 0, 80 * (timer / 30 % 2) }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ 30 * m_forward, -3 })
+            .draw();
     }
     void PlayerVM::drawStateDive() const
     {
@@ -189,11 +221,20 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateDiveAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
+        auto drawer = [this]() {
+            int32 timer = GetTimeInt32(m_time);
+            bool isRight = m_forward == Forward::Right;
 
-        double y = 80 * (timer / 30 % 2);
-        m_texture(U"dive_atk")({ isRight ? 80 : 0, y }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+            double y = 80 * (timer / 30 % 2);
+            m_texture(U"dive_atk")({ isRight ? 80 : 0, y }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        double offsetX = m_forward == Forward::Right ? 22 : -21;
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ offsetX, -3 })
+            .draw();
 
     }
     void PlayerVM::drawStateDamage() const
@@ -212,9 +253,25 @@ namespace abyss::Player
     }
     void PlayerVM::drawStateLadderAtk() const
     {
+        auto page = static_cast<int32>(m_pos.y / 16) % 2;
         bool isRight = m_forward == Forward::Right;
+        auto drawer = [this, page, isRight]() {
+            
 
-        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 80 * (static_cast<int32>(m_pos.y / 16) % 2) }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+            m_texture(U"ladder_atk")({ isRight ? 70 : 0, 80 * page }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        double offsetX = 0.0;
+        if (page == 0) {
+            offsetX = isRight ? 17 : -27;
+        } else {
+            offsetX = isRight ? 18 : -26;
+        }
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ offsetX, -3 })
+            .draw();
     }
     void PlayerVM::drawStateLadderTop() const
     {
@@ -227,8 +284,17 @@ namespace abyss::Player
     void PlayerVM::drawStateLadderTopAtk() const
     {
         bool isRight = m_forward == Forward::Right;
+        auto drawer = [this, isRight]() {
 
-        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 160 }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+            m_texture(U"ladder_atk")({ isRight ? 70 : 0, 160 }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        };
+        double offsetX = isRight ? 17 : -22;
+        m_xto
+            ->setDrawFunc(drawer)
+            .setTime(m_time)
+            .setForward(m_forward)
+            .setPos(m_pos + s3d::Vec2{ offsetX, -3 })
+            .draw();
     }
     void PlayerVM::drawStateDoor() const
     {
