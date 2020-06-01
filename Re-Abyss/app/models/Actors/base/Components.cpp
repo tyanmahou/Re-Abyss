@@ -51,7 +51,7 @@ namespace abyss
         {
             return m_tree[key];
         }
-        const Ref<IComponent>& find(const std::type_index& key)
+        Ref<IComponent> find(const std::type_index& key)
         {
             const auto& coms = this->finds(key);
             if (coms.isEmpty()) {
@@ -75,7 +75,7 @@ namespace abyss
         return m_pImpl->remove(key);
     }
 
-    const Ref<IComponent>& Components::find(const std::type_index& key) const
+    Ref<IComponent> Components::find(const std::type_index& key) const
     {
         return m_pImpl->find(key);
     }

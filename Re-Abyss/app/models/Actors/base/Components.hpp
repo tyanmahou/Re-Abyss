@@ -39,7 +39,7 @@ namespace abyss
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component) const;
         bool remove(const std::type_index& key) const;
 
-        const Ref<IComponent>& find(const std::type_index& key) const;
+        Ref<IComponent> find(const std::type_index& key) const;
         const s3d::Array<Ref<IComponent>>& finds(const std::type_index& key) const;
     public:
         Components();

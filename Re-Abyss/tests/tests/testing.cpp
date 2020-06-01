@@ -1,4 +1,4 @@
-﻿#if ABYSS_DO_TEST
+#if ABYSS_DO_TEST
 #include "../helper/TestRunner/TestRunner.hpp"
 
 void RunTest()
