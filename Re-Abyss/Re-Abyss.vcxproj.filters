@@ -170,13 +170,7 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClCompile>
-    <ClCompile Include="tests\helper\TestRunner\TestRunner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\tests\testing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
@@ -836,6 +830,12 @@
     <ClCompile Include="app\controllers\Effects\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\testing.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -956,7 +956,6 @@
     </ClInclude>
     <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
-    <ClInclude Include="tests\helper\TestRunner\TestRunner.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />

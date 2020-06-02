@@ -2,12 +2,12 @@
 #include <abyss/commons/Application/MainApp.hpp>
 #include "StaticLibs.hpp"
 
-void RunTest();
+import abyss.tests;
 
 void Main()
 {
 #if ABYSS_DO_TEST
-    RunTest();
+    abyss::tests::RunTest();
 #endif
 
     using ReAbyss = abyss::MainApp;

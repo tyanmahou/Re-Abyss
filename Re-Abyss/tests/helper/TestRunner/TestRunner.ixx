@@ -1,13 +1,26 @@
-﻿#include "TestRunner.hpp"
+module;
 #if ABYSS_DO_TEST
-
 #define CATCH_CONFIG_RUNNER
 #include <ThirdParty/Catch2/catch.hpp>
-
 #include <Siv3D.hpp>
+
+export module abyss.tests.helper.TestRunner;
+
+export namespace abyss::tests
+{
+    class TestRunner
+    {
+    public:
+        TestRunner();
+        ~TestRunner();
+        bool run() const;
+        void waitKey() const;
+    };
+}
 
 namespace abyss::tests
 {
+
     TestRunner::TestRunner()
     {
         Console.open();
