@@ -1,7 +1,7 @@
 export module abyss.tests;
 
 #if ABYSS_DO_TEST
-import abyss.tests.helper.TestRunner;
+import :helper.TestRunner;
 
 namespace abyss::tests
 {

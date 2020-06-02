@@ -6,7 +6,7 @@ module;
 #include <Siv3D.hpp>
 #endif // ABYSS_DO_TEST
 
-export module abyss.tests.helper.TestRunner;
+export module abyss.tests:helper.TestRunner;
 
 #if ABYSS_DO_TEST
 export namespace abyss::tests
