@@ -18,7 +18,7 @@ namespace abyss
         }
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component)
         {
-            if (m_table.find(key) != m_table.end()) {
+            if (m_table.find(key) != m_table.end()) [[unlikely]] {
 #if ABYSS_DEBUG
                 Debug::Log::PrintCache << U"Multi Component:" << s3d::Unicode::Widen(key.name());
 #endif
@@ -29,7 +29,7 @@ namespace abyss
         }
         bool remove(const std::type_index& key)
         {
-            if (m_table.find(key) == m_table.end()) {
+            if (m_table.find(key) == m_table.end()) [[unlikely]] {
                 return false;
             }
             m_table.erase(key);
