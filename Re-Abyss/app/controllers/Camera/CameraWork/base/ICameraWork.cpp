@@ -1,12 +1,15 @@
-﻿#include "ICameraWork.hpp"
+#include "ICameraWork.hpp"
+#include <abyss/controllers/Manager/Manager.hpp>
+#include <abyss/controllers/TimeController/TimeController.hpp>
 
 namespace abyss
 {
     using namespace s3d;
 
-    ICameraWork::ICameraWork(double animeMilliSec) :
-        m_animation(false),
-        m_animeMilliSec(animeMilliSec)
+    ICameraWork::ICameraWork(Manager* pManager, double animeMilliSec) :
+        m_animation(false, [pManager] {return pManager->getModule<TimeController>()->timeMicroSec(); }),
+        m_animeMilliSec(animeMilliSec),
+        m_pManager(pManager)
     {}
 
     Optional<Vec2> ICameraWork::calcPlayerPos() const

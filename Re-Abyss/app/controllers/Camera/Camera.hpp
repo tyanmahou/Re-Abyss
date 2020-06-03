@@ -20,6 +20,7 @@ namespace abyss
 			OnOutOfRoomDeath,
 		};
 	private:
+		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 
@@ -29,6 +30,8 @@ namespace abyss
 	public:
 		Camera();
 		~Camera();
+
+		void setManager(Manager* pManager);
 
 		Event update(Player::PlayerActor& player);
 

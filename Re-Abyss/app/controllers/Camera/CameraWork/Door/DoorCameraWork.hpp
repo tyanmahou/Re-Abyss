@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
 
 namespace abyss
@@ -20,6 +20,7 @@ namespace abyss
         std::unique_ptr<DoorCameraWorkView> m_view;
     public:
         DoorCameraWork(
+            Manager* pManager,
             const std::pair<s3d::Vec2, s3d::Vec2>& cameraMove,
             const std::pair<s3d::Vec2, s3d::Vec2>& playerMove,
             const s3d::Vec2& origin,

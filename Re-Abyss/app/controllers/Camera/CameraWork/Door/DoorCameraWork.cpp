@@ -1,4 +1,4 @@
-﻿#include "DoorCameraWork.hpp"
+#include "DoorCameraWork.hpp"
 #include <Siv3D.hpp>
 
 #include <abyss/views/Camera/CameraWork/Door/DoorCameraWorkView.hpp>
@@ -6,6 +6,7 @@
 namespace abyss
 {
     DoorCameraWork::DoorCameraWork(
+        Manager* pManager,
         const std::pair<Vec2, Vec2>& cameraMove,
         const std::pair<Vec2, Vec2>& playerMove,
         const Vec2& origin,
@@ -13,7 +14,7 @@ namespace abyss
         std::function<void()> fadeOutCallback,
         double animeMilliSec
     ) :
-        ICameraWork(animeMilliSec),
+        ICameraWork(pManager, animeMilliSec),
         m_cameraMove(cameraMove),
         m_playerMove(playerMove),
         m_origin(origin),

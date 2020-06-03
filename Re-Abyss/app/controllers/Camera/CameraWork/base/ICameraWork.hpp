@@ -1,21 +1,22 @@
-﻿#pragma once
+#pragma once
 #include <memory>
 
-#include <Siv3D/Stopwatch.hpp>
 #include <Siv3D/Optional.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/StopwatchEx/StopwatchEx.hpp>
 
 namespace abyss
 {
     class ICameraWork
     {
     protected:
-        s3d::Stopwatch m_animation;
+        StopwatchEx m_animation;
         double m_animeMilliSec = 0;
+        Manager* m_pManager = nullptr;
     public:
-        ICameraWork(double animeMilliSec);
+        ICameraWork(Manager* pManager, double animeMilliSec);
         virtual ~ICameraWork() = default;
 
         virtual void update() {}

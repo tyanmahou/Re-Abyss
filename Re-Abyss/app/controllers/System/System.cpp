@@ -22,6 +22,7 @@ namespace abyss
             .set(&m_userInterface)
             ;
         m_world.setManager(&m_manager);
+        m_camera.setManager(&m_manager);
         m_events.setManager(&m_manager);
         m_sound.setManager(&m_manager);
         m_userInterface.setManager(&m_manager);

@@ -1,4 +1,4 @@
-﻿#include "RoomMoveCameraWork.hpp"
+#include "RoomMoveCameraWork.hpp"
 #include <Siv3D.hpp>
 
 #include <abyss/models/Camera/CameraModel.hpp>
@@ -6,18 +6,20 @@
 namespace abyss
 {
     RoomMoveCameraWork::RoomMoveCameraWork(
+        Manager* pManager,
         const std::pair<Vec2, Vec2>& cameraMove,
         const std::pair<Vec2, Vec2>& playerMove,
         std::function<void()> callback,
         double animeMilliSec
     ) :
-        ICameraWork(animeMilliSec),
+        ICameraWork(pManager, animeMilliSec),
         m_cameraMove(cameraMove),
         m_playerMove(playerMove),
         m_callback(callback)
     {}
 
     std::unique_ptr<RoomMoveCameraWork> RoomMoveCameraWork::Create(
+        Manager* pManager,
         const CameraModel& camera,
         const s3d::Vec2& playerPos,
         std::function<void()> callback,
@@ -51,6 +53,7 @@ namespace abyss
             }
         }
         return std::make_unique<RoomMoveCameraWork>(
+            pManager,
             std::make_pair(from, to),
             std::make_pair(playerPos, target),
             callback,

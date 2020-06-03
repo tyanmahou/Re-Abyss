@@ -66,6 +66,11 @@ namespace abyss
 	Camera::~Camera()
 	{}
 
+	void Camera::setManager(Manager * pManager)
+	{
+		m_pManager = pManager;
+	}
+
 	Camera::Event Camera::update(Player::PlayerActor& player)
 	{
 		const Vec2& pos =player.getPos();
@@ -97,7 +102,7 @@ namespace abyss
 				m_camera->setRoom(nextRoom);
 			};
 		}
-		m_cameraWork = RoomMoveCameraWork::Create(*m_camera, playerPos, callback, milliSec);
+		m_cameraWork = RoomMoveCameraWork::Create(m_pManager, *m_camera, playerPos, callback, milliSec);
 	}
 	void Camera::startDoorCameraWork(
         const Door::DoorActor& door, 
@@ -122,6 +127,7 @@ namespace abyss
 		Vec2 to = nextRoom.cameraBorderAdjusted(playerTo);
 
 		m_cameraWork = std::make_unique<DoorCameraWork>(
+			m_pManager,
 			std::make_pair(from, to),
 			std::make_pair(playerFrom, playerTo),
 			playerPos,
