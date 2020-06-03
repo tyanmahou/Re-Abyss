@@ -73,6 +73,12 @@ namespace abyss
     {
         return ::GetNextRoom(pos, m_stageData->getRooms());
     }
+    void Stage::setup(Manager* pManager)
+    {
+        m_pManager = pManager;
+        m_view->setup(pManager);
+
+    }
     s3d::Optional<RoomModel> Stage::init(World& world, const std::shared_ptr<Player::PlayerActor>& player)
     {
         world.regist(player);

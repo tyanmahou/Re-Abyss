@@ -1,5 +1,4 @@
 #include "System.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
@@ -13,6 +12,7 @@ namespace abyss
     System::System()
     {
         m_manager
+            .set(&m_time)
             .set(&m_camera)
             .set(&m_light)
             .set(&m_world)
@@ -25,6 +25,7 @@ namespace abyss
         m_events.setManager(&m_manager);
         m_sound.setManager(&m_manager);
         m_userInterface.setManager(&m_manager);
+        m_effects.init(m_time);
     }
 
     System::System(const std::shared_ptr<Stage>& stage) :
@@ -38,6 +39,8 @@ namespace abyss
 
     void System::init()
     {
+        m_stage->setup(&m_manager);
+
         if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
         }
@@ -54,9 +57,10 @@ namespace abyss
 
     void System::update()
     {
+        m_time.update();
         m_light.clear();
 
-        double dt = WorldTime::DeltaTime();
+        double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
 
         if (!m_camera.isCameraWork() && m_events.isEmpty()) {
@@ -103,7 +107,7 @@ namespace abyss
             auto t2d = cameraView.getTransformer();
 
             auto* const stageView = m_stage->getView();
-
+            stageView->setTime(m_time.time());
             // 背面
             stageView->drawBack(cameraView);
             cameraView.drawDeathLine();
@@ -118,7 +122,7 @@ namespace abyss
             // 全面
             stageView->drawFront(cameraView);
 
-            //m_light.draw(cameraView);
+            //m_light.draw(m_time.deltaTime(), cameraView);
 
             cameraView.drawCameraWork();
         }

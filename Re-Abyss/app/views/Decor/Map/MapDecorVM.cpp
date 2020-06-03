@@ -12,7 +12,7 @@ namespace abyss
     void MapDecorVM::draw(const s3d::RectF & screen) const
     {
         if (m_model.isInScreen(screen)) {
-            auto tex = m_manager->getTexture(m_model.getGId());
+            auto tex = m_manager->getTexture(m_model.getGId(), m_time);
             tex.draw(m_model.region().pos);
         }
     }

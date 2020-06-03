@@ -1,10 +1,8 @@
 #include "PatternModel.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 namespace abyss
 {
-    PatternModel::PatternModel():
-        m_sleep(0.0, true, WorldTime::TimeMicroSec)
+    PatternModel::PatternModel()
     {}
     PatternModel::PatternModel(IActor * pActor):
         m_pActor(pActor)

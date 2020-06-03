@@ -17,6 +17,6 @@ namespace abyss
 
         void clear();
         void push(const LightVM& light);
-        void draw(const CameraView& camera) const;
+        void draw(double dt, const CameraView& camera) const;
     };
 }

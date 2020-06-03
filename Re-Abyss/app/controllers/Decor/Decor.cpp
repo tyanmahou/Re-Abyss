@@ -37,6 +37,10 @@ namespace abyss
         add(DecorOrder::Back, m_decorService->getBack());
         add(DecorOrder::Middle, m_decorService->getCustom());
     }
+    void Decor::update(double time)
+    {
+        m_view.update(time);
+    }
     void Decor::draw(s3d::int32 order, const s3d::RectF& screen) const
     {
         m_view.draw(order, screen);

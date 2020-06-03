@@ -12,7 +12,6 @@ namespace abyss
     public:
         LightVM() = default;
         LightVM(const s3d::Vec2 & pos, double range, double brightness = 1.0);
-
-        void draw() const;
+        void draw(double dt) const;
     };
 }

@@ -20,6 +20,8 @@ namespace abyss
 		std::shared_ptr<BackGround> m_backGround;
 
 		StartPosListModel m_startPos;
+
+		Manager* m_pManager;
 	public:
 		Stage(
 			std::shared_ptr<IStageService> service,
@@ -29,6 +31,8 @@ namespace abyss
 		);
 		~Stage();
 		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos) const;
+
+		void setup(Manager* pManager);
 
 		s3d::Optional<RoomModel> init(World& world, const std::shared_ptr<Player::PlayerActor>& player);
 		s3d::Optional<RoomModel> init(World& world, s3d::int32 startId = 0);

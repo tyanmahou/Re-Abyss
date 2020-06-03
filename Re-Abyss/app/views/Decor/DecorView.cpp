@@ -12,6 +12,14 @@ namespace abyss
     {
         m_decors.clear();
     }
+    void DecorView::update(double time)
+    {
+        for (auto& decor : m_decors) {
+            for (const auto& vm : decor.second) {
+                vm->setTime(time);
+            }
+        }
+    }
     void DecorView::draw(s3d::int32 order, const s3d::RectF& screen) const
     {
         if (m_decors.find(order) == m_decors.end()) {

@@ -1,5 +1,4 @@
 #include "ChargeBossHPBar.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::Talk
@@ -22,7 +21,7 @@ namespace abyss::Event::Talk
 
     ChargeBossHPBar::ChargeBossHPBar(Ref<ui::BossHPBar> hpBar):
         m_hpBar(hpBar),
-        m_timer(0.05s, true, WorldTime::TimeMicroSec)
+        m_timer(0.05s, true)
     {}
 
 }

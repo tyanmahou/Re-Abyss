@@ -1,5 +1,4 @@
 #include "HPModel.hpp"
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
 

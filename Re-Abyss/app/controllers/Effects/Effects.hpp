@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include <abyss/utils/EffectEx/EffectEx.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {
@@ -17,6 +18,7 @@ namespace abyss
     public:
         Effects();
 
+        void init(const TimeController& time);
         template<EffectGroup Group, class Type, class... Args>
         void add(Args&& ... args) const
         {

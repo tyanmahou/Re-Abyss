@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss
@@ -8,6 +8,12 @@ namespace abyss
 	public:
 		virtual ~IStageView() = default;
 
+		virtual void setup(Manager* pManager) = 0;
+
+		/// <summary>
+		/// 時間設定
+		/// </summary>
+		virtual void setTime(double time) = 0;
 		/// <summary>
 		/// 背面
 		/// </summary>

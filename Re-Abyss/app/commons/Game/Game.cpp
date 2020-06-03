@@ -3,7 +3,6 @@
 #include <abyss/scenes/Main/MainScene.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
 
@@ -32,8 +31,6 @@ namespace abyss
 		bool update()
 		{
 			InputManager::Update();
-
-			WorldTime::Update();
 #if ABYSS_DEBUG
 			Debug::Log::ClearAndPrintCached();
 			Debug::DebugManager::Update();

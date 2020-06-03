@@ -1,6 +1,6 @@
 #pragma once
-# include <Siv3D.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
+#include <Siv3D.hpp>
+#include <abyss/controllers/TimeController/TimeController.hpp>
 namespace abyss::CodeZero::Shot
 {
     struct ShotChargeEffect : IEffect
@@ -21,16 +21,17 @@ namespace abyss::CodeZero::Shot
         //エフェクトの中心
         Vec2 m_pos;
         s3d::int32 m_count = 140;
-
-        ShotChargeEffect(const Vec2& pos) :
-            m_pos(pos)
+        TimeController* m_pTime;
+        ShotChargeEffect(TimeController* pTime, const Vec2& pos) :
+            m_pos(pos),
+            m_pTime(pTime)
         {}
 
         bool update(double t) override
         {
             t *= 0.333;
-            double dt = WorldTime::DeltaTime();
-            const bool isPaused = dt <= 0.0;
+            double dt = m_pTime->deltaTime();
+            const bool isPaused = m_pTime->isPuase();
             if (!isPaused) {
                 if (m_count > 0) {
                     const Vec2 v = Circular(Random(50.0, 160.0), Random(Math::TwoPi));

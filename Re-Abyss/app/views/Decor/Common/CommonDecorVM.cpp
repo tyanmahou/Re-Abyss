@@ -15,7 +15,7 @@ namespace abyss
     {
         if (m_model.isInScreen(screen)) {
             auto tex = m_manager
-                ->getTexture(m_model.getGId())
+                ->getTexture(m_model.getGId(), m_time)
                 .mirrored(m_model.isMirroed())
                 .flipped(m_model.isFlipped())
             ;

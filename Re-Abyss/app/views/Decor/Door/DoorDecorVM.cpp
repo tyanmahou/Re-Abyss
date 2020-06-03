@@ -1,7 +1,6 @@
 #include "DoorDecorVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 
 namespace abyss
 {
@@ -11,11 +10,10 @@ namespace abyss
     {}
     void DoorDecorVM::drawCommon() const
     {
-        double t = WorldTime::Time();
         const auto& pos = m_model.getPos();
         m_texture(U"common").drawAt(pos);
 
-        double alpha = Periodic::Sine0_1(4s, t) * 0.5;
+        double alpha = Periodic::Sine0_1(4s, m_time) * 0.5;
         ColorF color[4]{
             {0.0, 0, 0, 0},
             {0.0, 0, 0, 0},
@@ -26,12 +24,11 @@ namespace abyss
     }
     void DoorDecorVM::drawBoss() const
     {
-        double t = WorldTime::Time();
         const auto& pos = m_model.getPos();
-        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(1.0s, t) * 2);
+        int32 page = static_cast<int32>(Periodic::Sawtooth0_1(1.0s, m_time) * 2);
         m_texture(U"boss")(80 * page, 0, 80, 120).drawAt(pos);
 
-        double alpha = Periodic::Sine0_1(4s, t) * 0.5;
+        double alpha = Periodic::Sine0_1(4s, m_time) * 0.5;
         ColorF color[4]{
             {0.0, 0, 0, 0},
             {0.0, 0, 0, 0},

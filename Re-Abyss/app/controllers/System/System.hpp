@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/controllers/TimeController/TimeController.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Event/Events.hpp>
@@ -15,6 +16,8 @@ namespace abyss
     /// </summary>
     class System
     {
+        TimeController m_time;
+
         Camera m_camera;
         Light m_light;
         World m_world;

@@ -2,7 +2,6 @@
 #include <Siv3D/TextureRegion.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/HashTable.hpp>
-#include <abyss/controllers/World/WorldTime.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss
@@ -41,6 +40,6 @@ namespace abyss
         void addInfo(s3d::uint32 gId, Info&& info);
         void addAnime(s3d::uint32 gId, const Anime& anime);
         void addAnime(s3d::uint32 gId, Anime&& anime);
-        s3d::TextureRegion getTexture(s3d::uint32 gId, double time = WorldTime::Time());
+        s3d::TextureRegion getTexture(s3d::uint32 gId, double time);
     };
 }

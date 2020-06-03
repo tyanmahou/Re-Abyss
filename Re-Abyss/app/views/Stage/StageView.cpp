@@ -2,6 +2,7 @@
 #include <abyss/controllers/BackGround/BackGround.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss
 {
@@ -14,6 +15,14 @@ namespace abyss
     {
         m_bg = bg;
         return *this;
+    }
+    void StageView::setup(Manager* pManager)
+    {
+        m_bubbles.init(pManager->getModule<TimeController>());
+    }
+    void StageView::setTime(double time)
+    {
+        m_decor->update(time);
     }
     void StageView::drawBack(const CameraView& camera) const
     {

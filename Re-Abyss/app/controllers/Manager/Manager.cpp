@@ -2,6 +2,11 @@
 
 namespace abyss
 {
+    Manager& Manager::set(TimeController* pTimeController)
+    {
+        m_pTimeController = pTimeController;
+        return *this;
+    }
     Manager& Manager::set(World* pWorld)
     {
         m_pWorld = pWorld;
@@ -46,7 +51,9 @@ namespace abyss
     template<class T>
     T* Manager::getModule() const
     {
-        if constexpr (std::is_same_v<World, T>) {
+        if constexpr (std::is_same_v<TimeController, T>) {
+            return m_pTimeController;
+        } else if constexpr (std::is_same_v<World, T>) {
             return m_pWorld;
         } else if constexpr (std::is_same_v<Events, T>) {
             return m_pEvents;
@@ -64,6 +71,7 @@ namespace abyss
             return m_pPlayer;
         }
     }
+    template TimeController* Manager::getModule<TimeController>() const;
     template World* Manager::getModule<World>() const;
     template Events* Manager::getModule<Events>() const;
     template Camera* Manager::getModule<Camera>() const;

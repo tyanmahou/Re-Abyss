@@ -221,9 +221,6 @@
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\World\WorldTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -836,6 +833,9 @@
     <ClCompile Include="tests\tests\testing.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\TimeController\TimeController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -975,7 +975,6 @@
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\Time\Time.hpp" />
-    <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
@@ -1276,5 +1275,6 @@
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
+    <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@ namespace abyss
         void add(s3d::int32 order, const std::shared_ptr<IDecorVM>& vm);
         void clear();
 
+        void update(double time);
         void draw(s3d::int32 order, const s3d::RectF& screen) const;
     };
 }

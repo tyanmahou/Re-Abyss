@@ -15,10 +15,11 @@ namespace abyss
 		double m_deflection;
 		Vec2 m_pos;
 		ColorF m_color;
+		TimeController* m_pTime;
 	public:
-		BubbleEffect(const Vec2& offset = { 0, 0 });
+		BubbleEffect(TimeController* pTime, const Vec2& offset = { 0, 0 });
 
-		BubbleEffect(const Vec2& offset, Small);
+		BubbleEffect(TimeController* pTime, const Vec2& offset, Small);
 
 		bool update(double t) override;
 	};

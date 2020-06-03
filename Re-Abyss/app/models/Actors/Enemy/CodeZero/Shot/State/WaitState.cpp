@@ -11,7 +11,7 @@ namespace abyss::CodeZero::Shot
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
-            ->addWorldFront<ShotChargeEffect>(m_body->getPos());
+            ->addWorldFront<ShotChargeEffect>(m_pActor->getModule<TimeController>(), m_body->getPos());
     }
 
     void WaitState::update(double dt)

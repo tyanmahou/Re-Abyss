@@ -9,6 +9,7 @@ namespace abyss
     class Manager
     {
     private:
+        TimeController* m_pTimeController = nullptr;
         World* m_pWorld = nullptr;
         Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
@@ -18,6 +19,8 @@ namespace abyss
         UI* m_pUserInterface = nullptr;
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
+        Manager& set(TimeController* pTimeController);
+
         Manager& set(World* pWorld);
 
         Manager& set(Events* pEvents);

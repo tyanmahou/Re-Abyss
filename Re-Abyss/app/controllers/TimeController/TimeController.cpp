@@ -1,14 +1,14 @@
-#include "WorldTime.hpp"
+#include "TimeController.hpp"
 #include <Siv3D/Stopwatch.hpp>
 #include <Siv3D/Math.hpp>
 
 namespace abyss
 {
     using namespace s3d;
-    class WorldTime::Impl
+    class TimeController::Impl
     {
     private:
-        Stopwatch m_stopwatch{true};
+        Stopwatch m_stopwatch{ true };
         double m_timeScale = 1.0;
         double m_totalTimeSec = 0.0;
         double m_deltaTimeSec = 0.0;
@@ -45,6 +45,11 @@ namespace abyss
             m_stopwatch.pause();
         }
 
+        bool isPause()const
+        {
+            return m_stopwatch.isPaused();
+        }
+
         void resume()
         {
             m_stopwatch.resume();
@@ -56,35 +61,42 @@ namespace abyss
         }
     };
 
-    WorldTime::WorldTime():
+    TimeController::TimeController() :
         m_pImpl(std::make_unique<Impl>())
     {}
-    void WorldTime::Update()
+    TimeController::~TimeController()
+    {}
+    void TimeController::update() const
     {
-        return Instance()->m_pImpl->update();
+        return m_pImpl->update();
     }
-    double WorldTime::Time()
+    double TimeController::time() const
     {
-        return Instance()->m_pImpl->time();
+        return m_pImpl->time();
     }
-    s3d::Microseconds WorldTime::TimeMicroSec()
+    s3d::Microseconds TimeController::timeMicroSec() const
     {
-        return Instance()->m_pImpl->timeMicroSec();
+        return m_pImpl->timeMicroSec();
     }
-    double WorldTime::DeltaTime()
+    double TimeController::deltaTime() const
     {
-        return Instance()->m_pImpl->deltaTime();
+        return m_pImpl->deltaTime();
     }
-    void WorldTime::Pause()
+    void TimeController::pause() const
     {
-        return Instance()->m_pImpl->pause();
+        return m_pImpl->pause();
     }
-    void WorldTime::Resume()
+    void TimeController::resume() const
     {
-        return Instance()->m_pImpl->resume();
+        return m_pImpl->resume();
     }
-    void WorldTime::SetTimeScale(double timeScale)
+    void TimeController::setTimeScale(double timeScale) const
     {
-        return Instance()->m_pImpl->setTimeScale(timeScale);
+        return m_pImpl->setTimeScale(timeScale);
+    }
+    bool TimeController::isPuase() const
+    {
+        return m_pImpl->isPause();
     }
 }
+

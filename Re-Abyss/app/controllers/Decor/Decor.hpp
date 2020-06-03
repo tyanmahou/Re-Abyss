@@ -19,6 +19,8 @@ namespace abyss
         );
         void init(const Camera& camera);
 
+        void update(double time);
+
         void draw(s3d::int32 order, const s3d::RectF& screen) const;
     };
 

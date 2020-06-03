@@ -177,6 +177,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\controllers\TimeController\TimeController.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\testing.ixx" />
     <ClCompile Include="app\commons\Application\base\IApplication.cpp" />
@@ -285,7 +286,6 @@
     <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\TalkEvent.cpp" />
     <ClCompile Include="app\controllers\Light\Light.cpp" />
-    <ClCompile Include="app\controllers\World\WorldTime.cpp" />
     <ClCompile Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.cpp" />
     <ClCompile Include="app\datastores\Actors\Enemy\TmxEnemyDataStore.cpp" />
     <ClCompile Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.cpp" />
@@ -451,6 +451,7 @@
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
+    <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
@@ -559,7 +560,6 @@
     <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\controllers\Light\Light.hpp" />
-    <ClInclude Include="app\controllers\World\WorldTime.hpp" />
     <ClInclude Include="app\datastores\Actors\Enemy\base\IEnemyDataStore.hpp" />
     <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Enemy\TmxEnemyDataStore.hpp" />
