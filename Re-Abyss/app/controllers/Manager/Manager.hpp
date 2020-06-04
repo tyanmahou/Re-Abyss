@@ -17,6 +17,10 @@ namespace abyss
         Effects* m_pEffects = nullptr;
         Sound* m_pSound = nullptr;
         UI* m_pUserInterface = nullptr;
+        BackGround* m_pBackGround = nullptr;
+        Decor* m_pDecor = nullptr;
+        Cron* m_pCron = nullptr;
+
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
         Manager& set(TimeController* pTimeController);
@@ -34,6 +38,12 @@ namespace abyss
         Manager& set(Sound* pSound);
 
         Manager& set(UI* pUI);
+
+        Manager& set(BackGround* pBackGround);
+
+        Manager& set(Decor* pDecor);
+
+        Manager& set(Cron* pCron);
 
         Manager& set(Player::PlayerActor* pPlayer);
 

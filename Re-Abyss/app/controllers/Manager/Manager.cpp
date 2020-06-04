@@ -42,6 +42,21 @@ namespace abyss
         m_pUserInterface = pUI;
         return *this;
     }
+    Manager& Manager::set(BackGround* pBackGround)
+    {
+        m_pBackGround = pBackGround;
+        return *this;
+    }
+    Manager& Manager::set(Decor* pDecor)
+    {
+        m_pDecor = pDecor;
+        return *this;
+    }
+    Manager& Manager::set(Cron* pCron)
+    {
+        m_pCron = pCron;
+        return *this;
+    }
     Manager& Manager::set(Player::PlayerActor* pPlayer)
     {
         m_pPlayer = pPlayer;
@@ -67,6 +82,12 @@ namespace abyss
             return m_pSound;
         } else if constexpr (std::is_same_v<UI, T>) {
             return m_pUserInterface;
+        } else if constexpr (std::is_same_v<BackGround, T>) {
+            return m_pBackGround;
+        } else if constexpr (std::is_same_v<Decor, T>) {
+            return m_pDecor;
+        } else if constexpr (std::is_same_v<Cron, T>) {
+            return m_pCron;
         } else if (std::is_same_v<Player::PlayerActor, T>) {
             return m_pPlayer;
         }
@@ -79,6 +100,9 @@ namespace abyss
     template Effects* Manager::getModule<Effects>() const;
     template Sound* Manager::getModule<Sound>() const;
     template UI* Manager::getModule<UI>() const;
+    template BackGround* Manager::getModule<BackGround>() const;
+    template Decor* Manager::getModule<Decor>() const;
+    template Cron* Manager::getModule<Cron>() const;
     template Player::PlayerActor* Manager::getModule<Player::PlayerActor>() const;
 
 }

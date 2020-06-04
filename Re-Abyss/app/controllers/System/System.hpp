@@ -17,21 +17,21 @@ namespace abyss
     class System
     {
         TimeController m_time;
-
-        Camera m_camera;
-        Light m_light;
         World m_world;
         Events m_events;
+        Camera m_camera;
+        Light m_light;
         Effects m_effects;
 
         Sound m_sound;
         UI m_userInterface;
 
-        Manager m_manager;
         std::unique_ptr<Stage> m_stage;
         std::unique_ptr<BackGround> m_backGround;
         std::unique_ptr<Decor> m_decor;
         std::unique_ptr<Cron> m_cron;
+
+        Manager m_manager;
     public:
         System();
         ~System();

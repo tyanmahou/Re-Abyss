@@ -23,7 +23,7 @@ namespace abyss
 		~Stage();
 		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos) const;
 
-		void setup(Manager* pManager);
+		void setManager(Manager* pManager);
 
 		void initBackGround(BackGround& backGround);
 		void initDecorGraphics(Decor& decor);

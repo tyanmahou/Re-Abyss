@@ -28,6 +28,9 @@ namespace abyss
             .set(&m_effects)
             .set(&m_sound)
             .set(&m_userInterface)
+            .set(m_backGround.get())
+            .set(m_decor.get())
+            .set(m_cron.get())
             ;
         m_world.setManager(&m_manager);
         m_camera.setManager(&m_manager);
@@ -36,7 +39,7 @@ namespace abyss
         m_userInterface.setManager(&m_manager);
         m_effects.init(m_time);
         m_cron->setManager(&m_manager);
-
+        
         m_cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
     }
     System::~System()
@@ -45,8 +48,6 @@ namespace abyss
 
     void System::init()
     {
-        m_stage->setup(&m_manager);
-
         if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
         }
@@ -57,8 +58,6 @@ namespace abyss
 
     void System::init(const std::shared_ptr<Player::PlayerActor>& player)
     {
-        m_stage->setup(&m_manager);
-
         if (auto room = m_stage->init(m_world, player)) {
             m_camera.setRoom(*room);
         }

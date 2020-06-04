@@ -70,7 +70,7 @@ namespace abyss
     {
         return ::GetNextRoom(pos, m_stageData->getRooms());
     }
-    void Stage::setup(Manager* pManager)
+    void Stage::setManager(Manager* pManager)
     {
         m_pManager = pManager;
     }
