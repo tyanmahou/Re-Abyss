@@ -21,6 +21,7 @@ namespace abyss::Event::Talk::BossTalk0_0
             auto hpBar = m_pManager->getModule<UI>()->create<ui::BossHPBar>(codeZero.get());
             // HPチャージ
             auto chargeHpBar = std::make_shared<ChargeBossHPBar>(hpBar);
+            chargeHpBar->setBossBgmPath(U"bgm/stage/stage0/stage0_boss.aas");
             m_pManager->getModule<Events>()->regist(chargeHpBar);
         }
     }

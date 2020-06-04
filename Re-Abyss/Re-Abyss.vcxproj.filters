@@ -1283,5 +1283,7 @@
     <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
     <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
+    <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ namespace abyss
 		StartPos,
 		Door,
 		EventTrigger,
+		BgmChanger,
 	};
 	struct GimmickEntity
 	{

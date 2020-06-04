@@ -466,6 +466,7 @@
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
+    <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
@@ -475,6 +476,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
+    <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />

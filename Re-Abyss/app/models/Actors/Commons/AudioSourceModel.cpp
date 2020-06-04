@@ -12,8 +12,8 @@ namespace
     using namespace abyss;
     std::pair<double, double> CalcVolume(const s3d::Vec2& pos, const s3d::Vec2& listener)
     {
-        const Vec3 listenerPos(listener, 200);
-        const double volume = Pow(1 / Vec3(pos, 0).distanceFrom(listenerPos) * 160, 2);
+        const Vec3 listenerPos(listener, 333);
+        const double volume = Pow(1 / Vec3(pos, 0).distanceFrom(listenerPos) * 300, 2);
 
         // 左右で音量を変える
         auto xDiff = pos.x - listener.x;
@@ -119,6 +119,7 @@ namespace abyss
         public:
             TemporaryActor(s3d::FilePathView path, const s3d::Vec2& pos)
             {
+                this->m_isDontDestoryOnLoad = true;
                 this->attach<BodyModel>()->initPos(pos);
                 this->attach<TemporarySoundEffect>(this, path);
             }

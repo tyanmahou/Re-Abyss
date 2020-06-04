@@ -12,9 +12,11 @@
 #include <abyss/controllers/BackGround/BackGround.hpp>
 #include <abyss/controllers/Cron/Cron.hpp>
 #include <abyss/controllers/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
+#include <abyss/controllers/Sound/Sound.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
+#include <abyss/entities/Actors/Gimmick/BgmChangerEntity.hpp>
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
 #include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
@@ -58,6 +60,21 @@ namespace
             ret.add(model);
         }
         return ret;
+    }
+    Optional<FilePath> NextBgm(const RoomModel& nextRoom, const s3d::Array<std::shared_ptr<GimmickEntity>>& gimmicks)
+    {
+        for (const auto& gimmick : gimmicks) {
+            if (gimmick->type != GimmickType::BgmChanger) {
+                continue;
+            }
+            if (!nextRoom.getRegion().intersects(gimmick->pos)) {
+                continue;
+            }
+
+            const auto& bgmChanger = static_cast<const BgmChangerEntity&>(*gimmick);
+            return bgmChanger.bgm;
+        }
+        return s3d::none;
     }
 }
 namespace abyss
@@ -150,6 +167,13 @@ namespace abyss
             auto cron = m_pManager->getModule<Cron>();
             cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
         }
+        // サウンド初期化
+        if (nextRoom) {
+            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
+                auto sound = m_pManager->getModule<Sound>();
+                sound->play(*bgm);
+            }
+        }
         return result;
     }
     bool Stage::init(s3d::int32 startId) const
@@ -181,6 +205,10 @@ namespace abyss
             auto decor = m_pManager->getModule<Decor>();
             result &= this->initDecor(*decor, *camera);
         }
+        auto sound = m_pManager->getModule<Sound>();
+        if (auto bgm = ::NextBgm(*camera->nextRoom(), m_stageData->getGimmicks()); bgm && *bgm != sound->currentBgmPath()) {
+            sound->stop();
+        }
         return result;
     }
 
@@ -188,7 +216,12 @@ namespace abyss
     {
         auto world = m_pManager->getModule<World>();
         auto camera = m_pManager->getModule<Camera>();
-        return this->initRoom(*world, camera->getCurrentRoom());
+        const auto& room = camera->getCurrentRoom();
+        if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
+            auto sound = m_pManager->getModule<Sound>();
+            sound->play(*bgm);
+        }
+        return this->initRoom(*world, room);
     }
 
     bool Stage::initDecor(Decor& decor, const Camera& camera) const

@@ -13,7 +13,14 @@ namespace abyss::Event::Talk
     private:
         Ref<ui::BossHPBar> m_hpBar;
         IntervalTimer m_timer;
+        s3d::Optional<s3d::FilePath> m_bossBgmPath;
     public:
         ChargeBossHPBar(Ref<ui::BossHPBar> hpBar);
+        ~ChargeBossHPBar();
+
+        void setBossBgmPath(const s3d::FilePath& path)
+        {
+            m_bossBgmPath = path;
+        }
     };
 }

@@ -2,6 +2,7 @@
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
+#include <abyss/entities/Actors/Gimmick/BgmChangerEntity.hpp>
 
 using namespace s3d;
 using namespace s3dTiled;
@@ -15,6 +16,7 @@ namespace
 			{U"start_pos", GimmickType::StartPos},
 			{U"door", GimmickType::Door},
 			{U"event_trigger", GimmickType::EventTrigger},
+			{U"bgm_changer", GimmickType::BgmChanger},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
 			return toTypeMap.at(type);
@@ -59,6 +61,9 @@ namespace
 			});
 			PARSE_GIMMICK(EventTrigger, {
 				it->event = obj.getProperty(U"event").value_or(U"");
+			});
+			PARSE_GIMMICK(BgmChanger, {
+				it->bgm = obj.getProperty(U"bgm").value_or(U"");
 			});
 		default:
 			break;

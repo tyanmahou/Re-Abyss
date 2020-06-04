@@ -13,11 +13,15 @@ namespace abyss
     public:
         Sound() = default;
         ~Sound();
-        void play(const s3d::String& path, const s3d::Duration& sec = 1s);
+        void play(const s3d::String& path, const s3d::Duration& sec = 2s);
 
-        void stop(const Duration& sec) const;
+        void stop(const Duration& sec = 2s) const;
 
         void release() const;
 
+        const s3d::String& currentBgmPath()const
+        {
+            return m_currentPath;
+        }
     };
 }

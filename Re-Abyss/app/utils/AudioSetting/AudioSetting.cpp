@@ -16,8 +16,8 @@ namespace abyss
         }
         if (auto loop = toml[U"Audio.loop"].getOpt<bool>()) {
             ret.setLoop(*loop);
-        }else if (auto loop = toml[U"Audio.loop"].getOpt<Vec2>()) {
-            ret.setLoop(Duration(loop->x), Duration(loop->y));
+        }else if (auto loopVec2 = toml[U"Audio.loop"].getOpt<Vec2>()) {
+            ret.setLoop(Duration(loopVec2->x), Duration(loopVec2->y));
         }
         return ret;
     }
