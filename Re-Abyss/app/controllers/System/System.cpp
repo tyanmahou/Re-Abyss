@@ -50,6 +50,8 @@ namespace abyss
 
     void System::init(const std::shared_ptr<Player::PlayerActor>& player)
     {
+        m_stage->setup(&m_manager);
+
         if (auto room = m_stage->init(m_world, player)) {
             m_camera.setRoom(*room);
         }

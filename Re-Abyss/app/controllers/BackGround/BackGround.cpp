@@ -1,15 +1,10 @@
 #include "BackGround.hpp"
-#include <abyss/translators/BackGround/BackGroundTranslator.hpp>
-#include <abyss/services/BackGround/BackGroundService.hpp>
 
 namespace abyss
 {
-    BackGround::BackGround(const std::shared_ptr<IBackGroundService>& service)
+    void BackGround::add(const BackGroundVM& backGround)
     {
-        BackGroundTranslator translator;
-        for (const auto& entity : service->getBgs()) {
-            m_view.addBackGround(translator.toVM(entity));
-        }
+        m_view.addBackGround(backGround);
     }
     void BackGround::draw(const CameraView& camera) const
     {

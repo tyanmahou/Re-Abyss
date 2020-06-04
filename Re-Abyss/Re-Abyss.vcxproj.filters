@@ -836,6 +836,9 @@
     <ClCompile Include="app\controllers\TimeController\TimeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Stage\StageBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1276,5 +1279,6 @@
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
+    <ClInclude Include="app\controllers\Stage\StageBuilder.hpp" />
   </ItemGroup>
 </Project>

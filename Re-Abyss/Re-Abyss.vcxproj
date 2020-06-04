@@ -177,6 +177,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\controllers\Stage\StageBuilder.cpp" />
     <ClCompile Include="app\controllers\TimeController\TimeController.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\testing.ixx" />
@@ -451,6 +452,7 @@
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
+    <ClInclude Include="app\controllers\Stage\StageBuilder.hpp" />
     <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />

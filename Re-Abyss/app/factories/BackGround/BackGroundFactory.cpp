@@ -25,7 +25,7 @@ namespace abyss
 
         // controller
         container->regist<BackGround>([](const DIContainer* c) {
-            return std::make_shared<BackGround>(c->get<IBackGroundService>());
+            return std::make_shared<BackGround>();
         });
         return container->get<BackGround>();
     }
