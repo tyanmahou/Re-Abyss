@@ -14,6 +14,7 @@
 namespace abyss
 {
     System::System():
+        m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decor(std::make_unique<Decor>()),
         m_cron(std::make_unique<Cron>())
@@ -37,12 +38,6 @@ namespace abyss
         m_cron->setManager(&m_manager);
 
         m_cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
-    }
-
-    System::System(const std::shared_ptr<Stage>& stage) :
-        System()
-    {
-        m_stage = stage;
     }
     System::~System()
     {
@@ -152,10 +147,8 @@ namespace abyss
 
         m_userInterface.draw();
     }
-    void System::setStage(std::unique_ptr<Stage>&& stage)
-    {
-        m_stage = std::move(stage);
-    }
+    void System::loadStage(const std::shared_ptr<StageData>& stageData)
+    {}
     std::shared_ptr<Player::PlayerActor> System::lockPlayer() const
     {
         return m_world.find<Player::PlayerActor>().lock();

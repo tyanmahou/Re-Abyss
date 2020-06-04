@@ -1,5 +1,4 @@
-#include "StageFactory.hpp"
-#include <abyss/controllers/Stage/Stage.hpp>
+#include "StageDataFactory.hpp"
 
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 #include <abyss/datastores/Actors/Map/TmxMapDataStore.hpp>
@@ -12,19 +11,16 @@
 #include <abyss/factories/BackGround/BackGroundFactory.hpp>
 #include <abyss/factories/Decor/DecorFactory.hpp>
 
+#include <abyss/controllers/Stage/StageData.hpp>
+
+#include <abyss/services/BackGround/base/IBackGroundService.hpp>
+#include <abyss/services/Decor/base/IDecorService.hpp>
+#include <abyss/services/Decor/base/IDecorGraphicsService.hpp>
+
 namespace abyss
 {
-    std::shared_ptr<Stage> StageFactory::CreateFromTmx(const s3d::String& mapName)
+    void StageDataFactory::BuildFromTmx(const DIContainer* container, const s3d::String& mapName)
     {
-        DIContainer c;
-        return CreateFromTmx(&c, mapName);
-
-    }
-    std::shared_ptr<Stage> StageFactory::CreateFromTmx(const DIContainer* container, const s3d::String& mapName)
-    {
-        auto decor = DecorFactory::CreateFromTmx(container, mapName);
-        auto bg = BackGroundFactory::CreateFromTmx(container, mapName);
-
         // datastore
         container->regist<IRoomDataStore>([&mapName](const DIContainer*) {
             return std::make_shared<TmxRoomDataStore>(mapName);
@@ -46,17 +42,26 @@ namespace abyss
                 c->get<IMapDataStore>(),
                 c->get<IEnemyDataStore>(),
                 c->get<IGimmickDataStore>()
-            );
+                );
         });
 
-        // view
-        container->regist<Stage>([&](const DIContainer* c) {
-            return std::make_shared<Stage>(
-                c->get<IStageService>(),
-                decor,
-                bg
-            );
+        // controller
+        container->regist<StageData>([](const DIContainer* c) {
+            return std::make_shared<StageData>(
+                c->get<IBackGroundService>(),
+                c->get<IDecorService>(),
+                c->get<IDecorGraphicsService>(),
+                c->get<IStageService>()
+                );
         });
-        return container->get<Stage>();
     }
+    std::shared_ptr<StageData> abyss::StageDataFactory::CreateFromTmx(const s3d::String& mapName)
+    {
+        DIContainer c;
+        BackGroundFactory::BuildFromTmx(&c, mapName);
+        DecorFactory::BuildFromTmx(&c, mapName);
+        StageDataFactory::BuildFromTmx(&c, mapName);
+        return c.get<StageData>();
+    }
+
 }

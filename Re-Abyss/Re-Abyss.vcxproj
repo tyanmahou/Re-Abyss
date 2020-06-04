@@ -183,6 +183,7 @@
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
     <ClCompile Include="app\controllers\TimeController\TimeController.cpp" />
+    <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\testing.ixx" />
     <ClCompile Include="app\commons\Application\base\IApplication.cpp" />
@@ -312,7 +313,6 @@
     <ClCompile Include="app\factories\BackGround\BackGroundFactory.cpp" />
     <ClCompile Include="app\factories\Decor\DecorFactory.cpp" />
     <ClCompile Include="app\factories\DIContainer\DIContainer.cpp" />
-    <ClCompile Include="app\factories\Stage\StageFactory.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\models\Actors\base\Components.cpp" />
@@ -467,6 +467,7 @@
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
+    <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
@@ -677,7 +678,6 @@
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp" />
     <ClInclude Include="app\factories\System\SystemFactory.hpp" />
-    <ClInclude Include="app\factories\Stage\StageFactory.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />

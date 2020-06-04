@@ -19,6 +19,7 @@ namespace abyss
 	class World;
 	class Events;
 	class Stage;
+	class StageData;
 	class Light;
 	class Decor;
 	class DecorGraphicsManager;

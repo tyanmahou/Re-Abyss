@@ -22,20 +22,18 @@ namespace abyss
         Light m_light;
         World m_world;
         Events m_events;
-        std::shared_ptr<Stage> m_stage;
         Effects m_effects;
 
         Sound m_sound;
         UI m_userInterface;
 
         Manager m_manager;
+        std::unique_ptr<Stage> m_stage;
         std::unique_ptr<BackGround> m_backGround;
         std::unique_ptr<Decor> m_decor;
         std::unique_ptr<Cron> m_cron;
     public:
         System();
-        System(const std::shared_ptr<Stage>& stage);
-
         ~System();
 
         void init();
@@ -50,7 +48,7 @@ namespace abyss
         void update();
         void draw() const;
 
-        void setStage(std::unique_ptr<Stage>&& stage);
+        void loadStage(const std::shared_ptr<StageData>& stageData);
 
         std::shared_ptr<Player::PlayerActor> lockPlayer() const;
     };

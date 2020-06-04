@@ -6,6 +6,8 @@
 
 namespace abyss
 {
+    StageData::StageData(std::shared_ptr<IBackGroundService>, std::shared_ptr<IDecorService>, std::shared_ptr<IDecorGraphicsService>, std::shared_ptr<IStageService>)
+    {}
     //void StageData::initBackGround(BackGround& backGround)
     //{
     //    BackGroundTranslator translator;

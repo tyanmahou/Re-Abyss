@@ -1,7 +1,7 @@
 #include "MainScene.hpp"
 
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/factories/System/SystemFactory.hpp>
+#include <abyss/factories/Stage/StageDataFactory.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
@@ -53,7 +53,7 @@ namespace abyss
 {
 	class MainScene::Controller
 	{
-		std::shared_ptr<System> m_System;
+		std::unique_ptr<System> m_system;
 		ResourceManager m_resources;
 
 		String mapName;
@@ -88,15 +88,18 @@ namespace abyss
 		{
 			std::shared_ptr<Player::PlayerActor> player = nullptr;
 			if (isLockPlayer) {
-				player = m_System->lockPlayer();
+				player = m_system->lockPlayer();
 			}
-			m_System = SystemFactory::CreateFromTmx(mapName);
+			m_system = std::make_unique<System>();
+			auto stageData = StageDataFactory::CreateFromTmx(mapName);
+			m_system->loadStage(stageData);
+			//m_System = SystemFactory::CreateFromTmx(mapName);
 
 			::PreloadResourece(m_resources);
 			if (player) {
-				m_System->init(player);
+				m_system->init(player);
 			} else {
-				m_System->init();
+				m_system->init();
 			}
 		}
 
@@ -105,12 +108,12 @@ namespace abyss
 #if ABYSS_DEBUG
 			m_reloader.detection();
 #endif
-			m_System->update();
+			m_system->update();
 		}
 
 		void draw() const
 		{
-			m_System->draw();
+			m_system->draw();
 		}
 	};
 
