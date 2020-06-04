@@ -2,7 +2,6 @@
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/services/Stage/base/IStageService.hpp>
-#include <abyss/views/Stage/base/IStageView.hpp>
 #include <abyss/entities/Room/RoomEntity.hpp>
 
 namespace abyss::tests
@@ -45,7 +44,7 @@ namespace abyss::tests
     TEST_CASE("Stage. findRoom Test")
     {
         auto rep = std::make_shared<Test_StageRepository>();
-        Stage stage(rep, nullptr, nullptr, nullptr);
+        Stage stage(rep, nullptr, nullptr);
 
         SECTION("find border min: pos (0, 0)")
         {

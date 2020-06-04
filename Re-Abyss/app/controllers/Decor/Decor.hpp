@@ -13,6 +13,7 @@ namespace abyss
 
         DecorView m_view;
     public:
+        Decor() = default;
         Decor(
             const std::shared_ptr<IDecorService>& service,
             const std::shared_ptr<DecorGraphicsManager>& manager
@@ -20,8 +21,13 @@ namespace abyss
         void init(const Camera& camera);
 
         void update(double time);
-
         void draw(s3d::int32 order, const s3d::RectF& screen) const;
+        void drawBack(const s3d::RectF& screen) const;
+        void drawMiddle(const s3d::RectF& screen) const;
+        void drawFront(const s3d::RectF& screen) const;
+
+        void regist(s3d::int32 order, const std::shared_ptr<IDecorVM>& decor);
+        void clear();
     };
 
     namespace DecorOrder

@@ -1,9 +1,6 @@
 #pragma once
 #include <memory>
 #include <concepts>
-
-#include <Siv3D/Array.hpp>
-
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/concepts/UI.hpp>
 #include <abyss/controllers/UI/base/UserInterfaceHolder.hpp>

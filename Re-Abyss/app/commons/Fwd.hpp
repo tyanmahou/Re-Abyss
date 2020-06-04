@@ -26,6 +26,7 @@ namespace abyss
 	class Effects;
 	class Sound;
 	class UI;
+	class Cron;
 
 	/// Controllers/Actors
 	class IActor;
@@ -146,7 +147,6 @@ namespace abyss
 	class CameraView;
 	class DoorCameraWorkView;
 
-	class IStageView;
 	class DecorView;
 	class IDecorVM;
 	class BackGroundVM;

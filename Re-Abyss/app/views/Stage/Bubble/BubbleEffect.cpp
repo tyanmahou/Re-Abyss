@@ -21,6 +21,8 @@ namespace abyss
 	{}
 	bool BubbleEffect::update(double t)
 	{
+		ScopedRenderStates2D state(BlendState::Additive);
+
 		double dt = m_pTime->deltaTime();
 		const double r = Min(m_maxRadius, EaseOut(Easing::Cubic, 0.0, m_maxRadius, t));
 		m_pos.y += m_speed * dt;

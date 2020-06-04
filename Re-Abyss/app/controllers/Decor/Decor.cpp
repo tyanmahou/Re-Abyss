@@ -37,6 +37,14 @@ namespace abyss
         add(DecorOrder::Back, m_decorService->getBack());
         add(DecorOrder::Middle, m_decorService->getCustom());
     }
+    void Decor::clear()
+    {
+        m_view.clear();
+    }
+    void Decor::regist(s3d::int32 order, const std::shared_ptr<IDecorVM>& decor)
+    {
+        m_view.add(order, decor);
+    }
     void Decor::update(double time)
     {
         m_view.update(time);
@@ -44,5 +52,17 @@ namespace abyss
     void Decor::draw(s3d::int32 order, const s3d::RectF& screen) const
     {
         m_view.draw(order, screen);
+    }
+    void Decor::drawBack(const s3d::RectF& screen) const
+    {
+        this->draw(DecorOrder::Back, screen);
+    }
+    void Decor::drawMiddle(const s3d::RectF& screen) const
+    {
+        this->draw(DecorOrder::Middle, screen);
+    }
+    void Decor::drawFront(const s3d::RectF & screen) const
+    {
+        this->draw(DecorOrder::Front, screen);
     }
 }

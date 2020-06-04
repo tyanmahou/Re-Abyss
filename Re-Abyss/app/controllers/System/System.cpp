@@ -2,14 +2,21 @@
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
-#include <abyss/views/Stage/base/IStageView.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
 #include <abyss/commons/Constants.hpp>
 
+#include <abyss/controllers/BackGround/BackGround.hpp>
+#include <abyss/controllers/Decor/Decor.hpp>
+
+#include <abyss/controllers/Cron/Cron.hpp>
+#include <abyss/controllers/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
 
 namespace abyss
 {
-    System::System()
+    System::System():
+        m_backGround(std::make_unique<BackGround>()),
+        m_decor(std::make_unique<Decor>()),
+        m_cron(std::make_unique<Cron>())
     {
         m_manager
             .set(&m_time)
@@ -27,6 +34,9 @@ namespace abyss
         m_sound.setManager(&m_manager);
         m_userInterface.setManager(&m_manager);
         m_effects.init(m_time);
+        m_cron->setManager(&m_manager);
+
+        m_cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
     }
 
     System::System(const std::shared_ptr<Stage>& stage) :
@@ -100,6 +110,8 @@ namespace abyss
         }
 
         m_events.update(dt);
+        m_decor->update(m_time.time());
+        m_cron->update(dt);
     }
     void System::draw() const
     {
@@ -109,21 +121,25 @@ namespace abyss
         {
             auto t2d = cameraView.getTransformer();
 
-            auto* const stageView = m_stage->getView();
-            stageView->setTime(m_time.time());
+            auto cameraScreen = m_camera.screenRegion();
             // 背面
-            stageView->drawBack(cameraView);
+            {
+                m_backGround->draw(cameraView);
+                m_decor->drawBack(cameraScreen);
+            }
             cameraView.drawDeathLine();
 
             // 中面
-            stageView->drawMiddle(cameraView);
+            m_decor->drawMiddle(cameraScreen);
 
             m_effects.update<EffectGroup::WorldBack>();
             m_world.draw();
             m_effects.update<EffectGroup::WorldFront>();
 
             // 全面
-            stageView->drawFront(cameraView);
+            m_decor->drawFront(cameraScreen);
+
+            m_effects.update<EffectGroup::Bubble>();
 
             //m_light.draw(m_time.deltaTime(), cameraView);
 

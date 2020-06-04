@@ -18,9 +18,6 @@
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Gimmick/GimmickTranslator.hpp>
 
-#include <abyss/views/Stage/base/IStageView.hpp>
-
-
 namespace
 {
     using namespace abyss;
@@ -54,12 +51,10 @@ namespace abyss
 {
     Stage::Stage(
         std::shared_ptr<IStageService> service,
-        std::shared_ptr<IStageView> view,
         std::shared_ptr<Decor> decor,
         std::shared_ptr<BackGround> backGround
     ):
         m_stageData(service),
-        m_view(view),
         m_decor(decor),
         m_backGround(backGround)
     {
@@ -76,8 +71,6 @@ namespace abyss
     void Stage::setup(Manager* pManager)
     {
         m_pManager = pManager;
-        m_view->setup(pManager);
-
     }
     s3d::Optional<RoomModel> Stage::init(World& world, const std::shared_ptr<Player::PlayerActor>& player)
     {

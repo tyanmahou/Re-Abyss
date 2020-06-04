@@ -8,8 +8,6 @@
 
 #include <abyss/services/Stage/StageService.hpp>
 
-#include <abyss/views/Stage/StageView.hpp>
-
 #include <abyss/factories/DIContainer/DIContainer.hpp>
 #include <abyss/factories/BackGround/BackGroundFactory.hpp>
 #include <abyss/factories/Decor/DecorFactory.hpp>
@@ -52,16 +50,9 @@ namespace abyss
         });
 
         // view
-        container->regist<IStageView>([&](const DIContainer*) {
-            auto view = std::make_shared<StageView>();
-            view->setBg(bg.get());
-            view->setDecor(decor.get());
-            return view;
-        });
         container->regist<Stage>([&](const DIContainer* c) {
             return std::make_shared<Stage>(
                 c->get<IStageService>(),
-                c->get<IStageView>(),
                 decor,
                 bg
             );

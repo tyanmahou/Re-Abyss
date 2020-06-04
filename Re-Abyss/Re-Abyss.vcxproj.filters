@@ -119,9 +119,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Stage\Bubble\BubbleGenerator.cpp">
-      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
       <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
@@ -336,9 +333,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Stage\StageView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\factories\BackGround\BackGroundFactory.cpp">
@@ -836,7 +830,19 @@
     <ClCompile Include="app\controllers\TimeController\TimeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Stage\StageBuilder.cpp">
+    <ClCompile Include="app\controllers\Stage\StageData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cron\base\BatchHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cron\Cron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -848,9 +854,6 @@
   <ItemGroup>
     <ClInclude Include="app\StaticLibs.hpp">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Stage\Bubble\BubbleGenerator.hpp">
-      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
@@ -957,7 +960,6 @@
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Stage\base\IStageView.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
@@ -1045,7 +1047,6 @@
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Door\DoorDecorVM.hpp" />
-    <ClInclude Include="app\views\Stage\StageView.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
@@ -1279,6 +1280,12 @@
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
-    <ClInclude Include="app\controllers\Stage\StageBuilder.hpp" />
+    <ClInclude Include="app\controllers\Stage\StageData.hpp" />
+    <ClInclude Include="app\controllers\Cron\Cron.hpp" />
+    <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
+    <ClInclude Include="app\controllers\Cron\base\IScheduler.hpp" />
+    <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
   </ItemGroup>
 </Project>

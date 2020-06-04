@@ -14,7 +14,6 @@ namespace abyss
     {
     private:
 		std::shared_ptr<IStageService> m_stageData;
-		std::shared_ptr<IStageView> m_view;
 
 		std::shared_ptr<Decor> m_decor;
 		std::shared_ptr<BackGround> m_backGround;
@@ -25,7 +24,6 @@ namespace abyss
 	public:
 		Stage(
 			std::shared_ptr<IStageService> service,
-			std::shared_ptr<IStageView> view,
 			std::shared_ptr<Decor> decor,
 			std::shared_ptr<BackGround> backGround
 		);
@@ -41,7 +39,5 @@ namespace abyss
 		bool initRoom(World& world, const RoomModel& nextRoom);
 
 		s3d::Optional<StartPosModel> findStartPos(const s3d::int32 startId) const;
-
-		inline IStageView* const getView()const { return m_view.get(); }
     };
 }

@@ -9,7 +9,9 @@ namespace abyss
     {
         WorldBack,
         WorldFront,
-        Max
+        DecorFront,
+        Max,
+        Bubble = DecorFront,
     };
     class Effects
     {

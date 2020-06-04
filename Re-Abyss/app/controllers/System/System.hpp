@@ -29,6 +29,9 @@ namespace abyss
         UI m_userInterface;
 
         Manager m_manager;
+        std::unique_ptr<BackGround> m_backGround;
+        std::unique_ptr<Decor> m_decor;
+        std::unique_ptr<Cron> m_cron;
     public:
         System();
         System(const std::shared_ptr<Stage>& stage);
