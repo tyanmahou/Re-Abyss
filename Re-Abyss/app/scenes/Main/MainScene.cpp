@@ -73,6 +73,7 @@ namespace abyss
 			});
 #endif
 			this->init();
+			this->update();
 		}
 
 		void reload()

@@ -1,7 +1,7 @@
 #include "ResourceManager.hpp"
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
-
+#include <abyss/utils/AudioSetting/AudioSetting.hpp>
 #include <Siv3D.hpp>
 #include<S3DTiled.hpp>
 
@@ -51,7 +51,23 @@ namespace abyss
         }
         Audio loadAudio(const s3d::FilePath& path)
         {
-            return this->load(m_audioCache, path);
+            if (m_audioCache.find(path) != m_audioCache.end()) {
+                return m_audioCache[path];
+            }
+            Audio ret;
+            if (FileSystem::Extension(path) == U"aas") {
+                AudioSetting as;
+                ret = as.load(FileUtil::FixResource(path, m_isBuilded));
+            } else {
+                ret = Audio(FileUtil::FixResource(path, m_isBuilded));
+            }
+
+#if ABYSS_DEBUG
+            if (!ret) {
+                Debug::Log::PrintCache << U"Failed Load:" << path;
+            }
+#endif
+            return m_audioCache[path] = ret;
         }
         PixelShader loadPs(const s3d::FilePath& path)
         {

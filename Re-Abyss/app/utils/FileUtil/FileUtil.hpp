@@ -14,4 +14,9 @@ namespace abyss::FileUtil
     /// </summary>
     s3d::FilePath FixResource(const s3d::FilePath& path, bool useResource = true);
 
+    /// <summary>
+    /// 親ディレクトリィパスを返す
+    /// </summary>
+    s3d::FilePath ParentPath(const s3d::FilePath& path);
+
 }

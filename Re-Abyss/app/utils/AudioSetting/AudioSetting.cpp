@@ -1,6 +1,6 @@
 #include "AudioSetting.hpp"
 #include <Siv3D.hpp>
-
+#include <abyss/utils/FileUtil/FileUtil.hpp>
 namespace abyss
 {
     s3d::Audio abyss::AudioSetting::load(const s3d::FilePath& path) const
@@ -12,9 +12,11 @@ namespace abyss
             return ret;
         }
         if (auto audioPath = toml[U"Audio.path"].getOpt<String>()) {
-            ret = Audio(*audioPath);
+            ret = Audio(FileUtil::ParentPath(path) + *audioPath);
         }
-        if (auto loop = toml[U"Audio.loop"].getOpt<Vec2>()) {
+        if (auto loop = toml[U"Audio.loop"].getOpt<bool>()) {
+            ret.setLoop(*loop);
+        }else if (auto loop = toml[U"Audio.loop"].getOpt<Vec2>()) {
             ret.setLoop(Duration(loop->x), Duration(loop->y));
         }
         return ret;

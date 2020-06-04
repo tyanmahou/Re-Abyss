@@ -44,4 +44,12 @@ namespace abyss::FileUtil
 		}
 		return path;
 	}
+	s3d::FilePath ParentPath(const s3d::FilePath& path)
+	{
+		if (FileSystem::IsResource(path)) {
+			return U"/" + FileSystem::RelativePath(FileSystem::ParentPath(path.substr(1)));
+		} else {
+			return FileSystem::RelativePath(FileSystem::ParentPath(path));
+		}
+	}
 }
