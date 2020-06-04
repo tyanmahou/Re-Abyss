@@ -761,9 +761,6 @@
     <ClCompile Include="app\controllers\System\System.cpp">
       <Filter>Source Files\ActionSystem</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\System\SystemFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1254,7 +1251,6 @@
     <ClInclude Include="app\controllers\System\System.hpp">
       <Filter>Source Files\ActionSystem</Filter>
     </ClInclude>
-    <ClInclude Include="app\factories\System\SystemFactory.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\models\Collision\LayerGroup.hpp" />

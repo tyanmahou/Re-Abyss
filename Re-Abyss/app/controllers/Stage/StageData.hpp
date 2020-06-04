@@ -19,6 +19,14 @@ namespace abyss
             std::shared_ptr<IDecorGraphicsService> decorGraphics,
             std::shared_ptr<IStageService> stage
         );
-        //const s3d::Array<BackGroundEntity>& getBgs() const;
+        const s3d::Array<BackGroundEntity>& getBgs() const;
+
+        const s3d::Array<RoomEntity>& getRooms() const;
+        const s3d::Array<std::shared_ptr<MapEntity>>& getMaps() const;
+        const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const;
+        const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const;
+
+        IDecorService* getDecorService() const;
+        IDecorGraphicsService* getDecorGraphicsService() const;
     };
 }

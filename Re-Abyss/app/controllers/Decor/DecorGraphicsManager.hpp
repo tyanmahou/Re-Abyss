@@ -35,7 +35,6 @@ namespace abyss
         s3d::HashTable<s3d::uint32, Anime> m_animes;
     public:
         DecorGraphicsManager() = default;
-        DecorGraphicsManager(std::shared_ptr<IDecorGraphicsService> service);
         void addInfo(s3d::uint32 gId, const Info& info);
         void addInfo(s3d::uint32 gId, Info&& info);
         void addAnime(s3d::uint32 gId, const Anime& anime);

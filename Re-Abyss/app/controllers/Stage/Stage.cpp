@@ -2,21 +2,32 @@
 
 #include <Siv3D.hpp>
 
+#include <abyss/controllers/Camera/Camera.hpp>
+
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
-
-#include <abyss/services/Stage/base/IStageService.hpp>
+#include <abyss/controllers/Decor/DecorGraphicsManager.hpp>
+#include <abyss/controllers/Stage/StageData.hpp>
+#include <abyss/controllers/BackGround/BackGround.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
 #include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
+#include <abyss/entities/BackGround/BackGroundEntity.hpp>
+
+#include <abyss/models/Decor/base/IDecorModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Map/MapTranslator.hpp>
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Gimmick/GimmickTranslator.hpp>
+#include <abyss/translators/BackGround/BackGroundTranslator.hpp>
+#include <abyss/translators/Decor/DecorTranslator.hpp>
+
+#include <abyss/services/Decor/base/IDecorService.hpp>
+#include <abyss/services/Decor/base/IDecorGraphicsService.hpp>
 
 namespace
 {
@@ -49,17 +60,8 @@ namespace
 }
 namespace abyss
 {
-    Stage::Stage(
-        std::shared_ptr<IStageService> service,
-        std::shared_ptr<Decor> decor,
-        std::shared_ptr<BackGround> backGround
-    ):
-        m_stageData(service),
-        m_decor(decor),
-        m_backGround(backGround)
-    {
-        m_startPos = GetStartPosList(m_stageData->getGimmicks());
-    }
+    Stage::Stage()
+    {}
 
     Stage::~Stage()
     {}
@@ -71,6 +73,39 @@ namespace abyss
     void Stage::setup(Manager* pManager)
     {
         m_pManager = pManager;
+    }
+    void Stage::initBackGround(BackGround& backGround)
+    {
+        BackGroundTranslator translator;
+        for (const auto& entity : m_stageData->getBgs()) {
+            backGround.add(translator.toVM(entity));
+        }
+    }
+    void Stage::initDecorGraphics(Decor& decor)
+    {
+        if (!m_stageData) {
+            return;
+        }
+        auto service = m_stageData->getDecorGraphicsService();
+        if (!service) {
+            return;
+        }
+        auto manager = decor.getGraphicsManager();
+        for (const auto& [gId, graphics] : service->getGraphics()) {
+            DecorGraphicsManager::Info info{
+                .filePath = graphics.filePath,
+                .offset = graphics.offset,
+                .size = graphics.size
+            };
+            manager->addInfo(gId, std::move(info));
+        }
+        for (const auto& [gId, animes] : service->getAnimations()) {
+            DecorGraphicsManager::Anime anime;
+            for (const auto& elm : animes) {
+                anime.add(elm.toGId, elm.timeMilliSec);
+            }
+            manager->addAnime(gId, std::move(anime));
+        }
     }
     s3d::Optional<RoomModel> Stage::init(World& world, const std::shared_ptr<Player::PlayerActor>& player)
     {
@@ -95,12 +130,41 @@ namespace abyss
 
         return this->init(world, player);
     }
-    void Stage::initDecor(const Camera& camera) const
+    void Stage::initDecor(Decor& decor, const Camera& camera) const
     {
-        m_decor->init(camera);
+        decor.clear();
+        auto decorService = m_stageData->getDecorService();
+        if (!decorService) {
+            return;
+        }
+        DecorTranslator m_translator{ decor.getGraphicsManager() };
+
+        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<IDecorModel>>& decors) {
+            for (const auto& model : decors) {
+                if (!model) {
+                    continue;
+                }
+                bool isInScreen = model->isInScreen(camera.getCurrentRoom().getRegion());
+                if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
+                    isInScreen |= model->isInScreen(nextRoom->getRegion());
+                }
+                if (!isInScreen) {
+                    continue;
+                }
+                if (auto vm = m_translator.toVM(*model)) {
+                    decor.regist(order, vm);
+                }
+            }
+        };
+        add(DecorOrder::Front, decorService->getFront());
+        add(DecorOrder::Back, decorService->getBack());
+        add(DecorOrder::Middle, decorService->getCustom());
     }
     bool Stage::initRoom(World& world, const RoomModel& nextRoom)
     {
+        if (!m_stageData) {
+            return false;
+        }
         for (const auto& map : m_stageData->getMaps()) {
             if (!nextRoom.getRegion().intersects(map->pos)) {
                 continue;
@@ -134,5 +198,16 @@ namespace abyss
     s3d::Optional<StartPosModel> Stage::findStartPos(const s3d::int32 startId)const
     {
         return m_startPos.find(startId);
+    }
+    void Stage::load()
+    {
+        if (!m_stageData) {
+            return;
+        }
+        m_startPos = GetStartPosList(m_stageData->getGimmicks());
+    }
+    void Stage::setStageData(std::shared_ptr<StageData> stageData)
+    {
+        m_stageData = stageData;
     }
 }

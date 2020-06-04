@@ -50,7 +50,9 @@ namespace abyss
         if (auto room = m_stage->init(m_world)) {
             m_camera.setRoom(*room);
         }
-        m_stage->initDecor(m_camera);
+        m_stage->initBackGround(*m_backGround);
+        m_stage->initDecorGraphics(*m_decor);
+        m_stage->initDecor(*m_decor, m_camera);
     }
 
     void System::init(const std::shared_ptr<Player::PlayerActor>& player)
@@ -60,7 +62,9 @@ namespace abyss
         if (auto room = m_stage->init(m_world, player)) {
             m_camera.setRoom(*room);
         }
-        m_stage->initDecor(m_camera);
+        m_stage->initBackGround(*m_backGround);
+        m_stage->initDecorGraphics(*m_decor);
+        m_stage->initDecor(*m_decor, m_camera);
     }
 
     void System::update()
@@ -82,7 +86,7 @@ namespace abyss
         {
             // カメラワークが開始したらアクターのリセット
             m_world.reset();
-            m_stage->initDecor(m_camera);
+            m_stage->initDecor(*m_decor, m_camera);
         }
         break;
         case OnCameraWorkEnd:
@@ -148,7 +152,10 @@ namespace abyss
         m_userInterface.draw();
     }
     void System::loadStage(const std::shared_ptr<StageData>& stageData)
-    {}
+    {
+        m_stage->setStageData(stageData);
+        m_stage->load();
+    }
     std::shared_ptr<Player::PlayerActor> System::lockPlayer() const
     {
         return m_world.find<Player::PlayerActor>().lock();

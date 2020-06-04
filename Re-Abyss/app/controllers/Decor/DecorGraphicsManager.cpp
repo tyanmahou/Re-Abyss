@@ -1,6 +1,5 @@
 #include "DecorGraphicsManager.hpp"
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-#include <abyss/services/Decor/base/IDecorGraphicsService.hpp>
 namespace abyss
 {
     void DecorGraphicsManager::Anime::add(s3d::uint32 gId, double duration)
@@ -26,23 +25,6 @@ namespace abyss
     bool DecorGraphicsManager::Anime::isEmpty() const
     {
         return m_frames.isEmpty();
-    }
-    DecorGraphicsManager::DecorGraphicsManager(std::shared_ptr<IDecorGraphicsService> service)
-    {
-        for (const auto& [gId, graphics] : service->getGraphics()) {
-            m_infos[gId] = Info{
-                .filePath = graphics.filePath,
-                .offset = graphics.offset,
-                .size = graphics.size
-            };
-        }
-        for (const auto& [gId, animes] : service->getAnimations()) {
-            Anime anime;
-            for (const auto& elm : animes) {
-                anime.add(elm.toGId, elm.timeMilliSec);
-            }
-            m_animes[gId] = std::move(anime);
-        }
     }
     void DecorGraphicsManager::addInfo(s3d::uint32 gId, const Info& info)
     {
