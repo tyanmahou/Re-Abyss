@@ -9,7 +9,6 @@
 #include <abyss/controllers/Decor/Decor.hpp>
 
 #include <abyss/controllers/Cron/Cron.hpp>
-#include <abyss/controllers/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
 
 namespace abyss
 {
@@ -38,9 +37,8 @@ namespace abyss
         m_sound.setManager(&m_manager);
         m_userInterface.setManager(&m_manager);
         m_effects.init(m_time);
+        m_stage->setManager(&m_manager);
         m_cron->setManager(&m_manager);
-        
-        m_cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
     }
     System::~System()
     {
@@ -48,22 +46,12 @@ namespace abyss
 
     void System::init()
     {
-        if (auto room = m_stage->init(m_world)) {
-            m_camera.setRoom(*room);
-        }
-        m_stage->initBackGround(*m_backGround);
-        m_stage->initDecorGraphics(*m_decor);
-        m_stage->initDecor(*m_decor, m_camera);
+        m_stage->init();
     }
 
     void System::init(const std::shared_ptr<Player::PlayerActor>& player)
     {
-        if (auto room = m_stage->init(m_world, player)) {
-            m_camera.setRoom(*room);
-        }
-        m_stage->initBackGround(*m_backGround);
-        m_stage->initDecorGraphics(*m_decor);
-        m_stage->initDecor(*m_decor, m_camera);
+        m_stage->init(player);
     }
 
     void System::update()
@@ -83,14 +71,12 @@ namespace abyss
             using enum Camera::Event;
         case OnCameraWorkStart:
         {
-            // カメラワークが開始したらアクターのリセット
-            m_world.reset();
-            m_stage->initDecor(*m_decor, m_camera);
+            m_stage->checkOut();
         }
         break;
         case OnCameraWorkEnd:
         {
-            m_stage->initRoom(m_world, m_camera.getCurrentRoom());
+            m_stage->checkIn();
         }
         break;
         case OnOutOfRoom:

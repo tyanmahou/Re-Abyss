@@ -10,6 +10,8 @@
 #include <abyss/controllers/Decor/DecorGraphicsManager.hpp>
 #include <abyss/controllers/Stage/StageData.hpp>
 #include <abyss/controllers/BackGround/BackGround.hpp>
+#include <abyss/controllers/Cron/Cron.hpp>
+#include <abyss/controllers/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
@@ -74,21 +76,25 @@ namespace abyss
     {
         m_pManager = pManager;
     }
-    void Stage::initBackGround(BackGround& backGround)
+    bool Stage::initBackGround(BackGround& backGround)const
     {
+        if (!m_stageData) {
+            return false;
+        }
         BackGroundTranslator translator;
         for (const auto& entity : m_stageData->getBgs()) {
             backGround.add(translator.toVM(entity));
         }
+        return true;
     }
-    void Stage::initDecorGraphics(Decor& decor)
+    bool Stage::initDecorGraphics(Decor& decor) const
     {
         if (!m_stageData) {
-            return;
+            return false;
         }
         auto service = m_stageData->getDecorGraphicsService();
         if (!service) {
-            return;
+            return false;
         }
         auto manager = decor.getGraphicsManager();
         for (const auto& [gId, graphics] : service->getGraphics()) {
@@ -106,36 +112,91 @@ namespace abyss
             }
             manager->addAnime(gId, std::move(anime));
         }
+        return true;
     }
-    s3d::Optional<RoomModel> Stage::init(World& world, const std::shared_ptr<Player::PlayerActor>& player)
+    bool Stage::init(const std::shared_ptr<Player::PlayerActor>& player) const
     {
-        world.regist(player);
-
-        auto nextRoom = this->findRoom(player->getPos());
-        if (!nextRoom) {
-            return s3d::none;
+        bool result = true;
+        s3d::Optional<RoomModel> nextRoom;
+        // World初期化
+        {
+            auto world = m_pManager->getModule<World>();
+            world->regist(player);
+            if (nextRoom = this->findRoom(player->getPos())) {
+                result &= this->initRoom(*world, *nextRoom);
+            } else {
+                result = false;
+            }
         }
-        this->initRoom(world, *nextRoom);
-        return nextRoom;
+        // カメラの初期化
+        auto camera = m_pManager->getModule<Camera>();
+        if (nextRoom) {
+            camera->setRoom(*nextRoom);
+        }
+        // 背景の初期化
+        {
+            auto backGround = m_pManager->getModule<BackGround>();
+            result &= this->initBackGround(*backGround);
+        }
+        // 装飾の初期化
+        {
+            auto decor = m_pManager->getModule<Decor>();
+            result &= this->initDecorGraphics(*decor);
+            result &= this->initDecor(*decor, *camera);
+        }
+
+        // バブルエフェクト開始
+        {
+            auto cron = m_pManager->getModule<Cron>();
+            cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
+        }
+        return result;
     }
-    s3d::Optional<RoomModel> Stage::init(World& world, s3d::int32 startId)
+    bool Stage::init(s3d::int32 startId) const
     {
         auto initStartPos = m_startPos.find(startId);
         if (!initStartPos) {
-            return s3d::none;
+            return false;
         }
         auto player = Player::PlayerActor::Create();
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 
-        return this->init(world, player);
+        return this->init(player);
     }
-    void Stage::initDecor(Decor& decor, const Camera& camera) const
+
+    bool Stage::checkOut() const
+    {
+        bool result = true;
+        // Worldリセット
+        {
+            auto world = m_pManager->getModule<World>();
+            world->reset();
+        }
+
+        auto camera = m_pManager->getModule<Camera>();
+
+        // 装飾のリセット
+        {
+            auto decor = m_pManager->getModule<Decor>();
+            result &= this->initDecor(*decor, *camera);
+        }
+        return result;
+    }
+
+    bool Stage::checkIn() const
+    {
+        auto world = m_pManager->getModule<World>();
+        auto camera = m_pManager->getModule<Camera>();
+        return this->initRoom(*world, camera->getCurrentRoom());
+    }
+
+    bool Stage::initDecor(Decor& decor, const Camera& camera) const
     {
         decor.clear();
         auto decorService = m_stageData->getDecorService();
         if (!decorService) {
-            return;
+            return false;
         }
         DecorTranslator m_translator{ decor.getGraphicsManager() };
 
@@ -159,8 +220,9 @@ namespace abyss
         add(DecorOrder::Front, decorService->getFront());
         add(DecorOrder::Back, decorService->getBack());
         add(DecorOrder::Middle, decorService->getCustom());
+        return true;
     }
-    bool Stage::initRoom(World& world, const RoomModel& nextRoom)
+    bool Stage::initRoom(World& world, const RoomModel& nextRoom) const
     {
         if (!m_stageData) {
             return false;

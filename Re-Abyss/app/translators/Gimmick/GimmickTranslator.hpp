@@ -6,9 +6,9 @@ namespace abyss
 {
     class GimmickTranslator
     {
-        Stage* m_pStage = nullptr;
+        const Stage* m_pStage = nullptr;
     public:
-        GimmickTranslator(Stage* pStage);
+        GimmickTranslator(const Stage* pStage);
         std::shared_ptr<IActor> toActorPtr(const GimmickEntity& entity);
     };
 }

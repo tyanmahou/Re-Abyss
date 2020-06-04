@@ -8,7 +8,7 @@
 
 namespace abyss
 {
-    GimmickTranslator::GimmickTranslator(Stage* pStage):
+    GimmickTranslator::GimmickTranslator(const Stage* pStage):
         m_pStage(pStage)
     {}
     std::shared_ptr<IActor> GimmickTranslator::toActorPtr(const GimmickEntity& entity)
