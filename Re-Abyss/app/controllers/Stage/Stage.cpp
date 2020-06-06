@@ -205,6 +205,7 @@ namespace abyss
             auto decor = m_pManager->getModule<Decor>();
             result &= this->initDecor(*decor, *camera);
         }
+        // サウンドが変わる場合は停止
         auto sound = m_pManager->getModule<Sound>();
         if (auto bgm = ::NextBgm(*camera->nextRoom(), m_stageData->getGimmicks()); bgm && *bgm != sound->currentBgmPath()) {
             sound->stop();

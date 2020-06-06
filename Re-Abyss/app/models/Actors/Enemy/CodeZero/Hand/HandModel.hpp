@@ -27,12 +27,11 @@ namespace abyss::CodeZero::Hand
 
         void startForAttack(BodyModel& body) const;
 
-        void updateForAttack(
+        bool updateForAttack(
             bool& isReturn,
             const s3d::Vec2& parentPos,
             BodyModel& body,
-            double dt,
-            std::function<void()> callback
+            double dt
         ) const;
 
         static HandModel CreateLeftPhase1();

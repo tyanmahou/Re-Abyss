@@ -7,6 +7,7 @@ namespace abyss
 {
     enum class EffectGroup : size_t
     {
+        DecorBack,
         WorldBack,
         WorldFront,
         DecorFront,

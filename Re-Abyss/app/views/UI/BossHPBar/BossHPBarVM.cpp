@@ -30,7 +30,6 @@ namespace abyss::ui
         double rate = s3d::Saturate(m_hp / m_maxHp);
         double offsetX = 216.0 * (1 - rate);
         m_texture(GetType(m_hp, m_maxHp)).uv(1 - rate, 0, rate, 1).draw(m_pos + s3d::Vec2{44 + offsetX, 15});
-        m_texture(U"text_boss").draw(m_pos);
     }
 
 }

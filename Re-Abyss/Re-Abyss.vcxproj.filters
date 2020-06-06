@@ -842,6 +842,12 @@
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\BackGround\WaterSarface\WaterSarfaceView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\BackGround\Sky\SkyShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1285,5 +1291,7 @@
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
+    <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
+    <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
   </ItemGroup>
 </Project>

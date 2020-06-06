@@ -14,6 +14,7 @@ namespace abyss::Player
     }
     void DamageState::start()
     {
+        BaseState::start();
         m_pActor->find<AudioSourceModel>()->play(U"Player/damage.ogg");
 
         m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);

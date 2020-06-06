@@ -8,5 +8,6 @@ namespace abyss::CodeZero::Hand
     public:
         void update(double dt) override;
         void start()override;
+        void lastUpdate(double dt) override;
     };
 }

@@ -29,13 +29,17 @@ namespace abyss::CodeZero::Hand
     {
         const auto& pos = body.getPos();
         Vec2 velocity{ 0,0 };
-        
+
         {
             // 前方向の動き
             // 目的地に向かって進む
             Vec2 targetPos = parentPos - m_axis.sa(m_distance);
             auto vec = (targetPos - pos).normalized();
-            velocity += m_axis.sa(vec) * HandParam::Setup::Speed;
+            double speed = HandParam::Setup::Speed;
+            if (auto len = Abs(m_axis.s(vec)); dt != 0.0 && len < speed * dt) {
+                speed = len / dt;
+            }
+            velocity += m_axis.sa(vec) * speed;
         }
         {
             // 横方向の動き
@@ -45,6 +49,9 @@ namespace abyss::CodeZero::Hand
                 body.setVelocity(velocity);
             } else if (distance <= -60) {
                 velocity -= m_axis.tb(HandParam::Pursuit::Speed);
+                body.setVelocity(velocity);
+            } else {
+                velocity += m_axis.tb(body.getVelocity());
                 body.setVelocity(velocity);
             }
         }
@@ -63,24 +70,28 @@ namespace abyss::CodeZero::Hand
         body.setVelocity(velocity);
     }
 
-    void HandModel::updateForAttack(
+    bool HandModel::updateForAttack(
         bool& isReturn,
         const s3d::Vec2& parentPos,
         BodyModel& body,
-        double dt,
-        std::function<void()> callback
+        double dt
     ) const{
         const auto& pos = body.getPos();
         const auto targetVec = parentPos - pos;
+        bool ret = true;
+
+        auto deltaVelocity = m_axis.s(body.getVelocity()) * dt;
         if (auto distance = m_axis.s(targetVec); !isReturn && distance <= -m_distance-40) {
             isReturn = true;
             auto velocity = m_axis.sa(-HandParam::Attack::Speed);
             body.setVelocity(velocity);
-        } else if (isReturn && distance >= m_distance) {
-            body.setPos(pos + m_axis.sa(distance - m_distance));
-            callback();
+        } else if (isReturn && distance + deltaVelocity >= m_distance) {
+            auto velocity = m_axis.sa(m_distance - distance);
+            body.setVelocity(velocity);
+            ret = false;
         }
         body.update(dt);
+        return ret;
     }
 
     HandModel HandModel::CreateLeftPhase1()

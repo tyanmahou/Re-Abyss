@@ -14,12 +14,13 @@ namespace abyss::CodeZero::Hand
     }
     void AttackState::update(double dt)
     {
-        m_hand->updateForAttack(
+        if (!m_hand->updateForAttack(
             m_isReturn,
             m_parent->getPos(),
             *m_body,
-            dt,
-            [this]() {this->changeState(State::Pursuit);}
-        );
+            dt
+        )){
+            this->changeState(State::Pursuit);
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace abyss::cron::BubbleGenerator
 		auto pos = camera->getPos();
 		auto effects = m_pManager->getModule<Effects>();
 
+		effects->add<EffectGroup::DecorBack, BubbleEffect>(time, pos, BubbleEffect::Big{});
+
 		effects->add<EffectGroup::Bubble, BubbleEffect>(time, pos);
 		for ([[maybe_unused]] auto&& index : step(3)) {
 			effects->add<EffectGroup::Bubble, BubbleEffect>(time, pos, BubbleEffect::Small{});

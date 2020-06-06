@@ -9,6 +9,7 @@
 #include <abyss/controllers/Decor/Decor.hpp>
 
 #include <abyss/controllers/Cron/Cron.hpp>
+#include <abyss/views/BackGround/WaterSarface/WaterSarfaceView.hpp>
 
 namespace abyss
 {
@@ -106,11 +107,15 @@ namespace abyss
 
             auto cameraScreen = m_camera.screenRegion();
             // 背面
+            static WaterSarfaceView sv;
             {
                 m_backGround->draw(cameraView);
+                sv.drawBack(cameraView);
+                m_effects.update<EffectGroup::DecorBack>();
                 m_decor->drawBack(cameraScreen);
             }
             cameraView.drawDeathLine();
+            
 
             // 中面
             m_decor->drawMiddle(cameraScreen);
@@ -123,7 +128,7 @@ namespace abyss
             m_decor->drawFront(cameraScreen);
 
             m_effects.update<EffectGroup::Bubble>();
-
+            sv.drawFront(cameraView);
             //m_light.draw(m_time.deltaTime(), cameraView);
 
             cameraView.drawCameraWork();
