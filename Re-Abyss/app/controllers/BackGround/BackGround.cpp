@@ -10,4 +10,12 @@ namespace abyss
     {
         m_view.draw(camera);
     }
+    void BackGround::drawWaterSarfaceBack(const CameraView& camera) const
+    {
+        m_waterSarface.drawBack(camera);
+    }
+    void BackGround::drawWaterSarfaceFront(const CameraView & camera) const
+    {
+        m_waterSarface.drawFront(camera);
+    }
 }

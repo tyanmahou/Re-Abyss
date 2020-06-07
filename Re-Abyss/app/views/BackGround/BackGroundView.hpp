@@ -4,7 +4,7 @@
 
 #include "BackGroundVM.hpp"
 #include "Wave/WaveShader.hpp"
-#include "Sky/SkyShader.hpp"
+#include "Sky/SkyView.hpp"
 
 namespace abyss
 {
@@ -13,8 +13,7 @@ namespace abyss
 	private:
 		s3d::Array<BackGroundVM> m_bgs;
 		WaveShader m_waveShader;
-		SkyShader m_skyShader;
-		s3d::Texture m_skyTexture;
+		SkyView m_sky;
 	public:
 		BackGroundView();
 		void addBackGround(const BackGroundVM& bg);

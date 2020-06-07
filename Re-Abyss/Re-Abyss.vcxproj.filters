@@ -848,6 +848,9 @@
     <ClCompile Include="app\views\BackGround\Sky\SkyShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\BackGround\Sky\SkyView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1293,5 +1296,6 @@
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
+    <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
   </ItemGroup>
 </Project>
