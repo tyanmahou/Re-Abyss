@@ -36,6 +36,10 @@ namespace abyss
         return m_stageService->getGimmicks();
 
     }
+    IBackGroundService* StageData::getBackGroundService() const
+    {
+        return m_backGroundService.get();
+    }
     IDecorService* StageData::getDecorService() const
     {
         return m_decorService.get();

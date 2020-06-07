@@ -14,9 +14,14 @@ namespace abyss
 		s3d::Array<BackGroundVM> m_bgs;
 		WaveShader m_waveShader;
 		SkyView m_sky;
+		s3d::Color m_bgColor;
 	public:
 		BackGroundView();
 		void addBackGround(const BackGroundVM& bg);
+		void setBgColor(const s3d::Color& color)
+		{
+			m_bgColor = color;
+		}
 		void draw(const CameraView& camera)const;
 	};
 }

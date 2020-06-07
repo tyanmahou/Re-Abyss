@@ -30,6 +30,7 @@
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
 #include <abyss/translators/Decor/DecorTranslator.hpp>
 
+#include <abyss/services/BackGround/base/IBackGroundService.hpp>
 #include <abyss/services/Decor/base/IDecorService.hpp>
 #include <abyss/services/Decor/base/IDecorGraphicsService.hpp>
 
@@ -98,10 +99,16 @@ namespace abyss
         if (!m_stageData) {
             return false;
         }
+        auto service = m_stageData->getBackGroundService();
+        if (!service) {
+            return false;
+        }
         BackGroundTranslator translator;
-        for (const auto& entity : m_stageData->getBgs()) {
+        for (const auto& entity : service->getBgs()) {
             backGround.add(translator.toVM(entity));
         }
+
+        backGround.setBgColor(service->getBgColor());
         return true;
     }
     bool Stage::initDecorGraphics(Decor& decor) const

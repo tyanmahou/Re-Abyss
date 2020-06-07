@@ -26,7 +26,7 @@ namespace abyss
     {
 		m_waveShader.apply(camera, [&]() {
 			auto pos = camera.getCameraPos();
-			camera.screenRegion().draw(Color(14, 56, 72));
+			camera.screenRegion().draw(m_bgColor);
 			m_sky.draw(camera);
 			{
 				ScopedRenderStates2D state(YClamp);

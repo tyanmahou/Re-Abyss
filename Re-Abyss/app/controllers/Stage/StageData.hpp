@@ -26,6 +26,7 @@ namespace abyss
         const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const;
         const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const;
 
+        IBackGroundService* getBackGroundService() const;
         IDecorService* getDecorService() const;
         IDecorGraphicsService* getDecorGraphicsService() const;
     };
