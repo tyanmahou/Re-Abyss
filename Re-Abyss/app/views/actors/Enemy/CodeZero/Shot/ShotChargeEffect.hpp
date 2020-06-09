@@ -51,7 +51,7 @@ namespace abyss::CodeZero::Shot
                     particle.m_pos.x += 120.0 * Cos(angle) * dt;
                     particle.m_pos.y += 120.0 * Sin(angle) * dt;
                 }
-                Circle(particle.m_pos, 3).draw(particle.m_color.setA(1.0 - t));
+                Circle(particle.m_pos, 1.5).draw(particle.m_color.setA(1.0 - t));
 
             }
             return t < 1.0;

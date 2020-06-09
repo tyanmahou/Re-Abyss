@@ -851,6 +851,9 @@
     <ClCompile Include="app\views\BackGround\Sky\SkyView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Camera\QuakeModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1297,5 +1300,6 @@
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
+    <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
   </ItemGroup>
 </Project>

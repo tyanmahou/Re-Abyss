@@ -1,6 +1,8 @@
 #include "Camera.hpp"
 
 #include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Camera/QuakeModel.hpp>
+
 #include <abyss/controllers/Stage/Stage.hpp>
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
@@ -9,7 +11,6 @@
 
 #include "CameraWork/Door/DoorCameraWork.hpp"
 #include "CameraWork/RoomMove/RoomMoveCameraWork.hpp"
-
 namespace abyss
 {
 	bool Camera::canNextRoom(const s3d::Vec2& pos) const
@@ -41,6 +42,14 @@ namespace abyss
 			}
 		} else {
 			cameraPos = m_camera->currentRoom().cameraBorderAdjusted(pos);
+		}
+		// 地震適用
+		if (this->isQuake()) {
+			cameraPos = m_quake->apply(cameraPos);
+
+			if (m_quake->IsEnd()) {
+				m_quake = nullptr;
+			}
 		}
 		m_camera->setPos(Math::Round(cameraPos));
 		return event;
@@ -136,10 +145,19 @@ namespace abyss
 			milliSec
 		);
     }
-    bool Camera::isCameraWork() const
+
+	bool Camera::isCameraWork() const
     {
         return m_cameraWork != nullptr;
     }
+	void Camera::startQuake(double maxOffset, double timeSec)
+	{
+		m_quake = std::make_unique<QuakeModel>(m_pManager, maxOffset, timeSec);
+	}
+	bool Camera::isQuake() const
+	{
+		return m_quake != nullptr;
+	}
     s3d::RectF Camera::screenRegion() const
     {
 		return this->createView().screenRegion();

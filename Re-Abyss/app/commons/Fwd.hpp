@@ -113,6 +113,7 @@ namespace abyss
 	class RoomModel;
 	class ICollisionModel;
 	class CameraModel;
+	class QuakeModel;
 	class IDecorModel;
 
 	/// <summary>

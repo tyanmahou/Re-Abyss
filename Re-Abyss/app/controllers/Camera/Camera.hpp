@@ -23,6 +23,7 @@ namespace abyss
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
+		std::unique_ptr<QuakeModel> m_quake;
 
 		bool canNextRoom(const s3d::Vec2& pos) const;
 		Event setCameraPos(const s3d::Vec2& pos);
@@ -66,6 +67,15 @@ namespace abyss
 		);
 
 		bool isCameraWork() const;
+
+		/// <summary>
+		/// 地震開始
+		/// </summary>
+		/// <param name="maxOffset"></param>
+		/// <param name="timeSec"></param>
+		void startQuake(double maxOffset = 5.0, double timeSec = -1.0);
+
+		bool isQuake() const;
 
 		/// <summary>
 		/// View作成
