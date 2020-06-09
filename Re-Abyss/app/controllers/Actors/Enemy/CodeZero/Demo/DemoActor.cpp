@@ -23,7 +23,7 @@ namespace abyss::CodeZero::Demo
 
         {
             auto draw = [this] {
-                const s3d::RectF maskArea(m_targetPos.x - Constants::GameScreenSize.x / 2.0f, m_targetPos.y + 140, Constants::GameScreenSize.x, 80);
+                const s3d::RectF maskArea(m_targetPos.x - Constants::GameScreenSize.x / 2.0f, m_targetPos.y + 140, Constants::GameScreenSize.x, 120);
 
                 {
                     auto mask = MaskUtil::Instance().notEqual([maskArea] {

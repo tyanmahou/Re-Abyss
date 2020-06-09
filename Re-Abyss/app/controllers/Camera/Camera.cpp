@@ -154,6 +154,10 @@ namespace abyss
 	{
 		m_quake = std::make_unique<QuakeModel>(m_pManager, maxOffset, timeSec);
 	}
+	void Camera::stopQuake()
+	{
+		m_quake = nullptr;
+	}
 	bool Camera::isQuake() const
 	{
 		return m_quake != nullptr;

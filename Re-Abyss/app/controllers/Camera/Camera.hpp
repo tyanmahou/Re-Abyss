@@ -75,6 +75,14 @@ namespace abyss
 		/// <param name="timeSec"></param>
 		void startQuake(double maxOffset = 5.0, double timeSec = -1.0);
 
+		/// <summary>
+		/// 地震停止
+		/// </summary>		
+		void stopQuake();
+
+		/// <summary>
+		/// 地震中止
+		/// </summary>	
 		bool isQuake() const;
 
 		/// <summary>

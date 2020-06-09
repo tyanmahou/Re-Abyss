@@ -34,6 +34,10 @@ namespace abyss
 	{
 		return m_region;
 	}
+	s3d::RectF RoomModel::getRegion(double margin) const
+	{
+		return m_region.stretched(margin);
+	}
 	RoomModel::operator s3d::RectF() const
 	{
 		return m_region;

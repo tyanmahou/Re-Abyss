@@ -17,6 +17,7 @@ namespace abyss::Event::Talk::BossTalk0_0
 
         s3d::Vec2 m_initPos;
         s3d::Vec2 m_targetPos;
+        bool m_isRequestedLastQuake = false;
     public:
         ~BossMove();
     };

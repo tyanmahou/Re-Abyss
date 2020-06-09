@@ -26,6 +26,7 @@ namespace abyss
 		bool passable(Forward f) const;
 		double pos(Forward f) const;
 		const s3d::RectF& getRegion()const;
+		s3d::RectF getRegion(double margin)const;
 
 		operator s3d::RectF() const;
 

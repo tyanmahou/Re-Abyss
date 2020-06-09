@@ -21,7 +21,7 @@ namespace abyss::CodeZero::Hand
     }
     void HandModel::startForPursuit(BodyModel& body)const
     {
-        auto velocity = m_axis * Vec2{ -HandParam::Setup::Speed, HandParam::Setup::Speed };
+        auto velocity = m_axis * Vec2{ -HandParam::Setup::Speed, HandParam::Pursuit::Speed };
         body.setVelocity(velocity);
     }
 
@@ -34,12 +34,14 @@ namespace abyss::CodeZero::Hand
             // 前方向の動き
             // 目的地に向かって進む
             Vec2 targetPos = parentPos - m_axis.sa(m_distance);
-            auto vec = (targetPos - pos).normalized();
+            targetPos += m_axis.tb(parentPos - pos);
+            auto vec = (targetPos - pos);
+            auto vecNormal = vec.normalized();
             double speed = HandParam::Setup::Speed;
             if (auto len = Abs(m_axis.s(vec)); dt != 0.0 && len < speed * dt) {
                 speed = len / dt;
             }
-            velocity += m_axis.sa(vec) * speed;
+            velocity += m_axis.sa(vecNormal) * speed;
         }
         {
             // 横方向の動き
