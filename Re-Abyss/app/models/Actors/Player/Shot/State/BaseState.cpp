@@ -28,7 +28,7 @@ namespace abyss::Player::Shot
     {
         m_body->update(dt);
         // 画面外判定
-        if (!m_pActor->getModule<Camera>()->inRoom(m_pActor->getColliderCircle())) {
+        if (!m_pActor->getModule<Camera>()->inScreen(m_pActor->getColliderCircle())) {
             m_pActor->destroy();
         }
     }
