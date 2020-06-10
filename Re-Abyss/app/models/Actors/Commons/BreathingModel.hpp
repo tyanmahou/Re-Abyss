@@ -7,12 +7,12 @@
 
 namespace abyss
 {
-    class BreakthingModel : 
+    class BreathingModel : 
         public IComponent,
         public ILastUpdateModel
     {
     public:
-        BreakthingModel(IActor* pActor);
+        BreathingModel(IActor* pActor);
 
         void setup() override;
         void onLastUpdate(double dt) override;
@@ -25,7 +25,7 @@ namespace abyss
         IActor* m_pActor;
         IntervalTimer m_timer;
         s3d::Vec2 m_offset;
-
+        double m_timeOffsetSec = 0;
         Ref<BodyModel> m_body;
     };
 }
@@ -33,7 +33,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<BreakthingModel>
+    struct ComponentTree<BreathingModel>
     {
         using Base = ILastUpdateModel;
     };

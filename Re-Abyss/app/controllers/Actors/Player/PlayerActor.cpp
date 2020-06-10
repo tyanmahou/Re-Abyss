@@ -73,7 +73,7 @@ namespace abyss::Player
             this->attach<OopartsCtrlModel>(this);
         }
         {
-            this->attach<BreakthingModel>(this)
+            this->attach<BreathingModel>(this)
                 ->setOffset(Vec2{0, -20});
         }
         m_order = 10;

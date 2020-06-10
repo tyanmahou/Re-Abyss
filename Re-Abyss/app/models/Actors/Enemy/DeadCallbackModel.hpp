@@ -10,10 +10,16 @@ namespace abyss::Enemy
     {
     protected:
         IActor* m_pActor;
+        bool m_useQuake = true;
     public:
         DeadCallbackModel(IActor* pActor);
 
         void onDead() override;
+
+        void setUseQuake(bool useQuake)
+        {
+            m_useQuake = useQuake;
+        }
     };
 }
 

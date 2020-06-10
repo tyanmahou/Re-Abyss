@@ -24,11 +24,11 @@ namespace abyss
 		double m_deflection;
 		Vec2 m_pos;
 		ColorF m_color;
-		TimeController* m_pTime;
+		Manager* m_pManager;
 	public:
-		BubbleEffect(TimeController* pTime, const Vec2& offset, Small);
-		BubbleEffect(TimeController* pTime, const Vec2& offset, Middle = {});
-		BubbleEffect(TimeController* pTime, const Vec2& offset, Big);
+		BubbleEffect(Manager* pManager, const Vec2& offset, Small);
+		BubbleEffect(Manager* pManager, const Vec2& offset, Middle = {});
+		BubbleEffect(Manager* pManager, const Vec2& offset, Big);
 
 		bool update(double t) override;
 	};

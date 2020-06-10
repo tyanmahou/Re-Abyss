@@ -6,16 +6,15 @@ namespace abyss::cron::BubbleGenerator
 {
     void BubbleGeneratorJob::onExecute()
     {
-		auto time = m_pManager->getModule<TimeController>();
 		auto camera = m_pManager->getModule<Camera>();
 		auto pos = camera->getPos();
 		auto effects = m_pManager->getModule<Effects>();
 
-		effects->add<EffectGroup::DecorBack, BubbleEffect>(time, pos, BubbleEffect::Big{});
+		effects->add<EffectGroup::DecorBack, BubbleEffect>(m_pManager, pos, BubbleEffect::Big{});
 
-		effects->add<EffectGroup::Bubble, BubbleEffect>(time, pos);
+		effects->add<EffectGroup::Bubble, BubbleEffect>(m_pManager, pos);
 		for ([[maybe_unused]] auto&& index : step(3)) {
-			effects->add<EffectGroup::Bubble, BubbleEffect>(time, pos, BubbleEffect::Small{});
+			effects->add<EffectGroup::Bubble, BubbleEffect>(m_pManager, pos, BubbleEffect::Small{});
 		}
     }
 }

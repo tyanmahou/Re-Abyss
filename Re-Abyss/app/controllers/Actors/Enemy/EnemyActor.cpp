@@ -1,6 +1,7 @@
 #include "EnemyActor.hpp"
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 
 namespace abyss::Enemy
@@ -34,8 +35,13 @@ namespace abyss::Enemy
 		{
 			this->attach<DamageCallbackModel>(this);
 		}
+		// 音源
 		{
 			this->attach<AudioSourceModel>(this);
+		}
+		// 呼吸
+		{
+			this->attach<BreathingModel>(this);
 		}
 	}
 	void EnemyActor::start()

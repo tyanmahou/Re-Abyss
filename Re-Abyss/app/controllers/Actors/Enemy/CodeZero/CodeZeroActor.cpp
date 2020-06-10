@@ -11,6 +11,7 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
+#include <abyss/models/Actors/Commons/BreathingModel.hpp>
 
 namespace abyss::CodeZero
 {
@@ -34,6 +35,10 @@ namespace abyss::CodeZero
         {
             // コライダーを使用しないので削除
             this->detach<CustomColliderModel>();
+        }
+        {
+            // 呼吸をを使用しないので削除
+            this->detach<BreathingModel>();
         }
         {
             this->attach<PatternModel>(this);

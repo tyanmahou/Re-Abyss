@@ -2,6 +2,7 @@
 #include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+
 namespace abyss
 {
     DeadOnHItReceiverModel::DeadOnHItReceiverModel(IActor* pActor):

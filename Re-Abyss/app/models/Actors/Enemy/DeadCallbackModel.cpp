@@ -14,8 +14,9 @@ namespace abyss::Enemy
         if (auto body = m_pActor->find<BodyModel>()) {
             m_pActor->getModule<Effects>()->addWorldFront<EnemyDeadEffect>(body->getPos());
         }
-
-        m_pActor->getModule<Camera>()->startQuake(5.0, 0.3);
+        if (m_useQuake) {
+            m_pActor->getModule<Camera>()->startQuake(5.0, 0.3);
+        }
     }
 }
 

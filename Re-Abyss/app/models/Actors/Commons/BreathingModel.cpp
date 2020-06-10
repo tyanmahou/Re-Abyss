@@ -8,19 +8,20 @@
 
 namespace abyss
 {
-    BreakthingModel::BreakthingModel(IActor* pActor):
+    BreathingModel::BreathingModel(IActor* pActor):
         m_pActor(pActor),
-        m_timer(5.0, true, pActor->getDrawTimer())
+        m_timer(5.0, true, [this, pActor]{return pActor->getUpdateTime() + s3d::DurationCast<s3d::Microseconds>(s3d::Duration(m_timeOffsetSec)); }),
+        m_timeOffsetSec(Random(0.0, 10.0))
     {}
 
-    void BreakthingModel::setup()
+    void BreathingModel::setup()
     {
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void BreakthingModel::onLastUpdate([[maybe_unused]]double dt)
+    void BreathingModel::onLastUpdate([[maybe_unused]]double dt)
     {
-        if (m_timer.update() && RandomBool(0.5)) {
+        if (m_timer.update() && RandomBool(0.7)) {
             m_pActor->getModule<Effects>()->add<EffectGroup::Bubble, BreathEffect>(m_body->getPos() + m_offset);
         }
     }
