@@ -2,7 +2,6 @@
 #include <array>
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/commons/Fwd.hpp>
-
 namespace abyss
 {
     enum class EffectGroup : size_t
@@ -43,6 +42,12 @@ namespace abyss
         void update() const
         {
             m_effects[static_cast<size_t>(Group)].update();
+        }
+
+        template<EffectGroup Group>
+        size_t num() const
+        {
+            return m_effects[static_cast<size_t>(Group)].num_effects();
         }
     };
 }

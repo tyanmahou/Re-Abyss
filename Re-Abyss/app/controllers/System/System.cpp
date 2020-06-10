@@ -10,6 +10,8 @@
 
 #include <abyss/controllers/Cron/Cron.hpp>
 
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
+
 namespace abyss
 {
     System::System():
@@ -95,6 +97,12 @@ namespace abyss
         m_events.update(dt);
         m_decor->update(m_time.time());
         m_cron->update(dt);
+
+#if ABYSS_DEBUG
+        if (Debug::DebugManager::IsLogEffectNum()) {
+            Debug::DebugManager::LogEffectNum(m_effects);
+        }
+#endif
     }
     void System::draw() const
     {

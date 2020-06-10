@@ -3,6 +3,9 @@
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>
+#include <abyss/controllers/Effects/Effects.hpp>
+#include <abyss/debugs/Log/Log.hpp>
+
 namespace abyss::Debug
 {
     class DebugManager::Impl
@@ -10,6 +13,7 @@ namespace abyss::Debug
     public:
         bool m_isDrawColider = false;
         bool m_disableDarkNess = false;
+        bool m_isLogEffectNum = false;
         int m_frameRate = 60;
 
         bool m_showFps = false;
@@ -20,6 +24,9 @@ namespace abyss::Debug
             }
             if (Key2.down()) {
                 m_disableDarkNess = !m_disableDarkNess;
+            }
+            if (Key3.down()) {
+                m_isLogEffectNum = !m_isLogEffectNum;
             }
             if ((KeyF + KeyDown).down() && m_frameRate > 1) {
                 Graphics::SetTargetFrameRateHz(--m_frameRate);
@@ -35,7 +42,7 @@ namespace abyss::Debug
                 m_showFps ^= true;
             }
             if (m_showFps) {
-                Print << Profiler::FPS();
+                Log::Print << Profiler::FPS();
             }
         }
     };
@@ -74,6 +81,17 @@ namespace abyss::Debug
 
             []([[maybe_unused]]const None_t&) {}
         }, colider);
+    }
+    bool DebugManager::IsLogEffectNum()
+    {
+        return Instance()->m_pImpl->m_isLogEffectNum;
+    }
+    void DebugManager::LogEffectNum(const Effects& effects)
+    {
+        Log::Print << U"DecorBack: "  << effects.num<EffectGroup::DecorBack>();
+        Log::Print << U"WorldBack: "  << effects.num<EffectGroup::WorldBack>();
+        Log::Print << U"WorldFront: " << effects.num<EffectGroup::WorldFront>();
+        Log::Print << U"DecorFront: " << effects.num<EffectGroup::DecorFront>();
     }
 }
 

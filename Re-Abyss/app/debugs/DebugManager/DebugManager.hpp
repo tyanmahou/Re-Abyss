@@ -21,6 +21,9 @@ namespace abyss::Debug
         static bool DisableDarkNess();
 
         static void DrawColider(const CShape& colider);
+
+        static bool IsLogEffectNum();
+        static void LogEffectNum(const Effects& effects);
     };
 }
 
