@@ -854,6 +854,12 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1301,5 +1307,7 @@
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
+    <ClInclude Include="app\views\Actors\Common\BreathEffect.hpp" />
   </ItemGroup>
 </Project>
