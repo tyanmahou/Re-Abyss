@@ -3,6 +3,12 @@
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
+#define ABYSS_CUSTOM
+
+#ifdef ABYSS_CUSTOM
+#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#endif
+
 namespace abyss
 {
     class AudioGroup::Impl
@@ -26,8 +32,7 @@ namespace abyss
                     continue;
                 }
                 auto path = FileUtil::ParentPath(aase) + *extendPath;
-                Impl base(path);
-                this->merge(base);
+                this->merge(path);
             }
             for (auto&&[key, setting] : toml.tableView()) {
                 if (key[0] == U'@') {
@@ -44,7 +49,7 @@ namespace abyss
             }
             return Audio();
         }
-
+        void merge(const s3d::FilePath& ssae);
         void merge(const Impl& other)
         {
             for (auto&& [key, audio] : other.m_audios) {
@@ -63,5 +68,15 @@ namespace abyss
     AudioGroup::operator bool() const
     {
         return m_pImpl != nullptr;
+    }
+    void AudioGroup::Impl::merge(const s3d::FilePath& aase)
+    {
+#ifdef ABYSS_CUSTOM
+        auto other = ResourceManager::Main()->loadAudioGroup(aase);
+        this->merge(*other.m_pImpl);
+#else
+        Impl other(aase);
+        this->merge(other);
+#endif
     }
 }

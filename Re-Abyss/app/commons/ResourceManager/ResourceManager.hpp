@@ -3,7 +3,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/String.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/utils/AudioGroup/AudioGroup.hpp>
+
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
 namespace s3dTiled
@@ -13,6 +13,8 @@ namespace s3dTiled
 
 namespace abyss
 {
+    class AudioGroup;
+
     namespace Path
     {
         inline static s3d::FilePath Root = U"";
