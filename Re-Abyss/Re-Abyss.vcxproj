@@ -186,6 +186,7 @@
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
+    <ClCompile Include="app\utils\AudioGroup\AudioGroup.cpp" />
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp" />
     <ClCompile Include="app\views\BackGround\Sky\SkyShader.cpp" />
     <ClCompile Include="app\views\BackGround\Sky\SkyView.cpp" />
@@ -485,6 +486,7 @@
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\utils\AudioGroup\AudioGroup.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />

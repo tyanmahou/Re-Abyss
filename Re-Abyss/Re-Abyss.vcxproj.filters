@@ -860,6 +860,9 @@
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\AudioGroup\AudioGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1309,5 +1312,6 @@
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\BreathEffect.hpp" />
+    <ClInclude Include="app\utils\AudioGroup\AudioGroup.hpp" />
   </ItemGroup>
 </Project>

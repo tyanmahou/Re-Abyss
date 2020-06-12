@@ -1,11 +1,12 @@
 #include "TexturePacker.hpp"
-#include<Siv3D.hpp>
+#include <Siv3D.hpp>
 #include <Siv3D/JSONReader.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/FileSystem.hpp>
 #include <Siv3D/Texture.hpp>
 #include <Siv3D/TextureRegion.hpp>
 #include <Siv3D/Vector2D.hpp>
+#include <abyss/utils/FileUtil/FileUtil.hpp>
 
 #include<unordered_map>
 
@@ -73,12 +74,7 @@ namespace abyss
 				m_frames[FileSystem::BaseName(info.filename)] = info;
 			}
 			if (!m_image) {
-				FilePath parent;
-				if (FileSystem::IsResource(json)) {
-					parent = U"/" + FileSystem::RelativePath(FileSystem::ParentPath(json.substr(1)));
-				} else {
-					parent = FileSystem::RelativePath(FileSystem::ParentPath(json));
-				}
+				FilePath parent = FileUtil::ParentPath(json);
 				auto imagePath = reader[U"meta.image"].getString();
 				m_image = s3d::Image(parent + imagePath);
 			}

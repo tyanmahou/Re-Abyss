@@ -13,6 +13,7 @@ namespace abyss
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
         s3d::HashTable<String, Audio> m_audioCache;
+        s3d::HashTable<String, AudioGroup> m_audioGroupCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
 #if ABYSS_DEBUG
@@ -69,6 +70,10 @@ namespace abyss
 #endif
             return m_audioCache[path] = ret;
         }
+        AudioGroup loadAudioGroup(const s3d::FilePath& path)
+        {
+            return this->load<AudioGroup>(m_audioGroupCache, path);
+        }
         PixelShader loadPs(const s3d::FilePath& path)
         {
             return this->load<PixelShader>(m_psCache, path, Array<ConstantBufferBinding>{ { U"PSConstants2D", 0 } });
@@ -86,6 +91,7 @@ namespace abyss
             m_psCache.clear();
             m_tomlCache.clear();
             m_audioCache.clear();
+            m_audioGroupCache.clear();
         }
 
         void setIsBuilded(bool isBuilded)
@@ -122,6 +128,11 @@ namespace abyss
     s3d::Audio ResourceManager::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudio(FileUtil::FixRelativePath(prefix + path));
+    }
+
+    AudioGroup ResourceManager::loadAudioGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadAudioGroup(FileUtil::FixRelativePath(prefix + path));
     }
 
     s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const

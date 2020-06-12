@@ -7,6 +7,7 @@ namespace abyss
     class AudioSetting
     {
     public:
+        s3d::Audio load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const;
 
         s3d::Audio load(const s3d::FilePath& path) const;
     };

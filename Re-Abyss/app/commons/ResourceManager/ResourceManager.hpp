@@ -3,6 +3,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/String.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/utils/AudioGroup/AudioGroup.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
 namespace s3dTiled
@@ -36,6 +37,7 @@ namespace abyss
         s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         TexturePacker loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        AudioGroup loadAudioGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
         s3d::PixelShader loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
 
