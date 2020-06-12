@@ -63,7 +63,8 @@ namespace abyss::Player
         }
         // AudioSource
         {
-            this->attach<AudioSourceModel>(this);
+            this->attach<AudioSourceModel>(this)
+                ->loadAudioGroup(U"Player/player.aase");
         }
         // AttackCtrl
         {

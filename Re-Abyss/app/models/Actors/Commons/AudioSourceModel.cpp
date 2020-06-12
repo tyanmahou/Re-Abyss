@@ -29,9 +29,9 @@ namespace
         public IUpdateModel
     {
     public:
-        TemporarySoundEffect(IActor* pActor, s3d::FilePathView path) :
+        TemporarySoundEffect(IActor* pActor, const s3d::Audio& audio) :
             m_pActor(pActor),
-            m_audio(ResourceManager::Main()->loadAudio(U"se/Actors/" + path).getWave())
+            m_audio(audio)
         {}
 
         void setup() override
@@ -78,6 +78,11 @@ namespace abyss
         m_body = m_pActor->find<BodyModel>();
     }
 
+    void AudioSourceModel::loadAudioGroup(const s3d::FilePath& path)
+    {
+        m_audioGroup = ResourceManager::Main()->loadAudioGroup(U"se/Actors/" + path);
+    }
+
     void AudioSourceModel::onUpdate([[maybe_unused]] double dt)
     {
         m_audios.remove_if([](const Audio& audio) {
@@ -92,38 +97,84 @@ namespace abyss
 
     }
 
-    void AudioSourceModel::play(s3d::FilePathView path)
+    void AudioSourceModel::play(const s3d::String& key)
     {
-        if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
-            auto pos = m_body->getPos();
-            auto listener = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        if (auto baseAudio = m_audioGroup(key)) {
             Audio audio(baseAudio.getWave());
-            auto volume = ::CalcVolume(pos, listener);
-            audio.setVolumeLR(volume.first, volume.second);
-            audio.play();
-            m_audios.push_back(audio);
+            if (auto loop = baseAudio.getLoop()) {
+                audio.setLoop(loop->beginPos, loop->endPos);
+            }
+            this->playDirect(audio);
         }
     }
 
-    void AudioSourceModel::playAt(s3d::FilePathView path) const
+    void AudioSourceModel::playAt(const s3d::String& key) const
     {
         auto pos = m_body->getPos();
-        this->playAt(path, pos);
+        this->playAtDirect(key, pos);
     }
 
-    void AudioSourceModel::playAt(s3d::FilePathView path, const s3d::Vec2& pos) const
+    void AudioSourceModel::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
-
+        if (auto baseAudio = m_audioGroup(key)) {
+            Audio audio(baseAudio.getWave());
+            if (auto loop = baseAudio.getLoop()) {
+                audio.setLoop(loop->beginPos, loop->endPos);
+            }
+            this->playAtDirect(audio, pos);
+        }
+    }
+    void AudioSourceModel::playDirect(s3d::FilePathView path)
+    {
+        if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
+            Audio audio(baseAudio.getWave());
+            if (auto loop = baseAudio.getLoop()) {
+                audio.setLoop(loop->beginPos, loop->endPos);
+            }
+            this->playDirect(audio);
+        }
+    }
+    void AudioSourceModel::playDirect(const s3d::Audio& audio)
+    {
+        auto pos = m_body->getPos();
+        auto listener = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        auto volume = ::CalcVolume(pos, listener);
+        audio.setVolumeLR(volume.first, volume.second);
+        audio.play();
+        m_audios.push_back(audio);
+    }
+    void AudioSourceModel::playAtDirect(s3d::FilePathView path) const
+    {
+        auto pos = m_body->getPos();
+        this->playAtDirect(path, pos);
+    }
+    void AudioSourceModel::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
+    {
+        if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
+            Audio audio(baseAudio.getWave());
+            if (auto loop = baseAudio.getLoop()) {
+                audio.setLoop(loop->beginPos, loop->endPos);
+            }
+            this->playAtDirect(audio, pos);
+        }
+    }
+    void AudioSourceModel::playAtDirect(const s3d::Audio & audio) const
+    {
+        auto pos = m_body->getPos();
+        this->playAtDirect(audio, pos);
+    }
+    void AudioSourceModel::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
+    {
         class TemporaryActor : public IActor
         {
         public:
-            TemporaryActor(s3d::FilePathView path, const s3d::Vec2& pos)
+            TemporaryActor(const s3d::Audio& audio, const s3d::Vec2& pos)
             {
                 this->m_isDontDestoryOnLoad = true;
                 this->attach<BodyModel>()->initPos(pos);
-                this->attach<TemporarySoundEffect>(this, path);
+                this->attach<TemporarySoundEffect>(this, audio);
             }
         };
-        m_pActor->getModule<World>()->create<TemporaryActor>(path, pos);
+        m_pActor->getModule<World>()->create<TemporaryActor>(audio, pos);
     }
 }

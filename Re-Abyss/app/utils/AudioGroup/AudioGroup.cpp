@@ -26,13 +26,15 @@ namespace abyss
             if (!toml) {
                 return false;
             }
-            for (auto&& setting : toml[U"@Extends"].tableArrayView()) {
-                auto extendPath = setting[U"path"].getOpt<String>();
-                if (!extendPath) {
-                    continue;
+            if (auto&& extends = toml[U"@Extends"]; extends.isTableArray()) {
+                for (auto&& setting : extends.tableArrayView()) {
+                    auto extendPath = setting[U"path"].getOpt<String>();
+                    if (!extendPath) {
+                        continue;
+                    }
+                    auto path = FileUtil::ParentPath(aase) + *extendPath;
+                    this->merge(path);
                 }
-                auto path = FileUtil::ParentPath(aase) + *extendPath;
-                this->merge(path);
             }
             for (auto&&[key, setting] : toml.tableView()) {
                 if (key[0] == U'@') {
@@ -40,6 +42,7 @@ namespace abyss
                 }
                 m_audios[key] = AudioSetting{}.load(aase, setting);
             }
+            return true;
         }
 
         Audio operator()(const s3d::String& key)
@@ -63,6 +66,9 @@ namespace abyss
 
     Audio AudioGroup::operator()(const s3d::String& key) const
     {
+        if (!m_pImpl) {
+            return Audio();
+        }
         return (*m_pImpl)(key);
     }
     AudioGroup::operator bool() const
