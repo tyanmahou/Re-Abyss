@@ -16,11 +16,11 @@ namespace abyss::Player::Shot
     {
         m_pActor->getBindedView()->addShotFiringEffect();
         if (m_shot->isBig()) {
-            m_pActor->find<AudioSourceModel>()->playAt(U"Player/Shot/shot3.ogg");
+            m_pActor->find<AudioSourceModel>()->playAt(U"ShotBig");
         } else if (m_shot->isMedium()) {
-            m_pActor->find<AudioSourceModel>()->playAt(U"Player/Shot/shot2.ogg");
+            m_pActor->find<AudioSourceModel>()->playAt(U"ShotMedium");
         } else {
-            m_pActor->find<AudioSourceModel>()->playAt(U"Player/Shot/shot.ogg");
+            m_pActor->find<AudioSourceModel>()->playAt(U"ShotSmall");
         }
     }
 

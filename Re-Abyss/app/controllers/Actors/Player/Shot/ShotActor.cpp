@@ -38,7 +38,8 @@ namespace abyss::Player::Shot
 			this->attach<DeadOnHItReceiverModel>(this);
 		}
 		{
-			this->attach<AudioSourceModel>(this);
+			this->attach<AudioSourceModel>(this)
+				->load(U"Player/Shot/player_shot.aase");
 		}
 		m_power = m_shot->toPower();
 		m_view = std::make_shared<ShotVM>(*m_shot, forward);
