@@ -39,6 +39,7 @@ namespace abyss::Player
             m_pActor->getModule<Camera>()->startDoorCameraWork(col, m_body->getPos(), [this]() {
                 this->m_motion = Motion::Stay;
             });
+            m_pActor->find<AudioSourceModel>()->play(U"Player/door_move.aas");
         }
     }
     void SwimState::start()
