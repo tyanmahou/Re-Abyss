@@ -78,7 +78,7 @@ namespace abyss
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void AudioSourceModel::loadAudioGroup(const s3d::FilePath& path)
+    void AudioSourceModel::load(const s3d::FilePath& path)
     {
         m_audioGroup = ResourceManager::Main()->loadAudioGroup(U"se/Actors/" + path);
     }
@@ -111,7 +111,7 @@ namespace abyss
     void AudioSourceModel::playAt(const s3d::String& key) const
     {
         auto pos = m_body->getPos();
-        this->playAtDirect(key, pos);
+        this->playAt(key, pos);
     }
 
     void AudioSourceModel::playAt(const s3d::String & key, const s3d::Vec2 & pos) const

@@ -11,6 +11,8 @@ namespace abyss::Event::Talk
         if (m_bossBgmPath) {
             m_pManager->getModule<Sound>()->stop(0s);
         }
+        m_se = ResourceManager::Main()
+            ->loadAudio(U"se/commons/charge_boss_hp.ogg");
     }
 
     bool ChargeBossHPBar::update([[maybe_unused]]double dt)
@@ -19,9 +21,7 @@ namespace abyss::Event::Talk
             return false;
         }
         if (m_timer.update()) {
-            Audio se = ResourceManager::Main()
-                ->loadAudio(U"se/commons/charge_boss_hp.ogg");
-            se.playOneShot(0.4);
+            m_se.playOneShot(0.4);
         }
         return !m_hpBar->isFull();
     }

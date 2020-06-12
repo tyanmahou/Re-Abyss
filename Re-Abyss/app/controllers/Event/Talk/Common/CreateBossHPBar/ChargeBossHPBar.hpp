@@ -14,6 +14,7 @@ namespace abyss::Event::Talk
         Ref<ui::BossHPBar> m_hpBar;
         IntervalTimer m_timer;
         s3d::Optional<s3d::FilePath> m_bossBgmPath;
+        s3d::Audio m_se;
     public:
         ChargeBossHPBar(Ref<ui::BossHPBar> hpBar);
         ~ChargeBossHPBar();

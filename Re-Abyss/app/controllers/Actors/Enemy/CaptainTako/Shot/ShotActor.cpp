@@ -35,7 +35,8 @@ namespace abyss::CaptainTako::Shot
             this->attach<DeadOnHItReceiverModel>(this);
         }
         {
-            this->attach<AudioSourceModel>(this);
+            this->attach<AudioSourceModel>(this)
+                ->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
         m_power = 1;
     }

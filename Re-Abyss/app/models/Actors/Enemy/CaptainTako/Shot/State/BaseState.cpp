@@ -16,7 +16,7 @@ namespace abyss::CaptainTako::Shot
 
     void BaseState::start()
     {
-        this->m_pActor->find<AudioSourceModel>()->playAt(U"Enemy/CaptainTako/shot.ogg");
+        this->m_pActor->find<AudioSourceModel>()->playAt(U"Shot");
     }
 
     void BaseState::update(double dt)

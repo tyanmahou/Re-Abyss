@@ -10,7 +10,7 @@ namespace abyss::Slime
     }
     void JumpState::start()
     {
-        m_pActor->find<AudioSourceModel>()->play(U"Enemy/Slime/jump.ogg");
+        m_pActor->find<AudioSourceModel>()->play(U"Jump");
         m_body->setSize(Param::Jump::Size).setPivot({ 0, 0 });
 
         m_body->jumpToHeight(Param::Jump::JumpHeight);

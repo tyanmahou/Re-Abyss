@@ -24,7 +24,7 @@ namespace abyss
         AudioSourceModel(IActor* pActor);
         void setup() override;
 
-        void loadAudioGroup(const s3d::FilePath& path);
+        void load(const s3d::FilePath& path);
         void onUpdate(double dt) override;
 
         void play(const s3d::String& key);

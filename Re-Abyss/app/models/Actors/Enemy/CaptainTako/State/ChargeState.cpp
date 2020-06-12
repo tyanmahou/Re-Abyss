@@ -11,7 +11,7 @@ namespace abyss::CaptainTako
     void ChargeState::start()
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
-        m_pActor->find<AudioSourceModel>()->play(U"Enemy/CaptainTako/charge.ogg");
+        m_pActor->find<AudioSourceModel>()->play(U"Charge");
     }
     void ChargeState::update(double dt)
     {

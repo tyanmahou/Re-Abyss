@@ -33,6 +33,9 @@ namespace abyss::CaptainTako
             this->attach<DamageModel>(this);
             this->attach<Enemy::DeadCallbackModel>(this);
         }
+        {
+            this->find<AudioSourceModel>()->load(U"Enemy/CaptainTako/captain_tako.aase");
+        }
     }
     bool CaptainTakoActor::accept(const ActVisitor & visitor)
     {

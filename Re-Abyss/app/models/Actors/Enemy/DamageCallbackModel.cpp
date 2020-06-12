@@ -17,7 +17,7 @@ namespace abyss::Enemy
     {
         m_pActor
             ->find<AudioSourceModel>()
-            ->playAt(U"Enemy/damage.wav");
+            ->playAt(U"Damage");
     }
 
 }

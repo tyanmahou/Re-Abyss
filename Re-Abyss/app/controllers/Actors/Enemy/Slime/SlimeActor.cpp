@@ -28,6 +28,10 @@ namespace abyss::Slime
 		this->attach<DamageModel>(this);
 		this->attach<DeadCallbackModel>(this);
 		this->attach<SenserCtrlModel>();
+
+		{
+			this->find<AudioSourceModel>()->load(U"Enemy/Slime/slime.aase");
+		}
 	}
 
 	void SlimeActor::start()

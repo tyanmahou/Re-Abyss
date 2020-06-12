@@ -37,7 +37,8 @@ namespace abyss::Enemy
 		}
 		// 音源
 		{
-			this->attach<AudioSourceModel>(this);
+			this->attach<AudioSourceModel>(this)
+				->load(U"Enemy/enemy.aase");
 		}
 		// 呼吸
 		{

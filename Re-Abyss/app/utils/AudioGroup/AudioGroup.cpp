@@ -78,7 +78,7 @@ namespace abyss
     void AudioGroup::Impl::merge(const s3d::FilePath& aase)
     {
 #ifdef ABYSS_CUSTOM
-        auto other = ResourceManager::Main()->loadAudioGroup(aase);
+        auto other = ResourceManager::Main()->loadAudioGroup(aase, Path::Root);
         this->merge(*other.m_pImpl);
 #else
         Impl other(aase);
