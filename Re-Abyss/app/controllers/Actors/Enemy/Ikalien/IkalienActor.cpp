@@ -5,33 +5,39 @@
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
+#include <abyss/types/CShape.hpp>
 
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 namespace abyss::Ikalien
 {
     IkalienActor::IkalienActor(const IkalienEntity& entity):
-        EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<IkalienVM>())
     {
-        m_hp->initHp(Param::Base::Hp);
-        m_body->noneResistanced().setPivot(Param::Base::Pivot);
+        Enemy::EnemyBuilder builder(this);
+        builder
+            .setInitPos(entity.pos)
+            .setBodyPivot(Param::Base::Pivot)
+            .setForward(entity.forward)
+            .setInitHp(Param::Base::Hp)
+            .setColliderFunc([this] {
+                return this->getCollider();
+            })
+            .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
+            .build();
 
-        m_rotate = this->attach<RotateModel>();
-
-        this->attach<StateModel<IkalienActor>>(this)
-            ->add<WaitState>(State::Wait)
-            .add<PursuitState>(State::Pursuit)
-            .add<SwimState>(State::Swim)
-        ;
-        this->attach<DamageModel>(this);
-        this->attach<Enemy::DeadCallbackModel>(this);
-
-        this->find<CustomColliderModel>()->setColFunc([this] {
-            return this->getCollider();
-        });
+        {
+            m_body->noneResistanced();
+        }
+        {
+            m_rotate = this->attach<RotateModel>();
+        }
+        {
+            this->attach<StateModel<IkalienActor>>(this)
+                ->add<WaitState>(State::Wait)
+                .add<PursuitState>(State::Pursuit)
+                .add<SwimState>(State::Swim)
+                ;
+        }
     }
     CShape IkalienActor::getCollider() const
     {
