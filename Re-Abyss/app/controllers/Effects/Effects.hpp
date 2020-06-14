@@ -20,7 +20,7 @@ namespace abyss
     public:
         Effects();
 
-        void init(const TimeController& time);
+        void init(const GlobalTime& time);
         template<EffectGroup Group, class Type, class... Args>
         void add(Args&& ... args) const
         {

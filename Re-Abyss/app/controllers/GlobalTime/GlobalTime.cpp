@@ -1,11 +1,11 @@
-#include "TimeController.hpp"
+#include "GlobalTime.hpp"
 #include <Siv3D/Stopwatch.hpp>
 #include <Siv3D/Math.hpp>
 
 namespace abyss
 {
     using namespace s3d;
-    class TimeController::Impl
+    class GlobalTime::Impl
     {
     private:
         Stopwatch m_stopwatch{ true };
@@ -61,40 +61,40 @@ namespace abyss
         }
     };
 
-    TimeController::TimeController() :
+    GlobalTime::GlobalTime() :
         m_pImpl(std::make_unique<Impl>())
     {}
-    TimeController::~TimeController()
+    GlobalTime::~GlobalTime()
     {}
-    void TimeController::update() const
+    void GlobalTime::update() const
     {
         return m_pImpl->update();
     }
-    double TimeController::time() const
+    double GlobalTime::time() const
     {
         return m_pImpl->time();
     }
-    s3d::Microseconds TimeController::timeMicroSec() const
+    s3d::Microseconds GlobalTime::timeMicroSec() const
     {
         return m_pImpl->timeMicroSec();
     }
-    double TimeController::deltaTime() const
+    double GlobalTime::deltaTime() const
     {
         return m_pImpl->deltaTime();
     }
-    void TimeController::pause() const
+    void GlobalTime::pause() const
     {
         return m_pImpl->pause();
     }
-    void TimeController::resume() const
+    void GlobalTime::resume() const
     {
         return m_pImpl->resume();
     }
-    void TimeController::setTimeScale(double timeScale) const
+    void GlobalTime::setTimeScale(double timeScale) const
     {
         return m_pImpl->setTimeScale(timeScale);
     }
-    bool TimeController::isPuase() const
+    bool GlobalTime::isPuase() const
     {
         return m_pImpl->isPause();
     }

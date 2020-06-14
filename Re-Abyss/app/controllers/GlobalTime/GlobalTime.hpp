@@ -7,15 +7,15 @@ using namespace std::literals;
 
 namespace abyss
 {
-    class TimeController
+    class GlobalTime
     {
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
 
     public:
-        TimeController();
-        ~TimeController();
+        GlobalTime();
+        ~GlobalTime();
         void update() const;
 
         double time() const;

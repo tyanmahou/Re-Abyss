@@ -821,9 +821,6 @@
     <ClCompile Include="tests\tests\testing.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\TimeController\TimeController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Stage\StageData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -867,6 +864,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1301,7 +1301,6 @@
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
-    <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
     <ClInclude Include="app\controllers\Stage\StageData.hpp" />
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
@@ -1322,5 +1321,6 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
+    <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
   </ItemGroup>
 </Project>

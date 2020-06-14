@@ -1,13 +1,13 @@
 #include "ICameraWork.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/TimeController/TimeController.hpp>
+#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 
 namespace abyss
 {
     using namespace s3d;
 
     ICameraWork::ICameraWork(Manager* pManager, double animeMilliSec) :
-        m_animation(false, [pManager] {return pManager->getModule<TimeController>()->timeMicroSec(); }),
+        m_animation(false, [pManager] {return pManager->getModule<GlobalTime>()->timeMicroSec(); }),
         m_animeMilliSec(animeMilliSec),
         m_pManager(pManager)
     {}

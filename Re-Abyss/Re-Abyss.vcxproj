@@ -183,7 +183,7 @@
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
-    <ClCompile Include="app\controllers\TimeController\TimeController.cpp" />
+    <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
@@ -470,7 +470,7 @@
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\controllers\Stage\StageData.hpp" />
-    <ClInclude Include="app\controllers\TimeController\TimeController.hpp" />
+    <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />

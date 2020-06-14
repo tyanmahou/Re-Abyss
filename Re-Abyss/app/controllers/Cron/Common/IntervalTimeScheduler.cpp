@@ -1,6 +1,6 @@
 #include "IntervalTimeScheduler.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/TimeController/TimeController.hpp>
+#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 namespace abyss::cron
 {
     IntervalTimeScheduler::IntervalTimeScheduler(const s3d::Duration& duration):
@@ -8,7 +8,7 @@ namespace abyss::cron
     {}
     void IntervalTimeScheduler::start()
     {
-        auto time = m_pManager->getModule<TimeController>();
+        auto time = m_pManager->getModule<GlobalTime>();
         auto timeFunc = [time] {return time->timeMicroSec(); };
         m_timer = IntervalTimer(m_duration, true, timeFunc);
     }

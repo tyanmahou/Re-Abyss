@@ -11,7 +11,7 @@ namespace abyss
 	/// </summary>
 	class System;
 	class Manager;
-	class TimeController;
+	class GlobalTime;
 	class Camera;
 	class ICameraWork;
 	class DoorCameraWork;

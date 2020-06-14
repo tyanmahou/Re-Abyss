@@ -1,6 +1,6 @@
 #include "BubbleEffect.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/TimeController/TimeController.hpp>
+#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 namespace abyss
 {
@@ -37,7 +37,7 @@ namespace abyss
     {
         ScopedRenderStates2D state(BlendState::Additive);
 
-        double dt = m_pManager->getModule<TimeController>()->deltaTime();
+        double dt = m_pManager->getModule<GlobalTime>()->deltaTime();
         const double r = Min(m_maxRadius, EaseOut(Easing::Cubic, 0.0, m_maxRadius, t));
         m_pos += m_speed * dt;
         Vec2 pos = m_pos + Vec2{ m_deflection * Sin(t),0.0 };

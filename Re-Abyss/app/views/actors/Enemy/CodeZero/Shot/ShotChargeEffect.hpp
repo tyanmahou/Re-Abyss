@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D.hpp>
-#include <abyss/controllers/TimeController/TimeController.hpp>
+#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 namespace abyss::CodeZero::Shot
 {
     struct ShotChargeEffect : IEffect
@@ -21,8 +21,8 @@ namespace abyss::CodeZero::Shot
         //エフェクトの中心
         Vec2 m_pos;
         s3d::int32 m_count = 140;
-        TimeController* m_pTime;
-        ShotChargeEffect(TimeController* pTime, const Vec2& pos) :
+        GlobalTime* m_pTime;
+        ShotChargeEffect(GlobalTime* pTime, const Vec2& pos) :
             m_pos(pos),
             m_pTime(pTime)
         {}
