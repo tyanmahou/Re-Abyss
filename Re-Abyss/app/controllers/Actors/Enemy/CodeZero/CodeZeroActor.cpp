@@ -21,6 +21,8 @@ namespace abyss::CodeZero
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setIsEnableCollider(false)
+            .setIsEnableDamage(false)
+            .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
             .build();
         {

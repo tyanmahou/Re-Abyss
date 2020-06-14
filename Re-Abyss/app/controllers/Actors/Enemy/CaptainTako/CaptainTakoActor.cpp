@@ -5,22 +5,22 @@
 #include <abyss/models/Actors/Enemy/CaptainTako/State/AttackState.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 namespace abyss::CaptainTako
 {
     CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity):
         EnemyActor(entity.pos, entity.forward),
         m_view(std::make_unique<CaptainTakoVM>())
     {
-        {
-            m_hp
-                ->initHp(Param::Base::Hp);
-        }
-        {
-            m_body
-                ->setSize(Param::Base::Size).setPivot(Param::Base::Pivot);
-        }
+        Enemy::EnemyBuilder builder(this);
+        builder
+            .setInitPos(entity.pos)
+            .setForward(entity.forward)
+            .setBodySize(Param::Base::Size)
+            .setBodyPivot(Param::Base::Pivot)
+            .setInitHp(Param::Base::Hp)
+            .setAudioSettingGroupPath(U"Enemy/CaptainTako/captain_tako.aase")
+            .build();
 
         {
             this->attach<StateModel<CaptainTakoActor>>(this)
@@ -28,13 +28,6 @@ namespace abyss::CaptainTako
                 .add<ChargeState>(State::Charge)
                 .add<AttackState>(State::Attack)
                 ;
-        }
-        {
-            this->attach<DamageModel>(this);
-            this->attach<Enemy::DeadCallbackModel>(this);
-        }
-        {
-            this->find<AudioSourceModel>()->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
     }
     bool CaptainTakoActor::accept(const ActVisitor & visitor)
