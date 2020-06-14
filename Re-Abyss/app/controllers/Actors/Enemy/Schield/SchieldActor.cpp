@@ -10,18 +10,27 @@
 #include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 #include <abyss/types/CShape.hpp>
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+
 namespace abyss::Schield
 {
     SchieldActor::SchieldActor(const SchieldEntity& entity):
-        EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<SchieldVM>())
     {
-        {
-            m_hp->initHp(Param::Base::Hp);
-        }
-        {
-            m_body->setSize(Param::Base::Size);
-        }
+        Enemy::EnemyBuilder builder(this);
+
+        builder
+            .setInitPos(entity.pos)
+            .setForward(entity.forward)
+            .setBodySize(Param::Base::Size)
+            .setInitHp(Param::Base::Hp)
+            .setColliderFunc([this] {
+                return this->getCollider();
+            })
+            .setAudioSettingGroupPath(U"Enemy/Schield/schield.aase")
+            .setIsEnableDamage(false)
+            .build();
+
         {
             (m_state = this->attach<StateModel<SchieldActor>>(this))
                 ->add<WaitState>(State::Wait)
@@ -29,13 +38,7 @@ namespace abyss::Schield
                 .add<AttackCrossState>(State::AttackCross)
                 ;
         }
-        {
-            this->find<CustomColliderModel>()->setColFunc([this] {
-                return this->getCollider();
-            });
-        }
         this->attach<DamageModel>(this);
-        this->attach<Enemy::DeadCallbackModel>(this);
     }
     s3d::Circle SchieldActor::getFaceCollider() const
     {

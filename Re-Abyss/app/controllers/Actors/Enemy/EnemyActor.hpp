@@ -16,6 +16,7 @@ namespace abyss
 			public Attacker,
 			public Receiver
 		{
+			friend class EnemyBuilder;
 		protected:
 			Ref<BodyModel> m_body;
 			Ref<HPModel> m_hp;

@@ -1,0 +1,94 @@
+#pragma once
+#include <functional>
+#include <Siv3D/String.hpp>
+
+#include <abyss/types/Forward.hpp>
+#include <abyss/commons/Fwd.hpp>
+
+namespace abyss::Enemy
+{
+    class EnemyBuilder
+    {
+    private:
+        EnemyActor* m_pActor;
+
+        // body
+        s3d::Vec2 m_pos;
+        s3d::Vec2 m_bodySize;
+        Forward m_forward;
+
+        // hp
+        s3d::int32 m_initHp;
+
+        // collder
+        bool m_isEnableCollider = true;
+        std::function<CShape()> m_colliderFunc;
+
+        // audio sourece
+        s3d::String m_audioSettingGroupPath;
+
+        // damage
+        bool m_isEnableDamage = true;
+
+        // deadcallabck
+        bool m_isEnableDeadCallback = true;
+
+        // breathing
+        bool m_isEnableBreathing = true;
+    public:
+        EnemyBuilder(EnemyActor* pActor);
+
+        EnemyBuilder& setInitPos(const s3d::Vec2& pos)
+        {
+            m_pos = pos;
+            return *this;
+        }
+        EnemyBuilder& setBodySize(const s3d::Vec2& size)
+        {
+            m_bodySize = size;
+            return *this;
+        }
+        EnemyBuilder& setForward(Forward forward)
+        {
+            m_forward = forward;
+            return *this;
+        }
+        EnemyBuilder& setInitHp(s3d::int32 hp)
+        {
+            m_initHp = hp;
+            return *this;
+        }
+        EnemyBuilder& setIsEnableCollider(bool enable)
+        {
+            m_isEnableCollider = enable;
+            return *this;
+        }
+        EnemyBuilder& setColliderFunc(const std::function<CShape()>& func)
+        {
+            m_colliderFunc = func;
+            return *this;
+        }
+        EnemyBuilder& setAudioSettingGroupPath(const s3d::String& path)
+        {
+            m_audioSettingGroupPath = path;
+            return *this;
+        }
+        EnemyBuilder& setIsEnableDamage(bool enable)
+        {
+            m_isEnableDamage = enable;
+            return *this;
+        }
+        EnemyBuilder& setIsEnableDeadCallback(bool enable)
+        {
+            m_isEnableDeadCallback = enable;
+            return *this;
+        }
+        EnemyBuilder& setIsEnableBreathing(bool enable)
+        {
+            m_isEnableBreathing = enable;
+            return *this;
+        }
+
+        void build() const;
+    };
+}

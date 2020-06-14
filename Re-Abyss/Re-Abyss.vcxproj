@@ -177,6 +177,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Cron\base\BatchHolder.cpp" />
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
@@ -456,6 +457,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
