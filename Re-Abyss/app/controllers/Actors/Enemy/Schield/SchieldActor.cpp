@@ -5,10 +5,7 @@
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 #include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
-
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 

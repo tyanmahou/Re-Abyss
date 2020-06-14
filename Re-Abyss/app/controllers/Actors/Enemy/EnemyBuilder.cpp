@@ -15,6 +15,7 @@ namespace abyss::Enemy
         m_pActor(pActor),
 		m_pos(0, 0),
 		m_bodySize(40, 40),
+		m_bodyPivot(0, 0),
 		m_forward(Forward::Left),
 		m_initHp(1),
 		m_colliderFunc([pActor]()->CShape {
@@ -33,6 +34,7 @@ namespace abyss::Enemy
 				->initPos(m_pos)
 				.setForward(m_forward)
 				.setSize(m_bodySize)
+				.setPivot(m_bodyPivot)
 			;
 		}
 		// HP

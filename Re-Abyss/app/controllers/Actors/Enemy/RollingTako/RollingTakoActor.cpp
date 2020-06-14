@@ -4,24 +4,26 @@
 #include <abyss/models/Actors/Enemy/RollingTako/State/WaitState.hpp>
 #include <abyss/models/Actors/Enemy/RollingTako/State/RunState.hpp>
 
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
-
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 namespace abyss::RollingTako
 {
     RollingTakoActor::RollingTakoActor(const RollingTakoEntity& entity):
-        EnemyActor(entity.pos, entity.forward),
         m_isWait(entity.wait),
         m_view(std::make_unique<RollingTakoVM>())
     {
+        Enemy::EnemyBuilder builder(this);
+
+        builder
+            .setInitPos(entity.pos)
+            .setForward(entity.forward)
+            .setBodySize(Param::Base::Size)
+            .setBodyPivot(Param::Base::Pivot)
+            .setInitHp(Param::Base::Hp)
+            .setAudioSettingGroupPath(U"Enemy/RollingTako/rolling_tako.aase")
+            .build();
+
         {
-            m_hp->initHp(Param::Base::Hp);
-        }
-        {
-            m_body
-                ->setSize(Param::Base::Size)
-                .setPivot(Param::Base::Pivot)
-                .setMaxSpeedX(Param::Run::MaxSpeedX);
+            m_body->setMaxSpeedX(Param::Run::MaxSpeedX);
         }
         {
             (m_state = this->attach<StateModel<RollingTakoActor>>(this))
@@ -32,8 +34,6 @@ namespace abyss::RollingTako
                 m_state->changeState(State::Run);
             }
         }
-        this->attach<DamageModel>(this);
-        this->attach<Enemy::DeadCallbackModel>(this);
     }
 
     bool RollingTakoActor::accept(const ActVisitor & visitor)

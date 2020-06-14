@@ -41,7 +41,7 @@ namespace abyss::LaunShark::Shot
             ;
 
         this->attach<DamageModel>(this);
-        this->attach<AudioSourceModel>(this);
+        this->attach<AudioSourceModel>(this)->load(U"Enemy/LaunShark/shot.aase");
         this->attach<DeadOnHItReceiverModel>(this);
         this->attach<Enemy::DeadCallbackModel>(this);
         this->attach<Enemy::DamageCallbackModel>(this);

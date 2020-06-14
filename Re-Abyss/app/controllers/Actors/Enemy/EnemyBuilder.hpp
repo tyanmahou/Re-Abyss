@@ -15,6 +15,7 @@ namespace abyss::Enemy
         // body
         s3d::Vec2 m_pos;
         s3d::Vec2 m_bodySize;
+        s3d::Vec2 m_bodyPivot;
         Forward m_forward;
 
         // hp
@@ -46,6 +47,11 @@ namespace abyss::Enemy
         EnemyBuilder& setBodySize(const s3d::Vec2& size)
         {
             m_bodySize = size;
+            return *this;
+        }
+        EnemyBuilder& setBodyPivot(const s3d::Vec2& pivot)
+        {
+            m_bodyPivot = pivot;
             return *this;
         }
         EnemyBuilder& setForward(Forward forward)
