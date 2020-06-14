@@ -51,8 +51,10 @@ namespace abyss
         Ref<Component> add(const std::shared_ptr<Component>& component) const
             requires IsComponent<Component>
         {
+            if (!add(typeid(Component), component)) {
+                return this->find<Component>();
+            }
             detail::MappingComponentTree<Component>{}.mapping(this, component);
-            add(typeid(Component), component);
             return Ref<Component>(component);
         }
 

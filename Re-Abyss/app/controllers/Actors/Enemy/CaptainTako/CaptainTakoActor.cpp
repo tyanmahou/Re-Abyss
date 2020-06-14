@@ -9,7 +9,6 @@
 namespace abyss::CaptainTako
 {
     CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity):
-        EnemyActor(entity.pos, entity.forward),
         m_view(std::make_unique<CaptainTakoVM>())
     {
         Enemy::EnemyBuilder builder(this);
