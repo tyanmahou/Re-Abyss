@@ -1,49 +1,16 @@
 #include "EnemyActor.hpp"
-#include <abyss/models/Collision/LayerGroup.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/BreathingModel.hpp>
-#include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+#include <abyss/types/CShape.hpp>
 
 namespace abyss::Enemy
 {
 	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
 	{
-		// Body
-		{
-			(m_body = this->attach<BodyModel>(this))
-				->initPos(pos)
-				.setForward(forward);
-		}
-		// HP
-		{
-			(m_hp = this->attach<HPModel>(this))
-				->initHp(1)
-				.setInvincibleTime(0.2);
-
-		}
-
-		// Collider
-		{
-			auto collider = this->attach<CustomColliderModel>(this);
-			collider->setColFunc([this] {
-				return this->region();
-			});
-			collider->setLayer(LayerGroup::Enemy);
-		}
-
-		// ダメージのコンポーネント
-		{
-			this->attach<DamageCallbackModel>(this);
-		}
-		// 音源
-		{
-			this->attach<AudioSourceModel>(this)
-				->load(U"Enemy/enemy.aase");
-		}
-		// 呼吸
-		{
-			this->attach<BreathingModel>(this);
-		}
+		EnemyBuilder builder(this);
+		builder
+			.setInitPos(pos)
+			.setForward(forward)
+			;
 	}
 	void EnemyActor::start()
 	{}
