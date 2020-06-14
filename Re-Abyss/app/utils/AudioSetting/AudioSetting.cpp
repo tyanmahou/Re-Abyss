@@ -12,8 +12,7 @@ namespace abyss
             },
             [&](const s3d::Vec2& l) {
                 audio.setLoop(Duration(l.x), Duration(l.y));
-            },
-            [&](s3d::None_t) {}
+            }
         }, loop);
     }
 }

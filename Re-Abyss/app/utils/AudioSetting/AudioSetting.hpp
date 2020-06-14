@@ -7,7 +7,7 @@ namespace abyss
     struct AudioSetting
     {
         s3d::String path;
-        std::variant<s3d::None_t, bool, s3d::Vec2> loop = s3d::none;
+        std::variant<bool, s3d::Vec2> loop = false;
 
         /// <summary>
         /// 設定を適用する

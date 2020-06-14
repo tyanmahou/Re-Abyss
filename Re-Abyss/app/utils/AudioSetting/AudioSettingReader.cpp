@@ -14,6 +14,8 @@ namespace abyss
             ret.loop = *loop;
         } else if (auto loopVec2 = toml[U"loop"].getOpt<Vec2>()) {
             ret.loop = *loopVec2;
+        } else {
+            ret.loop = false;
         }
         return ret;
     }
