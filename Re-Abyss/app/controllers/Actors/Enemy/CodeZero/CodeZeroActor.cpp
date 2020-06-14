@@ -8,17 +8,21 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
-
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
-#include <abyss/models/Actors/Commons/BreathingModel.hpp>
+#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
 namespace abyss::CodeZero
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity):
-        EnemyActor(entity.pos, entity.forward),
         m_view(std::make_shared<Body::BodyVM>())
     {
+        Enemy::EnemyBuilder builder(this);
+        builder
+            .setInitPos(entity.pos)
+            .setForward(entity.forward)
+            .setInitHp(Param::Base::Hp)
+            .setIsEnableCollider(false)
+            .setIsEnableBreathing(false)
+            .build();
         {
             m_hp->initHp(Param::Base::Hp);
         }
@@ -31,14 +35,6 @@ namespace abyss::CodeZero
                 .add<Phase2State>(State::Phase2)
                 .add<Phase3State>(State::Phase3)
                 ;
-        }
-        {
-            // コライダーを使用しないので削除
-            this->detach<CustomColliderModel>();
-        }
-        {
-            // 呼吸をを使用しないので削除
-            this->detach<BreathingModel>();
         }
         {
             this->attach<PatternModel>(this);
