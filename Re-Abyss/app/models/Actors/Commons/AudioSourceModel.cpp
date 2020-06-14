@@ -80,7 +80,7 @@ namespace abyss
 
     void AudioSourceModel::load(const s3d::FilePath& path)
     {
-        m_audioGroup = ResourceManager::Main()->loadAudioGroup(U"se/Actors/" + path);
+        m_audioSettingGroup = ResourceManager::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
     }
 
     void AudioSourceModel::onUpdate([[maybe_unused]] double dt)
@@ -99,11 +99,10 @@ namespace abyss
 
     void AudioSourceModel::play(const s3d::String& key)
     {
-        if (auto baseAudio = m_audioGroup(key)) {
+        auto as = m_audioSettingGroup(key);
+        if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
-            if (auto loop = baseAudio.getLoop()) {
-                audio.setLoop(loop->beginPos, loop->endPos);
-            }
+            as.apply(audio);
             this->playDirect(audio);
         }
     }
@@ -116,11 +115,10 @@ namespace abyss
 
     void AudioSourceModel::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
-        if (auto baseAudio = m_audioGroup(key)) {
+        auto as = m_audioSettingGroup(key);
+        if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
-            if (auto loop = baseAudio.getLoop()) {
-                audio.setLoop(loop->beginPos, loop->endPos);
-            }
+            as.apply(audio);
             this->playAtDirect(audio, pos);
         }
     }

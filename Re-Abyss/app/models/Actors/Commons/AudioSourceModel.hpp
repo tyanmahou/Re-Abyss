@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/AudioGroup/AudioGroup.hpp>
+#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 
 namespace abyss
 {
@@ -19,7 +19,7 @@ namespace abyss
         IActor* m_pActor;
         Ref<BodyModel> m_body;
         s3d::Array<s3d::Audio> m_audios;
-        AudioGroup m_audioGroup;
+        AudioSettingGroup m_audioSettingGroup;
     public:
         AudioSourceModel(IActor* pActor);
         void setup() override;

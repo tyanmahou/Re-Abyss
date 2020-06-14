@@ -13,7 +13,7 @@ namespace s3dTiled
 
 namespace abyss
 {
-    class AudioGroup;
+    class AudioSettingGroup;
 
     namespace Path
     {
@@ -39,7 +39,7 @@ namespace abyss
         s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         TexturePacker loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
-        AudioGroup loadAudioGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        AudioSettingGroup loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
         s3d::PixelShader loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
 

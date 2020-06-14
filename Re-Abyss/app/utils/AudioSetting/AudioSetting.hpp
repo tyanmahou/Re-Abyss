@@ -1,14 +1,19 @@
 #pragma once
-#include <Siv3D/Audio.hpp>
+#include <variant>
 #include <Siv3D/String.hpp>
-
+#include <Siv3D/Vector2D.hpp>
 namespace abyss
 {
-    class AudioSetting
+    struct AudioSetting
     {
-    public:
-        s3d::Audio load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const;
+        s3d::String path;
+        std::variant<s3d::None_t, bool, s3d::Vec2> loop = s3d::none;
 
-        s3d::Audio load(const s3d::FilePath& path) const;
+        /// <summary>
+        /// 設定を適用する
+        /// </summary>
+        /// <param name="audio"></param>
+        void apply(s3d::Audio& audio);
     };
+
 }

@@ -1,8 +1,8 @@
 #include "ResourceManager.hpp"
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
-#include <abyss/utils/AudioSetting/AudioSetting.hpp>
-#include <abyss/utils/AudioGroup/AudioGroup.hpp>
+#include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
+#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 #include <Siv3D.hpp>
 #include <S3DTiled.hpp>
 namespace abyss
@@ -13,7 +13,7 @@ namespace abyss
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
         s3d::HashTable<String, Audio> m_audioCache;
-        s3d::HashTable<String, AudioGroup> m_audioGroupCache;
+        s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
 #if ABYSS_DEBUG
@@ -57,8 +57,10 @@ namespace abyss
             }
             Audio ret;
             if (FileSystem::Extension(path) == U"aas") {
-                AudioSetting as;
-                ret = as.load(FileUtil::FixResource(path, m_isBuilded));
+                AudioSettingReader reader;
+                auto as = reader.load(FileUtil::FixResource(path, m_isBuilded));
+                ret = this->loadAudio(as.path);
+                as.apply(ret);
             } else {
                 ret = Audio(FileUtil::FixResource(path, m_isBuilded));
             }
@@ -70,9 +72,9 @@ namespace abyss
 #endif
             return m_audioCache[path] = ret;
         }
-        AudioGroup loadAudioGroup(const s3d::FilePath& path)
+        AudioSettingGroup loadAudioSettingGroup(const s3d::FilePath& path)
         {
-            return this->load<AudioGroup>(m_audioGroupCache, path);
+            return this->load<AudioSettingGroup>(m_audioGroupCache, path);
         }
         PixelShader loadPs(const s3d::FilePath& path)
         {
@@ -130,9 +132,9 @@ namespace abyss
         return m_pImpl->loadAudio(FileUtil::FixRelativePath(prefix + path));
     }
 
-    AudioGroup ResourceManager::loadAudioGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    AudioSettingGroup ResourceManager::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadAudioGroup(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadAudioSettingGroup(FileUtil::FixRelativePath(prefix + path));
     }
 
     s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const

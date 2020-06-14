@@ -1,7 +1,7 @@
-#include "AudioGroup.hpp"
+#include "AudioSettingGroup.hpp"
 #include <Siv3D.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
-#include <abyss/utils/AudioSetting/AudioSetting.hpp>
+#include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
 
 #define ABYSS_CUSTOM
 
@@ -11,9 +11,9 @@
 
 namespace abyss
 {
-    class AudioGroup::Impl
+    class AudioSettingGroup::Impl
     {
-        HashTable<String, Audio> m_audios;
+        HashTable<String, AudioSetting> m_audios;
     public:
         Impl(const s3d::FilePath& path)
         {
@@ -40,18 +40,23 @@ namespace abyss
                 if (key[0] == U'@') {
                     continue;
                 }
-                m_audios[key] = AudioSetting{}.load(aase, setting);
+                m_audios[key] = AudioSettingReader{}.load(aase, setting);
             }
             return true;
         }
 
-        Audio operator()(const s3d::String& key)
+        AudioSetting operator()(const s3d::String& key)
         {
             if (m_audios.find(key) != m_audios.end()) {
                 return m_audios[key];
             }
-            return Audio();
+            return AudioSetting();
         }
+        bool isContain(const s3d::String& key) const
+        {
+            return m_audios.find(key) != m_audios.end();
+        }
+
         void merge(const s3d::FilePath& ssae);
         void merge(const Impl& other)
         {
@@ -60,25 +65,29 @@ namespace abyss
             }
         }
     };
-    AudioGroup::AudioGroup(const s3d::FilePath& path):
+    AudioSettingGroup::AudioSettingGroup(const s3d::FilePath& path):
         m_pImpl(std::make_shared<Impl>(path))
     {}
 
-    Audio AudioGroup::operator()(const s3d::String& key) const
+    AudioSetting AudioSettingGroup::operator()(const s3d::String& key) const
     {
         if (!m_pImpl) {
-            return Audio();
+            return AudioSetting();
         }
         return (*m_pImpl)(key);
     }
-    AudioGroup::operator bool() const
+    AudioSettingGroup::operator bool() const
     {
         return m_pImpl != nullptr;
     }
-    void AudioGroup::Impl::merge(const s3d::FilePath& aase)
+    bool AudioSettingGroup::isContain(const s3d::String& key) const
+    {
+        return m_pImpl->isContain(key);
+    }
+    void AudioSettingGroup::Impl::merge(const s3d::FilePath& aase)
     {
 #ifdef ABYSS_CUSTOM
-        auto other = ResourceManager::Main()->loadAudioGroup(aase, Path::Root);
+        auto other = ResourceManager::Main()->loadAudioSettingGroup(aase, Path::Root);
         this->merge(*other.m_pImpl);
 #else
         Impl other(aase);
