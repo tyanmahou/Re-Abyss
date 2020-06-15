@@ -51,5 +51,8 @@ namespace abyss
         void loadStage(const std::shared_ptr<StageData>& stageData);
 
         std::shared_ptr<Player::PlayerActor> lockPlayer() const;
+
+        void restart();
+    private:
     };
 }

@@ -160,4 +160,8 @@ namespace abyss
     {
         return m_world.find<Player::PlayerActor>().lock();
     }
+    void System::restart()
+    {
+
+    }
 }

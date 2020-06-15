@@ -25,5 +25,9 @@ namespace abyss
         {
             m_bgm = bgm;
         }
+        void setBgm(const s3d::Optional<s3d::String>& bgm)
+        {
+            m_bgm = bgm;
+        }
     };
 }

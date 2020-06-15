@@ -22,7 +22,8 @@ namespace abyss::Event::Talk
         return *this;
     }
     void TalkEvent::init()
-    {}
+    {    
+    }
     bool TalkEvent::update(double dt)
     {
         if (m_events.empty()) {

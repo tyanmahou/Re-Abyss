@@ -43,5 +43,6 @@ namespace abyss
 
 		void load();
 		void setStageData(std::shared_ptr<StageData> stageData);
+		std::shared_ptr<StageData> lockStageData()const;
     };
 }

@@ -17,4 +17,9 @@ namespace abyss
         m_userInterfaces.push(ui);
     }
 
+    void UI::setActiveAll(bool isActive)
+    {
+        m_userInterfaces.setActiveAll(isActive);
+    }
+
 }

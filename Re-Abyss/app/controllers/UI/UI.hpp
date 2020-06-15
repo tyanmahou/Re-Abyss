@@ -42,5 +42,7 @@ namespace abyss
             this->regist(obj);
             return obj;
         }
+
+        void setActiveAll(bool isActive);
     };
 }

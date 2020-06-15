@@ -57,4 +57,14 @@ namespace abyss::ui
         m_uis.clear();
     }
 
+    void UserInterfaceHolder::setActiveAll(bool isActive)
+    {
+        for (auto&& ui : m_reserves) {
+            ui->setActive(isActive);
+        }
+        for (auto&& ui : m_uis) {
+            ui->setActive(isActive);
+        }
+    }
+
 }

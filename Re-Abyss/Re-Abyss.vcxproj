@@ -182,12 +182,15 @@
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
+    <ClCompile Include="app\controllers\Save\Save.cpp" />
+    <ClCompile Include="app\controllers\Save\SaveData.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
     <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
+    <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp" />
@@ -470,6 +473,8 @@
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
+    <ClInclude Include="app\controllers\Save\SaveData.hpp" />
+    <ClInclude Include="app\controllers\Save\Save.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
     <ClInclude Include="app\controllers\Stage\StageData.hpp" />
     <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
@@ -491,7 +496,9 @@
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
-    <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
+    <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />

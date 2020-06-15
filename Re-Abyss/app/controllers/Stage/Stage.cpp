@@ -313,4 +313,8 @@ namespace abyss
     {
         m_stageData = stageData;
     }
+    std::shared_ptr<StageData> Stage::lockStageData() const
+    {
+        return m_stageData;
+    }
 }

@@ -22,5 +22,7 @@ namespace abyss::ui
         void erase();
 
         void clear();
+
+        void setActiveAll(bool isActive);
     };
 }

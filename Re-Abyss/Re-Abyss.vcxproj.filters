@@ -875,6 +875,15 @@
     <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Save\Save.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Save\SaveData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1315,7 +1324,6 @@
     <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
     <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
-    <ClInclude Include="app\models\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
@@ -1330,5 +1338,10 @@
     <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
+    <ClInclude Include="app\controllers\Save\SaveData.hpp" />
+    <ClInclude Include="app\controllers\Save\Save.hpp" />
+    <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
+    <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
   </ItemGroup>
 </Project>

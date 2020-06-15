@@ -94,7 +94,6 @@ namespace abyss
 			m_system = std::make_unique<System>();
 			auto stageData = StageDataFactory::CreateFromTmx(mapName);
 			m_system->loadStage(stageData);
-			//m_System = SystemFactory::CreateFromTmx(mapName);
 
 			::PreloadResourece(m_resources);
 			if (player) {
@@ -108,6 +107,9 @@ namespace abyss
 		{
 #if ABYSS_DEBUG
 			m_reloader.detection();
+			if (KeyF6.down()) {
+				this->init();
+			}
 #endif
 			m_system->update();
 		}

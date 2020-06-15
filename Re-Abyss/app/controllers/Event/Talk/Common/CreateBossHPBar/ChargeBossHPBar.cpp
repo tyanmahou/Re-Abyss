@@ -3,11 +3,13 @@
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-
+#include <abyss/controllers/UI/UI.hpp>
 namespace abyss::Event::Talk
 {
     void ChargeBossHPBar::init()
     {
+        m_pManager->getModule<UI>()->setActiveAll(false);
+        m_hpBar->setActive(true);
         if (m_bossBgmPath) {
             m_pManager->getModule<Sound>()->stop(0s);
         }
@@ -36,6 +38,7 @@ namespace abyss::Event::Talk
         if (auto path = m_bossBgmPath) {
             m_pManager->getModule<Sound>()->play(Path::SoundPath + *path, 0s);
         }
+        m_pManager->getModule<UI>()->setActiveAll(true);
     }
 
 }
