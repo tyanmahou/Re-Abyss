@@ -28,6 +28,8 @@ namespace abyss
 	class Sound;
 	class UI;
 	class Cron;
+	class Save;
+	class SaveData;
 
 	/// Controllers/Actors
 	class IActor;

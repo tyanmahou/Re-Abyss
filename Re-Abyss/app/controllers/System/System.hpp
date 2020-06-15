@@ -31,6 +31,8 @@ namespace abyss
         std::unique_ptr<Decor> m_decor;
         std::unique_ptr<Cron> m_cron;
 
+        std::unique_ptr<Save> m_save;
+
         Manager m_manager;
     public:
         System();
@@ -49,6 +51,12 @@ namespace abyss
         void draw() const;
 
         void loadStage(const std::shared_ptr<StageData>& stageData);
+
+        /// <summary>
+        /// セーブデータを設定する
+        /// </summary>
+        /// <param name="saveData"></param>
+        void loadSaveData(const std::shared_ptr<SaveData>& saveData);
 
         std::shared_ptr<Player::PlayerActor> lockPlayer() const;
 

@@ -20,6 +20,7 @@ namespace abyss
         BackGround* m_pBackGround = nullptr;
         Decor* m_pDecor = nullptr;
         Cron* m_pCron = nullptr;
+        Save* m_pSave = nullptr;
 
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
@@ -44,6 +45,8 @@ namespace abyss
         Manager& set(Decor* pDecor);
 
         Manager& set(Cron* pCron);
+
+        Manager& set(Save* pSave);
 
         Manager& set(Player::PlayerActor* pPlayer);
 

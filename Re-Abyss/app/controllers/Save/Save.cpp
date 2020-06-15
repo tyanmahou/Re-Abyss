@@ -29,4 +29,9 @@ namespace abyss
         m_saveData->setRestartInfo(info);
     }
 
+    void Save::setSaveData(const std::shared_ptr<SaveData>& saveData)
+    {
+        m_saveData = saveData;
+    }
+
 }

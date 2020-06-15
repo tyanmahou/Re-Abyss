@@ -31,5 +31,7 @@ namespace abyss
 
         void setRestartInfo(s3d::int32 startId, const s3d::Optional<s3d::String>& bgm) const;
         void setRestartInfo(const RestartInfoModel& info) const;
+
+        void setSaveData(const std::shared_ptr<SaveData>& saveData);
     };
 }

@@ -10,6 +10,7 @@
 #include <abyss/controllers/Decor/Decor.hpp>
 
 #include <abyss/controllers/Cron/Cron.hpp>
+#include <abyss/controllers/Save/Save.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 
@@ -19,7 +20,8 @@ namespace abyss
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decor(std::make_unique<Decor>()),
-        m_cron(std::make_unique<Cron>())
+        m_cron(std::make_unique<Cron>()),
+        m_save(std::make_unique<Save>())
     {
         m_manager
             .set(&m_time)
@@ -33,6 +35,7 @@ namespace abyss
             .set(m_backGround.get())
             .set(m_decor.get())
             .set(m_cron.get())
+            .set(m_save.get())
             ;
         m_world.setManager(&m_manager);
         m_camera.setManager(&m_manager);
@@ -155,6 +158,10 @@ namespace abyss
     {
         m_stage->setStageData(stageData);
         m_stage->load();
+    }
+    void System::loadSaveData(const std::shared_ptr<SaveData>& saveData)
+    {
+        m_save->setSaveData(saveData);
     }
     std::shared_ptr<Player::PlayerActor> System::lockPlayer() const
     {

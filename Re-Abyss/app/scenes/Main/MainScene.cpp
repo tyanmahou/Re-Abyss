@@ -1,6 +1,7 @@
 #include "MainScene.hpp"
 
 #include <abyss/controllers/System/System.hpp>
+#include <abyss/controllers/Save/SaveData.hpp>
 #include <abyss/factories/Stage/StageDataFactory.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
@@ -54,6 +55,7 @@ namespace abyss
 	class MainScene::Controller
 	{
 		std::unique_ptr<System> m_system;
+		std::shared_ptr<SaveData> m_saveData;
 		ResourceManager m_resources;
 
 		String mapName;
@@ -62,7 +64,8 @@ namespace abyss
 		Debug::HotReload m_reloader;
 #endif
 	public:
-		Controller([[maybe_unused]] const MainScene::InitData& init)
+		Controller([[maybe_unused]] const MainScene::InitData& init):
+			m_saveData(std::make_shared<SaveData>())
 		{
 			mapName = U"stage0";
 #if ABYSS_DEBUG
@@ -94,7 +97,7 @@ namespace abyss
 			m_system = std::make_unique<System>();
 			auto stageData = StageDataFactory::CreateFromTmx(mapName);
 			m_system->loadStage(stageData);
-
+			m_system->loadSaveData(m_saveData);
 			::PreloadResourece(m_resources);
 			if (player) {
 				m_system->init(player);
