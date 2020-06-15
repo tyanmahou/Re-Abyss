@@ -138,14 +138,18 @@ namespace abyss
             m_backGround->drawWaterSarfaceFront(cameraView);
             //m_light.draw(m_time.deltaTime(), cameraView);
 
+            {
+                // 座標系を元に戻す
+                Transformer2D t2dIdentity(Mat3x2::Identity(), false, Transformer2D::Target::SetLocal);
+                constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
+                blackBand.draw(Palette::Black);
+
+                m_events.draw();
+
+                m_userInterface.draw();
+            }
             cameraView.drawCameraWork();
         }
-        constexpr RectF blackBand{0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y};
-        blackBand.draw(Palette::Black);
-        
-        m_events.draw();
-
-        m_userInterface.draw();
     }
     void System::loadStage(const std::shared_ptr<StageData>& stageData)
     {
