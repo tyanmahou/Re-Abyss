@@ -42,9 +42,13 @@ namespace abyss
     {
         return s3d::RectF{ m_pCamera->getPos() - Constants::AppResolutionF / 2, Constants::AppResolutionF };
     }
+	s3d::Mat3x2 CameraView::getMat() const
+	{
+		return s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2 + Constants::GameScreenOffset);
+	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
-		return Transformer2D(s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2 + Constants::GameScreenOffset), Transformer2D::Target::SetLocal);
+		return Transformer2D(this->getMat(), Transformer2D::Target::SetLocal);
 	}
 	void CameraView::drawCameraWork() const
 	{

@@ -869,6 +869,12 @@
     <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1322,5 +1328,7 @@
     <ClInclude Include="app\utils\Overloaded.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
     <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
+    <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
+    <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
   </ItemGroup>
 </Project>

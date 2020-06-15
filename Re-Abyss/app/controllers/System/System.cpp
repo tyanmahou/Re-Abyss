@@ -1,4 +1,5 @@
 #include "System.hpp"
+
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>

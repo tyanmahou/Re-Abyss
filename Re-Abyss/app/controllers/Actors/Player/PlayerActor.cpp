@@ -17,6 +17,9 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
+#include <abyss/controllers/UI/UI.hpp>
+#include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
+
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
@@ -85,6 +88,8 @@ namespace abyss::Player
         // todo 切り替え可能に
         std::shared_ptr<Ooparts::OopartsActor> main = this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
         this->find<OopartsCtrlModel>()->setMain(main);
+
+        this->getModule<UI>()->create<ui::DyingEffect>(this);
     }
     void PlayerActor::setPos(const Vec2& pos)
     {

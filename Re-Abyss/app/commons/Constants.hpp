@@ -21,4 +21,6 @@ namespace abyss::Constants
 
     inline constexpr s3d::Vec2 GameScreenSize = GameScreenSize_v<double>;
     inline constexpr s3d::Vec2 GameScreenOffset = GameScreenOffset_v<double>;
+
+    inline constexpr s3d::RectF GameScreen{ GameScreenOffset , GameScreenSize };
 }
