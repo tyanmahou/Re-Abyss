@@ -91,8 +91,8 @@ namespace abyss::Event::Talk
         {
             return m_side == Side::Right;
         }
-        s3d::StringView getPrevView() const;
-        s3d::StringView getCurrentView() const;
+        s3d::String getPrev() const;
+        const s3d::String& getCurrent() const;
 
         bool isEnd()const;
     };

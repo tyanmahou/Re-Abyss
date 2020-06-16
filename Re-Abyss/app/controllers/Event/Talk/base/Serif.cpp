@@ -50,8 +50,8 @@ namespace abyss::Event::Talk
         const double messagePosX = m_serif.isLeft() ? 300 : 140;
         m_messageView
             ->setStrIndex(m_serif.getStrIndex())
-            .setCurrent(m_serif.getCurrentView())
-            .setPrev(m_serif.getPrevView())
+            .setCurrent(m_serif.getCurrent())
+            .setPrev(m_serif.getPrev())
             .setPos({ messagePosX, 125 })
             .draw()
         ;

@@ -9,12 +9,12 @@ namespace abyss::Event::Talk
         m_pos = pos;
         return *this;
     }
-    MessageVM& MessageVM::setCurrent(s3d::StringView current)
+    MessageVM& MessageVM::setCurrent(const String& current)
     {
         m_currentMessage = current;
         return *this;
     }
-    MessageVM& MessageVM::setPrev(s3d::StringView prev)
+    MessageVM& MessageVM::setPrev(const String& prev)
     {
         m_prevMessage = prev;
         return *this;

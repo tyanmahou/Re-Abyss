@@ -36,11 +36,11 @@ namespace abyss::Event::Talk
         }
         return true;
     }
-    s3d::StringView SerifModel::getPrevView() const
+    s3d::String SerifModel::getPrev() const
     {
         return m_messageIndex > 0 ? m_messages[m_messageIndex -1] : U"";
     }
-    s3d::StringView SerifModel::getCurrentView() const
+    const s3d::String& SerifModel::getCurrent() const
     {
         return m_messages[m_messageIndex];
     }

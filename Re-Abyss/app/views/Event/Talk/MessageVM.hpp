@@ -7,13 +7,13 @@ namespace abyss::Event::Talk
     class MessageVM
     {
         s3d::Vec2 m_pos;
-        s3d::StringView m_currentMessage;
-        s3d::StringView m_prevMessage;
+        s3d::String m_currentMessage;
+        s3d::String m_prevMessage;
         s3d::int32 m_strIndex = 0;
     public:
         MessageVM& setPos(const s3d::Vec2& pos);
-        MessageVM& setCurrent(s3d::StringView current);
-        MessageVM& setPrev(s3d::StringView prev);
+        MessageVM& setCurrent(const s3d::String& current);
+        MessageVM& setPrev(const s3d::String& prev);
         MessageVM& setStrIndex(s3d::int32 strIndex);
         void draw() const;
     };
