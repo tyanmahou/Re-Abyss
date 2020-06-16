@@ -15,6 +15,7 @@ namespace abyss::Event
         }
         virtual void init(){}
         virtual bool update(double dt) = 0;
+        virtual void onEnd(){}
         virtual void draw()const {}
     };
 }

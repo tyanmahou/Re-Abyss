@@ -32,14 +32,19 @@ namespace abyss::FileUtil
 	s3d::FilePath FixResource(const s3d::FilePath& path, bool useResource)
 	{
 		if (useResource) {
+			s3d::FilePath resourcePath;
+			if (path[0] == '/') {
+				resourcePath = path;
+			} else {
+				resourcePath = Resource(path);
+			}
 #if ABYSS_DEBUG
-			auto resourcePath = Resource(path);
 			if (FileSystem::IsResource(resourcePath)) {
 				return resourcePath;
 			}
 			Debug::Log::PrintCache << U"Not Found Resoure: " << path;
 #else
-			return Resource(path);
+			return resourcePath;
 #endif
 		}
 		return path;
@@ -51,5 +56,10 @@ namespace abyss::FileUtil
 		} else {
 			return FileSystem::RelativePath(FileSystem::ParentPath(path));
 		}
+	}
+	s3d::String Extension(const s3d::FilePath& path)
+	{
+		auto basePath = path[0] == U'/' ? path.substr(1) : path;
+		return FileSystem::Extension(basePath);
 	}
 }

@@ -3,9 +3,6 @@
 
 namespace abyss::Event::Talk
 {
-    TriggerEvent::~TriggerEvent()
-    {
-    }
     void TriggerEvent::init()
     {
         auto factory = (*m_triggerManager)[m_triggerName];
@@ -32,5 +29,12 @@ namespace abyss::Event::Talk
             return;
         }
         return m_event->draw();
+    }
+    void TriggerEvent::onEnd()
+    {
+        if (!m_event) {
+            return;
+        }
+        m_event->onEnd();
     }
 }

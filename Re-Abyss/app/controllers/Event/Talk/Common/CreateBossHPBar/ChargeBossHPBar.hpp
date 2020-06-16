@@ -10,6 +10,7 @@ namespace abyss::Event::Talk
     {
         void init()override;
         bool update(double dt) override;
+        void onEnd() override;
     private:
         Ref<ui::BossHPBar> m_hpBar;
         IntervalTimer m_timer;
@@ -17,7 +18,6 @@ namespace abyss::Event::Talk
         s3d::Audio m_se;
     public:
         ChargeBossHPBar(Ref<ui::BossHPBar> hpBar);
-        ~ChargeBossHPBar();
 
         void setBossBgmPath(const s3d::FilePath& path)
         {

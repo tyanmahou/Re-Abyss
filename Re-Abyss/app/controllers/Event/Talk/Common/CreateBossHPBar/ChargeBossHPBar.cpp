@@ -28,12 +28,7 @@ namespace abyss::Event::Talk
         return !m_hpBar->isFull();
     }
 
-    ChargeBossHPBar::ChargeBossHPBar(Ref<ui::BossHPBar> hpBar):
-        m_hpBar(hpBar),
-        m_timer(0.05s, true)
-    {}
-
-    ChargeBossHPBar::~ChargeBossHPBar()
+    void ChargeBossHPBar::onEnd()
     {
         if (auto path = m_bossBgmPath) {
             m_pManager->getModule<Sound>()->play(Path::SoundPath + *path, 0s);
@@ -41,4 +36,8 @@ namespace abyss::Event::Talk
         m_pManager->getModule<UI>()->setActiveAll(true);
     }
 
+    ChargeBossHPBar::ChargeBossHPBar(Ref<ui::BossHPBar> hpBar):
+        m_hpBar(hpBar),
+        m_timer(0.05s, true)
+    {}
 }

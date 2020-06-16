@@ -56,13 +56,14 @@ namespace abyss
                 return m_audioCache[path];
             }
             Audio ret;
-            if (FileSystem::Extension(path) == U"aas") {
+            auto fixPath = FileUtil::FixResource(path, m_isBuilded);
+            if (FileUtil::Extension(fixPath) == U"aas") {
                 AudioSettingReader reader;
-                auto as = reader.load(FileUtil::FixResource(path, m_isBuilded));
+                auto as = reader.load(fixPath);
                 ret = this->loadAudio(as.path);
                 as.apply(ret);
             } else {
-                ret = Audio(FileUtil::FixResource(path, m_isBuilded));
+                ret = Audio(fixPath);
             }
 
 #if ABYSS_DEBUG

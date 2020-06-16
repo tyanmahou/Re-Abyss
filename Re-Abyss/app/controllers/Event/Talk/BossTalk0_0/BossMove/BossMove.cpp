@@ -32,13 +32,12 @@ namespace abyss::Event::Talk::BossTalk0_0
         return camera->isQuake();
     }
 
-    BossMove::~BossMove()
+    void BossMove::onEnd()
     {
         m_pManager->getModule<Camera>()->stopQuake();
         if (!m_codeZero) {
-            return ;
+            return;
         }
         m_codeZero->setPos(m_targetPos);
     }
-
 }

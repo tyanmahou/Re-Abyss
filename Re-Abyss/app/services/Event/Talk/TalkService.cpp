@@ -7,13 +7,17 @@
 #include <abyss/controllers/Event/Talk/BossTalk0_0/Build.hpp>
 #include <Siv3D.hpp>
 
+//todo消す
+#include <abyss/utils/FileUtil/FileUtil.hpp>
+
 namespace abyss::Event::Talk
 {
     std::shared_ptr<TalkEvent> TalkService::load(const s3d::String& path)
     {
         auto talk = std::make_shared<TalkEvent>();
-
-        JSONReader json(path);
+        // todo リソースロード経由にする
+        auto fixPath = FileUtil::FixRelativePath(path);
+        JSONReader json(fixPath);
         if (!json) {
             return talk;
         }

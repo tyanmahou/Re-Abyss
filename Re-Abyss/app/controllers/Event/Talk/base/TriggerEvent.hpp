@@ -14,7 +14,6 @@ namespace abyss::Event::Talk
 
         std::shared_ptr<TriggerManager> m_triggerManager;
     public:
-        ~TriggerEvent() override;
         TriggerEvent& setName(const s3d::String& name)
         {
             m_triggerName = name;
@@ -29,5 +28,6 @@ namespace abyss::Event::Talk
         void init() override;
         bool update(double dt) override;
         void draw() const override;
+        void onEnd() override;
     };
 }

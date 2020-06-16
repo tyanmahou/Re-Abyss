@@ -19,4 +19,7 @@ namespace abyss::FileUtil
     /// </summary>
     s3d::FilePath ParentPath(const s3d::FilePath& path);
 
+    //
+    s3d::String Extension(const s3d::FilePath& path);
+
 }

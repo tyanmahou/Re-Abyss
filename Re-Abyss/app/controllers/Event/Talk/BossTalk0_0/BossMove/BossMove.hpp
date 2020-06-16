@@ -10,8 +10,10 @@ namespace abyss::Event::Talk::BossTalk0_0
 {
     class BossMove : public IEvent
     {
+    public:
         void init()override;
         bool update(double dt) override;
+        void onEnd() override;
     private:
         Ref<CodeZero::Demo::DemoActor> m_codeZero;
 
@@ -19,6 +21,5 @@ namespace abyss::Event::Talk::BossTalk0_0
         s3d::Vec2 m_targetPos;
         bool m_isRequestedLastQuake = false;
     public:
-        ~BossMove();
     };
 }

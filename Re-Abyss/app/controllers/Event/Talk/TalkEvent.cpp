@@ -3,19 +3,6 @@
 
 namespace abyss::Event::Talk
 {
-    TalkEvent::~TalkEvent()
-    {
-        // 残りのイベントを処理する
-        while (!m_events.empty()) {
-            if (!m_doneCurrentInit) {
-                m_events.front()->setManager(m_pManager);
-                m_events.front()->init();
-                m_doneCurrentInit = true;
-            }
-            m_events.pop();
-            m_doneCurrentInit = false;
-        }
-    }
     TalkEvent& TalkEvent::addEvent(const std::shared_ptr<IEvent>& event)
     {
         m_events.push(event);
@@ -39,6 +26,7 @@ namespace abyss::Event::Talk
             m_doneCurrentInit = true;
         }
         if (!m_events.front()->update(dt)) {
+            m_events.front()->onEnd();
             m_events.pop();
             m_doneCurrentInit = false;
         }
@@ -50,6 +38,21 @@ namespace abyss::Event::Talk
             return;
         }
         m_events.front()->draw();
+    }
+
+    void TalkEvent::onEnd()
+    {
+        // 残りのイベントを処理する
+        while (!m_events.empty()) {
+            if (!m_doneCurrentInit) {
+                m_events.front()->setManager(m_pManager);
+                m_events.front()->init();
+                m_doneCurrentInit = true;
+            }
+            m_events.front()->onEnd();
+            m_events.pop();
+            m_doneCurrentInit = false;
+        }
     }
 
 }

@@ -19,6 +19,7 @@ namespace abyss
             m_doneCurrentInit = true;
         }
         if (!m_events.front()->update(dt)) {
+            m_events.front()->onEnd();
             m_events.pop();
             m_doneCurrentInit = false;
         }
