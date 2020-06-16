@@ -27,8 +27,9 @@ namespace abyss
         m_current.setVolume(0.6);
         m_current.play(sec);
     }
-    void Sound::stop(const Duration& sec) const
+    void Sound::stop(const Duration& sec)
     {
+        m_currentPath = s3d::none;
         if (m_current.isPlaying()) {
             m_current.stop(sec);
         }
