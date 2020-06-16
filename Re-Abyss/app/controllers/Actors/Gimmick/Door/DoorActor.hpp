@@ -15,10 +15,12 @@ namespace abyss::Door
 		DoorActor(const DoorModel& door, const RoomModel& nextRoom);
 		CShape getCollider() const;
 
+		s3d::int32 getStartId()const;
 		const RoomModel& getNextRoom() const;
 		const s3d::Vec2& getPos() const;
 		const s3d::Vec2& getTargetPos() const;
 		Forward getTargetForward() const;
+		bool isSave()const;
 		s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 		bool accept(const ActVisitor& visitor) override;
 	};

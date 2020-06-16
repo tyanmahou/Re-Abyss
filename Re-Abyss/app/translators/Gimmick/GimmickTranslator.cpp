@@ -21,10 +21,12 @@ namespace abyss
             if (auto startPos = m_pStage->findStartPos(doorEntity.startId)) {
                 if (auto room = m_pStage->findRoom(startPos->getPos())) {
                     DoorModel door{
+                        startPos->getStartId(),
                         doorEntity.pos, 
                         startPos->getPos(),
                         startPos->getForward(),
-                        doorEntity.size
+                        doorEntity.size,
+                        startPos->isSave()
                     };
                     return std::make_shared<Door::DoorActor>(door, *room);
                 }

@@ -7,5 +7,6 @@ namespace abyss
     { 
         s3d::int32 startId;
         Forward forward;
+        bool isSave;
     };
 }

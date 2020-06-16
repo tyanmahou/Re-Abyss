@@ -47,6 +47,7 @@ namespace
 			PARSE_GIMMICK(StartPos, {
 				it->startId = obj.getProperty(U"start_id").value_or(0);
 				it->forward = !obj.isMirrored ? Forward::Right : Forward::Left;
+				it->isSave = obj.getProperty(U"is_save").value_or(false);
 			});
 			PARSE_GIMMICK(Door, {
 				it->startId = obj.getProperty(U"start_id").value_or(0);

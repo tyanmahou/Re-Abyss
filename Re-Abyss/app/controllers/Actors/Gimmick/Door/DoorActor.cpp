@@ -19,6 +19,10 @@ namespace abyss::Door
 	{
 		return Circle(this->getPos(), 10);
 	}
+	s3d::int32 DoorActor::getStartId() const
+	{
+		return m_door.getStartId();
+	}
 	const RoomModel& DoorActor::getNextRoom() const
 	{
 		return m_nextRoom;
@@ -34,6 +38,10 @@ namespace abyss::Door
 	Forward DoorActor::getTargetForward() const
 	{
 		return m_door.getTargetForward();
+	}
+	bool DoorActor::isSave() const
+	{
+		return m_door.isSave();
 	}
 	s3d::Vec2 DoorActor::fixedVisiterPos(const s3d::Vec2& visitSize) const
 	{

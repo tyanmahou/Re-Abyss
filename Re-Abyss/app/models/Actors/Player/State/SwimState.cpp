@@ -6,6 +6,7 @@
 #include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
+#include <abyss/controllers/Save/Save.hpp>
 
 namespace abyss::Player
 {
@@ -40,6 +41,10 @@ namespace abyss::Player
                 this->m_motion = Motion::Stay;
             });
             m_pActor->find<AudioSourceModel>()->play(U"DoorMove");
+            if (col.isSave()) {
+                // セーブ対象だった場合
+                m_pActor->getModule<Save>()->reserveRestartId(col.getStartId());
+            }
         }
     }
     void SwimState::start()

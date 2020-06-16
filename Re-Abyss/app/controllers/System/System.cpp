@@ -58,6 +58,10 @@ namespace abyss
     {
         m_stage->init(player);
     }
+    void System::restart()
+    {
+        m_stage->restart();
+    }
 
     void System::update()
     {
@@ -167,8 +171,5 @@ namespace abyss
     {
         return m_world.find<Player::PlayerActor>().lock();
     }
-    void System::restart()
-    {
 
-    }
 }

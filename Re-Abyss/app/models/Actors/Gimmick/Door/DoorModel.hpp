@@ -6,19 +6,27 @@ namespace abyss
 {
     class DoorModel
     {
+        s3d::int32 m_startId;
         s3d::Vec2 m_pos;
         s3d::Vec2 m_targetPos;
         Forward m_targetForward;
         s3d::Vec2 m_size;
+        bool m_isSave = true;
     public:
         DoorModel() = default;
         DoorModel(
+            s3d::int32 startId,
             const s3d::Vec2& pos, 
             const s3d::Vec2& targetPos, 
             Forward targetForward,
-            const s3d::Vec2& size
+            const s3d::Vec2& size,
+            bool isSave
         );
 
+        s3d::int32 getStartId()const
+        {
+            return m_startId;
+        }
         const s3d::Vec2& getPos()const
         {
             return m_pos;
@@ -35,7 +43,10 @@ namespace abyss
         {
             return m_size;
         }
-
+        bool isSave() const
+        {
+            return m_isSave;
+        }
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize) const;
     };
 }

@@ -29,8 +29,23 @@ namespace abyss
 
         bool onFlag(const s3d::String& key) const;
 
+        /// <summary>
+        /// リスタートIdを予約
+        /// </summary>
+        /// <param name="startId"></param>
+        void reserveRestartId(s3d::int32 startId) const;
+
+        /// <summary>
+        /// 予約したリスタートIdをポップ
+        /// </summary>
+        /// <returns></returns>
+        s3d::Optional<s3d::int32> popReservedRestartId() const;
+
         void setRestartInfo(s3d::int32 startId, const s3d::Optional<s3d::String>& bgm) const;
         void setRestartInfo(const RestartInfoModel& info) const;
+        const s3d::Optional<RestartInfoModel>& getRestartInfo() const;
+        s3d::Optional<s3d::int32> getRestartId()const;
+        s3d::Optional<s3d::String> getRestartBgm()const;
 
         void setSaveData(const std::shared_ptr<SaveData>& saveData);
     };

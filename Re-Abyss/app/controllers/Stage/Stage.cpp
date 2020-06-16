@@ -13,6 +13,7 @@
 #include <abyss/controllers/Cron/Cron.hpp>
 #include <abyss/controllers/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
+#include <abyss/controllers/Save/Save.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
@@ -22,6 +23,7 @@
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 
 #include <abyss/models/Decor/base/IDecorModel.hpp>
+#include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Map/MapTranslator.hpp>
@@ -57,7 +59,7 @@ namespace
                 continue;
             }
             const auto& startPos = static_cast<const StartPosEntity&>(*gimmick);
-            StartPosModel model{ startPos.startId, startPos.pos, startPos.forward };
+            StartPosModel model{ startPos.startId, startPos.pos, startPos.forward, startPos.isSave };
             ret.add(model);
         }
         return ret;
@@ -138,6 +140,12 @@ namespace abyss
         }
         return true;
     }
+    bool Stage::restart() const
+    {
+        auto save = m_pManager->getModule<Save>();
+        auto restartId = save->getRestartId().value_or(0);
+        return this->init(restartId);
+    }
     bool Stage::init(const std::shared_ptr<Player::PlayerActor>& player) const
     {
         bool result = true;
@@ -174,12 +182,20 @@ namespace abyss
             auto cron = m_pManager->getModule<Cron>();
             cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
         }
+        auto save = m_pManager->getModule<Save>();
+        auto sound = m_pManager->getModule<Sound>();
         // サウンド初期化
         if (nextRoom) {
-            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
-                auto sound = m_pManager->getModule<Sound>();
+            if (auto restartBgm = save->getRestartBgm()) {
+                sound->play(*restartBgm);
+            }else if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
+
                 sound->play(*bgm);
             }
+        }
+        // 初期情報をリスタート情報として残す
+        if (!save->getRestartInfo()) {
+            save->setRestartInfo(0, sound->currentBgmPath());
         }
         return result;
     }
@@ -225,9 +241,14 @@ namespace abyss
         auto world = m_pManager->getModule<World>();
         auto camera = m_pManager->getModule<Camera>();
         const auto& room = camera->getCurrentRoom();
+        auto sound = m_pManager->getModule<Sound>();
         if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
-            auto sound = m_pManager->getModule<Sound>();
             sound->play(*bgm);
+        }
+        // セーブ予約があった場合はリスタート地点の保存をする
+        auto save = m_pManager->getModule<Save>();
+        if (auto reservedRestartId = save->popReservedRestartId()) {
+            save->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
         }
         return this->initRoom(*world, room);
     }
