@@ -182,6 +182,7 @@
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
+    <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp" />
     <ClCompile Include="app\controllers\Save\Save.cpp" />
     <ClCompile Include="app\controllers\Save\SaveData.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
@@ -472,6 +473,8 @@
     <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Save\SaveData.hpp" />
     <ClInclude Include="app\controllers\Save\Save.hpp" />

@@ -884,6 +884,9 @@
     <ClCompile Include="app\controllers\Save\SaveData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1343,5 +1346,7 @@
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
   </ItemGroup>
 </Project>
