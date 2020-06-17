@@ -19,6 +19,7 @@ namespace abyss
         UI* m_pUserInterface = nullptr;
         BackGround* m_pBackGround = nullptr;
         Decor* m_pDecor = nullptr;
+        Stage* m_pStage = nullptr;
         Cron* m_pCron = nullptr;
         Save* m_pSave = nullptr;
 
@@ -43,6 +44,8 @@ namespace abyss
         Manager& set(BackGround* pBackGround);
 
         Manager& set(Decor* pDecor);
+
+        Manager& set(Stage* pStage);
 
         Manager& set(Cron* pCron);
 

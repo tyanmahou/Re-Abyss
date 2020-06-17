@@ -174,10 +174,23 @@ namespace abyss
 	{
 		return m_camera->currentRoom();
 	}
+	void Camera::setNextRoom(const s3d::Optional<RoomModel>& nextRoom) const
+	{
+		m_camera->setNextRoom(nextRoom);
+	}
     const s3d::Optional<RoomModel>& Camera::nextRoom() const
     {
 		return m_camera->nextRoom();
     }
+	bool Camera::applyNextRoom() const
+	{
+		if (auto nextRoom = m_camera->nextRoom()) {
+			m_camera->setRoom(*nextRoom);
+			m_camera->setNextRoom(s3d::none);
+			return true;
+		}
+		return false;
+	}
     const s3d::Vec2& Camera::getPos() const
     {
 		return m_camera->getPos();

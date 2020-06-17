@@ -1348,5 +1348,6 @@
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
   </ItemGroup>
 </Project>

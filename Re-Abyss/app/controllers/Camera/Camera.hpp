@@ -98,7 +98,7 @@ namespace abyss
 		s3d::RectF screenRegion() const;
 
 		/// <summary>
-		/// 現在の部屋取得
+		/// 現在の部屋設定
 		/// </summary>
 		/// <returns></returns>
 		void setRoom(const RoomModel& room) const;
@@ -110,10 +110,22 @@ namespace abyss
 		const RoomModel& getCurrentRoom() const;
 
 		/// <summary>
+		/// 次の部屋設定
+		/// </summary>
+		/// <returns></returns>
+		void setNextRoom(const s3d::Optional<RoomModel>& nextRoom) const;
+
+		/// <summary>
 		/// 次の部屋取得
 		/// </summary>
 		/// <returns></returns>
 		const s3d::Optional<RoomModel>& nextRoom()const;
+
+		/// <summary>
+		/// 次の部屋を現在の部屋に適用する
+		/// </summary>
+		/// <returns></returns>
+		bool applyNextRoom()const;
 
 		template<class T>
 		bool inRoom(const T& shape)const

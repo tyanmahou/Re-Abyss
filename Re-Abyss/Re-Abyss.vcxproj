@@ -475,6 +475,7 @@
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
+    <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\controllers\Save\SaveData.hpp" />
     <ClInclude Include="app\controllers\Save\Save.hpp" />

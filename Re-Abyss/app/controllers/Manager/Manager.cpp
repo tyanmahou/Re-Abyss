@@ -52,6 +52,11 @@ namespace abyss
         m_pDecor = pDecor;
         return *this;
     }
+    Manager& Manager::set(Stage* pStage)
+    {
+        m_pStage = pStage;
+        return *this;
+    }
     Manager& Manager::set(Cron* pCron)
     {
         m_pCron = pCron;
@@ -91,6 +96,8 @@ namespace abyss
             return m_pBackGround;
         } else if constexpr (std::is_same_v<Decor, T>) {
             return m_pDecor;
+        } else if constexpr (std::is_same_v<Stage, T>) {
+            return m_pStage;
         } else if constexpr (std::is_same_v<Cron, T>) {
             return m_pCron;
         } else if constexpr (std::is_same_v<Save, T>) {
@@ -109,6 +116,7 @@ namespace abyss
     template UI* Manager::getModule<UI>() const;
     template BackGround* Manager::getModule<BackGround>() const;
     template Decor* Manager::getModule<Decor>() const;
+    template Stage* Manager::getModule<Stage>() const;
     template Cron* Manager::getModule<Cron>() const;
     template Save* Manager::getModule<Save>() const;
     template Player::PlayerActor* Manager::getModule<Player::PlayerActor>() const;
