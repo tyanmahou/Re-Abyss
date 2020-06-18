@@ -22,6 +22,7 @@ namespace abyss
             m_events.front()->onEnd();
             m_events.pop();
             m_doneCurrentInit = false;
+            return this->update(dt);
         }
         return true;
 

@@ -893,6 +893,9 @@
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

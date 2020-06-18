@@ -14,10 +14,10 @@ namespace abyss::Event::RoomMove
             double animeMilliSec
         );
 
-        static std::shared_ptr<BasicMove> Create(Camera& camera, const s3d::Vec2& playerPos, double milliSec = 2000);
+        static bool Start(const Player::PlayerActor& player, const RoomModel& nextRoom, double milliSec = 2000);
     protected:
         s3d::Vec2 calcCameraPos() const override;
-        s3d::Optional<s3d::Vec2> calcPlayerPos() const override;
+        s3d::Vec2 calcPlayerPos() const override;
 
     };
 }

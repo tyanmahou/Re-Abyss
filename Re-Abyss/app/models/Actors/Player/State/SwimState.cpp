@@ -7,7 +7,7 @@
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 #include <abyss/controllers/Save/Save.hpp>
-
+#include <abyss/controllers/Event/RoomMove/DoorMove/DoorMove.hpp>
 namespace abyss::Player
 {
     void SwimState::onLanding()
@@ -37,7 +37,7 @@ namespace abyss::Player
             m_motion = Motion::Door;
             m_body->setVelocity(Vec2::Zero());
             m_body->setForward(col.getTargetForward());
-            m_pActor->getModule<Camera>()->startDoorCameraWork(col, m_body->getPos(), [this]() {
+            Event::RoomMove::DoorMove::Start(col, m_body->getPos(), [this]() {
                 this->m_motion = Motion::Stay;
             });
             m_pActor->find<AudioSourceModel>()->play(U"DoorMove");

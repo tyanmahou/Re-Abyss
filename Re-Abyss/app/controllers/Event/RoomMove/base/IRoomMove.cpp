@@ -7,7 +7,7 @@
 
 namespace abyss::Event::RoomMove
 {
-    IRoomMove::IRoomMove(double animeMilliSec):
+    IRoomMove::IRoomMove(double animeMilliSec) :
         m_animation(false, [this] {return m_pManager->getModule<GlobalTime>()->timeMicroSec(); }),
         m_animeMilliSec(animeMilliSec)
     {}
@@ -18,14 +18,16 @@ namespace abyss::Event::RoomMove
         m_pManager->getModule<Stage>()->checkOut();
 
     }
-    bool IRoomMove::update([[maybe_unused]]double dt)
+    bool IRoomMove::update([[maybe_unused]] double dt)
     {
+        // 更新
+        this->onMoveUpdate(this->elapsed());
+
         // カメラの座標更新
         m_pManager->getModule<Camera>()->setPos(this->calcCameraPos());
         // プレイヤーの座標更新
-        if (auto playerPos = this->calcPlayerPos()) {
-            m_pManager->getModule<Player::PlayerActor>()->setPos(*playerPos);
-        }
+        m_pManager->getModule<Player::PlayerActor>()->setPos(this->calcPlayerPos());
+
         return !this->isEnd();
     }
     void IRoomMove::onEnd()

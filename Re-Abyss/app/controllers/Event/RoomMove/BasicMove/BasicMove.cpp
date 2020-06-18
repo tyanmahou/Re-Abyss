@@ -2,7 +2,9 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
+#include <abyss/controllers/Event/Events.hpp>
 namespace abyss::Event::RoomMove
 {
     BasicMove::BasicMove(
@@ -15,17 +17,20 @@ namespace abyss::Event::RoomMove
         m_playerMove(playerMove)
     {}
 
-    std::shared_ptr<BasicMove> BasicMove::Create(Camera & camera, const s3d::Vec2 & playerPos, double milliSec)
+    bool BasicMove::Start(const Player::PlayerActor& player, const RoomModel& nextRoom, double milliSec)
     {
-        const auto& current = camera.getCurrentRoom();
-        const auto& next = camera.nextRoom();
-        Vec2 cameraPos = camera.getPos();
+        const auto& pos = player.getPos();
+        auto camera = player.getModule<Camera>();
+        camera->setNextRoom(nextRoom);
+
+        const auto& current = camera->getCurrentRoom();
+        Vec2 cameraPos = camera->getPos();
 
         Vec2 from = current.cameraBorderAdjusted(cameraPos);
-        Vec2 to = next->cameraBorderAdjusted(cameraPos);
+        Vec2 to = nextRoom.cameraBorderAdjusted(cameraPos);
 
         // プレイヤーの位置計算
-        Vec2 target = playerPos;
+        Vec2 target = pos;
         Vec2 v = to - from;
 
         bool isHorizontal = Math::Abs(v.x) > Math::Abs(v.y);
@@ -43,11 +48,14 @@ namespace abyss::Event::RoomMove
                 target.y = border.up - 40;
             }
         }
-        return std::make_shared<BasicMove>(
+        auto event = std::make_shared<BasicMove>(
             std::make_pair(from, to),
-            std::make_pair(playerPos, target),
+            std::make_pair(pos, target),
             milliSec
             );
+
+        player.getModule<Events>()->regist(event);
+        return true;
     }
 
     s3d::Vec2 BasicMove::calcCameraPos() const
@@ -55,7 +63,7 @@ namespace abyss::Event::RoomMove
         return EaseIn(Easing::Linear, m_cameraMove.first, m_cameraMove.second, this->elapsed());
     }
 
-    s3d::Optional<s3d::Vec2> BasicMove::calcPlayerPos() const
+    s3d::Vec2 BasicMove::calcPlayerPos() const
     {
         return  EaseIn(Easing::Linear, m_playerMove.first, m_playerMove.second, this->elapsed());
     }

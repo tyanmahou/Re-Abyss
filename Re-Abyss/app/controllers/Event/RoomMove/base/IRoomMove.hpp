@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 
-#include <Siv3D/Optional.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/commons/Fwd.hpp>
@@ -23,10 +22,9 @@ namespace abyss::Event::RoomMove
         void onEnd() override final;
 
         virtual s3d::Vec2 calcCameraPos() const = 0;
-        virtual s3d::Optional<s3d::Vec2> calcPlayerPos() const
-        {
-            return s3d::none;
-        }
+        virtual s3d::Vec2 calcPlayerPos() const = 0;
+
+        virtual void onMoveUpdate([[maybe_unused]]double t) {}
         virtual void onMoveEnd() {}
 
         double elapsed() const;

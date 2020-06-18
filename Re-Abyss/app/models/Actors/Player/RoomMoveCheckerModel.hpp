@@ -11,10 +11,9 @@ namespace abyss::Player
         public ILastUpdateModel
     {
     private:
-        Ref<BodyModel> m_body;
-        IActor* m_pActor;
+        PlayerActor* m_pActor;
     public:
-        RoomMoveCheckerModel(IActor* pActor);
+        RoomMoveCheckerModel(PlayerActor* pActor);
 
         void setup() override;
         void onLastUpdate(double dt) override;

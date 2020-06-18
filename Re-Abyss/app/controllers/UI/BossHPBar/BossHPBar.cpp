@@ -19,6 +19,10 @@ namespace abyss::ui
 
     void BossHPBar::update(double dt)
     {
+        if (!m_hpModel) {
+            this->destroy();
+            return;
+        }
         m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
 
         auto hp = static_cast<double>(m_hpModel->getHp());
