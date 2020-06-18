@@ -77,32 +77,6 @@ namespace abyss
         }
         m_userInterface.update(dt);
         m_camera.update();
-        //auto& player = *m_manager.getModule<Player::PlayerActor>();
-        //switch (auto event = m_camera.update(player)) {
-        //    using enum Camera::Event;
-        //case OnCameraWorkStart:
-        //{
-        //    m_stage->checkOut();
-        //}
-        //break;
-        //case OnCameraWorkEnd:
-        //{
-        //    m_stage->checkIn();
-        //}
-        //break;
-        //case OnOutOfRoom:
-        //{
-        //    const auto& pos = player.getPos();
-        //    if (auto next = m_stage->findRoom(pos)) {
-        //        m_camera.startCameraWork(*next, pos);
-        //    }
-        //}
-        //break;
-        //case OnOutOfRoomDeath:
-        //    break;
-        //default:
-        //    break;
-        //}
 
         m_events.update(dt);
         m_decor->update(m_time.time());
@@ -146,18 +120,14 @@ namespace abyss
             m_effects.update<EffectGroup::Bubble>();
             m_backGround->drawWaterSarfaceFront(cameraView);
             //m_light.draw(m_time.deltaTime(), cameraView);
+        }
+        {
+            constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
+            blackBand.draw(Palette::Black);
 
-            {
-                // 座標系を元に戻す
-                Transformer2D t2dIdentity(Mat3x2::Identity(), false, Transformer2D::Target::SetLocal);
-                constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
-                blackBand.draw(Palette::Black);
+            m_events.draw();
 
-                m_events.draw();
-
-                m_userInterface.draw();
-            }
-            cameraView.drawCameraWork();
+            m_userInterface.draw();
         }
     }
     void System::loadStage(const std::shared_ptr<StageData>& stageData)

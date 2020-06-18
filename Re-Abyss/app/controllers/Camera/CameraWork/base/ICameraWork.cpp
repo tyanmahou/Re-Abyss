@@ -6,16 +6,12 @@ namespace abyss
 {
     using namespace s3d;
 
-    ICameraWork::ICameraWork(Manager* pManager, double animeMilliSec) :
-        m_animation(false, [pManager] {return pManager->getModule<GlobalTime>()->timeMicroSec(); }),
+    ICameraWork::ICameraWork(double animeMilliSec) :
+        m_animation(false, [this] {return m_pManager->getModule<GlobalTime>()->timeMicroSec(); }),
         m_animeMilliSec(animeMilliSec),
-        m_pManager(pManager)
+        m_pManager(nullptr)
     {}
 
-    Optional<Vec2> ICameraWork::calcPlayerPos() const
-    {
-        return s3d::none;
-    }
     bool ICameraWork::isEnd() const
     {
         return m_animation.ms() >= m_animeMilliSec;

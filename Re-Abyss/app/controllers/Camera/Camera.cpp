@@ -114,7 +114,7 @@ namespace abyss
     }
 	CameraView Camera::createView() const
 	{
-		return CameraView(m_camera.get(), m_cameraWork.get());
+		return CameraView(m_camera.get());
 	}
 
 	bool Camera::canNextRoom(const s3d::Vec2& pos) const

@@ -4,13 +4,11 @@
 
 #include <abyss/models/Camera/CameraModel.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
 
 namespace abyss
 {
-	CameraView::CameraView(const CameraModel* const pCamera, const ICameraWork* const pCameraWork) :
-		m_pCamera(pCamera),
-		m_pCameraWork(pCameraWork)
+	CameraView::CameraView(const CameraModel* const pCamera) :
+		m_pCamera(pCamera)
 	{}
 
 	const s3d::Vec2& CameraView::getCameraPos() const
@@ -49,12 +47,5 @@ namespace abyss
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
 		return Transformer2D(this->getMat(), Transformer2D::Target::SetLocal);
-	}
-	void CameraView::drawCameraWork() const
-	{
-		if (!m_pCameraWork) {
-			return;
-		}
-		m_pCameraWork->draw(this);
 	}
 }

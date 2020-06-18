@@ -9,9 +9,8 @@ namespace abyss
 	{
 	private:
 		const CameraModel*const m_pCamera;
-		const ICameraWork* const m_pCameraWork;
 	public:
-		CameraView(const CameraModel* const pCamera, const ICameraWork* const pCameraWork);
+		CameraView(const CameraModel* const pCamera);
 
 		const s3d::Vec2& getCameraPos() const;
 		void drawDeathLine() const;
@@ -20,7 +19,5 @@ namespace abyss
 
 		s3d::Mat3x2 getMat() const;
 		s3d::Transformer2D getTransformer() const;
-
-		void drawCameraWork() const;
 	};
 }

@@ -110,12 +110,6 @@
     <ClCompile Include="app\models\Collision\CollisionModel.cpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
@@ -126,9 +120,6 @@
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Room\RoomModel.cpp">
-      <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\World\World.cpp">
@@ -924,12 +915,6 @@
     <ClInclude Include="app\types\CShape.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClInclude>
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClInclude>
@@ -964,9 +949,6 @@
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="app\models\Room\RoomModel.hpp">
-      <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
     </ClInclude>
     <ClInclude Include="app\controllers\World\World.hpp">

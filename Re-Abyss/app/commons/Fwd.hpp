@@ -14,8 +14,6 @@ namespace abyss
 	class GlobalTime;
 	class Camera;
 	class ICameraWork;
-	class DoorCameraWork;
-	class RoomMoveCameraWork;
 	class World;
 	class Events;
 	class Stage;
@@ -149,7 +147,6 @@ namespace abyss
 	
 	class WorldView;
 	class CameraView;
-	class DoorCameraWorkView;
 
 	class DecorView;
 	class IDecorVM;

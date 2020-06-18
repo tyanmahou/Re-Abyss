@@ -296,8 +296,6 @@
     <ClCompile Include="app\models\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
-    <ClCompile Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.cpp" />
-    <ClCompile Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.cpp" />
     <ClCompile Include="app\controllers\Decor\Decor.cpp" />
     <ClCompile Include="app\controllers\Event\Events.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\base\FaceManager.cpp" />
@@ -439,7 +437,6 @@
     <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Camera\CameraView.cpp" />
-    <ClCompile Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.cpp" />
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp" />
     <ClCompile Include="app\views\util\Fade\Fade.cpp" />
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp" />
@@ -589,8 +586,6 @@
     <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
-    <ClInclude Include="app\controllers\Camera\CameraWork\Door\DoorCameraWork.hpp" />
-    <ClInclude Include="app\controllers\Camera\CameraWork\RoomMove\RoomMoveCameraWork.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\controllers\Event\base\IEvent.hpp" />
     <ClInclude Include="app\controllers\Event\Events.hpp" />
@@ -800,7 +795,6 @@
     <ClInclude Include="app\views\Event\Talk\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\Event\Talk\MessageVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
-    <ClInclude Include="app\views\Camera\CameraWork\Door\DoorCameraWorkView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />

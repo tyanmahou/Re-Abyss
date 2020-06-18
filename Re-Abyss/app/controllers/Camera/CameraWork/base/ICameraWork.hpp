@@ -16,14 +16,16 @@ namespace abyss
         double m_animeMilliSec = 0;
         Manager* m_pManager = nullptr;
     public:
-        ICameraWork(Manager* pManager, double animeMilliSec);
+        ICameraWork(double animeMilliSec);
         virtual ~ICameraWork() = default;
 
+        void setManager(Manager* pManager)
+        {
+            m_pManager = pManager;
+        }
         virtual void update() {}
-        virtual void draw(const CameraView* const) const {}
 
         virtual s3d::Vec2 calcCameraPos() const = 0;
-        virtual s3d::Optional<s3d::Vec2> calcPlayerPos() const;
 
         virtual void onStart() {}
 
