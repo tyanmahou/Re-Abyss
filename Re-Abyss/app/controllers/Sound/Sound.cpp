@@ -7,20 +7,25 @@ namespace abyss
 {
     Sound::~Sound()
     {
-        this->release();
     }
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
         m_currentPath = path;
         auto next = ResourceManager::Main()->loadAudio(path, U"");
-        if (m_current == next) {
+        if (m_currentId == next.id()) {
             if (!m_current.isPlaying()) {
                 m_current.play(sec);
             }
             return;
         }
         m_prev = m_current;
-        m_current = next;
+
+        m_currentId = next.id();
+        m_current = Audio(next.getWave());
+        if (auto loop = next.getLoop()) {
+            m_current.setLoop(loop->beginPos, loop->endPos);
+        }
+
         if (m_prev.isPlaying()) {
             m_prev.stop(sec);
         }
@@ -30,18 +35,15 @@ namespace abyss
     void Sound::stop(const Duration& sec)
     {
         m_currentPath = s3d::none;
+        m_currentId = Audio::IDType();
+
         if (m_current.isPlaying()) {
             m_current.stop(sec);
         }
     }
-    void Sound::release() const
+    void Sound::release()
     {
-        // リソースには残るので停止だけする
-        if (m_prev.isPlaying()) {
-            m_prev.stop();
-        }
-        if (m_current.isPlaying()) {
-            m_current.stop();
-        }
+        m_current.release();
+        m_prev.release();
     }
 }

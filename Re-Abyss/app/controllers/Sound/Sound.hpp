@@ -8,6 +8,7 @@ namespace abyss
     {
         s3d::Audio m_prev;
         s3d::Audio m_current;
+        s3d::Audio::IDType m_currentId;
         s3d::Optional<s3d::String> m_currentPath;
 
     public:
@@ -17,7 +18,7 @@ namespace abyss
 
         void stop(const Duration& sec = 2s);
 
-        void release() const;
+        void release();
 
         const s3d::Optional<s3d::String>& currentBgmPath()const
         {
