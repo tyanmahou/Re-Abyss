@@ -10,14 +10,8 @@
 #include <abyss/views/Camera/CameraView.hpp>
 
 #include "CameraWork/Door/DoorCameraWork.hpp"
-#include "CameraWork/RoomMove/RoomMoveCameraWork.hpp"
 namespace abyss
 {
-	bool Camera::canNextRoom(const s3d::Vec2& pos) const
-	{
-		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
-	}
-
 	Camera::Event Camera::setCameraPos(const s3d::Vec2& pos)
 	{
 		Event event = Event::Nothing;
@@ -80,39 +74,31 @@ namespace abyss
 		m_pManager = pManager;
 	}
 
-	Camera::Event Camera::update(Player::PlayerActor& player)
+	void Camera::update()
 	{
-		const Vec2& pos =player.getPos();
-		auto event = this->setCameraPos(pos);
-		this->adjustPlayerPos(player);
-
-		if (event != Event::Nothing) {
-			return event;
-		}
-		if (m_camera->isOutOfRoomDeath(pos)) {
-			return Event::OnOutOfRoomDeath;
-		}
-		if (this->canNextRoom(pos)) {
-			return Event::OnOutOfRoom;
-		}
-		return event;
+		auto player = m_pManager->getModule<Player::PlayerActor>();
+		const Vec2& pos = player->getPos();
+		this->setCameraPos(pos);
 	}
 
-	void Camera::startCameraWork(
-		const RoomModel& nextRoom, 
-		const s3d::Vec2& playerPos, 
-		std::function<void()> callback,
-		double milliSec
-	) {
-		assert(milliSec > 0);
-		m_camera->setNextRoom(nextRoom);
-		if (!callback) {
-			callback = [this, nextRoom]() {
-				m_camera->setRoom(nextRoom);
-			};
-		}
-		m_cameraWork = RoomMoveCameraWork::Create(m_pManager, *m_camera, playerPos, callback, milliSec);
-	}
+	//Camera::Event Camera::update(Player::PlayerActor& player)
+	//{
+	//	const Vec2& pos =player.getPos();
+	//	auto event = this->setCameraPos(pos);
+	//	this->adjustPlayerPos(player);
+
+	//	if (event != Event::Nothing) {
+	//		return event;
+	//	}
+	//	if (m_camera->isOutOfRoomDeath(pos)) {
+	//		return Event::OnOutOfRoomDeath;
+	//	}
+	//	if (this->canNextRoom(pos)) {
+	//		return Event::OnOutOfRoom;
+	//	}
+	//	return event;
+	//}
+
 	void Camera::startDoorCameraWork(
         const Door::DoorActor& door, 
         const s3d::Vec2& playerPos, 
@@ -191,12 +177,21 @@ namespace abyss
 		}
 		return false;
 	}
-    const s3d::Vec2& Camera::getPos() const
+	void Camera::setPos(const s3d::Vec2& cameraPos) const
+	{
+		m_camera->setPos(Math::Round(cameraPos));
+	}
+	const s3d::Vec2& Camera::getPos() const
     {
 		return m_camera->getPos();
     }
 	CameraView Camera::createView() const
 	{
 		return CameraView(m_camera.get(), m_cameraWork.get());
+	}
+
+	bool Camera::canNextRoom(const s3d::Vec2& pos) const
+	{
+		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
 	}
 }

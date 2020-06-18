@@ -25,7 +25,6 @@ namespace abyss
 		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<QuakeModel> m_quake;
 
-		bool canNextRoom(const s3d::Vec2& pos) const;
 		Event setCameraPos(const s3d::Vec2& pos);
 		void adjustPlayerPos(Player::PlayerActor& player);
 	public:
@@ -34,21 +33,7 @@ namespace abyss
 
 		void setManager(Manager* pManager);
 
-		Event update(Player::PlayerActor& player);
-
-		/// <summary>
-		/// 部屋移動のカメラワーク開始
-		/// </summary>
-		/// <param name="nextRoom"></param>
-		/// <param name="playerPos"></param>
-		/// <param name="callback"></param>
-		/// <param name="milliSec"></param>
-		void startCameraWork(
-			const RoomModel& nextRoom,
-			const s3d::Vec2& playerPos,
-			std::function<void()> callback = nullptr,
-			double milliSec = 2000
-		);
+		void update();
 
 		/// <summary>
 		/// ドア入りカメラワーク
@@ -139,10 +124,19 @@ namespace abyss
 			return this->screenRegion().intersects(shape);
 		}
 
+		//
+		void setPos(const s3d::Vec2& cameraPos) const;
 		/// <summary>
 		/// カメラ座標取得
 		/// </summary>
 		/// <returns></returns>
 		const s3d::Vec2& getPos() const;
+
+		/// <summary>
+		/// 次の部屋に移動できるか
+		/// </summary>
+		/// <param name="pos"></param>
+		/// <returns></returns>
+		bool canNextRoom(const s3d::Vec2& pos) const;
     };
 }

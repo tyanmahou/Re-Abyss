@@ -887,6 +887,12 @@
     <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1349,5 +1355,6 @@
     <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
+    <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
   </ItemGroup>
 </Project>

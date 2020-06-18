@@ -34,6 +34,7 @@ namespace abyss
             .set(&m_userInterface)
             .set(m_backGround.get())
             .set(m_decor.get())
+            .set(m_stage.get())
             .set(m_cron.get())
             .set(m_save.get())
             ;
@@ -71,36 +72,37 @@ namespace abyss
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
 
-        if (!m_camera.isCameraWork() && m_events.isEmpty()) {
+        if (m_events.isEmpty()) {
             m_world.update();
         }
         m_userInterface.update(dt);
-        auto& player = *m_manager.getModule<Player::PlayerActor>();
-        switch (auto event = m_camera.update(player)) {
-            using enum Camera::Event;
-        case OnCameraWorkStart:
-        {
-            m_stage->checkOut();
-        }
-        break;
-        case OnCameraWorkEnd:
-        {
-            m_stage->checkIn();
-        }
-        break;
-        case OnOutOfRoom:
-        {
-            const auto& pos = player.getPos();
-            if (auto next = m_stage->findRoom(pos)) {
-                m_camera.startCameraWork(*next, pos);
-            }
-        }
-        break;
-        case OnOutOfRoomDeath:
-            break;
-        default:
-            break;
-        }
+        m_camera.update();
+        //auto& player = *m_manager.getModule<Player::PlayerActor>();
+        //switch (auto event = m_camera.update(player)) {
+        //    using enum Camera::Event;
+        //case OnCameraWorkStart:
+        //{
+        //    m_stage->checkOut();
+        //}
+        //break;
+        //case OnCameraWorkEnd:
+        //{
+        //    m_stage->checkIn();
+        //}
+        //break;
+        //case OnOutOfRoom:
+        //{
+        //    const auto& pos = player.getPos();
+        //    if (auto next = m_stage->findRoom(pos)) {
+        //        m_camera.startCameraWork(*next, pos);
+        //    }
+        //}
+        //break;
+        //case OnOutOfRoomDeath:
+        //    break;
+        //default:
+        //    break;
+        //}
 
         m_events.update(dt);
         m_decor->update(m_time.time());

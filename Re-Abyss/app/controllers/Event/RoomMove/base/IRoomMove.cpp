@@ -3,11 +3,11 @@
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
+#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
 namespace abyss::Event::RoomMove
 {
-    IRoomMove::IRoomMove(const RoomModel& nextRoom, double animeMilliSec):
-        m_nextRoom(nextRoom),
+    IRoomMove::IRoomMove(double animeMilliSec):
         m_animation(false, [this] {return m_pManager->getModule<GlobalTime>()->timeMicroSec(); }),
         m_animeMilliSec(animeMilliSec)
     {}
@@ -15,14 +15,17 @@ namespace abyss::Event::RoomMove
     {
         // 移動開始
         this->start();
-        m_pManager->getModule<Camera>()->setRoom(m_nextRoom);
         m_pManager->getModule<Stage>()->checkOut();
 
     }
     bool IRoomMove::update([[maybe_unused]]double dt)
     {
-        // todo カメラの座標更新
-        // todo プレイヤーの座標更新
+        // カメラの座標更新
+        m_pManager->getModule<Camera>()->setPos(this->calcCameraPos());
+        // プレイヤーの座標更新
+        if (auto playerPos = this->calcPlayerPos()) {
+            m_pManager->getModule<Player::PlayerActor>()->setPos(*playerPos);
+        }
         return !this->isEnd();
     }
     void IRoomMove::onEnd()

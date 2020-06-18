@@ -14,11 +14,10 @@ namespace abyss::Event::RoomMove
     class IRoomMove : public IEvent
     {
     protected:
-        RoomModel m_nextRoom;
         StopwatchEx m_animation;
         double m_animeMilliSec = 0;
     public:
-        IRoomMove(const RoomModel& nextRoom, double animeMilliSec);
+        IRoomMove(double animeMilliSec);
         void init() override final;
         bool update(double dt) override final;;
         void onEnd() override final;

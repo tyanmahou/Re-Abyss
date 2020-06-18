@@ -183,6 +183,7 @@
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp" />
+    <ClCompile Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.cpp" />
     <ClCompile Include="app\controllers\Save\Save.cpp" />
     <ClCompile Include="app\controllers\Save\SaveData.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
@@ -190,6 +191,7 @@
     <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
@@ -499,6 +501,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />

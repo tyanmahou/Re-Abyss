@@ -1,8 +1,10 @@
 #include <abyss/models/Actors/Player/State/SwimState.hpp>
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
+
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
+#include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
 
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
@@ -79,6 +81,10 @@ namespace abyss::Player
         {
             this->attach<BreathingModel>(this)
                 ->setOffset(Vec2{0, -20});
+        }
+        // 部屋移動の検知
+        {
+            this->attach<RoomMoveCheckerModel>(this);
         }
         m_order = 10;
     }
