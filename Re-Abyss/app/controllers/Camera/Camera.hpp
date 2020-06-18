@@ -10,23 +10,12 @@ namespace abyss
 {
     class Camera
     {
-	public:
-		enum class Event
-		{
-			Nothing,
-			OnCameraWorkStart,
-			OnCameraWorkEnd,
-			OnOutOfRoom,
-			OnOutOfRoomDeath,
-		};
 	private:
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<QuakeModel> m_quake;
 
-		Event setCameraPos(const s3d::Vec2& pos);
-		void adjustPlayerPos(Player::PlayerActor& player);
 	public:
 		Camera();
 		~Camera();
@@ -34,22 +23,6 @@ namespace abyss
 		void setManager(Manager* pManager);
 
 		void update();
-
-		/// <summary>
-		/// ドア入りカメラワーク
-		/// </summary>
-		/// <param name="door"></param>
-		/// <param name="playerPos"></param>
-		/// <param name="fadeInCallback"></param>
-		/// <param name="fadeOutCallback"></param>
-		/// <param name="milliSec"></param>
-		void startDoorCameraWork(
-			const Door::DoorActor& door,
-			const s3d::Vec2& playerPos,
-			std::function<void()> fadeInCallback = nullptr,
-			std::function<void()> fadeOutCallback = nullptr,
-			double milliSec = 2000
-		);
 
 		bool isCameraWork() const;
 
