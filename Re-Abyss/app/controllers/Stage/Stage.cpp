@@ -186,11 +186,10 @@ namespace abyss
         auto sound = m_pManager->getModule<Sound>();
         // サウンド初期化
         if (nextRoom) {
-            if (auto restartBgm = save->getRestartBgm()) {
-                sound->play(*restartBgm);
-            }else if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
-
+            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
                 sound->play(*bgm);
+            } else if (auto restartBgm = save->getRestartBgm()) {
+                sound->play(*restartBgm);
             }
         }
         // 初期情報をリスタート情報として残す

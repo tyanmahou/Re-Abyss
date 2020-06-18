@@ -7,6 +7,7 @@ namespace abyss
 {
     Sound::~Sound()
     {
+        this->release();
     }
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
