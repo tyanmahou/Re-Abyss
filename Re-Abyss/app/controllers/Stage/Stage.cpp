@@ -164,6 +164,7 @@ namespace abyss
         auto camera = m_pManager->getModule<Camera>();
         if (nextRoom) {
             camera->setRoom(*nextRoom);
+            camera->update();
         }
         // 背景の初期化
         {
@@ -193,9 +194,8 @@ namespace abyss
             }
         }
         // 初期情報をリスタート情報として残す
-        if (!save->getRestartInfo()) {
-            save->setRestartInfo(0, sound->currentBgmPath());
-        }
+        save->setRestartInfo(save->getRestartId().value_or(0), sound->currentBgmPath());
+
         return result;
     }
     bool Stage::init(s3d::int32 startId) const
