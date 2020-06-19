@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 namespace abyss
 {
@@ -19,7 +19,7 @@ namespace abyss
 		Singleton() {}
 		virtual ~Singleton() {}
 	private:
-		Singleton(const Singleton& other);
-		Singleton& operator=(const Singleton& other);
+		Singleton(const Singleton& other) = delete;
+		Singleton& operator=(const Singleton& other) = delete;
 	};
 }
