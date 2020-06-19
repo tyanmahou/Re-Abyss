@@ -17,9 +17,9 @@ namespace abyss::Event::RoomMove
         double m_animeMilliSec = 0;
     public:
         IRoomMove(double animeMilliSec);
-        void init() override final;
-        bool update(double dt) override final;;
-        void onEnd() override final;
+        void init() final;
+        bool update(double dt) final;
+        void onEnd() final;
 
         virtual s3d::Vec2 calcCameraPos() const = 0;
         virtual s3d::Vec2 calcPlayerPos() const = 0;
