@@ -40,7 +40,7 @@ namespace abyss
 	};
 
 	Game::Game() :
-		m_pImpl(std::make_shared<Impl>())
+		m_pImpl(std::make_unique<Impl>())
 	{
 		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
 	}
