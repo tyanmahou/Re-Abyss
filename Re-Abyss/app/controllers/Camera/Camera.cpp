@@ -63,6 +63,15 @@ namespace abyss
     {
         return m_cameraWork != nullptr;
     }
+	void Camera::setPos(const s3d::Vec2& cameraPos) const
+	{
+		m_camera->setPos(Math::Round(cameraPos));
+	}
+	const s3d::Vec2& Camera::getPos() const
+	{
+		return m_camera->getPos();
+	}
+
 	void Camera::startQuake(double maxOffset, double timeSec)
 	{
 		m_quake = std::make_unique<QuakeModel>(m_pManager, maxOffset, timeSec);
@@ -75,10 +84,7 @@ namespace abyss
 	{
 		return m_quake != nullptr;
 	}
-    s3d::RectF Camera::screenRegion() const
-    {
-		return this->createView().screenRegion();
-    }
+
 	void Camera::setRoom(const RoomModel& room) const
 	{
 		m_camera->setRoom(room);
@@ -95,6 +101,10 @@ namespace abyss
     {
 		return m_camera->nextRoom();
     }
+	bool Camera::canNextRoom(const s3d::Vec2& pos) const
+	{
+		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
+	}
 	bool Camera::applyNextRoom() const
 	{
 		if (auto nextRoom = m_camera->nextRoom()) {
@@ -104,21 +114,18 @@ namespace abyss
 		}
 		return false;
 	}
-	void Camera::setPos(const s3d::Vec2& cameraPos) const
-	{
-		m_camera->setPos(Math::Round(cameraPos));
-	}
-	const s3d::Vec2& Camera::getPos() const
-    {
-		return m_camera->getPos();
-    }
+
 	CameraView Camera::createView() const
 	{
 		return CameraView(m_camera.get());
 	}
-
-	bool Camera::canNextRoom(const s3d::Vec2& pos) const
+	s3d::RectF Camera::screenRegion() const
 	{
-		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
+		return this->createView().screenRegion();
 	}
+	s3d::Vec2 Camera::transform(const s3d::Vec2& pos) const
+	{
+		return this->createView().getMat().transform(pos);
+	}
+
 }

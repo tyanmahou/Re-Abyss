@@ -6,6 +6,9 @@
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 
+#include <abyss/controllers/UI/UI.hpp>
+#include <abyss/controllers/UI/Fade/SmoothCircle/SmoothCircle.hpp>
+
 namespace abyss::Event::RoomMove
 {
     bool DoorMove::Start(const Door::DoorActor& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, double milliSec)
@@ -49,6 +52,11 @@ namespace abyss::Event::RoomMove
         m_fadeInCallback(fadeInCallback)
     {}
 
+    void DoorMove::onMoveStart()
+    {
+        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+    }
+
     void DoorMove::onMoveUpdate(double t)
     {
         if (m_state == State::FadeOut) {
@@ -59,7 +67,24 @@ namespace abyss::Event::RoomMove
                 }
             }
         }
+
+        bool isFadeOut = m_state == State::FadeOut;
+
+        if (auto ui = m_fadeUI) {
+            auto pos = isFadeOut ? m_playerMove.first : m_playerMove.second;
+            ui->setPos(pos)
+                .setFadeTime(isFadeOut ? this->fadeOut0_1() : this->fadeIn0_1())
+                .setIsFadeOut(isFadeOut)
+                ;
+        }
     }
+    void DoorMove::onMoveEnd()
+    {
+        if (auto ui = m_fadeUI) {
+            ui->destroy();
+        }
+    }
+
     s3d::Vec2 DoorMove::calcCameraPos() const
     {
         return m_state == State::FadeOut ?

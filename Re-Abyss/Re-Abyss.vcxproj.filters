@@ -887,6 +887,12 @@
     <ClCompile Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1341,5 +1347,8 @@
     <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
+    <ClInclude Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.hpp" />
+    <ClInclude Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.hpp" />
+    <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
   </ItemGroup>
 </Project>

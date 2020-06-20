@@ -27,6 +27,18 @@ namespace abyss
 		bool isCameraWork() const;
 
 		/// <summary>
+		/// カメラ座標をセット
+		/// </summary>
+		/// <param name="cameraPos"></param>
+		void setPos(const s3d::Vec2& cameraPos) const;
+
+		/// <summary>
+		/// カメラ座標取得
+		/// </summary>
+		/// <returns></returns>
+		const s3d::Vec2& getPos() const;
+
+		/// <summary>
 		/// 地震開始
 		/// </summary>
 		/// <param name="maxOffset"></param>
@@ -42,18 +54,6 @@ namespace abyss
 		/// 地震中止
 		/// </summary>	
 		bool isQuake() const;
-
-		/// <summary>
-		/// View作成
-		/// </summary>
-		/// <returns></returns>
-		CameraView createView() const;
-
-		/// <summary>
-		/// スクリーンの範囲取得
-		/// </summary>
-		/// <returns></returns>
-		s3d::RectF screenRegion() const;
 
 		/// <summary>
 		/// 現在の部屋設定
@@ -80,6 +80,13 @@ namespace abyss
 		const s3d::Optional<RoomModel>& nextRoom()const;
 
 		/// <summary>
+		/// 次の部屋に移動できるか
+		/// </summary>
+		/// <param name="pos"></param>
+		/// <returns></returns>
+		bool canNextRoom(const s3d::Vec2& pos) const;
+
+		/// <summary>
 		/// 次の部屋を現在の部屋に適用する
 		/// </summary>
 		/// <returns></returns>
@@ -97,19 +104,23 @@ namespace abyss
 			return this->screenRegion().intersects(shape);
 		}
 
-		//
-		void setPos(const s3d::Vec2& cameraPos) const;
 		/// <summary>
-		/// カメラ座標取得
+		/// View作成
 		/// </summary>
 		/// <returns></returns>
-		const s3d::Vec2& getPos() const;
+		CameraView createView() const;
 
 		/// <summary>
-		/// 次の部屋に移動できるか
+		/// スクリーンの範囲取得
+		/// </summary>
+		/// <returns></returns>
+		s3d::RectF screenRegion() const;
+
+		/// <summary>
+		/// 座標をカメラ行列で変換する
 		/// </summary>
 		/// <param name="pos"></param>
 		/// <returns></returns>
-		bool canNextRoom(const s3d::Vec2& pos) const;
+		s3d::Vec2 transform(const s3d::Vec2& pos) const;
     };
 }

@@ -1,6 +1,12 @@
 #pragma once
 #include <abyss/controllers/Event/RoomMove/base/IRoomMove.hpp>
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
+namespace abyss::ui::Fade
+{
+    class SmoothCircle;
+}
 namespace abyss::Event::RoomMove
 {
     class DoorMove : public IRoomMove
@@ -16,7 +22,7 @@ namespace abyss::Event::RoomMove
             FadeOut
         }m_state = State::FadeOut;
 
-        // @todo view
+        Ref<ui::Fade::SmoothCircle> m_fadeUI;
     public:
         DoorMove(
             const std::pair<s3d::Vec2, s3d::Vec2>& cameraMove,
@@ -41,7 +47,10 @@ namespace abyss::Event::RoomMove
             double milliSec = 2000
         );
     protected:
+        void onMoveStart() override;
         void onMoveUpdate([[maybe_unused]] double t) override;
+        void onMoveEnd() override;
+
         s3d::Vec2 calcCameraPos() const override;
         s3d::Vec2 calcPlayerPos() const override;
     private:

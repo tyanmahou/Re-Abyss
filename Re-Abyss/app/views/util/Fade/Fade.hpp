@@ -37,6 +37,8 @@ namespace abyss
 		/// <summary>
 		/// 円形切り抜き
 		/// </summary>
-		void SmoothCircle(double t, const s3d::RectF& rect, const s3d::Vec2& pos);
+		void SmoothCircleRect(double t, const s3d::Vec2& pos, const s3d::RectF& rect);
+
+		void SmoothCircle(double t, const s3d::Vec2& pos);
 	}
 }

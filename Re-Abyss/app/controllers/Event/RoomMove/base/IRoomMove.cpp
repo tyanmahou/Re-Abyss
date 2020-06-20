@@ -15,6 +15,7 @@ namespace abyss::Event::RoomMove
     {
         // 移動開始
         this->start();
+        this->onMoveStart();
         m_pManager->getModule<Stage>()->checkOut();
 
     }

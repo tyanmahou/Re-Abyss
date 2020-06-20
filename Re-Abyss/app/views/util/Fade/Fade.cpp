@@ -47,7 +47,7 @@ namespace abyss
 		}
 
 		//3次関数的に広がる円形マスク
-		void SmoothCircle(double t, const s3d::RectF& rect, const s3d::Vec2& pos)
+		void SmoothCircleRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
 		{
 			if (!::FadeBase(rect, t))
 			{
@@ -59,9 +59,13 @@ namespace abyss
 			};
 			auto mask = MaskUtil::Instance().notEqual([&] {
 				auto alpha = EaseInOut(Easing::Linear, 1.0 - t);
-				Circle(pos, Scene::Width() * func(1.0 - t)).draw(ColorF(0, alpha));
+				Circle(pos, rect.w * func(1.0 - t)).draw(ColorF(0, alpha));
 			});
 			rect.draw(g_fadeColor);
+		}
+		void SmoothCircle(double t, const s3d::Vec2& pos)
+		{
+			SmoothCircleRect(t, pos, Scene::Rect());
 		}
 	}
 

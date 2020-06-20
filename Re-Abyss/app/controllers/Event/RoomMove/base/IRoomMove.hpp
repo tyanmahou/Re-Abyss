@@ -24,6 +24,7 @@ namespace abyss::Event::RoomMove
         virtual s3d::Vec2 calcCameraPos() const = 0;
         virtual s3d::Vec2 calcPlayerPos() const = 0;
 
+        virtual void onMoveStart() {}
         virtual void onMoveUpdate([[maybe_unused]]double t) {}
         virtual void onMoveEnd() {}
 

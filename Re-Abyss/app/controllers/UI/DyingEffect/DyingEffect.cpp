@@ -5,6 +5,7 @@
 
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
+#include <abyss/controllers/UI/UIOrder.hpp>
 
 namespace abyss::ui
 {
@@ -12,7 +13,7 @@ namespace abyss::ui
         m_pActor(pActor),
         m_view(std::make_unique<DyingEffectVM>())
     {
-        this->m_order = -99;
+        this->m_order = UIOrder::MostBack;
     }
     void DyingEffect::start()
     {
