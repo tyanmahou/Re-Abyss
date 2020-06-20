@@ -25,8 +25,12 @@ namespace abyss::ui
         std::unique_ptr<MessageBoxVM> m_boxView;
         std::unique_ptr<CursorVM> m_cursorView;
 
+        std::shared_ptr<Event::Talk::FaceManager> m_faceManager;
     public:
-        Serif(const Ref<Event::Talk::SerifModel>& serif);
+        Serif(
+            const Ref<Event::Talk::SerifModel>& serif,
+            const std::shared_ptr<Event::Talk::FaceManager>& faceManager
+        );
 
         void update(double dt) override;
         void draw() const override;

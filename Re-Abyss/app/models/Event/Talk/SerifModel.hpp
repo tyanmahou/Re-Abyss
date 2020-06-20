@@ -14,11 +14,11 @@ namespace abyss::Event::Talk
             Left,
             Right,
         };
+        using Message = std::pair<s3d::String, String>;
     private:
         s3d::Optional<s3d::String> m_actorName;
-        s3d::Optional<s3d::String> m_kind;
         Side m_side = Side::Left;
-        s3d::Array<s3d::String> m_messages;
+        s3d::Array<Message> m_messages;
 
         s3d::Stopwatch m_stopwatch;
         size_t m_messageIndex = 0;
@@ -40,15 +40,7 @@ namespace abyss::Event::Talk
         {
             return m_actorName;
         }
-        SerifModel& setKind(const s3d::String& kind)
-        {
-            m_kind = kind;
-            return *this;
-        }
-        const s3d::Optional<s3d::String>& getKind()const
-        {
-            return m_kind;
-        }
+
         SerifModel& setSide(Side side)
         {
             m_side = side;
@@ -58,18 +50,18 @@ namespace abyss::Event::Talk
         {
             return m_side;
         }
-        SerifModel& addMessage(const s3d::String& message)
+        SerifModel& addMessage(const Message& message)
         {
             m_messages.push_back(message);
             return *this;
         }
-        const s3d::Array<s3d::String>& getMessages()const
+        const s3d::Array<Message>& getMessages()const
         {
             return m_messages;
         }
         const s3d::String& getMessage(size_t index)const
         {
-            return m_messages[index];
+            return m_messages[index].second;
         }
         s3d::int32 getStrIndex()const
         {
@@ -93,6 +85,7 @@ namespace abyss::Event::Talk
         }
         s3d::String getPrev() const;
         const s3d::String& getCurrent() const;
+        const s3d::String& getCurrentKind()const;
 
         bool isEnd()const;
     };

@@ -1,11 +1,14 @@
 #include "TalkService.hpp"
+#include <Siv3D.hpp>
+
 #include <abyss/controllers/Event/Talk/base/FaceManager.hpp>
 #include <abyss/controllers/Event/Talk/base/TriggerManager.hpp>
 #include <abyss/controllers/Event/Talk/base/Serif.hpp>
 #include <abyss/controllers/Event/Talk/base/TriggerEvent.hpp>
 
 #include <abyss/controllers/Event/Talk/BossTalk0_0/Build.hpp>
-#include <Siv3D.hpp>
+
+#include <abyss/models/Event/Talk/SerifModel.hpp>
 
 //todo消す
 #include <abyss/utils/FileUtil/FileUtil.hpp>
@@ -30,37 +33,36 @@ namespace abyss::Event::Talk
             );
         }
         auto triggerManager = std::make_shared<TriggerManager>();
-        for (const auto& elm : json[U"serifs"].arrayView()) {
-            if (const auto& trigger = elm[U"trigger"].getOpt<String>(); trigger) {
+        for (const auto& event : json[U"events"].arrayView()) {
+            if (const auto& trigger = event[U"trigger"].getOpt<String>(); trigger) {
                 // トリガーイベント
-                auto event = std::make_shared<TriggerEvent>();
-                event->setName(*trigger);
-                event->setTriggerManager(triggerManager);
+                auto triggerEvent = std::make_shared<TriggerEvent>();
+                triggerEvent->setName(*trigger);
+                triggerEvent->setTriggerManager(triggerManager);
 
-                talk->addEvent(event);
-            } else {
-                SerifModel model;
-                elm[U"actor"].getOpt<String>().then([&model](const String& actor) {
-                    model.setActorName(actor);
+                talk->addEvent(triggerEvent);
+            } else if(const auto& serif = event[U"serif"]; serif.isObject()){
+                auto model = std::make_shared<SerifModel>();
+                serif[U"actor"].getOpt<String>().then([&model](const String& actor) {
+                    model->setActorName(actor);
                 });
-                elm[U"kind"].getOpt<String>().then([&model](const String& kind) {
-                    model.setKind(kind);
-                });
-                String side = elm[U"side"].getOr<String>(U"left");
-                model.setSide(side == U"left" ? SerifModel::Side::Left : SerifModel::Side::Right);
+                String side = serif[U"side"].getOr<String>(U"left");
+                model->setSide(side == U"left" ? SerifModel::Side::Left : SerifModel::Side::Right);
 
-                for (const auto& message : elm[U"messages"].arrayView()) {
-                    model.addMessage(message.get<String>());
+                for (const auto& message : serif[U"messages"].arrayView()) {
+                    for (const auto& [kind, m] : message.objectView()) {
+                        model->addMessage(SerifModel::Message{ kind,  m.get<String>() });
+                    }
                 }
 
-                auto serif = std::make_shared<Serif>();
-                serif->setModel(std::move(model));
-                serif->setFaceManager(faceManager);
+                auto serifEvent = std::make_shared<Serif>();
+                serifEvent->setModel(model);
+                serifEvent->setFaceManager(faceManager);
 
-                talk->addEvent(serif);
+                talk->addEvent(serifEvent);
             }
         }
-        json[U"event"].getOpt<String>().then([&manager = *triggerManager](const String& name) {
+        json[U"build_id"].getOpt<String>().then([&manager = *triggerManager](const String& name) {
             // イベントビルド
             if (name == U"BossTalk0-0") {
                 return BossTalk0_0::Build(manager);
