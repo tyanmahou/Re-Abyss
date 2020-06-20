@@ -28,13 +28,6 @@ namespace abyss
 
     }
 
-    void Events::draw() const
-    {
-        if (m_events.empty()) {
-            return;
-        }
-        m_events.front()->draw();
-    }
     bool Events::isEmpty() const
     {
         return m_events.empty();

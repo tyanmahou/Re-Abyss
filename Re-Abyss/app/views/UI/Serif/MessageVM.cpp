@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     MessageVM& MessageVM::setPos(const s3d::Vec2& pos)
     {
@@ -26,7 +26,6 @@ namespace abyss::Event::Talk
     }
     void MessageVM::draw() const
     {
-        ScopedRenderStates2D state2d(SamplerState::ClampNearest);
         static const auto& ps = ResourceManager::Main()->loadPs(U"bitmap_font.hlsl");
         ScopedCustomShader2D shader(ps);
 

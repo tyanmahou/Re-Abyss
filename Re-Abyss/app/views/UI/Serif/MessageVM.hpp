@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/StringView.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     class MessageVM
     {

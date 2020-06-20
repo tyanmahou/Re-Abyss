@@ -347,15 +347,6 @@
     <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Event\Talk\MessageVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Event\Talk\MessageBoxVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Event\Talk\CursorVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -893,6 +884,18 @@
     <ClCompile Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\Serif\CursorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\UI\Serif\Serif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1109,9 +1112,6 @@
     </ClInclude>
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
-    <ClInclude Include="app\views\Event\Talk\MessageVM.hpp" />
-    <ClInclude Include="app\views\Event\Talk\MessageBoxVM.hpp" />
-    <ClInclude Include="app\views\Event\Talk\CursorVM.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\FaceManager.hpp" />
     <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
@@ -1350,5 +1350,9 @@
     <ClInclude Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.hpp" />
     <ClInclude Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.hpp" />
     <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
+    <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
+    <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
+    <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
+    <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
   </ItemGroup>
 </Project>

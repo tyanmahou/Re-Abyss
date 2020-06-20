@@ -1,9 +1,9 @@
 #pragma once
-#include <Siv3D/TexturedQuad.hpp>
+#include <Siv3D/Texture.hpp>
 #include <Siv3D/Optional.hpp>
 #include <Siv3D/String.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     class MessageBoxVM
     {

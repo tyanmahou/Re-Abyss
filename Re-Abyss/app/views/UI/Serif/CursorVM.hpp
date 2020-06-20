@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     class CursorVM
     {

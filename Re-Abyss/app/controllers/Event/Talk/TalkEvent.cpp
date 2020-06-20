@@ -32,13 +32,6 @@ namespace abyss::Event::Talk
         }
         return true;
     }
-    void TalkEvent::draw() const
-    {
-        if (m_events.empty()) {
-            return;
-        }
-        m_events.front()->draw();
-    }
 
     void TalkEvent::onEnd()
     {

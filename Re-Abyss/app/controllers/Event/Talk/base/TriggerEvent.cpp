@@ -23,13 +23,6 @@ namespace abyss::Event::Talk
         }
         return m_event->update(dt);
     }
-    void TriggerEvent::draw() const
-    {
-        if (!m_event) {
-            return;
-        }
-        return m_event->draw();
-    }
     void TriggerEvent::onEnd()
     {
         if (!m_event) {

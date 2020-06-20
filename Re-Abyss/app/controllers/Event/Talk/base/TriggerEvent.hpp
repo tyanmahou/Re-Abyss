@@ -27,7 +27,6 @@ namespace abyss::Event::Talk
 
         void init() override;
         bool update(double dt) override;
-        void draw() const override;
         void onEnd() override;
     };
 }

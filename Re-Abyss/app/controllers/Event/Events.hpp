@@ -19,7 +19,6 @@ namespace abyss
             return *this;
         }
         bool update(double dt);  
-        void draw()const;
 
         bool isEmpty() const;
     };

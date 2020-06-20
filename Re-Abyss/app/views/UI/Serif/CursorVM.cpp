@@ -1,7 +1,7 @@
 #include "CursorVM.hpp"
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <Siv3D.hpp>
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     CursorVM::CursorVM():
         m_texture(ResourceManager::Main()->loadTexture(U"ui/common/cursor.png"))

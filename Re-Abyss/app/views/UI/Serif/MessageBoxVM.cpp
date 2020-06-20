@@ -2,7 +2,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::ui
 {
     MessageBoxVM::MessageBoxVM() :
         m_boxTexture(ResourceManager::Main()->loadTexture(U"ui/common/message_box.png"))

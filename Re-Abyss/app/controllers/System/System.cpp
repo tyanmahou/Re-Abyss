@@ -125,8 +125,6 @@ namespace abyss
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
             blackBand.draw(Palette::Black);
 
-            m_events.draw();
-
             m_userInterface.draw();
         }
     }
