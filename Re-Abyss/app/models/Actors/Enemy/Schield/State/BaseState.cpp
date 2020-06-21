@@ -11,10 +11,4 @@ namespace abyss::Schield
     {
         m_body->update(dt);
     }
-    void BaseState::onCollisionStay(IActor* col)
-    {
-        col->accept([this](const MapActor& map) {
-            m_body->fixPos(map.getMapColInfo());
-        });
-    }
 }

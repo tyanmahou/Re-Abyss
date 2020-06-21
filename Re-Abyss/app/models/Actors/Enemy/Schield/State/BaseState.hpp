@@ -12,7 +12,5 @@ namespace abyss::Schield
         void setup()override;
 
         void update(double dt) override;
-
-        void onCollisionStay(IActor* col) override;
     };
 }
