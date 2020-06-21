@@ -31,10 +31,7 @@ namespace abyss
             m_isActive = isActive;
             return *this;
         }
-        bool isActive() const
-        {
-            return m_isActive;
-        }
+        bool isActive() const;
 
         virtual s3d::RectF getCollider() const = 0;
 

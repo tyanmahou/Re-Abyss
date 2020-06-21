@@ -3,10 +3,7 @@
 #include <Siv3D/Utility.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
-#include <abyss/models/Actors/base/IColliderModel.hpp>
-
 namespace abyss
 {
     void ActorsHolder::flush()
@@ -82,13 +79,6 @@ namespace abyss
 				continue;
 			}
 			obj->draw();
-#if ABYSS_DEBUG
-			if (Debug::DebugManager::IsDrawColider()) {
-				for (auto&& collider : obj->finds<IColliderModel>()) {
-					Debug::DebugManager::DrawColider(collider->getCollider());
-				}
-			}
-#endif
 		}
 	}
 	void ActorsHolder::erase()

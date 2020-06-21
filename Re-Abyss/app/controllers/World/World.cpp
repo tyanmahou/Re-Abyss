@@ -7,6 +7,8 @@
 #include <abyss/models/Actors/base/IPhysicsModel.hpp>
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
 
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
+
 namespace abyss
 {
     World::World():
@@ -70,5 +72,10 @@ namespace abyss
     void World::draw() const
     {
         m_actorsHolder.draw();
+#if ABYSS_DEBUG
+        Debug::DebugManager::DrawColider(*this);
+        Debug::DebugManager::DrawMapColider(*this);
+#endif
+
     }
 }

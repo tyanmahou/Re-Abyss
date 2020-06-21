@@ -34,10 +34,7 @@ namespace abyss
             return *this;
         }
 
-        bool isActive() const
-        {
-            return m_isActive;
-        }
+        bool isActive() const;
 
         IActor* getActor()const
         {
