@@ -56,6 +56,7 @@ namespace abyss::Player
     }
     void LadderState::lastUpdate([[maybe_unused]]double dt)
     {
+        BaseState::lastUpdate(dt);
         if (!m_foot->isLadder()) {
             this->changeState(PlayerActor::State::Swim);
         }

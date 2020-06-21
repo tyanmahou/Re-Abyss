@@ -28,6 +28,8 @@ namespace abyss
         FootModel& setLadderPosX(double posX);
         const s3d::Optional<double>& getLadderPosX()const;
 
+        FootModel& apply(State state);
+
         FootModel& operator |=(State state);
 
     };

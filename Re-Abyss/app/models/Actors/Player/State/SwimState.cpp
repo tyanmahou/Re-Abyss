@@ -8,6 +8,7 @@
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 #include <abyss/controllers/Save/Save.hpp>
 #include <abyss/controllers/Event/RoomMove/DoorMove/DoorMove.hpp>
+
 namespace abyss::Player
 {
     void SwimState::onLanding()
@@ -20,9 +21,7 @@ namespace abyss::Player
     }
     void SwimState::onCollisionStay(const PenetrateFloorActor& col)
     {
-        auto colDir = this->fixPos(col.getMapColInfo());
-
-        if (colDir.isUp() &&
+        if (m_mapCol->isHitGround() &&
             col.tryDown(m_body->region()) &&
             InputManager::Down.down()
             ) {
@@ -65,6 +64,8 @@ namespace abyss::Player
     }
     void SwimState::lastUpdate([[maybe_unused]]double dt)
     {
+        BaseState::lastUpdate(dt);
+
         if (m_foot->isLadder()) {
             bool canUp = !m_foot->isLadderTop() && InputManager::Up.down();
             bool canDown = (m_foot->isLadderTop() || !m_foot->isLanding()) && InputManager::Down.down();

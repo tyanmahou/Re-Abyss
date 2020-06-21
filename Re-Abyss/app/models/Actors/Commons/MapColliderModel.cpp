@@ -1,7 +1,9 @@
 #include "MapColliderModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/FootModel.hpp>
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 
@@ -79,6 +81,7 @@ namespace abyss
     void MapColliderModel::setup()
     {
         m_body = m_pActor->find<BodyModel>();
+        m_foot = m_pActor->find<FootModel>();
     }
 
     s3d::RectF MapColliderModel::getCollider() const
@@ -88,6 +91,9 @@ namespace abyss
 
     void MapColliderModel::onPrePhysics()
     {
+        if (m_foot) {
+            m_foot->reset();
+        }
         m_result->onReflesh();
     }
 
@@ -96,6 +102,21 @@ namespace abyss
         if (!m_isThrough) {
             auto col = m_body->fixPos(terrain->getMapColInfo());
             m_result->add(col);
+
+            if (m_foot) {
+                if (col.isUp()) {
+                    m_foot->apply(FootModel::Landing);
+                }
+                terrain->accept(overloaded{
+                    [this](const Ladder::LadderActor& ladder) {
+                        if (ladder.getCenterLine().intersects(m_body->region())) {
+                            m_foot->setLadderPosX(ladder.getPos().x);
+                            auto state = ladder.isTop() ? FootModel::LadderTop : FootModel::Ladder;
+                            m_foot->apply(state);
+                        }
+                    }
+                });
+            }
         }
 
         m_result->add(terrain);
@@ -124,6 +145,18 @@ namespace abyss
     bool MapColliderModel::isHitAny() const
     {
         return m_result->isHitAny();
+    }
+    bool MapColliderModel::acceptAll(const ActVisitor& visitor)
+    {
+        bool result = false;
+        for (const auto& terrain : this->getHitTerrains()) {
+            if (!terrain) {
+                continue;
+            }
+            result |= terrain->accept(visitor);
+        }
+
+        return result;
     }
     const s3d::Array<Ref<TerrainModel>>& MapColliderModel::getHitTerrains() const
     {

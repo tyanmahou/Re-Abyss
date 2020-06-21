@@ -6,6 +6,8 @@
 
 namespace abyss
 {
+    class FootModel;
+
     class MapColliderModel:
         public IComponent,
         public IPrePhysicsModel,
@@ -16,7 +18,8 @@ namespace abyss
         class Result;
     private:
         Ref<BodyModel> m_body;
-       std::unique_ptr<Result> m_result;
+        Ref<FootModel> m_foot;
+        std::unique_ptr<Result> m_result;
 
        bool m_isEnableRoomHit = false;
        bool m_isEnableRoomHitStrict = false;
@@ -71,6 +74,9 @@ namespace abyss
         /// </summary>
         /// <returns></returns>
         bool isHitAny() const;
+
+
+        bool acceptAll(const ActVisitor& visitor);
 
         /// <summary>
         /// 衝突した地形を取得

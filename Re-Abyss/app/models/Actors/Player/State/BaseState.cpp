@@ -9,40 +9,17 @@
 
 namespace abyss::Player
 {
-    ColDirection BaseState::fixPos(const MapColInfo& mapColInfo)
+    void BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorActor& col)
     {
-        auto col = m_body->fixPos(mapColInfo);
-        if (col.isUp()) {
-            if (m_body->getVelocity().y > 0) {
-                m_body->setVelocityY(0);
-            }
-            *m_foot |= FootModel::Landing;
-            this->onLanding();
-        }
-        return col;
-    }
-    void BaseState::onCollisionStay(const FloorActor& col)
-    {
-        this->fixPos(col.getMapColInfo());
-    }
-    void BaseState::onCollisionStay(const PenetrateFloorActor& col)
-    {
-        this->fixPos(col.getMapColInfo());
     }
     void BaseState::onCollisionStay(const LadderActor & ladder)
     {
         if (ladder.isTop()) {
             this->onCollisionStayLadderTop(ladder);
         }
-        if (ladder.getCenterLine().intersects(m_body->region())) {
-            m_foot->setLadderPosX(ladder.getPos().x);
-            auto state = ladder.isTop() ? FootModel::LadderTop : FootModel::Ladder;
-            (*m_foot) |= state;
-        }
     }
-    void BaseState::onCollisionStayLadderTop(const LadderActor& ladder)
+    void BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderActor& ladder)
     {
-        this->fixPos(ladder.getMapColInfo());
     }
     void BaseState::onCollisionStay([[maybe_unused]]const DoorActor & col)
     {}
@@ -53,6 +30,7 @@ namespace abyss::Player
         m_charge     = m_pActor->find<ChargeModel>().get();
         m_hp         = m_pActor->find<HPModel>().get();
         m_attackCtrl = m_pActor->find<AttackCtrlModel>().get();
+        m_mapCol     = m_pActor->find<MapColliderModel>().get();
     }
     void BaseState::start()
     {
@@ -90,24 +68,8 @@ namespace abyss::Player
         } else if (leftPressed) {
             m_body->setForward(Forward::Left);
         }
-
-        this->onMove(dt);
-
-        // 攻撃
-        if (m_charge->update(dt)) {
-            double charge = m_charge->pop();
-            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
-            m_attackCtrl->startAttack();
-        }
-        m_foot->reset();
-    }
-    void BaseState::onCollisionStay(IActor * col)
-    {
-        col->accept(overloaded{
-            [this](const FloorActor& floor) {
-                // 床
-                this->onCollisionStay(floor);
-            },
+        // 地形判定
+        m_mapCol->acceptAll(overloaded{
             [this](const LadderActor& ladder) {
                 // 梯子
                 this->onCollisionStay(ladder);
@@ -116,6 +78,19 @@ namespace abyss::Player
                 // 貫通床
                 this->onCollisionStay(floor);
             },
+        });
+        this->onMove(dt);
+
+        // 攻撃
+        if (m_charge->update(dt)) {
+            double charge = m_charge->pop();
+            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
+            m_attackCtrl->startAttack();
+        }
+    }
+    void BaseState::onCollisionStay(IActor * col)
+    {
+        col->accept(overloaded{
             [this](const DoorActor& door) {
                 // 扉
                 this->onCollisionStay(door);
@@ -127,6 +102,16 @@ namespace abyss::Player
                 this->changeState(PlayerActor::State::Damage);
             }
         });
+    }
+
+    void BaseState::lastUpdate([[maybe_unused]]double dt)
+    {
+        if (m_mapCol->isHitGround()) {
+            if (m_body->getVelocity().y > 0) {
+                m_body->setVelocityY(0);
+            }
+            this->onLanding();
+        }
     }
     void BaseState::draw() const
     {

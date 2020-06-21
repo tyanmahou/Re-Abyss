@@ -10,11 +10,13 @@
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
+
 #include <abyss/controllers/Manager/Manager.hpp>
 
 #include <abyss/controllers/World/World.hpp>
@@ -22,7 +24,6 @@
 
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
-
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
@@ -37,6 +38,10 @@ namespace abyss::Player
             col->setColFunc([this]() {
                 return this->getCollider();
             });
+        }
+        // Map Collider
+        {
+            this->attach<MapColliderModel>(this);
         }
         // Body
         {

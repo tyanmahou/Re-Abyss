@@ -902,6 +902,9 @@
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\abyss\include\abyss\models\Actors\Commons\TerrainModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

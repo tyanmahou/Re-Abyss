@@ -450,6 +450,7 @@
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp" />
+    <ClCompile Include="vendor\abyss\include\abyss\models\Actors\Commons\TerrainModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

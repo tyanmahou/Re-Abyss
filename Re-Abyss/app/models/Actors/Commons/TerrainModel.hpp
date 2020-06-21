@@ -43,5 +43,7 @@ namespace abyss
         {
             return m_pActor;
         }
+
+        bool accept(const ActVisitor& visit) const;
     };
 }

@@ -37,6 +37,10 @@ namespace abyss
     {
         return m_ladderPosX;
     }
+    FootModel& FootModel::apply(State state)
+    {
+        return *this |= state;
+    }
     FootModel& FootModel::operator|=(State state)
     {
         m_state = static_cast<State>(m_state | state);
