@@ -8,7 +8,7 @@ namespace abyss::Slime
 
     class Senser : public IActor
     {
-		Ref<PosModel> m_pos;
+		Ref<BodyModel> m_body;
 	public:
 		Senser(SlimeActor* p);
 

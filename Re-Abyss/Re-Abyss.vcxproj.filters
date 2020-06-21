@@ -401,9 +401,6 @@
     <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\PosModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -684,9 +681,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\Schield\DamageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp">
@@ -1152,7 +1146,6 @@
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
@@ -1270,7 +1263,6 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\DamageModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\State\BaseState.hpp" />

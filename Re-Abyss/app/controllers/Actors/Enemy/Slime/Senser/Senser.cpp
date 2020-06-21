@@ -2,26 +2,21 @@
 
 #include <abyss/models/Actors/Enemy/Slime/Sencer/MainUpdateModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/Sencer/CollisionModel.hpp>
-#include <abyss/models/Actors/Commons/PosModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
 namespace abyss::Slime
 {
 	Senser::Senser(SlimeActor* p)
 	{
-		m_pos = this->attach<PosModel>();
+		m_body = this->attach<BodyModel>();
 		this->attach<Sencer::MainUpdateModel>(this);
 		this->attach<Sencer::ParentCtrlModel>(p);
-		this->attach<Sencer::CollisionModel>();
 
-		this->attach<CustomColliderModel>(this)
-			->setColFunc([this]() {
-			return this->getPos();
-		});
+		this->attach<MapColliderModel>(this)->setIsThrough(true);
 	}
 	const s3d::Vec2& Senser::getPos() const
 	{
-		return m_pos->getPos();
+		return m_body->getPos();
 	}
 }

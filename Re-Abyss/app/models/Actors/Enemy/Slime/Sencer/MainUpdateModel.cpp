@@ -1,8 +1,8 @@
 #include "MainUpdateModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/Sencer/CollisionModel.hpp>
-#include <abyss/models/Actors/Commons/PosModel.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
 namespace abyss::Slime::Sencer
 {
@@ -12,22 +12,22 @@ namespace abyss::Slime::Sencer
 	void MainUpdateModel::setup()
     {
         m_parentCtrl = m_pActor->find<ParentCtrlModel>();
-        m_collision = m_pActor->find<CollisionModel>();
-        m_pos = m_pActor->find<PosModel>();
+        m_mapColl = m_pActor->find<MapColliderModel>();
+        m_body = m_pActor->find<BodyModel>();
     }
     void MainUpdateModel::onUpdate([[maybe_unused]]double dt)
     {
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		if (!m_collision->isOnCollision() && m_parentCtrl->isWalk()) {
+		if (!m_mapColl->isHitAny() && m_parentCtrl->isWalk()) {
 			m_parentCtrl->reversed();
 		}
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
 		if (isLeft) {
-			m_pos->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
+			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
 		} else {
-			m_pos->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
+			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
 		}
     }
 }

@@ -7,7 +7,6 @@
 namespace abyss::Slime::Sencer
 {
     class ParentCtrlModel;
-    class CollisionModel;
 
     class MainUpdateModel : 
         public IComponent,
@@ -15,8 +14,8 @@ namespace abyss::Slime::Sencer
     {
         IActor* m_pActor;
         Ref<ParentCtrlModel> m_parentCtrl;
-        Ref<CollisionModel> m_collision;
-        Ref<PosModel> m_pos;
+        Ref<MapColliderModel> m_mapColl;
+        Ref<BodyModel> m_body;
     public:
         MainUpdateModel(IActor* pActor);
         void setup() override;

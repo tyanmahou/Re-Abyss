@@ -19,6 +19,7 @@ namespace abyss
        std::unique_ptr<Result> m_result;
 
        bool m_enableRoomHit = false;
+       bool m_isThrough = false; // すりぬけるか
     public:
 
         MapColliderModel(IActor* pActor);
@@ -36,6 +37,12 @@ namespace abyss
         MapColliderModel& setEnableRoomHit(bool enable)
         {
             m_enableRoomHit = enable;
+            return *this;
+        }
+
+        MapColliderModel& setIsThrough(bool isThrough)
+        {
+            m_isThrough = isThrough;
             return *this;
         }
 

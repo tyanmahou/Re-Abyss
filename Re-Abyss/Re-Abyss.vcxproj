@@ -350,7 +350,6 @@
     <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\PosModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
@@ -372,7 +371,6 @@
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\RunState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\WaitState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.cpp" />
@@ -673,7 +671,6 @@
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\PosModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
@@ -693,7 +690,6 @@
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\CollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\State\BaseState.hpp" />

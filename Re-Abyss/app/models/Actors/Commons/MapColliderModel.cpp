@@ -93,9 +93,12 @@ namespace abyss
 
     void MapColliderModel::onCollision(const Ref<TerrainModel>& terrain)
     {
-        auto col = m_body->fixPos(terrain->getMapColInfo());
+        if (!m_isThrough) {
+            auto col = m_body->fixPos(terrain->getMapColInfo());
+            m_result->add(col);
+        }
+
         m_result->add(terrain);
-        m_result->add(col);
     }
     void MapColliderModel::onLastPhysics()
     {
