@@ -57,7 +57,10 @@ namespace abyss
 			return Quad(line.begin - v, line.end - v, line.end, line.begin);
 		};
 
-		const Vec2 qSize = from.size / 4.0;
+		const Vec2 qSize = {
+			Min(10.0, from.size.x / 4.0),
+			Min(10.0, from.size.y / 4.0)
+		};
 
 		const RectF topRect{ from.tl(), { from.w, qSize.y } };
 		const RectF bottomRect{ from.bl() - Vec2{0, qSize.y}, { from.w, qSize.y } };

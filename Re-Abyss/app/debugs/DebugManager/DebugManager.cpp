@@ -143,17 +143,21 @@ namespace abyss::Debug
                     continue;
                 }
                 const auto&[region, col] = terrain->getMapColInfo();
+                const Vec2 qSize = {
+                    Min(10.0, region.size.x / 4.0),
+                    Min(10.0, region.size.y / 4.0)
+                };
                 if (col.isUp()) {
-                    RectF(region.x, region.y, region.w, region.h / 4.0).draw(color);
+                    RectF(region.x, region.y, region.w, qSize.y).draw(color);
                 }
                 if (col.isDown()) {
-                    RectF(region.x, region.y + region.h, region.w, -region.h / 4.0).draw(color);
+                    RectF(region.x, region.y + region.h, region.w, -qSize.y).draw(color);
                 }
                 if (col.isLeft()) {
-                    RectF(region.x, region.y, region.w / 4.0, region.h).draw(color);
+                    RectF(region.x, region.y, qSize.x, region.h).draw(color);
                 }
                 if (col.isRight()) {
-                    RectF(region.x + region.w, region.y, -region.w / 4.0, region.h).draw(color);
+                    RectF(region.x + region.w, region.y, -qSize.x, region.h).draw(color);
                 }
             }
         }

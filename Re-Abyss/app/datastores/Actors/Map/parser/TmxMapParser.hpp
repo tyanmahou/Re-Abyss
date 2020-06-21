@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <memory>
 #include <S3DTiled.hpp>
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
 
@@ -9,10 +10,20 @@ namespace abyss
 
 	class TmxMapParser
 	{
+		struct MergeParam
+		{
+			MapEntity entity;
+			s3d::int32 beginX = -1;
+			s3d::int32 endX = -1;
+		};
+	private:
 		std::unordered_map<GId, MapType> m_fieldTypeMap;
 		s3dTiled::TiledMap m_tiledMap;
 		const s3d::Grid<GId>& m_grid;
 		bool m_useAroundFilter;
+
+		s3d::Grid<s3d::Optional<MapEntity>> m_entityGrid;
+
 		MapType getFieldType(GId gId);
 
 		MapType getFieldType(s3d::int32 x, s3d::int32 y);

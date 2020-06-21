@@ -60,7 +60,7 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 #if ABYSS_DEBUG
 
 #else
-Resource(resources/events/stage0/boss.talk)
+Resource(resources/events/stage0/boss.json)
 Resource(resources/fonts/PixelMplus12-Bold.ttf)
 Resource(resources/fonts/PixelMplus12-Regular.ttf)
 Resource(resources/images/actors/Common/common_effects.json)
