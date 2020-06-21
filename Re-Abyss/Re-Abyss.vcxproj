@@ -197,6 +197,7 @@
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
+    <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
@@ -363,7 +364,6 @@
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\WaitState.cpp" />
-    <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\ChargeModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\PlayerShotModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\State\BaseState.cpp" />
@@ -510,6 +510,7 @@
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
+    <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
@@ -684,7 +685,6 @@
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\RunState.hpp" />

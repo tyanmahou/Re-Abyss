@@ -1,7 +1,7 @@
 #include "MapActor.hpp"
-#include <abyss/models/Collision/LayerGroup.hpp>
-#include <abyss/models/Actors/Map/ColliderModel.hpp>
+#include <abyss/models/Actors/Map/MapParamModel.hpp>
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
+#include <abyss/types/CShape.hpp>
 
 namespace abyss::Map
 {
@@ -9,10 +9,7 @@ namespace abyss::Map
 		m_col(col)
 	{
 		{
-			auto collider = std::make_shared<ColliderModel>(this, pos, size);
-			collider->setLayer(LayerGroup::Map);
-			this->attach(collider);
-			m_collider = collider;
+			m_mapParam = this->attach<MapParamModel>(pos, size);
 		}
 		// 地形
 		{
@@ -23,12 +20,12 @@ namespace abyss::Map
 
 	const s3d::Vec2& MapActor::getPos() const
 	{
-		return m_collider->getPos();
+		return m_mapParam->getPos();
 	}
 
 	const s3d::Vec2& MapActor::getSize() const
 	{
-		return m_collider->getSize();
+		return m_mapParam->getSize();
 	}
 
 	ColDirection MapActor::getCol() const
@@ -38,7 +35,7 @@ namespace abyss::Map
 
 	s3d::RectF MapActor::region() const
 	{
-		return m_collider->region();
+		return m_mapParam->region();
 	}
 
 	CShape MapActor::getCollider() const

@@ -710,9 +710,6 @@
     <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Map\ColliderModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\util\Fade\Fade.cpp">
       <Filter>Source Files\Scene\Fade</Filter>
     </ClCompile>
@@ -903,6 +900,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vendor\abyss\include\abyss\models\Actors\Commons\TerrainModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1287,7 +1287,6 @@
     <ClInclude Include="app\params\Actors\Enemy\Schield\Param.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\Schield\ShotParam.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\Slime\Param.hpp" />
-    <ClInclude Include="app\models\Actors\Map\ColliderModel.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp">
       <Filter>Source Files\Scene\Fade</Filter>
     </ClInclude>
@@ -1368,5 +1367,6 @@
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
+    <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
   </ItemGroup>
 </Project>

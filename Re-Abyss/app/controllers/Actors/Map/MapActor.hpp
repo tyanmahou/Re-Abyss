@@ -6,13 +6,13 @@ namespace abyss
 {
 	inline namespace Map
 	{
-		class ColliderModel;
+		class MapParamModel;
 
 		class MapActor :public IActor
 		{
 		protected:
 			ColDirection m_col;
-			Ref<ColliderModel> m_collider;
+			Ref<MapParamModel> m_mapParam;
 		public:
 			MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
 
