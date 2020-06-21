@@ -31,11 +31,21 @@ namespace abyss
     void World::update()
     {
         m_actorsHolder.update();
+    }
+
+    void World::collision()
+    {
         // 衝突
         m_collision->collisionAll(this->finds<IColliderModel>());
+    }
 
+    void World::lastUpdate()
+    {
         m_actorsHolder.lastUpdate();
+    }
 
+    void World::cleanUp()
+    {
         m_actorsHolder.erase();
     }
 

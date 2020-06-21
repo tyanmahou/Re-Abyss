@@ -115,6 +115,13 @@ namespace abyss
 		return false;
 	}
 
+	Vec2 Camera::fixPos(const s3d::Vec2& pos) const
+	{
+		// todo 自動スクロール中はカメラのスクリーン内に入るように
+
+		return m_camera->currentRoom().borderAdjusted(pos);
+	}
+
 	CameraView Camera::createView() const
 	{
 		return CameraView(m_camera.get());

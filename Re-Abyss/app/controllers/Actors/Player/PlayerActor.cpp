@@ -10,6 +10,7 @@
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -81,6 +82,10 @@ namespace abyss::Player
         {
             this->attach<BreathingModel>(this)
                 ->setOffset(Vec2{0, -20});
+        }
+        // カメラによる座標調整
+        {
+            this->attach<CameraFixPosModel>(this);
         }
         // 部屋移動の検知
         {

@@ -896,6 +896,12 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\MapColResult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1354,5 +1360,11 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\MapCollider.hpp" />
+    <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\MapColResult.hpp" />
+    <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
   </ItemGroup>
 </Project>

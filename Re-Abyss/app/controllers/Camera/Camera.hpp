@@ -92,6 +92,13 @@ namespace abyss
 		/// <returns></returns>
 		bool applyNextRoom()const;
 
+		/// <summary>
+		/// 座標を調整する
+		/// </summary>
+		/// <param name="pos"></param>
+		/// <returns></returns>
+		s3d::Vec2 fixPos(const s3d::Vec2& pos) const;
+
 		template<class T>
 		bool inRoom(const T& shape)const
 		{

@@ -29,7 +29,17 @@ namespace abyss
         /// <param name="dt"></param>
         void updateDeltaTime(double dt);
 
+        /// <summary>
+        /// 更新
+        /// </summary>
         void update();
+
+        void collision();
+
+        void lastUpdate();
+
+        void cleanUp();
+
         void reset();
         void draw() const;
 

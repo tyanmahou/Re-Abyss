@@ -72,13 +72,18 @@ namespace abyss
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
 
-        if (m_events.isEmpty()) {
+        bool inEvent = m_events.isEmpty();
+        if (inEvent) {
             m_world.update();
+            m_world.collision();
+
+            m_camera.update();
+            m_world.lastUpdate();
+            m_world.cleanUp();
         }
-        m_userInterface.update(dt);
-        m_camera.update();
 
         m_events.update(dt);
+        m_userInterface.update(dt);
         m_decor->update(m_time.time());
         m_cron->update(dt);
 

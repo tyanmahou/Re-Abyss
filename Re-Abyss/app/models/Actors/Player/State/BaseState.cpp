@@ -119,7 +119,7 @@ namespace abyss::Player
             [this](const DoorActor& door) {
                 // 扉
                 this->onCollisionStay(door);
-            }
+            },
         });
 
         col->accept([this](const Attacker& attack) {
