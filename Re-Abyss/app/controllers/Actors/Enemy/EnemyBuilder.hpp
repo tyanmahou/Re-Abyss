@@ -25,6 +25,10 @@ namespace abyss::Enemy
         bool m_isEnableCollider = true;
         std::function<CShape()> m_colliderFunc;
 
+        // map collider
+        bool m_isEnableMapCollider = true;
+        bool m_isRoomHit = false;
+
         // audio sourece
         s3d::String m_audioSettingGroupPath;
 
@@ -72,6 +76,12 @@ namespace abyss::Enemy
         EnemyBuilder& setColliderFunc(const std::function<CShape()>& func)
         {
             m_colliderFunc = func;
+            return *this;
+        }
+        EnemyBuilder& setEnableMapCollider(bool enable, bool isRoomHit = false)
+        {
+            m_isEnableMapCollider = enable;
+            m_isRoomHit = isRoomHit;
             return *this;
         }
         EnemyBuilder& setAudioSettingGroupPath(const s3d::String& path)

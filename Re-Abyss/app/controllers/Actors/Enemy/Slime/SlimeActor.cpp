@@ -12,8 +12,6 @@
 #include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
 
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
-
 namespace abyss::Slime
 {
 	SlimeActor::SlimeActor(const SlimeEntity& entity) :
@@ -25,6 +23,7 @@ namespace abyss::Slime
 			.setInitPos(entity.pos)
 			.setForward(entity.forward)
 			.setInitHp(Param::Base::Hp)
+			.setEnableMapCollider(true, true)
 			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
 			.setIsEnableDeadCallback(false)
 			.build();
@@ -41,9 +40,6 @@ namespace abyss::Slime
 
 		this->attach<DeadCallbackModel>(this);
 		this->attach<SenserCtrlModel>();
-
-		// todo統合
-		this->attach<MapColliderModel>(this)->setEnableRoomHit(true);
 	}
 
 	void SlimeActor::start()

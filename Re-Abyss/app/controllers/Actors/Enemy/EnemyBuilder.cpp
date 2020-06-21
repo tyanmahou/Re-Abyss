@@ -5,6 +5,7 @@
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
@@ -51,7 +52,11 @@ namespace abyss::Enemy
 			collider->setColFunc(m_colliderFunc);
 			collider->setLayer(LayerGroup::Enemy);
 		}
-
+		// 地形Collider
+		if (m_isEnableMapCollider) {
+			auto mapCol = m_pActor->attach<MapColliderModel>(m_pActor);
+			mapCol->setEnableRoomHit(m_isRoomHit);
+		}
 		// ダメージのコンポーネント
 		if (m_isEnableDamage) {
 			m_pActor->attach<DamageModel>(m_pActor);
