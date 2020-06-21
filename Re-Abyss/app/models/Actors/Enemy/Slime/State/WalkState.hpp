@@ -7,14 +7,11 @@ namespace abyss::Slime
 
     class WalkState final : public BaseState
     {
-        bool m_onCollision = false;
-        void onColisionMapUp() override;
     public:
         void start() override;
 
         void update(double dt) override;
 
-        void onReflesh() override;
         void draw() const override;
     };
 }

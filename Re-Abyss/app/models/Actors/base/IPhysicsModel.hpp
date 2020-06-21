@@ -1,26 +1,42 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss
 {
+    class TerrainModel;
+
     class IPhysicsModel
     {
-        IActor* m_pActor;
     protected:
+        IActor* m_pActor;
         bool m_isActive = true;
     public:
-        IPhysicsModel(IActor* pActor);
+        IPhysicsModel(IActor* p):
+            m_pActor(p)
+        {}
         virtual ~IPhysicsModel() = default;
-        virtual s3d::RectF getCollider() const = 0;
-
-        IPhysicsModel& setActive(bool isActive);
-        bool isActive() const;
 
         IActor* getActor() const
         {
             return m_pActor;
         }
-        void onCollision(IActor* col);
+
+        IPhysicsModel& setActive(bool isActive)
+        {
+            m_isActive = isActive;
+            return *this;
+        }
+        bool isActive() const
+        {
+            return m_isActive;
+        }
+
+        virtual s3d::RectF getCollider() const = 0;
+
+        virtual void onCollision(const Ref<TerrainModel>& terrain) = 0;
+
+        bool intersects(const MapColInfo& mapColInfo) const;
     };
 }

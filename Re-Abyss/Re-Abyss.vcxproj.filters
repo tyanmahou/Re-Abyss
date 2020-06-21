@@ -899,7 +899,16 @@
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\MapColResult.cpp">
+    <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\MapColResultModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1361,10 +1370,11 @@
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\MapCollider.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\MapColResult.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
+    <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\MapColResultModel.hpp" />
   </ItemGroup>
 </Project>

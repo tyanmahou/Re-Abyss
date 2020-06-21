@@ -61,6 +61,11 @@ namespace abyss
             return *this;
         }
 
+        ColDirection& operator |= (const ColDirection& other)
+        {
+            return *this |= other.m_value;
+        }
+
         constexpr ColDirection operator & (const ColDirection& other)const
         {
             return { static_cast<value_type>(m_value & other.m_value) };
@@ -81,7 +86,10 @@ namespace abyss
             m_value &= value;
             return *this;
         }
-
+        ColDirection& operator &= (const ColDirection& other)
+        {
+            return *this &= other.m_value;
+        }
         constexpr bool operator == (const ColDirection& other)const
         {
             return m_value == other.m_value;

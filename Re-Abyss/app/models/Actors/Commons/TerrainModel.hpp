@@ -11,6 +11,7 @@ namespace abyss
     private:
         IActor* m_pActor;
         MapColInfo m_mapColInfo;
+        bool m_isActive = true;
     public:
         TerrainModel(IActor* pActor):
             m_pActor(pActor)
@@ -25,6 +26,17 @@ namespace abyss
         const MapColInfo& getMapColInfo() const
         {
             return m_mapColInfo;
+        }
+
+        TerrainModel& setActive(bool isActive)
+        {
+            m_isActive = isActive;
+            return *this;
+        }
+
+        bool isActive() const
+        {
+            return m_isActive;
         }
 
         IActor* getActor()const

@@ -1,6 +1,8 @@
 #include "MapActor.hpp"
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Map/ColliderModel.hpp>
+#include <abyss/models/Actors/Commons/TerrainModel.hpp>
+
 namespace abyss::Map
 {
 	MapActor::MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size) :
@@ -12,7 +14,11 @@ namespace abyss::Map
 			this->attach(collider);
 			m_collider = collider;
 		}
-
+		// 地形
+		{
+			this->attach<TerrainModel>(this)
+				->setMapColInfo(this->getMapColInfo());
+		}
 	}
 
 	const s3d::Vec2& MapActor::getPos() const

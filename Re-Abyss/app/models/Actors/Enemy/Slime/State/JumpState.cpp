@@ -4,10 +4,6 @@
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 namespace abyss::Slime
 {
-    void JumpState::onColisionMapUp()
-    {
-        this->changeState(State::Walk);
-    }
     void JumpState::start()
     {
         m_pActor->find<AudioSourceModel>()->play(U"Jump");
@@ -18,5 +14,12 @@ namespace abyss::Slime
     void JumpState::draw() const
     {
         m_pActor->getBindedView()->drawJump();
+    }
+    void JumpState::lastUpdate([[maybe_unused]]double dt)
+    {
+        if (m_mapColResult->isHitGround()) {
+            this->changeState(State::Walk);
+        }
+        BaseState::lastUpdate(dt);
     }
 }

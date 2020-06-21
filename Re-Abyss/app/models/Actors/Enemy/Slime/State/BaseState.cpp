@@ -2,11 +2,13 @@
 #include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
+
 namespace abyss::Slime
 {
     void BaseState::setup()
     {
         m_body = this->m_pActor->find<BodyModel>().get();
+        m_mapColResult = this->m_pActor->find<MapColResultModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -16,31 +18,10 @@ namespace abyss::Slime
     void BaseState::draw() const
     {}
 
-    void BaseState::onCollisionStay(IActor * col)
-    {
-        col->accept([this](const MapActor& map) {
-
-            auto colDir = m_body->fixPos(map.getMapColInfo());
-            if (colDir.isUp()) {
-                onColisionMapUp();
-            }
-            if (colDir.isRight()) {
-                m_body->setForward(Forward::Right);
-            }
-            if (colDir.isLeft()) {
-                m_body->setForward(Forward::Left);
-            }
-        });
-    }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom())) {
-            if (colDir.isRight()) {
-                m_body->setForward(Forward::Right);
-            }
-            if (colDir.isLeft()) {
-                m_body->setForward(Forward::Left);
-            }
+        if (m_mapColResult->isHitWall(m_body->getForward())) {
+            m_body->reversed();
         }
     }
 }

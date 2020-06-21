@@ -1,8 +1,14 @@
 #include "World.hpp"
 
 #include <abyss/models/Collision/CollisionModel.hpp>
+#include <abyss/models/Collision/MapCollisionModel.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/models/Actors/base/IPhysicsModel.hpp>
+#include <abyss/models/Actors/Commons/TerrainModel.hpp>
+
+// todoけす
+#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 
 namespace abyss
 {
@@ -35,6 +41,13 @@ namespace abyss
 
     void World::collision()
     {
+        static SimpleMapCollision map;
+        {
+            for (auto&& com : this->finds<IPrePhysicsModel>()) {
+                com->onPrePhysics();
+            }
+            map.collisionAll(this->finds<IPhysicsModel>(), this->finds<TerrainModel>());
+        }
         // 衝突
         m_collision->collisionAll(this->finds<IColliderModel>());
     }

@@ -5,10 +5,6 @@
 
 namespace abyss::Slime
 {
-    void WalkState::onColisionMapUp()
-    {
-        m_onCollision = true;
-    }
     void WalkState::start()
     {
         m_body->setSize(Param::Walk::Size).setPivot(Param::Walk::Pivot);
@@ -18,13 +14,9 @@ namespace abyss::Slime
         BaseState::update(dt);
 
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
-        if (m_onCollision && m_body->getVelocity().x * d.x > 0 && d.length() <= Param::Walk::SearchRange) {
+        if (m_mapColResult->isHitGround() && m_body->getVelocity().x * d.x > 0 && d.length() <= Param::Walk::SearchRange) {
             this->changeState(State::Jump);
         }
-    }
-    void WalkState::onReflesh()
-    {
-        m_onCollision = false;
     }
     void WalkState::draw() const
     {

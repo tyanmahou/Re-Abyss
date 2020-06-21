@@ -6,6 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/ColDirection.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/types/Forward.hpp>
 
 namespace abyss
 {
@@ -22,7 +23,32 @@ namespace abyss
     public:
         MapColResultModel(IActor* pActor);
 
+        void add(ColDirection col);
+
         void add(const Ref<TerrainModel>& terrain, ColDirection col);
         void onPrePhysics() final;
+
+        bool isHitGround() const;
+
+        bool isHitWall() const;
+
+        bool isHitWall(Forward forward) const;
+
+        bool isHitAny() const;
+
+        const s3d::Array<Ref<TerrainModel>>& getResults() const
+        {
+            return m_results;
+        }
+
+        s3d::Array<IActor*> getHitActors()const;
+    };
+}
+namespace abyss
+{
+    template<>
+    struct ComponentTree<MapColResultModel>
+    {
+        using Base = IPrePhysicsModel;
     };
 }

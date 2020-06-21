@@ -121,6 +121,9 @@ namespace abyss
 	/// </summary>
 	class BodyModel;
 	class IColliderModel;
+	class IPhysicsModel;
+	class TerrainModel;
+	class MapColResultModel;
 	class CustomColliderModel;
 	class ActorTimeModel;
 	class PosModel;
