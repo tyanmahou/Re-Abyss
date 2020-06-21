@@ -7,16 +7,13 @@ namespace abyss::LaunShark
     {
     protected:
         BodyModel* m_body;
+        MapColliderModel* m_mapCol;
         TimeCounterModel* m_timeCounter;
 
-        void tryReverse(ColDirection col);
-
-        virtual void onCollisionMap(ColDirection col);
     public:
         void update(double dt) override;
         void setup()override;
 
         void lastUpdate(double dt) override;
-        void onCollisionStay(IActor* col) override;
     };
 }

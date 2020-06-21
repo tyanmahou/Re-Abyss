@@ -23,7 +23,7 @@ namespace abyss::Slime
 			.setInitPos(entity.pos)
 			.setForward(entity.forward)
 			.setInitHp(Param::Base::Hp)
-			.setEnableMapCollider(true, true)
+			.setIsEnableRoomHit(true)
 			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
 			.setIsEnableDeadCallback(false)
 			.build();

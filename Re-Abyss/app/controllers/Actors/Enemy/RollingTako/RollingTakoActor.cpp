@@ -19,6 +19,7 @@ namespace abyss::RollingTako
             .setBodySize(Param::Base::Size)
             .setBodyPivot(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
+            .setIsEnableRoomHit(true)
             .setAudioSettingGroupPath(U"Enemy/RollingTako/rolling_tako.aase")
             .build();
 

@@ -27,7 +27,8 @@ namespace abyss::Enemy
 
         // map collider
         bool m_isEnableMapCollider = true;
-        bool m_isRoomHit = false;
+        bool m_isEnableRoomHit = false;
+        bool m_isEnableRoomHitStrict = false;
 
         // audio sourece
         s3d::String m_audioSettingGroupPath;
@@ -78,10 +79,15 @@ namespace abyss::Enemy
             m_colliderFunc = func;
             return *this;
         }
-        EnemyBuilder& setEnableMapCollider(bool enable, bool isRoomHit = false)
+        EnemyBuilder& setIsEnableMapCollider(bool enable)
         {
             m_isEnableMapCollider = enable;
-            m_isRoomHit = isRoomHit;
+            return *this;
+        }
+        EnemyBuilder& setIsEnableRoomHit(bool enable, bool isStrict = false)
+        {
+            m_isEnableRoomHit = enable;
+            m_isEnableRoomHitStrict = isStrict;
             return *this;
         }
         EnemyBuilder& setAudioSettingGroupPath(const s3d::String& path)

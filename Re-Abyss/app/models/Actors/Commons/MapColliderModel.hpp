@@ -18,7 +18,8 @@ namespace abyss
         Ref<BodyModel> m_body;
        std::unique_ptr<Result> m_result;
 
-       bool m_enableRoomHit = false;
+       bool m_isEnableRoomHit = false;
+       bool m_isEnableRoomHitStrict = false;
        bool m_isThrough = false; // すりぬけるか
     public:
 
@@ -34,9 +35,10 @@ namespace abyss
 
         void onLastPhysics() override;
 
-        MapColliderModel& setEnableRoomHit(bool enable)
+        MapColliderModel& setIsEnableRoomHit(bool enable, bool isStrict = false)
         {
-            m_enableRoomHit = enable;
+            m_isEnableRoomHit = enable;
+            m_isEnableRoomHitStrict = isStrict;
             return *this;
         }
 

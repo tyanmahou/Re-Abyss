@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/controllers/System/System.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
 namespace abyss::LaunShark
@@ -8,26 +8,9 @@ namespace abyss::LaunShark
     void BaseState::setup()
     {
         m_body = m_pActor->find<BodyModel>().get();
+        m_mapCol = m_pActor->find<MapColliderModel>().get();
         m_timeCounter = m_pActor->find<TimeCounterModel>().get();
     }
-
-    void BaseState::tryReverse(ColDirection col)
-    {
-        if (col.isRight()) {
-            m_body->setVelocityX(0);
-            m_body->setForward(Forward::Right);
-        }
-        if (col.isLeft()) {
-            m_body->setVelocityX(0);
-            m_body->setForward(Forward::Left);
-        }
-    }
-
-    void BaseState::onCollisionMap(ColDirection col)
-    {
-        this->tryReverse(col);
-    }
-
     void BaseState::update(double dt)
     {
         m_timeCounter->update(dt);
@@ -41,19 +24,9 @@ namespace abyss::LaunShark
     }
     void BaseState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), true)) {
-            this->onCollisionMap(colDir);
+        if (m_mapCol->isHitForwardWall()) {
+            m_body->setVelocityX(0);
+            m_body->reversed();
         }
     }
-
-    void BaseState::onCollisionStay(IActor* col)
-    {
-        col->accept([this](const MapActor& map) {
-
-            if (auto colDir = m_body->fixPos(map.getMapColInfo())) {
-                this->onCollisionMap(colDir);
-            }
-        });
-    }
-
 }

@@ -55,7 +55,7 @@ namespace abyss::Enemy
 		// 地形Collider
 		if (m_isEnableMapCollider) {
 			auto mapCol = m_pActor->attach<MapColliderModel>(m_pActor);
-			mapCol->setEnableRoomHit(m_isRoomHit);
+			mapCol->setIsEnableRoomHit(m_isEnableRoomHit, m_isEnableRoomHitStrict);
 		}
 		// ダメージのコンポーネント
 		if (m_isEnableDamage) {

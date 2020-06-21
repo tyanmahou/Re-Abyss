@@ -22,7 +22,7 @@ namespace abyss::Ikalien
             .setColliderFunc([this] {
                 return this->getCollider();
             })
-            .setEnableMapCollider(false)
+            .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
             .build();
 

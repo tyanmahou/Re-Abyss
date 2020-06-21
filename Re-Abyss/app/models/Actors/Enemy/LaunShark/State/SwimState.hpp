@@ -7,11 +7,11 @@ namespace abyss::LaunShark
     {
         TimerEx m_waitTimer;
 
-        void onCollisionMap(ColDirection col) override;
     public:
         SwimState();
         void start();
         void update(double dt) override;
+        void lastUpdate(double dt) override;
         void draw()const override;
     };
 }

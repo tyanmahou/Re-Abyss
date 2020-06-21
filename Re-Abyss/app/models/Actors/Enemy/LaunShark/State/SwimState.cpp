@@ -1,18 +1,11 @@
 #include "SwimState.hpp"
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::LaunShark
 {
-    void SwimState::onCollisionMap(ColDirection col)
-    {
-        BaseState::onCollisionMap(col);
-        double time = Param::Swim::OnCollisionWaitTimeSec;
-        if ((col.isLeft() || col.isRight()) && m_waitTimer.sF() <= time) {
-            m_waitTimer.set(Duration(time));
-        }
-    }
     SwimState::SwimState()
     {}
     void SwimState::start()
@@ -41,6 +34,14 @@ namespace abyss::LaunShark
                     this->changeState(LaunSharkActor::State::Launcher);
                 } 
             }
+        }
+    }
+    void SwimState::lastUpdate(double dt)
+    {
+        BaseState::lastUpdate(dt);
+        double time = Param::Swim::OnCollisionWaitTimeSec;
+        if (m_mapCol->isHitWall() && m_waitTimer.sF() <= time) {
+            m_waitTimer.set(Duration(time));
         }
     }
     void SwimState::draw() const

@@ -102,11 +102,11 @@ namespace abyss
     }
     void MapColliderModel::onLastPhysics()
     {
-        if (!m_enableRoomHit) {
+        if (!m_isEnableRoomHit) {
             return;
         }
         // ルーム壁との衝突
-        auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom());
+        auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), m_isEnableRoomHitStrict);
         m_result->add(col);
     }
     bool MapColliderModel::isHitGround() const

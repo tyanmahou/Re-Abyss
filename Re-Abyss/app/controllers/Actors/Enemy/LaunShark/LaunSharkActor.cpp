@@ -17,6 +17,7 @@ namespace abyss::LaunShark
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
             .setInitHp(Param::Base::Hp)
+            .setIsEnableRoomHit(true, true)
             .setAudioSettingGroupPath(U"Enemy/LaunShark/laun_shark.aase")
             .build();
 
