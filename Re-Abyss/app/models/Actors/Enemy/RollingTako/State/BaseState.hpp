@@ -7,7 +7,7 @@ namespace abyss::RollingTako
     {
     protected:
         BodyModel* m_body;
-
+        MapColliderModel* m_mapCol;
     public:
         void setup()override;
 
@@ -16,9 +16,5 @@ namespace abyss::RollingTako
         void lastUpdate(double dt) override;
 
         void draw() const override;
-
-        void onCollisionMap(ColDirection colDir);
-
-        void onCollisionStay(IActor* col) override;
     };
 }

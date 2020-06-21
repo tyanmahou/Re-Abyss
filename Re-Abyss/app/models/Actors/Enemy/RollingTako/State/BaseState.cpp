@@ -1,11 +1,13 @@
 #include "BaseState.hpp"
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/controllers/System/System.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+
 namespace abyss::RollingTako
 {
     void BaseState::setup()
     {
         m_body = this->m_pActor->find<BodyModel>().get();
+        m_mapCol = this->m_pActor->find<MapColliderModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -14,40 +16,14 @@ namespace abyss::RollingTako
 
     void BaseState::lastUpdate([[maybe_unused]] double dt)
     {
-        if (auto colDir = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom())) {
-            this->onCollisionMap(colDir);
+        if (m_mapCol->isHitForwardWall()) {
+            m_body->setVelocityX(0);
+            m_body->reversed();
         }
     }
 
     void BaseState::draw() const
     {
 
-    }
-    void BaseState::onCollisionMap(ColDirection colDir)
-    {
-        if (colDir.isRight()) {
-            m_body->setVelocityX(0);
-            m_body->setForward(Forward::Right);
-        }
-        if (colDir.isLeft()) {
-            m_body->setVelocityX(0);
-            m_body->setForward(Forward::Left);
-        }
-    }
-    void BaseState::onCollisionStay(IActor* col)
-    {
-        col->accept([this](const MapActor& map) {
-
-            auto colDir = m_body->fixPos(map.getMapColInfo());
-
-            if (colDir.isRight()) {
-                m_body->setVelocityX(0);
-                m_body->setForward(Forward::Right);
-            }
-            if (colDir.isLeft()) {
-                m_body->setVelocityX(0);
-                m_body->setForward(Forward::Left);
-            }
-        });
     }
 }
