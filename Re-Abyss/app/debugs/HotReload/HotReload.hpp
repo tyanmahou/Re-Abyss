@@ -12,11 +12,13 @@ namespace abyss::Debug
         s3d::DirectoryWatcher m_watcher;
         s3d::String m_message;
         std::function<void()> m_callback;
+        std::function<void()> m_superCallback;
     public:
         HotReload(const s3d::FilePath& path = Path::ResourcePath);
 
         HotReload& setMessage(const s3d::String& message);
         HotReload& setCallback(const std::function<void()>& callback);
+        HotReload& setSuperCallback(const std::function<void()>& callback);
 
         [[nodiscard]] bool onModify() const;
 

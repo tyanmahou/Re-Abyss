@@ -3,6 +3,7 @@
 
 #include <Siv3D/FileSystem.hpp>
 #include <Siv3D/Keyboard.hpp>
+#include <Siv3D/KeyConjunction.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::Debug
@@ -23,6 +24,12 @@ namespace abyss::Debug
         return *this;
     }
 
+    HotReload& HotReload::setSuperCallback(const std::function<void()>& callback)
+    {
+        m_superCallback = callback;
+        return *this;
+    }
+
     bool HotReload::onModify() const
     {
         return s3d::KeyF5.down() || m_watcher.retrieveChanges().size() > 0;
@@ -30,6 +37,15 @@ namespace abyss::Debug
 
     bool HotReload::detection() const
     {
+        if ((s3d::KeyControl + s3d::KeyF5).down()) {
+            Debug::Log::PrintCache << U"Super Reload: " << m_message;
+
+            if (m_superCallback) {
+                m_superCallback();
+            }
+            return true;
+        }
+
         if (!this->onModify()) {
             return false;
         }

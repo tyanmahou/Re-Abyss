@@ -72,8 +72,12 @@ namespace abyss
 			m_reloader
 				.setMessage(mapName)
 				.setCallback([this]() {
-				this->reload();
-			});
+					this->reload();
+				})
+				.setSuperCallback([this] {
+					this->init();
+				})
+			;
 #endif
 			this->init();
 		}
@@ -109,9 +113,6 @@ namespace abyss
 		{
 #if ABYSS_DEBUG
 			m_reloader.detection();
-			if (KeyF6.down()) {
-				this->init();
-			}
 #endif
 			m_system->update();
 		}
