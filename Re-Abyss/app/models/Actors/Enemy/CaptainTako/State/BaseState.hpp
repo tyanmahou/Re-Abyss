@@ -14,7 +14,5 @@ namespace abyss::CaptainTako
         void update(double dt) override;
 
         void draw() const override;
-
-        void onCollisionStay(IActor* col) override;
     };
 }

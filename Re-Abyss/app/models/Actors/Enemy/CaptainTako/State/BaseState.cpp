@@ -13,10 +13,4 @@ namespace abyss::CaptainTako
     }
     void BaseState::draw() const
     {}
-    void BaseState::onCollisionStay(IActor * col)
-    {
-        col->accept([this](const MapActor& map) {
-            m_body->fixPos(map.getMapColInfo());
-        });
-    }
 }
