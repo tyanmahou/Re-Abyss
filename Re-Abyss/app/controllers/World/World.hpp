@@ -9,6 +9,7 @@ namespace abyss
     private:
         ActorsHolder m_actorsHolder;
         std::unique_ptr<ICollisionModel> m_collision;
+        std::unique_ptr<IMapCollisionModel> m_mapCollision;
 
         Manager* m_pManager = nullptr;
     public:

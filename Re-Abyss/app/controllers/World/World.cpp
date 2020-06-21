@@ -7,13 +7,11 @@
 #include <abyss/models/Actors/base/IPhysicsModel.hpp>
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
 
-// todoけす
-#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
-
 namespace abyss
 {
     World::World():
-        m_collision(std::make_unique<SimpleCollision>())
+        m_collision(std::make_unique<SimpleCollision>()),
+        m_mapCollision(std::make_unique<SimpleMapCollision>())
     {
     }
     World::~World()
@@ -41,15 +39,16 @@ namespace abyss
 
     void World::collision()
     {
-        static SimpleMapCollision map;
+        // 地形判定
         {
-            for (auto&& com : this->finds<IPrePhysicsModel>()) {
-                com->onPrePhysics();
-            }
-            map.collisionAll(this->finds<IPhysicsModel>(), this->finds<TerrainModel>());
+            m_actorsHolder.prePhysics();
+            m_mapCollision->collisionAll(this->finds<IPhysicsModel>(), this->finds<TerrainModel>());
+            m_actorsHolder.lastPhysics();
         }
-        // 衝突
-        m_collision->collisionAll(this->finds<IColliderModel>());
+        // アクター衝突
+        {
+            m_collision->collisionAll(this->finds<IColliderModel>());
+        }
     }
 
     void World::lastUpdate()

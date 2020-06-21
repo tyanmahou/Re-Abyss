@@ -7,6 +7,9 @@ namespace abyss
 {
     class TerrainModel;
 
+    /// <summary>
+    /// 地形判定処理
+    /// </summary>
     class IPhysicsModel
     {
     protected:

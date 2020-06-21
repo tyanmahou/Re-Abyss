@@ -13,7 +13,6 @@
 #include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
 
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
-#include <abyss/models/Actors/Commons/MapColResultModel.hpp>
 
 namespace abyss::Slime
 {
@@ -43,8 +42,8 @@ namespace abyss::Slime
 		this->attach<DeadCallbackModel>(this);
 		this->attach<SenserCtrlModel>();
 
-		this->attach<MapColliderModel> (this);
-		this->attach<MapColResultModel>(this);
+		// todo統合
+		this->attach<MapColliderModel>(this)->setEnableRoomHit(true);
 	}
 
 	void SlimeActor::start()

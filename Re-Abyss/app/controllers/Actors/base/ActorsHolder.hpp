@@ -21,6 +21,11 @@ namespace abyss
 		void pushActor(const std::shared_ptr<IActor>& obj);
 		void updateDeltaTime(double dt);
 		void update();
+
+		void prePhysics() const;
+
+		void lastPhysics() const;
+
 		void lastUpdate();
 		void draw()const;
 

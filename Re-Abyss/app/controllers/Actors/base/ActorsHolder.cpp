@@ -47,6 +47,25 @@ namespace abyss
 			obj->update();
 		}
 	}
+	void ActorsHolder::prePhysics() const
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->prePhysics();
+		}
+	}
+	void ActorsHolder::lastPhysics() const
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->lastPhysics();
+		}
+	}
+
 	void ActorsHolder::lastUpdate()
 	{
 		for (auto& obj : m_actors) {

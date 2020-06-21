@@ -1,6 +1,8 @@
 #include "IActor.hpp"
 #include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
+#include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 #include <abyss/models/Actors/base/IPreDrawModel.hpp>
@@ -25,6 +27,18 @@ namespace abyss
 		double dt = m_time->getDeltaTime();
 		for (auto&& com : this->finds<IUpdateModel>()) {
 			com->onUpdate(dt);
+		}
+	}
+	void IActor::prePhysics()
+	{
+		for (auto&& com : this->finds<IPrePhysicsModel>()) {
+			com->onPrePhysics();
+		}
+	}
+	void IActor::lastPhysics()
+	{
+		for (auto&& com : this->finds<ILastPhysicsModel>()) {
+			com->onLastPhysics();
 		}
 	}
 	void IActor::lastUpdate()

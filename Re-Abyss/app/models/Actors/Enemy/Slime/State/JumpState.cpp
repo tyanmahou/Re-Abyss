@@ -17,7 +17,7 @@ namespace abyss::Slime
     }
     void JumpState::lastUpdate([[maybe_unused]]double dt)
     {
-        if (m_mapColResult->isHitGround()) {
+        if (m_mapCol->isHitGround()) {
             this->changeState(State::Walk);
         }
         BaseState::lastUpdate(dt);

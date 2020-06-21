@@ -908,9 +908,6 @@
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\MapColResultModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1375,6 +1372,6 @@
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\MapColResultModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
   </ItemGroup>
 </Project>

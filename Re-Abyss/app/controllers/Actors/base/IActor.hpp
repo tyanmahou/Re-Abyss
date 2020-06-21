@@ -41,6 +41,11 @@ namespace abyss
 		void setup() const;
 		virtual void start() {}
 		void update();
+
+		void prePhysics();
+
+		void lastPhysics();
+
 		void lastUpdate();
 		void draw()const;
 

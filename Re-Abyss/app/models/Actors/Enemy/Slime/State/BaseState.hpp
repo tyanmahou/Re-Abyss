@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
-#include <abyss/models/Actors/Commons/MapColResultModel.hpp>
+#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
 namespace abyss::Slime
 {
@@ -9,7 +9,7 @@ namespace abyss::Slime
     {
     protected:
         BodyModel* m_body;
-        MapColResultModel* m_mapColResult;
+        MapColliderModel* m_mapCol;
     public:
         void setup()override;
 

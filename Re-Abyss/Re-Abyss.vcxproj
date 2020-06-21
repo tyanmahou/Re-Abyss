@@ -197,7 +197,6 @@
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\MapColResultModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
@@ -501,6 +500,7 @@
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
+    <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
@@ -508,7 +508,6 @@
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\MapColResultModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />

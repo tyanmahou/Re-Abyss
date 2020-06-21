@@ -112,6 +112,7 @@ namespace abyss
 	struct RoomBorders;
 	class RoomModel;
 	class ICollisionModel;
+	class IMapCollisionModel;
 	class CameraModel;
 	class QuakeModel;
 	class IDecorModel;
@@ -123,7 +124,7 @@ namespace abyss
 	class IColliderModel;
 	class IPhysicsModel;
 	class TerrainModel;
-	class MapColResultModel;
+	class MapColliderModel;
 	class CustomColliderModel;
 	class ActorTimeModel;
 	class PosModel;
