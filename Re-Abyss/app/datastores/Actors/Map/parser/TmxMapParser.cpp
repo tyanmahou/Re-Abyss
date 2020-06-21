@@ -1,5 +1,6 @@
 #include "TmxMapParser.hpp"
 #include <Siv3D.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss
 {
@@ -77,7 +78,7 @@ namespace abyss
         MapEntity ret;
         ret.type = this->getFieldType(gId);
         auto size = m_tiledMap.getTileSize();
-        ret.pos = Vec2{ size.x * x, size.y * y } +static_cast<Vec2>(size) / 2;
+        ret.pos = Vec2{ size.x * x, size.y * y } + static_cast<Vec2>(size) / 2;
         ret.size = m_tiledMap.getTile(gId).size;
         ret.aroundFloor = calcAroundFloor(x, y);
         ret.id = x + size.y * y;
@@ -127,12 +128,8 @@ namespace abyss
         }
 
         // マージされたマップ
-        s3d::Array<MergeParam> mergedMaps;
-        Grid<s3d::int32> mergeIndex(m_entityGrid.size());
-        for (auto&& index : mergeIndex) {
-            index = -1;
-        }
-
+        s3d::Array<MergeParam> mergedMapsX;
+        // マージしていいか
         auto equal = [](const MapEntity& a, const MapEntity& b) {
             if (a.type != b.type) {
                 return false;
@@ -145,93 +142,88 @@ namespace abyss
             }
             return true;
         };
-        // 横にマージ
-        for (int32 y = 0; y < m_entityGrid.height(); ++y) {
-            for (int32 x = 0; x < m_entityGrid.width(); ++x) {
-                const auto& entity = m_entityGrid[y][x];
-                if (x == 0 && entity) {
-                    // 最初
-                    mergedMaps.push_back({ *entity, x, x });
-                    auto size = static_cast<int32>(mergedMaps.size());
-                    mergeIndex[y][x] =  size - 1;
-                    continue;
-                }
-                const auto& prevEntity = m_entityGrid[y][x - 1];
-                if (entity && prevEntity && equal(*entity, *prevEntity)) {
-                    // マージできる
-                    auto paramIndex = mergeIndex[y][x - 1];
-                    auto& param = mergedMaps[paramIndex];
-                    param.endX = x;
-                    auto left = Min(param.entity.pos.x - param.entity.size.x / 2.0, entity->pos.x - entity->size.x / 2.0);
-                    auto right = Max(param.entity.pos.x + param.entity.size.x / 2.0, entity->pos.x + entity->size.x / 2.0);
-                    param.entity.pos.x = (left + right) / 2.0;
-                    param.entity.size.x = right - left;
-                    param.entity.col |= entity->col;
-                    mergeIndex[y][x] = paramIndex;
-                } else {
-                    mergedMaps.push_back({ *entity, x, x });
-                    auto size = static_cast<int32>(mergedMaps.size());
-                    mergeIndex[y][x] = size - 1;
-                }
+        {
+            Grid<s3d::int32> mergeIndexX(m_entityGrid.size());
+            for (auto&& index : mergeIndexX) {
+                index = -1;
+            }
 
+            // 横にマージ
+            auto mergeX = [](const MapEntity& a, const MapEntity& b) {
+                auto ret = a;
+                auto left = Min(a.pos.x - a.size.x / 2.0, b.pos.x - b.size.x / 2.0);
+                auto right = Max(a.pos.x + a.size.x / 2.0, b.pos.x + b.size.x / 2.0);
+                ret.pos.x = (left + right) / 2.0;
+                ret.size.x = right - left;
+                ret.col |= b.col;
+                return ret;
+            };
+
+            for (int32 y = 0; y < m_entityGrid.height(); ++y) {
+                for (int32 x = 0; x < m_entityGrid.width(); ++x) {
+                    const auto& entity = m_entityGrid[y][x];
+                    if (!entity) {
+                        continue;
+                    }
+                    if (x != 0) {
+                        const auto& prevEntity = m_entityGrid[y][x - 1];
+                        if (prevEntity && equal(*entity, *prevEntity)) {
+                            // マージできる
+                            auto paramIndex = mergeIndexX[y][x - 1];
+                            auto& param = mergedMapsX[paramIndex];
+                            param.endX = x;
+                            param.entity = mergeX(param.entity, *entity);
+                            mergeIndexX[y][x] = paramIndex;
+                            continue;
+                        }
+                    }
+                    mergedMapsX.push_back({ *entity, x, x, y, y});
+                    auto size = static_cast<int32>(mergedMapsX.size());
+                    mergeIndexX[y][x] = size - 1;
+                }
             }
         }
         // 縦にマージ
-        //s3d::Array<MergeParam> mergedMaps2;
-        //Grid<s3d::int32> mergeIndex2(m_entityGrid.size());
-        //for (auto&& index : mergeIndex2) {
-        //    index = -1;
-        //}
-        //std::unordered_map<s3d::int32, s3d::int32> registedIndex;
+        s3d::Array<MergeParam> mergedMapsY;
+        {
+            s3d::Array<s3d::int32> mergeIndexY(mergedMapsX.size(), -1);
 
-        //for (int32 y = 0; y < m_entityGrid.height(); ++y) {
-        //    for (int32 x = 0; x < m_entityGrid.width(); ++x) {
-        //        const auto& paramIndex = mergeIndex[y][x];
-        //        if (y == 0 && paramIndex != -1) {
-        //            // 最初
-        //            if (!registedIndex.contains(paramIndex)) {
-        //                mergedMaps2.push_back(mergedMaps[paramIndex]);
-        //                mergeIndex2[y][x] = mergedMaps2.size() - 1;
-        //                registedIndex[paramIndex] = mergedMaps2.size() - 1;
-        //            } else {
-        //                mergeIndex2[y][x] = registedIndex[paramIndex];
-        //            }
-        //            continue;
-        //        }
+            auto mergeY = [](const MapEntity& a, const MapEntity& b) {
+                auto ret = a;
+                auto up = Min(a.pos.y - a.size.y / 2.0, b.pos.y - b.size.y / 2.0);
+                auto down = Max(a.pos.y + a.size.y / 2.0, b.pos.y + b.size.y / 2.0);
+                ret.pos.y = (up + down) / 2.0;
+                ret.size.y = down - up;
+                ret.col |= b.col;
+                return ret;
+            };
 
-        //        const auto& prevIndex = mergeIndex2[y - 1][x];
-        //        if (paramIndex != -1 && prevIndex != -1 
-        //            && equal(mergedMaps[paramIndex].entity, mergedMaps2[prevIndex].entity)
-        //            && mergedMaps[paramIndex].beginX == mergedMaps2[prevIndex].beginX
-        //            && mergedMaps[paramIndex].endX == mergedMaps2[prevIndex].endX
-        //            ) {
-        //            // マージできる
-        //            if (!registedIndex.contains(paramIndex)) {
-        //                auto& param = mergedMaps2[prevIndex];
-        //                param.entity.pos.y = (param.entity.pos.y + mergedMaps[paramIndex].entity.pos.y) / 2.0;
-        //                param.entity.size.y += mergedMaps[paramIndex].entity.size.y;
-        //                param.entity.col |= mergedMaps[paramIndex].entity.col;
-        //                mergeIndex2[y][x] = prevIndex;
-        //                registedIndex[paramIndex] = prevIndex;
-        //            } else {
-        //                mergeIndex2[y][x] = registedIndex[paramIndex];
-        //            }
-        //        } else {
-        //            if (!registedIndex.contains(paramIndex)) {
-        //                mergedMaps2.push_back(mergedMaps[paramIndex]);
-        //                mergeIndex2[y][x] = mergedMaps2.size() - 1;
-        //                registedIndex[paramIndex] = mergedMaps2.size() - 1;
-        //            } else {
-        //                mergeIndex2[y][x] = registedIndex[paramIndex];
-        //            }
-        //            continue;
-        //        }
+            for (int32 index = 0; index < mergedMapsX.size(); ++index) {
+                const auto& prev = mergedMapsX[index];
+                if (mergeIndexY[index] == -1) {
+                    mergedMapsY.push_back(prev);
+                    auto size = static_cast<int32>(mergedMapsY.size());
+                    mergeIndexY[index] = size - 1;
+                }
 
-        //    }
-        //}
-
-        for (auto&& [entity,b,e] : mergedMaps) {
-            callback(entity);
+                for (int32 index2 = index + 1; index2 < mergedMapsX.size(); ++index2) {
+                    const auto& current = mergedMapsX[index2];
+                    if (current.beginX == prev.beginX &&
+                        current.endX == prev.endX &&
+                        (Abs(current.beginY - prev.endY) <= 1 || Abs(current.endY - prev.beginY) <= 1) &&
+                        equal(current.entity, prev.entity)
+                        ) {
+                        // マージ可能
+                        auto mergeIndex = mergeIndexY[index];
+                        auto& param = mergedMapsY[mergeIndex];
+                        param.entity = mergeY(param.entity, current.entity);
+                        mergeIndexY[index2] = mergeIndex;
+                    }
+                }
+            }
+        }
+        for (auto&& map : mergedMapsY) {
+            callback(map.entity);
         }
     };
 }

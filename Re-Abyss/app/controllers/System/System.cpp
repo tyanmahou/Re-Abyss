@@ -76,8 +76,9 @@ namespace abyss
         if (inEvent) {
             m_world.update();
             m_world.collision();
-
-            m_camera.update();
+        }
+        m_camera.update();
+        if (inEvent) {
             m_world.lastUpdate();
             m_world.cleanUp();
         }

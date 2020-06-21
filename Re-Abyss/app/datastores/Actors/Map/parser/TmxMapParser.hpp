@@ -15,6 +15,8 @@ namespace abyss
 			MapEntity entity;
 			s3d::int32 beginX = -1;
 			s3d::int32 endX = -1;
+			s3d::int32 beginY = -1;
+			s3d::int32 endY = -1;
 		};
 	private:
 		std::unordered_map<GId, MapType> m_fieldTypeMap;
