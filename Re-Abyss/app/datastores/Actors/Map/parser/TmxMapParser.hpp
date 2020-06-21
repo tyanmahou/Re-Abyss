@@ -22,7 +22,7 @@ namespace abyss
 		std::unordered_map<GId, MapType> m_fieldTypeMap;
 		s3dTiled::TiledMap m_tiledMap;
 		const s3d::Grid<GId>& m_grid;
-		bool m_useAroundFilter;
+		bool m_isMerge;
 
 		s3d::Grid<s3d::Optional<MapEntity>> m_entityGrid;
 
@@ -35,7 +35,7 @@ namespace abyss
 
 		s3d::Optional<MapEntity> tryToMapInfoModel(s3d::int32 x, s3d::int32 y);
 	public:
-		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool useAroundFilter = true);
+		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool isMerge = true);
 
 		void forEach(std::function<void(const MapEntity&)> callback);
 	};

@@ -6,7 +6,7 @@ namespace abyss
 	using namespace s3d;
 	using namespace s3dTiled;
 
-    s3d::Array<std::shared_ptr<MapEntity>> abyss::TmxMapDataStore::select(bool useAroundFilter) const
+    s3d::Array<std::shared_ptr<MapEntity>> abyss::TmxMapDataStore::select(bool isMerge) const
     {
 		s3d::Array<std::shared_ptr<MapEntity>> ret;
 		// 床情報
@@ -15,7 +15,7 @@ namespace abyss
 			return ret;
 		}
 		auto parse = [&](const TileLayer& layer) {
-			TmxMapParser parser(m_tmx, layer.getGrid(), useAroundFilter);
+			TmxMapParser parser(m_tmx, layer.getGrid(), isMerge);
 			parser.forEach([&](const MapEntity& info) {
 				ret.push_back(std::make_shared<MapEntity>(info));
 			});

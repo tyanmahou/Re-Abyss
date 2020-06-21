@@ -11,6 +11,6 @@ namespace abyss
     public:
         using TmxDataStore::TmxDataStore;
 
-        s3d::Array<std::shared_ptr<MapEntity>> select(bool useAroundFilter = true)const override;
+        s3d::Array<std::shared_ptr<MapEntity>> select(bool isMerge = true)const override;
     };
 }

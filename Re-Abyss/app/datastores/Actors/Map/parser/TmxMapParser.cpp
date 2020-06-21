@@ -87,9 +87,6 @@ namespace abyss
         case MapType::Floor:
             ret.col = calcColDirectrion(x, y);
             return ret;
-            //if (!m_useAroundFilter || ret.col) {
-            //    return ret;
-            //}
             break;
         case MapType::Ladder:
             ret.col = ColDirection::None;
@@ -104,10 +101,10 @@ namespace abyss
         }
         return s3d::none;
     }
-    TmxMapParser::TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool useAroundFilter) :
+    TmxMapParser::TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool isMerge) :
         m_tiledMap(tiledMap),
         m_grid(grid),
-        m_useAroundFilter(useAroundFilter),
+        m_isMerge(isMerge),
         m_entityGrid(grid.size())
     {}
     void TmxMapParser::forEach(std::function<void(const MapEntity&)> callback)
@@ -117,7 +114,7 @@ namespace abyss
                 m_entityGrid[y][x] = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y));
             }
         }
-        if (!m_useAroundFilter) {
+        if (!m_isMerge) {
             for (auto&& entity : m_entityGrid) {
                 if (!entity) {
                     continue;

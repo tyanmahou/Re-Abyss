@@ -13,6 +13,6 @@ namespace abyss
         {
             return this->select(true);
         }
-        virtual s3d::Array<std::shared_ptr<MapEntity>> select(bool useAroundFilter = true)const = 0;
+        virtual s3d::Array<std::shared_ptr<MapEntity>> select(bool isMerge = true)const = 0;
     };
 }
