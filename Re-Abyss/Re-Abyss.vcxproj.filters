@@ -905,6 +905,12 @@
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Master\Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\DeadCheackerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1368,5 +1374,7 @@
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
+    <ClInclude Include="app\controllers\Master\Master.hpp" />
+    <ClInclude Include="app\models\Actors\Player\DeadCheackerModel.hpp" />
   </ItemGroup>
 </Project>

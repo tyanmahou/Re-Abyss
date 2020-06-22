@@ -1,5 +1,7 @@
 #include "MainScene.hpp"
 
+#include <abyss/controllers/Master/Master.hpp>
+
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Save/SaveData.hpp>
 #include <abyss/factories/Stage/StageDataFactory.hpp>
@@ -52,9 +54,11 @@ namespace
 }
 namespace abyss
 {
-	class MainScene::Controller
+	class MainScene::Controller : 
+		public IMasterObserver
 	{
 		std::unique_ptr<System> m_system;
+		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<SaveData> m_saveData;
 		ResourceManager m_resources;
 
@@ -97,9 +101,9 @@ namespace abyss
 			if (isLockPlayer) {
 				player = m_system->lockPlayer();
 			}
-			m_system = std::make_unique<System>();
-			auto stageData = StageDataFactory::CreateFromTmx(mapName);
-			m_system->loadStage(stageData);
+			m_system = std::make_unique<System>(this);
+			m_stageData = StageDataFactory::CreateFromTmx(mapName);
+			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
 			::PreloadResourece(m_resources);
 			if (player) {
@@ -121,6 +125,29 @@ namespace abyss
 		{
 			m_system->draw();
 		}
+
+		/// <summary>
+		/// リスタート処理
+		/// </summary>
+		/// <returns></returns>
+		bool onRestart() override
+		{
+			m_system = std::make_unique<System>(this);
+			m_system->loadStage(m_stageData);
+			m_system->loadSaveData(m_saveData);
+
+			m_system->restart();
+			return true;
+		}
+		bool onEscape() override
+		{
+			return false;
+		}
+		bool onClear() override
+		{
+			return false;
+		}
+
 	};
 
 	MainScene::MainScene(const InitData& init) :

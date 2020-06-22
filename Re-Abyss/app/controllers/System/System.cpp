@@ -1,5 +1,5 @@
 #include "System.hpp"
-
+#include <abyss/controllers/Master/Master.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
@@ -16,7 +16,8 @@
 
 namespace abyss
 {
-    System::System():
+    System::System(IMasterObserver* masterObserver):
+        m_master(std::make_unique<Master>(masterObserver)),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decor(std::make_unique<Decor>()),
@@ -24,6 +25,7 @@ namespace abyss
         m_save(std::make_unique<Save>())
     {
         m_manager
+            .set(m_master.get())
             .set(&m_time)
             .set(&m_camera)
             .set(&m_light)
@@ -93,6 +95,7 @@ namespace abyss
             Debug::DebugManager::LogEffectNum(m_effects);
         }
 #endif
+        m_master->sendNotify();
     }
     void System::draw() const
     {

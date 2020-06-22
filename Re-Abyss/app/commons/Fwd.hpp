@@ -28,6 +28,8 @@ namespace abyss
 	class Cron;
 	class Save;
 	class SaveData;
+	class Master;
+	class IMasterObserver;
 
 	/// Controllers/Actors
 	class IActor;

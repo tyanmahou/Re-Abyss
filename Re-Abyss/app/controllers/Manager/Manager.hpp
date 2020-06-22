@@ -9,6 +9,7 @@ namespace abyss
     class Manager
     {
     private:
+        Master* m_pMaster = nullptr;
         GlobalTime* m_pGlobalTime = nullptr;
         World* m_pWorld = nullptr;
         Events* m_pEvents = nullptr;
@@ -22,9 +23,10 @@ namespace abyss
         Stage* m_pStage = nullptr;
         Cron* m_pCron = nullptr;
         Save* m_pSave = nullptr;
-
         Player::PlayerActor* m_pPlayer = nullptr;
     public:
+        Manager& set(Master* pMaster);
+
         Manager& set(GlobalTime* pGlobalTime);
 
         Manager& set(World* pWorld);

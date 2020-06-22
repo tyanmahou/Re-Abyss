@@ -185,6 +185,7 @@
     <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp" />
     <ClCompile Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.cpp" />
     <ClCompile Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.cpp" />
+    <ClCompile Include="app\controllers\Master\Master.cpp" />
     <ClCompile Include="app\controllers\Save\Save.cpp" />
     <ClCompile Include="app\controllers\Save\SaveData.cpp" />
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
@@ -198,6 +199,7 @@
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\DeadCheackerModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
@@ -483,6 +485,7 @@
     <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
+    <ClInclude Include="app\controllers\Master\Master.hpp" />
     <ClInclude Include="app\controllers\Save\SaveData.hpp" />
     <ClInclude Include="app\controllers\Save\Save.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
@@ -514,6 +517,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />

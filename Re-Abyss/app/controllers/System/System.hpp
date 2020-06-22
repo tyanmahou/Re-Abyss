@@ -16,6 +16,7 @@ namespace abyss
     /// </summary>
     class System
     {
+        std::unique_ptr<Master> m_master;
         GlobalTime m_time;
         World m_world;
         Events m_events;
@@ -32,10 +33,10 @@ namespace abyss
         std::unique_ptr<Cron> m_cron;
 
         std::unique_ptr<Save> m_save;
-
         Manager m_manager;
     public:
-        System();
+
+        System(IMasterObserver* masterObserver = nullptr);
         ~System();
 
         void init();
@@ -49,7 +50,6 @@ namespace abyss
 
         void update();
         void draw() const;
-
         void loadStage(const std::shared_ptr<StageData>& stageData);
 
         /// <summary>

@@ -4,6 +4,7 @@
 
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
+#include <abyss/models/Actors/Player/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
 
 
@@ -91,6 +92,10 @@ namespace abyss::Player
         // カメラによる座標調整
         {
             this->attach<CameraFixPosModel>(this);
+        }
+        // 死亡チェック
+        {
+            this->attach<DeadCheckerModel>(this);
         }
         // 部屋移動の検知
         {
