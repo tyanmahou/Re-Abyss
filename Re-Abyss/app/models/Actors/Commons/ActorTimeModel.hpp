@@ -22,5 +22,7 @@ namespace abyss
         double getDrawTimeSec() const;
 
         double getDeltaTime() const;
+
+        void resetDrawTime();
     };
 }

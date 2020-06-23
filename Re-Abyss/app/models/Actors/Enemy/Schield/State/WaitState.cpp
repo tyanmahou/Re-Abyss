@@ -3,6 +3,7 @@
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/controllers/System/System.hpp>
+#include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
 
 namespace abyss::Schield
 {
@@ -11,6 +12,7 @@ namespace abyss::Schield
     void WaitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
+        m_pActor->find<ActorTimeModel>()->resetDrawTime();
     }
     void WaitState::update(double dt)
     {

@@ -36,4 +36,8 @@ namespace abyss
     {
         return m_deltaTime;
     }
+    void ActorTimeModel::resetDrawTime()
+    {
+        m_drawTimeSec = 0.0;
+    }
 }
