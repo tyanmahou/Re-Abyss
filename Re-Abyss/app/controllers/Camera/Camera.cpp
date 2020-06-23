@@ -103,7 +103,17 @@ namespace abyss
     }
 	bool Camera::canNextRoom(const s3d::Vec2& pos) const
 	{
-		return !this->isCameraWork() && !m_camera->currentRoom().getRegion().intersects(pos);
+		if (this->isCameraWork()) {
+			return false;
+		}
+		if (m_camera->inRoom(pos)) {
+			return false;
+		}
+		if (m_camera->isOutOfRoomDeath(pos)) {
+			// 落下の場合は無視
+			return false;
+		}
+		return true;
 	}
 	bool Camera::applyNextRoom() const
 	{
