@@ -92,6 +92,8 @@ namespace abyss
 		/// <returns></returns>
 		bool applyNextRoom()const;
 
+		bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
+
 		/// <summary>
 		/// 座標を調整する
 		/// </summary>

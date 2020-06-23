@@ -12,6 +12,7 @@
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/models/Actors/Commons/FallCheckerModel.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -92,6 +93,10 @@ namespace abyss::Player
         // カメラによる座標調整
         {
             this->attach<CameraFixPosModel>(this);
+        }
+        // 落下死
+        {
+            this->attach<FallCheckerModel>(this);
         }
         // 死亡チェック
         {

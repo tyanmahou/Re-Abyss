@@ -115,6 +115,11 @@ namespace abyss
 		return false;
 	}
 
+	bool Camera::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
+	{
+		// todo 自動スクロール対応
+		return m_camera->isOutOfRoomDeath(pos, margin);
+	}
 	Vec2 Camera::fixPos(const s3d::Vec2& pos) const
 	{
 		// todo 自動スクロール中はカメラのスクリーン内に入るように

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Graphics.hpp>
@@ -20,7 +20,7 @@ namespace abyss
 	public:
 		CameraModel();
 
-		bool isOutOfRoomDeath(const s3d::Vec2& pos) const;
+		bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
 
 		void setRoom(const RoomModel& room);
 		const RoomModel& currentRoom() const;

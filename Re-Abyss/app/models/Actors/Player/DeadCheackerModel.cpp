@@ -10,7 +10,7 @@ namespace
 {
     using namespace abyss;
 
-    bool IsDead(IActor* pActor, const Ref<HPModel>& hp)
+    bool IsDead(const Ref<HPModel>& hp)
     {
         if (!hp || hp->isDead()) {
             return true;
@@ -34,7 +34,7 @@ namespace abyss::Player
 
     void DeadCheckerModel::onLastUpdate([[maybe_unused]]double dt)
     {
-        if (!IsDead(m_pActor, m_hp)) {
+        if (!IsDead(m_hp)) {
             return;
         }
 

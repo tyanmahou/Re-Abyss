@@ -1,4 +1,4 @@
-﻿#include "CameraModel.hpp"
+#include "CameraModel.hpp"
 
 using namespace s3d;
 
@@ -8,9 +8,9 @@ namespace abyss
 	CameraModel::CameraModel()
 	{}
 
-	bool CameraModel::isOutOfRoomDeath(const s3d::Vec2& pos) const
+	bool CameraModel::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
 	{
-		if (!m_currentRoom.passable(Forward::Down) && pos.y > m_currentRoom.borders().down) {
+		if (!m_currentRoom.passable(Forward::Down) && pos.y > m_currentRoom.borders().down + margin) {
 			return true;
 		}
 		return false;

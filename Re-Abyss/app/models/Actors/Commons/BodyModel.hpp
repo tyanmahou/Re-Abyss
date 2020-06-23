@@ -75,6 +75,8 @@ namespace abyss
 
         BodyModel& setSize(const s3d::Vec2& size);
         const s3d::Vec2& getSize() const;
+        double getWidth() const;
+        double getHeight() const;
 
         BodyModel& setPivot(const s3d::Vec2& pivot);
         const s3d::Vec2& getPivot() const;
