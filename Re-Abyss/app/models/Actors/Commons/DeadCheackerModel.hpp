@@ -6,18 +6,31 @@
 
 namespace abyss
 {
-    class FallCheckerModel :
+    class DeadCheckerModel :
         public IComponent,
         public ILastUpdateModel
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<DeadCheckerModel> m_deadChecker;
-        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
 
-        bool m_isFall = false;
+        bool m_isAutoDestroy = true;
+
+        bool m_isDead = false;
+        bool m_requestDead = false;
     public:
-        FallCheckerModel(IActor* pActor);
+        DeadCheckerModel(IActor* pActor);
+
+        DeadCheckerModel& setIsAutoDestroy(bool isAuto)
+        {
+            m_isAutoDestroy = isAuto;
+            return *this;
+        }
+
+        /// <summary>
+        /// 死亡リクエストをする
+        /// </summary>
+        void requestDead();
 
         void setup() override;
         void onLastUpdate(double dt) override;
@@ -27,7 +40,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<FallCheckerModel>
+    struct ComponentTree<DeadCheckerModel>
     {
         using Base = ILastUpdateModel;
     };

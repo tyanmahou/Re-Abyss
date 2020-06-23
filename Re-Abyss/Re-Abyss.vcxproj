@@ -197,6 +197,7 @@
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
@@ -510,6 +511,7 @@
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />

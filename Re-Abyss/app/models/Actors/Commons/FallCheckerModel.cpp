@@ -1,10 +1,9 @@
 #include "FallCheckerModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
-
+\
 namespace abyss
 {
     FallCheckerModel::FallCheckerModel(IActor* pActor):
@@ -13,7 +12,7 @@ namespace abyss
 
     void FallCheckerModel::setup()
     {
-        m_hp = m_pActor->find<HPModel>();
+        m_deadChecker = m_pActor->find<DeadCheckerModel>();
         m_body = m_pActor->find<BodyModel>();
     }
 
@@ -29,8 +28,8 @@ namespace abyss
         // 落下死
         m_isFall = true;
 
-        if (m_hp) {
-            m_hp->setHp(0);
+        if (m_deadChecker) {
+            m_deadChecker->requestDead();
         }
     }
 }

@@ -1,17 +1,15 @@
 #include "DeadOnHItReceiverModel.hpp"
 #include <abyss/controllers/Actors/ActInclude.hpp>
-#include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
 namespace abyss
 {
     DeadOnHItReceiverModel::DeadOnHItReceiverModel(IActor* pActor):
         m_pActor(pActor)
     {}
-    DeadOnHItReceiverModel& DeadOnHItReceiverModel::setAutoDestroy(bool isAuto)
+    void DeadOnHItReceiverModel::setup()
     {
-        m_isAutoDestroy = isAuto;
-        return *this;
+        m_deadChecker = m_pActor->find<DeadCheckerModel>();
     }
     void DeadOnHItReceiverModel::onCollisionStay(IActor * col)
     {
@@ -20,12 +18,7 @@ namespace abyss
         }
         col->accept([this](const Receiver&) {
             // 当たって消える
-            for (auto&& callback : m_pActor->finds<IDeadCallbackModel>()) {
-                callback->onDead();
-            }
-            if (m_isAutoDestroy) {
-                m_pActor->destroy();
-            }
+            m_deadChecker->requestDead();
         });
     }
 }

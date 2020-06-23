@@ -12,12 +12,10 @@ namespace abyss
     protected:
         Ref<HPModel> m_hp;
         IActor* m_pActor;
-        bool m_isAutoDestroy = true;
     public:
         DamageModel(IActor* pActor);
 
         void setup() override;
-        DamageModel& setAutoDestroy(bool isAuto);
         void onCollisionStay(IActor* col)override;
     };
 }

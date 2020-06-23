@@ -3,7 +3,6 @@
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
 namespace abyss::CodeZero::Head
@@ -40,11 +39,6 @@ namespace abyss::CodeZero::Head
             if (m_hp->damage(attacker.getPower())) {
                 for (auto&& callback : m_parent->finds<IDamageCallbackModel>()) {
                     callback->onDamaged();
-                }
-                if (m_hp->isDead()) {
-                    for (auto&& callback : m_parent->finds<IDeadCallbackModel>()) {
-                        callback->onDead();
-                    }
                 }
             }
         });

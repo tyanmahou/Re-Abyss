@@ -129,8 +129,8 @@ namespace abyss
 	class MapColliderModel;
 	class CustomColliderModel;
 	class ActorTimeModel;
-	class PosModel;
 	class HPModel;
+	class DeadCheckerModel;
 
 	/// <summary>
 	/// Services

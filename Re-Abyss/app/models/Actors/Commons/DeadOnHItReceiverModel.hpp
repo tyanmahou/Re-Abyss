@@ -10,10 +10,10 @@ namespace abyss
         public ICollisionCallbackModel
     {
         IActor* m_pActor;
-        bool m_isAutoDestroy = true;
+        Ref<DeadCheckerModel> m_deadChecker;
     public:
         DeadOnHItReceiverModel(IActor* pActor);
-        DeadOnHItReceiverModel& setAutoDestroy(bool isAuto);
+        void setup() override;
         void onCollisionStay(IActor* col)override;
     };
 }

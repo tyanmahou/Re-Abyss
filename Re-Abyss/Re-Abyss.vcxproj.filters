@@ -914,6 +914,9 @@
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1380,5 +1383,6 @@
     <ClInclude Include="app\controllers\Master\Master.hpp" />
     <ClInclude Include="app\models\Actors\Player\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
   </ItemGroup>
 </Project>
