@@ -43,7 +43,7 @@ namespace abyss
         if (m_isDead) {
             return;
         }
-        if (m_requestDead || !IsDead(m_hp)) {
+        if (!m_requestDead && !IsDead(m_hp)) {
             return;
         }
         m_isDead = true;

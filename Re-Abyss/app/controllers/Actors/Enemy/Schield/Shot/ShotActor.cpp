@@ -2,6 +2,7 @@
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
@@ -32,6 +33,9 @@ namespace abyss::Schield::Shot
         }
         {
             this->attach<DeadOnHItReceiverModel>(this);
+        }
+        {
+            this->attach<DeadCheckerModel>(this);
         }
         m_power = 1;
     }

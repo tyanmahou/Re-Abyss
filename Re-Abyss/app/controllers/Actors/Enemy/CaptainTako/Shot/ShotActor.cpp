@@ -6,6 +6,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
 namespace abyss::CaptainTako::Shot
 {
@@ -37,6 +38,9 @@ namespace abyss::CaptainTako::Shot
         {
             this->attach<AudioSourceModel>(this)
                 ->load(U"Enemy/CaptainTako/captain_tako.aase");
+        }
+        {
+            this->attach<DeadCheckerModel>(this);
         }
         m_power = 1;
     }

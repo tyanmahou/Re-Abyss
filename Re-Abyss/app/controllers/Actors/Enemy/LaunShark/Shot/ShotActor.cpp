@@ -5,9 +5,9 @@
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
-
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
@@ -18,33 +18,54 @@ namespace abyss::LaunShark::Shot
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward):
         m_view(std::make_shared<ShotVM>())
     {
-        m_rotate = this->attach<RotateModel>();
-
-        if (forward == Forward::Right) {
-            m_rotate->setRotate(s3d::Math::Constants::Pi);
+        // 回転
+        {
+            m_rotate = this->attach<RotateModel>();
+            if (forward == Forward::Right) {
+                m_rotate->setRotate(s3d::Math::Constants::Pi);
+            }
         }
-
-        auto col = this->attach<CustomColliderModel>(this);
-        col->setLayer(LayerGroup::Enemy);
-        col->setColFunc([this] {return this->getCollider(); });
-        (m_body = this->attach<BodyModel>(this))
-            ->setPos(pos)
-            .noneResistanced()
-            .setSize(ShotParam::Base::Size);
-        (m_hp = this->attach<HPModel>(this))
-            ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
-
-        this->attach<StateModel<ShotActor>>(this)
-            ->add<WaitState>(State::Wait)
-            .add<PursuitState>(State::Pursuit)
-            .add<FiringedState>(State::Firinged)
-            ;
-
-        this->attach<DamageModel>(this);
-        this->attach<AudioSourceModel>(this)->load(U"Enemy/LaunShark/shot.aase");
-        this->attach<DeadOnHItReceiverModel>(this);
-        this->attach<Enemy::DeadCallbackModel>(this);
-        this->attach<Enemy::DamageCallbackModel>(this);
+        // コライダー
+        {
+            auto col = this->attach<CustomColliderModel>(this);
+            col->setLayer(LayerGroup::Enemy);
+            col->setColFunc([this] {return this->getCollider(); });
+        }
+        // ボディ
+        {
+            (m_body = this->attach<BodyModel>(this))
+                ->setPos(pos)
+                .noneResistanced()
+                .setSize(ShotParam::Base::Size);
+        }
+        // HP
+        {
+            (m_hp = this->attach<HPModel>(this))
+                ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
+        }
+        // 状態管理
+        {
+            this->attach<StateModel<ShotActor>>(this)
+                ->add<WaitState>(State::Wait)
+                .add<PursuitState>(State::Pursuit)
+                .add<FiringedState>(State::Firinged)
+                ;
+        }
+        // 音源
+        {
+            this->attach<AudioSourceModel>(this)->load(U"Enemy/LaunShark/shot.aase");
+        }
+        // ダメージ
+        {
+            this->attach<DamageModel>(this);
+            this->attach<Enemy::DeadCallbackModel>(this);
+        }
+        // 死亡チェック
+        {
+            this->attach<DeadOnHItReceiverModel>(this);
+            this->attach<Enemy::DamageCallbackModel>(this);
+            this->attach<DeadCheckerModel>(this);
+        }
     }
     void ShotActor::start()
     {    

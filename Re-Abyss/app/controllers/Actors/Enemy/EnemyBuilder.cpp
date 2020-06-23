@@ -7,6 +7,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
@@ -75,6 +76,12 @@ namespace abyss::Enemy
 		// 呼吸
 		if (m_isEnableBreathing) {
 			m_pActor->attach<BreathingModel>(m_pActor);
+		}
+
+		// 死亡チェック
+		{
+			m_pActor->attach<DeadCheckerModel>(m_pActor)
+				->setIsAutoDestroy(m_isAutoDestroy);
 		}
     }
 }

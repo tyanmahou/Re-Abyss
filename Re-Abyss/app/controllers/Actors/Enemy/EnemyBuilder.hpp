@@ -41,6 +41,8 @@ namespace abyss::Enemy
 
         // breathing
         bool m_isEnableBreathing = true;
+
+        bool m_isAutoDestroy = true;
     public:
         EnemyBuilder(EnemyActor* pActor);
 
@@ -111,6 +113,11 @@ namespace abyss::Enemy
             return *this;
         }
 
+        EnemyBuilder& setIsAutoDestroy(bool isAuto)
+        {
+            m_isAutoDestroy = isAuto;
+            return *this;
+        }
         void build() const;
     };
 }

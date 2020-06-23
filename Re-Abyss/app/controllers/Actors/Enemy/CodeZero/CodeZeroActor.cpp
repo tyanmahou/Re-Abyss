@@ -25,6 +25,7 @@ namespace abyss::CodeZero
             .setIsEnableDamage(false)
             .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
+            .setIsAutoDestroy(false)
             .build();
         {
             m_hp->initHp(Param::Base::Hp);

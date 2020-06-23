@@ -4,6 +4,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace abyss::Player::Shot
@@ -33,14 +34,16 @@ namespace abyss::Player::Shot
 			});
 			collider->setLayer(LayerGroup::Player);
 		}
-		if (!m_shot->isBig()) {
-			// Bigじゃなければ壁にあたって破壊される
-			this->attach<DeadOnHItReceiverModel>(this);
-		}
 		{
 			this->attach<AudioSourceModel>(this)
 				->load(U"Player/Shot/player_shot.aase");
 		}
+		if (!m_shot->isBig()) {
+			// Bigじゃなければ壁にあたって破壊される
+			this->attach<DeadOnHItReceiverModel>(this);
+			this->attach<DeadCheckerModel>(this);
+		}
+
 		m_power = m_shot->toPower();
 		m_view = std::make_shared<ShotVM>(*m_shot, forward);
 
