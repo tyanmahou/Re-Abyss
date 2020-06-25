@@ -920,6 +920,9 @@
     <ClCompile Include="app\controllers\Event\GameRestart\GameRestart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\GameReady\GameReady.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

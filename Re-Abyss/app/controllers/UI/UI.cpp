@@ -2,6 +2,10 @@
 
 namespace abyss
 {
+    void UI::flush()
+    {
+        m_userInterfaces.flush();
+    }
     void UI::update(double dt)
     {
         m_userInterfaces.update(dt);

@@ -2,6 +2,16 @@
 
 namespace abyss
 {
+    bool Events::init()
+    {
+        if (m_events.empty()) {
+            return false;
+        }
+        m_events.front()->init();
+        m_doneCurrentInit = true;
+        return true;
+    }
+
     Events& Events::regist(const std::shared_ptr<Event::IEvent>& event)
     {
         event->setManager(m_pManager);

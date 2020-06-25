@@ -23,6 +23,7 @@ namespace abyss::ui::Fade
         SmoothCircle& setPos(const s3d::Vec2& pos);
         SmoothCircle& setFadeTime(double fadeTimeSec);
         SmoothCircle& setIsFadeOut(bool isFadeOut);
+        SmoothCircle& setIsFadeIn(bool isFadeIn);
 
         void draw() const override;
     };

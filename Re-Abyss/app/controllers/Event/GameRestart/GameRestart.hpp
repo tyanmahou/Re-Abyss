@@ -15,14 +15,13 @@ namespace abyss::Event
     {
         enum class Phase
         {
-            Wait,
             Fade,
             End,
         };
     private:
         TimerEx m_timer;
         Ref<ui::Fade::SmoothCircle> m_fadeUI;
-        Phase m_phase = Phase::Wait;
+        Phase m_phase = Phase::Fade;
 
     public:
         GameRestart();

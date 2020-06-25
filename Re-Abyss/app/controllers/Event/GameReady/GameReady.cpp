@@ -1,24 +1,27 @@
-#include "GameRestart.hpp"
+#include "GameReady.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/Fade/SmoothCircle/SmoothCircle.hpp>
-#include <abyss/controllers/Master/Master.hpp>
+
 namespace abyss::Event
 {
-    GameRestart::GameRestart()
+    GameReady::GameReady()
     {}
-    void GameRestart::init()
+    void GameReady::init()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
         globalTime->setTimeScale(1.0);
-        m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
 
+        m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
         m_timer.start();
-        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+        // フェードイン
+        (m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>())
+            ->setIsFadeIn(true)
+            ;
     }
-    bool GameRestart::update([[maybe_unused]]double dt)
+    bool GameReady::update([[maybe_unused]]double dt)
     {
         if (m_phase == Phase::End) {
             return false;
@@ -34,9 +37,8 @@ namespace abyss::Event
         }
         return true;
     }
-    void GameRestart::onEnd()
+    void GameReady::onEnd()
     {
         m_fadeUI->destroy();
-        m_pManager->getModule<Master>()->restart();
     }
 }

@@ -26,6 +26,10 @@ namespace abyss::ui::Fade
         m_isFadeOut = isFadeOut;
         return *this;
     }
+    SmoothCircle& SmoothCircle::setIsFadeIn(bool isFadeIn)
+    {
+        return this->setIsFadeOut(!isFadeIn);
+    }
     void SmoothCircle::draw() const
     {
         // 座標を修正する

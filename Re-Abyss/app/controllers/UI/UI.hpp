@@ -21,6 +21,7 @@ namespace abyss
             return *this;
         }
 
+        void flush();
         void update(double dt);
 
         void draw() const;

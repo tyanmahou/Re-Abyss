@@ -12,6 +12,9 @@ namespace abyss
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
     public:
+
+        bool init();
+
         Events& regist(const std::shared_ptr<Event::IEvent>& event);
 
         template<class T, class... Args>
