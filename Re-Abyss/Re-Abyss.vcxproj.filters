@@ -917,6 +917,9 @@
     <ClCompile Include="app\models\Actors\Player\RestartCtrlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Event\GameRestart\GameRestart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1384,5 +1387,7 @@
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RestartCtrlModel.hpp" />
+    <ClInclude Include="app\controllers\Event\GameRestart\GameRestart.hpp" />
+    <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
   </ItemGroup>
 </Project>

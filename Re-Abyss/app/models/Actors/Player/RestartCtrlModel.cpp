@@ -1,7 +1,8 @@
 #include "RestartCtrlModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Master/Master.hpp>
+#include <abyss/controllers/Event/Events.hpp>
+#include <abyss/controllers/Event/GameRestart/GameRestart.hpp>
 
 namespace abyss::Player
 {
@@ -14,6 +15,7 @@ namespace abyss::Player
 
     void RestartCtrlModel::onDead()
     {
-        m_pActor->getModule<Master>()->restart();
+        // ゲームリスタートイベントを開始
+        m_pActor->getModule<Events>()->create<Event::GameRestart>();
     }
 }

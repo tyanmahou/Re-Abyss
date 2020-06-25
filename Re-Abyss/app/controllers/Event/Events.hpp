@@ -13,6 +13,14 @@ namespace abyss
         Manager* m_pManager;
     public:
         Events& regist(const std::shared_ptr<Event::IEvent>& event);
+
+        template<class T, class... Args>
+        Events& create(Args&&... args)
+        {
+            auto event = std::make_shared<T>(std::forward<Args>(args)...);
+            return regist(event);
+        }
+
         Events& setManager(Manager* pManager)
         {
             m_pManager = pManager;
