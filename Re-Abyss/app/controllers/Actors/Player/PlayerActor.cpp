@@ -4,7 +4,7 @@
 
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
-#include <abyss/models/Actors/Player/DeadCheackerModel.hpp>
+#include <abyss/models/Actors/Player/RestartCtrlModel.hpp>
 #include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
 
 
@@ -13,6 +13,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Commons/FallCheckerModel.hpp>
+#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -100,7 +101,10 @@ namespace abyss::Player
         }
         // 死亡チェック
         {
-            this->attach<DeadCheckerModel>(this);
+            this->attach<DeadCheckerModel>(this)
+                ->setIsAutoDestroy(false);
+
+            this->attach<RestartCtrlModel>(this);
         }
         // 部屋移動の検知
         {

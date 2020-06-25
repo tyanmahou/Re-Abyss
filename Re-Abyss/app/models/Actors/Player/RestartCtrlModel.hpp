@@ -2,30 +2,29 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
 namespace abyss::Player
 {
-    class DeadCheckerModel :
+    class RestartCtrlModel :
         public IComponent,
-        public ILastUpdateModel
+        public IDeadCallbackModel
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<HPModel> m_hp;
     public:
-        DeadCheckerModel(IActor* pActor);
+        RestartCtrlModel(IActor* pActor);
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onDead() override;
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::DeadCheckerModel>
+    struct ComponentTree<Player::RestartCtrlModel>
     {
-        using Base = ILastUpdateModel;
+        using Base = IDeadCallbackModel;
     };
 }

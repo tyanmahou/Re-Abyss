@@ -908,13 +908,13 @@
     <ClCompile Include="app\controllers\Master\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Player\DeadCheackerModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\RestartCtrlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1381,8 +1381,8 @@
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
     <ClInclude Include="app\controllers\Master\Master.hpp" />
-    <ClInclude Include="app\models\Actors\Player\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\RestartCtrlModel.hpp" />
   </ItemGroup>
 </Project>
