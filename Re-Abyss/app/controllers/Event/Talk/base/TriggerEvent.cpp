@@ -3,7 +3,7 @@
 
 namespace abyss::Event::Talk
 {
-    void TriggerEvent::init()
+    void TriggerEvent::onStart()
     {
         auto factory = (*m_triggerManager)[m_triggerName];
         if (!factory) {
@@ -14,7 +14,7 @@ namespace abyss::Event::Talk
             return;
         }
         m_event->setManager(this->m_pManager);
-        m_event->init();
+        m_event->onStart();
     }
     bool TriggerEvent::update(double dt)
     {

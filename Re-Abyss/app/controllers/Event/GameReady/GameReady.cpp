@@ -9,7 +9,7 @@ namespace abyss::Event
 {
     GameReady::GameReady()
     {}
-    void GameReady::init()
+    void GameReady::onStart()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
         globalTime->setTimeScale(1.0);

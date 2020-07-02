@@ -5,7 +5,7 @@
 #include <abyss/controllers/Camera/Camera.hpp>
 namespace abyss::Event::Talk::BossTalk0_0
 {
-    void BossMove::init()
+    void BossMove::onStart()
     {
         auto world = m_pManager->getModule<World>();
         m_codeZero = world->find<CodeZero::Demo::DemoActor>();

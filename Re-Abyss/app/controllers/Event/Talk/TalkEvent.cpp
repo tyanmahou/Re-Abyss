@@ -8,7 +8,7 @@ namespace abyss::Event::Talk
         m_events.push(event);
         return *this;
     }
-    void TalkEvent::init()
+    void TalkEvent::onStart()
     {    
     }
     bool TalkEvent::update(double dt)
@@ -22,7 +22,7 @@ namespace abyss::Event::Talk
         }
         if (!m_doneCurrentInit) {
             m_events.front()->setManager(m_pManager);
-            m_events.front()->init();
+            m_events.front()->onStart();
             m_doneCurrentInit = true;
         }
         if (!m_events.front()->update(dt)) {
@@ -39,7 +39,7 @@ namespace abyss::Event::Talk
         while (!m_events.empty()) {
             if (!m_doneCurrentInit) {
                 m_events.front()->setManager(m_pManager);
-                m_events.front()->init();
+                m_events.front()->onStart();
                 m_doneCurrentInit = true;
             }
             m_events.front()->onEnd();

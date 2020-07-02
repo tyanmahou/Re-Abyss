@@ -9,7 +9,7 @@
 
 namespace abyss::Event::Talk::BossTalk0_0
 {
-    void Teardown::init()
+    void Teardown::onStart()
     {
         auto world = m_pManager->getModule<World>();
        

@@ -6,7 +6,7 @@ namespace abyss::Event
 {
     GamePause::GamePause()
     {}
-    void GamePause::init()
+    void GamePause::onStart()
     {
         m_pManager->getModule<GlobalTime>()->pause();
     }

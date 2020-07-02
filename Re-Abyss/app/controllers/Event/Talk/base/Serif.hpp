@@ -16,7 +16,7 @@ namespace abyss::Event::Talk
 
         void setModel(const std::shared_ptr<SerifModel>& model);
         void setFaceManager(const std::shared_ptr<FaceManager>& faceManager);
-        void init() override;
+        void onStart() override;
 
         bool update(double dt) override;
 

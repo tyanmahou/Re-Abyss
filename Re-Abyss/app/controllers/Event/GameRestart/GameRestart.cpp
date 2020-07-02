@@ -9,7 +9,7 @@ namespace abyss::Event
 {
     GameRestart::GameRestart()
     {}
-    void GameRestart::init()
+    void GameRestart::onStart()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
         globalTime->setTimeScale(1.0);

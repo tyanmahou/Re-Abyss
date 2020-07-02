@@ -14,7 +14,7 @@ namespace abyss::Event::Talk
 
         TalkEvent& addEvent(const std::shared_ptr<IEvent>& event);
 
-        void init() override;
+        void onStart() override;
         bool update(double dt) override;
 
         void onEnd() override;

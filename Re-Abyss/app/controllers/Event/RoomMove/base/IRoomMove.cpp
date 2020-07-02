@@ -11,7 +11,7 @@ namespace abyss::Event::RoomMove
         m_animation(false, [this] {return m_pManager->getModule<GlobalTime>()->timeMicroSec(); }),
         m_animeMilliSec(animeMilliSec)
     {}
-    void IRoomMove::init()
+    void IRoomMove::onStart()
     {
         // 移動開始
         this->start();

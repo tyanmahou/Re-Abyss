@@ -17,7 +17,7 @@ namespace abyss::Event::RoomMove
         double m_animeMilliSec = 0;
     public:
         IRoomMove(double animeMilliSec);
-        void init() final;
+        void onStart() final;
         bool update(double dt) final;
         void onEnd() final;
 

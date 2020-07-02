@@ -6,7 +6,7 @@
 #include <abyss/controllers/UI/UI.hpp>
 namespace abyss::Event::Talk
 {
-    void ChargeBossHPBar::init()
+    void ChargeBossHPBar::onStart()
     {
         m_pManager->getModule<UI>()->setActiveAll(false);
         m_hpBar->setActive(true);

@@ -11,7 +11,7 @@ namespace abyss::Event::Talk::BossTalk0_0
     class BossMove : public IEvent
     {
     public:
-        void init()override;
+        void onStart()override;
         bool update(double dt) override;
         void onEnd() override;
     private:

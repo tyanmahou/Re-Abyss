@@ -13,7 +13,7 @@ namespace abyss::Event
         {
             m_pManager = manager;
         }
-        virtual void init(){}
+        virtual void onStart(){}
         virtual bool update(double dt) = 0;
         virtual void onEnd(){}
     };

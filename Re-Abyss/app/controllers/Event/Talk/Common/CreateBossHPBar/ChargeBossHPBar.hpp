@@ -8,7 +8,7 @@ namespace abyss::Event::Talk
 {
     class ChargeBossHPBar : public IEvent
     {
-        void init()override;
+        void onStart()override;
         bool update(double dt) override;
         void onEnd() override;
     private:

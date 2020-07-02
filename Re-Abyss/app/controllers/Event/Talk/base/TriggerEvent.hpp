@@ -25,7 +25,7 @@ namespace abyss::Event::Talk
             return *this;
         }
 
-        void init() override;
+        void onStart() override;
         bool update(double dt) override;
         void onEnd() override;
     };

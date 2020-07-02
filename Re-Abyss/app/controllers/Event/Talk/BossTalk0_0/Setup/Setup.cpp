@@ -7,7 +7,7 @@
 
 namespace abyss::Event::Talk::BossTalk0_0
 {
-    void Setup::init()
+    void Setup::onStart()
     {
         m_pManager->getModule<UI>()->setActiveAll(false);
         auto world = m_pManager->getModule<World>();

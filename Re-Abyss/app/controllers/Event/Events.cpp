@@ -7,7 +7,7 @@ namespace abyss
         if (m_events.empty()) {
             return false;
         }
-        m_events.front()->init();
+        m_events.front()->onStart();
         m_doneCurrentInit = true;
         return true;
     }
@@ -25,7 +25,7 @@ namespace abyss
             return false;
         }
         if (!m_doneCurrentInit) {
-            m_events.front()->init();
+            m_events.front()->onStart();
             m_doneCurrentInit = true;
         }
         if (!m_events.front()->update(dt)) {

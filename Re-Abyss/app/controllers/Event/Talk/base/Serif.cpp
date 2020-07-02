@@ -22,7 +22,7 @@ namespace abyss::Event::Talk
     {
         m_faceManager = faceManager;
     }
-    void Serif::init()
+    void Serif::onStart()
     {
         m_pManager->getModule<UI>()->create<ui::Serif>(m_serif, m_faceManager);
     }
