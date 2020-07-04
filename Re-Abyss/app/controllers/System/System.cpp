@@ -12,6 +12,8 @@
 #include <abyss/controllers/Cron/Cron.hpp>
 #include <abyss/controllers/Save/Save.hpp>
 
+#include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/controllers/Event/GamePause/GamePause.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 
 namespace abyss
@@ -68,6 +70,9 @@ namespace abyss
 
     void System::update()
     {
+        if (!m_time.isPuase() && InputManager::Start.down()) {
+            m_events.create<Event::GamePause>();
+        }
         m_time.update();
         m_light.clear();
 

@@ -9,7 +9,7 @@ namespace abyss::Event
     class GamePause : public IEvent
     {
     private:
-
+        bool m_waitFlag = true;
     public:
         GamePause();
 
