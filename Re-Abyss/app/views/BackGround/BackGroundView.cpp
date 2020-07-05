@@ -17,6 +17,11 @@ namespace abyss
 {
 	BackGroundView::BackGroundView()
 	{}
+
+	void BackGroundView::setTime(double time)
+	{
+		m_sky.setTime(time);
+	}
 	void BackGroundView::addBackGround(const BackGroundVM & bg)
 	{
 		m_bgs.push_back(bg);

@@ -10,6 +10,12 @@ namespace abyss
 
     }
 
+    SkyView& SkyView::setTime(double time)
+    {
+        m_skyShader.setTime(time);
+        return *this;
+    }
+
     void SkyView::draw(const CameraView& camera) const
     {
         ScopedRenderStates2D blend(BlendState::Additive, SamplerState::MirrorNearest);

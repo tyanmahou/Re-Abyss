@@ -93,6 +93,7 @@ namespace abyss
         m_events.update(dt);
         m_userInterface.update(dt);
         m_decor->update(m_time.time());
+        m_backGround->update(m_time.time());
         m_cron->update(dt);
 
 #if ABYSS_DEBUG

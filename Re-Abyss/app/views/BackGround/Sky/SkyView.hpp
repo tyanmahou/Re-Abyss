@@ -10,6 +10,8 @@ namespace abyss
     public:
         SkyView();
 
+        SkyView& setTime(double time);
+
         void draw(const CameraView& camera) const;
     };
 }

@@ -35,14 +35,20 @@ namespace abyss
 		m_texture(ResourceManager::Main()->loadTexture(U"bgs/surface.png"))
     {}
 
+	WaterSarfaceView& WaterSarfaceView::setTime(double time)
+	{
+		m_time = time;
+		return *this;
+	}
+
 	void WaterSarfaceView::drawBack(const CameraView& camera) const
 	{
-		auto time = Scene::Time() / 60.0;
+		auto time = m_time / 60.0;
 		::Draw(camera, m_texture, 8.0, Vec2{ 1.0, 1.0 }, 2.0, time);
 	}
 	void WaterSarfaceView::drawFront(const CameraView& camera) const
 	{
-		auto time = Scene::Time() / 30.0;
+		auto time = m_time / 30.0;
 		::Draw(camera, m_texture, 2.0, Vec2{ -1.0, 1.0 }, 1.5, time);
 	}
 }

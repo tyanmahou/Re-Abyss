@@ -13,6 +13,8 @@ namespace abyss
     public:
         BackGround() = default;
 
+        void update(double time);
+
         void add(const BackGroundVM& backGround);
         void setBgColor(const s3d::Color& color);
         void draw(const CameraView& camera) const;

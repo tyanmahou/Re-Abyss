@@ -2,6 +2,11 @@
 
 namespace abyss
 {
+    void BackGround::update(double time)
+    {
+        m_view.setTime(time);
+        m_waterSarface.setTime(time);
+    }
     void BackGround::add(const BackGroundVM& backGround)
     {
         m_view.addBackGround(backGround);

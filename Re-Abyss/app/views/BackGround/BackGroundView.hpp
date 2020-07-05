@@ -17,6 +17,9 @@ namespace abyss
 		s3d::Color m_bgColor;
 	public:
 		BackGroundView();
+
+		void setTime(double time);
+
 		void addBackGround(const BackGroundVM& bg);
 		void setBgColor(const s3d::Color& color)
 		{

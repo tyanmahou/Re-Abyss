@@ -12,6 +12,7 @@ namespace abyss
         std::shared_ptr<Impl> m_pImpl;
     public:
         SkyShader();
+        SkyShader& setTime(double time);
         s3d::ScopedCustomShader2D start() const;
     };
 }
