@@ -9,7 +9,8 @@ namespace abyss::Player::Shot
     ShotVM::ShotVM(const PlayerShotModel& shot, Forward forward):
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Player/player_shot.png")),
         m_shot(shot),
-        m_forward(forward)
+        m_forward(forward),
+        m_effectTimer(0.033, true, [this] {return Time::FromSec(this->m_time); })
     {}
 
     ShotVM& ShotVM::setManager(Manager * pManager)
@@ -39,7 +40,7 @@ namespace abyss::Player::Shot
         double r = m_shot.toRadius();
 
         // effect
-        if (static_cast<int32>(Periodic::Sawtooth0_1(1s) * 60.0) % 2 && m_shot >= PlayerShotType::Medium) {
+        if (m_effectTimer.update() && m_shot >= PlayerShotType::Medium) {
             m_pManager->getModule<Effects>()->addWorldFront<ShotEffect>(m_pos, r, m_shot.toColorF());
         }
 
