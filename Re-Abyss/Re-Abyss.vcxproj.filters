@@ -929,6 +929,9 @@
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\God\PauseModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1400,5 +1403,6 @@
     <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
     <ClInclude Include="app\controllers\Event\GamePause\GamePause.hpp" />
     <ClInclude Include="app\controllers\Actors\God\GodActor.hpp" />
+    <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
   </ItemGroup>
 </Project>

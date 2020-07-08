@@ -1,9 +1,10 @@
-#include "Stage.hpp"
+﻿#include "Stage.hpp"
 
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Camera/Camera.hpp>
 
+#include <abyss/controllers/Actors/God/GodActor.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
@@ -156,6 +157,7 @@ namespace abyss
         // World初期化
         {
             auto world = m_pManager->getModule<World>();
+            world->create<God::GodActor>();
             world->regist(player);
             if (nextRoom = this->findRoom(player->getPos())) {
                 result &= this->initRoom(*world, *nextRoom);
