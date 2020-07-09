@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Siv3D.hpp>
 
@@ -25,6 +25,7 @@ namespace abyss::Player
             Swim,
             Damage,
             Ladder,
+            Dead,
         };
     private:
         Ref<BodyModel> m_body;

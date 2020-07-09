@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -43,5 +43,14 @@ namespace abyss::Player
             inline static double TimeSec{ 0.5 };
             inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
         };
+
+        [[TOML_BIND_PARAM(Dead::TimeSec, "Dead.timeSec")]]
+        [[TOML_BIND_PARAM(Dead::KnockBackSpeed, "Dead.knockBackSpeed")]]
+        struct Dead
+        {
+            inline static double TimeSec{ 0.5 };
+            inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
+        };
+
     };
 }

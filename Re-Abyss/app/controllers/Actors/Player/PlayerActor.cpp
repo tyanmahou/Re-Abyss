@@ -1,4 +1,5 @@
-#include <abyss/models/Actors/Player/State/SwimState.hpp>
+﻿#include <abyss/models/Actors/Player/State/SwimState.hpp>
+#include <abyss/models/Actors/Player/State/DeadState.hpp>
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
 
@@ -65,7 +66,8 @@ namespace abyss::Player
                 ->add<SwimState>(State::Swim)
                 .add<LadderState>(State::Ladder)
                 .add<DamageState>(State::Damage)
-            ;
+                .add<DeadState>(State::Dead)
+                ;
         }
         // Charge
         {
