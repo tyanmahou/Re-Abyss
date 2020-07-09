@@ -206,6 +206,7 @@
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RestartCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\State\DeadState.cpp" />
@@ -532,6 +533,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\DebugCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RestartCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />

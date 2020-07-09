@@ -935,6 +935,9 @@
     <ClCompile Include="app\models\Actors\Player\State\DeadState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1408,5 +1411,6 @@
     <ClInclude Include="app\controllers\Actors\God\GodActor.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\DebugCtrlModel.hpp" />
   </ItemGroup>
 </Project>

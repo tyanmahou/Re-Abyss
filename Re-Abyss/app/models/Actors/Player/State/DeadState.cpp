@@ -17,6 +17,8 @@ namespace abyss::Player
     void DeadState::start()
     {
         BaseState::start();
+        // 無敵時間をなしに
+        m_hp->setInvincibleTime(0);
 
         // サウンド停止
         m_pActor->getModule<Sound>()->stop(0.5s);

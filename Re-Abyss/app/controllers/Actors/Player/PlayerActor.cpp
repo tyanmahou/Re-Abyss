@@ -1,4 +1,4 @@
-﻿#include <abyss/models/Actors/Player/State/SwimState.hpp>
+#include <abyss/models/Actors/Player/State/SwimState.hpp>
 #include <abyss/models/Actors/Player/State/DeadState.hpp>
 #include <abyss/models/Actors/Player/State/LadderState.hpp>
 #include <abyss/models/Actors/Player/State/DamageState.hpp>
@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
 #include <abyss/models/Actors/Player/RestartCtrlModel.hpp>
 #include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
-
+#include <abyss/models/Actors/Player/DebugCtrlModel.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
@@ -113,6 +113,12 @@ namespace abyss::Player
         {
             this->attach<RoomMoveCheckerModel>(this);
         }
+#if ABYSS_DEBUG
+        // デバッグ制御
+        {
+            this->attach<DebugCtrlModel>(this);
+        }
+#endif
         m_order = 10;
     }
     void PlayerActor::start()
