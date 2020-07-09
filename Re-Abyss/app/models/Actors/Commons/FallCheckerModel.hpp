@@ -21,6 +21,11 @@ namespace abyss
 
         void setup() override;
         void onLastUpdate(double dt) override;
+
+        bool isFall() const
+        {
+            return m_isFall;
+        }
     };
 }
 
