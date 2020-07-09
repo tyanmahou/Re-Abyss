@@ -10,6 +10,12 @@ namespace abyss::Player
         m_pActor(pActor)
     {}
 
+    void AttackCtrlModel::reset()
+    {
+        m_timer.restart();
+        m_timer.pause();
+    }
+
     void AttackCtrlModel::startAttack()
     {
         m_timer.restart();

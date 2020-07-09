@@ -12,6 +12,7 @@ namespace abyss::Player
     public:
         AttackCtrlModel(IActor* pActor);
 
+        void reset();
         void startAttack();
         bool isAttacking() const;
     };

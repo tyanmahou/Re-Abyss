@@ -34,6 +34,7 @@ namespace abyss::Player
     {
         if (InputManager::Up.down()) {
             m_motion = Motion::Door;
+            m_attackCtrl->reset();
             m_body->setVelocity(Vec2::Zero());
             m_body->setForward(col.getTargetForward());
             Event::RoomMove::DoorMove::Start(col, m_body->getPos(), [this]() {

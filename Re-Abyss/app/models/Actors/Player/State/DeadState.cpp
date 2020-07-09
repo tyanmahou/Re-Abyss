@@ -1,4 +1,4 @@
-﻿#include "DeadState.hpp"
+#include "DeadState.hpp"
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
