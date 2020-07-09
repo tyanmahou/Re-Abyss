@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <queue>
 #include <memory>
 #include <abyss/controllers/Event/base/IEvent.hpp>
@@ -32,5 +32,7 @@ namespace abyss
         bool update(double dt);  
 
         bool isEmpty() const;
+
+        bool isWorldStop() const;
     };
 }

@@ -8,29 +8,49 @@
 namespace abyss::Event
 {
     GameRestart::GameRestart()
-    {}
+    {
+        m_isWorldStop = false;
+    }
     void GameRestart::onStart()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
-        globalTime->setTimeScale(1.0);
-        m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
+        globalTime->setTimeScale(0.5);
+        m_waitTimer = TimerEx(2.5s, false);
+        m_fadeTimer = TimerEx(1s, false);
 
-        m_timer.start();
-        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+        m_waitTimer.start();
     }
     bool GameRestart::update([[maybe_unused]]double dt)
     {
         if (m_phase == Phase::End) {
             return false;
         }
-        if (auto ui = m_fadeUI) {
-            auto pos = m_pManager->getModule<Player::PlayerActor>()->getPos();
-            ui->setPos(pos)
-                .setFadeTime(m_timer.progress0_1())
-                ;
+        switch (m_phase) {
+        case Phase::Wait:
+        {
+            auto globalTime = m_pManager->getModule<GlobalTime>();
+            globalTime->setTimeScale(m_waitTimer.progress0_1());
+            if (m_waitTimer.reachedZero()) {
+                m_fadeTimer.start();
+                m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+                m_phase = Phase::Fade;
+            }
         }
-        if (m_timer.reachedZero()) {
-            m_phase = Phase::End;
+        case Phase::Fade:
+        {
+            if (auto ui = m_fadeUI) {
+                auto pos = m_pManager->getModule<Player::PlayerActor>()->getPos();
+                ui->setPos(pos)
+                    .setFadeTime(m_fadeTimer.progress0_1())
+                    ;
+            }
+            if (m_fadeTimer.reachedZero()) {
+                m_phase = Phase::End;
+            }
+        }
+        case Phase::End:
+        default:
+            break;
         }
         return true;
     }

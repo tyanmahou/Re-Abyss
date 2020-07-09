@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/controllers/Event/base/IEvent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -15,13 +15,15 @@ namespace abyss::Event
     {
         enum class Phase
         {
+            Wait,
             Fade,
             End,
         };
     private:
-        TimerEx m_timer;
+        TimerEx m_waitTimer;
+        TimerEx m_fadeTimer;
         Ref<ui::Fade::SmoothCircle> m_fadeUI;
-        Phase m_phase = Phase::Fade;
+        Phase m_phase = Phase::Wait;
 
     public:
         GameRestart();

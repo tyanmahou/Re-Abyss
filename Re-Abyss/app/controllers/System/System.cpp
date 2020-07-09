@@ -74,13 +74,13 @@ namespace abyss
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
 
-        bool inEvent = m_events.isEmpty();
-        if (inEvent) {
+        bool isWorldStop = m_events.isWorldStop();
+        if (!isWorldStop) {
             m_world.update();
             m_world.collision();
         }
         m_camera.update();
-        if (inEvent) {
+        if (!isWorldStop) {
             m_world.lastUpdate();
             m_world.cleanUp();
         }

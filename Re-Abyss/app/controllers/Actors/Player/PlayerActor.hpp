@@ -50,6 +50,7 @@ namespace abyss::Player
 
         RectF region() const;
 
+        bool isDead() const;
         bool accept(const ActVisitor& visitor) override;
         PlayerVM* getBindedView()const;
 

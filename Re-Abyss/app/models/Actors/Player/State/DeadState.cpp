@@ -3,8 +3,7 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
-#include <abyss/controllers/Event/Events.hpp>
-#include <abyss/controllers/Event/GameRestart/GameRestart.hpp>
+#include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
 
 namespace abyss::Player
@@ -20,6 +19,9 @@ namespace abyss::Player
 
         // サウンド停止
         m_pActor->getModule<Sound>()->stop(0.5s);
+
+        // 地震
+        m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);
 
         m_pActor->find<AudioSourceModel>()->play(U"Dead");
 
@@ -41,10 +43,10 @@ namespace abyss::Player
     void DeadState::update(double dt)
     {
         this->onMove(dt);
-        if (m_deadTimer.reachedZero()) {
-            // ゲームリスタートイベントを開始
-            m_pActor->getModule<Events>()->create<Event::GameRestart>();
-        }
+        //if (m_deadTimer.reachedZero()) {
+        //    // ゲームリスタートイベントを開始
+        //    m_pActor->getModule<Events>()->create<Event::GameRestart>();
+        //}
     }
 
     void DeadState::onDraw(const PlayerVM& view) const

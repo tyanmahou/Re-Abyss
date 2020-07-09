@@ -28,6 +28,7 @@
 
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
+
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
@@ -151,6 +152,10 @@ namespace abyss::Player
     RectF PlayerActor::region() const
     {
         return m_body->region();
+    }
+    bool PlayerActor::isDead() const
+    {
+        return m_hp->isDead();
     }
     bool PlayerActor::accept(const ActVisitor& visitor)
     {

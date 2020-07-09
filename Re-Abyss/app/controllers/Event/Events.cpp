@@ -1,4 +1,4 @@
-#include "Events.hpp"
+﻿#include "Events.hpp"
 
 namespace abyss
 {
@@ -41,5 +41,10 @@ namespace abyss
     bool Events::isEmpty() const
     {
         return m_events.empty();
+    }
+
+    bool Events::isWorldStop() const
+    {
+        return !m_events.empty() && m_events.front()->isWorldStop();
     }
 }
