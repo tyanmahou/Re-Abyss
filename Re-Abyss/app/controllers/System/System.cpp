@@ -59,7 +59,7 @@ namespace abyss
 
     void System::init(const std::shared_ptr<Player::PlayerActor>& player)
     {
-        m_stage->init(player);
+        m_stage->init(player, nullptr);
     }
     void System::restart()
     {

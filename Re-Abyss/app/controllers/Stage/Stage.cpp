@@ -150,14 +150,16 @@ namespace abyss
         auto restartId = save->getRestartId().value_or(0);
         return this->init(restartId);
     }
-    bool Stage::init(const std::shared_ptr<Player::PlayerActor>& player) const
-    {
+    bool Stage::init(
+        const std::shared_ptr<Player::PlayerActor>& player,
+        const std::shared_ptr<Event::IEvent>& readyEvent
+    ) const {
         bool result = true;
         // Readyイベント開始
-        {
+        if(readyEvent) {
             m_pManager
                 ->getModule<Events>()
-                ->create<Event::GameReady>()
+                ->regist(readyEvent)
                 .init()
                 ;
         }
@@ -226,7 +228,7 @@ namespace abyss
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 
-        return this->init(player);
+        return this->init(player, std::make_shared<Event::GameReady>());
     }
 
     bool Stage::checkOut() const

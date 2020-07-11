@@ -75,6 +75,8 @@ namespace abyss
 	/// </summary>
 	namespace Event
 	{
+		class IEvent;
+
 		namespace Talk
 		{
 			class FaceManager;
