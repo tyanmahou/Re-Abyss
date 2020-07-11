@@ -1416,5 +1416,6 @@
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
     <ClInclude Include="app\models\Actors\Player\DebugCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
+    <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
   </ItemGroup>
 </Project>

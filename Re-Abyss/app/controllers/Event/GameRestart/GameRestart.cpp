@@ -7,14 +7,15 @@
 #include <abyss/controllers/Master/Master.hpp>
 namespace abyss::Event
 {
-    GameRestart::GameRestart()
+    GameRestart::GameRestart():
+        m_globalTimeScale(std::make_shared<GlobalTimeScaleModel>())
     {
         m_isWorldStop = false;
     }
     void GameRestart::onStart()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
-        globalTime->setTimeScale(0.5);
+        globalTime->addTimeScale(m_globalTimeScale);
         m_waitTimer = TimerEx(2.5s, false);
         m_fadeTimer = TimerEx(1s, false);
 
@@ -28,8 +29,7 @@ namespace abyss::Event
         switch (m_phase) {
         case Phase::Wait:
         {
-            auto globalTime = m_pManager->getModule<GlobalTime>();
-            globalTime->setTimeScale(m_waitTimer.progress0_1());
+            m_globalTimeScale->setScale(m_waitTimer.progress0_1());
             if (m_waitTimer.reachedZero()) {
                 m_fadeTimer.start();
                 m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();

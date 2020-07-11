@@ -542,6 +542,7 @@
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
+    <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />

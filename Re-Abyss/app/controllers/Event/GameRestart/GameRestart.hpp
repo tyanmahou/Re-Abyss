@@ -1,8 +1,9 @@
-﻿#pragma once
+#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/controllers/Event/base/IEvent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
+#include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
 
 namespace abyss::ui::Fade
 {
@@ -23,6 +24,7 @@ namespace abyss::Event
         TimerEx m_waitTimer;
         TimerEx m_fadeTimer;
         Ref<ui::Fade::SmoothCircle> m_fadeUI;
+        std::shared_ptr<GlobalTimeScaleModel> m_globalTimeScale;
         Phase m_phase = Phase::Wait;
 
     public:

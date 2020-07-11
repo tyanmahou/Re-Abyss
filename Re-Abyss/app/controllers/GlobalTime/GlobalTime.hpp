@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Duration.hpp>
+#include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
 #include <abyss/utils/Singleton.hpp>
 
 using namespace std::literals;
@@ -21,14 +22,14 @@ namespace abyss
         double time() const;
         s3d::Microseconds timeMicroSec() const;
 
-       double deltaTime() const;
+        double deltaTime() const;
 
         void pause() const;
 
         void resume() const;
 
-        void setTimeScale(double timeScale) const;
-
         bool isPuase() const;
+
+        void addTimeScale(const std::shared_ptr<GlobalTimeScaleModel>& timeScale);
     };
 }

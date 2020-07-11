@@ -12,8 +12,6 @@ namespace abyss::Event
     void GameReady::onStart()
     {
         auto globalTime = m_pManager->getModule<GlobalTime>();
-        globalTime->setTimeScale(1.0);
-
         m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
         m_timer.start();
         // フェードイン
