@@ -5,12 +5,14 @@
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
+#include <abyss/controllers/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 namespace abyss
 {
 	Camera::Camera():
-		m_camera(std::make_unique<CameraModel>())
+		m_camera(std::make_unique<CameraModel>()),
+		m_quake(std::make_unique<Quake>())
 	{}
 
 	Camera::~Camera()
@@ -50,10 +52,6 @@ namespace abyss
 			// 地震適用
 			if (this->isQuake()) {
 				cameraPos = m_quake->apply(cameraPos);
-
-				if (m_quake->IsEnd()) {
-					m_quake = nullptr;
-				}
 			}
 			m_camera->setPos(Math::Round(cameraPos));
 		}
@@ -72,17 +70,19 @@ namespace abyss
 		return m_camera->getPos();
 	}
 
-	void Camera::startQuake(double maxOffset, double timeSec)
+	Ref<QuakeModel> Camera::startQuake(double maxOffset, double timeSec)
 	{
-		m_quake = std::make_unique<QuakeModel>(m_pManager, maxOffset, timeSec);
+		auto quake = std::make_shared<QuakeModel>(m_pManager, maxOffset, timeSec);
+		m_quake->add(quake);
+		return quake;
 	}
 	void Camera::stopQuake()
 	{
-		m_quake = nullptr;
+		m_quake->stopAll();
 	}
 	bool Camera::isQuake() const
 	{
-		return m_quake != nullptr;
+		return !m_quake->isEnd();
 	}
 
 	void Camera::setRoom(const RoomModel& room) const

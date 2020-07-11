@@ -13,6 +13,7 @@ namespace abyss
 	class Manager;
 	class GlobalTime;
 	class Camera;
+	class Quake;
 	class ICameraWork;
 	class World;
 	class Events;

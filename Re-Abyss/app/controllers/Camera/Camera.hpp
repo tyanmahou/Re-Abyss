@@ -5,6 +5,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Camera/CameraModel.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss
 {
@@ -14,7 +15,7 @@ namespace abyss
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
-		std::unique_ptr<QuakeModel> m_quake;
+		std::unique_ptr<Quake> m_quake;
 
 	public:
 		Camera();
@@ -43,7 +44,7 @@ namespace abyss
 		/// </summary>
 		/// <param name="maxOffset"></param>
 		/// <param name="timeSec"></param>
-		void startQuake(double maxOffset = 5.0, double timeSec = -1.0);
+		Ref<QuakeModel> startQuake(double maxOffset = 5.0, double timeSec = -1.0);
 
 		/// <summary>
 		/// 地震停止
@@ -51,7 +52,7 @@ namespace abyss
 		void stopQuake();
 
 		/// <summary>
-		/// 地震中止
+		/// 地震中か
 		/// </summary>	
 		bool isQuake() const;
 
