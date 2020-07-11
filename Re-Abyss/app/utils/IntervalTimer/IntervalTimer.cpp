@@ -1,22 +1,30 @@
 #include "IntervalTimer.hpp"
+#include <Siv3D.hpp>
 
 namespace abyss
 {
     class IntervalTimer::Impl
     {
+        Duration m_timeSec;
         TimerEx m_timer;
         bool m_onReachedZero = false;
     public:
         Impl(double timeSec, bool startImmediately, TimeGetFunction_t timeGetter):
+            m_timeSec(timeSec),
             m_timer(timeSec, startImmediately, timeGetter)
         {}
         Impl(const s3d::Duration& time, bool startImmediately, TimeGetFunction_t timeGetter) :
+            m_timeSec(time),
             m_timer(time, startImmediately, timeGetter)
         {}
+        bool toEnd()
+        {
+            m_timer.set(0.0s);
+        }
         bool update()
         {
             if (m_timer.reachedZero()) {
-                m_timer.restart();
+                m_timer.restart(m_timeSec);
                 m_onReachedZero = true;
                 return true;
             }
@@ -44,6 +52,11 @@ namespace abyss
     bool IntervalTimer::onRestart() const
     {
         return m_pImpl->onRestart();
+    }
+
+    bool IntervalTimer::toEnd() const
+    {
+        return m_pImpl->toEnd();
     }
 
 

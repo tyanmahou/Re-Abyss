@@ -2,6 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/StopwatchEx/StopwatchEx.hpp>
+#include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
 namespace abyss
 {
@@ -11,7 +12,8 @@ namespace abyss
         double m_maxOffset = 0;
         double m_timeSec = 1.0;
         StopwatchEx m_stopwatch;
-
+        IntervalTimer m_intervalTimer;
+        Vec2 m_offset;
         Manager* m_pManager;
     public:
         /// <summary>
@@ -23,6 +25,6 @@ namespace abyss
         QuakeModel(Manager* pManager, double maxOffset = 5.0, double timeSec = -1.0);
 
         bool IsEnd() const;
-        s3d::Vec2 apply(const s3d::Vec2& pos) const;
+        s3d::Vec2 apply(const s3d::Vec2& pos);
     };
 }

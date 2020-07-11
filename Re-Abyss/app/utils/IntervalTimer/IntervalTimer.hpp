@@ -24,5 +24,11 @@ namespace abyss
         /// </summary>
         /// <returns></returns>
         bool onRestart() const;
+
+        /// <summary>
+        /// タイマー終了に
+        /// </summary>
+        /// <returns></returns>
+        bool toEnd() const;
     };
 }
