@@ -1,4 +1,4 @@
-﻿#include "Stage.hpp"
+#include "Stage.hpp"
 
 #include <Siv3D.hpp>
 
@@ -153,6 +153,15 @@ namespace abyss
     bool Stage::init(const std::shared_ptr<Player::PlayerActor>& player) const
     {
         bool result = true;
+        // Readyイベント開始
+        {
+            m_pManager
+                ->getModule<Events>()
+                ->create<Event::GameReady>()
+                .init()
+                ;
+        }
+
         s3d::Optional<RoomModel> nextRoom;
         // World初期化
         {
@@ -201,14 +210,6 @@ namespace abyss
         // 初期情報をリスタート情報として残す
         save->setRestartInfo(save->getRestartId().value_or(0), sound->currentBgmPath());
 
-        // Readyイベント開始
-        {
-            m_pManager
-                ->getModule<Events>()
-                ->create<Event::GameReady>()
-                .init()
-                ;
-        }
         // UI初期化
         {
             m_pManager->getModule<UI>()->flush();

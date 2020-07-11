@@ -3,6 +3,8 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Demo/DemoActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/models/Camera/QuakeModel.hpp>
+
 namespace abyss::Event::Talk::BossTalk0_0
 {
     void BossMove::onStart()
@@ -13,7 +15,7 @@ namespace abyss::Event::Talk::BossTalk0_0
 
         m_targetPos = m_initPos - s3d::Vec2{ 0, 400 };
 
-        m_pManager->getModule<Camera>()->startQuake(2.0);
+        m_quake = m_pManager->getModule<Camera>()->startQuake(2.0);
     }
 
     bool BossMove::update(double dt)
@@ -26,15 +28,23 @@ namespace abyss::Event::Talk::BossTalk0_0
         }
         auto camera = m_pManager->getModule<Camera>();
         if (!m_isRequestedLastQuake) {
-            camera->startQuake(10, 0.3);
+            if (m_quake) {
+                m_quake->stop();
+            }
+            m_lastQuake = camera->startQuake(10, 0.3);
             m_isRequestedLastQuake = true;
         }
-        return camera->isQuake();
+        return m_lastQuake && !m_lastQuake->isEnd();
     }
 
     void BossMove::onEnd()
     {
-        m_pManager->getModule<Camera>()->stopQuake();
+        if (m_quake) {
+            m_quake->stop();
+        }
+        if (m_lastQuake) {
+            m_lastQuake->stop();
+        }
         if (!m_codeZero) {
             return;
         }

@@ -1,4 +1,4 @@
-﻿#include "System.hpp"
+#include "System.hpp"
 #include <abyss/controllers/Master/Master.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
