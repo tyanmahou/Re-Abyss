@@ -197,6 +197,7 @@
     <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp" />
     <ClCompile Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.cpp" />
+    <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
@@ -511,6 +512,7 @@
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
     <ClInclude Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.hpp" />
+    <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
     <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\controllers\UI\UIOrder.hpp" />

@@ -15,14 +15,14 @@ namespace abyss::ui
         m_hpModel = m_pActor->find<HPModel>();
     }
 
-    void PlayerInfo::update(double dt)
+    void PlayerInfo::update([[maybe_unused]]double dt)
     {
     }
 
     void PlayerInfo::draw() const
     {
 #if ABYSS_DEBUG
-        Debug::Log::Print << m_hpModel->getHp() << L"/" << m_hpModel->getMaxHp();
+        Debug::Log::Print << m_hpModel->getHp() << U"/" << m_hpModel->getMaxHp();
 #endif
     }
 }
