@@ -27,6 +27,7 @@
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
 #include <abyss/controllers/UI/UI.hpp>
+#include <abyss/controllers/UI/PlayerInfo/PlayerInfo.hpp>
 #include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
 
 namespace abyss::Player
@@ -128,6 +129,7 @@ namespace abyss::Player
         std::shared_ptr<Ooparts::OopartsActor> main = this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
         this->find<OopartsCtrlModel>()->setMain(main);
 
+        this->getModule<UI>()->create<ui::PlayerInfo>(this);
         this->getModule<UI>()->create<ui::DyingEffect>(this);
     }
     void PlayerActor::setPos(const Vec2& pos)
