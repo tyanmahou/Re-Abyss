@@ -34,6 +34,11 @@ namespace abyss
         bool heal(s3d::int32 value);
         bool damage(s3d::int32 power);
 
+        /// <summary>
+        /// HPを最大HPにリセット
+        /// </summary>
+        void reset();
+
         bool isDead() const;
 
         bool isInInvincibleTime() const;

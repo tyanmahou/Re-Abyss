@@ -14,8 +14,12 @@ namespace abyss::Player
 
     void DebugCtrlModel::onUpdate([[maybe_unused]]double dt)
     {
+        auto hp = m_pActor->find<HPModel>();
         if (KeyD.down()) {
-            m_pActor->find<HPModel>()->setHp(0);
+            hp->setHp(0);
+        }
+        if (KeyS.down()) {
+            hp->reset();
         }
     }
 

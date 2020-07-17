@@ -68,6 +68,11 @@ namespace abyss
         return false;
     }
 
+    void HPModel::reset()
+    {
+        m_hp = m_maxHp;
+    }
+
     bool HPModel::isDead() const
     {
         return m_hp <= 0;
