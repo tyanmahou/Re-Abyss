@@ -1,5 +1,4 @@
 #include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
-#include <abyss/models/Actors/Enemy/Slime/State/JumpState.hpp>
 
 #include "Senser/Senser.hpp"
 
@@ -11,11 +10,11 @@
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 #include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/DrawModel.hpp>
 
 namespace abyss::Slime
 {
-	SlimeActor::SlimeActor(const SlimeEntity& entity) :
-		m_view(std::make_shared<SlimeVM>())
+	SlimeActor::SlimeActor(const SlimeEntity& entity)
 	{
 		Enemy::EnemyBuilder builder(this);
 
@@ -32,14 +31,13 @@ namespace abyss::Slime
 				->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		}
 		{
-			(m_state = this->attach<OldStateModel<SlimeActor>>(this))
-				->add<WalkState>(State::Walk)
-				.add<JumpState>(State::Jump)
-				;
+			(m_state = this->attach<StateModel>(this))
+				->changeState<WalkState>();
 		}
 
 		this->attach<DeadCallbackModel>(this);
 		this->attach<SenserCtrlModel>();
+		this->attach<DrawModel>(this);
 	}
 
 	void SlimeActor::start()
@@ -52,17 +50,8 @@ namespace abyss::Slime
 	{
 		return visitor.visit(*this);
 	}
-	SlimeVM* SlimeActor::getBindedView() const
-	{
-		return &m_view->setTime(this->getDrawTimeSec())
-			.setForward(this->getForward())
-			.setPos(this->getPos())
-			.setVelocity(this->getVelocity())
-			.setIsDamaging(this->m_hp->isInInvincibleTime())
-			;
-	}
 	bool SlimeActor::isWalk() const
 	{
-		return m_state->getState() == State::Walk;
+		return m_state->isState<WalkState>();
 	}
 }

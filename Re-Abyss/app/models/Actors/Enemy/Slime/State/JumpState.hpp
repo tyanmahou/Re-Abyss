@@ -9,9 +9,6 @@ namespace abyss::Slime
     {
     public:
         void start() override;
-
-        void draw() const override;
-
         void lastUpdate(double dt) override;
     };
 }

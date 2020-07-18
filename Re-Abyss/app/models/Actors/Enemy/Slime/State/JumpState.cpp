@@ -1,4 +1,5 @@
 #include "JumpState.hpp"
+#include "WalkState.hpp"
 
 #include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
@@ -10,15 +11,13 @@ namespace abyss::Slime
         m_body->setSize(Param::Jump::Size).setPivot({ 0, 0 });
 
         m_body->jumpToHeight(Param::Jump::JumpHeight);
-    }
-    void JumpState::draw() const
-    {
-        m_pActor->getBindedView()->drawJump();
+        
+        m_draw->request(DrawModel::Kind::Jump);
     }
     void JumpState::lastUpdate([[maybe_unused]]double dt)
     {
         if (m_mapCol->isHitGround()) {
-            this->changeState(State::Walk);
+            this->changeState<WalkState>();
         }
         BaseState::lastUpdate(dt);
     }

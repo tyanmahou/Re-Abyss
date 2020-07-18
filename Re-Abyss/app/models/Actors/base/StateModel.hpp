@@ -22,21 +22,13 @@ namespace abyss
         IActor* m_pActor = nullptr;
 
         template<class State, class... Args>
-        void changeState(Args&&... args)
-        {
-            m_manager->changeState<State>(std::forward<Args>(args)...);
-        }
+        void changeState(Args&&... args) const;
+
     public:
         IState()=default;
         virtual ~IState() = default;
 
-        void init(StateModel* manager)
-        {
-            m_manager = manager;
-            m_pActor = manager->getActor();
-            this->setup();
-            this->start();
-        }
+        void init(StateModel* manager);
 
         virtual void setup() {}
 
@@ -140,7 +132,7 @@ namespace abyss
             m_next = next;
         }
         template<class State, class... Args>
-        void changeState(Args&... args)
+        void changeState(Args&&... args)
         {
             changeState(std::make_shared<State>(std::forward<Args>(args)...));
         }
@@ -149,7 +141,19 @@ namespace abyss
         {
             return m_pActor;
         }
+
+        template<class State>
+        bool isState() const
+        {
+            return dynamic_cast<State*>(m_current.get()) != nullptr;
+        }
     };
+
+    template<class State, class... Args>
+    void IState::changeState(Args&&... args) const
+    {
+        m_manager->changeState<State>(std::forward<Args>(args)...);
+    }
 }
 
 namespace abyss
