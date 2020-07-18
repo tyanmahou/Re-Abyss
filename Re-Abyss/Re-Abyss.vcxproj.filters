@@ -950,6 +950,9 @@
     <ClCompile Include="app\models\Actors\base\StateModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1429,5 +1432,6 @@
     <ClInclude Include="app\models\Actors\base\OldStateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
   </ItemGroup>
 </Project>

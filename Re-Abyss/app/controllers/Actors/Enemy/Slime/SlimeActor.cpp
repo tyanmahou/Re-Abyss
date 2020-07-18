@@ -6,7 +6,6 @@
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
-#include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 #include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
@@ -25,14 +24,14 @@ namespace abyss::Slime
 			.setIsEnableRoomHit(true)
 			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
 			.setIsEnableDeadCallback(false)
+			.setInitState<WalkState>()
 			.build();
 		{
 			m_body
 				->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		}
 		{
-			(m_state = this->attach<StateModel>(this))
-				->changeState<WalkState>();
+			m_state = this->find<StateModel>();
 		}
 
 		this->attach<DeadCallbackModel>(this);

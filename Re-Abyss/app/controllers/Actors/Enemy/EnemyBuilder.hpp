@@ -4,6 +4,7 @@
 
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
 
 namespace abyss::Enemy
 {
@@ -43,6 +44,8 @@ namespace abyss::Enemy
         bool m_isEnableBreathing = true;
 
         bool m_isAutoDestroy = true;
+
+        std::shared_ptr<IState> m_initState = nullptr;
     public:
         EnemyBuilder(EnemyActor* pActor);
 
@@ -117,6 +120,18 @@ namespace abyss::Enemy
         {
             m_isAutoDestroy = isAuto;
             return *this;
+        }
+
+        EnemyBuilder& setInitState(const std::shared_ptr<IState>& initState)
+        {
+            m_initState = initState;
+            return *this;
+        }
+
+        template<class State, class... Args>
+        EnemyBuilder& setInitState(Args&&... args)
+        {
+            return setInitState(std::make_shared<State>(std::forward<Args>(args)...));
         }
         void build() const;
     };

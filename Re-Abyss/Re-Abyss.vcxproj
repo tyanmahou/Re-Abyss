@@ -207,6 +207,7 @@
     <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
+    <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
@@ -535,6 +536,7 @@
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
