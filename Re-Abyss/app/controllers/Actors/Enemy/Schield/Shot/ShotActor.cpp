@@ -1,8 +1,14 @@
+#include "ShotActor.hpp"
+
 #include <abyss/models/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
+#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/models/Actors/Enemy/Schield/Shot/DrawModel.hpp>
 
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
@@ -10,19 +16,15 @@
 
 namespace abyss::Schield::Shot
 {
-    ShotActor::ShotActor(const s3d::Vec2& pos, const s3d::Vec2& dir) :
-        m_view(std::make_shared<ShotVM>())
+    ShotActor::ShotActor(const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
-        {
-            this->attach<OldStateModel<ShotActor>>(this)
-                ->add<BaseState>(State::Base);
-        }
         {
             (m_body = this->attach<BodyModel>(this))
                 ->initPos(pos)
                 .noneResistanced()
                 .setVelocity(dir.normalized() * ShotParam::Base::Speed);
 
+            this->attach<BodyUpdaterModel>(this);
         }
         {
             auto collider = this->attach<CustomColliderModel>(this);
@@ -35,8 +37,20 @@ namespace abyss::Schield::Shot
             this->attach<DeadOnHItReceiverModel>(this);
         }
         {
+            this->attach<OutRoomCheckerModel>(this)
+                ->setColFunc([this] {return this->getCollider(); });
+        }
+        {
             this->attach<DeadCheckerModel>(this);
         }
+        {
+            this->attach<DrawModel>(this);
+        }
+        {
+            this->attach<StateModel>(this)
+                ->changeState<BaseState>();
+        }
+
         m_power = 1;
     }
     CShape ShotActor::getCollider() const
@@ -52,11 +66,5 @@ namespace abyss::Schield::Shot
     {
         return visitor.visit(static_cast<Attacker&>(*this)) ||
             visitor.visit(static_cast<IActor&>(*this));
-    }
-
-    ShotVM* ShotActor::getBindedView() const
-    {
-        return &m_view->setTime(this->getDrawTimeSec())
-            .setPos(m_body->getPos());
     }
 }

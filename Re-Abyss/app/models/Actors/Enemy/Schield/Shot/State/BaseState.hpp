@@ -1,19 +1,17 @@
 #pragma once
-#include <abyss/controllers/Actors/Enemy/Schield/Shot/ShotActor.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
 
 namespace abyss::Schield::Shot
 {
 
-    class BaseState : public IOldState<ShotActor>
+    class BaseState : public IState
     {
     protected:
         BodyModel* m_body;
     public:
         void setup()override;
 
-        void update(double dt) override;
-
-        void lastUpdate() override;
-        void draw() const override;
+        void start() override;
     };
 }
