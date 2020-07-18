@@ -1,7 +1,5 @@
 #include "SwimState.hpp"
-
-#include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include "PursuitState.hpp"
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Ikalien
@@ -10,17 +8,14 @@ namespace abyss::Ikalien
     {
         m_body->setVelocity(m_rotate->getDir() * Param::Swim::Speed);
         m_body->setAccel(-m_rotate->getDir() * Param::Swim::Decel);
+
+        m_draw->request(DrawModel::Kind::Swim);
     }
     void SwimState::update(double dt)
     {
         if (m_body->getVelocity().length() <= 30) {
-            this->changeState(State::Pursuit);
+            this->changeState<PursuitState>();
         }
         m_body->update(dt);
     }
-    void SwimState::draw() const
-    {
-        m_pActor->getBindedView()->drawSwim();
-    }
-
 }

@@ -1,6 +1,6 @@
 #include "PursuitState.hpp"
+#include "SwimState.hpp"
 
-#include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
@@ -12,6 +12,8 @@ namespace abyss::Ikalien
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, 2.0);
         m_body->noneResistanced();
+
+        m_draw->request(DrawModel::Kind::Pursuit);
     }
     void PursuitState::update(double dt)
     {
@@ -31,12 +33,7 @@ namespace abyss::Ikalien
         m_body->setVelocity(m_rotate->getDir() * Param::Pursuit::Speed);
         m_body->update(dt);
         if (m_timer.reachedZero()) {
-            this->changeState(State::Swim);
+            this->changeState<SwimState>();
         }
     }
-    void PursuitState::draw() const
-    {
-        m_pActor->getBindedView()->drawPursuit();
-    }
-
 }

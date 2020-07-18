@@ -1,5 +1,4 @@
 #include "RunState.hpp"
-#include <abyss/views/Actors/Enemy/RollingTako/RollingTakoVM.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 namespace abyss::RollingTako
 {

@@ -1,7 +1,6 @@
 #include "WalkState.hpp"
 #include "JumpState.hpp"
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-#include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
 namespace abyss::Slime

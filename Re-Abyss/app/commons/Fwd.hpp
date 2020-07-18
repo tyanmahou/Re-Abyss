@@ -125,15 +125,16 @@ namespace abyss
 	/// <summary>
 	/// Models / Components
 	/// </summary>
+	class ActorTimeModel;
 	class BodyModel;
+	class CustomColliderModel;
+	class DeadCheckerModel;
+	class RotateModel;
+	class HPModel;
 	class IColliderModel;
 	class IPhysicsModel;
-	class TerrainModel;
 	class MapColliderModel;
-	class CustomColliderModel;
-	class ActorTimeModel;
-	class HPModel;
-	class DeadCheckerModel;
+	class TerrainModel;
 
 	/// <summary>
 	/// Services
