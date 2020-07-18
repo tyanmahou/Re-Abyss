@@ -1,7 +1,6 @@
 #include "DrawModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 
 namespace abyss::Schield::Shot

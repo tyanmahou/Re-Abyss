@@ -36,21 +36,12 @@ namespace abyss
         virtual void update([[maybe_unused]] double dt) {}
         virtual void lastUpdate() {}
         virtual void end() {}
-
-        virtual void onReflesh() {}
-        virtual void onCollisionEnter(IActor*) {}
-        virtual void onCollisionStay(IActor*) {}
-        virtual void onCollisionExit(IActor*) {}
-
-        virtual void draw() const {}
     };
 
     class StateModel :
         public IComponent,
         public IUpdateModel,
-        public ILastUpdateModel,
-        public IDrawModel,
-        public ICollisionCallbackModel
+        public ILastUpdateModel
     {
     private:
         using State_t = std::shared_ptr<IState>;
@@ -94,38 +85,6 @@ namespace abyss
                 m_current->lastUpdate();
             }
         }
-        void onDraw()const override
-        {
-            if (m_current) {
-                m_current->draw();
-            }
-        }
-
-        void onReflesh() override
-        {
-            if (m_current) {
-                m_current->onReflesh();
-            }
-        }
-
-        void onCollisionEnter(IActor* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionEnter(col);
-            }
-        }
-        void onCollisionStay(IActor* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionStay(col);
-            }
-        }
-        void onCollisionExit(IActor* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionExit(col);
-            }
-        }
 
         void changeState(const std::shared_ptr<IState>& next)
         {
@@ -163,9 +122,7 @@ namespace abyss
     {
         using Base = MultiComponents<
             IUpdateModel,
-            ILastUpdateModel,
-            IDrawModel,
-            ICollisionCallbackModel
+            ILastUpdateModel
         >;
     };
 }

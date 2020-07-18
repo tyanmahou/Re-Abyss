@@ -11,6 +11,5 @@ namespace abyss::LaunShark::Shot
 
         void start() override;
         void update(double dt) override;
-        void draw() const override;
     };
 }

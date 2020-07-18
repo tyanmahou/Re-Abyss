@@ -1,9 +1,11 @@
 #include "DrawModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
+#include <abyss/models/Actors/Commons/RotateModel.hpp>
+#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/views/Actors/Enemy/LaunShark/Shot/ShotVM.hpp>
 
-namespace abyss::CaptainTako::Shot
+namespace abyss::LaunShark::Shot
 {
     DrawModel::DrawModel(IActor* pActor) :
         m_pActor(pActor),
@@ -13,13 +15,15 @@ namespace abyss::CaptainTako::Shot
     void DrawModel::setup()
     {
         m_body = m_pActor->find<BodyModel>();
+        m_rotate = m_pActor->find<RotateModel>();
+        m_hp = m_pActor->find<HPModel>();
     }
     ShotVM* DrawModel::getBindedView() const
     {
-        return &m_view
-            ->setTime(m_pActor->getDrawTimeSec())
+        return &m_view->setTime(m_pActor->getDrawTimeSec())
             .setPos(m_body->getPos())
-            .setForward(m_body->getForward());
+            .setRotate(m_rotate->getRotate())
+            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 
     void DrawModel::onDraw()const
@@ -29,8 +33,11 @@ namespace abyss::CaptainTako::Shot
             return;
         }
         switch (m_kind) {
-        case Kind::Base:
-            view->draw();
+        case Kind::Wait:
+            view->drawWait();
+        case Kind::Pursuit:
+        case Kind::Firinged:
+            view->drawFiringed();
             break;
         default:
             break;

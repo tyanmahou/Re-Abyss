@@ -1,4 +1,6 @@
 #include "PursuitState.hpp"
+#include "FiringedState.hpp"
+
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
@@ -13,6 +15,7 @@ namespace abyss::LaunShark::Shot
     void PursuitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
+        m_draw->request(DrawModel::Kind::Pursuit);
     }
     void PursuitState::update(double dt)
     {
@@ -26,15 +29,8 @@ namespace abyss::LaunShark::Shot
         }
         m_rotate->setRotate(rotate);
         m_body->setVelocity(m_rotate->getDir9() * ShotParam::Pursuit::Speed);
-        m_body->update(dt);
         if (m_timer.reachedZero()) {
-            this->changeState(State::Firinged);
+            this->changeState<FiringedState>();
         }
     }
-
-    void PursuitState::draw() const
-    {
-        m_pActor->getBindedView()->drawFiringed();
-    }
-
 }

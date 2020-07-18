@@ -2,12 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
-
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/RotateModel.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
-#include <abyss/models/Actors/base/OldStateModel.hpp>
-#include <abyss/views/Actors/Enemy/LaunShark/Shot/ShotVM.hpp>
+#include <abyss/types/Forward.hpp>
 
 namespace abyss::LaunShark::Shot
 {
@@ -16,18 +11,9 @@ namespace abyss::LaunShark::Shot
 		public Attacker,
 		public Receiver
 	{
-	public:
-		enum State
-		{
-			Wait,
-			Pursuit,
-			Firinged,
-		};
 	private:
 		Ref<BodyModel> m_body;
 		Ref<RotateModel> m_rotate;
-		Ref<HPModel> m_hp;
-		std::shared_ptr<ShotVM> m_view;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);
 		void start() override;
@@ -35,7 +21,5 @@ namespace abyss::LaunShark::Shot
 		s3d::Quad getColliderQuad() const;
 
 		bool accept(const ActVisitor& visitor) override;
-
-		ShotVM* getBindedView()const;
 	};
 }

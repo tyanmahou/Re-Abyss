@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
 namespace abyss::Schield::Shot

@@ -10,6 +10,5 @@ namespace abyss::LaunShark::Shot
         WaitState();
         void start() override;
         void update(double dt) override;
-        void draw() const override;
     };
 }

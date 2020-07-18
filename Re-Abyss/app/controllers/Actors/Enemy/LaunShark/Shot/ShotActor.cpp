@@ -1,11 +1,14 @@
+#include "ShotActor.hpp"
+
 #include <abyss/models/Actors/Enemy/LaunShark/Shot/State/WaitState.hpp>
-#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/PursuitState.hpp>
-#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/FiringedState.hpp>
+#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
+
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 
@@ -15,8 +18,7 @@
 
 namespace abyss::LaunShark::Shot
 {
-    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward):
-        m_view(std::make_shared<ShotVM>())
+    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
         // 回転
         {
@@ -37,19 +39,13 @@ namespace abyss::LaunShark::Shot
                 ->setPos(pos)
                 .noneResistanced()
                 .setSize(ShotParam::Base::Size);
+
+            this->attach<BodyUpdaterModel>(this);
         }
         // HP
         {
-            (m_hp = this->attach<HPModel>(this))
+            this->attach<HPModel>(this)
                 ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
-        }
-        // 状態管理
-        {
-            this->attach<OldStateModel<ShotActor>>(this)
-                ->add<WaitState>(State::Wait)
-                .add<PursuitState>(State::Pursuit)
-                .add<FiringedState>(State::Firinged)
-                ;
         }
         // 音源
         {
@@ -65,6 +61,16 @@ namespace abyss::LaunShark::Shot
             this->attach<DeadOnHItReceiverModel>(this);
             this->attach<Enemy::DamageCallbackModel>(this);
             this->attach<DeadCheckerModel>(this);
+        }
+        // 状態管理
+        {
+            this->attach<StateModel>(this)
+                ->changeState<WaitState>()
+                ;
+        }
+        // 描画
+        {
+            this->attach<DrawModel>(this);
         }
     }
     void ShotActor::start()
@@ -83,13 +89,5 @@ namespace abyss::LaunShark::Shot
         bool success = visitor.visit(static_cast<Attacker&>(*this));
         success |= visitor.visit(static_cast<Receiver&>(*this));
         return success || visitor.visit(static_cast<IActor&>(*this));
-    }
-
-    ShotVM* ShotActor::getBindedView() const
-    {
-        return &m_view->setTime(this->getDrawTimeSec())
-            .setPos(m_body->getPos())
-            .setRotate(m_rotate->getRotate())
-            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }

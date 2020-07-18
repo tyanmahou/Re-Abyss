@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Enemy/Ikalien/DrawModel.hpp>

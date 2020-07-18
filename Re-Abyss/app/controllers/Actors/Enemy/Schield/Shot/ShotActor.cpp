@@ -2,7 +2,7 @@
 
 #include <abyss/models/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>

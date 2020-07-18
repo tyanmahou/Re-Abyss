@@ -4,7 +4,7 @@
 
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/DrawModel.hpp>

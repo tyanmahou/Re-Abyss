@@ -947,9 +947,6 @@
     <ClCompile Include="app\models\Actors\Enemy\Slime\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\base\StateModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -975,6 +972,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\StateModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1454,7 +1457,6 @@
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
     <ClInclude Include="app\models\Actors\base\OldStateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\DrawModel.hpp" />
@@ -1466,5 +1468,7 @@
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.hpp" />
   </ItemGroup>
 </Project>
