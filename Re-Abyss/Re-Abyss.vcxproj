@@ -214,6 +214,7 @@
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp" />
+    <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Slime\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
@@ -551,6 +552,7 @@
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />

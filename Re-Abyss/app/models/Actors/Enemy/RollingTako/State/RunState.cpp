@@ -6,7 +6,7 @@ namespace abyss::RollingTako
     {
         m_draw->request(DrawModel::Kind::Run);
     }
-    void RunState::update(double dt)
+    void RunState::update([[maybe_unused]] double dt)
     {
         if (m_body->isForward(Forward::Left)) {
             m_body->setAccelX(-Param::Run::AccelX);

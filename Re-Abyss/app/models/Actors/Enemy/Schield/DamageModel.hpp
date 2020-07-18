@@ -1,12 +1,13 @@
 #pragma once
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/controllers/Actors/Enemy/Schield/SchieldActor.hpp>
 namespace abyss::Schield
 {
+    class FaceCtrlModel;
+
     class DamageModel :
         public abyss::DamageModel
     {
-        Ref<OldStateModel<SchieldActor>> m_state;
+        Ref<FaceCtrlModel> m_face;
     public:
         DamageModel(IActor* pActor);
 

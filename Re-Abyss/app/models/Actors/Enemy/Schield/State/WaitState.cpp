@@ -1,5 +1,6 @@
 #include "WaitState.hpp"
-#include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
+#include "AttackPlusState.hpp"
+
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/controllers/System/System.hpp>
@@ -13,18 +14,20 @@ namespace abyss::Schield
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
         m_pActor->find<ActorTimeModel>()->resetDrawTime();
-    }
-    void WaitState::update(double dt)
-    {
-        BaseState::update(dt);
 
+        m_face->on();
+        m_draw->request(DrawModel::Kind::Wait);
+    }
+    void WaitState::update([[maybe_unused]]double dt)
+    {
         if (m_timer.reachedZero() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
-            this->changeState(State::AttackPlus);
+            this->changeState<AttackPlusState>();
         }
     }
 
-    void WaitState::draw() const
+    void WaitState::end()
     {
-        m_pActor->getBindedView()->drawWait();
+        m_face->off();
     }
+
 }

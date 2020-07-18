@@ -11,7 +11,7 @@ namespace abyss::RollingTako
         m_draw->request(DrawModel::Kind::Wait);
     }
 
-    void WaitState::update(double dt)
+    void WaitState::update([[maybe_unused]] double dt)
     {
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;

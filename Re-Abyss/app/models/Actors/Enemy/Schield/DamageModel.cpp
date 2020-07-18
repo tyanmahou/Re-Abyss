@@ -1,6 +1,7 @@
 #include "DamageModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
 namespace abyss::Schield
@@ -13,16 +14,16 @@ namespace abyss::Schield
     {
         abyss::DamageModel::setup();
 
-        m_state = m_pActor->find<OldStateModel<SchieldActor>>();
+        m_face = m_pActor->find<FaceCtrlModel>();
     }
     void DamageModel::onCollisionStay(IActor* col)
     {
-        if (m_state->getState() != SchieldActor::State::Wait) {
+        if (!m_face->isOnFace()) {
             // 待機中以外はダメージを受けない
             return;
         }
         auto fromCol = col->find<IColliderModel>()->getCollider();
-        auto faceCol = m_state->getActor()->getFaceCollider();
+        auto faceCol = m_face->getCollider();
         if (!ColisionUtil::Intersects(fromCol, faceCol)) {
             return;
         }

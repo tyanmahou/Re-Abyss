@@ -1,5 +1,6 @@
 #include "AttackCrossState.hpp"
-#include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
+#include "WaitState.hpp"
+
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/controllers/System/System.hpp>
@@ -16,15 +17,13 @@ namespace abyss::Schield
         m_transitionToWait = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
 
     }
-    void AttackCrossState::update(double dt)
+    void AttackCrossState::update([[maybe_unused]] double dt)
     {
-        BaseState::update(dt);
-
         if (m_timer.reachedZero() && !m_transitionToWait.isRunning()) {
             m_transitionToWait.start();
         }
         if (m_transitionToWait.reachedZero()) {
-            this->changeState(State::Wait);
+            this->changeState<WaitState>();
         }
         if (!m_isAttack && m_timer.progress0_1() >= 0.5) {
             m_isAttack = true;
@@ -33,14 +32,12 @@ namespace abyss::Schield
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos + s3d::Vec2{ 34, -25 }, s3d::Vec2{ 1, -1 });
         }
 
-    }
-
-    void AttackCrossState::draw() const
-    {
+        // view
         if (m_transitionToWait.isStarted()) {
-            m_pActor->getBindedView()->drawToWait(m_transitionToWait.progress0_1());
+            m_draw->setTransitionTime(m_transitionToWait.progress0_1())
+                .request(DrawModel::Kind::ToWait);
         } else {
-            m_pActor->getBindedView()->drawAttackCross();
+            m_draw->request(DrawModel::Kind::AttackCross);
         }
     }
 }

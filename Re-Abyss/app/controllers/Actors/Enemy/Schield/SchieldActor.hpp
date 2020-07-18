@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss
 {
@@ -9,28 +8,17 @@ namespace abyss
 }
 namespace abyss::Schield
 {
-	class SchieldVM;
+	class FaceCtrlModel;
 
 	class SchieldActor :
 		public EnemyActor
 	{
-	public:
-		enum State
-		{
-			Wait,
-			AttackPlus,
-			AttackCross,
-		};
-	private:
-		Ref<OldStateModel<SchieldActor>> m_state;
-		std::shared_ptr<SchieldVM> m_view;
+		Ref<FaceCtrlModel> m_face;
 	public:
 		SchieldActor(const SchieldEntity& entity);
 
-		s3d::Circle getFaceCollider() const;
-		CShape getCollider()const;
 		bool accept(const ActVisitor& visitor) override;
 
-		SchieldVM* getBindedView()const;
+		CShape getCollider() const;
 	};
 }
