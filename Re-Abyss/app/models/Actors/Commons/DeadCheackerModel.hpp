@@ -33,7 +33,7 @@ namespace abyss
         void requestDead();
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onLastUpdate() override;
     };
 }
 

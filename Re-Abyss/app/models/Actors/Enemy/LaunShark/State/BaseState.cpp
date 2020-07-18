@@ -22,7 +22,7 @@ namespace abyss::LaunShark
         }
         m_body->update(dt);
     }
-    void BaseState::lastUpdate([[maybe_unused]]double dt)
+    void BaseState::lastUpdate()
     {
         if (m_mapCol->isHitForwardWall()) {
             m_body->setVelocityX(0);

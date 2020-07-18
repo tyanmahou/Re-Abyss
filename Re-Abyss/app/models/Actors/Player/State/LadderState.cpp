@@ -54,9 +54,9 @@ namespace abyss::Player
             m_ladderTopTimer += 60 * dt;
         }
     }
-    void LadderState::lastUpdate([[maybe_unused]]double dt)
+    void LadderState::lastUpdate()
     {
-        BaseState::lastUpdate(dt);
+        BaseState::lastUpdate();
         if (!m_foot->isLadder()) {
             this->changeState(PlayerActor::State::Swim);
         }

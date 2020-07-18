@@ -43,9 +43,8 @@ namespace abyss
 	}
 	void IActor::lastUpdate()
 	{
-		double dt = m_time->getDeltaTime();
 		for (auto&& com : this->finds<ILastUpdateModel>()) {
-			com->onLastUpdate(dt);
+			com->onLastUpdate();
 		}
 	}
 	void IActor::draw() const

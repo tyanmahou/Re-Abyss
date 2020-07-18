@@ -63,9 +63,9 @@ namespace abyss::Player
             m_motion = Motion::Dive;
         }
     }
-    void SwimState::lastUpdate([[maybe_unused]]double dt)
+    void SwimState::lastUpdate()
     {
-        BaseState::lastUpdate(dt);
+        BaseState::lastUpdate();
 
         if (m_foot->isLadder()) {
             bool canUp = !m_foot->isLadderTop() && InputManager::Up.down();

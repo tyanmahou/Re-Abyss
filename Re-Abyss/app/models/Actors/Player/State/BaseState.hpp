@@ -38,7 +38,7 @@ namespace abyss::Player
 
         void onCollisionStay(IActor* col) override;
 
-        void lastUpdate(double dt) override;
+        void lastUpdate() override;
         void draw() const override;
     };
 }

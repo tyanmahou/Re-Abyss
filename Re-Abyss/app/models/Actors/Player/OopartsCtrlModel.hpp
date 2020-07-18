@@ -24,7 +24,7 @@ namespace abyss::Player
 
         OopartsCtrlModel& setMain(const Ref<Ooparts::OopartsActor>& main);
 
-        void onLastUpdate(double dt) override;
+        void onLastUpdate() override;
     };
 }
 

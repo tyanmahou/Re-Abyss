@@ -24,7 +24,7 @@ namespace abyss
         OutRoomCheckerModel(IActor* pActor);
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onLastUpdate() override;
 
         /// <summary>
         /// コライダー関数を登録

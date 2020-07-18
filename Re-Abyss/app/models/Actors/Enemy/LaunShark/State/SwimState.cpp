@@ -36,9 +36,9 @@ namespace abyss::LaunShark
             }
         }
     }
-    void SwimState::lastUpdate(double dt)
+    void SwimState::lastUpdate()
     {
-        BaseState::lastUpdate(dt);
+        BaseState::lastUpdate();
         double time = Param::Swim::OnCollisionWaitTimeSec;
         if (m_mapCol->isHitWall() && m_waitTimer.sF() <= time) {
             m_waitTimer.set(Duration(time));

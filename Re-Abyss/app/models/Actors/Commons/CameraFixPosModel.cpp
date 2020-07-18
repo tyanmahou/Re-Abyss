@@ -14,7 +14,7 @@ namespace abyss
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void CameraFixPosModel::onLastUpdate([[maybe_unused]]double dt)
+    void CameraFixPosModel::onLastUpdate()
     {
         auto camera = m_pActor->getModule<Camera>();
         auto prevPos = m_body->getPos();

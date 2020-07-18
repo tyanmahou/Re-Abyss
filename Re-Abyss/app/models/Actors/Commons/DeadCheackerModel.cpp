@@ -38,7 +38,7 @@ namespace abyss
         m_hp = m_pActor->find<HPModel>();
     }
 
-    void DeadCheckerModel::onLastUpdate([[maybe_unused]] double dt)
+    void DeadCheckerModel::onLastUpdate()
     {
         if (m_isDead) {
             return;

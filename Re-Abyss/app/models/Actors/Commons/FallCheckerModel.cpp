@@ -16,7 +16,7 @@ namespace abyss
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void FallCheckerModel::onLastUpdate([[maybe_unused]]double dt)
+    void FallCheckerModel::onLastUpdate()
     {
         if (m_isFall) {
             return;

@@ -19,7 +19,7 @@ namespace abyss
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void BreathingModel::onLastUpdate([[maybe_unused]]double dt)
+    void BreathingModel::onLastUpdate()
     {
         if (m_timer.update() && RandomBool(0.7)) {
             m_pActor->getModule<Effects>()->add<EffectGroup::Bubble, BreathEffect>(m_body->getPos() + m_offset);

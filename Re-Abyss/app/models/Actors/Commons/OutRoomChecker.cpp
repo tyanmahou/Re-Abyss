@@ -25,7 +25,7 @@ namespace abyss
         }
     }
 
-    void OutRoomCheckerModel::onLastUpdate([[maybe_unused]]double dt)
+    void OutRoomCheckerModel::onLastUpdate()
     {
         if (!m_colliderFunc) {
             m_isOutRoom = false;

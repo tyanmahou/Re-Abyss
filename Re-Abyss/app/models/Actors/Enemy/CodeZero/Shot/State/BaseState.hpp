@@ -12,7 +12,7 @@ namespace abyss::CodeZero::Shot
     public:
         void setup() override;
 
-        void lastUpdate(double dt) override;
+        void lastUpdate() override;
         void draw()const override;
     };
 }

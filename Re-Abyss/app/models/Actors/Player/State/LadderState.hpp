@@ -15,7 +15,7 @@ namespace abyss::Player
 
         void start()override;
         void update(double dt)override;
-        void lastUpdate(double dt)override;
+        void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;
 
         bool isLadderTop()const;

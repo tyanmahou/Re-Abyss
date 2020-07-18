@@ -13,7 +13,7 @@ namespace abyss::Schield::Shot
 
         void update(double dt) override;
 
-        void lastUpdate(double dt) override;
+        void lastUpdate() override;
         void draw() const override;
     };
 }

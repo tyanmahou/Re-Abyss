@@ -13,11 +13,11 @@ namespace abyss::Slime
         
         m_draw->request(DrawModel::Kind::Jump);
     }
-    void JumpState::lastUpdate([[maybe_unused]]double dt)
+    void JumpState::lastUpdate()
     {
         if (m_mapCol->isHitGround()) {
             this->changeState<WalkState>();
         }
-        BaseState::lastUpdate(dt);
+        BaseState::lastUpdate();
     }
 }

@@ -16,6 +16,6 @@ namespace abyss::Slime
         void setup()override;
 
         void update(double dt) override;
-        void lastUpdate(double dt);
+        void lastUpdate();
     };
 }

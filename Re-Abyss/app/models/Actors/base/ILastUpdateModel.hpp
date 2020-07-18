@@ -5,6 +5,6 @@ namespace abyss
     {
     public:
         virtual ~ILastUpdateModel() = default;
-        virtual void onLastUpdate(double dt) = 0;
+        virtual void onLastUpdate() = 0;
     };
 }

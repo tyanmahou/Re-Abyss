@@ -10,7 +10,7 @@ namespace abyss::CodeZero::Shot
         m_body = m_pActor->find<BodyModel>().get();
         m_scale = m_pActor->find<ScaleModel>().get();
     }
-    void BaseState::lastUpdate([[maybe_unused]]double dt)
+    void BaseState::lastUpdate()
     {
         if (m_parent->getHp()->isDead()) {
             m_pActor->destroy();

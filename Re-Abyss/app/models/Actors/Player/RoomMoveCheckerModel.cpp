@@ -14,7 +14,7 @@ namespace abyss::Player
     void RoomMoveCheckerModel::setup()
     {
     }
-    void RoomMoveCheckerModel::onLastUpdate([[maybe_unused]]double dt)
+    void RoomMoveCheckerModel::onLastUpdate()
     {
         if (m_pActor->isDestroyed()) {
             // 死んでたらやらない

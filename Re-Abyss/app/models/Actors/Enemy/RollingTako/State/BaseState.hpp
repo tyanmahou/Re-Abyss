@@ -16,6 +16,6 @@ namespace abyss::RollingTako
 
         void update(double dt) override;
 
-        void lastUpdate(double dt) override;
+        void lastUpdate() override;
     };
 }

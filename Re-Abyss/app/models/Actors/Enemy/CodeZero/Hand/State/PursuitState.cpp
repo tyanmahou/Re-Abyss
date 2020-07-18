@@ -35,7 +35,7 @@ namespace abyss::CodeZero::Hand
 
         m_hand->startForPursuit(*m_body);
     }
-    void PursuitState::lastUpdate([[maybe_unused]]double dt)
+    void PursuitState::lastUpdate()
     {
     }
 }

@@ -15,7 +15,7 @@ namespace abyss::Player
         RoomMoveCheckerModel(PlayerActor* pActor);
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onLastUpdate() override;
     };
 }
 

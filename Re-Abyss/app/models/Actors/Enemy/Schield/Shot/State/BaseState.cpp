@@ -16,7 +16,7 @@ namespace abyss::Schield::Shot
         m_body->update(dt);
     }
 
-    void BaseState::lastUpdate([[maybe_unused]]double dt)
+    void BaseState::lastUpdate()
     {
         // 画面外判定
         if (!m_pActor->getModule<Camera>()->inRoom(m_pActor->getColliderCircle())) {

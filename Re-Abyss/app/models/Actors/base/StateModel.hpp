@@ -34,7 +34,7 @@ namespace abyss
 
         virtual void start(){}
         virtual void update([[maybe_unused]] double dt) {}
-        virtual void lastUpdate([[maybe_unused]] double dt) {}
+        virtual void lastUpdate() {}
         virtual void end() {}
 
         virtual void onReflesh() {}
@@ -88,10 +88,10 @@ namespace abyss
                 m_current->update(dt);
             }
         }
-        void onLastUpdate(double dt) override
+        void onLastUpdate() override
         {
             if (m_current) {
-                m_current->lastUpdate(dt);
+                m_current->lastUpdate();
             }
         }
         void onDraw()const override

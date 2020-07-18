@@ -104,7 +104,7 @@ namespace abyss::Player
         });
     }
 
-    void BaseState::lastUpdate([[maybe_unused]]double dt)
+    void BaseState::lastUpdate()
     {
         if (m_mapCol->isHitGround()) {
             if (m_body->getVelocity().y > 0) {

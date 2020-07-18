@@ -22,7 +22,7 @@ namespace abyss::Player
         m_mainOoparts = main;
         return *this;
     }
-    void OopartsCtrlModel::onLastUpdate([[maybe_unused]]double dt)
+    void OopartsCtrlModel::onLastUpdate()
     {
         if (!m_attackCtrl || !m_mainOoparts) {
             return;

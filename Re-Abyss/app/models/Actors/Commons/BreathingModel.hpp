@@ -15,7 +15,7 @@ namespace abyss
         BreathingModel(IActor* pActor);
 
         void setup() override;
-        void onLastUpdate(double dt) override;
+        void onLastUpdate() override;
 
         void setOffset(const Vec2& offset)
         {

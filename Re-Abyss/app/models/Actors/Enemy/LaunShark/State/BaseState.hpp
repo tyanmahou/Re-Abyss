@@ -14,6 +14,6 @@ namespace abyss::LaunShark
         void update(double dt) override;
         void setup()override;
 
-        void lastUpdate(double dt) override;
+        void lastUpdate() override;
     };
 }
