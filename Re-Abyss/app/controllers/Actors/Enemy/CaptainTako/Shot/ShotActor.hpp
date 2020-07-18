@@ -2,7 +2,6 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss::CaptainTako::Shot
 {
@@ -12,14 +11,8 @@ namespace abyss::CaptainTako::Shot
         public IActor,
         public Attacker
     {
-    public:
-        enum State
-        {
-            Base
-        };
     private:
         Ref<BodyModel> m_body;
-        std::shared_ptr<ShotVM> m_view;
     public:
         ShotActor(const s3d::Vec2& pos, Forward forward);
 
@@ -29,8 +22,5 @@ namespace abyss::CaptainTako::Shot
         s3d::Circle getColliderCircle() const;
 
         bool accept(const ActVisitor& visitor) override;
- 
-        ShotVM* getBindedView()const;
-
     };
 }

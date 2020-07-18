@@ -1,28 +1,23 @@
 #include <abyss/models/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
-#include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
+#include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/models/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/Shot/DrawModel.hpp>
 
 namespace abyss::CaptainTako::Shot
 {
-    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward):
-        m_view(std::make_shared<ShotVM>())
+    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
         {
             auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-        }
-
-        {
-            this->attach<OldStateModel<ShotActor>>(this)
-                ->add<BaseState>(State::Base)
-                ;
         }
         {
             (m_body = this->attach<BodyModel>(this))
@@ -36,11 +31,23 @@ namespace abyss::CaptainTako::Shot
             this->attach<DeadOnHItReceiverModel>(this);
         }
         {
+            this->attach<OutRoomCheckerModel>(this)
+                ->setColFunc([this] {return this->getCollider(); });
+        }
+        {
             this->attach<AudioSourceModel>(this)
                 ->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
         {
             this->attach<DeadCheckerModel>(this);
+        }
+        {
+            this->attach<DrawModel>(this);
+        }
+        {
+            this->attach<StateModel>(this)
+                ->changeState<BaseState>()
+                ;
         }
         m_power = 1;
     }
@@ -65,13 +72,4 @@ namespace abyss::CaptainTako::Shot
         return visitor.visit(static_cast<Attacker&>(*this)) ||
             visitor.visit(static_cast<IActor&>(*this));
     }
-
-    ShotVM* ShotActor::getBindedView() const
-    {
-        return &m_view
-            ->setTime(this->getDrawTimeSec())
-            .setPos(m_body->getPos())
-            .setForward(m_body->getForward());
-    }
-
 }

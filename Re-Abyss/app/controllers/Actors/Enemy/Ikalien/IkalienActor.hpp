@@ -8,8 +8,6 @@ namespace abyss
 }
 namespace abyss::Ikalien
 {
-    class IkalienVM;
-
     class IkalienActor :
         public EnemyActor
     {

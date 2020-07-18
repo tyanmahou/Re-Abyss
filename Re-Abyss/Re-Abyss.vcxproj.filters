@@ -956,6 +956,21 @@
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\Shot\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\OutRoomChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1437,5 +1452,10 @@
     <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\Shot\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\OutRoomChecker.hpp" />
   </ItemGroup>
 </Project>

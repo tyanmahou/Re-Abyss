@@ -9,8 +9,6 @@ namespace abyss
 
 namespace abyss::RollingTako
 {
-    class RollingTakoVM;
-
     class RollingTakoActor :
         public EnemyActor
     {
