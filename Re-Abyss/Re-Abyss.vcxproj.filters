@@ -971,6 +971,9 @@
     <ClCompile Include="app\models\Actors\Commons\OutRoomChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1457,5 +1460,7 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\OutRoomChecker.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
   </ItemGroup>
 </Project>

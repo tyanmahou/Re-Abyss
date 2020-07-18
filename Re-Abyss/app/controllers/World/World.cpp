@@ -37,6 +37,7 @@ namespace abyss
     void World::update()
     {
         m_actorsHolder.update();
+        m_actorsHolder.move();
     }
 
     void World::collision()

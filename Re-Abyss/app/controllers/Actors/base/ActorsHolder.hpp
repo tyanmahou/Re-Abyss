@@ -22,6 +22,8 @@ namespace abyss
 		void updateDeltaTime(double dt);
 		void update();
 
+		void move() const;
+
 		void prePhysics() const;
 
 		void lastPhysics() const;
