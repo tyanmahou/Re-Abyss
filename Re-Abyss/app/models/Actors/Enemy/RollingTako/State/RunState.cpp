@@ -13,6 +13,5 @@ namespace abyss::RollingTako
         } else if (m_body->isForward(Forward::Right)) {
             m_body->setAccelX(Param::Run::AccelX);
         }
-        BaseState::update(dt);
     }
 }

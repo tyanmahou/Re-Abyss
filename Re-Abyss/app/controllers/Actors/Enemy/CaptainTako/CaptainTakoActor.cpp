@@ -1,15 +1,15 @@
+#include "CaptainTakoActor.hpp"
+
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/models/Actors/Enemy/CaptainTako/State/WaitState.hpp>
-#include <abyss/models/Actors/Enemy/CaptainTako/State/ChargeState.hpp>
-#include <abyss/models/Actors/Enemy/CaptainTako/State/AttackState.hpp>
+#include <abyss/models/Actors/Enemy/CaptainTako/DrawModel.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+
 namespace abyss::CaptainTako
 {
-    CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity):
-        m_view(std::make_unique<CaptainTakoVM>())
+    CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity)
     {
         Enemy::EnemyBuilder builder(this);
         builder
@@ -19,26 +19,15 @@ namespace abyss::CaptainTako
             .setBodyPivot(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
             .setAudioSettingGroupPath(U"Enemy/CaptainTako/captain_tako.aase")
+            .setInitState<WaitState>()
             .build();
 
         {
-            this->attach<OldStateModel<CaptainTakoActor>>(this)
-                ->add<WaitState>(State::Wait)
-                .add<ChargeState>(State::Charge)
-                .add<AttackState>(State::Attack)
-                ;
+            this->attach<DrawModel>(this);
         }
     }
     bool CaptainTakoActor::accept(const ActVisitor & visitor)
     {
         return visitor.visit(*this);
-    }
-    CaptainTakoVM* CaptainTakoActor::getBindedView() const
-    {
-        return &m_view
-            ->setTime(this->getDrawTimeSec())
-            .setPos(this->getPos())
-            .setForward(this->getForward())
-            .setIsDamaging(m_hp->isInInvincibleTime());
     }
 }

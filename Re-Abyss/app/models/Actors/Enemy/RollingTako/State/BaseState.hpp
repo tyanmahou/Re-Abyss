@@ -1,5 +1,6 @@
 #pragma once
-#include <abyss/controllers/Actors/Enemy/RollingTako/RollingTakoActor.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/base/StateModel.hpp>
 #include <abyss/models/Actors/Enemy/RollingTako/DrawModel.hpp>
 
@@ -13,8 +14,6 @@ namespace abyss::RollingTako
         DrawModel* m_draw;
     public:
         void setup()override;
-
-        void update(double dt) override;
 
         void lastUpdate() override;
     };

@@ -31,7 +31,6 @@ namespace abyss::Ikalien
         m_body->setPivot(nextPivot);
 
         m_body->setVelocity(m_rotate->getDir() * Param::Pursuit::Speed);
-        m_body->update(dt);
         if (m_timer.reachedZero()) {
             this->changeState<SwimState>();
         }

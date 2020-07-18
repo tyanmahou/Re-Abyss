@@ -1,6 +1,7 @@
 #include "AttackState.hpp"
+#include "WaitState.hpp"
+
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/controllers/Actors/Enemy/CaptainTako/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
@@ -15,8 +16,9 @@ namespace abyss::CaptainTako
     void AttackState::start()
     {
         m_intervalTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::IntervalTimeSec, false);
+        m_draw->request(DrawModel::Kind::Charge);
     }
-    void AttackState::update(double dt)
+    void AttackState::update([[maybe_unused]]double dt)
     {
         if (m_intervalTimer.reachedZero() || !m_intervalTimer.isRunning()) {
             constexpr s3d::Vec2 offset{ -9, 4 };
@@ -28,14 +30,10 @@ namespace abyss::CaptainTako
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos, m_body->getForward());
             m_intervalTimer.restart();
             if (++m_currentAttackCount >= m_attackCount) {
-                this->changeState(State::Wait);
+                this->changeState<WaitState>();
             }
         }
-        BaseState::update(dt);
-    }
 
-    void AttackState::draw() const
-    {
-        m_pActor->getBindedView()->drawCharge(static_cast<double>(m_currentAttackCount) / static_cast<double>(m_attackCount));
+        m_draw->setChargeTime(static_cast<double>(m_currentAttackCount) / static_cast<double>(m_attackCount));
     }
 }

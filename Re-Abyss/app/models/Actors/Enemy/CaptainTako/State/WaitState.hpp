@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseState.hpp"
+#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss::CaptainTako
 {
@@ -10,6 +11,5 @@ namespace abyss::CaptainTako
         WaitState();
         void start() override;
         void update(double dt) override;
-        void draw()const override;
     };
 }

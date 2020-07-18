@@ -1,3 +1,5 @@
+#include "RollingTakoActor.hpp"
+
 #include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 #include <abyss/models/Actors/Enemy/RollingTako/State/WaitState.hpp>

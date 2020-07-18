@@ -1,5 +1,6 @@
 #include "WaitState.hpp"
-#include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
+#include "ChargeState.hpp"
+
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
@@ -11,17 +12,12 @@ namespace abyss::CaptainTako
     void WaitState::start()
     {
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
+        m_draw->request(DrawModel::Kind::Wait);
     }
-    void WaitState::update(double dt)
+    void WaitState::update([[maybe_unused]]double dt)
     {
         if (m_waitTimer.reachedZero() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
-            this->changeState(CaptainTakoActor::State::Charge);
+            this->changeState<ChargeState>();
         }
-        BaseState::update(dt);
-    }
-
-    void WaitState::draw() const
-    {
-        m_pActor->getBindedView()->drawWait();
     }
 }

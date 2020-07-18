@@ -18,6 +18,5 @@ namespace abyss::RollingTako
         if (f * d.x > 0 && d.length() <= Param::Wait::SearchRange) {
             this->changeState<RunState>();
         }
-        BaseState::update(dt);
     }
 }

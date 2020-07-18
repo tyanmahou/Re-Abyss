@@ -1,9 +1,10 @@
 #include "ChargeState.hpp"
+#include "AttackState.hpp"
+
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-#include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/controllers/Sound/Sound.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+
 namespace abyss::CaptainTako
 {
     ChargeState::ChargeState()
@@ -12,17 +13,14 @@ namespace abyss::CaptainTako
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
         m_pActor->find<AudioSourceModel>()->play(U"Charge");
+        m_draw->request(DrawModel::Kind::Charge);
     }
-    void ChargeState::update(double dt)
+    void ChargeState::update([[maybe_unused]]double dt)
     {
         if (m_chargeTimer.reachedZero()) {
-            this->changeState(State::Attack);
+            this->changeState<AttackState>();
         }
-        BaseState::update(dt);
-    }
 
-    void ChargeState::draw() const
-    {
-        m_pActor->getBindedView()->drawCharge(m_chargeTimer.progress0_1());
+        m_draw->setChargeTime(m_chargeTimer.progress0_1());
     }
 }

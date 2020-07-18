@@ -23,11 +23,14 @@ namespace abyss::Slime::Sencer
 		if (!m_mapColl->isHitAny() && m_parentCtrl->isWalk()) {
 			m_parentCtrl->reversed();
 		}
+    }
+	void MainUpdateModel::onPrePhysics()
+	{
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
 		if (isLeft) {
 			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
 		} else {
 			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
 		}
-    }
+	}
 }

@@ -1,5 +1,7 @@
 #pragma once
-#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
+#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/DrawModel.hpp>
 

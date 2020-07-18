@@ -11,11 +11,10 @@ namespace abyss::Ikalien
 
         m_draw->request(DrawModel::Kind::Swim);
     }
-    void SwimState::update(double dt)
+    void SwimState::update([[maybe_unused]]double dt)
     {
         if (m_body->getVelocity().length() <= 30) {
             this->changeState<PursuitState>();
         }
-        m_body->update(dt);
     }
 }

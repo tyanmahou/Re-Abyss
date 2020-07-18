@@ -3,6 +3,8 @@
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 
+#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
@@ -38,6 +40,8 @@ namespace abyss::Enemy
 				.setSize(m_bodySize)
 				.setPivot(m_bodyPivot)
 			;
+
+			m_pActor->attach<BodyUpdaterModel>(m_pActor);
 		}
 		// HP
 		{

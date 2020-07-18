@@ -1,6 +1,8 @@
+#include "SlimeActor.hpp"
+#include "Senser/Senser.hpp"
+
 #include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
 
-#include "Senser/Senser.hpp"
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>

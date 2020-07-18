@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -10,7 +11,8 @@ namespace abyss::Slime::Sencer
 
     class MainUpdateModel : 
         public IComponent,
-        public IUpdateModel
+        public IUpdateModel,
+        public IPrePhysicsModel
     {
         IActor* m_pActor;
         Ref<ParentCtrlModel> m_parentCtrl;
@@ -20,6 +22,8 @@ namespace abyss::Slime::Sencer
         MainUpdateModel(IActor* pActor);
         void setup() override;
         void onUpdate(double dt) override;
+
+        void onPrePhysics() override;
     };
 }
 namespace abyss
@@ -27,6 +31,6 @@ namespace abyss
     template<>
     struct ComponentTree<Slime::Sencer::MainUpdateModel>
     {
-        using Base = IUpdateModel;
+        using Base = MultiComponents<IUpdateModel, IPrePhysicsModel>;
     };
 }
