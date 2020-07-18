@@ -3,7 +3,7 @@
 
 namespace abyss::Ikalien
 {
-    class BaseState : public IState<IkalienActor>
+    class BaseState : public IOldState<IkalienActor>
     {
     protected:
         BodyModel* m_body;

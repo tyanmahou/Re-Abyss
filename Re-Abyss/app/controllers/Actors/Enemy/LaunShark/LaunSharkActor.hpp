@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 #include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
 
 #include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>

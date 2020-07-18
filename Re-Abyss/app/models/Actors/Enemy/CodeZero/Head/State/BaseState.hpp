@@ -3,7 +3,7 @@
 
 namespace abyss::CodeZero::Head
 {
-    class BaseState : public IState<HeadActor>
+    class BaseState : public IOldState<HeadActor>
     {
     protected:
         HPModel* m_hp;

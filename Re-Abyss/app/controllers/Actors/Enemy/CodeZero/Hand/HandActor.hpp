@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
@@ -37,7 +37,7 @@ namespace abyss::CodeZero::Hand
         Ref<RotateModel> m_rotate;
         Ref<HandModel> m_hand;
         Kind m_kind;
-        Ref<StateModel<HandActor>> m_state;
+        Ref<OldStateModel<HandActor>> m_state;
         std::shared_ptr<HandVM> m_view;
     public:
         HandActor(CodeZeroActor* parent, Kind kind);

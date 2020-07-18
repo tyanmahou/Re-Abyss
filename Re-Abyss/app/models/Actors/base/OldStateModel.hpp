@@ -1,9 +1,7 @@
-#pragma once
+# pragma once
 # include <Siv3D/Optional.hpp>
 # include <Siv3D/Uncopyable.hpp>
 # include <Siv3D/HashTable.hpp>
-
-#include <abyss/controllers/Actors/base/IActor.hpp>
 # include <abyss/models/Actors/base/IComponent.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 # include <abyss/models/Actors/base/IUpdateModel.hpp>
@@ -12,48 +10,55 @@
 
 namespace abyss
 {
-    class StateModel;
 
-    class IState
+    template <class Actor, class StateKey> class OldStateModel;
+
+    template <class Actor, class StateKey = typename Actor::State>
+    class IOldState : s3d::Uncopyable
     {
-    private:
-        StateModel* m_manager;
-    protected:
-        IActor* m_pActor = nullptr;
-
-        template<class State, class... Args>
-        void changeState(Args&&... args)
-        {
-            m_manager->changeState<State>(std::forward<Args>(args)...);
-        }
     public:
-        IState()=default;
-        virtual ~IState() = default;
+        using State = StateKey;
+    private:
+        OldStateModel<Actor, StateKey>* m_manager;
+    protected:
+        Actor* m_pActor;
 
-        void init(StateModel* manager)
+
+        void changeState(const StateKey& next)
         {
-            m_manager = manager;
-            m_pActor = manager->getActor();
-            this->setup();
-            this->start();
+            m_manager->changeState(next);
         }
+
+    public:
+
+        IOldState() = default;
+
+        virtual ~IOldState() = default;
 
         virtual void setup() {}
 
-        virtual void start(){}
+        virtual void start() {}
+
         virtual void update([[maybe_unused]] double dt) {}
         virtual void lastUpdate([[maybe_unused]] double dt) {}
-        virtual void end() {}
 
+        virtual void end() {}
         virtual void onReflesh() {}
         virtual void onCollisionEnter(IActor*) {}
         virtual void onCollisionStay(IActor*) {}
         virtual void onCollisionExit(IActor*) {}
 
         virtual void draw() const {}
+
+        void init(OldStateModel<Actor, StateKey>* manager)
+        {
+            m_manager = manager;
+            m_pActor = manager->getActor();
+        }
     };
 
-    class StateModel :
+    template <class Actor, class StateKey = typename Actor::State>
+    class OldStateModel : 
         public IComponent,
         public IUpdateModel,
         public ILastUpdateModel,
@@ -61,32 +66,67 @@ namespace abyss
         public ICollisionCallbackModel
     {
     private:
-        using State_t = std::shared_ptr<IState>;
 
-        State_t m_current;
-        State_t m_next;
+        using State = std::shared_ptr<IOldState<Actor, StateKey>>;
 
-        IActor* const  m_pActor;
+        using FactoryFunction_t = std::function<State()>;
+
+        s3d::HashTable<StateKey, FactoryFunction_t> m_factories;
+
+        State m_current;
+
+        StateKey m_currentState;
+
+        s3d::Optional<StateKey> m_nextState;
+
+        Actor* const  m_actor;
 
         void stateUpdate()
         {
-            if (m_next) {
+            m_nextState.then([=](const StateKey& key) {
                 if (m_current) {
                     m_current->end();
                 }
-                m_current = m_next;
-                m_current->init(this);
-                m_next = nullptr;
-            }
+                m_current = nullptr;
+                m_current = m_factories[key]();
+                m_currentState = key;
+                m_nextState = s3d::none;
+            });
         }
     public:
-        StateModel(IActor* pActor):
-            m_pActor(pActor)
+
+        OldStateModel(Actor* actor) :
+            m_actor(actor)
         {}
 
         void setup() override
         {
             this->stateUpdate();
+        }
+        template <class Type>
+        OldStateModel& add(const StateKey& state)
+        {
+            auto factory = [=]() {
+                State state = std::make_shared<Type>();
+                state->init(this);
+                state->setup();
+                state->start();
+                return state;
+            };
+
+            auto it = m_factories.find(state);
+
+            if (it != m_factories.end()) {
+                it.value() = factory;
+            } else {
+                m_factories.emplace(state, factory);
+
+                if (!m_nextState) {
+                    m_nextState = state;
+                }
+            }
+
+            return *this;
         }
 
         void onUpdate(double dt) override
@@ -134,32 +174,31 @@ namespace abyss
                 m_current->onCollisionExit(col);
             }
         }
-
-        void changeState(const std::shared_ptr<IState>& next)
+        void changeState(const StateKey& next)
         {
-            m_next = next;
-        }
-        template<class State, class... Args>
-        void changeState(Args&... args)
-        {
-            changeState(std::make_shared<State>(std::forward<Args>(args)...));
+            m_nextState = next;
         }
 
-        IActor* getActor()const
+        Actor* getActor()const
         {
-            return m_pActor;
+            return m_actor;
+        }
+
+        const StateKey& getState()const
+        {
+            return m_currentState;
         }
     };
 }
 
 namespace abyss
 {
-    template<>
-    struct ComponentTree<StateModel>
+    template<class T, class U>
+    struct ComponentTree<OldStateModel<T, U>>
     {
         using Base = MultiComponents<
-            IUpdateModel,
-            ILastUpdateModel,
+            IUpdateModel, 
+            ILastUpdateModel, 
             IDrawModel,
             ICollisionCallbackModel
         >;

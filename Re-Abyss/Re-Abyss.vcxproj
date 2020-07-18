@@ -522,6 +522,7 @@
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
@@ -691,7 +692,7 @@
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\OldStateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IComponent.hpp" />

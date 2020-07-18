@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss
 {
@@ -22,7 +22,7 @@ namespace abyss::Schield
 			AttackCross,
 		};
 	private:
-		Ref<StateModel<SchieldActor>> m_state;
+		Ref<OldStateModel<SchieldActor>> m_state;
 		std::shared_ptr<SchieldVM> m_view;
 	public:
 		SchieldActor(const SchieldEntity& entity);

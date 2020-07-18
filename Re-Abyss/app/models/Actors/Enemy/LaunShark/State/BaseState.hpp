@@ -3,7 +3,7 @@
 
 namespace abyss::LaunShark
 {
-    class BaseState : public IState<LaunSharkActor>
+    class BaseState : public IOldState<LaunSharkActor>
     {
     protected:
         BodyModel* m_body;

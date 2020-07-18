@@ -3,7 +3,7 @@
 
 namespace abyss::Schield
 {
-    class BaseState : public IState<SchieldActor>
+    class BaseState : public IOldState<SchieldActor>
     {
     protected:
         BodyModel* m_body;

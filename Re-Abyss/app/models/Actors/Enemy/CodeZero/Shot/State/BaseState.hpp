@@ -3,7 +3,7 @@
 
 namespace abyss::CodeZero::Shot
 {
-    class BaseState : public IState<ShotActor>
+    class BaseState : public IOldState<ShotActor>
     {
     protected:
         ParentCtrlModel* m_parent;

@@ -1183,7 +1183,6 @@
     <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
-    <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
@@ -1421,5 +1420,7 @@
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
+    <ClInclude Include="app\models\Actors\base\OldStateModel.hpp" />
+    <ClInclude Include="app\models\Actors\base\StateModel.hpp" />
   </ItemGroup>
 </Project>

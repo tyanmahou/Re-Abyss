@@ -34,7 +34,7 @@ namespace abyss::CodeZero
             m_body->noneResistanced();
         }
         {
-            (m_state = this->attach<StateModel<CodeZeroActor>>(this))
+            (m_state = this->attach<OldStateModel<CodeZeroActor>>(this))
                 ->add<Phase1State>(State::Phase1)
                 .add<Phase2State>(State::Phase2)
                 .add<Phase3State>(State::Phase3)

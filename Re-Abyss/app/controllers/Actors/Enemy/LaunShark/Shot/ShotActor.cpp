@@ -45,7 +45,7 @@ namespace abyss::LaunShark::Shot
         }
         // 状態管理
         {
-            this->attach<StateModel<ShotActor>>(this)
+            this->attach<OldStateModel<ShotActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<PursuitState>(State::Pursuit)
                 .add<FiringedState>(State::Firinged)

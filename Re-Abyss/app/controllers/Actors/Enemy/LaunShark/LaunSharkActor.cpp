@@ -26,7 +26,7 @@ namespace abyss::LaunShark
                 ->noneResistanced();
         }
         {
-            this->attach<StateModel<LaunSharkActor>>(this)
+            this->attach<OldStateModel<LaunSharkActor>>(this)
                 ->add<SwimState>(State::Swim)
                 .add<LauncherState>(State::Launcher)
                 .add<AttackState>(State::Attack)

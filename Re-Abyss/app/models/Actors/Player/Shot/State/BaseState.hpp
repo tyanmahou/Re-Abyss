@@ -4,7 +4,7 @@
 namespace abyss::Player::Shot
 {
 
-    class BaseState : public IState<ShotActor>
+    class BaseState : public IOldState<ShotActor>
     {
     protected:
         BodyModel* m_body;

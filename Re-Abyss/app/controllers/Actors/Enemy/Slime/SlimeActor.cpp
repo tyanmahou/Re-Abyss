@@ -32,7 +32,7 @@ namespace abyss::Slime
 				->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		}
 		{
-			(m_state = this->attach<StateModel<SlimeActor>>(this))
+			(m_state = this->attach<OldStateModel<SlimeActor>>(this))
 				->add<WalkState>(State::Walk)
 				.add<JumpState>(State::Jump)
 				;

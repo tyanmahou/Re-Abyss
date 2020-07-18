@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss
 {
@@ -35,7 +35,7 @@ namespace abyss::CodeZero
             Phase3,
         };
     private:
-        Ref<StateModel<CodeZeroActor>> m_state;
+        Ref<OldStateModel<CodeZeroActor>> m_state;
         std::shared_ptr<Body::BodyVM> m_view;
 
         Ref<Head::HeadActor> m_head;

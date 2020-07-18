@@ -22,7 +22,7 @@ namespace abyss::CaptainTako
             .build();
 
         {
-            this->attach<StateModel<CaptainTakoActor>>(this)
+            this->attach<OldStateModel<CaptainTakoActor>>(this)
                 ->add<WaitState>(State::Wait)
                 .add<ChargeState>(State::Charge)
                 .add<AttackState>(State::Attack)

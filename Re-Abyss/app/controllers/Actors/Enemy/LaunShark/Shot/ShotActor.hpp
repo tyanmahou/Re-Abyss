@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 #include <abyss/views/Actors/Enemy/LaunShark/Shot/ShotVM.hpp>
 
 namespace abyss::LaunShark::Shot

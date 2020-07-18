@@ -3,7 +3,7 @@
 
 namespace abyss::CaptainTako
 {
-    class BaseState : public IState<CaptainTakoActor>
+    class BaseState : public IOldState<CaptainTakoActor>
     {
     protected:
         BodyModel* m_body;

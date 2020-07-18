@@ -10,7 +10,7 @@ namespace abyss::Player
     using Ladder::LadderActor;
     using Door::DoorActor;
 
-    class BaseState : public IState<PlayerActor>
+    class BaseState : public IOldState<PlayerActor>
     {
     protected:
         BodyModel* m_body;

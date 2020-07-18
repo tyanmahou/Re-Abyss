@@ -27,7 +27,7 @@ namespace abyss::RollingTako
             m_body->setMaxSpeedX(Param::Run::MaxSpeedX);
         }
         {
-            (m_state = this->attach<StateModel<RollingTakoActor>>(this))
+            (m_state = this->attach<OldStateModel<RollingTakoActor>>(this))
                 ->add<WaitState>(State::Wait)
                 .add<RunState>(State::Run)
             ;

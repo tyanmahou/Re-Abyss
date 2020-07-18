@@ -15,7 +15,7 @@ namespace abyss::Player::Shot
 			m_shot = this->attach<PlayerShotModel>(charge);
 		}
 		{
-			(m_state = this->attach<StateModel<ShotActor>>(this))
+			(m_state = this->attach<OldStateModel<ShotActor>>(this))
 				->add<BaseState>(State::Base);
 		}
 

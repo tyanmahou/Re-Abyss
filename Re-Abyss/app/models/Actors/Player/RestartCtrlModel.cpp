@@ -1,4 +1,4 @@
-﻿#include "RestartCtrlModel.hpp"
+#include "RestartCtrlModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Event/Events.hpp>
@@ -17,7 +17,7 @@ namespace abyss::Player
 
     void RestartCtrlModel::onDead()
     {
-        if (auto state = m_pActor->find<StateModel<PlayerActor>>()) {
+        if (auto state = m_pActor->find<OldStateModel<PlayerActor>>()) {
             state->changeState(PlayerActor::State::Dead);
         }
         // ゲームリスタートイベントを開始

@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 

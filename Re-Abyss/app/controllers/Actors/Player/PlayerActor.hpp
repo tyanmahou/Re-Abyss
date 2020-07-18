@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <Siv3D.hpp>
 
@@ -9,7 +9,7 @@
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Player/ChargeModel.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss::Player
 {
@@ -34,7 +34,7 @@ namespace abyss::Player
         Ref<HPModel> m_hp;
 
 
-        Ref<StateModel<PlayerActor>> m_state;
+        Ref<OldStateModel<PlayerActor>> m_state;
         std::shared_ptr<PlayerVM> m_view;
 
     public:

@@ -20,7 +20,7 @@ namespace abyss::CaptainTako::Shot
         }
 
         {
-            this->attach<StateModel<ShotActor>>(this)
+            this->attach<OldStateModel<ShotActor>>(this)
                 ->add<BaseState>(State::Base)
                 ;
         }

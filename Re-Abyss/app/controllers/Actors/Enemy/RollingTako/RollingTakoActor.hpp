@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss
 {
@@ -24,7 +24,7 @@ namespace abyss::RollingTako
     private:
         bool m_isWait;
 
-        Ref<StateModel<RollingTakoActor>> m_state;
+        Ref<OldStateModel<RollingTakoActor>> m_state;
         std::shared_ptr<RollingTakoVM> m_view;
     public:
         RollingTakoActor(const RollingTakoEntity& entity);

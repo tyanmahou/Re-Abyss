@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
-#include <abyss/models/Actors/base/StateModel.hpp>
+#include <abyss/models/Actors/base/OldStateModel.hpp>
 
 namespace abyss::Player::Shot
 {
@@ -21,7 +21,7 @@ namespace abyss::Player::Shot
 	private:
 		Ref<PlayerShotModel> m_shot;
 		Ref<BodyModel> m_body;
-		Ref<StateModel<ShotActor>> m_state;
+		Ref<OldStateModel<ShotActor>> m_state;
 		std::shared_ptr<ShotVM> m_view;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward, double charge);

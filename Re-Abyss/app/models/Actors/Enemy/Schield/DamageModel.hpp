@@ -6,7 +6,7 @@ namespace abyss::Schield
     class DamageModel :
         public abyss::DamageModel
     {
-        Ref<StateModel<SchieldActor>> m_state;
+        Ref<OldStateModel<SchieldActor>> m_state;
     public:
         DamageModel(IActor* pActor);
 

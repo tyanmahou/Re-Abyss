@@ -29,7 +29,7 @@ namespace abyss::Schield
             .build();
 
         {
-            (m_state = this->attach<StateModel<SchieldActor>>(this))
+            (m_state = this->attach<OldStateModel<SchieldActor>>(this))
                 ->add<WaitState>(State::Wait)
                 .add<AttackPlusState>(State::AttackPlus)
                 .add<AttackCrossState>(State::AttackCross)
