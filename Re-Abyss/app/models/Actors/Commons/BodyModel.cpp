@@ -5,11 +5,6 @@
 
 namespace abyss
 {
-    BodyModel::BodyModel()
-    {
-        m_maxVelocity.y = DefaultMaxVelocityY;
-    }
-
     BodyModel::BodyModel(IActor* pActor):
         m_pActor(pActor)
     {

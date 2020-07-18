@@ -9,7 +9,7 @@ namespace abyss::Slime
 {
 	Senser::Senser(SlimeActor* p)
 	{
-		m_body = this->attach<BodyModel>();
+		m_body = this->attach<BodyModel>(this);
 		this->attach<Sencer::MainUpdateModel>(this);
 		this->attach<Sencer::ParentCtrlModel>(p);
 

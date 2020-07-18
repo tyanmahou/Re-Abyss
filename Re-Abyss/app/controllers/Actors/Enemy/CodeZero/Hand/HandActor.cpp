@@ -35,7 +35,7 @@ namespace abyss::CodeZero::Hand
             col->setColFunc([this] {return this->getCollider(); });
         }
         {
-            (m_body = this->attach<BodyModel>())
+            (m_body = this->attach<BodyModel>(this))
                 ->initPos(parent->getPos() + s3d::Vec2{ forward * -110, 90 })
                 .noneResistanced();
         }

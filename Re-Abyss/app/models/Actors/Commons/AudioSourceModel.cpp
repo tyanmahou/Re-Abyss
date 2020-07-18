@@ -169,7 +169,7 @@ namespace abyss
             TemporaryActor(const s3d::Audio& audio, const s3d::Vec2& pos)
             {
                 this->m_isDontDestoryOnLoad = true;
-                this->attach<BodyModel>()->initPos(pos);
+                this->attach<BodyModel>(this)->initPos(pos);
                 this->attach<TemporarySoundEffect>(this, audio);
             }
         };

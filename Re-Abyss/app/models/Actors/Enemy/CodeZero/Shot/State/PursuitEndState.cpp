@@ -16,6 +16,5 @@ namespace abyss::CodeZero::Shot
         if (m_timer.reachedZero()) {
             m_pActor->destroy();
         }
-        m_body->update(dt);
     }
 }

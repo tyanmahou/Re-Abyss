@@ -134,6 +134,7 @@ namespace abyss
 	class IColliderModel;
 	class IPhysicsModel;
 	class MapColliderModel;
+	class ScaleModel;
 	class StateModel;
 	class TerrainModel;
 

@@ -1,4 +1,6 @@
 #include "PursuitState.hpp"
+#include "PursuitEndState.hpp"
+
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
@@ -10,15 +12,13 @@ namespace abyss::CodeZero::Shot
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::TimeSec);
     }
-    void PursuitState::update(double dt)
+    void PursuitState::update([[maybe_unused]]double dt)
     {
         if (m_timer.reachedZero()) {
-            this->changeState(State::PursuitEnd);
+            this->changeState<PursuitEndState>();
             return;
         }
         auto diff = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         m_body->setVelocity(diff.normalized() * ShotParam::Pursuit::Speed);
-
-        m_body->update(dt);
     }
 }

@@ -30,7 +30,6 @@ namespace abyss
 
         IActor* m_pActor;
     public:
-        BodyModel();
         BodyModel(IActor* pActor);
 
         void update(double dt);

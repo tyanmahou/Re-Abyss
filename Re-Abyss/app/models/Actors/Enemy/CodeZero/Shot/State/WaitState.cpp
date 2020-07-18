@@ -1,13 +1,14 @@
 #include "WaitState.hpp"
+#include "PursuitState.hpp"
 #include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
-#include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 namespace abyss::CodeZero::Shot
 {
     void WaitState::start()
     {
+        m_draw->request(DrawModel::Motion::Charge);
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
@@ -19,14 +20,13 @@ namespace abyss::CodeZero::Shot
         m_scale->update(dt);
 
         if (m_scale->get() >= 1.0) {
-            this->changeState(State::Pursuit);
+            this->changeState<PursuitState>();
         }
     }
-    void WaitState::draw() const
+
+    void WaitState::end()
     {
-        auto view = m_pActor->getBindedView();
-        view->drawCharge();
-        view->draw();
+        m_draw->request(DrawModel::Motion::Base);
     }
 }
 
