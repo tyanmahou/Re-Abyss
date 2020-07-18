@@ -214,6 +214,7 @@
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.cpp" />
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
@@ -554,6 +555,7 @@
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />

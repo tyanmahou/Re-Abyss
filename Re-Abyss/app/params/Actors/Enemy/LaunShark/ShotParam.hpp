@@ -13,8 +13,16 @@ namespace abyss::LaunShark
             inline static s3d::Vec2 Size{ 30, 10 };
         };
 
-        [[TOML_BIND_PARAM(Wait::Time, "Pursuit.time")]]
-        [[TOML_BIND_PARAM(Wait::Speed, "Pursuit.speed")]]
+        [[TOML_BIND_PARAM(Start::Speed, "Start.speed")]]
+        [[TOML_BIND_PARAM(Start::Decel, "Start.decel")]]
+        struct Start
+        {
+            inline static double Speed{ 180.0 };
+            inline static double Decel{ 360.0 };
+        };
+
+        [[TOML_BIND_PARAM(Wait::Time, "Wait.time")]]
+        [[TOML_BIND_PARAM(Wait::Speed, "Wait.speed")]]
         struct Wait
         {
             inline static double Time{ 2.0 };

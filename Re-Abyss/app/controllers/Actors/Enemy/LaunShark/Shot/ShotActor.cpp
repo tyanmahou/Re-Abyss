@@ -1,6 +1,6 @@
 #include "ShotActor.hpp"
 
-#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/WaitState.hpp>
+#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
@@ -65,7 +65,7 @@ namespace abyss::LaunShark::Shot
         // 状態管理
         {
             this->attach<StateModel>(this)
-                ->changeState<WaitState>()
+                ->changeState<StartState>()
                 ;
         }
         // 描画

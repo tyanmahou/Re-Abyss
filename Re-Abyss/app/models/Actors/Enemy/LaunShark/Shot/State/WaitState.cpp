@@ -10,6 +10,7 @@ namespace abyss::LaunShark::Shot
     {}
     void WaitState::start()
     {
+        m_body->noneResistanced();
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Wait::Time);
         m_draw->request(DrawModel::Kind::Wait);
     }
