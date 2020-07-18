@@ -980,6 +980,9 @@
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\DrawModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1470,5 +1473,6 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\DrawModel.hpp" />
   </ItemGroup>
 </Project>

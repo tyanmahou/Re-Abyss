@@ -1,4 +1,6 @@
 #include "SwimState.hpp"
+#include "AttackState.hpp"
+#include "LauncherState.hpp"
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
@@ -14,6 +16,7 @@ namespace abyss::LaunShark
         m_body
             ->setMaxSpeedX(Param::Swim::MaxSpeedX)
             .setSize(Param::Base::Size);
+        m_draw->request(DrawModel::Kind::Swim);
     }
     void SwimState::update(double dt)
     {
@@ -29,9 +32,9 @@ namespace abyss::LaunShark
             if (f * d.x > 0) {
                 auto distance = d.length();
                 if (distance <= Param::Swim::AttackRange) {
-                    this->changeState(LaunSharkActor::State::Attack);
+                    this->changeState<AttackState>();
                 }else if (distance <= Param::Swim::LauncherRange) {
-                    this->changeState(LaunSharkActor::State::Launcher);
+                    this->changeState<LauncherState>();
                 } 
             }
         }
@@ -43,9 +46,5 @@ namespace abyss::LaunShark
         if (m_mapCol->isHitWall() && m_waitTimer.sF() <= time) {
             m_waitTimer.set(Duration(time));
         }
-    }
-    void SwimState::draw() const
-    {
-        m_pActor->getBindedView()->drawSwim();
     }
 }

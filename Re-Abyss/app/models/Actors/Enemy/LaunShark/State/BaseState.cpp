@@ -1,6 +1,5 @@
 #include "BaseState.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
 namespace abyss::LaunShark
@@ -10,6 +9,7 @@ namespace abyss::LaunShark
         m_body = m_pActor->find<BodyModel>().get();
         m_mapCol = m_pActor->find<MapColliderModel>().get();
         m_timeCounter = m_pActor->find<TimeCounterModel>().get();
+        m_draw = m_pActor->find<DrawModel>().get();
     }
     void BaseState::update(double dt)
     {
@@ -20,7 +20,6 @@ namespace abyss::LaunShark
         } else if (m_body->isForward(Forward::Right)) {
             m_body->setAccelX(accelX);
         }
-        m_body->update(dt);
     }
     void BaseState::lastUpdate()
     {

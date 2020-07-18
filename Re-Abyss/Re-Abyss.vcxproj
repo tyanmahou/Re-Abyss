@@ -212,6 +212,7 @@
     <ClCompile Include="app\models\Actors\Enemy\CaptainTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CaptainTako\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\DrawModel.cpp" />
+    <ClCompile Include="app\models\Actors\Enemy\LaunShark\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp" />
@@ -551,6 +552,7 @@
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\DrawModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\LaunShark\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />

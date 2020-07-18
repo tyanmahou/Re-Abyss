@@ -1,9 +1,9 @@
 #include "AttackState.hpp"
+#include "SwimState.hpp"
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-#include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 namespace abyss::LaunShark
 {
@@ -14,6 +14,8 @@ namespace abyss::LaunShark
     {
         m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::AttackTimeSec);
         m_body->setSize(Param::Attack::Size);
+
+        m_draw->request(DrawModel::Kind::Attack);
     }
 
     void AttackState::update(double dt)
@@ -24,13 +26,7 @@ namespace abyss::LaunShark
         this->BaseState::update(dt);
 
         if (m_attackTimer.reachedZero()) {
-            this->changeState(LaunSharkActor::State::Swim);
+            this->changeState<SwimState>();
         }
     }
-
-    void AttackState::draw() const
-    {
-        m_pActor->getBindedView()->drawAttack();
-    }
-
 }

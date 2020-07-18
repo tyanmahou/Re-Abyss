@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseState.hpp"
+#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss::LaunShark
 {
@@ -12,6 +13,6 @@ namespace abyss::LaunShark
         LauncherState();
         void start();
         void update(double dt) override;
-        void draw()const override;
+        void end();
     };
 }

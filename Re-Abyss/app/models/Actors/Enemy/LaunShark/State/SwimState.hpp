@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseState.hpp"
+#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss::LaunShark
 {
@@ -11,8 +12,6 @@ namespace abyss::LaunShark
         SwimState();
         void start();
         void update(double dt) override;
-        void lastUpdate(
-        ) override;
-        void draw()const override;
+        void lastUpdate() override;
     };
 }

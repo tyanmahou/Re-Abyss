@@ -1,13 +1,13 @@
 #include "LauncherState.hpp"
+#include "SwimState.hpp"
 
 #include <Siv3D.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-#include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
+#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 
 #include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
-
 namespace abyss::LaunShark
 {
     LauncherState::LauncherState()
@@ -18,6 +18,10 @@ namespace abyss::LaunShark
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::WaitTimeSec, false);
         m_body->setAccelX(0);
         m_body->setVelocityY(0);
+
+        m_draw->request(DrawModel::Kind::LaunShark);
+
+        m_pActor->find<BodyUpdaterModel>()->setActive(false);
     }
     void LauncherState::update([[maybe_unused]]double dt)
     {
@@ -35,14 +39,17 @@ namespace abyss::LaunShark
                     m_out = true;
                 }
             } else {
-                this->changeState(LaunSharkActor::State::Swim);
+                this->changeState<SwimState>();
             }
         }
-    
+        // view
+        {
+            double t = m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1();
+            m_draw->setTransitionTime(t);
+        }
     }
-    void LauncherState::draw() const
+    void LauncherState::end()
     {
-        double t = m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1();
-        this->m_pActor->getBindedView()->drawLauncher(t);
+        m_pActor->find<BodyUpdaterModel>()->setActive(true);
     }
 }
