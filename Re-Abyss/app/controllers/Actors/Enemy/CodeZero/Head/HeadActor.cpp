@@ -10,45 +10,7 @@
 
 namespace
 {
-    using namespace abyss;
-    using namespace abyss::CodeZero;
-    using namespace abyss::CodeZero::Head;
-
-    class MotionImpl : public abyss::CustomDrawModel::IImpl
-    {
-        IActor* m_pActor = nullptr;
-        Ref<HeadModel> m_head;
-        Ref<HPModel> m_hp;
-        std::unique_ptr<HeadVM> m_view;
-    private:
-        HeadVM* getBindedView() const
-        {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
-                .setPos(m_head->getPos())
-                .setForward(m_head->getForward())
-                .setIsDamaging(m_hp->isInInvincibleTime());
-        }
-        void setup() override
-        {
-            m_head = m_pActor->find<HeadModel>();
-            m_hp = m_pActor->find<ParentCtrlModel>()->getHp();
-        }
-
-        void onDraw([[maybe_unused]]const s3d::String& motion) const override
-        {
-            auto view = this->getBindedView();
-            if (!view) {
-                return;
-            }
-            
-            view->draw();
-        }
-    public:
-        MotionImpl(IActor* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<HeadVM>())
-        {}
-    };
+    class MotionImpl;
 }
 namespace abyss::CodeZero::Head
 {
@@ -91,4 +53,47 @@ namespace abyss::CodeZero::Head
         return visitor.visit(static_cast<Receiver&>(*this))
             || visitor.visit(static_cast<IActor&>(*this));
     }
+}
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::CodeZero;
+    using namespace abyss::CodeZero::Head;
+
+    class MotionImpl : public abyss::CustomDrawModel::IImpl
+    {
+        IActor* m_pActor = nullptr;
+        Ref<HeadModel> m_head;
+        Ref<HPModel> m_hp;
+        std::unique_ptr<HeadVM> m_view;
+    private:
+        HeadVM* getBindedView() const
+        {
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_head->getPos())
+                .setForward(m_head->getForward())
+                .setIsDamaging(m_hp->isInInvincibleTime());
+        }
+        void setup() override
+        {
+            m_head = m_pActor->find<HeadModel>();
+            m_hp = m_pActor->find<ParentCtrlModel>()->getHp();
+        }
+
+        void onDraw([[maybe_unused]] const s3d::String& motion) const override
+        {
+            auto view = this->getBindedView();
+            if (!view) {
+                return;
+            }
+
+            view->draw();
+        }
+    public:
+        MotionImpl(IActor* pActor) :
+            m_pActor(pActor),
+            m_view(std::make_unique<HeadVM>())
+        {}
+    };
 }

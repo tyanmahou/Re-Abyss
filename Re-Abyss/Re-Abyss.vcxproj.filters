@@ -989,9 +989,6 @@
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\DrawModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\CustomDrawModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1488,6 +1485,5 @@
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DrawModel.hpp" />
   </ItemGroup>
 </Project>
