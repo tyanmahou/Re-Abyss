@@ -1,7 +1,13 @@
+#include "HeadActor.hpp"
+
 #include <abyss/models/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
 
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Head/DamageModel.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
@@ -16,23 +22,28 @@ namespace abyss::CodeZero::Head
 {
     HeadActor::HeadActor(CodeZeroActor* parent)
     {
+        // 親情報
         {
             m_parent = this->attach<ParentCtrlModel>(parent);
         }
+        // 頭制御
         {
             m_head = this->attach<HeadModel>(this);
         }
+        // 状態
         {
-            this->attach<OldStateModel<HeadActor>>(this)
-                ->add<BaseState>(State::Base)
+            this->attach<StateModel>(this)
+                ->changeState<BaseState>()
                 ;
         }
+        // 当たり判定
         {
             auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-        }
 
+            this->attach<DamageModel>(this);
+        }
         // 描画
         {
             this->attach<CustomDrawModel>()

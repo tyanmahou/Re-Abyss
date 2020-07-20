@@ -1,9 +1,11 @@
 #pragma once
-#include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 
 namespace abyss::CodeZero::Head
 {
-    class BaseState : public IOldState<HeadActor>
+    class BaseState : public IState
     {
     protected:
         HPModel* m_hp;
@@ -13,7 +15,5 @@ namespace abyss::CodeZero::Head
         void setup()override;
 
         void update(double dt) override;
-
-        void onCollisionStay(IActor* col) override;
     };
 }

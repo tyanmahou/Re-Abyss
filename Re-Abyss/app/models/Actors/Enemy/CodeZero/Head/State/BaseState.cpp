@@ -1,8 +1,6 @@
 #include "BaseState.hpp"
-#include <abyss/controllers/Actors/ActInclude.hpp>
-
+#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
 namespace abyss::CodeZero::Head
 {
@@ -27,16 +25,5 @@ namespace abyss::CodeZero::Head
         } else {
             m_head->setForward(Forward::None);
         }
-    }
-
-    void BaseState::onCollisionStay(IActor* col)
-    {
-        col->accept([this](const Attacker& attacker) {
-            if (m_hp->damage(attacker.getPower())) {
-                for (auto&& callback : m_parent->finds<IDamageCallbackModel>()) {
-                    callback->onDamaged();
-                }
-            }
-        });
     }
 }
