@@ -30,6 +30,9 @@ namespace abyss
         void setup() override;
         void onDraw() const override;
 
+        /// <summary>
+        /// モーションリクエスト
+        /// </summary>
         CustomDrawModel& request(const s3d::String& motion)
         {
             m_motion = motion;
@@ -37,7 +40,14 @@ namespace abyss
         }
 
         CustomDrawModel& setDrawer(std::unique_ptr<IImpl>&& drawer);
+
+        template<class Impl, class... Args>
+        CustomDrawModel& setDrawer(Args&&... args)
+        {
+            return setDrawer(std::make_unique<Impl>(std::forward<Args>(args)...));
+        }
         CustomDrawModel& setDrawer(const std::function<void()>& drawer);
+
         CustomDrawModel& setDrawer(const std::function<void(const s3d::String&)>& drawer);
     };
 }

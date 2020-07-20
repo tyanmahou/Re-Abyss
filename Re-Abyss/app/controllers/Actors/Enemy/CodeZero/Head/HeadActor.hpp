@@ -12,8 +12,6 @@ namespace abyss::CodeZero
 }
 namespace abyss::CodeZero::Head
 {
-    class HeadVM;
-
     class HeadActor:
         public IActor,
         public Receiver
@@ -26,8 +24,6 @@ namespace abyss::CodeZero::Head
     private:
         Ref<HeadModel> m_head;
         Ref<ParentCtrlModel> m_parent;
-
-        std::shared_ptr<HeadVM> m_view;
     public:
         HeadActor(CodeZeroActor* parent);
 
@@ -35,7 +31,5 @@ namespace abyss::CodeZero::Head
 
         CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;
-
-        HeadVM* getBindedView()const;
     };
 }

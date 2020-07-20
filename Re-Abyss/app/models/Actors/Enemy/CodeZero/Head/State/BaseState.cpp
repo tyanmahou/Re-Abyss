@@ -1,5 +1,4 @@
 #include "BaseState.hpp"
-#include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
@@ -29,10 +28,7 @@ namespace abyss::CodeZero::Head
             m_head->setForward(Forward::None);
         }
     }
-    void BaseState::draw() const
-    {
-        this->m_pActor->getBindedView()->draw();
-    }
+
     void BaseState::onCollisionStay(IActor* col)
     {
         col->accept([this](const Attacker& attacker) {
