@@ -1489,5 +1489,6 @@
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
   </ItemGroup>
 </Project>

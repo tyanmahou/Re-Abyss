@@ -540,6 +540,7 @@
     <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
+    <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
