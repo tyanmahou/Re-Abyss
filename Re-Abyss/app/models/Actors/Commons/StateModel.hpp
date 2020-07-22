@@ -36,12 +36,15 @@ namespace abyss
         virtual void update([[maybe_unused]] double dt) {}
         virtual void lastUpdate() {}
         virtual void end() {}
+
+        virtual void draw() const {}
     };
 
     class StateModel :
         public IComponent,
         public IUpdateModel,
-        public ILastUpdateModel
+        public ILastUpdateModel,
+        public IDrawModel
     {
     private:
         using State_t = std::shared_ptr<IState>;
@@ -86,6 +89,13 @@ namespace abyss
             }
         }
 
+        void onDraw() const override
+        {
+            if (m_current) {
+                m_current->draw();
+            }
+        }
+
         void changeState(const std::shared_ptr<IState>& next)
         {
             m_next = next;
@@ -122,7 +132,8 @@ namespace abyss
     {
         using Base = MultiComponents<
             IUpdateModel,
-            ILastUpdateModel
+            ILastUpdateModel,
+            IDrawModel
         >;
     };
 }

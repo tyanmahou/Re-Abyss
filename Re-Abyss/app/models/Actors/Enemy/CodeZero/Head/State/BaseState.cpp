@@ -10,6 +10,8 @@ namespace abyss::CodeZero::Head
         m_hp = parentCtrl->getHp().get();
         m_parent = parentCtrl->getParent();
         m_head = m_pActor->find<HeadModel>().get();
+
+        m_view = m_pActor->find<ViewModel<HeadVM>>().get();
     }
     void BaseState::update([[maybe_unused]]double dt)
     {
@@ -25,5 +27,9 @@ namespace abyss::CodeZero::Head
         } else {
             m_head->setForward(Forward::None);
         }
+    }
+    void BaseState::draw() const
+    {
+        (*m_view)->draw();
     }
 }

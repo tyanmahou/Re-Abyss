@@ -899,9 +899,6 @@
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vendor\abyss\include\abyss\models\Actors\Commons\TerrainModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -993,6 +990,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\TerrainModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

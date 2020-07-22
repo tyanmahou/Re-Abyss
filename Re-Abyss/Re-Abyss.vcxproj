@@ -210,6 +210,7 @@
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\OutRoomChecker.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\TerrainModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CaptainTako\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CaptainTako\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.cpp" />
@@ -480,7 +481,6 @@
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp" />
-    <ClCompile Include="vendor\abyss\include\abyss\models\Actors\Commons\TerrainModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
