@@ -8,7 +8,6 @@ namespace abyss::Slime
     void WalkState::start()
     {
         m_body->setSize(Param::Walk::Size).setPivot(Param::Walk::Pivot);
-        m_draw->request(DrawModel::Kind::Walk);
     }
     void WalkState::update(double dt)
     {
@@ -18,5 +17,9 @@ namespace abyss::Slime
         if (m_mapCol->isHitGround() && m_body->getVelocity().x * d.x > 0 && d.length() <= Param::Walk::SearchRange) {
             this->changeState<JumpState>();
         }
+    }
+    void WalkState::draw()const
+    {
+        (*m_view)->drawWalk();
     }
 }

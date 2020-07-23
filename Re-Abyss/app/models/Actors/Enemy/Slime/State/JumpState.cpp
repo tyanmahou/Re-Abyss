@@ -10,8 +10,6 @@ namespace abyss::Slime
         m_body->setSize(Param::Jump::Size).setPivot({ 0, 0 });
 
         m_body->jumpToHeight(Param::Jump::JumpHeight);
-        
-        m_draw->request(DrawModel::Kind::Jump);
     }
     void JumpState::lastUpdate()
     {
@@ -19,5 +17,10 @@ namespace abyss::Slime
             this->changeState<WalkState>();
         }
         BaseState::lastUpdate();
+    }
+
+    void JumpState::draw()const
+    {
+        (*m_view)->drawJump();
     }
 }

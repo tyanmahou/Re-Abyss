@@ -11,5 +11,7 @@ namespace abyss::Slime
         void start() override;
 
         void update(double dt) override;
+
+        void draw()const override;
     };
 }

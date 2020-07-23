@@ -223,7 +223,6 @@
     <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp" />
@@ -566,7 +565,6 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />

@@ -1,18 +1,22 @@
 #include "SlimeActor.hpp"
 #include "Senser/Senser.hpp"
 
-#include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
-
-
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
-
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
+
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/DrawModel.hpp>
+#include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
 
+#include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
+
+namespace
+{
+	class ViewBinder;
+}
 namespace abyss::Slime
 {
 	SlimeActor::SlimeActor(const SlimeEntity& entity)
@@ -38,7 +42,9 @@ namespace abyss::Slime
 
 		this->attach<DeadCallbackModel>(this);
 		this->attach<SenserCtrlModel>();
-		this->attach<DrawModel>(this);
+
+		this->attach<ViewModel<SlimeVM>>()
+			->createBinder<ViewBinder>(this);
 	}
 
 	void SlimeActor::start()
@@ -55,4 +61,36 @@ namespace abyss::Slime
 	{
 		return m_state->isState<WalkState>();
 	}
+}
+
+namespace
+{
+	using namespace abyss;
+	using namespace abyss::Slime;
+
+	class ViewBinder : public ViewModel<SlimeVM>::IBinder
+	{
+		IActor* m_pActor = nullptr;
+		Ref<BodyModel> m_body;
+		Ref<HPModel> m_hp;
+	private:
+		SlimeVM* bind(SlimeVM* view) const
+		{
+			return &view->setTime(m_pActor->getDrawTimeSec())
+				.setForward(m_body->getForward())
+				.setPos(m_body->getPos())
+				.setVelocity(m_body->getVelocity())
+				.setIsDamaging(m_hp->isInInvincibleTime())
+				;
+		}
+		void setup() override
+		{
+			m_body = m_pActor->find<BodyModel>();
+			m_hp = m_pActor->find<HPModel>();
+		}
+	public:
+		ViewBinder(IActor* pActor) :
+			m_pActor(pActor)
+		{}
+	};
 }
