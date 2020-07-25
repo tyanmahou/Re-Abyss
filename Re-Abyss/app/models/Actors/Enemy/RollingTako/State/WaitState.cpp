@@ -8,7 +8,6 @@ namespace abyss::RollingTako
 {
     void WaitState::start()
     {
-        m_draw->request(DrawModel::Kind::Wait);
     }
 
     void WaitState::update([[maybe_unused]] double dt)
@@ -18,5 +17,10 @@ namespace abyss::RollingTako
         if (f * d.x > 0 && d.length() <= Param::Wait::SearchRange) {
             this->changeState<RunState>();
         }
+    }
+
+    void WaitState::draw()const
+    {
+        (*m_view)->drawWait();
     }
 }

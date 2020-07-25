@@ -8,7 +8,7 @@ namespace abyss::RollingTako
     {
         m_body = this->m_pActor->find<BodyModel>().get();
         m_mapCol = this->m_pActor->find<MapColliderModel>().get();
-        m_draw = this->m_pActor->find<DrawModel>().get();
+        m_view = this->m_pActor->find<ViewModel<RollingTakoVM>>().get();
     }
 
     void BaseState::lastUpdate()
