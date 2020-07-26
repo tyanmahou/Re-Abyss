@@ -5,9 +5,12 @@
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
 #include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
-#include <abyss/models/Actors/Enemy/LaunShark/DrawModel.hpp>
-
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+
+namespace
+{
+    class ViewBinder;
+}
 namespace abyss::LaunShark
 {
     LaunSharkActor::LaunSharkActor(const LaunSharkEntity& entity)
@@ -32,7 +35,8 @@ namespace abyss::LaunShark
             this->attach<TimeCounterModel>();
         }
         {
-            this->attach<DrawModel>(this);
+            this->attach<ViewModel<LaunSharkVM>>()
+                ->createBinder<ViewBinder>(this);
         }
     }
     
@@ -40,4 +44,34 @@ namespace abyss::LaunShark
     {
         return visitor.visit(*this);
     }
+}
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::LaunShark;
+
+    class ViewBinder : public ViewModel<LaunSharkVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
+    private:
+        LaunSharkVM* bind(LaunSharkVM* view) const
+        {
+            return &view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos())
+                .setForward(m_body->getForward())
+                .setIsDamaging(m_hp->isInInvincibleTime());
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_hp = m_pActor->find<HPModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
 }

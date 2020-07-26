@@ -9,7 +9,7 @@ namespace abyss::LaunShark
         m_body = m_pActor->find<BodyModel>().get();
         m_mapCol = m_pActor->find<MapColliderModel>().get();
         m_timeCounter = m_pActor->find<TimeCounterModel>().get();
-        m_draw = m_pActor->find<DrawModel>().get();
+        m_view = m_pActor->find<ViewModel<LaunSharkVM>>().get();
     }
     void BaseState::update(double dt)
     {

@@ -16,7 +16,6 @@ namespace abyss::LaunShark
         m_body
             ->setMaxSpeedX(Param::Swim::MaxSpeedX)
             .setSize(Param::Base::Size);
-        m_draw->request(DrawModel::Kind::Swim);
     }
     void SwimState::update(double dt)
     {
@@ -46,5 +45,10 @@ namespace abyss::LaunShark
         if (m_mapCol->isHitWall() && m_waitTimer.sF() <= time) {
             m_waitTimer.set(Duration(time));
         }
+    }
+
+    void SwimState::draw() const
+    {
+        (*m_view)->drawSwim();
     }
 }

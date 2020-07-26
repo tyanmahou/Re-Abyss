@@ -19,11 +19,9 @@ namespace abyss::LaunShark
         m_body->setAccelX(0);
         m_body->setVelocityY(0);
 
-        m_draw->request(DrawModel::Kind::LaunShark);
-
         m_pActor->find<BodyUpdaterModel>()->setActive(false);
     }
-    void LauncherState::update([[maybe_unused]]double dt)
+    void LauncherState::update([[maybe_unused]] double dt)
     {
         if (m_attackTimer.reachedZero()) {
             if (!m_out) {
@@ -42,14 +40,15 @@ namespace abyss::LaunShark
                 this->changeState<SwimState>();
             }
         }
-        // view
-        {
-            double t = m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1();
-            m_draw->setTransitionTime(t);
-        }
     }
     void LauncherState::end()
     {
         m_pActor->find<BodyUpdaterModel>()->setActive(true);
+    }
+
+    void LauncherState::draw()const
+    {
+        double launcherTime = m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1();
+        (*m_view)->drawLauncher(launcherTime);
     }
 }

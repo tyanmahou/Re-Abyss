@@ -7,6 +7,10 @@ namespace abyss::LaunShark::Shot
     {
         m_body->setAccel(m_rotate->getDir9() * ShotParam::Firinged::Accel);
         m_body->setMaxSpeed(m_rotate->getDir9() * ShotParam::Firinged::MaxSpeed);
-        m_draw->request(DrawModel::Kind::Firinged);
+    }
+
+    void FiringedState::draw() const
+    {
+        (*m_view)->drawFiringed();
     }
 }

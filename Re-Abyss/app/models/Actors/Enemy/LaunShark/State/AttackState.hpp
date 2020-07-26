@@ -10,5 +10,7 @@ namespace abyss::LaunShark
         AttackState();
         void start();
         void update(double dt) override;
+
+        void draw() const override;
     };
 }

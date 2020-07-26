@@ -7,6 +7,6 @@ namespace abyss::LaunShark::Shot
         m_body = m_pActor->find<BodyModel>().get();
         m_rotate = m_pActor->find<RotateModel>().get();
 
-        m_draw = m_pActor->find<DrawModel>().get();
+        m_view = m_pActor->find<ViewModel<ShotVM>>().get();
     }
 }

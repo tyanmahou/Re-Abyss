@@ -7,8 +7,6 @@ namespace abyss::LaunShark::Shot
     {
         m_body->setVelocity(m_rotate->getDir9() * ShotParam::Start::Speed);
         m_body->setAccel(-m_rotate->getDir9() * ShotParam::Start::Decel);
-
-        m_draw->request(DrawModel::Kind::Wait);
     }
 
     void StartState::update([[maybe_unused]]double dt)
@@ -18,4 +16,8 @@ namespace abyss::LaunShark::Shot
         }
     }
 
+    void StartState::draw() const
+    {
+        (*m_view)->drawWait();
+    }
 }

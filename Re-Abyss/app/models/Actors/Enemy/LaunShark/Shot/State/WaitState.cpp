@@ -12,7 +12,6 @@ namespace abyss::LaunShark::Shot
     {
         m_body->noneResistanced();
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Wait::Time);
-        m_draw->request(DrawModel::Kind::Wait);
     }
     void WaitState::update([[maybe_unused]]double dt)
     {
@@ -20,5 +19,10 @@ namespace abyss::LaunShark::Shot
         if (m_timer.reachedZero()) {
             this->changeState<PursuitState>();
         }
+    }
+
+    void WaitState::draw() const
+    {
+        (*m_view)->drawWait();
     }
 }

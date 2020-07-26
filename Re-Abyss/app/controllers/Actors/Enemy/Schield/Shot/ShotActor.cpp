@@ -8,11 +8,15 @@
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
-#include <abyss/models/Actors/Enemy/Schield/Shot/DrawModel.hpp>
 
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
+
+namespace
+{
+    class ViewBinder;
+}
 
 namespace abyss::Schield::Shot
 {

@@ -4,7 +4,8 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
-#include <abyss/models/Actors/Enemy/LaunShark/DrawModel.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
 
 namespace abyss::LaunShark
 {
@@ -14,7 +15,7 @@ namespace abyss::LaunShark
         BodyModel* m_body;
         MapColliderModel* m_mapCol;
         TimeCounterModel* m_timeCounter;
-        DrawModel* m_draw;
+        ViewModel<LaunSharkVM>* m_view;
     public:
         void update(double dt) override;
         void setup()override;

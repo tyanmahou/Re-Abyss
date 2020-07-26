@@ -16,6 +16,11 @@
 #include <Siv3D/MathConstants.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 
+namespace
+{
+    class ViewBinder;
+}
+
 namespace abyss::LaunShark::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
@@ -70,7 +75,8 @@ namespace abyss::LaunShark::Shot
         }
         // 描画
         {
-            this->attach<DrawModel>(this);
+            this->attach<ViewModel<ShotVM>>()
+                ->createBinder<ViewBinder>(this);
         }
     }
     void ShotActor::start()
@@ -90,4 +96,38 @@ namespace abyss::LaunShark::Shot
         success |= visitor.visit(static_cast<Receiver&>(*this));
         return success || visitor.visit(static_cast<IActor&>(*this));
     }
+}
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::LaunShark;
+    using namespace abyss::LaunShark::Shot;
+
+    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
+        Ref<RotateModel> m_rotate;
+    private:
+        ShotVM* bind(ShotVM* view) const
+        {
+            return &view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos())
+                .setRotate(m_rotate->getRotate())
+                .setIsDamaging(m_hp->isInInvincibleTime())
+                ;
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_hp = m_pActor->find<HPModel>();
+            m_rotate = m_pActor->find<RotateModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
 }
