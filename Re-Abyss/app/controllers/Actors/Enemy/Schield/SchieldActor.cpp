@@ -7,10 +7,13 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
 #include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/Schield/DrawModel.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
+namespace
+{
+    class ViewBinder;
+}
 namespace abyss::Schield
 {
     SchieldActor::SchieldActor(const SchieldEntity& entity)
@@ -33,7 +36,8 @@ namespace abyss::Schield
             this->attach<DamageModel>(this);
         }
         {
-            this->attach<DrawModel>(this);
+            this->attach<ViewModel<SchieldVM>>()
+                ->createBinder<ViewBinder>(this);
         }
         {
             m_face = this->attach<FaceCtrlModel>(this);
@@ -53,5 +57,36 @@ namespace abyss::Schield
     {
         return visitor.visit(*this);
     }
-
 }
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::Schield;
+
+    class ViewBinder : public ViewModel<SchieldVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
+    private:
+        SchieldVM* bind(SchieldVM* view) const
+        {
+            return &view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos())
+                .setForward(m_body->getForward())
+                .setIsDamaging(m_hp->isInInvincibleTime())
+                ;
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_hp = m_pActor->find<HPModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
+}
+

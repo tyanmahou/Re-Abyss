@@ -12,5 +12,7 @@ namespace abyss::Schield
         AttackCrossState();
         void start();
         void update(double dt) override;
+
+        void draw() const override;
     };
 }

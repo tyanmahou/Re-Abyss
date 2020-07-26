@@ -31,13 +31,14 @@ namespace abyss::Schield
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos + s3d::Vec2{ -34, -25 }, s3d::Vec2{ -1, -1 });
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos + s3d::Vec2{ 34, -25 }, s3d::Vec2{ 1, -1 });
         }
+    }
 
-        // view
+    void AttackCrossState::draw() const
+    {
         if (m_transitionToWait.isStarted()) {
-            m_draw->setTransitionTime(m_transitionToWait.progress0_1())
-                .request(DrawModel::Kind::ToWait);
+            (*m_view)->drawToWait(m_transitionToWait.progress0_1());
         } else {
-            m_draw->request(DrawModel::Kind::AttackCross);
+            (*m_view)->drawAttackCross();
         }
     }
 }

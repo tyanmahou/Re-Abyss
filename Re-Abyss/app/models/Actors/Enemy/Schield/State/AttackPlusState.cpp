@@ -36,16 +36,14 @@ namespace abyss::Schield
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos + s3d::Vec2{ 55, 10 }, s3d::Vec2{ 1, 0 });
             m_pActor->getModule<World>()->create<Shot::ShotActor>(pos + s3d::Vec2{ 0, -27 }, s3d::Vec2{ 0, -1 });
         }
+    }
 
-        // view更新
+    void AttackPlusState::draw() const
+    {
         if (m_transitionToAttackCross.isRunning()) {
-            m_draw
-                ->setTransitionTime(m_transitionToAttackCross.progress0_1())
-                .request(DrawModel::Kind::ToAttackCross);
+            (*m_view)->drawToAttackCross(m_transitionToAttackCross.progress0_1());
         } else {
-            m_draw
-                ->setTransitionTime(m_transitionToAttackPlus.progress0_1())
-                .request(DrawModel::Kind::ToAttackPlus);
+            (*m_view)->drawToAttackPlus(m_transitionToAttackPlus.progress0_1());
         }
     }
 }

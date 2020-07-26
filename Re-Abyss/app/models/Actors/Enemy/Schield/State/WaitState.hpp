@@ -12,5 +12,7 @@ namespace abyss::Schield
         void start() override;
         void update(double dt) override;
         void end() override;
+
+        void draw() const override;
     };
 }

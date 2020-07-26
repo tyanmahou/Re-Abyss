@@ -48,7 +48,8 @@ namespace abyss::Schield::Shot
             this->attach<DeadCheckerModel>(this);
         }
         {
-            this->attach<DrawModel>(this);
+            this->attach<ViewModel<ShotVM>>()
+                ->createBinder<ViewBinder>(this);
         }
         {
             this->attach<StateModel>(this)
@@ -71,4 +72,32 @@ namespace abyss::Schield::Shot
         return visitor.visit(static_cast<Attacker&>(*this)) ||
             visitor.visit(static_cast<IActor&>(*this));
     }
+}
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::Schield;
+    using namespace abyss::Schield::Shot;
+
+    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+    private:
+        ShotVM* bind(ShotVM* view) const
+        {
+            return &view
+                ->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos());
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
 }

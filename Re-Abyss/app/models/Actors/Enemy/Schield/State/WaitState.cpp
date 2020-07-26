@@ -16,7 +16,6 @@ namespace abyss::Schield
         m_pActor->find<ActorTimeModel>()->resetDrawTime();
 
         m_face->on();
-        m_draw->request(DrawModel::Kind::Wait);
     }
     void WaitState::update([[maybe_unused]]double dt)
     {
@@ -24,10 +23,12 @@ namespace abyss::Schield
             this->changeState<AttackPlusState>();
         }
     }
-
     void WaitState::end()
     {
         m_face->off();
     }
-
+    void WaitState::draw() const
+    {
+        (*m_view)->drawWait();
+    }
 }

@@ -214,9 +214,7 @@
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Schield\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
     <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp" />
@@ -550,9 +548,7 @@
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
     <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
