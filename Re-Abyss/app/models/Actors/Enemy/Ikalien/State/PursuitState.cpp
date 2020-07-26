@@ -12,8 +12,6 @@ namespace abyss::Ikalien
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, 2.0);
         m_body->noneResistanced();
-
-        m_draw->request(DrawModel::Kind::Pursuit);
     }
     void PursuitState::update(double dt)
     {
@@ -34,5 +32,10 @@ namespace abyss::Ikalien
         if (m_timer.reachedZero()) {
             this->changeState<SwimState>();
         }
+    }
+
+    void PursuitState::draw() const
+    {
+        (*m_view)->drawPursuit();
     }
 }

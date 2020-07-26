@@ -2,7 +2,8 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
-#include <abyss/models/Actors/Enemy/Ikalien/DrawModel.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
 
 namespace abyss::Ikalien
 {
@@ -11,7 +12,7 @@ namespace abyss::Ikalien
     protected:
         BodyModel* m_body;
         RotateModel* m_rotate;
-        DrawModel* m_draw;
+        ViewModel<IkalienVM>* m_view;
     public:
         void setup()override;
     };
