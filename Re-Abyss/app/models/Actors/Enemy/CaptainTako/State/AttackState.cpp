@@ -16,7 +16,6 @@ namespace abyss::CaptainTako
     void AttackState::start()
     {
         m_intervalTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::IntervalTimeSec, false);
-        m_draw->request(DrawModel::Kind::Charge);
     }
     void AttackState::update([[maybe_unused]]double dt)
     {
@@ -33,7 +32,11 @@ namespace abyss::CaptainTako
                 this->changeState<WaitState>();
             }
         }
+    }
 
-        m_draw->setChargeTime(static_cast<double>(m_currentAttackCount) / static_cast<double>(m_attackCount));
+    void AttackState::draw() const
+    {
+        const double chargeTime = static_cast<double>(m_currentAttackCount) / static_cast<double>(m_attackCount);
+        (*m_view)->drawCharge(chargeTime);
     }
 }

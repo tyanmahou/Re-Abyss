@@ -12,12 +12,16 @@ namespace abyss::CaptainTako
     void WaitState::start()
     {
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
-        m_draw->request(DrawModel::Kind::Wait);
     }
     void WaitState::update([[maybe_unused]]double dt)
     {
         if (m_waitTimer.reachedZero() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState<ChargeState>();
         }
+    }
+
+    void WaitState::draw() const
+    {
+        (*m_view)->drawWait();
     }
 }
