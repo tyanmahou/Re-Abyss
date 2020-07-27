@@ -2,8 +2,9 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Shot/DrawModel.hpp>
+#include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 
 namespace abyss::CodeZero::Shot
 {
@@ -13,10 +14,12 @@ namespace abyss::CodeZero::Shot
         ParentCtrlModel* m_parent;
         BodyModel* m_body;
         ScaleModel* m_scale;
-        DrawModel* m_draw;
+        ViewModel<ShotVM>* m_view;
     public:
         void setup() override;
 
         void lastUpdate() override;
+
+        void draw()const override;
     };
 }

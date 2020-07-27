@@ -212,7 +212,6 @@
     <ClCompile Include="app\models\Actors\Commons\OutRoomChecker.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TerrainModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
@@ -544,7 +543,6 @@
     <ClInclude Include="app\models\Actors\Commons\OutRoomChecker.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Shot\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />

@@ -10,6 +10,6 @@ namespace abyss::CodeZero::Shot
 
         void update(double dt);
 
-        void end();
+        void draw() const;
     };
 }

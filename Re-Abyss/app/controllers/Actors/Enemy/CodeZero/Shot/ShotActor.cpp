@@ -1,7 +1,6 @@
 #include "ShotActor.hpp"
 
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Shot/DrawModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
@@ -13,6 +12,11 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
+
+namespace
+{
+    class ViewBinder;
+}
 namespace abyss::CodeZero::Shot
 {
     ShotActor::ShotActor(CodeZeroActor* parent)
@@ -42,7 +46,8 @@ namespace abyss::CodeZero::Shot
             this->attach<BodyUpdaterModel>(this);
         }
         {
-            this->attach<DrawModel>(this);
+            this->attach<ViewModel<ShotVM>>()
+                ->createBinder<ViewBinder>(this);
         }
     }
 
@@ -57,3 +62,33 @@ namespace abyss::CodeZero::Shot
         return success || visitor.visit(static_cast<IActor&>(*this));
     }
 }
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::CodeZero;
+    using namespace abyss::CodeZero::Shot;
+
+    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<ScaleModel> m_scale;
+    private:
+        ShotVM* bind(ShotVM* view) const
+        {
+            return &view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos())
+                .setScale(m_scale->get());
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_scale = m_pActor->find<ScaleModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
+}
+

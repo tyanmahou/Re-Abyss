@@ -8,7 +8,6 @@ namespace abyss::CodeZero::Shot
 {
     void WaitState::start()
     {
-        m_draw->request(DrawModel::Motion::Charge);
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
@@ -24,9 +23,9 @@ namespace abyss::CodeZero::Shot
         }
     }
 
-    void WaitState::end()
+    void WaitState::draw() const
     {
-        m_draw->request(DrawModel::Motion::Base);
+        (*m_view)->drawCharge();
     }
 }
 
