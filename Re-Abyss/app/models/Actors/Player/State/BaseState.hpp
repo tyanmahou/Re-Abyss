@@ -2,6 +2,8 @@
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/views/Actors/Player/PlayerVM.hpp>
 
 namespace abyss::Player
 {

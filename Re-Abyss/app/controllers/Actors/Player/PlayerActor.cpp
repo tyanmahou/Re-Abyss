@@ -30,6 +30,10 @@
 #include <abyss/controllers/UI/PlayerInfo/PlayerInfo.hpp>
 #include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
 
+namespace
+{
+    class ViewBinder;
+}
 namespace abyss::Player
 {
     PlayerActor::PlayerActor() :
@@ -114,6 +118,10 @@ namespace abyss::Player
         {
             this->attach<RoomMoveCheckerModel>(this);
         }
+        {
+            this->attach<ViewModel<PlayerVM>>()
+                ->createBinder<ViewBinder>(this);
+        }
 #if ABYSS_DEBUG
         // デバッグ制御
         {
@@ -186,3 +194,43 @@ namespace abyss::Player
         return std::make_shared<PlayerActor>();
     }
 }
+
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::Player;
+
+    class ViewBinder : public ViewModel<PlayerVM>::IBinder
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
+        Ref<ChargeModel> m_charge;
+        Ref<AttackCtrlModel> m_attackCtrl;
+    private:
+        PlayerVM* bind(PlayerVM* view) const
+        {
+            return &view->setTime(m_pActor->getDrawTimeSec())
+                .setPos(m_body->getPos())
+                .setVelocity(m_body->getVelocity())
+                .setForward(m_body->getForward())
+                .setCharge(m_charge->getCharge())
+                .setIsAttacking(m_attackCtrl->isAttacking())
+                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setManager(m_pActor->getManager())
+                ;
+        }
+        void setup() override
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_hp = m_pActor->find<HPModel>();
+            m_charge = m_pActor->find<ChargeModel>();
+            m_attackCtrl = m_pActor->find<AttackCtrlModel>();
+        }
+    public:
+        ViewBinder(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+    };
+}
+
