@@ -219,6 +219,7 @@
     <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RestartCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
+    <ClCompile Include="app\models\Actors\Player\Shot\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\State\DeadState.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
@@ -556,6 +557,7 @@
     <ClInclude Include="app\models\Actors\Player\RestartCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\OopartsCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\Shot\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />

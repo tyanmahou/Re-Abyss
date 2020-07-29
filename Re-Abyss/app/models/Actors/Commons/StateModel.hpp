@@ -72,7 +72,6 @@ namespace abyss
 
         void setup() override
         {
-            this->stateUpdate();
         }
 
         void onUpdate(double dt) override

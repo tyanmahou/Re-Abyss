@@ -1,8 +1,10 @@
 #include "ShotActor.hpp"
 
 #include <abyss/models/Collision/LayerGroup.hpp>
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/models/Actors/Player/Shot/ColliderModel.hpp>
 #include <abyss/models/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
@@ -18,18 +20,17 @@ namespace abyss::Player::Shot
 	{
 		auto shot = this->attach<PlayerShotModel>(charge);
 		{
-			(this->attach<BodyModel>(this))
+			this->attach<BodyModel>(this)
 				->setPos(pos)
 				.setForward(forward)
 				.noneResistanced()
 				.setVelocityX(forward * ShotParam::Base::Speed)
 				;
+
+			this->attach<BodyUpdaterModel>(this);
 		}
 		{
-			auto collider = this->attach<CustomColliderModel>(this);
-			collider->setColFunc([this] {
-				return this->getColliderCircle();
-			});
+			auto collider = this->attach<ColliderModel>(this);
 			collider->setLayer(LayerGroup::Player);
 		}
 		{

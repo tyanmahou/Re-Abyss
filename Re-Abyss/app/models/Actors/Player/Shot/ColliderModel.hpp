@@ -23,7 +23,7 @@ namespace abyss::Player::Shot
         void setup() override;
 
         s3d::Circle getColliderCircle() const;
-        CShape getCollider() const override
+        CShape getCollider() const override;
     };
 }
 

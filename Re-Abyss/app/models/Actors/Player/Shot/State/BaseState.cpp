@@ -5,9 +5,9 @@
 namespace abyss::Player::Shot
 {
     void BaseState::setup()
-    {    
-        m_body = this->m_pActor->find<BodyModel>().get();
+    {
         m_shot = this->m_pActor->find<PlayerShotModel>().get();
+        m_collider = this->m_pActor->find<ColliderModel>().get();
         m_view = this->m_pActor->find<ViewModel<ShotVM>>().get();
     }
 
@@ -23,13 +23,10 @@ namespace abyss::Player::Shot
         }
     }
 
-    void BaseState::update(double dt)
+    void BaseState::update([[maybe_unused1]]double dt)
     {
-        m_body->update(dt);
-
-        auto col = s3d::Circle(m_body->getPos(), m_shot->toRadius());
         // 画面外判定
-        if (!m_pActor->getModule<Camera>()->inScreen(m_pActor->getColliderCircle())) {
+        if (!m_pActor->getModule<Camera>()->inScreen(m_collider->getColliderCircle())) {
             m_pActor->destroy();
         }
     }
