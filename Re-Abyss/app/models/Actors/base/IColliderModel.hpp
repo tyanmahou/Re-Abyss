@@ -5,8 +5,8 @@ namespace abyss
 {
     class IColliderModel
     {
-        IActor* m_pActor;
     protected:
+        IActor* m_pActor;
         s3d::String m_tag;
         s3d::String m_layer;
 

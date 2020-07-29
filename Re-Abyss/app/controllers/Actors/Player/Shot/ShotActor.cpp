@@ -1,4 +1,5 @@
-#include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
+#include "ShotActor.hpp"
+
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
@@ -7,20 +8,17 @@
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
+namespace
+{
+	class ViewBinder;
+}
 namespace abyss::Player::Shot
 {
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
+		auto shot = this->attach<PlayerShotModel>(charge);
 		{
-			m_shot = this->attach<PlayerShotModel>(charge);
-		}
-		{
-			(m_state = this->attach<OldStateModel<ShotActor>>(this))
-				->add<BaseState>(State::Base);
-		}
-
-		{
-			(m_body = this->attach<BodyModel>(this))
+			(this->attach<BodyModel>(this))
 				->setPos(pos)
 				.setForward(forward)
 				.noneResistanced()
@@ -38,38 +36,58 @@ namespace abyss::Player::Shot
 			this->attach<AudioSourceModel>(this)
 				->load(U"Player/Shot/player_shot.aase");
 		}
-		if (!m_shot->isBig()) {
+		if (!shot->isBig()) {
 			// Bigじゃなければ壁にあたって破壊される
 			this->attach<DeadOnHItReceiverModel>(this);
 			this->attach<DeadCheckerModel>(this);
 		}
+		{
+			this->attach<ViewModel<ShotVM>>(*shot, forward)
+				->createBinder<ViewBinder>(this);
+		}
 
-		m_power = m_shot->toPower();
-		m_view = std::make_shared<ShotVM>(*m_shot, forward);
-
-
+		{
+			this->attach<StateModel>(this)
+				->changeState<BaseState>()
+				;
+		}
+		m_power = shot->toPower();
 	}
 	void ShotActor::start()
 	{}
-
-	s3d::Circle ShotActor::getColliderCircle() const
-	{
-		return s3d::Circle(m_body->getPos(), m_shot->toRadius());
-	}
 
 	bool ShotActor::accept(const ActVisitor& visitor)
 	{
 		return visitor.visit(static_cast<Attacker&>(*this)) || 
 			visitor.visit(static_cast<IActor&>(*this));
 	}
-	ShotVM* ShotActor::getBindedView() const
+}
+
+namespace
+{
+	using namespace abyss;
+	using namespace abyss::Player;
+	using namespace abyss::Player::Shot;
+
+	class ViewBinder : public ViewModel<ShotVM>::IBinder
 	{
-		if (!m_view) {
-			return nullptr;
+		IActor* m_pActor = nullptr;
+		Ref<BodyModel> m_body;
+	private:
+		ShotVM* bind(ShotVM* view) const
+		{
+			return &view
+				->setTime(m_pActor->getDrawTimeSec())
+				.setPos(m_body->getPos())
+				.setManager(m_pActor->getManager());
 		}
-		return &m_view
-			->setTime(this->getDrawTimeSec())
-			.setPos(m_body->getPos())
-			.setManager(m_pManager);
-	}
+		void setup() override
+		{
+			m_body = m_pActor->find<BodyModel>();
+		}
+	public:
+		ViewBinder(IActor* pActor) :
+			m_pActor(pActor)
+		{}
+	};
 }

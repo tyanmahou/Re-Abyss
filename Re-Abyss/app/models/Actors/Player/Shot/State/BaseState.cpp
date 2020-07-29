@@ -1,7 +1,5 @@
 #include "BaseState.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
 namespace abyss::Player::Shot
@@ -10,11 +8,12 @@ namespace abyss::Player::Shot
     {    
         m_body = this->m_pActor->find<BodyModel>().get();
         m_shot = this->m_pActor->find<PlayerShotModel>().get();
+        m_view = this->m_pActor->find<ViewModel<ShotVM>>().get();
     }
 
     void BaseState::start()
     {
-        m_pActor->getBindedView()->addShotFiringEffect();
+        (*m_view)->addShotFiringEffect();
         if (m_shot->isBig()) {
             m_pActor->find<AudioSourceModel>()->playAt(U"ShotBig");
         } else if (m_shot->isMedium()) {
@@ -27,6 +26,8 @@ namespace abyss::Player::Shot
     void BaseState::update(double dt)
     {
         m_body->update(dt);
+
+        auto col = s3d::Circle(m_body->getPos(), m_shot->toRadius());
         // 画面外判定
         if (!m_pActor->getModule<Camera>()->inScreen(m_pActor->getColliderCircle())) {
             m_pActor->destroy();
@@ -35,6 +36,6 @@ namespace abyss::Player::Shot
 
     void BaseState::draw() const
     {
-        m_pActor->getBindedView()->draw();
+        (*m_view)->draw();
     }
 }
