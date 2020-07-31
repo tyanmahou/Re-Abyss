@@ -968,6 +968,9 @@
     <ClCompile Include="app\models\Actors\Player\Shot\ColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

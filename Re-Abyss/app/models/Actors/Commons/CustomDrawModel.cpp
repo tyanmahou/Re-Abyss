@@ -9,12 +9,12 @@ namespace abyss
     }
     CustomDrawModel& CustomDrawModel::setDrawer(const std::function<void()>& drawer)
     {
-        class LambdaImpl : public IImpl
+        class Impl : public IImpl
         {
             std::function<void()> m_drawer;
         public:
 
-            LambdaImpl(const std::function<void()>& drawer) :
+            Impl(const std::function<void()>& drawer) :
                 m_drawer(drawer)
             {}
 
@@ -27,17 +27,17 @@ namespace abyss
                 }
             }
         };
-        m_pImpl = std::make_unique<LambdaImpl>(drawer);
+        m_pImpl = std::make_unique<Impl>(drawer);
         return *this;
     }
     CustomDrawModel& CustomDrawModel::setDrawer(const std::function<void(const s3d::String&)>& drawer)
     {
-        class LambdaImpl : public IImpl
+        class Impl : public IImpl
         {
             std::function<void(const s3d::String&)> m_drawer;
         public:
 
-            LambdaImpl(const std::function<void(const s3d::String&)>& drawer):
+            Impl(const std::function<void(const s3d::String&)>& drawer):
                 m_drawer(drawer)
             {}
 
@@ -51,7 +51,7 @@ namespace abyss
                 }
             }
         };
-        m_pImpl = std::make_unique<LambdaImpl>(drawer);
+        m_pImpl = std::make_unique<Impl>(drawer);
         return *this;
     }
     void CustomDrawModel::setup()

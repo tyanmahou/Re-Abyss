@@ -201,6 +201,7 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
+    <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CustomDrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />

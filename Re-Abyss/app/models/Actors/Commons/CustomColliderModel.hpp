@@ -11,23 +11,25 @@ namespace abyss
         public IComponent,
         public IColliderModel
     {
+    public:
+        class IImpl
+        {
+        public:
+            virtual ~IImpl() = default;
+
+            virtual void setup() = 0;
+            virtual CShape getCollider() const = 0;
+        };
     private:
-        std::function<CShape()> m_getCol;
+        std::unique_ptr<IImpl> m_pImpl;
     public:
         using IColliderModel::IColliderModel;
 
-        void setColFunc(std::function<CShape()> func)
-        {
-            m_getCol = func;
-        }
+        CustomColliderModel& setImpl(std::unique_ptr<IImpl>&& impl);
 
-        CShape getCollider() const override
-        {
-            if (m_getCol) {
-                return m_getCol();
-            }
-            return s3d::none;
-        }
+        CustomColliderModel& setColFunc(const std::function<CShape()>& func);
+
+        CShape getCollider() const override;
     };
 }
 
