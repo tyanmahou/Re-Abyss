@@ -21,23 +21,9 @@ namespace abyss::Player
         public IActor,
         public Receiver
     {
-    public:
-        enum class State
-        {
-            Swim,
-            Damage,
-            Ladder,
-            Dead,
-        };
     private:
         Ref<BodyModel> m_body;
-        Ref<FootModel> m_foot;
-        Ref<ChargeModel> m_charge;
         Ref<HPModel> m_hp;
-
-
-        Ref<StateModel> m_state;
-
     public:
         PlayerActor();
         void start()override;

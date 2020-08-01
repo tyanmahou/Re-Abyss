@@ -65,17 +65,17 @@ namespace abyss::Player
         }
         // State
         {
-            (m_state = this->attach<StateModel>(this))
+            this->attach<StateModel>(this)
                 ->changeState<SwimState>()
                 ;
         }
         // Charge
         {
-            m_charge = this->attach<ChargeModel>();
+            this->attach<ChargeModel>();
         }
         // Foot
         {
-            m_foot = this->attach<FootModel>();
+            this->attach<FootModel>();
         }
         // AudioSource
         {
