@@ -4,17 +4,19 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/FootModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
-#include <abyss/models/Actors/Player/ChargeModel.hpp>
-#include <abyss/models/Actors/base/OldStateModel.hpp>
+#include <abyss/types/Forward.hpp>
+
+namespace abyss
+{
+    class FootModel;
+}
 
 namespace abyss::Player
 {
-    class PlayerVM;
-
+    class ChargeModel;
+}
+namespace abyss::Player
+{
     class PlayerActor :
         public IActor,
         public Receiver
@@ -34,8 +36,7 @@ namespace abyss::Player
         Ref<HPModel> m_hp;
 
 
-        Ref<OldStateModel<PlayerActor>> m_state;
-        std::shared_ptr<PlayerVM> m_view;
+        Ref<StateModel> m_state;
 
     public:
         PlayerActor();
@@ -52,7 +53,6 @@ namespace abyss::Player
 
         bool isDead() const;
         bool accept(const ActVisitor& visitor) override;
-        PlayerVM* getBindedView()const;
 
         static std::shared_ptr<PlayerActor> Create();
     };

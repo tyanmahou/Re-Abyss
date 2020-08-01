@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include"BaseState.hpp"
 
 namespace abyss::Player
@@ -10,7 +10,7 @@ namespace abyss::Player
         void start()override;
         void update(double dt)override;
         void onDraw(const PlayerVM& view)const override;
-        void onCollisionStay(IActor* col) override;
+        //void onCollisionStay(IActor* col) override;
     public:
         DeadState();
 

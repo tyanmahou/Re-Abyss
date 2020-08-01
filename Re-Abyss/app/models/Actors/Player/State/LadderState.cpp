@@ -1,4 +1,5 @@
 #include "LadderState.hpp"
+#include "SwimState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
@@ -9,7 +10,7 @@ namespace abyss::Player
     void LadderState::onMove(double dt)
     {
         if (InputManager::A.down()) {
-            this->changeState(State::Swim);
+            this->changeState<SwimState>();
             return;
         }
         if (m_attackCtrl->isAttacking()) {
@@ -22,7 +23,7 @@ namespace abyss::Player
     }
     void LadderState::onLanding()
     {
-        this->changeState(PlayerActor::State::Swim);
+        this->changeState<SwimState>();
     }
     void LadderState::onCollisionStayLadderTop(const LadderActor& ladder)
     {
@@ -40,7 +41,7 @@ namespace abyss::Player
         }
         if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
             m_body->setPosY(ladderRegion.y - m_body->region().h / 2.0);
-            this->changeState(PlayerActor::State::Swim);
+            this->changeState<SwimState>();
         }
     }
     void LadderState::start()
@@ -58,7 +59,7 @@ namespace abyss::Player
     {
         BaseState::lastUpdate();
         if (!m_foot->isLadder()) {
-            this->changeState(PlayerActor::State::Swim);
+            this->changeState<SwimState>();
         }
     }
     void LadderState::onDraw(const PlayerVM& view) const

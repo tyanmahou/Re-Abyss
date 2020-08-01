@@ -3,8 +3,9 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Event/GameRestart/GameRestart.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
 
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/models/Actors/Player/State/DeadState.hpp>
 
 namespace abyss::Player
 {
@@ -17,8 +18,8 @@ namespace abyss::Player
 
     void RestartCtrlModel::onDead()
     {
-        if (auto state = m_pActor->find<OldStateModel<PlayerActor>>()) {
-            state->changeState(PlayerActor::State::Dead);
+        if (auto state = m_pActor->find<StateModel>()) {
+            state->changeState<DeadState>();
         }
         // ゲームリスタートイベントを開始
         m_pActor->getModule<Events>()->create<Event::GameRestart>();

@@ -31,6 +31,7 @@ namespace abyss::Player
         m_hp         = m_pActor->find<HPModel>().get();
         m_attackCtrl = m_pActor->find<AttackCtrlModel>().get();
         m_mapCol     = m_pActor->find<MapColliderModel>().get();
+        m_view       = m_pActor->find<ViewModel<PlayerVM>>().get();
     }
     void BaseState::start()
     {
@@ -88,21 +89,21 @@ namespace abyss::Player
             m_attackCtrl->startAttack();
         }
     }
-    void BaseState::onCollisionStay(IActor * col)
-    {
-        col->accept(overloaded{
-            [this](const DoorActor& door) {
-                // 扉
-                this->onCollisionStay(door);
-            },
-        });
+    //void BaseState::onCollisionStay(IActor * col)
+    //{
+    //    col->accept(overloaded{
+    //        [this](const DoorActor& door) {
+    //            // 扉
+    //            this->onCollisionStay(door);
+    //        },
+    //    });
 
-        col->accept([this](const Attacker& attack) {
-            if (m_hp->damage(attack.getPower())) {
-                this->changeState(PlayerActor::State::Damage);
-            }
-        });
-    }
+    //    col->accept([this](const Attacker& attack) {
+    //        if (m_hp->damage(attack.getPower())) {
+    //            this->changeState(PlayerActor::State::Damage);
+    //        }
+    //    });
+    //}
 
     void BaseState::lastUpdate()
     {
@@ -115,7 +116,7 @@ namespace abyss::Player
     }
     void BaseState::draw() const
     {
-        auto view = m_pActor->getBindedView();
+        auto view = m_view->getBindedView();
         if (!view) {
             return;
         }

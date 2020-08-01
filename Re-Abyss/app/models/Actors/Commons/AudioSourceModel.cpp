@@ -1,4 +1,6 @@
+#include "AudioSourceModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
@@ -67,8 +69,6 @@ namespace abyss
 }
 namespace abyss
 {
-
-
     AudioSourceModel::AudioSourceModel(IActor* pActor) :
         m_pActor(pActor)
     {}

@@ -1,7 +1,9 @@
 #include "DamageState.hpp"
+#include "SwimState.hpp"
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Player
 {
@@ -34,7 +36,7 @@ namespace abyss::Player
     {
         this->onMove(dt);
         if (m_damageTimer.reachedZero()) {
-            this->changeState(State::Swim);
+            this->changeState<SwimState>();
         }
     }
     void DamageState::onDraw(const PlayerVM& view) const

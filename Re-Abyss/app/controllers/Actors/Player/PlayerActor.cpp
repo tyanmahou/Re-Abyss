@@ -1,7 +1,5 @@
+#include "PlayerActor.hpp"
 #include <abyss/models/Actors/Player/State/SwimState.hpp>
-#include <abyss/models/Actors/Player/State/DeadState.hpp>
-#include <abyss/models/Actors/Player/State/LadderState.hpp>
-#include <abyss/models/Actors/Player/State/DamageState.hpp>
 
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
@@ -36,8 +34,7 @@ namespace
 }
 namespace abyss::Player
 {
-    PlayerActor::PlayerActor() :
-        m_view(std::make_shared<PlayerVM>())
+    PlayerActor::PlayerActor()
     {
         this->m_isDontDestoryOnLoad = true;
 
@@ -68,11 +65,8 @@ namespace abyss::Player
         }
         // State
         {
-            (m_state = this->attach<OldStateModel<PlayerActor>>(this))
-                ->add<SwimState>(State::Swim)
-                .add<LadderState>(State::Ladder)
-                .add<DamageState>(State::Damage)
-                .add<DeadState>(State::Dead)
+            (m_state = this->attach<StateModel>(this))
+                ->changeState<SwimState>()
                 ;
         }
         // Charge
@@ -177,18 +171,7 @@ namespace abyss::Player
     {
         return visitor.visit(*this);
     }
-    PlayerVM* PlayerActor::getBindedView() const
-    {
-        return &m_view->setTime(this->getDrawTimeSec())
-            .setPos(this->getPos())
-            .setVelocity(m_body->getVelocity())
-            .setForward(m_body->getForward())
-            .setCharge(m_charge->getCharge())
-            .setIsAttacking(this->find<AttackCtrlModel>()->isAttacking())
-            .setIsDamaging(m_hp->isInInvincibleTime())
-            .setManager(m_pManager)
-            ;
-    }
+
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {
         return std::make_shared<PlayerActor>();

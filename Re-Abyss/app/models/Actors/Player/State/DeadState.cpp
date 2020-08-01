@@ -6,6 +6,7 @@
 
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Player
 {
@@ -47,10 +48,6 @@ namespace abyss::Player
     void DeadState::update(double dt)
     {
         this->onMove(dt);
-        //if (m_deadTimer.reachedZero()) {
-        //    // ゲームリスタートイベントを開始
-        //    m_pActor->getModule<Events>()->create<Event::GameRestart>();
-        //}
     }
 
     void DeadState::onDraw(const PlayerVM& view) const
@@ -58,8 +55,8 @@ namespace abyss::Player
         view.drawStateDamage();
     }
 
-    void DeadState::onCollisionStay([[maybe_unused]]IActor* col)
-    {}
+    //void DeadState::onCollisionStay([[maybe_unused]]IActor* col)
+    //{}
 
     DeadState::DeadState()
     {}

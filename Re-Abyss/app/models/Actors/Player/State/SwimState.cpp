@@ -1,4 +1,6 @@
 #include "SwimState.hpp"
+#include "LadderState.hpp"
+
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/System/System.hpp>
@@ -8,6 +10,8 @@
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 #include <abyss/controllers/Save/Save.hpp>
 #include <abyss/controllers/Event/RoomMove/DoorMove/DoorMove.hpp>
+
+#include <Siv3D.hpp>
 
 namespace abyss::Player
 {
@@ -74,7 +78,7 @@ namespace abyss::Player
             if (canUp || canDown) {
                 m_body->setPosX(*m_foot->getLadderPosX());
                 m_body->addPosY(-2 * (canUp - canDown));
-                this->changeState(State::Ladder);
+                this->changeState<LadderState>();
                 m_motion = Motion::Ladder;
             }
         }
