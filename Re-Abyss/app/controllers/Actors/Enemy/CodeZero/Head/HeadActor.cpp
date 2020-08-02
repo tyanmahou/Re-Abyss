@@ -8,7 +8,6 @@
 #include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/Head/DamageModel.hpp>
 
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
@@ -19,7 +18,7 @@ namespace
 }
 namespace abyss::CodeZero::Head
 {
-    HeadActor::HeadActor(CodeZeroActor* parent)
+    HeadActor::HeadActor(IActor* parent)
     {
         // 親情報
         {

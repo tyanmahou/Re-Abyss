@@ -5,7 +5,6 @@
 
 namespace abyss::CodeZero
 {
-    class CodeZeroActor;
     class ParentCtrlModel;
 }
 namespace abyss::CodeZero::Head
@@ -20,7 +19,7 @@ namespace abyss::CodeZero::Head
         Ref<HeadModel> m_head;
         Ref<ParentCtrlModel> m_parent;
     public:
-        HeadActor(CodeZeroActor* parent);
+        HeadActor(IActor* parent);
 
         s3d::Vec2 getPos()const;
 

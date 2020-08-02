@@ -26,7 +26,7 @@ namespace abyss::CodeZero::Hand
         Ref<HandModel> m_hand;
         Ref<StateModel> m_state;
     public:
-        HandActor(CodeZeroActor* parent, Kind kind);
+        HandActor(IActor* parent, Kind kind);
 
         CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;

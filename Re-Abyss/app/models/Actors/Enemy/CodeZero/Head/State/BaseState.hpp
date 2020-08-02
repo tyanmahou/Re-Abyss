@@ -10,8 +10,7 @@ namespace abyss::CodeZero::Head
     class BaseState : public IState
     {
     protected:
-        HPModel* m_hp;
-        CodeZeroActor* m_parent;
+        ParentCtrlModel* m_parent;
         HeadModel* m_head;
 
         ViewModel<HeadVM>* m_view;

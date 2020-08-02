@@ -1,10 +1,9 @@
 #include "CodeZeroActor.hpp"
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 
-#include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
@@ -39,9 +38,12 @@ namespace abyss::CodeZero
             m_body->noneResistanced();
         }
         {
-            (m_state = this->attach<StateModel>(this))
+            this->attach<StateModel>(this)
                 ->changeState<Phase1State>()
                 ;
+        }
+        {
+            m_parts = this->attach<PartsModel>(this);
         }
         {
             this->attach<PatternModel>(this);
@@ -54,30 +56,15 @@ namespace abyss::CodeZero
         m_order = -99;
     }
 
-    void CodeZeroActor::start()
-    {
-        auto* const world = this->m_pManager->getModule<World>();
-        m_head = world->create<Head::HeadActor>(this);
-        m_leftHand = world->create<Hand::HandActor>(this, Hand::HandActor::Kind::Left);
-        m_rightHand = world->create<Hand::HandActor>(this, Hand::HandActor::Kind::Right);
-    }
-
     bool CodeZeroActor::accept(const ActVisitor& visitor)
     {
         return visitor.visit(*this);
     }
 
-    bool CodeZeroActor::isShotCharge() const
-    {
-        return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();
-    }
-
     void CodeZeroActor::setActiveAll(bool active)
     {
         this->setActive(active);
-        m_head->setActive(active);
-        m_leftHand->setActive(active);
-        m_rightHand->setActive(active);
+        m_parts->setActive(active);
     }
 }
 namespace

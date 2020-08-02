@@ -8,6 +8,8 @@ namespace abyss
         virtual ~IComponent() = default;
 
         virtual void setup() {}
+
+        virtual void onStart() {};
     };
 
     template <class ... Args>

@@ -6,17 +6,21 @@
 namespace abyss::CodeZero
 {
     class CodeZeroActor;
+    class PartsModel;
 
     class ParentCtrlModel : public IComponent
     {
-        CodeZeroActor* m_parent;
+        IActor* m_parent;
         Ref<HPModel> m_hp;
+        Ref<BodyModel> m_body;
         Ref<StateModel> m_state;
+        Ref<PartsModel> m_parts;
+
     public:
-        ParentCtrlModel(CodeZeroActor* parent);
+        ParentCtrlModel(IActor* parent);
 
         void setup() override;
-        CodeZeroActor* getParent()const
+        IActor* getParent()const
         {
             return m_parent;
         }
@@ -28,5 +32,7 @@ namespace abyss::CodeZero
         bool isPhase1()const;
         bool isPhase2()const;
         bool isPhase3()const;
+
+        bool isShotCharge()const;
     };
 }

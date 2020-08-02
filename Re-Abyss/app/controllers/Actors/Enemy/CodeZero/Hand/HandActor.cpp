@@ -14,7 +14,6 @@
 #include <abyss/models/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 
@@ -24,7 +23,7 @@ namespace
 }
 namespace abyss::CodeZero::Hand
 {
-    HandActor::HandActor(CodeZeroActor* parent, Kind kind)
+    HandActor::HandActor(IActor* parent, Kind kind)
     {
         auto forward = kind == Kind::Left ? Forward::Left : Forward::Right;
         {
@@ -45,7 +44,7 @@ namespace abyss::CodeZero::Hand
         }
         {
             (m_body = this->attach<BodyModel>(this))
-                ->initPos(parent->getPos() + s3d::Vec2{ forward * -110, 90 })
+                ->initPos(parent->find<BodyModel>()->getPos() + s3d::Vec2{ forward * -110, 90 })
                 .noneResistanced();
         }
         {

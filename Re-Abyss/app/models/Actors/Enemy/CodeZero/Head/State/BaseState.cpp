@@ -6,9 +6,7 @@ namespace abyss::CodeZero::Head
 {
     void BaseState::setup()
     {
-        auto parentCtrl = m_pActor->find<ParentCtrlModel>();
-        m_hp = parentCtrl->getHp().get();
-        m_parent = parentCtrl->getParent();
+        m_parent = m_pActor->find<ParentCtrlModel>().get();
         m_head = m_pActor->find<HeadModel>().get();
 
         m_view = m_pActor->find<ViewModel<HeadVM>>().get();
