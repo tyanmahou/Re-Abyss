@@ -2,8 +2,6 @@
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/State/Phase1State.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase2State.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase3State.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/Head/HeadActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
@@ -73,18 +71,7 @@ namespace abyss::CodeZero
     {
         return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();
     }
-    bool CodeZeroActor::isPhase1()const
-    {
-        return m_state->isState<Phase1State>();
-    }
-    bool CodeZeroActor::isPhase2()const
-    {
-        return m_state->isState<Phase2State>();
-    }
-    bool CodeZeroActor::isPhase3()const
-    {
-        return m_state->isState<Phase3State>();
-    }
+
     void CodeZeroActor::setActiveAll(bool active)
     {
         this->setActive(active);

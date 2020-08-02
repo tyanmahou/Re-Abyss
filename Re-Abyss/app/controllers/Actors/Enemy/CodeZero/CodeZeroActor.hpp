@@ -42,9 +42,6 @@ namespace abyss::CodeZero
         Hand::HandActor* getLeftHand()const { return m_leftHand.get(); }
         Hand::HandActor* getRightHand()const { return m_rightHand.get(); }
 
-        bool isPhase1()const;
-        bool isPhase2()const;
-        bool isPhase3()const;
         bool isShotCharge()const;
 
         void setActiveAll(bool active);
