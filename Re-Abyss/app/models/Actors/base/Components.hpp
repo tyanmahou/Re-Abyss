@@ -45,6 +45,9 @@ namespace abyss
         Components();
 
         void setup() const;
+
+        void start() const;
+
         void registTree(const std::type_index& key, const Ref<IComponent>& component) const;
 
         template<class Component>

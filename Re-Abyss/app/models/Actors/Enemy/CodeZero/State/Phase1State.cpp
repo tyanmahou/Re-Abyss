@@ -14,11 +14,11 @@ namespace abyss::CodeZero
             ->clear()
             .sleep(Param::Phase1::WaitRestart)
             .add([&]() {
-                //m_pActor->getLeftHand()->tryAttack();
+                m_parts->getLeftHand()->tryAttack();
             })
             .sleep(Param::Phase1::WaitAttack)
             .add([&]() {
-                //m_pActor->getRightHand()->tryAttack();
+                m_parts->getRightHand()->tryAttack();
             })
             .sleep(Param::Phase1::WaitRestart)
             .toStep(0)
@@ -27,10 +27,10 @@ namespace abyss::CodeZero
     void Phase1State::update([[maybe_unused]]double dt)
     {
         if (m_hp->value() <= Param::Base::Hp * 2 / 3) {
-            //if (m_pActor->getLeftHand()->isPursuit() &&
-            //    m_pActor->getRightHand()->isPursuit()) {
-            //    this->changeState<Phase2State>();
-            //}
+            if (m_parts->getLeftHand()->isPursuit() &&
+                m_parts->getRightHand()->isPursuit()) {
+                this->changeState<Phase2State>();
+            }
             return;
         }
         m_pattern->update();

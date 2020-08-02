@@ -15,35 +15,35 @@ namespace abyss::CodeZero
             ->clear()
             .sleep(Param::Phase2::WaitInit)
             .add([&]() {
-            //m_pActor->getLeftHand()->tryAttack();
+            m_parts->getLeftHand()->tryAttack();
         })
             .sleep(Param::Phase2::WaitAttack)
             .add([&]() {
-            //m_pActor->getRightHand()->tryAttack();
+            m_parts->getRightHand()->tryAttack();
         })
             .sleep(Param::Phase2::WaitAttack)
             .add([&]() {
-            //m_pActor->getLeftHand()->tryAttack();
+            m_parts->getLeftHand()->tryAttack();
         })
             .sleep(Param::Phase2::WaitDualAttack)
             .add([&]() {
-            //m_pActor->getLeftHand()->tryAttack();
-            //m_pActor->getRightHand()->tryAttack();
+            m_parts->getLeftHand()->tryAttack();
+            m_parts->getRightHand()->tryAttack();
         })
             .sleep(Param::Phase2::WaitRestart)
             .toStep(0)
             ;
 
-        //m_pActor->getLeftHand()->tryPursuit();
-        //m_pActor->getRightHand()->tryPursuit();
+        m_parts->getLeftHand()->tryPursuit();
+        m_parts->getRightHand()->tryPursuit();
     }
     void Phase2State::update([[maybe_unused]]double dt)
     {
         if (m_hp->value() <= Param::Base::Hp * 1 / 3) {
-            //if (m_pActor->getLeftHand()->isPursuit() &&
-            //    m_pActor->getRightHand()->isPursuit()) {
-            //    this->changeState<Phase3State>();
-            //}
+            if (m_parts->getLeftHand()->isPursuit() &&
+                m_parts->getRightHand()->isPursuit()) {
+                this->changeState<Phase3State>();
+            }
             return;
         }
         m_pattern->update();

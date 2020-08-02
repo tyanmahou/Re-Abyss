@@ -22,6 +22,10 @@ namespace abyss
 	{
 		m_components.setup();
 	}
+	void IActor::onStart()
+	{
+		m_components.start();
+	}
 	void IActor::update()
 	{
 		m_time->updateUpdateTime();

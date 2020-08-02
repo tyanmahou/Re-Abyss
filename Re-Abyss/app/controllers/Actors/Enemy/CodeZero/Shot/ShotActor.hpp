@@ -20,7 +20,7 @@ namespace abyss::CodeZero::Shot
         Ref<BodyModel> m_body;
         Ref<ScaleModel> m_scale;
     public:
-        ShotActor(CodeZeroActor* parent);
+        ShotActor(IActor* parent);
 
         CShape getCollider() const;
         bool accept(const ActVisitor& visitor) override;

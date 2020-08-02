@@ -30,17 +30,13 @@ namespace abyss::CodeZero
             .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
             .setIsAutoDestroy(false)
+            .setInitState<Phase1State>()
             .build();
         {
             m_hp->initHp(Param::Base::Hp);
         }
         {
             m_body->noneResistanced();
-        }
-        {
-            this->attach<StateModel>(this)
-                ->changeState<Phase1State>()
-                ;
         }
         {
             m_parts = this->attach<PartsModel>(this);

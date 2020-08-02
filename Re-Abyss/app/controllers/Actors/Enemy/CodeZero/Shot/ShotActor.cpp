@@ -19,7 +19,7 @@ namespace
 }
 namespace abyss::CodeZero::Shot
 {
-    ShotActor::ShotActor(CodeZeroActor* parent)
+    ShotActor::ShotActor(IActor* parent)
     {
         {
             this->attach<ParentCtrlModel>(parent);
@@ -40,7 +40,7 @@ namespace abyss::CodeZero::Shot
         }
         {
             (m_body = this->attach<BodyModel>(this))
-                ->initPos(parent->getPos())
+                ->initPos(parent->find<BodyModel>()->getPos())
                 .noneResistanced();
 
             this->attach<BodyUpdaterModel>(this);

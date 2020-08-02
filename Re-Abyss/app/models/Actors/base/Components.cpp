@@ -12,8 +12,14 @@ namespace abyss
     public:
         void setup()
         {
-            for (auto&& [key, com] : m_table) {
+            for (auto&& com : m_tree[typeid(IComponent)]) {
                 com->setup();
+            }
+        }
+        void start()
+        {
+            for (auto&& com : m_tree[typeid(IComponent)]) {
+                com->onStart();
             }
         }
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component)
@@ -24,6 +30,8 @@ namespace abyss
 #endif
                 return false;
             }
+            // IComponentには絶対登録
+            m_tree[typeid(IComponent)].push_back(component);
             m_table[key] = component;
             return true;
         }
@@ -88,6 +96,11 @@ namespace abyss
     void Components::setup() const
     {
         m_pImpl->setup();
+    }
+
+    void Components::start() const
+    {
+        m_pImpl->start();
     }
 
     void Components::registTree(const std::type_index& key, const Ref<IComponent>& component) const

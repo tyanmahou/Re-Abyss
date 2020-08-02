@@ -3,6 +3,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Commons/PatternModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
 
 #include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
 
@@ -13,6 +14,7 @@ namespace abyss::CodeZero
     protected:
         HPModel* m_hp;
         PatternModel* m_pattern;
+        PartsModel* m_parts;
         ViewModel<Body::BodyVM>* m_view;
     public:
         BaseState();
