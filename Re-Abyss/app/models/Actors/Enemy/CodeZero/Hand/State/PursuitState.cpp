@@ -19,7 +19,7 @@ namespace abyss::CodeZero::Hand
     }
     void PursuitState::start()
     {
-        if (m_pActor->isLeftHand()) {
+        if (m_kind->isLeftHand()) {
             if (m_parent->isPhase1() || m_parent->isPhase3()) {
                 *m_hand = HandModel::CreateLeftPhase1();
             } else {

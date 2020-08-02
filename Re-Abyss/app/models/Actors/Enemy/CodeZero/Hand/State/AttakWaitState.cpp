@@ -1,4 +1,5 @@
 #include "AttakWaitState.hpp"
+#include "AttackState.hpp"
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
@@ -17,7 +18,7 @@ namespace abyss::CodeZero::Hand
     void AttackWaitState::update(double dt)
     {
         if (m_timer.reachedZero()) {
-            this->changeState(State::Attack);
+            this->changeState<AttackState>();
             return;
         }
         m_body->update(dt);
@@ -25,7 +26,7 @@ namespace abyss::CodeZero::Hand
 
     void AttackWaitState::draw() const
     {
-        m_pActor->getBindedView()->drawAttackWait();
+        (*m_view)->drawAttackWait();
     }
 
 }

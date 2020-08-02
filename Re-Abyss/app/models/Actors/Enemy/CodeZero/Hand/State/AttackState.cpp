@@ -1,4 +1,5 @@
 #include "AttackState.hpp"
+#include "PursuitState.hpp"
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
@@ -20,7 +21,7 @@ namespace abyss::CodeZero::Hand
             *m_body,
             dt
         )){
-            this->changeState(State::Pursuit);
+            this->changeState<PursuitState>();
         }
     }
 }

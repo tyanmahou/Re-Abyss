@@ -159,7 +159,7 @@ namespace abyss::Player
         return this->region();
     }
 
-    RectF PlayerActor::region() const
+    s3d::RectF PlayerActor::region() const
     {
         return m_body->region();
     }

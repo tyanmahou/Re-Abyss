@@ -1456,5 +1456,6 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\ColliderModel.hpp" />
+    <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\KindModel.hpp" />
   </ItemGroup>
 </Project>

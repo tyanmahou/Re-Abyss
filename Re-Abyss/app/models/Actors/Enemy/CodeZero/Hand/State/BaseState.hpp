@@ -1,18 +1,30 @@
 #pragma once
-#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
+#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
+#include <abyss/models/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
 
+#include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
+
+namespace abyss::CodeZero
+{
+    class CodeZeroActor;
+}
 namespace abyss::CodeZero::Hand
 {
-    class BaseState : public IOldState<HandActor>
+    class BaseState : public IState
     {
     protected:
         CodeZeroActor* m_parent;
         BodyModel* m_body;
         RotateModel* m_rotate;
         HandModel* m_hand;
+        KindModel* m_kind;
+        ViewModel<HandVM>* m_view;
     public:
-        void update(double dt) override;
         void setup()override;
+        void update(double dt) override;
         void draw() const override;
     };
 }
