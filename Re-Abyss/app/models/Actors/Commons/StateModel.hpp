@@ -3,12 +3,13 @@
 # include <Siv3D/Uncopyable.hpp>
 # include <Siv3D/HashTable.hpp>
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
+# include <abyss/controllers/Actors/base/IActor.hpp>
 # include <abyss/models/Actors/base/IComponent.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 # include <abyss/models/Actors/base/IUpdateModel.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 # include <abyss/models/Actors/base/IDrawModel.hpp>
+# include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 
 namespace abyss
 {
@@ -38,13 +39,19 @@ namespace abyss
         virtual void end() {}
 
         virtual void draw() const {}
+
+        virtual void onReflesh() {}
+        virtual void onCollisionEnter([[maybe_unused]]IActor* pActor) {}
+        virtual void onCollisionStay([[maybe_unused]] IActor* pActor) {}
+        virtual void onCollisionExit([[maybe_unused]] IActor* pActor) {}
     };
 
     class StateModel :
         public IComponent,
         public IUpdateModel,
         public ILastUpdateModel,
-        public IDrawModel
+        public IDrawModel,
+        public ICollisionCallbackModel
     {
     private:
         using State_t = std::shared_ptr<IState>;
@@ -95,6 +102,34 @@ namespace abyss
             }
         }
 
+        void onReflesh() override
+        {
+            if (m_current) {
+                m_current->onReflesh();
+            }
+        }
+
+        void onCollisionEnter(IActor* pActor) override
+        {
+            if (m_current) {
+                m_current->onCollisionEnter(pActor);
+            }
+        }
+
+        void onCollisionStay(IActor* pActor) override
+        {
+            if (m_current) {
+                m_current->onCollisionStay(pActor);
+            }
+        }
+
+        void onCollisionExit(IActor* pActor) override
+        {
+            if (m_current) {
+                m_current->onCollisionExit(pActor);
+            }
+        }
+        
         void changeState(const std::shared_ptr<IState>& next)
         {
             m_next = next;
@@ -132,7 +167,8 @@ namespace abyss
         using Base = MultiComponents<
             IUpdateModel,
             ILastUpdateModel,
-            IDrawModel
+            IDrawModel,
+            ICollisionCallbackModel
         >;
     };
 }

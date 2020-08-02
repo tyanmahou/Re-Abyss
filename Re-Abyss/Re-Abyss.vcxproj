@@ -709,7 +709,6 @@
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\OldStateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
