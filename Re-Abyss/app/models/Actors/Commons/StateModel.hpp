@@ -81,6 +81,10 @@ namespace abyss
         {
         }
 
+        void onStart() override
+        {
+            this->stateUpdate();
+        }
         void onUpdate(double dt) override
         {
             this->stateUpdate();
