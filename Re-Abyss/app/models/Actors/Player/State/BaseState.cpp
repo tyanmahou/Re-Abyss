@@ -1,4 +1,6 @@
 #include "BaseState.hpp"
+#include "DamageState.hpp"
+
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
@@ -89,21 +91,21 @@ namespace abyss::Player
             m_attackCtrl->startAttack();
         }
     }
-    //void BaseState::onCollisionStay(IActor * col)
-    //{
-    //    col->accept(overloaded{
-    //        [this](const DoorActor& door) {
-    //            // 扉
-    //            this->onCollisionStay(door);
-    //        },
-    //    });
+    void BaseState::onCollisionStay(IActor * col)
+    {
+        col->accept(overloaded{
+            [this](const DoorActor& door) {
+                // 扉
+                this->onCollisionStay(door);
+            },
+        });
 
-    //    col->accept([this](const Attacker& attack) {
-    //        if (m_hp->damage(attack.getPower())) {
-    //            this->changeState(PlayerActor::State::Damage);
-    //        }
-    //    });
-    //}
+        col->accept([this](const Attacker& attack) {
+            if (m_hp->damage(attack.getPower())) {
+                this->changeState<DamageState>();
+            }
+        });
+    }
 
     void BaseState::lastUpdate()
     {

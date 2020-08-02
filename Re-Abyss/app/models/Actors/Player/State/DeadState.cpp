@@ -55,8 +55,8 @@ namespace abyss::Player
         view.drawStateDamage();
     }
 
-    //void DeadState::onCollisionStay([[maybe_unused]]IActor* col)
-    //{}
+    void DeadState::onCollisionStay([[maybe_unused]]IActor* col)
+    {}
 
     DeadState::DeadState()
     {}
