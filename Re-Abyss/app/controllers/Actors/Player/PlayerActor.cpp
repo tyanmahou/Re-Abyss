@@ -134,7 +134,7 @@ namespace abyss::Player
         this->getModule<UI>()->create<ui::PlayerInfo>(this);
         this->getModule<UI>()->create<ui::DyingEffect>(this);
     }
-    void PlayerActor::setPos(const Vec2& pos)
+    void PlayerActor::setPos(const s3d::Vec2& pos)
     {
         m_body->setPos(pos);
     }

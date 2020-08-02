@@ -11,7 +11,7 @@ namespace abyss::CodeZero::Hand
 
     void AttackWaitState::start()
     {
-        m_timer = ActorUtils::CreateTimer(*m_parent, HandParam::Attack::WaitTimeSec);
+        m_timer = ActorUtils::CreateTimer(*m_parent->getParent(), HandParam::Attack::WaitTimeSec);
         m_hand->startForAttackWait(*m_body);
     }
 

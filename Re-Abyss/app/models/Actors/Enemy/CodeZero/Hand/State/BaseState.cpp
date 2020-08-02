@@ -4,7 +4,7 @@ namespace abyss::CodeZero::Hand
 {
     void BaseState::setup()
     {
-        m_parent = m_pActor->find<ParentCtrlModel>()->getParent();
+        m_parent = m_pActor->find<ParentCtrlModel>().get();
         m_body = m_pActor->find<BodyModel>().get();
         m_rotate = m_pActor->find<RotateModel>().get();
         m_hand = m_pActor->find<HandModel>().get();

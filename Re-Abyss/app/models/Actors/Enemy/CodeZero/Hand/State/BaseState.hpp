@@ -16,7 +16,7 @@ namespace abyss::CodeZero::Hand
     class BaseState : public IState
     {
     protected:
-        CodeZeroActor* m_parent;
+        ParentCtrlModel* m_parent;
         BodyModel* m_body;
         RotateModel* m_rotate;
         HandModel* m_hand;
