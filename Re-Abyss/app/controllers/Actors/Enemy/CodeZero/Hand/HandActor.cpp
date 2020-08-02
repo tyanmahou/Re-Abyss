@@ -1,4 +1,4 @@
-#include "HandActor.hpp"
+//#include "HandActor.hpp"
 
 #include <abyss/models/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/models/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>

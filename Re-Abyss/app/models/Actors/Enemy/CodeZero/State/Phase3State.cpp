@@ -17,36 +17,36 @@ namespace abyss::CodeZero
             ->clear()
             .sleep(Param::Phase3::WaitRestart)
             .add([&]() {
-            m_pActor->getRightHand()->tryShotCharge();
-            m_pActor->getLeftHand()->tryShotCharge();
+            //m_pActor->getRightHand()->tryShotCharge();
+            //m_pActor->getLeftHand()->tryShotCharge();
         })
             .sleep(Param::Phase3::WaitShot)
             .add([&]() {
-            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_pActor);
+            //m_pActor->getModule<World>()->create<Shot::ShotActor>(m_pActor);
         })
             .sleep(Param::Phase3::WaitPursuit)
             .add([&]() {
-            m_pActor->getLeftHand()->tryPursuit();
-            m_pActor->getRightHand()->tryPursuit();
+            //m_pActor->getLeftHand()->tryPursuit();
+            //m_pActor->getRightHand()->tryPursuit();
         })
             .sleep(Param::Phase3::WaitInitAttack)
             .add([&]() {
-            m_pActor->getRightHand()->tryAttack();
+            //m_pActor->getRightHand()->tryAttack();
         })
             .sleep(Param::Phase3::WaitAttack)
             .add([&]() {
-            m_pActor->getLeftHand()->tryAttack();
+            //m_pActor->getLeftHand()->tryAttack();
         })
             .sleep(Param::Phase3::WaitAttack)
             .add([&]() {
-            m_pActor->getRightHand()->tryAttack();
+            //m_pActor->getRightHand()->tryAttack();
         })
             .sleep(Param::Phase3::WaitRestart)
             .toStep(3, 1)
             .toStep(0)
             ;
-        m_pActor->getRightHand()->tryShotCharge();
-        m_pActor->getLeftHand()->tryShotCharge();
+        //m_pActor->getRightHand()->tryShotCharge();
+        //m_pActor->getLeftHand()->tryShotCharge();
     }
     void Phase3State::update([[maybe_unused]]double dt)
     {

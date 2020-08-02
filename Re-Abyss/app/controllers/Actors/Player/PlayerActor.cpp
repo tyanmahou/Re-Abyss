@@ -149,7 +149,7 @@ namespace abyss::Player
         return m_body->getForward();
     }
 
-    const Vec2& PlayerActor::getPos() const
+    const s3d::Vec2& PlayerActor::getPos() const
     {
         return m_body->getPos();
     }

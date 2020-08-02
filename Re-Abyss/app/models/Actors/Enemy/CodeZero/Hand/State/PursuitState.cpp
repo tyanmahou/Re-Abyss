@@ -5,18 +5,6 @@
 
 namespace abyss::CodeZero::Hand
 {
-    void PursuitState::update(double dt)
-    {
-        m_hand->updateRotate(*m_rotate, dt);
-
-        auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();
-        m_hand->updateForPursuit(
-            playerPos,
-            m_parent->getPos(),
-            *m_body,
-            dt
-        );
-    }
     void PursuitState::start()
     {
         if (m_kind->isLeftHand()) {
@@ -35,6 +23,20 @@ namespace abyss::CodeZero::Hand
 
         m_hand->startForPursuit(*m_body);
     }
+
+    void PursuitState::update(double dt)
+    {
+        m_hand->updateRotate(*m_rotate, dt);
+
+        auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        m_hand->updateForPursuit(
+            playerPos,
+            m_parent->getPos(),
+            *m_body,
+            dt
+        );
+    }
+
     void PursuitState::lastUpdate()
     {
     }

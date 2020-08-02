@@ -23,7 +23,7 @@ namespace abyss::Player::Shot
         }
     }
 
-    void BaseState::update([[maybe_unused1]]double dt)
+    void BaseState::update([[maybe_unused]]double dt)
     {
         // 画面外判定
         if (!m_pActor->getModule<Camera>()->inScreen(m_collider->getColliderCircle())) {

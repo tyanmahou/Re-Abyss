@@ -8,6 +8,8 @@ namespace abyss::CodeZero
 }
 namespace abyss::CodeZero::Hand
 {
+    class HandModel;
+
     class HandActor :
         public IActor,
         public Attacker
