@@ -25,7 +25,10 @@ namespace abyss::CodeZero::Shot
 
     void WaitState::draw() const
     {
-        (*m_view)->drawCharge();
+        if (auto view = m_view->getBindedView()) {
+            view->drawCharge();
+            view->draw();
+        }
     }
 }
 

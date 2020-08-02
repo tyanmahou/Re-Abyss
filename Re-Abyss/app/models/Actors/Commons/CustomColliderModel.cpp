@@ -2,6 +2,12 @@
 
 namespace abyss
 {
+    void CustomColliderModel::setup()
+    {
+        if (m_pImpl) {
+            m_pImpl->setup();
+        }
+    }
     CustomColliderModel& CustomColliderModel::setImpl(std::unique_ptr<IImpl>&& impl)
     {
         m_pImpl = std::move(impl);

@@ -25,7 +25,14 @@ namespace abyss
     public:
         using IColliderModel::IColliderModel;
 
+        void setup()override;
         CustomColliderModel& setImpl(std::unique_ptr<IImpl>&& impl);
+
+        template<class Impl, class... Args>
+        CustomColliderModel& setImpl(Args&&... args)
+        {
+            return setImpl(std::make_unique<Impl>(std::forward<Args>(args)...));
+        }
 
         CustomColliderModel& setColFunc(const std::function<CShape()>& func);
 

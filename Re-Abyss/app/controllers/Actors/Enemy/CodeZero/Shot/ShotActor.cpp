@@ -16,6 +16,7 @@
 namespace
 {
     class ViewBinder;
+    class Collider;
 }
 namespace abyss::CodeZero::Shot
 {
@@ -32,14 +33,14 @@ namespace abyss::CodeZero::Shot
         {
             auto col = this->attach<CustomColliderModel>(this);
             col->setLayer(LayerGroup::Enemy);
-            col->setColFunc([this] {return this->getCollider(); });
+            col->setImpl<Collider>(this);
         }
         {
-            (m_scale = this->attach<ScaleModel>())
+            this->attach<ScaleModel>()
                 ->set(0.0);
         }
         {
-            (m_body = this->attach<BodyModel>(this))
+            this->attach<BodyModel>(this)
                 ->initPos(parent->find<BodyModel>()->getPos())
                 .noneResistanced();
 
@@ -51,10 +52,6 @@ namespace abyss::CodeZero::Shot
         }
     }
 
-    CShape ShotActor::getCollider() const
-    {
-        return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius * m_scale->get());
-    }
     bool ShotActor::accept(const ActVisitor& visitor)
     {
         bool success = visitor.visit(static_cast<Attacker&>(*this));
@@ -88,6 +85,29 @@ namespace
     public:
         ViewBinder(IActor* pActor) :
             m_pActor(pActor)
+        {}
+    };
+
+    class Collider : public CustomColliderModel::IImpl
+    {
+        IActor* m_pActor = nullptr;
+        Ref<BodyModel> m_body;
+        Ref<ScaleModel> m_scale;
+    private:
+        void setup()
+        {
+            m_body = m_pActor->find<BodyModel>();
+            m_scale = m_pActor->find<ScaleModel>();
+        }
+        CShape getCollider() const
+        {
+            return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius * m_scale->get());
+        }
+    public:
+        Collider(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+        ~Collider()
         {}
     };
 }
