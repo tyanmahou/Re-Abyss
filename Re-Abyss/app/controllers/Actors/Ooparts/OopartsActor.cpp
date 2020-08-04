@@ -2,7 +2,6 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
 #include <abyss/models/Actors/Ooparts/DrawModel.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 
 namespace abyss::Ooparts
 {
@@ -15,7 +14,7 @@ namespace abyss::Ooparts
             // ボディと追従
             auto parentBody = parent->find<BodyModel>();
             auto forward = parentBody->getForward();
-            (m_body = this->attach<BodyModel>(this))
+            this->attach<BodyModel>(this)
                 ->initPos(parentBody->getPos() + s3d::Vec2{ forward * -20, -40 })
                 .setForward(forward);
 
@@ -23,15 +22,8 @@ namespace abyss::Ooparts
         }
         {
             // 描画
+            m_view = this->attach<ViewModel<OopartsVM>>();
             this->attach<DrawModel>(this);
         }
     }
-
-    void OopartsActor::start()
-    {
-        if (auto* view = this->getBindedView()) {
-            view->setManager(m_pManager);
-        }
-    }
-
 }

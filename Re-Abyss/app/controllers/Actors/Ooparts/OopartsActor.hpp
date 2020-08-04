@@ -1,22 +1,19 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Ooparts
 {
-    class DrawModel;
-
     class OopartsVM;
 
     class OopartsActor:
         public IActor
     {
     protected:
-        Ref<BodyModel> m_body;
+        Ref<ViewModel<OopartsVM>> m_view;
 
     public:
         OopartsActor(IActor* parent);
-
-        void start() override;
-        virtual OopartsVM* getBindedView() const = 0;
     };
 }
