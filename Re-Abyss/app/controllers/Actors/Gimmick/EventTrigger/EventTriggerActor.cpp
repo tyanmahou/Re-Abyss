@@ -1,19 +1,11 @@
 #include "EventTriggerActor.hpp"
-#include <abyss/controllers/System/System.hpp>
-#include <abyss/services/Event/Talk/TalkService.hpp>
+#include <abyss/models/Actors/Gimmick/EventTrigger/MainModel.hpp>
 
 namespace abyss::EventTrigger
 {
-    EventTriggerActor::EventTriggerActor(const s3d::FilePath& path):
-        m_path(path)
+    EventTriggerActor::EventTriggerActor(const s3d::FilePath& path)
     {
-
-    }
-    void EventTriggerActor::start()
-    {
-        auto event = Event::Talk::TalkService{}.load(m_path);
-        this->getModule<Events>()->regist(event);
-        this->destroy();
+        this->attach<MainModel>(this, path);
     }
     bool EventTriggerActor::accept(const ActVisitor& visitor)
     {
