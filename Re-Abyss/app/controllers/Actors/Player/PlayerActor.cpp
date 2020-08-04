@@ -22,8 +22,6 @@
 
 #include <abyss/controllers/Manager/Manager.hpp>
 
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
 namespace
 {
@@ -124,13 +122,6 @@ namespace abyss::Player
         }
 #endif
         m_order = 10;
-    }
-    void PlayerActor::start()
-    {
-        m_pManager->set(this);
-        // todo 切り替え可能に
-        std::shared_ptr<Ooparts::OopartsActor> main = this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
-        this->find<OopartsCtrlModel>()->setMain(main);
     }
     void PlayerActor::setPos(const s3d::Vec2& pos)
     {

@@ -21,6 +21,7 @@ namespace abyss::Player
         OopartsCtrlModel(IActor* pActor);
 
         void setup() override;
+        void onStart() override;
 
         OopartsCtrlModel& setMain(const Ref<Ooparts::OopartsActor>& main);
 

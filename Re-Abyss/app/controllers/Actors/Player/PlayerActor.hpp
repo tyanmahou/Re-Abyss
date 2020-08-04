@@ -24,7 +24,6 @@ namespace abyss::Player
         Ref<HPModel> m_hp;
     public:
         PlayerActor();
-        void start()override;
 
         CShape getCollider() const;
 

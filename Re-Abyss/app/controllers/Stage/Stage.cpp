@@ -167,6 +167,8 @@ namespace abyss
         s3d::Optional<RoomModel> nextRoom;
         // World初期化
         {
+            // プレイヤーを登録
+            m_pManager->set(player.get());
             auto world = m_pManager->getModule<World>();
             world->create<God::GodActor>();
             world->regist(player);

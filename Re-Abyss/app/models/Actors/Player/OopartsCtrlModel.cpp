@@ -1,11 +1,14 @@
 #include "OopartsCtrlModel.hpp"
+#include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
+#include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 #include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
 #include <abyss/models/Actors/Ooparts/DrawModel.hpp>
+
 
 namespace abyss::Player
 {
@@ -16,6 +19,11 @@ namespace abyss::Player
     {
         m_attackCtrl = m_pActor->find<AttackCtrlModel>();
         m_body = m_pActor->find<BodyModel>();
+    }
+    void OopartsCtrlModel::onStart()
+    {
+        std::shared_ptr<Ooparts::OopartsActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::XtoActor>(m_pActor);
+        this->setMain(main);
     }
     OopartsCtrlModel& Player::OopartsCtrlModel::setMain(const Ref<Ooparts::OopartsActor> & main)
     {
