@@ -14,7 +14,6 @@ namespace abyss::Player::Shot
 	{
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward, double charge);
-		void start() override;
 
 		bool accept(const ActVisitor& visitor) override;
 	};

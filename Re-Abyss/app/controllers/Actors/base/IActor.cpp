@@ -22,7 +22,7 @@ namespace abyss
 	{
 		m_components.setup();
 	}
-	void IActor::onStart()
+	void IActor::start()
 	{
 		m_components.start();
 	}

@@ -54,8 +54,6 @@ namespace abyss::Player::Shot
 		}
 		m_power = shot->toPower();
 	}
-	void ShotActor::start()
-	{}
 
 	bool ShotActor::accept(const ActVisitor& visitor)
 	{

@@ -40,8 +40,7 @@ namespace abyss
 		void updateDeltaTime(double worldDt) const;
 		void setup() const;
 
-		void onStart();
-		virtual void start() {}
+		void start();
 		void update();
 		void move();
 		void prePhysics();

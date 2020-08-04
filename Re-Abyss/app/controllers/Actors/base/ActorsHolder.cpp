@@ -15,7 +15,6 @@ namespace abyss
 			for (auto& obj : registing) {
 				obj->setup();
 				obj->start();
-				obj->onStart(); // あとでstartにかえます
 				m_actors.push_back(std::move(obj));
 			}
 			m_actors.sort_by([](const std::shared_ptr<IActor>& a, const std::shared_ptr<IActor>& b) {
