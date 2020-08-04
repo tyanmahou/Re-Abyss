@@ -974,6 +974,9 @@
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\PartsModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Actors\Player\UICtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1461,5 +1464,6 @@
     <ClInclude Include="app\models\Actors\Player\Shot\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\KindModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\PartsModel.hpp" />
+    <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
   </ItemGroup>
 </Project>

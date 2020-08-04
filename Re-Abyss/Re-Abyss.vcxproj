@@ -223,6 +223,7 @@
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\Shot\ColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\State\DeadState.cpp" />
+    <ClCompile Include="app\models\Actors\Player\UICtrlModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
@@ -563,6 +564,7 @@
     <ClInclude Include="app\models\Actors\Player\RoomMoveCheckerModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\ColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
+    <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />

@@ -5,6 +5,7 @@
 #include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
 #include <abyss/models/Actors/Player/RestartCtrlModel.hpp>
 #include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
+#include <abyss/models/Actors/Player/UICtrlModel.hpp>
 #include <abyss/models/Actors/Player/DebugCtrlModel.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
@@ -23,10 +24,6 @@
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
-
-#include <abyss/controllers/UI/UI.hpp>
-#include <abyss/controllers/UI/PlayerInfo/PlayerInfo.hpp>
-#include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
 
 namespace
 {
@@ -91,7 +88,7 @@ namespace abyss::Player
         }
         {
             this->attach<BreathingModel>(this)
-                ->setOffset(Vec2{0, -20});
+                ->setOffset(s3d::Vec2{0, -20});
         }
         // カメラによる座標調整
         {
@@ -116,6 +113,10 @@ namespace abyss::Player
             this->attach<ViewModel<PlayerVM>>()
                 ->createBinder<ViewBinder>(this);
         }
+        // UI制御
+        {
+            this->attach<UICtrlModel>(this);
+        }
 #if ABYSS_DEBUG
         // デバッグ制御
         {
@@ -130,9 +131,6 @@ namespace abyss::Player
         // todo 切り替え可能に
         std::shared_ptr<Ooparts::OopartsActor> main = this->getModule<World>()->create<Ooparts::Xto::XtoActor>(this);
         this->find<OopartsCtrlModel>()->setMain(main);
-
-        this->getModule<UI>()->create<ui::PlayerInfo>(this);
-        this->getModule<UI>()->create<ui::DyingEffect>(this);
     }
     void PlayerActor::setPos(const s3d::Vec2& pos)
     {
