@@ -62,16 +62,18 @@ namespace
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
         Ref<RotateModel> m_rotate;
+
+        std::unique_ptr<IkalienVM> m_view;
     private:
-        IkalienVM* bind(IkalienVM* view) const
+        IkalienVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setRotate(m_rotate->getRotate())
                 .setIsDamaging(m_hp->isInInvincibleTime());
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
@@ -79,7 +81,8 @@ namespace
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<IkalienVM>())
         {}
     };
 }

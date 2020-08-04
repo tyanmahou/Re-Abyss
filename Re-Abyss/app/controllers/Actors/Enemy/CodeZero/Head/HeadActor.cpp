@@ -75,22 +75,24 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<HeadModel> m_head;
         Ref<HPModel> m_hp;
+        std::unique_ptr<HeadVM> m_view;
     private:
-        HeadVM* bind(HeadVM* view) const
+        HeadVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_head->getPos())
                 .setForward(m_head->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime());
         }
-        void setup() override
+        void setup() final
         {
             m_head = m_pActor->find<HeadModel>();
             m_hp = m_pActor->find<ParentCtrlModel>()->getHp();
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<HeadVM>())
         {}
     };
 }

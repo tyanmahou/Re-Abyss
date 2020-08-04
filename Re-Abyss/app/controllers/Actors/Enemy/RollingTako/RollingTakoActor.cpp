@@ -59,23 +59,26 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
+
+        std::unique_ptr<RollingTakoVM> m_view;
     private:
-        RollingTakoVM* bind(RollingTakoVM* view) const
+        RollingTakoVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime())
                 ;
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<RollingTakoVM>())
         {}
     };
 }

@@ -14,15 +14,12 @@ namespace abyss
             virtual ~IBinder() = default;
 
             virtual void setup() = 0;
-            virtual View* bind(View* view) const = 0;
+            virtual View* bind() const = 0;
         };
     private:
-        std::unique_ptr<View> m_view;
         std::unique_ptr<IBinder> m_binder;
     public:
-        template<class...Args>
-        ViewModel(Args&&... args) :
-            m_view(std::make_unique<View>(std::forward<Args>(args)...))
+        ViewModel()
         {
 
         }
@@ -44,13 +41,10 @@ namespace abyss
 
         View* getBindedView() const
         {
-            if (!m_view) {
+            if (!m_binder) {
                 return nullptr;
             }
-            if (!m_binder) {
-                return m_view.get();
-            }
-            return m_binder->bind(m_view.get());
+            return m_binder->bind();
         }
 
         View* operator ->() const

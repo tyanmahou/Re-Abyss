@@ -54,8 +54,8 @@ namespace abyss::CodeZero::Hand
             m_hand = this->attach<HandModel>();
         }
         {
-            this->attach<ViewModel<HandVM>>(forward)
-                ->createBinder<ViewBinder>(this);
+            this->attach<ViewModel<HandVM>>()
+                ->createBinder<ViewBinder>(this, forward);
         }
     }
 
@@ -117,22 +117,24 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<RotateModel> m_rotate;
+        std::unique_ptr<HandVM> m_view;
     private:
-        HandVM* bind(HandVM* view) const
+        HandVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 ;
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_rotate = m_pActor->find<RotateModel>();
         }
     public:
-        ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+        ViewBinder(IActor* pActor, Forward forward) :
+            m_pActor(pActor),
+            m_view(std::make_unique<HandVM>(forward))
         {}
     };
 }

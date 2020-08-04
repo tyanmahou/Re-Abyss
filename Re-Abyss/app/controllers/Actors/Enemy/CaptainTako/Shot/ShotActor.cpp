@@ -87,21 +87,23 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
+        std::unique_ptr<ShotVM> m_view;
     private:
-        ShotVM* bind(ShotVM* view) const
+        ShotVM* bind() const final
         {
-            return &view
+            return &m_view
                 ->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward());
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<ShotVM>())
         {}
     };
 }

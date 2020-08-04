@@ -188,10 +188,12 @@ namespace
         Ref<HPModel> m_hp;
         Ref<ChargeModel> m_charge;
         Ref<AttackCtrlModel> m_attackCtrl;
+
+        std::unique_ptr<PlayerVM> m_view;
     private:
-        PlayerVM* bind(PlayerVM* view) const
+        PlayerVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setForward(m_body->getForward())
@@ -201,7 +203,7 @@ namespace
                 .setManager(m_pActor->getManager())
                 ;
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
@@ -210,7 +212,8 @@ namespace
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<PlayerVM>())
         {}
     };
 }

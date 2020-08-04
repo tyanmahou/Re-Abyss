@@ -70,21 +70,23 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<ScaleModel> m_scale;
+        std::unique_ptr<ShotVM> m_view;
     private:
-        ShotVM* bind(ShotVM* view) const
+        ShotVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setScale(m_scale->get());
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_scale = m_pActor->find<ScaleModel>();
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<ShotVM>())
         {}
     };
 
@@ -94,12 +96,12 @@ namespace
         Ref<BodyModel> m_body;
         Ref<ScaleModel> m_scale;
     private:
-        void setup()
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_scale = m_pActor->find<ScaleModel>();
         }
-        CShape getCollider() const
+        CShape getCollider() const final
         {
             return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius * m_scale->get());
         }

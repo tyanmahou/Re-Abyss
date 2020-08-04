@@ -108,16 +108,18 @@ namespace
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
         Ref<RotateModel> m_rotate;
+
+        std::unique_ptr<ShotVM> m_view;
     private:
-        ShotVM* bind(ShotVM* view) const
+        ShotVM* bind() const final
         {
-            return &view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 .setIsDamaging(m_hp->isInInvincibleTime())
                 ;
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
@@ -125,7 +127,8 @@ namespace
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<ShotVM>())
         {}
     };
 }

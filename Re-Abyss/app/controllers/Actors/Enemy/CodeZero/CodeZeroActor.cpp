@@ -72,18 +72,20 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
+        std::unique_ptr<Body::BodyVM> m_view;
     private:
-        Body::BodyVM* bind(Body::BodyVM* view) const
+        Body::BodyVM* bind() const final
         {
-            return &view->setPos(m_body->getPos());
+            return &m_view->setPos(m_body->getPos());
         }
-        void setup() override
+        void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
         }
     public:
         ViewBinder(IActor* pActor) :
-            m_pActor(pActor)
+            m_pActor(pActor),
+            m_view(std::make_unique<Body::BodyVM>())
         {}
     };
 }

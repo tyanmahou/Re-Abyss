@@ -43,8 +43,8 @@ namespace abyss::Player::Shot
 			this->attach<DeadCheckerModel>(this);
 		}
 		{
-			this->attach<ViewModel<ShotVM>>(*shot, forward)
-				->createBinder<ViewBinder>(this);
+			this->attach<ViewModel<ShotVM>>()
+				->createBinder<ViewBinder>(this, *shot, forward);
 		}
 
 		{
@@ -74,10 +74,11 @@ namespace
 	{
 		IActor* m_pActor = nullptr;
 		Ref<BodyModel> m_body;
+		std::unique_ptr<ShotVM> m_view;
 	private:
-		ShotVM* bind(ShotVM* view) const
+		ShotVM* bind() const final
 		{
-			return &view
+			return &m_view
 				->setTime(m_pActor->getDrawTimeSec())
 				.setPos(m_body->getPos())
 				.setManager(m_pActor->getManager());
@@ -87,8 +88,9 @@ namespace
 			m_body = m_pActor->find<BodyModel>();
 		}
 	public:
-		ViewBinder(IActor* pActor) :
-			m_pActor(pActor)
+		ViewBinder(IActor* pActor, const PlayerShotModel& shot, Forward forward) :
+			m_pActor(pActor),
+			m_view(std::make_unique<ShotVM>(shot, forward))
 		{}
 	};
 }
