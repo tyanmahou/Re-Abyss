@@ -79,9 +79,7 @@ namespace abyss::LaunShark::Shot
                 ->createBinder<ViewBinder>(this);
         }
     }
-    void ShotActor::start()
-    {    
-    }
+
     CShape ShotActor::getCollider() const
     {
         return this->getColliderQuad();

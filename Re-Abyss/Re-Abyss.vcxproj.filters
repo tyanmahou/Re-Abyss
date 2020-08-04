@@ -497,9 +497,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\Schield\SchieldActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClCompile>
@@ -977,6 +974,9 @@
     <ClCompile Include="app\models\Actors\Player\UICtrlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1266,7 +1266,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Schield\SchieldActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClInclude>
@@ -1465,5 +1464,6 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\KindModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\PartsModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
   </ItemGroup>
 </Project>

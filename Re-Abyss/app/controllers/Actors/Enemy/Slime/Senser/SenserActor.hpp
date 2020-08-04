@@ -6,11 +6,11 @@ namespace abyss::Slime
 {
 	class SlimeActor;
 
-    class Senser : public IActor
+    class SenserActor : public IActor
     {
 		Ref<BodyModel> m_body;
 	public:
-		Senser(SlimeActor* p);
+		SenserActor(SlimeActor* p);
 
 		const s3d::Vec2& getPos() const;
     };

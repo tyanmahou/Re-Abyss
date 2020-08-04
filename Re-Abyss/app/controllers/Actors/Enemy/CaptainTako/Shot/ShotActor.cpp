@@ -60,11 +60,6 @@ namespace abyss::CaptainTako::Shot
         m_power = 1;
     }
 
-    void ShotActor::start()
-    {
-    
-    }
-
     CShape ShotActor::getCollider() const
     {
         return this->getColliderCircle();

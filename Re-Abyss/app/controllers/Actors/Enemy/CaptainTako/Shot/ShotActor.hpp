@@ -16,7 +16,6 @@ namespace abyss::CaptainTako::Shot
     public:
         ShotActor(const s3d::Vec2& pos, Forward forward);
 
-        void start() override;
         CShape getCollider() const;
 
         s3d::Circle getColliderCircle() const;

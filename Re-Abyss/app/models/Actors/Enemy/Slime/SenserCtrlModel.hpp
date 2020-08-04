@@ -1,16 +1,20 @@
 #pragma once
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Slime
 {
-    class Senser;
+    class SlimeActor;
+    class SenserActor;
 
     class SenserCtrlModel : public IComponent
     {
-        Ref<Senser> m_senser;
+        SlimeActor* m_pActor;
+        Ref<SenserActor> m_senser;
     public:
-        void set(std::shared_ptr<Senser> senser);
+        SenserCtrlModel(SlimeActor* pActor);
+        void onStart() override;
 
         void destroy();
     };

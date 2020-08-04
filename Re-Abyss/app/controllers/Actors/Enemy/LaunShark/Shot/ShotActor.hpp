@@ -16,7 +16,6 @@ namespace abyss::LaunShark::Shot
 		Ref<RotateModel> m_rotate;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);
-		void start() override;
 		CShape getCollider() const;
 		s3d::Quad getColliderQuad() const;
 

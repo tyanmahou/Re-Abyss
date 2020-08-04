@@ -25,7 +25,6 @@ namespace abyss
 
 			EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
-			void start() override;
 			const s3d::Vec2& getPos()const;
 			const s3d::Vec2& getVelocity()const;
 

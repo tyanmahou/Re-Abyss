@@ -1,7 +1,5 @@
 #include "SlimeActor.hpp"
-#include "Senser/Senser.hpp"
 
-#include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
@@ -41,16 +39,10 @@ namespace abyss::Slime
 		}
 
 		this->attach<DeadCallbackModel>(this);
-		this->attach<SenserCtrlModel>();
+		this->attach<SenserCtrlModel>(this);
 
 		this->attach<ViewModel<SlimeVM>>()
 			->createBinder<ViewBinder>(this);
-	}
-
-	void SlimeActor::start()
-	{
-		auto m_senser = getModule<World>()->create<Senser>(this);
-		this->find<SenserCtrlModel>()->set(m_senser);
 	}
 
 	bool SlimeActor::accept(const ActVisitor& visitor)

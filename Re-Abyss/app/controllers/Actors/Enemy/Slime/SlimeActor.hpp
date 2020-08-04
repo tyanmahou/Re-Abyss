@@ -20,7 +20,6 @@ namespace abyss::Slime
 	public:
 		SlimeActor(const SlimeEntity& entity);
 
-		void start()override;
 		bool accept(const ActVisitor& visitor) override;
 
 		bool isWalk()const;

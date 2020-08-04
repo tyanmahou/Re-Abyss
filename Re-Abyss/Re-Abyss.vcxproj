@@ -327,7 +327,7 @@
     <ClCompile Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Schield\State\WaitState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.cpp" />
+    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp" />
     <ClCompile Include="app\models\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\BackGround\BackGround.cpp" />
@@ -648,7 +648,7 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\Senser.hpp" />
+    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp" />
     <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />

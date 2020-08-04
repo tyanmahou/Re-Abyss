@@ -1,11 +1,16 @@
 #include "SenserCtrlModel.hpp"
-#include <abyss/controllers/Actors/Enemy/Slime/Senser/Senser.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
+#include <abyss/controllers/Actors/Enemy/Slime/Senser/SenserActor.hpp>
+#include <abyss/controllers/World/World.hpp>
 
 namespace abyss::Slime
 {
-    void SenserCtrlModel::set(std::shared_ptr<Senser> senser)
+    SenserCtrlModel::SenserCtrlModel(SlimeActor* pActor):
+        m_pActor(pActor)
+    {}
+    void SenserCtrlModel::onStart()
     {
-        m_senser = senser;
+        m_senser = m_pActor->getModule<World>()->create<SenserActor>(m_pActor);
     }
 
     void SenserCtrlModel::destroy()

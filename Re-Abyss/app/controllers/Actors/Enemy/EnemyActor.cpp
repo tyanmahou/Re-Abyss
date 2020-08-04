@@ -12,8 +12,6 @@ namespace abyss::Enemy
 			.setForward(forward)
 			;
 	}
-	void EnemyActor::start()
-	{}
 	const s3d::Vec2& EnemyActor::getPos() const
 	{
 		return m_body->getPos();
