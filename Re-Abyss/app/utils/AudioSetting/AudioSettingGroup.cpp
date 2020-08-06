@@ -64,6 +64,27 @@ namespace abyss
                 m_audios[key] = audio;
             }
         }
+
+        auto begin()
+        {
+            return m_audios.begin();
+        }
+        auto end()
+        {
+            return m_audios.end();
+        }
+        auto cbegin() const
+        {
+            return m_audios.cbegin();
+        }
+        auto cend() const
+        {
+            return m_audios.cend();
+        }
+        auto size() const
+        {
+            return m_audios.size();
+        }
     };
     AudioSettingGroup::AudioSettingGroup(const s3d::FilePath& path):
         m_pImpl(std::make_shared<Impl>(path))
@@ -83,6 +104,26 @@ namespace abyss
     bool AudioSettingGroup::isContain(const s3d::String& key) const
     {
         return m_pImpl->isContain(key);
+    }
+    AudioSettingGroup::iterator AudioSettingGroup::begin() const
+    {
+        return m_pImpl->begin();
+    }
+    AudioSettingGroup::iterator AudioSettingGroup::end() const
+    {
+        return m_pImpl->end();
+    }
+    AudioSettingGroup::const_iterator AudioSettingGroup::cbegin() const
+    {
+        return m_pImpl->cbegin();
+    }
+    AudioSettingGroup::const_iterator AudioSettingGroup::cend() const
+    {
+        return m_pImpl->cend();
+    }
+    std::size_t AudioSettingGroup::size() const
+    {
+        return m_pImpl->size();
     }
     void AudioSettingGroup::Impl::merge(const s3d::FilePath& aase)
     {
