@@ -177,6 +177,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />
@@ -485,6 +486,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />

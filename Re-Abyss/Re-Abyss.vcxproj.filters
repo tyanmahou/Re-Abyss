@@ -980,6 +980,9 @@
     <ClCompile Include="app\models\Actors\Gimmick\EventTrigger\MainModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1469,5 +1472,6 @@
     <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\EventTrigger\MainModel.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
   </ItemGroup>
 </Project>
