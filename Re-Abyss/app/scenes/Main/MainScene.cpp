@@ -20,7 +20,7 @@ namespace
 }
 namespace abyss
 {
-	class MainScene::Controller : 
+	class MainScene::Impl :
 		public IMasterObserver
 	{
 		std::unique_ptr<System> m_system;
@@ -34,7 +34,7 @@ namespace abyss
 		Debug::HotReload m_reloader;
 #endif
 	public:
-		Controller([[maybe_unused]] const MainScene::InitData& init):
+		Impl([[maybe_unused]] const MainScene::InitData& init):
 			m_saveData(std::make_shared<SaveData>())
 		{
 			mapName = U"stage0";
@@ -118,7 +118,7 @@ namespace abyss
 
 	MainScene::MainScene(const InitData& init) :
 		ISceneBase(init),
-		m_pImpl(std::make_unique<Controller>(init))
+		m_pImpl(std::make_unique<Impl>(init))
 	{}
 
 	void MainScene::update()

@@ -1,10 +1,13 @@
 #include "Game.hpp"
 
-#include <abyss/scenes/Main/MainScene.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
-#include <abyss/debugs/Log/Log.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
+
+#include <abyss/scenes/Main/MainScene.hpp>
+#include <abyss/scenes/Title/TitleScene.hpp>
+
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss
 {
@@ -13,6 +16,7 @@ namespace abyss
 		AppScene m_scene;
 		void registerScene()
 		{
+			m_scene.add<TitleScene>(SceneName::Title);
 			m_scene.add<MainScene>(SceneName::Main);
 		}
 

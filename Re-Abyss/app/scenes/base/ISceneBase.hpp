@@ -1,4 +1,4 @@
-﻿# pragma once
+# pragma once
 # include<Siv3D.hpp>
 
 namespace abyss
@@ -33,6 +33,7 @@ namespace abyss
     {
 #define ABYSS_SCENE_NAME(name) inline constexpr auto name = U#name
 
+        ABYSS_SCENE_NAME(Title);
         ABYSS_SCENE_NAME(Main);
 
 #undef ABYSS_SCENE_NAME
