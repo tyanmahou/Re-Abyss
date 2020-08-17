@@ -986,6 +986,9 @@
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Splash\SplashScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1477,5 +1480,6 @@
     <ClInclude Include="app\models\Actors\Gimmick\EventTrigger\MainModel.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
+    <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
   </ItemGroup>
 </Project>

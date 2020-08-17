@@ -33,6 +33,7 @@ namespace abyss
     {
 #define ABYSS_SCENE_NAME(name) inline constexpr auto name = U#name
 
+        ABYSS_SCENE_NAME(Splash);
         ABYSS_SCENE_NAME(Title);
         ABYSS_SCENE_NAME(Main);
 

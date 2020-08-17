@@ -229,6 +229,7 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
+    <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />
     <ClCompile Include="app\scenes\Title\TitleScene.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
@@ -576,6 +577,7 @@
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
+    <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
