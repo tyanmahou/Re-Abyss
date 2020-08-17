@@ -17,15 +17,16 @@ namespace abyss
 		AppScene m_scene;
 		void registerScene()
 		{
-			m_scene.add<SplashScene>(SceneName::Splash);
-			m_scene.add<TitleScene>(SceneName::Title);
+			//m_scene.add<SplashScene>(SceneName::Splash);
+			//m_scene.add<TitleScene>(SceneName::Title);
 			m_scene.add<MainScene>(SceneName::Main);
 		}
 
 		void loadFont()
 		{
-			FontAsset::Register(U"serif", 20, U"resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
-			FontAsset::Register(U"serifName", 17, U"resources/fonts/PixelMplus12-Bold.ttf", FontStyle::BoldBitmap);
+			// フォントはデバッグモードでもリソースに入れてます
+			FontAsset::Register(U"serif", 20, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
+			FontAsset::Register(U"serifName", 17, U"/resources/fonts/PixelMplus12-Bold.ttf", FontStyle::BoldBitmap);
 		}
 	public:
 		Impl()

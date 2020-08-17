@@ -58,7 +58,8 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //////////////////////////////////////////////////////
 
 #if ABYSS_DEBUG
-
+Resource(resources/fonts/PixelMplus12-Bold.ttf)
+Resource(resources/fonts/PixelMplus12-Regular.ttf)
 #else
 Resource(resources/events/stage0/boss.json)
 Resource(resources/fonts/PixelMplus12-Bold.ttf)
