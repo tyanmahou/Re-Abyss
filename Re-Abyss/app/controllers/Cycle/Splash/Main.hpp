@@ -2,6 +2,11 @@
 
 namespace abyss::Cycle::Splash
 {
+    namespace Logo
+    {
+        class Logo;
+    }
+
     class IMainObserver
     {
     public:
@@ -12,6 +17,8 @@ namespace abyss::Cycle::Splash
     class Main
     {
         IMainObserver* m_observer;
+
+        std::unique_ptr<Logo::Logo> m_logo;
     public:
         Main(IMainObserver* observer);
 
