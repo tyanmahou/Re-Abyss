@@ -1,8 +1,11 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::cycle::splash
+namespace abyss::Cycle::Splash
 {
+    /// <summary>
+    /// スプラッシュロゴ
+    /// </summary>
     class LogoVM
     {
     private:
