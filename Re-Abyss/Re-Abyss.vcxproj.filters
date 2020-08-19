@@ -989,6 +989,9 @@
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1481,5 +1484,6 @@
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
+    <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
   </ItemGroup>
 </Project>
