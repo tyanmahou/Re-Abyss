@@ -9,6 +9,9 @@ namespace abyss::Cycle::Splash
         m_logo(std::make_unique<Logo::Logo>())
     {}
 
+    Main::~Main()
+    {}
+
     void Main::update()
     {
         if (InputManager::Start.down() || m_logo->isEnd()) {

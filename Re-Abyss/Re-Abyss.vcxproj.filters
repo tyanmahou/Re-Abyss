@@ -995,6 +995,12 @@
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1489,5 +1495,8 @@
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
+    <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
+    <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
   </ItemGroup>
 </Project>

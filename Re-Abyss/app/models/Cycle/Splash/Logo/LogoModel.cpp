@@ -4,7 +4,7 @@
 namespace abyss::Cycle::Splash::Logo
 {
     LogoModel::LogoModel():
-        m_timer(1s, true)
+        m_timer(3s, true)
     {}
 
     double LogoModel::time0_1() const

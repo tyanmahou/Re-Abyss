@@ -12,6 +12,7 @@ namespace abyss::Cycle::Splash::Logo
         std::unique_ptr<LogoVM> m_view;
     public:
         Logo();
+        ~Logo();
 
         bool isEnd() const;
         void draw()const;

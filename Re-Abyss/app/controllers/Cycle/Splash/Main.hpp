@@ -21,6 +21,7 @@ namespace abyss::Cycle::Splash
         std::unique_ptr<Logo::Logo> m_logo;
     public:
         Main(IMainObserver* observer);
+        ~Main();
 
         void update();
 

@@ -26,16 +26,17 @@ namespace abyss
 		std::unique_ptr<System> m_system;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<SaveData> m_saveData;
-		ResourceManager m_resources;
 
 		String mapName;
 
+		std::shared_ptr<Data_t> m_data;
 #if ABYSS_DEBUG
 		Debug::HotReload m_reloader;
 #endif
 	public:
 		Impl([[maybe_unused]] const MainScene::InitData& init):
-			m_saveData(std::make_shared<SaveData>())
+			m_saveData(std::make_shared<SaveData>()),
+			m_data(init._s)
 		{
 			mapName = U"stage0";
 #if ABYSS_DEBUG
@@ -54,10 +55,10 @@ namespace abyss
 
 		void reload()
 		{
-			this->m_resources.release();
+			this->m_data->m_resource.release();
 			{
 				// リロード時はリソースを直で
-				m_resources.setIsBuilded(false);
+				this->m_data->m_resource.setIsBuilded(false);
 				this->init(true);
 			}
 		}
@@ -71,7 +72,7 @@ namespace abyss
 			m_stageData = StageDataFactory::CreateFromTmx(mapName);
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
-			::PreloadResourece(m_resources);
+			::PreloadResourece(this->m_data->m_resource);
 			if (player) {
 				m_system->init(player);
 			} else {

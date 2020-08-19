@@ -11,6 +11,9 @@ namespace abyss::Cycle::Splash::Logo
         m_view(std::make_unique<LogoVM>())
     {}
 
+    Logo::~Logo()
+    {}
+
     bool Logo::isEnd() const
     {
         return m_model->isEnd();
