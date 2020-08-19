@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Cycle::Splash
+namespace abyss::Cycle::Splash::Logo
 {
     /// <summary>
     /// スプラッシュロゴ

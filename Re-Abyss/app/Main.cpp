@@ -1,6 +1,7 @@
 
 #include <abyss/commons/Application/MainApp.hpp>
 #include "StaticLibs.hpp"
+#include "controllers\Cycle\Splash\Main.hpp"
 
 import abyss.tests;
 

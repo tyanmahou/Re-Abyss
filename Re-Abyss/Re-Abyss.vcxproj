@@ -185,6 +185,7 @@
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
+    <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
     <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp" />
     <ClCompile Include="app\controllers\Event\GameReady\GameReady.cpp" />
     <ClCompile Include="app\controllers\Event\GameRestart\GameRestart.cpp" />
@@ -510,6 +511,7 @@
     <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
     <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\GamePause\GamePause.hpp" />
     <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
@@ -574,6 +576,7 @@
     <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
+    <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />

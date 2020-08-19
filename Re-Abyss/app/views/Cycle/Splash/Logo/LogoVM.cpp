@@ -2,7 +2,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::Splash
+namespace abyss::Cycle::Splash::Logo
 {
     LogoVM::LogoVM():
         m_texture(ResourceManager::Main()->loadTexture(U"cycle/splash/logo.png"))
