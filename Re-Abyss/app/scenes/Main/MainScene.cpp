@@ -15,7 +15,7 @@ namespace
 	using namespace abyss;
 	void PreloadResourece(const ResourceManager& resource)
 	{
-		Resource::Prelaod::LoadToml(resource);
+		Resource::Prelaod::LoadActorToml(resource);
 	}
 }
 namespace abyss

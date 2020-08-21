@@ -28,7 +28,7 @@ namespace abyss::Resource::Prelaod
 		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
 	}
 
-	void LoadToml(const ResourceManager& resource)
+	void LoadActorToml(const ResourceManager& resource)
     {
 		// Player
 		resource.loadToml<Player::Param>(U"Actors/Player/param.toml");
