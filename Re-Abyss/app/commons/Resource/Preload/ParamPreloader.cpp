@@ -1,5 +1,9 @@
 #include "ParamPreloader.hpp"
 
+// Splash
+#include <abyss/params/Cycle/Splash/Param.hpp>
+
+// Actors
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
@@ -19,7 +23,12 @@
 
 namespace abyss::Resource::Prelaod
 {
-    void LoadToml(const ResourceManager& resource)
+	void LoadSplashToml(const ResourceManager& resource)
+	{
+		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
+	}
+
+	void LoadToml(const ResourceManager& resource)
     {
 		// Player
 		resource.loadToml<Player::Param>(U"Actors/Player/param.toml");

@@ -1498,5 +1498,6 @@
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
+    <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
   </ItemGroup>
 </Project>

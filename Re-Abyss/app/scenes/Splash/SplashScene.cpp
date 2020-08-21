@@ -1,4 +1,5 @@
 #include "SplashScene.hpp"
+#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 #include <abyss/controllers/Cycle/Splash/Main.hpp>
 
 namespace abyss
@@ -9,10 +10,16 @@ namespace abyss
         std::unique_ptr<Cycle::Splash::Main> m_main;
 
         std::function<void()> m_changeTitleSceneFunc;
+
+        std::shared_ptr<Data_t> m_data;
     public:
         Impl([[maybe_unused]]const InitData& init):
-            m_main(std::make_unique<Cycle::Splash::Main>(this))
-        {}
+            m_data(init._s)
+        {
+            Resource::Prelaod::LoadSplashToml(m_data->m_resource);
+
+            m_main = std::make_unique<Cycle::Splash::Main>(this);
+        }
 
         void update()
         {
