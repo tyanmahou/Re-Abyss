@@ -9,7 +9,7 @@ namespace abyss
 
         virtual void setup() {}
 
-        virtual void onStart() {};
+        virtual void onStart() {}
     };
 
     template <class ... Args>
