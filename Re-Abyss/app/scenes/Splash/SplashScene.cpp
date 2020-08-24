@@ -46,7 +46,7 @@ namespace abyss
         m_pImpl(std::make_unique<Impl>(init))
     {
         m_pImpl->bindChangeTitleScene([this] {
-            // TODO Titleに変更
+            // TODO OpDemoに変更
             this->changeScene(SceneName::Main);
         });
     }
