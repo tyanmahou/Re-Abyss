@@ -1001,6 +1001,9 @@
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1499,5 +1502,6 @@
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
+    <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
   </ItemGroup>
 </Project>
