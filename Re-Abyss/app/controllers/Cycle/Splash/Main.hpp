@@ -12,7 +12,7 @@ namespace abyss::Cycle::Splash
     public:
         virtual ~IMainObserver() = default;
 
-        virtual void chageTitleScene() = 0;
+        virtual void chageOpDemoScene() = 0;
     };
     class Main
     {

@@ -9,7 +9,7 @@ namespace abyss
     {
         std::unique_ptr<Cycle::Splash::Main> m_main;
 
-        std::function<void()> m_changeTitleSceneFunc;
+        std::function<void()> m_changeOpDemoSceneFunc;
 
         std::shared_ptr<Data_t> m_data;
     public:
@@ -31,23 +31,23 @@ namespace abyss
             m_main->draw();
         }
 
-       void chageTitleScene() final
+       void chageOpDemoScene() final
        {
-           m_changeTitleSceneFunc();
+           m_changeOpDemoSceneFunc();
        }
 
-       void bindChangeTitleScene(const std::function<void()>& callback)
+       void bindChangeOpDemoScene(const std::function<void()>& callback)
        {
-           m_changeTitleSceneFunc = callback;
+           m_changeOpDemoSceneFunc = callback;
        }
     };
     SplashScene::SplashScene(const InitData& init):
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        m_pImpl->bindChangeTitleScene([this] {
+        m_pImpl->bindChangeOpDemoScene([this] {
             // TODO OpDemoに変更
-            this->changeScene(SceneName::Main);
+            this->changeScene(SceneName::Title);
         });
     }
 

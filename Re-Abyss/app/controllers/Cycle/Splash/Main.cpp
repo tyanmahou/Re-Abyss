@@ -15,7 +15,7 @@ namespace abyss::Cycle::Splash
     void Main::update()
     {
         if (InputManager::Start.down() || m_logo->isEnd()) {
-            m_observer->chageTitleScene();
+            m_observer->chageOpDemoScene();
         }
     }
 
