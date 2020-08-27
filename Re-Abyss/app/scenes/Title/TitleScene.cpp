@@ -1,12 +1,18 @@
 #include "TitleScene.hpp"
+#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/controllers/Cycle/Title/Main.hpp>
 
 namespace abyss
 {
-    class TitleScene::Impl
+    class TitleScene::Impl :
+        public Cycle::Title::IMainObserver
     {
+        std::unique_ptr<Cycle::Title::Main> m_main;
     public:
         Impl([[maybe_unused]]const InitData& init)
-        {}
+        {
+            m_main = std::make_unique<Cycle::Title::Main>(this);
+        }
 
         void update()
         {
@@ -25,9 +31,6 @@ namespace abyss
     void TitleScene::update()
     {
         m_pImpl->update();
-        if (KeyEnter.down()) {
-            this->changeScene(SceneName::Main);
-        }
     }
 
     void TitleScene::draw() const
