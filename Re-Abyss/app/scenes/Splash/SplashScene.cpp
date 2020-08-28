@@ -47,7 +47,7 @@ namespace abyss
     {
         m_pImpl->bindChangeOpDemoScene([this] {
             // TODO OpDemoに変更
-            this->changeScene(SceneName::Title);
+            this->changeScene(SceneName::Main);
         });
     }
 
