@@ -5,7 +5,7 @@
 namespace abyss::Cycle::Title::Logo
 {
     LogoVM::LogoVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"cycle/splash/logo.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"cycle/title/logo.png"))
     {}
     void LogoVM::draw() const
     {
