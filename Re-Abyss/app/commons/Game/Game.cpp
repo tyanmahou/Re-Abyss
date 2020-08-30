@@ -17,8 +17,8 @@ namespace abyss
 		AppScene m_scene;
 		void registerScene()
 		{
-			m_scene.add<SplashScene>(SceneName::Splash);
-			//m_scene.add<TitleScene>(SceneName::Title);
+			//m_scene.add<SplashScene>(SceneName::Splash);
+			m_scene.add<TitleScene>(SceneName::Title);
 			m_scene.add<MainScene>(SceneName::Main);
 		}
 
