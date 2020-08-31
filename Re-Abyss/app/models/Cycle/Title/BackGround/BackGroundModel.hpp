@@ -19,5 +19,6 @@ namespace abyss::Cycle::Title::BackGround
         bool isEnd() const;
 
         s3d::Vec2 getPos() const;
+        s3d::Vec2 getAtlantisPos() const;
     };
 }
