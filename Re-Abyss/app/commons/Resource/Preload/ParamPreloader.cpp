@@ -3,6 +3,9 @@
 // Splash
 #include <abyss/params/Cycle/Splash/Param.hpp>
 
+// Title
+#include <abyss/params/Cycle/Title/LogoParam.hpp>
+
 // Actors
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
@@ -28,6 +31,10 @@ namespace abyss::Resource::Prelaod
 		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
 	}
 
+	void LoadTitleToml(const ResourceManager& resource)
+	{
+		resource.loadToml<Cycle::Title::LogoParam>(U"Cycle/Title/logo_param.toml");
+	}
 	void LoadActorToml(const ResourceManager& resource)
     {
 		// Player

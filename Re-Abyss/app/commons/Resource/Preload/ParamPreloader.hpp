@@ -5,6 +5,7 @@
 namespace abyss::Resource::Prelaod
 {
     void LoadSplashToml(const ResourceManager& resource);
+    void LoadTitleToml(const ResourceManager& resource);
 
     void LoadActorToml(const ResourceManager& resource);
 }

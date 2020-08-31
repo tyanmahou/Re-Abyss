@@ -11,6 +11,8 @@ namespace abyss
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
+            Resource::Prelaod::LoadTitleToml(init._s->m_resource);
+
             m_main = std::make_unique<Cycle::Title::Main>(this);
         }
 

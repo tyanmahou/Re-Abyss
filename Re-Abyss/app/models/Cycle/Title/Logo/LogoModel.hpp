@@ -10,9 +10,12 @@ namespace abyss::Cycle::Title::Logo
     public:
         enum class Phase
         {
+            Start,
             Step1,
             Step2,
             Step3,
+            Step4,
+            Step5,
             End,
         };
         struct ViewParam
@@ -22,7 +25,7 @@ namespace abyss::Cycle::Title::Logo
         };
     private:
         s3d::Timer m_timer;
-        Phase m_phase = Phase::End;
+        Phase m_phase = Phase::Start;
     public:
         LogoModel();
 

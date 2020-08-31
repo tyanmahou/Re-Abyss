@@ -1019,6 +1019,9 @@
     <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1523,5 +1526,7 @@
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
+    <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />
+    <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
   </ItemGroup>
 </Project>
