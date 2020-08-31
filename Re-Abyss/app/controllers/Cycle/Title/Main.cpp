@@ -33,28 +33,6 @@ namespace abyss::Cycle::Title
     {
         if (m_logo->isEnd()) {
             m_bg->draw();
-
-            {
-                static double angle = 0;
-                angle += Scene::DeltaTime() * 0.5f;
-                s3d::ScopedRenderStates2D blend(s3d::BlendState::Additive);
-
-                Circle(480, 130, 100).drawArc(angle, Math::ToRadians(70.0),                          7, 7, Color(100,170,255, 50));
-                Circle(480, 130, 100).drawArc(angle + Math::ToRadians(90.0), Math::ToRadians(70.0),  7, 7, Color(100, 170, 255, 50));
-                Circle(480, 130, 100).drawArc(angle + Math::ToRadians(180.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-                Circle(480, 130, 100).drawArc(angle + Math::ToRadians(270.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-
-                Circle(480, 130, 150).drawArc(-angle*0.7, Math::ToRadians(70.0),                          7, 7, Color(100, 170, 255, 50));
-                Circle(480, 130, 150).drawArc(-angle*0.7 + Math::ToRadians(90.0), Math::ToRadians(70.0),  7, 7, Color(100, 170, 255, 50));
-                Circle(480, 130, 150).drawArc(-angle*0.7 + Math::ToRadians(180.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-                Circle(480, 130, 150).drawArc(-angle*0.7 + Math::ToRadians(270.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-
-                //Circle(480, 130, 250).drawArc(angle, Math::ToRadians(70.0),                          7, 7, Color(100, 170, 255, 50));
-                //Circle(480, 130, 250).drawArc(angle + Math::ToRadians(90.0), Math::ToRadians(70.0),  7, 7, Color(100, 170, 255, 50));
-                //Circle(480, 130, 250).drawArc(angle + Math::ToRadians(180.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-                //Circle(480, 130, 250).drawArc(angle + Math::ToRadians(270.0), Math::ToRadians(70.0), 7, 7, Color(100, 170, 255, 50));
-
-            }
         }
         m_logo->draw();
 
