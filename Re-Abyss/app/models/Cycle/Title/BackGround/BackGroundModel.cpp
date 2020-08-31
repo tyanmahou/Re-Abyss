@@ -27,7 +27,7 @@ namespace abyss::Cycle::Title::BackGround
     }
     s3d::Vec2 BackGroundModel::getPos() const
     {
-        return EaseIn(Easing::Linear, { 480, -270 }, Scene::CenterF(), this->time0_1());
+        return EaseIn(Easing::Linear, { 480, 0 }, Scene::CenterF(), this->time0_1());
     }
 }
 
