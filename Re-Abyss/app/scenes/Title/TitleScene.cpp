@@ -16,11 +16,12 @@ namespace abyss
 
         void update()
         {
+            m_main->update();
         }
 
         void draw() const
         {
-
+            m_main->draw();
         }
     };
     TitleScene::TitleScene(const InitData& init):

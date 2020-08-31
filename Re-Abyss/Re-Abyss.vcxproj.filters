@@ -1007,7 +1007,16 @@
     <ClCompile Include="app\controllers\Cycle\Title\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\LogoVM.cpp">
+    <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1510,6 +1519,9 @@
     <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\LogoVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
+    <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
   </ItemGroup>
 </Project>

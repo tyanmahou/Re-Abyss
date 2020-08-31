@@ -187,6 +187,7 @@
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
+    <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp" />
     <ClCompile Include="app\controllers\Event\GameReady\GameReady.cpp" />
@@ -232,6 +233,7 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
+    <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp" />
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />
@@ -243,7 +245,8 @@
     <ClCompile Include="app\views\BackGround\Sky\SkyView.cpp" />
     <ClCompile Include="app\views\BackGround\WaterSarface\WaterSarfaceView.cpp" />
     <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp" />
-    <ClCompile Include="app\views\Cycle\Title\LogoVM.cpp" />
+    <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp" />
+    <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp" />
@@ -518,6 +521,7 @@
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Event\GamePause\GamePause.hpp" />
@@ -585,6 +589,7 @@
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
+    <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
@@ -872,7 +877,8 @@
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\LogoVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\DecorView.hpp" />

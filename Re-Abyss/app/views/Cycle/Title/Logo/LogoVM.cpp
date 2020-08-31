@@ -9,9 +9,7 @@ namespace abyss::Cycle::Title::Logo
     {}
     void LogoVM::draw() const
     {
-        const auto alpha = Math::Saturate(Periodic::Triangle0_1(1s, m_time0_1) * (1 / 0.75));
-
-        m_texture.drawAt(m_pos, ColorF(1.0, alpha));
+        m_texture.drawAt(m_pos, ColorF(1.0, m_alpha));
     }
 
 }

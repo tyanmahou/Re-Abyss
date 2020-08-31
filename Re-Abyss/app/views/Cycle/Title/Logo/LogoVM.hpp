@@ -12,13 +12,13 @@ namespace abyss::Cycle::Title::Logo
         s3d::Texture m_texture;
         s3d::Vec2 m_pos;
 
-        double m_time0_1 = 0.0f;
+        double m_alpha = 1.0f;
     public:
         LogoVM();
 
-        LogoVM& setTime(double time)
+        LogoVM& setAlpha(double alpha0_1)
         {
-            m_time0_1 = time;
+            m_alpha = alpha0_1;
             return *this;
         }
         LogoVM& setPos(const s3d::Vec2& pos)
