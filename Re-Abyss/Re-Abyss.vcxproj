@@ -187,6 +187,7 @@
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
+    <ClCompile Include="app\controllers\Cycle\Title\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp" />
@@ -522,6 +523,7 @@
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
