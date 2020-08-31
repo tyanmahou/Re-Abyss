@@ -11,6 +11,6 @@ namespace abyss::Cycle::Title::BackGround
 
     void BackGroundVM::draw() const
     {
-        m_texture.drawAt(m_pos);
+        m_texture.drawAt(m_pos, ColorF(1, Periodic::Sine0_1(5s) * 0.3 + 0.7));
     }
 }

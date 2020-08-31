@@ -6,7 +6,10 @@ namespace abyss::Cycle::Title
     {
         class Logo;
     }
-
+    namespace BackGround
+    {
+        class BackGround;
+    }
     class IMainObserver
     {
     public:
@@ -16,6 +19,7 @@ namespace abyss::Cycle::Title
     {
         IMainObserver* m_observer;
         std::unique_ptr<Logo::Logo> m_logo;
+        std::unique_ptr<BackGround::BackGround> m_bg;
 
         s3d::Audio m_bgm;
     public:
