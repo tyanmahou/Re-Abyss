@@ -5,6 +5,7 @@
 
 // Title
 #include <abyss/params/Cycle/Title/LogoParam.hpp>
+#include <abyss/params/Cycle/Title/BgParam.hpp>
 
 // Actors
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -34,6 +35,7 @@ namespace abyss::Resource::Prelaod
 	void LoadTitleToml(const ResourceManager& resource)
 	{
 		resource.loadToml<Cycle::Title::LogoParam>(U"Cycle/Title/logo_param.toml");
+		resource.loadToml<Cycle::Title::BgParam>(U"Cycle/Title/bg_param.toml");
 	}
 	void LoadActorToml(const ResourceManager& resource)
     {

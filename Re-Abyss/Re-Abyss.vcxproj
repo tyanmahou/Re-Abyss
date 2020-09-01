@@ -600,6 +600,7 @@
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
     <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
+    <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
     <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />

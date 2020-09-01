@@ -1536,5 +1536,6 @@
     <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
+    <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
   </ItemGroup>
 </Project>
