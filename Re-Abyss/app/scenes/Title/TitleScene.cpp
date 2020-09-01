@@ -2,6 +2,8 @@
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 #include <abyss/controllers/Cycle/Title/Main.hpp>
 
+#include <abyss/commons/InputManager/InputManager.hpp>
+
 namespace abyss
 {
     class TitleScene::Impl :
@@ -25,6 +27,11 @@ namespace abyss
         {
             m_main->draw();
         }
+
+        void finally()
+        {
+            m_main->finally();
+        }
     };
     TitleScene::TitleScene(const InitData& init):
         ISceneBase(init),
@@ -34,10 +41,20 @@ namespace abyss
     void TitleScene::update()
     {
         m_pImpl->update();
+        if (InputManager::Start.down()) {
+            changeScene(SceneName::Main);
+        }
+        if (KeyBackspace.down()) {
+            changeScene(SceneName::Splash);
+        }
     }
 
     void TitleScene::draw() const
     {
         m_pImpl->draw();
+    }
+    void TitleScene::finally()
+    {
+        m_pImpl->finally();
     }
 }

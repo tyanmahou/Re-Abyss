@@ -29,5 +29,7 @@ namespace abyss::Cycle::Title
         void update();
 
         void draw()const;
+
+        void finally();
     };
 }

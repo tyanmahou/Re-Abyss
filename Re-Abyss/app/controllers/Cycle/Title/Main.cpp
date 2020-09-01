@@ -14,7 +14,7 @@ namespace abyss::Cycle::Title
         m_bg(std::make_unique<BackGround::BackGround>()),
         m_bgm(ResourceManager::Main()->loadAudio(U"bgm/cycle/title/title.aas"))
     {
-        m_bgm.play();
+        m_bgm.play(0.2s);
     }
 
     Main::~Main()
@@ -36,5 +36,10 @@ namespace abyss::Cycle::Title
         }
         m_logo->draw();
 
+    }
+
+    void Main::finally()
+    {
+        m_bgm.stop(0.2s);
     }
 }
