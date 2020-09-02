@@ -33,9 +33,10 @@ namespace abyss::Cycle::Title
     {
         if (m_logo->isEnd()) {
             m_bg->draw();
+            FontAsset(U"titleSelect")(U"NEW GAME").drawAt(480, 360);
+            FontAsset(U"titleSelect")(U"Exit").drawAt(480, 410);
         }
         m_logo->draw();
-
     }
 
     void Main::finally()

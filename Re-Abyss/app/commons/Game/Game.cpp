@@ -27,6 +27,9 @@ namespace abyss
 			// フォントはデバッグモードでもリソースに入れてます
 			FontAsset::Register(U"serif", 20, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
 			FontAsset::Register(U"serifName", 17, U"/resources/fonts/PixelMplus12-Bold.ttf", FontStyle::BoldBitmap);
+
+			// タイトル
+			FontAsset::Register(U"titleSelect", 25, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
 		}
 	public:
 		Impl()
