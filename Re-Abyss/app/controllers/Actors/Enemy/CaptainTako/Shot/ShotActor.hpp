@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
-namespace abyss::CaptainTako::Shot
+namespace abyss::Actor::CaptainTako::Shot
 {
     class ShotVM;
 

@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
-namespace abyss::CaptainTako
+namespace abyss::Actor::CaptainTako
 {
     WaitState::WaitState()
     {}

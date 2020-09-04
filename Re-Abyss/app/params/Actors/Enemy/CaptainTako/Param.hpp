@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::CaptainTako
+namespace abyss::Actor::CaptainTako
 {
     struct Param
     {

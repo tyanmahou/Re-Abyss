@@ -5,7 +5,7 @@
 
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::CaptainTako
+namespace abyss::Actor::CaptainTako
 {
     class CaptainTakoVM
     {

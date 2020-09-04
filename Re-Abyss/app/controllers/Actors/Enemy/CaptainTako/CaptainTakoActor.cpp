@@ -10,7 +10,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::CaptainTako
+namespace abyss::Actor::CaptainTako
 {
     CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity)
     {
@@ -39,7 +39,7 @@ namespace abyss::CaptainTako
 namespace
 {
     using namespace abyss;
-    using namespace abyss::CaptainTako;
+    using namespace abyss::Actor::CaptainTako;
 
     class ViewBinder : public ViewModel<CaptainTakoVM>::IBinder
     {

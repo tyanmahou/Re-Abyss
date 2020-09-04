@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::CaptainTako
+namespace abyss::Actor::CaptainTako
 {
     CaptainTakoVM::CaptainTakoVM() :
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/CaptainTako/captain_tako.png"))

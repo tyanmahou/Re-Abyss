@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/views/Actors/Enemy/CaptainTako/Shot/ShotVM.hpp>
 
-namespace abyss::CaptainTako::Shot
+namespace abyss::Actor::CaptainTako::Shot
 {
 
     class BaseState : public IState

@@ -3,7 +3,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
-namespace abyss::CaptainTako::Shot
+namespace abyss::Actor::CaptainTako::Shot
 {
     void BaseState::setup()
     {
