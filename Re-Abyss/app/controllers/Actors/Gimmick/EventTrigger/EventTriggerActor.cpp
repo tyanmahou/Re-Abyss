@@ -1,7 +1,7 @@
 #include "EventTriggerActor.hpp"
 #include <abyss/models/Actors/Gimmick/EventTrigger/MainModel.hpp>
 
-namespace abyss::EventTrigger
+namespace abyss::Actor::Gimmick::EventTrigger
 {
     EventTriggerActor::EventTriggerActor(const s3d::FilePath& path)
     {

@@ -35,7 +35,7 @@ namespace abyss
         case GimmickType::EventTrigger:
         {
             const auto& eventTriggerEntity = static_cast<const EventTriggerEntity&>(entity);
-            return  std::make_shared<EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
+            return  std::make_shared<Actor::Gimmick::EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
         }
         case GimmickType::BgmChanger: return nullptr;
         default:

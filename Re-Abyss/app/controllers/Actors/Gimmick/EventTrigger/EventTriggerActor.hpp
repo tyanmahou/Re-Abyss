@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
-namespace abyss::EventTrigger
+namespace abyss::Actor::Gimmick::EventTrigger
 {
 	class EventTriggerActor : public IActor
 	{

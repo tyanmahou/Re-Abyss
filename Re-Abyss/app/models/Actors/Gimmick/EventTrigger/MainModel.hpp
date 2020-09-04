@@ -4,7 +4,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
 
-namespace abyss::EventTrigger
+namespace abyss::Actor::Gimmick::EventTrigger
 {
     class MainModel :
         public IComponent

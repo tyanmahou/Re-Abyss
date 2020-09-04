@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
 
-namespace abyss::EventTrigger
+namespace abyss::Actor::Gimmick::EventTrigger
 {
     MainModel::MainModel(IActor* pActor, const s3d::String& path):
         m_pActor(pActor),
