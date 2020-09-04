@@ -21,7 +21,7 @@ namespace abyss
             auto prevTime = m_currentRealTime;
 
             m_timeScale = 1.0;
-            m_timeScaleModels.removed_if([](const std::weak_ptr<GlobalTimeScaleModel>& elm) {
+            m_timeScaleModels.remove_if([](const std::weak_ptr<GlobalTimeScaleModel>& elm) {
                 return elm.expired();
             });
             for (const auto& elm : m_timeScaleModels) {

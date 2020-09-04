@@ -1028,7 +1028,7 @@
     <ClCompile Include="app\components\base\Components.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Map\MapParamModel.cpp">
+    <ClCompile Include="app\components\Actors\Map\MapParam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
