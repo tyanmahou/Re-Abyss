@@ -1,10 +1,10 @@
-﻿#pragma once
+#pragma once
 #pragma once
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::God
+namespace abyss::Actor::God
 {
     class PauseModel:
         public IComponent,
@@ -20,7 +20,7 @@ namespace abyss::God
 namespace abyss
 {
     template<>
-    struct ComponentTree<God::PauseModel>
+    struct ComponentTree<Actor::God::PauseModel>
     {
         using Base = IUpdateModel;
     };

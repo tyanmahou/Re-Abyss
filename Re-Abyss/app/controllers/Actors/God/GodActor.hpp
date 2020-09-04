@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
-namespace abyss::God
+namespace abyss::Actor::God
 {
 	class GodActor :
 		public IActor

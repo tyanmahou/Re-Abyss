@@ -1,7 +1,7 @@
-﻿#include "GodActor.hpp"
+#include "GodActor.hpp"
 #include <abyss/models/Actors/God/PauseModel.hpp>
 
-namespace abyss::God
+namespace abyss::Actor::God
 {
     GodActor::GodActor()
     {

@@ -170,7 +170,7 @@ namespace abyss
             // プレイヤーを登録
             m_pManager->set(player.get());
             auto world = m_pManager->getModule<World>();
-            world->create<God::GodActor>();
+            world->create<Actor::God::GodActor>();
             world->regist(player);
             if (nextRoom = this->findRoom(player->getPos())) {
                 result &= this->initRoom(*world, *nextRoom);

@@ -1,4 +1,4 @@
-﻿#include "PauseModel.hpp"
+#include "PauseModel.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
@@ -6,7 +6,7 @@
 #include <abyss/controllers/Event/GamePause/GamePause.hpp>
 
 
-namespace abyss::God
+namespace abyss::Actor::God
 {
     PauseModel::PauseModel(IActor* pActor):
         m_pActor(pActor)
