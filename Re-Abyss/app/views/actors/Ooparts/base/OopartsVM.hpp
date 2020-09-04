@@ -5,12 +5,15 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
+#include "IDrawCallbackView.hpp"
 
 namespace abyss::Ooparts
 {
     class OopartsVM
     {
     private:
+        std::unique_ptr<IDrawCallbackView> m_drawCallback;
+
         IntervalTimer m_effectTimer;
         Manager* m_pManager;
         virtual void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const = 0;
@@ -22,6 +25,10 @@ namespace abyss::Ooparts
         OopartsVM();
         virtual ~OopartsVM() = default;
 
+        OopartsVM& setCallback(std::unique_ptr<IDrawCallbackView>&& callback)
+        {
+            m_drawCallback = std::move(callback);
+        }
         OopartsVM& setManager(Manager* pManager)
         {
             m_pManager = pManager;
@@ -31,6 +38,10 @@ namespace abyss::Ooparts
         {
             m_time = time;
             return *this;
+        }
+        double getTime() const
+        {
+            return m_time;
         }
         OopartsVM& setPos(const s3d::Vec2& pos)
         {
