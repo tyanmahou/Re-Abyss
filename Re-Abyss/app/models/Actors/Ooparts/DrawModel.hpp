@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand

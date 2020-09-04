@@ -1,7 +1,7 @@
 #pragma once
 #if ABYSS_DEBUG
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 
 namespace abyss::Actor::Player

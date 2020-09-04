@@ -2,7 +2,7 @@
 #include <memory>
 #include <functional>
 #include <Siv3D/String.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 
 namespace abyss

@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IPhysicsModel.hpp>
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastPhysicsModel.hpp>

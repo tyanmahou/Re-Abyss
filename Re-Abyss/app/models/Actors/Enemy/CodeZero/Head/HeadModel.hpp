@@ -2,7 +2,7 @@
 
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

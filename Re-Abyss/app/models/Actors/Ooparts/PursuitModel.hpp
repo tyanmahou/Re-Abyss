@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IPreDrawModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/commons/Fwd.hpp>

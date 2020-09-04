@@ -2,7 +2,7 @@
 #include <Siv3D/String.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {

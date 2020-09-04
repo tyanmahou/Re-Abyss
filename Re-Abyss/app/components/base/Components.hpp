@@ -4,7 +4,7 @@
 #include <concepts>
 #include <Siv3D/Array.hpp>
 
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss

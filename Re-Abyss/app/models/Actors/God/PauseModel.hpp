@@ -1,6 +1,6 @@
 #pragma once
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/commons/Fwd.hpp>
 

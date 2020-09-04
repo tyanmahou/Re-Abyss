@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
 

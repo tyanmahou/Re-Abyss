@@ -4,7 +4,7 @@
 # include <Siv3D/HashTable.hpp>
 
 # include <abyss/controllers/Actors/base/IActor.hpp>
-# include <abyss/models/Actors/base/IComponent.hpp>
+# include <abyss/components/base/IComponent.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 # include <abyss/models/Actors/base/IUpdateModel.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>

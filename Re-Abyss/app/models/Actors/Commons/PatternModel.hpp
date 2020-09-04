@@ -3,7 +3,7 @@
 #include <Siv3D/Duration.hpp>
 #include <Siv3D/Uncopyable.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/LoopQueue/LoopQueue.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 namespace abyss

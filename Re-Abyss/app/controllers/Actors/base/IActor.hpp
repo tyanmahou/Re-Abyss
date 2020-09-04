@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/visitors/ActVisitor.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/models/Actors/base/Components.hpp>
+#include <abyss/components/base/Components.hpp>
 
 namespace abyss
 {

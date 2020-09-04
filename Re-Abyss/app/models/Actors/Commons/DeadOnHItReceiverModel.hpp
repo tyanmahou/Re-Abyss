@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

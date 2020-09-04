@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 

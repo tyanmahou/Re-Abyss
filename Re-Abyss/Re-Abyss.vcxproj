@@ -384,7 +384,7 @@
     <ClCompile Include="app\factories\DIContainer\DIContainer.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
-    <ClCompile Include="app\models\Actors\base\Components.cpp" />
+    <ClCompile Include="app\components\base\Components.cpp" />
     <ClCompile Include="app\models\Actors\base\IColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\HandModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp" />
@@ -742,7 +742,7 @@
     <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
     <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
-    <ClInclude Include="app\models\Actors\base\Components.hpp" />
+    <ClInclude Include="app\components\base\Components.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
@@ -751,7 +751,7 @@
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IComponent.hpp" />
+    <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\HandModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />

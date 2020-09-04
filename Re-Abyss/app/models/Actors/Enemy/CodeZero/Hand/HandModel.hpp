@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/types/Forward.hpp>

@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Optional.hpp>
-#include <abyss/models/Actors/base/IComponent.hpp>
+#include <abyss/components/base/IComponent.hpp>
 namespace abyss
 {
     class FootModel : public IComponent
