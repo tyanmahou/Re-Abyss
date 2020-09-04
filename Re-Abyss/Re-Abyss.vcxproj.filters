@@ -1028,6 +1028,9 @@
     <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1537,5 +1540,7 @@
     <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\IDrawCallbackView.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.hpp" />
   </ItemGroup>
 </Project>
