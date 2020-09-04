@@ -108,7 +108,7 @@ namespace abyss
                     m_foot->apply(FootModel::Landing);
                 }
                 terrain->accept(overloaded{
-                    [this](const Ladder::LadderActor& ladder) {
+                    [this](const Actor::Map::Ladder::LadderActor& ladder) {
                         if (ladder.getCenterLine().intersects(m_body->region())) {
                             m_foot->setLadderPosX(ladder.getPos().x);
                             auto state = ladder.isTop() ? FootModel::LadderTop : FootModel::Ladder;

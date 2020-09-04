@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
 
-namespace abyss::Map
+namespace abyss::Actor::Map
 {
     class MapParamModel :
         public IComponent

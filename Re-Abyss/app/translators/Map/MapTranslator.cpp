@@ -6,8 +6,9 @@
 
 namespace abyss
 {
-	std::shared_ptr<MapActor> MapTranslator::ToActorPtr(const MapEntity& entity)
+	std::shared_ptr<Actor::Map::MapActor> MapTranslator::ToActorPtr(const MapEntity& entity)
 	{
+		using namespace Actor::Map;
 		if (entity.type == MapType::Floor) {
 			return std::make_shared<Floor::FloorActor>(entity.col, entity.pos, entity.size);
 		}

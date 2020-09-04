@@ -1,7 +1,7 @@
 #include "MapParamModel.hpp"
 #include <Siv3D.hpp>
 
-namespace abyss::Map
+namespace abyss::Actor::Map
 {
     MapParamModel::MapParamModel(
         const s3d::Vec2& pos,

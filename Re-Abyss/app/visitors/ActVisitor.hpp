@@ -14,10 +14,10 @@ namespace abyss
 
 		Enemy::EnemyActor,
 
-		Map::MapActor,
-		Map::Floor::FloorActor,
-		Map::PenetrateFloor::PenetrateFloorActor,
-		Map::Ladder::LadderActor,
+		Actor::Map::MapActor,
+		Actor::Map::Floor::FloorActor,
+		Actor::Map::PenetrateFloor::PenetrateFloorActor,
+		Actor::Map::Ladder::LadderActor,
 
 		Actor::Gimmick::Door::DoorActor
 	>;

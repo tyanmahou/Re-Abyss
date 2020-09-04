@@ -3,7 +3,7 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 
-namespace abyss::Map::Floor
+namespace abyss::Actor::Map::Floor
 {
 	FloorActor::FloorActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
 		MapActor(col, pos, size)

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <memory>
 
 #include <abyss/commons/Fwd.hpp>
@@ -9,6 +9,6 @@ namespace abyss
 	class MapTranslator
 	{
 	public:
-		static std::shared_ptr<MapActor> ToActorPtr(const MapEntity&);
+		static std::shared_ptr<Actor::Map::MapActor> ToActorPtr(const MapEntity&);
 	};
 }

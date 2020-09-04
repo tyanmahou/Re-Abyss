@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
 #include <abyss/types/CShape.hpp>
 
-namespace abyss::Map
+namespace abyss::Actor::Map
 {
 	MapActor::MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size) :
 		m_col(col)

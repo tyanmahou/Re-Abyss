@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Map/MapActor.hpp>
 
-namespace abyss::Map::Ladder
+namespace abyss::Actor::Map::Ladder
 {
 	class LadderActor : public MapActor
 	{

@@ -12,9 +12,9 @@
 
 namespace abyss::Player
 {
-    using Floor::FloorActor;
-    using PenetrateFloor::PenetrateFloorActor;
-    using Ladder::LadderActor;
+    using Actor::Map::Floor::FloorActor;
+    using Actor::Map::PenetrateFloor::PenetrateFloorActor;
+    using Actor::Map::Ladder::LadderActor;
     using Actor::Gimmick::Door::DoorActor;
 
     class BaseState : public IState

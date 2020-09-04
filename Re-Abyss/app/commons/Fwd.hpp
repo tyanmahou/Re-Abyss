@@ -44,29 +44,29 @@ namespace abyss
 	{
 		class EnemyActor;
 	}
-	inline namespace Map
-	{
-		class MapActor;
-
-		namespace Floor
-		{
-			class FloorActor;
-		}
-		namespace PenetrateFloor
-		{
-			class PenetrateFloorActor;
-		}
-		namespace Ladder
-		{
-			class LadderActor;
-		}
-	}
 	namespace Ooparts
 	{
 		class OopartsActor;
 	}
 	namespace Actor
 	{
+		namespace Map
+		{
+			class MapActor;
+
+			namespace Floor
+			{
+				class FloorActor;
+			}
+			namespace PenetrateFloor
+			{
+				class PenetrateFloorActor;
+			}
+			namespace Ladder
+			{
+				class LadderActor;
+			}
+		}
 		namespace Gimmick
 		{
 			namespace Door
