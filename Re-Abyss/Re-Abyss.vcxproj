@@ -179,6 +179,8 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp" />
+    <ClCompile Include="app\components\Actors\Ooparts\Draw.cpp" />
+    <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />
@@ -274,8 +276,6 @@
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\DamageCallbackModel.cpp" />
-    <ClCompile Include="app\models\Actors\Ooparts\DrawModel.cpp" />
-    <ClCompile Include="app\models\Actors\Ooparts\PursuitModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\AttackCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\OopartsCtrlModel.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
@@ -503,6 +503,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
@@ -581,7 +583,6 @@
     <ClInclude Include="app\components\Actors\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Map\MapParam.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\DebugCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\RestartCtrlModel.hpp" />

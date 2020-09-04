@@ -6,7 +6,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    class PursuitModel:
+    class PursuitCtrl:
         public IComponent,
         public IPreDrawModel
     {
@@ -18,17 +18,17 @@ namespace abyss::Actor::Ooparts
         s3d::Vec2 m_localPos;
         bool m_isPursuit = true;
     public:
-        PursuitModel(IActor* pActor, const Ref<BodyModel>& pParent);
+        PursuitCtrl(IActor* pActor, const Ref<BodyModel>& pParent);
 
         void setup() override;
         void onPreDraw(double dt) override;
 
-        PursuitModel& setLocalPos(const s3d::Vec2& pos)
+        PursuitCtrl& setLocalPos(const s3d::Vec2& pos)
         {
             m_localPos = pos;
             return *this;
         }
-        PursuitModel& setIsPursuit(bool active)
+        PursuitCtrl& setIsPursuit(bool active)
         {
             m_isPursuit = active;
             return *this;
@@ -39,7 +39,7 @@ namespace abyss::Actor::Ooparts
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Ooparts::PursuitModel>
+    struct ComponentTree<Actor::Ooparts::PursuitCtrl>
     {
         using Base = IPreDrawModel;
     };

@@ -9,7 +9,7 @@ namespace abyss::Actor::Ooparts
 {
     class OopartsVM;
 
-    class DrawModel :
+    class Draw :
         public IComponent,
         public IDrawModel
     {
@@ -17,7 +17,7 @@ namespace abyss::Actor::Ooparts
         IActor* m_pActor;
         Ref<ViewModel<OopartsVM>> m_view;
     public:
-        DrawModel(IActor* pActor);
+        Draw(IActor* pActor);
         void setup() override;
         void onDraw() const override;
     };
@@ -26,7 +26,7 @@ namespace abyss::Actor::Ooparts
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Ooparts::DrawModel>
+    struct ComponentTree<Actor::Ooparts::Draw>
     {
         using Base = IDrawModel;
     };

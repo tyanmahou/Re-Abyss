@@ -1,4 +1,4 @@
-#include "PursuitModel.hpp"
+#include "PursuitCtrl.hpp"
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
@@ -6,18 +6,18 @@
 
 namespace abyss::Actor::Ooparts
 {
-    PursuitModel::PursuitModel(IActor* pActor, const Ref<BodyModel>& pParent):
+    PursuitCtrl::PursuitCtrl(IActor* pActor, const Ref<BodyModel>& pParent):
         m_pActor(pActor),
         m_pParent(pParent),
         m_localPos(0, 0)
     {}
 
-    void PursuitModel::setup()
+    void PursuitCtrl::setup()
     {
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void PursuitModel::onPreDraw(double dt)
+    void PursuitCtrl::onPreDraw(double dt)
     {
         if (!m_pParent) {
             return;

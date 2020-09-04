@@ -1,7 +1,7 @@
 #include "OopartsActor.hpp"
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
-#include <abyss/models/Actors/Ooparts/DrawModel.hpp>
+#include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
+#include <abyss/components/Actors/Ooparts/Draw.hpp>
 
 namespace abyss::Actor::Ooparts
 {
@@ -18,12 +18,12 @@ namespace abyss::Actor::Ooparts
                 ->initPos(parentBody->getPos() + s3d::Vec2{ forward * -20, -40 })
                 .setForward(forward);
 
-            this->attach<PursuitModel>(this, parentBody);
+            this->attach<PursuitCtrl>(this, parentBody);
         }
         {
             // 描画
             m_view = this->attach<ViewModel<OopartsVM>>();
-            this->attach<DrawModel>(this);
+            this->attach<Draw>(this);
         }
     }
 }

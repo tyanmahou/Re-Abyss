@@ -6,9 +6,7 @@
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
-#include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
-#include <abyss/models/Actors/Ooparts/DrawModel.hpp>
-
+#include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -37,12 +35,12 @@ namespace abyss::Actor::Player
         }
         if (m_attackCtrl->isAttacking()) {
             m_mainOoparts->setActive(false);
-            m_mainOoparts->find<Ooparts::PursuitModel>()
+            m_mainOoparts->find<Ooparts::PursuitCtrl>()
                 ->setLocalPos(s3d::Vec2{ 30 * m_body->getForward(), -1 })
                 .setIsPursuit(false);
         } else {
             m_mainOoparts->setActive(true);
-            m_mainOoparts->find<Ooparts::PursuitModel>()
+            m_mainOoparts->find<Ooparts::PursuitCtrl>()
                 ->setIsPursuit(true);
         }
     }
