@@ -6,14 +6,14 @@
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
-    class MainModel :
+    class Main :
         public IComponent
     {
     private:
         IActor* m_pActor;
         s3d::String m_path;
     public:
-        MainModel(IActor* pActor, const s3d::String& path);
+        Main(IActor* pActor, const s3d::String& path);
         void onStart() override;
     };
 }

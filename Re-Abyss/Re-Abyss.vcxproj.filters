@@ -962,9 +962,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Gimmick\EventTrigger\MainModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1026,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Gimmick\EventTrigger\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1514,7 +1514,6 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\PartsModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\UICtrlModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
-    <ClInclude Include="app\models\Actors\Gimmick\EventTrigger\MainModel.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Main.hpp" />
   </ItemGroup>
 </Project>
