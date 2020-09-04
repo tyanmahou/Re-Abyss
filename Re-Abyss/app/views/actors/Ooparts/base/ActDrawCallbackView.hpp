@@ -1,5 +1,5 @@
 #pragma once
-#include "IDrawCallbackView.hpp"
+#include <abyss/views/Actors/Ooparts/base/IDrawCallbackView.hpp>
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/EffectEx/EffectEx.hpp>

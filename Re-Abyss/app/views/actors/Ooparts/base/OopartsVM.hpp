@@ -5,7 +5,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
-#include "IDrawCallbackView.hpp"
+#include <abyss/views/Actors/Ooparts/base/IDrawCallbackView.hpp>
 
 namespace abyss::Ooparts
 {
