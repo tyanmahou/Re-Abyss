@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     class FaceCtrlModel :
         public IComponent

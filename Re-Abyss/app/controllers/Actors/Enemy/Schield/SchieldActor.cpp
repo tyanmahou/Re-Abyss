@@ -14,7 +14,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     SchieldActor::SchieldActor(const SchieldEntity& entity)
     {
@@ -62,7 +62,7 @@ namespace abyss::Schield
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Schield;
+    using namespace abyss::Actor::Schield;
 
     class ViewBinder : public ViewModel<SchieldVM>::IBinder
     {

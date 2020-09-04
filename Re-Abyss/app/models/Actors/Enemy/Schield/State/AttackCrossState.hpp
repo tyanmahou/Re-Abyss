@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     class AttackCrossState final : public BaseState
     {

@@ -4,7 +4,7 @@
 
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss::Schield::Shot
+namespace abyss::Actor::Schield::Shot
 {
     class ShotVM
     {

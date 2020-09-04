@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 
-namespace abyss::Schield::Shot
+namespace abyss::Actor::Schield::Shot
 {
 
     class BaseState : public IState

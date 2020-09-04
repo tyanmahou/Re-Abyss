@@ -6,7 +6,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Actors/Enemy/Schield/Shot/ShotActor.hpp>
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     AttackCrossState::AttackCrossState()
     {}

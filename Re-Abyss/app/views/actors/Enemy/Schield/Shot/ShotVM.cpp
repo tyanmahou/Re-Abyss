@@ -3,7 +3,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 
-namespace abyss::Schield::Shot
+namespace abyss::Actor::Schield::Shot
 {
     ShotVM::ShotVM() :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))

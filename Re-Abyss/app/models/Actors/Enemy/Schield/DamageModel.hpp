@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     class FaceCtrlModel;
 
@@ -20,7 +20,7 @@ namespace abyss::Schield
 namespace abyss
 {
     template<>
-    struct ComponentTree<Schield::DamageModel>
+    struct ComponentTree<Actor::Schield::DamageModel>
     {
         using Base = abyss::DamageModel;
     };

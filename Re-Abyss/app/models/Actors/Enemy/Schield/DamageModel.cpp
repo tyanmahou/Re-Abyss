@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     DamageModel::DamageModel(IActor* pActor):
         abyss::DamageModel(pActor)

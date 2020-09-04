@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     struct ShotParam
     {

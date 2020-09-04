@@ -5,7 +5,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::Schield
+namespace abyss::Actor::Schield
 {
     class SchieldVM
     {
