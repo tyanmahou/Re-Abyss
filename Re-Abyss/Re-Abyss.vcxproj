@@ -178,6 +178,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\State\JumpState.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\Draw.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
@@ -413,13 +420,6 @@
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\RunState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\WaitState.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\State\BaseState.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\State\JumpState.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
@@ -503,6 +503,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
@@ -774,13 +781,6 @@
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\RunState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\State\JumpState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />

@@ -1,7 +1,7 @@
 #include "SenserActor.hpp"
 
-#include <abyss/models/Actors/Enemy/Slime/Sencer/MainUpdateModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/Sencer/MainUpdateModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 

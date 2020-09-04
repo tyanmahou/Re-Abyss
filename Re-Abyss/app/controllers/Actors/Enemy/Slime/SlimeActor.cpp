@@ -5,9 +5,9 @@
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/DeadCallbackModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/SenserCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/Slime/State/WalkState.hpp>
+#include <abyss/components/Actors/Enemy/Slime/DeadCallbackModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/SenserCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/State/WalkState.hpp>
 
 #include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 
