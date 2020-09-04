@@ -23,7 +23,7 @@ namespace abyss
         Stage* m_pStage = nullptr;
         Cron* m_pCron = nullptr;
         Save* m_pSave = nullptr;
-        Player::PlayerActor* m_pPlayer = nullptr;
+        Actor::Player::PlayerActor* m_pPlayer = nullptr;
     public:
         Manager& set(Master* pMaster);
 
@@ -53,7 +53,7 @@ namespace abyss
 
         Manager& set(Save* pSave);
 
-        Manager& set(Player::PlayerActor* pPlayer);
+        Manager& set(Actor::Player::PlayerActor* pPlayer);
 
         template<class T>
         T* getModule() const;

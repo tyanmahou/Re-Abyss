@@ -27,7 +27,7 @@ namespace abyss::Event::RoomMove
         // カメラの座標更新
         m_pManager->getModule<Camera>()->setPos(this->calcCameraPos());
         // プレイヤーの座標更新
-        m_pManager->getModule<Player::PlayerActor>()->setPos(this->calcPlayerPos());
+        m_pManager->getModule<Actor::Player::PlayerActor>()->setPos(this->calcPlayerPos());
 
         return !this->isEnd();
     }

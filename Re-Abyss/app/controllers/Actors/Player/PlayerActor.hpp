@@ -9,11 +9,11 @@ namespace abyss
     class FootModel;
 }
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class ChargeModel;
 }
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class PlayerActor :
         public IActor,

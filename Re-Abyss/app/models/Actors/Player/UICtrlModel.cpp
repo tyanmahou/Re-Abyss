@@ -5,7 +5,7 @@
 #include <abyss/controllers/UI/PlayerInfo/PlayerInfo.hpp>
 #include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     UICtrlModel::UICtrlModel(IActor* pActor):
         m_pActor(pActor)

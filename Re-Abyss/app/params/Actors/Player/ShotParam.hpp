@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     struct ShotParam
     {

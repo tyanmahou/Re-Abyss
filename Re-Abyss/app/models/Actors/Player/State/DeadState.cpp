@@ -8,7 +8,7 @@
 #include <abyss/controllers/Sound/Sound.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     void DeadState::onMove(double dt)
     {

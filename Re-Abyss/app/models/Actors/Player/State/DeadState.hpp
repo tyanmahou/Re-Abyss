@@ -1,7 +1,7 @@
 #pragma once
 #include"BaseState.hpp"
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class DeadState final : public BaseState
     {

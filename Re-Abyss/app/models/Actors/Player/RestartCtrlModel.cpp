@@ -7,7 +7,7 @@
 
 #include <abyss/models/Actors/Player/State/DeadState.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     RestartCtrlModel::RestartCtrlModel(IActor* pActor):
         m_pActor(pActor)

@@ -5,7 +5,7 @@
 #include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     void LadderState::onMove(double dt)
     {

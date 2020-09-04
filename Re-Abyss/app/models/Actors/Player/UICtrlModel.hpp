@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class UICtrlModel :
         public IComponent

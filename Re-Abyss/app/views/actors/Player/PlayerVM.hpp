@@ -6,7 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class PlayerVM
     {

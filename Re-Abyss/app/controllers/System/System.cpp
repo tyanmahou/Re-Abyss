@@ -57,7 +57,7 @@ namespace abyss
         m_stage->init();
     }
 
-    void System::init(const std::shared_ptr<Player::PlayerActor>& player)
+    void System::init(const std::shared_ptr<Actor::Player::PlayerActor>& player)
     {
         m_stage->init(player, nullptr);
     }
@@ -147,9 +147,9 @@ namespace abyss
     {
         m_save->setSaveData(saveData);
     }
-    std::shared_ptr<Player::PlayerActor> System::lockPlayer() const
+    std::shared_ptr<Actor::Player::PlayerActor> System::lockPlayer() const
     {
-        return m_world.find<Player::PlayerActor>().lock();
+        return m_world.find<Actor::Player::PlayerActor>().lock();
     }
 
 }

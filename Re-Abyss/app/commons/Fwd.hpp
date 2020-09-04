@@ -36,10 +36,6 @@ namespace abyss
 	class IActor;
 	class Attacker;
 	class Receiver;
-	namespace Player
-	{
-		class PlayerActor;
-	}
 	inline namespace Enemy
 	{
 		class EnemyActor;
@@ -50,6 +46,10 @@ namespace abyss
 	}
 	namespace Actor
 	{
+		namespace Player
+		{
+			class PlayerActor;
+		}
 		namespace Map
 		{
 			class MapActor;

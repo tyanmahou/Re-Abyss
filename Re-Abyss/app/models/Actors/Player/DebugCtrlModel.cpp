@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     DebugCtrlModel::DebugCtrlModel(IActor* pActor):
         m_pActor(pActor)

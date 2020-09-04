@@ -5,7 +5,7 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     DamageState::DamageState()
     {

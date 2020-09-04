@@ -17,7 +17,7 @@ namespace abyss::Event::RoomMove
         m_playerMove(playerMove)
     {}
 
-    bool BasicMove::Start(const Player::PlayerActor& player, const RoomModel& nextRoom, double milliSec)
+    bool BasicMove::Start(const Actor::Player::PlayerActor& player, const RoomModel& nextRoom, double milliSec)
     {
         const auto& pos = player.getPos();
         auto camera = player.getModule<Camera>();

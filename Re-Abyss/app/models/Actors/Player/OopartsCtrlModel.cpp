@@ -10,7 +10,7 @@
 #include <abyss/models/Actors/Ooparts/DrawModel.hpp>
 
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     OopartsCtrlModel::OopartsCtrlModel(IActor* pActor):
         m_pActor(pActor)

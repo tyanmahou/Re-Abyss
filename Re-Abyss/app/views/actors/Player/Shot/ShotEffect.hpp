@@ -1,7 +1,7 @@
 #pragma once
 #include<Siv3D.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
 	struct ShotEffect : IEffect
 	{

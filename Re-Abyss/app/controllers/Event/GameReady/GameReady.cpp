@@ -25,7 +25,7 @@ namespace abyss::Event
             return false;
         }
         if (auto ui = m_fadeUI) {
-            auto pos = m_pManager->getModule<Player::PlayerActor>()->getPos();
+            auto pos = m_pManager->getModule<Actor::Player::PlayerActor>()->getPos();
             ui->setPos(pos)
                 .setFadeTime(m_timer.progress0_1())
                 ;

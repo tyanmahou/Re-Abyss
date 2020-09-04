@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class RestartCtrlModel :
         public IComponent,
@@ -23,7 +23,7 @@ namespace abyss::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::RestartCtrlModel>
+    struct ComponentTree<Actor::Player::RestartCtrlModel>
     {
         using Base = IDeadCallbackModel;
     };

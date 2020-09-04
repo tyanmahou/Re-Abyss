@@ -14,7 +14,7 @@ namespace
 {
 	class ViewBinder;
 }
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
@@ -65,8 +65,8 @@ namespace abyss::Player::Shot
 namespace
 {
 	using namespace abyss;
-	using namespace abyss::Player;
-	using namespace abyss::Player::Shot;
+	using namespace abyss::Actor::Player;
+	using namespace abyss::Actor::Player::Shot;
 
 	class ViewBinder : public ViewModel<ShotVM>::IBinder
 	{

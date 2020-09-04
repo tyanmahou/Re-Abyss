@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class AttackCtrlModel : 
         public IComponent

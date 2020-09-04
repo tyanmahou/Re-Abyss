@@ -10,7 +10,7 @@ namespace abyss
 		Attacker,
 		Receiver,
 
-		Player::PlayerActor,
+		Actor::Player::PlayerActor,
 
 		Enemy::EnemyActor,
 

@@ -39,7 +39,7 @@ namespace abyss::Event
         case Phase::Fade:
         {
             if (auto ui = m_fadeUI) {
-                auto pos = m_pManager->getModule<Player::PlayerActor>()->getPos();
+                auto pos = m_pManager->getModule<Actor::Player::PlayerActor>()->getPos();
                 ui->setPos(pos)
                     .setFadeTime(m_fadeTimer.progress0_1())
                     ;

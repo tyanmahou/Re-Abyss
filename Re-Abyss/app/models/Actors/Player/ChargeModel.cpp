@@ -3,7 +3,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     ChargeModel::ChargeModel():
         m_charge(0)

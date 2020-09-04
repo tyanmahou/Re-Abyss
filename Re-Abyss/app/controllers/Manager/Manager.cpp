@@ -72,7 +72,7 @@ namespace abyss
         m_pSave = pSave;
         return *this;
     }
-    Manager& Manager::set(Player::PlayerActor* pPlayer)
+    Manager& Manager::set(Actor::Player::PlayerActor* pPlayer)
     {
         m_pPlayer = pPlayer;
         return *this;
@@ -109,7 +109,7 @@ namespace abyss
             return m_pCron;
         } else if constexpr (std::is_same_v<Save, T>) {
             return m_pSave;
-        } else if (std::is_same_v<Player::PlayerActor, T>) {
+        } else if (std::is_same_v<Actor::Player::PlayerActor, T>) {
             return m_pPlayer;
         }
     }
@@ -127,6 +127,6 @@ namespace abyss
     template Stage* Manager::getModule<Stage>() const;
     template Cron* Manager::getModule<Cron>() const;
     template Save* Manager::getModule<Save>() const;
-    template Player::PlayerActor* Manager::getModule<Player::PlayerActor>() const;
+    template Actor::Player::PlayerActor* Manager::getModule<Actor::Player::PlayerActor>() const;
 
 }

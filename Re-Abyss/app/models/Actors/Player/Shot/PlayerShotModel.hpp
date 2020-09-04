@@ -2,7 +2,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/models/Actors/base/IComponent.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
 	/// <summary>
 	/// Player Shot type

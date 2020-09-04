@@ -6,8 +6,8 @@
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Player;
-    using namespace abyss::Player::Shot;
+    using namespace abyss::Actor::Player;
+    using namespace abyss::Actor::Player::Shot;
 
     PlayerShotType ChargeToType(double charge)
     {
@@ -56,7 +56,7 @@ namespace
         return 1;
     }
 }
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     PlayerShotModel::PlayerShotModel(double charge):
         m_type(::ChargeToType(charge))

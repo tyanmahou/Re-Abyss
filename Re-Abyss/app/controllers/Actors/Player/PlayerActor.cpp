@@ -27,7 +27,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     PlayerActor::PlayerActor()
     {
@@ -170,7 +170,7 @@ namespace abyss::Player
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Player;
+    using namespace abyss::Actor::Player;
 
     class ViewBinder : public ViewModel<PlayerVM>::IBinder
     {

@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class AttackCtrlModel;
 
@@ -32,7 +32,7 @@ namespace abyss::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::OopartsCtrlModel>
+    struct ComponentTree<Actor::Player::OopartsCtrlModel>
     {
         using Base = ILastUpdateModel;
     };

@@ -2,7 +2,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     void BaseState::setup()
     {

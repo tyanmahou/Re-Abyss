@@ -9,7 +9,7 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     void BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorActor& col)
     {

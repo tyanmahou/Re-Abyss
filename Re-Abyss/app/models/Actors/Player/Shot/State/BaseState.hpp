@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
 #include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     class BaseState : public IState
     {

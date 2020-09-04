@@ -6,7 +6,7 @@
 
 #include <abyss/controllers/Event/RoomMove/BasicMove/BasicMove.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     RoomMoveCheckerModel::RoomMoveCheckerModel(PlayerActor* pActor):
         m_pActor(pActor)

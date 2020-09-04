@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class DebugCtrlModel :
         public IComponent,
@@ -23,7 +23,7 @@ namespace abyss::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::DebugCtrlModel>
+    struct ComponentTree<Actor::Player::DebugCtrlModel>
     {
         using Base = IUpdateModel;
     };

@@ -13,9 +13,9 @@ namespace
 
     ColorF ChargeToColor(double charge)
     {
-        if (charge >= Player::ShotParam::Big::Charge) {
+        if (charge >= Actor::Player::ShotParam::Big::Charge) {
             return ColorDef::Shot::BigCharge;
-        } else if (charge >= Player::ShotParam::Medium::Charge) {
+        } else if (charge >= Actor::Player::ShotParam::Medium::Charge) {
             return ColorDef::Shot::MediumCharge;
         } else {
             return ColorF(1);
@@ -27,7 +27,7 @@ namespace
     }
 }
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     ColorF PlayerVM::calcColor() const
     {

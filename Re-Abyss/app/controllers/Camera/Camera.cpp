@@ -25,7 +25,7 @@ namespace abyss
 
 	void Camera::update()
 	{
-		auto player = m_pManager->getModule<Player::PlayerActor>();
+		auto player = m_pManager->getModule<Actor::Player::PlayerActor>();
 		const Vec2& playerPos = player->getPos();
 
 		// カメラ座標調整

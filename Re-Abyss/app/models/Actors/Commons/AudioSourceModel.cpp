@@ -48,7 +48,7 @@ namespace
                 m_pActor->destroy();
             }
             auto pos = m_body->getPos();
-            auto listener = m_pActor->getModule<Player::PlayerActor>()->getPos();
+            auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
 
             auto volume = ::CalcVolume(pos, listener);
             m_audio.setVolumeLR(volume.first, volume.second);
@@ -89,7 +89,7 @@ namespace abyss
             return !audio.isPlaying();
         });
         auto pos = m_body->getPos();
-        auto listener = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
         for (auto&& audio : m_audios) {
             auto volume = ::CalcVolume(pos, listener);
             audio.setVolumeLR(volume.first, volume.second);
@@ -135,7 +135,7 @@ namespace abyss
     void AudioSourceModel::playDirect(const s3d::Audio& audio)
     {
         auto pos = m_body->getPos();
-        auto listener = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
         auto volume = ::CalcVolume(pos, listener);
         audio.setVolumeLR(volume.first, volume.second);
         audio.play();

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/base/IComponent.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     /// <summary>
     /// player attack charge

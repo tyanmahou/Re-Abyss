@@ -3,7 +3,7 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     AttackCtrlModel::AttackCtrlModel(IActor* pActor):
         m_timer(0.4s, false, pActor->getUpdateTimer()),

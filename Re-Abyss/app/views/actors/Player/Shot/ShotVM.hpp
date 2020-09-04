@@ -5,7 +5,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     class ShotVM
     {

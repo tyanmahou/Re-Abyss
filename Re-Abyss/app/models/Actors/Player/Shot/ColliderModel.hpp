@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     class PlayerShotModel;
 
@@ -30,7 +30,7 @@ namespace abyss::Player::Shot
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::Shot::ColliderModel>
+    struct ComponentTree<Actor::Player::Shot::ColliderModel>
     {
         using Base = IColliderModel;
     };

@@ -151,7 +151,7 @@ namespace abyss
         return this->init(restartId);
     }
     bool Stage::init(
-        const std::shared_ptr<Player::PlayerActor>& player,
+        const std::shared_ptr<Actor::Player::PlayerActor>& player,
         const std::shared_ptr<Event::IEvent>& readyEvent
     ) const {
         bool result = true;
@@ -226,7 +226,7 @@ namespace abyss
         if (!initStartPos) {
             return false;
         }
-        auto player = Player::PlayerActor::Create();
+        auto player = Actor::Player::PlayerActor::Create();
         player->setPos(initStartPos->getPos());
         player->setForward(initStartPos->getForward());
 

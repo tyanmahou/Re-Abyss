@@ -40,6 +40,7 @@ namespace abyss::Resource::Prelaod
 	void LoadActorToml(const ResourceManager& resource)
     {
 		using namespace Actor;
+		//using namespace Actor::Enemy;
 
 		// Player
 		resource.loadToml<Player::Param>(U"Actors/Player/param.toml");

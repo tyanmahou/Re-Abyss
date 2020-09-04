@@ -10,7 +10,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     using Actor::Map::Floor::FloorActor;
     using Actor::Map::PenetrateFloor::PenetrateFloorActor;

@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
 
-namespace abyss::Player::Shot
+namespace abyss::Actor::Player::Shot
 {
     void ColliderModel::setup()
     {

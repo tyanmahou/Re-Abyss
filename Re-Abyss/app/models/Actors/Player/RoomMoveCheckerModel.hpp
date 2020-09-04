@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss::Player
+namespace abyss::Actor::Player
 {
     class RoomMoveCheckerModel :
         public IComponent,
@@ -22,7 +22,7 @@ namespace abyss::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Player::RoomMoveCheckerModel>
+    struct ComponentTree<Actor::Player::RoomMoveCheckerModel>
     {
         using Base = ILastUpdateModel;
     };
