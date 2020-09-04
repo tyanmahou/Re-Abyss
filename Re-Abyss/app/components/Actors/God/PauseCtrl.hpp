@@ -6,13 +6,13 @@
 
 namespace abyss::Actor::God
 {
-    class PauseModel:
+    class PauseCtrl:
         public IComponent,
         public IUpdateModel
     {
         IActor* m_pActor = nullptr;
     public:
-        PauseModel(IActor* pActor);
+        PauseCtrl(IActor* pActor);
         void onUpdate(double dt) override;
     };
 }
@@ -20,7 +20,7 @@ namespace abyss::Actor::God
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::God::PauseModel>
+    struct ComponentTree<Actor::God::PauseCtrl>
     {
         using Base = IUpdateModel;
     };

@@ -1,4 +1,4 @@
-#include "PauseModel.hpp"
+#include "PauseCtrl.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
@@ -8,10 +8,10 @@
 
 namespace abyss::Actor::God
 {
-    PauseModel::PauseModel(IActor* pActor):
+    PauseCtrl::PauseCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void PauseModel::onUpdate([[maybe_unused]]double dt)
+    void PauseCtrl::onUpdate([[maybe_unused]]double dt)
     {
         if (InputManager::Start.down()) {
             m_pActor->getModule<Events>()->create<Event::GamePause>();

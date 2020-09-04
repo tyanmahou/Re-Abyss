@@ -917,9 +917,6 @@
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\God\PauseModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Player\State\DeadState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1026,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\God\PauseCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1497,7 +1497,6 @@
     <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
     <ClInclude Include="app\controllers\Event\GamePause\GamePause.hpp" />
     <ClInclude Include="app\controllers\Actors\God\GodActor.hpp" />
-    <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DeadState.hpp" />
     <ClInclude Include="app\models\Actors\Player\DebugCtrlModel.hpp" />
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
@@ -1542,5 +1541,6 @@
     <ClInclude Include="app\components\base\Components.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actors\Map\MapParam.hpp" />
+    <ClInclude Include="app\components\Actors\God\PauseCtrl.hpp" />
   </ItemGroup>
 </Project>
