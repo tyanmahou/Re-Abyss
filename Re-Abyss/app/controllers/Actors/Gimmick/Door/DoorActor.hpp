@@ -3,7 +3,7 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Actors/Gimmick/Door/DoorModel.hpp>
 
-namespace abyss::Door
+namespace abyss::Actor::Gimmick::Door
 {
 	class DoorActor : public IActor
 	{

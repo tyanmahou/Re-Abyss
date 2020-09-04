@@ -19,7 +19,7 @@ namespace abyss
 		Map::PenetrateFloor::PenetrateFloorActor,
 		Map::Ladder::LadderActor,
 
-		Door::DoorActor
+		Actor::Gimmick::Door::DoorActor
 	>;
 
 	class ActVisitor : protected ActVisitorBase

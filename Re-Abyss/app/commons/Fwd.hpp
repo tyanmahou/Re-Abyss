@@ -65,9 +65,15 @@ namespace abyss
 	{
 		class OopartsActor;
 	}
-	namespace Door
+	namespace Actor
 	{
-		class DoorActor;
+		namespace Gimmick
+		{
+			namespace Door
+			{
+				class DoorActor;
+			}
+		}
 	}
 
 	/// <summary>

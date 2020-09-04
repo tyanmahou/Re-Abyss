@@ -41,7 +41,7 @@ namespace abyss::Event::RoomMove
         /// <param name="milliSec"></param>
         /// <returns></returns>
         static bool Start(
-            const Door::DoorActor& door,
+            const Actor::Gimmick::Door::DoorActor& door,
             const s3d::Vec2& playerPos,
             std::function<void()> fadeInCallback,
             double milliSec = 2000

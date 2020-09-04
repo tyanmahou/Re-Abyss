@@ -11,7 +11,7 @@
 
 namespace abyss::Event::RoomMove
 {
-    bool DoorMove::Start(const Door::DoorActor& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, double milliSec)
+    bool DoorMove::Start(const Actor::Gimmick::Door::DoorActor& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, double milliSec)
     {
         assert(milliSec > 0);
         auto camera = door.getModule<Camera>();

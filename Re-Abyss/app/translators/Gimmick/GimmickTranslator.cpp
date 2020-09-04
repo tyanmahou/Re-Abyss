@@ -28,7 +28,7 @@ namespace abyss
                         doorEntity.size,
                         startPos->isSave()
                     };
-                    return std::make_shared<Door::DoorActor>(door, *room);
+                    return std::make_shared<Actor::Gimmick::Door::DoorActor>(door, *room);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::Door
+namespace abyss::Actor::Gimmick::Door
 {
 	DoorActor::DoorActor(const DoorModel& door, const RoomModel& nextRoom):
 		m_door(door),
