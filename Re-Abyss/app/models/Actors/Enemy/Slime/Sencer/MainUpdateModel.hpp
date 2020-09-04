@@ -5,7 +5,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Slime::Sencer
+namespace abyss::Actor::Enemy::Slime::Sencer
 {
     class ParentCtrlModel;
 
@@ -29,7 +29,7 @@ namespace abyss::Actor::Slime::Sencer
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Slime::Sencer::MainUpdateModel>
+    struct ComponentTree<Actor::Enemy::Slime::Sencer::MainUpdateModel>
     {
         using Base = MultiComponents<IUpdateModel, IPrePhysicsModel>;
     };

@@ -6,7 +6,7 @@ namespace abyss
 {
     struct LaunSharkEntity;
 }
-namespace abyss::Actor::LaunShark
+namespace abyss::Actor::Enemy::LaunShark
 {
     class LaunSharkActor :
         public EnemyActor

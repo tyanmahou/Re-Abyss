@@ -6,7 +6,7 @@
 
 #include <abyss/views/Actors/Enemy/RollingTako/RollingTakoVM.hpp>
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     class BaseState : public IState
     {

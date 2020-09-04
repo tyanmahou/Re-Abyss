@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     struct ShotChargeEffect : IEffect
     {

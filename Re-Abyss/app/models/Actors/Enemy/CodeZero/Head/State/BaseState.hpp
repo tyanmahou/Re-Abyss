@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
     class BaseState : public IState
     {

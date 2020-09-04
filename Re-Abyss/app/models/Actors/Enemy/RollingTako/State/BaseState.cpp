@@ -2,7 +2,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     void BaseState::setup()
     {

@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
     void BaseState::setup()
     {

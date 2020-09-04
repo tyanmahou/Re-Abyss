@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     void BaseState::setup()
     {

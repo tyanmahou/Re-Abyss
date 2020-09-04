@@ -2,7 +2,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     void BaseState::setup()
     {

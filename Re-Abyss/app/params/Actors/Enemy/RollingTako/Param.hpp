@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     struct Param
     {

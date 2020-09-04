@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     void BaseState::setup()
     {

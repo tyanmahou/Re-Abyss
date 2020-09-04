@@ -3,7 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <memory>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     namespace Body
     {
@@ -18,7 +18,7 @@ namespace abyss::Actor::CodeZero
         class HandVM;
     }
 }
-namespace abyss::Actor::CodeZero::Demo
+namespace abyss::Actor::Enemy::CodeZero::Demo
 {
     /// <summary>
     /// デモ用

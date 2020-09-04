@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     IkalienVM::IkalienVM():
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Ikalien/ikalien.png"))

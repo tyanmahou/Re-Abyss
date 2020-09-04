@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     class CodeZeroActor;
     class PartsModel;

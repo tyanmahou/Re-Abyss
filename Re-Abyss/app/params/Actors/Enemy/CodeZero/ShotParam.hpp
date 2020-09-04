@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     struct ShotParam
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     class AttackPlusState final : public BaseState
     {

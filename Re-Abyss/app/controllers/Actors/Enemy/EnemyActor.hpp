@@ -7,35 +7,33 @@
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
-	inline namespace Enemy
-	{
-		class EnemyActor :
-			public IActor,
-			public Attacker,
-			public Receiver
-		{
-			friend class EnemyBuilder;
-		protected:
-			Ref<BodyModel> m_body;
-			Ref<HPModel> m_hp;
-		public:
-			EnemyActor() = default;
+    class EnemyActor :
+        public IActor,
+        public Attacker,
+        public Receiver
+    {
+        friend class EnemyBuilder;
+    protected:
+        Ref<BodyModel> m_body;
+        Ref<HPModel> m_hp;
+    public:
+        EnemyActor() = default;
 
-			EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
+        EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
-			const s3d::Vec2& getPos()const;
-			const s3d::Vec2& getVelocity()const;
+        const s3d::Vec2& getPos()const;
+        const s3d::Vec2& getVelocity()const;
 
-			Forward getForward()const;
-			bool accept(const ActVisitor& visitor) override;
+        Forward getForward()const;
+        bool accept(const ActVisitor& visitor) override;
 
-			const BodyModel& getBody()const;
-			BodyModel& getBody();
-			const HPModel& getHp()const;
-			CShape getCollider() const;
-			s3d::RectF region()const;
-		};
-	}
+        const BodyModel& getBody()const;
+        BodyModel& getBody();
+        const HPModel& getHp()const;
+        CShape getCollider() const;
+        s3d::RectF region()const;
+    };
+
 }

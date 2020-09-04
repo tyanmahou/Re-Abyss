@@ -11,7 +11,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     RollingTakoActor::RollingTakoActor(const RollingTakoEntity& entity):
         m_isWait(entity.wait)
@@ -52,7 +52,7 @@ namespace abyss::RollingTako
 namespace
 {
     using namespace abyss;
-    using namespace abyss::RollingTako;
+    using namespace abyss::Actor::Enemy::RollingTako;
 
     class ViewBinder : public ViewModel<RollingTakoVM>::IBinder
     {

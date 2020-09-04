@@ -2,7 +2,7 @@
 #include "BaseState.hpp"
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     class PursuitState : public BaseState
     {

@@ -6,7 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
     class EnemyBuilder
     {

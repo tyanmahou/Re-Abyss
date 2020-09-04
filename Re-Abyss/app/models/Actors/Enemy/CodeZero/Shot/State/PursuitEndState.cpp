@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     PursuitEndState::PursuitEndState()
     {}

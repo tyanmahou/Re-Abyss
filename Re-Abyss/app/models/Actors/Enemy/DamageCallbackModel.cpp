@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
     DamageCallbackModel::DamageCallbackModel(IActor* pActor):
         m_pActor(pActor)

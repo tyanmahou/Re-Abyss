@@ -3,7 +3,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 #include <abyss/types/Forward.hpp>
-namespace abyss::Actor::CaptainTako::Shot
+namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
     class ShotVM
     {

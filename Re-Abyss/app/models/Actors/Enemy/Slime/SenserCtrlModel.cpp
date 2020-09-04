@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/Enemy/Slime/Senser/SenserActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     SenserCtrlModel::SenserCtrlModel(SlimeActor* pActor):
         m_pActor(pActor)

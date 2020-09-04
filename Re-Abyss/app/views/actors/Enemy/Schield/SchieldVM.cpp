@@ -5,7 +5,7 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     SchieldVM::SchieldVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))

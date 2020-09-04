@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/views/Actors/Enemy/Ikalien/IkalienVM.hpp>
 
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     class BaseState : public IState
     {

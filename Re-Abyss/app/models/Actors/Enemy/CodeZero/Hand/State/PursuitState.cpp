@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     void PursuitState::start()
     {

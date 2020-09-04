@@ -9,7 +9,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
 
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     ParentCtrlModel::ParentCtrlModel(IActor* parent):
         m_parent(parent)

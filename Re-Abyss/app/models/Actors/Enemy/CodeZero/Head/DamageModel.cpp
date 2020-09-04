@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
 	DamageModel::DamageModel(IActor* pActor) :
 		m_pActor(pActor)

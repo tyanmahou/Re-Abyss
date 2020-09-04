@@ -2,7 +2,7 @@
 #include "BaseState.hpp"
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     class ChargeState : public BaseState
     {

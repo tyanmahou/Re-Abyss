@@ -1,7 +1,7 @@
 #include "BaseState.hpp"
 #include <Siv3D.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     BaseState::BaseState()
     {}

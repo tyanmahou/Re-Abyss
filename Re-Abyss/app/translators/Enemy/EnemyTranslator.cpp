@@ -21,9 +21,9 @@
 
 namespace abyss
 {
-    std::shared_ptr<EnemyActor> EnemyTranslator::ToActorPtr(const EnemyEntity& entity)
+    std::shared_ptr<Actor::Enemy::EnemyActor> EnemyTranslator::ToActorPtr(const EnemyEntity& entity)
     {
-		using namespace Actor;
+		using namespace Actor::Enemy;
 #define CASE_ENEMY(type) case EnemyType::##type : return std::make_shared<type::type##Actor>(static_cast<const type##Entity&>(entity))
 
 		switch (entity.type) {

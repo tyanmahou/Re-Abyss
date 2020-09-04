@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
     class DamageCallbackModel :
         public IComponent,
@@ -22,7 +22,7 @@ namespace abyss::Enemy
 namespace abyss
 {
     template<>
-    struct ComponentTree<Enemy::DamageCallbackModel>
+    struct ComponentTree<Actor::Enemy::DamageCallbackModel>
     {
         using Base = IDamageCallbackModel;
     };

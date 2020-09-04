@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     class SlimeActor;
     class SenserActor;

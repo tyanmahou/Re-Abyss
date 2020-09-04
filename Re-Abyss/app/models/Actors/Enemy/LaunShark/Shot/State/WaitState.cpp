@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 
-namespace abyss::Actor::LaunShark::Shot
+namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     WaitState::WaitState()
     {}

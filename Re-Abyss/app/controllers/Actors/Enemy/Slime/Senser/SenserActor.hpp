@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 	class SlimeActor;
 

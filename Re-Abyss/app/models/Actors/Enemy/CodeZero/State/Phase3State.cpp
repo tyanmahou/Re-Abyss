@@ -5,7 +5,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Shot/ShotActor.hpp>
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     Phase3State::Phase3State()
     {

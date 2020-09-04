@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 #include <abyss/types/CShape.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
 	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
 	{

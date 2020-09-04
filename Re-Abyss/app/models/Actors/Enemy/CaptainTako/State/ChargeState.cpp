@@ -5,7 +5,7 @@
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     ChargeState::ChargeState()
     {}

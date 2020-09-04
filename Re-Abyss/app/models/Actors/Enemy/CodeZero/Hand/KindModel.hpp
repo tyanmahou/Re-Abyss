@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class KindModel : public IComponent
     {

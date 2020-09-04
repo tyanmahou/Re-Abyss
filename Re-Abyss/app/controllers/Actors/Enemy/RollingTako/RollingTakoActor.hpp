@@ -7,7 +7,7 @@ namespace abyss
     struct RollingTakoEntity;
 }
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     class RollingTakoActor :
         public EnemyActor

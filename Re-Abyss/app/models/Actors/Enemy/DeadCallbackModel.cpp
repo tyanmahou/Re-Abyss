@@ -4,7 +4,7 @@
 #include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
     DeadCallbackModel::DeadCallbackModel(IActor* pActor):
         m_pActor(pActor)

@@ -6,7 +6,7 @@ namespace abyss
 {
     struct CodeZeroEntity;
 }
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     class PartsModel;
 

@@ -2,7 +2,7 @@
 #include "BaseState.hpp"
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     class PursuitEndState : public BaseState
     {

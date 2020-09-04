@@ -6,7 +6,7 @@
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     using namespace std::literals;
 

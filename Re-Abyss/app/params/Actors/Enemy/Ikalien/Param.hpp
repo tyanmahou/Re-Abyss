@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     struct Param
     {

@@ -4,7 +4,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class HandVM
     {

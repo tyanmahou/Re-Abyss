@@ -6,7 +6,7 @@ namespace abyss
 {
 	struct SchieldEntity;
 }
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
 	class FaceCtrlModel;
 

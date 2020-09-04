@@ -6,7 +6,7 @@
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 #include <abyss/views/Actors/Enemy/Schield/SchieldVM.hpp>
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     class BaseState : public IState
     {

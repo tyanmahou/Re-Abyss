@@ -4,7 +4,7 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
     HeadVM::HeadVM() :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))

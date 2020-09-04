@@ -2,11 +2,11 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     class CodeZeroActor;
 }
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class HandModel;
 

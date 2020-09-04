@@ -13,10 +13,10 @@ namespace abyss::Event::Talk::BossTalk0_0
     {
         auto world = m_pManager->getModule<World>();
        
-        if (auto demoCodeZero = world->find<Actor::CodeZero::Demo::DemoActor>()) {
+        if (auto demoCodeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoActor>()) {
             demoCodeZero->destroy();
         }
-        if (auto codeZero = world->find<Actor::CodeZero::CodeZeroActor>()) {
+        if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroActor>()) {
             codeZero->setActiveAll(true);
             auto hpBar = m_pManager->getModule<UI>()->create<ui::BossHPBar>(codeZero.get());
             // HPチャージ

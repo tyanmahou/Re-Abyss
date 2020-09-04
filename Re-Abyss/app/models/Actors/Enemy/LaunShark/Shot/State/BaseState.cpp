@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-namespace abyss::Actor::LaunShark::Shot
+namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     void BaseState::setup()
     {

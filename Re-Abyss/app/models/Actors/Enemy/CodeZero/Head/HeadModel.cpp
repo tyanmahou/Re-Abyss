@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
     HeadModel::HeadModel(IActor* pActor):
         m_forward(Forward::None),

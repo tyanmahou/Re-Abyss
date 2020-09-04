@@ -13,7 +13,7 @@
 
 #include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
 	EnemyBuilder::EnemyBuilder(EnemyActor* pActor):
         m_pActor(pActor),

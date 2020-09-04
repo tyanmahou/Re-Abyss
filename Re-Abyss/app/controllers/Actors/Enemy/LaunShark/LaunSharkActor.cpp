@@ -11,7 +11,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::Actor::LaunShark
+namespace abyss::Actor::Enemy::LaunShark
 {
     LaunSharkActor::LaunSharkActor(const LaunSharkEntity& entity)
     {
@@ -49,7 +49,7 @@ namespace abyss::Actor::LaunShark
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Actor::LaunShark;
+    using namespace abyss::Actor::Enemy::LaunShark;
 
     class ViewBinder : public ViewModel<LaunSharkVM>::IBinder
     {

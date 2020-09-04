@@ -2,7 +2,7 @@
 
 #include "BaseState.hpp"
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 
     class JumpState final: public BaseState

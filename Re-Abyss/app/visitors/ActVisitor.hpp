@@ -12,7 +12,7 @@ namespace abyss
 
 		Actor::Player::PlayerActor,
 
-		Enemy::EnemyActor,
+		Actor::Enemy::EnemyActor,
 
 		Actor::Map::MapActor,
 		Actor::Map::Floor::FloorActor,

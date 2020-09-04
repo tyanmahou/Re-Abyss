@@ -6,7 +6,7 @@
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Actor::LaunShark
+namespace abyss::Actor::Enemy::LaunShark
 {
     SwimState::SwimState()
     {}

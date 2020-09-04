@@ -6,7 +6,7 @@ namespace abyss
 {
     struct IkalienEntity;
 }
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     class IkalienActor :
         public EnemyActor

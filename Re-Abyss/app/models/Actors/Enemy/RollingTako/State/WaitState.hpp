@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     class WaitState : public BaseState
     {

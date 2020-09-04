@@ -6,7 +6,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     WaitState::WaitState()
     {}

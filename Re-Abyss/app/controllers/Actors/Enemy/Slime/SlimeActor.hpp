@@ -8,7 +8,7 @@ namespace abyss
 {
 	struct SlimeEntity;
 }
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 	class Senser;
 

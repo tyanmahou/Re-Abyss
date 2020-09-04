@@ -12,7 +12,7 @@ namespace
     class ViewBinder;
 }
 
-namespace abyss::Actor::Ikalien
+namespace abyss::Actor::Enemy::Ikalien
 {
     IkalienActor::IkalienActor(const IkalienEntity& entity)
     {
@@ -54,7 +54,7 @@ namespace abyss::Actor::Ikalien
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Actor::Ikalien;
+    using namespace abyss::Actor::Enemy::Ikalien;
 
     class ViewBinder : public ViewModel<IkalienVM>::IBinder
     {

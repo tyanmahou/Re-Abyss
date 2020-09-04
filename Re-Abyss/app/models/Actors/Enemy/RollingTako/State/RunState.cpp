@@ -1,6 +1,6 @@
 #include "RunState.hpp"
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     void RunState::start()
     {

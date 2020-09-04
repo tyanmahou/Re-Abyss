@@ -7,7 +7,7 @@
 
 #include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 
     class BaseState : public IState

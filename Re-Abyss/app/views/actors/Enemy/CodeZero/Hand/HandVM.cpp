@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     HandVM::HandVM(Forward forward) :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json")),

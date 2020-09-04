@@ -10,7 +10,7 @@ namespace abyss::Event::Talk::BossTalk0_0
     void BossMove::onStart()
     {
         auto world = m_pManager->getModule<World>();
-        m_codeZero = world->find<Actor::CodeZero::Demo::DemoActor>();
+        m_codeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoActor>();
         m_initPos = m_codeZero->getPos();
 
         m_targetPos = m_initPos - s3d::Vec2{ 0, 400 };

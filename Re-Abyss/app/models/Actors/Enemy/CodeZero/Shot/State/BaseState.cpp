@@ -1,7 +1,7 @@
 #include "BaseState.hpp"
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     void BaseState::setup()
     {

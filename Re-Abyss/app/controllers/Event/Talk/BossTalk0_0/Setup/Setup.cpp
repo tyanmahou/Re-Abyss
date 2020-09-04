@@ -12,8 +12,8 @@ namespace abyss::Event::Talk::BossTalk0_0
         m_pManager->getModule<UI>()->setActiveAll(false);
         auto world = m_pManager->getModule<World>();
         
-        if (auto codeZero = world->find<Actor::CodeZero::CodeZeroActor>()) {
-            world->create<Actor::CodeZero::Demo::DemoActor>(codeZero->getPos());
+        if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroActor>()) {
+            world->create<Actor::Enemy::CodeZero::Demo::DemoActor>(codeZero->getPos());
             codeZero->setActiveAll(false);
         }
 

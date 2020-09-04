@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     FaceCtrlModel::FaceCtrlModel(IActor* pActor):
         m_pActor(pActor)

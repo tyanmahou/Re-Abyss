@@ -6,11 +6,11 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     class ParentCtrlModel;
 }
-namespace abyss::Actor::CodeZero::Head
+namespace abyss::Actor::Enemy::CodeZero::Head
 {
     class HeadModel : public IComponent
     {

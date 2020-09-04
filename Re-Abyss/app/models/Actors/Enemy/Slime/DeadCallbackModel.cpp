@@ -2,7 +2,7 @@
 #include "SenserCtrlModel.hpp"
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     void DeadCallbackModel::onDead()
     {

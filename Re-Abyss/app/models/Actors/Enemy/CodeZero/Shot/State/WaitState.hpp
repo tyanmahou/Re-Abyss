@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     class WaitState : public BaseState
     {

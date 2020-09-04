@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     void WalkState::start()
     {

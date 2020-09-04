@@ -4,7 +4,7 @@
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     void WaitState::start()
     {

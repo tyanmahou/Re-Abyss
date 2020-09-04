@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     void WaitState::start()
     {

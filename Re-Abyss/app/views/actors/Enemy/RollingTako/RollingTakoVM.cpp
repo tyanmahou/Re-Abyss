@@ -3,7 +3,7 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-namespace abyss::RollingTako
+namespace abyss::Actor::Enemy::RollingTako
 {
     RollingTakoVM::RollingTakoVM():
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/RollingTako/rolling_tako.png"))

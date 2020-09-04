@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::Actor::CaptainTako::Shot
+namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
     ShotVM::ShotVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))

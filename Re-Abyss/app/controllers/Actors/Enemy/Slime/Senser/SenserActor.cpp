@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 	SenserActor::SenserActor(SlimeActor* p)
 	{

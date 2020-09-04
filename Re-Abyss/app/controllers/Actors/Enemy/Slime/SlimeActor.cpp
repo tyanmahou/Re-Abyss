@@ -15,7 +15,7 @@ namespace
 {
 	class ViewBinder;
 }
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
 	SlimeActor::SlimeActor(const SlimeEntity& entity)
 	{
@@ -58,7 +58,7 @@ namespace abyss::Actor::Slime
 namespace
 {
 	using namespace abyss;
-	using namespace abyss::Actor::Slime;
+	using namespace abyss::Actor::Enemy::Slime;
 
 	class ViewBinder : public ViewModel<SlimeVM>::IBinder
 	{

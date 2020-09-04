@@ -3,7 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss::Actor::CodeZero::Body
+namespace abyss::Actor::Enemy::CodeZero::Body
 {
     class BodyVM
     {

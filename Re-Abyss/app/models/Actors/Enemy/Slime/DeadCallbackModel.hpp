@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     class DeadCallbackModel : public Enemy::DeadCallbackModel
     {
@@ -14,8 +14,8 @@ namespace abyss::Actor::Slime
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Slime::DeadCallbackModel>
+    struct ComponentTree<Actor::Enemy::Slime::DeadCallbackModel>
     {
-        using Base = Enemy::DeadCallbackModel;
+        using Base = Actor::Enemy::DeadCallbackModel;
     };
 }

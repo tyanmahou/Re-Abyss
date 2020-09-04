@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-namespace abyss::Actor::CodeZero::Shot
+namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     class ShotVM
     {

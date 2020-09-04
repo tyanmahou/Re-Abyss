@@ -2,7 +2,7 @@
 #include "BaseState.hpp"
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class AttackState final : public BaseState
     {

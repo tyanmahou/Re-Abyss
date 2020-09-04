@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
-namespace abyss::Enemy
+namespace abyss::Actor::Enemy
 {
     class DeadCallbackModel :
         public IComponent,
@@ -26,7 +26,7 @@ namespace abyss::Enemy
 namespace abyss
 {
     template<>
-    struct ComponentTree<Enemy::DeadCallbackModel>
+    struct ComponentTree<Actor::Enemy::DeadCallbackModel>
     {
         using Base = IDeadCallbackModel;
     };

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     struct ShotParam
     {

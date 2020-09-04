@@ -1,7 +1,7 @@
 #include "StartState.hpp"
 #include "WaitState.hpp"
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
-namespace abyss::Actor::LaunShark::Shot
+namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     void StartState::start()
     {

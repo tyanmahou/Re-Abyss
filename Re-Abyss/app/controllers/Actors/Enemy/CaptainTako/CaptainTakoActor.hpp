@@ -6,7 +6,7 @@ namespace abyss
 {
     struct CaptainTakoEntity;
 }
-namespace abyss::Actor::CaptainTako
+namespace abyss::Actor::Enemy::CaptainTako
 {
     class CaptainTakoActor :
         public EnemyActor

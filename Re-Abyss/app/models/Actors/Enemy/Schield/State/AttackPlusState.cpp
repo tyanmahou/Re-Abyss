@@ -6,7 +6,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Actors/Enemy/Schield/Shot/ShotActor.hpp>
 
-namespace abyss::Actor::Schield
+namespace abyss::Actor::Enemy::Schield
 {
     AttackPlusState::AttackPlusState()
     {}

@@ -7,7 +7,7 @@
 
 #include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
 
-namespace abyss::Actor::CodeZero
+namespace abyss::Actor::Enemy::CodeZero
 {
     class BaseState : public IState
     {

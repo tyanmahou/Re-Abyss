@@ -18,7 +18,7 @@ namespace
     class ViewBinder;
 }
 
-namespace abyss::Actor::Schield::Shot
+namespace abyss::Actor::Enemy::Schield::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
@@ -77,8 +77,8 @@ namespace abyss::Actor::Schield::Shot
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Actor::Schield;
-    using namespace abyss::Actor::Schield::Shot;
+    using namespace abyss::Actor::Enemy::Schield;
+    using namespace abyss::Actor::Enemy::Schield::Shot;
 
     class ViewBinder : public ViewModel<ShotVM>::IBinder
     {

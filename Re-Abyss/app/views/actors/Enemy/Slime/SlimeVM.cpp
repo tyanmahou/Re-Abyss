@@ -4,7 +4,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
-namespace abyss::Actor::Slime
+namespace abyss::Actor::Enemy::Slime
 {
     SlimeVM::SlimeVM():
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Slime/Slime.png"))

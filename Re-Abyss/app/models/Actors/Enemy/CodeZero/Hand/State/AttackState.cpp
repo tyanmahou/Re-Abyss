@@ -3,7 +3,7 @@
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
-namespace abyss::Actor::CodeZero::Hand
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     AttackState::AttackState()
     {
