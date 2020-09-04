@@ -4,7 +4,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     class PursuitModel:
         public IComponent,
@@ -39,7 +39,7 @@ namespace abyss::Ooparts
 namespace abyss
 {
     template<>
-    struct ComponentTree<Ooparts::PursuitModel>
+    struct ComponentTree<Actor::Ooparts::PursuitModel>
     {
         using Base = IPreDrawModel;
     };

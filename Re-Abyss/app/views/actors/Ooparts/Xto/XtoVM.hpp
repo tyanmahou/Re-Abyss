@@ -2,7 +2,7 @@
 #include <Siv3D/Texture.hpp>
 #include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 
-namespace abyss::Ooparts::Xto
+namespace abyss::Actor::Ooparts::Xto
 {
     class XtoVM : public OopartsVM
     {

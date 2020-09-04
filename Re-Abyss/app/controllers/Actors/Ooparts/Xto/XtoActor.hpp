@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
 
-namespace abyss::Ooparts::Xto
+namespace abyss::Actor::Ooparts::Xto
 {
     class XtoActor :
         public OopartsActor

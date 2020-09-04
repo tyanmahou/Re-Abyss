@@ -7,7 +7,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::Ooparts::Nyan
+namespace abyss::Actor::Ooparts::Nyan
 {
     NyanActor::NyanActor(IActor* parent):
         OopartsActor(parent)
@@ -19,8 +19,8 @@ namespace abyss::Ooparts::Nyan
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Ooparts;
-    using namespace abyss::Ooparts::Nyan;
+    using namespace abyss::Actor::Ooparts;
+    using namespace abyss::Actor::Ooparts::Nyan;
 
     class ViewBinder : public ViewModel<OopartsVM>::IBinder
     {

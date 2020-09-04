@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     class OopartsVM;
 

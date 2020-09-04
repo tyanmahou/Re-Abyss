@@ -2,7 +2,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Ooparts::Nyan
+namespace abyss::Actor::Ooparts::Nyan
 {
     void NyanVM::drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const
     {

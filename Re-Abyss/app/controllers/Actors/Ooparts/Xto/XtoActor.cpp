@@ -7,7 +7,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::Ooparts::Xto
+namespace abyss::Actor::Ooparts::Xto
 {
     XtoActor::XtoActor(IActor* parent):
         OopartsActor(parent)
@@ -19,8 +19,8 @@ namespace abyss::Ooparts::Xto
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Ooparts;
-    using namespace abyss::Ooparts::Xto;
+    using namespace abyss::Actor::Ooparts;
+    using namespace abyss::Actor::Ooparts::Xto;
 
     class ViewBinder : public ViewModel<OopartsVM>::IBinder
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
 
-namespace abyss::Ooparts::Nyan
+namespace abyss::Actor::Ooparts::Nyan
 {
     class NyanActor :
         public OopartsActor

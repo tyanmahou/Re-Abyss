@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     PursuitModel::PursuitModel(IActor* pActor, const Ref<BodyModel>& pParent):
         m_pActor(pActor),

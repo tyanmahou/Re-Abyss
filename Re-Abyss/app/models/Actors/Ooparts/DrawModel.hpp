@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     class OopartsVM;
 
@@ -26,7 +26,7 @@ namespace abyss::Ooparts
 namespace abyss
 {
     template<>
-    struct ComponentTree<Ooparts::DrawModel>
+    struct ComponentTree<Actor::Ooparts::DrawModel>
     {
         using Base = IDrawModel;
     };

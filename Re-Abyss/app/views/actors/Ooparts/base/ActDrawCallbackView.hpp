@@ -5,7 +5,7 @@
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     class OopartsVM;
 

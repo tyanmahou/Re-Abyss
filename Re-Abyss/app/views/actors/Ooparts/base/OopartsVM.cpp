@@ -3,7 +3,7 @@
 #include <abyss/views/Actors/Common/KiraKiraEffect.hpp>
 #include <abyss/controllers/System/System.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     OopartsVM::OopartsVM():
         m_effectTimer(0.05, true, [this] {return Time::FromSec(this->m_time); })

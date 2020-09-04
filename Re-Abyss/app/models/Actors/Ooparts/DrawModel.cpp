@@ -5,7 +5,7 @@
 
 #include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     DrawModel::DrawModel(IActor* pActor):
         m_pActor(pActor)

@@ -2,7 +2,7 @@
 #include <Siv3D/Texture.hpp>
 #include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 
-namespace abyss::Ooparts::Nyan
+namespace abyss::Actor::Ooparts::Nyan
 {
     class NyanVM : public OopartsVM
     {

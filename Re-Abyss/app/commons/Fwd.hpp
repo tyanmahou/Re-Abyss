@@ -40,10 +40,6 @@ namespace abyss
 	{
 		class EnemyActor;
 	}
-	namespace Ooparts
-	{
-		class OopartsActor;
-	}
 	namespace Actor
 	{
 		namespace Player
@@ -73,6 +69,10 @@ namespace abyss
 			{
 				class DoorActor;
 			}
+		}
+		namespace Ooparts
+		{
+			class OopartsActor;
 		}
 	}
 

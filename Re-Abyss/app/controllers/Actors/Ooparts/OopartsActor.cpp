@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Ooparts/PursuitModel.hpp>
 #include <abyss/models/Actors/Ooparts/DrawModel.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     OopartsActor::OopartsActor(IActor* parent)
     {

@@ -4,7 +4,7 @@
 #include <abyss/views/Actors/Common/KiraKiraEffect.hpp>
 #include <abyss/controllers/System/System.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     ActDrawCallbackView::ActDrawCallbackView(OopartsVM* view, Manager* manager):
         m_pManager(manager),

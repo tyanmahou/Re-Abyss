@@ -7,7 +7,7 @@
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 #include <abyss/views/Actors/Ooparts/base/IDrawCallbackView.hpp>
 
-namespace abyss::Ooparts
+namespace abyss::Actor::Ooparts
 {
     class OopartsVM
     {

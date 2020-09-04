@@ -4,7 +4,7 @@
 
 #include <abyss/commons/ColorDef.hpp>
 
-namespace abyss::Ooparts::Xto
+namespace abyss::Actor::Ooparts::Xto
 {
     XtoVM::XtoVM():
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Ooparts/Xto/xto.png"))
