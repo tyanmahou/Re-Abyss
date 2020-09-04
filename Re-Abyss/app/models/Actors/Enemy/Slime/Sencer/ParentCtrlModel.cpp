@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
-namespace abyss::Slime::Sencer
+namespace abyss::Actor::Slime::Sencer
 {
     ParentCtrlModel::ParentCtrlModel(SlimeActor* parent):
         m_parent(parent)

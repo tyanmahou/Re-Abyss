@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
-namespace abyss::Slime::Sencer
+namespace abyss::Actor::Slime::Sencer
 {
 	MainUpdateModel::MainUpdateModel(IActor* pActor):
 		m_pActor(pActor)

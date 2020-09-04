@@ -3,11 +3,11 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::Slime
+namespace abyss::Actor::Slime
 {
     class SlimeActor;
 }
-namespace abyss::Slime::Sencer
+namespace abyss::Actor::Slime::Sencer
 {
     class ParentCtrlModel : public IComponent
     {

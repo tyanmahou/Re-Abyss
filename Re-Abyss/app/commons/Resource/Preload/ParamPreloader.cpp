@@ -39,6 +39,8 @@ namespace abyss::Resource::Prelaod
 	}
 	void LoadActorToml(const ResourceManager& resource)
     {
+		using namespace Actor;
+
 		// Player
 		resource.loadToml<Player::Param>(U"Actors/Player/param.toml");
 		resource.loadToml<Player::ShotParam>(U"Actors/Player/shot_param.toml");

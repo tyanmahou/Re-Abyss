@@ -2,7 +2,7 @@
 
 #include "BaseState.hpp"
 
-namespace abyss::Slime
+namespace abyss::Actor::Slime
 {
 
     class WalkState final : public BaseState
