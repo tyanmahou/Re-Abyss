@@ -4,13 +4,13 @@
 
 namespace abyss::Actor::Map
 {
-    class MapParamModel;
+    class MapParam;
 
     class MapActor :public IActor
     {
     protected:
         ColDirection m_col;
-        Ref<MapParamModel> m_mapParam;
+        Ref<MapParam> m_mapParam;
     public:
         MapActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
 

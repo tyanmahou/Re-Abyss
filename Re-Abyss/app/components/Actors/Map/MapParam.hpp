@@ -5,14 +5,14 @@
 
 namespace abyss::Actor::Map
 {
-    class MapParamModel :
+    class MapParam :
         public IComponent
     {
     private:
         s3d::Vec2 m_pos;
         s3d::Vec2 m_size;
     public:
-        MapParamModel(const s3d::Vec2& pos, const s3d::Vec2& size);
+        MapParam(const s3d::Vec2& pos, const s3d::Vec2& size);
 
         const s3d::Vec2& getPos() const;
         const s3d::Vec2& getSize() const;

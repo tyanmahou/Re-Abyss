@@ -1,9 +1,9 @@
-#include "MapParamModel.hpp"
+#include "MapParam.hpp"
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Map
 {
-    MapParamModel::MapParamModel(
+    MapParam::MapParam(
         const s3d::Vec2& pos,
         const s3d::Vec2& size
     ) :
@@ -11,17 +11,17 @@ namespace abyss::Actor::Map
         m_size(size)
     {}
 
-    const s3d::Vec2& MapParamModel::getPos() const
+    const s3d::Vec2& MapParam::getPos() const
     {
         return m_pos;
     }
 
-    const s3d::Vec2& MapParamModel::getSize() const
+    const s3d::Vec2& MapParam::getSize() const
     {
         return m_size;
     }
 
-    s3d::RectF MapParamModel::region() const
+    s3d::RectF MapParam::region() const
     {
         return s3d::RectF{ m_pos - m_size / 2, m_size };
     }

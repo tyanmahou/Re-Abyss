@@ -224,7 +224,7 @@
     <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\EventTrigger\MainModel.cpp" />
     <ClCompile Include="app\models\Actors\God\PauseModel.cpp" />
-    <ClCompile Include="app\models\Actors\Map\MapParamModel.cpp" />
+    <ClCompile Include="app\components\Actors\Map\MapParamModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\DebugCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RestartCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\RoomMoveCheckerModel.cpp" />
@@ -579,7 +579,7 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\EventTrigger\MainModel.hpp" />
     <ClInclude Include="app\models\Actors\God\PauseModel.hpp" />
-    <ClInclude Include="app\models\Actors\Map\MapParamModel.hpp" />
+    <ClInclude Include="app\components\Actors\Map\MapParam.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\PursuitModel.hpp" />
     <ClInclude Include="app\models\Actors\Player\AttackCtrlModel.hpp" />

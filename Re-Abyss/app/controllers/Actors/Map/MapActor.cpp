@@ -1,5 +1,5 @@
 #include "MapActor.hpp"
-#include <abyss/models/Actors/Map/MapParamModel.hpp>
+#include <abyss/components/Actors/Map/MapParam.hpp>
 #include <abyss/models/Actors/Commons/TerrainModel.hpp>
 #include <abyss/types/CShape.hpp>
 
@@ -9,7 +9,7 @@ namespace abyss::Actor::Map
 		m_col(col)
 	{
 		{
-			m_mapParam = this->attach<MapParamModel>(pos, size);
+			m_mapParam = this->attach<MapParam>(pos, size);
 		}
 		// 地形
 		{
