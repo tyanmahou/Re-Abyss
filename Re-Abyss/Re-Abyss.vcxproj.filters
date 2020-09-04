@@ -404,9 +404,6 @@
     <ClCompile Include="app\models\Actors\Player\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -714,9 +711,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Sound\Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\DamageCallbackModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp">
@@ -1031,6 +1025,12 @@
     <ClCompile Include="app\components\Actors\Gimmick\EventTrigger\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\DamageCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1278,7 +1278,6 @@
     <ClInclude Include="app\models\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
     <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\BaseState.hpp" />
@@ -1415,7 +1414,6 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\controllers\Manager\Manager.hpp" />
     <ClInclude Include="app\controllers\System\System.hpp">
@@ -1543,5 +1541,7 @@
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Main.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\DamageCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />
   </ItemGroup>
 </Project>

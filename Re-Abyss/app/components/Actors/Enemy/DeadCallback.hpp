@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Enemy
 {
-    class DeadCallbackModel :
+    class DeadCallback :
         public IComponent,
         public IDeadCallbackModel
     {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy
         IActor* m_pActor;
         bool m_useQuake = true;
     public:
-        DeadCallbackModel(IActor* pActor);
+        DeadCallback(IActor* pActor);
 
         void onDead() override;
 
@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::DeadCallbackModel>
+    struct ComponentTree<Actor::Enemy::DeadCallback>
     {
         using Base = IDeadCallbackModel;
     };

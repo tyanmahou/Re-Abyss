@@ -1,4 +1,4 @@
-#include "DeadCallbackModel.hpp"
+#include "DeadCallback.hpp"
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
@@ -6,10 +6,10 @@
 
 namespace abyss::Actor::Enemy
 {
-    DeadCallbackModel::DeadCallbackModel(IActor* pActor):
+    DeadCallback::DeadCallback(IActor* pActor):
         m_pActor(pActor)
     {}
-    void DeadCallbackModel::onDead()
+    void DeadCallback::onDead()
     {
         if (auto body = m_pActor->find<BodyModel>()) {
             m_pActor->getModule<Effects>()->addWorldFront<EnemyDeadEffect>(body->getPos());

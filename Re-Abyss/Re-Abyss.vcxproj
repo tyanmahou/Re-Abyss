@@ -275,7 +275,7 @@
     <ClCompile Include="app\controllers\UI\UI.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\DamageCallbackModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\DamageCallback.cpp" />
     <ClCompile Include="app\models\Actors\Player\AttackCtrlModel.cpp" />
     <ClCompile Include="app\models\Actors\Player\OopartsCtrlModel.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
@@ -398,7 +398,7 @@
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp" />
-    <ClCompile Include="app\models\Actors\Enemy\DeadCallbackModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\SwimState.cpp" />
@@ -575,7 +575,7 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\KindModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\PartsModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\DamageCallbackModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\DamageCallback.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
@@ -761,7 +761,7 @@
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\DeadCallbackModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\SwimState.hpp" />

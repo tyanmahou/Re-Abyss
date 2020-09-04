@@ -5,14 +5,14 @@
 
 namespace abyss::Actor::Enemy
 {
-    class DamageCallbackModel :
+    class DamageCallback :
         public IComponent,
         public IDamageCallbackModel
     {
     protected:
         IActor* m_pActor;
     public:
-        DamageCallbackModel(IActor* pActor);
+        DamageCallback(IActor* pActor);
 
         void setup();
         void onDamaged() override;
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::DamageCallbackModel>
+    struct ComponentTree<Actor::Enemy::DamageCallback>
     {
         using Base = IDamageCallbackModel;
     };

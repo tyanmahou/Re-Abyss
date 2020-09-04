@@ -9,8 +9,8 @@
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
-#include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
+#include <abyss/components/Actors/Enemy/DamageCallback.hpp>
+#include <abyss/components/Actors/Enemy/DeadCallback.hpp>
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
@@ -59,12 +59,12 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         // ダメージ
         {
             this->attach<DamageModel>(this);
-            this->attach<Enemy::DeadCallbackModel>(this);
+            this->attach<Enemy::DeadCallback>(this);
         }
         // 死亡チェック
         {
             this->attach<DeadOnHItReceiverModel>(this);
-            this->attach<Enemy::DamageCallbackModel>(this);
+            this->attach<Enemy::DamageCallback>(this);
             this->attach<DeadCheckerModel>(this);
         }
         // 状態管理

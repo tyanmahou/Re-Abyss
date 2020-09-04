@@ -1,19 +1,19 @@
-#include "DamageCallbackModel.hpp"
+#include "DamageCallback.hpp"
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 
 namespace abyss::Actor::Enemy
 {
-    DamageCallbackModel::DamageCallbackModel(IActor* pActor):
+    DamageCallback::DamageCallback(IActor* pActor):
         m_pActor(pActor)
     {}
 
-    void DamageCallbackModel::setup()
+    void DamageCallback::setup()
     {
     }
 
-    void DamageCallbackModel::onDamaged()
+    void DamageCallback::onDamaged()
     {
         m_pActor
             ->find<AudioSourceModel>()

@@ -11,8 +11,8 @@
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
-#include <abyss/models/Actors/Enemy/DamageCallbackModel.hpp>
-#include <abyss/models/Actors/Enemy/DeadCallbackModel.hpp>
+#include <abyss/components/Actors/Enemy/DamageCallback.hpp>
+#include <abyss/components/Actors/Enemy/DeadCallback.hpp>
 namespace abyss::Actor::Enemy
 {
 	EnemyBuilder::EnemyBuilder(EnemyActor* pActor):
@@ -67,10 +67,10 @@ namespace abyss::Actor::Enemy
 			m_pActor->attach<DamageModel>(m_pActor);
 		}
 		{
-			m_pActor->attach<DamageCallbackModel>(m_pActor);
+			m_pActor->attach<DamageCallback>(m_pActor);
 		}
 		if (m_isEnableDeadCallback) {
-			m_pActor->attach<DeadCallbackModel>(m_pActor);
+			m_pActor->attach<DeadCallback>(m_pActor);
 		}
 		// 音源
 		{

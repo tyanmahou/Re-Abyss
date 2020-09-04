@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::Slime
 {
     void DeadCallbackModel::onDead()
     {
-        Enemy::DeadCallbackModel::onDead();
+        Enemy::DeadCallback::onDead();
         m_pActor->find<SenserCtrlModel>()->destroy();
     }
 }
