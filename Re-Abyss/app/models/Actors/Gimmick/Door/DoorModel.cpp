@@ -1,6 +1,6 @@
 #include "DoorModel.hpp"
 
-namespace abyss
+namespace abyss::Actor::Gimmick::Door
 {
     DoorModel::DoorModel(
         s3d::int32 startId,

@@ -13,6 +13,7 @@ namespace abyss
     {}
     std::shared_ptr<IActor> GimmickTranslator::toActorPtr(const GimmickEntity& entity)
     {
+        using namespace Actor::Gimmick;
         switch (entity.type) {
         case GimmickType::StartPos: return nullptr;
         case GimmickType::Door:
@@ -20,7 +21,7 @@ namespace abyss
             const auto& doorEntity = static_cast<const DoorEntity&>(entity);
             if (auto startPos = m_pStage->findStartPos(doorEntity.startId)) {
                 if (auto room = m_pStage->findRoom(startPos->getPos())) {
-                    DoorModel door{
+                    Door::DoorModel door{
                         startPos->getStartId(),
                         doorEntity.pos, 
                         startPos->getPos(),
@@ -28,14 +29,14 @@ namespace abyss
                         doorEntity.size,
                         startPos->isSave()
                     };
-                    return std::make_shared<Actor::Gimmick::Door::DoorActor>(door, *room);
+                    return std::make_shared<Door::DoorActor>(door, *room);
                 }
             }
         }
         case GimmickType::EventTrigger:
         {
             const auto& eventTriggerEntity = static_cast<const EventTriggerEntity&>(entity);
-            return  std::make_shared<Actor::Gimmick::EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
+            return  std::make_shared<EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
         }
         case GimmickType::BgmChanger: return nullptr;
         default:

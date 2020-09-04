@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss
+namespace abyss::Actor::Gimmick::Door
 {
     class DoorModel
     {
