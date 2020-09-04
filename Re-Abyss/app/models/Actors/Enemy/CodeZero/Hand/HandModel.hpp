@@ -5,7 +5,7 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Axis2/Axis2.hpp>
 
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     class HandModel : public IComponent
     {

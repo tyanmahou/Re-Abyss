@@ -3,7 +3,7 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
     class ShotVM
     {

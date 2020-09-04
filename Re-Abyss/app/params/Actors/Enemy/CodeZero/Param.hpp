@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     struct Param
     {

@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     PursuitState::PursuitState()
     {}

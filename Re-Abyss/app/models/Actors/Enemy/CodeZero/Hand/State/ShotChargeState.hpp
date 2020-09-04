@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     class ShotChargeState final : public BaseState
     {

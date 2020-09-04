@@ -2,7 +2,7 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
-namespace abyss::CodeZero::Body
+namespace abyss::Actor::CodeZero::Body
 {
     BodyVM::BodyVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))

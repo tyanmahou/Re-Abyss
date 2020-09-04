@@ -21,7 +21,7 @@ namespace
     class ViewBinder;
 }
 
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
@@ -99,8 +99,8 @@ namespace abyss::LaunShark::Shot
 namespace
 {
     using namespace abyss;
-    using namespace abyss::LaunShark;
-    using namespace abyss::LaunShark::Shot;
+    using namespace abyss::Actor::LaunShark;
+    using namespace abyss::Actor::LaunShark::Shot;
 
     class ViewBinder : public ViewModel<ShotVM>::IBinder
     {

@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseState.hpp"
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     class Phase2State : public BaseState
     {

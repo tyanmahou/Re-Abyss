@@ -15,7 +15,7 @@ namespace
     class ViewBinder;
 }
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity)
     {
@@ -66,7 +66,7 @@ namespace abyss::CodeZero
 namespace
 {
     using namespace abyss;
-    using namespace abyss::CodeZero;
+    using namespace abyss::Actor::CodeZero;
 
     class ViewBinder : public ViewModel<Body::BodyVM>::IBinder
     {

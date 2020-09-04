@@ -6,7 +6,7 @@
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 #include <abyss/views/Actors/Enemy/LaunShark/Shot/ShotVM.hpp>
 
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
 
     class BaseState : public IState

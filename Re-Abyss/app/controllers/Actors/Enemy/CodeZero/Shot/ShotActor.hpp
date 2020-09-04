@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 
-namespace abyss::CodeZero::Shot
+namespace abyss::Actor::CodeZero::Shot
 {
     class ShotActor: 
         public IActor,

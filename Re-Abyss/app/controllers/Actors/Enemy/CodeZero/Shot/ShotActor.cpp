@@ -18,7 +18,7 @@ namespace
     class ViewBinder;
     class Collider;
 }
-namespace abyss::CodeZero::Shot
+namespace abyss::Actor::CodeZero::Shot
 {
     ShotActor::ShotActor(IActor* parent)
     {
@@ -62,8 +62,8 @@ namespace abyss::CodeZero::Shot
 namespace
 {
     using namespace abyss;
-    using namespace abyss::CodeZero;
-    using namespace abyss::CodeZero::Shot;
+    using namespace abyss::Actor::CodeZero;
+    using namespace abyss::Actor::CodeZero::Shot;
 
     class ViewBinder : public ViewModel<ShotVM>::IBinder
     {

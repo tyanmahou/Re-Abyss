@@ -3,7 +3,7 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
     ShotVM::ShotVM():
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/LaunShark/laun_shark.json"))

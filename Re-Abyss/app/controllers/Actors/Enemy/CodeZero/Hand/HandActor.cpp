@@ -21,7 +21,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     HandActor::HandActor(IActor* parent, Kind kind)
     {
@@ -109,8 +109,8 @@ namespace abyss::CodeZero::Hand
 namespace
 {
     using namespace abyss;
-    using namespace abyss::CodeZero;
-    using namespace abyss::CodeZero::Hand;
+    using namespace abyss::Actor::CodeZero;
+    using namespace abyss::Actor::CodeZero::Hand;
 
     class ViewBinder : public ViewModel<HandVM>::IBinder
     {

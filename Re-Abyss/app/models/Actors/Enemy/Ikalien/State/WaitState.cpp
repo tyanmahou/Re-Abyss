@@ -1,7 +1,7 @@
 #include "WaitState.hpp"
 #include "PursuitState.hpp"
 #include <abyss/controllers/System/System.hpp>
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     void WaitState::start()
     {

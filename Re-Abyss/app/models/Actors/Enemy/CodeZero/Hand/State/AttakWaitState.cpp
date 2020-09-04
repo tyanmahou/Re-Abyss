@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 #include <abyss/models/Actors/utils/ActorUtils.hpp>
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     AttackWaitState::AttackWaitState()
     {}

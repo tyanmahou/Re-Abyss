@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
 	class ShotActor :
 		public IActor,

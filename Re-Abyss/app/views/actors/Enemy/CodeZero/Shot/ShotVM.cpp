@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
-namespace abyss::CodeZero::Shot
+namespace abyss::Actor::CodeZero::Shot
 {
     ShotVM::ShotVM() :
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))

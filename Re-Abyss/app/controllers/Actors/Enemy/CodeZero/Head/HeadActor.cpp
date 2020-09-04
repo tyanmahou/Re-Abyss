@@ -16,7 +16,7 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::CodeZero::Head
+namespace abyss::Actor::CodeZero::Head
 {
     HeadActor::HeadActor(IActor* parent)
     {
@@ -67,8 +67,8 @@ namespace abyss::CodeZero::Head
 namespace
 {
     using namespace abyss;
-    using namespace abyss::CodeZero;
-    using namespace abyss::CodeZero::Head;
+    using namespace abyss::Actor::CodeZero;
+    using namespace abyss::Actor::CodeZero::Head;
 
     class ViewBinder : public abyss::ViewModel<HeadVM>::IBinder
     {

@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/views/Actors/Enemy/LaunShark/LaunSharkVM.hpp>
 
-namespace abyss::LaunShark
+namespace abyss::Actor::LaunShark
 {
     class BaseState : public IState
     {

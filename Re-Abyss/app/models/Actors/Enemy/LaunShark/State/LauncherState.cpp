@@ -8,7 +8,7 @@
 
 #include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
-namespace abyss::LaunShark
+namespace abyss::Actor::LaunShark
 {
     LauncherState::LauncherState()
     {}

@@ -7,11 +7,11 @@
 
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     class CodeZeroActor;
 }
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     class BaseState : public IState
     {

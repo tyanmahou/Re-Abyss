@@ -4,7 +4,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::CodeZero::Head
+namespace abyss::Actor::CodeZero::Head
 {
     class HeadVM
     {

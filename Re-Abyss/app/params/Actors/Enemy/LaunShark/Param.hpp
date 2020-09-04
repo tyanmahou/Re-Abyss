@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
-namespace abyss::LaunShark
+namespace abyss::Actor::LaunShark
 {
     struct Param
     {

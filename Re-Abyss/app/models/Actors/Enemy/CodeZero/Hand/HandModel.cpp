@@ -3,7 +3,7 @@
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     HandModel::HandModel(const s3d::Vec2& dir, double rotateLimit):
         m_axis(dir.normalized()),

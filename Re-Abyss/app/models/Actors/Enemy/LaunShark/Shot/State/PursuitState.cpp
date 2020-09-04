@@ -7,7 +7,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::LaunShark::Shot
+namespace abyss::Actor::LaunShark::Shot
 {
     PursuitState::PursuitState()
     {}

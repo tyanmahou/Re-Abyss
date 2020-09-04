@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 { 
     PartsModel::PartsModel(IActor* pActor):
         m_pActor(pActor)

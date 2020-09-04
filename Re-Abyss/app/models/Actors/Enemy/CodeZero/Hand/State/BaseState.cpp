@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-namespace abyss::CodeZero::Hand
+namespace abyss::Actor::CodeZero::Hand
 {
     void BaseState::setup()
     {

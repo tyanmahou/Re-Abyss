@@ -4,11 +4,11 @@
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     class ParentCtrlModel;
 }
-namespace abyss::CodeZero::Head
+namespace abyss::Actor::CodeZero::Head
 {
     class DamageModel :
         public IComponent,
@@ -28,7 +28,7 @@ namespace abyss::CodeZero::Head
 namespace abyss
 {
     template<>
-    struct ComponentTree<CodeZero::Head::DamageModel>
+    struct ComponentTree<Actor::CodeZero::Head::DamageModel>
     {
         using Base = ICollisionCallbackModel;
     };

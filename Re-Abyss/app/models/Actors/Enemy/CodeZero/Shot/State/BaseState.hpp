@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 
-namespace abyss::CodeZero::Shot
+namespace abyss::Actor::CodeZero::Shot
 {
     class BaseState : public IState
     {

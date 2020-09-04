@@ -5,7 +5,7 @@
 
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     class IkalienVM
     {

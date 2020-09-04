@@ -9,7 +9,7 @@
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::CodeZero::Demo
+namespace abyss::Actor::CodeZero::Demo
 {
     DemoActor::DemoActor(const s3d::Vec2& pos) :
         m_pos(pos + s3d::Vec2{ 0, 400 }),

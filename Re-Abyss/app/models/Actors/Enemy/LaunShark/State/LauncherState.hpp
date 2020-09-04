@@ -2,7 +2,7 @@
 #include "BaseState.hpp"
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::LaunShark
+namespace abyss::Actor::LaunShark
 {
     class LauncherState : public BaseState
     {

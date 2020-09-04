@@ -2,7 +2,7 @@
 #include "PursuitState.hpp"
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <Siv3D.hpp>
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     void SwimState::start()
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseState.hpp"
 
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     class SwimState : public BaseState
     {

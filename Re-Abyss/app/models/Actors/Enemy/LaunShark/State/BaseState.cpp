@@ -2,7 +2,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
-namespace abyss::LaunShark
+namespace abyss::Actor::LaunShark
 {
     void BaseState::setup()
     {

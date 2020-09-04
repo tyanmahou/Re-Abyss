@@ -3,11 +3,11 @@
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 
-namespace abyss::CodeZero
+namespace abyss::Actor::CodeZero
 {
     class ParentCtrlModel;
 }
-namespace abyss::CodeZero::Head
+namespace abyss::Actor::CodeZero::Head
 {
     class HeadModel;
 

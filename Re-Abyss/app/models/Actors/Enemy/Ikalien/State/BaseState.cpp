@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-namespace abyss::Ikalien
+namespace abyss::Actor::Ikalien
 {
     void BaseState::setup()
     {
