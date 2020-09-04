@@ -1,21 +1,21 @@
-#include "MainUpdateModel.hpp"
+#include "MainUpdate.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sencer
 {
-	MainUpdateModel::MainUpdateModel(IActor* pActor):
+	MainUpdate::MainUpdate(IActor* pActor):
 		m_pActor(pActor)
 	{}
-	void MainUpdateModel::setup()
+	void MainUpdate::setup()
     {
-        m_parentCtrl = m_pActor->find<ParentCtrlModel>();
+        m_parentCtrl = m_pActor->find<ParentCtrl>();
         m_mapColl = m_pActor->find<MapColliderModel>();
         m_body = m_pActor->find<BodyModel>();
     }
-    void MainUpdateModel::onUpdate([[maybe_unused]]double dt)
+    void MainUpdate::onUpdate([[maybe_unused]]double dt)
     {
 		if (m_pActor->isDestroyed()) {
 			return;
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 			m_parentCtrl->reversed();
 		}
     }
-	void MainUpdateModel::onPrePhysics()
+	void MainUpdate::onPrePhysics()
 	{
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
 		if (isLeft) {

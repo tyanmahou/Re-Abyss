@@ -178,10 +178,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp" />
@@ -503,10 +503,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />

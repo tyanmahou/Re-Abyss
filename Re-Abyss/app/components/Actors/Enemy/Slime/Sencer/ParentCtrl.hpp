@@ -9,11 +9,11 @@ namespace abyss::Actor::Enemy::Slime
 }
 namespace abyss::Actor::Enemy::Slime::Sencer
 {
-    class ParentCtrlModel : public IComponent
+    class ParentCtrl : public IComponent
     {
         SlimeActor* m_parent;
     public:
-        ParentCtrlModel(SlimeActor* parent);
+        ParentCtrl(SlimeActor* parent);
 
         bool isWalk() const;
 

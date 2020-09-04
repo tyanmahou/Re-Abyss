@@ -7,19 +7,19 @@
 
 namespace abyss::Actor::Enemy::Slime::Sencer
 {
-    class ParentCtrlModel;
+    class ParentCtrl;
 
-    class MainUpdateModel : 
+    class MainUpdate : 
         public IComponent,
         public IUpdateModel,
         public IPrePhysicsModel
     {
         IActor* m_pActor;
-        Ref<ParentCtrlModel> m_parentCtrl;
+        Ref<ParentCtrl> m_parentCtrl;
         Ref<MapColliderModel> m_mapColl;
         Ref<BodyModel> m_body;
     public:
-        MainUpdateModel(IActor* pActor);
+        MainUpdate(IActor* pActor);
         void setup() override;
         void onUpdate(double dt) override;
 
@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::Slime::Sencer::MainUpdateModel>
+    struct ComponentTree<Actor::Enemy::Slime::Sencer::MainUpdate>
     {
         using Base = MultiComponents<IUpdateModel, IPrePhysicsModel>;
     };

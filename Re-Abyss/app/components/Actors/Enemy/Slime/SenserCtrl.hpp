@@ -8,12 +8,12 @@ namespace abyss::Actor::Enemy::Slime
     class SlimeActor;
     class SenserActor;
 
-    class SenserCtrlModel : public IComponent
+    class SenserCtrl : public IComponent
     {
         SlimeActor* m_pActor;
         Ref<SenserActor> m_senser;
     public:
-        SenserCtrlModel(SlimeActor* pActor);
+        SenserCtrl(SlimeActor* pActor);
         void onStart() override;
 
         void destroy();

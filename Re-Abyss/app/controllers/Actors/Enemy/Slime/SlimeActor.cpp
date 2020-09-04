@@ -5,8 +5,8 @@
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/components/Actors/Enemy/Slime/DeadCallbackModel.hpp>
-#include <abyss/components/Actors/Enemy/Slime/SenserCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Slime/DeadCallback.hpp>
+#include <abyss/components/Actors/Enemy/Slime/SenserCtrl.hpp>
 #include <abyss/components/Actors/Enemy/Slime/State/WalkState.hpp>
 
 #include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
@@ -38,8 +38,8 @@ namespace abyss::Actor::Enemy::Slime
 			m_state = this->find<StateModel>();
 		}
 
-		this->attach<DeadCallbackModel>(this);
-		this->attach<SenserCtrlModel>(this);
+		this->attach<DeadCallback>(this);
+		this->attach<SenserCtrl>(this);
 
 		this->attach<ViewModel<SlimeVM>>()
 			->createBinder<ViewBinder>(this);

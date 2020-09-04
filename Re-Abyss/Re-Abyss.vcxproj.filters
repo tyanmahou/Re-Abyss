@@ -1010,12 +1010,6 @@
     <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1025,10 +1019,16 @@
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.cpp">
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.cpp">
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1536,12 +1536,12 @@
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Main.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DamageCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdateModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrlModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallbackModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
   </ItemGroup>
 </Project>

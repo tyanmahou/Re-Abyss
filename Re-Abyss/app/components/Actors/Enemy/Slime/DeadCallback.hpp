@@ -3,7 +3,7 @@
 
 namespace abyss::Actor::Enemy::Slime
 {
-    class DeadCallbackModel : public Enemy::DeadCallback
+    class DeadCallback : public Enemy::DeadCallback
     {
     public:
         using Enemy::DeadCallback::DeadCallback;
@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::Slime
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::Slime::DeadCallbackModel>
+    struct ComponentTree<Actor::Enemy::Slime::DeadCallback>
     {
         using Base = Actor::Enemy::DeadCallback;
     };
