@@ -3,7 +3,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss::ActorUtils
+namespace abyss::Actor::ActorUtils
 {
     s3d::Vec2 PlayerDiffVec(const IActor& actor, const BodyModel& body);
     bool IsPlayerFrontByDistance(const IActor& actor, const BodyModel& body, double range);

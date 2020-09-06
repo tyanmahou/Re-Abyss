@@ -407,9 +407,6 @@
     <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\utils\ActorUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Player\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1279,7 +1279,6 @@
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
-    <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\models\Actors\Player\State\LadderState.hpp" />
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
   </ItemGroup>
 </Project>

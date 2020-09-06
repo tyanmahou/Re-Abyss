@@ -1,7 +1,7 @@
 #include "WaitState.hpp"
 #include "RunState.hpp"
 
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 
 namespace abyss::Actor::Enemy::RollingTako

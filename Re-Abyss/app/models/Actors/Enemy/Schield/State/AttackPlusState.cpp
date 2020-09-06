@@ -2,7 +2,7 @@
 #include "AttackCrossState.hpp"
 
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Actors/Enemy/Schield/Shot/ShotActor.hpp>
 

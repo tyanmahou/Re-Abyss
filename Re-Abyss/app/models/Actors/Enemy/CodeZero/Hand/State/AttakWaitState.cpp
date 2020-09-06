@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     AttackWaitState::AttackWaitState()

@@ -1,7 +1,7 @@
 #include "SwimState.hpp"
 #include "AttackState.hpp"
 #include "LauncherState.hpp"
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 #include <Siv3D.hpp>

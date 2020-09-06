@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {

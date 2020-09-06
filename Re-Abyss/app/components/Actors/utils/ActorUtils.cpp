@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
-namespace abyss::ActorUtils
+namespace abyss::Actor::ActorUtils
 {
     s3d::Vec2 PlayerDiffVec(const IActor& actor, const BodyModel& body)
     {

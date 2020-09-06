@@ -1,6 +1,6 @@
 #include "DamageState.hpp"
 #include "SwimState.hpp"
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <Siv3D.hpp>

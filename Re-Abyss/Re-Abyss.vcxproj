@@ -188,6 +188,7 @@
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\Draw.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />
@@ -354,7 +355,6 @@
     <ClCompile Include="app\models\Actors\Enemy\Schield\State\WaitState.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp" />
-    <ClCompile Include="app\models\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\controllers\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\controllers\Decor\Decor.cpp" />
@@ -512,6 +512,7 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
@@ -693,7 +694,6 @@
     <ClInclude Include="app\models\Actors\Enemy\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp" />
-    <ClInclude Include="app\models\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />

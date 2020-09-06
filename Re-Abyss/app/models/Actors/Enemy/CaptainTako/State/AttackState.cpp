@@ -4,7 +4,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/CaptainTako/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/models/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
