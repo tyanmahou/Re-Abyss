@@ -7,7 +7,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
-#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
+#include <abyss/components/Actors/Player/AttackCtrl.hpp>
 
 namespace abyss::Actor::Player
 {

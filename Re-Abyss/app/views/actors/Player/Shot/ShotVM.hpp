@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
-#include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>

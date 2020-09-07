@@ -2,8 +2,8 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Player/Shot/ColliderModel.hpp>
-#include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/ColliderModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
 #include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
 
 namespace abyss::Actor::Player::Shot

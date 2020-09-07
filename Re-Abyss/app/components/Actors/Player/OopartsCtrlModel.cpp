@@ -5,7 +5,7 @@
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
+#include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
 
 namespace abyss::Actor::Player

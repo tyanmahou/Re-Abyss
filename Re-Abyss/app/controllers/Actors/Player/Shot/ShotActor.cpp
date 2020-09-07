@@ -4,8 +4,8 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
-#include <abyss/models/Actors/Player/Shot/ColliderModel.hpp>
-#include <abyss/models/Actors/Player/Shot/State/BaseState.hpp>
+#include <abyss/components/Actors/Player/Shot/ColliderModel.hpp>
+#include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>

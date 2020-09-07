@@ -1,7 +1,7 @@
 #include "ColliderModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
 
 namespace abyss::Actor::Player::Shot
 {

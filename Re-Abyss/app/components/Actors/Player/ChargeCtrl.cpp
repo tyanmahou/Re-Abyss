@@ -1,4 +1,4 @@
-#include "ChargeModel.hpp"
+#include "ChargeCtrl.hpp"
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>

@@ -5,7 +5,7 @@
 #include <abyss/controllers/Event/GameRestart/GameRestart.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
-#include <abyss/models/Actors/Player/State/DeadState.hpp>
+#include <abyss/components/Actors/Player/State/DeadState.hpp>
 
 namespace abyss::Actor::Player
 {

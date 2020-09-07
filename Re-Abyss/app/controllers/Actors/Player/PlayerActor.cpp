@@ -1,12 +1,12 @@
 #include "PlayerActor.hpp"
-#include <abyss/models/Actors/Player/State/SwimState.hpp>
+#include <abyss/components/Actors/Player/State/SwimState.hpp>
 
-#include <abyss/models/Actors/Player/AttackCtrlModel.hpp>
-#include <abyss/models/Actors/Player/OopartsCtrlModel.hpp>
-#include <abyss/models/Actors/Player/RestartCtrlModel.hpp>
-#include <abyss/models/Actors/Player/RoomMoveCheckerModel.hpp>
-#include <abyss/models/Actors/Player/UICtrlModel.hpp>
-#include <abyss/models/Actors/Player/DebugCtrlModel.hpp>
+#include <abyss/components/Actors/Player/AttackCtrl.hpp>
+#include <abyss/components/Actors/Player/OopartsCtrlModel.hpp>
+#include <abyss/components/Actors/Player/RestartCtrlModel.hpp>
+#include <abyss/components/Actors/Player/RoomMoveCheckerModel.hpp>
+#include <abyss/components/Actors/Player/UICtrlModel.hpp>
+#include <abyss/components/Actors/Player/DebugCtrlModel.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
