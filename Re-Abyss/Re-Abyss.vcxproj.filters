@@ -572,18 +572,6 @@
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\ParentCtrlMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\SwimState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Ikalien\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1019,18 @@
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Ikalien\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Ikalien\State\PursuitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Ikalien\State\SwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Ikalien\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1353,10 +1353,6 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\PursuitState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\SwimState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Ikalien\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.hpp" />
@@ -1543,5 +1539,9 @@
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\ChargeState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\PursuitState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\SwimState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\WaitState.hpp" />
   </ItemGroup>
 </Project>

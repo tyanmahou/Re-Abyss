@@ -1,5 +1,5 @@
 #include "IkalienActor.hpp"
-#include <abyss/models/Actors/Enemy/Ikalien/State/WaitState.hpp>
+#include <abyss/components/Actors/Enemy/Ikalien/State/WaitState.hpp>
 
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
