@@ -2,8 +2,8 @@
 
 #include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
-#include <abyss/models/Actors/Enemy/RollingTako/State/WaitState.hpp>
-#include <abyss/models/Actors/Enemy/RollingTako/State/RunState.hpp>
+#include <abyss/components/Actors/Enemy/RollingTako/State/WaitState.hpp>
+#include <abyss/components/Actors/Enemy/RollingTako/State/RunState.hpp>
 
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 

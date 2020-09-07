@@ -1,12 +1,12 @@
 #include "SchieldActor.hpp"
 
-#include <abyss/models/Actors/Enemy/Schield/State/WaitState.hpp>
+#include <abyss/components/Actors/Enemy/Schield/State/WaitState.hpp>
 
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
-#include <abyss/models/Actors/Enemy/Schield/DamageModel.hpp>
-#include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Schield/DamageModel.hpp>
+#include <abyss/components/Actors/Enemy/Schield/FaceCtrlModel.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 

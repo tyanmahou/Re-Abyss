@@ -1,6 +1,6 @@
 #include "ShotActor.hpp"
 
-#include <abyss/models/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
+#include <abyss/components/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>

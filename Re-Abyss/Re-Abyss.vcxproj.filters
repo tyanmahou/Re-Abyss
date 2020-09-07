@@ -572,33 +572,6 @@
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\ParentCtrlMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\RunState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\State\AttackCrossState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\DamageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -807,9 +780,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp">
@@ -1029,6 +999,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\SwimState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\State\AttackCrossState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\DamageModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrlModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\RunState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1353,15 +1353,6 @@
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\RunState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\RollingTako\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\CaptainTako\Param.hpp" />
@@ -1464,7 +1455,6 @@
     <ClInclude Include="app\models\Actors\Commons\OutRoomChecker.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
@@ -1543,5 +1533,15 @@
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\LauncherState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\SwimState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\DamageModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\RunState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\WaitState.hpp" />
   </ItemGroup>
 </Project>

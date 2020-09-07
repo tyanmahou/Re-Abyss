@@ -1,7 +1,7 @@
 #include "DamageModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
-#include <abyss/models/Actors/Enemy/Schield/FaceCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Schield/FaceCtrlModel.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor::Enemy::Schield
