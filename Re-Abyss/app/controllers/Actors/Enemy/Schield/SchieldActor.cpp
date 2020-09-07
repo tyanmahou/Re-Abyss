@@ -5,8 +5,8 @@
 #include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
-#include <abyss/components/Actors/Enemy/Schield/DamageModel.hpp>
-#include <abyss/components/Actors/Enemy/Schield/FaceCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Schield/DamageCtrl.hpp>
+#include <abyss/components/Actors/Enemy/Schield/FaceCtrl.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
@@ -33,14 +33,14 @@ namespace abyss::Actor::Enemy::Schield
             .setInitState<WaitState>()
             .build();
         {
-            this->attach<DamageModel>(this);
+            this->attach<DamageCtrl>(this);
         }
         {
             this->attach<ViewModel<SchieldVM>>()
                 ->createBinder<ViewBinder>(this);
         }
         {
-            m_face = this->attach<FaceCtrlModel>(this);
+            m_face = this->attach<FaceCtrl>(this);
         }
     }
 

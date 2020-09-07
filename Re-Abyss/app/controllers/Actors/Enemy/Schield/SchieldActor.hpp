@@ -8,12 +8,12 @@ namespace abyss
 }
 namespace abyss::Actor::Enemy::Schield
 {
-	class FaceCtrlModel;
+	class FaceCtrl;
 
 	class SchieldActor :
 		public EnemyActor
 	{
-		Ref<FaceCtrlModel> m_face;
+		Ref<FaceCtrl> m_face;
 	public:
 		SchieldActor(const SchieldEntity& entity);
 

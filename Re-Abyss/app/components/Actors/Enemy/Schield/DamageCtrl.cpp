@@ -1,22 +1,22 @@
-#include "DamageModel.hpp"
+#include "DamageCtrl.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
-#include <abyss/components/Actors/Enemy/Schield/FaceCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/Schield/FaceCtrl.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
-    DamageModel::DamageModel(IActor* pActor):
+    DamageCtrl::DamageCtrl(IActor* pActor):
         abyss::DamageModel(pActor)
     {}
 
-    void DamageModel::setup()
+    void DamageCtrl::setup()
     {
         abyss::DamageModel::setup();
 
-        m_face = m_pActor->find<FaceCtrlModel>();
+        m_face = m_pActor->find<FaceCtrl>();
     }
-    void DamageModel::onCollisionStay(IActor* col)
+    void DamageCtrl::onCollisionStay(IActor* col)
     {
         if (!m_face->isOnFace()) {
             // 待機中以外はダメージを受けない

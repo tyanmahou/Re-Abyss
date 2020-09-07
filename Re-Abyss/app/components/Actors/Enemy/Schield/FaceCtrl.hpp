@@ -5,23 +5,23 @@
 
 namespace abyss::Actor::Enemy::Schield
 {
-    class FaceCtrlModel :
+    class FaceCtrl :
         public IComponent
     {
         IActor* m_pActor;
         Ref<BodyModel> m_body;
         bool m_onFace = true;
     public:
-        FaceCtrlModel(IActor* pActor);
+        FaceCtrl(IActor* pActor);
 
         void setup() override;
 
-        FaceCtrlModel& on()
+        FaceCtrl& on()
         {
             m_onFace = true;
             return *this;
         }
-        FaceCtrlModel& off()
+        FaceCtrl& off()
         {
             m_onFace = false;
             return *this;

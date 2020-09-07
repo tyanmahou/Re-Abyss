@@ -1016,12 +1016,6 @@
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Schield\DamageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1023,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\DamageCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1538,10 +1538,10 @@
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Schield\DamageModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Schield\FaceCtrlModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\RunState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\FaceCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\DamageCtrl.hpp" />
   </ItemGroup>
 </Project>

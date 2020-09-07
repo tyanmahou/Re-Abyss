@@ -2,14 +2,14 @@
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 namespace abyss::Actor::Enemy::Schield
 {
-    class FaceCtrlModel;
+    class FaceCtrl;
 
-    class DamageModel :
+    class DamageCtrl :
         public abyss::DamageModel
     {
-        Ref<FaceCtrlModel> m_face;
+        Ref<FaceCtrl> m_face;
     public:
-        DamageModel(IActor* pActor);
+        DamageCtrl(IActor* pActor);
 
         void setup() override;
 
@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::Schield
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::Schield::DamageModel>
+    struct ComponentTree<Actor::Enemy::Schield::DamageCtrl>
     {
         using Base = abyss::DamageModel;
     };
