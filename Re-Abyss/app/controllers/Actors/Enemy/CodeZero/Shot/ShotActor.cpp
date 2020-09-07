@@ -1,6 +1,6 @@
 #include "ShotActor.hpp"
 
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     ShotActor::ShotActor(IActor* parent)
     {
         {
-            this->attach<ParentCtrlModel>(parent);
+            this->attach<ParentCtrl>(parent);
         }
         {
             this->attach<StateModel>(this)

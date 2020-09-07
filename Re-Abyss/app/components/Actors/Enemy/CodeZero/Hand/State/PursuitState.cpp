@@ -9,15 +9,15 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         if (m_kind->isLeftHand()) {
             if (m_parent->isPhase1() || m_parent->isPhase3()) {
-                *m_hand = HandModel::CreateLeftPhase1();
+                *m_hand = HandCtrl::CreateLeftPhase1();
             } else {
-                *m_hand =HandModel::CreateLeftPhase2();
+                *m_hand =HandCtrl::CreateLeftPhase2();
             }
         } else {
             if (m_parent->isPhase1() || m_parent->isPhase3()) {
-                *m_hand = HandModel::CreateRightPhase1();
+                *m_hand = HandCtrl::CreateRightPhase1();
             } else {
-                *m_hand = HandModel::CreateRightPhase2();
+                *m_hand = HandCtrl::CreateRightPhase2();
             }
         }
 

@@ -5,19 +5,19 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class ParentCtrlModel;
+    class ParentCtrl;
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    class HeadModel;
+    class HeadCtrl;
 
     class HeadActor:
         public IActor,
         public Receiver
     {
     private:
-        Ref<HeadModel> m_head;
-        Ref<ParentCtrlModel> m_parent;
+        Ref<HeadCtrl> m_head;
+        Ref<ParentCtrl> m_parent;
     public:
         HeadActor(IActor* parent);
 

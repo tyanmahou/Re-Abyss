@@ -1,7 +1,7 @@
 #include "CodeZeroActor.hpp"
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/PartsModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 
 #include <abyss/controllers/World/World.hpp>
@@ -39,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
             m_body->noneResistanced();
         }
         {
-            m_parts = this->attach<PartsModel>(this);
+            m_parts = this->attach<PartsCtrl>(this);
         }
         {
             this->attach<PatternModel>(this);

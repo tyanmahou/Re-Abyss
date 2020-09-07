@@ -6,8 +6,8 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 {
     void BaseState::setup()
     {
-        m_parent = m_pActor->find<ParentCtrlModel>().get();
-        m_head = m_pActor->find<HeadModel>().get();
+        m_parent = m_pActor->find<ParentCtrl>().get();
+        m_head = m_pActor->find<HeadCtrl>().get();
 
         m_view = m_pActor->find<ViewModel<HeadVM>>().get();
     }

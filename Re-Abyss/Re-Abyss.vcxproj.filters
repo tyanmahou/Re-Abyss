@@ -989,16 +989,7 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\ShotChargeState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\HandModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\DamageModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\State\BaseState.cpp">
@@ -1025,10 +1016,19 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\State\Phase3State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\CodeZero\ParentCtrlMode.cpp">
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\CodeZero\PartsModel.cpp">
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1528,11 +1528,7 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\PursuitState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\ShotChargeState.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\KindModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\DamageModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\HeadModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitEndState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitState.hpp" />
@@ -1541,7 +1537,11 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\State\Phase1State.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\State\Phase3State.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\ParentCtrlModel.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\CodeZero\PartsModel.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\KindCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.hpp" />
   </ItemGroup>
 </Project>

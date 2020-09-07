@@ -4,11 +4,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     void BaseState::setup()
     {
-        m_parent = m_pActor->find<ParentCtrlModel>().get();
+        m_parent = m_pActor->find<ParentCtrl>().get();
         m_body = m_pActor->find<BodyModel>().get();
         m_rotate = m_pActor->find<RotateModel>().get();
-        m_hand = m_pActor->find<HandModel>().get();
-        m_kind = m_pActor->find<KindModel>().get();
+        m_hand = m_pActor->find<HandCtrl>().get();
+        m_kind = m_pActor->find<KindCtrl>().get();
 
         m_view = m_pActor->find<ViewModel<HandVM>>().get();
     }

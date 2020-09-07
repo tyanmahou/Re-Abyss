@@ -14,14 +14,14 @@ namespace abyss::Actor::Enemy::CodeZero
         class HandActor;
     }
 
-    class PartsModel : public IComponent
+    class PartsCtrl : public IComponent
     {
         IActor* m_pActor;
         Ref<Head::HeadActor> m_head;
         Ref<Hand::HandActor> m_leftHand;
         Ref<Hand::HandActor> m_rightHand;
     public:
-        PartsModel(IActor* pActor);
+        PartsCtrl(IActor* pActor);
 
         void setup() override;
         void onStart() override;

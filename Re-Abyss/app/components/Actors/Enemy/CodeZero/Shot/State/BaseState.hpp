@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     class BaseState : public IState
     {
     protected:
-        ParentCtrlModel* m_parent;
+        ParentCtrl* m_parent;
         BodyModel* m_body;
         ScaleModel* m_scale;
         ViewModel<ShotVM>* m_view;

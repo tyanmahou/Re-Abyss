@@ -9,9 +9,9 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
@@ -27,10 +27,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         auto forward = kind == Kind::Left ? Forward::Left : Forward::Right;
         {
-            this->attach<ParentCtrlModel>(parent);
+            this->attach<ParentCtrl>(parent);
         }
         {
-            this->attach<KindModel>(kind);
+            this->attach<KindCtrl>(kind);
         }
         {
             (m_state = this->attach<StateModel>(this))
@@ -51,7 +51,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_rotate = this->attach<RotateModel>();
         }
         {
-            m_hand = this->attach<HandModel>();
+            m_hand = this->attach<HandCtrl>();
         }
         {
             this->attach<ViewModel<HandVM>>()

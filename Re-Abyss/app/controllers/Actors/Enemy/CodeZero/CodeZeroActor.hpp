@@ -8,13 +8,13 @@ namespace abyss
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class PartsModel;
+    class PartsCtrl;
 
     class CodeZeroActor :
         public EnemyActor
     {
     private:
-        Ref<PartsModel> m_parts;
+        Ref<PartsCtrl> m_parts;
     public:
         CodeZeroActor(const CodeZeroEntity& entity);
 

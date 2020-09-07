@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::CodeZero
 }
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    class HandModel;
+    class HandCtrl;
 
     class HandActor :
         public IActor,
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     private:
         Ref<BodyModel> m_body;
         Ref<RotateModel> m_rotate;
-        Ref<HandModel> m_hand;
+        Ref<HandCtrl> m_hand;
         Ref<StateModel> m_state;
     public:
         HandActor(IActor* parent, Kind kind);

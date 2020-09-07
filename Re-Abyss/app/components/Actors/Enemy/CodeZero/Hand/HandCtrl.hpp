@@ -7,14 +7,14 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    class HandModel : public IComponent
+    class HandCtrl : public IComponent
     {
         abyss::Axis2 m_axis;
         double m_distance = 0;
         double m_rotateLimit = 0;
     public:
-        HandModel() = default;
-        HandModel(const s3d::Vec2& dir, double rotateLimit);
+        HandCtrl() = default;
+        HandCtrl(const s3d::Vec2& dir, double rotateLimit);
         void updateRotate(RotateModel& rotate, double dt) const;
         void startForPursuit(BodyModel& body) const;
         void updateForPursuit(
@@ -34,10 +34,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             double dt
         ) const;
 
-        static HandModel CreateLeftPhase1();
-        static HandModel CreateRightPhase1();
-        static HandModel CreateLeftPhase2();
-        static HandModel CreateRightPhase2();
+        static HandCtrl CreateLeftPhase1();
+        static HandCtrl CreateRightPhase1();
+        static HandCtrl CreateLeftPhase2();
+        static HandCtrl CreateRightPhase2();
 
     };
 }

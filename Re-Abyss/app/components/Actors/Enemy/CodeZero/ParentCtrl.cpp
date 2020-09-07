@@ -1,4 +1,4 @@
-#include "ParentCtrlModel.hpp"
+#include "ParentCtrl.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
@@ -6,45 +6,45 @@
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase2State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase3State.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/PartsModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
 
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    ParentCtrlModel::ParentCtrlModel(IActor* parent):
+    ParentCtrl::ParentCtrl(IActor* parent):
         m_parent(parent)
     {
     
     }
-    void ParentCtrlModel::setup()
+    void ParentCtrl::setup()
     {
         m_body = m_parent->find<BodyModel>();
         m_hp = m_parent->find<HPModel>();
         m_state = m_parent->find<StateModel>();
-        m_parts = m_parent->find<PartsModel>();
+        m_parts = m_parent->find<PartsCtrl>();
     }
-    Ref<HPModel> ParentCtrlModel::getHp() const
+    Ref<HPModel> ParentCtrl::getHp() const
     {
         return m_hp;
     }
-    const s3d::Vec2& ParentCtrlModel::getPos() const
+    const s3d::Vec2& ParentCtrl::getPos() const
     {
         return m_body->getPos();
     }
 
-    bool ParentCtrlModel::isPhase1()const
+    bool ParentCtrl::isPhase1()const
     {
         return m_state->isState<Phase1State>();
     }
-    bool ParentCtrlModel::isPhase2()const
+    bool ParentCtrl::isPhase2()const
     {
         return m_state->isState<Phase2State>();
     }
-    bool ParentCtrlModel::isPhase3()const
+    bool ParentCtrl::isPhase3()const
     {
         return m_state->isState<Phase3State>();
     }
-    bool ParentCtrlModel::isShotCharge() const
+    bool ParentCtrl::isShotCharge() const
     {
         auto left = m_parts->getLeftHand();
         auto right = m_parts->getRightHand();

@@ -4,13 +4,13 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    class KindModel : public IComponent
+    class KindCtrl : public IComponent
     {
 
     private:
         HandActor::Kind m_kind;
     public:
-        KindModel(HandActor::Kind kind):
+        KindCtrl(HandActor::Kind kind):
             m_kind(kind)
         {}
 

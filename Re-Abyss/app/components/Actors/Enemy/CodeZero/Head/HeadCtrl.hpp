@@ -8,18 +8,18 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class ParentCtrlModel;
+    class ParentCtrl;
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    class HeadModel : public IComponent
+    class HeadCtrl : public IComponent
     {
         Forward m_forward;
 
         IActor* m_pActor;
-        Ref<ParentCtrlModel> m_parentCtrl;
+        Ref<ParentCtrl> m_parentCtrl;
     public:
-        HeadModel(IActor* pActor);
+        HeadCtrl(IActor* pActor);
         void setup() override;
 
         s3d::Vec2 getPos() const;

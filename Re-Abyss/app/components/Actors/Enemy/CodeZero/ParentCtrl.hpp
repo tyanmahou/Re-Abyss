@@ -6,18 +6,18 @@
 namespace abyss::Actor::Enemy::CodeZero
 {
     class CodeZeroActor;
-    class PartsModel;
+    class PartsCtrl;
 
-    class ParentCtrlModel : public IComponent
+    class ParentCtrl : public IComponent
     {
         IActor* m_parent;
         Ref<HPModel> m_hp;
         Ref<BodyModel> m_body;
         Ref<StateModel> m_state;
-        Ref<PartsModel> m_parts;
+        Ref<PartsCtrl> m_parts;
 
     public:
-        ParentCtrlModel(IActor* parent);
+        ParentCtrl(IActor* parent);
 
         void setup() override;
         IActor* getParent()const

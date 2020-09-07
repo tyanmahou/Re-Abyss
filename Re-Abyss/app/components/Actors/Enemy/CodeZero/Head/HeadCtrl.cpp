@@ -1,30 +1,30 @@
-#include "HeadModel.hpp"
+#include "HeadCtrl.hpp"
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    HeadModel::HeadModel(IActor* pActor):
+    HeadCtrl::HeadCtrl(IActor* pActor):
         m_forward(Forward::None),
         m_pActor(pActor)
     {}
-    void HeadModel::setup()
+    void HeadCtrl::setup()
     {
-        m_parentCtrl = m_pActor->find<ParentCtrlModel>();
+        m_parentCtrl = m_pActor->find<ParentCtrl>();
     }
 
-    s3d::Vec2 HeadModel::getPos() const
+    s3d::Vec2 HeadCtrl::getPos() const
     {
         return m_parentCtrl->getPos() + Param::Head::Offset;
     }
 
-    void HeadModel::setForward(Forward forward)
+    void HeadCtrl::setForward(Forward forward)
     {
         m_forward = forward;
     }
 
-    Forward HeadModel::getForward() const
+    Forward HeadCtrl::getForward() const
     {
         return m_forward;
     }

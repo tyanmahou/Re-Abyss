@@ -4,9 +4,9 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Head/DamageModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/HeadCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/DamageCtrl.hpp>
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
@@ -22,11 +22,11 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     {
         // 親情報
         {
-            m_parent = this->attach<ParentCtrlModel>(parent);
+            m_parent = this->attach<ParentCtrl>(parent);
         }
         // 頭制御
         {
-            m_head = this->attach<HeadModel>(this);
+            m_head = this->attach<HeadCtrl>(this);
         }
         // 状態
         {
@@ -40,7 +40,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
 
-            this->attach<DamageModel>(this);
+            this->attach<DamageCtrl>(this);
         }
         // 描画
         {
@@ -73,7 +73,7 @@ namespace
     class ViewBinder : public abyss::ViewModel<HeadVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<HeadModel> m_head;
+        Ref<HeadCtrl> m_head;
         Ref<HPModel> m_hp;
         std::unique_ptr<HeadVM> m_view;
     private:
@@ -86,8 +86,8 @@ namespace
         }
         void setup() final
         {
-            m_head = m_pActor->find<HeadModel>();
-            m_hp = m_pActor->find<ParentCtrlModel>()->getHp();
+            m_head = m_pActor->find<HeadCtrl>();
+            m_hp = m_pActor->find<ParentCtrl>()->getHp();
         }
     public:
         ViewBinder(IActor* pActor) :

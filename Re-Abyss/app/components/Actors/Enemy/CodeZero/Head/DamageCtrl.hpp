@@ -6,19 +6,19 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class ParentCtrlModel;
+    class ParentCtrl;
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    class DamageModel :
+    class DamageCtrl :
         public IComponent,
         public ICollisionCallbackModel
     {
     protected:
-        Ref<ParentCtrlModel> m_parent;
+        Ref<ParentCtrl> m_parent;
         IActor* m_pActor;
     public:
-        DamageModel(IActor* pActor);
+        DamageCtrl(IActor* pActor);
 
         void setup() override;
         void onCollisionStay(IActor* col)override;
@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::CodeZero::Head::DamageModel>
+    struct ComponentTree<Actor::Enemy::CodeZero::Head::DamageCtrl>
     {
         using Base = ICollisionCallbackModel;
     };

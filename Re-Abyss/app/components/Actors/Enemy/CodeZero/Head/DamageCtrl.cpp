@@ -1,21 +1,21 @@
-#include "DamageModel.hpp"
+#include "DamageCtrl.hpp"
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-	DamageModel::DamageModel(IActor* pActor) :
+	DamageCtrl::DamageCtrl(IActor* pActor) :
 		m_pActor(pActor)
 	{}
-	void DamageModel::setup()
+	void DamageCtrl::setup()
 	{
-		m_parent = m_pActor->find<ParentCtrlModel>();
+		m_parent = m_pActor->find<ParentCtrl>();
 	}
-	void DamageModel::onCollisionStay(IActor* col)
+	void DamageCtrl::onCollisionStay(IActor* col)
 	{
 		auto parent = m_parent->getParent();
 		auto hp = m_parent->getHp();
