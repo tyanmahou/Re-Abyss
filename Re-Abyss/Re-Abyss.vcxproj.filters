@@ -521,21 +521,6 @@
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\AttackState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\BaseState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\ChargeState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Enemy\CaptainTako\State\WaitState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1016,21 @@
     <ClCompile Include="app\components\Actors\Player\Shot\PlayerShot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\ChargeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1336,11 +1336,6 @@
     <ClInclude Include="app\views\Actors\Enemy\Schield\SchieldVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\ChargeState.hpp" />
-    <ClInclude Include="app\models\Actors\Enemy\CaptainTako\State\WaitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttackState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />
     <ClInclude Include="app\models\Actors\Enemy\CodeZero\Hand\State\BaseState.hpp" />
@@ -1543,5 +1538,10 @@
     <ClInclude Include="app\components\Actors\Player\UICtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Collider.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\ChargeState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.hpp" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "CaptainTakoActor.hpp"
 
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/models/Actors/Enemy/CaptainTako/State/WaitState.hpp>
+#include <abyss/components/Actors/Enemy/CaptainTako/State/WaitState.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
