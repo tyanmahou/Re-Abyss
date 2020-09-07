@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Shot/ShotVM.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot

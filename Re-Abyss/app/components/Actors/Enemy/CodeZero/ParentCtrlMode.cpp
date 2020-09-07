@@ -3,10 +3,10 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase1State.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase2State.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase3State.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/State/Phase2State.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/State/Phase3State.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsModel.hpp>
 
 
 namespace abyss::Actor::Enemy::CodeZero

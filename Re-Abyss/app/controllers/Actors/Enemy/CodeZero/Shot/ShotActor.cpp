@@ -1,7 +1,7 @@
 #include "ShotActor.hpp"
 
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>

@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head

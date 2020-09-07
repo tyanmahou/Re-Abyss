@@ -1,6 +1,6 @@
 #include "HeadModel.hpp"
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head

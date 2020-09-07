@@ -1,17 +1,17 @@
 //#include "HandActor.hpp"
 
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/AttackState.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/State/AttackState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/RotateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>

@@ -1,8 +1,8 @@
 #include "CodeZeroActor.hpp"
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/State/Phase1State.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>

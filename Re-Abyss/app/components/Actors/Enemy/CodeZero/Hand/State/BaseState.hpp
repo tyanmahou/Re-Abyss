@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/KindModel.hpp>
 
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 

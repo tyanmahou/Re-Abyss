@@ -1,12 +1,12 @@
 #include "HeadActor.hpp"
-#include <abyss/models/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Head/DamageModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/DamageModel.hpp>
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>

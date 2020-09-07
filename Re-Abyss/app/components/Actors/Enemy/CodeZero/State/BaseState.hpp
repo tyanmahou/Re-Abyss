@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/models/Actors/Commons/PatternModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/PartsModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsModel.hpp>
 
 #include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
 

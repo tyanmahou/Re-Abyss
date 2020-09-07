@@ -1,8 +1,8 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
-#include <abyss/models/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrlModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/HeadModel.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
