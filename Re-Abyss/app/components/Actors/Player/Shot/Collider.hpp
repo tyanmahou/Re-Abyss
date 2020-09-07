@@ -10,7 +10,7 @@ namespace abyss::Actor::Player::Shot
     /// <summary>
     /// 当たり判定
     /// </summary>
-    class ColliderModel :
+    class Collider :
         public IComponent,
         public IColliderModel
     {
@@ -30,7 +30,7 @@ namespace abyss::Actor::Player::Shot
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Player::Shot::ColliderModel>
+    struct ComponentTree<Actor::Player::Shot::Collider>
     {
         using Base = IColliderModel;
     };

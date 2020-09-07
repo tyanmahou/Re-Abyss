@@ -6,14 +6,14 @@
 
 namespace abyss::Actor::Player
 {
-    class RestartCtrlModel :
+    class RestartCtrl :
         public IComponent,
         public IDeadCallbackModel
     {
     private:
         IActor* m_pActor = nullptr;
     public:
-        RestartCtrlModel(IActor* pActor);
+        RestartCtrl(IActor* pActor);
 
         void setup() override;
         void onDead() override;
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Player::RestartCtrlModel>
+    struct ComponentTree<Actor::Player::RestartCtrl>
     {
         using Base = IDeadCallbackModel;
     };

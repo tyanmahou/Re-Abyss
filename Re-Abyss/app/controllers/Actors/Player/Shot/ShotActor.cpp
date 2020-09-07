@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
-#include <abyss/components/Actors/Player/Shot/ColliderModel.hpp>
+#include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
@@ -30,7 +30,7 @@ namespace abyss::Actor::Player::Shot
 			this->attach<BodyUpdaterModel>(this);
 		}
 		{
-			auto collider = this->attach<ColliderModel>(this);
+			auto collider = this->attach<Collider>(this);
 			collider->setLayer(LayerGroup::Player);
 		}
 		{

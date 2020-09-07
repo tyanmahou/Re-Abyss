@@ -6,13 +6,13 @@
 
 namespace abyss::Actor::Player
 {
-    class UICtrlModel :
+    class UICtrl :
         public IComponent
     {
     private:
         IActor* m_pActor = nullptr;
     public:
-        UICtrlModel(IActor* pActor);
+        UICtrl(IActor* pActor);
 
         void onStart() override;
     };

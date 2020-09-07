@@ -1,4 +1,4 @@
-#include "RoomMoveCheckerModel.hpp"
+#include "RoomMoveChecker.hpp"
 
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
@@ -8,13 +8,13 @@
 
 namespace abyss::Actor::Player
 {
-    RoomMoveCheckerModel::RoomMoveCheckerModel(PlayerActor* pActor):
+    RoomMoveChecker::RoomMoveChecker(PlayerActor* pActor):
         m_pActor(pActor)
     {}
-    void RoomMoveCheckerModel::setup()
+    void RoomMoveChecker::setup()
     {
     }
-    void RoomMoveCheckerModel::onLastUpdate()
+    void RoomMoveChecker::onLastUpdate()
     {
         if (m_pActor->isDestroyed()) {
             // 死んでたらやらない

@@ -3,9 +3,9 @@
 
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Player/OopartsCtrl.hpp>
-#include <abyss/components/Actors/Player/RestartCtrlModel.hpp>
-#include <abyss/components/Actors/Player/RoomMoveCheckerModel.hpp>
-#include <abyss/components/Actors/Player/UICtrlModel.hpp>
+#include <abyss/components/Actors/Player/RestartCtrl.hpp>
+#include <abyss/components/Actors/Player/RoomMoveChecker.hpp>
+#include <abyss/components/Actors/Player/UICtrl.hpp>
 #include <abyss/components/Actors/Player/DebugCtrl.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
@@ -101,11 +101,11 @@ namespace abyss::Actor::Player
             this->attach<DeadCheckerModel>(this)
                 ->setIsAutoDestroy(false);
 
-            this->attach<RestartCtrlModel>(this);
+            this->attach<RestartCtrl>(this);
         }
         // 部屋移動の検知
         {
-            this->attach<RoomMoveCheckerModel>(this);
+            this->attach<RoomMoveChecker>(this);
         }
         {
             this->attach<ViewModel<PlayerVM>>()
@@ -113,7 +113,7 @@ namespace abyss::Actor::Player
         }
         // UI制御
         {
-            this->attach<UICtrlModel>(this);
+            this->attach<UICtrl>(this);
         }
 #if ABYSS_DEBUG
         // デバッグ制御

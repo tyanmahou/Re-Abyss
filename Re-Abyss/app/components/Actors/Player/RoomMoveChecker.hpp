@@ -5,14 +5,14 @@
 
 namespace abyss::Actor::Player
 {
-    class RoomMoveCheckerModel :
+    class RoomMoveChecker :
         public IComponent,
         public ILastUpdateModel
     {
     private:
         PlayerActor* m_pActor;
     public:
-        RoomMoveCheckerModel(PlayerActor* pActor);
+        RoomMoveChecker(PlayerActor* pActor);
 
         void setup() override;
         void onLastUpdate() override;
@@ -22,7 +22,7 @@ namespace abyss::Actor::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Player::RoomMoveCheckerModel>
+    struct ComponentTree<Actor::Player::RoomMoveChecker>
     {
         using Base = ILastUpdateModel;
     };

@@ -989,9 +989,6 @@
     <ClCompile Include="app\components\Actors\Player\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Player\Shot\ColliderModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Player\Shot\PlayerShotModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1010,15 +1007,6 @@
     <ClCompile Include="app\components\Actors\Player\State\SwimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Player\RestartCtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Player\RoomMoveCheckerModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Player\UICtrlModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Player\AttackCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1017,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Player\OopartsCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\RestartCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\RoomMoveChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\UICtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\Shot\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1529,19 +1529,19 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actors\Player\Shot\ColliderModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\SwimState.hpp" />
-    <ClInclude Include="app\components\Actors\Player\RestartCtrlModel.hpp" />
-    <ClInclude Include="app\components\Actors\Player\RoomMoveCheckerModel.hpp" />
-    <ClInclude Include="app\components\Actors\Player\UICtrlModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\AttackCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\DebugCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\OopartsCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Player\RestartCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Player\RoomMoveChecker.hpp" />
+    <ClInclude Include="app\components\Actors\Player\UICtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Shot\Collider.hpp" />
   </ItemGroup>
 </Project>
