@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 
 namespace abyss::Actor::Player::Shot
 {

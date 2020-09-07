@@ -989,9 +989,6 @@
     <ClCompile Include="app\components\Actors\Player\Shot\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Player\Shot\PlayerShotModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Player\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1026,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Player\Shot\Collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\Shot\PlayerShot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1529,7 +1529,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actors\Player\Shot\PlayerShotModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DeadState.hpp" />
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Player\RoomMoveChecker.hpp" />
     <ClInclude Include="app\components\Actors\Player\UICtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Collider.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />
   </ItemGroup>
 </Project>

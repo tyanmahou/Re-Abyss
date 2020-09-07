@@ -15,11 +15,11 @@ namespace abyss::Actor::Player::Shot
 		Big,
 	};
 
-	class PlayerShotModel : public IComponent
+	class PlayerShot : public IComponent
 	{
 		PlayerShotType m_type;
 	public:
-		PlayerShotModel(double charge);
+		PlayerShot(double charge);
 
 		s3d::int32 toPower()const;
 		double toRadius() const;

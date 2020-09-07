@@ -18,7 +18,7 @@ namespace abyss::Actor::Player::Shot
 {
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
-		auto shot = this->attach<PlayerShotModel>(charge);
+		auto shot = this->attach<PlayerShot>(charge);
 		{
 			this->attach<BodyModel>(this)
 				->setPos(pos)
@@ -86,7 +86,7 @@ namespace
 			m_body = m_pActor->find<BodyModel>();
 		}
 	public:
-		ViewBinder(IActor* pActor, const PlayerShotModel& shot, Forward forward) :
+		ViewBinder(IActor* pActor, const PlayerShot& shot, Forward forward) :
 			m_pActor(pActor),
 			m_view(std::make_unique<ShotVM>(shot, forward))
 		{}

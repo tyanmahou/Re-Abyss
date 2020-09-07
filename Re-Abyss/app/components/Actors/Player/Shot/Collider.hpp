@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Player::Shot
 {
-    class PlayerShotModel;
+    class PlayerShot;
 
     /// <summary>
     /// 当たり判定
@@ -16,7 +16,7 @@ namespace abyss::Actor::Player::Shot
     {
     private:
         Ref<BodyModel> m_body;
-        Ref<PlayerShotModel> m_shot;
+        Ref<PlayerShot> m_shot;
     public:
         using IColliderModel::IColliderModel;
 

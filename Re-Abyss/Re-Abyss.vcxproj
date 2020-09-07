@@ -415,7 +415,7 @@
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\FiringedState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\PursuitState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\LaunShark\Shot\State\WaitState.cpp" />
-    <ClCompile Include="app\components\Actors\Player\Shot\PlayerShotModel.cpp" />
+    <ClCompile Include="app\components\Actors\Player\Shot\PlayerShot.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\BaseState.cpp" />
     <ClCompile Include="app\models\Actors\Enemy\RollingTako\State\RunState.cpp" />
@@ -810,7 +810,7 @@
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\ChargeCtrl.hpp" />
-    <ClInclude Include="app\components\Actors\Player\Shot\PlayerShotModel.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\models\Collision\CollisionModel.hpp" />

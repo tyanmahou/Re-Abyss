@@ -3,7 +3,7 @@
 
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
-#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
 
 namespace abyss::Actor::Player::Shot
@@ -11,7 +11,7 @@ namespace abyss::Actor::Player::Shot
     class BaseState : public IState
     {
     protected:
-        PlayerShotModel* m_shot;
+        PlayerShot* m_shot;
         Collider* m_collider;
         ViewModel<ShotVM>* m_view;
     public:

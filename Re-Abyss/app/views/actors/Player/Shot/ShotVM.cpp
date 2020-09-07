@@ -6,7 +6,7 @@
 #include "ShotEffect.hpp"
 namespace abyss::Actor::Player::Shot
 {
-    ShotVM::ShotVM(const PlayerShotModel& shot, Forward forward):
+    ShotVM::ShotVM(const PlayerShot& shot, Forward forward):
         m_texture(ResourceManager::Main()->loadTexture(U"actors/Player/player_shot.png")),
         m_shot(shot),
         m_forward(forward),

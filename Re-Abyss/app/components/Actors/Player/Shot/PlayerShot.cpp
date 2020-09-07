@@ -1,4 +1,4 @@
-#include "PlayerShotModel.hpp"
+#include "PlayerShot.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
@@ -58,43 +58,43 @@ namespace
 }
 namespace abyss::Actor::Player::Shot
 {
-    PlayerShotModel::PlayerShotModel(double charge):
+    PlayerShot::PlayerShot(double charge):
         m_type(::ChargeToType(charge))
     {}
-    s3d::int32 PlayerShotModel::toPower() const
+    s3d::int32 PlayerShot::toPower() const
     {
         return ::TypeToPower(m_type);
     }
-    double PlayerShotModel::toRadius() const
+    double PlayerShot::toRadius() const
     {
         return ::TypeToRadius(m_type);
     }
 
-    s3d::ColorF PlayerShotModel::toColorF() const
+    s3d::ColorF PlayerShot::toColorF() const
     {
         return ::TypeToColor(m_type);
     }
-    bool PlayerShotModel::operator>(const PlayerShotType& type)
+    bool PlayerShot::operator>(const PlayerShotType& type)
     {
         return static_cast<uint8>(this->m_type) > static_cast<uint8>(type);
     }
-    bool PlayerShotModel::operator>=(const PlayerShotType& type)
+    bool PlayerShot::operator>=(const PlayerShotType& type)
     {
         return static_cast<uint8>(this->m_type) >= static_cast<uint8>(type);
     }
-    bool PlayerShotModel::isNormal() const
+    bool PlayerShot::isNormal() const
     {
         return m_type == PlayerShotType::Normal;
     }
-    bool PlayerShotModel::isSmall() const
+    bool PlayerShot::isSmall() const
     {
         return m_type == PlayerShotType::Small;
     }
-    bool PlayerShotModel::isMedium() const
+    bool PlayerShot::isMedium() const
     {
         return m_type == PlayerShotType::Medium;
     }
-    bool PlayerShotModel::isBig() const
+    bool PlayerShot::isBig() const
     {
         return m_type == PlayerShotType::Big;
     }

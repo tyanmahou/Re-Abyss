@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
-#include <abyss/components/Actors/Player/Shot/PlayerShotModel.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
@@ -10,7 +10,7 @@ namespace abyss::Actor::Player::Shot
     class ShotVM
     {
 		s3d::Texture m_texture;
-		PlayerShotModel m_shot;
+		PlayerShot m_shot;
 		s3d::Vec2 m_pos;
 		Forward m_forward;
 
@@ -18,7 +18,7 @@ namespace abyss::Actor::Player::Shot
 		IntervalTimer m_effectTimer;
 		Manager* m_pManager;
 	public:
-		ShotVM(const PlayerShotModel& shot, Forward forward);
+		ShotVM(const PlayerShot& shot, Forward forward);
 		ShotVM& setTime(double time);
 		ShotVM& setManager(Manager* pManager);
 		ShotVM& setPos(const s3d::Vec2& pos);
