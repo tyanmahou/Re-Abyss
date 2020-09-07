@@ -22,9 +22,9 @@ namespace abyss::Actor::Player
     protected:
         BodyModel* m_body;
         FootModel* m_foot;
-        ChargeModel* m_charge;
+        ChargeCtrl* m_charge;
         HPModel* m_hp;
-        AttackCtrlModel* m_attackCtrl;
+        AttackCtrl* m_attackCtrl;
         MapColliderModel* m_mapCol;
         ViewModel<PlayerVM>* m_view;
 

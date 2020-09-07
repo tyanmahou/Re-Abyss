@@ -5,11 +5,11 @@
 
 namespace abyss::Actor::Player
 {
-    ChargeModel::ChargeModel():
+    ChargeCtrl::ChargeCtrl():
         m_charge(0)
     {}
 
-    bool ChargeModel::update(double dt)
+    bool ChargeCtrl::update(double dt)
     {
         const auto& input = InputManager::Attack;
 
@@ -36,17 +36,17 @@ namespace abyss::Actor::Player
         m_charge = 0;
         return false;
     }
-    double ChargeModel::pop()
+    double ChargeCtrl::pop()
     {
         double ret = m_charge;
         m_charge = 0;
         return ret;
     }
-    void ChargeModel::reset()
+    void ChargeCtrl::reset()
     {
         m_charge = 0;
     }
-    double ChargeModel::getCharge() const
+    double ChargeCtrl::getCharge() const
     {
         return m_charge;
     }

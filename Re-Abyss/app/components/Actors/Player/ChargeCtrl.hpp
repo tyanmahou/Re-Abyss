@@ -6,12 +6,12 @@ namespace abyss::Actor::Player
     /// <summary>
     /// player attack charge
     /// </summary>
-    class ChargeModel : public IComponent
+    class ChargeCtrl : public IComponent
     {
         double m_charge;
 
     public:
-        ChargeModel();
+        ChargeCtrl();
 
         /// <summary>
         /// charge update

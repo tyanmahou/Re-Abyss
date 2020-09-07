@@ -15,7 +15,7 @@ namespace abyss::Actor::Player
     {}
     void OopartsCtrlModel::setup()
     {
-        m_attackCtrl = m_pActor->find<AttackCtrlModel>();
+        m_attackCtrl = m_pActor->find<AttackCtrl>();
         m_body = m_pActor->find<BodyModel>();
     }
     void OopartsCtrlModel::onStart()

@@ -6,7 +6,7 @@
 
 namespace abyss::Actor::Player
 {
-    class AttackCtrlModel;
+    class AttackCtrl;
 
     class OopartsCtrlModel:
         public IComponent,
@@ -14,7 +14,7 @@ namespace abyss::Actor::Player
     {
     private:
         Ref<Ooparts::OopartsActor> m_mainOoparts;
-        Ref<AttackCtrlModel> m_attackCtrl;
+        Ref<AttackCtrl> m_attackCtrl;
         Ref<BodyModel> m_body;
         IActor* m_pActor;
     public:

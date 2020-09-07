@@ -4,13 +4,13 @@
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 namespace abyss::Actor::Player
 {
-    class AttackCtrlModel : 
+    class AttackCtrl : 
         public IComponent
     {
         TimerEx m_timer;
         IActor* m_pActor = nullptr;
     public:
-        AttackCtrlModel(IActor* pActor);
+        AttackCtrl(IActor* pActor);
 
         void reset();
         void startAttack();

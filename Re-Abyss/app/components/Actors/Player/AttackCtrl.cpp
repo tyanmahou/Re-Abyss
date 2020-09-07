@@ -5,23 +5,23 @@
 
 namespace abyss::Actor::Player
 {
-    AttackCtrlModel::AttackCtrlModel(IActor* pActor):
+    AttackCtrl::AttackCtrl(IActor* pActor):
         m_timer(0.4s, false, pActor->getUpdateTimer()),
         m_pActor(pActor)
     {}
 
-    void AttackCtrlModel::reset()
+    void AttackCtrl::reset()
     {
         m_timer.restart();
         m_timer.pause();
     }
 
-    void AttackCtrlModel::startAttack()
+    void AttackCtrl::startAttack()
     {
         m_timer.restart();
     }
 
-    bool AttackCtrlModel::isAttacking() const
+    bool AttackCtrl::isAttacking() const
     {
         return !m_timer.reachedZero() && m_timer.isRunning();
     }

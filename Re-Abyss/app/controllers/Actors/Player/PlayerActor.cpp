@@ -6,7 +6,7 @@
 #include <abyss/components/Actors/Player/RestartCtrlModel.hpp>
 #include <abyss/components/Actors/Player/RoomMoveCheckerModel.hpp>
 #include <abyss/components/Actors/Player/UICtrlModel.hpp>
-#include <abyss/components/Actors/Player/DebugCtrlModel.hpp>
+#include <abyss/components/Actors/Player/DebugCtrl.hpp>
 
 #include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
@@ -66,7 +66,7 @@ namespace abyss::Actor::Player
         }
         // Charge
         {
-            this->attach<ChargeModel>();
+            this->attach<ChargeCtrl>();
         }
         // Foot
         {
@@ -79,7 +79,7 @@ namespace abyss::Actor::Player
         }
         // AttackCtrl
         {
-            this->attach<AttackCtrlModel>(this);
+            this->attach<AttackCtrl>(this);
         }
         {
             this->attach<OopartsCtrlModel>(this);
@@ -118,7 +118,7 @@ namespace abyss::Actor::Player
 #if ABYSS_DEBUG
         // デバッグ制御
         {
-            this->attach<DebugCtrlModel>(this);
+            this->attach<DebugCtrl>(this);
         }
 #endif
         m_order = 10;
@@ -177,8 +177,8 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
-        Ref<ChargeModel> m_charge;
-        Ref<AttackCtrlModel> m_attackCtrl;
+        Ref<ChargeCtrl> m_charge;
+        Ref<AttackCtrl> m_attackCtrl;
 
         std::unique_ptr<PlayerVM> m_view;
     private:
@@ -198,8 +198,8 @@ namespace
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
-            m_charge = m_pActor->find<ChargeModel>();
-            m_attackCtrl = m_pActor->find<AttackCtrlModel>();
+            m_charge = m_pActor->find<ChargeCtrl>();
+            m_attackCtrl = m_pActor->find<AttackCtrl>();
         }
     public:
         ViewBinder(IActor* pActor) :

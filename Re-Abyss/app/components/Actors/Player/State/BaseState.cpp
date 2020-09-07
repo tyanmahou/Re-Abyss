@@ -29,9 +29,9 @@ namespace abyss::Actor::Player
     {
         m_body       = m_pActor->find<BodyModel>().get();
         m_foot       = m_pActor->find<FootModel>().get();
-        m_charge     = m_pActor->find<ChargeModel>().get();
+        m_charge     = m_pActor->find<ChargeCtrl>().get();
         m_hp         = m_pActor->find<HPModel>().get();
-        m_attackCtrl = m_pActor->find<AttackCtrlModel>().get();
+        m_attackCtrl = m_pActor->find<AttackCtrl>().get();
         m_mapCol     = m_pActor->find<MapColliderModel>().get();
         m_view       = m_pActor->find<ViewModel<PlayerVM>>().get();
     }

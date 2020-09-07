@@ -11,7 +11,7 @@ namespace abyss
 
 namespace abyss::Actor::Player
 {
-    class ChargeModel;
+    class ChargeCtrl;
 }
 namespace abyss::Actor::Player
 {
