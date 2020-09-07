@@ -286,7 +286,7 @@
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DamageCallback.cpp" />
-    <ClCompile Include="app\components\Actors\Player\OopartsCtrlModel.cpp" />
+    <ClCompile Include="app\components\Actors\Player\OopartsCtrl.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\Axis2\Axis2.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
@@ -594,7 +594,7 @@
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\DebugCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\RestartCtrlModel.hpp" />
-    <ClInclude Include="app\components\Actors\Player\OopartsCtrlModel.hpp" />
+    <ClInclude Include="app\components\Actors\Player\OopartsCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\RoomMoveCheckerModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\ColliderModel.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DeadState.hpp" />

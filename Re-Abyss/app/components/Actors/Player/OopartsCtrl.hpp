@@ -8,7 +8,7 @@ namespace abyss::Actor::Player
 {
     class AttackCtrl;
 
-    class OopartsCtrlModel:
+    class OopartsCtrl:
         public IComponent,
         public ILastUpdateModel
     {
@@ -18,12 +18,12 @@ namespace abyss::Actor::Player
         Ref<BodyModel> m_body;
         IActor* m_pActor;
     public:
-        OopartsCtrlModel(IActor* pActor);
+        OopartsCtrl(IActor* pActor);
 
         void setup() override;
         void onStart() override;
 
-        OopartsCtrlModel& setMain(const Ref<Ooparts::OopartsActor>& main);
+        OopartsCtrl& setMain(const Ref<Ooparts::OopartsActor>& main);
 
         void onLastUpdate() override;
     };
@@ -32,7 +32,7 @@ namespace abyss::Actor::Player
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Player::OopartsCtrlModel>
+    struct ComponentTree<Actor::Player::OopartsCtrl>
     {
         using Base = ILastUpdateModel;
     };

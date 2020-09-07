@@ -1,4 +1,4 @@
-#include "OopartsCtrlModel.hpp"
+#include "OopartsCtrl.hpp"
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
@@ -10,25 +10,25 @@
 
 namespace abyss::Actor::Player
 {
-    OopartsCtrlModel::OopartsCtrlModel(IActor* pActor):
+    OopartsCtrl::OopartsCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void OopartsCtrlModel::setup()
+    void OopartsCtrl::setup()
     {
         m_attackCtrl = m_pActor->find<AttackCtrl>();
         m_body = m_pActor->find<BodyModel>();
     }
-    void OopartsCtrlModel::onStart()
+    void OopartsCtrl::onStart()
     {
         std::shared_ptr<Ooparts::OopartsActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::XtoActor>(m_pActor);
         this->setMain(main);
     }
-    OopartsCtrlModel& Player::OopartsCtrlModel::setMain(const Ref<Ooparts::OopartsActor> & main)
+    OopartsCtrl& Player::OopartsCtrl::setMain(const Ref<Ooparts::OopartsActor> & main)
     {
         m_mainOoparts = main;
         return *this;
     }
-    void OopartsCtrlModel::onLastUpdate()
+    void OopartsCtrl::onLastUpdate()
     {
         if (!m_attackCtrl || !m_mainOoparts) {
             return;

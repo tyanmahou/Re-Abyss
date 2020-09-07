@@ -2,7 +2,7 @@
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
-#include <abyss/components/Actors/Player/OopartsCtrlModel.hpp>
+#include <abyss/components/Actors/Player/OopartsCtrl.hpp>
 #include <abyss/components/Actors/Player/RestartCtrlModel.hpp>
 #include <abyss/components/Actors/Player/RoomMoveCheckerModel.hpp>
 #include <abyss/components/Actors/Player/UICtrlModel.hpp>
@@ -82,7 +82,7 @@ namespace abyss::Actor::Player
             this->attach<AttackCtrl>(this);
         }
         {
-            this->attach<OopartsCtrlModel>(this);
+            this->attach<OopartsCtrl>(this);
         }
         {
             this->attach<BreathingModel>(this)
