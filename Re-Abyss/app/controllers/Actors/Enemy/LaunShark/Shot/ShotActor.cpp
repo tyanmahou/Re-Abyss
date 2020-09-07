@@ -1,6 +1,6 @@
 #include "ShotActor.hpp"
 
-#include <abyss/models/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
+#include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>

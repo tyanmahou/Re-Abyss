@@ -1,6 +1,6 @@
 #include "LaunSharkActor.hpp"
 
-#include <abyss/models/Actors/Enemy/LaunShark/State/SwimState.hpp>
+#include <abyss/components/Actors/Enemy/LaunShark/State/SwimState.hpp>
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
