@@ -3,9 +3,9 @@
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class DamageModel : 
+    class DamageCtrl : 
         public IComponent,
         public ICollisionCallbackModel
     {
@@ -13,7 +13,7 @@ namespace abyss
         Ref<HPModel> m_hp;
         IActor* m_pActor;
     public:
-        DamageModel(IActor* pActor);
+        DamageCtrl(IActor* pActor);
 
         void setup() override;
         void onCollisionStay(IActor* col)override;
@@ -23,7 +23,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<DamageModel>
+    struct ComponentTree<Actor::DamageCtrl>
     {
         using Base = ICollisionCallbackModel;
     };

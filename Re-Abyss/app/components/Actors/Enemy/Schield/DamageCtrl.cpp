@@ -7,12 +7,12 @@
 namespace abyss::Actor::Enemy::Schield
 {
     DamageCtrl::DamageCtrl(IActor* pActor):
-        abyss::DamageModel(pActor)
+        Actor::DamageCtrl(pActor)
     {}
 
     void DamageCtrl::setup()
     {
-        abyss::DamageModel::setup();
+        Actor::DamageCtrl::setup();
 
         m_face = m_pActor->find<FaceCtrl>();
     }
@@ -28,7 +28,6 @@ namespace abyss::Actor::Enemy::Schield
             return;
         }
         // face only
-        abyss::DamageModel::onCollisionStay(col);
-
+        Actor::DamageCtrl::onCollisionStay(col);
     }
 }

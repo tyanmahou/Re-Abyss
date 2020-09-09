@@ -3,7 +3,7 @@
 #include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
+#include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -58,7 +58,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // ダメージ
         {
-            this->attach<DamageModel>(this);
+            this->attach<DamageCtrl>(this);
             this->attach<Enemy::DeadCallback>(this);
         }
         // 死亡チェック

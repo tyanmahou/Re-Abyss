@@ -401,7 +401,7 @@
     <ClCompile Include="app\models\Actors\base\IColliderModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
@@ -767,7 +767,7 @@
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />

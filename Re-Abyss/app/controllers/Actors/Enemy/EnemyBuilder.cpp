@@ -5,7 +5,7 @@
 
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
+#include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
@@ -64,7 +64,7 @@ namespace abyss::Actor::Enemy
 		}
 		// ダメージのコンポーネント
 		if (m_isEnableDamage) {
-			m_pActor->attach<DamageModel>(m_pActor);
+			m_pActor->attach<DamageCtrl>(m_pActor);
 		}
 		{
 			m_pActor->attach<DamageCallback>(m_pActor);

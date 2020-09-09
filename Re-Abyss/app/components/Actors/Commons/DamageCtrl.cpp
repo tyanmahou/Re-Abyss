@@ -1,16 +1,16 @@
-#include "DamageModel.hpp"
+#include "DamageCtrl.hpp"
 #include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-	DamageModel::DamageModel(IActor* pActor):
+	DamageCtrl::DamageCtrl(IActor* pActor):
 		m_pActor(pActor)
 	{}
-	void DamageModel::setup()
+	void DamageCtrl::setup()
 	{
 		m_hp = m_pActor->find<HPModel>();
 	}
-	void DamageModel::onCollisionStay(IActor* col)
+	void DamageCtrl::onCollisionStay(IActor* col)
     {
 		if (m_pActor->isDestroyed()) {
 			return;

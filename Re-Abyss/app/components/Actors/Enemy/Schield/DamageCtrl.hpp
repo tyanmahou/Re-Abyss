@@ -1,11 +1,11 @@
 #pragma once
-#include <abyss/models/Actors/Commons/DamageModel.hpp>
+#include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 namespace abyss::Actor::Enemy::Schield
 {
     class FaceCtrl;
 
     class DamageCtrl :
-        public abyss::DamageModel
+        public Actor::DamageCtrl
     {
         Ref<FaceCtrl> m_face;
     public:
@@ -22,6 +22,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::Schield::DamageCtrl>
     {
-        using Base = abyss::DamageModel;
+        using Base = Actor::DamageCtrl;
     };
 }
