@@ -3,7 +3,7 @@
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Head/HeadCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Head/DamageCtrl.hpp>
@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         }
         // 当たり判定
         {
-            auto col = this->attach<CustomColliderModel>(this);
+            auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
 

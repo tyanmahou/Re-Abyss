@@ -704,9 +704,6 @@
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\CustomCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1264,7 +1264,6 @@
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
   </ItemGroup>
 </Project>

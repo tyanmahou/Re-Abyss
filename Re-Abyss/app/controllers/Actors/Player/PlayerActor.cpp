@@ -10,7 +10,7 @@
 
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -35,7 +35,7 @@ namespace abyss::Actor::Player
 
         // Collider
         {
-            auto col = this->attach<CustomColliderModel>(this);
+            auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Player);
             col->setColFunc([this]() {
                 return this->getCollider();

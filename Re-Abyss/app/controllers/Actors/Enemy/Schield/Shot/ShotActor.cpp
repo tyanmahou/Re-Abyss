@@ -4,7 +4,7 @@
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
             this->attach<BodyUpdaterModel>(this);
         }
         {
-            auto collider = this->attach<CustomColliderModel>(this);
+            auto collider = this->attach<CustomCollider>(this);
             collider->setColFunc([this] {
                 return this->getCollider();
             });

@@ -1,19 +1,19 @@
-#include "CustomColliderModel.hpp"
+#include "CustomCollider.hpp"
 
 namespace abyss::Actor
 {
-    void CustomColliderModel::setup()
+    void CustomCollider::setup()
     {
         if (m_pImpl) {
             m_pImpl->setup();
         }
     }
-    CustomColliderModel& CustomColliderModel::setImpl(std::unique_ptr<IImpl>&& impl)
+    CustomCollider& CustomCollider::setImpl(std::unique_ptr<IImpl>&& impl)
     {
         m_pImpl = std::move(impl);
         return *this;
     }
-    CustomColliderModel& CustomColliderModel::setColFunc(const std::function<CShape()>& func)
+    CustomCollider& CustomCollider::setColFunc(const std::function<CShape()>& func)
     {
         class Impl : public IImpl
         {
@@ -38,7 +38,7 @@ namespace abyss::Actor
         return *this;
     }
 
-    CShape CustomColliderModel::getCollider() const
+    CShape CustomCollider::getCollider() const
     {
         if (!m_pImpl) {
             return s3d::none;

@@ -1,6 +1,6 @@
 #include "DoorActor.hpp"
 #include <abyss/models/Collision/LayerGroup.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 #include <Siv3D.hpp>
 
@@ -10,7 +10,7 @@ namespace abyss::Actor::Gimmick::Door
 		m_door(door),
 		m_nextRoom(nextRoom)
 	{
-		auto col = this->attach<CustomColliderModel>(this);
+		auto col = this->attach<CustomCollider>(this);
 		col->setLayer(LayerGroup::Gimmick);
 
 		col->setColFunc([this] {return this->getCollider(); });

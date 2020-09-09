@@ -2,7 +2,7 @@
 
 #include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // コライダー
         {
-            auto col = this->attach<CustomColliderModel>(this);
+            auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }

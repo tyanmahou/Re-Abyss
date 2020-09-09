@@ -1,7 +1,7 @@
 #include "FloorActor.hpp"
 #include <Siv3D/String.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 namespace abyss::Actor::Map::Floor
 {
@@ -9,7 +9,7 @@ namespace abyss::Actor::Map::Floor
 		MapActor(col, pos, size)
 	{
 		{
-			auto collider = this->attach<CustomColliderModel>(this);
+			auto collider = this->attach<CustomCollider>(this);
 			collider->setColFunc([this] {
 				return this->getCollider();
 			});

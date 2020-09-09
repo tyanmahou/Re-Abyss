@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/ScaleModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             ;
         }
         {
-            auto col = this->attach<CustomColliderModel>(this);
+            auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setImpl<Collider>(this);
         }
@@ -90,7 +90,7 @@ namespace
         {}
     };
 
-    class Collider : public Actor::CustomColliderModel::IImpl
+    class Collider : public Actor::CustomCollider::IImpl
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy
 
 		// Collider
 		if (m_isEnableCollider) {
-			auto collider = m_pActor->attach<CustomColliderModel>(m_pActor);
+			auto collider = m_pActor->attach<CustomCollider>(m_pActor);
 			collider->setColFunc(m_colliderFunc);
 			collider->setLayer(LayerGroup::Enemy);
 		}

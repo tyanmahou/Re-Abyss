@@ -179,6 +179,7 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\CustomCollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\FallChecker.cpp" />
@@ -240,7 +241,6 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
@@ -766,7 +766,7 @@
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />

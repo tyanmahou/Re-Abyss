@@ -5,7 +5,7 @@
 
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
-#include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
         {
-            auto col = this->attach<CustomColliderModel>(this);
+            auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
         }
