@@ -1,18 +1,18 @@
-#include "MapColliderModel.hpp"
+#include "MapCollider.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/FootModel.hpp>
-#include <abyss/models/Actors/Commons/TerrainModel.hpp>
+#include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class MapColliderModel::Result
+    class MapCollider::Result
     {
     private:
-        s3d::Array<Ref<TerrainModel>> m_results;
+        s3d::Array<Ref<Terrain>> m_results;
         ColDirection m_col;
     public:
         Result() = default;
@@ -22,7 +22,7 @@ namespace abyss
             m_col |= col;
         }
 
-        void add(const Ref<TerrainModel>& terrain)
+        void add(const Ref<Terrain>& terrain)
         {
             m_results.push_back(terrain);
         }
@@ -57,7 +57,7 @@ namespace abyss
             return !m_results.empty();
         }
 
-        const s3d::Array<Ref<TerrainModel>>& getResults() const
+        const s3d::Array<Ref<Terrain>>& getResults() const
         {
             return m_results;
         }
@@ -74,22 +74,22 @@ namespace abyss
         }
     };
 
-    MapColliderModel::MapColliderModel(IActor* pActor):
+    MapCollider::MapCollider(IActor* pActor):
         IPhysicsModel(pActor),
         m_result(std::make_unique<Result>())
     {}
-    void MapColliderModel::setup()
+    void MapCollider::setup()
     {
         m_body = m_pActor->find<BodyModel>();
         m_foot = m_pActor->find<FootModel>();
     }
 
-    s3d::RectF MapColliderModel::getCollider() const
+    s3d::RectF MapCollider::getCollider() const
     {
         return m_body->region();
     }
 
-    void MapColliderModel::onPrePhysics()
+    void MapCollider::onPrePhysics()
     {
         if (m_foot) {
             m_foot->reset();
@@ -97,7 +97,7 @@ namespace abyss
         m_result->onReflesh();
     }
 
-    void MapColliderModel::onCollision(const Ref<TerrainModel>& terrain)
+    void MapCollider::onCollision(const Ref<Terrain>& terrain)
     {
         if (!m_isThrough) {
             auto col = m_body->fixPos(terrain->getMapColInfo());
@@ -121,7 +121,7 @@ namespace abyss
 
         m_result->add(terrain);
     }
-    void MapColliderModel::onLastPhysics()
+    void MapCollider::onLastPhysics()
     {
         if (!m_isEnableRoomHit) {
             return;
@@ -130,23 +130,23 @@ namespace abyss
         auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), m_isEnableRoomHitStrict);
         m_result->add(col);
     }
-    bool MapColliderModel::isHitGround() const
+    bool MapCollider::isHitGround() const
     {
         return m_result->isHitGround();
     }
-    bool MapColliderModel::isHitWall() const
+    bool MapCollider::isHitWall() const
     {
         return m_result->isHitWall();
     }
-    bool MapColliderModel::isHitForwardWall() const
+    bool MapCollider::isHitForwardWall() const
     {
         return m_result->isHitWall(m_body->getForward());
     }
-    bool MapColliderModel::isHitAny() const
+    bool MapCollider::isHitAny() const
     {
         return m_result->isHitAny();
     }
-    bool MapColliderModel::acceptAll(const ActVisitor& visitor)
+    bool MapCollider::acceptAll(const ActVisitor& visitor)
     {
         bool result = false;
         for (const auto& terrain : this->getHitTerrains()) {
@@ -158,11 +158,11 @@ namespace abyss
 
         return result;
     }
-    const s3d::Array<Ref<TerrainModel>>& MapColliderModel::getHitTerrains() const
+    const s3d::Array<Ref<Terrain>>& MapCollider::getHitTerrains() const
     {
         return m_result->getResults();
     }
-    s3d::Array<IActor*> MapColliderModel::getHitActors() const
+    s3d::Array<IActor*> MapCollider::getHitActors() const
     {
         return m_result->getHitActors();
     }

@@ -14,7 +14,7 @@ namespace abyss
 
         virtual void collisionAll(
             const s3d::Array<Ref<IPhysicsModel>>& physics, 
-            const s3d::Array<Ref<TerrainModel>>& terrains
+            const s3d::Array<Ref<Actor::Terrain>>& terrains
         ) = 0;
         
     };
@@ -24,7 +24,7 @@ namespace abyss
     public:
         void collisionAll(
             const s3d::Array<Ref<IPhysicsModel>>& physics,
-            const s3d::Array<Ref<TerrainModel>>& terrains
+            const s3d::Array<Ref<Actor::Terrain>>& terrains
         )override;
     };
 }

@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
     {
         IActor* m_pActor;
         Ref<ParentCtrl> m_parentCtrl;
-        Ref<MapColliderModel> m_mapColl;
+        Ref<MapCollider> m_mapColl;
         Ref<BodyModel> m_body;
     public:
         MainUpdate(IActor* pActor);

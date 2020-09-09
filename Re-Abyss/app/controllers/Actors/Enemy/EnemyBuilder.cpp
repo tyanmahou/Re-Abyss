@@ -7,7 +7,7 @@
 
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy
 		}
 		// 地形Collider
 		if (m_isEnableMapCollider) {
-			auto mapCol = m_pActor->attach<MapColliderModel>(m_pActor);
+			auto mapCol = m_pActor->attach<MapCollider>(m_pActor);
 			mapCol->setIsEnableRoomHit(m_isEnableRoomHit, m_isEnableRoomHitStrict);
 		}
 		// ダメージのコンポーネント

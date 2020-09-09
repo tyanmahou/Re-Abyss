@@ -1,13 +1,13 @@
 #include "BaseState.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::RollingTako
 {
     void BaseState::setup()
     {
         m_body = this->m_pActor->find<BodyModel>().get();
-        m_mapCol = this->m_pActor->find<MapColliderModel>().get();
+        m_mapCol = this->m_pActor->find<MapCollider>().get();
         m_view = this->m_pActor->find<ViewModel<RollingTakoVM>>().get();
     }
 

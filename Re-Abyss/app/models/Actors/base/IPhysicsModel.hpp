@@ -5,7 +5,10 @@
 
 namespace abyss
 {
-    class TerrainModel;
+    namespace Actor
+    {
+        class Terrain;
+    }
 
     /// <summary>
     /// 地形判定処理
@@ -35,7 +38,7 @@ namespace abyss
 
         virtual s3d::RectF getCollider() const = 0;
 
-        virtual void onCollision(const Ref<TerrainModel>& terrain) = 0;
+        virtual void onCollision(const Ref<Actor::Terrain>& terrain) = 0;
 
         bool intersects(const MapColInfo& mapColInfo) const;
     };

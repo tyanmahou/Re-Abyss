@@ -1,6 +1,6 @@
 #include "MapActor.hpp"
 #include <abyss/components/Actors/Map/MapParam.hpp>
-#include <abyss/models/Actors/Commons/TerrainModel.hpp>
+#include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor::Map
@@ -13,7 +13,7 @@ namespace abyss::Actor::Map
 		}
 		// 地形
 		{
-			this->attach<TerrainModel>(this)
+			this->attach<Terrain>(this)
 				->setMapColInfo(this->getMapColInfo());
 		}
 	}

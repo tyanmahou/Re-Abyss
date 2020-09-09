@@ -7,7 +7,7 @@
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 #include <abyss/models/Actors/base/IPhysicsModel.hpp>
-#include <abyss/models/Actors/Commons/TerrainModel.hpp>
+#include <abyss/components/Actors/Commons/Terrain.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 
@@ -135,7 +135,7 @@ namespace abyss::Debug
             }
         }
         {
-            auto terrains = world.finds<TerrainModel>();
+            auto terrains = world.finds<Actor::Terrain>();
             Log::Print << U"Map Terrain: " << terrains.size();
 
             for (auto&& terrain : terrains) {

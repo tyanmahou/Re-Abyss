@@ -3,7 +3,7 @@
 #include <abyss/components/Actors/Enemy/Slime/Sencer/MainUpdate.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Slime
 		this->attach<Sencer::MainUpdate>(this);
 		this->attach<Sencer::ParentCtrl>(p);
 
-		this->attach<MapColliderModel>(this)->setIsThrough(true);
+		this->attach<MapCollider>(this)->setIsThrough(true);
 	}
 	const s3d::Vec2& SenserActor::getPos() const
 	{

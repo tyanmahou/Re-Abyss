@@ -686,9 +686,6 @@
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Master\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -723,9 +720,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\CustomDrawModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\TerrainModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp">
@@ -1029,6 +1023,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Commons\OutRoomChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\Terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\MapCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1418,9 +1418,7 @@
     <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\controllers\Master\Master.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
@@ -1543,5 +1541,7 @@
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actors\Commons\OutRoomChecker.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Terrain.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\MapCollider.hpp" />
   </ItemGroup>
 </Project>

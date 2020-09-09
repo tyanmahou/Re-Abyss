@@ -3,9 +3,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/types/MapColInfo.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class TerrainModel : 
+    class Terrain : 
         public IComponent
     {
     private:
@@ -13,11 +13,11 @@ namespace abyss
         MapColInfo m_mapColInfo;
         bool m_isActive = true;
     public:
-        TerrainModel(IActor* pActor):
+        Terrain(IActor* pActor):
             m_pActor(pActor)
         {}
 
-        TerrainModel& setMapColInfo(const MapColInfo& mapColInfo)
+        Terrain& setMapColInfo(const MapColInfo& mapColInfo)
         {
             m_mapColInfo = mapColInfo;
             return *this;
@@ -28,7 +28,7 @@ namespace abyss
             return m_mapColInfo;
         }
 
-        TerrainModel& setActive(bool isActive)
+        Terrain& setActive(bool isActive)
         {
             m_isActive = isActive;
             return *this;

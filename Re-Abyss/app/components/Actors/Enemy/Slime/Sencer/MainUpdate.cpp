@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sencer
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 	void MainUpdate::setup()
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();
-        m_mapColl = m_pActor->find<MapColliderModel>();
+        m_mapColl = m_pActor->find<MapCollider>();
         m_body = m_pActor->find<BodyModel>();
     }
     void MainUpdate::onUpdate([[maybe_unused]]double dt)

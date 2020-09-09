@@ -134,6 +134,8 @@ namespace abyss
 	namespace Actor
 	{
 		class ActorTime;
+		class Terrain;
+		class MapCollider;
 	}
 	class BodyModel;
 	class CustomColliderModel;
@@ -142,10 +144,8 @@ namespace abyss
 	class HPModel;
 	class IColliderModel;
 	class IPhysicsModel;
-	class MapColliderModel;
 	class ScaleModel;
 	class StateModel;
-	class TerrainModel;
 
 	/// <summary>
 	/// Services

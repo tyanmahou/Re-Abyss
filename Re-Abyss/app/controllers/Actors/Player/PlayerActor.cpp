@@ -11,7 +11,7 @@
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/MapColliderModel.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/models/Actors/Commons/FallCheckerModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
@@ -43,7 +43,7 @@ namespace abyss::Actor::Player
         }
         // Map Collider
         {
-            this->attach<MapColliderModel>(this);
+            this->attach<MapCollider>(this);
         }
         // Body
         {

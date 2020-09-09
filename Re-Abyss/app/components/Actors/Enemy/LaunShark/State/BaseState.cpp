@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::LaunShark
     void BaseState::setup()
     {
         m_body = m_pActor->find<BodyModel>().get();
-        m_mapCol = m_pActor->find<MapColliderModel>().get();
+        m_mapCol = m_pActor->find<MapCollider>().get();
         m_timeCounter = m_pActor->find<TimeCounter>().get();
         m_view = m_pActor->find<ViewModel<LaunSharkVM>>().get();
     }

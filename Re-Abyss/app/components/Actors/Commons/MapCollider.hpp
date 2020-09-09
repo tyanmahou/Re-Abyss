@@ -7,8 +7,10 @@
 namespace abyss
 {
     class FootModel;
-
-    class MapColliderModel:
+}
+namespace abyss::Actor
+{
+    class MapCollider:
         public IComponent,
         public IPrePhysicsModel,
         public IPhysicsModel,
@@ -26,7 +28,7 @@ namespace abyss
        bool m_isThrough = false; // すりぬけるか
     public:
 
-        MapColliderModel(IActor* pActor);
+        MapCollider(IActor* pActor);
 
         void setup() override;
 
@@ -34,18 +36,18 @@ namespace abyss
 
         void onPrePhysics() override;
 
-        void onCollision(const Ref<TerrainModel>& terrain) override;
+        void onCollision(const Ref<Terrain>& terrain) override;
 
         void onLastPhysics() override;
 
-        MapColliderModel& setIsEnableRoomHit(bool enable, bool isStrict = false)
+        MapCollider& setIsEnableRoomHit(bool enable, bool isStrict = false)
         {
             m_isEnableRoomHit = enable;
             m_isEnableRoomHitStrict = isStrict;
             return *this;
         }
 
-        MapColliderModel& setIsThrough(bool isThrough)
+        MapCollider& setIsThrough(bool isThrough)
         {
             m_isThrough = isThrough;
             return *this;
@@ -82,7 +84,7 @@ namespace abyss
         /// 衝突した地形を取得
         /// </summary>
         /// <returns></returns>
-        const s3d::Array<Ref<TerrainModel>>& getHitTerrains() const;
+        const s3d::Array<Ref<Terrain>>& getHitTerrains() const;
 
         /// <summary>
         /// 衝突した地形をアクターとして取得
@@ -96,7 +98,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<MapColliderModel>
+    struct ComponentTree<Actor::MapCollider>
     {
         using Base = MultiComponents<
             IPrePhysicsModel,

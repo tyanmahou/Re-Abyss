@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::RollingTako
     {
     protected:
         BodyModel* m_body;
-        MapColliderModel* m_mapCol;
+        MapCollider* m_mapCol;
         ViewModel<RollingTakoVM>* m_view;
     public:
         void setup()override;
