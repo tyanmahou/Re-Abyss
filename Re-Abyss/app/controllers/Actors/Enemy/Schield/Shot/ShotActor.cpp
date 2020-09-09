@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
@@ -45,7 +45,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
                 ->setColFunc([this] {return this->getCollider(); });
         }
         {
-            this->attach<DeadCheckerModel>(this);
+            this->attach<DeadChecker>(this);
         }
         {
             this->attach<ViewModel<ShotVM>>()

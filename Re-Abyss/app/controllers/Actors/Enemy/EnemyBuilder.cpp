@@ -9,7 +9,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
 #include <abyss/components/Actors/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actors/Enemy/DeadCallback.hpp>
@@ -84,7 +84,7 @@ namespace abyss::Actor::Enemy
 
 		// 死亡チェック
 		{
-			m_pActor->attach<DeadCheckerModel>(m_pActor)
+			m_pActor->attach<DeadChecker>(m_pActor)
 				->setIsAutoDestroy(m_isAutoDestroy);
 		}
 

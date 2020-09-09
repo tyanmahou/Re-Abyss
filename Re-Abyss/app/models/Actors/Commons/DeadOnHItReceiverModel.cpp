@@ -1,6 +1,6 @@
 #include "DeadOnHItReceiverModel.hpp"
 #include <abyss/controllers/Actors/ActInclude.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
 namespace abyss
 {
@@ -9,7 +9,7 @@ namespace abyss
     {}
     void DeadOnHItReceiverModel::setup()
     {
-        m_deadChecker = m_pActor->find<DeadCheckerModel>();
+        m_deadChecker = m_pActor->find<Actor::DeadChecker>();
     }
     void DeadOnHItReceiverModel::onCollisionStay(IActor * col)
     {

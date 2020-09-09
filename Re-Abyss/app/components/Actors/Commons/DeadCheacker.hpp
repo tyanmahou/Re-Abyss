@@ -4,9 +4,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class DeadCheckerModel :
+    class DeadChecker :
         public IComponent,
         public ILastUpdateModel
     {
@@ -19,9 +19,9 @@ namespace abyss
         bool m_isDead = false;
         bool m_requestDead = false;
     public:
-        DeadCheckerModel(IActor* pActor);
+        DeadChecker(IActor* pActor);
 
-        DeadCheckerModel& setIsAutoDestroy(bool isAuto)
+        DeadChecker& setIsAutoDestroy(bool isAuto)
         {
             m_isAutoDestroy = isAuto;
             return *this;
@@ -40,7 +40,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<DeadCheckerModel>
+    struct ComponentTree<Actor::DeadChecker>
     {
         using Base = ILastUpdateModel;
     };

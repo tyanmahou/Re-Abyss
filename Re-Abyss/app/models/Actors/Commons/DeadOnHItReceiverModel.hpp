@@ -10,7 +10,7 @@ namespace abyss
         public ICollisionCallbackModel
     {
         IActor* m_pActor;
-        Ref<DeadCheckerModel> m_deadChecker;
+        Ref<Actor::DeadChecker> m_deadChecker;
     public:
         DeadOnHItReceiverModel(IActor* pActor);
         void setup() override;

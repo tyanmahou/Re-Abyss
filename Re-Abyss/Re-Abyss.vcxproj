@@ -179,6 +179,7 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\FallChecker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
@@ -244,7 +245,6 @@
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\MapCollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\OutRoomChecker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Terrain.cpp" />
@@ -504,6 +504,7 @@
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
@@ -592,7 +593,6 @@
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\MapCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\OutRoomChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Terrain.hpp" />

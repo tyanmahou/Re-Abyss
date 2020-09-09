@@ -9,7 +9,7 @@
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
 namespace
 {
@@ -46,7 +46,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
                 ->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
         {
-            this->attach<DeadCheckerModel>(this);
+            this->attach<DeadChecker>(this);
         }
         {
             this->attach<ViewModel<ShotVM>>()

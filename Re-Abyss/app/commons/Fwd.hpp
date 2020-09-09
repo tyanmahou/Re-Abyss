@@ -136,10 +136,10 @@ namespace abyss
 		class ActorTime;
 		class Terrain;
 		class MapCollider;
+		class DeadChecker;
 	}
 	class BodyModel;
 	class CustomColliderModel;
-	class DeadCheckerModel;
 	class RotateModel;
 	class HPModel;
 	class IColliderModel;

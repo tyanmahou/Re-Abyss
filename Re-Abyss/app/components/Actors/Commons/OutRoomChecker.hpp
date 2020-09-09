@@ -15,7 +15,7 @@ namespace abyss::Actor
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<DeadCheckerModel> m_deadChecker;
+        Ref<DeadChecker> m_deadChecker;
         std::function<CShape()> m_colliderFunc;
 
         bool m_isOutRoom = false;

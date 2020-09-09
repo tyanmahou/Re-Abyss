@@ -7,7 +7,7 @@
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace
@@ -40,7 +40,7 @@ namespace abyss::Actor::Player::Shot
 		if (!shot->isBig()) {
 			// Bigじゃなければ壁にあたって破壊される
 			this->attach<DeadOnHItReceiverModel>(this);
-			this->attach<DeadCheckerModel>(this);
+			this->attach<DeadChecker>(this);
 		}
 		{
 			this->attach<ViewModel<ShotVM>>()

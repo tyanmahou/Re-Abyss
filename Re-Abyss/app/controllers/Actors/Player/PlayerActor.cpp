@@ -13,7 +13,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -98,7 +98,7 @@ namespace abyss::Actor::Player
         }
         // 死亡チェック
         {
-            this->attach<DeadCheckerModel>(this)
+            this->attach<DeadChecker>(this)
                 ->setIsAutoDestroy(false);
 
             this->attach<RestartCtrl>(this);

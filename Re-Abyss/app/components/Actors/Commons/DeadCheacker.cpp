@@ -1,4 +1,4 @@
-#include "DeadCheackerModel.hpp"
+#include "DeadCheacker.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Master/Master.hpp>
 
@@ -19,13 +19,13 @@ namespace
         return false;
     }
 }
-namespace abyss
+namespace abyss::Actor
 {
-    DeadCheckerModel::DeadCheckerModel(IActor* pActor) :
+    DeadChecker::DeadChecker(IActor* pActor) :
         m_pActor(pActor)
     {}
 
-    void DeadCheckerModel::requestDead()
+    void DeadChecker::requestDead()
     {
         if (m_hp) {
             m_hp->setHp(0);
@@ -33,12 +33,12 @@ namespace abyss
         m_requestDead = true;
     }
 
-    void DeadCheckerModel::setup()
+    void DeadChecker::setup()
     {
         m_hp = m_pActor->find<HPModel>();
     }
 
-    void DeadCheckerModel::onLastUpdate()
+    void DeadChecker::onLastUpdate()
     {
         if (m_isDead) {
             return;

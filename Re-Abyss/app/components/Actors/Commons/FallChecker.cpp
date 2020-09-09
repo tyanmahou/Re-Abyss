@@ -1,7 +1,7 @@
 #include "FallChecker.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 \
 namespace abyss::Actor
@@ -12,7 +12,7 @@ namespace abyss::Actor
 
     void FallChecker::setup()
     {
-        m_deadChecker = m_pActor->find<DeadCheckerModel>();
+        m_deadChecker = m_pActor->find<DeadChecker>();
         m_body = m_pActor->find<BodyModel>();
     }
 

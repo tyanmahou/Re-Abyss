@@ -1,7 +1,7 @@
 #include "OutRoomChecker.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
+#include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
@@ -15,7 +15,7 @@ namespace abyss::Actor
 
     void OutRoomChecker::setup()
     {
-        m_deadChecker = m_pActor->find<DeadCheckerModel>();
+        m_deadChecker = m_pActor->find<DeadChecker>();
         if (!m_colliderFunc) {
             if (auto body = m_pActor->find<BodyModel>()) {
                 m_colliderFunc = [body] {

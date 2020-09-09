@@ -12,7 +12,7 @@ namespace abyss::Actor
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<DeadCheckerModel> m_deadChecker;
+        Ref<DeadChecker> m_deadChecker;
         Ref<BodyModel> m_body;
 
         bool m_isFall = false;
