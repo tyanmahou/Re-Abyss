@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/FootModel.hpp>
+#include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -21,7 +21,7 @@ namespace abyss::Actor::Player
     {
     protected:
         BodyModel* m_body;
-        FootModel* m_foot;
+        Foot* m_foot;
         ChargeCtrl* m_charge;
         HPModel* m_hp;
         AttackCtrl* m_attackCtrl;

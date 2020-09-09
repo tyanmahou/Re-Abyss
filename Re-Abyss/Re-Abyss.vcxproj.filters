@@ -188,9 +188,6 @@
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\FootModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\MapCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\Foot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1150,7 +1150,6 @@
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Commons\OutRoomChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Terrain.hpp" />
     <ClInclude Include="app\components\Actors\Commons\MapCollider.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
   </ItemGroup>
 </Project>

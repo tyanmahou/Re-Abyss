@@ -70,7 +70,7 @@ namespace abyss::Actor::Player
         }
         // Foot
         {
-            this->attach<FootModel>();
+            this->attach<Foot>();
         }
         // AudioSource
         {

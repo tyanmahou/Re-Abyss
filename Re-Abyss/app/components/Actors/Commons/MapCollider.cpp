@@ -3,7 +3,7 @@
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/FootModel.hpp>
+#include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 
@@ -81,7 +81,7 @@ namespace abyss::Actor
     void MapCollider::setup()
     {
         m_body = m_pActor->find<BodyModel>();
-        m_foot = m_pActor->find<FootModel>();
+        m_foot = m_pActor->find<Foot>();
     }
 
     s3d::RectF MapCollider::getCollider() const
@@ -105,13 +105,13 @@ namespace abyss::Actor
 
             if (m_foot) {
                 if (col.isUp()) {
-                    m_foot->apply(FootModel::Landing);
+                    m_foot->apply(Foot::Landing);
                 }
                 terrain->accept(overloaded{
                     [this](const Actor::Map::Ladder::LadderActor& ladder) {
                         if (ladder.getCenterLine().intersects(m_body->region())) {
                             m_foot->setLadderPosX(ladder.getPos().x);
-                            auto state = ladder.isTop() ? FootModel::LadderTop : FootModel::Ladder;
+                            auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
                             m_foot->apply(state);
                         }
                     }

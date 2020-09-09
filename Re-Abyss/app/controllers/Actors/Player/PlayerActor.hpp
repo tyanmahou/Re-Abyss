@@ -6,7 +6,7 @@
 
 namespace abyss
 {
-    class FootModel;
+    class Foot;
 }
 
 namespace abyss::Actor::Player

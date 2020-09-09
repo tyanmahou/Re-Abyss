@@ -1,47 +1,47 @@
-#include "FootModel.hpp"
+#include "Foot.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
-    void FootModel::reset()
+    void Foot::reset()
     {
         m_state = State::None;
         m_ladderPosX = s3d::none;
 
     }
-    bool FootModel::isNone() const
+    bool Foot::isNone() const
     {
         return m_state == None;
     }
-    bool FootModel::isLanding() const
+    bool Foot::isLanding() const
     {
         return (m_state & Landing) != 0;
     }
-    bool FootModel::isFloat() const
+    bool Foot::isFloat() const
     {
         return !this->isLanding();
     }
-    bool FootModel::isLadder() const
+    bool Foot::isLadder() const
     {
         return (m_state & Ladder) != 0;
     }
-    bool FootModel::isLadderTop() const
+    bool Foot::isLadderTop() const
     {
         return (m_state & LadderTop) == LadderTop;
     }
-    FootModel& FootModel::setLadderPosX(double posX)
+    Foot& Foot::setLadderPosX(double posX)
     {
         m_ladderPosX = posX;
         return *this;
     }
-    const s3d::Optional<double>& FootModel::getLadderPosX() const
+    const s3d::Optional<double>& Foot::getLadderPosX() const
     {
         return m_ladderPosX;
     }
-    FootModel& FootModel::apply(State state)
+    Foot& Foot::apply(State state)
     {
         return *this |= state;
     }
-    FootModel& FootModel::operator|=(State state)
+    Foot& Foot::operator|=(State state)
     {
         m_state = static_cast<State>(m_state | state);
         return *this;

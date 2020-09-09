@@ -2,9 +2,9 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Optional.hpp>
 #include <abyss/components/base/IComponent.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class FootModel : public IComponent
+    class Foot : public IComponent
     {
     public:
         enum State : s3d::uint8
@@ -25,12 +25,12 @@ namespace abyss
         bool isLadder() const;
         bool isLadderTop() const;
 
-        FootModel& setLadderPosX(double posX);
+        Foot& setLadderPosX(double posX);
         const s3d::Optional<double>& getLadderPosX()const;
 
-        FootModel& apply(State state);
+        Foot& apply(State state);
 
-        FootModel& operator |=(State state);
+        Foot& operator |=(State state);
 
     };
 }

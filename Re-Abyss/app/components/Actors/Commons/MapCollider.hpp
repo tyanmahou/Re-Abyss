@@ -4,12 +4,10 @@
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
 
-namespace abyss
-{
-    class FootModel;
-}
 namespace abyss::Actor
 {
+    class Foot;
+
     class MapCollider:
         public IComponent,
         public IPrePhysicsModel,
@@ -20,7 +18,7 @@ namespace abyss::Actor
         class Result;
     private:
         Ref<BodyModel> m_body;
-        Ref<FootModel> m_foot;
+        Ref<Foot> m_foot;
         std::unique_ptr<Result> m_result;
 
        bool m_isEnableRoomHit = false;

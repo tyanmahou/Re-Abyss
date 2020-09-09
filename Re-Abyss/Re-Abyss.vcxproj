@@ -179,6 +179,7 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -402,7 +403,6 @@
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\FootModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
@@ -504,6 +504,7 @@
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
@@ -805,7 +806,6 @@
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\TimeCounter.hpp" />
