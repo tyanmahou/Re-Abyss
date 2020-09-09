@@ -1,6 +1,6 @@
 #include "CustomColliderModel.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
     void CustomColliderModel::setup()
     {

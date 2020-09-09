@@ -90,7 +90,7 @@ namespace
         {}
     };
 
-    class Collider : public CustomColliderModel::IImpl
+    class Collider : public Actor::CustomColliderModel::IImpl
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

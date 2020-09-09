@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
     /// <summary>
     /// 汎用当たり判定
@@ -43,7 +43,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<CustomColliderModel>
+    struct ComponentTree<Actor::CustomColliderModel>
     {
         using Base = IColliderModel;
     };
