@@ -7,13 +7,13 @@
 
 #include <abyss/utils/Overloaded.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    OutRoomCheckerModel::OutRoomCheckerModel(IActor* pActor) :
+    OutRoomChecker::OutRoomChecker(IActor* pActor) :
         m_pActor(pActor)
     {}
 
-    void OutRoomCheckerModel::setup()
+    void OutRoomChecker::setup()
     {
         m_deadChecker = m_pActor->find<DeadCheckerModel>();
         if (!m_colliderFunc) {
@@ -25,7 +25,7 @@ namespace abyss
         }
     }
 
-    void OutRoomCheckerModel::onLastUpdate()
+    void OutRoomChecker::onLastUpdate()
     {
         if (!m_colliderFunc) {
             m_isOutRoom = false;

@@ -7,9 +7,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class OutRoomCheckerModel :
+    class OutRoomChecker :
         public IComponent,
         public ILastUpdateModel
     {
@@ -21,7 +21,7 @@ namespace abyss
         bool m_isOutRoom = false;
         bool m_isAutoDestroy = true;
     public:
-        OutRoomCheckerModel(IActor* pActor);
+        OutRoomChecker(IActor* pActor);
 
         void setup() override;
         void onLastUpdate() override;
@@ -30,7 +30,7 @@ namespace abyss
         /// コライダー関数を登録
         /// </summary>
         /// <param name="func"></param>
-        OutRoomCheckerModel& setColFunc(const std::function<CShape()>& func)
+        OutRoomChecker& setColFunc(const std::function<CShape()>& func)
         {
             m_colliderFunc = func;
             return *this;
@@ -45,7 +45,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<OutRoomCheckerModel>
+    struct ComponentTree<Actor::OutRoomChecker>
     {
         using Base = ILastUpdateModel;
     };

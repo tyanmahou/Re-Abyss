@@ -8,7 +8,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
-#include <abyss/models/Actors/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 
 namespace
@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             this->attach<DeadOnHItReceiverModel>(this);
         }
         {
-            this->attach<OutRoomCheckerModel>(this)
+            this->attach<OutRoomChecker>(this)
                 ->setColFunc([this] {return this->getCollider(); });
         }
         {

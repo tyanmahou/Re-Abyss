@@ -245,7 +245,7 @@
     <ClCompile Include="app\models\Actors\Commons\DeadCheackerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\FallCheckerModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\MapColliderModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\OutRoomChecker.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\OutRoomChecker.cpp" />
     <ClCompile Include="app\models\Actors\Commons\TerrainModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\Shot\State\StartState.cpp" />
     <ClCompile Include="app\components\Actors\Gimmick\EventTrigger\Main.cpp" />
@@ -593,7 +593,7 @@
     <ClInclude Include="app\models\Actors\Commons\DeadCheackerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\FallCheckerModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\MapColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\OutRoomChecker.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\OutRoomChecker.hpp" />
     <ClInclude Include="app\models\Actors\Commons\TerrainModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DamageCallback.hpp" />
