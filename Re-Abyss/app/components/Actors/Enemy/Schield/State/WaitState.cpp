@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
+#include <abyss/components/Actors/Commons/ActorTime.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Schield
     void WaitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
-        m_pActor->find<ActorTimeModel>()->resetDrawTime();
+        m_pActor->find<ActorTime>()->resetDrawTime();
 
         m_face->on();
     }

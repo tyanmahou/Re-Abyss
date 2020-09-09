@@ -1,5 +1,5 @@
 #include "IActor.hpp"
-#include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
+#include <abyss/components/Actors/Commons/ActorTime.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/models/Actors/base/IMoveModel.hpp>
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
@@ -12,7 +12,7 @@ namespace abyss
 {
 	IActor::IActor()
 	{
-		m_time = this->attach<ActorTimeModel>();
+		m_time = this->attach<ActorTime>();
 	}
 	void IActor::updateDeltaTime(double worldDt) const
 	{

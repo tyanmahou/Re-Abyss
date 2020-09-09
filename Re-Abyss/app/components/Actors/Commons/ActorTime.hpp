@@ -3,7 +3,7 @@
 #include <abyss/utils/Time/Time.hpp>
 namespace abyss
 {
-    class ActorTimeModel final: public IComponent
+    class ActorTime final: public IComponent
     {
         double m_deltaTime = 0.0;
 

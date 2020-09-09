@@ -389,9 +389,6 @@
     <ClCompile Include="app\models\Actors\base\IColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\ActorTimeModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1263,7 +1263,6 @@
     <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\ActorTimeModel.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
   </ItemGroup>
 </Project>

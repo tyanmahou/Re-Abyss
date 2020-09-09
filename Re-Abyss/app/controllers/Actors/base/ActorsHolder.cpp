@@ -3,7 +3,7 @@
 #include <Siv3D/Utility.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/Commons/ActorTimeModel.hpp>
+#include <abyss/components/Actors/Commons/ActorTime.hpp>
 namespace abyss
 {
     void ActorsHolder::flush()

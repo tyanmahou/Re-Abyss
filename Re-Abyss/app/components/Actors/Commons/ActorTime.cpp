@@ -1,42 +1,42 @@
-#include "ActorTimeModel.hpp"
+#include "ActorTime.hpp"
 
 namespace abyss
 {
-    void ActorTimeModel::updateDeltaTime(double dt)
+    void ActorTime::updateDeltaTime(double dt)
     {
         // TODO timeScaleとかあれば
         m_deltaTime = dt;
     }
-    void ActorTimeModel::updateUpdateTime()
+    void ActorTime::updateUpdateTime()
     {
         m_updateTimeSec += m_deltaTime;
     }
-    void ActorTimeModel::updateDrawTime()
+    void ActorTime::updateDrawTime()
     {
         m_drawTimeSec += m_deltaTime;
     }
-    s3d::Microseconds ActorTimeModel::getUpdateTime() const
+    s3d::Microseconds ActorTime::getUpdateTime() const
     {
         return Time::FromSec(m_updateTimeSec);
     }
-    double ActorTimeModel::getUpdateTimeSec() const
+    double ActorTime::getUpdateTimeSec() const
     {
         return m_updateTimeSec;
     }
-    s3d::Microseconds ActorTimeModel::getDrawTime() const
+    s3d::Microseconds ActorTime::getDrawTime() const
     {
         return Time::FromSec(m_drawTimeSec);
     }
-    double ActorTimeModel::getDrawTimeSec() const
+    double ActorTime::getDrawTimeSec() const
     {
         return m_drawTimeSec;
     }
 
-    double ActorTimeModel::getDeltaTime() const
+    double ActorTime::getDeltaTime() const
     {
         return m_deltaTime;
     }
-    void ActorTimeModel::resetDrawTime()
+    void ActorTime::resetDrawTime()
     {
         m_drawTimeSec = 0.0;
     }

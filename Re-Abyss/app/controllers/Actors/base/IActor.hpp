@@ -10,7 +10,7 @@ namespace abyss
 	private:
 		bool m_isDestroyed = false;
 		Components m_components;
-		Ref<ActorTimeModel> m_time;
+		Ref<ActorTime> m_time;
 	protected:
 		Manager* m_pManager = nullptr;
 		s3d::uint64 m_id;
