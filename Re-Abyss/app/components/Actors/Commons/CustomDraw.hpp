@@ -5,12 +5,12 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
     /// <summary>
     /// 汎用描画
     /// </summary>
-    class CustomDrawModel :
+    class CustomDraw :
         public IComponent,
         public IDrawModel
     {
@@ -33,29 +33,29 @@ namespace abyss
         /// <summary>
         /// モーションリクエスト
         /// </summary>
-        CustomDrawModel& request(const s3d::String& motion)
+        CustomDraw& request(const s3d::String& motion)
         {
             m_motion = motion;
             return *this;
         }
 
-        CustomDrawModel& setDrawer(std::unique_ptr<IImpl>&& drawer);
+        CustomDraw& setDrawer(std::unique_ptr<IImpl>&& drawer);
 
         template<class Impl, class... Args>
-        CustomDrawModel& setDrawer(Args&&... args)
+        CustomDraw& setDrawer(Args&&... args)
         {
             return setDrawer(std::make_unique<Impl>(std::forward<Args>(args)...));
         }
-        CustomDrawModel& setDrawer(const std::function<void()>& drawer);
+        CustomDraw& setDrawer(const std::function<void()>& drawer);
 
-        CustomDrawModel& setDrawer(const std::function<void(const s3d::String&)>& drawer);
+        CustomDraw& setDrawer(const std::function<void(const s3d::String&)>& drawer);
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<CustomDrawModel>
+    struct ComponentTree<Actor::CustomDraw>
     {
         using Base = IDrawModel;
     };

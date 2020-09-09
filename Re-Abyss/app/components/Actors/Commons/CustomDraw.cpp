@@ -1,13 +1,13 @@
-#include "CustomDrawModel.hpp"
+#include "CustomDraw.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
-    CustomDrawModel& CustomDrawModel::setDrawer(std::unique_ptr<IImpl>&& drawer)
+    CustomDraw& CustomDraw::setDrawer(std::unique_ptr<IImpl>&& drawer)
     {
         m_pImpl = std::move(drawer);
         return *this;
     }
-    CustomDrawModel& CustomDrawModel::setDrawer(const std::function<void()>& drawer)
+    CustomDraw& CustomDraw::setDrawer(const std::function<void()>& drawer)
     {
         class Impl : public IImpl
         {
@@ -30,7 +30,7 @@ namespace abyss
         m_pImpl = std::make_unique<Impl>(drawer);
         return *this;
     }
-    CustomDrawModel& CustomDrawModel::setDrawer(const std::function<void(const s3d::String&)>& drawer)
+    CustomDraw& CustomDraw::setDrawer(const std::function<void(const s3d::String&)>& drawer)
     {
         class Impl : public IImpl
         {
@@ -54,13 +54,13 @@ namespace abyss
         m_pImpl = std::make_unique<Impl>(drawer);
         return *this;
     }
-    void CustomDrawModel::setup()
+    void CustomDraw::setup()
     {
         if (m_pImpl) {
             m_pImpl->setup();
         }
     }
-    void CustomDrawModel::onDraw() const
+    void CustomDraw::onDraw() const
     {
         if (m_pImpl) {
             m_pImpl->onDraw(m_motion);

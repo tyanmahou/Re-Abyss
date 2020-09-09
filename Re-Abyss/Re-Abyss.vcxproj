@@ -179,6 +179,7 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\FallChecker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
@@ -240,7 +241,6 @@
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\CustomDrawModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
@@ -504,6 +504,7 @@
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />

@@ -707,9 +707,6 @@
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\CustomDrawModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\CustomColliderModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1026,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\CustomDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1543,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
   </ItemGroup>
 </Project>

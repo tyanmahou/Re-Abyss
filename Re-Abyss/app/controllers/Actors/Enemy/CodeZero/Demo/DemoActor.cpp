@@ -1,7 +1,7 @@
 #include "DemoActor.hpp"
 
 #include <abyss/commons/Constants.hpp>
-#include <abyss/models/Actors/Commons/CustomDrawModel.hpp>
+#include <abyss/components/Actors/Commons/CustomDraw.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
@@ -37,7 +37,7 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
                     m_rightHandVM->setTime(time).setPos(m_pos + s3d::Vec2{ -110, 90 }).draw();
                 }
             };
-            this->attach<CustomDrawModel>()->setDrawer(draw);
+            this->attach<CustomDraw>()->setDrawer(draw);
         }
 
     }
