@@ -17,7 +17,7 @@ namespace abyss::Actor
     {
     private:
         IActor* m_pActor;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         s3d::Array<s3d::Audio> m_audios;
         AudioSettingGroup m_audioSettingGroup;
     public:

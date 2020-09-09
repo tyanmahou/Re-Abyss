@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     void BaseState::setup()
     {
         m_parent = m_pActor->find<ParentCtrl>().get();
-        m_body = m_pActor->find<BodyModel>().get();
+        m_body = m_pActor->find<Body>().get();
         m_scale = m_pActor->find<ScaleCtrl>().get();
         m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }

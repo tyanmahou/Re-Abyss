@@ -8,7 +8,7 @@
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/KindCtrl.hpp>
@@ -43,8 +43,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             col->setColFunc([this] {return this->getCollider(); });
         }
         {
-            (m_body = this->attach<BodyModel>(this))
-                ->initPos(parent->find<BodyModel>()->getPos() + s3d::Vec2{ forward * -110, 90 })
+            (m_body = this->attach<Body>(this))
+                ->initPos(parent->find<Body>()->getPos() + s3d::Vec2{ forward * -110, 90 })
                 .noneResistanced();
         }
         {
@@ -116,7 +116,7 @@ namespace
     class ViewBinder : public ViewCtrl<HandVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<RotateCtrl> m_rotate;
         std::unique_ptr<HandVM> m_view;
     private:
@@ -129,7 +129,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:

@@ -1,7 +1,7 @@
 #include "ShotActor.hpp"
 
 #include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -40,12 +40,12 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // ボディ
         {
-            (m_body = this->attach<BodyModel>(this))
+            (m_body = this->attach<Body>(this))
                 ->setPos(pos)
                 .noneResistanced()
                 .setSize(ShotParam::Base::Size);
 
-            this->attach<BodyUpdaterModel>(this);
+            this->attach<BodyUpdater>(this);
         }
         // HP
         {
@@ -106,7 +106,7 @@ namespace
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
 
@@ -122,7 +122,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }

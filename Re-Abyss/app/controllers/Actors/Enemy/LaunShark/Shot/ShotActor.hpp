@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 		public Receiver
 	{
 	private:
-		Ref<BodyModel> m_body;
+		Ref<Body> m_body;
 		Ref<RotateCtrl> m_rotate;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);

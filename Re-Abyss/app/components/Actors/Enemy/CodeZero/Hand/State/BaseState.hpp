@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
     protected:
         ParentCtrl* m_parent;
-        BodyModel* m_body;
+        Body* m_body;
         RotateCtrl* m_rotate;
         HandCtrl* m_hand;
         KindCtrl* m_kind;

@@ -27,7 +27,7 @@ namespace abyss::Actor::Player
     {}
     void BaseState::setup()
     {
-        m_body       = m_pActor->find<BodyModel>().get();
+        m_body       = m_pActor->find<Body>().get();
         m_foot       = m_pActor->find<Foot>().get();
         m_charge     = m_pActor->find<ChargeCtrl>().get();
         m_hp         = m_pActor->find<HP>().get();
@@ -38,9 +38,9 @@ namespace abyss::Actor::Player
     void BaseState::start()
     {
         (*m_body)
-            .setAccelY(BodyModel::DefaultGravity)
+            .setAccelY(Body::DefaultGravity)
             .setVelocity({0, 0})
-            .setMaxVelocityY(BodyModel::DefaultMaxVelocityY)
+            .setMaxVelocityY(Body::DefaultMaxVelocityY)
             .setDecelX(Param::Swim::DecelX)
             .setMaxSpeedX(Param::Swim::MaxSpeedX);
     }
@@ -58,7 +58,7 @@ namespace abyss::Actor::Player
         if (InputManager::Down.pressed()) {
             m_body->setMaxVelocityY(Param::Swim::DiveSpeed);
         } else {
-            m_body->setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
+            m_body->setMaxVelocityY(Body::DefaultMaxVelocityY);
         }
         m_body->update(dt);
     }

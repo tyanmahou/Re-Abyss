@@ -47,7 +47,7 @@ namespace abyss::Actor::Player
         }
         // Body
         {
-            (m_body = this->attach<BodyModel>(this))
+            (m_body = this->attach<Body>(this))
                 ->setSize(Param::Base::Size)
                 .setForward(Forward::Right)
              ;
@@ -176,7 +176,7 @@ namespace
     class ViewBinder : public ViewCtrl<PlayerVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<ChargeCtrl> m_charge;
         Ref<AttackCtrl> m_attackCtrl;
@@ -197,7 +197,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();

@@ -1,5 +1,5 @@
 #include "OopartsActor.hpp"
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/Draw.hpp>
 
@@ -12,9 +12,9 @@ namespace abyss::Actor::Ooparts
 
         {
             // ボディと追従
-            auto parentBody = parent->find<BodyModel>();
+            auto parentBody = parent->find<Body>();
             auto forward = parentBody->getForward();
-            this->attach<BodyModel>(this)
+            this->attach<Body>(this)
                 ->initPos(parentBody->getPos() + s3d::Vec2{ forward * -20, -40 })
                 .setForward(forward);
 

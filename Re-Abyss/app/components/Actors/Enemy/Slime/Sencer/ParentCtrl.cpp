@@ -1,6 +1,6 @@
 #include "ParentCtrl.hpp"
 #include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sencer
 {

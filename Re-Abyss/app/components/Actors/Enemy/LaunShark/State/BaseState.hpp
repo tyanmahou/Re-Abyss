@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/TimeCounter.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark
     class BaseState : public IState
     {
     protected:
-        BodyModel* m_body;
+        Body* m_body;
         MapCollider* m_mapCol;
         TimeCounter* m_timeCounter;
         ViewCtrl<LaunSharkVM>* m_view;

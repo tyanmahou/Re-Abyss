@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
 #include <abyss/utils/Overloaded.hpp>
@@ -17,7 +17,7 @@ namespace abyss::Actor
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
         if (!m_colliderFunc) {
-            if (auto body = m_pActor->find<BodyModel>()) {
+            if (auto body = m_pActor->find<Body>()) {
                 m_colliderFunc = [body] {
                     return body->region();
                 };

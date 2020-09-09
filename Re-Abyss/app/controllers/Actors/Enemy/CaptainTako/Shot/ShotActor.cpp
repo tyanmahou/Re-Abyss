@@ -4,7 +4,7 @@
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
@@ -25,14 +25,14 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             col->setColFunc([this] {return this->getCollider(); });
         }
         {
-            (m_body = this->attach<BodyModel>(this))
+            (m_body = this->attach<Body>(this))
                 ->setPos(pos)
                 .setForward(forward)
                 .noneResistanced()
                 .setVelocityX(forward * ShotParam::Base::Speed)
                 ;
 
-            this->attach<BodyUpdaterModel>(this);
+            this->attach<BodyUpdater>(this);
         }
         {
             this->attach<DeadOnHItReceiver>(this);
@@ -87,7 +87,7 @@ namespace
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         std::unique_ptr<ShotVM> m_view;
     private:
         ShotVM* bind() const final
@@ -99,7 +99,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
         }
     public:
         ViewBinder(IActor* pActor) :

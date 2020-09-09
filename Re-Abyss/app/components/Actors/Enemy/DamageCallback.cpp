@@ -1,6 +1,6 @@
 #include "DamageCallback.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 
 namespace abyss::Actor::Enemy

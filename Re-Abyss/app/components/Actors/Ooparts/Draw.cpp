@@ -1,7 +1,7 @@
 #include "Draw.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 
 #include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 

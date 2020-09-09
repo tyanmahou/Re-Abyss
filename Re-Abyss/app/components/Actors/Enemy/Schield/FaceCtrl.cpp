@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
 namespace abyss::Actor::Enemy::Schield
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Schield
     {}
     void FaceCtrl::setup()
     {
-        m_body = m_pActor->find<BodyModel>();
+        m_body = m_pActor->find<Body>();
     }
     s3d::Circle FaceCtrl::getCollider() const
     {

@@ -1,8 +1,8 @@
 #include "ShotActor.hpp"
 
 #include <abyss/models/Collision/LayerGroup.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
@@ -20,14 +20,14 @@ namespace abyss::Actor::Player::Shot
 	{
 		auto shot = this->attach<PlayerShot>(charge);
 		{
-			this->attach<BodyModel>(this)
+			this->attach<Body>(this)
 				->setPos(pos)
 				.setForward(forward)
 				.noneResistanced()
 				.setVelocityX(forward * ShotParam::Base::Speed)
 				;
 
-			this->attach<BodyUpdaterModel>(this);
+			this->attach<BodyUpdater>(this);
 		}
 		{
 			auto collider = this->attach<Collider>(this);
@@ -72,7 +72,7 @@ namespace
 	class ViewBinder : public ViewCtrl<ShotVM>::IBinder
 	{
 		IActor* m_pActor = nullptr;
-		Ref<BodyModel> m_body;
+		Ref<Body> m_body;
 		std::unique_ptr<ShotVM> m_view;
 	private:
 		ShotVM* bind() const final
@@ -84,7 +84,7 @@ namespace
 		}
 		void setup() override
 		{
-			m_body = m_pActor->find<BodyModel>();
+			m_body = m_pActor->find<Body>();
 		}
 	public:
 		ViewBinder(IActor* pActor, const PlayerShot& shot, Forward forward) :

@@ -1,6 +1,6 @@
 #include "BreathingCtrl.hpp"
 #include <Siv3D.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Effects/Effects.hpp>
@@ -16,7 +16,7 @@ namespace abyss::Actor
 
     void BreathingCtrl::setup()
     {
-        m_body = m_pActor->find<BodyModel>();
+        m_body = m_pActor->find<Body>();
     }
 
     void BreathingCtrl::onLastUpdate()

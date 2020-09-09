@@ -60,7 +60,7 @@ namespace
     class ViewBinder : public ViewCtrl<IkalienVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
 
@@ -76,7 +76,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }

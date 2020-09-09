@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase2State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase3State.hpp>
@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     void ParentCtrl::setup()
     {
-        m_body = m_parent->find<BodyModel>();
+        m_body = m_parent->find<Actor::Body>();
         m_hp = m_parent->find<HP>();
         m_state = m_parent->find<StateCtrl>();
         m_parts = m_parent->find<PartsCtrl>();

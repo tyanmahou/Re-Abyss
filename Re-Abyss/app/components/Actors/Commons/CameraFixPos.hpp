@@ -12,7 +12,7 @@ namespace abyss::Actor
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body = nullptr;
+        Ref<Body> m_body = nullptr;
     public:
         CameraFixPos(IActor* pActor);
 

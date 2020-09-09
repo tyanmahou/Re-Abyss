@@ -4,8 +4,8 @@
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/ScaleCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
@@ -40,11 +40,11 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
                 ->set(0.0);
         }
         {
-            this->attach<BodyModel>(this)
-                ->initPos(parent->find<BodyModel>()->getPos())
+            this->attach<Body>(this)
+                ->initPos(parent->find<Body>()->getPos())
                 .noneResistanced();
 
-            this->attach<BodyUpdaterModel>(this);
+            this->attach<BodyUpdater>(this);
         }
         {
             this->attach<ViewCtrl<ShotVM>>()
@@ -69,7 +69,7 @@ namespace
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
         std::unique_ptr<ShotVM> m_view;
     private:
@@ -81,7 +81,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();
         }
     public:
@@ -94,12 +94,12 @@ namespace
     class Collider : public Actor::CustomCollider::IImpl
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
     private:
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();
         }
         CShape getCollider() const final

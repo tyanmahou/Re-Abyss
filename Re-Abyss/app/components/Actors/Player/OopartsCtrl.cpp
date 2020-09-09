@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
 #include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
 
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
 
@@ -16,7 +16,7 @@ namespace abyss::Actor::Player
     void OopartsCtrl::setup()
     {
         m_attackCtrl = m_pActor->find<AttackCtrl>();
-        m_body = m_pActor->find<BodyModel>();
+        m_body = m_pActor->find<Body>();
     }
     void OopartsCtrl::onStart()
     {

@@ -20,7 +20,7 @@ namespace abyss::Actor::Player
         public Receiver
     {
     private:
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<HP> m_hp;
     public:
         PlayerActor();

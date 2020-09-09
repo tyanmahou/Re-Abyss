@@ -55,7 +55,7 @@ namespace
     class ViewBinder : public ViewCtrl<LaunSharkVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<HP> m_hp;
         std::unique_ptr<LaunSharkVM> m_view;
     private:
@@ -68,7 +68,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
         }
     public:

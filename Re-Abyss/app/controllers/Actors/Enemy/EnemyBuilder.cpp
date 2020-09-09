@@ -3,7 +3,7 @@
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
@@ -34,14 +34,14 @@ namespace abyss::Actor::Enemy
     {
 		// Body
 		{
-			(m_pActor->m_body = m_pActor->attach<BodyModel>(m_pActor))
+			(m_pActor->m_body = m_pActor->attach<Body>(m_pActor))
 				->initPos(m_pos)
 				.setForward(m_forward)
 				.setSize(m_bodySize)
 				.setPivot(m_bodyPivot)
 			;
 
-			m_pActor->attach<BodyUpdaterModel>(m_pActor);
+			m_pActor->attach<BodyUpdater>(m_pActor);
 		}
 		// HP
 		{

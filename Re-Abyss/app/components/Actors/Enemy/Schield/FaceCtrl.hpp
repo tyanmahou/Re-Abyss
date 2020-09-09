@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::Schield
         public IComponent
     {
         IActor* m_pActor;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         bool m_onFace = true;
     public:
         FaceCtrl(IActor* pActor);

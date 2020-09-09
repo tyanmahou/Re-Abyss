@@ -15,7 +15,7 @@ namespace abyss::Actor::Player::Shot
         public IColliderModel
     {
     private:
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<PlayerShot> m_shot;
     public:
         using IColliderModel::IColliderModel;

@@ -4,24 +4,24 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IMoveModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class BodyUpdaterModel :
+    class BodyUpdater :
         public IComponent,
         public IMoveModel
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
 
         bool m_isActive = true;
     public:
-        BodyUpdaterModel(IActor* pActor);
+        BodyUpdater(IActor* pActor);
 
         void setup() override;
         void onMove(double dt) override;
 
-        BodyUpdaterModel& setActive(bool isActive)
+        BodyUpdater& setActive(bool isActive)
         {
             m_isActive = isActive;
             return *this;
@@ -32,7 +32,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<BodyUpdaterModel>
+    struct ComponentTree<Actor::BodyUpdater>
     {
         using Base = IMoveModel;
     };

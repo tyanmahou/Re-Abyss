@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::RollingTako
 {
     void BaseState::setup()
     {
-        m_body = this->m_pActor->find<BodyModel>().get();
+        m_body = this->m_pActor->find<Body>().get();
         m_mapCol = this->m_pActor->find<MapCollider>().get();
         m_view = this->m_pActor->find<ViewCtrl<RollingTakoVM>>().get();
     }

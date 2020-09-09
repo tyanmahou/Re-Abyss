@@ -176,9 +176,6 @@
     <ClCompile Include="app\controllers\Light\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -680,9 +677,6 @@
     <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1025,12 @@
     <ClCompile Include="app\components\Actors\Commons\ScaleCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\Body.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1143,7 +1143,6 @@
     <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
@@ -1418,7 +1417,6 @@
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
@@ -1544,5 +1542,7 @@
     <ClInclude Include="app\components\Actors\Commons\HP.hpp" />
     <ClInclude Include="app\components\Actors\Commons\StateCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ScaleCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Body.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />
   </ItemGroup>
 </Project>

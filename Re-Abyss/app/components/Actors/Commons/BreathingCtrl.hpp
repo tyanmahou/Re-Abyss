@@ -26,7 +26,7 @@ namespace abyss::Actor
         IntervalTimer m_timer;
         s3d::Vec2 m_offset;
         double m_timeOffsetSec = 0;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
     };
 }
 

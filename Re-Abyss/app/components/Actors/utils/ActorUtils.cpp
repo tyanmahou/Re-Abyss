@@ -1,16 +1,16 @@
 #include "ActorUtils.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
 namespace abyss::Actor::ActorUtils
 {
-    s3d::Vec2 PlayerDiffVec(const IActor& actor, const BodyModel& body)
+    s3d::Vec2 PlayerDiffVec(const IActor& actor, const Body& body)
     {
         return actor.getModule<Actor::Player::PlayerActor>()->getPos() - body.getPos();
     }
-    bool IsPlayerFrontByDistance(const IActor& actor, const BodyModel& body, double range)
+    bool IsPlayerFrontByDistance(const IActor& actor, const Body& body, double range)
     {
         s3d::Vec2 d = PlayerDiffVec(actor, body);
         double f = body.isForward(Forward::Right) ? 1.0 : -1.0;

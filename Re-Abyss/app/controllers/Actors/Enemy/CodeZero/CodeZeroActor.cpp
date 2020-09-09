@@ -66,13 +66,12 @@ namespace abyss::Actor::Enemy::CodeZero
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CodeZero;
 
-    class ViewBinder : public ViewCtrl<Body::BodyVM>::IBinder
+    class ViewBinder : public Actor::ViewCtrl<Body::BodyVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Actor::Body> m_body;
         std::unique_ptr<Body::BodyVM> m_view;
     private:
         Body::BodyVM* bind() const final
@@ -81,7 +80,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Actor::Body>();
         }
     public:
         ViewBinder(IActor* pActor) :

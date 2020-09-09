@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy
     {}
     void DeadCallback::onDead()
     {
-        if (auto body = m_pActor->find<BodyModel>()) {
+        if (auto body = m_pActor->find<Body>()) {
             m_pActor->getModule<Effects>()->addWorldFront<EnemyDeadEffect>(body->getPos());
         }
         if (m_useQuake) {

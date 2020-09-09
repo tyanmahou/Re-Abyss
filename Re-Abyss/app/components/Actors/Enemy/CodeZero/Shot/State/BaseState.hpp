@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/ScaleCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
     protected:
         ParentCtrl* m_parent;
-        BodyModel* m_body;
+        Body* m_body;
         ScaleCtrl* m_scale;
         ViewCtrl<ShotVM>* m_view;
     public:

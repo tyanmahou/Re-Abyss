@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/base/Attacker.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         public Attacker
     {
     private:
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
     public:
         ShotActor(const s3d::Vec2& pos, Forward forward);
 

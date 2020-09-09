@@ -1,5 +1,5 @@
 #include "XtoActor.hpp"
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 
 #include <abyss/views/Actors/Ooparts/Xto/XtoVM.hpp>
 
@@ -26,7 +26,7 @@ namespace
     class ViewBinder : public ViewCtrl<OopartsVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
 
         std::unique_ptr<XtoVM> m_view;
     private:
@@ -41,7 +41,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
         }
     public:
         ViewBinder(IActor* pActor) :

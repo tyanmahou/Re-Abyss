@@ -142,8 +142,8 @@ namespace abyss
 		class HP;
 		class ScaleCtrl;
 		class StateCtrl;
+		class Body;
 	}
-	class BodyModel;
 	class IColliderModel;
 	class IPhysicsModel;
 

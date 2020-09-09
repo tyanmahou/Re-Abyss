@@ -15,7 +15,7 @@ namespace abyss::Actor::Player
     private:
         Ref<Ooparts::OopartsActor> m_mainOoparts;
         Ref<AttackCtrl> m_attackCtrl;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         IActor* m_pActor;
     public:
         OopartsCtrl(IActor* pActor);

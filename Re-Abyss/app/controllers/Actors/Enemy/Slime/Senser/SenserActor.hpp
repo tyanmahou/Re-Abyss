@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
 
     class SenserActor : public IActor
     {
-		Ref<BodyModel> m_body;
+		Ref<Body> m_body;
 	public:
 		SenserActor(SlimeActor* p);
 

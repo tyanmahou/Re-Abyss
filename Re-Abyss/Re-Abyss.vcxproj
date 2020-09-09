@@ -245,7 +245,7 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp" />
     <ClCompile Include="app\components\Actors\Commons\MapCollider.cpp" />
@@ -403,7 +403,7 @@
     <ClCompile Include="app\components\base\Components.cpp" />
     <ClCompile Include="app\models\Actors\base\IColliderModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp" />
@@ -594,7 +594,7 @@
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
     <ClInclude Include="app\components\Actors\Commons\MapCollider.hpp" />
@@ -808,7 +808,7 @@
     <ClInclude Include="app\controllers\Stage\Stage.hpp" />
     <ClInclude Include="app\controllers\World\World.hpp" />
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Body.hpp" />
     <ClInclude Include="app\components\Actors\Commons\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actors\Player\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />

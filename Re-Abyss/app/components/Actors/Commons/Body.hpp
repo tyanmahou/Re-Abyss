@@ -7,9 +7,9 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class BodyModel : public IComponent
+    class Body : public IComponent
     {
     private:
         s3d::Vec2 m_prevPos{ 0, 0 };
@@ -30,54 +30,54 @@ namespace abyss
 
         IActor* m_pActor;
     public:
-        BodyModel(IActor* pActor);
+        Body(IActor* pActor);
 
         void update(double dt);
 
-        BodyModel& setAccel(const s3d::Vec2& accel);
-        BodyModel& setAccelX(double accel);
-        BodyModel& setAccelY(double accel);
+        Body& setAccel(const s3d::Vec2& accel);
+        Body& setAccelX(double accel);
+        Body& setAccelY(double accel);
 
-        BodyModel& setDecelX(double deccel);
+        Body& setDecelX(double deccel);
 
-        BodyModel& setVelocity(const s3d::Vec2& velocity);
-        BodyModel& setVelocityX(double velocity);
-        BodyModel& setVelocityY(double velocity);
+        Body& setVelocity(const s3d::Vec2& velocity);
+        Body& setVelocityX(double velocity);
+        Body& setVelocityY(double velocity);
         const s3d::Vec2& getVelocity() const;
 
-        BodyModel& setMaxSpeedX(double speed);
-        BodyModel& setMaxSpeedX(s3d::None_t);
+        Body& setMaxSpeedX(double speed);
+        Body& setMaxSpeedX(s3d::None_t);
 
-        BodyModel& setMaxSpeedY(double speed);
-        BodyModel& setMaxSpeedY(s3d::None_t);
+        Body& setMaxSpeedY(double speed);
+        Body& setMaxSpeedY(s3d::None_t);
 
-        BodyModel& setMaxSpeed(const s3d::Vec2& speed);
-        BodyModel& setMaxSpeed(s3d::None_t);
+        Body& setMaxSpeed(const s3d::Vec2& speed);
+        Body& setMaxSpeed(s3d::None_t);
 
-        BodyModel& setMaxVelocityY(double velocity);
-        BodyModel& setMaxVelocityY(s3d::None_t);
+        Body& setMaxVelocityY(double velocity);
+        Body& setMaxVelocityY(s3d::None_t);
 
-        BodyModel& initPos(const s3d::Vec2& pos);
-        BodyModel& setPos(const s3d::Vec2& pos);
-        BodyModel& setPosX(double x);
-        BodyModel& setPosY(double y);
-        BodyModel& addPos(const s3d::Vec2& deltaPos);
-        BodyModel& addPosX(double deltaX);
-        BodyModel& addPosY(double deltaY);
+        Body& initPos(const s3d::Vec2& pos);
+        Body& setPos(const s3d::Vec2& pos);
+        Body& setPosX(double x);
+        Body& setPosY(double y);
+        Body& addPos(const s3d::Vec2& deltaPos);
+        Body& addPosX(double deltaX);
+        Body& addPosY(double deltaY);
 
         const s3d::Vec2& getPos() const;
         const s3d::Vec2& getPrevPos() const;
 
-        BodyModel& setForward(Forward forward);
+        Body& setForward(Forward forward);
 
         Forward getForward() const;
 
-        BodyModel& setSize(const s3d::Vec2& size);
+        Body& setSize(const s3d::Vec2& size);
         const s3d::Vec2& getSize() const;
         double getWidth() const;
         double getHeight() const;
 
-        BodyModel& setPivot(const s3d::Vec2& pivot);
+        Body& setPivot(const s3d::Vec2& pivot);
         const s3d::Vec2& getPivot() const;
         s3d::Vec2 getPivotPos() const;
 
@@ -86,8 +86,8 @@ namespace abyss
         void jump(double speed);
         void jumpToHeight(double height);
 
-        BodyModel& noneResistanced();
-        BodyModel& reversed();
+        Body& noneResistanced();
+        Body& reversed();
 
         bool isForward(Forward f) const;
 

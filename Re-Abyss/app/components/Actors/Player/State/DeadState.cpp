@@ -32,7 +32,7 @@ namespace abyss::Actor::Player
         m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::TimeSec);
         m_body
             ->setAccelX(0)
-            .setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
+            .setMaxVelocityY(Body::DefaultMaxVelocityY);
 
         if (!m_pActor->find<FallChecker>()->isFall()) {
             const Vec2& knockBackSpeed = Param::Dead::KnockBackSpeed;

@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
@@ -80,7 +80,7 @@ namespace abyss::Actor
     {}
     void MapCollider::setup()
     {
-        m_body = m_pActor->find<BodyModel>();
+        m_body = m_pActor->find<Body>();
         m_foot = m_pActor->find<Foot>();
     }
 

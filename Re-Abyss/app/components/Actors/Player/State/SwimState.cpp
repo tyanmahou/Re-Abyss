@@ -63,7 +63,7 @@ namespace abyss::Actor::Player
         if (InputManager::Left.pressed() || InputManager::Right.pressed()) {
             m_motion = Motion::Swim;
         }
-        if (m_body->getVelocity().y > BodyModel::DefaultMaxVelocityY) {
+        if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {
             m_motion = Motion::Dive;
         }
     }

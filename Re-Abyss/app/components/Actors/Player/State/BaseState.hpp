@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
@@ -20,7 +20,7 @@ namespace abyss::Actor::Player
     class BaseState : public IState
     {
     protected:
-        BodyModel* m_body;
+        Body* m_body;
         Foot* m_foot;
         ChargeCtrl* m_charge;
         HP* m_hp;

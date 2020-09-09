@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     class BaseState : public IState
     {
     protected:
-        BodyModel* m_body;
+        Body* m_body;
         RotateCtrl* m_rotate;
         ViewCtrl<ShotVM>* m_view;
     public:

@@ -17,7 +17,7 @@ namespace abyss::Actor
     private:
         class Result;
     private:
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         Ref<Foot> m_foot;
         std::unique_ptr<Result> m_result;
 

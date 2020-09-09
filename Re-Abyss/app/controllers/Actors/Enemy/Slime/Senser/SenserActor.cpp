@@ -2,14 +2,14 @@
 
 #include <abyss/components/Actors/Enemy/Slime/Sencer/MainUpdate.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {
 	SenserActor::SenserActor(SlimeActor* p)
 	{
-		m_body = this->attach<BodyModel>(this);
+		m_body = this->attach<Body>(this);
 		this->attach<Sencer::MainUpdate>(this);
 		this->attach<Sencer::ParentCtrl>(p);
 

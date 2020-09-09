@@ -22,7 +22,7 @@ namespace abyss::Actor::Player
         m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);
         m_body
             ->setAccelX(0)
-            .setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
+            .setMaxVelocityY(Body::DefaultMaxVelocityY);
 
         const Vec2& knockBackSpeed = Param::Damage::KnockBackSpeed;
 

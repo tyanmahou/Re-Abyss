@@ -3,7 +3,7 @@
 #include <abyss/components/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
@@ -23,12 +23,12 @@ namespace abyss::Actor::Enemy::Schield::Shot
     ShotActor::ShotActor(const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
         {
-            (m_body = this->attach<BodyModel>(this))
+            (m_body = this->attach<Body>(this))
                 ->initPos(pos)
                 .noneResistanced()
                 .setVelocity(dir.normalized() * ShotParam::Base::Speed);
 
-            this->attach<BodyUpdaterModel>(this);
+            this->attach<BodyUpdater>(this);
         }
         {
             auto collider = this->attach<CustomCollider>(this);
@@ -84,7 +84,7 @@ namespace
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
 
         std::unique_ptr<ShotVM> m_view;
     private:
@@ -96,7 +96,7 @@ namespace
         }
         void setup() final
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
         }
     public:
         ViewBinder(IActor* pActor) :

@@ -4,7 +4,7 @@
 #include <Siv3D.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
-#include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
 #include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::LaunShark
         m_body->setAccelX(0);
         m_body->setVelocityY(0);
 
-        m_pActor->find<BodyUpdaterModel>()->setActive(false);
+        m_pActor->find<BodyUpdater>()->setActive(false);
     }
     void LauncherState::update([[maybe_unused]] double dt)
     {
@@ -43,7 +43,7 @@ namespace abyss::Actor::Enemy::LaunShark
     }
     void LauncherState::end()
     {
-        m_pActor->find<BodyUpdaterModel>()->setActive(true);
+        m_pActor->find<BodyUpdater>()->setActive(true);
     }
 
     void LauncherState::draw()const

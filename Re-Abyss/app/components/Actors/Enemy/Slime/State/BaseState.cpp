@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::Slime
 {
     void BaseState::setup()
     {
-        m_body = this->m_pActor->find<BodyModel>().get();
+        m_body = this->m_pActor->find<Body>().get();
         m_mapCol = this->m_pActor->find<MapCollider>().get();
         m_view = m_pActor->find<ViewCtrl<SlimeVM>>().get();
     }

@@ -19,13 +19,13 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             rotate.setRotate(m_rotateLimit);
         }
     }
-    void HandCtrl::startForPursuit(BodyModel& body)const
+    void HandCtrl::startForPursuit(Body& body)const
     {
         auto velocity = m_axis * Vec2{ -HandParam::Setup::Speed, HandParam::Pursuit::Speed };
         body.setVelocity(velocity);
     }
 
-    void HandCtrl::updateForPursuit(const s3d::Vec2& target, const s3d::Vec2& parentPos, BodyModel& body, double dt)const
+    void HandCtrl::updateForPursuit(const s3d::Vec2& target, const s3d::Vec2& parentPos, Body& body, double dt)const
     {
         const auto& pos = body.getPos();
         Vec2 velocity{ 0,0 };
@@ -60,13 +60,13 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         body.update(dt);
     }
 
-    void HandCtrl::startForAttackWait(BodyModel& body)const
+    void HandCtrl::startForAttackWait(Body& body)const
     {
         auto velocity = m_axis.sa(-50);
         body.setVelocity(velocity);
     }
 
-    void HandCtrl::startForAttack(BodyModel& body) const
+    void HandCtrl::startForAttack(Body& body) const
     {
         auto velocity = m_axis.sa(HandParam::Attack::Speed);
         body.setVelocity(velocity);
@@ -75,7 +75,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     bool HandCtrl::updateForAttack(
         bool& isReturn,
         const s3d::Vec2& parentPos,
-        BodyModel& body,
+        Body& body,
         double dt
     ) const{
         const auto& pos = body.getPos();

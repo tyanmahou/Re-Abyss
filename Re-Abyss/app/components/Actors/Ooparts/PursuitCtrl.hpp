@@ -12,13 +12,13 @@ namespace abyss::Actor::Ooparts
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<BodyModel> m_body = nullptr;
-        Ref<BodyModel> m_pParent = nullptr;
+        Ref<Body> m_body = nullptr;
+        Ref<Body> m_pParent = nullptr;
 
         s3d::Vec2 m_localPos;
         bool m_isPursuit = true;
     public:
-        PursuitCtrl(IActor* pActor, const Ref<BodyModel>& pParent);
+        PursuitCtrl(IActor* pActor, const Ref<Body>& pParent);
 
         void setup() override;
         void onPreDraw(double dt) override;

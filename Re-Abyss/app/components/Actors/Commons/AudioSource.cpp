@@ -1,7 +1,7 @@
 #include "AudioSource.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
-#include <abyss/models/Actors/Commons/BodyModel.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
 #include <abyss/controllers/Manager/Manager.hpp>
@@ -12,6 +12,7 @@
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     std::pair<double, double> CalcVolume(const s3d::Vec2& pos, const s3d::Vec2& listener)
     {
         const Vec3 listenerPos(listener, 333);
@@ -38,7 +39,7 @@ namespace
 
         void setup() override
         {
-            m_body = m_pActor->find<BodyModel>();
+            m_body = m_pActor->find<Body>();
             m_audio.play();
         }
 
@@ -54,7 +55,7 @@ namespace
             m_audio.setVolumeLR(volume.first, volume.second);
         }
     private:
-        Ref<BodyModel> m_body;
+        Ref<Body> m_body;
         IActor* m_pActor;
         Audio m_audio;
     };
@@ -75,7 +76,7 @@ namespace abyss::Actor
 
     void AudioSource::setup()
     {
-        m_body = m_pActor->find<BodyModel>();
+        m_body = m_pActor->find<Body>();
     }
 
     void AudioSource::load(const s3d::FilePath& path)
@@ -169,7 +170,7 @@ namespace abyss::Actor
             TemporaryActor(const s3d::Audio& audio, const s3d::Vec2& pos)
             {
                 this->m_isDontDestoryOnLoad = true;
-                this->attach<BodyModel>(this)->initPos(pos);
+                this->attach<Body>(this)->initPos(pos);
                 this->attach<TemporarySoundEffect>(this, audio);
             }
         };

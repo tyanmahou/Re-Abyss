@@ -28,11 +28,11 @@ namespace abyss::Actor::Enemy
 	{
 		return visitor.visit(*this);
 	}
-	const BodyModel& EnemyActor::getBody() const
+	const Body& EnemyActor::getBody() const
 	{
 		return *m_body;
 	}
-	BodyModel& EnemyActor::getBody()
+	Body& EnemyActor::getBody()
 	{
 		return *m_body;
 	}
