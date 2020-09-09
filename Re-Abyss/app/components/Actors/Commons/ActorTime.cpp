@@ -1,6 +1,6 @@
 #include "ActorTime.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
     void ActorTime::updateDeltaTime(double dt)
     {

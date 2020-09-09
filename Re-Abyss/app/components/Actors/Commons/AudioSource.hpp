@@ -9,7 +9,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
     class AudioSource: 
         public IComponent,
@@ -47,7 +47,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<AudioSource>
+    struct ComponentTree<Actor::AudioSource>
     {
         using Base = IUpdateModel;
     };

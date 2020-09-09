@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Time/Time.hpp>
-namespace abyss
+namespace abyss::Actor
 {
     class ActorTime final: public IComponent
     {

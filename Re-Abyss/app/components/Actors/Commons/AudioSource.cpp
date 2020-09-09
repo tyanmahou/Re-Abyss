@@ -67,7 +67,7 @@ namespace abyss
         using Base = IUpdateModel;
     };
 }
-namespace abyss
+namespace abyss::Actor
 {
     AudioSource::AudioSource(IActor* pActor) :
         m_pActor(pActor)

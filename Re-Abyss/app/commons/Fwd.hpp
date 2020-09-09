@@ -131,7 +131,10 @@ namespace abyss
 	/// <summary>
 	/// Models / Components
 	/// </summary>
-	class ActorTime;
+	namespace Actor
+	{
+		class ActorTime;
+	}
 	class BodyModel;
 	class CustomColliderModel;
 	class DeadCheckerModel;

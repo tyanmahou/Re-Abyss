@@ -12,7 +12,7 @@ namespace abyss
 {
 	IActor::IActor()
 	{
-		m_time = this->attach<ActorTime>();
+		m_time = this->attach<Actor::ActorTime>();
 	}
 	void IActor::updateDeltaTime(double worldDt) const
 	{
