@@ -1,17 +1,17 @@
-#include "DeadOnHItReceiverModel.hpp"
+#include "DeadOnHItReceiver.hpp"
 #include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    DeadOnHItReceiverModel::DeadOnHItReceiverModel(IActor* pActor):
+    DeadOnHItReceiver::DeadOnHItReceiver(IActor* pActor):
         m_pActor(pActor)
     {}
-    void DeadOnHItReceiverModel::setup()
+    void DeadOnHItReceiver::setup()
     {
-        m_deadChecker = m_pActor->find<Actor::DeadChecker>();
+        m_deadChecker = m_pActor->find<DeadChecker>();
     }
-    void DeadOnHItReceiverModel::onCollisionStay(IActor * col)
+    void DeadOnHItReceiver::onCollisionStay(IActor * col)
     {
         if (m_pActor->isDestroyed()) {
             return;

@@ -7,7 +7,7 @@
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             this->attach<BodyUpdaterModel>(this);
         }
         {
-            this->attach<DeadOnHItReceiverModel>(this);
+            this->attach<DeadOnHItReceiver>(this);
         }
         {
             this->attach<OutRoomChecker>(this)

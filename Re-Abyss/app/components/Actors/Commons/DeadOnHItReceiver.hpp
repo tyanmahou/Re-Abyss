@@ -3,16 +3,16 @@
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class DeadOnHItReceiverModel :
+    class DeadOnHItReceiver :
         public IComponent,
         public ICollisionCallbackModel
     {
         IActor* m_pActor;
-        Ref<Actor::DeadChecker> m_deadChecker;
+        Ref<DeadChecker> m_deadChecker;
     public:
-        DeadOnHItReceiverModel(IActor* pActor);
+        DeadOnHItReceiver(IActor* pActor);
         void setup() override;
         void onCollisionStay(IActor* col)override;
     };
@@ -21,7 +21,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<DeadOnHItReceiverModel>
+    struct ComponentTree<Actor::DeadOnHItReceiver>
     {
         using Base = ICollisionCallbackModel;
     };

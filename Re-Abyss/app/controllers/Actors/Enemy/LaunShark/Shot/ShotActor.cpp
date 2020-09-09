@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
@@ -63,7 +63,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // 死亡チェック
         {
-            this->attach<DeadOnHItReceiverModel>(this);
+            this->attach<DeadOnHItReceiver>(this);
             this->attach<Enemy::DamageCallback>(this);
             this->attach<DeadChecker>(this);
         }

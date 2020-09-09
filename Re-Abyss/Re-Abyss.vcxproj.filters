@@ -386,9 +386,6 @@
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Common\EnemyDeadEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1272,7 +1272,6 @@
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
   </ItemGroup>
 </Project>

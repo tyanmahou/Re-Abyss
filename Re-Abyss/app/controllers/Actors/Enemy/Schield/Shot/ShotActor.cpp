@@ -5,7 +5,7 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
+#include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
             collider->setLayer(LayerGroup::Enemy);
         }
         {
-            this->attach<DeadOnHItReceiverModel>(this);
+            this->attach<DeadOnHItReceiver>(this);
         }
         {
             this->attach<OutRoomChecker>(this)

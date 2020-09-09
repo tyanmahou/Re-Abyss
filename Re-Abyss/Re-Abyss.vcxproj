@@ -402,7 +402,7 @@
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\DamageModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\DeadOnHItReceiverModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
@@ -767,7 +767,7 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomColliderModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\DamageModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\DeadOnHItReceiverModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
