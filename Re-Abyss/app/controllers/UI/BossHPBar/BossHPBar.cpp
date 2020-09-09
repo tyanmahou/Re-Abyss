@@ -1,6 +1,6 @@
 #include "BossHPBar.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 
 namespace abyss::ui
@@ -12,7 +12,7 @@ namespace abyss::ui
 
     void BossHPBar::start()
     {
-        m_hpModel = m_pActor->find<HPModel>();
+        m_hpModel = m_pActor->find<Actor::HP>();
         m_hp = 0;
         m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
     }

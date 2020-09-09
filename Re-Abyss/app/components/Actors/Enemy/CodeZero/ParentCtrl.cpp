@@ -19,11 +19,11 @@ namespace abyss::Actor::Enemy::CodeZero
     void ParentCtrl::setup()
     {
         m_body = m_parent->find<BodyModel>();
-        m_hp = m_parent->find<HPModel>();
+        m_hp = m_parent->find<HP>();
         m_state = m_parent->find<StateModel>();
         m_parts = m_parent->find<PartsCtrl>();
     }
-    Ref<HPModel> ParentCtrl::getHp() const
+    Ref<HP> ParentCtrl::getHp() const
     {
         return m_hp;
     }

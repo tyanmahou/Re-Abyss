@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy
 	{
 		return *m_body;
 	}
-	const HPModel& EnemyActor::getHp() const
+	const HP& EnemyActor::getHp() const
     {
 		return *m_hp;
     }

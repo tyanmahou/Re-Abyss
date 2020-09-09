@@ -1,56 +1,56 @@
-#include "HPModel.hpp"
+#include "HP.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    HPModel::HPModel(IActor* pActor):
+    HP::HP(IActor* pActor):
         m_hp(0),
         m_invincibleTime(1.0, false, [pActor] {return pActor->getUpdateTime();}),
         m_pActor(pActor)
     {}
 
-    void HPModel::setup()
+    void HP::setup()
     {
     }
-    HPModel& HPModel::initHp(s3d::int32 hp)
+    HP& HP::initHp(s3d::int32 hp)
     {
         m_hp = hp;
         m_maxHp = hp;
         return *this;
     }
-    HPModel& HPModel::setHp(s3d::int32 hp)
+    HP& HP::setHp(s3d::int32 hp)
     {
         m_hp = hp;
         return *this;
     }
 
-    HPModel& HPModel::setInvincibleTime(double invincibleTimeSec)
+    HP& HP::setInvincibleTime(double invincibleTimeSec)
     {
         m_invincibleTime = TimerEx(invincibleTimeSec, false, [this] {return m_pActor->getUpdateTime(); });
         return *this;
     }
 
-    bool HPModel::isInInvincibleTime() const
+    bool HP::isInInvincibleTime() const
     {
         return !m_invincibleTime.reachedZero() && m_invincibleTime.isRunning();
     }
 
-    s3d::int32 HPModel::getHp() const
+    s3d::int32 HP::getHp() const
     {
         return m_hp;
     }
 
-    s3d::int32 HPModel::getMaxHp() const
+    s3d::int32 HP::getMaxHp() const
     {
         return m_maxHp;
     }
 
-    s3d::int32 HPModel::value() const
+    s3d::int32 HP::value() const
     {
         return m_hp;
     }
-    bool HPModel::heal(s3d::int32 value)
+    bool HP::heal(s3d::int32 value)
     {
         m_hp += value;
         if (m_hp > m_maxHp) {
@@ -58,7 +58,7 @@ namespace abyss
         }
         return true;
     }
-    bool HPModel::damage(s3d::int32 damagePoint)
+    bool HP::damage(s3d::int32 damagePoint)
     {
         if (!this->isInInvincibleTime()) {
             m_hp -= damagePoint;
@@ -68,12 +68,12 @@ namespace abyss
         return false;
     }
 
-    void HPModel::reset()
+    void HP::reset()
     {
         m_hp = m_maxHp;
     }
 
-    bool HPModel::isDead() const
+    bool HP::isDead() const
     {
         return m_hp <= 0;
     }

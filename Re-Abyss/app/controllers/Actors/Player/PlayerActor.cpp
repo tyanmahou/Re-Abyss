@@ -54,7 +54,7 @@ namespace abyss::Actor::Player
         }
         // HP
         {
-            (m_hp = this->attach<HPModel>(this))
+            (m_hp = this->attach<HP>(this))
                 ->initHp(Param::Base::Hp)
                 .setInvincibleTime(Param::Base::InvincibleTime);
         }
@@ -177,7 +177,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         Ref<ChargeCtrl> m_charge;
         Ref<AttackCtrl> m_attackCtrl;
 
@@ -198,7 +198,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_hp = m_pActor->find<HPModel>();
+            m_hp = m_pActor->find<HP>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
         }

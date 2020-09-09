@@ -12,7 +12,7 @@ namespace abyss::Actor
     {
     private:
         IActor* m_pActor = nullptr;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
 
         bool m_isAutoDestroy = true;
 

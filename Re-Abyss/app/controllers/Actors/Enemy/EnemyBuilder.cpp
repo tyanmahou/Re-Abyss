@@ -45,7 +45,7 @@ namespace abyss::Actor::Enemy
 		}
 		// HP
 		{
-			(m_pActor->m_hp = m_pActor->attach<HPModel>(m_pActor))
+			(m_pActor->m_hp = m_pActor->attach<HP>(m_pActor))
 				->initHp(m_initHp)
 				.setInvincibleTime(0.2);
 

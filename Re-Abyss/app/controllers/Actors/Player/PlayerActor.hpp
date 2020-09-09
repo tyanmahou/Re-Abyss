@@ -21,7 +21,7 @@ namespace abyss::Actor::Player
     {
     private:
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
     public:
         PlayerActor();
 

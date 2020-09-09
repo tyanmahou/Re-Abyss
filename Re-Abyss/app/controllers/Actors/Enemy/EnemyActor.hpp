@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 
 namespace abyss::Actor::Enemy
@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy
         friend class EnemyBuilder;
     protected:
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
     public:
         EnemyActor() = default;
 
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy
 
         const BodyModel& getBody()const;
         BodyModel& getBody();
-        const HPModel& getHp()const;
+        const HP& getHp()const;
         CShape getCollider() const;
         s3d::RectF region()const;
     };

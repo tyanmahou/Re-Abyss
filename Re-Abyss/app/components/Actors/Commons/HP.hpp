@@ -4,9 +4,9 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class HPModel : public IComponent
+    class HP : public IComponent
     {
     private:
         s3d::int32 m_hp;
@@ -15,7 +15,7 @@ namespace abyss
         TimerEx m_invincibleTime;
         IActor* m_pActor;
     public:
-        HPModel(IActor* m_pActor);
+        HP(IActor* m_pActor);
 
         void setup();
 
@@ -24,10 +24,10 @@ namespace abyss
         /// </summary>
         /// <param name="hp"></param>
         /// <returns></returns>
-        HPModel& initHp(s3d::int32 hp);
+        HP& initHp(s3d::int32 hp);
 
-        HPModel& setHp(s3d::int32 hp);
-        HPModel& setInvincibleTime(double invincibleTimeSec);
+        HP& setHp(s3d::int32 hp);
+        HP& setInvincibleTime(double invincibleTimeSec);
 
         s3d::int32 value() const;
 

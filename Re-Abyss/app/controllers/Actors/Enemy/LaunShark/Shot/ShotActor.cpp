@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // HP
         {
-            this->attach<HPModel>(this)
+            this->attach<HP>(this)
                 ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
         }
         // 音源
@@ -107,7 +107,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
 
         std::unique_ptr<ShotVM> m_view;
@@ -123,7 +123,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_hp = m_pActor->find<HPModel>();
+            m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:

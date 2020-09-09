@@ -5,7 +5,7 @@
 
 namespace abuss
 {
-    class HPModel;
+    class HP;
 }
 namespace abyss::ui
 {
@@ -15,7 +15,7 @@ namespace abyss::ui
     class PlayerInfo : public IUserInterface
     {
         IActor* m_pActor;
-        Ref<HPModel> m_hpModel;
+        Ref<Actor::HP> m_hpModel;
     public:
         PlayerInfo(IActor* actor);
 

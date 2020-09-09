@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {
@@ -10,7 +10,7 @@ namespace abyss::Actor
         public ICollisionCallbackModel
     {
     protected:
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         IActor* m_pActor;
     public:
         DamageCtrl(IActor* pActor);

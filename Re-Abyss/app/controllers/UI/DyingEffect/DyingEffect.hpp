@@ -5,7 +5,7 @@
 
 namespace abuss
 {
-    class HPModel;
+    class HP;
 }
 namespace abyss::ui
 {
@@ -19,7 +19,7 @@ namespace abyss::ui
     class DyingEffect : public IUserInterface
     {
         IActor* m_pActor;
-        Ref<HPModel> m_hpModel;
+        Ref <Actor::HP> m_hpModel;
         std::unique_ptr<DyingEffectVM> m_view;
 
         double m_hp = 0;

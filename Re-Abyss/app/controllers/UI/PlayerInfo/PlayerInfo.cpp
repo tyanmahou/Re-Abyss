@@ -1,6 +1,6 @@
 #include "PlayerInfo.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 
@@ -12,7 +12,7 @@ namespace abyss::ui
 
     void PlayerInfo::start()
     {
-        m_hpModel = m_pActor->find<HPModel>();
+        m_hpModel = m_pActor->find<Actor::HP>();
     }
 
     void PlayerInfo::update([[maybe_unused]]double dt)

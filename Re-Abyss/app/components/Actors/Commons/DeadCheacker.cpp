@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Master/Master.hpp>
 
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
 
 #include <Siv3D.hpp>
@@ -10,8 +10,9 @@
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
 
-    bool IsDead(const Ref<HPModel>& hp)
+    bool IsDead(const Ref<HP>& hp)
     {
         if (hp && hp->isDead()) {
             return true;
@@ -35,7 +36,7 @@ namespace abyss::Actor
 
     void DeadChecker::setup()
     {
-        m_hp = m_pActor->find<HPModel>();
+        m_hp = m_pActor->find<HP>();
     }
 
     void DeadChecker::onLastUpdate()

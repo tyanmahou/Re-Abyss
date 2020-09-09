@@ -1,5 +1,5 @@
 #include "BaseState.hpp"
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {

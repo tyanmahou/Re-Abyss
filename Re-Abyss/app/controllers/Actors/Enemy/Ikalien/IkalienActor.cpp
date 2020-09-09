@@ -61,7 +61,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
 
         std::unique_ptr<IkalienVM> m_view;
@@ -77,7 +77,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_hp = m_pActor->find<HPModel>();
+            m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:

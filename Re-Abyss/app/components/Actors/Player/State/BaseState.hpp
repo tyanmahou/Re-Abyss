@@ -2,7 +2,7 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/ChargeCtrl.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
         BodyModel* m_body;
         Foot* m_foot;
         ChargeCtrl* m_charge;
-        HPModel* m_hp;
+        HP* m_hp;
         AttackCtrl* m_attackCtrl;
         MapCollider* m_mapCol;
         ViewCtrl<PlayerVM>* m_view;

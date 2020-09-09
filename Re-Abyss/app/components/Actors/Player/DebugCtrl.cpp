@@ -2,7 +2,7 @@
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/Commons/HPModel.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 namespace abyss::Actor::Player
 {
     DebugCtrl::DebugCtrl(IActor* pActor):
@@ -14,7 +14,7 @@ namespace abyss::Actor::Player
 
     void DebugCtrl::onUpdate([[maybe_unused]]double dt)
     {
-        auto hp = m_pActor->find<HPModel>();
+        auto hp = m_pActor->find<HP>();
         if (KeyD.down()) {
             hp->setHp(0);
         }

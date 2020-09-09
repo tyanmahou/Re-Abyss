@@ -69,7 +69,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
 
         std::unique_ptr<SchieldVM> m_view;
     private:
@@ -84,7 +84,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_hp = m_pActor->find<HPModel>();
+            m_hp = m_pActor->find<HP>();
         }
     public:
         ViewBinder(IActor* pActor) :

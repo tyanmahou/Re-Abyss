@@ -75,7 +75,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         std::unique_ptr<HeadVM> m_view;
     private:
         HeadVM* bind() const final

@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero
     class ParentCtrl : public IComponent
     {
         IActor* m_parent;
-        Ref<HPModel> m_hp;
+        Ref<HP> m_hp;
         Ref<BodyModel> m_body;
         Ref<StateModel> m_state;
         Ref<PartsCtrl> m_parts;
@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CodeZero
             return m_parent;
         }
 
-        Ref<HPModel> getHp()const;
+        Ref<HP> getHp()const;
 
         const s3d::Vec2& getPos() const;
 

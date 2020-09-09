@@ -8,7 +8,7 @@ namespace abyss::Actor
 	{}
 	void DamageCtrl::setup()
 	{
-		m_hp = m_pActor->find<HPModel>();
+		m_hp = m_pActor->find<HP>();
 	}
 	void DamageCtrl::onCollisionStay(IActor* col)
     {

@@ -188,9 +188,6 @@
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\HPModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\HP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1150,7 +1150,6 @@
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\Time\Time.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\HP.hpp" />
   </ItemGroup>
 </Project>
