@@ -2,10 +2,10 @@
 #include <memory>
 #include <abyss/components/base/IComponent.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
     template<class View>
-    class ViewModel : public IComponent
+    class ViewCtrl : public IComponent
     {
     public:
         class IBinder
@@ -19,7 +19,7 @@ namespace abyss
     private:
         std::unique_ptr<IBinder> m_binder;
     public:
-        ViewModel()
+        ViewCtrl()
         {
 
         }

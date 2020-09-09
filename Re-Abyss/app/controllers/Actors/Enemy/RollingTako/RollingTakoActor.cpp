@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::RollingTako
         }
 
         {
-            this->attach<ViewModel<RollingTakoVM>>()
+            this->attach<ViewCtrl<RollingTakoVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -52,9 +52,10 @@ namespace abyss::Actor::Enemy::RollingTako
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::RollingTako;
 
-    class ViewBinder : public ViewModel<RollingTakoVM>::IBinder
+    class ViewBinder : public ViewCtrl<RollingTakoVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

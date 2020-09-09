@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_hand = this->attach<HandCtrl>();
         }
         {
-            this->attach<ViewModel<HandVM>>()
+            this->attach<ViewCtrl<HandVM>>()
                 ->createBinder<ViewBinder>(this, forward);
         }
     }
@@ -109,10 +109,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Hand;
 
-    class ViewBinder : public ViewModel<HandVM>::IBinder
+    class ViewBinder : public ViewCtrl<HandVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

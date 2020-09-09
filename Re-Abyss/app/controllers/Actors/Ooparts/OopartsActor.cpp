@@ -22,7 +22,7 @@ namespace abyss::Actor::Ooparts
         }
         {
             // 描画
-            m_view = this->attach<ViewModel<OopartsVM>>();
+            m_view = this->attach<ViewCtrl<OopartsVM>>();
             this->attach<Draw>(this);
         }
     }

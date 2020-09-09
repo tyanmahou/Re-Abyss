@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/views/Actors/Enemy/CaptainTako/CpatainTakoVM.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
     protected:
         BodyModel* m_body;
-        ViewModel<CaptainTakoVM>* m_view;
+        ViewCtrl<CaptainTakoVM>* m_view;
     public:
         void setup()override;
     };

@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::LaunShark
             this->attach<TimeCounter>();
         }
         {
-            this->attach<ViewModel<LaunSharkVM>>()
+            this->attach<ViewCtrl<LaunSharkVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -49,9 +49,10 @@ namespace abyss::Actor::Enemy::LaunShark
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::LaunShark;
 
-    class ViewBinder : public ViewModel<LaunSharkVM>::IBinder
+    class ViewBinder : public ViewCtrl<LaunSharkVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

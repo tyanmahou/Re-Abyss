@@ -37,7 +37,7 @@ namespace abyss::Actor::Enemy::Ikalien
             this->attach<RotateModel>();
         }
         {
-            this->attach<ViewModel<IkalienVM>>()
+            this->attach<ViewCtrl<IkalienVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -54,9 +54,10 @@ namespace abyss::Actor::Enemy::Ikalien
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::Ikalien;
 
-    class ViewBinder : public ViewModel<IkalienVM>::IBinder
+    class ViewBinder : public ViewCtrl<IkalienVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

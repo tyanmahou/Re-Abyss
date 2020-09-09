@@ -19,10 +19,11 @@ namespace abyss::Actor::Ooparts::Nyan
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Ooparts;
     using namespace abyss::Actor::Ooparts::Nyan;
 
-    class ViewBinder : public ViewModel<OopartsVM>::IBinder
+    class ViewBinder : public ViewCtrl<OopartsVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

@@ -75,7 +75,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // 描画
         {
-            this->attach<ViewModel<ShotVM>>()
+            this->attach<ViewCtrl<ShotVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -99,10 +99,11 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::LaunShark;
     using namespace abyss::Actor::Enemy::LaunShark::Shot;
 
-    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

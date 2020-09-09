@@ -43,7 +43,7 @@ namespace abyss::Actor::Player::Shot
 			this->attach<DeadChecker>(this);
 		}
 		{
-			this->attach<ViewModel<ShotVM>>()
+			this->attach<ViewCtrl<ShotVM>>()
 				->createBinder<ViewBinder>(this, *shot, forward);
 		}
 
@@ -65,10 +65,11 @@ namespace abyss::Actor::Player::Shot
 namespace
 {
 	using namespace abyss;
+	using namespace abyss::Actor;
 	using namespace abyss::Actor::Player;
 	using namespace abyss::Actor::Player::Shot;
 
-	class ViewBinder : public ViewModel<ShotVM>::IBinder
+	class ViewBinder : public ViewCtrl<ShotVM>::IBinder
 	{
 		IActor* m_pActor = nullptr;
 		Ref<BodyModel> m_body;

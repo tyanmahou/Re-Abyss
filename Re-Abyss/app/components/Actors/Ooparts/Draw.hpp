@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Ooparts
@@ -15,7 +15,7 @@ namespace abyss::Actor::Ooparts
     {
     private:
         IActor* m_pActor;
-        Ref<ViewModel<OopartsVM>> m_view;
+        Ref<ViewCtrl<OopartsVM>> m_view;
     public:
         Draw(IActor* pActor);
         void setup() override;

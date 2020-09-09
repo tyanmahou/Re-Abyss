@@ -47,7 +47,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->attach<BodyUpdaterModel>(this);
         }
         {
-            this->attach<ViewModel<ShotVM>>()
+            this->attach<ViewCtrl<ShotVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -62,10 +62,11 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Shot;
 
-    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

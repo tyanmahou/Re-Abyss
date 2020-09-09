@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_hand = m_pActor->find<HandCtrl>().get();
         m_kind = m_pActor->find<KindCtrl>().get();
 
-        m_view = m_pActor->find<ViewModel<HandVM>>().get();
+        m_view = m_pActor->find<ViewCtrl<HandVM>>().get();
     }
     void BaseState::update([[maybe_unused]]double dt)
     {

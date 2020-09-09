@@ -7,7 +7,7 @@
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/ChargeCtrl.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
 namespace abyss::Actor::Player
@@ -26,7 +26,7 @@ namespace abyss::Actor::Player
         HPModel* m_hp;
         AttackCtrl* m_attackCtrl;
         MapCollider* m_mapCol;
-        ViewModel<PlayerVM>* m_view;
+        ViewCtrl<PlayerVM>* m_view;
 
         virtual void onMove(double dt);
         virtual void onLanding(){}

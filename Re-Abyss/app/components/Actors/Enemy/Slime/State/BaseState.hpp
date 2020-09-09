@@ -3,7 +3,7 @@
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 
 #include <abyss/views/Actors/Enemy/Slime/SlimeVM.hpp>
 
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::Slime
     protected:
         BodyModel* m_body;
         MapCollider* m_mapCol;
-        ViewModel<SlimeVM>* m_view;
+        ViewCtrl<SlimeVM>* m_view;
     public:
         void setup()override;
 

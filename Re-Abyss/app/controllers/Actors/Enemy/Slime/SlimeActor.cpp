@@ -4,7 +4,7 @@
 #include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Enemy/Slime/DeadCallback.hpp>
 #include <abyss/components/Actors/Enemy/Slime/SenserCtrl.hpp>
 #include <abyss/components/Actors/Enemy/Slime/State/WalkState.hpp>
@@ -41,7 +41,7 @@ namespace abyss::Actor::Enemy::Slime
 		this->attach<DeadCallback>(this);
 		this->attach<SenserCtrl>(this);
 
-		this->attach<ViewModel<SlimeVM>>()
+		this->attach<ViewCtrl<SlimeVM>>()
 			->createBinder<ViewBinder>(this);
 	}
 
@@ -58,9 +58,10 @@ namespace abyss::Actor::Enemy::Slime
 namespace
 {
 	using namespace abyss;
+	using namespace abyss::Actor;
 	using namespace abyss::Actor::Enemy::Slime;
 
-	class ViewBinder : public ViewModel<SlimeVM>::IBinder
+	class ViewBinder : public ViewCtrl<SlimeVM>::IBinder
 	{
 		IActor* m_pActor = nullptr;
 		Ref<BodyModel> m_body;

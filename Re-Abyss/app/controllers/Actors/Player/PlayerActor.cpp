@@ -108,7 +108,7 @@ namespace abyss::Actor::Player
             this->attach<RoomMoveChecker>(this);
         }
         {
-            this->attach<ViewModel<PlayerVM>>()
+            this->attach<ViewCtrl<PlayerVM>>()
                 ->createBinder<ViewBinder>(this);
         }
         // UI制御
@@ -170,9 +170,10 @@ namespace abyss::Actor::Player
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Player;
 
-    class ViewBinder : public ViewModel<PlayerVM>::IBinder
+    class ViewBinder : public ViewCtrl<PlayerVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

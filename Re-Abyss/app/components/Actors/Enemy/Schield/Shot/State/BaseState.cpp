@@ -4,7 +4,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
 {
     void BaseState::setup()
     {
-        m_view = m_pActor->find<ViewModel<ShotVM>>().get();
+        m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
     void BaseState::start()

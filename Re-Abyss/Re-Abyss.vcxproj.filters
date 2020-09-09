@@ -1424,7 +1424,6 @@
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Commons/PatternCtrl.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero
         HPModel* m_hp;
         PatternCtrl* m_pattern;
         PartsCtrl* m_parts;
-        ViewModel<Body::BodyVM>* m_view;
+        ViewCtrl<Body::BodyVM>* m_view;
     public:
         BaseState();
         void setup()override;

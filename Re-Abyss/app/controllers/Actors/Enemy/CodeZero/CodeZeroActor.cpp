@@ -1,6 +1,6 @@
 #include "CodeZeroActor.hpp"
 
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 
@@ -46,7 +46,7 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         // view
         {
-            this->attach<ViewModel<Body::BodyVM>>()
+            this->attach<ViewCtrl<Body::BodyVM>>()
                 ->createBinder<ViewBinder>(this);
         }
         m_order = -99;
@@ -66,9 +66,10 @@ namespace abyss::Actor::Enemy::CodeZero
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CodeZero;
 
-    class ViewBinder : public ViewModel<Body::BodyVM>::IBinder
+    class ViewBinder : public ViewCtrl<Body::BodyVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

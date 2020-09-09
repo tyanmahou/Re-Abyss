@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/views/Actors/Player/Shot/ShotVM.hpp>
@@ -13,7 +13,7 @@ namespace abyss::Actor::Player::Shot
     protected:
         PlayerShot* m_shot;
         Collider* m_collider;
-        ViewModel<ShotVM>* m_view;
+        ViewCtrl<ShotVM>* m_view;
     public:
         void setup()override;
 

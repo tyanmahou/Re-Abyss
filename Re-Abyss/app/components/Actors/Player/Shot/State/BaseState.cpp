@@ -8,7 +8,7 @@ namespace abyss::Actor::Player::Shot
     {
         m_shot = this->m_pActor->find<PlayerShot>().get();
         m_collider = this->m_pActor->find<Collider>().get();
-        m_view = this->m_pActor->find<ViewModel<ShotVM>>().get();
+        m_view = this->m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
     void BaseState::start()

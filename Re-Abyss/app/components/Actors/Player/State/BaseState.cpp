@@ -33,7 +33,7 @@ namespace abyss::Actor::Player
         m_hp         = m_pActor->find<HPModel>().get();
         m_attackCtrl = m_pActor->find<AttackCtrl>().get();
         m_mapCol     = m_pActor->find<MapCollider>().get();
-        m_view       = m_pActor->find<ViewModel<PlayerVM>>().get();
+        m_view       = m_pActor->find<ViewCtrl<PlayerVM>>().get();
     }
     void BaseState::start()
     {

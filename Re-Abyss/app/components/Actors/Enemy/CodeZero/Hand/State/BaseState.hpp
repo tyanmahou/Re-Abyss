@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/models/Actors/Commons/StateModel.hpp>
-#include <abyss/models/Actors/Commons/ViewModel.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/KindCtrl.hpp>
@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         RotateModel* m_rotate;
         HandCtrl* m_hand;
         KindCtrl* m_kind;
-        ViewModel<HandVM>* m_view;
+        ViewCtrl<HandVM>* m_view;
     public:
         void setup()override;
         void update(double dt) override;

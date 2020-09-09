@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             .build();
 
         {
-            this->attach<ViewModel<CaptainTakoVM>>()
+            this->attach<ViewCtrl<CaptainTakoVM>>()
                 ->createBinder<ViewBinder>(this);
         }
     }
@@ -39,9 +39,10 @@ namespace abyss::Actor::Enemy::CaptainTako
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CaptainTako;
 
-    class ViewBinder : public ViewModel<CaptainTakoVM>::IBinder
+    class ViewBinder : public ViewCtrl<CaptainTakoVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

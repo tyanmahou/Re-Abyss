@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             this->attach<DeadChecker>(this);
         }
         {
-            this->attach<ViewModel<ShotVM>>()
+            this->attach<ViewCtrl<ShotVM>>()
                 ->createBinder<ViewBinder>(this);
         }
         {
@@ -80,10 +80,11 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CaptainTako;
     using namespace abyss::Actor::Enemy::CaptainTako::Shot;
 
-    class ViewBinder : public ViewModel<ShotVM>::IBinder
+    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;

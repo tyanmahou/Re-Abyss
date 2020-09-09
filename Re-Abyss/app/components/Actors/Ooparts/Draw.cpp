@@ -13,7 +13,7 @@ namespace abyss::Actor::Ooparts
 
     void Draw::setup()
     {
-        m_view = m_pActor->find<ViewModel<OopartsVM>>();
+        m_view = m_pActor->find<ViewCtrl<OopartsVM>>();
     }
 
     void Draw::onDraw() const

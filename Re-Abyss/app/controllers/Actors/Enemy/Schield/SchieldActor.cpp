@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::Schield
             this->attach<DamageCtrl>(this);
         }
         {
-            this->attach<ViewModel<SchieldVM>>()
+            this->attach<ViewCtrl<SchieldVM>>()
                 ->createBinder<ViewBinder>(this);
         }
         {
@@ -62,9 +62,10 @@ namespace abyss::Actor::Enemy::Schield
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::Schield;
 
-    class ViewBinder : public ViewModel<SchieldVM>::IBinder
+    class ViewBinder : public ViewCtrl<SchieldVM>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
