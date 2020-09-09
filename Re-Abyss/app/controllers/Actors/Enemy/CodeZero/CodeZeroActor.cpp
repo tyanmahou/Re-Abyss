@@ -42,7 +42,7 @@ namespace abyss::Actor::Enemy::CodeZero
             m_parts = this->attach<PartsCtrl>(this);
         }
         {
-            this->attach<PatternModel>(this);
+            this->attach<PatternCtrl>(this);
         }
         // view
         {

@@ -6,9 +6,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/LoopQueue/LoopQueue.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class PatternModel : 
+    class PatternCtrl : 
         public IComponent,
         private s3d::Uncopyable
     {
@@ -18,19 +18,19 @@ namespace abyss
         s3d::Array<size_t> m_eventStepNo;
         s3d::Array<size_t> m_toStepCount;
     public:
-        PatternModel();
-        PatternModel(IActor* pActor);
+        PatternCtrl();
+        PatternCtrl(IActor* pActor);
 
         void setup() override;
         bool update();
-        PatternModel& add(const std::function<void()>& event);
+        PatternCtrl& add(const std::function<void()>& event);
 
-        PatternModel& sleep(double time);
-        PatternModel& sleep(const s3d::Duration& time);
+        PatternCtrl& sleep(double time);
+        PatternCtrl& sleep(const s3d::Duration& time);
 
-        PatternModel& toStep(size_t step);
-        PatternModel& toStep(size_t step, size_t count);
+        PatternCtrl& toStep(size_t step);
+        PatternCtrl& toStep(size_t step, size_t count);
 
-        PatternModel& clear();
+        PatternCtrl& clear();
     };
 }

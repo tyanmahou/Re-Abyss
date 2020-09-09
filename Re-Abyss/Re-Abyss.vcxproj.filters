@@ -323,9 +323,6 @@
     <ClCompile Include="app\services\Stage\StageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1234,7 +1234,6 @@
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\PatternModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\params\Actors\Player\Param.hpp" />
     <ClInclude Include="app\params\Actors\Player\ShotParam.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
   </ItemGroup>
 </Project>

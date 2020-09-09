@@ -1,20 +1,20 @@
-#include "PatternModel.hpp"
+#include "PatternCtrl.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    PatternModel::PatternModel()
+    PatternCtrl::PatternCtrl()
     {}
-    PatternModel::PatternModel(IActor * pActor):
+    PatternCtrl::PatternCtrl(IActor * pActor):
         m_pActor(pActor)
     {}
 
-    void PatternModel::setup()
+    void PatternCtrl::setup()
     {
         if (m_pActor) {
             m_sleep = TimerEx(0.0, true, [this]() {return m_pActor->getUpdateTime(); });
         }
     }
-    bool PatternModel::update()
+    bool PatternCtrl::update()
     {
         if (!m_sleep.reachedZero()) {
             return false;
@@ -25,31 +25,31 @@ namespace abyss
         m_events.pop()();
         return true;
     }
-    PatternModel& PatternModel::add(const std::function<void()>& event)
+    PatternCtrl& PatternCtrl::add(const std::function<void()>& event)
     {
         m_events.add(event);
         m_eventStepNo.push_back(m_events.size() - 1);
         return *this;
     }
-    PatternModel& PatternModel::sleep(double time)
+    PatternCtrl& PatternCtrl::sleep(double time)
     {
         return this->sleep(s3d::Duration(time));
     }
-    PatternModel& PatternModel::sleep(const s3d::Duration & time)
+    PatternCtrl& PatternCtrl::sleep(const s3d::Duration & time)
     {
         m_events.add([this, time]() {
             m_sleep.restart(time);
         });
         return *this;
     }
-    PatternModel& PatternModel::toStep(size_t step)
+    PatternCtrl& PatternCtrl::toStep(size_t step)
     {
         m_events.add([this, step]() {
             m_events.set(m_eventStepNo[step]);
         });
         return *this;
     }
-    PatternModel& PatternModel::toStep(size_t step, size_t count)
+    PatternCtrl& PatternCtrl::toStep(size_t step, size_t count)
     {
         m_toStepCount.push_back(0);
         size_t index = m_toStepCount.size() - 1;
@@ -62,7 +62,7 @@ namespace abyss
         });
         return *this;
     }
-    PatternModel& PatternModel::clear()
+    PatternCtrl& PatternCtrl::clear()
     {
         m_events.clear();
         m_eventStepNo.clear();
