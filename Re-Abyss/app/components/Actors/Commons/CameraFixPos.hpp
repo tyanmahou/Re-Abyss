@@ -4,9 +4,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class CameraFixPosModel :
+    class CameraFixPos :
         public IComponent,
         public ILastUpdateModel
     {
@@ -14,7 +14,7 @@ namespace abyss
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body = nullptr;
     public:
-        CameraFixPosModel(IActor* pActor);
+        CameraFixPos(IActor* pActor);
 
         void setup() override;
         void onLastUpdate() override;
@@ -24,7 +24,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<CameraFixPosModel>
+    struct ComponentTree<Actor::CameraFixPos>
     {
         using Base = ILastUpdateModel;
     };

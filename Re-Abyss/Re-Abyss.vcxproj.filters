@@ -671,9 +671,6 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\CameraFixPosModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1029,6 +1026,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Commons\CustomDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1413,7 +1413,6 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\CameraFixPosModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
   </ItemGroup>
 </Project>

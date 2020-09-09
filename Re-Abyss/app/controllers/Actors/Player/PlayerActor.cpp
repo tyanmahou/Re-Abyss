@@ -14,7 +14,7 @@
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
-#include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
+#include <abyss/components/Actors/Commons/CameraFixPos.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -90,7 +90,7 @@ namespace abyss::Actor::Player
         }
         // カメラによる座標調整
         {
-            this->attach<CameraFixPosModel>(this);
+            this->attach<CameraFixPos>(this);
         }
         // 落下死
         {

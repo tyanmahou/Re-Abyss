@@ -1,20 +1,20 @@
-#include "CameraFixPosModel.hpp"
+#include "CameraFixPos.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    CameraFixPosModel::CameraFixPosModel(IActor* pActor):
+    CameraFixPos::CameraFixPos(IActor* pActor):
         m_pActor(pActor)
     {}
 
-    void CameraFixPosModel::setup()
+    void CameraFixPos::setup()
     {
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void CameraFixPosModel::onLastUpdate()
+    void CameraFixPos::onLastUpdate()
     {
         auto camera = m_pActor->getModule<Camera>();
         auto prevPos = m_body->getPos();
