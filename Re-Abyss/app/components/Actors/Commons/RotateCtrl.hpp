@@ -1,15 +1,15 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class RotateModel : public IComponent
+    class RotateCtrl : public IComponent
     {
     private:
         double m_rotate = 0;
     public:
-        RotateModel& setRotate(double rotate);
-        RotateModel& addRotate(double rotate);
+        RotateCtrl& setRotate(double rotate);
+        RotateCtrl& addRotate(double rotate);
         double getRotate()const;
 
         s3d::Vec2 getDir() const;

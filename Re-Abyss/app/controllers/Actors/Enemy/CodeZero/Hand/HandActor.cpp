@@ -7,7 +7,7 @@
 
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
-#include <abyss/models/Actors/Commons/RotateModel.hpp>
+#include <abyss/components/Actors/Commons/RotateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
@@ -48,7 +48,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 .noneResistanced();
         }
         {
-            m_rotate = this->attach<RotateModel>();
+            m_rotate = this->attach<RotateCtrl>();
         }
         {
             m_hand = this->attach<HandCtrl>();
@@ -117,7 +117,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<RotateModel> m_rotate;
+        Ref<RotateCtrl> m_rotate;
         std::unique_ptr<HandVM> m_view;
     private:
         HandVM* bind() const final
@@ -130,7 +130,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_rotate = m_pActor->find<RotateModel>();
+            m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
         ViewBinder(IActor* pActor, Forward forward) :

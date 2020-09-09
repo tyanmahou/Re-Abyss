@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/Commons/RotateModel.hpp>
+#include <abyss/components/Actors/Commons/RotateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Axis2/Axis2.hpp>
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     public:
         HandCtrl() = default;
         HandCtrl(const s3d::Vec2& dir, double rotateLimit);
-        void updateRotate(RotateModel& rotate, double dt) const;
+        void updateRotate(RotateCtrl& rotate, double dt) const;
         void startForPursuit(BodyModel& body) const;
         void updateForPursuit(
             const s3d::Vec2& target,

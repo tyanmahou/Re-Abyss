@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_parent = m_pActor->find<ParentCtrl>().get();
         m_body = m_pActor->find<BodyModel>().get();
-        m_rotate = m_pActor->find<RotateModel>().get();
+        m_rotate = m_pActor->find<RotateCtrl>().get();
         m_hand = m_pActor->find<HandCtrl>().get();
         m_kind = m_pActor->find<KindCtrl>().get();
 

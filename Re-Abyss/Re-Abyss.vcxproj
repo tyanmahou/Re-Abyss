@@ -184,6 +184,7 @@
     <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\FallChecker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -405,7 +406,6 @@
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\models\Actors\Commons\HPModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\TimeCounter.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp" />
@@ -508,6 +508,7 @@
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
@@ -808,7 +809,6 @@
     <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actors\Player\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />

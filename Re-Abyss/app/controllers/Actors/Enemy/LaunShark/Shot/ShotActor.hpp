@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 	{
 	private:
 		Ref<BodyModel> m_body;
-		Ref<RotateModel> m_rotate;
+		Ref<RotateCtrl> m_rotate;
 	public:
 		ShotActor(const s3d::Vec2& pos, Forward forward);
 		CShape getCollider() const;

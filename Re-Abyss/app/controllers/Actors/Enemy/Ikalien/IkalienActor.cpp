@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::Ikalien
             m_body->noneResistanced();
         }
         {
-            this->attach<RotateModel>();
+            this->attach<RotateCtrl>();
         }
         {
             this->attach<ViewCtrl<IkalienVM>>()
@@ -62,7 +62,7 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
-        Ref<RotateModel> m_rotate;
+        Ref<RotateCtrl> m_rotate;
 
         std::unique_ptr<IkalienVM> m_view;
     private:
@@ -78,7 +78,7 @@ namespace
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
-            m_rotate = m_pActor->find<RotateModel>();
+            m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
         ViewBinder(IActor* pActor) :

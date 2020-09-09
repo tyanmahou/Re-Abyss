@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_distance(dir.length())
     {
     }
-    void HandCtrl::updateRotate(RotateModel& rotate, double dt)const
+    void HandCtrl::updateRotate(RotateCtrl& rotate, double dt)const
     {
         bool isPlus = m_rotateLimit >= 0;
         double value = rotate.addRotate(isPlus ? dt : -dt).getRotate();

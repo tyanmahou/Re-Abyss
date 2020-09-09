@@ -200,9 +200,6 @@
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1156,7 +1156,6 @@
     <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Attacker.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
   </ItemGroup>
 </Project>

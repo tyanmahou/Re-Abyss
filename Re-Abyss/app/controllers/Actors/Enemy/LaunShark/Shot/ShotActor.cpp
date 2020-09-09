@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {
         // 回転
         {
-            m_rotate = this->attach<RotateModel>();
+            m_rotate = this->attach<RotateCtrl>();
             if (forward == Forward::Right) {
                 m_rotate->setRotate(s3d::Math::Constants::Pi);
             }
@@ -108,7 +108,7 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
         Ref<HPModel> m_hp;
-        Ref<RotateModel> m_rotate;
+        Ref<RotateCtrl> m_rotate;
 
         std::unique_ptr<ShotVM> m_view;
     private:
@@ -124,7 +124,7 @@ namespace
         {
             m_body = m_pActor->find<BodyModel>();
             m_hp = m_pActor->find<HPModel>();
-            m_rotate = m_pActor->find<RotateModel>();
+            m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
         ViewBinder(IActor* pActor) :

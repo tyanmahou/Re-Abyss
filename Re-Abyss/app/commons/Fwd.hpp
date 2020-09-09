@@ -138,9 +138,9 @@ namespace abyss
 		class MapCollider;
 		class DeadChecker;
 		class CustomCollider;
+		class RotateCtrl;
 	}
 	class BodyModel;
-	class RotateModel;
 	class HPModel;
 	class IColliderModel;
 	class IPhysicsModel;

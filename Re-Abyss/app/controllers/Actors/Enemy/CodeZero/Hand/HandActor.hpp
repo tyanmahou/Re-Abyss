@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         };
     private:
         Ref<BodyModel> m_body;
-        Ref<RotateModel> m_rotate;
+        Ref<RotateCtrl> m_rotate;
         Ref<HandCtrl> m_hand;
         Ref<StateModel> m_state;
     public:
