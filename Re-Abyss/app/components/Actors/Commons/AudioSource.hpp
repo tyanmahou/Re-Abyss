@@ -11,7 +11,7 @@
 
 namespace abyss
 {
-    class AudioSourceModel: 
+    class AudioSource: 
         public IComponent,
         public IUpdateModel
     {
@@ -21,7 +21,7 @@ namespace abyss
         s3d::Array<s3d::Audio> m_audios;
         AudioSettingGroup m_audioSettingGroup;
     public:
-        AudioSourceModel(IActor* pActor);
+        AudioSource(IActor* pActor);
         void setup() override;
 
         void load(const s3d::FilePath& path);
@@ -47,7 +47,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<AudioSourceModel>
+    struct ComponentTree<AudioSource>
     {
         using Base = IUpdateModel;
     };

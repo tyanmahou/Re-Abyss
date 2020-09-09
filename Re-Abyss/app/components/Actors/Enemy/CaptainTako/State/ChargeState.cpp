@@ -3,7 +3,7 @@
 
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     void ChargeState::start()
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
-        m_pActor->find<AudioSourceModel>()->play(U"Charge");
+        m_pActor->find<AudioSource>()->play(U"Charge");
     }
     void ChargeState::update([[maybe_unused]]double dt)
     {

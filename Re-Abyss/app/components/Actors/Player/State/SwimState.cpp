@@ -44,7 +44,7 @@ namespace abyss::Actor::Player
             Event::RoomMove::DoorMove::Start(col, m_body->getPos(), [this]() {
                 this->m_motion = Motion::Stay;
             });
-            m_pActor->find<AudioSourceModel>()->play(U"DoorMove");
+            m_pActor->find<AudioSource>()->play(U"DoorMove");
             if (col.isSave()) {
                 // セーブ対象だった場合
                 m_pActor->getModule<Save>()->reserveRestartId(col.getStartId());

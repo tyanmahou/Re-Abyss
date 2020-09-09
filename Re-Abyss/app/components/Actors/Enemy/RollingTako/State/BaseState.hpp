@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>
 

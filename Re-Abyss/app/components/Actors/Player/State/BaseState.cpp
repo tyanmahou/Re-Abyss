@@ -53,7 +53,7 @@ namespace abyss::Actor::Player
         // ジャンプ
         if (InputManager::Jump.down()) {
             m_body->jumpToHeight(Param::Swim::JumpHeight);
-            m_pActor->find<AudioSourceModel>()->play(U"Swim");
+            m_pActor->find<AudioSource>()->play(U"Swim");
         }
         if (InputManager::Down.pressed()) {
             m_body->setMaxVelocityY(Param::Swim::DiveSpeed);

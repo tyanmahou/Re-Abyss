@@ -74,7 +74,7 @@ namespace abyss::Actor::Enemy
 		}
 		// 音源
 		{
-			m_pActor->attach<AudioSourceModel>(m_pActor)
+			m_pActor->attach<AudioSource>(m_pActor)
 				->load(m_audioSettingGroupPath);
 		}
 		// 呼吸

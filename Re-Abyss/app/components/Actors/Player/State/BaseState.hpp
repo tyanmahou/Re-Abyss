@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/FootModel.hpp>
 #include <abyss/models/Actors/Commons/HPModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/ChargeCtrl.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/models/Actors/Commons/ViewModel.hpp>

@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
@@ -15,11 +15,11 @@ namespace abyss::Actor::Player::Shot
     {
         (*m_view)->addShotFiringEffect();
         if (m_shot->isBig()) {
-            m_pActor->find<AudioSourceModel>()->playAt(U"ShotBig");
+            m_pActor->find<AudioSource>()->playAt(U"ShotBig");
         } else if (m_shot->isMedium()) {
-            m_pActor->find<AudioSourceModel>()->playAt(U"ShotMedium");
+            m_pActor->find<AudioSource>()->playAt(U"ShotMedium");
         } else {
-            m_pActor->find<AudioSourceModel>()->playAt(U"ShotSmall");
+            m_pActor->find<AudioSource>()->playAt(U"ShotSmall");
         }
     }
 

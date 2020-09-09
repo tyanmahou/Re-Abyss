@@ -8,7 +8,7 @@
 #include <abyss/components/Actors/Player/UICtrl.hpp>
 #include <abyss/components/Actors/Player/DebugCtrl.hpp>
 
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/MapColliderModel.hpp>
@@ -74,7 +74,7 @@ namespace abyss::Actor::Player
         }
         // AudioSource
         {
-            this->attach<AudioSourceModel>(this)
+            this->attach<AudioSource>(this)
                 ->load(U"Player/player.aase");
         }
         // AttackCtrl

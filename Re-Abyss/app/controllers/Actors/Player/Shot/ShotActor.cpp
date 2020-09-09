@@ -3,7 +3,7 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
@@ -34,7 +34,7 @@ namespace abyss::Actor::Player::Shot
 			collider->setLayer(LayerGroup::Player);
 		}
 		{
-			this->attach<AudioSourceModel>(this)
+			this->attach<AudioSource>(this)
 				->load(U"Player/Shot/player_shot.aase");
 		}
 		if (!shot->isBig()) {

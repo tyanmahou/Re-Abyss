@@ -6,7 +6,7 @@
 #include <abyss/models/Actors/Commons/StateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
@@ -42,7 +42,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
                 ->setColFunc([this] {return this->getCollider(); });
         }
         {
-            this->attach<AudioSourceModel>(this)
+            this->attach<AudioSource>(this)
                 ->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
         {

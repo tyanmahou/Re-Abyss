@@ -178,6 +178,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -296,7 +297,6 @@
     <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp" />
     <ClCompile Include="app\controllers\UI\UI.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DamageCallback.cpp" />
     <ClCompile Include="app\components\Actors\Player\OopartsCtrl.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
@@ -503,6 +503,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
@@ -585,7 +586,6 @@
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\ViewModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />

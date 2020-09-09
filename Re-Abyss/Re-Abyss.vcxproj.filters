@@ -536,9 +536,6 @@
     <ClCompile Include="app\controllers\Sound\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\AudioSourceModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1355,7 +1355,6 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\controllers\Sound\Sound.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\AudioSourceModel.hpp" />
     <ClInclude Include="app\controllers\Manager\Manager.hpp" />
     <ClInclude Include="app\controllers\System\System.hpp">
       <Filter>Source Files\ActionSystem</Filter>
@@ -1543,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
   </ItemGroup>
 </Project>

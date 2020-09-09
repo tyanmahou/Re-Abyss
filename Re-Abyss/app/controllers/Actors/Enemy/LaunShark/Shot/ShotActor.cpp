@@ -4,7 +4,7 @@
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/models/Actors/Commons/DamageModel.hpp>
-#include <abyss/models/Actors/Commons/AudioSourceModel.hpp>
+#include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/models/Actors/Commons/DeadOnHItReceiverModel.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/StateModel.hpp>
@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // 音源
         {
-            this->attach<AudioSourceModel>(this)->load(U"Enemy/LaunShark/shot.aase");
+            this->attach<AudioSource>(this)->load(U"Enemy/LaunShark/shot.aase");
         }
         // ダメージ
         {

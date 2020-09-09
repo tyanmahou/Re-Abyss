@@ -27,7 +27,7 @@ namespace abyss::Actor::Player
         // 地震
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);
 
-        m_pActor->find<AudioSourceModel>()->play(U"Dead");
+        m_pActor->find<AudioSource>()->play(U"Dead");
 
         m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::TimeSec);
         m_body

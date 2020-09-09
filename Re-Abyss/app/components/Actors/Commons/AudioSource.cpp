@@ -1,4 +1,4 @@
-#include "AudioSourceModel.hpp"
+#include "AudioSource.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Actors/base/IUpdateModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
@@ -69,21 +69,21 @@ namespace abyss
 }
 namespace abyss
 {
-    AudioSourceModel::AudioSourceModel(IActor* pActor) :
+    AudioSource::AudioSource(IActor* pActor) :
         m_pActor(pActor)
     {}
 
-    void AudioSourceModel::setup()
+    void AudioSource::setup()
     {
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void AudioSourceModel::load(const s3d::FilePath& path)
+    void AudioSource::load(const s3d::FilePath& path)
     {
         m_audioSettingGroup = ResourceManager::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
     }
 
-    void AudioSourceModel::onUpdate([[maybe_unused]] double dt)
+    void AudioSource::onUpdate([[maybe_unused]] double dt)
     {
         m_audios.remove_if([](const Audio& audio) {
             return !audio.isPlaying();
@@ -97,7 +97,7 @@ namespace abyss
 
     }
 
-    void AudioSourceModel::play(const s3d::String& key)
+    void AudioSource::play(const s3d::String& key)
     {
         auto as = m_audioSettingGroup(key);
         if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
@@ -107,13 +107,13 @@ namespace abyss
         }
     }
 
-    void AudioSourceModel::playAt(const s3d::String& key) const
+    void AudioSource::playAt(const s3d::String& key) const
     {
         auto pos = m_body->getPos();
         this->playAt(key, pos);
     }
 
-    void AudioSourceModel::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
+    void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
         auto as = m_audioSettingGroup(key);
         if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
@@ -122,7 +122,7 @@ namespace abyss
             this->playAtDirect(audio, pos);
         }
     }
-    void AudioSourceModel::playDirect(s3d::FilePathView path)
+    void AudioSource::playDirect(s3d::FilePathView path)
     {
         if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
@@ -132,7 +132,7 @@ namespace abyss
             this->playDirect(audio);
         }
     }
-    void AudioSourceModel::playDirect(const s3d::Audio& audio)
+    void AudioSource::playDirect(const s3d::Audio& audio)
     {
         auto pos = m_body->getPos();
         auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
@@ -141,12 +141,12 @@ namespace abyss
         audio.play();
         m_audios.push_back(audio);
     }
-    void AudioSourceModel::playAtDirect(s3d::FilePathView path) const
+    void AudioSource::playAtDirect(s3d::FilePathView path) const
     {
         auto pos = m_body->getPos();
         this->playAtDirect(path, pos);
     }
-    void AudioSourceModel::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
+    void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
         if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
@@ -156,12 +156,12 @@ namespace abyss
             this->playAtDirect(audio, pos);
         }
     }
-    void AudioSourceModel::playAtDirect(const s3d::Audio & audio) const
+    void AudioSource::playAtDirect(const s3d::Audio & audio) const
     {
         auto pos = m_body->getPos();
         this->playAtDirect(audio, pos);
     }
-    void AudioSourceModel::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
+    void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
     {
         class TemporaryActor : public IActor
         {
