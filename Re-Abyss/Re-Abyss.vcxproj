@@ -243,7 +243,7 @@
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\StateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp" />
     <ClCompile Include="app\components\Actors\Commons\MapCollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\OutRoomChecker.cpp" />
@@ -592,7 +592,7 @@
     <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
     <ClInclude Include="app\components\Actors\Commons\MapCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\OutRoomChecker.hpp" />

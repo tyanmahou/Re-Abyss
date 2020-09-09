@@ -5,14 +5,14 @@
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class BreathingModel : 
+    class BreathingCtrl : 
         public IComponent,
         public ILastUpdateModel
     {
     public:
-        BreathingModel(IActor* pActor);
+        BreathingCtrl(IActor* pActor);
 
         void setup() override;
         void onLastUpdate() override;
@@ -33,7 +33,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<BreathingModel>
+    struct ComponentTree<Actor::BreathingCtrl>
     {
         using Base = ILastUpdateModel;
     };

@@ -9,7 +9,7 @@
 #include <abyss/components/Actors/Player/DebugCtrl.hpp>
 
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/models/Actors/Commons/BreathingModel.hpp>
+#include <abyss/components/Actors/Commons/BreathingCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
@@ -85,7 +85,7 @@ namespace abyss::Actor::Player
             this->attach<OopartsCtrl>(this);
         }
         {
-            this->attach<BreathingModel>(this)
+            this->attach<BreathingCtrl>(this)
                 ->setOffset(s3d::Vec2{0, -20});
         }
         // カメラによる座標調整

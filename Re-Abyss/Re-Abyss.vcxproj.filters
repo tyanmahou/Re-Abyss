@@ -608,9 +608,6 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\Commons\BreathingModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1387,7 +1387,6 @@
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\BreathingModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\BreathEffect.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
   </ItemGroup>
 </Project>

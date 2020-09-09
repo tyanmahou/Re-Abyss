@@ -8,7 +8,7 @@
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
-#include <abyss/models/Actors/Commons/BreathingModel.hpp>
+#include <abyss/components/Actors/Commons/BreathingCtrl.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
 #include <abyss/components/Actors/Enemy/DamageCallback.hpp>
@@ -79,7 +79,7 @@ namespace abyss::Actor::Enemy
 		}
 		// 呼吸
 		if (m_isEnableBreathing) {
-			m_pActor->attach<BreathingModel>(m_pActor);
+			m_pActor->attach<BreathingCtrl>(m_pActor);
 		}
 
 		// 死亡チェック
