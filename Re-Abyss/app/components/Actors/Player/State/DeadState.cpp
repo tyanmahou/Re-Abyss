@@ -1,6 +1,6 @@
 #include "DeadState.hpp"
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
-#include <abyss/models/Actors/Commons/FallCheckerModel.hpp>
+#include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
@@ -34,7 +34,7 @@ namespace abyss::Actor::Player
             ->setAccelX(0)
             .setMaxVelocityY(BodyModel::DefaultMaxVelocityY);
 
-        if (!m_pActor->find<FallCheckerModel>()->isFall()) {
+        if (!m_pActor->find<FallChecker>()->isFall()) {
             const Vec2& knockBackSpeed = Param::Dead::KnockBackSpeed;
 
             const Vec2 velocity{

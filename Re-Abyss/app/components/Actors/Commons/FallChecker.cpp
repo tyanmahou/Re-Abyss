@@ -1,22 +1,22 @@
-#include "FallCheckerModel.hpp"
+#include "FallChecker.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 \
-namespace abyss
+namespace abyss::Actor
 {
-    FallCheckerModel::FallCheckerModel(IActor* pActor):
+    FallChecker::FallChecker(IActor* pActor):
         m_pActor(pActor)
     {}
 
-    void FallCheckerModel::setup()
+    void FallChecker::setup()
     {
         m_deadChecker = m_pActor->find<DeadCheckerModel>();
         m_body = m_pActor->find<BodyModel>();
     }
 
-    void FallCheckerModel::onLastUpdate()
+    void FallChecker::onLastUpdate()
     {
         if (m_isFall) {
             return;

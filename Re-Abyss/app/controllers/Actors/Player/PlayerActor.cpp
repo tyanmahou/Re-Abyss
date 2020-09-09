@@ -12,7 +12,7 @@
 #include <abyss/models/Actors/Commons/BreathingModel.hpp>
 #include <abyss/models/Actors/Commons/CustomColliderModel.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
-#include <abyss/models/Actors/Commons/FallCheckerModel.hpp>
+#include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/models/Actors/Commons/DeadCheackerModel.hpp>
 #include <abyss/models/Actors/Commons/CameraFixPosModel.hpp>
 
@@ -94,7 +94,7 @@ namespace abyss::Actor::Player
         }
         // 落下死
         {
-            this->attach<FallCheckerModel>(this);
+            this->attach<FallChecker>(this);
         }
         // 死亡チェック
         {

@@ -4,9 +4,9 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class FallCheckerModel :
+    class FallChecker :
         public IComponent,
         public ILastUpdateModel
     {
@@ -17,7 +17,7 @@ namespace abyss
 
         bool m_isFall = false;
     public:
-        FallCheckerModel(IActor* pActor);
+        FallChecker(IActor* pActor);
 
         void setup() override;
         void onLastUpdate() override;
@@ -32,7 +32,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<FallCheckerModel>
+    struct ComponentTree<Actor::FallChecker>
     {
         using Base = ILastUpdateModel;
     };
