@@ -4,7 +4,7 @@
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
-#include <abyss/models/Actors/Commons/TimeCounterModel.hpp>
+#include <abyss/components/Actors/Commons/TimeCounter.hpp>
 #include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
 namespace
@@ -32,7 +32,7 @@ namespace abyss::Actor::Enemy::LaunShark
                 ->noneResistanced();
         }
         {
-            this->attach<TimeCounterModel>();
+            this->attach<TimeCounter>();
         }
         {
             this->attach<ViewModel<LaunSharkVM>>()

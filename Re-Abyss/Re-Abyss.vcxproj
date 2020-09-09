@@ -407,7 +407,7 @@
     <ClCompile Include="app\models\Actors\Commons\PatternModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\RotateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\TimeCounterModel.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\TimeCounter.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Ikalien\State\BaseState.cpp" />
@@ -808,7 +808,7 @@
     <ClInclude Include="app\models\Actors\Commons\FootModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\HPModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\RotateModel.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\TimeCounterModel.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actors\Player\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\PlayerShot.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />

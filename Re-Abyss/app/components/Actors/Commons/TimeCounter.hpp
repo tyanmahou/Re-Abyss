@@ -1,14 +1,14 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class TimeCounterModel : public IComponent
+    class TimeCounter : public IComponent
     {
         double m_totalTime = 0;
     public:
-        TimeCounterModel() = default;
-        TimeCounterModel(double offset);
+        TimeCounter() = default;
+        TimeCounter(double offset);
 
         void setOffset(double offset);
         void update(double dt);
