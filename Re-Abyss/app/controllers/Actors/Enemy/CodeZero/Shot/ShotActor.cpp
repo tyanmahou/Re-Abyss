@@ -3,10 +3,10 @@
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
-#include <abyss/models/Actors/Commons/ScaleModel.hpp>
+#include <abyss/components/Actors/Commons/ScaleCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 #include <abyss/models/Collision/LayerGroup.hpp>
@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->attach<ParentCtrl>(parent);
         }
         {
-            this->attach<StateModel>(this)
+            this->attach<StateCtrl>(this)
                 ->changeState<WaitState>()
             ;
         }
@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             col->setImpl<Collider>(this);
         }
         {
-            this->attach<ScaleModel>()
+            this->attach<ScaleCtrl>()
                 ->set(0.0);
         }
         {
@@ -70,7 +70,7 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<ScaleModel> m_scale;
+        Ref<ScaleCtrl> m_scale;
         std::unique_ptr<ShotVM> m_view;
     private:
         ShotVM* bind() const final
@@ -82,7 +82,7 @@ namespace
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_scale = m_pActor->find<ScaleModel>();
+            m_scale = m_pActor->find<ScaleCtrl>();
         }
     public:
         ViewBinder(IActor* pActor) :
@@ -95,12 +95,12 @@ namespace
     {
         IActor* m_pActor = nullptr;
         Ref<BodyModel> m_body;
-        Ref<ScaleModel> m_scale;
+        Ref<ScaleCtrl> m_scale;
     private:
         void setup() final
         {
             m_body = m_pActor->find<BodyModel>();
-            m_scale = m_pActor->find<ScaleModel>();
+            m_scale = m_pActor->find<ScaleCtrl>();
         }
         CShape getCollider() const final
         {

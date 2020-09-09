@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 
 #include <abyss/views/Actors/Enemy/RollingTako/RollingTakoVM.hpp>

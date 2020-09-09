@@ -60,7 +60,7 @@ namespace abyss::Actor::Player
         }
         // State
         {
-            this->attach<StateModel>(this)
+            this->attach<StateCtrl>(this)
                 ->changeState<SwimState>()
                 ;
         }

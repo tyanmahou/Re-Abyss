@@ -2,7 +2,7 @@
 
 #include <abyss/components/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
@@ -52,7 +52,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
                 ->createBinder<ViewBinder>(this);
         }
         {
-            this->attach<StateModel>(this)
+            this->attach<StateCtrl>(this)
                 ->changeState<BaseState>();
         }
 

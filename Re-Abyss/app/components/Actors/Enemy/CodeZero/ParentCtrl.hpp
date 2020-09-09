@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero
         IActor* m_parent;
         Ref<HP> m_hp;
         Ref<BodyModel> m_body;
-        Ref<StateModel> m_state;
+        Ref<StateCtrl> m_state;
         Ref<PartsCtrl> m_parts;
 
     public:

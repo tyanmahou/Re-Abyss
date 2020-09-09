@@ -90,7 +90,7 @@ namespace abyss::Actor::Enemy
 
 		// 状態管理
 		{
-			auto state = m_pActor->attach<StateModel>(m_pActor);
+			auto state = m_pActor->attach<StateCtrl>(m_pActor);
 			if (m_initState) {
 				state->changeState(m_initState);
 			}

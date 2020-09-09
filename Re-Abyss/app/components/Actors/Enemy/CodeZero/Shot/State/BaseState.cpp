@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         m_parent = m_pActor->find<ParentCtrl>().get();
         m_body = m_pActor->find<BodyModel>().get();
-        m_scale = m_pActor->find<ScaleModel>().get();
+        m_scale = m_pActor->find<ScaleCtrl>().get();
         m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
     void BaseState::lastUpdate()

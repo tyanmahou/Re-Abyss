@@ -6,7 +6,7 @@
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyModel.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             this->attach<KindCtrl>(kind);
         }
         {
-            (m_state = this->attach<StateModel>(this))
+            (m_state = this->attach<StateCtrl>(this))
                 ->changeState<PursuitState>()
                 ;
         }

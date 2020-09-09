@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::Slime
 				->setMaxSpeedX(Param::Walk::MaxSpeedX);
 		}
 		{
-			m_state = this->find<StateModel>();
+			m_state = this->find<StateCtrl>();
 		}
 
 		this->attach<DeadCallback>(this);

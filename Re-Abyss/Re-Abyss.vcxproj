@@ -186,6 +186,8 @@
     <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
     <ClCompile Include="app\components\Actors\Commons\HP.cpp" />
     <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\ScaleCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\StateCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -243,7 +245,6 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\StateModel.cpp" />
     <ClCompile Include="app\models\Actors\Commons\BodyUpdaterModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp" />
@@ -406,7 +407,6 @@
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp" />
-    <ClCompile Include="app\models\Actors\Commons\ScaleModel.cpp" />
     <ClCompile Include="app\components\Actors\Commons\TimeCounter.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp" />
@@ -510,6 +510,8 @@
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actors\Commons\HP.hpp" />
     <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ScaleCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\StateCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
@@ -591,7 +593,6 @@
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\StateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\Commons\BodyUpdaterModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
@@ -772,7 +773,6 @@
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
-    <ClInclude Include="app\models\Actors\Commons\ScaleModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />

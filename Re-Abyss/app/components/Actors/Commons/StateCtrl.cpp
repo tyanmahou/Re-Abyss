@@ -1,8 +1,8 @@
-#include "StateModel.hpp"
+#include "StateCtrl.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
-    void IState::init(StateModel* manager)
+    void IState::init(StateCtrl* manager)
     {
         m_manager = manager;
         m_pActor = manager->getActor();

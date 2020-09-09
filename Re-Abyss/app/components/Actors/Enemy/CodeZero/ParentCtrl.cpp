@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         m_body = m_parent->find<BodyModel>();
         m_hp = m_parent->find<HP>();
-        m_state = m_parent->find<StateModel>();
+        m_state = m_parent->find<StateCtrl>();
         m_parts = m_parent->find<PartsCtrl>();
     }
     Ref<HP> ParentCtrl::getHp() const

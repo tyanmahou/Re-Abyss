@@ -4,7 +4,7 @@
 
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 
 namespace abyss::Actor::Enemy
 {

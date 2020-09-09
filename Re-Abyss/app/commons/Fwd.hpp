@@ -140,12 +140,12 @@ namespace abyss
 		class CustomCollider;
 		class RotateCtrl;
 		class HP;
+		class ScaleCtrl;
+		class StateCtrl;
 	}
 	class BodyModel;
 	class IColliderModel;
 	class IPhysicsModel;
-	class ScaleModel;
-	class StateModel;
 
 	/// <summary>
 	/// Services

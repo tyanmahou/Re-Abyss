@@ -3,7 +3,7 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/models/Actors/Commons/BodyUpdaterModel.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
                 ->createBinder<ViewBinder>(this);
         }
         {
-            this->attach<StateModel>(this)
+            this->attach<StateCtrl>(this)
                 ->changeState<BaseState>()
                 ;
         }

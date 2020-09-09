@@ -1,13 +1,13 @@
-#include "ScaleModel.hpp"
+#include "ScaleCtrl.hpp"
 
-namespace abyss
+namespace abyss::Actor
 {
-    ScaleModel::ScaleModel(double initScale) :
+    ScaleCtrl::ScaleCtrl(double initScale) :
         m_scale(initScale),
         m_minScale(s3d::none),
         m_maxScale(s3d::none)
     {}
-    ScaleModel& ScaleModel::setTo(double scale, double timeSec)
+    ScaleCtrl& ScaleCtrl::setTo(double scale, double timeSec)
     {
         double diff = scale - m_scale;
         if (diff > 0) {
@@ -23,12 +23,12 @@ namespace abyss
         }
         return *this;
     }
-    ScaleModel& ScaleModel::setTo(double init, double to, double timeSec)
+    ScaleCtrl& ScaleCtrl::setTo(double init, double to, double timeSec)
     {
         m_scale = init;
         return this->setTo(to, timeSec);
     }
-    void ScaleModel::update(double dt)
+    void ScaleCtrl::update(double dt)
     {
         m_scale += m_rate * dt;
         

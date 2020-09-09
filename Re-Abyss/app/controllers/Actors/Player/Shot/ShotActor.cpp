@@ -48,7 +48,7 @@ namespace abyss::Actor::Player::Shot
 		}
 
 		{
-			this->attach<StateModel>(this)
+			this->attach<StateCtrl>(this)
 				->changeState<BaseState>()
 				;
 		}

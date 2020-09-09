@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Ref<BodyModel> m_body;
         Ref<RotateCtrl> m_rotate;
         Ref<HandCtrl> m_hand;
-        Ref<StateModel> m_state;
+        Ref<StateCtrl> m_state;
     public:
         HandActor(IActor* parent, Kind kind);
 

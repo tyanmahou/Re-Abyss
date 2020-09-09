@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 
 namespace abyss
 {
@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::Slime
 		public EnemyActor
 	{
 	private:
-		Ref<StateModel> m_state;
+		Ref<StateCtrl> m_state;
 	public:
 		SlimeActor(const SlimeEntity& entity);
 

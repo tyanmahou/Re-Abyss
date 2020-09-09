@@ -1,7 +1,7 @@
 #include "HeadActor.hpp"
 #include <abyss/components/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
 
-#include <abyss/models/Actors/Commons/StateModel.hpp>
+#include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
@@ -30,7 +30,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         }
         // 状態
         {
-            this->attach<StateModel>(this)
+            this->attach<StateCtrl>(this)
                 ->changeState<BaseState>()
                 ;
         }

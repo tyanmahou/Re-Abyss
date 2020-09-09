@@ -11,14 +11,14 @@
 # include <abyss/models/Actors/base/IDrawModel.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class StateModel;
+    class StateCtrl;
 
     class IState
     {
     private:
-        StateModel* m_manager;
+        StateCtrl* m_manager;
     protected:
         IActor* m_pActor = nullptr;
 
@@ -29,7 +29,7 @@ namespace abyss
         IState()=default;
         virtual ~IState() = default;
 
-        void init(StateModel* manager);
+        void init(StateCtrl* manager);
 
         virtual void setup() {}
 
@@ -46,7 +46,7 @@ namespace abyss
         virtual void onCollisionExit([[maybe_unused]] IActor* pActor) {}
     };
 
-    class StateModel :
+    class StateCtrl :
         public IComponent,
         public IUpdateModel,
         public ILastUpdateModel,
@@ -73,7 +73,7 @@ namespace abyss
             }
         }
     public:
-        StateModel(IActor* pActor):
+        StateCtrl(IActor* pActor):
             m_pActor(pActor)
         {}
 
@@ -166,7 +166,7 @@ namespace abyss
 namespace abyss
 {
     template<>
-    struct ComponentTree<StateModel>
+    struct ComponentTree<Actor::StateCtrl>
     {
         using Base = MultiComponents<
             IUpdateModel,
