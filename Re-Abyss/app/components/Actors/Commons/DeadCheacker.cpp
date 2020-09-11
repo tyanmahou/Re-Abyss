@@ -3,7 +3,7 @@
 #include <abyss/controllers/Master/Master.hpp>
 
 #include <abyss/components/Actors/Commons/HP.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+#include <abyss/components/Actors/base/IDeadCallback.hpp>
 
 #include <Siv3D.hpp>
 
@@ -48,7 +48,7 @@ namespace abyss::Actor
             return;
         }
         m_isDead = true;
-        for (auto&& callback : m_pActor->finds<IDeadCallbackModel>()) {
+        for (auto&& callback : m_pActor->finds<IDeadCallback>()) {
             callback->onDead();
         }
         if (m_isAutoDestroy) {

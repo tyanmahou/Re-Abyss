@@ -2,13 +2,13 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+#include <abyss/components/Actors/base/IDeadCallback.hpp>
 
 namespace abyss::Actor::Player
 {
     class RestartCtrl :
         public IComponent,
-        public IDeadCallbackModel
+        public IDeadCallback
     {
     private:
         IActor* m_pActor = nullptr;
@@ -25,6 +25,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Player::RestartCtrl>
     {
-        using Base = IDeadCallbackModel;
+        using Base = Actor::IDeadCallback;
     };
 }

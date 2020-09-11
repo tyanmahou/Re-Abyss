@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    class IDamageCallbackModel
+    class IDamageCallback
     { 
     public:
-        virtual ~IDamageCallbackModel() = default;
+        virtual ~IDamageCallback() = default;
         virtual void onDamaged() = 0;
     };
 }

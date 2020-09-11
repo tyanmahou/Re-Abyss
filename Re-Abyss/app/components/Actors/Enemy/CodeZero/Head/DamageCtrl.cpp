@@ -4,7 +4,7 @@
 #include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
+#include <abyss/components/Actors/base/IDamageCallback.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		}
 		col->accept([this, hp, parent](const Attacker& attacker) {
 			if (hp->damage(attacker.getPower())) {
-				for (auto&& callback : parent->finds<IDamageCallbackModel>()) {
+				for (auto&& callback : parent->finds<IDamageCallback>()) {
 					callback->onDamaged();
 				}
 			}

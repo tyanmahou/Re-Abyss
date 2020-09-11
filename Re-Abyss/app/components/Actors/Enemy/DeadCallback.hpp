@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IDeadCallbackModel.hpp>
+#include <abyss/components/Actors/base/IDeadCallback.hpp>
 
 namespace abyss::Actor::Enemy
 {
     class DeadCallback :
         public IComponent,
-        public IDeadCallbackModel
+        public IDeadCallback
     {
     protected:
         IActor* m_pActor;
@@ -28,6 +28,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::DeadCallback>
     {
-        using Base = IDeadCallbackModel;
+        using Base = Actor::IDeadCallback;
     };
 }

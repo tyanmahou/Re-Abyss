@@ -503,6 +503,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
+    <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />

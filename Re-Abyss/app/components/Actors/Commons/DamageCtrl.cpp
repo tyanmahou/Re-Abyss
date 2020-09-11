@@ -1,6 +1,6 @@
 #include "DamageCtrl.hpp"
 #include <abyss/controllers/Actors/ActInclude.hpp>
-#include <abyss/models/Actors/base/IDamageCallbackModel.hpp>
+#include <abyss/components/Actors/base/IDamageCallback.hpp>
 namespace abyss::Actor
 {
 	DamageCtrl::DamageCtrl(IActor* pActor):
@@ -17,7 +17,7 @@ namespace abyss::Actor
 		}
 		col->accept([this](const Attacker& attacker) {
 			if (m_hp->damage(attacker.getPower())) {
-				for (auto&& callback : m_pActor->finds<IDamageCallbackModel>()) {
+				for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
 					callback->onDamaged();
 				}
 			}
