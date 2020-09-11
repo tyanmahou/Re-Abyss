@@ -1,6 +1,6 @@
 #include "ICollider.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+#include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
 {
@@ -40,7 +40,7 @@ namespace abyss::Actor
     }
     void ICollider::onReflesh()
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallbackModel>()) {
+        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
                 continue;
             }
@@ -49,7 +49,7 @@ namespace abyss::Actor
     }
     void ICollider::onCollisionEnter(IActor* col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallbackModel>()) {
+        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
                 continue;
             }
@@ -58,7 +58,7 @@ namespace abyss::Actor
     }
     void ICollider::onCollisionStay(IActor* col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallbackModel>()) {
+        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
                 continue;
             }
@@ -67,7 +67,7 @@ namespace abyss::Actor
     }
     void ICollider::onCollisionExit(IActor * col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallbackModel>()) {
+        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
                 continue;
             }

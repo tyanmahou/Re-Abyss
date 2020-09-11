@@ -5,11 +5,11 @@
 
 # include <abyss/controllers/Actors/base/IActor.hpp>
 # include <abyss/components/base/IComponent.hpp>
-# include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+# include <abyss/components/Actors/base/ICollisionCallback.hpp>
 # include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 # include <abyss/models/Actors/base/IDrawModel.hpp>
-# include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+# include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
 {
@@ -51,7 +51,7 @@ namespace abyss::Actor
         public IUpdate,
         public ILastUpdateModel,
         public IDrawModel,
-        public ICollisionCallbackModel
+        public ICollisionCallback
     {
     private:
         using State_t = std::shared_ptr<IState>;
@@ -172,7 +172,7 @@ namespace abyss
             Actor::IUpdate,
             ILastUpdateModel,
             IDrawModel,
-            ICollisionCallbackModel
+            Actor::ICollisionCallback
         >;
     };
 }

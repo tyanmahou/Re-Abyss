@@ -1,13 +1,13 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class ICollisionCallbackModel
+    class ICollisionCallback
     {
     protected:
         bool m_isActive = true;
     public:
-        virtual ~ICollisionCallbackModel() = default;
+        virtual ~ICollisionCallback() = default;
         bool setActive(bool isActive)
         {
             m_isActive = isActive;

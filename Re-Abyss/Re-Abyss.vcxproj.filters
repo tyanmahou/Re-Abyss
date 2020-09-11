@@ -1257,7 +1257,6 @@
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
-    <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
+    <ClInclude Include="app\components\Actors\base\ICollisionCallback.hpp" />
   </ItemGroup>
 </Project>

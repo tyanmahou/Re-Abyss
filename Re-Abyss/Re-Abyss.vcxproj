@@ -774,7 +774,7 @@
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\ICollisionCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\State\PursuitState.hpp" />

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+#include <abyss/components/Actors/base/ICollisionCallback.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 {
     class DamageCtrl :
         public IComponent,
-        public ICollisionCallbackModel
+        public ICollisionCallback
     {
     protected:
         Ref<ParentCtrl> m_parent;
@@ -30,6 +30,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::CodeZero::Head::DamageCtrl>
     {
-        using Base = ICollisionCallbackModel;
+        using Base = Actor::ICollisionCallback;
     };
 }

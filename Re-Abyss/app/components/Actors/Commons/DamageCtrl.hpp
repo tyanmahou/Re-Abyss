@@ -1,13 +1,13 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
+#include <abyss/components/Actors/base/ICollisionCallback.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {
     class DamageCtrl : 
         public IComponent,
-        public ICollisionCallbackModel
+        public ICollisionCallback
     {
     protected:
         Ref<HP> m_hp;
@@ -25,6 +25,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::DamageCtrl>
     {
-        using Base = ICollisionCallbackModel;
+        using Base = Actor::ICollisionCallback;
     };
 }
