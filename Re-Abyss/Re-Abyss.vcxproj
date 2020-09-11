@@ -595,7 +595,7 @@
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IPrePhysics.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPreDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CameraFixPos.hpp" />
@@ -764,7 +764,7 @@
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
-    <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />

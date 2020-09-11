@@ -1,13 +1,13 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/components/Actors/base/ILastUpdate.hpp>
 
 namespace abyss::Actor::Player
 {
     class RoomMoveChecker :
         public IComponent,
-        public ILastUpdateModel
+        public ILastUpdate
     {
     private:
         PlayerActor* m_pActor;
@@ -24,6 +24,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Player::RoomMoveChecker>
     {
-        using Base = ILastUpdateModel;
+        using Base = Actor::ILastUpdate;
     };
 }

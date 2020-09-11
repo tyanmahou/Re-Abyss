@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/components/Actors/base/ILastUpdate.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -10,7 +10,7 @@ namespace abyss::Actor::Player
 
     class OopartsCtrl:
         public IComponent,
-        public ILastUpdateModel
+        public ILastUpdate
     {
     private:
         Ref<Ooparts::OopartsActor> m_mainOoparts;
@@ -34,6 +34,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Player::OopartsCtrl>
     {
-        using Base = ILastUpdateModel;
+        using Base = Actor::ILastUpdate;
     };
 }

@@ -5,13 +5,13 @@
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/components/Actors/base/ILastUpdate.hpp>
 
 namespace abyss::Actor
 {
     class OutRoomChecker :
         public IComponent,
-        public ILastUpdateModel
+        public ILastUpdate
     {
     private:
         IActor* m_pActor = nullptr;
@@ -47,6 +47,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::OutRoomChecker>
     {
-        using Base = ILastUpdateModel;
+        using Base = Actor::ILastUpdate;
     };
 }

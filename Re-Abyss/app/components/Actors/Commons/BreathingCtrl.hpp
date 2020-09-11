@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/Components.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/components/Actors/base/ILastUpdate.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -9,7 +9,7 @@ namespace abyss::Actor
 {
     class BreathingCtrl : 
         public IComponent,
-        public ILastUpdateModel
+        public ILastUpdate
     {
     public:
         BreathingCtrl(IActor* pActor);
@@ -35,6 +35,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::BreathingCtrl>
     {
-        using Base = ILastUpdateModel;
+        using Base = Actor::ILastUpdate;
     };
 }

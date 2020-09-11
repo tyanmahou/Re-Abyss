@@ -1257,7 +1257,6 @@
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
-    <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\EnemyDeadEffect.hpp" />
@@ -1358,7 +1357,6 @@
     <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />
@@ -1544,5 +1542,7 @@
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollisionCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Actors\base\ILastUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPreDraw.hpp" />
   </ItemGroup>
 </Project>

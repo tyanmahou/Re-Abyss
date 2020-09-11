@@ -4,9 +4,9 @@
 #include <abyss/components/Actors/base/IMove.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
-#include <abyss/models/Actors/base/ILastUpdateModel.hpp>
+#include <abyss/components/Actors/base/ILastUpdate.hpp>
 #include <abyss/components/Actors/base/IDraw.hpp>
-#include <abyss/models/Actors/base/IPreDrawModel.hpp>
+#include <abyss/components/Actors/base/IPreDraw.hpp>
 
 using namespace abyss::Actor;
 
@@ -57,14 +57,14 @@ namespace abyss
 	}
 	void IActor::lastUpdate()
 	{
-		for (auto&& com : this->finds<ILastUpdateModel>()) {
+		for (auto&& com : this->finds<ILastUpdate>()) {
 			com->onLastUpdate();
 		}
 	}
 	void IActor::draw() const
 	{
 		m_time->updateDrawTime();
-		for (auto&& com : this->finds<IPreDrawModel>()) {
+		for (auto&& com : this->finds<IPreDraw>()) {
 			com->onPreDraw(m_time->getDeltaTime());
 		}
 		for (auto&& com : this->finds<IDraw>()) {

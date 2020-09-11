@@ -1,10 +1,10 @@
 #pragma once
-namespace abyss
+namespace abyss::Actor
 {
-    class IPreDrawModel
+    class IPreDraw
     {
     public:
-        virtual ~IPreDrawModel() = default;
+        virtual ~IPreDraw() = default;
         virtual void onPreDraw(double dt) = 0;
     };
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IPreDrawModel.hpp>
+#include <abyss/components/Actors/base/IPreDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/commons/Fwd.hpp>
 
@@ -8,7 +8,7 @@ namespace abyss::Actor::Ooparts
 {
     class PursuitCtrl:
         public IComponent,
-        public IPreDrawModel
+        public IPreDraw
     {
     private:
         IActor* m_pActor = nullptr;
@@ -41,6 +41,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Ooparts::PursuitCtrl>
     {
-        using Base = IPreDrawModel;
+        using Base = Actor::IPreDraw;
     };
 }
