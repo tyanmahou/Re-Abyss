@@ -401,7 +401,7 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\components\base\Components.cpp" />
-    <ClCompile Include="app\models\Actors\base\IColliderModel.cpp" />
+    <ClCompile Include="app\components\Actors\base\ICollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
@@ -766,7 +766,7 @@
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
-    <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />

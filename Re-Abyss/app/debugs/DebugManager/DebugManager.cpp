@@ -5,7 +5,7 @@
 #include <abyss/utils/Visitor.hpp>
 #include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
@@ -100,7 +100,7 @@ namespace abyss::Debug
             return;
         }
 
-        auto colliders = world.finds<IColliderModel>();
+        auto colliders = world.finds<Actor::ICollider>();
         Log::Print << U"Colliders: " << colliders.size();
 
         constexpr ColorF color = ColorF(1, 0, 0, 0.4);

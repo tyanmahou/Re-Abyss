@@ -1,6 +1,6 @@
 #include "DamageCtrl.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Enemy/Schield/FaceCtrl.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::Schield
             // 待機中以外はダメージを受けない
             return;
         }
-        auto fromCol = col->find<IColliderModel>()->getCollider();
+        auto fromCol = col->find<ICollider>()->getCollider();
         auto faceCol = m_face->getCollider();
         if (!ColisionUtil::Intersects(fromCol, faceCol)) {
             return;

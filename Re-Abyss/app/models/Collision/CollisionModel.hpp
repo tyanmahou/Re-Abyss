@@ -16,7 +16,7 @@ namespace abyss
 	public:
 		ICollisionModel() = default;
 		virtual ~ICollisionModel() = default;
-		virtual void collisionAll(const s3d::Array<Ref<IColliderModel>>&) = 0;
+		virtual void collisionAll(const s3d::Array<Ref<Actor::ICollider>>&) = 0;
 		virtual void reset() = 0;
 	};
 
@@ -28,7 +28,7 @@ namespace abyss
 		std::unordered_set<CollisionPairHash> m_currentCollision;
 	public:
 		~SimpleCollision() override = default;
-		void collisionAll(const s3d::Array<Ref<IColliderModel>>&) override;
+		void collisionAll(const s3d::Array<Ref<Actor::ICollider>>&) override;
 		void reset()override;
 	};
 }

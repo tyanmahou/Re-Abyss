@@ -1,12 +1,12 @@
 #include "CollisionModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
-#include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss
 {
-	void SimpleCollision::collisionAll(const s3d::Array<Ref<IColliderModel>>& colliders)
+	void SimpleCollision::collisionAll(const s3d::Array<Ref<Actor::ICollider>>& colliders)
 	{
 		// Collision
 		auto prevCollision = std::move(this->m_currentCollision);
@@ -15,9 +15,9 @@ namespace abyss
 			collider->onReflesh();
 		}
 
-		s3d::Array<Ref<IColliderModel>> actColliders;
+		s3d::Array<Ref<Actor::ICollider>> actColliders;
 		actColliders.reserve(colliders.size());
-		s3d::Array<Ref<IColliderModel>> mapColliders;
+		s3d::Array<Ref<Actor::ICollider>> mapColliders;
 		mapColliders.reserve(colliders.size());
 
 		for (const auto& col : colliders) {
@@ -31,7 +31,7 @@ namespace abyss
 			}
 		}
 
-		auto check = [this, &prevCollision](const Ref<IColliderModel>& it1, const Ref<IColliderModel>& it2) {
+		auto check = [this, &prevCollision](const Ref<Actor::ICollider>& it1, const Ref<Actor::ICollider>& it2) {
 			CollisionPairHash hash(it1->getId(), it2->getId());
 			if (ColisionUtil::Intersects(it1->getCollider(), it2->getCollider())) {
 				m_currentCollision.insert(hash);

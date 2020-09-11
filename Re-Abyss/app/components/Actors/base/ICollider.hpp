@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/CShape.hpp>
-namespace abyss
+namespace abyss::Actor
 {
-    class IColliderModel
+    class ICollider
     {
     protected:
         IActor* m_pActor;
@@ -12,17 +12,17 @@ namespace abyss
 
         bool m_isActive = true;
     public:
-        IColliderModel(IActor* pActor);
-        virtual ~IColliderModel() = default;
+        ICollider(IActor* pActor);
+        virtual ~ICollider() = default;
         virtual CShape getCollider() const = 0;
 
-        IColliderModel& setTag(const s3d::String& tag);
+        ICollider& setTag(const s3d::String& tag);
         const s3d::String& getTag() const;
 
-        IColliderModel& setLayer(const s3d::String& layer);
+        ICollider& setLayer(const s3d::String& layer);
         const s3d::String& getLayer() const;
 
-        IColliderModel& setActive(bool isActive);
+        ICollider& setActive(bool isActive);
         bool isActive() const;
 
         s3d::uint64 getId() const;

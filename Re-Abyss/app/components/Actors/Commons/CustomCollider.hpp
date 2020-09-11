@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IColliderModel.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 
 namespace abyss::Actor
 {
@@ -9,7 +9,7 @@ namespace abyss::Actor
     /// </summary>
     class CustomCollider : 
         public IComponent,
-        public IColliderModel
+        public ICollider
     {
     public:
         class IImpl
@@ -23,7 +23,7 @@ namespace abyss::Actor
     private:
         std::unique_ptr<IImpl> m_pImpl;
     public:
-        using IColliderModel::IColliderModel;
+        using ICollider::ICollider;
 
         void setup()override;
         CustomCollider& setImpl(std::unique_ptr<IImpl>&& impl);
@@ -45,6 +45,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::CustomCollider>
     {
-        using Base = IColliderModel;
+        using Base = Actor::ICollider;
     };
 }
