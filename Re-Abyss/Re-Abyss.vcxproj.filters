@@ -1259,7 +1259,6 @@
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
@@ -1544,5 +1543,6 @@
     <ClInclude Include="app\components\Actors\Commons\ScaleCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Body.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />
+    <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
   </ItemGroup>
 </Project>

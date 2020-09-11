@@ -2,13 +2,13 @@
 #if ABYSS_DEBUG
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/components/Actors/base/IUpdate.hpp>
 
 namespace abyss::Actor::Player
 {
     class DebugCtrl :
         public IComponent,
-        public IUpdateModel
+        public IUpdate
     {
     private:
         IActor* m_pActor;
@@ -25,7 +25,7 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Player::DebugCtrl>
     {
-        using Base = IUpdateModel;
+        using Base = Actor::IUpdate;
     };
 }
 

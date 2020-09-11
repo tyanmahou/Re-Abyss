@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 
     class MainUpdate : 
         public IComponent,
-        public IUpdateModel,
+        public IUpdate,
         public IPrePhysicsModel
     {
         IActor* m_pActor;
@@ -31,6 +31,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::Slime::Sencer::MainUpdate>
     {
-        using Base = MultiComponents<IUpdateModel, IPrePhysicsModel>;
+        using Base = MultiComponents<Actor::IUpdate, IPrePhysicsModel>;
     };
 }

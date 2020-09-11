@@ -6,7 +6,7 @@
 # include <abyss/controllers/Actors/base/IActor.hpp>
 # include <abyss/components/base/IComponent.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
-# include <abyss/models/Actors/base/IUpdateModel.hpp>
+# include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 # include <abyss/models/Actors/base/IDrawModel.hpp>
 # include <abyss/models/Actors/base/ICollisionCallbackModel.hpp>
@@ -48,7 +48,7 @@ namespace abyss::Actor
 
     class StateCtrl :
         public IComponent,
-        public IUpdateModel,
+        public IUpdate,
         public ILastUpdateModel,
         public IDrawModel,
         public ICollisionCallbackModel
@@ -169,7 +169,7 @@ namespace abyss
     struct ComponentTree<Actor::StateCtrl>
     {
         using Base = MultiComponents<
-            IUpdateModel,
+            Actor::IUpdate,
             ILastUpdateModel,
             IDrawModel,
             ICollisionCallbackModel

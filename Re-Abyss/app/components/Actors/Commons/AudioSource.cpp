@@ -1,6 +1,6 @@
 #include "AudioSource.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 
@@ -29,7 +29,7 @@ namespace
 
     class TemporarySoundEffect :
         public IComponent,
-        public IUpdateModel
+        public IUpdate
     {
     public:
         TemporarySoundEffect(IActor* pActor, const s3d::Audio& audio) :
@@ -65,7 +65,7 @@ namespace abyss
     template<>
     struct ComponentTree<TemporarySoundEffect>
     {
-        using Base = IUpdateModel;
+        using Base = IUpdate;
     };
 }
 namespace abyss::Actor

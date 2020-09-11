@@ -503,6 +503,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
@@ -764,7 +765,6 @@
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IUpdateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />

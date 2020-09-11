@@ -1,10 +1,10 @@
 #pragma once
-namespace abyss
+namespace abyss::Actor
 {
-    class IUpdateModel
+    class IUpdate
     {
     public:
-        virtual ~IUpdateModel() = default;
+        virtual ~IUpdate() = default;
         virtual void onUpdate(double dt) = 0;
     };
 }

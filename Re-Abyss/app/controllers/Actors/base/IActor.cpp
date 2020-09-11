@@ -1,6 +1,6 @@
 #include "IActor.hpp"
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
-#include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/models/Actors/base/IMoveModel.hpp>
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
@@ -30,7 +30,7 @@ namespace abyss
 	{
 		m_time->updateUpdateTime();
 		double dt = m_time->getDeltaTime();
-		for (auto&& com : this->finds<IUpdateModel>()) {
+		for (auto&& com : this->finds<Actor::IUpdate>()) {
 			com->onUpdate(dt);
 		}
 	}

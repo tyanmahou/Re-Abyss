@@ -1,14 +1,14 @@
 #pragma once
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IUpdateModel.hpp>
+#include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss::Actor::God
 {
     class PauseCtrl:
         public IComponent,
-        public IUpdateModel
+        public IUpdate
     {
         IActor* m_pActor = nullptr;
     public:
@@ -22,6 +22,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::God::PauseCtrl>
     {
-        using Base = IUpdateModel;
+        using Base = Actor::IUpdate;
     };
 }
