@@ -70,7 +70,7 @@ namespace
 
     class ViewBinder : public Actor::ViewCtrl<Body::BodyVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        Actor::IActor* m_pActor = nullptr;
         Ref<Actor::Body> m_body;
         std::unique_ptr<Body::BodyVM> m_view;
     private:
@@ -83,7 +83,7 @@ namespace
             m_body = m_pActor->find<Actor::Body>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(Actor::IActor* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<Body::BodyVM>())
         {}

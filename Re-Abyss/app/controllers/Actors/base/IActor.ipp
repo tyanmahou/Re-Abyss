@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss
+namespace abyss::Actor
 {
 	inline void IActor::setManager(Manager* const pManager)
 	{

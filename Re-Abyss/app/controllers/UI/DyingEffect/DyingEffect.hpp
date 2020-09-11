@@ -18,14 +18,14 @@ namespace abyss::ui
     /// </summary>
     class DyingEffect : public IUserInterface
     {
-        IActor* m_pActor;
+        Actor::IActor* m_pActor;
         Ref <Actor::HP> m_hpModel;
         std::unique_ptr<DyingEffectVM> m_view;
 
         double m_hp = 0;
         double m_maxHp = 1;
     public:
-        DyingEffect(IActor* pActor);
+        DyingEffect(Actor::IActor* pActor);
         void start() override;
 
         void update(double dt) override;

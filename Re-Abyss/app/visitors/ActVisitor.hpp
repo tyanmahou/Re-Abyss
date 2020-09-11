@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Visitor.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
 
 	using ActVisitorBase = Visitor<
@@ -10,16 +10,16 @@ namespace abyss
 		Attacker,
 		Receiver,
 
-		Actor::Player::PlayerActor,
+		Player::PlayerActor,
 
-		Actor::Enemy::EnemyActor,
+		Enemy::EnemyActor,
 
-		Actor::Map::MapActor,
-		Actor::Map::Floor::FloorActor,
-		Actor::Map::PenetrateFloor::PenetrateFloorActor,
-		Actor::Map::Ladder::LadderActor,
+		Map::MapActor,
+		Map::Floor::FloorActor,
+		Map::PenetrateFloor::PenetrateFloorActor,
+		Map::Ladder::LadderActor,
 
-		Actor::Gimmick::Door::DoorActor
+		Gimmick::Door::DoorActor
 	>;
 
 	class ActVisitor : protected ActVisitorBase

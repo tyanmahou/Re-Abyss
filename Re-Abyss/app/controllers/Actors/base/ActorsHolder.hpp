@@ -8,7 +8,7 @@
 #include <abyss/concepts/Actor.hpp>
 #include <abyss/concepts/Component.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
 	class ActorsHolder
 	{

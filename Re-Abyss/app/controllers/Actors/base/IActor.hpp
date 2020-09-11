@@ -3,7 +3,7 @@
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/components/base/Components.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
 	class IActor
 	{

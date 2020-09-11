@@ -4,7 +4,7 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
-namespace abyss
+namespace abyss::Actor
 {
     void ActorsHolder::flush()
     {

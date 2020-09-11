@@ -8,9 +8,7 @@
 #include <abyss/components/Actors/base/IDraw.hpp>
 #include <abyss/components/Actors/base/IPreDraw.hpp>
 
-using namespace abyss::Actor;
-
-namespace abyss
+namespace abyss::Actor
 {
 	IActor::IActor()
 	{

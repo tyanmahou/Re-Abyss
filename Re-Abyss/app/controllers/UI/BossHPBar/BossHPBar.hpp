@@ -15,14 +15,14 @@ namespace abyss::ui
 {
     class BossHPBar : public IUserInterface
     {
-        IActor* m_pActor;
+        Actor::IActor* m_pActor;
         Ref<Actor::HP> m_hpModel;
         std::unique_ptr<BossHPBarVM> m_view;
 
         double m_hp = 0;
         double m_maxHp = 1;
     public:
-        BossHPBar(IActor* actor);
+        BossHPBar(Actor::IActor* actor);
 
         void update(double dt);
         void start() override;

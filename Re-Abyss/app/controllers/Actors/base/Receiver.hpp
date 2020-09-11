@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss
+namespace abyss::Actor
 {
     class Receiver
     {

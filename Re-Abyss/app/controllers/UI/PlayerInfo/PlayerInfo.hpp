@@ -14,10 +14,10 @@ namespace abyss::ui
 {
     class PlayerInfo : public IUserInterface
     {
-        IActor* m_pActor;
+        Actor::IActor* m_pActor;
         Ref<Actor::HP> m_hpModel;
     public:
-        PlayerInfo(IActor* actor);
+        PlayerInfo(Actor::IActor* actor);
 
         void update(double dt);
         void start() override;

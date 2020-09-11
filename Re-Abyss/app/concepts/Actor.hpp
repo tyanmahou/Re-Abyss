@@ -8,5 +8,5 @@ namespace abyss
     /// アクターか
     /// </summary>
     template<class Type>
-    concept IsActor = std::is_base_of_v<IActor, Type>;
+    concept IsActor = std::is_base_of_v<Actor::IActor, Type>;
 }

@@ -6,7 +6,7 @@
 
 namespace abyss::ui
 {
-    PlayerInfo::PlayerInfo(IActor* actor):
+    PlayerInfo::PlayerInfo(Actor::IActor* actor):
         m_pActor(actor)
     {}
 

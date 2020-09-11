@@ -33,11 +33,11 @@ namespace abyss
 	class IMasterObserver;
 
 	/// Controllers/Actors
-	class IActor;
-	class Attacker;
-	class Receiver;
 	namespace Actor
 	{
+		class IActor;
+		class Attacker;
+		class Receiver;
 		namespace Player
 		{
 			class PlayerActor;
@@ -176,5 +176,8 @@ namespace abyss
 	/// <summary>
 	/// Visitor
 	/// </summary>
-	class ActVisitor;
+	namespace Actor
+	{
+		class ActVisitor;
+	}
 }

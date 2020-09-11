@@ -5,7 +5,7 @@
 
 namespace abyss::ui
 {
-    BossHPBar::BossHPBar(IActor* actor):
+    BossHPBar::BossHPBar(Actor::IActor* actor):
         m_pActor(actor),
         m_view(std::make_unique<BossHPBarVM>())
     {}

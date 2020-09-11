@@ -9,6 +9,6 @@ namespace abyss
         const Stage* m_pStage = nullptr;
     public:
         GimmickTranslator(const Stage* pStage);
-        std::shared_ptr<IActor> toActorPtr(const GimmickEntity& entity);
+        std::shared_ptr<Actor::IActor> toActorPtr(const GimmickEntity& entity);
     };
 }

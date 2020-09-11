@@ -9,7 +9,7 @@
 
 namespace abyss::ui
 {
-    DyingEffect::DyingEffect(IActor* pActor):
+    DyingEffect::DyingEffect(Actor::IActor* pActor):
         m_pActor(pActor),
         m_view(std::make_unique<DyingEffectVM>())
     {
