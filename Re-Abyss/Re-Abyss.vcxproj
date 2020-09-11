@@ -244,7 +244,7 @@
     <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
-    <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp" />
+    <ClCompile Include="app\components\Actors\base\IPhysics.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CameraFixPos.cpp" />
@@ -590,10 +590,10 @@
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
-    <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPrePhysics.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
     <ClInclude Include="app\models\Actors\base\IPreDrawModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />

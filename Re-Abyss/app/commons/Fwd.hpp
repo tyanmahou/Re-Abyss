@@ -143,9 +143,9 @@ namespace abyss
 		class ScaleCtrl;
 		class StateCtrl;
 		class Body;
+		class IPhysics;
 	}
 	class IColliderModel;
-	class IPhysicsModel;
 
 	/// <summary>
 	/// Services

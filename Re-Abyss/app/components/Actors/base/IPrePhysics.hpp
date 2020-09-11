@@ -1,13 +1,13 @@
 #pragma once
-namespace abyss
+namespace abyss::Actor
 {
     /// <summary>
     /// 地形判定の前に呼ぶ
     /// </summary>
-    class IPrePhysicsModel
+    class IPrePhysics
     {
     public:
-        virtual ~IPrePhysicsModel() = default;
+        virtual ~IPrePhysics() = default;
         virtual void onPrePhysics() = 0;
     };
 }

@@ -1,8 +1,8 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IPhysicsModel.hpp>
-#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
-#include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
+#include <abyss/components/Actors/base/IPhysics.hpp>
+#include <abyss/components/Actors/base/IPrePhysics.hpp>
+#include <abyss/components/Actors/base/ILastPhysics.hpp>
 
 namespace abyss::Actor
 {
@@ -10,9 +10,9 @@ namespace abyss::Actor
 
     class MapCollider:
         public IComponent,
-        public IPrePhysicsModel,
-        public IPhysicsModel,
-        public ILastPhysicsModel
+        public IPrePhysics,
+        public IPhysics,
+        public ILastPhysics
     {
     private:
         class Result;
@@ -99,9 +99,9 @@ namespace abyss
     struct ComponentTree<Actor::MapCollider>
     {
         using Base = MultiComponents<
-            IPrePhysicsModel,
-            IPhysicsModel,
-            ILastPhysicsModel
+            Actor::IPrePhysics,
+            Actor::IPhysics,
+            Actor::ILastPhysics
         >;
     };
 }

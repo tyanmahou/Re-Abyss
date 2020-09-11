@@ -1,13 +1,13 @@
 #pragma once
-namespace abyss
+namespace abyss::Actor
 {
     /// <summary>
     /// 地形判定の後に呼ぶ
     /// </summary>
-    class ILastPhysicsModel
+    class ILastPhysics
     {
     public:
-        virtual ~ILastPhysicsModel() = default;
+        virtual ~ILastPhysics() = default;
         virtual void onLastPhysics() = 0;
     };
 }

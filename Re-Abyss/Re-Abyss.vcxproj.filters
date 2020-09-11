@@ -653,9 +653,6 @@
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actors\base\IPhysicsModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Master\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1028,9 @@
     <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\base\IPhysics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1403,10 +1403,7 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
     <ClInclude Include="app\controllers\Master\Master.hpp" />
     <ClInclude Include="app\controllers\Event\GameRestart\GameRestart.hpp" />
     <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
@@ -1544,5 +1541,8 @@
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPrePhysics.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
+    <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
   </ItemGroup>
 </Project>

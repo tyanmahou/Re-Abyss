@@ -4,7 +4,7 @@
 #include <abyss/models/Collision/MapCollisionModel.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
-#include <abyss/models/Actors/base/IPhysicsModel.hpp>
+#include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
@@ -45,7 +45,7 @@ namespace abyss
         // 地形判定
         {
             m_actorsHolder.prePhysics();
-            m_mapCollision->collisionAll(this->finds<IPhysicsModel>(), this->finds<Actor::Terrain>());
+            m_mapCollision->collisionAll(this->finds<Actor::IPhysics>(), this->finds<Actor::Terrain>());
             m_actorsHolder.lastPhysics();
         }
         // アクター衝突

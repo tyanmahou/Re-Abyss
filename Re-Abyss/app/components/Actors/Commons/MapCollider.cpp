@@ -75,7 +75,7 @@ namespace abyss::Actor
     };
 
     MapCollider::MapCollider(IActor* pActor):
-        IPhysicsModel(pActor),
+        IPhysics(pActor),
         m_result(std::make_unique<Result>())
     {}
     void MapCollider::setup()

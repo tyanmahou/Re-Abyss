@@ -6,7 +6,7 @@
 #include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/models/Actors/base/IColliderModel.hpp>
-#include <abyss/models/Actors/base/IPhysicsModel.hpp>
+#include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
@@ -119,7 +119,7 @@ namespace abyss::Debug
         }
         constexpr ColorF color = ColorF(0, 0, 1, 0.4);
         {
-            auto colliders = world.finds<IPhysicsModel>();
+            auto colliders = world.finds<Actor::IPhysics>();
             Log::Print << U"Map Colliders: " << colliders.size();
 
             for (auto&& col : colliders) {

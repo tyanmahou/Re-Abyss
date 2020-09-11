@@ -2,8 +2,8 @@
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/base/IMove.hpp>
-#include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
-#include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
+#include <abyss/components/Actors/base/IPrePhysics.hpp>
+#include <abyss/components/Actors/base/ILastPhysics.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 #include <abyss/models/Actors/base/IPreDrawModel.hpp>
@@ -45,13 +45,13 @@ namespace abyss
 	}
 	void IActor::prePhysics()
 	{
-		for (auto&& com : this->finds<IPrePhysicsModel>()) {
+		for (auto&& com : this->finds<IPrePhysics>()) {
 			com->onPrePhysics();
 		}
 	}
 	void IActor::lastPhysics()
 	{
-		for (auto&& com : this->finds<ILastPhysicsModel>()) {
+		for (auto&& com : this->finds<ILastPhysics>()) {
 			com->onLastPhysics();
 		}
 	}

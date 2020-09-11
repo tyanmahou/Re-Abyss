@@ -1,11 +1,11 @@
 #include "MapCollisionModel.hpp"
 
-#include <abyss/models/Actors/base/IPhysicsModel.hpp>
+#include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
 namespace abyss
 {
-    void SimpleMapCollision::collisionAll(const s3d::Array<Ref<IPhysicsModel>>& physics, const s3d::Array<Ref<Actor::Terrain>>& terrains)
+    void SimpleMapCollision::collisionAll(const s3d::Array<Ref<Actor::IPhysics>>& physics, const s3d::Array<Ref<Actor::Terrain>>& terrains)
     {
         for (const auto& p : physics) {
             if (!p || !p->isActive()) {

@@ -1,15 +1,15 @@
-#include "IPhysicsModel.hpp"
+#include "IPhysics.hpp"
 #include <Siv3D/Rectangle.hpp>
 #include <abyss/types/MapColInfo.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    bool IPhysicsModel::isActive() const
+    bool IPhysics::isActive() const
     {
         return m_isActive && m_pActor->isActive();
     }
-    bool IPhysicsModel::intersects(const MapColInfo& mapColInfo) const
+    bool IPhysics::intersects(const MapColInfo& mapColInfo) const
     {
         return this->getCollider().intersects(mapColInfo.region);
     }

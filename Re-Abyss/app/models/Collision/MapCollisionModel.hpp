@@ -13,7 +13,7 @@ namespace abyss
         virtual ~IMapCollisionModel() = default;
 
         virtual void collisionAll(
-            const s3d::Array<Ref<IPhysicsModel>>& physics, 
+            const s3d::Array<Ref<Actor::IPhysics>>& physics, 
             const s3d::Array<Ref<Actor::Terrain>>& terrains
         ) = 0;
         
@@ -23,7 +23,7 @@ namespace abyss
     {
     public:
         void collisionAll(
-            const s3d::Array<Ref<IPhysicsModel>>& physics,
+            const s3d::Array<Ref<Actor::IPhysics>>& physics,
             const s3d::Array<Ref<Actor::Terrain>>& terrains
         )override;
     };

@@ -3,33 +3,31 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss
+namespace abyss::Actor
 {
-    namespace Actor
-    {
-        class Terrain;
-    }
+
+    class Terrain;
 
     /// <summary>
     /// 地形判定処理
     /// </summary>
-    class IPhysicsModel
+    class IPhysics
     {
     protected:
         IActor* m_pActor;
         bool m_isActive = true;
     public:
-        IPhysicsModel(IActor* p):
+        IPhysics(IActor* p):
             m_pActor(p)
         {}
-        virtual ~IPhysicsModel() = default;
+        virtual ~IPhysics() = default;
 
         IActor* getActor() const
         {
             return m_pActor;
         }
 
-        IPhysicsModel& setActive(bool isActive)
+        IPhysics& setActive(bool isActive)
         {
             m_isActive = isActive;
             return *this;
