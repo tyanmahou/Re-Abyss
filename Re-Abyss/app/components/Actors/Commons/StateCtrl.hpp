@@ -8,7 +8,7 @@
 # include <abyss/components/Actors/base/ICollisionCallback.hpp>
 # include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/models/Actors/base/ILastUpdateModel.hpp>
-# include <abyss/models/Actors/base/IDrawModel.hpp>
+# include <abyss/components/Actors/base/IDraw.hpp>
 # include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
@@ -50,7 +50,7 @@ namespace abyss::Actor
         public IComponent,
         public IUpdate,
         public ILastUpdateModel,
-        public IDrawModel,
+        public IDraw,
         public ICollisionCallback
     {
     private:
@@ -171,7 +171,7 @@ namespace abyss
         using Base = MultiComponents<
             Actor::IUpdate,
             ILastUpdateModel,
-            IDrawModel,
+            Actor::IDraw,
             Actor::ICollisionCallback
         >;
     };

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IDrawModel.hpp>
+#include <abyss/components/Actors/base/IDraw.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -11,7 +11,7 @@ namespace abyss::Actor::Ooparts
 
     class Draw :
         public IComponent,
-        public IDrawModel
+        public IDraw
     {
     private:
         IActor* m_pActor;
@@ -28,6 +28,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Ooparts::Draw>
     {
-        using Base = IDrawModel;
+        using Base = Actor::IDraw;
     };
 }

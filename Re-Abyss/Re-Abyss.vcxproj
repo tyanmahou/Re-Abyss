@@ -763,7 +763,7 @@
     <ClInclude Include="app\components\base\Components.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />

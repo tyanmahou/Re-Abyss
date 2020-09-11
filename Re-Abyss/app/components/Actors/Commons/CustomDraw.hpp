@@ -3,7 +3,7 @@
 #include <functional>
 #include <Siv3D/String.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IDrawModel.hpp>
+#include <abyss/components/Actors/base/IDraw.hpp>
 
 namespace abyss::Actor
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor
     /// </summary>
     class CustomDraw :
         public IComponent,
-        public IDrawModel
+        public IDraw
     {
     public:
         class IImpl
@@ -57,6 +57,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::CustomDraw>
     {
-        using Base = IDrawModel;
+        using Base = Actor::IDraw;
     };
 }

@@ -5,7 +5,7 @@
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
-#include <abyss/models/Actors/base/IDrawModel.hpp>
+#include <abyss/components/Actors/base/IDraw.hpp>
 #include <abyss/models/Actors/base/IPreDrawModel.hpp>
 
 using namespace abyss::Actor;
@@ -67,7 +67,7 @@ namespace abyss
 		for (auto&& com : this->finds<IPreDrawModel>()) {
 			com->onPreDraw(m_time->getDeltaTime());
 		}
-		for (auto&& com : this->finds<IDrawModel>()) {
+		for (auto&& com : this->finds<IDraw>()) {
 			com->onDraw();
 		}
 	}
