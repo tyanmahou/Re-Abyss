@@ -1,10 +1,10 @@
 #pragma once
-namespace abyss
+namespace abyss::Actor
 {
-    class IMoveModel
+    class IMove
     {
     public:
-        virtual ~IMoveModel() = default;
+        virtual ~IMove() = default;
         virtual void onMove(double dt) = 0;
     };
 }

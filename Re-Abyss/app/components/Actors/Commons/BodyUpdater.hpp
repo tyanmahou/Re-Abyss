@@ -2,13 +2,13 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/models/Actors/base/IMoveModel.hpp>
+#include <abyss/components/Actors/base/IMove.hpp>
 
 namespace abyss::Actor
 {
     class BodyUpdater :
         public IComponent,
-        public IMoveModel
+        public IMove
     {
     private:
         IActor* m_pActor = nullptr;
@@ -34,6 +34,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::BodyUpdater>
     {
-        using Base = IMoveModel;
+        using Base = Actor::IMove;
     };
 }

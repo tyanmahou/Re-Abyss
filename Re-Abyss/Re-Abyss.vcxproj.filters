@@ -1260,7 +1260,6 @@
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\ICollisionCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
@@ -1416,7 +1415,6 @@
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
-    <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
@@ -1544,5 +1542,7 @@
     <ClInclude Include="app\components\Actors\Commons\Body.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\base\IMove.hpp" />
   </ItemGroup>
 </Project>

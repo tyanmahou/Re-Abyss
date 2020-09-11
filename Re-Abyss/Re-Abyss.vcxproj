@@ -503,6 +503,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
@@ -590,7 +591,7 @@
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastPhysicsModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IMoveModel.hpp" />
+    <ClInclude Include="app\components\Actors\base\IMove.hpp" />
     <ClInclude Include="app\models\Actors\base\IPhysicsModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IPrePhysicsModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
@@ -764,7 +765,6 @@
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDrawModel.hpp" />
     <ClInclude Include="app\models\Actors\base\ILastUpdateModel.hpp" />
-    <ClInclude Include="app\models\Actors\base\IPreUpdateModel.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
     <ClInclude Include="app\models\Actors\base\IColliderModel.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />

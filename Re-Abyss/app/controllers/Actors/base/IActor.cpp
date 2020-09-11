@@ -1,18 +1,20 @@
 #include "IActor.hpp"
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
-#include <abyss/models/Actors/base/IMoveModel.hpp>
+#include <abyss/components/Actors/base/IMove.hpp>
 #include <abyss/models/Actors/base/IPrePhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastPhysicsModel.hpp>
 #include <abyss/models/Actors/base/ILastUpdateModel.hpp>
 #include <abyss/models/Actors/base/IDrawModel.hpp>
 #include <abyss/models/Actors/base/IPreDrawModel.hpp>
 
+using namespace abyss::Actor;
+
 namespace abyss
 {
 	IActor::IActor()
 	{
-		m_time = this->attach<Actor::ActorTime>();
+		m_time = this->attach<ActorTime>();
 	}
 	void IActor::updateDeltaTime(double worldDt) const
 	{
@@ -30,14 +32,14 @@ namespace abyss
 	{
 		m_time->updateUpdateTime();
 		double dt = m_time->getDeltaTime();
-		for (auto&& com : this->finds<Actor::IUpdate>()) {
+		for (auto&& com : this->finds<IUpdate>()) {
 			com->onUpdate(dt);
 		}
 	}
 	void IActor::move()
 	{
 		double dt = m_time->getDeltaTime();
-		for (auto&& com : this->finds<IMoveModel>()) {
+		for (auto&& com : this->finds<IMove>()) {
 			com->onMove(dt);
 		}
 	}
