@@ -29,8 +29,7 @@ namespace abyss::tests
         Console.open();
     }
     TestRunner::~TestRunner()
-    {
-    }
+    {}
 
     bool abyss::tests::TestRunner::run() const
     {

@@ -554,12 +554,6 @@
     <ClCompile Include="app\controllers\Effects\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\tests\testing.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Stage\StageData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1031,6 +1025,8 @@
     <ClCompile Include="app\components\Actors\base\ICollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
+    <ClCompile Include="tests\tests\testing.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1546,5 +1542,6 @@
     <ClInclude Include="app\components\Actors\base\IPreDraw.hpp" />
     <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
+    <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
   </ItemGroup>
 </Project>
