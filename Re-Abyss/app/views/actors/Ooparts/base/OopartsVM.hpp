@@ -14,8 +14,6 @@ namespace abyss::Actor::Ooparts
     private:
         std::unique_ptr<IDrawCallbackView> m_drawCallback;
 
-        IntervalTimer m_effectTimer;
-        Manager* m_pManager;
         virtual void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const = 0;
     protected:
         s3d::Vec2 m_pos{0, 0};
@@ -28,12 +26,9 @@ namespace abyss::Actor::Ooparts
         OopartsVM& setCallback(std::unique_ptr<IDrawCallbackView>&& callback)
         {
             m_drawCallback = std::move(callback);
-        }
-        OopartsVM& setManager(Manager* pManager)
-        {
-            m_pManager = pManager;
             return *this;
         }
+
         OopartsVM& setTime(double time)
         {
             m_time = time;

@@ -5,8 +5,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    OopartsVM::OopartsVM():
-        m_effectTimer(0.05, true, [this] {return Time::FromSec(this->m_time); })
+    OopartsVM::OopartsVM()
     {
     }
     void OopartsVM::draw() const
@@ -15,13 +14,8 @@ namespace abyss::Actor::Ooparts
         double alpha = 0.4 * Periodic::Triangle0_1(0.1s, m_time);
         constexpr double period = 0.8;
         {
-            auto* effects = m_pManager->getModule<Effects>();
-            if (m_effectTimer.update()) {
-                if (RandomBool(0.7)) {
-                    effects->addWorldBack<KiraKiraEffect>(pos + RandomVec2({ -15, 15 }, { 0, 20 }));
-                } else {
-                    effects->addWorldBack<KiraKiraEffect>(pos + RandomVec2(17), KiraKiraEffect::Type2);
-                }
+            if (m_drawCallback) {
+                m_drawCallback->onDraw(pos);
             }
         }
         {

@@ -78,7 +78,6 @@ namespace abyss::Actor::Player
     PlayerVM& PlayerVM::setManager(Manager* pManager)
     {
         m_pManager = pManager;
-        m_xto->setManager(pManager);
         return *this;
     }
 

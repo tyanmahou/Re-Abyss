@@ -2,6 +2,7 @@
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 #include <abyss/views/Actors/Ooparts/Nyan/NyanVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
 
 namespace
 {
@@ -36,12 +37,12 @@ namespace
                 ->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setManager(m_pActor->getManager())
                 ;
         }
         void setup() final
         {
             m_body = m_pActor->find<Body>();
+            m_view->setCallback(std::make_unique<ActDrawCallbackView>(m_view.get(), m_pActor->getManager()));
         }
     public:
         ViewBinder(IActor* pActor) :
