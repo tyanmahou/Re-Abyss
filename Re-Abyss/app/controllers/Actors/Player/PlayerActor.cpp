@@ -15,6 +15,7 @@
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/CameraFixPos.hpp>
+#include <abyss/components/Actors/Commons/LightCtrl.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -107,9 +108,15 @@ namespace abyss::Actor::Player
         {
             this->attach<RoomMoveChecker>(this);
         }
+        // View
         {
             this->attach<ViewCtrl<PlayerVM>>()
                 ->createBinder<ViewBinder>(this);
+        }
+        // Light
+        {
+            this->attach<LightCtrl>(this)
+                ->setRadius(700.0);
         }
         // UI制御
         {

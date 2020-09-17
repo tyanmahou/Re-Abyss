@@ -323,8 +323,4 @@ namespace abyss::Actor::Player
             Circle(m_pos, Periodic::Triangle0_1(0.3s, m_time) * 5 + 30).draw(color.setA(a));
         }
     }
-    void PlayerVM::drawLight() const
-    {
-        m_pManager->getModule<Light>()->addLight({ m_pos, 700 });
-    }
 }

@@ -126,6 +126,5 @@ namespace abyss::Actor::Player
         this->onDraw(*view);
 
         view->drawCharge();
-        view->drawLight();
     }
 }

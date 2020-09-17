@@ -185,6 +185,7 @@
     <ClCompile Include="app\components\Actors\Commons\FallChecker.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Foot.cpp" />
     <ClCompile Include="app\components\Actors\Commons\HP.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\LightCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ScaleCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\StateCtrl.cpp" />
@@ -521,6 +522,7 @@
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actors\Commons\HP.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\LightCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ScaleCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\StateCtrl.hpp" />

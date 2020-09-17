@@ -73,7 +73,5 @@ namespace abyss::Actor::Player
         void drawStateDoor() const;
 
         void drawCharge()const;
-
-        void drawLight() const;
     };
 }

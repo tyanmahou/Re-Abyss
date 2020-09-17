@@ -1027,6 +1027,9 @@
     </ClCompile>
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\testing.ixx" />
+    <ClCompile Include="app\components\Actors\Commons\LightCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1543,5 +1546,6 @@
     <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\LightCtrl.hpp" />
   </ItemGroup>
 </Project>
