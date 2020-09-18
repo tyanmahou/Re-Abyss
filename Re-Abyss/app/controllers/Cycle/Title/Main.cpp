@@ -17,6 +17,13 @@ namespace abyss::Cycle::Title
         m_bgm(ResourceManager::Main()->loadAudio(U"bgm/cycle/title/title.aas"))
     {
         m_bgm.play(0.2s);
+
+        (*m_cursor)[Cursor::Cursor::Mode::GameStart] = [this] {
+            m_observer->onGameStart();
+        };
+        (*m_cursor)[Cursor::Cursor::Mode::Exit] = [this] {
+            m_observer->onExit();
+        };
     }
 
     Main::~Main()

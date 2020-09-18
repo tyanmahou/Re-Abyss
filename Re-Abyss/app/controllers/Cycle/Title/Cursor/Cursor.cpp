@@ -33,6 +33,14 @@ namespace abyss::Cycle::Title::Cursor
         } else if (InputManager::Down.down()) {
             ++m_mode;
         }
+
+        // 決定
+        if (InputManager::A.down() || InputManager::Start.down()) {
+            const auto& event = m_events[static_cast<size_t>(m_mode)];
+            if (event) {
+                event();
+            }
+        }
     }
 
     void Cursor::draw() const
@@ -42,7 +50,7 @@ namespace abyss::Cycle::Title::Cursor
             String name;
             double posY;
         };
-        const static std::array<CursorViewParam, static_cast<size_t>(Mode::Term)> viewParams
+        const static std::array<CursorViewParam, ModeTerm> viewParams
         {
             CursorViewParam{U"GAME START", 360.0},
             CursorViewParam{U"Exit", 410.0},
