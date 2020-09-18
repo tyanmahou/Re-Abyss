@@ -3,6 +3,7 @@
 #include <abyss/commons/ResourceManager/ResourceManager.hpp>
 #include <abyss/controllers/Cycle/Title/Logo/Logo.hpp>
 #include <abyss/controllers/Cycle/Title/BackGround/BackGround.hpp>
+#include <abyss/controllers/Cycle/Title/Cursor/Cursor.hpp>
 
 #include <Siv3D.hpp>
 
@@ -12,6 +13,7 @@ namespace abyss::Cycle::Title
         m_observer(observer),
         m_logo(std::make_unique<Logo::Logo>()),
         m_bg(std::make_unique<BackGround::BackGround>()),
+        m_cursor(std::make_unique<Cursor::Cursor>()),
         m_bgm(ResourceManager::Main()->loadAudio(U"bgm/cycle/title/title.aas"))
     {
         m_bgm.play(0.2s);
@@ -27,14 +29,14 @@ namespace abyss::Cycle::Title
             return;
         }
         m_bg->update();
+        m_cursor->update();
     }
 
     void Main::draw() const
     {
         if (m_logo->isEnd()) {
             m_bg->draw();
-            FontAsset(U"titleSelect")(U"NEW GAME").drawAt(480, 360);
-            FontAsset(U"titleSelect")(U"Exit").drawAt(480, 410);
+            m_cursor->draw();
         }
         m_logo->draw();
     }

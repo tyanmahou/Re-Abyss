@@ -10,6 +10,8 @@ namespace abyss
         public Cycle::Title::IMainObserver
     {
         std::unique_ptr<Cycle::Title::Main> m_main;
+
+        std::function<void()> m_onGameStartFunc;
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
@@ -32,21 +34,34 @@ namespace abyss
         {
             m_main->finally();
         }
+
+        void onGameStart() final
+        {
+            m_onGameStartFunc();
+        }
+        void onExit() final
+        {
+            // 閉じる
+            s3d::System::Exit();
+        }
+
+        void bindGameStartFunc(const std::function<void()>& callback)
+        {
+            m_onGameStartFunc = callback;
+        }
     };
     TitleScene::TitleScene(const InitData& init):
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
-    {}
+    {
+        m_pImpl->bindGameStartFunc([this] {
+            this->changeScene(SceneName::Main);
+        });
+    }
 
     void TitleScene::update()
     {
         m_pImpl->update();
-        if (InputManager::Start.down()) {
-            changeScene(SceneName::Main);
-        }
-        if (KeyBackspace.down()) {
-            changeScene(SceneName::Splash);
-        }
     }
 
     void TitleScene::draw() const

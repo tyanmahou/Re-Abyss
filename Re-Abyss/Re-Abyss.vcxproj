@@ -227,6 +227,7 @@
     <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\BackGround\BackGround.cpp" />
+    <ClCompile Include="app\controllers\Cycle\Title\Cursor\Cursor.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp" />
@@ -280,6 +281,7 @@
     <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp" />
+    <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.cpp" />
@@ -574,6 +576,7 @@
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\Cursor\Cursor.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
@@ -650,6 +653,7 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
+    <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
@@ -904,6 +908,7 @@
     <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />

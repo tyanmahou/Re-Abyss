@@ -1030,6 +1030,12 @@
     <ClCompile Include="app\components\Actors\Commons\LightCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cycle\Title\Cursor\Cursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1547,5 +1553,8 @@
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\components\Actors\Commons\LightCtrl.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\Cursor\Cursor.hpp" />
+    <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
   </ItemGroup>
 </Project>

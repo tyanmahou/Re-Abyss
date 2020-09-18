@@ -7,12 +7,6 @@ namespace abyss::Cycle::Title::Cursor
         m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
 
-    CursorVM& CursorVM::setPos(const s3d::Vec2& pos)
-    {
-        m_pos = pos;
-        return *this;
-    }
-
     void CursorVM::draw() const
     {
         m_texture(U"stay_atk")({ 0, 80 }, { 80, 80 })
