@@ -282,6 +282,7 @@
     <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp" />
+    <ClCompile Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.cpp" />
@@ -909,6 +910,7 @@
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
+    <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
