@@ -27,6 +27,12 @@
 
 namespace abyss::Resource::Prelaod
 {
+	void LoadTomlAll(const ResourceManager& resource)
+	{
+		LoadSplashToml(resource);
+		LoadTitleToml(resource);
+		LoadActorToml(resource);
+	}
 	void LoadSplashToml(const ResourceManager& resource)
 	{
 		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");

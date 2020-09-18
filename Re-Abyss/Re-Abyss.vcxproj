@@ -228,6 +228,7 @@
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Cursor\Cursor.cpp" />
+    <ClCompile Include="app\controllers\Cycle\Title\Cursor\Shot.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp" />
@@ -578,6 +579,7 @@
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Cursor\Cursor.hpp" />
+    <ClInclude Include="app\controllers\Cycle\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />

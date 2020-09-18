@@ -2,9 +2,11 @@
 #include <memory>
 #include <array>
 #include <functional>
+#include <Siv3D/Timer.hpp>
 
 namespace abyss::Cycle::Title::Cursor
 {
+    class Shot;
     class CursorVM;
 
     class Cursor
@@ -25,6 +27,10 @@ namespace abyss::Cycle::Title::Cursor
 
         std::array<std::function<void()>, ModeTerm> m_events;
         std::unique_ptr<CursorVM> m_view;
+
+        s3d::Timer m_gameStartTimer;
+        bool m_isGameStart = false;
+        std::unique_ptr<Shot> m_shot;
     public:
         Cursor();
         ~Cursor();
