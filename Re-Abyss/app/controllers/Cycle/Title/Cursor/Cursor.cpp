@@ -70,7 +70,7 @@ namespace abyss::Cycle::Title::Cursor
             String name;
             double posY;
         };
-        const static std::array<CursorViewParam, ModeTerm> viewParams
+        static const std::array<CursorViewParam, ModeTerm> viewParams
         {
             CursorViewParam{U"GAME START", 360.0},
             CursorViewParam{U"Exit", 410.0},
