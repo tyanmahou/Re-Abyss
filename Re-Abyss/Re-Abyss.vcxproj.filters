@@ -1042,6 +1042,9 @@
     <ClCompile Include="app\controllers\Cycle\Title\Cursor\Shot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1564,5 +1567,6 @@
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\controllers\Cycle\Title\Cursor\Shot.hpp" />
+    <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
   </ItemGroup>
 </Project>
