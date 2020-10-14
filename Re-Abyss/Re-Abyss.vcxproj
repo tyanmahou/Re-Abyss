@@ -907,6 +907,7 @@
     <ClInclude Include="app\views\Actors\Enemy\Schield\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\Slime\SlimeVM.hpp" />
     <ClInclude Include="app\controllers\Decor\DecorGraphicsManager.hpp" />
+    <ClInclude Include="app\views\Actors\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />

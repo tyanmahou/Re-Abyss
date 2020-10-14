@@ -18,6 +18,8 @@
 #include <abyss/components/Actors/Commons/LightCtrl.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
+
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
@@ -208,6 +210,10 @@ namespace
             m_hp = m_pActor->find<HP>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
+
+            auto xtoView = std::make_unique<XtoAtkVM>();
+            xtoView->setCallback(std::make_unique <Ooparts::ActDrawCallbackView> (xtoView.get(), m_pActor->getManager()));
+            m_view->setXtoAtkView(std::move(xtoView));
         }
     public:
         ViewBinder(IActor* pActor) :

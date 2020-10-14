@@ -34,9 +34,13 @@ namespace abyss::Actor::Player
         return ColorDef::OnDamage(m_isDamaging, m_time);
     }
     PlayerVM::PlayerVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json")),
-        m_xto(std::make_unique<XtoAtkVM>())
+        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
+    PlayerVM& PlayerVM::setXtoAtkView(std::unique_ptr<XtoAtkVM> && xto)
+    {
+        m_xto = std::move(xto);
+        return *this;
+    }
     PlayerVM& PlayerVM::setTime(double time)
     {
         m_time = time;

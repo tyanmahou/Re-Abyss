@@ -4,28 +4,12 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Player/Xto/XtoAtkVM.hpp>
 
 namespace abyss::Actor::Player
 {
     class PlayerVM
     {
-        class XtoAtkVM : public Ooparts::OopartsVM
-        {
-            std::function<void()> m_callback;
-            void drawCharacter([[maybe_unused]]const s3d::Vec2& pos, [[maybe_unused]] const s3d::ColorF& color) const override
-            {
-                if (m_callback) {
-                    m_callback();
-                }
-            }
-        public:
-            XtoAtkVM& setDrawFunc(const std::function<void()>& callback)
-            {
-                m_callback = callback;
-                return *this;
-            }
-        };
     private:
         TexturePacker m_texture;
         s3d::Vec2 m_pos;
@@ -43,6 +27,7 @@ namespace abyss::Actor::Player
         std::unique_ptr<XtoAtkVM> m_xto;
     public:
         PlayerVM();
+        PlayerVM& setXtoAtkView(std::unique_ptr<XtoAtkVM>&& xto);
 
         PlayerVM& setTime(double time);
         PlayerVM& setPos(const s3d::Vec2& pos);
