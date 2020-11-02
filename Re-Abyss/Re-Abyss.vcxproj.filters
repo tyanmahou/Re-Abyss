@@ -1569,5 +1569,7 @@
     <ClInclude Include="app\controllers\Cycle\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\views\Actors\Player\Xto\XtoAtkVM.hpp" />
+    <ClInclude Include="app\types\UserPlayMode.hpp" />
+    <ClInclude Include="app\entities\User\UserEntity.hpp" />
   </ItemGroup>
 </Project>

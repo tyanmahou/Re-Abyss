@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/Types.hpp>
 
 /// <summary>
 /// 定数
@@ -23,4 +24,7 @@ namespace abyss::Constants
     inline constexpr s3d::Vec2 GameScreenOffset = GameScreenOffset_v<double>;
 
     inline constexpr s3d::RectF GameScreen{ GameScreenOffset , GameScreenSize };
+
+    // セーブデータの個数
+    inline constexpr s3d::int32 UserNum = 9;
 }

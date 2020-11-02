@@ -55,7 +55,7 @@ namespace abyss
         m_pImpl(std::make_unique<Impl>(init))
     {
         m_pImpl->bindGameStartFunc([this] {
-            this->changeScene(SceneName::Main);
+            this->changeScene(SceneName::SaveSelect);
         });
     }
 

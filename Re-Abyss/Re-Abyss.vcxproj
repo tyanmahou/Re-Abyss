@@ -608,6 +608,7 @@
     <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
+    <ClInclude Include="app\entities\User\UserEntity.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
@@ -653,6 +654,7 @@
     <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
+    <ClInclude Include="app\types\UserPlayMode.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
