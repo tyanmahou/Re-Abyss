@@ -20,6 +20,7 @@ namespace abyss
 
         void update()
         {
+            // selectId更新
             if (InputManager::Left.down()) {
                 --m_selectId;
             }
@@ -29,6 +30,30 @@ namespace abyss
             if (m_selectId < -1) {
                 m_selectId = Constants::UserNum - 1;
             } else if(m_selectId >= Constants::UserNum) {
+                m_selectId = -1;
+            }
+
+            if (InputManager::A.down()) {
+                if (m_selectId == -1) {
+                    // モード切替
+                    if (m_mode == Mode::GameStart) {
+                        m_mode = Mode::Delete;
+                    } else {
+                        m_mode = Mode::GameStart;
+                    }
+                } else {
+                    // データ選択
+                    if (m_mode == Mode::GameStart) {
+                        // 選択
+                    } else {
+                        // 削除確認
+                    }
+                }
+            }
+
+            if (m_mode == Mode::Delete && InputManager::B.down()) {
+                // 削除キャンセル
+                m_mode = Mode::GameStart;
                 m_selectId = -1;
             }
         }
@@ -49,8 +74,9 @@ namespace abyss
             // ゴミ箱
             {
                 RectF(tl + Vec2{ size.x, 0 } - selectSize, selectSize).drawFrame(1.0);
-                RectF(tl, size).drawFrame(1.0);
             }
+            RectF(tl - Vec2{ 0, selectSize.y }, { size.x, selectSize.y }).drawFrame(1.0);
+            RectF(tl, size).drawFrame(1.0);
             if (m_mode == Mode::GameStart) {
                 FontAsset(U"titleSelect")(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
             } else {
