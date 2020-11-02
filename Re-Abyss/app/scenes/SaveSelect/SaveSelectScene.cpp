@@ -13,6 +13,11 @@ namespace abyss
         };
         int32 m_selectId = 0;
         Mode m_mode = Mode::GameStart;
+
+
+        std::function<void()> m_onLoadGameFunc;
+        std::function<void()> m_onNewGameFunc;
+        std::function<void()> m_onBackFunc;
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
@@ -45,16 +50,21 @@ namespace abyss
                     // データ選択
                     if (m_mode == Mode::GameStart) {
                         // 選択
+                        m_onLoadGameFunc();
                     } else {
                         // 削除確認
                     }
                 }
             }
 
-            if (m_mode == Mode::Delete && InputManager::B.down()) {
-                // 削除キャンセル
-                m_mode = Mode::GameStart;
-                m_selectId = -1;
+            if (InputManager::B.down()) {
+                if (m_mode == Mode::Delete) {
+                    // 削除キャンセル
+                    m_mode = Mode::GameStart;
+                } else if (m_mode == Mode::GameStart) {
+                    // 戻る
+                    m_onBackFunc();
+                }
             }
         }
 
@@ -87,11 +97,32 @@ namespace abyss
         void finally()
         {
         }
+        void bindLoadGameFunc(const std::function<void()>& callback)
+        {
+            m_onLoadGameFunc = callback;
+        }
+        void bindNewGameFunc(const std::function<void()>& callback)
+        {
+            m_onNewGameFunc = callback;
+        }
+        void bindBackFunc(const std::function<void()>& callback)
+        {
+            m_onBackFunc = callback;
+        }
     };
     SaveSelectScene::SaveSelectScene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
+        m_pImpl->bindLoadGameFunc([this] {
+            this->changeScene(SceneName::Main);
+        });
+        m_pImpl->bindNewGameFunc([this] {
+            this->changeScene(SceneName::Main);
+        });
+        m_pImpl->bindBackFunc([this] {
+            this->changeScene(SceneName::Title);
+        });
     }
 
     void SaveSelectScene::update()
