@@ -1571,5 +1571,6 @@
     <ClInclude Include="app\views\Actors\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\types\UserPlayMode.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
+    <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
   </ItemGroup>
 </Project>

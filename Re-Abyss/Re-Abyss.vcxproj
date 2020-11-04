@@ -606,6 +606,7 @@
     <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
+    <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
