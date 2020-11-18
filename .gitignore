@@ -394,6 +394,6 @@ lib/
 
 ## Application
 [Ww]ork/
-[Rr]esources/
-!resources/shaders/
+/Re-Abyss/[Rr]esources/*
+!/Re-Abyss/resources/shaders/
 [Vv]endor/
