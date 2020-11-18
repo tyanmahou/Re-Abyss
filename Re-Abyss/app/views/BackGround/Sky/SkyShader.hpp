@@ -13,6 +13,7 @@ namespace abyss
     public:
         SkyShader();
         SkyShader& setTime(double time);
+        const SkyShader& setMultiply(double multiply) const;
         s3d::ScopedCustomShader2D start() const;
     };
 }

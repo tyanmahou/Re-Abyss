@@ -17,14 +17,14 @@ namespace abyss
     {
         PixelShader m_ps;
         ConstantBuffer<SkyShaderParam> m_cb;
-        float m_multiply = 1.0f;
+        double m_multiply = 1.0f;
         double m_time = 0.0;
     public:
         Impl() :
             m_ps(ResourceManager::Main()->loadPs(U"sky.hlsl"))
         {}
 
-        void setMultiply(float multiply)
+        void setMultiply(double multiply)
         {
             m_multiply = multiply;
         }
@@ -35,7 +35,7 @@ namespace abyss
         ScopedCustomShader2D start()
         {
             m_cb->timer = static_cast<float>(m_time);
-            m_cb->multiply = m_multiply;
+            m_cb->multiply = static_cast<float>(m_multiply);
             Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
             return ScopedCustomShader2D(m_ps);
         }
@@ -48,6 +48,12 @@ namespace abyss
     SkyShader& SkyShader::setTime(double time)
     {
         m_pImpl->setTime(time);
+        return *this;
+    }
+
+    const SkyShader& SkyShader::setMultiply(double multiply) const
+    {
+        m_pImpl->setMultiply(multiply);
         return *this;
     }
 

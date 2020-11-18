@@ -20,8 +20,8 @@ struct PSInput
 };
 
 static const float pi = 4.0f * atan(1.0f);
-static const int count = 3;
-static const int g_radius = 7;
+static const int count = 2;
+static const int g_radius = 10;
 static const float2 g_size = float2(960, 120);
 
 // 平均色と分散値を計算
@@ -41,8 +41,9 @@ float4 calcAveAndV(float2 uv, int xBegin, int xEnd, int yBegin, int yEnd)
         float alpha = 1.0 / (float)count + 0.3;
         for (int i = 1; i <= count; ++i) {
             float2 tmpUv = uv;
-            tmpUv.x += (1 - tmpUv.y) / 6 * i;
             int sign = (int)(i % 2.0) * -1;
+            float2 offs = float2(i / (float)count, 0);
+            tmpUv += offs;
             tmpUv.x += sin(g_timer / 50 * g_multiply * (count + 1 - i) * sign) * 0.4;
             texColor = texColor + g_texture0.Sample(g_sampler0, tmpUv + float2(x, y) / g_size).rgb * alpha;
         }
@@ -59,7 +60,18 @@ float4 calcAveAndV(float2 uv, int xBegin, int xEnd, int yBegin, int yEnd)
 
 float4 PS(PSInput input) : SV_TARGET
 {
-    const float2 uv = input.uv;
+    float2 uv = input.uv;
+    uv.x -= 0.5;
+    //uv.y *= 5.0f;
+    uv.x /= lerp(2, 0.2, uv.y);
+    uv.x += g_timer / 100 * g_multiply;
+
+    if (uv.y > 1 || uv.y < 0) {
+        discard;
+    }
+    //float4 color = g_texture0.Sample(g_sampler0, uv);
+    //color.a *= 5.0f;
+    //return  color * input.color + g_colorAdd;
     float4 result;
     float4 aveAndV;
     // 左上
