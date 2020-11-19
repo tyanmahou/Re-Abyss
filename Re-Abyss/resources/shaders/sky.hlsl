@@ -1,5 +1,6 @@
 Texture2D       g_texture0 : register(t0);
 SamplerState    g_sampler0 : register(s0);
+Texture2D       g_texture1 : register(t1);
 
 cbuffer PSConstants2D : register(b0)
 {
@@ -62,16 +63,13 @@ float4 PS(PSInput input) : SV_TARGET
 {
     float2 uv = input.uv;
     uv.x -= 0.5;
-    //uv.y *= 5.0f;
+    uv.y *= 1.2f; // ちょっとつぶす
     uv.x /= lerp(2, 0.2, uv.y);
     uv.x += g_timer / 100 * g_multiply;
 
     if (uv.y > 1 || uv.y < 0) {
         discard;
     }
-    //float4 color = g_texture0.Sample(g_sampler0, uv);
-    //color.a *= 5.0f;
-    //return  color * input.color + g_colorAdd;
     float4 result;
     float4 aveAndV;
     // 左上
@@ -93,5 +91,12 @@ float4 PS(PSInput input) : SV_TARGET
         result = aveAndV;
     }
     result.a = 1.0f;
+    // 水面合成
+    {
+        uv *= 3.0;
+        float4 c2 = g_texture1.Sample(g_sampler0, uv);
+        c2 *= 1.2; // 補正
+        result /= c2;
+    }
     return (result * input.color) + g_colorAdd;
 }

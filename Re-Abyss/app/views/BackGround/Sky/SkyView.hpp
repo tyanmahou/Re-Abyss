@@ -7,6 +7,7 @@ namespace abyss
     {
         SkyShader m_skyShader;
         s3d::Texture m_texture;
+        s3d::Texture m_texture2;
     public:
         SkyView();
 

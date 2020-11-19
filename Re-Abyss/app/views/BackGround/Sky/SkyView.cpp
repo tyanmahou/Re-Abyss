@@ -5,7 +5,8 @@
 namespace abyss
 {
     SkyView::SkyView() :
-        m_texture(ResourceManager::Main()->loadTexture(U"bgs/sky.png"))
+        m_texture(ResourceManager::Main()->loadTexture(U"bgs/sky.png")),
+        m_texture2(ResourceManager::Main()->loadTexture(U"bgs/surface.png"))
     {
 
     }
@@ -18,6 +19,7 @@ namespace abyss
 
     void SkyView::draw(const CameraView& camera) const
     {
+        Graphics2D::SetTexture(1, m_texture2);
         ScopedRenderStates2D blend(BlendState::Additive, SamplerState::MirrorNearest);
         auto shader = m_skyShader.start();
         auto tl = camera.screenRegion().tl();
