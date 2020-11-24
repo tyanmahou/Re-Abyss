@@ -10,6 +10,7 @@ namespace abyss::User
     public:
         virtual ~IUserDataStore() = default;
 
+        virtual bool create() const = 0;
         virtual s3d::Array<UserEntity> selectAll()const = 0;
         virtual s3d::Optional<UserEntity> select(s3d::int32 userId)const = 0;
 
