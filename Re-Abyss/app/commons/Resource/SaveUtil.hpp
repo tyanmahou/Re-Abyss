@@ -1,0 +1,7 @@
+#pragma once
+#include <Siv3DSQL.hpp>
+
+namespace abyss::Resource::SaveUtil
+{
+    [[nodiscard]] static s3dsql::SQLite3 DB();
+}

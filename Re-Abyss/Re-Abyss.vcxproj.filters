@@ -1045,6 +1045,15 @@
     <ClCompile Include="app\controllers\UI\Fade\IrisOut\IrisOut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\User\DBUserDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Resource\SaveUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1572,5 +1581,10 @@
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
     <ClInclude Include="app\controllers\UI\Fade\IrisOut\IrisOut.hpp" />
+    <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
+    <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
+    <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
+    <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
   </ItemGroup>
 </Project>
