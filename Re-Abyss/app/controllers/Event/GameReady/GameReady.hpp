@@ -6,7 +6,7 @@
 
 namespace abyss::ui::Fade
 {
-    class SmoothCircle;
+    class IrisOut;
 }
 
 namespace abyss::Event
@@ -20,7 +20,7 @@ namespace abyss::Event
         };
     private:
         TimerEx m_timer;
-        Ref<ui::Fade::SmoothCircle> m_fadeUI;
+        Ref<ui::Fade::IrisOut> m_fadeUI;
         Phase m_phase = Phase::Fade;
 
     public:

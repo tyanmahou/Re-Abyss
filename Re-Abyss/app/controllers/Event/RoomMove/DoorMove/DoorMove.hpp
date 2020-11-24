@@ -5,7 +5,7 @@
 
 namespace abyss::ui::Fade
 {
-    class SmoothCircle;
+    class IrisOut;
 }
 namespace abyss::Event::RoomMove
 {
@@ -22,7 +22,7 @@ namespace abyss::Event::RoomMove
             FadeOut
         }m_state = State::FadeOut;
 
-        Ref<ui::Fade::SmoothCircle> m_fadeUI;
+        Ref<ui::Fade::IrisOut> m_fadeUI;
     public:
         DoorMove(
             const std::pair<s3d::Vec2, s3d::Vec2>& cameraMove,

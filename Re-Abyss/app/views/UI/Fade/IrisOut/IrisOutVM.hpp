@@ -3,23 +3,23 @@
 
 namespace abyss::ui::Fade
 {
-    class SmoothCircleVM
+    class IrisOutVM
     {
         s3d::Vec2 m_pos;
         double m_fadeTimeSec = 0;
         bool m_isFadeOut = true;
     public:
-        SmoothCircleVM& setPos(const s3d::Vec2& pos)
+        IrisOutVM& setPos(const s3d::Vec2& pos)
         {
             m_pos = pos;
             return *this;
         }
-        SmoothCircleVM& setFadeTimeSec(double fadeTimeSec)
+        IrisOutVM& setFadeTimeSec(double fadeTimeSec)
         {
             m_fadeTimeSec = fadeTimeSec;
             return *this;
         }
-        SmoothCircleVM& setIsFadeOut(bool isFadeOut)
+        IrisOutVM& setIsFadeOut(bool isFadeOut)
         {
             m_isFadeOut = isFadeOut;
             return *this;

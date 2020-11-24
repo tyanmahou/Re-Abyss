@@ -3,7 +3,7 @@
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/UI/UI.hpp>
-#include <abyss/controllers/UI/Fade/SmoothCircle/SmoothCircle.hpp>
+#include <abyss/controllers/UI/Fade/IrisOut/IrisOut.hpp>
 #include <abyss/controllers/Master/Master.hpp>
 namespace abyss::Event
 {
@@ -32,7 +32,7 @@ namespace abyss::Event
             m_globalTimeScale->setScale(m_waitTimer.progress0_1());
             if (m_waitTimer.reachedZero()) {
                 m_fadeTimer.start();
-                m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+                m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut>();
                 m_phase = Phase::Fade;
             }
         }

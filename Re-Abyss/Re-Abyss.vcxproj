@@ -243,7 +243,7 @@
     <ClCompile Include="app\controllers\Stage\StageData.cpp" />
     <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp" />
-    <ClCompile Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.cpp" />
+    <ClCompile Include="app\controllers\UI\Fade\IrisOut\IrisOut.cpp" />
     <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
@@ -287,7 +287,7 @@
     <ClCompile Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
-    <ClCompile Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.cpp" />
+    <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp" />
@@ -601,7 +601,7 @@
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
-    <ClInclude Include="app\controllers\UI\Fade\SmoothCircle\SmoothCircle.hpp" />
+    <ClInclude Include="app\controllers\UI\Fade\IrisOut\IrisOut.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
     <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
@@ -932,7 +932,7 @@
     <ClInclude Include="app\views\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
-    <ClInclude Include="app\views\UI\Fade\SmoothCircleVM\SmoothCircleVM.hpp" />
+    <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />

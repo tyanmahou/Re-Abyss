@@ -47,7 +47,7 @@ namespace abyss
 		}
 
 		//3次関数的に広がる円形マスク
-		void SmoothCircleRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
+		void IrisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
 		{
 			if (!::FadeBase(rect, t))
 			{
@@ -63,9 +63,9 @@ namespace abyss
 			});
 			rect.draw(g_fadeColor);
 		}
-		void SmoothCircle(double t, const s3d::Vec2& pos)
+		void IrisOut(double t, const s3d::Vec2& pos)
 		{
-			SmoothCircleRect(t, pos, Scene::Rect());
+			IrisOutRect(t, pos, Scene::Rect());
 		}
 	}
 

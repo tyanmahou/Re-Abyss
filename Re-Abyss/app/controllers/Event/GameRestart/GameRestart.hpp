@@ -7,7 +7,7 @@
 
 namespace abyss::ui::Fade
 {
-    class SmoothCircle;
+    class IrisOut;
 }
 
 namespace abyss::Event
@@ -23,7 +23,7 @@ namespace abyss::Event
     private:
         TimerEx m_waitTimer;
         TimerEx m_fadeTimer;
-        Ref<ui::Fade::SmoothCircle> m_fadeUI;
+        Ref<ui::Fade::IrisOut> m_fadeUI;
         std::shared_ptr<GlobalTimeScaleModel> m_globalTimeScale;
         Phase m_phase = Phase::Wait;
 

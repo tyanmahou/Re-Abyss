@@ -5,25 +5,25 @@
 
 namespace abyss::ui::Fade
 {
-    class SmoothCircleVM;
+    class IrisOutVM;
 
     /// <summary>
     /// サークルフェード
     /// </summary>
-    class SmoothCircle : public IUserInterface
+    class IrisOut : public IUserInterface
     {
         s3d::Vec2 m_pos;
         double m_fadeTimeSec = 0;
         bool m_isFadeOut = true;
 
-        std::unique_ptr<SmoothCircleVM> m_view;
+        std::unique_ptr<IrisOutVM> m_view;
     public:
-        SmoothCircle();
+        IrisOut();
 
-        SmoothCircle& setPos(const s3d::Vec2& pos);
-        SmoothCircle& setFadeTime(double fadeTimeSec);
-        SmoothCircle& setIsFadeOut(bool isFadeOut);
-        SmoothCircle& setIsFadeIn(bool isFadeIn);
+        IrisOut& setPos(const s3d::Vec2& pos);
+        IrisOut& setFadeTime(double fadeTimeSec);
+        IrisOut& setIsFadeOut(bool isFadeOut);
+        IrisOut& setIsFadeIn(bool isFadeIn);
 
         void draw() const override;
     };

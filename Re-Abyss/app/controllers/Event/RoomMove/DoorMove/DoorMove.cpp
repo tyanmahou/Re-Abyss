@@ -7,7 +7,7 @@
 #include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
 
 #include <abyss/controllers/UI/UI.hpp>
-#include <abyss/controllers/UI/Fade/SmoothCircle/SmoothCircle.hpp>
+#include <abyss/controllers/UI/Fade/IrisOut/IrisOut.hpp>
 
 namespace abyss::Event::RoomMove
 {
@@ -54,7 +54,7 @@ namespace abyss::Event::RoomMove
 
     void DoorMove::onMoveStart()
     {
-        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::SmoothCircle>();
+        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut>();
     }
 
     void DoorMove::onMoveUpdate(double t)
