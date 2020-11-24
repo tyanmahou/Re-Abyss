@@ -3,5 +3,5 @@
 
 namespace abyss::Resource::SaveUtil
 {
-    [[nodiscard]] static s3dsql::SQLite3 DB();
+    [[nodiscard]] s3dsql::SQLite3 DB();
 }

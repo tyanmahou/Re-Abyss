@@ -1054,6 +1054,9 @@
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\base\DBDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1586,5 +1589,6 @@
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
+    <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
   </ItemGroup>
 </Project>

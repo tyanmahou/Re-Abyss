@@ -248,6 +248,7 @@
     <ClCompile Include="app\controllers\UI\Fade\IrisOut\IrisOut.cpp" />
     <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
+    <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\components\Actors\base\IPhysics.cpp" />
@@ -613,6 +614,7 @@
     <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
+    <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />

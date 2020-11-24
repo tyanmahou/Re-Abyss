@@ -1,11 +1,11 @@
 #include "DBUserDataStore.hpp"
 
-
 namespace abyss::User
 {
     bool DBUserDataStore::create() const
     {
-        return false;
+        s3d::String sql = U"";
+        return m_db.exec(sql);
     }
 
     s3d::Array<UserEntity> DBUserDataStore::selectAll() const
@@ -18,7 +18,16 @@ namespace abyss::User
         return s3d::Optional<UserEntity>();
     }
 
-    void DBUserDataStore::update(const UserEntity& entity) const
-    {}
+    bool DBUserDataStore::update(const UserEntity& entity) const
+    {
+        s3d::String sql = U"";
+        return m_db.exec(sql);
+    }
+
+    bool DBUserDataStore::erase(s3d::int32 userId) const
+    {
+        s3d::String sql = U"";
+        return m_db.exec(sql);
+    }
 
 }

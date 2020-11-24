@@ -9,8 +9,13 @@ namespace abyss::User
 {
     struct UserEntity
     {
+        // ユーザーID
         s3d::int32 userId;
+        // プレイモード
         UserPlayMode playMode;
+        // プレイ時間
+        s3d::Duration playTime;
+        // 作成日
         s3d::DateTime created_at;
     };
 }

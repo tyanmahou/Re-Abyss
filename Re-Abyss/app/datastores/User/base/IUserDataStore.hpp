@@ -14,6 +14,7 @@ namespace abyss::User
         virtual s3d::Array<UserEntity> selectAll()const = 0;
         virtual s3d::Optional<UserEntity> select(s3d::int32 userId)const = 0;
 
-        virtual void update(const UserEntity& entity)const = 0;
+        virtual bool update(const UserEntity& entity)const = 0;
+        virtual bool erase(s3d::int32 userId)const = 0;
     };
 }
