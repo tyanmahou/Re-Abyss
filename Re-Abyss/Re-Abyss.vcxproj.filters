@@ -1057,6 +1057,12 @@
     <ClCompile Include="app\datastores\base\DBDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Coro\Task\Task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Coro\Wait\Wait.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1590,5 +1596,7 @@
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
+    <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
+    <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
   </ItemGroup>
 </Project>
