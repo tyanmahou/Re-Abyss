@@ -255,6 +255,7 @@
     <ClCompile Include="app\controllers\UI\Serif\Serif.cpp" />
     <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
+    <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\components\Actors\base\IPhysics.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp" />
@@ -316,7 +317,6 @@
     <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp" />
     <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp" />
     <ClCompile Include="app\controllers\UI\UI.cpp" />
-    <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DamageCallback.cpp" />
     <ClCompile Include="app\components\Actors\Player\OopartsCtrl.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
