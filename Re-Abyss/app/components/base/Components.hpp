@@ -5,31 +5,11 @@
 #include <Siv3D/Array.hpp>
 
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/base/ComponentMapping.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss
 {
-    class Components;
-
-    namespace detail
-    {
-        
-        template<class T>
-        struct MappingComponentTree
-        {
-            void mapping(const Components* c, const std::shared_ptr<IComponent>& component);
-        };
-
-        template<class ...Args>
-        struct MappingComponentTree<MultiComponents<Args...>>
-        {
-            void mapping(const Components* c, const std::shared_ptr<IComponent>& component)
-            {
-                (MappingComponentTree<Args>{}.mapping(c, component), ...);
-            }
-        };
-    }
-
     class Components
     {
     private:
@@ -41,14 +21,13 @@ namespace abyss
 
         Ref<IComponent> find(const std::type_index& key) const;
         const s3d::Array<Ref<IComponent>>& finds(const std::type_index& key) const;
+        void registTree(const std::type_index& key, const std::shared_ptr<IComponent>& component) const;
     public:
         Components();
 
         void setup() const;
 
         void start() const;
-
-        void registTree(const std::type_index& key, const Ref<IComponent>& component) const;
 
         template<class Component>
         Ref<Component> add(const std::shared_ptr<Component>& component) const
@@ -57,7 +36,9 @@ namespace abyss
             if (!add(typeid(Component), component)) {
                 return this->find<Component>();
             }
-            detail::MappingComponentTree<Component>{}.mapping(this, component);
+            for (auto index : CompoentMappingIdexes<Component>()) {
+                registTree(index, component);
+            }
             return Ref<Component>(component);
         }
 
@@ -99,16 +80,4 @@ namespace abyss
             return ret;
         }
     };
-
-    namespace detail
-    {
-        template<class T>
-        void MappingComponentTree<T>::mapping(const Components* c, const std::shared_ptr<IComponent>& component)
-        {
-            c->registTree(typeid(T), component);
-            if constexpr (HasBaseComponent<T>) {
-                MappingComponentTree<typename ComponentTree<T>::Base>{}.mapping(c, component);
-            }
-        }
-    }
 }

@@ -103,7 +103,7 @@ namespace abyss
         m_pImpl->start();
     }
 
-    void Components::registTree(const std::type_index& key, const Ref<IComponent>& component) const
+    void Components::registTree(const std::type_index& key, const std::shared_ptr<IComponent>& component) const
     {
         m_pImpl->registTree(key, component);
     }
