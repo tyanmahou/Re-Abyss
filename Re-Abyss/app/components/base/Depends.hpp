@@ -24,7 +24,7 @@ namespace abyss
         template<class Component>
         void addBefore() const
         {
-            addBefore[](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
+            addBefore([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
         }
 
         bool isAfter(IComponent* c) const;

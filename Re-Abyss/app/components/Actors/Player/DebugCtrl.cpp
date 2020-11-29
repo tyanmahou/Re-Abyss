@@ -9,9 +9,6 @@ namespace abyss::Actor::Player
         m_pActor(pActor)
     {}
 
-    void DebugCtrl::setup()
-    {}
-
     void DebugCtrl::onUpdate()
     {
         auto hp = m_pActor->find<HP>();

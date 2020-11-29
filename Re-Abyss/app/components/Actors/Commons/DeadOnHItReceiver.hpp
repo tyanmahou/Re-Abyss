@@ -13,7 +13,7 @@ namespace abyss::Actor
         Ref<DeadChecker> m_deadChecker;
     public:
         DeadOnHItReceiver(IActor* pActor);
-        void setup() override;
+        void onStart() override;
         void onCollisionStay(IActor* col)override;
     };
 }

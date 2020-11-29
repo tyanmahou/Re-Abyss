@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
         Ref<Body> m_body;
     public:
         MainUpdate(IActor* pActor);
-        void setup() override;
+        void onStart() override;
         void onUpdate() override;
 
         void onPrePhysics() override;

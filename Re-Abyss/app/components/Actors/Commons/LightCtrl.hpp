@@ -21,7 +21,7 @@ namespace abyss::Actor
     public:
         LightCtrl(IActor* pActor);
 
-        void setup() override;
+        void onStart()override;
         void onDraw() const override;
 
         LightCtrl& setRadius(double radius)

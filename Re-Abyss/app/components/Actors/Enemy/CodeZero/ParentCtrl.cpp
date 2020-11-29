@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
     
     }
-    void ParentCtrl::setup()
+    void ParentCtrl::onStart()
     {
         m_body = m_parent->find<Actor::Body>();
         m_hp = m_parent->find<HP>();

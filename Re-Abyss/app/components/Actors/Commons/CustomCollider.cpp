@@ -2,10 +2,14 @@
 
 namespace abyss::Actor
 {
-    void CustomCollider::setup()
+    void CustomCollider::setup([[maybe_unused]]Depends depends)
+    {
+
+    }
+    void CustomCollider::onStart()
     {
         if (m_pImpl) {
-            m_pImpl->setup();
+            m_pImpl->onStart();
         }
     }
     CustomCollider& CustomCollider::setImpl(std::unique_ptr<IImpl>&& impl)
@@ -24,7 +28,7 @@ namespace abyss::Actor
                 m_colFunc(func)
             {}
 
-            void setup() override
+            void onStart() override
             {}
             CShape getCollider() const override
             {

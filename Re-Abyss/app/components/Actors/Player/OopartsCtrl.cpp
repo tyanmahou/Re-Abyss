@@ -13,13 +13,11 @@ namespace abyss::Actor::Player
     OopartsCtrl::OopartsCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void OopartsCtrl::setup()
+    void OopartsCtrl::onStart()
     {
         m_attackCtrl = m_pActor->find<AttackCtrl>();
         m_body = m_pActor->find<Body>();
-    }
-    void OopartsCtrl::onStart()
-    {
+
         std::shared_ptr<Ooparts::OopartsActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::XtoActor>(m_pActor);
         this->setMain(main);
     }

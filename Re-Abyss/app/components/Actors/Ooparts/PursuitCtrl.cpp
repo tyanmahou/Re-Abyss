@@ -12,7 +12,7 @@ namespace abyss::Actor::Ooparts
         m_localPos(0, 0)
     {}
 
-    void PursuitCtrl::setup()
+    void PursuitCtrl::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

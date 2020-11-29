@@ -20,7 +20,7 @@ namespace abyss::Actor::Player::Shot
     public:
         using ICollider::ICollider;
 
-        void setup() override;
+        void onStart() override;
 
         s3d::Circle getColliderCircle() const;
         CShape getCollider() const override;

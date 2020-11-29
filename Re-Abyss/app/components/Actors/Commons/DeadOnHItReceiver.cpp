@@ -7,7 +7,7 @@ namespace abyss::Actor
     DeadOnHItReceiver::DeadOnHItReceiver(IActor* pActor):
         m_pActor(pActor)
     {}
-    void DeadOnHItReceiver::setup()
+    void DeadOnHItReceiver::onStart()
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
     }

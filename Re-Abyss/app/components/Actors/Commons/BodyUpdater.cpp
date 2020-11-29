@@ -8,7 +8,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void BodyUpdater::setup()
+    void BodyUpdater::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

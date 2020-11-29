@@ -15,7 +15,6 @@ namespace abyss::Actor::Player
     public:
         RestartCtrl(IActor* pActor);
 
-        void setup() override;
         void onDead() override;
     };
 }

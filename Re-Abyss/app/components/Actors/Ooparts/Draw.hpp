@@ -18,7 +18,7 @@ namespace abyss::Actor::Ooparts
         Ref<ViewCtrl<OopartsVM>> m_view;
     public:
         Draw(IActor* pActor);
-        void setup() override;
+        void onStart() override;
         void onDraw() const override;
     };
 }

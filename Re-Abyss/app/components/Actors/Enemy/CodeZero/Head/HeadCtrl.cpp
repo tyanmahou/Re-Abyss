@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         m_forward(Forward::None),
         m_pActor(pActor)
     {}
-    void HeadCtrl::setup()
+    void HeadCtrl::onStart()
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();
     }

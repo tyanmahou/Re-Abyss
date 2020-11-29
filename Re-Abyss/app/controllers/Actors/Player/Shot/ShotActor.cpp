@@ -82,7 +82,7 @@ namespace
 				.setPos(m_body->getPos())
 				.setManager(m_pActor->getManager());
 		}
-		void setup() override
+		void onStart() override
 		{
 			m_body = m_pActor->find<Body>();
 		}

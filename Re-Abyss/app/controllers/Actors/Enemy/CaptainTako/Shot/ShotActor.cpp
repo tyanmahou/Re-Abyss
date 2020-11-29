@@ -97,7 +97,7 @@ namespace
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward());
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
         }

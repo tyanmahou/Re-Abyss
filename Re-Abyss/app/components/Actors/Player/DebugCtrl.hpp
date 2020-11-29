@@ -15,7 +15,6 @@ namespace abyss::Actor::Player
     public:
         DebugCtrl(IActor* pActor);
 
-        void setup() override;
         void onUpdate() override;
     };
 }

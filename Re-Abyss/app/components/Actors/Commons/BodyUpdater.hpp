@@ -18,7 +18,7 @@ namespace abyss::Actor
     public:
         BodyUpdater(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
         void onMove() override;
 
         BodyUpdater& setActive(bool isActive)

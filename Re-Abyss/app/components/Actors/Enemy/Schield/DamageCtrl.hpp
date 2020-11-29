@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::Schield
     public:
         DamageCtrl(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
 
         void onCollisionStay(IActor* col)override;
     };

@@ -34,7 +34,7 @@ namespace abyss::Actor
         m_requestDead = true;
     }
 
-    void DeadChecker::setup()
+    void DeadChecker::onStart()
     {
         m_hp = m_pActor->find<HP>();
     }

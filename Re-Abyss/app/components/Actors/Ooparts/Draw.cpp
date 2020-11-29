@@ -11,7 +11,7 @@ namespace abyss::Actor::Ooparts
         m_pActor(pActor)
     {}
 
-    void Draw::setup()
+    void Draw::onStart()
     {
         m_view = m_pActor->find<ViewCtrl<OopartsVM>>();
     }

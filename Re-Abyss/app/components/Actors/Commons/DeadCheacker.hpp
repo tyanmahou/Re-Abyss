@@ -32,7 +32,7 @@ namespace abyss::Actor
         /// </summary>
         void requestDead();
 
-        void setup() override;
+        void onStart()override;
         void onLastUpdate() override;
     };
 }

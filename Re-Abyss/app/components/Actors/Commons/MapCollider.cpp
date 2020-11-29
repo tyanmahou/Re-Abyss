@@ -78,7 +78,7 @@ namespace abyss::Actor
         IPhysics(pActor),
         m_result(std::make_unique<Result>())
     {}
-    void MapCollider::setup()
+    void MapCollider::onStart()
     {
         m_body = m_pActor->find<Body>();
         m_foot = m_pActor->find<Foot>();

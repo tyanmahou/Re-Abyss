@@ -85,7 +85,7 @@ namespace
                 .setForward(m_head->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime());
         }
-        void setup() final
+        void onStart() final
         {
             m_head = m_pActor->find<HeadCtrl>();
             m_hp = m_pActor->find<ParentCtrl>()->getHp();

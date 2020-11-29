@@ -11,9 +11,6 @@ namespace abyss::Actor::Player
     RoomMoveChecker::RoomMoveChecker(PlayerActor* pActor):
         m_pActor(pActor)
     {}
-    void RoomMoveChecker::setup()
-    {
-    }
     void RoomMoveChecker::onLastUpdate()
     {
         if (m_pActor->isDestroyed()) {

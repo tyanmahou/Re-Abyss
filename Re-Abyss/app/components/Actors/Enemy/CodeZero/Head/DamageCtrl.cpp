@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 	DamageCtrl::DamageCtrl(IActor* pActor) :
 		m_pActor(pActor)
 	{}
-	void DamageCtrl::setup()
+	void DamageCtrl::onStart()
 	{
 		m_parent = m_pActor->find<ParentCtrl>();
 	}

@@ -78,7 +78,7 @@ namespace
         {
             return &m_view->setPos(m_body->getPos());
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Actor::Body>();
         }

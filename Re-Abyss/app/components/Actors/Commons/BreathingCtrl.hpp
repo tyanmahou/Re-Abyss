@@ -14,7 +14,7 @@ namespace abyss::Actor
     public:
         BreathingCtrl(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
         void onLastUpdate() override;
 
         void setOffset(const Vec2& offset)

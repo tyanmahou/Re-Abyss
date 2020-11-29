@@ -37,7 +37,7 @@ namespace
             m_audio(audio)
         {}
 
-        void setup() override
+        void onStart() override
         {
             m_body = m_pActor->find<Body>();
             m_audio.play();
@@ -74,7 +74,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void AudioSource::setup()
+    void AudioSource::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

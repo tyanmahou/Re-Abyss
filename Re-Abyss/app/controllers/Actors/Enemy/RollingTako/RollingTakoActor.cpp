@@ -71,7 +71,7 @@ namespace
                 .setIsDamaging(m_hp->isInInvincibleTime())
                 ;
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();

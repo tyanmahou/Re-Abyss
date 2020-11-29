@@ -14,7 +14,6 @@ namespace abyss::Actor::Player
     public:
         RoomMoveChecker(PlayerActor* pActor);
 
-        void setup() override;
         void onLastUpdate() override;
     };
 }

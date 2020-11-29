@@ -10,7 +10,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void FallChecker::setup()
+    void FallChecker::onStart()
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
         m_body = m_pActor->find<Body>();

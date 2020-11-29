@@ -1081,6 +1081,9 @@
     <ClCompile Include="app\components\Actors\Map\Ladder\LadderProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\base\Depends.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

@@ -19,7 +19,7 @@ namespace abyss::Actor
     public:
         FallChecker(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
         void onLastUpdate() override;
 
         bool isFall() const

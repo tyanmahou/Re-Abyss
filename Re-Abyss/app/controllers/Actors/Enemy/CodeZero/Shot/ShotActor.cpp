@@ -79,7 +79,7 @@ namespace
                 .setPos(m_body->getPos())
                 .setScale(m_scale->get());
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();
@@ -97,7 +97,7 @@ namespace
         Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
     private:
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();

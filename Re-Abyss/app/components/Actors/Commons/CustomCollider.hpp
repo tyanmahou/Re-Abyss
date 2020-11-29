@@ -17,7 +17,7 @@ namespace abyss::Actor
         public:
             virtual ~IImpl() = default;
 
-            virtual void setup() = 0;
+            virtual void onStart() {}
             virtual CShape getCollider() const = 0;
         };
     private:
@@ -25,7 +25,8 @@ namespace abyss::Actor
     public:
         using ICollider::ICollider;
 
-        void setup()override;
+        void setup(Depends depends)override;
+        void onStart()override;
         CustomCollider& setImpl(std::unique_ptr<IImpl>&& impl);
 
         template<class Impl, class... Args>

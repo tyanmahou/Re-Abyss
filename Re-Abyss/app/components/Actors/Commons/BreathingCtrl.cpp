@@ -14,7 +14,7 @@ namespace abyss::Actor
         m_timeOffsetSec(Random(0.0, 10.0))
     {}
 
-    void BreathingCtrl::setup()
+    void BreathingCtrl::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

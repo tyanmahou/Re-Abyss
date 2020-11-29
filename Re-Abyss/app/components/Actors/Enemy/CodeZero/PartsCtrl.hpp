@@ -23,7 +23,6 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         PartsCtrl(IActor* pActor);
 
-        void setup() override;
         void onStart() override;
 
         const Ref<Head::HeadActor>& getHead()const { return m_head; }

@@ -94,7 +94,7 @@ namespace
                 ->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos());
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
         }

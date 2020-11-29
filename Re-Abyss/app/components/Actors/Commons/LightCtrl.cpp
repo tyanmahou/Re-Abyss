@@ -9,7 +9,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void LightCtrl::setup()
+    void LightCtrl::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

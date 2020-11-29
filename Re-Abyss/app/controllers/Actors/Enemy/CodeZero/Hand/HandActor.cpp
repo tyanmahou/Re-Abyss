@@ -127,7 +127,7 @@ namespace
                 .setRotate(m_rotate->getRotate())
                 ;
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_rotate = m_pActor->find<RotateCtrl>();

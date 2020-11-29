@@ -39,7 +39,7 @@ namespace
                 .setForward(m_body->getForward())
                 ;
         }
-        void setup() final
+        void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_view->setCallback(std::make_unique<ActDrawCallbackView>(m_view.get(), m_pActor->getManager()));

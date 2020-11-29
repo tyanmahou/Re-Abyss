@@ -1,4 +1,6 @@
 #pragma once
+#include <abyss/components/base/Depends.hpp>
+
 namespace abyss
 {
     class IComponent
@@ -7,7 +9,7 @@ namespace abyss
         IComponent() = default;
         virtual ~IComponent() = default;
 
-        virtual void setup() {}
+        virtual void setup([[maybe_unused]]Depends depends) {}
 
         virtual void onStart() {}
     };

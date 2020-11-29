@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     public:
         DamageCtrl(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
         void onCollisionStay(IActor* col)override;
     };
 }

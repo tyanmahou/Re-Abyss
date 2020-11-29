@@ -9,7 +9,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void CameraFixPos::setup()
+    void CameraFixPos::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

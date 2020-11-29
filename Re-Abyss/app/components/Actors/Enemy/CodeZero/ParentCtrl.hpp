@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         ParentCtrl(IActor* parent);
 
-        void setup() override;
+        void onStart() override;
         IActor* getParent()const
         {
             return m_parent;

@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 	MainUpdate::MainUpdate(IActor* pActor):
 		m_pActor(pActor)
 	{}
-	void MainUpdate::setup()
+	void MainUpdate::onStart()
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();
         m_mapColl = m_pActor->find<MapCollider>();

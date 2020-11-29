@@ -22,7 +22,7 @@ namespace abyss::Actor
         AudioSettingGroup m_audioSettingGroup;
     public:
         AudioSource(IActor* pActor);
-        void setup() override;
+        void onStart() override;
 
         void load(const s3d::FilePath& path);
         void onUpdate() override;

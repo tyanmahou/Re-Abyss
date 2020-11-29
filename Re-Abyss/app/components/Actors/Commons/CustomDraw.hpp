@@ -20,14 +20,17 @@ namespace abyss::Actor
         public:
             virtual ~IImpl() = default;
 
-            virtual void setup() = 0;
+            virtual void onStart() = 0;
             virtual void onDraw(const s3d::String& motion)const = 0;
         };
     private:
         s3d::String m_motion;
         std::unique_ptr<IImpl> m_pImpl;
     public:
-        void setup() override;
+        void setup(Depends depends) override;
+
+        void onStart() override;
+
         void onDraw() const override;
 
         /// <summary>

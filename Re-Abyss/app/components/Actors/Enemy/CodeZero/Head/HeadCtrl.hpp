@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         Ref<ParentCtrl> m_parentCtrl;
     public:
         HeadCtrl(IActor* pActor);
-        void setup() override;
+        void onStart() override;
 
         s3d::Vec2 getPos() const;
 

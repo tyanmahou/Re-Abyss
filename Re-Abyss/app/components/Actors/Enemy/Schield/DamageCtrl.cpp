@@ -10,9 +10,9 @@ namespace abyss::Actor::Enemy::Schield
         Actor::DamageCtrl(pActor)
     {}
 
-    void DamageCtrl::setup()
+    void DamageCtrl::onStart()
     {
-        Actor::DamageCtrl::setup();
+        Actor::DamageCtrl::onStart();
 
         m_face = m_pActor->find<FaceCtrl>();
     }

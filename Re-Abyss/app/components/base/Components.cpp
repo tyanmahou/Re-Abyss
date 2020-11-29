@@ -12,8 +12,9 @@ namespace abyss
     public:
         void setup()
         {
+            Depends d;
             for (auto&& com : m_tree[typeid(IComponent)]) {
-                com->setup();
+                com->setup(d);
             }
         }
         void start()

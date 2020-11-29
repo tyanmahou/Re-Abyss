@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::Schield
     public:
         FaceCtrl(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
 
         FaceCtrl& on()
         {

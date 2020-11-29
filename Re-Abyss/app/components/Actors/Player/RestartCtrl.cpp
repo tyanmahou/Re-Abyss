@@ -13,9 +13,6 @@ namespace abyss::Actor::Player
         m_pActor(pActor)
     {}
 
-    void RestartCtrl::setup()
-    {}
-
     void RestartCtrl::onDead()
     {
         if (auto state = m_pActor->find<StateCtrl>()) {

@@ -77,10 +77,6 @@ namespace abyss::Actor
             m_pActor(pActor)
         {}
 
-        void setup() override
-        {
-        }
-
         void onStart() override
         {
             this->stateUpdate();

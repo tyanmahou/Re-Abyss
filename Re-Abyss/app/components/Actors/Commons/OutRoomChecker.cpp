@@ -13,7 +13,7 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void OutRoomChecker::setup()
+    void OutRoomChecker::onStart()
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
         if (!m_colliderFunc) {

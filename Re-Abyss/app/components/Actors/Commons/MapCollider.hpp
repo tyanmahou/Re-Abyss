@@ -28,7 +28,7 @@ namespace abyss::Actor
 
         MapCollider(IActor* pActor);
 
-        void setup() override;
+        void onStart() override;
 
         s3d::RectF getCollider() const override;
 

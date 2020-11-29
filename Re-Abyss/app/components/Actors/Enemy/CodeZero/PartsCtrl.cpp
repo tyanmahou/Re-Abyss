@@ -10,9 +10,6 @@ namespace abyss::Actor::Enemy::CodeZero
         m_pActor(pActor)
     {}
 
-    void PartsCtrl::setup()
-    {}
-
     void PartsCtrl::onStart()
     {
         auto* const world = m_pActor->getModule<World>();

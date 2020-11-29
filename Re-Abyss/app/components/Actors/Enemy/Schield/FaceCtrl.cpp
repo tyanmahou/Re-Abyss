@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::Schield
     FaceCtrl::FaceCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void FaceCtrl::setup()
+    void FaceCtrl::onStart()
     {
         m_body = m_pActor->find<Body>();
     }

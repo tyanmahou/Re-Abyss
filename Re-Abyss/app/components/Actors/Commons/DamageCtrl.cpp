@@ -6,7 +6,7 @@ namespace abyss::Actor
 	DamageCtrl::DamageCtrl(IActor* pActor):
 		m_pActor(pActor)
 	{}
-	void DamageCtrl::setup()
+	void DamageCtrl::onStart()
 	{
 		m_hp = m_pActor->find<HP>();
 	}

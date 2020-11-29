@@ -21,8 +21,6 @@ namespace abyss::Actor
     public:
         BehaviorCtrl(IActor* pActor);
 
-        void setup() override;
-
         void setBehavior(std::function<Coro::Task(IActor*)> behavior);
 
         void onUpdate() override;
