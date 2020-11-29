@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/controllers/UI/UI.hpp>
 namespace abyss::Event::Talk
 {
@@ -13,7 +13,7 @@ namespace abyss::Event::Talk
         if (m_bossBgmPath) {
             m_pManager->getModule<Sound>()->stop(0s);
         }
-        m_se = ResourceManager::Main()
+        m_se = Resource::Assets::Main()
             ->loadAudio(U"se/commons/charge_boss_hp.ogg");
     }
 

@@ -1,7 +1,7 @@
 #include "WaveShader.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 namespace
@@ -25,7 +25,7 @@ namespace abyss
     public:
         Impl() :
             m_rt(static_cast<uint32>(Constants::GameScreenSize.x), static_cast<uint32>(Constants::GameScreenSize.y)),
-            m_ps(ResourceManager::Main()->loadPs(U"wave.hlsl"))
+            m_ps(Resource::Assets::Main()->loadPs(U"wave.hlsl"))
         {}
 
         void setMultiply(float multiply)

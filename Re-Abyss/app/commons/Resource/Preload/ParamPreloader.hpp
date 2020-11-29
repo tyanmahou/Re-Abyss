@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Resource::Prelaod
 {
-    void LoadTomlAll(const ResourceManager& resource);
-    void LoadSplashToml(const ResourceManager& resource);
-    void LoadTitleToml(const ResourceManager& resource);
+    void LoadTomlAll(const Assets& resource);
+    void LoadSplashToml(const Assets& resource);
+    void LoadTitleToml(const Assets& resource);
 
-    void LoadActorToml(const ResourceManager& resource);
+    void LoadActorToml(const Assets& resource);
 }

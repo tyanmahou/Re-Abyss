@@ -2,12 +2,12 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien
 {
     IkalienVM::IkalienVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Ikalien/ikalien.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Enemy/Ikalien/ikalien.png"))
     {}
     IkalienVM& IkalienVM::setTime(double time)
     {

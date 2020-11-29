@@ -2,11 +2,11 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 namespace abyss::Actor::Enemy::RollingTako
 {
     RollingTakoVM::RollingTakoVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/RollingTako/rolling_tako.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Enemy/RollingTako/rolling_tako.png"))
     {}
     RollingTakoVM& RollingTakoVM::setTime(double time)
     {

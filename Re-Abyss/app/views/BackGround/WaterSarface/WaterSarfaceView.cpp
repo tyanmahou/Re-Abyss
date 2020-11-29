@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace
 {
@@ -32,7 +32,7 @@ namespace
 namespace abyss
 {
     WaterSarfaceView::WaterSarfaceView():
-		m_texture(ResourceManager::Main()->loadTexture(U"bgs/surface.png"))
+		m_texture(Resource::Assets::Main()->loadTexture(U"bgs/surface.png"))
     {}
 
 	WaterSarfaceView& WaterSarfaceView::setTime(double time)

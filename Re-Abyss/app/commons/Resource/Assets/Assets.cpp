@@ -1,13 +1,13 @@
-#include "ResourceManager.hpp"
+#include "Assets.hpp"
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 #include <Siv3D.hpp>
 #include <S3DTiled.hpp>
-namespace abyss
+namespace abyss::Resource
 {
-    class ResourceManager::Impl
+    class Assets::Impl
     {
         s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
         s3d::HashTable<String, Texture> m_textureCache;
@@ -103,58 +103,58 @@ namespace abyss
         }
     };
 
-    ResourceManager::ResourceManager():
+    Assets::Assets():
         m_pImpl(std::make_unique<Impl>())
     {
     }
-    ResourceManager::~ResourceManager()
+    Assets::~Assets()
     {
     }
-    s3dTiled::TiledMap ResourceManager::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
+    s3dTiled::TiledMap Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
     {
         return m_pImpl->loadTmx(FileUtil::FixRelativePath(prefix + path));
     }
-    s3d::Texture ResourceManager::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    s3d::Texture Assets::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexture(FileUtil::FixRelativePath(prefix + path));
     }
 
-    TexturePacker ResourceManager::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    TexturePacker Assets::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexturePacker(FileUtil::FixRelativePath(prefix + path));
     }
 
-    s3d::Audio ResourceManager::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudio(FileUtil::FixRelativePath(prefix + path));
     }
 
-    AudioSettingGroup ResourceManager::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    AudioSettingGroup Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudioSettingGroup(FileUtil::FixRelativePath(prefix + path));
     }
 
-    s3d::PixelShader ResourceManager::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    s3d::PixelShader Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadPs(FileUtil::FixRelativePath(prefix + path));
     }
 
-    const s3d::TOMLValue& ResourceManager::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const s3d::TOMLValue& Assets::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadToml(FileUtil::FixRelativePath(prefix + path));
     }
 
-    void ResourceManager::release() const
+    void Assets::release() const
     {
         return m_pImpl->release();
     }
 
-    void ResourceManager::setIsBuilded(bool isBuilded) const
+    void Assets::setIsBuilded(bool isBuilded) const
     {
         m_pImpl->setIsBuilded(isBuilded);
     }
 
-    ResourceManager* ResourceManager::Main()
+    Assets* Assets::Main()
     {
         return Instance();
     }

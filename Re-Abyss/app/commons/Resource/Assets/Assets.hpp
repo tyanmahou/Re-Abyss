@@ -16,17 +16,20 @@ namespace s3dTiled
 namespace abyss
 {
     class AudioSettingGroup;
+}
+namespace abyss::Resource
+{
 
-    class ResourceManager : protected Singleton<ResourceManager>
+    class Assets : protected Singleton<Assets>
     {
-        friend class Singleton<ResourceManager>;
+        friend class Singleton<Assets>;
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
 
 
-        ResourceManager();
+        Assets();
     public:
-        ~ResourceManager();
+        ~Assets();
 
         s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath);
         s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
@@ -49,6 +52,6 @@ namespace abyss
 
         void setIsBuilded(bool isBuilded) const;
     public:
-        static ResourceManager* Main();
+        static Assets* Main();
     };
 }

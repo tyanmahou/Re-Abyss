@@ -1,11 +1,11 @@
 #include "MessageBoxVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::ui
 {
     MessageBoxVM::MessageBoxVM() :
-        m_boxTexture(ResourceManager::Main()->loadTexture(U"ui/common/message_box.png"))
+        m_boxTexture(Resource::Assets::Main()->loadTexture(U"ui/common/message_box.png"))
     {}
     MessageBoxVM& MessageBoxVM::setPos(const s3d::Vec2& pos)
     {
@@ -39,7 +39,7 @@ namespace abyss::ui
 
         if (m_name) {
             ScopedRenderStates2D state2d(SamplerState::ClampNearest);
-            static const auto& ps = ResourceManager::Main()->loadPs(U"bitmap_font.hlsl");
+            static const auto& ps = Resource::Assets::Main()->loadPs(U"bitmap_font.hlsl");
             ScopedCustomShader2D shader(ps);
 
             double nameOffset = m_isLeft ? -140 : 140;

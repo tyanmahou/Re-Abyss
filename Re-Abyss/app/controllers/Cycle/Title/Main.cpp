@@ -1,6 +1,6 @@
 #include "Main.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/controllers/Cycle/Title/Logo/Logo.hpp>
 #include <abyss/controllers/Cycle/Title/BackGround/BackGround.hpp>
 #include <abyss/controllers/Cycle/Title/Cursor/Cursor.hpp>
@@ -14,7 +14,7 @@ namespace abyss::Cycle::Title
         m_logo(std::make_unique<Logo::Logo>()),
         m_bg(std::make_unique<BackGround::BackGround>()),
         m_cursor(std::make_unique<Cursor::Cursor>()),
-        m_bgm(ResourceManager::Main()->loadAudio(U"bgm/cycle/title/title.aas"))
+        m_bgm(Resource::Assets::Main()->loadAudio(U"bgm/cycle/title/title.aas"))
     {
         m_bgm.play(0.2s);
 

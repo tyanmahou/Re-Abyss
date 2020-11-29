@@ -1,11 +1,11 @@
 #include "DyingEffectVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 namespace abyss::ui
 {
     DyingEffectVM::DyingEffectVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"ui/common/dying_effect/dying_effect.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/common/dying_effect/dying_effect.png"))
     {}
 
     void DyingEffectVM::draw() const

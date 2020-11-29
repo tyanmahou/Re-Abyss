@@ -1,5 +1,5 @@
 #include "NyanVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Ooparts::Nyan
@@ -12,6 +12,6 @@ namespace abyss::Actor::Ooparts::Nyan
     }
 
     NyanVM::NyanVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Ooparts/Nyan/nyan.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Ooparts/Nyan/nyan.png"))
     {}
 }

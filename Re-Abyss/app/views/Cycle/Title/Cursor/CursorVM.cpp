@@ -1,10 +1,10 @@
 #include "CursorVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Cycle::Title::Cursor
 {
     CursorVM::CursorVM() :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
 
     void CursorVM::draw() const

@@ -1,11 +1,11 @@
 #include "DoorDecorVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss
 {
     DoorDecorVM::DoorDecorVM(const DoorDecorModel& model) :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Gimmick/Door/door.json")),
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Gimmick/Door/door.json")),
         m_model(model)
     {}
     void DoorDecorVM::drawCommon() const

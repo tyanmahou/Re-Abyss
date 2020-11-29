@@ -1,11 +1,11 @@
 #include "HandVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     HandVM::HandVM(Forward forward) :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json")),
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json")),
         m_forward(forward),
         m_rotate(0)
     {}

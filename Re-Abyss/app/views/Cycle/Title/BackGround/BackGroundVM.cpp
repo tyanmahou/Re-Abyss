@@ -1,12 +1,12 @@
 #include "BackGroundVM.hpp"
 
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Cycle::Title::BackGround
 {
     BackGroundVM::BackGroundVM() :
-        m_texture(ResourceManager::Main()->loadTexture(U"cycle/title/bg.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/title/bg.png"))
     {}
 
     void BackGroundVM::draw() const

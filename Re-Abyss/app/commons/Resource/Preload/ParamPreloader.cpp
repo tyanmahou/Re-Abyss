@@ -27,23 +27,23 @@
 
 namespace abyss::Resource::Prelaod
 {
-	void LoadTomlAll(const ResourceManager& resource)
+	void LoadTomlAll(const Assets& resource)
 	{
 		LoadSplashToml(resource);
 		LoadTitleToml(resource);
 		LoadActorToml(resource);
 	}
-	void LoadSplashToml(const ResourceManager& resource)
+	void LoadSplashToml(const Assets& resource)
 	{
 		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
 	}
 
-	void LoadTitleToml(const ResourceManager& resource)
+	void LoadTitleToml(const Assets& resource)
 	{
 		resource.loadToml<Cycle::Title::LogoParam>(U"Cycle/Title/logo_param.toml");
 		resource.loadToml<Cycle::Title::BgParam>(U"Cycle/Title/bg_param.toml");
 	}
-	void LoadActorToml(const ResourceManager& resource)
+	void LoadActorToml(const Assets& resource)
     {
 		using namespace Actor;
 		using namespace Actor::Enemy;

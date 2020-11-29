@@ -2,12 +2,12 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
     CaptainTakoVM::CaptainTakoVM() :
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/CaptainTako/captain_tako.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Enemy/CaptainTako/captain_tako.png"))
     {}
 
     CaptainTakoVM& CaptainTakoVM::setTime(double time)

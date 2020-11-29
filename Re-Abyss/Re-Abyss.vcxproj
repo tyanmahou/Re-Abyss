@@ -324,7 +324,7 @@
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
     <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp" />
     <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp" />
-    <ClCompile Include="app\commons\ResourceManager\ResourceManager.cpp" />
+    <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\controllers\System\System.cpp" />
     <ClCompile Include="app\controllers\Manager\Manager.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
@@ -691,7 +691,7 @@
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
-    <ClInclude Include="app\commons\ResourceManager\ResourceManager.hpp" />
+    <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Common.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />

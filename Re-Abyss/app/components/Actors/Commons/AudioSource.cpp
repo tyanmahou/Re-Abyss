@@ -2,7 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
@@ -81,7 +81,7 @@ namespace abyss::Actor
 
     void AudioSource::load(const s3d::FilePath& path)
     {
-        m_audioSettingGroup = ResourceManager::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
+        m_audioSettingGroup = Resource::Assets::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
     }
 
     void AudioSource::onUpdate([[maybe_unused]] double dt)
@@ -101,7 +101,7 @@ namespace abyss::Actor
     void AudioSource::play(const s3d::String& key)
     {
         auto as = m_audioSettingGroup(key);
-        if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
+        if (auto baseAudio = Resource::Assets::Main()->loadAudio(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
             as.apply(audio);
             this->playDirect(audio);
@@ -117,7 +117,7 @@ namespace abyss::Actor
     void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
         auto as = m_audioSettingGroup(key);
-        if (auto baseAudio = ResourceManager::Main()->loadAudio(as.path, Path::Root)) {
+        if (auto baseAudio = Resource::Assets::Main()->loadAudio(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
             as.apply(audio);
             this->playAtDirect(audio, pos);
@@ -125,7 +125,7 @@ namespace abyss::Actor
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {
-        if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
+        if (auto baseAudio = Resource::Assets::Main()->loadAudio(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
             if (auto loop = baseAudio.getLoop()) {
                 audio.setLoop(loop->beginPos, loop->endPos);
@@ -149,7 +149,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
-        if (auto baseAudio = ResourceManager::Main()->loadAudio(U"se/Actors/" + path)) {
+        if (auto baseAudio = Resource::Assets::Main()->loadAudio(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
             if (auto loop = baseAudio.getLoop()) {
                 audio.setLoop(loop->beginPos, loop->endPos);

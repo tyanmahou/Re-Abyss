@@ -1,12 +1,12 @@
 #include "EnemyDeadEffect.hpp"
 
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss
 {
 	EnemyDeadEffect::EnemyDeadEffect(const Vec2& pos) :
 		m_pos(pos),
-		m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
+		m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
 	{}
 	bool EnemyDeadEffect::update(double t)
 	{

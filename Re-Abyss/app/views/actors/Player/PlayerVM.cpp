@@ -3,7 +3,7 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
@@ -34,7 +34,7 @@ namespace abyss::Actor::Player
         return ColorDef::OnDamage(m_isDamaging, m_time);
     }
     PlayerVM::PlayerVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Player/player.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
     PlayerVM& PlayerVM::setXtoAtkView(std::unique_ptr<XtoAtkVM> && xto)
     {

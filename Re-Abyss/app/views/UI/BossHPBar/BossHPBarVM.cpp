@@ -1,5 +1,5 @@
 #include "BossHPBarVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D/Math.hpp>
 
 namespace 
@@ -18,7 +18,7 @@ namespace
 namespace abyss::ui
 {
     BossHPBarVM::BossHPBarVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"ui/common/boss_hp_bar/boss_hp_bar.json")),
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/common/boss_hp_bar/boss_hp_bar.json")),
         m_pos(650, 495)
     {
     

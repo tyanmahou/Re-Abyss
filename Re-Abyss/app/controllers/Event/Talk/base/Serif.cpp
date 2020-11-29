@@ -1,6 +1,6 @@
 #include "Serif.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/Event/Talk/base/FaceManager.hpp>
 #include <abyss/models/Event/Talk/SerifModel.hpp>

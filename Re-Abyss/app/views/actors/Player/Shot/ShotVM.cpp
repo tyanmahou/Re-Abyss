@@ -1,13 +1,13 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 #include "ShotEffect.hpp"
 namespace abyss::Actor::Player::Shot
 {
     ShotVM::ShotVM(const PlayerShot& shot, Forward forward):
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Player/player_shot.png")),
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Player/player_shot.png")),
         m_shot(shot),
         m_forward(forward),
         m_effectTimer(0.033, true, [this] {return Time::FromSec(this->m_time); })

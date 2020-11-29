@@ -1,12 +1,12 @@
 #include "LaunSharkVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {
     LaunSharkVM::LaunSharkVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/LaunShark/laun_shark.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/LaunShark/laun_shark.json"))
     {}
     LaunSharkVM& LaunSharkVM::setTime(double time)
     {

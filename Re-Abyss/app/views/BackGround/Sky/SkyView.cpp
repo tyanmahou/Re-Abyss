@@ -1,12 +1,12 @@
 #include "SkyView.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 namespace abyss
 {
     SkyView::SkyView() :
-        m_texture(ResourceManager::Main()->loadTexture(U"bgs/sky.png")),
-        m_texture2(ResourceManager::Main()->loadTexture(U"bgs/surface.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"bgs/sky.png")),
+        m_texture2(Resource::Assets::Main()->loadTexture(U"bgs/surface.png"))
     {
 
     }

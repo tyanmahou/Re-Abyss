@@ -1,10 +1,10 @@
 #include "CursorVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 namespace abyss::ui
 {
     CursorVM::CursorVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"ui/common/cursor.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/common/cursor.png"))
     {}
 
     CursorVM& CursorVM::setPos(const s3d::Vec2 & pos)

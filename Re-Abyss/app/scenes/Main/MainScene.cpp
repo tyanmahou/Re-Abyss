@@ -5,7 +5,7 @@
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Save/SaveData.hpp>
 #include <abyss/factories/Stage/StageDataFactory.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 
 #include <abyss/debugs/HotReload/HotReload.hpp>
@@ -13,7 +13,7 @@
 namespace
 {
 	using namespace abyss;
-	void PreloadResourece(const ResourceManager& resource)
+	void PreloadResourece(const Resource::Assets& resource)
 	{
 		Resource::Prelaod::LoadActorToml(resource);
 	}
@@ -55,10 +55,10 @@ namespace abyss
 
 		void reload()
 		{
-			ResourceManager::Main()->release();
+			Resource::Assets::Main()->release();
 			{
 				// リロード時はリソースを直で
-				ResourceManager::Main()->setIsBuilded(false);
+				Resource::Assets::Main()->setIsBuilded(false);
 				this->init(true);
 			}
 		}
@@ -72,7 +72,7 @@ namespace abyss
 			m_stageData = StageDataFactory::CreateFromTmx(mapName);
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
-			::PreloadResourece(*ResourceManager::Main());
+			::PreloadResourece(*Resource::Assets::Main());
 			if (player) {
 				m_system->init(player);
 			} else {

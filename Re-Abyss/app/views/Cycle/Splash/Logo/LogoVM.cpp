@@ -1,11 +1,11 @@
 #include "LogoVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Cycle::Splash::Logo
 {
     LogoVM::LogoVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"cycle/splash/logo.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/splash/logo.png"))
     {}
     void LogoVM::draw() const
     {

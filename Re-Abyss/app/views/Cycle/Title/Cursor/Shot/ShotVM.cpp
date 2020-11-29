@@ -1,11 +1,11 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Cycle::Title::Cursor
 {
     ShotVM::ShotVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Player/player_shot.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Player/player_shot.png"))
     {}
 
     ShotVM& ShotVM::setTime(double time)

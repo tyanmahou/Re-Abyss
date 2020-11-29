@@ -2,12 +2,12 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
     HeadVM::HeadVM() :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
 
     HeadVM& HeadVM::setTime(double time)

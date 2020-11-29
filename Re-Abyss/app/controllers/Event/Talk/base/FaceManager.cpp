@@ -1,12 +1,12 @@
 #include "FaceManager.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Event::Talk
 {
     void FaceManager::add(const s3d::String& actor, const s3d::FilePath& jsonPath)
     {
-        m_actors[actor] = ResourceManager::Main()->loadTexturePacker(jsonPath);
+        m_actors[actor] = Resource::Assets::Main()->loadTexturePacker(jsonPath);
     }
     bool FaceManager::isContain(const s3d::String& actor, const s3d::String& kind) const
     {

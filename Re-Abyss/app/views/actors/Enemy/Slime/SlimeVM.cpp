@@ -1,13 +1,13 @@
 #include "SlimeVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actors/Enemy/Slime/Param.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {
     SlimeVM::SlimeVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Enemy/Slime/Slime.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Enemy/Slime/Slime.png"))
     {}
     SlimeVM& SlimeVM::setTime(double time)
     {

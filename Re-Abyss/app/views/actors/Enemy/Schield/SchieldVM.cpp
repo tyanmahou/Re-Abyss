@@ -1,14 +1,14 @@
 #include "SchieldVM.hpp"
 
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
     SchieldVM::SchieldVM():
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))
     {}
     SchieldVM& SchieldVM::setTime(double time)
     {

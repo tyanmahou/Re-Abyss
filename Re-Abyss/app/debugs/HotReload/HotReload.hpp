@@ -2,7 +2,7 @@
 #if ABYSS_DEBUG
 #include <functional>
 #include <Siv3D/DirectoryWatcher.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Debug
 {

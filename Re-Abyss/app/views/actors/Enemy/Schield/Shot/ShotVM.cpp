@@ -1,12 +1,12 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 
 namespace abyss::Actor::Enemy::Schield::Shot
 {
     ShotVM::ShotVM() :
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/enemy_shot.json"))
     {}
     ShotVM& ShotVM::setTime(double time)
     {

@@ -1,12 +1,12 @@
 #include "KiraKiraEffect.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 namespace abyss
 {
     KiraKiraEffect::KiraKiraEffect(const s3d::Vec2& pos, Type type) :
         m_type(type),
         m_pos(pos),
-        m_texture(ResourceManager::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
     {}
 
     bool KiraKiraEffect::update(double t)

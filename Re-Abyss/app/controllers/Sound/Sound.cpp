@@ -1,6 +1,6 @@
 #include "Sound.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss
@@ -11,7 +11,7 @@ namespace abyss
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
         m_currentPath = path;
-        auto next = ResourceManager::Main()->loadAudio(path, U"");
+        auto next = Resource::Assets::Main()->loadAudio(path, U"");
         if (m_currentId == next.id()) {
             if (!m_current.isPlaying()) {
                 m_current.play(sec);

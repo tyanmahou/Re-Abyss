@@ -1,6 +1,6 @@
 #include "MessageVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::ui
 {
@@ -26,7 +26,7 @@ namespace abyss::ui
     }
     void MessageVM::draw() const
     {
-        static const auto& ps = ResourceManager::Main()->loadPs(U"bitmap_font.hlsl");
+        static const auto& ps = Resource::Assets::Main()->loadPs(U"bitmap_font.hlsl");
         ScopedCustomShader2D shader(ps);
 
         auto&& font = FontAsset(U"serif");

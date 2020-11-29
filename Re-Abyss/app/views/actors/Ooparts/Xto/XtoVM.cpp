@@ -1,5 +1,5 @@
 #include "XtoVM.hpp"
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 #include <abyss/commons/ColorDef.hpp>
@@ -7,7 +7,7 @@
 namespace abyss::Actor::Ooparts::Xto
 {
     XtoVM::XtoVM():
-        m_texture(ResourceManager::Main()->loadTexture(U"actors/Ooparts/Xto/xto.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Ooparts/Xto/xto.png"))
     {}
 
     void XtoVM::drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const

@@ -1,6 +1,6 @@
 #include "SkyShader.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace
 {
@@ -21,7 +21,7 @@ namespace abyss
         double m_time = 0.0;
     public:
         Impl() :
-            m_ps(ResourceManager::Main()->loadPs(U"sky.hlsl"))
+            m_ps(Resource::Assets::Main()->loadPs(U"sky.hlsl"))
         {}
 
         void setMultiply(double multiply)

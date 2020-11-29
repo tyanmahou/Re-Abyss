@@ -3,7 +3,7 @@
 #include <Siv3D/TextureRegion.hpp>
 
 #include <abyss/commons/Constants.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include "..\Cycle\Title\BackGround\BackGroundVM.hpp"
 namespace abyss
 {
@@ -13,7 +13,7 @@ namespace abyss
 		const s3d::Vector2D<bool>& fix,
 		const s3d::Vector2D<s3d::Optional<double>>& rate
 	):
-		m_texture(ResourceManager::Main()->loadTexture(path, Path::Root)),
+		m_texture(Resource::Assets::Main()->loadTexture(path, Path::Root)),
 		m_offset(offset),
 		m_fix(fix),
 		m_rate(rate.x, rate.y)
