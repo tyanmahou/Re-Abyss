@@ -10,6 +10,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     public:
         PursuitEndState();
         void start();
-        void update(double dt);
+        void update() override;
     };
 }

@@ -13,6 +13,7 @@ namespace abyss::Actor
         public:
             virtual ~IBinder() = default;
 
+            virtual void setup([[maybe_unused]] Depends depends){}
             virtual void onStart() = 0;
             virtual View* bind() const = 0;
         };
@@ -23,8 +24,11 @@ namespace abyss::Actor
         {
 
         }
-        void setup([[maybe_unused]]Depends depends)override
+        void setup(Depends depends)override
         {
+            if (m_binder) {
+                m_binder->setup(depends);
+            }
         }
         void onStart()override
         {

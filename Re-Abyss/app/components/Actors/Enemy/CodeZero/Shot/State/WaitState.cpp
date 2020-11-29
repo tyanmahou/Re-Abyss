@@ -14,8 +14,9 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             ->addWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
     }
 
-    void WaitState::update(double dt)
+    void WaitState::update()
     {
+        auto dt = m_pActor->deltaTime();
         m_scale->update(dt);
 
         if (m_scale->get() >= 1.0) {

@@ -11,8 +11,8 @@ namespace abyss
     {
         class Impl;
         std::shared_ptr<Impl> m_pImpl;
-        void addAfter(const std::function<bool(IComponent*)>& f);
-        void addBefore(const std::function<bool(IComponent*)>& f);
+        void addAfter(const std::function<bool(IComponent*)>& f) const;
+        void addBefore(const std::function<bool(IComponent*)>& f) const;
     public:
         Depends();
 

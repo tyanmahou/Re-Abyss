@@ -76,7 +76,11 @@ namespace abyss::Actor
         StateCtrl(IActor* pActor):
             m_pActor(pActor)
         {}
-
+        
+        void setup(Depends depends)override
+        {
+            depends.addAfter<IComponent>();
+        }
         void onStart() override
         {
             this->stateUpdate();

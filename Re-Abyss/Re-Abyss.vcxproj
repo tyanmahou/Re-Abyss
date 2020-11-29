@@ -514,6 +514,7 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">
       </ForcedIncludeFiles>
     </ClCompile>
+    <ClCompile Include="tests\tests\Component\ComponentCatch.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\testing.ixx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">NotUsing</PrecompiledHeader>

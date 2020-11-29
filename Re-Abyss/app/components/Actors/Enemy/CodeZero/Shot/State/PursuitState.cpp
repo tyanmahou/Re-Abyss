@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::TimeSec);
     }
-    void PursuitState::update([[maybe_unused]]double dt)
+    void PursuitState::update()
     {
         if (m_timer.reachedZero()) {
             this->changeState<PursuitEndState>();

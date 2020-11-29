@@ -21,9 +21,9 @@ namespace
 
         s3d::Array<Node*> out;
         for (auto& node : nodes) {
-            if (n.depends.isAfter(node.component.get())) {
+            if (n.depends.isBefore(node.component.get())) {
                 out.push_back(&node);
-            } else if (node.depends.isBefore(n.component.get())) {
+            } else if (node.depends.isAfter(n.component.get())) {
                 out.push_back(&node);
             }
         }
@@ -31,7 +31,7 @@ namespace
             Visit(result, nodes, *o);
         }
         n.isOpen = true;
-        result.push_back(n.component);
+        result.push_front(n.component);
     };
 }
 namespace abyss

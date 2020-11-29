@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::EndToDeadTimeSec);
     }
-    void PursuitEndState::update([[maybe_unused]]double dt)
+    void PursuitEndState::update()
     {
         if (m_timer.reachedZero()) {
             m_pActor->destroy();

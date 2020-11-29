@@ -40,11 +40,11 @@ namespace abyss
     Depends::Depends():
         m_pImpl(std::make_shared<Impl>())
     {}
-    void Depends::addAfter(const std::function<bool(IComponent*)>& f)
+    void Depends::addAfter(const std::function<bool(IComponent*)>& f) const
     {
         m_pImpl->addAfter(f);
     }
-    void Depends::addBefore(const std::function<bool(IComponent*)>& f)
+    void Depends::addBefore(const std::function<bool(IComponent*)>& f) const
     {
         m_pImpl->addBefore(f);
     }

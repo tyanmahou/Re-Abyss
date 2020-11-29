@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     public:
         void start();
 
-        void update(double dt);
+        void update() override;
 
         void draw() const;
     };
