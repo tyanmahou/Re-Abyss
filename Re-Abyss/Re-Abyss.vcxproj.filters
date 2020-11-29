@@ -1075,6 +1075,9 @@
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\Lib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1082,9 +1085,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app\StaticLibs.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
     </ClInclude>

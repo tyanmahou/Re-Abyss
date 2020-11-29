@@ -272,6 +272,7 @@
     <ClCompile Include="app\components\Actors\Player\Shot\Collider.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\DeadState.cpp" />
     <ClCompile Include="app\components\Actors\Player\UICtrl.cpp" />
+    <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp" />
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
@@ -880,7 +881,6 @@
     <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
-    <ClInclude Include="app\StaticLibs.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />

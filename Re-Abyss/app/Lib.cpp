@@ -1,5 +1,3 @@
-#pragma once
-
 #include <Siv3D/Platform.hpp>
 
 #if SIV3D_PLATFORM(WINDOWS)
@@ -11,4 +9,3 @@
 #pragma comment(lib, "SQLite-for-Siv3D")
 #endif
 #endif
-
