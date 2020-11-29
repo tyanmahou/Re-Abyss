@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
         m_intervalTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::IntervalTimeSec, false);
     }
-    void AttackState::update([[maybe_unused]]double dt)
+    void AttackState::update()
     {
         if (m_intervalTimer.reachedZero() || !m_intervalTimer.isRunning()) {
             constexpr s3d::Vec2 offset{ -9, 4 };

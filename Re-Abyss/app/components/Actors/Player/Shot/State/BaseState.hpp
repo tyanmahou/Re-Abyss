@@ -19,7 +19,7 @@ namespace abyss::Actor::Player::Shot
 
         void start() override;
 
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

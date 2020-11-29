@@ -32,8 +32,9 @@ namespace abyss::Actor::Player
         };
         m_body->setVelocity(velocity);
     }
-    void DamageState::update(double dt)
+    void DamageState::update()
     {
+        auto dt = m_pActor->deltaTime();
         this->onMove(dt);
         if (m_damageTimer.reachedZero()) {
             this->changeState<SwimState>();

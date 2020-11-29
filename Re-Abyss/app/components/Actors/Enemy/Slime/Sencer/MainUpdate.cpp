@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
         m_mapColl = m_pActor->find<MapCollider>();
         m_body = m_pActor->find<Body>();
     }
-    void MainUpdate::onUpdate([[maybe_unused]]double dt)
+    void MainUpdate::onUpdate()
     {
 		if (m_pActor->isDestroyed()) {
 			return;

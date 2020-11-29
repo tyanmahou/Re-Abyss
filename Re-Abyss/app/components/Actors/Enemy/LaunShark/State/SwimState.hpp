@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::LaunShark
     public:
         SwimState();
         void start();
-        void update(double dt) override;
+        void update() override;
         void lastUpdate() override;
 
         void draw() const override;

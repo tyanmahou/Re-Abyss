@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero
         m_parts = m_pActor->find<PartsCtrl>().get();
         m_view = m_pActor->find<ViewCtrl<Body::BodyVM>>().get();
     }
-    void BaseState::update([[maybe_unused]]double dt)
+    void BaseState::update()
     {
     }
     void BaseState::draw() const

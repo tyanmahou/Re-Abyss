@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         m_behavior->setBehavior(Behavior::Petern2);
     }
-    void Phase2State::update([[maybe_unused]]double dt)
+    void Phase2State::update()
     {
         if (m_hp->value() <= Param::Base::Hp * 1 / 3) {
             if (m_parts->getLeftHand()->isPursuit() &&

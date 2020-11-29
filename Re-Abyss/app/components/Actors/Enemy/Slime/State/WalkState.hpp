@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::Slime
     public:
         void start() override;
 
-        void update(double dt) override;
+        void update() override;
 
         void draw()const override;
     };

@@ -43,7 +43,7 @@ namespace
             m_audio.play();
         }
 
-        void onUpdate([[maybe_unused]] double dt) override
+        void onUpdate() override
         {
             if (!m_audio.isPlaying()) {
                 m_pActor->destroy();
@@ -84,7 +84,7 @@ namespace abyss::Actor
         m_audioSettingGroup = Resource::Assets::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
     }
 
-    void AudioSource::onUpdate([[maybe_unused]] double dt)
+    void AudioSource::onUpdate()
     {
         m_audios.remove_if([](const Audio& audio) {
             return !audio.isPlaying();

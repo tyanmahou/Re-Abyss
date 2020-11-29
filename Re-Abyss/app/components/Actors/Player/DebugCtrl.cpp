@@ -12,7 +12,7 @@ namespace abyss::Actor::Player
     void DebugCtrl::setup()
     {}
 
-    void DebugCtrl::onUpdate([[maybe_unused]]double dt)
+    void DebugCtrl::onUpdate()
     {
         auto hp = m_pActor->find<HP>();
         if (KeyD.down()) {

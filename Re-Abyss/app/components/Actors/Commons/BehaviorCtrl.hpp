@@ -25,7 +25,7 @@ namespace abyss::Actor
 
         void setBehavior(std::function<Coro::Task(IActor*)> behavior);
 
-        void onUpdate(double dt) override;
+        void onUpdate() override;
 
         BehaviorCtrl& setActive(bool isActive)
         {

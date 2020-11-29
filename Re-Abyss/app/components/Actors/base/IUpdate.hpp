@@ -5,6 +5,6 @@ namespace abyss::Actor
     {
     public:
         virtual ~IUpdate() = default;
-        virtual void onUpdate(double dt) = 0;
+        virtual void onUpdate() = 0;
     };
 }

@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Schield
         AttackPlusState();
 
         void start();
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

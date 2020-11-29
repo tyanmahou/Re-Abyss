@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     public:
         AttackWaitState();
         void start()override;
-        void update(double dt)override;
+        void update()override;
         void draw() const override;
     };
 }

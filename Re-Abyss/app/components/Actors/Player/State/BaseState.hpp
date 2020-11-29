@@ -42,7 +42,7 @@ namespace abyss::Actor::Player
 
         void start() override;
 
-        void update(double dt) override;
+        void update() override;
 
         void onCollisionStay(IActor* col) override;
 

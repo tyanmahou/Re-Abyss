@@ -16,7 +16,7 @@ namespace abyss::Actor::Player
         DebugCtrl(IActor* pActor);
 
         void setup() override;
-        void onUpdate(double dt) override;
+        void onUpdate() override;
     };
 }
 

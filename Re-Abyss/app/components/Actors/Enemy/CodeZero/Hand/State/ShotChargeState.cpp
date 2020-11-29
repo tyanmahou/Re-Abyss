@@ -11,8 +11,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_body->noneResistanced();
     }
-    void ShotChargeState::update(double dt)
+    void ShotChargeState::update()
     {
+        auto dt = m_pActor->deltaTime();
+
         const s3d::Vec2 target = m_kind->isLeftHand() ? 
             m_parent->getPos() + s3d::Vec2{110, 0 }:
             m_parent->getPos() + s3d::Vec2{ -110, 0 };

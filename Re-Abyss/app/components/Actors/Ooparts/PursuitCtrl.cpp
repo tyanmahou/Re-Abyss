@@ -17,12 +17,13 @@ namespace abyss::Actor::Ooparts
         m_body = m_pActor->find<Body>();
     }
 
-    void PursuitCtrl::onPreDraw(double dt)
+    void PursuitCtrl::onPreDraw()
     {
         if (!m_pParent) {
             return;
         }
         if (m_isPursuit) {
+            auto dt = m_pActor->deltaTime();
             double time = m_pActor->getDrawTimeSec();
 
             auto localTarget = Vec2{ m_pParent->getForward() * -20 , -40 };

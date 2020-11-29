@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::Schield
 
         m_face->on();
     }
-    void WaitState::update([[maybe_unused]]double dt)
+    void WaitState::update()
     {
         if (m_timer.reachedZero() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState<AttackPlusState>();

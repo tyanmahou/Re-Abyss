@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::LaunShark
     public:
         AttackState();
         void start();
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

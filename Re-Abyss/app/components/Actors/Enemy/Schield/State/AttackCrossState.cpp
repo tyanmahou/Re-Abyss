@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::Schield
         m_transitionToWait = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
 
     }
-    void AttackCrossState::update([[maybe_unused]] double dt)
+    void AttackCrossState::update()
     {
         if (m_timer.reachedZero() && !m_transitionToWait.isRunning()) {
             m_transitionToWait.start();

@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::CaptainTako
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
         m_pActor->find<AudioSource>()->play(U"Charge");
     }
-    void ChargeState::update([[maybe_unused]]double dt)
+    void ChargeState::update()
     {
         if (m_chargeTimer.reachedZero()) {
             this->changeState<AttackState>();

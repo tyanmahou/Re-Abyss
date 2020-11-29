@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::RollingTako
     {
     }
 
-    void WaitState::update([[maybe_unused]] double dt)
+    void WaitState::update()
     {
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;

@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         ViewCtrl<HandVM>* m_view;
     public:
         void setup()override;
-        void update(double dt) override;
+        void update() override;
         void draw() const override;
     };
 }

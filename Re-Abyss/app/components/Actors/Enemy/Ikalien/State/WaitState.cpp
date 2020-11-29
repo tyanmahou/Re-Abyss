@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::Ikalien
     void WaitState::start()
     {
     }
-    void WaitState::update([[maybe_unused]]double dt)
+    void WaitState::update()
     {
         if (m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState<PursuitState>();

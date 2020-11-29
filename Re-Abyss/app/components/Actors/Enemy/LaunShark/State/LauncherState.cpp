@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::LaunShark
 
         m_pActor->find<BodyUpdater>()->setActive(false);
     }
-    void LauncherState::update([[maybe_unused]] double dt)
+    void LauncherState::update()
     {
         if (m_attackTimer.reachedZero()) {
             if (!m_out) {

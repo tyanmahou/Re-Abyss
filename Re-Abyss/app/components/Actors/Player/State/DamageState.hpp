@@ -8,7 +8,7 @@ namespace abyss::Actor::Player
         TimerEx m_damageTimer;
         void onMove(double dt) override;
         void start()override;
-        void update(double dt)override;
+        void update()override;
         void onDraw(const PlayerVM& view)const override;
     public:
         DamageState();

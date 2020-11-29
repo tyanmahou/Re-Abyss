@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     public:
         AttackState();
         void start() override;
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

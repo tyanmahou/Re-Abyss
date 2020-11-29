@@ -55,9 +55,9 @@ namespace abyss::Actor::Player
     {
         BaseState::start();
     }
-    void SwimState::update(double dt)
+    void SwimState::update()
     {
-        BaseState::update(dt);
+        BaseState::update();
 
         m_motion = Motion::Float;
         if (InputManager::Left.pressed() || InputManager::Right.pressed()) {

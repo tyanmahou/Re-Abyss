@@ -16,8 +16,10 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
     }
-    void PursuitState::update(double dt)
+    void PursuitState::update()
     {
+        auto dt = m_pActor->deltaTime();
+
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(ShotParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();

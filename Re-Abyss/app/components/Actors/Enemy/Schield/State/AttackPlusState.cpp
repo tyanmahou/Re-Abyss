@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::Schield
         m_transitionToAttackCross = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
 
     }
-    void AttackPlusState::update([[maybe_unused]] double dt)
+    void AttackPlusState::update()
     {
         if (m_transitionToAttackPlus.reachedZero() && !m_timer.isRunning()) {
             m_timer.start();

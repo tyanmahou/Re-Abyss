@@ -48,9 +48,11 @@ namespace abyss::Actor::Player
     {
         m_body->noneResistanced();
     }
-    void LadderState::update(double dt)
+    void LadderState::update()
     {
-        BaseState::update(dt);
+        auto dt = m_pActor->deltaTime();
+
+        BaseState::update();
         if (m_isTop && InputManager::Up.pressed()) {
             m_ladderTopTimer += 60 * dt;
         }

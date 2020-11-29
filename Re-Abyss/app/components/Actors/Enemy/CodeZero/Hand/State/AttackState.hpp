@@ -10,6 +10,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     public:
         AttackState();
         void start()override;
-        void update(double dt)override;
+        void update()override;
     };
 }

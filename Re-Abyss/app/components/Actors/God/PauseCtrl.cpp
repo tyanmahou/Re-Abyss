@@ -11,7 +11,7 @@ namespace abyss::Actor::God
     PauseCtrl::PauseCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void PauseCtrl::onUpdate([[maybe_unused]]double dt)
+    void PauseCtrl::onUpdate()
     {
         if (InputManager::Start.down()) {
             m_pActor->getModule<Events>()->create<Event::GamePause>();

@@ -13,7 +13,7 @@ namespace abyss::Actor
         m_body = m_pActor->find<Body>();
     }
 
-    void BodyUpdater::onMove(double dt)
+    void BodyUpdater::onMove()
     {
         if (!m_isActive) {
             return;
@@ -21,6 +21,6 @@ namespace abyss::Actor
         if (!m_body) {
             return;
         }
-        m_body->update(dt);
+        m_body->update(m_pActor->deltaTime());
     }
 }

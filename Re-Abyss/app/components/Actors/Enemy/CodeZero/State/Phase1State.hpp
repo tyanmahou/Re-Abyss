@@ -8,6 +8,6 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         Phase1State();
         void start();
-        void update(double dt) override;
+        void update() override;
     };
 }

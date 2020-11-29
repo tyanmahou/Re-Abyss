@@ -5,7 +5,7 @@ namespace abyss::Actor::Enemy::RollingTako
     void RunState::start()
     {
     }
-    void RunState::update([[maybe_unused]] double dt)
+    void RunState::update()
     {
         if (m_body->isForward(Forward::Left)) {
             m_body->setAccelX(-Param::Run::AccelX);

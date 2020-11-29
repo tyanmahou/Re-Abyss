@@ -15,8 +15,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_hand->startForAttackWait(*m_body);
     }
 
-    void AttackWaitState::update(double dt)
+    void AttackWaitState::update()
     {
+        auto dt = m_pActor->deltaTime();
         if (m_timer.reachedZero()) {
             this->changeState<AttackState>();
             return;

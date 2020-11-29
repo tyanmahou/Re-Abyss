@@ -29,16 +29,14 @@ namespace abyss::Actor
 	void IActor::update()
 	{
 		m_time->updateUpdateTime();
-		double dt = m_time->getDeltaTime();
 		for (auto&& com : this->finds<IUpdate>()) {
-			com->onUpdate(dt);
+			com->onUpdate();
 		}
 	}
 	void IActor::move()
 	{
-		double dt = m_time->getDeltaTime();
 		for (auto&& com : this->finds<IMove>()) {
-			com->onMove(dt);
+			com->onMove();
 		}
 	}
 	void IActor::prePhysics()
@@ -63,7 +61,7 @@ namespace abyss::Actor
 	{
 		m_time->updateDrawTime();
 		for (auto&& com : this->finds<IPreDraw>()) {
-			com->onPreDraw(m_time->getDeltaTime());
+			com->onPreDraw();
 		}
 		for (auto&& com : this->finds<IDraw>()) {
 			com->onDraw();
@@ -96,5 +94,9 @@ namespace abyss::Actor
 	std::function<s3d::Microseconds()> IActor::getDrawTimer() const
 	{
 		return [this] {return this->getDrawTime(); };
+	}
+	double IActor::deltaTime() const
+	{
+		return m_time->getDeltaTime();
 	}
 }

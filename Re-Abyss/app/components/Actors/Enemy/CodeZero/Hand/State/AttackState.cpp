@@ -13,8 +13,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_hand->startForAttack(*m_body);
     }
-    void AttackState::update(double dt)
+    void AttackState::update()
     {
+        auto dt = m_pActor->deltaTime();
+
         if (!m_hand->updateForAttack(
             m_isReturn,
             m_parent->getPos(),

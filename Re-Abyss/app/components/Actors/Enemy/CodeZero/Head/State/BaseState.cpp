@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 
         m_view = m_pActor->find<ViewCtrl<HeadVM>>().get();
     }
-    void BaseState::update([[maybe_unused]]double dt)
+    void BaseState::update()
     {
         auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();
         auto pos = m_head->getPos();

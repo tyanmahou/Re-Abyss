@@ -25,7 +25,7 @@ namespace abyss::Actor::Player
         void onCollisionStay(const DoorActor& col) override;
 
         void start() override;
-        void update(double dt)override;
+        void update()override;
         void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;
     };

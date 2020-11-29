@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         m_behavior->setBehavior(Behavior::Petern3);
     }
-    void Phase3State::update([[maybe_unused]]double dt)
+    void Phase3State::update()
     {
         if (m_hp->isDead()) {
             return;

@@ -62,8 +62,10 @@ namespace abyss::Actor::Player
         }
         m_body->update(dt);
     }
-    void BaseState::update(double dt)
+    void BaseState::update()
     {
+        auto dt = m_pActor->deltaTime();
+
         const bool rightPressed = InputManager::Right.pressed();
         const bool leftPressed = InputManager::Left.pressed();
         if (rightPressed) {
@@ -82,7 +84,7 @@ namespace abyss::Actor::Player
                 this->onCollisionStay(floor);
             },
         });
-        this->onMove(dt);
+        this->onMove(m_pActor->deltaTime());
 
         // 攻撃
         if (m_charge->update(dt)) {

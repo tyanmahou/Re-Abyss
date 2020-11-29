@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero
         BaseState();
         void setup()override;
 
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

@@ -13,7 +13,7 @@ namespace abyss::Actor::God
         IActor* m_pActor = nullptr;
     public:
         PauseCtrl(IActor* pActor);
-        void onUpdate(double dt) override;
+        void onUpdate() override;
     };
 }
 

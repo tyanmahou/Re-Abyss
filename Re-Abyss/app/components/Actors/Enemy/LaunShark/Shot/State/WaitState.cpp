@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         m_body->noneResistanced();
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Wait::Time);
     }
-    void WaitState::update([[maybe_unused]]double dt)
+    void WaitState::update()
     {
         m_body->setVelocity(m_rotate->getDir9() * ShotParam::Wait::Speed);
         if (m_timer.reachedZero()) {

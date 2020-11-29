@@ -34,7 +34,7 @@ namespace abyss::Actor
         virtual void setup() {}
 
         virtual void start(){}
-        virtual void update([[maybe_unused]] double dt) {}
+        virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
 
@@ -85,11 +85,11 @@ namespace abyss::Actor
         {
             this->stateUpdate();
         }
-        void onUpdate(double dt) override
+        void onUpdate() override
         {
             this->stateUpdate();
             if (m_current) {
-                m_current->update(dt);
+                m_current->update();
             }
         }
         void onLastUpdate() override

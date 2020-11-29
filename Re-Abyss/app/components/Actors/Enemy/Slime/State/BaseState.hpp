@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::Slime
     public:
         void setup()override;
 
-        void update(double dt) override;
+        void update() override;
         void lastUpdate();
     };
 }

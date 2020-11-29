@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::Schield
         WaitState();
 
         void start() override;
-        void update(double dt) override;
+        void update() override;
         void end() override;
 
         void draw() const override;

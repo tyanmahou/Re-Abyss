@@ -25,7 +25,7 @@ namespace abyss::Actor
         void setup() override;
 
         void load(const s3d::FilePath& path);
-        void onUpdate(double dt) override;
+        void onUpdate() override;
 
         void play(const s3d::String& key);
 

@@ -21,7 +21,7 @@ namespace abyss::Actor::Ooparts
         PursuitCtrl(IActor* pActor, const Ref<Body>& pParent);
 
         void setup() override;
-        void onPreDraw(double dt) override;
+        void onPreDraw() override;
 
         PursuitCtrl& setLocalPos(const s3d::Vec2& pos)
         {

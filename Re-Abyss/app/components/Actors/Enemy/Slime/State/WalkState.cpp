@@ -9,9 +9,9 @@ namespace abyss::Actor::Enemy::Slime
     {
         m_body->setSize(Param::Walk::Size).setPivot(Param::Walk::Pivot);
     }
-    void WalkState::update(double dt)
+    void WalkState::update()
     {
-        BaseState::update(dt);
+        BaseState::update();
 
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
         if (m_mapCol->isHitGround() && m_body->getVelocity().x * d.x > 0 && d.length() <= Param::Walk::SearchRange) {

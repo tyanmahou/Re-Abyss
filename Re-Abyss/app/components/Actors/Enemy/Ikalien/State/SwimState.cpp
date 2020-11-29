@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::Ikalien
         m_body->setVelocity(m_rotate->getDir() * Param::Swim::Speed);
         m_body->setAccel(-m_rotate->getDir() * Param::Swim::Decel);
     }
-    void SwimState::update([[maybe_unused]]double dt)
+    void SwimState::update()
     {
         if (m_body->getVelocity().length() <= 30) {
             this->changeState<PursuitState>();

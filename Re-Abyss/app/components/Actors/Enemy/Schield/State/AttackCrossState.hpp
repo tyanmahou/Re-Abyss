@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::Schield
     public:
         AttackCrossState();
         void start();
-        void update(double dt) override;
+        void update() override;
 
         void draw() const override;
     };

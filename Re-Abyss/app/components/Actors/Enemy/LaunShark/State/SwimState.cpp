@@ -17,13 +17,13 @@ namespace abyss::Actor::Enemy::LaunShark
             ->setMaxSpeedX(Param::Swim::MaxSpeedX)
             .setSize(Param::Base::Size);
     }
-    void SwimState::update(double dt)
+    void SwimState::update()
     {
         double coefficient = Math::TwoPi / Param::Swim::MovePeriodSec;
         m_body->setVelocityY(Param::Swim::MoveRangeY * coefficient *
             s3d::Cos(m_timeCounter->getTotalTime() *  coefficient));
 
-        this->BaseState::update(dt);
+        this->BaseState::update();
 
         if (m_waitTimer.reachedZero()) {
             s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);

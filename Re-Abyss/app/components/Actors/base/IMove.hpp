@@ -5,6 +5,6 @@ namespace abyss::Actor
     {
     public:
         virtual ~IMove() = default;
-        virtual void onMove(double dt) = 0;
+        virtual void onMove() = 0;
     };
 }

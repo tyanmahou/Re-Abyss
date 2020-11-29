@@ -63,6 +63,7 @@ namespace abyss::Actor
 		double getDrawTimeSec() const;
 		std::function<s3d::Microseconds()> getDrawTimer() const;
 
+		double deltaTime() const;
 		/// <summary>
 		/// コンポーネントを付与
 		/// </summary>

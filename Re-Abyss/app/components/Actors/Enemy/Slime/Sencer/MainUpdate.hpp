@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
     public:
         MainUpdate(IActor* pActor);
         void setup() override;
-        void onUpdate(double dt) override;
+        void onUpdate() override;
 
         void onPrePhysics() override;
     };

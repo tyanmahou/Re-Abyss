@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     class PursuitState final : public BaseState
     { 
     public:
-        void update(double dt) override;
+        void update() override;
         void start()override;
         void lastUpdate() override;
     };

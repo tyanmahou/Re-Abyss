@@ -5,6 +5,6 @@ namespace abyss::Actor
     {
     public:
         virtual ~IPreDraw() = default;
-        virtual void onPreDraw(double dt) = 0;
+        virtual void onPreDraw() = 0;
     };
 }

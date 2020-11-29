@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         m_view = m_pActor->find<ViewCtrl<HandVM>>().get();
     }
-    void BaseState::update([[maybe_unused]]double dt)
+    void BaseState::update()
     {
     }
     void BaseState::draw() const

@@ -45,9 +45,9 @@ namespace abyss::Actor::Player
         }
     }
 
-    void DeadState::update(double dt)
+    void DeadState::update()
     {
-        this->onMove(dt);
+        this->onMove(m_pActor->deltaTime());
     }
 
     void DeadState::onDraw(const PlayerVM& view) const

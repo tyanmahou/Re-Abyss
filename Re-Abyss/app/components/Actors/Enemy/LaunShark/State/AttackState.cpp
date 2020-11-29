@@ -16,12 +16,12 @@ namespace abyss::Actor::Enemy::LaunShark
         m_body->setSize(Param::Attack::Size);
     }
 
-    void AttackState::update(double dt)
+    void AttackState::update()
     {
         double coefficient = Math::TwoPi / Param::Attack::MovePeriodSec;
         m_body->setVelocityY(Param::Attack::MoveRangeY * coefficient * s3d::Cos(m_timeCounter->getTotalTime() * coefficient));
 
-        this->BaseState::update(dt);
+        this->BaseState::update();
 
         if (m_attackTimer.reachedZero()) {
             this->changeState<SwimState>();

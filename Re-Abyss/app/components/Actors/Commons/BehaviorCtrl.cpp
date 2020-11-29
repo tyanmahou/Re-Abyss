@@ -12,7 +12,7 @@ namespace abyss::Actor
     {
         m_task = std::make_unique<Coro::Task>(behavior(m_pActor));
     }
-    void BehaviorCtrl::onUpdate([[maybe_unused]]double dt)
+    void BehaviorCtrl::onUpdate()
     {
         if (!m_isActive) {
             return;

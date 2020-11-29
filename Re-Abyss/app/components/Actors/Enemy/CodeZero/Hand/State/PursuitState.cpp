@@ -24,8 +24,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_hand->startForPursuit(*m_body);
     }
 
-    void PursuitState::update(double dt)
+    void PursuitState::update()
     {
+        auto dt = m_pActor->deltaTime();
         m_hand->updateRotate(*m_rotate, dt);
 
         auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();

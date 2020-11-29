@@ -11,8 +11,9 @@ namespace abyss::Actor::Enemy::LaunShark
         m_timeCounter = m_pActor->find<TimeCounter>().get();
         m_view = m_pActor->find<ViewCtrl<LaunSharkVM>>().get();
     }
-    void BaseState::update(double dt)
+    void BaseState::update()
     {
+        auto dt = m_pActor->deltaTime();
         m_timeCounter->update(dt);
         double accelX = Param::Base::AccelX;
         if (m_body->isForward(Forward::Left)) {

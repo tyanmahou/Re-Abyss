@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark
     public:
         LauncherState();
         void start();
-        void update(double dt) override;
+        void update() override;
         void end();
 
         void draw() const;

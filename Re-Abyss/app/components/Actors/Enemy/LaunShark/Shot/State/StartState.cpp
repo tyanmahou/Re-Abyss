@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         m_body->setAccel(-m_rotate->getDir9() * ShotParam::Start::Decel);
     }
 
-    void StartState::update([[maybe_unused]]double dt)
+    void StartState::update()
     {
         if (m_body->getVelocity().length() <= 30) {
             this->changeState<WaitState>();

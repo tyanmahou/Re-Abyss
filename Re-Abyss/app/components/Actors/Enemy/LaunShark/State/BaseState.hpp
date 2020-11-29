@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::LaunShark
         TimeCounter* m_timeCounter;
         ViewCtrl<LaunSharkVM>* m_view;
     public:
-        void update(double dt) override;
+        void update() override;
         void setup()override;
 
         void lastUpdate() override;
