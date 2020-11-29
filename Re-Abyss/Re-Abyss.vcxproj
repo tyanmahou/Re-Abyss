@@ -221,6 +221,7 @@
     <ClCompile Include="app\components\Actors\Player\AttackCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\ChargeCtrl.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
+    <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />

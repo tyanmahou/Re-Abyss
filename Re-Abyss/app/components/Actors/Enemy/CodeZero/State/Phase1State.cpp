@@ -2,6 +2,7 @@
 #include "Phase2State.hpp"
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Behavior.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -10,19 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     void Phase1State::start()
     {
-        m_pattern
-            ->clear()
-            .sleep(Param::Phase1::WaitRestart)
-            .add([&]() {
-                m_parts->getLeftHand()->tryAttack();
-            })
-            .sleep(Param::Phase1::WaitAttack)
-            .add([&]() {
-                m_parts->getRightHand()->tryAttack();
-            })
-            .sleep(Param::Phase1::WaitRestart)
-            .toStep(0)
-        ;
+        m_behavior->setBehavior(Behavior::Petern1);
     }
     void Phase1State::update([[maybe_unused]]double dt)
     {
@@ -33,6 +22,5 @@ namespace abyss::Actor::Enemy::CodeZero
             }
             return;
         }
-        m_pattern->update();
     }
 }

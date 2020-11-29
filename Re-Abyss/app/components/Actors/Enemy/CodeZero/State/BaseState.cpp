@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::CodeZero
     void BaseState::setup()
     {
         m_hp = m_pActor->find<HP>().get();
+        m_behavior = m_pActor->find<BehaviorCtrl>().get();
         m_pattern = m_pActor->find<PatternCtrl>().get();
         m_parts = m_pActor->find<PartsCtrl>().get();
         m_view = m_pActor->find<ViewCtrl<Body::BodyVM>>().get();

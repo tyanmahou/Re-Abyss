@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
+#include <abyss/components/Actors/Commons/BehaviorCtrl.hpp>
 #include <abyss/components/Actors/Commons/PatternCtrl.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
@@ -13,6 +14,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
     protected:
         HP* m_hp;
+        BehaviorCtrl* m_behavior;
         PatternCtrl* m_pattern;
         PartsCtrl* m_parts;
         ViewCtrl<Body::BodyVM>* m_view;
