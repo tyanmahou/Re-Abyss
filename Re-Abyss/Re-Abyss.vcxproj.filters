@@ -1069,6 +1069,12 @@
     <ClCompile Include="app\controllers\Cron\Common\OnceScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\BehaviorCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Behavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1606,5 +1612,8 @@
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
     <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
     <ClInclude Include="app\controllers\Cron\Common\OnceScheduler.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\utils\BehaviorUtil.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Behavior.hpp" />
   </ItemGroup>
 </Project>

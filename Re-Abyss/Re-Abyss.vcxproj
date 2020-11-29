@@ -181,6 +181,7 @@
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\BehaviorCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CustomCollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadCheacker.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\ChargeState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Behavior.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp" />
@@ -534,6 +536,7 @@
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />
@@ -548,6 +551,7 @@
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\ChargeState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Behavior.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.hpp" />
@@ -568,6 +572,7 @@
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\AttackCtrl.hpp" />
     <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
+    <ClInclude Include="app\components\Actors\utils\BehaviorUtil.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
