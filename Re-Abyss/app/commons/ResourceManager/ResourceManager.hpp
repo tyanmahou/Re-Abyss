@@ -6,6 +6,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/Singleton.hpp>
 
 namespace s3dTiled
 {
@@ -16,13 +17,15 @@ namespace abyss
 {
     class AudioSettingGroup;
 
-    class ResourceManager
+    class ResourceManager : protected Singleton<ResourceManager>
     {
+        friend class Singleton<ResourceManager>;
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
 
-    public:
+
         ResourceManager();
+    public:
         ~ResourceManager();
 
         s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath);
@@ -45,8 +48,6 @@ namespace abyss
 
 
         void setIsBuilded(bool isBuilded) const;
-    private:
-        inline static ResourceManager* s_main = nullptr;
     public:
         static ResourceManager* Main();
     };

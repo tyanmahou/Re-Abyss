@@ -1,6 +1,5 @@
 # pragma once
 #include <Siv3D.hpp>
-#include <abyss/commons/ResourceManager/ResourceManager.hpp>
 namespace abyss
 {
     /// <summary>
@@ -10,8 +9,6 @@ namespace abyss
     {
         String m_fromScene;
         String m_toScene;
-
-        ResourceManager m_resource;
     };
 
     using AppScene = SceneManager<String, GameData>;

@@ -55,10 +55,10 @@ namespace abyss
 
 		void reload()
 		{
-			this->m_data->m_resource.release();
+			ResourceManager::Main()->release();
 			{
 				// リロード時はリソースを直で
-				this->m_data->m_resource.setIsBuilded(false);
+				ResourceManager::Main()->setIsBuilded(false);
 				this->init(true);
 			}
 		}
@@ -72,7 +72,7 @@ namespace abyss
 			m_stageData = StageDataFactory::CreateFromTmx(mapName);
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
-			::PreloadResourece(this->m_data->m_resource);
+			::PreloadResourece(*ResourceManager::Main());
 			if (player) {
 				m_system->init(player);
 			} else {

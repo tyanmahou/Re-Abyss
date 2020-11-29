@@ -16,7 +16,7 @@ namespace abyss
         Impl([[maybe_unused]]const InitData& init):
             m_data(init._s)
         {
-            Resource::Prelaod::LoadSplashToml(m_data->m_resource);
+            Resource::Prelaod::LoadSplashToml(*ResourceManager::Main());
 
             m_main = std::make_unique<Cycle::Splash::Main>(this);
         }

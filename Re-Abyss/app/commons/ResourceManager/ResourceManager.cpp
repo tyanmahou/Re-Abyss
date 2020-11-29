@@ -106,13 +106,9 @@ namespace abyss
     ResourceManager::ResourceManager():
         m_pImpl(std::make_unique<Impl>())
     {
-        s_main = this;
     }
     ResourceManager::~ResourceManager()
     {
-        if (s_main == this) {
-            s_main = nullptr;
-        }
     }
     s3dTiled::TiledMap ResourceManager::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
     {
@@ -160,6 +156,6 @@ namespace abyss
 
     ResourceManager* ResourceManager::Main()
     {
-        return s_main;
+        return Instance();
     }
 }
