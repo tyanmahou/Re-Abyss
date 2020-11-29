@@ -1084,6 +1084,9 @@
     <ClCompile Include="app\components\base\Depends.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\base\DependSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1624,5 +1627,6 @@
     <ClInclude Include="app\components\Actors\Map\Ladder\LadderProxy.hpp" />
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
     <ClInclude Include="app\components\base\Depends.hpp" />
+    <ClInclude Include="app\components\base\DependSort.hpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,8 @@
 #include "Components.hpp"
 #include <unordered_map>
 
+#include <abyss/components/base/DependSort.hpp>
+
 #include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss
@@ -12,9 +14,17 @@ namespace abyss
     public:
         void setup()
         {
-            Depends d;
+            DependsSort ds;
             for (auto&& com : m_tree[typeid(IComponent)]) {
-                com->setup(d);
+
+                Depends depend;
+                com->setup(depend);
+
+                ds.regist(com.get(), depend);
+            }
+            // 依存関係からソートする
+            for (auto& pair : m_tree) {
+                pair.second = ds.sort(pair.second);
             }
         }
         void start()
