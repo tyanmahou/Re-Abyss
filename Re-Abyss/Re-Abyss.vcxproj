@@ -215,6 +215,7 @@
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp" />
+    <ClCompile Include="app\components\Actors\Map\Ladder\LadderProxy.cpp" />
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\Draw.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
@@ -569,6 +570,7 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />
+    <ClInclude Include="app\components\Actors\Map\Ladder\LadderProxy.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\AttackCtrl.hpp" />
@@ -662,6 +664,7 @@
     <ClInclude Include="app\components\Actors\Player\UICtrl.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
+    <ClInclude Include="app\models\Collision\Tag.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
     <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
