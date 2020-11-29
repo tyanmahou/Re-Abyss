@@ -6,6 +6,8 @@
 
 namespace abyss
 {
+	class IComponent;
+
 	/// <summary>
 	/// Controllers
 	/// </summary>

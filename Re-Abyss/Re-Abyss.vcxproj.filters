@@ -1620,5 +1620,6 @@
     <ClInclude Include="app\models\Collision\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Map\Ladder\LadderProxy.hpp" />
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
+    <ClInclude Include="app\components\base\Depends.hpp" />
   </ItemGroup>
 </Project>
