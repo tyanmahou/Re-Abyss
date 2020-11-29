@@ -43,7 +43,6 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         {
             this->attach<BehaviorCtrl>(this);
-            this->attach<PatternCtrl>(this);
         }
         // view
         {

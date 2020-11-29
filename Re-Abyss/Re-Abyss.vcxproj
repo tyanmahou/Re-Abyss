@@ -421,7 +421,6 @@
     <ClCompile Include="app\components\Actors\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
-    <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\TimeCounter.cpp" />
     <ClCompile Include="app\models\Actors\Gimmick\Door\DoorModel.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\DeadCallback.cpp" />
@@ -821,7 +820,6 @@
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadOnHItReceiver.hpp" />
-    <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollisionCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DeadCallback.hpp" />

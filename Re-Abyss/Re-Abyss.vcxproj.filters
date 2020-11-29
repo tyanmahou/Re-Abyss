@@ -992,9 +992,6 @@
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Commons\PatternCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1570,7 +1567,6 @@
     <ClInclude Include="app\components\Actors\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BreathingCtrl.hpp" />
-    <ClInclude Include="app\components\Actors\Commons\PatternCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\RotateCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\HP.hpp" />
