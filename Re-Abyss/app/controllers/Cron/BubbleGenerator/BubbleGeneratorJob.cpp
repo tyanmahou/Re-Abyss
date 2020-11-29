@@ -1,10 +1,11 @@
 #include "BubbleGeneratorJob.hpp"
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/views/Stage/Bubble/BubbleEffect.hpp>
+#include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::cron::BubbleGenerator
 {
-    void BubbleGeneratorJob::onExecute()
+    Coro::Task BubbleGeneratorJob::onExecute()
     {
 		auto camera = m_pManager->getModule<Camera>();
 		auto pos = camera->getPos();
@@ -16,6 +17,7 @@ namespace abyss::cron::BubbleGenerator
 		for ([[maybe_unused]] auto&& index : step(3)) {
 			effects->add<EffectGroup::Bubble, BubbleEffect>(m_pManager, pos, BubbleEffect::Small{});
 		}
+		co_return;
     }
 }
 

@@ -22,4 +22,48 @@ namespace abyss::Coro
         m_coro.resume();
         return !m_coro.done();
     }
+
+    bool Task::isDone()const
+    {
+        if (!m_coro) {
+            return false;
+        }
+        return m_coro.done();
+    }
+
+    Task operator&(Task a, Task b)
+    {
+        while (true) {
+            a.moveNext();
+            b.moveNext();
+
+            if (a.isDone() && b.isDone()) {
+                co_return;
+            }
+
+            co_yield{};
+        }
+    }
+    Task operator|(Task a, Task b)
+    {
+        while (true) {
+            a.moveNext();
+            b.moveNext();
+
+            if (a.isDone() || b.isDone()) {
+                co_return;
+            }
+
+            co_yield{};
+        }
+    }
+    Task operator+(Task a, Task b)
+    {
+        while (a.moveNext()) {
+            co_yield{};
+        }
+        while (b.moveNext()) {
+            co_yield{};
+        }
+    }
 }

@@ -3,11 +3,10 @@
 
 namespace abyss::cron
 {
-    class IntervalTimeScheduler : public IScheduler
+    class OnceScheduler : public IScheduler
     {
-        s3d::Duration m_duration;
     public:
-        IntervalTimeScheduler(const s3d::Duration& duration);
+        OnceScheduler() = default;
 
         Coro::Task execute(IJob* job) override;
     };

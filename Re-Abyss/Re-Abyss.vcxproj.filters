@@ -1063,6 +1063,12 @@
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\controllers\Cron\base\Batch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Cron\Common\OnceScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1598,5 +1604,7 @@
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
+    <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
+    <ClInclude Include="app\controllers\Cron\Common\OnceScheduler.hpp" />
   </ItemGroup>
 </Project>

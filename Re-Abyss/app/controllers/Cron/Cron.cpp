@@ -1,5 +1,6 @@
 #include "Cron.hpp"
 #include <abyss/controllers/Cron/Common/IntervalTimeScheduler.hpp>
+#include <abyss/controllers/Cron/Common/OnceScheduler.hpp>
 
 namespace abyss
 {
@@ -8,15 +9,22 @@ namespace abyss
         m_batchs.update(dt);
         m_batchs.erase();
     }
-    void Cron::regist(const std::shared_ptr<cron::IScheduler> & scheduler, const std::shared_ptr<cron::IJob> & job)
+    Ref<cron::Batch> Cron::regist(const std::shared_ptr<cron::IJob> & job, const std::shared_ptr<cron::IScheduler>& scheduler)
     {
-        scheduler->setManager(m_pManager);
         job->setManager(m_pManager);
-        m_batchs.push({ scheduler, job });
+        scheduler->setManager(m_pManager);
+        auto batch = std::make_shared <cron::Batch>(job, scheduler);
+        m_batchs.push(batch);
+        return batch;
     }
-    void Cron::regist(const s3d::Duration & duration, const std::shared_ptr<cron::IJob> & job)
+    Ref<cron::Batch> Cron::registOnce(const std::shared_ptr<cron::IJob>& job)
+    {
+        auto scheduler = std::make_shared<cron::OnceScheduler>();
+        return this->regist(job, scheduler);
+    }
+    Ref<cron::Batch> Cron::registInterval(const std::shared_ptr<cron::IJob> & job, const s3d::Duration& duration)
     {
         auto scheduler = std::make_shared<cron::IntervalTimeScheduler>(duration);
-        this->regist(scheduler, job);
+        return this->regist(job, scheduler);
     }
 }

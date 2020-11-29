@@ -199,7 +199,7 @@ namespace abyss
         // バブルエフェクト開始
         {
             auto cron = m_pManager->getModule<Cron>();
-            cron->create<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
+            cron->createInterval<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
         }
         auto save = m_pManager->getModule<Save>();
         auto sound = m_pManager->getModule<Sound>();

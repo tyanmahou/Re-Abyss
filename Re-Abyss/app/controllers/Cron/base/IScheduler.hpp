@@ -1,8 +1,14 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
+namespace abyss::Coro
+{
+    struct Task;
+}
 namespace abyss::cron
 {
+    class IJob;
+
     class IScheduler
     {
     protected:
@@ -14,7 +20,6 @@ namespace abyss::cron
             m_pManager = pManager;
         }
 
-        virtual void start() {}
-        virtual bool update(double dt) = 0;
+        virtual Coro::Task execute(IJob* job) = 0;
     };
 }

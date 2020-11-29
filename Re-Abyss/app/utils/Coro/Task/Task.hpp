@@ -29,7 +29,7 @@ namespace abyss::Coro
         {}
 
         bool moveNext() const;
-
+        [[nodiscard]] bool isDone() const;
     private:
         handle m_coro;
     };
@@ -74,4 +74,10 @@ namespace abyss::Coro
 
         std::optional<Task> next;
     };
+
+    [[nodiscard]] Task operator & (Task a, Task b);
+
+    [[nodiscard]] Task operator | (Task a, Task b);
+
+    [[nodiscard]] Task operator + (Task a, Task b);
 }

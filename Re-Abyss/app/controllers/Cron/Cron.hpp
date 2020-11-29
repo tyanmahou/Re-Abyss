@@ -26,25 +26,42 @@ namespace abyss
         /// <summary>
         /// ジョブを登録
         /// </summary>
-        void regist(const std::shared_ptr<cron::IScheduler>& scheduler, const std::shared_ptr<cron::IJob>& job);
+        Ref<cron::Batch> regist(const std::shared_ptr<cron::IJob>& job, const std::shared_ptr<cron::IScheduler>& scheduler);
 
         /// <summary>
-        /// ジョブを登録
+        /// 定期実行ジョブを登録
         /// </summary>
         /// <param name="duration"></param>
         /// <param name="job"></param>
-        void regist(const s3d::Duration& duration, const std::shared_ptr<cron::IJob>& job);
+        Ref<cron::Batch> registInterval(const std::shared_ptr<cron::IJob>& job, const s3d::Duration& duration);
 
         /// <summary>
-        /// UIを作成
+        /// 登録
+        /// </summary>
+        /// <param name="duration"></param>
+        /// <param name="job"></param>
+        Ref<cron::Batch> registOnce(const std::shared_ptr<cron::IJob>& job);
+
+        /// <summary>
+        /// 定期実行ジョブを作成
         /// </summary>
         template<class Type, class... Args>
-        Ref<Type> create(const s3d::Duration& duration, Args&& ... args)
+        Ref<cron::Batch> createInterval(const s3d::Duration& duration, Args&& ... args)
             //requires IsUserInterface<Type> && std::constructible_from<Type, Args...>
         {
             auto job = std::make_shared<Type>(std::forward<Args>(args)...);
-            this->regist(duration, job);
-            return job;
+            return this->registInterval(job, duration);
+        }
+
+        /// <summary>
+        /// 一回ジョブを作成
+        /// </summary>
+        template<class Type, class... Args>
+        Ref<cron::Batch> createOnce(Args&& ... args)
+            //requires IsUserInterface<Type> && std::constructible_from<Type, Args...>
+        {
+            auto job = std::make_shared<Type>(std::forward<Args>(args)...);
+            return this->registOnce(job);
         }
     };
 }

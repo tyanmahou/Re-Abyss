@@ -222,9 +222,11 @@
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp" />
     <ClCompile Include="app\controllers\Actors\God\GodActor.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />
+    <ClCompile Include="app\controllers\Cron\base\Batch.cpp" />
     <ClCompile Include="app\controllers\Cron\base\BatchHolder.cpp" />
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
     <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp" />
+    <ClCompile Include="app\controllers\Cron\Common\OnceScheduler.cpp" />
     <ClCompile Include="app\controllers\Cron\Cron.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp" />
@@ -580,11 +582,13 @@
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
+    <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
     <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
     <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
     <ClInclude Include="app\controllers\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
     <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\controllers\Cron\Common\OnceScheduler.hpp" />
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />

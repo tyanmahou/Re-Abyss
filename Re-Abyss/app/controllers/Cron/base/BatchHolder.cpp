@@ -11,31 +11,29 @@ namespace abyss::cron
         auto registing = std::move(m_reserves);
         m_reserves.clear();
         for (auto& batch : registing) {
-            batch.first->start();
             m_batchs.push_back(std::move(batch));
         }
     }
-    void BatchHolder::push(const Batch& batch)
+    void BatchHolder::push(const std::shared_ptr<Batch>& batch)
     {
         m_reserves.push_back(batch);
     }
-    void BatchHolder::update(double dt)
+    void BatchHolder::update([[maybe_unused]]double dt)
     {
         this->flush();
         for (auto& batch : m_batchs) {
-            if (!batch.first->update(dt)) {
+            if (!batch->isActive()) {
                 continue;
             }
-            if (!batch.second->isActive()) {
-                continue;
+            if (!batch->update()) {
+                batch->destroy();
             }
-            batch.second->onExecute();
         }
     }
     void BatchHolder::erase()
     {
-        s3d::Erase_if(m_batchs, [](const Batch& batch) {
-            return batch.second->isDestroyed();
+        s3d::Erase_if(m_batchs, [](const std::shared_ptr<Batch>& batch) {
+            return batch->isDestroyed();
         });
     }
     void BatchHolder::clear()
