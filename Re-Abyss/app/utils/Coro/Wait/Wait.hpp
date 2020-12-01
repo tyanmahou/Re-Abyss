@@ -21,4 +21,26 @@ namespace abyss::Coro
     /// 指定フレーム待つ
     /// </summary>
     Task WaitForFrame(s3d::int32 frame);
+
+    /// <summary>
+    /// 条件をみたすまで待つ
+    /// </summary>
+    template<class Pred, std::enable_if_t<std::is_invocable_r_v<bool, Pred>>* = nullptr>
+    Task WaitUntil(Pred pred)
+    {
+        while (!pred()) {
+            co_yield{};
+        }
+    }
+
+    /// <summary>
+    /// 条件をみたす間待つ
+    /// </summary>
+    template<class Pred, std::enable_if_t<std::is_invocable_r_v<bool, Pred>>* = nullptr>
+    Task WaitWhile(Pred pred)
+    {
+        while (pred()) {
+            co_yield{};
+        }
+    }
 }
