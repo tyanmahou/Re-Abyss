@@ -16,7 +16,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    Coro::Task Behavior::Petern1(IActor* pActor)
+    Coro::Task<> Behavior::Petern1(IActor* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -39,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task Behavior::Petern2(IActor* pActor)
+    Coro::Task<> Behavior::Petern2(IActor* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -73,7 +73,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task Behavior::Petern3(IActor* pActor)
+    Coro::Task<> Behavior::Petern3(IActor* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 

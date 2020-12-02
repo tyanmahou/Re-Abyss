@@ -1,83 +1,253 @@
 #pragma once
 #include <coroutine>
-#include <optional>
+#include <memory>
 
 namespace abyss::Coro
 {
-    struct TaskPromice;
-
-    struct Task
+    namespace detail
     {
-        friend struct TaskPromice;
-        using promise_type = TaskPromice;
+        struct ITask
+        {
+            virtual ~ITask() = default;
+            virtual bool moveNext() const = 0;
+        };
+    }
+
+    template <class T = void>
+    struct Task : detail::ITask
+    {
+        struct promise_type;
         using handle = std::coroutine_handle<promise_type>;
 
+        struct promise_type
+        {
+            static Task get_return_object_on_allocation_failure()
+            {
+                return Task{ nullptr };
+            }
+            auto get_return_object() { return Task{ Task::handle::from_promise(*this) }; }
+            auto initial_suspend() { return std::suspend_always{}; }
+            auto final_suspend() noexcept { return std::suspend_always{}; }
+            void unhandled_exception() { std::terminate(); }
+            void return_value(const T& value)
+            {
+                this->value = value;
+            }
+
+            auto yield_value(int)
+            {
+                return std::suspend_always{};
+            }
+            template<class U>
+            auto yield_value(Task<U> other)
+            {
+                auto nextTask = std::make_shared<Task<U>>(std::move(other));
+                auto ready = !nextTask->moveNext();
+                next = nextTask;
+                struct awaiter
+                {
+                    bool ready = false;
+                    std::shared_ptr<Task<U>> pTask;
+
+                    bool await_ready() const { return ready; }
+                    U await_resume()
+                    {
+                        return pTask->get();
+                    }
+                    void await_suspend(std::coroutine_handle<>)
+                    {}
+                };
+                return awaiter{ ready, nextTask };
+            }
+            std::shared_ptr<detail::ITask> next;
+
+            T value;
+        };
+        bool moveNext() const override
+        {
+            if (!coro) {
+                return false;
+            }
+            if (coro.done()) {
+                return false;
+            }
+            auto& next = coro.promise().next;
+            if (next) {
+
+                if (!next->moveNext()) {
+                    next = nullptr;
+                } else {
+                    return true;
+                }
+            }
+            coro.resume();
+            return !coro.done();
+        }
+
+        bool isDone()const
+        {
+            if (!coro) {
+                return false;
+            }
+            return coro.done();
+        }
+        const T& get() const
+        {
+            return coro.promise().value;
+        }
         Task(Task const&) = delete;
         Task(Task&& rhs) noexcept
-            : m_coro(rhs.m_coro)
+            : coro(std::move(rhs.coro))
         {
-            rhs.m_coro = nullptr;
+            rhs.coro = nullptr;
         }
         ~Task()
         {
-            if (m_coro) {
-                m_coro.destroy();
+            if (coro) {
+                coro.destroy();
             }
         }
         Task(handle h) :
-            m_coro(h)
+            coro(h)
         {}
-
-        bool moveNext() const;
-        [[nodiscard]] bool isDone() const;
     private:
-        handle m_coro;
+        handle coro;
     };
 
-    struct TaskPromice
+    template <>
+    struct Task<void> : detail::ITask
     {
-        static auto get_return_object_on_allocation_failure() { return Task{ nullptr }; }
-        auto get_return_object() { return Task{ Task::handle::from_promise(*this) }; }
-        auto initial_suspend() { return std::suspend_always{}; }
-        auto final_suspend() noexcept { return std::suspend_always{}; }
-        void unhandled_exception() { std::terminate(); }
-        void return_void() {}
+        struct promise_type;
+        using handle = std::coroutine_handle<promise_type>;
 
-        auto yield_value([[maybe_unused]]int)
+        struct promise_type
         {
-            return std::suspend_always{};
-        }
-
-        auto yield_value(Task&& other)
-        {
-            next.emplace(std::move(other));
-
-            auto nextCoro = next->m_coro;
-            if (!nextCoro.done()) {
-                nextCoro.resume();
-            }
-            auto ready = nextCoro.done();
-            struct awaiter
+            static Task get_return_object_on_allocation_failure()
             {
-                bool ready = false;
-                awaiter(bool r) :
-                    ready(r)
-                {}
-                bool await_ready() const{ return ready; }
-                void await_resume()
-                {}
-                void await_suspend(std::coroutine_handle<>)
-                {}
-            };
-            return awaiter{ ready };
+                return Task{ nullptr };
+            }
+            auto get_return_object() { return Task{ Task::handle::from_promise(*this) }; }
+            auto initial_suspend() { return std::suspend_always{}; }
+            auto final_suspend() noexcept { return std::suspend_always{}; }
+            void unhandled_exception() { std::terminate(); }
+            void return_void() {}
+
+            auto yield_value(int)
+            {
+                return std::suspend_always{};
+            }
+            template<class U>
+            auto yield_value(Task<U> other)
+            {
+                auto nextTask = std::make_shared<Task<U>>(std::move(other));
+                auto ready = !nextTask->moveNext();
+                next = nextTask;
+                struct awaiter
+                {
+                    bool ready = false;
+                    std::shared_ptr<Task<U>> pTask;
+
+                    bool await_ready() const { return ready; }
+                    U await_resume()
+                    {
+                        return pTask->get();
+                    }
+                    void await_suspend(std::coroutine_handle<>)
+                    {}
+                };
+                return awaiter{ ready, nextTask };
+            }
+            std::shared_ptr<detail::ITask> next;
+        };
+        bool moveNext() const override
+        {
+            if (!coro) {
+                return false;
+            }
+            if (coro.done()) {
+                return false;
+            }
+            auto& next = coro.promise().next;
+            if (next) {
+
+                if (!next->moveNext()) {
+                    next = nullptr;
+                } else {
+                    return true;
+                }
+            }
+            coro.resume();
+            return !coro.done();
         }
 
-        std::optional<Task> next;
+        bool isDone()const
+        {
+            if (!coro) {
+                return false;
+            }
+            return coro.done();
+        }
+        void get() const
+        {}
+        Task(Task const&) = delete;
+        Task(Task&& rhs) noexcept
+            : coro(std::move(rhs.coro))
+        {
+            rhs.coro = nullptr;
+        }
+        ~Task()
+        {
+            if (coro) {
+                coro.destroy();
+            }
+        }
+        Task(handle h) :
+            coro(h)
+        {}
+    private:
+        handle coro;
     };
 
-    [[nodiscard]] Task operator & (Task a, Task b);
+    template<class T, class U>
+    [[nodiscard]] Task<void> operator & (Task<T> a, Task<U> b)
+    {
+        while (true) {
+            a.moveNext();
+            b.moveNext();
 
-    [[nodiscard]] Task operator | (Task a, Task b);
+            if (a.isDone() && b.isDone()) {
+                co_return;
+            }
 
-    [[nodiscard]] Task operator + (Task a, Task b);
+            co_yield{};
+        }
+    }
+
+
+    template<class T, class U>
+    [[nodiscard]] Task<void> operator | (Task<T> a, Task<U> b)
+    {
+        while (true) {
+            a.moveNext();
+            b.moveNext();
+
+            if (a.isDone() || b.isDone()) {
+                co_return;
+            }
+
+            co_yield{};
+        }
+    }
+
+    template<class T, class U>
+    [[nodiscard]] Task<U> operator + (Task<T> a, Task<U> b)
+    {
+        while (a.moveNext()) {
+            co_yield{};
+        }
+        while (b.moveNext()) {
+            co_yield{};
+        }
+        co_return b.get();
+    }
 }

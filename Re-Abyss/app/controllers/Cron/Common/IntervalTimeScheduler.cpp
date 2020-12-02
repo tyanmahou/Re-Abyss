@@ -11,7 +11,7 @@ namespace abyss::cron
         m_duration(duration)
     {}
 
-    Coro::Task IntervalTimeScheduler::execute(IJob* job)
+    Coro::Task<> IntervalTimeScheduler::execute(IJob* job)
     {
         auto time = m_pManager->getModule<GlobalTime>();
         auto timeFunc = [time] {return time->timeMicroSec(); };

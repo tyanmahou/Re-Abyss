@@ -15,13 +15,13 @@ namespace abyss::Actor
         public IUpdate
     {
         IActor* m_pActor = nullptr;
-        std::unique_ptr<Coro::Task> m_task = nullptr;
+        std::unique_ptr<Coro::Task<>> m_task = nullptr;
 
         bool m_isActive = true;
     public:
         BehaviorCtrl(IActor* pActor);
 
-        void setBehavior(std::function<Coro::Task(IActor*)> behavior);
+        void setBehavior(std::function<Coro::Task<>(IActor*)> behavior);
 
         void onUpdate() override;
 

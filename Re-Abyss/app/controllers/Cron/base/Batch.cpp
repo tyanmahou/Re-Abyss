@@ -13,7 +13,7 @@ namespace abyss::cron
         return m_task.moveNext();
     }
 
-    Coro::Task Batch::execute()
+    Coro::Task<> Batch::execute()
     {
         co_yield m_scheduler->execute(m_job.get());
     }

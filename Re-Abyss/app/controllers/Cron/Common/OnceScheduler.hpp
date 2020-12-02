@@ -8,6 +8,6 @@ namespace abyss::cron
     public:
         OnceScheduler() = default;
 
-        Coro::Task execute(IJob* job) override;
+        Coro::Task<> execute(IJob* job) override;
     };
 }

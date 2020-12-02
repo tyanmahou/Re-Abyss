@@ -15,9 +15,9 @@ namespace abyss::cron
         std::shared_ptr<IScheduler> m_scheduler;
         bool m_isActive = true;
         bool m_isDesroyed = false;
-        Coro::Task m_task;
+        Coro::Task<> m_task;
 
-        Coro::Task execute();
+        Coro::Task<> execute();
     public:
         Batch(std::shared_ptr<IJob> job, std::shared_ptr<IScheduler> scheduer);
 

@@ -6,9 +6,9 @@ namespace abyss::Actor
     BehaviorCtrl::BehaviorCtrl(IActor* pActor):
         m_pActor(pActor)
     {}
-    void BehaviorCtrl::setBehavior(std::function<Coro::Task(IActor*)> behavior)
+    void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(IActor*)> behavior)
     {
-        m_task = std::make_unique<Coro::Task>(behavior(m_pActor));
+        m_task = std::make_unique<Coro::Task<>>(behavior(m_pActor));
     }
     void BehaviorCtrl::onUpdate()
     {

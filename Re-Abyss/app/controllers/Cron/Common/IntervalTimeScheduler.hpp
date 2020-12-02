@@ -9,6 +9,6 @@ namespace abyss::cron
     public:
         IntervalTimeScheduler(const s3d::Duration& duration);
 
-        Coro::Task execute(IJob* job) override;
+        Coro::Task<> execute(IJob* job) override;
     };
 }

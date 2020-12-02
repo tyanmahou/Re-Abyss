@@ -1048,9 +1048,6 @@
     <ClCompile Include="app\datastores\base\DBDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Coro\Task\Task.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

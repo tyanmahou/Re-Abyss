@@ -6,6 +6,6 @@ namespace abyss::cron::BubbleGenerator
 	class BubbleGeneratorJob : public IJob
 	{
 	public:
-		Coro::Task onExecute() override;
+		Coro::Task<> onExecute() override;
 	};
 }

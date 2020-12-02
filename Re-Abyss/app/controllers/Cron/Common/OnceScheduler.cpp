@@ -7,7 +7,7 @@
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 namespace abyss::cron
 {
-    Coro::Task OnceScheduler::execute(IJob* job)
+    Coro::Task<> OnceScheduler::execute(IJob* job)
     {
         co_yield job->onExecute();
     }

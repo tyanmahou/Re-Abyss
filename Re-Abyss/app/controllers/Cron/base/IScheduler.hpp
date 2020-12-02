@@ -3,6 +3,7 @@
 
 namespace abyss::Coro
 {
+    template<class T = void>
     struct Task;
 }
 namespace abyss::cron
@@ -20,6 +21,6 @@ namespace abyss::cron
             m_pManager = pManager;
         }
 
-        virtual Coro::Task execute(IJob* job) = 0;
+        virtual Coro::Task<> execute(IJob* job) = 0;
     };
 }

@@ -5,7 +5,7 @@
 
 namespace abyss::cron::BubbleGenerator
 {
-    Coro::Task BubbleGeneratorJob::onExecute()
+    Coro::Task<> BubbleGeneratorJob::onExecute()
     {
 		auto camera = m_pManager->getModule<Camera>();
 		auto pos = camera->getPos();

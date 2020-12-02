@@ -3,6 +3,7 @@
 
 namespace abyss::Coro
 {
+    template<class T =void>
     struct  Task;
 }
 namespace abyss::cron
@@ -14,7 +15,7 @@ namespace abyss::cron
     public:
         virtual ~IJob() = default;
 
-        virtual Coro::Task onExecute() = 0;
+        virtual Coro::Task<> onExecute() = 0;
 
         void setManager(Manager* const pManager)
         {
