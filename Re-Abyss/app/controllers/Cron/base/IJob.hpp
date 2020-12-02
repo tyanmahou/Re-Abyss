@@ -1,11 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/Coro/Task/Task.hpp>
 
-namespace abyss::Coro
-{
-    template<class T =void>
-    struct  Task;
-}
 namespace abyss::cron
 {
     class IJob
