@@ -3,6 +3,7 @@
 #include <Siv3D/Duration.hpp>
 #include <abyss/utils/Time/Time.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
+#include <future>
 
 namespace abyss::Coro
 {
@@ -41,5 +42,18 @@ namespace abyss::Coro
         while (pred()) {
             co_yield{};
         }
+    }
+
+    /// <summary>
+    /// 別スレッドで処理し完了するまで待機
+    /// </summary>
+    template<class Fty>
+    [[nodiscard]] auto Aysnc(Fty func)->Task<decltype(func())>
+    {
+        auto f = std::async(std::launch::async, func);
+        while (f.wait_for(0s) != std::future_status::ready) {
+            co_yield{};
+        }
+        co_return f.get();
     }
 }
