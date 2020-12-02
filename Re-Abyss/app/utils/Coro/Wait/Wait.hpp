@@ -9,23 +9,23 @@ namespace abyss::Coro
     /// <summary>
     /// 指定秒待つ
     /// </summary>
-    Task<> WaitForSeconds(const s3d::Duration& duration);
+    [[nodiscard]] Task<> WaitForSeconds(const s3d::Duration& duration);
 
     /// <summary>
     /// 指定病待つ 時計指定版
     /// </summary>
-    Task<> WaitForSecondsEx(const s3d::Duration& duration, TimeGetFunction_t timeGetter = Time::GetNow);
+    [[nodiscard]] Task<> WaitForSecondsEx(const s3d::Duration& duration, TimeGetFunction_t timeGetter = Time::GetNow);
 
     /// <summary>
     /// 指定フレーム待つ
     /// </summary>
-    Task<> WaitForFrame(s3d::int32 frame);
+    [[nodiscard]] Task<> WaitForFrame(s3d::int32 frame);
 
     /// <summary>
     /// 条件をみたすまで待つ
     /// </summary>
     template<class Pred, std::enable_if_t<std::is_invocable_r_v<bool, Pred>>* = nullptr>
-    Task<> WaitUntil(Pred pred)
+    [[nodiscard]] Task<> WaitUntil(Pred pred)
     {
         while (!pred()) {
             co_yield{};
@@ -36,7 +36,7 @@ namespace abyss::Coro
     /// 条件をみたす間待つ
     /// </summary>
     template<class Pred, std::enable_if_t<std::is_invocable_r_v<bool, Pred>>* = nullptr>
-    Task<> WaitWhile(Pred pred)
+    [[nodiscard]] Task<> WaitWhile(Pred pred)
     {
         while (pred()) {
             co_yield{};

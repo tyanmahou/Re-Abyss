@@ -6,6 +6,9 @@ namespace abyss::Coro
 {
     namespace detail
     {
+        /// <summary>
+        /// タスク用インターフェース
+        /// </summary>
         struct ITask
         {
             virtual ~ITask() = default;
@@ -13,6 +16,9 @@ namespace abyss::Coro
         };
     }
 
+    /// <summary>
+    /// タスク
+    /// </summary>
     template <class T = void>
     struct Task : detail::ITask
     {
@@ -50,7 +56,7 @@ namespace abyss::Coro
                     std::shared_ptr<Task<U>> pTask;
 
                     bool await_ready() const { return ready; }
-                    U await_resume()
+                    decltype(auto) await_resume()
                     {
                         return pTask->get();
                     }
@@ -63,6 +69,30 @@ namespace abyss::Coro
 
             T value;
         };
+
+        Task(handle h) :
+            coro(h)
+        {}
+
+        Task(Task const&) = delete;
+
+        Task(Task&& rhs) noexcept
+            : coro(std::move(rhs.coro))
+        {
+            rhs.coro = nullptr;
+        }
+
+        ~Task()
+        {
+            if (coro) {
+                coro.destroy();
+            }
+        }
+
+        /// <summary>
+        /// 再開
+        /// </summary>
+        /// <returns></returns>
         bool moveNext() const override
         {
             if (!coro) {
@@ -84,36 +114,34 @@ namespace abyss::Coro
             return !coro.done();
         }
 
-        bool isDone()const
+        /// <summary>
+        /// 完了したか
+        /// </summary>
+        /// <returns></returns>
+        [[nodiscard]] bool isDone()const
         {
             if (!coro) {
                 return false;
             }
             return coro.done();
         }
-        const T& get() const
+
+        /// <summary>
+        /// 取得
+        /// </summary>
+        /// <returns></returns>
+        [[nodiscard]] const T& get() const
         {
             return coro.promise().value;
         }
-        Task(Task const&) = delete;
-        Task(Task&& rhs) noexcept
-            : coro(std::move(rhs.coro))
-        {
-            rhs.coro = nullptr;
-        }
-        ~Task()
-        {
-            if (coro) {
-                coro.destroy();
-            }
-        }
-        Task(handle h) :
-            coro(h)
-        {}
+
     private:
         handle coro;
     };
 
+    /// <summary>
+    /// タスク void特殊化
+    /// </summary>
     template <>
     struct Task<void> : detail::ITask
     {
@@ -148,7 +176,7 @@ namespace abyss::Coro
                     std::shared_ptr<Task<U>> pTask;
 
                     bool await_ready() const { return ready; }
-                    U await_resume()
+                    decltype(auto) await_resume()
                     {
                         return pTask->get();
                     }
@@ -159,6 +187,29 @@ namespace abyss::Coro
             }
             std::shared_ptr<detail::ITask> next;
         };
+
+        Task(handle h) :
+            coro(h)
+        {}
+
+        Task(Task const&) = delete;
+
+        Task(Task&& rhs) noexcept
+            : coro(std::move(rhs.coro))
+        {
+            rhs.coro = nullptr;
+        }
+        ~Task()
+        {
+            if (coro) {
+                coro.destroy();
+            }
+        }
+
+        /// <summary>
+        /// 再開
+        /// </summary>
+        /// <returns></returns>
         bool moveNext() const override
         {
             if (!coro) {
@@ -180,6 +231,10 @@ namespace abyss::Coro
             return !coro.done();
         }
 
+        /// <summary>
+        /// 完了したか
+        /// </summary>
+        /// <returns></returns>
         bool isDone()const
         {
             if (!coro) {
@@ -187,22 +242,8 @@ namespace abyss::Coro
             }
             return coro.done();
         }
+
         void get() const
-        {}
-        Task(Task const&) = delete;
-        Task(Task&& rhs) noexcept
-            : coro(std::move(rhs.coro))
-        {
-            rhs.coro = nullptr;
-        }
-        ~Task()
-        {
-            if (coro) {
-                coro.destroy();
-            }
-        }
-        Task(handle h) :
-            coro(h)
         {}
     private:
         handle coro;
