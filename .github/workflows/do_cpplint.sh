@@ -8,6 +8,7 @@ filters=(
     "-runtime/indentation_namespace"
     "-runtime/explicit"
     "-runtime/references"
+    "-build/c++11"
     "-build/header_guard"
     "-build/include"
     "-build/namespaces"
