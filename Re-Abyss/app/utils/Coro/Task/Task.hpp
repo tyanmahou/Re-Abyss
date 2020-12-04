@@ -40,7 +40,7 @@ namespace abyss::Coro
                 this->value = value;
             }
 
-            auto yield_value(int)
+            auto yield_value([[maybe_unused]]int)
             {
                 return std::suspend_always{};
             }
@@ -160,7 +160,7 @@ namespace abyss::Coro
             void unhandled_exception() { std::terminate(); }
             void return_void() {}
 
-            auto yield_value(int)
+            auto yield_value([[maybe_unused]] int)
             {
                 return std::suspend_always{};
             }
