@@ -33,9 +33,9 @@ namespace abyss::Actor
             return m_pActor;
         }
         void onReflesh();
-        void onCollisionEnter(IActor* col);
-        void onCollisionStay(IActor* col);
-        void onCollisionExit(IActor* col);
+        void onCollisionEnter(ICollider* col);
+        void onCollisionStay(ICollider* col);
+        void onCollisionExit(ICollider* col);
 
         template<Collision::Tag::detail::CollisionTag T>
         bool isThen(std::function<void(IActor*)> callback) const

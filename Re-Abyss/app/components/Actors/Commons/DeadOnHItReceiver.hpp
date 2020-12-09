@@ -14,7 +14,7 @@ namespace abyss::Actor
     public:
         DeadOnHItReceiver(IActor* pActor);
         void onStart() override;
-        void onCollisionStay(IActor* col)override;
+        void onCollisionStay(ICollider* col)override;
     };
 }
 

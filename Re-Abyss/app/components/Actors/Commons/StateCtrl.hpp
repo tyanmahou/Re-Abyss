@@ -41,9 +41,9 @@ namespace abyss::Actor
         virtual void draw() const {}
 
         virtual void onReflesh() {}
-        virtual void onCollisionEnter([[maybe_unused]]IActor* pActor) {}
-        virtual void onCollisionStay([[maybe_unused]] IActor* pActor) {}
-        virtual void onCollisionExit([[maybe_unused]] IActor* pActor) {}
+        virtual void onCollisionEnter([[maybe_unused]]ICollider* col) {}
+        virtual void onCollisionStay([[maybe_unused]] ICollider* col) {}
+        virtual void onCollisionExit([[maybe_unused]] ICollider* col) {}
     };
 
     class StateCtrl :
@@ -113,24 +113,24 @@ namespace abyss::Actor
             }
         }
 
-        void onCollisionEnter(IActor* pActor) override
+        void onCollisionEnter(ICollider* col) override
         {
             if (m_current) {
-                m_current->onCollisionEnter(pActor);
+                m_current->onCollisionEnter(col);
             }
         }
 
-        void onCollisionStay(IActor* pActor) override
+        void onCollisionStay(ICollider* col) override
         {
             if (m_current) {
-                m_current->onCollisionStay(pActor);
+                m_current->onCollisionStay(col);
             }
         }
 
-        void onCollisionExit(IActor* pActor) override
+        void onCollisionExit(ICollider* col) override
         {
             if (m_current) {
-                m_current->onCollisionExit(pActor);
+                m_current->onCollisionExit(col);
             }
         }
         

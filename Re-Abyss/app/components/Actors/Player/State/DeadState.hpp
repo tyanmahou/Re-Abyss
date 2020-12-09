@@ -10,7 +10,7 @@ namespace abyss::Actor::Player
         void start()override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;
-        void onCollisionStay(IActor* col) override;
+        void onCollisionStay(ICollider* col) override;
     public:
         DeadState();
 

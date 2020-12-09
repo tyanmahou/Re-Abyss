@@ -108,7 +108,7 @@ namespace abyss::Actor::Collision
 
         namespace detail
         {
-            using TagVisitorBase = Visitor<
+            using TagVisitorBase = ConstVisitor<
                 Invalid,
 
                 Attacker,
@@ -142,22 +142,21 @@ namespace abyss::Actor::Collision
         struct Base
         {
             virtual ~Base() = default;
-            virtual bool visit(const Tag::TagVisitor& visitor) const = 0;
+            virtual bool accept(const Tag::TagVisitor& visitor) const = 0;
         };
 
         template<Tag::detail::CollisionTag T>
         struct Wrap final : Base
         {
-            bool visit(const Tag::TagVisitor& visitor) const final
+            bool accept(const Tag::TagVisitor& visitor) const final
             {
-                T tag;
-                return visitor.visit(tag);
+                return visitor.visit(T{});
             }
         };
         template<Tag::detail::CollisionTag... Ts>
         struct Wrap<Tag::detail::Tags<Ts...>> final : Base
         {
-            bool visit(const Tag::TagVisitor& visitor) const final
+            bool accept(const Tag::TagVisitor& visitor) const final
             {
                 Tag::detail::Tags<Ts...> tag;
                 return (visitor.visit(static_cast<Ts&>(tag)) || ...);
@@ -169,17 +168,17 @@ namespace abyss::Actor::Collision
         TagType([[maybe_unused]] const T&) :
             m_tag(std::make_unique<Wrap<T>>())
         {}
-        bool visit(const Tag::TagVisitor& visitor) const
+        bool accept(const Tag::TagVisitor& visitor) const
         {
             if (!m_tag) {
                 return false;
             }
-            return m_tag->visit(visitor);
+            return m_tag->accept(visitor);
         }
         template<Tag::detail::CollisionTag T>
         bool is()
         {
-            return this->visit([]([[maybe_unused]] const T& tag) {
+            return this->accept([]([[maybe_unused]] const T& tag) {
 
             });
         }

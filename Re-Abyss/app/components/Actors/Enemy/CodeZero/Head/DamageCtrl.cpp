@@ -5,6 +5,7 @@
 
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/base/IDamageCallback.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
@@ -15,14 +16,14 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 	{
 		m_parent = m_pActor->find<ParentCtrl>();
 	}
-	void DamageCtrl::onCollisionStay(IActor* col)
+	void DamageCtrl::onCollisionStay(ICollider* col)
 	{
 		auto parent = m_parent->getParent();
 		auto hp = m_parent->getHp();
 		if (!hp) {
 			return;
 		}
-		col->accept([this, hp, parent](const Attacker& attacker) {
+		col->getActor()->accept([this, hp, parent](const Attacker& attacker) {
 			if (hp->damage(attacker.getPower())) {
 				for (auto&& callback : parent->finds<IDamageCallback>()) {
 					callback->onDamaged();

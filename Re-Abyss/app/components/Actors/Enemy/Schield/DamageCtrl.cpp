@@ -16,13 +16,13 @@ namespace abyss::Actor::Enemy::Schield
 
         m_face = m_pActor->find<FaceCtrl>();
     }
-    void DamageCtrl::onCollisionStay(IActor* col)
+    void DamageCtrl::onCollisionStay(ICollider* col)
     {
         if (!m_face->isOnFace()) {
             // 待機中以外はダメージを受けない
             return;
         }
-        auto fromCol = col->find<ICollider>()->getCollider();
+        auto fromCol = col->getActor()->find<ICollider>()->getCollider();
         auto faceCol = m_face->getCollider();
         if (!ColisionUtil::Intersects(fromCol, faceCol)) {
             return;

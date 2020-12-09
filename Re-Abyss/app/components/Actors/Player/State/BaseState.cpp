@@ -8,6 +8,7 @@
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -93,16 +94,16 @@ namespace abyss::Actor::Player
             m_attackCtrl->startAttack();
         }
     }
-    void BaseState::onCollisionStay(IActor * col)
+    void BaseState::onCollisionStay(ICollider * col)
     {
-        col->accept(overloaded{
+        col->getActor()->accept(overloaded{
             [this](const DoorActor& door) {
                 // 扉
                 this->onCollisionStay(door);
             },
         });
 
-        col->accept([this](const Attacker& attack) {
+        col->getActor()->accept([this](const Attacker& attack) {
             if (m_hp->damage(attack.getPower())) {
                 this->changeState<DamageState>();
             }

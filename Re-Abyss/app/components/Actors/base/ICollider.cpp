@@ -48,7 +48,7 @@ namespace abyss::Actor
             callback->onReflesh();
         }
     }
-    void ICollider::onCollisionEnter(IActor* col)
+    void ICollider::onCollisionEnter(ICollider* col)
     {
         for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
@@ -57,7 +57,7 @@ namespace abyss::Actor
             callback->onCollisionEnter(col);
         }
     }
-    void ICollider::onCollisionStay(IActor* col)
+    void ICollider::onCollisionStay(ICollider* col)
     {
         for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {
@@ -66,7 +66,7 @@ namespace abyss::Actor
             callback->onCollisionStay(col);
         }
     }
-    void ICollider::onCollisionExit(IActor * col)
+    void ICollider::onCollisionExit(ICollider* col)
     {
         for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
             if (!callback->isActive()) {

@@ -14,7 +14,7 @@ namespace abyss::tests
             TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             int value = 0;
-            auto result = tag.visit([&](Tag::Attacker) {
+            auto result = tag.accept([&](Tag::Attacker) {
                 value = 1;
             });
 
@@ -27,7 +27,7 @@ namespace abyss::tests
             TagType tag = Tag::Receiver{};
 
             int value = 0;
-            auto result = tag.visit([&](Tag::Attacker) {
+            auto result = tag.accept([&](Tag::Attacker) {
                 value = 1;
             });
 

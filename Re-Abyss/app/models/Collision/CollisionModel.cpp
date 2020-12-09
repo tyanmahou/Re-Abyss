@@ -37,17 +37,17 @@ namespace abyss
 				m_currentCollision.insert(hash);
 				if (prevCollision.find(hash) == prevCollision.end()) {
 					// onEnter
-					it1->onCollisionEnter(it2->getActor());
-					it2->onCollisionEnter(it1->getActor());
+					it1->onCollisionEnter(it2.get());
+					it2->onCollisionEnter(it1.get());
 				}
 				// onStay
-				it1->onCollisionStay(it2->getActor());
-				it2->onCollisionStay(it1->getActor());
+				it1->onCollisionStay(it2.get());
+				it2->onCollisionStay(it1.get());
 			} else {
 				if (prevCollision.find(hash) != prevCollision.end()) {
 					// onExit
-					it1->onCollisionExit(it2->getActor());
-					it2->onCollisionExit(it1->getActor());
+					it1->onCollisionExit(it2.get());
+					it2->onCollisionExit(it1.get());
 				}
 			}
 		};

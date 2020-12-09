@@ -16,7 +16,7 @@ namespace abyss::Actor
         DamageCtrl(IActor* pActor);
 
         void onStart() override;
-        void onCollisionStay(IActor* col)override;
+        void onCollisionStay(ICollider* col)override;
     };
 }
 

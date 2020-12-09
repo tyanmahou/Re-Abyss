@@ -2,6 +2,8 @@
 #include <abyss/commons/Fwd.hpp>
 namespace abyss::Actor
 {
+    class ICollider;
+
     class ICollisionCallback
     {
     protected:
@@ -17,8 +19,8 @@ namespace abyss::Actor
             return m_isActive;
         }
         virtual void onReflesh(){}
-        virtual void onCollisionEnter(IActor*) {}
-        virtual void onCollisionStay(IActor*) {}
-        virtual void onCollisionExit(IActor*) {}
+        virtual void onCollisionEnter(ICollider*) {}
+        virtual void onCollisionStay(ICollider*) {}
+        virtual void onCollisionExit(ICollider*) {}
     };
 }
