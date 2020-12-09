@@ -1628,5 +1628,6 @@
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
     <ClInclude Include="app\components\base\Depends.hpp" />
     <ClInclude Include="app\components\base\DependSort.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Collision\Tag.hpp" />
   </ItemGroup>
 </Project>

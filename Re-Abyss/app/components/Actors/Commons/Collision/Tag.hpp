@@ -1,9 +1,110 @@
 #pragma once
+#include <type_traits>
 
 namespace abyss::Actor::Collision
 {
-    struct Tag{};
+    namespace Tag
+    {
+        namespace detail
+        {
+            struct ITag
+            {
+                virtual ~ITag() = default;
+            };
+            template<class T>
+            concept CollisionTag = std::is_base_of_v<detail::ITag, T>;
 
-    struct ITag {};
+            template<CollisionTag... Args>
+            struct Tags : virtual Args...
+            {};
+
+            template<class T>
+            struct IsTags : std::false_type{};
+
+            template<class... Args>
+            struct IsTags<Tags<Args...>> : std::true_type {};
+
+            template<class T>
+            concept CollisionTags = IsTags<T>::value;
+        }
+
+        template<detail::CollisionTag T, detail::CollisionTag U>
+        constexpr auto operator |(const T&, const U&)
+        {
+            return detail::Tags<T, U>{};
+        }
+        template<detail::CollisionTag T, detail::CollisionTag... Us>
+        constexpr auto operator |(const T&, const detail::Tags<Us...>&)
+        {
+            return detail::Tags<T, Us...>{};
+        }
+        template<detail::CollisionTag... Ts, detail::CollisionTag U>
+        constexpr auto operator |(const  detail::Tags<Ts...>&, const U&)
+        {
+            return detail::Tags<Ts..., U>{};
+        }
+        template<detail::CollisionTag... Ts, detail::CollisionTag... Us>
+        constexpr auto operator |(const  detail::Tags<Ts...>&, const detail::Tags<Us...>&)
+        {
+            return detail::Tags<Ts..., Us...>{};
+        }
+
+        /// <summary>
+        /// 無効
+        /// </summary>
+        struct Invalid : virtual detail::ITag {};
+
+        /// <summary>
+        /// 攻撃者
+        /// </summary>
+        struct Attacker : virtual Invalid {};
+
+        /// <summary>
+        /// 受け身者
+        /// </summary>
+        struct Receiver : virtual Invalid {};
+
+        /// <summary>
+        /// プレイヤー
+        /// </summary>
+        struct Player : virtual Invalid {};
+
+        /// <summary>
+        /// 敵
+        /// </summary>
+        struct Enemy : virtual Invalid {};
+
+        /// <summary>
+        /// マップ
+        /// </summary>
+        struct Map : virtual Invalid {};
+        
+        /// <summary>
+        /// 床
+        /// </summary>
+        struct Floor : virtual Map, virtual Receiver {};
+
+        /// <summary>
+        /// はしご
+        /// </summary>
+        struct  Ladder : virtual Map {};
+
+        /// <summary>
+        /// とおりぬけ床
+        /// </summary>
+        struct PenetrateFloor : virtual Map {};
+
+        /// <summary>
+        /// ギミック
+        /// </summary>
+        struct Gimmick : virtual Invalid {};
+
+        /// <summary>
+        /// トビラ
+        /// </summary>
+        struct Door : virtual Gimmick {};
+    }
+
+    struct TagType {};
 
 }
