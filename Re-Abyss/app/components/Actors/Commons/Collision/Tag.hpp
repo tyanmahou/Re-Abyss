@@ -176,6 +176,18 @@ namespace abyss::Actor::Collision
             }
             return m_tag->visit(visitor);
         }
+        template<Tag::detail::CollisionTag T>
+        bool is()
+        {
+            return this->visit([]([[maybe_unused]] const T& tag) {
+
+            });
+        }
+        template<Tag::detail::CollisionTag T>
+        bool isNot()
+        {
+            return !is<T>();
+        }
     private:
         std::unique_ptr<Base> m_tag;
     };

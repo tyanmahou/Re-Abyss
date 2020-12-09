@@ -5,14 +5,15 @@
 namespace abyss::Actor
 {
     ICollider::ICollider(IActor* pActor):
-        m_pActor(pActor)
+        m_pActor(pActor),
+        m_tag(Collision::Tag::Invalid{})
     {}
-    ICollider& ICollider::setTag(const s3d::String& tag)
+    ICollider& ICollider::setTag(Collision::TagType tag)
     {
-        m_tag = tag;
+        m_tag = std::move(tag);
         return *this;
     }
-    const s3d::String& ICollider::getTag() const
+    const Collision::TagType& ICollider::getTag() const
     {
         return m_tag;
     }

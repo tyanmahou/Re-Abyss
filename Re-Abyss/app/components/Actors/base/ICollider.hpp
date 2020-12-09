@@ -1,13 +1,15 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/CShape.hpp>
+#include <abyss/components/Actors/Commons/Collision/Tag.hpp>
+
 namespace abyss::Actor
 {
     class ICollider
     {
     protected:
         IActor* m_pActor;
-        s3d::String m_tag;
+        Collision::TagType m_tag;
         s3d::String m_layer;
 
         bool m_isActive = true;
@@ -16,8 +18,8 @@ namespace abyss::Actor
         virtual ~ICollider() = default;
         virtual CShape getCollider() const = 0;
 
-        ICollider& setTag(const s3d::String& tag);
-        const s3d::String& getTag() const;
+        ICollider& setTag(Collision::TagType tag);
+        const Collision::TagType& getTag() const;
 
         ICollider& setLayer(const s3d::String& layer);
         const s3d::String& getLayer() const;

@@ -34,6 +34,26 @@ namespace abyss::tests
             REQUIRE(!result);
             REQUIRE(value == 0);
         }
+
+        SECTION("tag is")
+        {
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+
+            REQUIRE(tag.is<Tag::Attacker>());
+            REQUIRE(tag.is<Tag::Receiver>());
+            REQUIRE(tag.is<Tag::Invalid>());
+            REQUIRE(!tag.is<Tag::Player>());
+        }
+
+        SECTION("tag is not")
+        {
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+
+            REQUIRE(!tag.isNot<Tag::Attacker>());
+            REQUIRE(!tag.isNot<Tag::Receiver>());
+            REQUIRE(!tag.isNot<Tag::Invalid>());
+            REQUIRE(tag.isNot<Tag::Player>());
+        }
     }
 }
 #endif
