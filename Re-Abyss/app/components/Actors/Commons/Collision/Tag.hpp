@@ -1,5 +1,7 @@
 #pragma once
 #include <type_traits>
+#include <memory>
+#include <abyss/utils/Visitor.hpp>
 
 namespace abyss::Actor::Collision
 {
@@ -103,8 +105,79 @@ namespace abyss::Actor::Collision
         /// トビラ
         /// </summary>
         struct Door : virtual Gimmick {};
+
+        namespace detail
+        {
+            using TagVisitorBase = Visitor<
+                Invalid,
+
+                Attacker,
+                Receiver,
+
+                Player,
+
+                Enemy,
+
+                Map,
+                Floor,
+                Ladder,
+                PenetrateFloor,
+
+                Gimmick,
+                Door
+            >;
+        }
+
+        struct TagVisitor : detail::TagVisitorBase
+        {
+            using detail::TagVisitorBase::Visitor;
+            using detail::TagVisitorBase::visit;
+            using detail::TagVisitorBase::operator=;
+        };
+
     }
 
-    struct TagType {};
+    class TagType
+    {
+        struct Base
+        {
+            virtual ~Base() = default;
+            virtual bool visit(const Tag::TagVisitor& visitor) const = 0;
+        };
+
+        template<Tag::detail::CollisionTag T>
+        struct Wrap final : Base
+        {
+            bool visit(const Tag::TagVisitor& visitor) const final
+            {
+                T tag;
+                return visitor.visit(tag);
+            }
+        };
+        template<Tag::detail::CollisionTag... Ts>
+        struct Wrap<Tag::detail::Tags<Ts...>> final : Base
+        {
+            bool visit(const Tag::TagVisitor& visitor) const final
+            {
+                Tag::detail::Tags<Ts...> tag;
+                return (visitor.visit(static_cast<Ts&>(tag)) || ...);
+            }
+        };
+    public:
+        TagType() = default;
+        template<Tag::detail::CollisionTag T>
+        TagType([[maybe_unused]] const T&) :
+            m_tag(std::make_unique<Wrap<T>>())
+        {}
+        bool visit(const Tag::TagVisitor& visitor) const
+        {
+            if (!m_tag) {
+                return false;
+            }
+            return m_tag->visit(visitor);
+        }
+    private:
+        std::unique_ptr<Base> m_tag;
+    };
 
 }
