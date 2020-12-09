@@ -7,7 +7,7 @@ namespace
     struct Node
     {
         Ref<IComponent> component;
-        Depends depends;
+        s3d::Array<Node*> outs;
         bool isOpen = false;
         bool isTemp = false;
     };
@@ -18,16 +18,7 @@ namespace
             return;
         }
         n.isTemp = true;
-
-        s3d::Array<Node*> out;
-        for (auto& node : nodes) {
-            if (n.depends.isBefore(node.component.get())) {
-                out.push_back(&node);
-            } else if (node.depends.isAfter(n.component.get())) {
-                out.push_back(&node);
-            }
-        }
-        for (auto* o : out) {
+        for (auto* o : n.outs) {
             Visit(result, nodes, *o);
         }
         n.isOpen = true;
@@ -44,7 +35,24 @@ namespace abyss
     {
         s3d::Array<Node> nodes;
         for (auto& com : origin) {
-            nodes.push_back({ com, m_depends[com.get()] });
+            nodes.push_back({ com });
+        }
+        // 出力ノードをまとめる
+        for (auto& node1 : nodes) {
+            s3d::Array<Node*> outs;
+            auto& depends1 = m_depends[node1.component.get()];
+            for (auto& node2 : nodes) {
+                if (&node1 == &node2) {
+                    continue;
+                }
+                auto& depends2 = m_depends[node2.component.get()];
+                if (depends1.isBefore(node2.component.get())) {
+                    outs.push_back(&node2);
+                } else if (depends2.isAfter(node1.component.get())) {
+                    outs.push_back(&node2);
+                }
+            }
+            node1.outs = std::move(outs);
         }
         s3d::Array<Ref<IComponent>> result;
         for (auto& node : nodes) {

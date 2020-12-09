@@ -103,7 +103,7 @@ namespace abyss::Actor::Enemy::CodeZero
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);
 
             // 二回手攻撃
-            for (int32 count : step(2)) {
+            for ([[maybe_unused]]int32 count : step(2)) {
                 // 右手攻撃
                 parts->getRightHand()->tryAttack();
 
