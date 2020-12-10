@@ -56,6 +56,7 @@ namespace abyss::Actor::Enemy
 			auto collider = m_pActor->attach<CustomCollider>(m_pActor);
 			collider->setColFunc(m_colliderFunc);
 			collider->setLayer(LayerGroup::Enemy);
+			collider->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{} | Collision::Tag::Receiver{});
 		}
 		// 地形Collider
 		if (m_isEnableMapCollider) {

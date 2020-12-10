@@ -1157,9 +1157,6 @@
     <ClInclude Include="app\controllers\Stage\Stage.hpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="app\visitors\ActVisitor.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
@@ -1401,7 +1398,6 @@
     <ClInclude Include="app\controllers\UI\UI.hpp" />
     <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
-    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
@@ -1632,5 +1628,7 @@
     <ClInclude Include="app\components\base\Depends.hpp" />
     <ClInclude Include="app\components\base\DependSort.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Collision\Tag.hpp" />
+    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
+    <ClInclude Include="app\visitors\ActVisitor.hpp" />
   </ItemGroup>
 </Project>

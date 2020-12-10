@@ -14,6 +14,7 @@ namespace abyss::Actor::Gimmick::Door
 		col->setLayer(LayerGroup::Gimmick);
 
 		col->setColFunc([this] {return this->getCollider(); });
+		col->setTag(Collision::Tag::Door{});
 	}
 	CShape DoorActor::getCollider() const
 	{

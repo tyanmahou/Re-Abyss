@@ -41,6 +41,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
+            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{});
         }
         {
             (m_body = this->attach<Body>(this))

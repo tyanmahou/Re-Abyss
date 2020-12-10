@@ -43,6 +43,7 @@ namespace abyss::Actor::Player
             col->setColFunc([this]() {
                 return this->getCollider();
             });
+            col->setTag(Collision::Tag::Player{});
         }
         // Map Collider
         {

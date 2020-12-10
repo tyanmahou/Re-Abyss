@@ -584,7 +584,6 @@
     <ClInclude Include="app\components\base\Depends.hpp" />
     <ClInclude Include="app\components\base\DependSort.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
-    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
@@ -592,6 +591,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
+    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
     <ClInclude Include="app\controllers\Actors\God\GodActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />

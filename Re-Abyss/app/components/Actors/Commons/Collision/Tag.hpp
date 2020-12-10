@@ -34,9 +34,14 @@ namespace abyss::Actor::Collision
         struct Receiver : virtual ITag {};
 
         /// <summary>
+        /// 味方
+        /// </summary>
+        struct Hero : virtual ITag {};
+
+        /// <summary>
         /// プレイヤー
         /// </summary>
-        struct Player : virtual ITag {};
+        struct Player : virtual Hero, virtual Attacker, virtual Receiver {};
 
         /// <summary>
         /// 敵

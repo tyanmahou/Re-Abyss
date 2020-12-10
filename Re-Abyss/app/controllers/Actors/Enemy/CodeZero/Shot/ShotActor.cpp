@@ -34,6 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setImpl<Collider>(this);
+            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{} | Collision::Tag::Receiver{});
         }
         {
             this->attach<ScaleCtrl>()

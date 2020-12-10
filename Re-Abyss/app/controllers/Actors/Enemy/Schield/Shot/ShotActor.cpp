@@ -36,6 +36,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
                 return this->getCollider();
             });
             collider->setLayer(LayerGroup::Enemy);
+            collider->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{});
         }
         {
             this->attach<DeadOnHItReceiver>(this);

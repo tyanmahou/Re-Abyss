@@ -14,6 +14,7 @@ namespace abyss::Actor::Map::Floor
 				return this->getCollider();
 			});
 			collider->setLayer(LayerGroup::Map);
+			collider->setTag(Collision::Tag::Floor{});
 		}
 	}
 

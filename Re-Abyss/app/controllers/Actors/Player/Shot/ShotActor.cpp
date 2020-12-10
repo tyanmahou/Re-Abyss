@@ -32,6 +32,7 @@ namespace abyss::Actor::Player::Shot
 		{
 			auto collider = this->attach<Collider>(this);
 			collider->setLayer(LayerGroup::Player);
+			collider->setTag(Collision::Tag::Hero{} | Collision::Tag::Attacker{});
 		}
 		{
 			this->attach<AudioSource>(this)
