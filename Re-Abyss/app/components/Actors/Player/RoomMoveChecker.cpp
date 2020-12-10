@@ -6,11 +6,18 @@
 
 #include <abyss/controllers/Event/RoomMove/BasicMove/BasicMove.hpp>
 
+#include <abyss/components/Actors/Commons/CameraFixPos.hpp>
+
 namespace abyss::Actor::Player
 {
     RoomMoveChecker::RoomMoveChecker(PlayerActor* pActor):
         m_pActor(pActor)
     {}
+    void RoomMoveChecker::setup(Depends depends)
+    {
+        // カメラでフィックスしてからやる
+        depends.addAfter<CameraFixPos>();
+    }
     void RoomMoveChecker::onLastUpdate()
     {
         if (m_pActor->isDestroyed()) {
