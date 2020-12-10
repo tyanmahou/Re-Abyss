@@ -14,9 +14,9 @@ namespace abyss::Actor::Collision
                 virtual ~ITag() = default;
             };
             template<class T>
-            concept CollisionTag = std::is_base_of_v<detail::ITag, T>;
+            concept Tagged = std::is_base_of_v<detail::ITag, T>;
 
-            template<CollisionTag... Args>
+            template<Tagged... Args>
             struct Tags : virtual Args...
             {};
 
@@ -25,27 +25,24 @@ namespace abyss::Actor::Collision
 
             template<class... Args>
             struct IsTags<Tags<Args...>> : std::true_type {};
-
-            template<class T>
-            concept CollisionTags = IsTags<T>::value;
         }
 
-        template<detail::CollisionTag T, detail::CollisionTag U>
+        template<detail::Tagged T, detail::Tagged U>
         constexpr auto operator |(const T&, const U&)
         {
             return detail::Tags<T, U>{};
         }
-        template<detail::CollisionTag T, detail::CollisionTag... Us>
+        template<detail::Tagged T, detail::Tagged... Us>
         constexpr auto operator |(const T&, const detail::Tags<Us...>&)
         {
             return detail::Tags<T, Us...>{};
         }
-        template<detail::CollisionTag... Ts, detail::CollisionTag U>
+        template<detail::Tagged... Ts, detail::Tagged U>
         constexpr auto operator |(const  detail::Tags<Ts...>&, const U&)
         {
             return detail::Tags<Ts..., U>{};
         }
-        template<detail::CollisionTag... Ts, detail::CollisionTag... Us>
+        template<detail::Tagged... Ts, detail::Tagged... Us>
         constexpr auto operator |(const  detail::Tags<Ts...>&, const detail::Tags<Us...>&)
         {
             return detail::Tags<Ts..., Us...>{};
@@ -145,7 +142,7 @@ namespace abyss::Actor::Collision
             virtual bool accept(const Tag::TagVisitor& visitor) const = 0;
         };
 
-        template<Tag::detail::CollisionTag T>
+        template<Tag::detail::Tagged T>
         struct Wrap final : Base
         {
             bool accept(const Tag::TagVisitor& visitor) const final
@@ -153,7 +150,7 @@ namespace abyss::Actor::Collision
                 return visitor.visit(T{});
             }
         };
-        template<Tag::detail::CollisionTag... Ts>
+        template<Tag::detail::Tagged... Ts>
         struct Wrap<Tag::detail::Tags<Ts...>> final : Base
         {
             bool accept(const Tag::TagVisitor& visitor) const final
@@ -164,7 +161,7 @@ namespace abyss::Actor::Collision
         };
     public:
         TagType() = default;
-        template<Tag::detail::CollisionTag T>
+        template<Tag::detail::Tagged T>
         TagType([[maybe_unused]] const T&) :
             m_tag(std::make_unique<Wrap<T>>())
         {}
@@ -175,14 +172,14 @@ namespace abyss::Actor::Collision
             }
             return m_tag->accept(visitor);
         }
-        template<Tag::detail::CollisionTag T>
+        template<Tag::detail::Tagged T>
         bool is()
         {
             return this->accept([]([[maybe_unused]] const T& tag) {
 
             });
         }
-        template<Tag::detail::CollisionTag T>
+        template<Tag::detail::Tagged T>
         bool isNot()
         {
             return !is<T>();

@@ -2,6 +2,7 @@
 #include <abyss/visitors/ActVisitor.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/components/base/Components.hpp>
+#include <Siv3D/Duration.hpp>
 
 namespace abyss::Actor
 {
