@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/types/MapColInfo.hpp>
 
 namespace abyss::Actor
@@ -41,6 +42,24 @@ namespace abyss::Actor
             return m_pActor;
         }
 
+        template<Tag::Tagged T>
+        bool isThen(std::function<void(IActor*)> callback) const
+        {
+            if (m_pActor->getTag().is<T>()) {
+                callback(m_pActor);
+                return true;
+            }
+            return false;
+        }
+        template<Tag::Tagged T>
+        bool isNotThen(std::function<void(IActor*)> callback) const
+        {
+            if (m_pActor->getTag().isNot<T>()) {
+                callback(m_pActor);
+                return true;
+            }
+            return false;
+        }
         bool accept(const ActVisitor& visit) const;
     };
 }
