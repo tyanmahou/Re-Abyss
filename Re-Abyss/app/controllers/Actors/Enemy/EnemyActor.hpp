@@ -1,7 +1,6 @@
 #pragma once
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -9,8 +8,7 @@
 namespace abyss::Actor::Enemy
 {
     class EnemyActor :
-        public IActor,
-        public Receiver
+        public IActor
     {
         friend class EnemyBuilder;
     protected:

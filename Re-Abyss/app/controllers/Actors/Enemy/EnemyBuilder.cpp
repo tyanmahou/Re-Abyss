@@ -3,6 +3,7 @@
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 
+#include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
@@ -55,6 +56,9 @@ namespace abyss::Actor::Enemy
 		// AttackerData
 		{
 			m_pActor->attach<AttackerData>(1);
+		}
+		{
+			m_pActor->attach<ReceiverData>();
 		}
 		// Collider
 		if (m_isEnableCollider) {

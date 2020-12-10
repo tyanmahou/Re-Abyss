@@ -38,8 +38,6 @@ namespace abyss
 	namespace Actor
 	{
 		class IActor;
-		class Attacker;
-		class Receiver;
 		namespace Player
 		{
 			class PlayerActor;

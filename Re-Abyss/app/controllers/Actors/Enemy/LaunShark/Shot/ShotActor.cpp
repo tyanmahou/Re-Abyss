@@ -2,6 +2,7 @@
 
 #include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
+#include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
@@ -83,6 +84,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         {
             this->attach<AttackerData>(1);
         }
+        {
+            this->attach<ReceiverData>();
+        }
     }
 
     CShape ShotActor::getCollider() const
@@ -95,8 +99,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     }
     bool ShotActor::accept(const ActVisitor& visitor)
     {
-        bool success = visitor.visit(static_cast<Receiver&>(*this));
-        return success || visitor.visit(static_cast<IActor&>(*this));
+        return visitor.visit(static_cast<IActor&>(*this));
     }
 }
 

@@ -1,6 +1,7 @@
 #include "FloorActor.hpp"
 #include <Siv3D/String.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
+#include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 namespace abyss::Actor::Map::Floor
@@ -15,6 +16,9 @@ namespace abyss::Actor::Map::Floor
 				return this->getCollider();
 			});
 			collider->setLayer(LayerGroup::Map);
+		}
+		{
+			this->attach<ReceiverData>();
 		}
 	}
 

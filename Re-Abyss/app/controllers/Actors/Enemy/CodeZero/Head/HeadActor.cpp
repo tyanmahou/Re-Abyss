@@ -1,6 +1,7 @@
 #include "HeadActor.hpp"
 #include <abyss/components/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
 
+#include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
@@ -48,6 +49,9 @@ namespace abyss::Actor::Enemy::CodeZero::Head
             this->attach<ViewCtrl<HeadVM>>()
                 ->createBinder<ViewBinder>(this);
         }
+        {
+            this->attach<ReceiverData>();
+        }
     }
     s3d::Vec2 HeadActor::getPos() const
     {
@@ -60,8 +64,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     }
     bool HeadActor::accept(const ActVisitor & visitor)
     {
-        return visitor.visit(static_cast<Receiver&>(*this))
-            || visitor.visit(static_cast<IActor&>(*this));
+        return visitor.visit(static_cast<IActor&>(*this));
     }
 }
 

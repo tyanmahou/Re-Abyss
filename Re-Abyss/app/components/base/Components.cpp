@@ -24,6 +24,10 @@ namespace abyss
             }
             // 依存関係からソートする
             for (auto& pair : m_tree) {
+                if (pair.second.size() <= 1) {
+                    // ソート不要
+                    continue;
+                }
                 pair.second = ds.sort(pair.second);
             }
         }

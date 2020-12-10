@@ -16,6 +16,7 @@
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/CameraFixPos.hpp>
 #include <abyss/components/Actors/Commons/LightCtrl.hpp>
+#include <abyss/components/Actors/Commons/ReceiverData.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
@@ -123,6 +124,9 @@ namespace abyss::Actor::Player
         // UI制御
         {
             this->attach<UICtrl>(this);
+        }
+        {
+            this->attach<ReceiverData>();
         }
 #if ABYSS_DEBUG
         // デバッグ制御

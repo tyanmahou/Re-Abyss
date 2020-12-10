@@ -7,7 +7,6 @@ namespace abyss::Actor
 
 	using ActVisitorBase = Visitor<
 		IActor,
-		Receiver,
 
 		Player::PlayerActor,
 

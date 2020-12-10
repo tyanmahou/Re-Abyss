@@ -1,12 +1,10 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Receiver.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     class ShotActor: 
-        public IActor,
-        public Receiver
+        public IActor
     {
     public:
         ShotActor(IActor* parent);

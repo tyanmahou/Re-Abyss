@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -12,8 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     class HeadCtrl;
 
     class HeadActor:
-        public IActor,
-        public Receiver
+        public IActor
     {
     private:
         Ref<HeadCtrl> m_head;

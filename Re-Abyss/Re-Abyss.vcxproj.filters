@@ -1205,7 +1205,6 @@
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\Time\Time.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />
@@ -1630,5 +1629,6 @@
     <ClInclude Include="app\visitors\ActVisitor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
   </ItemGroup>
 </Project>

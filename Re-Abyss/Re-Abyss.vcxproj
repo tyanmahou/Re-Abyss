@@ -543,6 +543,7 @@
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
@@ -710,7 +711,6 @@
     <ClInclude Include="app\controllers\Manager\Manager.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />
-    <ClInclude Include="app\controllers\Actors\base\Receiver.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />

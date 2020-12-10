@@ -1,7 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 
 namespace abyss
@@ -16,8 +15,7 @@ namespace abyss::Actor::Player
 namespace abyss::Actor::Player
 {
     class PlayerActor :
-        public IActor,
-        public Receiver
+        public IActor
     {
     private:
         Ref<Body> m_body;
