@@ -542,7 +542,7 @@
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
-    <ClInclude Include="app\components\Actors\Commons\Collision\Tag.hpp" />
+    <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actors\Commons\FallChecker.hpp" />

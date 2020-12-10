@@ -35,7 +35,7 @@ namespace abyss::Actor::Player
     PlayerActor::PlayerActor()
     {
         this->m_isDontDestoryOnLoad = true;
-
+        this->m_tag = Tag::Player{};
         // Collider
         {
             auto col = this->attach<CustomCollider>(this);
@@ -43,7 +43,6 @@ namespace abyss::Actor::Player
             col->setColFunc([this]() {
                 return this->getCollider();
             });
-            col->setTag(Collision::Tag::Player{});
         }
         // Map Collider
         {

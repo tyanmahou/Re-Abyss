@@ -12,6 +12,7 @@ namespace abyss::Actor::Map::PenetrateFloor
 		m_canDown(canDown),
 		m_aroundFloor(aroundFloor)
 	{
+		m_tag = Tag::PenetrateFloor{};
 	}
 	bool PenetrateFloorActor::canDown() const
 	{

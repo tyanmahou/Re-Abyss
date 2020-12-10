@@ -11,6 +11,8 @@ namespace abyss::Actor::Enemy
 			.setInitPos(pos)
 			.setForward(forward)
 			;
+
+		m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
 	}
 	const s3d::Vec2& EnemyActor::getPos() const
 	{

@@ -10,11 +10,11 @@ namespace abyss::Actor::Gimmick::Door
 		m_door(door),
 		m_nextRoom(nextRoom)
 	{
+		m_tag = Tag::Door{};
 		auto col = this->attach<CustomCollider>(this);
 		col->setLayer(LayerGroup::Gimmick);
 
 		col->setColFunc([this] {return this->getCollider(); });
-		col->setTag(Collision::Tag::Door{});
 	}
 	CShape DoorActor::getCollider() const
 	{

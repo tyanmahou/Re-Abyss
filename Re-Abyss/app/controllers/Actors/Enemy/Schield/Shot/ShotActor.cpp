@@ -22,6 +22,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
+        m_tag = Tag::Enemy{} | Tag::Attacker{};
         {
             (m_body = this->attach<Body>(this))
                 ->initPos(pos)
@@ -36,7 +37,6 @@ namespace abyss::Actor::Enemy::Schield::Shot
                 return this->getCollider();
             });
             collider->setLayer(LayerGroup::Enemy);
-            collider->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{});
         }
         {
             this->attach<DeadOnHItReceiver>(this);

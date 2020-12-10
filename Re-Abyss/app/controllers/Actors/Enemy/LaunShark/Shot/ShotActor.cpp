@@ -25,6 +25,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
+        m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
         // 回転
         {
             m_rotate = this->attach<RotateCtrl>();
@@ -37,7 +38,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{} | Collision::Tag::Receiver{});
         }
         // ボディ
         {

@@ -45,6 +45,11 @@ namespace abyss::Actor
 		return m_order;
 	}
 
+	inline const TagType& IActor::getTag() const
+	{
+		return m_tag;
+	}
+
 	template<class T>
 	T* IActor::getModule() const
 	{

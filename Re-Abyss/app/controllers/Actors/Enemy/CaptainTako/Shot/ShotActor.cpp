@@ -19,11 +19,11 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
     ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
     {
+        m_tag = Tag::Enemy{} | Tag::Attacker{};
         {
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{});
         }
         {
             (m_body = this->attach<Body>(this))

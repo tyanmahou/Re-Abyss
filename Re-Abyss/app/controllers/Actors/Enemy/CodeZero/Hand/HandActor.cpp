@@ -25,6 +25,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     HandActor::HandActor(IActor* parent, Kind kind)
     {
+        m_tag = Tag::Enemy{} | Tag::Attacker{};
         auto forward = kind == Kind::Left ? Forward::Left : Forward::Right;
         {
             this->attach<ParentCtrl>(parent);
@@ -41,7 +42,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Attacker{});
         }
         {
             (m_body = this->attach<Body>(this))

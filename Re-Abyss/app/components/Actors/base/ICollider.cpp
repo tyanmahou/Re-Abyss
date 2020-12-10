@@ -1,22 +1,12 @@
 #include "ICollider.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
 {
     ICollider::ICollider(IActor* pActor):
-        m_pActor(pActor),
-        m_tag(Collision::Tag::Invalid{})
+        m_pActor(pActor)
     {}
-    ICollider& ICollider::setTag(Collision::TagType tag)
-    {
-        m_tag = std::move(tag);
-        return *this;
-    }
-    const Collision::TagType& ICollider::getTag() const
-    {
-        return m_tag;
-    }
+
     ICollider& ICollider::setLayer(const s3d::String& layer)
     {
         m_layer = layer;

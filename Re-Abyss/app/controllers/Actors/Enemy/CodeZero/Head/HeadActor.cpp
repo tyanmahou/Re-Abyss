@@ -20,6 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 {
     HeadActor::HeadActor(IActor* parent)
     {
+        m_tag = Tag::Enemy{} | Tag::Receiver{};
         // 親情報
         {
             m_parent = this->attach<ParentCtrl>(parent);
@@ -39,7 +40,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
             auto col = this->attach<CustomCollider>(this);
             col->setLayer(LayerGroup::Enemy);
             col->setColFunc([this] {return this->getCollider(); });
-            col->setTag(Collision::Tag::Enemy{} | Collision::Tag::Receiver{});
 
             this->attach<DamageCtrl>(this);
         }

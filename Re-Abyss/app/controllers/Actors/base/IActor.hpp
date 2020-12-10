@@ -3,6 +3,7 @@
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/components/base/Components.hpp>
 #include <Siv3D/Duration.hpp>
+#include <abyss/controllers/Actors/base/Tag.hpp>
 
 namespace abyss::Actor
 {
@@ -19,6 +20,7 @@ namespace abyss::Actor
 		bool m_isDontDestoryOnLoad = false;
 		s3d::int32 m_order = 0;
 		
+		TagType m_tag;
 	public:
 		IActor();
 		virtual ~IActor() = default;
@@ -37,6 +39,7 @@ namespace abyss::Actor
 		bool isDontDestoryOnLoad() const;
 
 		s3d::int32 getOrder() const;
+		const TagType& getTag() const;
 
 		void updateDeltaTime(double worldDt) const;
 		void setup() const;

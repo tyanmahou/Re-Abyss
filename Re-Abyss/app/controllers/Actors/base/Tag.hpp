@@ -3,7 +3,7 @@
 #include <memory>
 #include <abyss/utils/Visitor.hpp>
 
-namespace abyss::Actor::Collision
+namespace abyss::Actor
 {
     namespace Tag
     {
@@ -99,42 +99,15 @@ namespace abyss::Actor::Collision
         {
             return Tags<Ts..., Us...>{};
         }
-
-        namespace detail
-        {
-            using TagVisitorBase = ConstVisitor<
-                Invalid,
-
-                Attacker,
-                Receiver,
-
-                Player,
-
-                Enemy,
-
-                Map,
-                Floor,
-                Ladder,
-                PenetrateFloor,
-
-                Gimmick,
-                Door
-            >;
-        }
-
-        struct TagVisitor : detail::TagVisitorBase
-        {
-            using detail::TagVisitorBase::Visitor;
-            using detail::TagVisitorBase::visit;
-            using detail::TagVisitorBase::operator=;
-        };
-
     }
 
     class TagType
     {
     public:
-        TagType() = default;
+        TagType() :
+            m_tag(std::make_unique <Tag::Invalid>())
+        {}
+
         template<Tag::Tagged T>
         TagType([[maybe_unused]] const T&) :
             m_tag(std::make_unique<T>())

@@ -1,13 +1,13 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/components/Actors/Commons/Collision/Tag.hpp>
+#include <abyss/controllers/Actors/base/Tag.hpp>
 
 namespace abyss::tests
 {
 
     TEST_CASE("Collision Tag")
     {
-        using namespace Actor::Collision;
+        using namespace Actor;
 
         SECTION("tag is")
         {

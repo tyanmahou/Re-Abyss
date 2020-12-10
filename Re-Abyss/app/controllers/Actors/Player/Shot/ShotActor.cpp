@@ -18,6 +18,8 @@ namespace abyss::Actor::Player::Shot
 {
 	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
 	{
+		m_tag = Tag::Hero{} | Tag::Attacker{};
+
 		auto shot = this->attach<PlayerShot>(charge);
 		{
 			this->attach<Body>(this)
@@ -32,7 +34,6 @@ namespace abyss::Actor::Player::Shot
 		{
 			auto collider = this->attach<Collider>(this);
 			collider->setLayer(LayerGroup::Player);
-			collider->setTag(Collision::Tag::Hero{} | Collision::Tag::Attacker{});
 		}
 		{
 			this->attach<AudioSource>(this)

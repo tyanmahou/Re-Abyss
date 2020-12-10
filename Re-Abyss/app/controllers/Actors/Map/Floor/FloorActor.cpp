@@ -8,13 +8,13 @@ namespace abyss::Actor::Map::Floor
 	FloorActor::FloorActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size):
 		MapActor(col, pos, size)
 	{
+		m_tag = Tag::Floor{};
 		{
 			auto collider = this->attach<CustomCollider>(this);
 			collider->setColFunc([this] {
 				return this->getCollider();
 			});
 			collider->setLayer(LayerGroup::Map);
-			collider->setTag(Collision::Tag::Floor{});
 		}
 	}
 
