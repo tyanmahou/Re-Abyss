@@ -41,7 +41,7 @@ namespace abyss::tests
 
             REQUIRE(tag.is<Tag::Attacker>());
             REQUIRE(tag.is<Tag::Receiver>());
-            REQUIRE(tag.is<Tag::Invalid>());
+            REQUIRE(!tag.is<Tag::Invalid>());
             REQUIRE(!tag.is<Tag::Player>());
         }
 
@@ -51,7 +51,7 @@ namespace abyss::tests
 
             REQUIRE(!tag.isNot<Tag::Attacker>());
             REQUIRE(!tag.isNot<Tag::Receiver>());
-            REQUIRE(!tag.isNot<Tag::Invalid>());
+            REQUIRE(tag.isNot<Tag::Invalid>());
             REQUIRE(tag.isNot<Tag::Player>());
         }
     }

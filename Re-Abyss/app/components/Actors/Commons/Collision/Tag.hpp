@@ -7,76 +7,46 @@ namespace abyss::Actor::Collision
 {
     namespace Tag
     {
-        namespace detail
+        struct ITag
         {
-            struct ITag
-            {
-                virtual ~ITag() = default;
-            };
-            template<class T>
-            concept Tagged = std::is_base_of_v<detail::ITag, T>;
+            virtual ~ITag() = default;
+        };
+        template<class T>
+        concept Tagged = std::is_base_of_v<ITag, T>;
 
-            template<Tagged... Args>
-            struct Tags : virtual Args...
-            {};
-
-            template<class T>
-            struct IsTags : std::false_type{};
-
-            template<class... Args>
-            struct IsTags<Tags<Args...>> : std::true_type {};
-        }
-
-        template<detail::Tagged T, detail::Tagged U>
-        constexpr auto operator |(const T&, const U&)
-        {
-            return detail::Tags<T, U>{};
-        }
-        template<detail::Tagged T, detail::Tagged... Us>
-        constexpr auto operator |(const T&, const detail::Tags<Us...>&)
-        {
-            return detail::Tags<T, Us...>{};
-        }
-        template<detail::Tagged... Ts, detail::Tagged U>
-        constexpr auto operator |(const  detail::Tags<Ts...>&, const U&)
-        {
-            return detail::Tags<Ts..., U>{};
-        }
-        template<detail::Tagged... Ts, detail::Tagged... Us>
-        constexpr auto operator |(const  detail::Tags<Ts...>&, const detail::Tags<Us...>&)
-        {
-            return detail::Tags<Ts..., Us...>{};
-        }
+        template<Tagged... Args>
+        struct Tags : virtual Args...
+        {};
 
         /// <summary>
         /// 無効
         /// </summary>
-        struct Invalid : virtual detail::ITag {};
+        struct Invalid : virtual ITag {};
 
         /// <summary>
         /// 攻撃者
         /// </summary>
-        struct Attacker : virtual Invalid {};
+        struct Attacker : virtual ITag {};
 
         /// <summary>
         /// 受け身者
         /// </summary>
-        struct Receiver : virtual Invalid {};
+        struct Receiver : virtual ITag {};
 
         /// <summary>
         /// プレイヤー
         /// </summary>
-        struct Player : virtual Invalid {};
+        struct Player : virtual ITag {};
 
         /// <summary>
         /// 敵
         /// </summary>
-        struct Enemy : virtual Invalid {};
+        struct Enemy : virtual ITag {};
 
         /// <summary>
         /// マップ
         /// </summary>
-        struct Map : virtual Invalid {};
+        struct Map : virtual ITag {};
         
         /// <summary>
         /// 床
@@ -96,12 +66,34 @@ namespace abyss::Actor::Collision
         /// <summary>
         /// ギミック
         /// </summary>
-        struct Gimmick : virtual Invalid {};
+        struct Gimmick : virtual ITag {};
 
         /// <summary>
         /// トビラ
         /// </summary>
         struct Door : virtual Gimmick {};
+
+
+        template<Tagged T, Tagged U>
+        constexpr auto operator |(const T&, const U&)
+        {
+            return Tags<T, U>{};
+        }
+        template<Tagged T, Tagged... Us>
+        constexpr auto operator |(const T&, const Tags<Us...>&)
+        {
+            return Tags<T, Us...>{};
+        }
+        template<Tagged... Ts, Tagged U>
+        constexpr auto operator |(const  Tags<Ts...>&, const U&)
+        {
+            return Tags<Ts..., U>{};
+        }
+        template<Tagged... Ts, Tagged... Us>
+        constexpr auto operator |(const  Tags<Ts...>&, const Tags<Us...>&)
+        {
+            return Tags<Ts..., Us...>{};
+        }
 
         namespace detail
         {
@@ -142,7 +134,7 @@ namespace abyss::Actor::Collision
             virtual bool accept(const Tag::TagVisitor& visitor) const = 0;
         };
 
-        template<Tag::detail::Tagged T>
+        template<Tag::Tagged T>
         struct Wrap final : Base
         {
             bool accept(const Tag::TagVisitor& visitor) const final
@@ -150,18 +142,18 @@ namespace abyss::Actor::Collision
                 return visitor.visit(T{});
             }
         };
-        template<Tag::detail::Tagged... Ts>
-        struct Wrap<Tag::detail::Tags<Ts...>> final : Base
+        template<Tag::Tagged... Ts>
+        struct Wrap<Tag::Tags<Ts...>> final : Base
         {
             bool accept(const Tag::TagVisitor& visitor) const final
             {
-                Tag::detail::Tags<Ts...> tag;
+                Tag::Tags<Ts...> tag;
                 return (visitor.visit(static_cast<Ts&>(tag)) || ...);
             }
         };
     public:
         TagType() = default;
-        template<Tag::detail::Tagged T>
+        template<Tag::Tagged T>
         TagType([[maybe_unused]] const T&) :
             m_tag(std::make_unique<Wrap<T>>())
         {}
@@ -172,14 +164,14 @@ namespace abyss::Actor::Collision
             }
             return m_tag->accept(visitor);
         }
-        template<Tag::detail::Tagged T>
+        template<Tag::Tagged T>
         bool is()
         {
             return this->accept([]([[maybe_unused]] const T& tag) {
 
             });
         }
-        template<Tag::detail::Tagged T>
+        template<Tag::Tagged T>
         bool isNot()
         {
             return !is<T>();

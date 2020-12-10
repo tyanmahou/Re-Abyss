@@ -37,7 +37,7 @@ namespace abyss::Actor
         void onCollisionStay(ICollider* col);
         void onCollisionExit(ICollider* col);
 
-        template<Collision::Tag::detail::Tagged T>
+        template<Collision::Tag::Tagged T>
         bool isThen(std::function<void(IActor*)> callback) const
         {
             if (m_tag.is<T>()) {
@@ -46,7 +46,7 @@ namespace abyss::Actor
             }
             return false;
         }
-        template<Collision::Tag::detail::Tagged T>
+        template<Collision::Tag::Tagged T>
         bool isNotThen(std::function<void(IActor*)> callback) const
         {
             if (m_tag.isNot<T>()) {
