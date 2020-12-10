@@ -3,6 +3,7 @@
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
@@ -51,12 +52,14 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->attach<ViewCtrl<ShotVM>>()
                 ->createBinder<ViewBinder>(this);
         }
+        {
+            this->attach<AttackerData>(1);
+        }
     }
 
     bool ShotActor::accept(const ActVisitor& visitor)
     {
-        bool success = visitor.visit(static_cast<Attacker&>(*this));
-        success |= visitor.visit(static_cast<Receiver&>(*this));
+        bool success = visitor.visit(static_cast<Receiver&>(*this));
         return success || visitor.visit(static_cast<IActor&>(*this));
     }
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/types/Forward.hpp>
 
@@ -8,7 +7,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 {
 	class ShotActor :
 		public IActor,
-		public Attacker,
 		public Receiver
 	{
 	private:

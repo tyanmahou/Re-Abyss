@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Attacker.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -11,8 +10,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     class HandCtrl;
 
     class HandActor :
-        public IActor,
-        public Attacker
+        public IActor
     {
     public:
         enum class Kind

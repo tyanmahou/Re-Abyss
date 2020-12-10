@@ -1,7 +1,6 @@
 #pragma once
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/controllers/Actors/base/Receiver.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
@@ -11,7 +10,6 @@ namespace abyss::Actor::Enemy
 {
     class EnemyActor :
         public IActor,
-        public Attacker,
         public Receiver
     {
         friend class EnemyBuilder;
@@ -20,8 +18,6 @@ namespace abyss::Actor::Enemy
         Ref<HP> m_hp;
     public:
         EnemyActor() = default;
-
-        EnemyActor(const s3d::Vec2& pos, Forward forward = Forward::Left);
 
         const s3d::Vec2& getPos()const;
         const s3d::Vec2& getVelocity()const;

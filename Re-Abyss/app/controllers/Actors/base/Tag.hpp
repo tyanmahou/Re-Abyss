@@ -41,7 +41,7 @@ namespace abyss::Actor
         /// <summary>
         /// プレイヤー
         /// </summary>
-        struct Player : virtual Hero, virtual Attacker, virtual Receiver {};
+        struct Player : virtual Hero, virtual Receiver {};
 
         /// <summary>
         /// 敵
@@ -114,7 +114,7 @@ namespace abyss::Actor
         {}
 
         template<Tag::Tagged T>
-        bool is()
+        bool is() const
         {
             if (!m_tag) {
                 return false;
@@ -123,7 +123,7 @@ namespace abyss::Actor
         }
 
         template<Tag::Tagged... T>
-        bool anyOf()
+        bool anyOf() const
         {
             if (!m_tag) {
                 return false;
@@ -132,7 +132,7 @@ namespace abyss::Actor
         }
 
         template<Tag::Tagged... T>
-        bool allOf()
+        bool allOf() const
         {
             if (!m_tag) {
                 return false;
@@ -141,7 +141,7 @@ namespace abyss::Actor
         }
 
         template<Tag::Tagged T>
-        bool isNot()
+        bool isNot() const
         {
             return !is<T>();
         }

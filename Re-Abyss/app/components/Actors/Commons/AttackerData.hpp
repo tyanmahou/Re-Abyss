@@ -1,19 +1,16 @@
 #pragma once
-#include <Siv3D/Fwd.hpp>
-
+#include <abyss/components/base/IComponent.hpp>
+#include <abyss/utils/Time/Time.hpp>
 namespace abyss::Actor
 {
-    class Attacker
+    class AttackerData final : public IComponent
     {
-    protected:
         s3d::int32 m_power = 1;
     public:
-        Attacker() = default;
-
-        Attacker(s3d::int32 power) :
+        AttackerData(s3d::int32 power) :
             m_power(power)
         {}
-        virtual ~Attacker() = default;
+
         s3d::int32 getPower()const { return m_power; }
     };
 }

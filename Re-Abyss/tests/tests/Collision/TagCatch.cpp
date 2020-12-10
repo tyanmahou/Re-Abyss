@@ -11,7 +11,7 @@ namespace abyss::tests
 
         SECTION("tag is")
         {
-            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            TagType tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.is<Tag::Attacker>());
             REQUIRE(tag.is<Tag::Receiver>());

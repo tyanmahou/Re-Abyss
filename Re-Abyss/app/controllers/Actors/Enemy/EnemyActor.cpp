@@ -4,16 +4,6 @@
 
 namespace abyss::Actor::Enemy
 {
-	EnemyActor::EnemyActor(const s3d::Vec2& pos, Forward forward)
-	{
-		EnemyBuilder builder(this);
-		builder
-			.setInitPos(pos)
-			.setForward(forward)
-			;
-
-		m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
-	}
 	const s3d::Vec2& EnemyActor::getPos() const
 	{
 		return m_body->getPos();

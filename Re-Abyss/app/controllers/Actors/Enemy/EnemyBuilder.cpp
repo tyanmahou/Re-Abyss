@@ -3,6 +3,7 @@
 
 #include <abyss/models/Collision/LayerGroup.hpp>
 
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
@@ -32,6 +33,7 @@ namespace abyss::Actor::Enemy
 
     void EnemyBuilder::build() const
     {
+		m_pActor->m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
 		// Body
 		{
 			(m_pActor->m_body = m_pActor->attach<Body>(m_pActor))
@@ -50,7 +52,10 @@ namespace abyss::Actor::Enemy
 				.setInvincibleTime(0.2);
 
 		}
-
+		// AttackerData
+		{
+			m_pActor->attach<AttackerData>(1);
+		}
 		// Collider
 		if (m_isEnableCollider) {
 			auto collider = m_pActor->attach<CustomCollider>(m_pActor);

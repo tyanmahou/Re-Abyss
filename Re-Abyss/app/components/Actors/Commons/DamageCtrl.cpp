@@ -1,7 +1,7 @@
 #include "DamageCtrl.hpp"
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/components/Actors/base/IDamageCallback.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 
 namespace abyss::Actor
 {
@@ -17,7 +17,7 @@ namespace abyss::Actor
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		col->getActor()->accept([this](const Attacker& attacker) {
+		col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
 			if (m_hp->damage(attacker.getPower())) {
 				for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
 					callback->onDamaged();

@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/base/Attacker.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako::Shot
@@ -8,8 +7,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
     class ShotVM;
 
     class ShotActor:
-        public IActor,
-        public Attacker
+        public IActor
     {
     private:
         Ref<Body> m_body;

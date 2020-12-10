@@ -4,6 +4,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/controllers/Actors/ActInclude.hpp>
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -103,8 +104,8 @@ namespace abyss::Actor::Player
             },
         });
 
-        col->getActor()->accept([this](const Attacker& attack) {
-            if (m_hp->damage(attack.getPower())) {
+        col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
+            if (m_hp->damage(attacker.getPower())) {
                 this->changeState<DamageState>();
             }
         });

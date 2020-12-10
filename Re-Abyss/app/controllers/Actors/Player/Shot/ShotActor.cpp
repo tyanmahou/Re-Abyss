@@ -1,6 +1,7 @@
 #include "ShotActor.hpp"
 
 #include <abyss/models/Collision/LayerGroup.hpp>
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -54,13 +55,14 @@ namespace abyss::Actor::Player::Shot
 				->changeState<BaseState>()
 				;
 		}
-		m_power = shot->toPower();
+		{
+			this->attach<AttackerData>(shot->toPower());
+		}
 	}
 
 	bool ShotActor::accept(const ActVisitor& visitor)
 	{
-		return visitor.visit(static_cast<Attacker&>(*this)) || 
-			visitor.visit(static_cast<IActor&>(*this));
+		return visitor.visit(static_cast<IActor&>(*this));
 	}
 }
 

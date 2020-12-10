@@ -1,8 +1,8 @@
 #include "DamageCtrl.hpp"
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/controllers/Actors/ActInclude.hpp>
 
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/base/IDamageCallback.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		if (!hp) {
 			return;
 		}
-		col->getActor()->accept([this, hp, parent](const Attacker& attacker) {
+		col->isThen<Tag::Attacker, AttackerData>([=](const AttackerData& attacker) {
 			if (hp->damage(attacker.getPower())) {
 				for (auto&& callback : parent->finds<IDamageCallback>()) {
 					callback->onDamaged();

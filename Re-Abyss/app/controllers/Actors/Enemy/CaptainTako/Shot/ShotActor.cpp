@@ -3,6 +3,7 @@
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
@@ -58,7 +59,9 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
                 ->changeState<BaseState>()
                 ;
         }
-        m_power = 1;
+        {
+            this->attach<AttackerData>(1);
+        }
     }
 
     CShape ShotActor::getCollider() const
@@ -73,8 +76,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
 
     bool ShotActor::accept(const ActVisitor& visitor)
     {
-        return visitor.visit(static_cast<Attacker&>(*this)) ||
-            visitor.visit(static_cast<IActor&>(*this));
+        return visitor.visit(static_cast<IActor&>(*this));
     }
 }
 

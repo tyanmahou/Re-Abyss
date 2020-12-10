@@ -5,6 +5,7 @@
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/AttackState.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 
+#include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
@@ -58,6 +59,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             this->attach<ViewCtrl<HandVM>>()
                 ->createBinder<ViewBinder>(this, forward);
         }
+        {
+            this->attach<AttackerData>(1);
+        }
     }
 
     CShape HandActor::getCollider() const
@@ -67,8 +71,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
     bool HandActor::accept(const ActVisitor& visitor)
     {
-        return visitor.visit(static_cast<Attacker&>(*this))
-            || visitor.visit(static_cast<IActor&>(*this));
+        return visitor.visit(static_cast<IActor&>(*this));
     }
 
     bool HandActor::tryAttack()
