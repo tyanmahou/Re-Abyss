@@ -143,6 +143,25 @@ namespace abyss::Actor::Collision
             }
             return dynamic_cast<T*>(m_tag.get()) != nullptr;
         }
+
+        template<Tag::Tagged... T>
+        bool anyOf()
+        {
+            if (!m_tag) {
+                return false;
+            }
+            return (... || (dynamic_cast<T*>(m_tag.get()) != nullptr));
+        }
+
+        template<Tag::Tagged... T>
+        bool allOf()
+        {
+            if (!m_tag) {
+                return false;
+            }
+            return (... && (dynamic_cast<T*>(m_tag.get()) != nullptr));
+        }
+
         template<Tag::Tagged T>
         bool isNot()
         {

@@ -19,6 +19,22 @@ namespace abyss::tests
             REQUIRE(!tag.is<Tag::Player>());
         }
 
+        SECTION("tag any of")
+        {
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+
+            REQUIRE(tag.anyOf<Tag::Attacker, Tag::Player>());
+            REQUIRE(!tag.anyOf<Tag::Invalid, Tag::Player>());
+        }
+
+        SECTION("tag all of")
+        {
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+
+            REQUIRE(tag.allOf<Tag::Attacker, Tag::Receiver>());
+            REQUIRE(!tag.allOf<Tag::Attacker, Tag::Player>());
+        }
+
         SECTION("tag is not")
         {
             TagType tag = Tag::Attacker{} | Tag::Receiver{};
