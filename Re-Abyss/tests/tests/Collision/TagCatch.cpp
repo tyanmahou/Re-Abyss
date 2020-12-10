@@ -9,32 +9,6 @@ namespace abyss::tests
     {
         using namespace Actor::Collision;
 
-        SECTION("tag visit success")
-        {
-            TagType tag = Tag::Attacker{} | Tag::Receiver{};
-
-            int value = 0;
-            auto result = tag.accept([&](Tag::Attacker) {
-                value = 1;
-            });
-
-            REQUIRE(result);
-            REQUIRE(value == 1);
-        }
-
-        SECTION("tag visit failed")
-        {
-            TagType tag = Tag::Receiver{};
-
-            int value = 0;
-            auto result = tag.accept([&](Tag::Attacker) {
-                value = 1;
-            });
-
-            REQUIRE(!result);
-            REQUIRE(value == 0);
-        }
-
         SECTION("tag is")
         {
             TagType tag = Tag::Attacker{} | Tag::Receiver{};

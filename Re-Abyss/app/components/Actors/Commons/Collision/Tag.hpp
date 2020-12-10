@@ -128,48 +128,20 @@ namespace abyss::Actor::Collision
 
     class TagType
     {
-        struct Base
-        {
-            virtual ~Base() = default;
-            virtual bool accept(const Tag::TagVisitor& visitor) const = 0;
-        };
-
-        template<Tag::Tagged T>
-        struct Wrap final : Base
-        {
-            bool accept(const Tag::TagVisitor& visitor) const final
-            {
-                return visitor.visit(T{});
-            }
-        };
-        template<Tag::Tagged... Ts>
-        struct Wrap<Tag::Tags<Ts...>> final : Base
-        {
-            bool accept(const Tag::TagVisitor& visitor) const final
-            {
-                Tag::Tags<Ts...> tag;
-                return (visitor.visit(static_cast<Ts&>(tag)) || ...);
-            }
-        };
     public:
         TagType() = default;
         template<Tag::Tagged T>
         TagType([[maybe_unused]] const T&) :
-            m_tag(std::make_unique<Wrap<T>>())
+            m_tag(std::make_unique<T>())
         {}
-        bool accept(const Tag::TagVisitor& visitor) const
+
+        template<Tag::Tagged T>
+        bool is()
         {
             if (!m_tag) {
                 return false;
             }
-            return m_tag->accept(visitor);
-        }
-        template<Tag::Tagged T>
-        bool is()
-        {
-            return this->accept([]([[maybe_unused]] const T& tag) {
-
-            });
+            return dynamic_cast<T*>(m_tag.get()) != nullptr;
         }
         template<Tag::Tagged T>
         bool isNot()
@@ -177,7 +149,7 @@ namespace abyss::Actor::Collision
             return !is<T>();
         }
     private:
-        std::unique_ptr<Base> m_tag;
+        std::unique_ptr<Tag::ITag> m_tag;
     };
 
 }
