@@ -1,7 +1,6 @@
 #pragma once
 #include <type_traits>
 #include <memory>
-#include <abyss/utils/Visitor.hpp>
 
 namespace abyss::Actor
 {
