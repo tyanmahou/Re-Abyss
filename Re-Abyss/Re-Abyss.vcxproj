@@ -515,6 +515,7 @@
     </ClCompile>
     <ClCompile Include="tests\tests\Collision\TagCatch.cpp" />
     <ClCompile Include="tests\tests\Component\ComponentCatch.cpp" />
+    <ClCompile Include="tests\tests\FixedPtr\FixedPtrCatch.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\testing.ixx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">NotUsing</PrecompiledHeader>
@@ -699,6 +700,7 @@
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
+    <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />

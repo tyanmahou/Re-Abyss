@@ -14,7 +14,7 @@ namespace abyss::Actor
         concept Tagged = std::is_base_of_v<ITag, T>;
 
         template<Tagged... Args>
-        struct Tags : virtual Args...
+        struct Tags : Args...
         {};
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace abyss::Actor
         /// <summary>
         /// プレイヤー
         /// </summary>
-        struct Player : virtual Hero, virtual Receiver {};
+        struct Player : Hero, Receiver {};
 
         /// <summary>
         /// 敵
@@ -55,17 +55,17 @@ namespace abyss::Actor
         /// <summary>
         /// 床
         /// </summary>
-        struct Floor : virtual Map, virtual Receiver {};
+        struct Floor : Map, Receiver {};
 
         /// <summary>
         /// はしご
         /// </summary>
-        struct  Ladder : virtual Map {};
+        struct  Ladder : Map {};
 
         /// <summary>
         /// とおりぬけ床
         /// </summary>
-        struct PenetrateFloor : virtual Map {};
+        struct PenetrateFloor : Map {};
 
         /// <summary>
         /// ギミック
@@ -75,7 +75,7 @@ namespace abyss::Actor
         /// <summary>
         /// トビラ
         /// </summary>
-        struct Door : virtual Gimmick {};
+        struct Door : Gimmick {};
 
 
         template<Tagged T, Tagged U>
