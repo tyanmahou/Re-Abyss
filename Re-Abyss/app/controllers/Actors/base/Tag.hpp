@@ -1,15 +1,13 @@
 #pragma once
 #include <type_traits>
 #include <memory>
+#include <abyss/utils/FixedPtr/FixedPtr.hpp>
 
 namespace abyss::Actor
 {
     namespace Tag
     {
-        struct ITag
-        {
-            virtual ~ITag() = default;
-        };
+        struct ITag{};
         template<class T>
         concept Tagged = std::is_base_of_v<ITag, T>;
 
@@ -60,7 +58,7 @@ namespace abyss::Actor
         /// <summary>
         /// はしご
         /// </summary>
-        struct  Ladder : Map {};
+        struct Ladder : Map {};
 
         /// <summary>
         /// とおりぬけ床
@@ -98,27 +96,45 @@ namespace abyss::Actor
         {
             return Tags<Ts..., Us...>{};
         }
+
+        using TagPtr = fixed_ptr<
+            ITag,
+            
+            Invalid,
+            Attacker,
+            Receiver,
+
+            Hero,
+            Player,
+
+            Enemy,
+
+            Map,
+            Floor,
+            Ladder,
+            PenetrateFloor,
+
+            Gimmick,
+            Door
+        >;
     }
 
     class TagType
     {
     public:
         TagType() :
-            m_tag(std::make_unique <Tag::Invalid>())
+            m_tag(Tag::TagPtr::make_fixed<Tag::Invalid>())
         {}
 
         template<Tag::Tagged T>
         TagType([[maybe_unused]] const T&) :
-            m_tag(std::make_unique<T>())
+            m_tag(Tag::TagPtr::make_fixed<T>())
         {}
 
         template<Tag::Tagged T>
         bool is() const
         {
-            if (!m_tag) {
-                return false;
-            }
-            return dynamic_cast<T*>(m_tag.get()) != nullptr;
+            return fixed_dynamic_cast<T*>(m_tag) != nullptr;
         }
 
         template<Tag::Tagged... T>
@@ -127,7 +143,7 @@ namespace abyss::Actor
             if (!m_tag) {
                 return false;
             }
-            return (... || (dynamic_cast<T*>(m_tag.get()) != nullptr));
+            return (... || (fixed_dynamic_cast<T*>(m_tag) != nullptr));
         }
 
         template<Tag::Tagged... T>
@@ -136,7 +152,7 @@ namespace abyss::Actor
             if (!m_tag) {
                 return false;
             }
-            return (... && (dynamic_cast<T*>(m_tag.get()) != nullptr));
+            return (... && (fixed_dynamic_cast<T*>(m_tag) != nullptr));
         }
 
         template<Tag::Tagged T>
@@ -145,7 +161,7 @@ namespace abyss::Actor
             return !is<T>();
         }
     private:
-        std::unique_ptr<Tag::ITag> m_tag;
+        Tag::TagPtr m_tag;
     };
 
 }

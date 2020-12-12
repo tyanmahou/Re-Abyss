@@ -14,7 +14,7 @@ namespace abyss
             template<class T>
             struct ivisitor
             {
-                virtual bool visit(T*) const = 0;
+                virtual bool visit([[maybe_unused]] T*) const = 0;
             };
 
             struct base_type : ivisitor<Base>, ivisitor<Deriveds>...
@@ -26,7 +26,7 @@ namespace abyss
             template<class To, class Head, class... Tail>
             struct tester : tester<To, Tail...>
             {
-                constexpr bool visit(Head*) const override
+                constexpr bool visit([[maybe_unused]] Head*) const override
                 {
                     return std::convertible_to<Head*, To*>;
                 }
@@ -34,7 +34,7 @@ namespace abyss
             template<class To, class Last>
             struct tester<To, Last> : base_type
             {
-                constexpr bool visit(Last*) const override
+                constexpr bool visit([[maybe_unused]] Last*) const override
                 {
                     return std::convertible_to<Last*, To*>;
                 }
@@ -44,7 +44,7 @@ namespace abyss
 
         public:
             template<class To>
-            visitor_type(To*) :
+            visitor_type([[maybe_unused]] To*) :
                 m_tester(std::make_unique<tester_type<To>>())
             {}
 
@@ -128,6 +128,12 @@ namespace abyss
         explicit operator bool() const
         {
             return m_ptr != nullptr;
+        }
+
+        template<class T, class... Args>
+        static fixed_ptr make_fixed(Args&&... args)
+        {
+            return fixed_ptr(new T(std::forward<Args>(args)...));
         }
     private:
         std::shared_ptr<base_type> m_ptr;
