@@ -28,7 +28,7 @@ namespace abyss
             {
                 constexpr bool visit(Head*) const override
                 {
-                    return std::convertible_to<Head, To>;
+                    return std::convertible_to<Head*, To*>;
                 }
             };
             template<class To, class Last>
@@ -36,7 +36,7 @@ namespace abyss
             {
                 constexpr bool visit(Last*) const override
                 {
-                    return std::convertible_to<Last, To>;
+                    return std::convertible_to<Last*, To*>;
                 }
             };
             template<class To>
@@ -77,12 +77,12 @@ namespace abyss
             }
             Base* get() const
             {
-                return reinterpret_cast<Base*>(ptr);
+                return static_cast<Base*>(ptr);
             }
             bool accept(const visitor_type& visitor) const override
             {
-                return (std::convertible_to<T, Base> ? visitor.visit(reinterpret_cast<Base*>(ptr)) : false) ||
-                    ((std::convertible_to<T, Deriveds> ? visitor.visit(reinterpret_cast<Deriveds*>(ptr)) : false) || ...);
+                return (std::convertible_to<T*, Base*> ? visitor.visit(reinterpret_cast<Base*>(ptr)) : false) ||
+                    ((std::convertible_to<T*, Deriveds*> ? visitor.visit(reinterpret_cast<Deriveds*>(ptr)) : false) || ...);
             }
         };
     public:
@@ -137,6 +137,7 @@ namespace abyss
     struct fixed_dynamic_cast_impl
     {
         template<class Base, std::derived_from<Base>... Deriveds>
+            requires std::same_as<std::decay_t<ToPtr>, Base*> || (std::same_as<std::decay_t<ToPtr>, Deriveds*> || ...)
         ToPtr operator()(const fixed_ptr<Base, Deriveds...>& ptr) const
         {
             ToPtr to = nullptr;
