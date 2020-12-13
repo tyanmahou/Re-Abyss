@@ -208,8 +208,9 @@ namespace abyss::di
         };
 
         template<class Type, int LineNum>
-        concept AutoInjectCallable = requires(Type t, AutoInjectLine<LineNum> l) { 
-            { t | l };        
+        concept AutoInjectCallable = requires(Type t, AutoInjectLine<LineNum> l)
+        { 
+            t | l;
         };
 
         template <class Type, int LineNum>
