@@ -38,7 +38,7 @@ namespace abyss
 {
     namespace detail
     {
-        inline constexpr int BINDABLE_MAX_LINES = 500;
+        inline constexpr int AUTO_TOML_BINDABLE_MAX_LINES = 500;
         template<int Num>
         struct TOMLBindId
         {
@@ -71,12 +71,11 @@ namespace abyss
             { a(id) } -> std::same_as<void>;
         };
 
-        // FIXME constevalがコンパイラ対応しだい修正
         template <class Type, int Num>
-        constexpr /* consteval */ int NextTOMLBindId()
+        consteval int NextTOMLBindId()
         {
-            if constexpr (Num == BINDABLE_MAX_LINES) {
-                return BINDABLE_MAX_LINES;
+            if constexpr (Num == AUTO_TOML_BINDABLE_MAX_LINES) {
+                return AUTO_TOML_BINDABLE_MAX_LINES;
             } else if constexpr (IsTOMLBindIdCallable<Type, Num + 1>) {
                 return Num + 1;
             } else {
@@ -85,7 +84,7 @@ namespace abyss
         }
 
         template<class Type>
-        concept IsAutoTOMLBindable = (NextTOMLBindId<Type, 1>() != BINDABLE_MAX_LINES);
+        concept IsAutoTOMLBindable = (NextTOMLBindId<Type, 1>() != AUTO_TOML_BINDABLE_MAX_LINES);
 
         template <class Type, class Id = TOMLBindId<NextTOMLBindId<Type, 1>()>>
         struct AutoTOMLBind {};
@@ -99,7 +98,7 @@ namespace abyss
                     ret(TOMLBindId<Num>{toml});
                 }
                 [[maybe_unused]] constexpr int nextId = NextTOMLBindId<Type, Num>();
-                if constexpr (nextId != BINDABLE_MAX_LINES) {
+                if constexpr (nextId != AUTO_TOML_BINDABLE_MAX_LINES) {
                     AutoTOMLBind<Type, TOMLBindId<nextId>>{}(ret, toml);
                 }
             }
@@ -150,7 +149,7 @@ namespace abyss
 #define TOML_BIND_PARAM(Value, TOMLKey)\
 ]]  void operator()(const abyss::detail::TOMLBindId<__LINE__>& id)\
 {\
-    static_assert(__LINE__ - 2 < abyss::detail::BINDABLE_MAX_LINES);\
+    static_assert(__LINE__ - 2 < abyss::detail::AUTO_TOML_BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
     Value = abyss::detail::GetData<Type>(id.toml[U##TOMLKey]);\
 }[[
