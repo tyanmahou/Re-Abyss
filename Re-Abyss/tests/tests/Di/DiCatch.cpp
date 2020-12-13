@@ -72,7 +72,24 @@ namespace
         [[INJECT(m_countUp, 1)]]
         std::shared_ptr<ICountUp> m_countUp;
     };
-    struct A{};
+
+    class CtorSampleCounter
+    {
+    public:
+        INJECT_CTOR(CtorSampleCounter(std::shared_ptr<ICountUp> countUp)):
+            m_countUp(countUp)
+        {}
+
+        int countUp()
+        {
+            if (!m_countUp) {
+                return -1;
+            }
+            return m_countUp->countUp();
+        }
+    private:
+        std::shared_ptr<ICountUp> m_countUp;
+    };
 }
 
 
@@ -106,6 +123,20 @@ namespace abyss::tests
             {
                 auto sample = injector.resolve<SampleCounter2>();
                 REQUIRE(sample->countUp() == 1);
+            }
+        }
+        SECTION("test ctor inject")
+        {
+            Injector injector;
+            injector.install<CountUpInstaller>();
+
+            {
+                auto sample = injector.resolve<CtorSampleCounter>();
+                REQUIRE(sample->countUp() == 1);
+            }
+            {
+                auto sample = injector.resolve<CtorSampleCounter>();
+                REQUIRE(sample->countUp() == 2);
             }
         }
     }

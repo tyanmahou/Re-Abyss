@@ -13,10 +13,19 @@ namespace abyss::di
     template<class Type>
     struct InjectTraits
     {
-        void onInject([[maybe_unused]] Type* value, [[maybe_unused]] Container* c)
-        {}
+        //void onInject(Type* value, Container* c)
     };
 
+    template<class Type>
+    concept FieldInjectable = requires(Type* t, Container * c)
+    {
+        InjectTraits<Type>{}.onInject(t, c);
+    };
+    template<class Type>
+    concept CtorInjectable = requires()
+    {
+        typename Type::CtorInject;
+    };
     class Container
     {
         enum class CreateKind
@@ -39,10 +48,29 @@ namespace abyss::di
         template<class Type>
         struct Builder
         {
+            template<class T>
+            struct ctor{};
+            template<class Type, class... Args>
+            struct ctor<Type(Args...)> {
+                auto operator()(Container* c)
+                {
+                    return  std::make_shared<Type>(c->resolve<typename std::decay_t<Args>::element_type>()...);
+                }
+            };
+
             auto operator()(Container* c)
             {
-                auto ret = std::make_shared<Type>();
-                InjectTraits<Type>{}.onInject(ret.get(), c);
+                std::shared_ptr<Type> ret;
+                if constexpr (CtorInjectable<Type>) {
+                    ret = ctor<typename Type::CtorInject>{}(c);
+                } else {
+                    ret = std::make_shared<Type>();
+                }
+                if constexpr (FieldInjectable<Type>) {
+                    if (ret) {
+                        InjectTraits<Type>{}.onInject(ret.get(), c);
+                    }
+                }
                 return ret;
             }
         };
@@ -220,9 +248,7 @@ namespace abyss::di
     {
         void onInject(Type* value, Container* c)
         {
-            if (value) {
-                detail::AutoInjecter<Type>{}(*value, c);
-            }
+            detail::AutoInjecter<Type>{}(*value, c);
         }
     };
 }
@@ -241,3 +267,5 @@ friend auto operator|(ThisType& a, const ::abyss::di::detail::AutoInjectLine<__L
 #define INJECT_PP_IMPL_1(value) INJECT_PP_IMPL_2(value, 0)
 #define INJECT_PP_EXPAND( x ) x
 #define INJECT(...) INJECT_PP_EXPAND(INJECT_PP_IMPL_OVERLOAD(__VA_ARGS__, INJECT_PP_IMPL_2, INJECT_PP_IMPL_1)(__VA_ARGS__))
+
+#define INJECT_CTOR(ctor) using CtorInject = ctor; ctor
