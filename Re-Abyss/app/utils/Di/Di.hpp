@@ -50,11 +50,11 @@ namespace abyss::di
         {
             template<class T>
             struct ctor{};
-            template<class Type, class... Args>
-            struct ctor<Type(Args...)> {
+            template<class T, class... Args>
+            struct ctor<T(Args...)> {
                 auto operator()(Container* c)
                 {
-                    return  std::make_shared<Type>(c->resolve<typename std::decay_t<Args>::element_type>()...);
+                    return  std::make_shared<T>(c->resolve<typename std::decay_t<Args>::element_type>()...);
                 }
             };
 
@@ -208,7 +208,10 @@ namespace abyss::di
         };
 
         template<class Type, int LineNum>
-        concept AutoInjectCallable = requires(Type t, AutoInjectLine<LineNum> l) { t | l; };
+        concept AutoInjectCallable = requires(Type t, AutoInjectLine<LineNum> l) { 
+            t | l;
+        
+        };
 
         template <class Type, int LineNum>
         consteval int NextAutoInjectId()
