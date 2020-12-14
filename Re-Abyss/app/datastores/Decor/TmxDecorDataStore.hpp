@@ -14,4 +14,6 @@ namespace abyss
 
         s3d::Array<DecorEntity> select(DecorGroup group)const override;
     };
+
+    using TmxDecorDataStoreInataller = TmxDataStoreInataller<IDecorDataStore, TmxDecorDataStore>;
 }

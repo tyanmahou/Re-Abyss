@@ -13,4 +13,6 @@ namespace abyss
 
         s3d::Array<DecorGraphicsEntity> select()const override;
     };
+
+    using TmxDecorGraphicsDataStoreInataller = TmxDataStoreInataller<IDecorGraphicsDataStore, TmxDecorGraphicsDataStore>;
 }

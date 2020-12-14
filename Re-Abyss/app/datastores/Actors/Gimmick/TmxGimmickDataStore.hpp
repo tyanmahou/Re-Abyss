@@ -12,4 +12,6 @@ namespace abyss
         using TmxDataStore::TmxDataStore;
         s3d::Array<std::shared_ptr<GimmickEntity>> select()const override;
     };
+
+    using TmxGimmickDataStoreInataller = TmxDataStoreInataller<IGimmickDataStore, TmxGimmickDataStore>;
 }

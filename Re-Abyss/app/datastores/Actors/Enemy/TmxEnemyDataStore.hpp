@@ -12,4 +12,7 @@ namespace abyss
         using TmxDataStore::TmxDataStore;
         s3d::Array<std::shared_ptr<EnemyEntity>> select()const override;
     };
+
+
+    using TmxEnemyDataStoreInataller = TmxDataStoreInataller<IEnemyDataStore, TmxEnemyDataStore>;
 }

@@ -13,4 +13,6 @@ namespace abyss
 
         s3d::Array<std::shared_ptr<MapEntity>> select(bool isMerge = true)const override;
     };
+
+    using TmxMapDataStoreInataller = TmxDataStoreInataller<IMapDataStore, TmxMapDataStore>;
 }

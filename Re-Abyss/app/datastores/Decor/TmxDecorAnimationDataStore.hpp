@@ -13,4 +13,6 @@ namespace abyss
 
         s3d::Array<DecorAnimationEntity> select()const override;
     };
+
+    using TmxDecorAnimationDataStoreInataller = TmxDataStoreInataller<IDecorAnimationDataStore, TmxDecorAnimationDataStore>;
 }

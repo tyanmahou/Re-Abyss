@@ -12,4 +12,6 @@ namespace abyss
 
         s3d::Array<RoomEntity> select()const override;
     };
+
+    using TmxRoomDataStoreInataller = TmxDataStoreInataller<IRoomDataStore, TmxRoomDataStore>;
 }
