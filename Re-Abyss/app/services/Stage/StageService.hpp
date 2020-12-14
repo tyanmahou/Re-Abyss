@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <abyss/services/Stage/base/IStageService.hpp>
+#include <Emaject.hpp>
 
 namespace abyss
 {
@@ -11,12 +12,12 @@ namespace abyss
 		s3d::Array<std::shared_ptr<EnemyEntity>> m_enemies;
 		s3d::Array<std::shared_ptr<GimmickEntity>> m_gimmicks;
 	public:
-		StageService(
+		INJECT_CTOR(StageService(
 			std::shared_ptr<IRoomDataStore> rooms,
 			std::shared_ptr<IMapDataStore> maps,
 			std::shared_ptr<IEnemyDataStore> enemies,
 			std::shared_ptr<IGimmickDataStore> gimmicks
-		);
+		));
 
 		const s3d::Array<RoomEntity>& getRooms() const override { return m_rooms; }
 		const s3d::Array<std::shared_ptr<MapEntity>>& getMaps() const { return m_maps; }
@@ -24,4 +25,9 @@ namespace abyss
 		const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const { return m_gimmicks; }
 
     };
+
+	struct StageServiceInstaller : emaject::IInstaller
+	{
+		void onBinding(emaject::Container* container) const override;
+	};
 }

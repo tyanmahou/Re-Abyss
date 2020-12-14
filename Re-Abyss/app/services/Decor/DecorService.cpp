@@ -38,4 +38,10 @@ namespace abyss
             }
         }
     }
+    void DecorServiceInstaller::onBinding(emaject::Container* container) const
+    {
+        container->bind<IDecorService>()
+            .to<DecorService>()
+            .asCache();
+    }
 }

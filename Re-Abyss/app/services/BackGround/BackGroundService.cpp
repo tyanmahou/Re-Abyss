@@ -18,4 +18,10 @@ namespace abyss
         return m_bgColor;
     }
 
+    void BackGroundServiceInstaller::onBinding(emaject::Container* container) const
+    {
+        container->bind<IBackGroundService>()
+            .to<BackGroundService>()
+            .asCache();
+    }
 }

@@ -4,6 +4,8 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/services/Decor/base/IDecorService.hpp>
 
+#include <Emaject.hpp>
+
 namespace abyss
 {
     class DecorService : public IDecorService
@@ -12,11 +14,11 @@ namespace abyss
         s3d::Array<std::shared_ptr<IDecorModel>> m_back;
         s3d::Array<std::shared_ptr<IDecorModel>> m_custom;
     public:
-        DecorService(
+        INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
             std::shared_ptr<IGimmickDataStore> gimmick,
             std::shared_ptr<IMapDataStore> map
-        );
+        ));
         const s3d::Array<std::shared_ptr<IDecorModel>>& getFront() const override
         {
             return m_front;
@@ -30,5 +32,10 @@ namespace abyss
             return m_custom;
         }
 
+    };
+
+    struct DecorServiceInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* container) const override;
     };
 }

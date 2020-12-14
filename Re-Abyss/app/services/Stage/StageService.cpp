@@ -17,4 +17,10 @@ namespace abyss
         m_enemies(enemies->select()),
         m_gimmicks(gimmicks->select())
     {}
+    void StageServiceInstaller::onBinding(emaject::Container* container) const
+    {
+        container->bind<IStageService>()
+            .to<StageService>()
+            .asCache();
+    }
 }

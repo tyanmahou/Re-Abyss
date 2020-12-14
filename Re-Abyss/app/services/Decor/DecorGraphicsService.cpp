@@ -12,4 +12,10 @@ namespace abyss
         m_graphics(decorGraphics->selectWithKey()),
         m_animations(decorAnimation->selectWithKey())
     {}
+    void DecorGraphicsServiceInstaller::onBinding(emaject::Container* container) const
+    {
+        container->bind<IDecorGraphicsService>()
+            .to<DecorGraphicsService>()
+            .asCache();
+    }
 }
