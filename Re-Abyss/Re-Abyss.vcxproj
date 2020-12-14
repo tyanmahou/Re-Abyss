@@ -259,6 +259,7 @@
     <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
+    <ClCompile Include="app\factories\Main\MainInjector.cpp" />
     <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\components\Actors\base\IPhysics.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp" />
@@ -645,6 +646,7 @@
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
+    <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />

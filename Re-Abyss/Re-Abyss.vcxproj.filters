@@ -1096,6 +1096,9 @@
     <ClCompile Include="tests\tests\Di\DiCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\factories\Main\MainInjector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1637,5 +1640,6 @@
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
+    <ClInclude Include="app\factories\Main\MainInjector.hpp" />
   </ItemGroup>
 </Project>

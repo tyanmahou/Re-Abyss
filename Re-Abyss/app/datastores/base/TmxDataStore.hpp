@@ -13,21 +13,32 @@ namespace abyss
         TmxDataStore(const s3d::String& mapName);
     };
 
-    template<class From, class To>
-    struct TmxDataStoreInataller final : emaject::IInstaller
+    struct TiledMapInstaller final : emaject::IInstaller
     {
-        TmxDataStoreInataller(const s3d::String& mapName):
-            m_mapName(mapName)
+        TiledMapInstaller(const s3d::String& mapName):
+            m_tmx(std::make_shared<s3dTiled::TiledMap>(mapName + U".tmx"))
         {}
         void onBinding(emaject::Container* conatienr) const override
         {
-            conatienr->bind<From>()
-                .fromInstance([name = m_mapName]() {
-                return std::make_shared<To>(name);
-            })
-            .asCache();
+            conatienr->bind<s3dTiled::TiledMap>()
+                .fromInstance([tmx = m_tmx]() {
+                    return tmx;
+                })
+               .asCache();
         }
+
     private:
-        s3d::String m_mapName;
+        std::shared_ptr<s3dTiled::TiledMap> m_tmx;
+    };
+
+    template<class From, class To>
+    struct TmxDataStoreInataller final : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* conatienr) const override
+        {
+            conatienr->bind<From>
+                .to<To>
+                .asCache();
+        }
     };
 }
