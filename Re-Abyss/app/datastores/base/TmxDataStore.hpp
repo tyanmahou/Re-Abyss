@@ -9,7 +9,6 @@ namespace abyss
         s3dTiled::TiledMap m_tmx;
     public:
         INJECT_CTOR(TmxDataStore(const std::shared_ptr<s3dTiled::TiledMap>& mapData));
-
         TmxDataStore(const s3d::String& mapName);
     };
 
@@ -36,8 +35,8 @@ namespace abyss
     {
         void onBinding(emaject::Container* conatienr) const override
         {
-            conatienr->bind<From>
-                .to<To>
+            conatienr->bind<From>()
+                .to<To>()
                 .asCache();
         }
     };
