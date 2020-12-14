@@ -1,8 +1,8 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/utils/Di/Di.hpp>
+#include <Emaject.hpp>
 
-using namespace abyss::di;
+using namespace emaject;
 
 namespace
 {

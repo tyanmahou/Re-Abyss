@@ -58,7 +58,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
@@ -68,7 +68,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
@@ -699,7 +699,6 @@
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
-    <ClInclude Include="app\utils\Di\Di.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
