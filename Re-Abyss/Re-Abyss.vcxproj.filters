@@ -242,9 +242,6 @@
     <ClCompile Include="app\datastores\Actors\Map\parser\TmxMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\DIContainer\DIContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Decor\DecorService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -258,9 +255,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\factories\Decor\DecorFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp">
@@ -297,9 +291,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\factories\BackGround\BackGroundFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Decor\Door\DoorDecorModel.cpp">
@@ -561,9 +552,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\factories\Stage\StageDataFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\BackGround\WaterSarface\WaterSarfaceView.cpp">
@@ -1258,14 +1246,12 @@
     <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
-    <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
     <ClInclude Include="app\controllers\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
-    <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
     <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Door\DoorDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
@@ -1286,7 +1272,6 @@
       <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="app\views\BackGround\Wave\WaveShader.hpp" />
-    <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
@@ -1427,7 +1412,6 @@
     <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
     <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
     <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
-    <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />

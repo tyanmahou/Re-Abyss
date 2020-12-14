@@ -10,4 +10,17 @@ namespace abyss
         m_tmx(Resource::Assets::Main()->loadTmx(mapName + U".tmx"))
     {}
 
+    TiledMapInstaller::TiledMapInstaller(const s3d::String& mapName):
+        m_tmx(std::make_shared<s3dTiled::TiledMap>(Resource::Assets::Main()->loadTmx(mapName + U".tmx")))
+    {}
+
+    void TiledMapInstaller::onBinding(emaject::Container * conatienr) const
+    {
+        conatienr->bind<s3dTiled::TiledMap>()
+            .fromInstance([tmx = m_tmx]() {
+                return tmx;
+            })
+            .asCache();
+    }
+
 }

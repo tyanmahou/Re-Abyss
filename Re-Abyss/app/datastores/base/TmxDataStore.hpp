@@ -14,17 +14,8 @@ namespace abyss
 
     struct TiledMapInstaller final : emaject::IInstaller
     {
-        TiledMapInstaller(const s3d::String& mapName):
-            m_tmx(std::make_shared<s3dTiled::TiledMap>(mapName + U".tmx"))
-        {}
-        void onBinding(emaject::Container* conatienr) const override
-        {
-            conatienr->bind<s3dTiled::TiledMap>()
-                .fromInstance([tmx = m_tmx]() {
-                    return tmx;
-                })
-               .asCache();
-        }
+        TiledMapInstaller(const s3d::String& mapName);
+        void onBinding(emaject::Container* conatienr) const override;
 
     private:
         std::shared_ptr<s3dTiled::TiledMap> m_tmx;

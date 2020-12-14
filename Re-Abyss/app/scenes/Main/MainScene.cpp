@@ -4,7 +4,8 @@
 
 #include <abyss/controllers/System/System.hpp>
 #include <abyss/controllers/Save/SaveData.hpp>
-#include <abyss/factories/Stage/StageDataFactory.hpp>
+#include <abyss/controllers/Stage/StageData.hpp>
+#include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 
@@ -69,7 +70,8 @@ namespace abyss
 				player = m_system->lockPlayer();
 			}
 			m_system = std::make_unique<System>(this);
-			m_stageData = StageDataFactory::CreateFromTmx(mapName);
+			auto injector = Factory::Main::Injector(mapName);
+			m_stageData = injector.resolve<StageData>();
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
 			::PreloadResourece(*Resource::Assets::Main());

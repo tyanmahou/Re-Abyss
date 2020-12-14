@@ -1,7 +1,4 @@
 #include "StageData.hpp"
-#include <abyss/services/BackGround/BackGroundService.hpp>
-#include <abyss/services/Stage/StageService.hpp>
-
 namespace abyss
 {
     StageData::StageData(

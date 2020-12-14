@@ -260,7 +260,6 @@
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\factories\Main\MainInjector.cpp" />
-    <ClCompile Include="app\factories\Stage\StageDataFactory.cpp" />
     <ClCompile Include="app\components\Actors\base\IPhysics.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BodyUpdater.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BreathingCtrl.cpp" />
@@ -414,9 +413,6 @@
     <ClCompile Include="app\controllers\Camera\Camera.cpp" />
     <ClCompile Include="app\controllers\Stage\Stage.cpp" />
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp" />
-    <ClCompile Include="app\factories\BackGround\BackGroundFactory.cpp" />
-    <ClCompile Include="app\factories\Decor\DecorFactory.cpp" />
-    <ClCompile Include="app\factories\DIContainer\DIContainer.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\components\base\Components.cpp" />
@@ -647,7 +643,6 @@
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
-    <ClInclude Include="app\factories\Stage\StageDataFactory.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
@@ -821,9 +816,6 @@
     <ClInclude Include="app\entities\Actors\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Map\MapEntity.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
-    <ClInclude Include="app\factories\BackGround\BackGroundFactory.hpp" />
-    <ClInclude Include="app\factories\Decor\DecorFactory.hpp" />
-    <ClInclude Include="app\factories\DIContainer\DIContainer.hpp" />
     <ClInclude Include="app\components\base\Components.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
