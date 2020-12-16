@@ -7,10 +7,4 @@ namespace abyss::Actor
     {
         return m_isActive && m_pActor->isActive();
     }
-    // FIXME
-    //bool Terrain::accept(const ActVisitor& visit) const
-    //{
-    //    return m_pActor->accept(visit);
-    //}
-
 }

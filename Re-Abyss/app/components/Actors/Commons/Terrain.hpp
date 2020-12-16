@@ -60,7 +60,5 @@ namespace abyss::Actor
             }
             return false;
         }
-        // FIXME
-        // bool accept(const ActVisitor& visit) const;
     };
 }

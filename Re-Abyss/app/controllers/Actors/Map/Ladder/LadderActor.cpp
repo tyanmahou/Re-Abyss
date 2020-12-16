@@ -1,5 +1,6 @@
 #include "LadderActor.hpp"
 #include <Siv3D.hpp>
+#include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 
 namespace abyss::Actor::Map::Ladder
 {
@@ -7,6 +8,8 @@ namespace abyss::Actor::Map::Ladder
 		MapActor(col, pos, size)
 	{
 		m_tag = Tag::Ladder{};
+
+		this->attach<LadderProxy>(this);
 	}
 
 	s3d::Line LadderActor::getCenterLine() const
