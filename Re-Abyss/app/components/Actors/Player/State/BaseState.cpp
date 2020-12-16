@@ -101,13 +101,10 @@ namespace abyss::Actor::Player
     }
     void BaseState::onCollisionStay(ICollider * col)
     {
-        // FIXME
-        //col->getActor()->accept(overloaded{
-        //    [this](const DoorActor& door) {
-        //        // 扉
-        //        this->onCollisionStay(door);
-        //    },
-        //});
+        col->isThen<Tag::Door, DoorProxy>([this](const DoorProxy& door) {
+            // 扉
+            this->onCollisionStay(door);
+        });
 
         col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
             if (m_hp->damage(attacker.getPower())) {
