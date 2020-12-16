@@ -48,8 +48,4 @@ namespace abyss::Actor::Gimmick::Door
 	{
 		return m_door.fixedVisiterPos(visitSize);
 	}
-	bool DoorActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 }

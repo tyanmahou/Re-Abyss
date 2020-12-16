@@ -16,7 +16,5 @@ namespace abyss::Actor::Enemy::RollingTako
         bool m_isWait;
     public:
         RollingTakoActor(const RollingTakoEntity& entity);
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

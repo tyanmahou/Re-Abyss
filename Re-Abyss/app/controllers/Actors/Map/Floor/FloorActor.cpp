@@ -21,9 +21,4 @@ namespace abyss::Actor::Map::Floor
 			this->attach<ReceiverData>();
 		}
 	}
-
-	bool FloorActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 }

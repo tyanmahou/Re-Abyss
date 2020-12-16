@@ -10,7 +10,5 @@ namespace abyss::Actor::Map::Ladder
 
 		s3d::Line getCenterLine() const;
 		bool isTop() const;
-
-		bool accept(const ActVisitor& visitor) override;
 	};
 }

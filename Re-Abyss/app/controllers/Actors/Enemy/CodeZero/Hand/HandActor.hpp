@@ -27,7 +27,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         HandActor(IActor* parent, Kind kind);
 
         CShape getCollider() const;
-        bool accept(const ActVisitor& visitor) override;
 
         bool tryAttack();
         bool tryPursuit();

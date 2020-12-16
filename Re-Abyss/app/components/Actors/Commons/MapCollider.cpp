@@ -1,6 +1,5 @@
 #include "MapCollider.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/ActInclude.hpp>
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
@@ -107,15 +106,16 @@ namespace abyss::Actor
                 if (col.isUp()) {
                     m_foot->apply(Foot::Landing);
                 }
-                terrain->accept(overloaded{
-                    [this](const Actor::Map::Ladder::LadderActor& ladder) {
-                        if (ladder.getCenterLine().intersects(m_body->region())) {
-                            m_foot->setLadderPosX(ladder.getPos().x);
-                            auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
-                            m_foot->apply(state);
-                        }
-                    }
-                });
+                // FIXME
+                //terrain->accept(overloaded{
+                //    [this](const Actor::Map::Ladder::LadderActor& ladder) {
+                //        if (ladder.getCenterLine().intersects(m_body->region())) {
+                //            m_foot->setLadderPosX(ladder.getPos().x);
+                //            auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
+                //            m_foot->apply(state);
+                //        }
+                //    }
+                //});
             }
         }
 
@@ -146,18 +146,19 @@ namespace abyss::Actor
     {
         return m_result->isHitAny();
     }
-    bool MapCollider::acceptAll(const ActVisitor& visitor)
-    {
-        bool result = false;
-        for (const auto& terrain : this->getHitTerrains()) {
-            if (!terrain) {
-                continue;
-            }
-            result |= terrain->accept(visitor);
-        }
+    // FIXME
+    //bool MapCollider::acceptAll(const ActVisitor& visitor)
+    //{
+    //    bool result = false;
+    //    for (const auto& terrain : this->getHitTerrains()) {
+    //        if (!terrain) {
+    //            continue;
+    //        }
+    //        result |= terrain->accept(visitor);
+    //    }
 
-        return result;
-    }
+    //    return result;
+    //}
     const s3d::Array<Ref<Terrain>>& MapCollider::getHitTerrains() const
     {
         return m_result->getResults();

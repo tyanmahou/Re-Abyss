@@ -16,7 +16,5 @@ namespace abyss::Actor::Enemy::Schield::Shot
 
         CShape getCollider() const;
         s3d::Circle getColliderCircle() const;
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

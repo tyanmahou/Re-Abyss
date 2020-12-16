@@ -60,11 +60,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->attach<ReceiverData>();
         }
     }
-
-    bool ShotActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(static_cast<IActor&>(*this));
-    }
 }
 namespace
 {

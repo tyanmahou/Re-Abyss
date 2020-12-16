@@ -18,10 +18,6 @@ namespace abyss::Actor::Map::PenetrateFloor
 	{
 		return m_canDown;
 	}
-	bool PenetrateFloorActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
     bool PenetrateFloorActor::tryDown(const s3d::RectF& region) const
     {
 		if (!m_canDown) {

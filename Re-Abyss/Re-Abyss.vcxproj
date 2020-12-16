@@ -592,7 +592,6 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
-    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
     <ClInclude Include="app\controllers\Actors\God\GodActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
@@ -970,7 +969,6 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
-    <ClInclude Include="app\visitors\ActVisitor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

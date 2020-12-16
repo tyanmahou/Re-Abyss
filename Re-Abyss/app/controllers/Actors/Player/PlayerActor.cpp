@@ -169,11 +169,6 @@ namespace abyss::Actor::Player
     {
         return m_hp->isDead();
     }
-    bool PlayerActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(*this);
-    }
-
     std::shared_ptr<PlayerActor> PlayerActor::Create()
     {
         return std::make_shared<PlayerActor>();

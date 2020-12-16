@@ -13,7 +13,5 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
     public:
         CaptainTakoActor(const CaptainTakoEntity& entity);
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

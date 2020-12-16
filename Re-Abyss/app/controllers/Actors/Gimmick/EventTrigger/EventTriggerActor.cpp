@@ -7,9 +7,4 @@ namespace abyss::Actor::Gimmick::EventTrigger
     {
         this->attach<Main>(this, path);
     }
-    bool EventTriggerActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(*this);
-    }
-
 }

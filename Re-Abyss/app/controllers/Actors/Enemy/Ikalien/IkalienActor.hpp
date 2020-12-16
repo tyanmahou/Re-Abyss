@@ -15,7 +15,5 @@ namespace abyss::Actor::Enemy::Ikalien
         IkalienActor(const IkalienEntity& entity);
 
         CShape getCollider() const;
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

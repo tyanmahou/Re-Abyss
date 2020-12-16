@@ -17,9 +17,7 @@ namespace abyss
     void TiledMapInstaller::onBinding(emaject::Container * conatienr) const
     {
         conatienr->bind<s3dTiled::TiledMap>()
-            .fromInstance([tmx = m_tmx]() {
-                return tmx;
-            })
+            .fromInstance(m_tmx)
             .asCache();
     }
 

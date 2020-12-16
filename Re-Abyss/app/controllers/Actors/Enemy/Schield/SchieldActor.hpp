@@ -16,9 +16,6 @@ namespace abyss::Actor::Enemy::Schield
 		Ref<FaceCtrl> m_face;
 	public:
 		SchieldActor(const SchieldEntity& entity);
-
-		bool accept(const ActVisitor& visitor) override;
-
 		CShape getCollider() const;
 	};
 }

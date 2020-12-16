@@ -1,5 +1,4 @@
 #pragma once
-#include <abyss/visitors/ActVisitor.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/components/base/Components.hpp>
 #include <Siv3D/Duration.hpp>
@@ -53,8 +52,6 @@ namespace abyss::Actor
 
 		void lastUpdate();
 		void draw()const;
-
-		virtual bool accept(const ActVisitor& visitor);
 
 		template<class T>
 		T* getModule() const;

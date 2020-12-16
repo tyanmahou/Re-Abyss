@@ -69,11 +69,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         return s3d::Circle(m_body->getPos(), HandParam::Base::ColRadius);
     }
 
-    bool HandActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(static_cast<IActor&>(*this));
-    }
-
     bool HandActor::tryAttack()
     {
         if (m_state->isState<PursuitState>()) {

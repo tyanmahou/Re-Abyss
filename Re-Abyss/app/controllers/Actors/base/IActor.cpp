@@ -67,10 +67,6 @@ namespace abyss::Actor
 			com->onDraw();
 		}
 	}
-	bool IActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 	s3d::Microseconds IActor::getUpdateTime() const
 	{
 		return m_time->getUpdateTime();

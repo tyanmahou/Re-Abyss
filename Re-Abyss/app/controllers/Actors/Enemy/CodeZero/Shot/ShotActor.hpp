@@ -8,7 +8,5 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
     public:
         ShotActor(IActor* parent);
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

@@ -53,10 +53,6 @@ namespace abyss::Actor::Enemy::Schield
         }
         return m_body->region();
     }
-    bool SchieldActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(*this);
-    }
 }
 
 namespace

@@ -9,6 +9,5 @@ namespace abyss::Actor::Map::Floor
 	public:
 		FloorActor(ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size);
 
-		bool accept(const ActVisitor& visitor) override;
 	};
 }

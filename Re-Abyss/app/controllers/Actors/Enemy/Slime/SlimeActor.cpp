@@ -44,11 +44,6 @@ namespace abyss::Actor::Enemy::Slime
 		this->attach<ViewCtrl<SlimeVM>>()
 			->createBinder<ViewBinder>(this);
 	}
-
-	bool SlimeActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 	bool SlimeActor::isWalk() const
 	{
 		return m_state->isState<WalkState>();

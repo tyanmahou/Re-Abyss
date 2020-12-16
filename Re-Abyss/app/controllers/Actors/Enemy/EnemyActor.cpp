@@ -16,10 +16,6 @@ namespace abyss::Actor::Enemy
 	{
 		return m_body->getForward();
 	}
-	bool EnemyActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 	const Body& EnemyActor::getBody() const
 	{
 		return *m_body;

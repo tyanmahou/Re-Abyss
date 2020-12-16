@@ -42,10 +42,6 @@ namespace abyss::Actor::Map
 	{
 		return this->region();
 	}
-	bool MapActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
     MapColInfo MapActor::getMapColInfo() const
     {
 		return {

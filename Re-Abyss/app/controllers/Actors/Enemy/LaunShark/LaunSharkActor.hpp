@@ -13,7 +13,5 @@ namespace abyss::Actor::Enemy::LaunShark
     {
     public:
         LaunSharkActor(const LaunSharkEntity& entity);
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

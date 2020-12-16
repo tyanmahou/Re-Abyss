@@ -45,10 +45,6 @@ namespace abyss::Actor::Enemy::Ikalien
     {
         return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
     }
-    bool IkalienActor::accept(const ActVisitor & visitor)
-    {
-        return visitor.visit(*this);
-    }
 }
 
 namespace

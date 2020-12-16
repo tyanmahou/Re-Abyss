@@ -17,7 +17,5 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         CShape getCollider() const;
 
         s3d::Circle getColliderCircle() const;
-
-        bool accept(const ActVisitor& visitor) override;
     };
 }

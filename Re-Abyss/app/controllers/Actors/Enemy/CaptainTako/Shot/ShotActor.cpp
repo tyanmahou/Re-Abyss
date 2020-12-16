@@ -73,11 +73,6 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
     {
         return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius);
     }
-
-    bool ShotActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(static_cast<IActor&>(*this));
-    }
 }
 
 namespace

@@ -52,11 +52,6 @@ namespace abyss::Actor::Enemy::CodeZero
         m_order = -99;
     }
 
-    bool CodeZeroActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(*this);
-    }
-
     void CodeZeroActor::setActiveAll(bool active)
     {
         this->setActive(active);

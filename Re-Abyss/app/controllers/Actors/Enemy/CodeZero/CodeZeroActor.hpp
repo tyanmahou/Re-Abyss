@@ -18,8 +18,6 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         CodeZeroActor(const CodeZeroEntity& entity);
 
-        bool accept(const ActVisitor& visitor) override;
-
         void setActiveAll(bool active);
     };
 }

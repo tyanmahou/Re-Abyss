@@ -97,10 +97,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {
         return m_body->region().rotated(m_rotate->getRotate());
     }
-    bool ShotActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(static_cast<IActor&>(*this));
-    }
 }
 
 namespace

@@ -30,10 +30,6 @@ namespace abyss::Actor::Enemy::CaptainTako
                 ->createBinder<ViewBinder>(this);
         }
     }
-    bool CaptainTakoActor::accept(const ActVisitor & visitor)
-    {
-        return visitor.visit(*this);
-    }
 }
 
 namespace

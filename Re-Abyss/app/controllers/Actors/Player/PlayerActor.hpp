@@ -33,7 +33,6 @@ namespace abyss::Actor::Player
         s3d::RectF region() const;
 
         bool isDead() const;
-        bool accept(const ActVisitor& visitor) override;
 
         static std::shared_ptr<PlayerActor> Create();
     };

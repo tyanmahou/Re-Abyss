@@ -39,11 +39,6 @@ namespace abyss::Actor::Enemy::LaunShark
                 ->createBinder<ViewBinder>(this);
         }
     }
-    
-    bool LaunSharkActor::accept(const ActVisitor& visitor)
-    {
-        return visitor.visit(*this);
-    }
 }
 
 namespace

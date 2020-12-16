@@ -22,8 +22,4 @@ namespace abyss::Actor::Map::Ladder
 	{
 		return (m_col & ColDirection::Up) != ColDirection::None;
 	}
-	bool LadderActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(*this);
-	}
 }

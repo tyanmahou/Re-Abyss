@@ -19,9 +19,6 @@ namespace abyss::Actor::Map
         ColDirection getCol() const;
         s3d::RectF region() const;
         CShape getCollider() const;
-
-        bool accept(const ActVisitor& visitor) override;
-
         MapColInfo getMapColInfo() const;
     };
 

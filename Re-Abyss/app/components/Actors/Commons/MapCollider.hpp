@@ -75,8 +75,8 @@ namespace abyss::Actor
         /// <returns></returns>
         bool isHitAny() const;
 
-
-        bool acceptAll(const ActVisitor& visitor);
+        // FXIME
+        //bool acceptAll(const ActVisitor& visitor);
 
         /// <summary>
         /// 衝突した地形を取得

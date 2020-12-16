@@ -59,11 +59,6 @@ namespace abyss::Actor::Player::Shot
 			this->attach<AttackerData>(shot->toPower());
 		}
 	}
-
-	bool ShotActor::accept(const ActVisitor& visitor)
-	{
-		return visitor.visit(static_cast<IActor&>(*this));
-	}
 }
 
 namespace

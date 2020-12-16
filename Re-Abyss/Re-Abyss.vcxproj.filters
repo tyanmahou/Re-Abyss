@@ -1618,8 +1618,6 @@
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
     <ClInclude Include="app\components\base\Depends.hpp" />
     <ClInclude Include="app\components\base\DependSort.hpp" />
-    <ClInclude Include="app\controllers\Actors\ActInclude.hpp" />
-    <ClInclude Include="app\visitors\ActVisitor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />

@@ -19,9 +19,6 @@ namespace abyss::Actor::Enemy::Slime
 		Ref<StateCtrl> m_state;
 	public:
 		SlimeActor(const SlimeEntity& entity);
-
-		bool accept(const ActVisitor& visitor) override;
-
 		bool isWalk()const;
     };
 }

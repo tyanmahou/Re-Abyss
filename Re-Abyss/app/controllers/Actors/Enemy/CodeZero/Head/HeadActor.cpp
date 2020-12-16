@@ -62,10 +62,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     {
         return s3d::Circle(this->getPos() + s3d::Vec2{0, 10}, Param::Head::ColRadius);
     }
-    bool HeadActor::accept(const ActVisitor & visitor)
-    {
-        return visitor.visit(static_cast<IActor&>(*this));
-    }
 }
 
 namespace

@@ -22,6 +22,5 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         s3d::Vec2 getPos()const;
 
         CShape getCollider() const;
-        bool accept(const ActVisitor& visitor) override;
     };
 }

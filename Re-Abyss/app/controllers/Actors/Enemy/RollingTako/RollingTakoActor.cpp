@@ -42,11 +42,6 @@ namespace abyss::Actor::Enemy::RollingTako
                 ->createBinder<ViewBinder>(this);
         }
     }
-
-    bool RollingTakoActor::accept(const ActVisitor & visitor)
-    {
-        return visitor.visit(*this);
-    }
 }
 
 namespace

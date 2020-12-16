@@ -1,5 +1,4 @@
 #include "DeadOnHItReceiver.hpp"
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>

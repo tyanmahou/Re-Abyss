@@ -7,6 +7,5 @@ namespace abyss::Actor::Gimmick::EventTrigger
 	{
 	public:
 		EventTriggerActor(const s3d::FilePath& path);
-		bool accept(const ActVisitor& visitor) override;
 	};
 }

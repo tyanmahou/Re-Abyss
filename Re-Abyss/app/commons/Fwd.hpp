@@ -172,12 +172,4 @@ namespace abyss
 	class DecorView;
 	class IDecorVM;
 	class BackGroundVM;
-
-	/// <summary>
-	/// Visitor
-	/// </summary>
-	namespace Actor
-	{
-		class ActVisitor;
-	}
 }

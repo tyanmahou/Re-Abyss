@@ -3,13 +3,14 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/controllers/Actors/ActInclude.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
+
+#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -76,16 +77,17 @@ namespace abyss::Actor::Player
             m_body->setForward(Forward::Left);
         }
         // 地形判定
-        m_mapCol->acceptAll(overloaded{
-            [this](const LadderActor& ladder) {
-                // 梯子
-                this->onCollisionStay(ladder);
-            },
-            [this](const PenetrateFloorActor& floor) {
-                // 貫通床
-                this->onCollisionStay(floor);
-            },
-        });
+        // FIMXE
+        //m_mapCol->acceptAll(overloaded{
+        //    [this](const LadderActor& ladder) {
+        //        // 梯子
+        //        this->onCollisionStay(ladder);
+        //    },
+        //    [this](const PenetrateFloorActor& floor) {
+        //        // 貫通床
+        //        this->onCollisionStay(floor);
+        //    },
+        //});
         this->onMove(m_pActor->deltaTime());
 
         // 攻撃
@@ -97,12 +99,13 @@ namespace abyss::Actor::Player
     }
     void BaseState::onCollisionStay(ICollider * col)
     {
-        col->getActor()->accept(overloaded{
-            [this](const DoorActor& door) {
-                // 扉
-                this->onCollisionStay(door);
-            },
-        });
+        // FIXME
+        //col->getActor()->accept(overloaded{
+        //    [this](const DoorActor& door) {
+        //        // 扉
+        //        this->onCollisionStay(door);
+        //    },
+        //});
 
         col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
             if (m_hp->damage(attacker.getPower())) {

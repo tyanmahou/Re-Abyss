@@ -21,7 +21,6 @@ namespace abyss::Actor::Enemy
         const s3d::Vec2& getVelocity()const;
 
         Forward getForward()const;
-        bool accept(const ActVisitor& visitor) override;
 
         const Body& getBody()const;
         Body& getBody();

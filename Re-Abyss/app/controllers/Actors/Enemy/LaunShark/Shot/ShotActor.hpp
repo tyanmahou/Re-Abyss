@@ -14,7 +14,5 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 		ShotActor(const s3d::Vec2& pos, Forward forward);
 		CShape getCollider() const;
 		s3d::Quad getColliderQuad() const;
-
-		bool accept(const ActVisitor& visitor) override;
 	};
 }
