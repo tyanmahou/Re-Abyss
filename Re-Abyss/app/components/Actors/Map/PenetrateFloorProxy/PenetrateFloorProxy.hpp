@@ -6,24 +6,29 @@
 #include <abyss/components/Actors/Map/MapParam.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
-namespace abyss::Actor::Map::Ladder
+namespace abyss::Actor::Map::PenetrateFloor
 {
-    class LadderProxy :
+    class PenetrateFloorProxy :
         public IComponent
     {
     public:
-        LadderProxy(IActor* pActor);
+        PenetrateFloorProxy(IActor* pActor, bool canDown, ColDirection aroundFloor);
 
-        void setup([[maybe_unused]] Depends depends) override;
+        void setup(Depends depends) override;
 
         void onStart() override;
 
         const s3d::Vec2& getPos() const;
         s3d::RectF region() const;
-        s3d::Line getCenterLine() const;
-        bool isTop() const;
+
+        bool canDown() const;
+
+        bool tryDown(const s3d::RectF& region) const;
     private:
         IActor* m_pActor;
+        bool m_canDown;
+        ColDirection m_aroundFloor;
+
         Ref<MapParam> m_mapParam;
         Ref<Terrain> m_terrain;
     };

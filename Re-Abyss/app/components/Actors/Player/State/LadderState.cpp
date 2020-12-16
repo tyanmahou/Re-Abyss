@@ -25,7 +25,7 @@ namespace abyss::Actor::Player
     {
         this->changeState<SwimState>();
     }
-    void LadderState::onCollisionStayLadderTop(const LadderActor& ladder)
+    void LadderState::onCollisionStayLadderTop(const LadderProxy& ladder)
     {
         auto&& ladderRegion = ladder.region();
 

@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
             m_motion = Motion::Run;
         }
     }
-    void SwimState::onCollisionStay(const PenetrateFloorActor& col)
+    void SwimState::onCollisionStay(const PenetrateFloorProxy& col)
     {
         if (m_mapCol->isHitGround() &&
             col.tryDown(m_body->region()) &&

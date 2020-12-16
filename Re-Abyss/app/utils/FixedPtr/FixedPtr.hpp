@@ -14,6 +14,7 @@ namespace abyss
             template<class T>
             struct ivisitor
             {
+                virtual ~ivisitor() = default;
                 virtual bool visit([[maybe_unused]] T*) const = 0;
             };
 

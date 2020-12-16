@@ -3,6 +3,8 @@
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
+#include <abyss/concepts/Component.hpp>
+#include <abyss/controllers/Actors/base/Tag.hpp>
 
 namespace abyss::Actor
 {
@@ -75,9 +77,6 @@ namespace abyss::Actor
         /// <returns></returns>
         bool isHitAny() const;
 
-        // FXIME
-        //bool acceptAll(const ActVisitor& visitor);
-
         /// <summary>
         /// 衝突した地形を取得
         /// </summary>
@@ -90,6 +89,38 @@ namespace abyss::Actor
         /// <returns></returns>
         s3d::Array<IActor*> getHitActors()const;
 
+        /// <summary>
+        /// 衝突した地形いずれかに対して処理を行う
+        /// </summary>
+        template<Tag::Tagged T, IsComponent C>
+        bool anyThen(std::function<void(C&)> callback) const
+        {
+            for (const auto& terrain : this->getHitTerrains()) {
+                if (!terrain) {
+                    continue;
+                }
+                if (terrain->isThen<T, C>(callback)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 衝突した地形すべてに対して処理を行う
+        /// </summary>
+        template<Tag::Tagged T, IsComponent C>
+        bool eachThen(std::function<void(C&)> callback) const
+        {
+            bool result = false;
+            for (const auto& terrain : this->getHitTerrains()) {
+                if (!terrain) {
+                    continue;
+                }
+                result |= terrain->isThen<T, C>(callback);
+            }
+            return result;
+        }
     };
 }
 

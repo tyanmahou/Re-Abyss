@@ -20,6 +20,16 @@ namespace abyss::Actor::Map::Ladder
         m_terrain = m_pActor->find<Terrain>();
     }
 
+    const s3d::Vec2& LadderProxy::getPos() const
+    {
+        return m_mapParam->getPos();
+    }
+
+    s3d::RectF LadderProxy::region() const
+    {
+        return m_mapParam->region();
+    }
+
     s3d::Line LadderProxy::getCenterLine() const
     {
         const auto& pos = m_mapParam->getPos();

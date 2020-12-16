@@ -1,4 +1,5 @@
 #include "PenetrateFloorActor.hpp"
+#include <abyss/components/Actors/Map/PenetrateFloorProxy/PenetrateFloorProxy.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
@@ -13,6 +14,8 @@ namespace abyss::Actor::Map::PenetrateFloor
 		m_aroundFloor(aroundFloor)
 	{
 		m_tag = Tag::PenetrateFloor{};
+
+		this->attach<PenetrateFloorProxy>(this, canDown, aroundFloor);
 	}
 	bool PenetrateFloorActor::canDown() const
 	{

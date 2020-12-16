@@ -8,13 +8,15 @@
 #include <abyss/components/Actors/Player/ChargeCtrl.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
+#include <abyss/components/Actors/Map/PenetrateFloorProxy/PenetrateFloorProxy.hpp>
+#include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
 namespace abyss::Actor::Player
 {
     using Actor::Map::Floor::FloorActor;
-    using Actor::Map::PenetrateFloor::PenetrateFloorActor;
-    using Actor::Map::Ladder::LadderActor;
+    using Actor::Map::PenetrateFloor::PenetrateFloorProxy;
+    using Actor::Map::Ladder::LadderProxy;
     using Actor::Gimmick::Door::DoorActor;
 
     class BaseState : public IState
@@ -32,9 +34,9 @@ namespace abyss::Actor::Player
         virtual void onLanding(){}
         virtual void onDraw(const PlayerVM& view)const = 0;
 
-        virtual void onCollisionStay(const PenetrateFloorActor& col);
-        virtual void onCollisionStay(const LadderActor& ladder);
-        virtual void onCollisionStayLadderTop(const LadderActor& ladder);
+        virtual void onCollisionStay(const PenetrateFloorProxy& col);
+        virtual void onCollisionStay(const LadderProxy& ladder);
+        virtual void onCollisionStayLadderTop(const LadderProxy& ladder);
         virtual void onCollisionStay(const DoorActor& col);
 
     public:

@@ -14,16 +14,16 @@
 
 namespace abyss::Actor::Player
 {
-    void BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorActor& col)
+    void BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorProxy& col)
     {
     }
-    void BaseState::onCollisionStay(const LadderActor & ladder)
+    void BaseState::onCollisionStay(const LadderProxy& ladder)
     {
         if (ladder.isTop()) {
             this->onCollisionStayLadderTop(ladder);
         }
     }
-    void BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderActor& ladder)
+    void BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderProxy& ladder)
     {
     }
     void BaseState::onCollisionStay([[maybe_unused]]const DoorActor & col)
@@ -77,17 +77,19 @@ namespace abyss::Actor::Player
             m_body->setForward(Forward::Left);
         }
         // 地形判定
-        // FIMXE
-        //m_mapCol->acceptAll(overloaded{
-        //    [this](const LadderActor& ladder) {
-        //        // 梯子
-        //        this->onCollisionStay(ladder);
-        //    },
-        //    [this](const PenetrateFloorActor& floor) {
-        //        // 貫通床
-        //        this->onCollisionStay(floor);
-        //    },
-        //});
+        for (auto* other : m_mapCol->getHitActors()) {
+            if (other->getTag().is<Tag::Ladder>()) {
+                // 梯子
+                if (auto ladder = other->find<LadderProxy>()) {
+                    this->onCollisionStay(*ladder);
+                }
+            } else if (other->getTag().is<Tag::PenetrateFloor>()) {
+                // 貫通床
+                if (auto ladder = other->find<PenetrateFloorProxy>()) {
+                    this->onCollisionStay(*ladder);
+                }
+            }
+        }
         this->onMove(m_pActor->deltaTime());
 
         // 攻撃

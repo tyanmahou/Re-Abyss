@@ -51,6 +51,17 @@ namespace abyss::Actor
             }
             return false;
         }
+        template<Tag::Tagged T, IsComponent C>
+        bool isThen(std::function<void(C&)> callback) const
+        {
+            if (m_pActor->getTag().is<T>()) {
+                if (auto c = m_pActor->find<C>()) {
+                    callback(*c.get());
+                    return true;
+                }
+            }
+            return false;
+        }
         template<Tag::Tagged T>
         bool isNotThen(std::function<void(IActor*)> callback) const
         {
