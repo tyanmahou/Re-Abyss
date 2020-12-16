@@ -26,7 +26,7 @@ namespace abyss::Actor::Player
     void BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderProxy& ladder)
     {
     }
-    void BaseState::onCollisionStay([[maybe_unused]]const DoorActor & col)
+    void BaseState::onCollisionStay([[maybe_unused]]const DoorProxy& col)
     {}
     void BaseState::setup()
     {

@@ -4,17 +4,18 @@
 
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/Event/Events.hpp>
-#include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
+#include <abyss/controllers/Actors/base/IActor.hpp>
 
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/Fade/IrisOut/IrisOut.hpp>
 
 namespace abyss::Event::RoomMove
 {
-    bool DoorMove::Start(const Actor::Gimmick::Door::DoorActor& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, double milliSec)
+    bool DoorMove::Start(const Actor::Gimmick::Door::DoorProxy& door, const s3d::Vec2& playerPos, std::function<void()> fadeInCallback, double milliSec)
     {
         assert(milliSec > 0);
-        auto camera = door.getModule<Camera>();
+        auto manager = door.getActor()->getManager();
+        auto camera = manager->getModule<Camera>();
 
         const auto& nextRoom = door.getNextRoom();
         camera->setNextRoom(nextRoom);
@@ -33,7 +34,7 @@ namespace abyss::Event::RoomMove
             milliSec
             );
 
-        door.getModule<Events>()->regist(event);
+        manager->getModule<Events>()->regist(event);
 
         return true;
     }

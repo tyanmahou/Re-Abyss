@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/controllers/Event/RoomMove/base/IRoomMove.hpp>
+#include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -41,7 +42,7 @@ namespace abyss::Event::RoomMove
         /// <param name="milliSec"></param>
         /// <returns></returns>
         static bool Start(
-            const Actor::Gimmick::Door::DoorActor& door,
+            const Actor::Gimmick::Door::DoorProxy& door,
             const s3d::Vec2& playerPos,
             std::function<void()> fadeInCallback,
             double milliSec = 2000

@@ -34,7 +34,7 @@ namespace abyss::Actor::Player
         }
     }
 
-    void SwimState::onCollisionStay(const DoorActor & col)
+    void SwimState::onCollisionStay(const DoorProxy& col)
     {
         if (InputManager::Up.down()) {
             m_motion = Motion::Door;

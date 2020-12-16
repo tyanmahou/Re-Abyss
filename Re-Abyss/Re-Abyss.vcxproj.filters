@@ -1090,6 +1090,9 @@
     <ClCompile Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Gimmick\Door\DoorProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1627,5 +1630,6 @@
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Map/PenetrateFloorProxy/PenetrateFloorProxy.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
+#include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
 namespace abyss::Actor::Player
@@ -17,7 +18,7 @@ namespace abyss::Actor::Player
     using Actor::Map::Floor::FloorActor;
     using Actor::Map::PenetrateFloor::PenetrateFloorProxy;
     using Actor::Map::Ladder::LadderProxy;
-    using Actor::Gimmick::Door::DoorActor;
+    using Actor::Gimmick::Door::DoorProxy;
 
     class BaseState : public IState
     {
@@ -37,7 +38,7 @@ namespace abyss::Actor::Player
         virtual void onCollisionStay(const PenetrateFloorProxy& col);
         virtual void onCollisionStay(const LadderProxy& ladder);
         virtual void onCollisionStayLadderTop(const LadderProxy& ladder);
-        virtual void onCollisionStay(const DoorActor& col);
+        virtual void onCollisionStay(const DoorProxy& col);
 
     public:
         void setup()override;
