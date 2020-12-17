@@ -5,6 +5,8 @@
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
+#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
@@ -38,6 +40,9 @@ namespace abyss::Actor::Enemy::Schield::Shot
             collider->setColFunc([this] {
                 return this->getCollider();
             });
+        }
+        {
+            this->attach<MapCollider>(this, false);
         }
         {
             this->attach<DeadOnHItReceiver>(this);

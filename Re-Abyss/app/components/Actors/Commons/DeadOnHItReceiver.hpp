@@ -2,7 +2,6 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/ICollisionReact.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
-#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {
@@ -12,6 +11,7 @@ namespace abyss::Actor
     {
         IActor* m_pActor;
         Ref<DeadChecker> m_deadChecker;
+        Ref<MapCollider> m_mapCol;
         Ref<CollisionCtrl> m_cols;
     public:
         DeadOnHItReceiver(IActor* pActor);

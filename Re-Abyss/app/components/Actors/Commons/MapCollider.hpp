@@ -4,6 +4,7 @@
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
+#include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/controllers/Actors/base/Tag.hpp>
 
 namespace abyss::Actor
@@ -20,19 +21,26 @@ namespace abyss::Actor
         class Result;
     private:
         Ref<Body> m_body;
+        Ref<ICollider> m_collider;
+
         Ref<Foot> m_foot;
         std::unique_ptr<Result> m_result;
 
        bool m_isEnableRoomHit = false;
        bool m_isEnableRoomHitStrict = false;
        bool m_isThrough = false; // すりぬけるか
+       bool m_useBody = true;
     public:
-
-        MapCollider(IActor* pActor);
+        /// <summary>
+        /// MapCollider
+        /// </summary>
+        /// <param name="pActor"></param>
+        /// <param name="useBody">Bodyを使用するか、使わない場合はICollider判定</param>
+        MapCollider(IActor* pActor, bool useBody = true);
 
         void onStart() override;
 
-        s3d::RectF getCollider() const override;
+        CShape getCollider() const override;
 
         void onPrePhysics() override;
 
@@ -93,7 +101,7 @@ namespace abyss::Actor
         /// 衝突した地形いずれかに対して処理を行う
         /// </summary>
         template<Tag::Tagged T, IsComponent C>
-        bool anyThen(std::function<void(C&)> callback) const
+        bool anyThen(std::function<bool(C&)> callback) const
         {
             for (const auto& terrain : this->getHitTerrains()) {
                 if (!terrain) {
@@ -110,7 +118,7 @@ namespace abyss::Actor
         /// 衝突した地形すべてに対して処理を行う
         /// </summary>
         template<Tag::Tagged T, IsComponent C>
-        bool eachThen(std::function<void(C&)> callback) const
+        bool eachThen(std::function<bool(C&)> callback) const
         {
             bool result = false;
             for (const auto& terrain : this->getHitTerrains()) {

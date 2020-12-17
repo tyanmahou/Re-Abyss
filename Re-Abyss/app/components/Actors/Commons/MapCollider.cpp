@@ -1,12 +1,14 @@
 #include "MapCollider.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
+#include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 
 #include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor
 {
@@ -75,19 +77,21 @@ namespace abyss::Actor
         }
     };
 
-    MapCollider::MapCollider(IActor* pActor):
+    MapCollider::MapCollider(IActor* pActor, bool useBody):
         IPhysics(pActor),
-        m_result(std::make_unique<Result>())
+        m_result(std::make_unique<Result>()),
+        m_useBody(useBody)
     {}
     void MapCollider::onStart()
     {
         m_body = m_pActor->find<Body>();
+        m_collider = m_pActor->find<ICollider>();
         m_foot = m_pActor->find<Foot>();
     }
 
-    s3d::RectF MapCollider::getCollider() const
+    CShape MapCollider::getCollider() const
     {
-        return m_body->region();
+        return m_useBody ? m_body->region() : m_collider->getCollider() ;
     }
 
     void MapCollider::onPrePhysics()
@@ -100,7 +104,7 @@ namespace abyss::Actor
 
     void MapCollider::onCollision(const Ref<Terrain>& terrain)
     {
-        if (!m_isThrough) {
+        if (!m_isThrough && m_useBody) {
             auto col = m_body->fixPos(terrain->getMapColInfo());
             m_result->add(col);
 
@@ -126,6 +130,9 @@ namespace abyss::Actor
     }
     void MapCollider::onLastPhysics()
     {
+        if (!m_useBody) {
+            return;
+        }
         if (!m_isEnableRoomHit) {
             return;
         }

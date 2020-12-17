@@ -3,6 +3,9 @@
 #include <abyss/types/MapColInfo.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
+#include <abyss/types/CShape.hpp>
+#include <abyss/models/Collision/CollisionUtil.hpp>
+
 namespace abyss::Actor
 {
     bool IPhysics::isActive() const
@@ -11,6 +14,6 @@ namespace abyss::Actor
     }
     bool IPhysics::intersects(const MapColInfo& mapColInfo) const
     {
-        return this->getCollider().intersects(mapColInfo.region);
+        return ColisionUtil::Intersects(this->getCollider(), mapColInfo.region);
     }
 }

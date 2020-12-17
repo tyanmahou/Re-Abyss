@@ -6,6 +6,8 @@
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
+#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -44,6 +46,7 @@ namespace abyss::Actor::Player::Shot
 			// Bigじゃなければ壁にあたって破壊される
 			this->attach<DeadOnHItReceiver>(this);
 			this->attach<DeadChecker>(this);
+			this->attach<MapCollider>(this, false);
 		}
 		{
 			this->attach<ViewCtrl<ShotVM>>()

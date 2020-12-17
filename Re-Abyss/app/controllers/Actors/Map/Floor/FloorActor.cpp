@@ -2,8 +2,6 @@
 #include <Siv3D/String.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
-#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
 namespace abyss::Actor::Map::Floor
 {
@@ -11,13 +9,7 @@ namespace abyss::Actor::Map::Floor
 		MapActor(col, pos, size)
 	{
 		m_tag = Tag::Floor{};
-		{
-			this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Map);
-			auto collider = this->attach<CustomCollider>();
-			collider->setColFunc([this] {
-				return this->getCollider();
-			});
-		}
+
 		{
 			this->attach<ReceiverData>();
 		}

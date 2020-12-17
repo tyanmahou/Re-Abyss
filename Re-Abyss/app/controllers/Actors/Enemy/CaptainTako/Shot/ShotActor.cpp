@@ -6,6 +6,7 @@
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -26,6 +27,9 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
             auto col = this->attach<CustomCollider>();
             col->setColFunc([this] {return this->getCollider(); });
+        }
+        {
+            this->attach<MapCollider>(this, false);
         }
         {
             (m_body = this->attach<Body>(this))

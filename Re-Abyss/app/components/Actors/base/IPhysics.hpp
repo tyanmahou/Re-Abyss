@@ -34,7 +34,7 @@ namespace abyss::Actor
         }
         bool isActive() const;
 
-        virtual s3d::RectF getCollider() const = 0;
+        virtual CShape getCollider() const = 0;
 
         virtual void onCollision(const Ref<Actor::Terrain>& terrain) = 0;
 

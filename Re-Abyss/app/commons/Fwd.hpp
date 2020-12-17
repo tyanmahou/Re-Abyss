@@ -146,6 +146,7 @@ namespace abyss
 		class IPhysics;
 		class ICollider;
 		class ICollision;
+		class CollisionCtrl;
 	}
 
 	/// <summary>

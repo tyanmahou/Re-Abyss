@@ -60,7 +60,6 @@ namespace abyss::Actor
 
     void StateCtrl::onCollisionReact()
     {
-        this->stateUpdate();
         if (m_collisionReact) {
             m_collisionReact->onCollisionReact();
         }

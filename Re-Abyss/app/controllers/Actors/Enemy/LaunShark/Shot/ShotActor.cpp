@@ -4,6 +4,7 @@
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
@@ -40,6 +41,10 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
             this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
             auto col = this->attach<CustomCollider>();
             col->setColFunc([this] {return this->getCollider(); });
+        }
+        // 地形判定
+        {
+            this->attach<MapCollider>(this, false);
         }
         // ボディ
         {

@@ -126,12 +126,7 @@ namespace abyss::Debug
                 if (!col->isActive()) {
                     continue;
                 }
-                auto collider = col->getCollider();
-                CShape shape = collider;
-                if (collider.size.isZero()) {
-                    shape = collider.center();
-                }
-                DrawColider(shape, color);
+                DrawColider(col->getCollider(), color);
             }
         }
         {
