@@ -4,6 +4,8 @@
 #include <abyss/components/Actors/base/IMove.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
+#include <abyss/components/Actors/base/IPreCollision.hpp>
+#include <abyss/components/Actors/base/ICollisionReact.hpp>
 #include <abyss/components/Actors/base/ILastUpdate.hpp>
 #include <abyss/components/Actors/base/IDraw.hpp>
 #include <abyss/components/Actors/base/IPreDraw.hpp>
@@ -51,6 +53,20 @@ namespace abyss::Actor
 			com->onLastPhysics();
 		}
 	}
+	void IActor::preCollision()
+	{
+		for (auto&& com : this->finds<IPreCollision>()) {
+			com->onPreCollision();
+		}
+	}
+
+	void IActor::collisionReact()
+	{
+		for (auto&& com : this->finds<ICollisionReact>()) {
+			com->onCollisionReact();
+		}
+	}
+
 	void IActor::lastUpdate()
 	{
 		for (auto&& com : this->finds<ILastUpdate>()) {

@@ -41,6 +41,7 @@ namespace abyss::Actor
 
         virtual CShape getCollider() const = 0;
 
+        virtual void onReflesh() = 0;
         virtual void onCollision(const Ref<ICollision>& other) = 0;
 
         bool intersects(const CShape& other) const;

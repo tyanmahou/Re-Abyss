@@ -50,6 +50,9 @@ namespace abyss::Actor
 
 		void lastPhysics();
 
+		void preCollision();
+		void collisionReact();
+
 		void lastUpdate();
 		void draw()const;
 

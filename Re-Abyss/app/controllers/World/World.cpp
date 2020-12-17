@@ -50,7 +50,9 @@ namespace abyss
         }
         // アクター衝突
         {
+            m_actorsHolder.preCollision();
             m_collision->collisionAll(this->finds<Actor::ICollision>());
+            m_actorsHolder.collisionReact();
         }
     }
 

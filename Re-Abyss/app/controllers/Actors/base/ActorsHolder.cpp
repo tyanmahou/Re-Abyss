@@ -72,6 +72,26 @@ namespace abyss::Actor
 		}
 	}
 
+	void ActorsHolder::preCollision() const
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->preCollision();
+		}
+	}
+
+	void ActorsHolder::collisionReact() const
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->collisionReact();
+		}
+	}
+
 	void ActorsHolder::lastUpdate()
 	{
 		for (auto& obj : m_actors) {

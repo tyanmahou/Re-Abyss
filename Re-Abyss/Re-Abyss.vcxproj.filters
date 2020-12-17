@@ -1096,6 +1096,9 @@
     <ClCompile Include="app\components\Actors\base\ICollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\CollisionCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1636,5 +1639,7 @@
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollisionReact.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\CollisionCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPreCollision.hpp" />
   </ItemGroup>
 </Project>
