@@ -145,6 +145,7 @@ namespace abyss
 		class Body;
 		class IPhysics;
 		class ICollider;
+		class ICollision;
 	}
 
 	/// <summary>

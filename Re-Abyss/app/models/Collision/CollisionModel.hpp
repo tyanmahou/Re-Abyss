@@ -4,7 +4,6 @@
 
 #include<Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/types/CollisionPairHash.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss
 {
@@ -16,7 +15,7 @@ namespace abyss
 	public:
 		ICollisionModel() = default;
 		virtual ~ICollisionModel() = default;
-		virtual void collisionAll(const s3d::Array<Ref<Actor::ICollider>>&) = 0;
+		virtual void collisionAll(const s3d::Array<Ref<Actor::ICollision>>&) = 0;
 		virtual void reset() = 0;
 	};
 
@@ -25,10 +24,9 @@ namespace abyss
 	/// </summary>
 	class SimpleCollision : public ICollisionModel
 	{
-		std::unordered_set<CollisionPairHash> m_currentCollision;
 	public:
 		~SimpleCollision() override = default;
-		void collisionAll(const s3d::Array<Ref<Actor::ICollider>>&) override;
+		void collisionAll(const s3d::Array<Ref<Actor::ICollision>>&) override;
 		void reset()override;
 	};
 }

@@ -1,26 +1,22 @@
 #include "CollisionModel.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
-#include <abyss/components/Actors/base/ICollider.hpp>
+#include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss
 {
-	void SimpleCollision::collisionAll(const s3d::Array<Ref<Actor::ICollider>>& colliders)
+	void SimpleCollision::collisionAll(const s3d::Array<Ref<Actor::ICollision>>& collisions)
 	{
 		// Collision
-		auto prevCollision = std::move(this->m_currentCollision);
-		this->m_currentCollision.clear();
-		for (auto&& collider : colliders) {
-			collider->onReflesh();
-		}
+		using Actor::ICollision;
 
-		s3d::Array<Ref<Actor::ICollider>> actColliders;
-		actColliders.reserve(colliders.size());
-		s3d::Array<Ref<Actor::ICollider>> mapColliders;
-		mapColliders.reserve(colliders.size());
+		s3d::Array<Ref<ICollision>> actColliders;
+		actColliders.reserve(collisions.size());
+		s3d::Array<Ref<ICollision>> mapColliders;
+		mapColliders.reserve(collisions.size());
 
-		for (const auto& col : colliders) {
+		for (const auto& col : collisions) {
 			if (!col || !col->isActive()) {
 				continue;
 			}
@@ -31,26 +27,19 @@ namespace abyss
 			}
 		}
 
-		auto check = [this, &prevCollision](const Ref<Actor::ICollider>& it1, const Ref<Actor::ICollider>& it2) {
-			CollisionPairHash hash(it1->getId(), it2->getId());
+		auto check = [this](const Ref<ICollision>& it1, const Ref<ICollision>& it2) {
+			if (it1->getId() == it2->getId()) {
+				// 同一アクターなら無視
+				return;
+			}
 			if (ColisionUtil::Intersects(it1->getCollider(), it2->getCollider())) {
-				m_currentCollision.insert(hash);
-				if (prevCollision.find(hash) == prevCollision.end()) {
-					// onEnter
-					it1->onCollisionEnter(it2.get());
-					it2->onCollisionEnter(it1.get());
-				}
-				// onStay
-				it1->onCollisionStay(it2.get());
-				it2->onCollisionStay(it1.get());
-			} else {
-				if (prevCollision.find(hash) != prevCollision.end()) {
-					// onExit
-					it1->onCollisionExit(it2.get());
-					it2->onCollisionExit(it1.get());
-				}
+
+				// onCollision
+				it1->onCollision(it2);
+				it2->onCollision(it1);
 			}
 		};
+
 		// キャラvs地形の当たり
 		for (auto&& col1 : actColliders) {
 			for (auto&& col2 : mapColliders) {
@@ -71,7 +60,6 @@ namespace abyss
 	}
 	void SimpleCollision::reset()
 	{
-		m_currentCollision.clear();
 	}
 }
 

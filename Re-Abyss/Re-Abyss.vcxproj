@@ -180,6 +180,7 @@
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
+    <ClCompile Include="app\components\Actors\base\ICollision.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BehaviorCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\CustomCollider.cpp" />
@@ -537,6 +538,8 @@
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
+    <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
+    <ClInclude Include="app\components\Actors\base\ICollisionReact.hpp" />
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />

@@ -3,7 +3,7 @@
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/models/Collision/MapCollisionModel.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/components/Actors/base/ICollider.hpp>
+#include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
@@ -50,7 +50,7 @@ namespace abyss
         }
         // アクター衝突
         {
-            m_collision->collisionAll(this->finds<Actor::ICollider>());
+            m_collision->collisionAll(this->finds<Actor::ICollision>());
         }
     }
 
