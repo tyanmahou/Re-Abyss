@@ -1591,7 +1591,6 @@
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
-    <ClInclude Include="app\components\Actors\base\ICollisionCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreDraw.hpp" />

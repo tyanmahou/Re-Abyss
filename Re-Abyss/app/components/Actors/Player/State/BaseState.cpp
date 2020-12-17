@@ -14,20 +14,25 @@
 
 namespace abyss::Actor::Player
 {
-    void BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorProxy& col)
+    bool BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorProxy& col)
     {
+        return false;
     }
-    void BaseState::onCollisionStay(const LadderProxy& ladder)
+    bool BaseState::onCollisionStay(const LadderProxy& ladder)
     {
         if (ladder.isTop()) {
             this->onCollisionStayLadderTop(ladder);
         }
+        return false;
     }
-    void BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderProxy& ladder)
+    bool BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderProxy& ladder)
     {
+        return false;
     }
-    void BaseState::onCollisionStay([[maybe_unused]]const DoorProxy& col)
-    {}
+    bool BaseState::onCollisionStay([[maybe_unused]]const DoorProxy& col)
+    {
+        return false;
+    }
     void BaseState::setup()
     {
         m_body       = m_pActor->find<Body>().get();
@@ -37,6 +42,7 @@ namespace abyss::Actor::Player
         m_attackCtrl = m_pActor->find<AttackCtrl>().get();
         m_mapCol     = m_pActor->find<MapCollider>().get();
         m_view       = m_pActor->find<ViewCtrl<PlayerVM>>().get();
+        m_colCtrl    = m_pActor->find<CollisionCtrl>().get();
     }
     void BaseState::start()
     {
@@ -99,18 +105,21 @@ namespace abyss::Actor::Player
             m_attackCtrl->startAttack();
         }
     }
-    void BaseState::onCollisionStay(ICollider * col)
+    void BaseState::onCollisionReact()
     {
-        col->isThen<Tag::Door, DoorProxy>([this](const DoorProxy& door) {
+        if (m_colCtrl->anyThen<Tag::Door, DoorProxy>([this](const DoorProxy& door) {
             // 扉
-            this->onCollisionStay(door);
-        });
+            return this->onCollisionStay(door);
+        })) {
+            return;
+        }
 
-        col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
-            if (m_hp->damage(attacker.getPower())) {
-                this->changeState<DamageState>();
-            }
+        bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
+            return m_hp->damage(attacker.getPower());
         });
+        if (isDamaged) {
+            this->changeState<DamageState>();
+        }
     }
 
     void BaseState::lastUpdate()

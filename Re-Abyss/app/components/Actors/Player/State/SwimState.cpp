@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
             m_motion = Motion::Run;
         }
     }
-    void SwimState::onCollisionStay(const PenetrateFloorProxy& col)
+    bool SwimState::onCollisionStay(const PenetrateFloorProxy& col)
     {
         if (m_mapCol->isHitGround() &&
             col.tryDown(m_body->region()) &&
@@ -32,9 +32,10 @@ namespace abyss::Actor::Player
             // 降りる
             m_body->addPosY(10.0);
         }
+        return false;
     }
 
-    void SwimState::onCollisionStay(const DoorProxy& col)
+    bool SwimState::onCollisionStay(const DoorProxy& col)
     {
         if (InputManager::Up.down()) {
             m_motion = Motion::Door;
@@ -49,7 +50,9 @@ namespace abyss::Actor::Player
                 // セーブ対象だった場合
                 m_pActor->getModule<Save>()->reserveRestartId(col.getStartId());
             }
+            return true;
         }
+        return false;
     }
     void SwimState::start()
     {

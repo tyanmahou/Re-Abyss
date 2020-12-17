@@ -25,7 +25,7 @@ namespace abyss::Actor::Player
     {
         this->changeState<SwimState>();
     }
-    void LadderState::onCollisionStayLadderTop(const LadderProxy& ladder)
+    bool LadderState::onCollisionStayLadderTop(const LadderProxy& ladder)
     {
         auto&& ladderRegion = ladder.region();
 
@@ -42,7 +42,9 @@ namespace abyss::Actor::Player
         if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
             m_body->setPosY(ladderRegion.y - m_body->region().h / 2.0);
             this->changeState<SwimState>();
+            return true;
         }
+        return false;
     }
     void LadderState::start()
     {

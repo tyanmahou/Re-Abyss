@@ -115,7 +115,9 @@ namespace abyss::Actor
                         m_foot->setLadderPosX(ladder.getPos().x);
                         auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
                         m_foot->apply(state);
+                        return true;
                     }
+                    return false;
                 });
             }
         }

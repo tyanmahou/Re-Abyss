@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Schield
 
         void onStart() override;
 
-        void onCollisionStay(ICollider* col)override;
+        void onCollisionReact()override;
     };
 }
 

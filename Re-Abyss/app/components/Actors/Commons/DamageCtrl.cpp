@@ -11,19 +11,20 @@ namespace abyss::Actor
 	void DamageCtrl::onStart()
 	{
 		m_hp = m_pActor->find<HP>();
+		m_colCtrl = m_pActor->find<CollisionCtrl>();
 	}
-	void DamageCtrl::onCollisionStay(ICollider* col)
-    {
+	void DamageCtrl::onCollisionReact()
+	{
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		col->isThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
-			if (m_hp->damage(attacker.getPower())) {
-				for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
-					callback->onDamaged();
-				}
-			}
+		const bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
+			return m_hp->damage(attacker.getPower());
 		});
-    }
-
+		if (isDamaged) {
+			for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
+				callback->onDamaged();
+			}
+		}
+	}
 }

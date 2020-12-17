@@ -15,20 +15,22 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 	void DamageCtrl::onStart()
 	{
 		m_parent = m_pActor->find<ParentCtrl>();
+		m_col = m_pActor->find<CollisionCtrl>();
 	}
-	void DamageCtrl::onCollisionStay(ICollider* col)
+	void DamageCtrl::onCollisionReact()
 	{
 		auto parent = m_parent->getParent();
 		auto hp = m_parent->getHp();
 		if (!hp) {
 			return;
 		}
-		col->isThen<Tag::Attacker, AttackerData>([=](const AttackerData& attacker) {
-			if (hp->damage(attacker.getPower())) {
-				for (auto&& callback : parent->finds<IDamageCallback>()) {
-					callback->onDamaged();
-				}
-			}
+		const bool isDamaged = m_col->eachThen<Tag::Attacker, AttackerData>([=](const AttackerData& attacker) {
+			return hp->damage(attacker.getPower());
 		});
+		if (isDamaged) {
+			for (auto&& callback : parent->finds<IDamageCallback>()) {
+				callback->onDamaged();
+			}
+		}
 	}
 }

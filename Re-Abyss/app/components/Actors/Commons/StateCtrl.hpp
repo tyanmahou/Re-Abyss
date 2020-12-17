@@ -5,11 +5,10 @@
 
 # include <abyss/controllers/Actors/base/IActor.hpp>
 # include <abyss/components/base/IComponent.hpp>
-# include <abyss/components/Actors/base/ICollisionCallback.hpp>
+# include <abyss/components/Actors/base/ICollisionReact.hpp>
 # include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/components/Actors/base/ILastUpdate.hpp>
 # include <abyss/components/Actors/base/IDraw.hpp>
-# include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
 {
@@ -39,11 +38,6 @@ namespace abyss::Actor
         virtual void end() {}
 
         virtual void draw() const {}
-
-        virtual void onReflesh() {}
-        virtual void onCollisionEnter([[maybe_unused]]ICollider* col) {}
-        virtual void onCollisionStay([[maybe_unused]] ICollider* col) {}
-        virtual void onCollisionExit([[maybe_unused]] ICollider* col) {}
     };
 
     class StateCtrl :
@@ -51,100 +45,40 @@ namespace abyss::Actor
         public IUpdate,
         public ILastUpdate,
         public IDraw,
-        public ICollisionCallback
+        public ICollisionReact
     {
     private:
         using State_t = std::shared_ptr<IState>;
 
         State_t m_current;
         State_t m_next;
-
+        std::shared_ptr<ICollisionReact> m_collisionReact;
         IActor* const  m_pActor;
 
-        void stateUpdate()
-        {
-            if (m_next) {
-                if (m_current) {
-                    m_current->end();
-                }
-                m_current = m_next;
-                m_current->init(this);
-                m_next = nullptr;
-            }
-        }
+        void stateUpdate();
     public:
-        StateCtrl(IActor* pActor):
-            m_pActor(pActor)
-        {}
+        StateCtrl(IActor* pActor);
         
-        void setup(Depends depends)override
-        {
-            depends.addAfter<IComponent>();
-        }
-        void onStart() override
-        {
-            this->stateUpdate();
-        }
-        void onUpdate() override
-        {
-            this->stateUpdate();
-            if (m_current) {
-                m_current->update();
-            }
-        }
-        void onLastUpdate() override
-        {
-            if (m_current) {
-                m_current->lastUpdate();
-            }
-        }
+        void setup(Depends depends)override;
+        void onStart() override;
 
-        void onDraw() const override
-        {
-            if (m_current) {
-                m_current->draw();
-            }
-        }
+        void onUpdate() override;
 
-        void onReflesh() override
-        {
-            if (m_current) {
-                m_current->onReflesh();
-            }
-        }
+        void onLastUpdate() override;
 
-        void onCollisionEnter(ICollider* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionEnter(col);
-            }
-        }
+        void onDraw() const override;
 
-        void onCollisionStay(ICollider* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionStay(col);
-            }
-        }
-
-        void onCollisionExit(ICollider* col) override
-        {
-            if (m_current) {
-                m_current->onCollisionExit(col);
-            }
-        }
+        void onCollisionReact() override;
         
-        void changeState(const std::shared_ptr<IState>& next)
-        {
-            m_next = next;
-        }
+        void changeState(const std::shared_ptr<IState>& next);
+
         template<class State, class... Args>
         void changeState(Args&&... args)
         {
             changeState(std::make_shared<State>(std::forward<Args>(args)...));
         }
 
-        IActor* getActor()const
+        inline IActor* getActor() const
         {
             return m_pActor;
         }
@@ -172,7 +106,7 @@ namespace abyss
             Actor::IUpdate,
             Actor::ILastUpdate,
             Actor::IDraw,
-            Actor::ICollisionCallback
+            Actor::ICollisionReact
         >;
     };
 }

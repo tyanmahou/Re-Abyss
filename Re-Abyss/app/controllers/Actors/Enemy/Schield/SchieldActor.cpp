@@ -47,11 +47,9 @@ namespace abyss::Actor::Enemy::Schield
     CShape SchieldActor::getCollider() const
     {
         if (m_face->isOnFace()) {
-            s3d::Array<CShape> shapes;
-            shapes << m_face->getCollider() << m_body->region();
-            return shapes;
+            return m_face->getCollider();
         }
-        return m_body->region();
+        return s3d::none;
     }
 }
 

@@ -1,5 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/concepts/Component.hpp>
+#include <abyss/controllers/Actors/base/Tag.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPreCollision.hpp>
@@ -36,6 +38,39 @@ namespace abyss::Actor
         /// </summary>
         /// <returns></returns>
         s3d::Array<IActor*> getHitActors()const;
+
+        /// <summary>
+        /// 衝突したいずれかに対して処理を行う
+        /// </summary>
+        template<Tag::Tagged T, IsComponent C>
+        bool anyThen(std::function<bool(C&)> callback) const
+        {
+            for (const auto& col : this->getResults()) {
+                if (!col) {
+                    continue;
+                }
+                if (col->getActor()->isThen<T, C>(callback)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 衝突したすべてに対して処理を行う
+        /// </summary>
+        template<Tag::Tagged T, IsComponent C>
+        bool eachThen(std::function<bool(C&)> callback) const
+        {
+            bool result = false;
+            for (const auto& col : this->getResults()) {
+                if (!col) {
+                    continue;
+                }
+                result |= col->getActor()->isThen<T, C>(callback);
+            }
+            return result;
+        }
     private:
         Ref<ICollider> m_collider;
         std::unique_ptr<Result> m_result;

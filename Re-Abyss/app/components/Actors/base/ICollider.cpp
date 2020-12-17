@@ -1,5 +1,4 @@
 #include "ICollider.hpp"
-#include <abyss/components/Actors/base/ICollisionCallback.hpp>
 
 namespace abyss::Actor
 {
@@ -31,38 +30,14 @@ namespace abyss::Actor
     }
     void ICollider::onReflesh()
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
-            if (!callback->isActive()) {
-                continue;
-            }
-            callback->onReflesh();
-        }
     }
     void ICollider::onCollisionEnter(ICollider* col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
-            if (!callback->isActive()) {
-                continue;
-            }
-            callback->onCollisionEnter(col);
-        }
     }
     void ICollider::onCollisionStay(ICollider* col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
-            if (!callback->isActive()) {
-                continue;
-            }
-            callback->onCollisionStay(col);
-        }
     }
     void ICollider::onCollisionExit(ICollider* col)
     {
-        for (auto&& callback : m_pActor->finds<ICollisionCallback>()) {
-            if (!callback->isActive()) {
-                continue;
-            }
-            callback->onCollisionExit(col);
-        }
     }
 }

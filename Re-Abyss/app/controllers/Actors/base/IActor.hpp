@@ -100,6 +100,15 @@ namespace abyss::Actor
 		template<class Component>
 		[[nodiscard]] s3d::Array<Ref<Component>> finds() const;
 
+
+		template<Tag::Tagged T>
+		bool isThen(std::function<bool(IActor*)> callback);
+
+		template<Tag::Tagged T, IsComponent C>
+		bool isThen(std::function<bool(C&)> callback) const;
+
+		template<Tag::Tagged T>
+		bool isNotThen(std::function<bool(IActor*)> callback);
 	};
 }
 #include "IActor.ipp"
