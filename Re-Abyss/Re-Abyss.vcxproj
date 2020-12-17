@@ -420,7 +420,6 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\components\base\Components.cpp" />
-    <ClCompile Include="app\components\Actors\base\ICollider.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />

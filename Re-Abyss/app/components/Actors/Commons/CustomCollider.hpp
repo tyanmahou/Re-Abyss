@@ -23,8 +23,6 @@ namespace abyss::Actor
     private:
         std::unique_ptr<IImpl> m_pImpl;
     public:
-        using ICollider::ICollider;
-
         void setup(Depends depends)override;
         void onStart()override;
         CustomCollider& setImpl(std::unique_ptr<IImpl>&& impl);

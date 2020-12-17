@@ -12,6 +12,7 @@ namespace abyss::Actor
     ICollision& ICollision::setLayer(const s3d::String& layer)
     {
         m_layer = layer;
+        return *this;
     }
 
     const s3d::String& ICollision::getLayer() const

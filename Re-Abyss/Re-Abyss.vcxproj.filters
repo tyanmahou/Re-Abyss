@@ -995,9 +995,6 @@
     <ClCompile Include="app\components\Actors\base\IPhysics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\base\ICollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\testing.ixx" />
     <ClCompile Include="app\components\Actors\Commons\LightCtrl.cpp">

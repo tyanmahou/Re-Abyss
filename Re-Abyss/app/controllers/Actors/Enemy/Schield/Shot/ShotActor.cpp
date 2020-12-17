@@ -33,11 +33,11 @@ namespace abyss::Actor::Enemy::Schield::Shot
             this->attach<BodyUpdater>(this);
         }
         {
-            auto collider = this->attach<CustomCollider>(this);
+            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
+            auto collider = this->attach<CustomCollider>();
             collider->setColFunc([this] {
                 return this->getCollider();
             });
-            collider->setLayer(LayerGroup::Enemy);
         }
         {
             this->attach<DeadOnHItReceiver>(this);

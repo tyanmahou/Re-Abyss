@@ -8,6 +8,7 @@
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
+#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/BreathingCtrl.hpp>
@@ -62,9 +63,11 @@ namespace abyss::Actor::Enemy
 		}
 		// Collider
 		if (m_isEnableCollider) {
-			auto collider = m_pActor->attach<CustomCollider>(m_pActor);
+			auto collision = m_pActor->attach<CollisionCtrl>(m_pActor);
+			collision->setLayer(LayerGroup::Enemy);
+
+			auto collider = m_pActor->attach<CustomCollider>();
 			collider->setColFunc(m_colliderFunc);
-			collider->setLayer(LayerGroup::Enemy);
 		}
 		// 地形Collider
 		if (m_isEnableMapCollider) {

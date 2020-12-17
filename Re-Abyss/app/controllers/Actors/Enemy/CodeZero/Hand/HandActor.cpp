@@ -6,6 +6,7 @@
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
+#include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
@@ -40,8 +41,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 ;
         }
         {
-            auto col = this->attach<CustomCollider>(this);
-            col->setLayer(LayerGroup::Enemy);
+            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
+
+            auto col = this->attach<CustomCollider>();
             col->setColFunc([this] {return this->getCollider(); });
         }
         {

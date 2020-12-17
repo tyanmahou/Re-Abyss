@@ -38,6 +38,8 @@ namespace abyss::Actor
         ICollision(pActor),
         m_result(std::make_unique<Result>())
     {}
+    CollisionCtrl::~CollisionCtrl()
+    {}
     void CollisionCtrl::setup(Depends depends)
     {
         depends.addAfter<ICollider>();

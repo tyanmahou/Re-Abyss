@@ -33,8 +33,8 @@ namespace abyss::Actor::Player::Shot
 			this->attach<BodyUpdater>(this);
 		}
 		{
+			this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Player);
 			auto collider = this->attach<Collider>(this);
-			collider->setLayer(LayerGroup::Player);
 		}
 		{
 			this->attach<AudioSource>(this)

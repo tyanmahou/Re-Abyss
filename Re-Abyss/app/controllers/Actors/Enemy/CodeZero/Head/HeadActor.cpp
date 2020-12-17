@@ -38,8 +38,8 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         }
         // 当たり判定
         {
-            auto col = this->attach<CustomCollider>(this);
-            col->setLayer(LayerGroup::Enemy);
+            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
+            auto col = this->attach<CustomCollider>();
             col->setColFunc([this] {return this->getCollider(); });
 
             this->attach<DamageCtrl>(this);

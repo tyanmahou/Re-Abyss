@@ -15,10 +15,11 @@ namespace abyss::Actor::Player::Shot
         public ICollider
     {
     private:
+        IActor* m_pActor;
         Ref<Body> m_body;
         Ref<PlayerShot> m_shot;
     public:
-        using ICollider::ICollider;
+        Collider(IActor* pActor);
 
         void onStart() override;
 

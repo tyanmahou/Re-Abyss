@@ -39,8 +39,8 @@ namespace abyss::Actor::Player
         this->m_tag = Tag::Player{};
         // Collider
         {
-            auto col = this->attach<CustomCollider>(this);
-            col->setLayer(LayerGroup::Player);
+            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Player);
+            auto col = this->attach<CustomCollider>();
             col->setColFunc([this]() {
                 return this->getCollider();
             });

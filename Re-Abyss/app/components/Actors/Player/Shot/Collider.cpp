@@ -5,6 +5,9 @@
 
 namespace abyss::Actor::Player::Shot
 {
+    Collider::Collider(IActor* pActor):
+        m_pActor(pActor)
+    {}
     void Collider::onStart()
     {
         m_body = m_pActor->find<Body>();
