@@ -57,13 +57,13 @@ namespace abyss
         void reset();
         void draw() const;
 
+
         template<class Type, class... Args>
         std::shared_ptr<Actor::IActor> create(Args&& ... args)
             requires ActBuildy<Type, Args...>
         {
-            auto obj = std::make_shared<Actor::IActor>();
+            auto obj = this->create();
             Type::Build(obj.get(), std::forward<Args>(args)...);
-            this->regist(obj);
             return obj;
         }
         template<class Type, class... Args>
@@ -75,13 +75,17 @@ namespace abyss
             return obj;
         }
 
-        template<class Type>
-        void regist(const std::shared_ptr<Type>& actor) 
-            requires IsActor<Type>
-        {
-            actor->setManager(m_pManager);
-            m_actorsHolder.pushActor(actor);
-        }
+        /// <summary>
+        /// アクターの生成
+        /// </summary>
+        /// <returns></returns>
+        std::shared_ptr<Actor::IActor> create();
+
+        /// <summary>
+        /// アクターの登録
+        /// </summary>
+        /// <param name="pAactor"></param>
+        void regist(const std::shared_ptr<Actor::IActor>& pAactor);
 
         template<class Type>
         [[nodiscard]] Ref<Type> find() const
