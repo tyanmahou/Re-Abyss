@@ -2,6 +2,7 @@
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Ooparts/PursuitCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/Draw.hpp>
+#include "..\Enemy\CommonBuilder.hpp"
 
 namespace abyss::Actor::Ooparts
 {

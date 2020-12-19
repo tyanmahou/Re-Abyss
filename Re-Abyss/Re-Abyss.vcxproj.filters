@@ -1096,6 +1096,15 @@
     <ClCompile Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CommonBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1625,5 +1634,8 @@
     <ClInclude Include="app\components\Actors\Map\Ladder\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloor\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Builder.hpp" />
   </ItemGroup>
 </Project>

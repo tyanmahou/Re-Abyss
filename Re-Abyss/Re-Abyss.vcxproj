@@ -210,7 +210,10 @@
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\CommonBuilder.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrl.cpp" />
@@ -550,6 +553,9 @@
     <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Builder.hpp" />
