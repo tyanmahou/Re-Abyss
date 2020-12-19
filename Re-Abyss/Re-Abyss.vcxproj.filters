@@ -398,9 +398,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\LaunShark\LaunSharkActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1108,6 +1105,9 @@
     <ClCompile Include="app\components\Actors\Enemy\Schield\ShellCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\RollingTako\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1344,7 +1344,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\Ikalien\IkalienActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\LaunSharkActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />
@@ -1641,5 +1640,6 @@
     <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Shell\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\ShellCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\RollingTako\Builder.hpp" />
   </ItemGroup>
 </Project>

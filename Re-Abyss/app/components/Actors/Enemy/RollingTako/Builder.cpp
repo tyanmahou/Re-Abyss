@@ -1,11 +1,14 @@
-#include "RollingTakoActor.hpp"
+#include "Builder.hpp"
 
 #include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
+
+#include <abyss/components/Actors/Commons/HP.hpp>
+#include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actors/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actors/Enemy/RollingTako/State/WaitState.hpp>
 #include <abyss/components/Actors/Enemy/RollingTako/State/RunState.hpp>
 
-#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
 
 namespace
 {
@@ -13,17 +16,10 @@ namespace
 }
 namespace abyss::Actor::Enemy::RollingTako
 {
-    RollingTakoActor::RollingTakoActor(const RollingTakoEntity& entity):
-        m_isWait(entity.wait)
+    void Builder::Build(IActor* pActor, const RollingTakoEntity& entity)
     {
-        Enemy::EnemyBuilder builder(this);
-
-        if (m_isWait) {
-            builder.setInitState<WaitState>();
-        } else {
-            builder.setInitState<RunState>();
-        }
-        builder
+        // 共通ビルド
+        CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
@@ -31,15 +27,30 @@ namespace abyss::Actor::Enemy::RollingTako
             .setInitHp(Param::Base::Hp)
             .setIsEnableRoomHit(true)
             .setAudioSettingGroupPath(U"Enemy/RollingTako/rolling_tako.aase")
-            .build();
+        );
 
+        // 初期状態
         {
-            m_body->setMaxSpeedX(Param::Run::MaxSpeedX);
+            auto stateCtrl = pActor->find<StateCtrl>();
+            if (entity.wait) {
+                stateCtrl->changeState<WaitState>();
+            } else {
+                stateCtrl->changeState<RunState>();
+            }
         }
 
+        // Body調整
         {
-            this->attach<ViewCtrl<RollingTakoVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->find<Body>()->setMaxSpeedX(Param::Run::MaxSpeedX);
+        }
+        // ルーム外死亡
+        {
+            pActor->attach<OutRoomChecker>(pActor);
+        }
+        // 描画
+        {
+            pActor->attach<ViewCtrl<RollingTakoVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
     }
 }

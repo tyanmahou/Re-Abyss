@@ -10,12 +10,12 @@
 
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 
+#include <abyss/components/Actors/Enemy/RollingTako/Builder.hpp>
 #include <abyss/components/Actors/Enemy/Schield/Builder.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Builder.hpp>
 
 #include <abyss/controllers/World/World.hpp>
 
-#include <abyss/controllers/Actors/Enemy/RollingTako/RollingTakoActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CaptainTako/CaptainTakoActor.hpp>
 #include <abyss/controllers/Actors/Enemy/Ikalien/IkalienActor.hpp>
 #include <abyss/controllers/Actors/Enemy/LaunShark/LaunSharkActor.hpp>
@@ -30,7 +30,6 @@ namespace abyss
 #define CASE_ENEMY(type) case EnemyType::##type : return std::make_shared<type::type##Actor>(static_cast<const type##Entity&>(entity))
 
 		switch (entity.type) {
-			CASE_ENEMY(RollingTako);
 			CASE_ENEMY(CaptainTako);
 			CASE_ENEMY(Ikalien);
 			CASE_ENEMY(LaunShark);
@@ -47,6 +46,7 @@ namespace abyss
 #define CASE_ENEMY(type) case EnemyType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))
 
 		switch (entity.type) {
+			CASE_ENEMY(RollingTako);
 			CASE_ENEMY(Schield);
 			CASE_ENEMY(Slime);
 		default:

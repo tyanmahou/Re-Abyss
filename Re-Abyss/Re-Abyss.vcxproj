@@ -207,6 +207,7 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\RollingTako\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\RunState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\State\WaitState.cpp" />
@@ -384,7 +385,6 @@
     <ClCompile Include="app\components\Actors\Player\State\DamageState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\LadderState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\SwimState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\AttackCrossState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.cpp" />
@@ -559,6 +559,7 @@
     <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\RollingTako\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\ShellCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Shell\Builder.hpp" />
@@ -776,7 +777,6 @@
     <ClInclude Include="app\components\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\LadderState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\SwimState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
