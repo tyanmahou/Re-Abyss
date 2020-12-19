@@ -1,68 +1,85 @@
-#include "ShotActor.hpp"
+#include "Builder.hpp"
 
 #include <abyss/models/Collision/LayerGroup.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/components/Actors/Player/Shot/Collider.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
-#include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
+#include <abyss/components/Actors/Player/Shot/Collider.hpp>
+#include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
+
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace
 {
 	class ViewBinder;
 }
+
 namespace abyss::Actor::Player::Shot
 {
-	ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward, double charge)
-	{
-		m_tag = Tag::Hero{} | Tag::Attacker{};
+    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward, double charge)
+    {
+        // タグ
+        pActor->setTag(Tag::Hero{} | Tag::Attacker{});
 
-		auto shot = this->attach<PlayerShot>(charge);
+		// Body
 		{
-			this->attach<Body>(this)
+			pActor->attach<Body>(pActor)
 				->setPos(pos)
 				.setForward(forward)
 				.noneResistanced()
 				.setVelocityX(forward * ShotParam::Base::Speed)
 				;
 
-			this->attach<BodyUpdater>(this);
+			pActor->attach<BodyUpdater>(pActor);
 		}
+		// 衝突
 		{
-			this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Player);
-			auto collider = this->attach<Collider>(this);
+			pActor->attach<CollisionCtrl>(pActor)
+				->setLayer(LayerGroup::Player);
+
+			pActor->attach<Collider>(pActor);
 		}
+		// サウンド
 		{
-			this->attach<AudioSource>(this)
+			pActor->attach<AudioSource>(pActor)
 				->load(U"Player/Shot/player_shot.aase");
 		}
+		// ショット
+		auto shot = pActor->attach<PlayerShot>(charge);
 		if (!shot->isBig()) {
 			// Bigじゃなければ壁にあたって破壊される
-			this->attach<DeadOnHItReceiver>(this);
-			this->attach<DeadChecker>(this);
-			this->attach<MapCollider>(this, false);
-		}
-		{
-			this->attach<ViewCtrl<ShotVM>>()
-				->createBinder<ViewBinder>(this, *shot, forward);
+			pActor->attach<DeadOnHItReceiver>(pActor);
+			pActor->attach<DeadChecker>(pActor);
+			pActor->attach<MapCollider>(pActor, false);
 		}
 
+		// View
 		{
-			this->attach<StateCtrl>(this)
+			pActor->attach<ViewCtrl<ShotVM>>()
+				->createBinder<ViewBinder>(pActor, *shot, forward);
+		}
+
+		// State
+		{
+			pActor->attach<StateCtrl>(pActor)
 				->changeState<BaseState>()
 				;
 		}
+
+		// AttaerData
 		{
-			this->attach<AttackerData>(shot->toPower());
+			pActor->attach<AttackerData>(shot->toPower());
 		}
-	}
+    }
 }
+
 
 namespace
 {

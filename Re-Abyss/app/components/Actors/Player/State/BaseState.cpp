@@ -5,7 +5,7 @@
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/Player/Shot/ShotActor.hpp>
+#include <abyss/components/Actors/Player/Shot/Builder.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
@@ -102,7 +102,7 @@ namespace abyss::Actor::Player
         // 攻撃
         if (m_charge->update(dt)) {
             double charge = m_charge->pop();
-            m_pActor->getModule<World>()->create<Shot::ShotActor>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
+            m_pActor->getModule<World>()->create<Shot::Builder>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
             m_attackCtrl->startAttack();
         }
     }

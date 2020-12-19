@@ -225,6 +225,7 @@
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\AttackCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\ChargeCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Depends.cpp" />
@@ -371,7 +372,6 @@
     <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Player\Shot\ShotActor.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\DamageState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\LadderState.cpp" />
@@ -552,6 +552,7 @@
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
@@ -757,7 +758,6 @@
     <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\Shot\ShotActor.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\LadderState.hpp" />

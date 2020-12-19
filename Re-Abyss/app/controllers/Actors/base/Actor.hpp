@@ -6,7 +6,7 @@
 
 namespace abyss::Actor
 {
-	class IActor
+	class Actor
 	{
 	private:
 		bool m_isDestroyed = false;
@@ -21,8 +21,8 @@ namespace abyss::Actor
 		
 		TagType m_tag;
 	public:
-		IActor();
-		virtual ~IActor() = default;
+		Actor();
+		virtual ~Actor() = default;
 
 		void setManager(Manager* const pManager);
 		Manager* getManager() const;
@@ -39,10 +39,6 @@ namespace abyss::Actor
 
 		s3d::int32 getOrder() const;
 		const TagType& getTag() const;
-		void setTag(const TagType& tag)
-		{
-			m_tag = tag;
-		}
 
 		void updateDeltaTime(double worldDt) const;
 		void setup() const;
@@ -106,13 +102,13 @@ namespace abyss::Actor
 
 
 		template<Tag::Tagged T>
-		bool isThen(std::function<bool(IActor*)> callback);
+		bool isThen(std::function<bool(Actor*)> callback);
 
 		template<Tag::Tagged T, IsComponent C>
 		bool isThen(std::function<bool(C&)> callback) const;
 
 		template<Tag::Tagged T>
-		bool isNotThen(std::function<bool(IActor*)> callback);
+		bool isNotThen(std::function<bool(Actor*)> callback);
 	};
 }
-#include "IActor.ipp"
+#include "Actor.ipp"

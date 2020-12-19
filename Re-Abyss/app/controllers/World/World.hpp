@@ -58,6 +58,15 @@ namespace abyss
         void draw() const;
 
         template<class Type, class... Args>
+        std::shared_ptr<Actor::IActor> create(Args&& ... args)
+            requires ActBuildy<Type, Args...>
+        {
+            auto obj = std::make_shared<Actor::IActor>();
+            Type::Build(obj.get(), std::forward<Args>(args)...);
+            this->regist(obj);
+            return obj;
+        }
+        template<class Type, class... Args>
         std::shared_ptr<Type> create(Args&& ... args) 
             requires IsActor<Type>
         {
