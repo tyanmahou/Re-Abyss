@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::Slime::Sensor
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();
         m_mapColl = m_pActor->find<MapCollider>();
-        m_collider = m_pActor->find<PointCollider>();
+        m_locator = m_pActor->find<Locator>();
     }
     void MainUpdate::onUpdate()
     {
@@ -27,9 +27,9 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 	{
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
 		if (isLeft) {
-			m_collider->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
+			m_locator->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
 		} else {
-			m_collider->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
+			m_locator->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
 		}
 	}
 }

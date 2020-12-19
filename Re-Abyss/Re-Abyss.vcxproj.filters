@@ -1099,6 +1099,18 @@
     <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\Shot\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\Colliders\PointCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Commons\Colliders\CircleCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1628,5 +1640,10 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\MainUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Colliders\PointCollider.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Colliders\CircleCollider.hpp" />
+    <ClInclude Include="app\components\Actors\base\ILocator.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
   </ItemGroup>
 </Project>

@@ -7,9 +7,13 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/Actors/base/ILocator.hpp>
+
 namespace abyss::Actor
 {
-    class Body : public IComponent
+    class Body : 
+        public IComponent,
+        public ILocator
     {
     private:
         s3d::Vec2 m_prevPos{ 0, 0 };
@@ -65,7 +69,7 @@ namespace abyss::Actor
         Body& addPosX(double deltaX);
         Body& addPosY(double deltaY);
 
-        const s3d::Vec2& getPos() const;
+        const s3d::Vec2& getPos() const override;
         const s3d::Vec2& getPrevPos() const;
 
         Body& setForward(Forward forward);
@@ -97,5 +101,14 @@ namespace abyss::Actor
     public:
         inline static constexpr double DefaultGravity = 720.0;
         inline static constexpr double DefaultMaxVelocityY = 78;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Actor::Body>
+    {
+        using Base = Actor::ILocator;
     };
 }

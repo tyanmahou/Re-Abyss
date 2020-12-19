@@ -5,23 +5,27 @@
 namespace abyss::Actor
 {
     /// <summary>
-    /// 点当たり判定
+    /// 円当たり判定
     /// </summary>
-    class PointCollider :
+    class CircleCollider :
         public IComponent,
         public ICollider
     {
     private:
         IActor* m_pActor;
         Ref<ILocator> m_locator;
+        double m_radius;
     public:
-        PointCollider(IActor* pActor);
+        CircleCollider(IActor* pActor);
 
         void onStart() override;
 
-        CShape getCollider() const override
+        CShape getCollider() const override;
+
+        CircleCollider& setRadius(double radius)
         {
-            return m_locator->getPos();
+            m_radius = radius;
+            return *this;
         }
     };
 }
@@ -29,7 +33,7 @@ namespace abyss::Actor
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::PointCollider>
+    struct ComponentTree<Actor::CircleCollider>
     {
         using Base = Actor::ICollider;
     };
