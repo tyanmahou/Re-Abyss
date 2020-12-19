@@ -35,14 +35,13 @@ namespace abyss::Actor
 
 		void destroy();
 		bool isDestroyed() const;
+		
+		void setIsDontDestoryOnLoad(bool isDontDestoryOnLoad = true);
 		bool isDontDestoryOnLoad() const;
 
 		s3d::int32 getOrder() const;
 		const TagType& getTag() const;
-		void setTag(const TagType& tag)
-		{
-			m_tag = tag;
-		}
+		void setTag(const TagType& tag);
 
 		void updateDeltaTime(double worldDt) const;
 		void setup() const;

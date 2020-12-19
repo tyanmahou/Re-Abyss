@@ -3,11 +3,8 @@
 
 namespace abyss::Actor::God
 {
-	class GodActor :
-		public IActor
-	{
-	private:
-	public:
-		GodActor();
-	};
+    struct Builder
+    {
+        static void Build(IActor* pActor);
+    };
 }

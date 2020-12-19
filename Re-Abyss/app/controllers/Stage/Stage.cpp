@@ -4,7 +4,7 @@
 
 #include <abyss/controllers/Camera/Camera.hpp>
 
-#include <abyss/controllers/Actors/God/GodActor.hpp>
+#include <abyss/components/Actors/God/Builder.hpp>
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
@@ -170,7 +170,7 @@ namespace abyss
             // プレイヤーを登録
             m_pManager->set(player.get());
             auto world = m_pManager->getModule<World>();
-            world->create<Actor::God::GodActor>();
+            world->create<Actor::God::Builder>();
             world->regist(player);
             if (nextRoom = this->findRoom(player->getPos())) {
                 result &= this->initRoom(*world, *nextRoom);

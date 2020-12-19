@@ -36,6 +36,10 @@ namespace abyss::Actor
 	{
 		return m_isDestroyed;
 	}
+	inline void IActor::setIsDontDestoryOnLoad(bool isDontDestoryOnLoad)
+	{
+		m_isDontDestoryOnLoad = isDontDestoryOnLoad;
+	}
 	inline bool IActor::isDontDestoryOnLoad() const
 	{
 		return m_isDontDestoryOnLoad;
@@ -50,6 +54,10 @@ namespace abyss::Actor
 		return m_tag;
 	}
 
+	inline void IActor::setTag(const TagType& tag)
+	{
+		m_tag = tag;
+	}
 	template<class T>
 	T* IActor::getModule() const
 	{
