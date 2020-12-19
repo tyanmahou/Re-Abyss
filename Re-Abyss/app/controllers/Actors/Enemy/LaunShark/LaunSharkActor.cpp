@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::LaunShark
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
             .setInitHp(Param::Base::Hp)
-            .setIsEnableRoomHit(true, true)
+            .setIsEnableRoomHit(true, ColDirection::All)
             .setAudioSettingGroupPath(U"Enemy/LaunShark/laun_shark.aase")
             .setInitState<SwimState>()
             .build();

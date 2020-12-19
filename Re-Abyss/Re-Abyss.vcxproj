@@ -213,9 +213,9 @@
     <ClCompile Include="app\components\Actors\Enemy\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\Builder.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.cpp" />
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\Builder.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\MainUpdate.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\SenserCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\JumpState.cpp" />
@@ -387,8 +387,6 @@
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\WaitState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp" />
     <ClCompile Include="app\controllers\BackGround\BackGround.cpp" />
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\controllers\Decor\Decor.cpp" />
@@ -552,10 +550,11 @@
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CollisionCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Colliders\PointCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\Builder.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Builder.hpp" />
@@ -595,8 +594,8 @@
     <ClInclude Include="app\components\Actors\Enemy\Schield\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\FaceCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallback.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\MainUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
@@ -775,8 +774,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackCrossState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\WaitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp" />
     <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
     <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\controllers\Decor\Decor.hpp" />

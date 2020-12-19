@@ -407,9 +407,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\Schield\SchieldActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -608,9 +605,6 @@
     <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -690,12 +684,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp">
@@ -1096,13 +1084,19 @@
     <ClCompile Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Slime\Sencer\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\CommonBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\Slime\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\MainUpdate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1344,9 +1338,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\Schield\SchieldActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />
@@ -1442,7 +1433,6 @@
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Slime\Senser\SenserActor.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -1476,8 +1466,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\MainUpdate.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
@@ -1634,8 +1622,11 @@
     <ClInclude Include="app\components\Actors\Map\Ladder\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloor\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Slime\Sencer\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\MainUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\ParentCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\Colliders\PointCollider.hpp" />
   </ItemGroup>
 </Project>

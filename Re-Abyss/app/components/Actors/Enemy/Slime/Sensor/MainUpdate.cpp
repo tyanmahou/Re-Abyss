@@ -1,10 +1,9 @@
 #include "MainUpdate.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/components/Actors/Enemy/Slime/Sencer/ParentCtrl.hpp>
-#include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Enemy/Slime/Sensor/ParentCtrl.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 
-namespace abyss::Actor::Enemy::Slime::Sencer
+namespace abyss::Actor::Enemy::Slime::Sensor
 {
 	MainUpdate::MainUpdate(IActor* pActor):
 		m_pActor(pActor)
@@ -13,7 +12,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();
         m_mapColl = m_pActor->find<MapCollider>();
-        m_body = m_pActor->find<Body>();
+        m_collider = m_pActor->find<PointCollider>();
     }
     void MainUpdate::onUpdate()
     {
@@ -28,9 +27,9 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 	{
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
 		if (isLeft) {
-			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
+			m_collider->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
 		} else {
-			m_body->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
+			m_collider->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
 		}
 	}
 }

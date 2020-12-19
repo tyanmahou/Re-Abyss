@@ -92,7 +92,7 @@ namespace abyss::Actor
         bool isForward(Forward f) const;
 
         ColDirection fixPos(const MapColInfo& info);
-        ColDirection fixPos(const RoomModel& room, bool isStrict = false);
+        ColDirection fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
     public:
         inline static constexpr double DefaultGravity = 720.0;

@@ -64,7 +64,7 @@ namespace abyss::Actor::Enemy
 		// 地形Collider
 		if (opt.isEnableMapCollider) {
 			pActor->attach<MapCollider>(pActor)
-				->setIsEnableRoomHit(opt.isEnableRoomHit, opt.isEnableRoomHitStrict);
+				->setIsEnableRoomHit(opt.isEnableRoomHit, opt.roomHitStrict);
 		}
 		// ダメージのコンポーネント
 		if (opt.isEnableDamage) {

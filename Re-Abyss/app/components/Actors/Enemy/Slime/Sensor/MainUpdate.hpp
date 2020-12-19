@@ -2,10 +2,11 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
+#include <abyss/components/Actors/Commons/Colliders/PointCollider.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Enemy::Slime::Sencer
+namespace abyss::Actor::Enemy::Slime::Sensor
 {
     class ParentCtrl;
 
@@ -17,7 +18,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
         IActor* m_pActor;
         Ref<ParentCtrl> m_parentCtrl;
         Ref<MapCollider> m_mapColl;
-        Ref<Body> m_body;
+        Ref<PointCollider> m_collider;
     public:
         MainUpdate(IActor* pActor);
         void onStart() override;
@@ -29,7 +30,7 @@ namespace abyss::Actor::Enemy::Slime::Sencer
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::Slime::Sencer::MainUpdate>
+    struct ComponentTree<Actor::Enemy::Slime::Sensor::MainUpdate>
     {
         using Base = MultiComponents<Actor::IUpdate, Actor::IPrePhysics>;
     };

@@ -10,7 +10,10 @@
 
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 
-#include <abyss/controllers/Actors/Enemy/Slime/SlimeActor.hpp>
+#include <abyss/components/Actors/Enemy/Slime/Builder.hpp>
+
+#include <abyss/controllers/World/World.hpp>
+
 #include <abyss/controllers/Actors/Enemy/RollingTako/RollingTakoActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CaptainTako/CaptainTakoActor.hpp>
 #include <abyss/controllers/Actors/Enemy/Ikalien/IkalienActor.hpp>
@@ -27,7 +30,6 @@ namespace abyss
 #define CASE_ENEMY(type) case EnemyType::##type : return std::make_shared<type::type##Actor>(static_cast<const type##Entity&>(entity))
 
 		switch (entity.type) {
-			CASE_ENEMY(Slime);
 			CASE_ENEMY(RollingTako);
 			CASE_ENEMY(CaptainTako);
 			CASE_ENEMY(Ikalien);
@@ -40,4 +42,17 @@ namespace abyss
 		return nullptr;
 #undef CASE_ENEMY
     }
+	Ref<Actor::IActor> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
+	{
+		using namespace Actor::Enemy;
+#define CASE_ENEMY(type) case EnemyType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))
+
+		switch (entity.type) {
+			CASE_ENEMY(Slime);
+		default:
+			break;
+		}
+		return nullptr;
+#undef CASE_ENEMY
+	}
 }

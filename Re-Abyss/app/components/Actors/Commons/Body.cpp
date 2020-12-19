@@ -264,9 +264,9 @@ namespace abyss::Actor
 
         return colDir;
     }
-    ColDirection Body::fixPos(const RoomModel& room, bool isStrict)
+    ColDirection Body::fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict)
     {
-        auto c = isStrict ? ColDirection(ColDirection::All) : room.getCol();
+        auto c = strict.value_or(room.getCol());
         c.ignoredForVelocity(m_velocity);
 
         s3d::Vec2 before = this->region().center();

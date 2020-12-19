@@ -27,7 +27,7 @@ namespace abyss::Actor
         std::unique_ptr<Result> m_result;
 
        bool m_isEnableRoomHit = false;
-       bool m_isEnableRoomHitStrict = false;
+       s3d::Optional<ColDirection> m_roomHitStrict;
        bool m_isThrough = false; // すりぬけるか
        bool m_useBody = true;
     public:
@@ -48,10 +48,10 @@ namespace abyss::Actor
 
         void onLastPhysics() override;
 
-        MapCollider& setIsEnableRoomHit(bool enable, bool isStrict = false)
+        MapCollider& setIsEnableRoomHit(bool enable, const s3d::Optional<ColDirection>& strict = s3d::none)
         {
             m_isEnableRoomHit = enable;
-            m_isEnableRoomHitStrict = isStrict;
+            m_roomHitStrict = strict;
             return *this;
         }
 

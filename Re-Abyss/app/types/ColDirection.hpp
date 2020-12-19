@@ -188,6 +188,8 @@ namespace abyss
         static constexpr value_type Down  = 0x02;
         static constexpr value_type Left  = 0x04;
         static constexpr value_type Right = 0x08;
-        static constexpr value_type All   = 0x0f;
+        static constexpr value_type Vertical = Up | Down;
+        static constexpr value_type Horizon = Left | Right;
+        static constexpr value_type All   = Vertical | Horizon;
     };
 }

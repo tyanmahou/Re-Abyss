@@ -1,10 +1,10 @@
 #include "OutRoomChecker.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
-
 #include <abyss/utils/Overloaded.hpp>
 
 namespace abyss::Actor
@@ -13,11 +13,20 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
+    void OutRoomChecker::setup(Depends depends)
+    {
+        depends.on<ILastUpdate>().addBefore<DeadChecker>();
+    }
+
     void OutRoomChecker::onStart()
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
         if (!m_colliderFunc) {
-            if (auto body = m_pActor->find<Body>()) {
+            if (auto col = m_pActor->find<ICollider>()) {
+                m_colliderFunc = [col] {
+                    return col->getCollider();
+                };
+            } else if (auto body = m_pActor->find<Body>()) {
                 m_colliderFunc = [body] {
                     return body->region();
                 };

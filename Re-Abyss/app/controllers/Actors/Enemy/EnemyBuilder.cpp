@@ -72,7 +72,7 @@ namespace abyss::Actor::Enemy
 		// 地形Collider
 		if (m_isEnableMapCollider) {
 			auto mapCol = m_pActor->attach<MapCollider>(m_pActor);
-			mapCol->setIsEnableRoomHit(m_isEnableRoomHit, m_isEnableRoomHitStrict);
+			mapCol->setIsEnableRoomHit(m_isEnableRoomHit, m_isEnableRoomHitStrict ? s3d::Optional<ColDirection>(ColDirection::All): s3d::none);
 		}
 		// ダメージのコンポーネント
 		if (m_isEnableDamage) {

@@ -327,6 +327,8 @@ namespace abyss
             gimmickTranslator.buildActor(world, *gimmick);
         }
 
+        // エネミーの生成
+        EnemyTranslator enemyTranslator{};
         for (const auto& enemy : m_stageData->getEnemies()) {
             if (!nextRoom.getRegion().intersects(enemy->pos)) {
                 continue;
@@ -334,6 +336,7 @@ namespace abyss
             if (auto obj = EnemyTranslator::ToActorPtr(*enemy)) {
                 world.regist(obj);
             }
+            enemyTranslator.buildActor(world, *enemy);
         }
         world.flush();
         return true;

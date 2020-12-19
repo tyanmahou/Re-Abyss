@@ -9,5 +9,7 @@ namespace abyss
 	{
 	public:
 		static std::shared_ptr<Actor::Enemy::EnemyActor> ToActorPtr(const EnemyEntity&);
+
+		Ref<Actor::IActor> buildActor(World& world, const EnemyEntity& entity);
 	};
 }

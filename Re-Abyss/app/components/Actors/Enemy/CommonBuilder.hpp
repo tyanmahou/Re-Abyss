@@ -4,6 +4,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/types/Forward.hpp>
+#include <abyss/types/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
@@ -15,6 +16,8 @@ namespace abyss::Actor::Enemy
     /// </summary>
     struct BuildOption
     {
+        friend struct CommonBuilder;
+    private:
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
@@ -31,7 +34,7 @@ namespace abyss::Actor::Enemy
         // map collider
         bool isEnableMapCollider = true;
         bool isEnableRoomHit = false;
-        bool isEnableRoomHitStrict = false;
+        s3d::Optional<ColDirection> roomHitStrict;
 
         // audio sourece
         s3d::String audioSettingGroupPath;
@@ -91,10 +94,10 @@ namespace abyss::Actor::Enemy
             this->isEnableMapCollider = enable;
             return *this;
         }
-        BuildOption& setIsEnableRoomHit(bool enable, bool isStrict = false)
+        BuildOption& setIsEnableRoomHit(bool enable, const s3d::Optional<ColDirection>& strict = s3d::none)
         {
             this->isEnableRoomHit = enable;
-            this->isEnableRoomHitStrict = isStrict;
+            this->roomHitStrict = strict;
             return *this;
         }
         BuildOption& setAudioSettingGroupPath(const s3d::String& path)

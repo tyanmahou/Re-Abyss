@@ -23,6 +23,7 @@ namespace abyss::Actor
     public:
         OutRoomChecker(IActor* pActor);
 
+        void setup(Depends depends)override;
         void onStart() override;
         void onLastUpdate() override;
 

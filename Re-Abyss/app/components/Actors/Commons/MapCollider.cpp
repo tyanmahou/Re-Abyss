@@ -137,7 +137,7 @@ namespace abyss::Actor
             return;
         }
         // ルーム壁との衝突
-        auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), m_isEnableRoomHitStrict);
+        auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), m_roomHitStrict);
         m_result->add(col);
     }
     bool MapCollider::isHitGround() const
