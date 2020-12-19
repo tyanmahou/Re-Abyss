@@ -10,10 +10,11 @@ namespace abyss::Actor::Enemy::LaunShark
     AttackState::AttackState()
     {}
 
-    void AttackState::start()
+    Task<> AttackState::start()
     {
         m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::AttackTimeSec);
         m_body->setSize(Param::Attack::Size);
+        co_return;
     }
 
     void AttackState::update()

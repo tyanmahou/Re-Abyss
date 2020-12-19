@@ -48,7 +48,7 @@ namespace abyss::Actor::Player
     public:
         void setup()override;
 
-        void start() override;
+        Task<> start() override;
 
         void update() override;
 

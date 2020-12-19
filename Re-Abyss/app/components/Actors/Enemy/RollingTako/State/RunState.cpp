@@ -2,8 +2,9 @@
 #include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
 namespace abyss::Actor::Enemy::RollingTako
 {
-    void RunState::start()
+    Task<> RunState::start()
     {
+        co_return;
     }
     void RunState::update()
     {

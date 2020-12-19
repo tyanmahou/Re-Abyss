@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
     public:
         void setup()override;
 
-        void start() override;
+        Task<> start() override;
 
         void draw() const override;
     };

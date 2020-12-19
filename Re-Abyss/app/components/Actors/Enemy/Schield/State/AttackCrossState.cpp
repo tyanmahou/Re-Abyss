@@ -10,11 +10,12 @@ namespace abyss::Actor::Enemy::Schield
 {
     AttackCrossState::AttackCrossState()
     {}
-    void AttackCrossState::start()
+    Task<> AttackCrossState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::TimeSec, true);
 
         m_transitionToWait = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
+        co_return;
 
     }
     void AttackCrossState::update()

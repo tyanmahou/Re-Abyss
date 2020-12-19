@@ -9,9 +9,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
     
     }
-    void AttackState::start()
+    Task<> AttackState::start()
     {
         m_hand->startForAttack(*m_body);
+        co_return;
     }
     void AttackState::update()
     {

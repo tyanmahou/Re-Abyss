@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     public:
         PursuitState();
 
-        void start() override;
+        Task<> start() override;
         void update() override;
 
         void draw()const override;

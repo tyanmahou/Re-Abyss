@@ -8,10 +8,11 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     WaitState::WaitState()
     {}
-    void WaitState::start()
+    Task<> WaitState::start()
     {
         m_body->noneResistanced();
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Wait::Time);
+        co_return;
     }
     void WaitState::update()
     {

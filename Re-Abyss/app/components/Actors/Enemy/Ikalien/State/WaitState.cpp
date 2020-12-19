@@ -3,8 +3,9 @@
 #include <abyss/controllers/System/System.hpp>
 namespace abyss::Actor::Enemy::Ikalien
 {
-    void WaitState::start()
+    Task<> WaitState::start()
     {
+        co_return;
     }
     void WaitState::update()
     {

@@ -9,10 +9,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     AttackWaitState::AttackWaitState()
     {}
 
-    void AttackWaitState::start()
+    Task<> AttackWaitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_parent->getParent(), HandParam::Attack::WaitTimeSec);
         m_hand->startForAttackWait(*m_body);
+        co_return;
     }
 
     void AttackWaitState::update()

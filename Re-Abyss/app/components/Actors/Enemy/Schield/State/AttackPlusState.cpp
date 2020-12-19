@@ -10,12 +10,13 @@ namespace abyss::Actor::Enemy::Schield
 {
     AttackPlusState::AttackPlusState()
     {}
-    void AttackPlusState::start()
+    Task<> AttackPlusState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::TimeSec, false);
 
         m_transitionToAttackPlus = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, true);
         m_transitionToAttackCross = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
+        co_return;
 
     }
     void AttackPlusState::update()

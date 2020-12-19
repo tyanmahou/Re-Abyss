@@ -3,10 +3,11 @@
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
-    void StartState::start()
+    Task<> StartState::start()
     {
         m_body->setVelocity(m_rotate->getDir9() * ShotParam::Start::Speed);
         m_body->setAccel(-m_rotate->getDir9() * ShotParam::Start::Decel);
+        co_return;
     }
 
     void StartState::update()

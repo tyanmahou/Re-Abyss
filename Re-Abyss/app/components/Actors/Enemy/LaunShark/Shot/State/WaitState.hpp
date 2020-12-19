@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         TimerEx m_timer;
     public:
         WaitState();
-        void start() override;
+        Task<> start() override;
         void update() override;
 
         void draw() const override;

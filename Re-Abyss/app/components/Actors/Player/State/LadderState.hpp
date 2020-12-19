@@ -13,7 +13,7 @@ namespace abyss::Actor::Player
 
         bool onCollisionStayLadderTop(const LadderProxy& ladder) override;
 
-        void start()override;
+        Task<> start()override;
         void update()override;
         void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;

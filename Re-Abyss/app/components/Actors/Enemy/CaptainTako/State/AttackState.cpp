@@ -13,9 +13,10 @@ namespace abyss::Actor::Enemy::CaptainTako
     AttackState::AttackState():
         m_attackCount(Param::Attack::AttackCount)
     {}
-    void AttackState::start()
+    Task<> AttackState::start()
     {
         m_intervalTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::IntervalTimeSec, false);
+        co_return;
     }
     void AttackState::update()
     {

@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    void PursuitState::start()
+    Task<> PursuitState::start()
     {
         if (m_kind->isLeftHand()) {
             if (m_parent->isPhase1() || m_parent->isPhase3()) {
@@ -22,6 +22,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
 
         m_hand->startForPursuit(*m_body);
+        co_return;
     }
 
     void PursuitState::update()

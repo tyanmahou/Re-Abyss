@@ -10,12 +10,13 @@ namespace abyss::Actor::Enemy::LaunShark
 {
     SwimState::SwimState()
     {}
-    void SwimState::start()
+    Task<> SwimState::start()
     {
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Swim::WaitTimeSec);
         m_body
             ->setMaxSpeedX(Param::Swim::MaxSpeedX)
             .setSize(Param::Base::Size);
+        co_return;
     }
     void SwimState::update()
     {

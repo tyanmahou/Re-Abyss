@@ -7,9 +7,10 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     PursuitEndState::PursuitEndState()
     {}
 
-    void PursuitEndState::start()
+    Task<> PursuitEndState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::EndToDeadTimeSec);
+        co_return;
     }
     void PursuitEndState::update()
     {

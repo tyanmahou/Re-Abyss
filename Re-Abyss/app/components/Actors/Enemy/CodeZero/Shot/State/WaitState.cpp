@@ -6,12 +6,13 @@
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    void WaitState::start()
+    Task<> WaitState::start()
     {
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
             ->addWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
+        co_return;
     }
 
     void WaitState::update()

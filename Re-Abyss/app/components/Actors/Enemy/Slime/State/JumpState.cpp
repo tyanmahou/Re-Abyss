@@ -5,12 +5,13 @@
 
 namespace abyss::Actor::Enemy::Slime
 {
-    void JumpState::start()
+    Task<> JumpState::start()
     {
         m_pActor->find<AudioSource>()->play(U"Jump");
         m_body->setSize(Param::Jump::Size).setPivot({ 0, 0 });
 
         m_body->jumpToHeight(Param::Jump::JumpHeight);
+        co_return;
     }
     void JumpState::lastUpdate()
     {

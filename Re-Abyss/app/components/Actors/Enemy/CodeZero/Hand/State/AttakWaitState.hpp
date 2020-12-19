@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         TimerEx m_timer;
     public:
         AttackWaitState();
-        void start()override;
+        Task<> start()override;
         void update()override;
         void draw() const override;
     };

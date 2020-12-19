@@ -31,7 +31,7 @@ namespace abyss::Actor
             }
             m_current = m_next;
             m_collisionReact = std::dynamic_pointer_cast<ICollisionReact>(m_current);
-            //m_startTask = std::make_unique<Task<void>>(m_cu)
+            m_startTask = std::make_unique<Coro::Task<void>>(m_current->start());
             m_current->init(this);
             m_next = nullptr;
         }

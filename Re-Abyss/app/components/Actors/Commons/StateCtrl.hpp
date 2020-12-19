@@ -13,6 +13,8 @@
 
 namespace abyss::Actor
 {
+    using Coro::Task;
+
     class StateCtrl;
 
     class IState
@@ -33,7 +35,7 @@ namespace abyss::Actor
 
         virtual void setup() {}
 
-        virtual void start() { /*co_return;*/ }
+        virtual Task<void> start() { co_return; }
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
@@ -54,7 +56,7 @@ namespace abyss::Actor
         State_t m_current;
         State_t m_next;
         std::shared_ptr<ICollisionReact> m_collisionReact;
-        std::unique_ptr<Coro::Task<void>> m_startTask;
+        std::unique_ptr<Task<void>> m_startTask;
 
         IActor* const  m_pActor;
         void stateUpdate();

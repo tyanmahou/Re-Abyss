@@ -46,9 +46,10 @@ namespace abyss::Actor::Player
         }
         return false;
     }
-    void LadderState::start()
+    Task<> LadderState::start()
     {
         m_body->noneResistanced();
+        co_return;
     }
     void LadderState::update()
     {

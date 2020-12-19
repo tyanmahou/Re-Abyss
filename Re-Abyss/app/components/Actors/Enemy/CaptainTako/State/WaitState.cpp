@@ -9,9 +9,10 @@ namespace abyss::Actor::Enemy::CaptainTako
 {
     WaitState::WaitState()
     {}
-    void WaitState::start()
+    Task<> WaitState::start()
     {
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
+        co_return;
     }
     void WaitState::update()
     {

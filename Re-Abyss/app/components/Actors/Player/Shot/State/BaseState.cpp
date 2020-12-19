@@ -11,7 +11,7 @@ namespace abyss::Actor::Player::Shot
         m_view = this->m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
-    void BaseState::start()
+    Task<> BaseState::start()
     {
         (*m_view)->addShotFiringEffect();
         if (m_shot->isBig()) {
@@ -21,6 +21,7 @@ namespace abyss::Actor::Player::Shot
         } else {
             m_pActor->find<AudioSource>()->playAt(U"ShotSmall");
         }
+        co_return;
     }
 
     void BaseState::update()

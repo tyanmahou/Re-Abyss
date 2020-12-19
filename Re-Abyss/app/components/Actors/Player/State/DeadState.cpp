@@ -15,9 +15,9 @@ namespace abyss::Actor::Player
         this->m_body->update(dt);
     }
 
-    void DeadState::start()
+    Task<> DeadState::start()
     {
-        BaseState::start();
+        co_yield BaseState::start();
         // 無敵時間をなしに
         m_hp->setInvincibleTime(0);
 
@@ -43,6 +43,7 @@ namespace abyss::Actor::Player
             };
             m_body->setVelocity(velocity);
         }
+        co_return;
     }
 
     void DeadState::update()

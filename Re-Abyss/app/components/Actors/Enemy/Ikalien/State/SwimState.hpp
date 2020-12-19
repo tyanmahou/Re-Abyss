@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::Ikalien
     class SwimState : public BaseState
     {
     public:
-        void start()override;
+        Task<> start()override;
         void update() override;
         void draw()const override;
     };

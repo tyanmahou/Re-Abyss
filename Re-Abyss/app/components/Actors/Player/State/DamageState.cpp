@@ -14,9 +14,9 @@ namespace abyss::Actor::Player
     {
         this->m_body->update(dt);
     }
-    void DamageState::start()
+    Task<> DamageState::start()
     {
-        BaseState::start();
+        co_yield BaseState::start();
         m_pActor->find<AudioSource>()->play(U"Damage");
 
         m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);
@@ -31,6 +31,7 @@ namespace abyss::Actor::Player
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);
+        co_return;
     }
     void DamageState::update()
     {

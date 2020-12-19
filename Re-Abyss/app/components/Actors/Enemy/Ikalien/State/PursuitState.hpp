@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::Ikalien
         TimerEx m_timer;
     public:
         PursuitState();
-        void start()override;
+        Task<> start()override;
         void update() override;
 
         void draw() const override;

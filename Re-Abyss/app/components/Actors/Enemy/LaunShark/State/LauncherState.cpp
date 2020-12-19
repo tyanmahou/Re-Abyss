@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark
 {
     LauncherState::LauncherState()
     {}
-    void LauncherState::start()
+    Task<> LauncherState::start()
     {
         m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::AttackTimeSec);
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::WaitTimeSec, false);
@@ -20,6 +20,7 @@ namespace abyss::Actor::Enemy::LaunShark
         m_body->setVelocityY(0);
 
         m_pActor->find<BodyUpdater>()->setActive(false);
+        co_return;
     }
     void LauncherState::update()
     {

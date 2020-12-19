@@ -6,8 +6,9 @@
 
 namespace abyss::Actor::Enemy::RollingTako
 {
-    void WaitState::start()
+    Task<> WaitState::start()
     {
+        co_return;
     }
 
     void WaitState::update()

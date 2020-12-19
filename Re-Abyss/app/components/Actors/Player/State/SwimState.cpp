@@ -54,9 +54,9 @@ namespace abyss::Actor::Player
         }
         return false;
     }
-    void SwimState::start()
+    Task<> SwimState::start()
     {
-        BaseState::start();
+        co_yield BaseState::start();
     }
     void SwimState::update()
     {

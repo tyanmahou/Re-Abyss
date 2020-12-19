@@ -10,9 +10,10 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
-    void BaseState::start()
+    Task<> BaseState::start()
     {
         this->m_pActor->find<AudioSource>()->playAt(U"Shot");
+        co_return;
     }
 
     void BaseState::draw() const

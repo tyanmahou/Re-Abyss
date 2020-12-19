@@ -7,9 +7,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
     
     }
-    void ShotChargeState::start()
+    Task<> ShotChargeState::start()
     {
         m_body->noneResistanced();
+        co_return;
     }
     void ShotChargeState::update()
     {

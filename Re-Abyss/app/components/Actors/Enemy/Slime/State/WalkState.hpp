@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
     class WalkState final : public BaseState
     {
     public:
-        void start() override;
+        Task<> start() override;
 
         void update() override;
 

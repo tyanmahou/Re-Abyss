@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::Schield
         bool m_isAttack = false;
     public:
         AttackCrossState();
-        void start();
+        Task<> start();
         void update() override;
 
         void draw() const override;

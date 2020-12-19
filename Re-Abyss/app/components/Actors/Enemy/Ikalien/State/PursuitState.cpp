@@ -8,10 +8,11 @@ namespace abyss::Actor::Enemy::Ikalien
 {
     PursuitState::PursuitState()
     {}
-    void PursuitState::start()
+    Task<> PursuitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, 2.0);
         m_body->noneResistanced();
+        co_return;
     }
     void PursuitState::update()
     {

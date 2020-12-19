@@ -17,7 +17,7 @@ namespace abyss::Actor::Player::Shot
     public:
         void setup()override;
 
-        void start() override;
+        Task<> start() override;
 
         void update() override;
 

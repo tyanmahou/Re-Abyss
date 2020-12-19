@@ -4,10 +4,11 @@
 #include <Siv3D.hpp>
 namespace abyss::Actor::Enemy::Ikalien
 {
-    void SwimState::start()
+    Task<> SwimState::start()
     {
         m_body->setVelocity(m_rotate->getDir() * Param::Swim::Speed);
         m_body->setAccel(-m_rotate->getDir() * Param::Swim::Decel);
+        co_return;
     }
     void SwimState::update()
     {
