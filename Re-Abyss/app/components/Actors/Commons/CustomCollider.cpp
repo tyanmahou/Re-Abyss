@@ -4,7 +4,9 @@ namespace abyss::Actor
 {
     void CustomCollider::setup([[maybe_unused]]Depends depends)
     {
-
+        if (m_pImpl) {
+            m_pImpl->setup(depends);
+        }
     }
     void CustomCollider::onStart()
     {
@@ -12,9 +14,9 @@ namespace abyss::Actor
             m_pImpl->onStart();
         }
     }
-    CustomCollider& CustomCollider::setImpl(std::unique_ptr<IImpl>&& impl)
+    CustomCollider& CustomCollider::setImpl(const std::shared_ptr<IImpl>& impl)
     {
-        m_pImpl = std::move(impl);
+        m_pImpl = impl;
         return *this;
     }
     CustomCollider& CustomCollider::setColFunc(const std::function<CShape()>& func)
@@ -38,7 +40,7 @@ namespace abyss::Actor
                 return s3d::none;
             }
         };
-        m_pImpl = std::make_unique<Impl>(func);
+        m_pImpl = std::make_shared<Impl>(func);
         return *this;
     }
 

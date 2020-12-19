@@ -7,6 +7,7 @@
 #include <abyss/types/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
+#include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
 
 namespace abyss::Actor::Enemy
@@ -30,6 +31,7 @@ namespace abyss::Actor::Enemy
         // collder
         bool isEnableCollider = true;
         std::function<CShape()> colliderFunc;
+        std::shared_ptr<CustomCollider::IImpl> colliderImpl;
 
         // map collider
         bool isEnableMapCollider = true;
@@ -87,7 +89,19 @@ namespace abyss::Actor::Enemy
         BuildOption& setColliderFunc(const std::function<CShape()>& func)
         {
             this->colliderFunc = func;
+            this->colliderImpl = nullptr;
             return *this;
+        }
+        BuildOption& setColliderImpl(const std::shared_ptr<CustomCollider::IImpl> col)
+        {
+            this->colliderFunc = nullptr;
+            this->colliderImpl = col;
+            return *this;
+        }
+        template<class Type, class... Args>
+        BuildOption& setColliderImpl(Args&& ... args)
+        {
+            return setColliderImpl(std::make_shared<Type>(std::forward<Args>(args)...));
         }
         BuildOption& setIsEnableMapCollider(bool enable)
         {

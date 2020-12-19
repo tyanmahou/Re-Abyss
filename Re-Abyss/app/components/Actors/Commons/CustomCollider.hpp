@@ -16,21 +16,21 @@ namespace abyss::Actor
         {
         public:
             virtual ~IImpl() = default;
-
+            virtual void setup([[maybe_unused]]Depends depends) {}
             virtual void onStart() {}
             virtual CShape getCollider() const = 0;
         };
     private:
-        std::unique_ptr<IImpl> m_pImpl;
+        std::shared_ptr<IImpl> m_pImpl;
     public:
         void setup(Depends depends)override;
         void onStart()override;
-        CustomCollider& setImpl(std::unique_ptr<IImpl>&& impl);
+        CustomCollider& setImpl(const std::shared_ptr<IImpl>& impl);
 
         template<class Impl, class... Args>
         CustomCollider& setImpl(Args&&... args)
         {
-            return setImpl(std::make_unique<Impl>(std::forward<Args>(args)...));
+            return setImpl(std::make_shared<Impl>(std::forward<Args>(args)...));
         }
 
         CustomCollider& setColFunc(const std::function<CShape()>& func);

@@ -55,11 +55,16 @@ namespace abyss::Actor::Enemy
 			pActor->attach<CollisionCtrl>(pActor)
 				->setLayer(LayerGroup::Enemy);
 
-			auto colliderFunc = opt.colliderFunc ? opt.colliderFunc : [body = pActor->find<Body>()]() ->CShape{
-				return body->region();
-			};
-			
-			pActor->attach<CustomCollider>()->setColFunc(colliderFunc);
+			auto collider = pActor->attach<CustomCollider>();
+			if (opt.colliderImpl) {
+				collider->setImpl(opt.colliderImpl);
+			} else {
+				auto colliderFunc = opt.colliderFunc ? opt.colliderFunc : [body = pActor->find<Body>()] ()->CShape{
+					return body->region();
+				};
+
+				collider->setColFunc(colliderFunc);
+			}
 		}
 		// 地形Collider
 		if (opt.isEnableMapCollider) {

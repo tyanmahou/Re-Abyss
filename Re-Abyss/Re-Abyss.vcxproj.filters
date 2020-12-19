@@ -401,12 +401,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\Schield\SchieldActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -819,9 +813,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Enemy\Schield\DamageCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttackState.cpp">
@@ -1348,8 +1339,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\LaunShark\LaunSharkActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\RollingTako\RollingTakoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Schield\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Schield\SchieldActor.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />
@@ -1523,7 +1512,6 @@
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\RunState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\FaceCtrl.hpp" />
-    <ClInclude Include="app\components\Actors\Enemy\Schield\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\BaseState.hpp" />
