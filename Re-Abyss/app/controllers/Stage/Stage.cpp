@@ -319,16 +319,15 @@ namespace abyss
             }
         }
 
+        // ギミックの生成
         GimmickTranslator gimmickTranslator(this);
         for (const auto& gimmick : m_stageData->getGimmicks()) {
-            // TODO 
             if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                 continue;
             }
-            if (auto obj = gimmickTranslator.toActorPtr(*gimmick)) {
-                world.regist(obj);
-            }
+            gimmickTranslator.buildActor(world, *gimmick);
         }
+
         for (const auto& enemy : m_stageData->getEnemies()) {
             if (!nextRoom.getRegion().intersects(enemy->pos)) {
                 continue;

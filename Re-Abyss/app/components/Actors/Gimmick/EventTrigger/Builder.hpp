@@ -3,9 +3,8 @@
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
-	class EventTriggerActor : public IActor
-	{
-	public:
-		EventTriggerActor(const s3d::FilePath& path);
-	};
+    struct Builder
+    {
+        static void Build(IActor* pActor, const s3d::FilePath& path);
+    };
 }

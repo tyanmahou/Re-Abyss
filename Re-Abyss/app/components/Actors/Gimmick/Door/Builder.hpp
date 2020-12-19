@@ -5,10 +5,8 @@
 
 namespace abyss::Actor::Gimmick::Door
 {
-	class DoorActor : public IActor
-	{
-
-	public:
-		DoorActor(const DoorModel& door, const RoomModel& nextRoom);
-	};
+    struct Builder
+    {
+        static void Build(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom);
+    };
 }

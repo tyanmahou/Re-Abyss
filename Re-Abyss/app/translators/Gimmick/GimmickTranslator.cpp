@@ -2,16 +2,19 @@
 #include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
 
-#include <abyss/controllers/Actors/Gimmick/Door/DoorActor.hpp>
-#include <abyss/controllers/Actors/Gimmick/EventTrigger/EventTriggerActor.hpp>
+#include <abyss/components/Actors/Gimmick/Door/Builder.hpp>
+#include <abyss/components/Actors/Gimmick/EventTrigger/Builder.hpp>
+
 #include <abyss/controllers/Stage/Stage.hpp>
+#include <abyss/controllers/World/World.hpp>
 
 namespace abyss
 {
     GimmickTranslator::GimmickTranslator(const Stage* pStage):
         m_pStage(pStage)
     {}
-    std::shared_ptr<Actor::IActor> GimmickTranslator::toActorPtr(const GimmickEntity& entity)
+
+    Ref<Actor::IActor> GimmickTranslator::buildActor(World& world, const GimmickEntity& entity)
     {
         using namespace Actor::Gimmick;
         switch (entity.type) {
@@ -23,20 +26,21 @@ namespace abyss
                 if (auto room = m_pStage->findRoom(startPos->getPos())) {
                     Door::DoorModel door{
                         startPos->getStartId(),
-                        doorEntity.pos, 
+                        doorEntity.pos,
                         startPos->getPos(),
                         startPos->getForward(),
                         doorEntity.size,
                         startPos->isSave()
                     };
-                    return std::make_shared<Door::DoorActor>(door, *room);
+                    return world.create<Door::Builder>(door, *room);
                 }
             }
+            break;
         }
         case GimmickType::EventTrigger:
         {
             const auto& eventTriggerEntity = static_cast<const EventTriggerEntity&>(entity);
-            return  std::make_shared<EventTrigger::EventTriggerActor>(eventTriggerEntity.event);
+            return world.create<EventTrigger::Builder>(eventTriggerEntity.event);
         }
         case GimmickType::BgmChanger: return nullptr;
         default:
