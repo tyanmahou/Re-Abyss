@@ -16,7 +16,7 @@ namespace abyss::Actor::Player::Shot
 
     s3d::Circle Collider::getColliderCircle() const
     {
-        return s3d::Circle(m_body->getPos(), m_shot->toRadius());
+        return s3d::Circle(m_body->getPos(), m_shot->toRadius() * 1.3);
     }
 
     CShape Collider::getCollider()const
