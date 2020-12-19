@@ -1,9 +1,11 @@
-#include "ShotActor.hpp"
+#include "Builder.hpp"
+#include <abyss/controllers/Actors/base/IActor.hpp>
 
-#include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
@@ -14,6 +16,7 @@
 
 #include <abyss/components/Actors/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actors/Enemy/DeadCallback.hpp>
+#include <abyss/components/Actors/Enemy/LaunShark/Shot/State/StartState.hpp>
 
 #include <Siv3D/MathConstants.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
@@ -25,81 +28,90 @@ namespace
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
-    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
+    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward)
     {
-        m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
-        // 回転
+        // タグ
+        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
+
+        // Body
         {
-            m_rotate = this->attach<RotateCtrl>();
-            if (forward == Forward::Right) {
-                m_rotate->setRotate(s3d::Math::Constants::Pi);
-            }
-        }
-        // コライダー
-        {
-            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
-            auto col = this->attach<CustomCollider>();
-            col->setColFunc([this] {return this->getCollider(); });
-        }
-        // 地形判定
-        {
-            this->attach<MapCollider>(this, false);
-        }
-        // ボディ
-        {
-            (m_body = this->attach<Body>(this))
+            pActor->attach<Body>(pActor)
                 ->setPos(pos)
                 .noneResistanced()
                 .setSize(ShotParam::Base::Size);
-
-            this->attach<BodyUpdater>(this);
+            pActor->attach<BodyUpdater>(pActor);
+        }
+        // 回転
+        {
+            auto rotate = pActor->attach<RotateCtrl>();
+            if (forward == Forward::Right) {
+                rotate->setRotate(s3d::Math::Constants::Pi);
+            }
         }
         // HP
         {
-            this->attach<HP>(this)
-                ->initHp(ShotParam::Base::Hp).setInvincibleTime(0.2);
+            pActor->attach<HP>(pActor)
+                ->initHp(ShotParam::Base::Hp)
+                .setInvincibleTime(0.2);
         }
         // 音源
         {
-            this->attach<AudioSource>(this)->load(U"Enemy/LaunShark/shot.aase");
+            pActor->attach<AudioSource>(pActor)
+                ->load(U"Enemy/LaunShark/shot.aase");
+        }
+
+        // 衝突
+        {
+            pActor->attach<CollisionCtrl>(pActor)
+                ->setLayer(LayerGroup::Enemy);
+
+            auto body = pActor->find<Body>();
+            auto rotate = pActor->find<RotateCtrl>();
+            pActor->attach<CustomCollider>()
+                ->setColFunc([body, rotate]()->CShape {
+                return body->region().rotated(rotate->getRotate());
+            });
+        }
+        // 地形衝突
+        {
+            pActor->attach<MapCollider>(pActor, false);
+        }
+        // ヒット死亡
+        {
+            pActor->attach<DeadOnHItReceiver>(pActor);
+        }
+        // ルーム外死亡
+        {
+            pActor->attach<OutRoomChecker>(pActor);
         }
         // ダメージ
         {
-            this->attach<DamageCtrl>(this);
-            this->attach<Enemy::DeadCallback>(this);
+            pActor->attach<DamageCtrl>(pActor);
+            pActor->attach<Enemy::DeadCallback>(pActor);
+            pActor->attach<Enemy::DamageCallback>(pActor);
         }
         // 死亡チェック
         {
-            this->attach<DeadOnHItReceiver>(this);
-            this->attach<Enemy::DamageCallback>(this);
-            this->attach<DeadChecker>(this);
+            pActor->attach<DeadChecker>(pActor);
         }
-        // 状態管理
+        // State
         {
-            this->attach<StateCtrl>(this)
-                ->changeState<StartState>()
-                ;
+            pActor->attach<StateCtrl>(pActor)
+                ->changeState<BaseState>();
         }
-        // 描画
+        // AttackerData
         {
-            this->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<AttackerData>(1);
         }
+        // ReceiverData
         {
-            this->attach<AttackerData>(1);
+            pActor->attach<ReceiverData>();
         }
+        // 描画制御
         {
-            this->attach<ReceiverData>();
+            pActor->attach<ViewCtrl<ShotVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
-    }
-
-    CShape ShotActor::getCollider() const
-    {
-        return this->getColliderQuad();
-    }
-    s3d::Quad ShotActor::getColliderQuad() const
-    {
-        return m_body->region().rotated(m_rotate->getRotate());
     }
 }
 

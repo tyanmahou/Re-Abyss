@@ -6,7 +6,7 @@
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
-#include <abyss/controllers/Actors/Enemy/LaunShark/Shot/ShotActor.hpp>
+#include <abyss/components/Actors/Enemy/LaunShark/Shot/Builder.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::LaunShark
                     int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getDrawTimeSec()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
-                    m_pActor->getModule<World>()->create<Shot::ShotActor>(shotPos, m_body->getForward());
+                    m_pActor->getModule<World>()->create<Shot::Builder>(shotPos, m_body->getForward());
                 }
                 if (m_waitTimer.reachedZero()) {
                     m_attackTimer.restart();
