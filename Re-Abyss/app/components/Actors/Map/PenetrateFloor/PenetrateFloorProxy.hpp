@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/components/Actors/Map/MapParam.hpp>
+#include <abyss/components/Actors/Map/MapProxy.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
@@ -29,7 +29,7 @@ namespace abyss::Actor::Map::PenetrateFloor
         bool m_canDown;
         ColDirection m_aroundFloor;
 
-        Ref<MapParam> m_mapParam;
+        Ref<MapProxy> m_map;
         Ref<Terrain> m_terrain;
     };
 }

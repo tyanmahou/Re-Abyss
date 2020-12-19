@@ -10,30 +10,30 @@ namespace abyss::Actor::Map::Ladder
 
     void LadderProxy::setup(Depends depends)
     {
-        depends.on<IComponent>().addAfter<MapParam>();
+        depends.on<IComponent>().addAfter<MapProxy>();
         depends.on<IComponent>().addAfter<Terrain>();
     }
 
     void LadderProxy::onStart()
     {
-        m_mapParam = m_pActor->find<MapParam>();
+        m_map = m_pActor->find<MapProxy>();
         m_terrain = m_pActor->find<Terrain>();
     }
 
     const s3d::Vec2& LadderProxy::getPos() const
     {
-        return m_mapParam->getPos();
+        return m_map->getPos();
     }
 
     s3d::RectF LadderProxy::region() const
     {
-        return m_mapParam->region();
+        return m_map->region();
     }
 
     s3d::Line LadderProxy::getCenterLine() const
     {
-        const auto& pos = m_mapParam->getPos();
-        const auto& size = m_mapParam->getSize();
+        const auto& pos = m_map->getPos();
+        const auto& size = m_map->getSize();
 
         Vec2 beginY = pos - Vec2{ 0, size.y / 2.0 + 1.0 };
         Vec2 endY = pos + Vec2{ 0, size.y / 2.0 - 10.0 };

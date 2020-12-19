@@ -134,9 +134,6 @@
     <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Map\MapActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Application\MainApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
     </ClCompile>
@@ -413,15 +410,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\Slime\SlimeActor.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Map\Floor\FloorActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Map\Ladder\LadderActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -675,9 +663,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\base\Components.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actors\Map\MapParam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\God\PauseCtrl.cpp">
@@ -1063,9 +1048,6 @@
     <ClCompile Include="app\factories\Main\MainInjector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actors\Gimmick\Door\DoorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1094,6 +1076,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Gimmick\Door\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\CommonBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\MapProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\Floor\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\Ladder\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\PenetrateFloor\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1168,9 +1168,6 @@
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Map\MapActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Application\MainApp.hpp">
       <Filter>Source Files\Commons\Appication</Filter>
@@ -1341,15 +1338,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\Slime\SlimeActor.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy\Slime</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Map\Floor\FloorActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Floor</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Map\Ladder\LadderActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\Ladder</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Map\PenetrateFloor\PenetrateFloorActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Map\PenetarteFloor</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CodeZero\Body\BodyVM.hpp" />
@@ -1470,7 +1458,6 @@
     <ClInclude Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.hpp" />
     <ClInclude Include="app\components\base\Components.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
-    <ClInclude Include="app\components\Actors\Map\MapParam.hpp" />
     <ClInclude Include="app\components\Actors\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\PursuitCtrl.hpp" />
@@ -1620,7 +1607,6 @@
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
-    <ClInclude Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollisionReact.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
@@ -1633,5 +1619,11 @@
     <ClInclude Include="app\components\Actors\Ooparts\Xto\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Map\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Map\MapProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Map\Floor\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Map\Ladder\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Map\PenetrateFloor\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
   </ItemGroup>
 </Project>

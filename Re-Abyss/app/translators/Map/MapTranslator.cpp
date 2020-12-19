@@ -1,22 +1,24 @@
 #include "MapTranslator.hpp"
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
-#include <abyss/controllers/Actors/Map/Floor/FloorActor.hpp>
-#include <abyss/controllers/Actors/Map/PenetrateFloor/PenetrateFloorActor.hpp>
-#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
+#include <abyss/components/Actors/Map/Floor/Builder.hpp>
+#include <abyss/components/Actors/Map/PenetrateFloor/Builder.hpp>
+#include <abyss/components/Actors/Map/Ladder/Builder.hpp>
+
+#include <abyss/controllers/World/World.hpp>
 
 namespace abyss
 {
-	std::shared_ptr<Actor::Map::MapActor> MapTranslator::ToActorPtr(const MapEntity& entity)
+	Ref<Actor::IActor> MapTranslator::buildActor(World& world, const MapEntity& entity)
 	{
 		using namespace Actor::Map;
 		if (entity.type == MapType::Floor) {
-			return std::make_shared<Floor::FloorActor>(entity.col, entity.pos, entity.size);
+			return world.create<Floor::Builder>(entity.col, entity.pos, entity.size);
 		}
 		if (entity.type == MapType::Ladder) {
-			return std::make_shared<Ladder::LadderActor>(entity.col, entity.pos, entity.size);
+			return world.create<Ladder::Builder>(entity.col, entity.pos, entity.size);
 		}
 		if (entity.type == MapType::Penetrate) {
-			return std::make_shared<PenetrateFloor::PenetrateFloorActor>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
+			return world.create<PenetrateFloor::Builder>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
 		}
 		return nullptr;
 	}

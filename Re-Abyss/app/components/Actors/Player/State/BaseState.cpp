@@ -10,8 +10,6 @@
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
 
-#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
-
 namespace abyss::Actor::Player
 {
     bool BaseState::onCollisionStay([[maybe_unused]]const PenetrateFloorProxy& col)

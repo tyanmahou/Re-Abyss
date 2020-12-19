@@ -9,21 +9,21 @@ namespace abyss::Actor::Map::PenetrateFloor
     {}
     void PenetrateFloorProxy::setup(Depends depends)
     {
-        depends.on<IComponent>().addAfter<MapParam>();
+        depends.on<IComponent>().addAfter<MapProxy>();
         depends.on<IComponent>().addAfter<Terrain>();
     }
     void PenetrateFloorProxy::onStart()
     {
-        m_mapParam = m_pActor->find<MapParam>();
+        m_map = m_pActor->find<MapProxy>();
         m_terrain = m_pActor->find<Terrain>();
     }
     const s3d::Vec2& PenetrateFloorProxy::getPos() const
     {
-        return m_mapParam->getPos();
+        return m_map->getPos();
     }
     s3d::RectF PenetrateFloorProxy::region() const
     {
-        return m_mapParam->region();
+        return m_map->region();
     }
     bool PenetrateFloorProxy::canDown() const
     {

@@ -9,7 +9,7 @@
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actors/Map/PenetrateFloorProxy/PenetrateFloorProxy.hpp>
+#include <abyss/components/Actors/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 #include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>

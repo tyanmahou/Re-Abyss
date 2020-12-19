@@ -310,13 +310,12 @@ namespace abyss
         if (!m_stageData) {
             return false;
         }
+        MapTranslator mapTranslator{};
         for (const auto& map : m_stageData->getMaps()) {
             if (!nextRoom.getRegion().intersects(RectF(map->pos- map->size/ 2.0, map->size))) {
                 continue;
             }
-            if (auto obj = MapTranslator::ToActorPtr(*map)) {
-                world.regist(obj);
-            }
+            mapTranslator.buildActor(world, *map);
         }
 
         // ギミックの生成

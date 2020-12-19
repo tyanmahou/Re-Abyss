@@ -4,8 +4,6 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Actors/Map/PenetrateFloor/PenetrateFloorActor.hpp>
-#include <abyss/controllers/Actors/Map/Ladder/LadderActor.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/controllers/Save/Save.hpp>
 #include <abyss/controllers/Event/RoomMove/DoorMove/DoorMove.hpp>
