@@ -1,7 +1,5 @@
 #include "CommonBuilder.hpp"
 
-#include <abyss/models/Collision/LayerGroup.hpp>
-
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>

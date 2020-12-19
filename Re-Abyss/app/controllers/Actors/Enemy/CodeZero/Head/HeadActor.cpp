@@ -9,7 +9,6 @@
 #include <abyss/components/Actors/Enemy/CodeZero/Head/HeadCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Head/DamageCtrl.hpp>
 
-#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 

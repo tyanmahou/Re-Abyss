@@ -1,8 +1,6 @@
 #include "EnemyBuilder.hpp"
 #include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
 
-#include <abyss/models/Collision/LayerGroup.hpp>
-
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>

@@ -14,7 +14,6 @@
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/KindCtrl.hpp>
-#include <abyss/models/Collision/LayerGroup.hpp>
 
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>

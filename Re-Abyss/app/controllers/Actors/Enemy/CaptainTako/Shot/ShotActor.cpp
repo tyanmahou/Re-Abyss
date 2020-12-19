@@ -1,6 +1,5 @@
 #include "ShotActor.hpp"
 #include <abyss/components/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
-#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>

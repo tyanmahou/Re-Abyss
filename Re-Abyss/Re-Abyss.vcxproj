@@ -213,6 +213,8 @@
     <ClCompile Include="app\components\Actors\Enemy\Schield\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\FaceCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CommonBuilder.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Schield\ShellCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Schield\Shell\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Schield\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Slime\DeadCallback.cpp" />
@@ -558,6 +560,8 @@
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\ShellCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\Shell\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Schield\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\Builder.hpp" />

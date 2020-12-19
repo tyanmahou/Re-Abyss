@@ -1102,6 +1102,12 @@
     <ClCompile Include="app\components\Actors\Commons\Colliders\CircleCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\Shell\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\Schield\ShellCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1633,5 +1639,7 @@
     <ClInclude Include="app\components\Actors\Commons\Colliders\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actors\base\ILocator.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\Shell\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Schield\ShellCtrl.hpp" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPreCollision.hpp>
+#include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss::Actor
 {

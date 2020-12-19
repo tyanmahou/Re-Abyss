@@ -9,6 +9,7 @@
 #include <abyss/components/Actors/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actors/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actors/Enemy/Schield/FaceCtrl.hpp>
+#include <abyss/components/Actors/Enemy/Schield/ShellCtrl.hpp>
 
 namespace
 {
@@ -38,6 +39,10 @@ namespace abyss::Actor::Enemy::Schield
         {
             pActor->attach<ViewCtrl<SchieldVM>>()
                 ->createBinder<ViewBinder>(pActor);
+        }
+        // 甲羅
+        {
+            pActor->attach<ShellCtrl>(pActor);
         }
 	}
 }

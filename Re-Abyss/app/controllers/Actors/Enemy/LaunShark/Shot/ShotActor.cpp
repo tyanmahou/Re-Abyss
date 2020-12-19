@@ -15,7 +15,6 @@
 #include <abyss/components/Actors/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actors/Enemy/DeadCallback.hpp>
 
-#include <abyss/models/Collision/LayerGroup.hpp>
 #include <Siv3D/MathConstants.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
 

@@ -12,7 +12,6 @@
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 
-#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 

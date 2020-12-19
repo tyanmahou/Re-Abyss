@@ -14,7 +14,6 @@
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 
-#include <abyss/models/Collision/LayerGroup.hpp>
 #include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
 #include <abyss/views/Actors/Enemy/Schield/Shot/ShotVM.hpp>
 

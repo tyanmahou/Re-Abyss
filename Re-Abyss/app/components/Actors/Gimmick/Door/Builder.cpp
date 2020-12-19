@@ -3,7 +3,6 @@
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
-#include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
