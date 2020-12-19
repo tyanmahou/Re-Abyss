@@ -77,10 +77,12 @@ namespace abyss
         bool isWorldStop = m_events.isWorldStop();
         if (!isWorldStop) {
             m_world.update();
-            m_world.collision();
+            m_world.move();
+            m_world.physics();
         }
         m_camera.update();
         if (!isWorldStop) {
+            m_world.collision();
             m_world.lastUpdate();
             m_world.cleanUp();
         }

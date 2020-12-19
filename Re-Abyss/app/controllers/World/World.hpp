@@ -35,6 +35,19 @@ namespace abyss
         /// </summary>
         void update();
 
+        /// <summary>
+        /// 移動処理
+        /// </summary>
+        void move();
+
+        /// <summary>
+        /// 物理衝突
+        /// </summary>
+        void physics();
+
+        /// <summary>
+        /// 衝突判定
+        /// </summary>
         void collision();
 
         void lastUpdate();

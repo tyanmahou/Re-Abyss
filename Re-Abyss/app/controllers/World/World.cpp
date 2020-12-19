@@ -11,11 +11,10 @@
 
 namespace abyss
 {
-    World::World():
+    World::World() :
         m_collision(std::make_unique<SimpleCollision>()),
         m_mapCollision(std::make_unique<SimpleMapCollision>())
-    {
-    }
+    {}
     World::~World()
     {}
     void World::setManager(Manager* pManager)
@@ -37,23 +36,27 @@ namespace abyss
     void World::update()
     {
         m_actorsHolder.update();
+    }
+
+    void World::move()
+    {
         m_actorsHolder.move();
+    }
+
+    void World::physics()
+    {
+        // 地形判定
+        m_actorsHolder.prePhysics();
+        m_mapCollision->collisionAll(this->finds<Actor::IPhysics>(), this->finds<Actor::Terrain>());
+        m_actorsHolder.lastPhysics();
     }
 
     void World::collision()
     {
-        // 地形判定
-        {
-            m_actorsHolder.prePhysics();
-            m_mapCollision->collisionAll(this->finds<Actor::IPhysics>(), this->finds<Actor::Terrain>());
-            m_actorsHolder.lastPhysics();
-        }
         // アクター衝突
-        {
-            m_actorsHolder.preCollision();
-            m_collision->collisionAll(this->finds<Actor::ICollision>());
-            m_actorsHolder.collisionReact();
-        }
+        m_actorsHolder.preCollision();
+        m_collision->collisionAll(this->finds<Actor::ICollision>());
+        m_actorsHolder.collisionReact();
     }
 
     void World::lastUpdate()
