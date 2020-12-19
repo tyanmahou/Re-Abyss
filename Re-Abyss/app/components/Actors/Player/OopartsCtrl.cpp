@@ -1,8 +1,8 @@
 #include "OopartsCtrl.hpp"
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/Ooparts/OopartsActor.hpp>
-#include <abyss/controllers/Actors/Ooparts/Xto/XtoActor.hpp>
+
+#include <abyss/components/Actors/Ooparts/Xto/Builder.hpp>
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
@@ -18,11 +18,14 @@ namespace abyss::Actor::Player
         m_attackCtrl = m_pActor->find<AttackCtrl>();
         m_body = m_pActor->find<Body>();
 
-        std::shared_ptr<Ooparts::OopartsActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::XtoActor>(m_pActor);
+        std::shared_ptr<IActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::Builder>(m_pActor);
         this->setMain(main);
     }
-    OopartsCtrl& Player::OopartsCtrl::setMain(const Ref<Ooparts::OopartsActor> & main)
+    OopartsCtrl& Player::OopartsCtrl::setMain(const Ref<IActor> & main)
     {
+        if (m_mainOoparts) {
+            m_mainOoparts->destroy();
+        }
         m_mainOoparts = main;
         return *this;
     }

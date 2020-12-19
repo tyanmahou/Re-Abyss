@@ -44,9 +44,20 @@ namespace abyss::Actor
 	{
 		return m_isDontDestoryOnLoad;
 	}
+
+	inline void IActor::setOrder(s3d::int32 order)
+	{
+		m_order = order;
+	}
+
 	inline s3d::int32 IActor::getOrder() const
 	{
 		return m_order;
+	}
+
+	inline void IActor::setTag(const TagType& tag)
+	{
+		m_tag = tag;
 	}
 
 	inline const TagType& IActor::getTag() const
@@ -54,10 +65,6 @@ namespace abyss::Actor
 		return m_tag;
 	}
 
-	inline void IActor::setTag(const TagType& tag)
-	{
-		m_tag = tag;
-	}
 	template<class T>
 	T* IActor::getModule() const
 	{

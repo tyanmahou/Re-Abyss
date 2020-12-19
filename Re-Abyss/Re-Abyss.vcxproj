@@ -222,8 +222,11 @@
     <ClCompile Include="app\components\Actors\Map\Ladder\LadderProxy.cpp" />
     <ClCompile Include="app\components\Actors\Map\MapParam.cpp" />
     <ClCompile Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.cpp" />
+    <ClCompile Include="app\components\Actors\Ooparts\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\Draw.cpp" />
+    <ClCompile Include="app\components\Actors\Ooparts\Nyan\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Ooparts\Xto\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Player\AttackCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\ChargeCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
@@ -315,9 +318,6 @@
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ooparts\OopartsActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Ooparts\Xto\XtoActor.cpp" />
     <ClCompile Include="app\controllers\Effects\Effects.cpp" />
     <ClCompile Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp" />
     <ClCompile Include="app\controllers\Sound\Sound.cpp" />
@@ -553,6 +553,9 @@
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actors\God\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\PenetrateFloorProxy\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\Nyan\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\Xto\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
@@ -604,8 +607,6 @@
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
     <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
@@ -666,7 +667,6 @@
     <ClInclude Include="app\components\Actors\Commons\Terrain.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\DamageCallback.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Shot\State\StartState.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Main.hpp" />
     <ClInclude Include="app\components\Actors\God\PauseCtrl.hpp" />

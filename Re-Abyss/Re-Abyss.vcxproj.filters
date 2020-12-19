@@ -515,12 +515,6 @@
     <ClCompile Include="app\views\Actors\Ooparts\base\OopartsVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ooparts\OopartsActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ooparts\Xto\XtoActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Common\KiraKiraEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -528,9 +522,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\Ooparts\Nyan\NyanVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\Effects\Effects.cpp">
@@ -1096,6 +1087,15 @@
     <ClCompile Include="app\components\Actors\God\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Ooparts\CommonBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Ooparts\Nyan\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Ooparts\Xto\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1403,13 +1403,10 @@
     <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Xto\XtoVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\OopartsVM.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\Xto\XtoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\OopartsActor.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />
-    <ClInclude Include="app\controllers\Actors\Ooparts\Nyan\NyanActor.hpp" />
     <ClInclude Include="app\controllers\Effects\Effects.hpp" />
     <ClInclude Include="app\controllers\Stage\StageData.hpp" />
     <ClInclude Include="app\controllers\Cron\Cron.hpp" />
@@ -1635,5 +1632,8 @@
     <ClInclude Include="app\components\Actors\base\IPreCollision.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\God\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\Nyan\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Ooparts\Xto\Builder.hpp" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,8 @@
-#include "XtoActor.hpp"
+#include "Builder.hpp"
+
 #include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
+#include <abyss/components/Actors/Ooparts/CommonBuilder.hpp>
 
 #include <abyss/views/Actors/Ooparts/Xto/XtoVM.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
@@ -10,11 +13,17 @@ namespace
 }
 namespace abyss::Actor::Ooparts::Xto
 {
-    XtoActor::XtoActor(IActor* parent):
-        OopartsActor(parent)
+    void Builder::Build(IActor* pActor, IActor* parent)
     {
-        m_view->createBinder<ViewBinder>(this);
-    }
+        CommonBuilder::Build(pActor, parent);
+
+        // 描画制御
+        {
+            pActor
+                ->find<ViewCtrl<OopartsVM>>()
+                ->createBinder<ViewBinder>(pActor);
+        }
+    };
 }
 
 namespace

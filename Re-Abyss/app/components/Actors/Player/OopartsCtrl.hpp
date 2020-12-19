@@ -13,7 +13,7 @@ namespace abyss::Actor::Player
         public ILastUpdate
     {
     private:
-        Ref<Ooparts::OopartsActor> m_mainOoparts;
+        Ref<IActor> m_mainOoparts;
         Ref<AttackCtrl> m_attackCtrl;
         Ref<Body> m_body;
         IActor* m_pActor;
@@ -22,7 +22,7 @@ namespace abyss::Actor::Player
 
         void onStart() override;
 
-        OopartsCtrl& setMain(const Ref<Ooparts::OopartsActor>& main);
+        OopartsCtrl& setMain(const Ref<IActor>& main);
 
         void onLastUpdate() override;
     };
