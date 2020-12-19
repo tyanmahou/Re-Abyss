@@ -7,7 +7,6 @@ namespace abyss::Actor
         m_manager = manager;
         m_pActor = manager->getActor();
         this->setup();
-        this->start();
     }
 
     StateCtrl::StateCtrl(IActor* pActor):
@@ -16,7 +15,7 @@ namespace abyss::Actor
 
     void StateCtrl::setup(Depends depends)
     {
-        depends.addAfter<IComponent>();
+        //depends.addAfter<IComponent>();
     }
 
     void StateCtrl::onStart()
@@ -32,6 +31,7 @@ namespace abyss::Actor
             }
             m_current = m_next;
             m_collisionReact = std::dynamic_pointer_cast<ICollisionReact>(m_current);
+            //m_startTask = std::make_unique<Task<void>>(m_cu)
             m_current->init(this);
             m_next = nullptr;
         }
@@ -40,6 +40,9 @@ namespace abyss::Actor
     void StateCtrl::onUpdate()
     {
         this->stateUpdate();
+        if (m_startTask) {
+            m_startTask->moveNext();
+        }
         if (m_current) {
             m_current->update();
         }

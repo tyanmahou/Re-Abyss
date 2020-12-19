@@ -9,6 +9,7 @@
 # include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/components/Actors/base/ILastUpdate.hpp>
 # include <abyss/components/Actors/base/IDraw.hpp>
+# include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::Actor
 {
@@ -32,7 +33,7 @@ namespace abyss::Actor
 
         virtual void setup() {}
 
-        virtual void start(){}
+        virtual void start() { /*co_return;*/ }
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
@@ -53,8 +54,9 @@ namespace abyss::Actor
         State_t m_current;
         State_t m_next;
         std::shared_ptr<ICollisionReact> m_collisionReact;
-        IActor* const  m_pActor;
+        std::unique_ptr<Coro::Task<void>> m_startTask;
 
+        IActor* const  m_pActor;
         void stateUpdate();
     public:
         StateCtrl(IActor* pActor);

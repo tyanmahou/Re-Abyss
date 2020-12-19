@@ -19,5 +19,4 @@ namespace abyss::Actor::Enemy::Slime
             m_senser->destroy();
         }
     }
-
 }
