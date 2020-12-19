@@ -6,9 +6,11 @@ namespace abyss::Actor::Player
     struct ShotParam
     {
         [[TOML_BIND_PARAM(Base::Speed, "Base.speed")]]
+        [[TOML_BIND_PARAM(Base::ColliderRate, "Base.colliderRate")]]
         struct Base
         {
             inline static double Speed{ 840 };
+            inline static double ColliderRate{ 1.3 };
         };
 
         [[TOML_BIND_PARAM(Normal::Radius, "Normal.radius")]]

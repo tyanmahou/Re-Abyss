@@ -2,6 +2,7 @@
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
+#include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
@@ -16,7 +17,7 @@ namespace abyss::Actor::Player::Shot
 
     s3d::Circle Collider::getColliderCircle() const
     {
-        return s3d::Circle(m_body->getPos(), m_shot->toRadius() * 1.3);
+        return s3d::Circle(m_body->getPos(), m_shot->toRadius() * ShotParam::Base::ColliderRate);
     }
 
     CShape Collider::getCollider()const
