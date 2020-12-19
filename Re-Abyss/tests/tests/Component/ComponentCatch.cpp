@@ -22,7 +22,7 @@ namespace
     {
         void setup([[maybe_unused]] Depends depends) override
         {
-            depends.addBefore<ComA>();
+            depends.on<IComponent>().addBefore<ComA>();
         }
     };
     class ComC : 
@@ -31,8 +31,8 @@ namespace
     {
         void setup([[maybe_unused]] Depends depends) override
         {
-            depends.addAfter<ComA>();
-            depends.addBefore<ComB>();
+            depends.on<IComponent>().addAfter<ComA>();
+            depends.on<IComponent>().addBefore<ComB>();
         }
     };
     class ComD : 
@@ -41,7 +41,8 @@ namespace
     {
         void setup([[maybe_unused]] Depends depends) override
         {
-            depends.addBefore<ComA>();
+            depends.on<IComponent>().addBefore<ComA>();
+            depends.on<ITestInterface>().addBefore<ComC>();
         }
     };
     class ComE :
@@ -50,8 +51,10 @@ namespace
     {
         void setup([[maybe_unused]] Depends depends) override
         {
-            depends.addBefore<ComB>();
-            depends.addAfter<ComC>();
+            depends.on<IComponent>().addBefore<ComB>();
+            depends.on<IComponent>().addAfter<ComC>();
+            depends.on<ITestInterface>().addAfter<ComD>();
+            depends.on<ITestInterface>().addBefore<ComC>();
         }
     };
 }
@@ -104,8 +107,8 @@ namespace abyss::tests
             auto comps = components.finds<ITestInterface>();
             REQUIRE(comps.size() == 3);
             REQUIRE(dynamic_cast<ComD*>(comps[0].get()) != nullptr);
-            REQUIRE(dynamic_cast<ComC*>(comps[1].get()) != nullptr);
-            REQUIRE(dynamic_cast<ComE*>(comps[2].get()) != nullptr);
+            REQUIRE(dynamic_cast<ComE*>(comps[1].get()) != nullptr);
+            REQUIRE(dynamic_cast<ComC*>(comps[2].get()) != nullptr);
         }
     }
 }

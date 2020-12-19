@@ -11,6 +11,6 @@ namespace abyss
 
     public:
         void regist(IComponent* component, Depends depends);
-        s3d::Array<Ref<IComponent>> sort(const s3d::Array<Ref<IComponent>>& origin);
+        s3d::Array<Ref<IComponent>> sort(const std::type_index& process, const s3d::Array<Ref<IComponent>>& origin);
     };
 }

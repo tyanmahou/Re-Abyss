@@ -28,7 +28,7 @@ namespace abyss
                     // ソート不要
                     continue;
                 }
-                pair.second = ds.sort(pair.second);
+                pair.second = ds.sort(pair.first, pair.second);
             }
         }
         void start()

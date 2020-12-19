@@ -42,7 +42,7 @@ namespace abyss::Actor
     {}
     void CollisionCtrl::setup(Depends depends)
     {
-        depends.addAfter<ICollider>();
+        depends.on<IComponent>().addAfter<ICollider>();
     }
     void CollisionCtrl::onStart()
     {

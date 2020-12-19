@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <functional>
+#include <typeindex>
 
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
@@ -11,23 +12,39 @@ namespace abyss
     {
         class Impl;
         std::shared_ptr<Impl> m_pImpl;
-        void addAfter(const std::function<bool(IComponent*)>& f) const;
-        void addBefore(const std::function<bool(IComponent*)>& f) const;
+
+        class Command
+        {
+            const Depends* m_depends;
+            std::type_index m_process;
+            void addAfter(const std::function<bool(IComponent*)>& f) const;
+            void addBefore(const std::function<bool(IComponent*)>& f) const;
+        public:
+            Command(const Depends* depends, const std::type_index& process);
+
+            template<class Component>
+            void addAfter() const
+            {
+                addAfter([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
+            }
+            template<class Component>
+            void addBefore() const
+            {
+                addBefore([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
+            }
+            bool isAfter(IComponent* c) const;
+            bool isBefore(IComponent* c) const;
+        };
+
     public:
         Depends();
 
-        template<class Component>
-        void addAfter() const
-        {
-            addAfter([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
-        }
-        template<class Component>
-        void addBefore() const
-        {
-            addBefore([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
-        }
+        Command on(const std::type_index& process) const;
 
-        bool isAfter(IComponent* c) const;
-        bool isBefore(IComponent* c) const;
+        template<class Process>
+        Command on() const
+        {
+            return this->on(typeid(Process));
+        }
     };
 }

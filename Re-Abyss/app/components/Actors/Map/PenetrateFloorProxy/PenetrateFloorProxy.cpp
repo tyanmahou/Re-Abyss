@@ -9,8 +9,8 @@ namespace abyss::Actor::Map::PenetrateFloor
     {}
     void PenetrateFloorProxy::setup(Depends depends)
     {
-        depends.addAfter<MapParam>();
-        depends.addAfter<Terrain>();
+        depends.on<IComponent>().addAfter<MapParam>();
+        depends.on<IComponent>().addAfter<Terrain>();
     }
     void PenetrateFloorProxy::onStart()
     {

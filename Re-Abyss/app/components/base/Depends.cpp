@@ -1,34 +1,39 @@
 #include "Depends.hpp"
+#include <Siv3D/HashTable.hpp>
 
 namespace abyss
 {
     class Depends::Impl
     {
-        s3d::Array<std::function<bool(IComponent*)>> m_after;
-        s3d::Array<std::function<bool(IComponent*)>> m_before;
+        struct Edge
+        {
+            s3d::Array<std::function<bool(IComponent*)>> after{};
+            s3d::Array<std::function<bool(IComponent*)>> before{};
+        };
+        s3d::HashTable<std::type_index, Edge> m_edges;
     public:
         Impl() = default;
 
-        void addAfter(const std::function<bool(IComponent*)>& f)
+        void addAfter(const std::type_index& process, const std::function<bool(IComponent*)>& f)
         {
-            m_after.push_back(f);
+            m_edges[process].after.push_back(f);
         }
-        void addBefore(const std::function<bool(IComponent*)>& f)
+        void addBefore(const std::type_index& process, const std::function<bool(IComponent*)>& f)
         {
-            m_before.push_back(f);
+            m_edges[process].before.push_back(f);
         }
-        bool isAfter(IComponent* c) const
+        bool isAfter(const std::type_index& process, IComponent* c)
         {
-            for (auto& f : m_after) {
+            for (auto& f : m_edges[process].after) {
                 if (f(c)) {
                     return true;
                 }
             }
             return false;
         }
-        bool isBefore(IComponent* c) const
+        bool isBefore(const std::type_index& process, IComponent* c)
         {
-            for (auto& f : m_before) {
+            for (auto& f : m_edges[process].before) {
                 if (f(c)) {
                     return true;
                 }
@@ -37,23 +42,33 @@ namespace abyss
         }
     };
 
+    Depends::Command::Command(const Depends* depends, const std::type_index& process):
+        m_depends(depends),
+        m_process(process)
+    {}
+
+    void Depends::Command::addAfter(const std::function<bool(IComponent*)>& f) const
+    {
+        m_depends->m_pImpl->addAfter(m_process, f);
+    }
+    void Depends::Command::addBefore(const std::function<bool(IComponent*)>& f) const
+    {
+        m_depends->m_pImpl->addBefore(m_process, f);
+    }
+    bool Depends::Command::isAfter(IComponent* c) const
+    {
+        return m_depends->m_pImpl->isAfter(m_process, c);
+    }
+    bool Depends::Command::isBefore(IComponent* c) const
+    {
+        return m_depends->m_pImpl->isBefore(m_process, c);
+    }
+
     Depends::Depends():
         m_pImpl(std::make_shared<Impl>())
     {}
-    void Depends::addAfter(const std::function<bool(IComponent*)>& f) const
+    Depends::Command Depends::on(const std::type_index& process) const
     {
-        m_pImpl->addAfter(f);
-    }
-    void Depends::addBefore(const std::function<bool(IComponent*)>& f) const
-    {
-        m_pImpl->addBefore(f);
-    }
-    bool Depends::isAfter(IComponent * c) const
-    {
-        return m_pImpl->isAfter(c);
-    }
-    bool Depends::isBefore(IComponent* c) const
-    {
-        return m_pImpl->isBefore(c);
+        return Depends::Command(this, process);
     }
 }

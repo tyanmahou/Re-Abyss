@@ -87,7 +87,7 @@ namespace
         }
         void setup(Depends depend) final
         {
-            depend.addAfter<ParentCtrl>();
+            depend.on<IComponent>().addAfter<ParentCtrl>();
         }
         void onStart() final
         {

@@ -31,7 +31,7 @@ namespace abyss
     {
         m_depends[component] = depends;
     }
-    s3d::Array<Ref<IComponent>> DependsSort::sort(const s3d::Array<Ref<IComponent>>& origin)
+    s3d::Array<Ref<IComponent>> DependsSort::sort(const std::type_index& process, const s3d::Array<Ref<IComponent>>& origin)
     {
         s3d::Array<Node> nodes;
         for (auto& com : origin) {
@@ -46,9 +46,9 @@ namespace abyss
                     continue;
                 }
                 auto& depends2 = m_depends[node2.component.get()];
-                if (depends1.isBefore(node2.component.get())) {
+                if (depends1.on(process).isBefore(node2.component.get())) {
                     outs.push_back(&node2);
-                } else if (depends2.isAfter(node1.component.get())) {
+                } else if (depends2.on(process).isAfter(node1.component.get())) {
                     outs.push_back(&node2);
                 }
             }
