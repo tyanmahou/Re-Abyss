@@ -1,12 +1,12 @@
 #include "Teardown.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Demo/DemoActor.hpp>
 #include <abyss/controllers/Event/Talk/Common/CreateBossHPBar/ChargeBossHPBar.hpp>
 
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/BossHPBar/BossHPBar.hpp>
 
 #include <abyss/components/Actors/Enemy/CodeZero/CodeZeroProxy.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 
 namespace abyss::Event::Talk::BossTalk0_0
 {
@@ -14,7 +14,7 @@ namespace abyss::Event::Talk::BossTalk0_0
     {
         auto world = m_pManager->getModule<World>();
        
-        if (auto demoCodeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoActor>()) {
+        if (auto demoCodeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoCtrl>()) {
             demoCodeZero->destroy();
         }
         if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {

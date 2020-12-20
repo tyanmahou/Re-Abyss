@@ -20,34 +20,10 @@ namespace abyss::Actor
 
             void onStart() override
             {}
-            void onDraw([[maybe_unused]]const s3d::String& motion) const override
+            void onDraw() const override
             {
                 if (m_drawer) {
                     m_drawer();
-                }
-            }
-        };
-        m_pImpl = std::make_unique<Impl>(drawer);
-        return *this;
-    }
-    CustomDraw& CustomDraw::setDrawer(const std::function<void(const s3d::String&)>& drawer)
-    {
-        class Impl : public IImpl
-        {
-            std::function<void(const s3d::String&)> m_drawer;
-        public:
-
-            Impl(const std::function<void(const s3d::String&)>& drawer):
-                m_drawer(drawer)
-            {}
-
-            void onStart() override
-            {
-            }
-            void onDraw(const s3d::String& motion) const override
-            {
-                if (m_drawer) {
-                    m_drawer(motion);
                 }
             }
         };
@@ -67,7 +43,7 @@ namespace abyss::Actor
     void CustomDraw::onDraw() const
     {
         if (m_pImpl) {
-            m_pImpl->onDraw(m_motion);
+            m_pImpl->onDraw();
         }
     }
 }

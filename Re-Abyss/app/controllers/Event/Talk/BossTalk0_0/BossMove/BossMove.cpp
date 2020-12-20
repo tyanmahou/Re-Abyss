@@ -1,16 +1,16 @@
 #include "BossMove.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Demo/DemoActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 
 namespace abyss::Event::Talk::BossTalk0_0
 {
     void BossMove::onStart()
     {
         auto world = m_pManager->getModule<World>();
-        m_codeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoActor>();
-        m_initPos = m_codeZero->getPos();
+        m_codeZeroDemo = world->find<Actor::Enemy::CodeZero::Demo::DemoCtrl>();
+        m_initPos = m_codeZeroDemo->getPos();
 
         m_targetPos = m_initPos - s3d::Vec2{ 0, 400 };
 
@@ -19,10 +19,10 @@ namespace abyss::Event::Talk::BossTalk0_0
 
     bool BossMove::update(double dt)
     {
-        if (!m_codeZero) {
+        if (!m_codeZeroDemo) {
             return false;
         }
-        if (m_codeZero->moveToTarget(dt)) {
+        if (m_codeZeroDemo->moveToTarget(dt)) {
             return true;
         }
         auto camera = m_pManager->getModule<Camera>();
@@ -44,9 +44,9 @@ namespace abyss::Event::Talk::BossTalk0_0
         if (m_lastQuake) {
             m_lastQuake->stop();
         }
-        if (!m_codeZero) {
+        if (!m_codeZeroDemo) {
             return;
         }
-        m_codeZero->setPos(m_targetPos);
+        m_codeZeroDemo->setPos(m_targetPos);
     }
 }

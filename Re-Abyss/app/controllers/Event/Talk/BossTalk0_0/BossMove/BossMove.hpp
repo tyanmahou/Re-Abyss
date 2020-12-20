@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Demo
 {
-    class DemoActor;
+    class DemoCtrl;
 }
 namespace abyss::Event::Talk::BossTalk0_0
 {
@@ -15,7 +15,7 @@ namespace abyss::Event::Talk::BossTalk0_0
         bool update(double dt) override;
         void onEnd() override;
     private:
-        Ref<Actor::Enemy::CodeZero::Demo::DemoActor> m_codeZero;
+        Ref<Actor::Enemy::CodeZero::Demo::DemoCtrl> m_codeZeroDemo;
 
         s3d::Vec2 m_initPos;
         s3d::Vec2 m_targetPos;

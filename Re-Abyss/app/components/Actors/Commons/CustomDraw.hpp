@@ -21,10 +21,9 @@ namespace abyss::Actor
             virtual ~IImpl() = default;
 
             virtual void onStart() = 0;
-            virtual void onDraw(const s3d::String& motion)const = 0;
+            virtual void onDraw()const = 0;
         };
     private:
-        s3d::String m_motion;
         std::unique_ptr<IImpl> m_pImpl;
     public:
         void setup(Depends depends) override;
@@ -32,15 +31,6 @@ namespace abyss::Actor
         void onStart() override;
 
         void onDraw() const override;
-
-        /// <summary>
-        /// モーションリクエスト
-        /// </summary>
-        CustomDraw& request(const s3d::String& motion)
-        {
-            m_motion = motion;
-            return *this;
-        }
 
         CustomDraw& setDrawer(std::unique_ptr<IImpl>&& drawer);
 
@@ -50,8 +40,6 @@ namespace abyss::Actor
             return setDrawer(std::make_unique<Impl>(std::forward<Args>(args)...));
         }
         CustomDraw& setDrawer(const std::function<void()>& drawer);
-
-        CustomDraw& setDrawer(const std::function<void(const s3d::String&)>& drawer);
     };
 }
 
