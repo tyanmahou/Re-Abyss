@@ -10,6 +10,7 @@
 
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 
+#include <abyss/components/Actors/Enemy/Ikalien/Builder.hpp>
 #include <abyss/components/Actors/Enemy/LaunShark/Builder.hpp>
 #include <abyss/components/Actors/Enemy/RollingTako/Builder.hpp>
 #include <abyss/components/Actors/Enemy/Schield/Builder.hpp>
@@ -18,7 +19,6 @@
 #include <abyss/controllers/World/World.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CaptainTako/CaptainTakoActor.hpp>
-#include <abyss/controllers/Actors/Enemy/Ikalien/IkalienActor.hpp>
 
 #include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
@@ -31,7 +31,6 @@ namespace abyss
 
 		switch (entity.type) {
 			CASE_ENEMY(CaptainTako);
-			CASE_ENEMY(Ikalien);
 			CASE_ENEMY(CodeZero);
 		default:
 			break;
@@ -45,6 +44,7 @@ namespace abyss
 #define CASE_ENEMY(type) case EnemyType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))
 
 		switch (entity.type) {
+			CASE_ENEMY(Ikalien);
 			CASE_ENEMY(LaunShark);
 			CASE_ENEMY(RollingTako);
 			CASE_ENEMY(Schield);

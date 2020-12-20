@@ -207,6 +207,7 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\Ikalien\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\RollingTako\Builder.cpp" />
@@ -375,7 +376,6 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\State\Phase2State.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\State\Phase3State.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\Ikalien\IkalienActor.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\LauncherState.cpp" />
@@ -559,6 +559,7 @@
     <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\Ikalien\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\RollingTako\Builder.hpp" />
@@ -766,7 +767,6 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\Ikalien\IkalienActor.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\BaseState.hpp" />

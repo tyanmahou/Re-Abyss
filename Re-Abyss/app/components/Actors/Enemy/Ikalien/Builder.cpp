@@ -1,49 +1,51 @@
-#include "IkalienActor.hpp"
-#include <abyss/components/Actors/Enemy/Ikalien/State/WaitState.hpp>
+#include "Builder.hpp"
+
+#include <abyss/controllers/Actors/base/IActor.hpp>
 
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
 #include <abyss/types/CShape.hpp>
 
-#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
+#include <abyss/components/Actors/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actors/Enemy/Ikalien/State/WaitState.hpp>
+
 
 namespace
 {
+    class Collider;
     class ViewBinder;
 }
 
 namespace abyss::Actor::Enemy::Ikalien
 {
-    IkalienActor::IkalienActor(const IkalienEntity& entity)
+    void Builder::Build(IActor* pActor, const IkalienEntity& entity)
     {
-        Enemy::EnemyBuilder builder(this);
-        builder
+        // 共通ビルド
+        CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
             .setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
-            .setColliderFunc([this] {
-                return this->getCollider();
-            })
+            .setColliderImpl<Collider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
             .setInitState<WaitState>()
-            .build();
+        );
 
+        // Body調整
         {
-            m_body->noneResistanced();
+            pActor->find<Body>()->noneResistanced();
         }
+        // 回転制御
         {
-            this->attach<RotateCtrl>();
+            pActor->attach<RotateCtrl>();
         }
+        // 描画
         {
-            this->attach<ViewCtrl<IkalienVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<ViewCtrl<IkalienVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
-    }
-    CShape IkalienActor::getCollider() const
-    {
-        return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
     }
 }
 
@@ -52,6 +54,26 @@ namespace
     using namespace abyss;
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::Ikalien;
+
+    class Collider final : public CustomCollider::IImpl
+    {
+    public:
+        Collider(IActor* pActor) :
+            m_pActor(pActor)
+        {}
+
+        void onStart() override
+        {
+            m_body = m_pActor->find<Body>();
+        }
+        CShape getCollider() const override
+        {
+            return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
+        }
+    private:
+        IActor* m_pActor = nullptr;
+        Ref<Body> m_body;
+    };
 
     class ViewBinder : public ViewCtrl<IkalienVM>::IBinder
     {

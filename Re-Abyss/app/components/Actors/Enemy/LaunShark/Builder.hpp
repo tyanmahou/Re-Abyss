@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/commons/Fwd.hpp>
 
 namespace abyss
 {

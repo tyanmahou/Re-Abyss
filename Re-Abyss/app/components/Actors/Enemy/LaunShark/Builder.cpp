@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-
+#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
