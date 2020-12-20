@@ -97,7 +97,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         // State
         {
             pActor->attach<StateCtrl>(pActor)
-                ->changeState<BaseState>();
+                ->changeState<StartState>();
         }
         // AttackerData
         {
