@@ -1,15 +1,17 @@
-#include "HeadActor.hpp"
-#include <abyss/components/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
+#include "Builder.hpp"
+
+#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
-#include <abyss/components/Actors/Commons/CustomCollider.hpp>
+#include <abyss/components/Actors/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Head/HeadCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Head/DamageCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Head/State/BaseState.hpp>
 
-#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Head/HeadVM.hpp>
 
 namespace
@@ -18,48 +20,43 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    HeadActor::HeadActor(IActor* parent)
+    void Builder::Build(IActor* pActor, IActor* parent)
     {
-        m_tag = Tag::Enemy{} | Tag::Receiver{};
+        pActor->setTag(Tag::Enemy{} | Tag::Receiver{});
+
         // 親情報
         {
-            m_parent = this->attach<ParentCtrl>(parent);
+            pActor->attach<ParentCtrl>(parent);
         }
         // 頭制御
         {
-            m_head = this->attach<HeadCtrl>(this);
+            pActor->attach<HeadCtrl>(pActor);
         }
         // 状態
         {
-            this->attach<StateCtrl>(this)
+            pActor->attach<StateCtrl>(pActor)
                 ->changeState<BaseState>()
                 ;
         }
         // 当たり判定
         {
-            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
-            auto col = this->attach<CustomCollider>();
-            col->setColFunc([this] {return this->getCollider(); });
-
-            this->attach<DamageCtrl>(this);
+            pActor->attach<CollisionCtrl>(pActor)
+                ->setLayer(LayerGroup::Enemy);
+            pActor->attach<CircleCollider>(pActor)
+                ->setRadius(Param::Head::ColRadius);
+        }
+        // ダメージ
+        {
+            pActor->attach<DamageCtrl>(pActor);
         }
         // 描画
         {
-            this->attach<ViewCtrl<HeadVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<ViewCtrl<HeadVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
         {
-            this->attach<ReceiverData>();
+            pActor->attach<ReceiverData>();
         }
-    }
-    s3d::Vec2 HeadActor::getPos() const
-    {
-        return m_head->getPos();
-    }
-
-    CShape HeadActor::getCollider() const
-    {
-        return s3d::Circle(this->getPos() + s3d::Vec2{0, 10}, Param::Head::ColRadius);
     }
 }
 

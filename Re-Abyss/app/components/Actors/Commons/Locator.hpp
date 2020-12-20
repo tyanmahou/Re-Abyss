@@ -18,9 +18,14 @@ namespace abyss::Actor
             return *this;
         }
 
-        const s3d::Vec2& getPos() const override
+        const s3d::Vec2& getPos() const
         {
             return m_pos;
+        }
+
+        s3d::Vec2 getCenterPos() const override
+        {
+            return this->getPos();
         }
     };
 }

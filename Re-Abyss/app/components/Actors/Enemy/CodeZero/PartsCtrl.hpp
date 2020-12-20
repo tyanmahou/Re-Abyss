@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero
     class PartsCtrl : public IComponent
     {
         IActor* m_pActor;
-        Ref<Head::HeadActor> m_head;
+        Ref<IActor> m_head;
         Ref<Hand::HandActor> m_leftHand;
         Ref<Hand::HandActor> m_rightHand;
     public:
@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CodeZero
 
         void onStart() override;
 
-        const Ref<Head::HeadActor>& getHead()const { return m_head; }
+        const Ref<IActor>& getHead()const { return m_head; }
         const Ref<Hand::HandActor>& getLeftHand()const { return m_leftHand; }
         const Ref<Hand::HandActor>& getRightHand()const { return m_rightHand; }
 

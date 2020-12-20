@@ -29,5 +29,10 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         return m_forward;
     }
 
+    s3d::Vec2 HeadCtrl::getCenterPos() const
+    {
+        return this->getPos() + s3d::Vec2{ 0, 10 };
+    }
+
 }
 

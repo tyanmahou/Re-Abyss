@@ -7,6 +7,6 @@ namespace abyss::Actor
     {
     public:
         virtual ~ILocator() = default;
-        virtual const s3d::Vec2& getPos() const = 0;
+        virtual s3d::Vec2 getCenterPos() const = 0;
     };
 }

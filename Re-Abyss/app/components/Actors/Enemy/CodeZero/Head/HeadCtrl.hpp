@@ -3,6 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/Actors/base/ILocator.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -12,7 +13,9 @@ namespace abyss::Actor::Enemy::CodeZero
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    class HeadCtrl : public IComponent
+    class HeadCtrl : 
+        public IComponent,
+        public ILocator
     {
         Forward m_forward;
 
@@ -26,5 +29,16 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 
         void setForward(Forward forward);
         Forward getForward() const;
+
+        s3d::Vec2 getCenterPos() const override;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Actor::Enemy::CodeZero::Head::HeadCtrl>
+    {
+        using Base = Actor::ICollider;
     };
 }

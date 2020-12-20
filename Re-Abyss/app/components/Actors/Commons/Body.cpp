@@ -277,6 +277,10 @@ namespace abyss::Actor
 
         return colDir;
     }
+    s3d::Vec2 Body::getCenterPos() const
+    {
+        return this->getPivotPos();
+    }
     s3d::RectF Body::region() const
     {
         return { m_pos + m_pivot - m_size / 2, m_size };

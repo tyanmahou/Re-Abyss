@@ -21,7 +21,7 @@ namespace abyss::Actor
 
         CShape getCollider() const override
         {
-            return m_locator->getPos();
+            return m_locator->getCenterPos();
         }
     };
 }

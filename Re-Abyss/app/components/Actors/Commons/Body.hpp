@@ -69,7 +69,7 @@ namespace abyss::Actor
         Body& addPosX(double deltaX);
         Body& addPosY(double deltaY);
 
-        const s3d::Vec2& getPos() const override;
+        const s3d::Vec2& getPos() const;
         const s3d::Vec2& getPrevPos() const;
 
         Body& setForward(Forward forward);
@@ -98,6 +98,7 @@ namespace abyss::Actor
         ColDirection fixPos(const MapColInfo& info);
         ColDirection fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
+        s3d::Vec2 getCenterPos()const override;
     public:
         inline static constexpr double DefaultGravity = 720.0;
         inline static constexpr double DefaultMaxVelocityY = 78;

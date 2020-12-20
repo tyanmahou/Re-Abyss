@@ -12,6 +12,6 @@ namespace abyss::Actor
     }
     CShape CircleCollider::getCollider() const
     {
-        return s3d::Circle(m_locator->getPos(), m_radius);
+        return s3d::Circle(m_locator->getCenterPos(), m_radius);
     }
 }
