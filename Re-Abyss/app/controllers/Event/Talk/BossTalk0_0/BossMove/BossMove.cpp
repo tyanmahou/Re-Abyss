@@ -1,6 +1,5 @@
 #include "BossMove.hpp"
 #include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Demo/DemoActor.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>

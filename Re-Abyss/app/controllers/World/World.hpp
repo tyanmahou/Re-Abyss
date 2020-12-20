@@ -95,6 +95,12 @@ namespace abyss
         }
 
         template<class Type>
+        [[nodiscard]] Ref<Type> find() const
+        {
+            return m_actorsHolder.find<Type>();
+        }
+
+        template<class Type>
         [[nodiscard]] s3d::Array<Ref<Type>> finds() const
         {
             return m_actorsHolder.finds<Type>();

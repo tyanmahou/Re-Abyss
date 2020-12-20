@@ -1,26 +1,27 @@
-#include "CodeZeroActor.hpp"
-
-#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
-
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+#include "Builder.hpp"
 #include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
+
+#include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Commons/ViewCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/CodeZeroProxy.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
+
 #include <abyss/views/Actors/Enemy/CodeZero/Body/BodyVM.hpp>
 
 namespace
 {
     class ViewBinder;
 }
-
 namespace abyss::Actor::Enemy::CodeZero
 {
-    CodeZeroActor::CodeZeroActor(const CodeZeroEntity& entity)
+    void Builder::Build(IActor* pActor, const CodeZeroEntity& entity)
     {
-        Enemy::EnemyBuilder builder(this);
-        builder
+        pActor->setOrder(-99);
+
+        CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
@@ -31,33 +32,32 @@ namespace abyss::Actor::Enemy::CodeZero
             .setIsEnableBreathing(false)
             .setIsAutoDestroy(false)
             .setInitState<Phase1State>()
-            .build();
+        );
+
+        // Body調整
         {
-            m_hp->initHp(Param::Base::Hp);
+            pActor->find<Actor::Body>()->noneResistanced();
         }
+        // パーツ制御
         {
-            m_body->noneResistanced();
+            pActor->attach<PartsCtrl>(pActor);
         }
+        // 行動パターン
         {
-            m_parts = this->attach<PartsCtrl>(this);
-        }
-        {
-            this->attach<BehaviorCtrl>(this);
+            pActor->attach<BehaviorCtrl>(pActor);
         }
         // view
         {
-            this->attach<ViewCtrl<Body::BodyVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<ViewCtrl<Body::BodyVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
-        m_order = -99;
-    }
-
-    void CodeZeroActor::setActiveAll(bool active)
-    {
-        this->setActive(active);
-        m_parts->setActive(active);
+        // プロキシ
+        {
+            pActor->attach<CodeZeroProxy>(pActor);
+        }
     }
 }
+
 namespace
 {
     using namespace abyss;

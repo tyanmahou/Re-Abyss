@@ -1,6 +1,5 @@
 #include "BaseState.hpp"
 #include <abyss/controllers/Actors/Player/PlayerActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {

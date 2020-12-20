@@ -1,6 +1,6 @@
 #include "ShotChargeState.hpp"
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     ShotChargeState::ShotChargeState()

@@ -333,9 +333,6 @@ namespace abyss
             if (!nextRoom.getRegion().intersects(enemy->pos)) {
                 continue;
             }
-            if (auto obj = EnemyTranslator::ToActorPtr(*enemy)) {
-                world.regist(obj);
-            }
             enemyTranslator.buildActor(world, *enemy);
         }
         world.flush();

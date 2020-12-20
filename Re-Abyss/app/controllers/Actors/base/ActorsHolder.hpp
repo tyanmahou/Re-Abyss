@@ -55,11 +55,21 @@ namespace abyss::Actor
 		}
 
 		template<class Type>
+		[[nodiscard]] Ref<Type> find() const
+		{
+			for (const auto& actor : m_actors) {
+				if(auto&& c = actor->find<Type>()) {
+					return c;
+				}
+			}
+			return nullptr;
+		}
+		template<class Type>
 		[[nodiscard]] s3d::Array<Ref<Type>> finds() const
 		{
 			s3d::Array<Ref<Type>> ret;
 			for (const auto& actor : m_actors) {
-				if (auto c = actor->find<Type>()) {
+				for (auto&& c : actor->finds<Type>()) {
 					ret.push_back(c);
 				}
 			}
