@@ -368,12 +368,6 @@
     <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1108,6 +1102,12 @@
     <ClCompile Include="app\components\Actors\Enemy\Ikalien\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1334,8 +1334,6 @@
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Head\HeadActor.hpp" />
@@ -1641,5 +1639,7 @@
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.hpp" />
   </ItemGroup>
 </Project>

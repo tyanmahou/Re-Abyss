@@ -196,6 +196,8 @@
     <ClCompile Include="app\components\Actors\Commons\RotateCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\ScaleCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\StateCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Builder.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -353,8 +355,6 @@
     <ClCompile Include="app\controllers\System\System.cpp" />
     <ClCompile Include="app\controllers\Manager\Manager.cpp" />
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.cpp" />
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.cpp" />
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.cpp" />
@@ -558,6 +558,8 @@
     <ClInclude Include="app\components\Actors\Commons\Colliders\PointCollider.hpp" />
     <ClInclude Include="app\components\Actors\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Builder.hpp" />
@@ -744,8 +746,6 @@
     <ClInclude Include="app\controllers\Manager\Manager.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp" />
     <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\CaptainTakoActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CaptainTako\Shot\ShotActor.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.hpp" />

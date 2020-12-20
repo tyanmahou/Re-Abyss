@@ -2,7 +2,7 @@
 #include "WaitState.hpp"
 
 #include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/Enemy/CaptainTako/Shot/ShotActor.hpp>
+#include <abyss/components/Actors/Enemy/CaptainTako/Shot/Builder.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 
@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::CaptainTako
                 offset.y
             };
             auto pos =  m_body->getPos() + fixedOffset;
-            m_pActor->getModule<World>()->create<Shot::ShotActor>(pos, m_body->getForward());
+            m_pActor->getModule<World>()->create<Shot::Builder>(pos, m_body->getForward());
             m_intervalTimer.restart();
             if (++m_currentAttackCount >= m_attackCount) {
                 this->changeState<WaitState>();

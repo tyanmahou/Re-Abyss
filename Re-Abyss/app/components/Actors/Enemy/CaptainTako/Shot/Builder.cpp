@@ -1,17 +1,19 @@
-#include "ShotActor.hpp"
-#include <abyss/components/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
+#include "Builder.hpp"
+#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actors/Commons/CustomCollider.hpp>
+#include <abyss/components/Actors/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actors/Enemy/CaptainTako/Shot/State/BaseState.hpp>
 
 namespace
 {
@@ -19,63 +21,66 @@ namespace
 }
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
-    ShotActor::ShotActor(const s3d::Vec2& pos, Forward forward)
+    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward)
     {
-        m_tag = Tag::Enemy{} | Tag::Attacker{};
+        // タグ
+        pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
+
+        // Body
         {
-            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
-            auto col = this->attach<CustomCollider>();
-            col->setColFunc([this] {return this->getCollider(); });
-        }
-        {
-            this->attach<MapCollider>(this, false);
-        }
-        {
-            (m_body = this->attach<Body>(this))
-                ->setPos(pos)
+            pActor->attach<Body>(pActor)
+                ->initPos(pos)
                 .setForward(forward)
                 .noneResistanced()
-                .setVelocityX(forward * ShotParam::Base::Speed)
-                ;
+                .setVelocityX(forward * ShotParam::Base::Speed);
 
-            this->attach<BodyUpdater>(this);
+            pActor->attach<BodyUpdater>(pActor);
         }
+
+        // 衝突
         {
-            this->attach<DeadOnHItReceiver>(this);
+            pActor->attach<CollisionCtrl>(pActor)
+                ->setLayer(LayerGroup::Enemy);
+            pActor->attach<CircleCollider>(pActor)
+                ->setRadius(ShotParam::Base::ColRadius);
         }
+
+        // 地形衝突
         {
-            this->attach<OutRoomChecker>(this)
-                ->setColFunc([this] {return this->getCollider(); });
+            pActor->attach<MapCollider>(pActor, false);
         }
+        // ヒット死亡
         {
-            this->attach<AudioSource>(this)
+            pActor->attach<DeadOnHItReceiver>(pActor);
+        }
+        // ルーム外死亡
+        {
+            pActor->attach<OutRoomChecker>(pActor);
+        }
+        // 死亡チェック
+        {
+            pActor->attach<DeadChecker>(pActor);
+        }
+        // サウンド
+        {
+            pActor->attach<AudioSource>(pActor)
                 ->load(U"Enemy/CaptainTako/captain_tako.aase");
         }
+        // 描画制御
         {
-            this->attach<DeadChecker>(this);
+            pActor->attach<ViewCtrl<ShotVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
+        // 状態
         {
-            this->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(this);
-        }
-        {
-            this->attach<StateCtrl>(this)
+            pActor->attach<StateCtrl>(pActor)
                 ->changeState<BaseState>()
                 ;
         }
+        // 攻撃データ
         {
-            this->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(1);
         }
-    }
-
-    CShape ShotActor::getCollider() const
-    {
-        return this->getColliderCircle();
-    }
-
-    s3d::Circle ShotActor::getColliderCircle() const
-    {
-        return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius);
     }
 }
 

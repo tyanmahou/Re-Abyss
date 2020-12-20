@@ -1,10 +1,12 @@
-#include "CaptainTakoActor.hpp"
+#include "Builder.hpp"
 
+#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/components/Actors/Enemy/CaptainTako/State/WaitState.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
-#include <abyss/controllers/Actors/Enemy/EnemyBuilder.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
+#include <abyss/components/Actors/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actors/Enemy/CaptainTako/State/WaitState.hpp>
 
 namespace
 {
@@ -12,10 +14,10 @@ namespace
 }
 namespace abyss::Actor::Enemy::CaptainTako
 {
-    CaptainTakoActor::CaptainTakoActor(const CaptainTakoEntity& entity)
+    void Builder::Build(IActor* pActor, const CaptainTakoEntity& entity)
     {
-        Enemy::EnemyBuilder builder(this);
-        builder
+        // 共通ビルド
+        CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
@@ -23,11 +25,11 @@ namespace abyss::Actor::Enemy::CaptainTako
             .setInitHp(Param::Base::Hp)
             .setAudioSettingGroupPath(U"Enemy/CaptainTako/captain_tako.aase")
             .setInitState<WaitState>()
-            .build();
+        );
 
         {
-            this->attach<ViewCtrl<CaptainTakoVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<ViewCtrl<CaptainTakoVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
     }
 }
