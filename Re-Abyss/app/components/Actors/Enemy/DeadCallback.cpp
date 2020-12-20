@@ -1,10 +1,13 @@
 #include "DeadCallback.hpp"
-#include <abyss/controllers/Actors/Enemy/EnemyActor.hpp>
+#include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Effects/Effects.hpp>
-#include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
 #include <abyss/controllers/Camera/Camera.hpp>
 
+#include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/OutRoomChecker.hpp>
+
+#include <abyss/views/Actors/Common/EnemyDeadEffect.hpp>
+
 
 namespace abyss::Actor::Enemy
 {

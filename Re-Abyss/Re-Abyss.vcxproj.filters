@@ -110,9 +110,6 @@
     <ClCompile Include="app\models\Collision\CollisionModel.cpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\EnemyActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
       <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
     </ClCompile>
@@ -501,9 +498,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\EnemyBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp">
@@ -1142,9 +1136,6 @@
     <ClInclude Include="app\types\CShape.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Enemy\EnemyActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="app\types\Forward.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>
     </ClInclude>
@@ -1413,7 +1404,6 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\EnemyBuilder.hpp" />
     <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
