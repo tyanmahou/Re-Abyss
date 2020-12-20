@@ -209,6 +209,7 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Head\HeadCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\PartsCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\Ikalien\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\Shot\Builder.cpp" />
@@ -366,7 +367,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\PursuitState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitEndState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitState.cpp" />
@@ -560,6 +560,7 @@
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\Builder.hpp" />
@@ -757,7 +758,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\PursuitState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitEndState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\State\PursuitState.hpp" />

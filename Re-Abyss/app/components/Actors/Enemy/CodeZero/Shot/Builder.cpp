@@ -1,7 +1,7 @@
-#include "ShotActor.hpp"
+#include "Builder.hpp"
+#include <abyss/controllers/Actors/base/IActor.hpp>
 
-#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
+#include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
@@ -11,53 +11,64 @@
 #include <abyss/components/Actors/Commons/ScaleCtrl.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-#include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
 namespace
 {
-    class ViewBinder;
     class Collider;
+    class ViewBinder;
 }
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    ShotActor::ShotActor(IActor* parent)
+    void Builder::Build(IActor* pActor, IActor* parent)
     {
-        m_tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
+        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
+
+        // Body
         {
-            this->attach<ParentCtrl>(parent);
-        }
-        {
-            this->attach<StateCtrl>(this)
-                ->changeState<WaitState>()
-            ;
-        }
-        {
-            this->attach<CollisionCtrl>(this)->setLayer(LayerGroup::Enemy);
-            auto col = this->attach<CustomCollider>();
-            col->setImpl<Collider>(this);
-        }
-        {
-            this->attach<ScaleCtrl>()
-                ->set(0.0);
-        }
-        {
-            this->attach<Body>(this)
+            pActor->attach<Body>(pActor)
                 ->initPos(parent->find<Body>()->getPos())
                 .noneResistanced();
 
-            this->attach<BodyUpdater>(this);
+            pActor->attach<BodyUpdater>(pActor);
         }
+        // スケール制御
         {
-            this->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(this);
+            pActor->attach<ScaleCtrl>()
+                ->set(0.0);
         }
+        // 衝突
         {
-            this->attach<AttackerData>(1);
+            pActor->attach<CollisionCtrl>(pActor)
+                ->setLayer(LayerGroup::Enemy);
+
+            pActor->attach<CustomCollider>()
+                ->setImpl<Collider>(pActor);
         }
+        // 状態
         {
-            this->attach<ReceiverData>();
+            pActor->attach<StateCtrl>(pActor)
+                ->changeState<WaitState>()
+                ;
+        }
+        // 親制御
+        {
+            pActor->attach<ParentCtrl>(parent);
+        }
+        // 攻撃データ
+        {
+            pActor->attach<AttackerData>(1);
+        }
+        // 受け身データ
+        {
+            pActor->attach<ReceiverData>();
+        }
+        // 描画設定
+        {
+            pActor->attach<ViewCtrl<ShotVM>>()
+                ->createBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -116,4 +127,3 @@ namespace
         {}
     };
 }
-

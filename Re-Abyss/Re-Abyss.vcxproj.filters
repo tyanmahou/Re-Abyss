@@ -377,9 +377,6 @@
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Head\HeadActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1108,6 +1105,9 @@
     <ClCompile Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Enemy\CodeZero\Shot\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1337,7 +1337,6 @@
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Demo\DemoActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Hand\HandActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Head\HeadActor.hpp" />
-    <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\Shot\ShotActor.hpp" />
     <ClInclude Include="app\controllers\Actors\Enemy\CodeZero\CodeZeroActor.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.hpp" />
@@ -1641,5 +1640,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Ikalien\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CaptainTako\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Enemy\CodeZero\Shot\Builder.hpp" />
   </ItemGroup>
 </Project>

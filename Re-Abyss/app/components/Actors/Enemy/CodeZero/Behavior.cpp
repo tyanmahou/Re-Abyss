@@ -7,7 +7,7 @@
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Shot/ShotActor.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Shot/Builder.hpp>
 
 #include <abyss/components/Actors/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
@@ -90,7 +90,7 @@ namespace abyss::Actor::Enemy::CodeZero
             waitShotSec = Param::Phase3::WaitShot;
 
             // ショット生成
-            pActor->getModule<World>()->create<Shot::ShotActor>(pActor);
+            pActor->getModule<World>()->create<Shot::Builder>(pActor);
 
             // 待機
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
