@@ -1,13 +1,12 @@
 #include "ParentCtrl.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase2State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase3State.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/PartsCtrl.hpp>
-
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandProxy.h>
 
 namespace abyss::Actor::Enemy::CodeZero
 {

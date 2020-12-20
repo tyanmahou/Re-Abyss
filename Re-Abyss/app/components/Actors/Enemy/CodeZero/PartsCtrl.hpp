@@ -5,29 +5,25 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    namespace Head
-    {
-        class HeadActor;
-    }
     namespace Hand
     {
-        class HandActor;
+        class HandProxy;
     }
 
     class PartsCtrl : public IComponent
     {
         IActor* m_pActor;
         Ref<IActor> m_head;
-        Ref<Hand::HandActor> m_leftHand;
-        Ref<Hand::HandActor> m_rightHand;
+        Ref<Hand::HandProxy> m_leftHand;
+        Ref<Hand::HandProxy> m_rightHand;
     public:
         PartsCtrl(IActor* pActor);
 
         void onStart() override;
 
         const Ref<IActor>& getHead()const { return m_head; }
-        const Ref<Hand::HandActor>& getLeftHand()const { return m_leftHand; }
-        const Ref<Hand::HandActor>& getRightHand()const { return m_rightHand; }
+        const Ref<Hand::HandProxy>& getLeftHand()const { return m_leftHand; }
+        const Ref<Hand::HandProxy>& getRightHand()const { return m_rightHand; }
 
         void setActive(bool active) const;
     };

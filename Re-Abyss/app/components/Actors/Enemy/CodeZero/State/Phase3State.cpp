@@ -1,6 +1,5 @@
 #include "Phase3State.hpp"
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Behavior.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

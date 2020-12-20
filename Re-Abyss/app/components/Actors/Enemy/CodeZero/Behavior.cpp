@@ -6,7 +6,7 @@
 #include <abyss/controllers/Manager/Manager.hpp>
 
 #include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/Hand/HandActor.hpp>
+#include <abyss/components/Actors/Enemy/CodeZero/Hand/HandProxy.h>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/Builder.hpp>
 
 #include <abyss/components/Actors/utils/BehaviorUtil.hpp>
