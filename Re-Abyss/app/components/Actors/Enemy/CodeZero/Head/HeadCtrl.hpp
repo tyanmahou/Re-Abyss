@@ -39,6 +39,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::CodeZero::Head::HeadCtrl>
     {
-        using Base = Actor::ICollider;
+        using Base = Actor::ILocator;
     };
 }
