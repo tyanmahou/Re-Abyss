@@ -256,12 +256,15 @@
     <ClCompile Include="app\components\Actors\Ooparts\PursuitCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Ooparts\Xto\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Player\AttackCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Player\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Player\ChargeCtrl.cpp" />
+    <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Depends.cpp" />
     <ClCompile Include="app\components\base\DependSort.cpp" />
+    <ClCompile Include="app\controllers\Actors\Player\PlayerManager.cpp" />
     <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\controllers\Cron\base\Batch.cpp" />
     <ClCompile Include="app\controllers\Cron\base\BatchHolder.cpp" />
@@ -381,7 +384,6 @@
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\LauncherState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\LaunShark\State\SwimState.cpp" />
-    <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\DamageState.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\LadderState.cpp" />
@@ -591,6 +593,8 @@
     <ClInclude Include="app\components\Actors\Ooparts\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Nyan\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Ooparts\Xto\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
@@ -640,6 +644,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\PlayerManager.hpp" />
     <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
     <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
@@ -773,7 +778,6 @@
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\LauncherState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\LaunShark\State\SwimState.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\LadderState.hpp" />

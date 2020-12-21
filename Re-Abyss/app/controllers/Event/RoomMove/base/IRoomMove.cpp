@@ -3,7 +3,7 @@
 #include <abyss/controllers/Camera/Camera.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 
 namespace abyss::Event::RoomMove
 {
@@ -27,7 +27,7 @@ namespace abyss::Event::RoomMove
         // カメラの座標更新
         m_pManager->getModule<Camera>()->setPos(this->calcCameraPos());
         // プレイヤーの座標更新
-        m_pManager->getModule<Actor::Player::PlayerActor>()->setPos(this->calcPlayerPos());
+        m_pManager->getModule<Actor::Player::PlayerManager>()->setPos(this->calcPlayerPos());
 
         return !this->isEnd();
     }

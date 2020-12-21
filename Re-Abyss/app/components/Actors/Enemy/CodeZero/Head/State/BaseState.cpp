@@ -1,5 +1,5 @@
 #include "BaseState.hpp"
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     }
     void BaseState::update()
     {
-        auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
         auto pos = m_head->getPos();
 
         if (m_parent->isShotCharge()) {

@@ -1,13 +1,16 @@
 #include "AudioSource.hpp"
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/controllers/Actors/base/IActor.hpp>
+
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
-#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 
 #include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/commons/Constants.hpp>
+
+#include <Siv3D.hpp>
 
 namespace
 {
@@ -48,8 +51,8 @@ namespace
             if (!m_audio.isPlaying()) {
                 m_pActor->destroy();
             }
-            auto pos = m_body->getPos();
-            auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
+            const auto& pos = m_body->getPos();
+            const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
             auto volume = ::CalcVolume(pos, listener);
             m_audio.setVolumeLR(volume.first, volume.second);
@@ -89,8 +92,9 @@ namespace abyss::Actor
         m_audios.remove_if([](const Audio& audio) {
             return !audio.isPlaying();
         });
-        auto pos = m_body->getPos();
-        auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
+        const auto& pos = m_body->getPos();
+        const auto& listener = ActorUtils::PlayerPos(*m_pActor);
+
         for (auto&& audio : m_audios) {
             auto volume = ::CalcVolume(pos, listener);
             audio.setVolumeLR(volume.first, volume.second);
@@ -110,7 +114,7 @@ namespace abyss::Actor
 
     void AudioSource::playAt(const s3d::String& key) const
     {
-        auto pos = m_body->getPos();
+        const auto& pos = m_body->getPos();
         this->playAt(key, pos);
     }
 
@@ -135,8 +139,9 @@ namespace abyss::Actor
     }
     void AudioSource::playDirect(const s3d::Audio& audio)
     {
-        auto pos = m_body->getPos();
-        auto listener = m_pActor->getModule<Actor::Player::PlayerActor>()->getPos();
+        const auto& pos = m_body->getPos();
+        const auto& listener = ActorUtils::PlayerPos(*m_pActor);
+
         auto volume = ::CalcVolume(pos, listener);
         audio.setVolumeLR(volume.first, volume.second);
         audio.play();
@@ -144,7 +149,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path) const
     {
-        auto pos = m_body->getPos();
+        const auto& pos = m_body->getPos();
         this->playAtDirect(path, pos);
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
@@ -159,7 +164,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio) const
     {
-        auto pos = m_body->getPos();
+        const auto& pos = m_body->getPos();
         this->playAtDirect(audio, pos);
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const

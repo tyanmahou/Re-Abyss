@@ -40,39 +40,7 @@ namespace abyss
 		class IActor;
 		namespace Player
 		{
-			class PlayerActor;
-		}
-		namespace Enemy
-		{
-			class EnemyActor;
-		}
-		namespace Map
-		{
-			class MapActor;
-
-			namespace Floor
-			{
-				class FloorActor;
-			}
-			namespace PenetrateFloor
-			{
-				class PenetrateFloorActor;
-			}
-			namespace Ladder
-			{
-				class LadderActor;
-			}
-		}
-		namespace Gimmick
-		{
-			namespace Door
-			{
-				class DoorActor;
-			}
-		}
-		namespace Ooparts
-		{
-			class OopartsActor;
+			class PlayerManager;
 		}
 	}
 
@@ -129,7 +97,7 @@ namespace abyss
 	class IDecorModel;
 
 	/// <summary>
-	/// Models / Components
+	/// Components
 	/// </summary>
 	namespace Actor
 	{

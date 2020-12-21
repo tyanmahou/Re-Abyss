@@ -44,22 +44,20 @@ namespace abyss::Actor
 
 		template<class Type>
 		[[nodiscard]] Ref<Type> find() const
-			requires IsActor<Type>
-		{
-			for (const auto& actor : m_actors) {
-				if (dynamic_cast<Type*>(actor.get())) {
-					return std::dynamic_pointer_cast<Type>(actor);
-				}
-			}
-			return nullptr;
-		}
-
-		template<class Type>
-		[[nodiscard]] Ref<Type> find() const
 		{
 			for (const auto& actor : m_actors) {
 				if(auto&& c = actor->find<Type>()) {
 					return c;
+				}
+			}
+			return nullptr;
+		}
+		template<class Type>
+		[[nodiscard]] Ref<IActor> findActor() const
+		{
+			for (const auto& actor : m_actors) {
+				if (auto&& c = actor->find<Type>()) {
+					return actor;
 				}
 			}
 			return nullptr;

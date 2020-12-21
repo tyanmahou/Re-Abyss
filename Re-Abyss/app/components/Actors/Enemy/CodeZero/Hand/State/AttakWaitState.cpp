@@ -1,6 +1,5 @@
 #include "AttakWaitState.hpp"
 #include "AttackState.hpp"
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/views/Actors/Enemy/CodeZero/Hand/HandVM.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>

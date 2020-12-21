@@ -1,10 +1,10 @@
 #include "GameRestart.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/Fade/IrisOut/IrisOut.hpp>
 #include <abyss/controllers/Master/Master.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 namespace abyss::Event
 {
     GameRestart::GameRestart():
@@ -39,7 +39,7 @@ namespace abyss::Event
         case Phase::Fade:
         {
             if (auto ui = m_fadeUI) {
-                auto pos = m_pManager->getModule<Actor::Player::PlayerActor>()->getPos();
+                auto pos = m_pManager->getModule<Actor::Player::PlayerManager>()->getPos();
                 ui->setPos(pos)
                     .setFadeTime(m_fadeTimer.progress0_1())
                     ;

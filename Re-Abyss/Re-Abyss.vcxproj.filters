@@ -128,9 +128,6 @@
     <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\PlayerActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Application\MainApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
     </ClCompile>
@@ -1111,6 +1108,15 @@
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Demo\DemoCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\controllers\Actors\Player\PlayerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1177,9 +1183,6 @@
     </ClInclude>
     <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\Player\PlayerActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Application\MainApp.hpp">
       <Filter>Source Files\Commons\Appication</Filter>
@@ -1642,6 +1645,9 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\CodeZeroProxy.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Demo\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
+    <ClInclude Include="app\controllers\Actors\Player\PlayerManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

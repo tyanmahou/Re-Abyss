@@ -1,14 +1,18 @@
 #include "ActorUtils.hpp"
 #include <abyss/controllers/Actors/base/IActor.hpp>
 #include <abyss/controllers/World/World.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 
 namespace abyss::Actor::ActorUtils
 {
+    const s3d::Vec2& PlayerPos(const IActor& actor)
+    {
+        return actor.getModule<Actor::Player::PlayerManager>()->getPos();
+    }
     s3d::Vec2 PlayerDiffVec(const IActor& actor, const Body& body)
     {
-        return actor.getModule<Actor::Player::PlayerActor>()->getPos() - body.getPos();
+        return PlayerPos(actor) - body.getPos();
     }
     bool IsPlayerFrontByDistance(const IActor& actor, const Body& body, double range)
     {

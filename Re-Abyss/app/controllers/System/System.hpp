@@ -7,6 +7,7 @@
 #include <abyss/controllers/Effects/Effects.hpp>
 #include <abyss/controllers/Sound/Sound.hpp>
 #include <abyss/controllers/UI/UI.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 #include <abyss/controllers/Manager/Manager.hpp>
 
 namespace abyss
@@ -26,13 +27,13 @@ namespace abyss
 
         Sound m_sound;
         UI m_userInterface;
-
         std::unique_ptr<Stage> m_stage;
         std::unique_ptr<BackGround> m_backGround;
         std::unique_ptr<Decor> m_decor;
         std::unique_ptr<Cron> m_cron;
 
         std::unique_ptr<Save> m_save;
+        std::unique_ptr<Actor::Player::PlayerManager> m_playerManager;
         Manager m_manager;
     public:
 
@@ -46,7 +47,7 @@ namespace abyss
         /// デバッグモードなどで使用
         /// </summary>
         /// <param name="player"></param>
-        void init(const std::shared_ptr<Actor::Player::PlayerActor>& player);
+        void init(const std::shared_ptr<Actor::IActor>& player);
 
         void update();
         void draw() const;
@@ -58,7 +59,7 @@ namespace abyss
         /// <param name="saveData"></param>
         void loadSaveData(const std::shared_ptr<SaveData>& saveData);
 
-        std::shared_ptr<Actor::Player::PlayerActor> lockPlayer() const;
+        std::shared_ptr<Actor::IActor> lockPlayer() const;
 
         void restart();
     private:

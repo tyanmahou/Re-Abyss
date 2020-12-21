@@ -89,15 +89,14 @@ namespace abyss
 
         template<class Type>
         [[nodiscard]] Ref<Type> find() const
-            requires IsActor<Type>
         {
             return m_actorsHolder.find<Type>();
         }
 
         template<class Type>
-        [[nodiscard]] Ref<Type> find() const
+        [[nodiscard]] Ref<Actor::IActor> findActor() const
         {
-            return m_actorsHolder.find<Type>();
+            return m_actorsHolder.findActor<Type>();
         }
 
         template<class Type>

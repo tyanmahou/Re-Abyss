@@ -16,7 +16,7 @@ namespace abyss
         ~Sound();
         void play(const s3d::String& path, const s3d::Duration& sec = 2s);
 
-        void stop(const Duration& sec = 2s);
+        void stop(const s3d::Duration& sec = 2s);
 
         void release();
 

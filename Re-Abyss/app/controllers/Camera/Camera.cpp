@@ -3,10 +3,13 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
 
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
+#include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/controllers/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
+
+#include <Siv3D.hpp>
 
 namespace abyss
 {
@@ -25,7 +28,7 @@ namespace abyss
 
 	void Camera::update()
 	{
-		auto player = m_pManager->getModule<Actor::Player::PlayerActor>();
+		auto player = m_pManager->getModule<Actor::Player::PlayerManager>();
 		const Vec2& playerPos = player->getPos();
 
 		// カメラ座標調整

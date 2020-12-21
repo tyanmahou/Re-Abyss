@@ -2,6 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/ILastUpdate.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -10,11 +11,14 @@ namespace abyss::Actor::Player
         public ILastUpdate
     {
     private:
-        PlayerActor* m_pActor;
+        IActor* m_pActor;
     public:
-        RoomMoveChecker(PlayerActor* pActor);
+        RoomMoveChecker(IActor* pActor);
 
         void setup(Depends depends) override;
+
+        void onStart() override;
+
         void onLastUpdate() override;
     };
 }

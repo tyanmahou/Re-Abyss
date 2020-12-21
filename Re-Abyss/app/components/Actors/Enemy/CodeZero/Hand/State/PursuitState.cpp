@@ -1,6 +1,5 @@
 #include "PursuitState.hpp"
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
@@ -30,7 +29,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         auto dt = m_pActor->deltaTime();
         m_hand->updateRotate(*m_rotate, dt);
 
-        auto playerPos = m_pActor->getModule<Player::PlayerActor>()->getPos();
+        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
         m_hand->updateForPursuit(
             playerPos,
             m_parent->getPos(),

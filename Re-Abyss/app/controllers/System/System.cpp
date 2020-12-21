@@ -1,7 +1,6 @@
 #include "System.hpp"
 #include <abyss/controllers/Master/Master.hpp>
 #include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
 #include <abyss/commons/Constants.hpp>
@@ -13,6 +12,7 @@
 #include <abyss/controllers/Save/Save.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss
 {
@@ -22,7 +22,8 @@ namespace abyss
         m_backGround(std::make_unique<BackGround>()),
         m_decor(std::make_unique<Decor>()),
         m_cron(std::make_unique<Cron>()),
-        m_save(std::make_unique<Save>())
+        m_save(std::make_unique<Save>()),
+        m_playerManager(std::make_unique<Actor::Player::PlayerManager>())
     {
         m_manager
             .set(m_master.get())
@@ -39,6 +40,7 @@ namespace abyss
             .set(m_stage.get())
             .set(m_cron.get())
             .set(m_save.get())
+            .set(m_playerManager.get())
             ;
         m_world.setManager(&m_manager);
         m_camera.setManager(&m_manager);
@@ -57,7 +59,7 @@ namespace abyss
         m_stage->init();
     }
 
-    void System::init(const std::shared_ptr<Actor::Player::PlayerActor>& player)
+    void System::init(const std::shared_ptr<Actor::IActor>& player)
     {
         m_stage->init(player, nullptr);
     }
@@ -149,9 +151,9 @@ namespace abyss
     {
         m_save->setSaveData(saveData);
     }
-    std::shared_ptr<Actor::Player::PlayerActor> System::lockPlayer() const
+    std::shared_ptr<Actor::IActor> System::lockPlayer() const
     {
-        return m_world.find<Actor::Player::PlayerActor>().lock();
+        return m_playerManager->getActor().lock();
     }
 
 }

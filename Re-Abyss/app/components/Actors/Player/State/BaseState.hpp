@@ -17,7 +17,6 @@
 
 namespace abyss::Actor::Player
 {
-    using Actor::Map::Floor::FloorActor;
     using Actor::Map::PenetrateFloor::PenetrateFloorProxy;
     using Actor::Map::Ladder::LadderProxy;
     using Actor::Gimmick::Door::DoorProxy;

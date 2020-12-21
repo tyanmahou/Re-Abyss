@@ -1,7 +1,6 @@
 #include "AttackState.hpp"
 #include "PursuitState.hpp"
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {

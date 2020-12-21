@@ -5,7 +5,8 @@
 #include <abyss/controllers/Camera/Camera.hpp>
 
 #include <abyss/components/Actors/God/Builder.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/components/Actors/Player/Builder.hpp>
+
 #include <abyss/controllers/World/World.hpp>
 #include <abyss/controllers/Decor/Decor.hpp>
 #include <abyss/controllers/Decor/DecorGraphicsManager.hpp>
@@ -18,6 +19,7 @@
 #include <abyss/controllers/Event/Events.hpp>
 #include <abyss/controllers/Event/GameReady/GameReady.hpp>
 #include <abyss/controllers/UI/UI.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
@@ -151,7 +153,7 @@ namespace abyss
         return this->init(restartId);
     }
     bool Stage::init(
-        const std::shared_ptr<Actor::Player::PlayerActor>& player,
+        const std::shared_ptr<Actor::IActor>& player,
         const std::shared_ptr<Event::IEvent>& readyEvent
     ) const {
         bool result = true;
@@ -168,11 +170,13 @@ namespace abyss
         // World初期化
         {
             // プレイヤーを登録
-            m_pManager->set(player.get());
+            auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
+            playerManager->regist(player);
+
             auto world = m_pManager->getModule<World>();
             world->create<Actor::God::Builder>();
             world->regist(player);
-            if (nextRoom = this->findRoom(player->getPos())) {
+            if (nextRoom = this->findRoom(playerManager->getPos())) {
                 result &= this->initRoom(*world, *nextRoom);
             } else {
                 result = false;
@@ -226,9 +230,8 @@ namespace abyss
         if (!initStartPos) {
             return false;
         }
-        auto player = Actor::Player::PlayerActor::Create();
-        player->setPos(initStartPos->getPos());
-        player->setForward(initStartPos->getForward());
+        auto player = std::make_shared<Actor::IActor>();
+        Actor::Player::Builder::Build(player.get(), *initStartPos);
 
         return this->init(player, std::make_shared<Event::GameReady>());
     }

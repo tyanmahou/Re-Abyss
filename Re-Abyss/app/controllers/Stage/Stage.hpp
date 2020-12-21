@@ -33,7 +33,7 @@ namespace abyss
 
 		bool restart()const;
 		bool init(
-			const std::shared_ptr<Actor::Player::PlayerActor>& player,
+			const std::shared_ptr<Actor::IActor>& player,
 			const std::shared_ptr<Event::IEvent>& readyEvent
 		) const;
 		bool init(s3d::int32 startId = 0) const;

@@ -1,10 +1,9 @@
 #include "GameReady.hpp"
 #include <abyss/controllers/Manager/Manager.hpp>
 #include <abyss/controllers/GlobalTime/GlobalTime.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
 #include <abyss/controllers/UI/UI.hpp>
 #include <abyss/controllers/UI/Fade/IrisOut/IrisOut.hpp>
-
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 namespace abyss::Event
 {
     GameReady::GameReady()
@@ -25,7 +24,7 @@ namespace abyss::Event
             return false;
         }
         if (auto ui = m_fadeUI) {
-            auto pos = m_pManager->getModule<Actor::Player::PlayerActor>()->getPos();
+            auto pos = m_pManager->getModule<Actor::Player::PlayerManager>()->getPos();
             ui->setPos(pos)
                 .setFadeTime(m_timer.progress0_1())
                 ;

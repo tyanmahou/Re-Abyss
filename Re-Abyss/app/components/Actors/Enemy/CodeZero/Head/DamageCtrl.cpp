@@ -1,7 +1,5 @@
 #include "DamageCtrl.hpp"
 
-#include <abyss/controllers/Actors/Enemy/CodeZero/CodeZeroActor.hpp>
-
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/base/IDamageCallback.hpp>

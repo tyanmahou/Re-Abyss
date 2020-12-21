@@ -2,7 +2,8 @@
 #include <Siv3D.hpp>
 
 #include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/controllers/Actors/Player/PlayerActor.hpp>
+#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
 
 #include <abyss/controllers/Event/Events.hpp>
 namespace abyss::Event::RoomMove
@@ -17,10 +18,11 @@ namespace abyss::Event::RoomMove
         m_playerMove(playerMove)
     {}
 
-    bool BasicMove::Start(const Actor::Player::PlayerActor& player, const RoomModel& nextRoom, double milliSec)
+    bool BasicMove::Start(Manager* manager, const RoomModel& nextRoom, double milliSec)
     {
-        const auto& pos = player.getPos();
-        auto camera = player.getModule<Camera>();
+        auto* player = manager->getModule<Actor::Player::PlayerManager>();
+        const auto& pos = player->getPos();
+        auto camera = manager->getModule<Camera>();
         camera->setNextRoom(nextRoom);
 
         const auto& current = camera->getCurrentRoom();
@@ -54,7 +56,7 @@ namespace abyss::Event::RoomMove
             milliSec
             );
 
-        player.getModule<Events>()->regist(event);
+        manager->getModule<Events>()->regist(event);
         return true;
     }
 
