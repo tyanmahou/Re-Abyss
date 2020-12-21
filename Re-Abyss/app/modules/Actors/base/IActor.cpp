@@ -20,14 +20,6 @@ namespace abyss::Actor
 	{
 		m_time->updateDeltaTime(worldDt);
 	}
-	void IActor::setup() const
-	{
-		m_components.setup();
-	}
-	void IActor::start()
-	{
-		m_components.start();
-	}
 	void IActor::update()
 	{
 		m_time->updateUpdateTime();
