@@ -6,7 +6,7 @@
 
 namespace abyss::Actor
 {
-	class IActor
+	class IActor final
 	{
 	private:
 		bool m_isDestroyed = false;

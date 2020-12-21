@@ -169,16 +169,9 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
     {
-        class TemporaryActor : public IActor
-        {
-        public:
-            TemporaryActor(const s3d::Audio& audio, const s3d::Vec2& pos)
-            {
-                this->m_isDontDestoryOnLoad = true;
-                this->attach<Body>(this)->initPos(pos);
-                this->attach<TemporarySoundEffect>(this, audio);
-            }
-        };
-        m_pActor->getModule<World>()->create<TemporaryActor>(audio, pos);
+        auto pActor = m_pActor->getModule<World>()->create().get();
+        pActor->setIsDontDestoryOnLoad();
+        pActor->attach<Body>(pActor)->initPos(pos);
+        pActor->attach<TemporarySoundEffect>(pActor, audio);
     }
 }
