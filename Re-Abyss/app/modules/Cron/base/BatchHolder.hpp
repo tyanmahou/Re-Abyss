@@ -15,7 +15,7 @@ namespace abyss::cron
     public:
         void flush();
         void push(const std::shared_ptr<Batch>& batch);
-        void update(double dt);
+        void update();
         void erase();
 
         void clear();

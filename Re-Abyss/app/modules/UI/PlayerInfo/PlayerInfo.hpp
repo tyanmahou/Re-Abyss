@@ -3,7 +3,7 @@
 #include <abyss/modules/UI/base/IUserInterface.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abuss
+namespace abyss
 {
     class HP;
 }

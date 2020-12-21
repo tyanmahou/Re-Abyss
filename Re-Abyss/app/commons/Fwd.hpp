@@ -9,7 +9,7 @@ namespace abyss
 	class IComponent;
 
 	/// <summary>
-	/// Controllers
+	/// Modules
 	/// </summary>
 	class System;
 	class Manager;
@@ -34,7 +34,7 @@ namespace abyss
 	class Master;
 	class IMasterObserver;
 
-	/// Controllers/Actors
+	/// Modules/Actors
 	namespace Actor
 	{
 		class IActor;
@@ -44,8 +44,13 @@ namespace abyss
 		}
 	}
 
+	namespace cron
+	{
+		class Batch;
+	}
+
 	/// <summary>
-	/// Controllers/Event
+	/// Modules/Event
 	/// </summary>
 	namespace Event
 	{
@@ -81,9 +86,6 @@ namespace abyss
 	struct DecorEntity;
 	struct DecorGraphicsEntity;
 	struct DecorAnimationEntity;
-
-	// Factory
-	class DIContainer;
 
 	/// <summary>
 	/// Models

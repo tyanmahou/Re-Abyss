@@ -264,13 +264,14 @@
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Depends.cpp" />
     <ClCompile Include="app\components\base\DependSort.cpp" />
+    <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\modules\Actors\Player\PlayerManager.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\modules\Cron\base\Batch.cpp" />
     <ClCompile Include="app\modules\Cron\base\BatchHolder.cpp" />
-    <ClCompile Include="app\modules\Cron\BubbleGenerator\BubbleGeneratorJob.cpp" />
-    <ClCompile Include="app\modules\Cron\Common\IntervalTimeScheduler.cpp" />
-    <ClCompile Include="app\modules\Cron\Common\OnceScheduler.cpp" />
+    <ClCompile Include="app\components\Crons\BubbleGenerator\Generator.cpp" />
+    <ClCompile Include="app\components\Crons\Commons\IntervalTimeScheduler.cpp" />
+    <ClCompile Include="app\components\Crons\Commons\OnceScheduler.cpp" />
     <ClCompile Include="app\modules\Cron\Cron.cpp" />
     <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\modules\Cycle\Splash\Main.cpp" />
@@ -596,6 +597,10 @@
     <ClInclude Include="app\components\Actors\Player\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Crons\base\IJob.hpp" />
+    <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
+    <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
+    <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\modules\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
@@ -648,11 +653,9 @@
     <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
-    <ClInclude Include="app\modules\Cron\base\IJob.hpp" />
-    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp" />
-    <ClInclude Include="app\modules\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
-    <ClInclude Include="app\modules\Cron\Common\IntervalTimeScheduler.hpp" />
-    <ClInclude Include="app\modules\Cron\Common\OnceScheduler.hpp" />
+    <ClInclude Include="app\components\Crons\BubbleGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Crons\Commons\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\components\Crons\Commons\OnceScheduler.hpp" />
     <ClInclude Include="app\modules\Cron\Cron.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />
@@ -669,6 +672,7 @@
     <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
+    <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
     <ClInclude Include="app\modules\Master\Master.hpp" />
     <ClInclude Include="app\modules\Save\SaveData.hpp" />
     <ClInclude Include="app\modules\Save\Save.hpp" />
@@ -995,6 +999,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
+    <None Include="app\modules\GameObject\GameObject.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -93,7 +93,7 @@ namespace abyss
         m_userInterface.update(dt);
         m_decor->update(m_time.time());
         m_backGround->update(m_time.time());
-        m_cron->update(dt);
+        m_cron->update();
 
 #if ABYSS_DEBUG
         if (Debug::DebugManager::IsLogEffectNum()) {

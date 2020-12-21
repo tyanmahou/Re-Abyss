@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actors/God/Builder.hpp>
 #include <abyss/components/Actors/Player/Builder.hpp>
+#include <abyss/components/Crons/BubbleGenerator/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
@@ -13,7 +14,6 @@
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Cron.hpp>
-#include <abyss/modules/Cron/BubbleGenerator/BubbleGeneratorJob.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -203,7 +203,7 @@ namespace abyss
         // バブルエフェクト開始
         {
             auto cron = m_pManager->getModule<Cron>();
-            cron->createInterval<cron::BubbleGenerator::BubbleGeneratorJob>(3s);
+            cron->create<cron::BubbleGenerator::BuildIntervalTime>(3s);
         }
         auto save = m_pManager->getModule<Save>();
         auto sound = m_pManager->getModule<Sound>();

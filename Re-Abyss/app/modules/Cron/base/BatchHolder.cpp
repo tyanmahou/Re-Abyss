@@ -11,6 +11,10 @@ namespace abyss::cron
         auto registing = std::move(m_reserves);
         m_reserves.clear();
         for (auto& batch : registing) {
+            batch->setup();
+            batch->start();
+            // task初期化
+            batch->reset();
             m_batchs.push_back(std::move(batch));
         }
     }
@@ -18,7 +22,7 @@ namespace abyss::cron
     {
         m_reserves.push_back(batch);
     }
-    void BatchHolder::update([[maybe_unused]]double dt)
+    void BatchHolder::update()
     {
         this->flush();
         for (auto& batch : m_batchs) {
