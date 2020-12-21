@@ -13,7 +13,7 @@ namespace abyss::cron
             s3d::Array<Coro::Task<>> tasks;
             for (auto& job : jobs) {
                 tasks.push_back(job->onExecute());
-            };
+            }
             while (true) {
                 for (auto& task : tasks) {
                     task.moveNext();
