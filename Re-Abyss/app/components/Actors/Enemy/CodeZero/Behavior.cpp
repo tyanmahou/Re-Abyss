@@ -2,10 +2,10 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Manager/Manager.hpp>
+#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandProxy.h>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/Builder.hpp>
 

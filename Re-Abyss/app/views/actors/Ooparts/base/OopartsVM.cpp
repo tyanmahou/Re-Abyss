@@ -1,7 +1,7 @@
 #include "OopartsVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/views/Actors/Common/KiraKiraEffect.hpp>
-#include <abyss/controllers/System/System.hpp>
+#include <abyss/modules/System/System.hpp>
 
 namespace abyss::Actor::Ooparts
 {

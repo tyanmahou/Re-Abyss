@@ -1,6 +1,6 @@
 #include "TitleScene.hpp"
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
-#include <abyss/controllers/Cycle/Title/Main.hpp>
+#include <abyss/modules/Cycle/Title/Main.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 

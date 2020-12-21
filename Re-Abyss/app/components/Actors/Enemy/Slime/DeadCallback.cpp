@@ -1,6 +1,6 @@
 #include "DeadCallback.hpp"
 #include "SenserCtrl.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {

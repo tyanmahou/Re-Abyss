@@ -1,6 +1,6 @@
 #include "ShotVM.hpp"
 #include <Siv3D.hpp>
-#include <abyss/controllers/System/System.hpp>
+#include <abyss/modules/System/System.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 #include "ShotEffect.hpp"

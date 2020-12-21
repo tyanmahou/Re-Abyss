@@ -1,6 +1,6 @@
 #include "SplashScene.hpp"
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
-#include <abyss/controllers/Cycle/Splash/Main.hpp>
+#include <abyss/modules/Cycle/Splash/Main.hpp>
 
 namespace abyss
 {

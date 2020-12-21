@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/types/MapColInfo.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor

@@ -1,7 +1,7 @@
 #include "ActorUtils.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actors/Player/PlayerManager.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::ActorUtils

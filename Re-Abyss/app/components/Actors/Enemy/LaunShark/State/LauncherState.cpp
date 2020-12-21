@@ -2,7 +2,7 @@
 #include "SwimState.hpp"
 
 #include <Siv3D.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 

@@ -98,9 +98,6 @@
     <ClCompile Include="App\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Camera\Camera.cpp">
-      <Filter>Source Files\ActionSystem\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Camera\CameraModel.cpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
@@ -110,23 +107,11 @@
     <ClCompile Include="app\models\Collision\CollisionModel.cpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Camera\CameraWork\base\ICameraWork.cpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Room\RoomModel.cpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\World\World.cpp">
-      <Filter>Source Files\ActionSystem\World</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Stage\Stage.cpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\base\IActor.cpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Application\MainApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
@@ -164,9 +149,6 @@
     <ClCompile Include="app\views\Light\LightVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Light\Light.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -192,9 +174,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Decor\Decor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp">
@@ -242,9 +221,6 @@
     <ClCompile Include="app\datastores\Decor\base\IDecorAnimationDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Decor\DecorGraphicsManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -278,9 +254,6 @@
     <ClCompile Include="app\views\BackGround\BackGroundVM.cpp">
       <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\BackGround\BackGround.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -293,40 +266,10 @@
     <ClCompile Include="app\services\Stage\StageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\base\Serif.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\base\FaceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\base\TriggerManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\base\TriggerEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\TalkEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Event\Talk\TalkService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Events.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Build.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp">
@@ -352,9 +295,6 @@
     </ClCompile>
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Actors\base\ActorsHolder.cpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp">
       <Filter>Source Files</Filter>
@@ -419,28 +359,7 @@
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Sound\Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Manager\Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\System\System.cpp">
-      <Filter>Source Files\ActionSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\UI\base\UserInterfaceHolder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\UI\UI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\UI\BossHPBar\BossHPBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\Ooparts\Xto\XtoVM.cpp">
@@ -456,24 +375,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actors\Ooparts\Nyan\NyanVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Effects\Effects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Stage\StageData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\base\BatchHolder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\Cron.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\Common\IntervalTimeScheduler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\BackGround\WaterSarface\WaterSarfaceView.cpp">
@@ -497,31 +398,10 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\GlobalTime\GlobalTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\UI\DyingEffect\DyingEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Save\Save.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Save\SaveData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\RoomMove\base\IRoomMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp">
@@ -533,28 +413,7 @@
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\UI\Serif\Serif.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Master\Master.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\GameRestart\GameRestart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\GameReady\GameReady.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Event\GamePause\GamePause.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Camera\Quake\Quake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\UI\PlayerInfo\PlayerInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp">
@@ -569,19 +428,10 @@
     <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Splash\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Splash\Logo\Logo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Title\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp">
@@ -593,13 +443,7 @@
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Title\Logo\Logo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Title\BackGround\BackGround.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp">
@@ -904,22 +748,13 @@
     <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Title\Cursor\Cursor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cycle\Title\Cursor\Shot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\UI\Fade\IrisOut\IrisOut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp">
@@ -935,12 +770,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\base\Batch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\controllers\Cron\Common\OnceScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actors\Commons\BehaviorCtrl.cpp">
@@ -1114,7 +943,178 @@
     <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\controllers\Actors\Player\PlayerManager.cpp">
+    <ClCompile Include="app\modules\World\World.cpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Actors\base\ActorsHolder.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Actors\base\IActor.cpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Actors\Player\PlayerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\BackGround\BackGround.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Camera\CameraWork\base\ICameraWork.cpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Camera\Quake\Quake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Camera\Camera.cpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\base\Batch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\base\BatchHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\BubbleGenerator\BubbleGeneratorJob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\Common\IntervalTimeScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\Common\OnceScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cron\Cron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Splash\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Title\BackGround\BackGround.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Title\Cursor\Cursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Title\Cursor\Shot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Title\Logo\Logo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Title\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Decor\Decor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Decor\DecorGraphicsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Effects\Effects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\GamePause\GamePause.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\GameReady\GameReady.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\GameRestart\GameRestart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\RoomMove\BasicMove\BasicMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\RoomMove\DoorMove\DoorMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\base\FaceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\base\Serif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\base\TriggerEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\base\TriggerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Build.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\TalkEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\GlobalTime\GlobalTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Light\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Manager\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Master\Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Save\Save.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Save\SaveData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sound\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Stage\Stage.cpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Stage\StageData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\System\System.cpp">
+      <Filter>Source Files\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\base\UserInterfaceHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\BossHPBar\BossHPBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\DyingEffect\DyingEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\Fade\IrisOut\IrisOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\PlayerInfo\PlayerInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\Serif\Serif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1126,9 +1126,6 @@
   <ItemGroup>
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
       <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Camera\Camera.hpp">
-      <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClInclude>
     <ClInclude Include="app\models\Camera\CameraModel.hpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
@@ -1157,9 +1154,6 @@
     <ClInclude Include="app\commons\Fwd.hpp">
       <Filter>Source Files\Commons</Filter>
     </ClInclude>
-    <ClInclude Include="app\controllers\Camera\CameraWork\base\ICameraWork.hpp">
-      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
-    </ClInclude>
     <ClInclude Include="app\scenes\base\ISceneBase.hpp">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
@@ -1174,15 +1168,6 @@
     </ClInclude>
     <ClInclude Include="app\models\Room\RoomModel.hpp">
       <Filter>Source Files\ActionSystem\Room</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\World\World.hpp">
-      <Filter>Source Files\ActionSystem\World</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Stage\Stage.hpp">
-      <Filter>Source Files\ActionSystem\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\Actors\base\IActor.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Application\MainApp.hpp">
       <Filter>Source Files\Commons\Appication</Filter>
@@ -1211,7 +1196,6 @@
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\models\Light\LightModel.hpp" />
-    <ClInclude Include="app\controllers\Light\Light.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
@@ -1241,7 +1225,6 @@
     </ClInclude>
     <ClInclude Include="app\entities\Actors\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
-    <ClInclude Include="app\controllers\Decor\Decor.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
@@ -1269,7 +1252,6 @@
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
-    <ClInclude Include="app\controllers\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
@@ -1285,7 +1267,6 @@
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
-    <ClInclude Include="app\controllers\BackGround\BackGround.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp">
       <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
@@ -1299,23 +1280,11 @@
     <ClInclude Include="app\params\Actors\Player\Param.hpp" />
     <ClInclude Include="app\params\Actors\Player\ShotParam.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\base\Serif.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\base\FaceManager.hpp" />
     <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\base\TriggerManager.hpp" />
-    <ClInclude Include="app\controllers\Event\base\IEvent.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\base\TriggerEvent.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\TalkEvent.hpp" />
-    <ClInclude Include="app\controllers\Event\Events.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
     <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\IActor.ipp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
@@ -1329,9 +1298,6 @@
     <ClInclude Include="app\views\Actors\Player\PlayerVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\ActorsHolder.hpp">
-      <Filter>Source Files\ActionSystem\Actors</Filter>
-    </ClInclude>
     <ClInclude Include="app\concepts\Common.hpp" />
     <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
@@ -1371,33 +1337,15 @@
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
-    <ClInclude Include="app\controllers\Sound\Sound.hpp" />
-    <ClInclude Include="app\controllers\Manager\Manager.hpp" />
-    <ClInclude Include="app\controllers\System\System.hpp">
-      <Filter>Source Files\ActionSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="app\controllers\UI\UI.hpp" />
-    <ClInclude Include="app\controllers\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
-    <ClInclude Include="app\controllers\UI\base\UserInterfaceHolder.hpp" />
-    <ClInclude Include="app\controllers\UI\BossHPBar\BossHPBar.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
-    <ClInclude Include="app\controllers\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Xto\XtoVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\OopartsVM.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />
-    <ClInclude Include="app\controllers\Effects\Effects.hpp" />
-    <ClInclude Include="app\controllers\Stage\StageData.hpp" />
-    <ClInclude Include="app\controllers\Cron\Cron.hpp" />
-    <ClInclude Include="app\controllers\Cron\base\BatchHolder.hpp" />
-    <ClInclude Include="app\controllers\Cron\base\IScheduler.hpp" />
-    <ClInclude Include="app\controllers\Cron\Common\IntervalTimeScheduler.hpp" />
-    <ClInclude Include="app\controllers\Cron\base\IJob.hpp" />
-    <ClInclude Include="app\controllers\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
@@ -1407,48 +1355,28 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
-    <ClInclude Include="app\controllers\GlobalTime\GlobalTime.hpp" />
-    <ClInclude Include="app\controllers\UI\DyingEffect\DyingEffect.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
-    <ClInclude Include="app\controllers\Save\SaveData.hpp" />
-    <ClInclude Include="app\controllers\Save\Save.hpp" />
     <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
     <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
-    <ClInclude Include="app\controllers\Event\RoomMove\BasicMove\BasicMove.hpp" />
-    <ClInclude Include="app\controllers\Event\RoomMove\base\IRoomMove.hpp" />
-    <ClInclude Include="app\controllers\Event\RoomMove\DoorMove\DoorMove.hpp" />
-    <ClInclude Include="app\controllers\UI\UIOrder.hpp" />
-    <ClInclude Include="app\controllers\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
-    <ClInclude Include="app\controllers\Master\Master.hpp" />
-    <ClInclude Include="app\controllers\Event\GameRestart\GameRestart.hpp" />
-    <ClInclude Include="app\controllers\Event\GameReady\GameReady.hpp" />
-    <ClInclude Include="app\controllers\Event\GamePause\GamePause.hpp" />
-    <ClInclude Include="app\controllers\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
-    <ClInclude Include="app\controllers\UI\PlayerInfo\PlayerInfo.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
     <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />
     <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\IDrawCallbackView.hpp" />
@@ -1566,17 +1494,14 @@
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\components\Actors\Commons\LightCtrl.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Title\Cursor\Cursor.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\controllers\Cycle\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\views\Actors\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\types\UserPlayMode.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
-    <ClInclude Include="app\controllers\UI\Fade\IrisOut\IrisOut.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
@@ -1585,8 +1510,6 @@
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
-    <ClInclude Include="app\controllers\Cron\base\Batch.hpp" />
-    <ClInclude Include="app\controllers\Cron\Common\OnceScheduler.hpp" />
     <ClInclude Include="app\components\Actors\Commons\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actors\utils\BehaviorUtil.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Behavior.hpp" />
@@ -1596,7 +1519,6 @@
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
     <ClInclude Include="app\components\base\Depends.hpp" />
     <ClInclude Include="app\components\base\DependSort.hpp" />
-    <ClInclude Include="app\controllers\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ReceiverData.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
@@ -1647,7 +1569,85 @@
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
-    <ClInclude Include="app\controllers\Actors\Player\PlayerManager.hpp" />
+    <ClInclude Include="app\modules\World\World.hpp">
+      <Filter>Source Files\ActionSystem\World</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Actors\base\ActorsHolder.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Actors\base\IActor.hpp">
+      <Filter>Source Files\ActionSystem\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Actors\base\IActor.ipp" />
+    <ClInclude Include="app\modules\Actors\base\Tag.hpp" />
+    <ClInclude Include="app\modules\Actors\Player\PlayerManager.hpp" />
+    <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraWork\base\ICameraWork.hpp">
+      <Filter>Source Files\ActionSystem\Camera\CameraWork</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />
+    <ClInclude Include="app\modules\Camera\Camera.hpp">
+      <Filter>Source Files\ActionSystem\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
+    <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp" />
+    <ClInclude Include="app\modules\Cron\BubbleGenerator\BubbleGeneratorJob.hpp" />
+    <ClInclude Include="app\modules\Cron\Common\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\modules\Cron\Common\OnceScheduler.hpp" />
+    <ClInclude Include="app\modules\Cron\Cron.hpp" />
+    <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
+    <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />
+    <ClInclude Include="app\modules\Cycle\Title\BackGround\BackGround.hpp" />
+    <ClInclude Include="app\modules\Cycle\Title\Cursor\Cursor.hpp" />
+    <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
+    <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
+    <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
+    <ClInclude Include="app\modules\Decor\Decor.hpp" />
+    <ClInclude Include="app\modules\Decor\DecorGraphicsManager.hpp" />
+    <ClInclude Include="app\modules\Effects\Effects.hpp" />
+    <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
+    <ClInclude Include="app\modules\Event\GamePause\GamePause.hpp" />
+    <ClInclude Include="app\modules\Event\GameReady\GameReady.hpp" />
+    <ClInclude Include="app\modules\Event\GameRestart\GameRestart.hpp" />
+    <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
+    <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />
+    <ClInclude Include="app\modules\Event\RoomMove\DoorMove\DoorMove.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\base\FaceManager.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\base\Serif.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\base\TriggerEvent.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\base\TriggerManager.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\TalkEvent.hpp" />
+    <ClInclude Include="app\modules\Event\Events.hpp" />
+    <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
+    <ClInclude Include="app\modules\Light\Light.hpp" />
+    <ClInclude Include="app\modules\Manager\Manager.hpp" />
+    <ClInclude Include="app\modules\Master\Master.hpp" />
+    <ClInclude Include="app\modules\Save\Save.hpp" />
+    <ClInclude Include="app\modules\Save\SaveData.hpp" />
+    <ClInclude Include="app\modules\Sound\Sound.hpp" />
+    <ClInclude Include="app\modules\Stage\Stage.hpp">
+      <Filter>Source Files\ActionSystem\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Stage\StageData.hpp" />
+    <ClInclude Include="app\modules\System\System.hpp">
+      <Filter>Source Files\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\UI\base\IUserInterface.hpp" />
+    <ClInclude Include="app\modules\UI\base\UserInterfaceHolder.hpp" />
+    <ClInclude Include="app\modules\UI\BossHPBar\BossHPBar.hpp" />
+    <ClInclude Include="app\modules\UI\DyingEffect\DyingEffect.hpp" />
+    <ClInclude Include="app\modules\UI\Fade\IrisOut\IrisOut.hpp" />
+    <ClInclude Include="app\modules\UI\PlayerInfo\PlayerInfo.hpp" />
+    <ClInclude Include="app\modules\UI\Serif\Serif.hpp" />
+    <ClInclude Include="app\modules\UI\UI.hpp" />
+    <ClInclude Include="app\modules\UI\UIOrder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

@@ -1,5 +1,5 @@
 #include "HandProxy.h"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>

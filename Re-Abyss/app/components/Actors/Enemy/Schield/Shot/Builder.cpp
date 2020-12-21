@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/components/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 

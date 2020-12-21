@@ -1,11 +1,11 @@
 #include "RoomMoveChecker.hpp"
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/controllers/Stage/Stage.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
 
-#include <abyss/controllers/Actors/Player/PlayerManager.hpp>
-#include <abyss/controllers/Event/RoomMove/BasicMove/BasicMove.hpp>
+#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Event/RoomMove/BasicMove/BasicMove.hpp>
 
 #include <abyss/components/Actors/Commons/CameraFixPos.hpp>
 

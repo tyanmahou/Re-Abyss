@@ -1,8 +1,8 @@
 #include "RestartCtrl.hpp"
 #include <Siv3D.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Event/Events.hpp>
-#include <abyss/controllers/Event/GameRestart/GameRestart.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Event/GameRestart/GameRestart.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 
 #include <abyss/components/Actors/Player/State/DeadState.hpp>

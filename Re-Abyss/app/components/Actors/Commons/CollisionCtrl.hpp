@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/concepts/Component.hpp>
-#include <abyss/controllers/Actors/base/Tag.hpp>
+#include <abyss/modules/Actors/base/Tag.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPreCollision.hpp>

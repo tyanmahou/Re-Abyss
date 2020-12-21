@@ -1,6 +1,6 @@
 #include "OutRoomChecker.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>

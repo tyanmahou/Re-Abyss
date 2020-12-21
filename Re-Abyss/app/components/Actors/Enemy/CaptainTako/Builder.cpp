@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 

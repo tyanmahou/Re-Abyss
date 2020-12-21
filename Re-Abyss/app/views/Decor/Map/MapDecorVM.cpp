@@ -1,5 +1,5 @@
 #include "MapDecorVM.hpp"
-#include <abyss/controllers/Decor/DecorGraphicsManager.hpp>
+#include <abyss/modules/Decor/DecorGraphicsManager.hpp>
 namespace abyss
 {
     MapDecorVM::MapDecorVM(

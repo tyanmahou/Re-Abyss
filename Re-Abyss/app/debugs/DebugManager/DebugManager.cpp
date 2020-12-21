@@ -3,8 +3,8 @@
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>
-#include <abyss/controllers/Effects/Effects.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>

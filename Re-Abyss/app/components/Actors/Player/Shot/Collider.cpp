@@ -1,5 +1,5 @@
 #include "Collider.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>

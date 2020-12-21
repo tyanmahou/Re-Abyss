@@ -1,5 +1,5 @@
 #include "HeadCtrl.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 

@@ -8,7 +8,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 namespace abyss::Actor::Enemy
 {

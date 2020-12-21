@@ -1,7 +1,7 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/controllers/Stage/StageData.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
+#include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/services/Stage/base/IStageService.hpp>
 #include <abyss/entities/Room/RoomEntity.hpp>
 

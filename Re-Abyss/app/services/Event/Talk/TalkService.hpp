@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <abyss/controllers/Event/Talk/TalkEvent.hpp>
+#include <abyss/modules/Event/Talk/TalkEvent.hpp>
 
 namespace abyss::Event::Talk
 {

@@ -1,9 +1,9 @@
 #include "UICtrl.hpp"
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/UI/UI.hpp>
-#include <abyss/controllers/UI/PlayerInfo/PlayerInfo.hpp>
-#include <abyss/controllers/UI/DyingEffect/DyingEffect.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/PlayerInfo/PlayerInfo.hpp>
+#include <abyss/modules/UI/DyingEffect/DyingEffect.hpp>
 
 namespace abyss::Actor::Player
 {

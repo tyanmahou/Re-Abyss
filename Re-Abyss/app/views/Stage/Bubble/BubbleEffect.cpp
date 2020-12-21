@@ -1,7 +1,7 @@
 #include "BubbleEffect.hpp"
-#include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
-#include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 namespace abyss
 {
     BubbleEffect::BubbleEffect(Manager* pManager, const Vec2& offset, Small) :

@@ -1,6 +1,6 @@
 #include "SenserCtrl.hpp"
 #include <abyss/components/Actors/Enemy/Slime/Sensor/Builder.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <type_traits>
-#include <abyss/controllers/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/IUserInterface.hpp>
 
 namespace abyss
 {

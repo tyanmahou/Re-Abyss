@@ -4,8 +4,8 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
-#include <abyss/controllers/Camera/Camera.hpp>
-#include <abyss/controllers/Sound/Sound.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Sound/Sound.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player

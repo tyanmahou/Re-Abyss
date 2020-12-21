@@ -1,6 +1,6 @@
 #include "OopartsCtrl.hpp"
-#include <abyss/controllers/World/World.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/components/Actors/Ooparts/Xto/Builder.hpp>
 

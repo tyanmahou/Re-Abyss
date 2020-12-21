@@ -4,7 +4,7 @@
 #include <abyss/components/Actors/Map/PenetrateFloor/Builder.hpp>
 #include <abyss/components/Actors/Map/Ladder/Builder.hpp>
 
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 
 namespace abyss
 {

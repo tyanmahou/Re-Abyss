@@ -1,9 +1,9 @@
 #include "PauseCtrl.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Event/Events.hpp>
-#include <abyss/controllers/Event/GamePause/GamePause.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Event/GamePause/GamePause.hpp>
 
 
 namespace abyss::Actor::God

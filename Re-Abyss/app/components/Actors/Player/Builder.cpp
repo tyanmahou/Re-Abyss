@@ -1,6 +1,6 @@
 #include "Builder.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Manager/Manager.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
 #include <abyss/components/Actors/Commons/AudioSource.hpp>

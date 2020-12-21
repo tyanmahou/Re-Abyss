@@ -1,7 +1,7 @@
 #include "WaitState.hpp"
 #include "ChargeState.hpp"
 
-#include <abyss/controllers/System/System.hpp>
+#include <abyss/modules/System/System.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 

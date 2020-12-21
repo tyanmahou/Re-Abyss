@@ -1,5 +1,5 @@
 #include "BehaviorUtil.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 
 namespace abyss::Actor::BehaviorUtils

@@ -4,7 +4,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/Player/Shot/Builder.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>

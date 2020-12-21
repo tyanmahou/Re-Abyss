@@ -1,6 +1,6 @@
 #include "Main.hpp"
-#include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/services/Event/Talk/TalkService.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger

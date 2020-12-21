@@ -1,10 +1,10 @@
 #include "MainScene.hpp"
 
-#include <abyss/controllers/Master/Master.hpp>
+#include <abyss/modules/Master/Master.hpp>
 
-#include <abyss/controllers/System/System.hpp>
-#include <abyss/controllers/Save/SaveData.hpp>
-#include <abyss/controllers/Stage/StageData.hpp>
+#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Save/SaveData.hpp>
+#include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>

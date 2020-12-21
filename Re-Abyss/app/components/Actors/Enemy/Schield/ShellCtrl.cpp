@@ -1,5 +1,5 @@
 #include "ShellCtrl.hpp"
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/Enemy/Schield/Shell/Builder.hpp>
 
 namespace abyss::Actor::Enemy::Schield

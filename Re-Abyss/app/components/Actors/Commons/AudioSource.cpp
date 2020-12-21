@@ -1,13 +1,13 @@
 #include "AudioSource.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>
 
-#include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <Siv3D.hpp>

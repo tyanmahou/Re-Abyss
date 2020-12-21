@@ -1,6 +1,6 @@
 #pragma once
 #include <type_traits>
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 namespace abyss
 {

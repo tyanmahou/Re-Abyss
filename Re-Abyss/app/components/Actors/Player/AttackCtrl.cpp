@@ -1,7 +1,7 @@
 #include "AttackCtrl.hpp"
 #include <Siv3D.hpp>
 
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 namespace abyss::Actor::Player
 {

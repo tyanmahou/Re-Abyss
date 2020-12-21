@@ -5,8 +5,8 @@
 #include <abyss/components/Actors/Gimmick/Door/Builder.hpp>
 #include <abyss/components/Actors/Gimmick/EventTrigger/Builder.hpp>
 
-#include <abyss/controllers/Stage/Stage.hpp>
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
+#include <abyss/modules/World/World.hpp>
 
 namespace abyss
 {

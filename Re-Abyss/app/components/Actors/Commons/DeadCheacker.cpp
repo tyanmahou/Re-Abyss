@@ -1,6 +1,6 @@
 #include "DeadCheacker.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
-#include <abyss/controllers/Master/Master.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Master/Master.hpp>
 
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/base/IDeadCallback.hpp>

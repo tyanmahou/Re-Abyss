@@ -1,5 +1,5 @@
 #include "MainUpdate.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Sensor/ParentCtrl.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 

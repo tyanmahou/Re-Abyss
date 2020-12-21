@@ -1,7 +1,7 @@
 #include "AttackState.hpp"
 #include "WaitState.hpp"
 
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/Enemy/CaptainTako/Shot/Builder.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 #include <abyss/components/Actors/utils/ActorUtils.hpp>

@@ -19,7 +19,7 @@
 
 #include <abyss/components/Actors/Enemy/CodeZero/Builder.hpp>
 
-#include <abyss/controllers/World/World.hpp>
+#include <abyss/modules/World/World.hpp>
 
 namespace abyss
 {

@@ -5,7 +5,7 @@
 #include <abyss/components/Actors/base/ILastPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
-#include <abyss/controllers/Actors/base/Tag.hpp>
+#include <abyss/modules/Actors/base/Tag.hpp>
 
 namespace abyss::Actor
 {

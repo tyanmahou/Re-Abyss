@@ -2,8 +2,8 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/controllers/Manager/Manager.hpp>
-#include <abyss/controllers/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 
 namespace abyss
 {

@@ -1,5 +1,5 @@
 #include "MapCollider.hpp"
-#include <abyss/controllers/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
@@ -7,7 +7,7 @@
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 
-#include <abyss/controllers/Camera/Camera.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor

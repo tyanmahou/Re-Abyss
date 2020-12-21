@@ -1,12 +1,12 @@
 #include "TalkService.hpp"
 #include <Siv3D.hpp>
 
-#include <abyss/controllers/Event/Talk/base/FaceManager.hpp>
-#include <abyss/controllers/Event/Talk/base/TriggerManager.hpp>
-#include <abyss/controllers/Event/Talk/base/Serif.hpp>
-#include <abyss/controllers/Event/Talk/base/TriggerEvent.hpp>
+#include <abyss/modules/Event/Talk/base/FaceManager.hpp>
+#include <abyss/modules/Event/Talk/base/TriggerManager.hpp>
+#include <abyss/modules/Event/Talk/base/Serif.hpp>
+#include <abyss/modules/Event/Talk/base/TriggerEvent.hpp>
 
-#include <abyss/controllers/Event/Talk/BossTalk0_0/Build.hpp>
+#include <abyss/modules/Event/Talk/BossTalk0_0/Build.hpp>
 
 #include <abyss/models/Event/Talk/SerifModel.hpp>
 
