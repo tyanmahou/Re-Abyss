@@ -26,7 +26,7 @@ namespace abyss::Event::Talk
         if (m_timer.update()) {
             m_se.playOneShot(0.4);
         }
-        return !m_hpBar->find<ui::BossHPBar::Main>()->isFull();
+        return !m_hpBar->find<ui::BossHPBar::HPGaugeCtrl>()->isFull();
     }
 
     void ChargeBossHPBar::onEnd()

@@ -3,6 +3,8 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/components/UI/Common/ViewCtrl.hpp>
+#include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::ui::BossHPBar
@@ -18,25 +20,19 @@ namespace abyss::ui::BossHPBar
     {
         
     public:
-        Main(IUserInterface* pUi, Actor::IActor* actor);
+        Main(IUserInterface* pUi);
+
+        void setup(Depends depends) override;
 
         void onStart() override;
 
         void onUpdate() override;
 
         void onDraw() const override;
-
-        bool isFull() const;
     private:
         IUserInterface* m_pUi;
-
-        Actor::IActor* m_pActor;
-        Ref<Actor::HP> m_hpModel;
-        std::unique_ptr<BossHPBarVM> m_view;
-
-        double m_hp = 0;
-        double m_maxHp = 1;
-
+        Ref<HPGaugeCtrl> m_hpGauge;
+        Ref<ViewCtrl<BossHPBarVM>> m_view;
     };
 }
 

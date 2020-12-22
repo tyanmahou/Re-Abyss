@@ -1,57 +1,35 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/IUserInterface.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
-#include <abyss/components/Actors/Commons/HP.hpp>
+
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 
 namespace abyss::ui::BossHPBar
 {
-    Main::Main(IUserInterface* pUi, Actor::IActor* pActor):
-        m_pUi(pUi),
-        m_pActor(pActor),
-        m_view(std::make_unique<BossHPBarVM>())
+    Main::Main(IUserInterface* pUi):
+        m_pUi(pUi)
     {}
 
+    void Main::setup(Depends depends)
+    {
+        depends.on<IUpdate>().addAfter<HPGaugeCtrl>();
+    }
     void Main::onStart()
     {
-        m_hpModel = m_pActor->find<Actor::HP>();
-        m_hp = 0;
-        m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
+        m_hpGauge = m_pUi->find<HPGaugeCtrl>();
+        m_view = m_pUi->find<ViewCtrl<BossHPBarVM>>();
     }
 
     void Main::onUpdate()
     {
-        if (!m_hpModel) {
+        if (!m_hpGauge->isValid()) {
+            // 死亡したら死ぬ
             m_pUi->destroy();
             return;
         }
-        m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
-
-        auto hp = static_cast<double>(m_hpModel->getHp());
-
-        auto dt = m_pUi->deltaTime();
-        double add = m_maxHp * dt;
-        if (m_hp - add >= hp) {
-            m_hp -= add;
-        } else if (m_hp + add <= hp) {
-            m_hp += add;
-        } else {
-            m_hp = hp;
-        }
     }
-
 
     void Main::onDraw() const
     {
-        m_view
-            ->setHp(m_hp)
-            .setMaxHp(m_maxHp)
-            .draw();
+        (*m_view)->draw();
     }
-
-    bool Main::isFull() const
-    {
-        return m_hp >= m_maxHp;
-    }
-
 }

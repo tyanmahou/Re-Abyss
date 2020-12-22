@@ -266,6 +266,7 @@
     <ClCompile Include="app\components\base\DependSort.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
+    <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Main.cpp" />
     <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp" />
@@ -609,6 +610,8 @@
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />
+    <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Builder.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
