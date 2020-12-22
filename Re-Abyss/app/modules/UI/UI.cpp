@@ -6,19 +6,24 @@ namespace abyss
     {
         m_userInterfaces.flush();
     }
-    void UI::update(double dt)
+    void UI::update()
     {
-        m_userInterfaces.update(dt);
+        m_userInterfaces.update();
         m_userInterfaces.erase();
     }
     void UI::draw() const
     {
         m_userInterfaces.draw();
     }
-    void UI::regist(const std::shared_ptr<ui::IUserInterface>& ui)
+    Ref<ui::IUserInterface> UI::create()
+    {
+        return this->regist(std::make_shared<ui::IUserInterface>());
+    }
+    Ref<ui::IUserInterface> UI::regist(const std::shared_ptr<ui::IUserInterface>& ui)
     {
         ui->setManager(m_pManager);
         m_userInterfaces.push(ui);
+        return ui;
     }
 
     void UI::setActiveAll(bool isActive)

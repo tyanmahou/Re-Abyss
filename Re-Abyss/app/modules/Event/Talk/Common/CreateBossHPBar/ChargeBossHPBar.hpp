@@ -3,7 +3,7 @@
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
 #include <abyss/modules/Event/base/IEvent.hpp>
-#include <abyss/modules/UI/BossHPBar/BossHPBar.hpp>
+#include <abyss/components/UI/BossHPBar/Main.hpp>
 namespace abyss::Event::Talk
 {
     class ChargeBossHPBar : public IEvent
@@ -12,12 +12,12 @@ namespace abyss::Event::Talk
         bool update(double dt) override;
         void onEnd() override;
     private:
-        Ref<ui::BossHPBar> m_hpBar;
+        Ref<ui::IUserInterface> m_hpBar;
         IntervalTimer m_timer;
         s3d::Optional<s3d::FilePath> m_bossBgmPath;
         s3d::Audio m_se;
     public:
-        ChargeBossHPBar(Ref<ui::BossHPBar> hpBar);
+        ChargeBossHPBar(Ref<ui::IUserInterface> hpBar);
 
         void setBossBgmPath(const s3d::FilePath& path)
         {

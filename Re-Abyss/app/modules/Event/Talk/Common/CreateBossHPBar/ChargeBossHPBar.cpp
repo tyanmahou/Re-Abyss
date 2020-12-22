@@ -4,6 +4,7 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/modules/UI/UI.hpp>
+
 namespace abyss::Event::Talk
 {
     void ChargeBossHPBar::onStart()
@@ -25,7 +26,7 @@ namespace abyss::Event::Talk
         if (m_timer.update()) {
             m_se.playOneShot(0.4);
         }
-        return !m_hpBar->isFull();
+        return !m_hpBar->find<ui::BossHPBar::Main>()->isFull();
     }
 
     void ChargeBossHPBar::onEnd()
@@ -36,7 +37,7 @@ namespace abyss::Event::Talk
         m_pManager->getModule<UI>()->setActiveAll(true);
     }
 
-    ChargeBossHPBar::ChargeBossHPBar(Ref<ui::BossHPBar> hpBar):
+    ChargeBossHPBar::ChargeBossHPBar(Ref<ui::IUserInterface> hpBar):
         m_hpBar(hpBar),
         m_timer(0.05s, true)
     {}

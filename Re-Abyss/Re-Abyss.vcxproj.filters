@@ -1090,21 +1090,6 @@
     <ClCompile Include="app\modules\UI\base\UserInterfaceHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\UI\BossHPBar\BossHPBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\UI\DyingEffect\DyingEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\UI\Fade\IrisOut\IrisOut.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\UI\PlayerInfo\PlayerInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\UI\Serif\Serif.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\UI\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1118,6 +1103,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Crons\Commons\OnceScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\UI\base\IUserInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\BossHPBar\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\DyingEffect\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\PlayerInfo\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Serif\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Serif\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeIrisOut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1639,11 +1657,6 @@
     </ClInclude>
     <ClInclude Include="app\modules\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\modules\UI\base\UserInterfaceHolder.hpp" />
-    <ClInclude Include="app\modules\UI\BossHPBar\BossHPBar.hpp" />
-    <ClInclude Include="app\modules\UI\DyingEffect\DyingEffect.hpp" />
-    <ClInclude Include="app\modules\UI\Fade\IrisOut\IrisOut.hpp" />
-    <ClInclude Include="app\modules\UI\PlayerInfo\PlayerInfo.hpp" />
-    <ClInclude Include="app\modules\UI\Serif\Serif.hpp" />
     <ClInclude Include="app\modules\UI\UI.hpp" />
     <ClInclude Include="app\modules\UI\UIOrder.hpp" />
     <ClInclude Include="app\components\Crons\base\IJob.hpp" />
@@ -1654,6 +1667,18 @@
     <ClInclude Include="app\components\Crons\Commons\IntervalTimeScheduler.hpp" />
     <ClInclude Include="app\components\Crons\Commons\OnceScheduler.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
+    <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\UI\base\IDraw.hpp" />
+    <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />
+    <ClInclude Include="app\components\UI\BossHPBar\Main.hpp" />
+    <ClInclude Include="app\components\UI\DyingEffect\Builder.hpp" />
+    <ClInclude Include="app\components\UI\DyingEffect\Main.hpp" />
+    <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
+    <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
+    <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeIrisOut.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

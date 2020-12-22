@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::ui::Fade
+namespace abyss::ui::Fade::IrisOut
 {
     class IrisOutVM
     {

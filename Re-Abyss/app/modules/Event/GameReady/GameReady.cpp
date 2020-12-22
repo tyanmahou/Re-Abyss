@@ -2,8 +2,11 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/UI/UI.hpp>
-#include <abyss/modules/UI/Fade/IrisOut/IrisOut.hpp>
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
+
+#include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
+#include <abyss/components/UI/Fade/IrisOut/FadeIrisOut.hpp>
+
 namespace abyss::Event
 {
     GameReady::GameReady()
@@ -14,7 +17,7 @@ namespace abyss::Event
         m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
         m_timer.start();
         // フェードイン
-        (m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut>())
+        (m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeIrisOut>())
             ->setIsFadeIn(true)
             ;
     }

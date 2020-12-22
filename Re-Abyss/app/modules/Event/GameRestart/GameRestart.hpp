@@ -5,9 +5,9 @@
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 #include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
 
-namespace abyss::ui::Fade
+namespace abyss::ui::Fade::IrisOut
 {
-    class IrisOut;
+    class FadeIrisOut;
 }
 
 namespace abyss::Event
@@ -23,7 +23,7 @@ namespace abyss::Event
     private:
         TimerEx m_waitTimer;
         TimerEx m_fadeTimer;
-        Ref<ui::Fade::IrisOut> m_fadeUI;
+        Ref<ui::Fade::IrisOut::FadeIrisOut> m_fadeUI;
         std::shared_ptr<GlobalTimeScaleModel> m_globalTimeScale;
         Phase m_phase = Phase::Wait;
 

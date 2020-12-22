@@ -2,7 +2,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
-namespace abyss::ui
+namespace abyss::ui::DyingEffect
 {
     DyingEffectVM::DyingEffectVM():
         m_texture(Resource::Assets::Main()->loadTexture(U"ui/common/dying_effect/dying_effect.png"))

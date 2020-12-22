@@ -1,28 +1,31 @@
-#include "PlayerInfo.hpp"
+#include "Main.hpp"
+#include <abyss/modules/UI/base/IUserInterface.hpp>
 #include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 
-namespace abyss::ui
+namespace abyss::ui::PlayerInfo
 {
-    PlayerInfo::PlayerInfo(Actor::IActor* actor):
-        m_pActor(actor)
+    Main::Main(IUserInterface* pUi, Actor::IActor* pActor):
+        m_pUi(pUi),
+        m_pActor(pActor)
     {}
 
-    void PlayerInfo::start()
+    void Main::onStart()
     {
         m_hpModel = m_pActor->find<Actor::HP>();
     }
 
-    void PlayerInfo::update([[maybe_unused]]double dt)
+    void Main::onUpdate()
     {
     }
 
-    void PlayerInfo::draw() const
+    void Main::onDraw() const
     {
 #if ABYSS_DEBUG
         Debug::Log::Print << m_hpModel->getHp() << U"/" << m_hpModel->getMaxHp();
 #endif
     }
+
 }

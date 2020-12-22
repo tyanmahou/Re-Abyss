@@ -7,7 +7,7 @@
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/UI/UI.hpp>
-#include <abyss/modules/UI/Serif/Serif.hpp>
+#include <abyss/components/UI/Serif/Builder.hpp>
 
 namespace abyss::Event::Talk
 {
@@ -24,7 +24,7 @@ namespace abyss::Event::Talk
     }
     void Serif::onStart()
     {
-        m_pManager->getModule<UI>()->create<ui::Serif>(m_serif, m_faceManager);
+        m_pManager->getModule<UI>()->create<ui::Serif::Builder>(m_serif, m_faceManager);
     }
     bool Serif::update([[maybe_unused]] double dt)
     {

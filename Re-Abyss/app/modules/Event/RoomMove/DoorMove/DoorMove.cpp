@@ -7,7 +7,8 @@
 #include <abyss/modules/Actors/base/IActor.hpp>
 
 #include <abyss/modules/UI/UI.hpp>
-#include <abyss/modules/UI/Fade/IrisOut/IrisOut.hpp>
+#include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
+#include <abyss/components/UI/Fade/IrisOut/FadeIrisOut.hpp>
 
 namespace abyss::Event::RoomMove
 {
@@ -55,7 +56,7 @@ namespace abyss::Event::RoomMove
 
     void DoorMove::onMoveStart()
     {
-        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut>();
+        m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeIrisOut>();
     }
 
     void DoorMove::onMoveUpdate(double t)

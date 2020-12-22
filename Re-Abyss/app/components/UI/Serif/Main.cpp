@@ -1,7 +1,5 @@
-#include "Serif.hpp"
-#include <Siv3D.hpp>
-
-#include <abyss/commons/Constants.hpp>
+#include "Main.hpp"
+#include <abyss/modules/UI/base/IUserInterface.hpp>
 #include <abyss/modules/Event/Talk/base/FaceManager.hpp>
 
 #include <abyss/models/Event/Talk/SerifModel.hpp>
@@ -9,31 +7,37 @@
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
+#include <abyss/commons/Constants.hpp>
 
-namespace abyss::ui
+#include <Siv3D.hpp>
+
+namespace abyss::ui::Serif
 {
-    Serif::Serif(
-        const Ref<Event::Talk::SerifModel>& serif, 
+    Main::Main(IUserInterface* pUi,
+        const Ref<Event::Talk::SerifModel>& serif,
         const std::shared_ptr<Event::Talk::FaceManager>& faceManager
-    ):
+    ) :
+        m_pUi(pUi),
         m_serif(serif),
         m_messageView(std::make_unique<MessageVM>()),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>()),
         m_faceManager(faceManager)
-    {
+    {}
 
+    void Main::onStart()
+    {
     }
 
-    void Serif::update([[maybe_unused]] double dt)
+    void Main::onUpdate()
     {
         if (!m_serif) {
-            this->destroy();
+            m_pUi->destroy();
             return;
         }
     }
 
-    void Serif::draw() const
+    void Main::onDraw() const
     {
         if (!m_serif || m_serif->isEnd()) {
             return;
@@ -65,4 +69,5 @@ namespace abyss::ui
             m_cursorView->setPos({ messagePosX + 500, 200 }).draw();
         }
     }
+
 }

@@ -10,6 +10,7 @@ namespace abyss::ui
         auto registing = std::move(m_reserves);
         m_reserves.clear();
         for (auto& obj : registing) {
+            obj->setup();
             obj->start();
             m_uis.push_back(std::move(obj));
         }
@@ -23,14 +24,14 @@ namespace abyss::ui
         m_reserves.push_back(ui);
     }
 
-    void UserInterfaceHolder::update(double dt)
+    void UserInterfaceHolder::update()
     {
         this->flush();
         for (auto& obj : m_uis) {
             if (!obj->isActive()) {
                 continue;
             }
-            obj->update(dt);
+            obj->update();
         }
     }
 

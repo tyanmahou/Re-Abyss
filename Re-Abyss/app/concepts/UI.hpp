@@ -8,5 +8,11 @@ namespace abyss
     /// UIかどうか
     /// </summary>
     template<class Type>
-    concept IsUserInterface = std::is_base_of_v<ui::IUserInterface, Type>;
+    concept UserInterfacey = std::is_same_v<ui::IUserInterface, Type>;
+
+    template<class Type, class... Args>
+    concept UIBuildy = requires(ui::IUserInterface * pUi, Args&&... args)
+    {
+        Type::Build(pUi, std::forward<Args>(args)...);
+    };
 }

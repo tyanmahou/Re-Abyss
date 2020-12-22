@@ -31,8 +31,9 @@ namespace abyss
                 {
                     if constexpr (std::convertible_to<Head*, To*>) {
                         return static_cast<To*>(ptr);
+                    } else {
+                        return nullptr;
                     }
-                    return nullptr;
                 }
             };
             template<class To, class Last>
@@ -42,8 +43,9 @@ namespace abyss
                 {
                     if constexpr (std::convertible_to<Last*, To*>) {
                         return static_cast<To*>(ptr);
+                    } else {
+                        return nullptr;
                     }
-                    return nullptr;
                 }
             };
             template<class To>

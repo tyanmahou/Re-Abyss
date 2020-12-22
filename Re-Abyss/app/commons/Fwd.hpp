@@ -63,6 +63,11 @@ namespace abyss
 		}
 	}
 
+	namespace ui
+	{
+		class IUserInterface;
+	}
+
 	/// <summary>
 	/// Datastores
 	/// </summary>

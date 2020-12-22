@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/StringView.hpp>
 
-namespace abyss::ui
+namespace abyss::ui::Serif
 {
     class MessageVM
     {

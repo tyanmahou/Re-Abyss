@@ -15,7 +15,7 @@ namespace
         }
     }
 }
-namespace abyss::ui
+namespace abyss::ui::BossHPBar
 {
     BossHPBarVM::BossHPBarVM():
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/common/boss_hp_bar/boss_hp_bar.json")),
