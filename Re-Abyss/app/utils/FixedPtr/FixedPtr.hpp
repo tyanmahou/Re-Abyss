@@ -15,7 +15,7 @@ namespace abyss
             struct ivisitor
             {
                 virtual ~ivisitor() = default;
-                virtual bool visit([[maybe_unused]] T*) const = 0;
+                virtual void* visit([[maybe_unused]] T*) const = 0;
             };
 
             struct base_type : ivisitor<Base>, ivisitor<Deriveds>...
@@ -27,17 +27,23 @@ namespace abyss
             template<class To, class Head, class... Tail>
             struct tester : tester<To, Tail...>
             {
-                constexpr bool visit([[maybe_unused]] Head*) const override
+                constexpr void* visit([[maybe_unused]] Head* ptr) const override
                 {
-                    return std::convertible_to<Head*, To*>;
+                    if constexpr (std::convertible_to<Head*, To*>) {
+                        return static_cast<To*>(ptr);
+                    }
+                    return nullptr;
                 }
             };
             template<class To, class Last>
             struct tester<To, Last> : base_type
             {
-                constexpr bool visit([[maybe_unused]] Last*) const override
+                constexpr void* visit([[maybe_unused]] Last* ptr) const override
                 {
-                    return std::convertible_to<Last*, To*>;
+                    if constexpr (std::convertible_to<Last*, To*>) {
+                        return static_cast<To*>(ptr);
+                    }
+                    return nullptr;
                 }
             };
             template<class To>
@@ -50,7 +56,7 @@ namespace abyss
             {}
 
             template<class From>
-            bool visit(From* from) const
+            void* visit(From* from) const
             {
                 return m_tester->visit(from);
             }
@@ -63,7 +69,7 @@ namespace abyss
         {
             virtual ~base_type() = default;
             virtual Base* get() const = 0;
-            virtual bool accept(const visitor_type& visitor) const = 0;
+            virtual void* accept(const visitor_type& visitor) const = 0;
         };
         template<class T>
         struct holder_type : base_type
@@ -80,10 +86,20 @@ namespace abyss
             {
                 return static_cast<Base*>(ptr);
             }
-            bool accept(const visitor_type& visitor) const override
+            template<class U>
+            void* accept2([[maybe_unused]] const visitor_type& visitor) const
             {
-                return (std::convertible_to<T*, Base*> ? visitor.visit(reinterpret_cast<Base*>(ptr)) : false) ||
-                    ((std::convertible_to<T*, Deriveds*> ? visitor.visit(reinterpret_cast<Deriveds*>(ptr)) : false) || ...);
+                if constexpr (std::convertible_to<T*, U*>) {
+                    return visitor.visit(static_cast<U*>(ptr));
+                } else {
+                    return nullptr;
+                }
+            }
+            void* accept(const visitor_type& visitor) const override
+            {
+                void* ret = nullptr;
+                (ret = accept2<Base>(visitor), ret != nullptr) || ((ret = accept2<Deriveds>(visitor), ret != nullptr) || ...);
+                return ret;
             }
         };
     public:
@@ -109,10 +125,10 @@ namespace abyss
             m_ptr = nullptr;
         }
 
-        bool accept(const visitor_type& visitor) const
+        void* accept(const visitor_type& visitor) const
         {
             if (!m_ptr) {
-                return false;
+                return nullptr;
             }
             return m_ptr->accept(visitor);
         }
@@ -144,14 +160,14 @@ namespace abyss
     struct fixed_dynamic_cast_impl
     {
         template<class Base, std::derived_from<Base>... Deriveds>
-            requires std::same_as<std::decay_t<ToPtr>, Base*> || (std::same_as<std::decay_t<ToPtr>, Deriveds*> || ...)
-        ToPtr operator()(const fixed_ptr<Base, Deriveds...>& ptr) const
+        requires std::same_as<std::decay_t<ToPtr>, Base*> || (std::same_as<std::decay_t<ToPtr>, Deriveds*> || ...)
+            ToPtr operator()(const fixed_ptr<Base, Deriveds...>&ptr) const
         {
             ToPtr to = nullptr;
             typename fixed_ptr<Base, Deriveds...>::visitor_type visitor = to;
 
-            if (ptr.accept(visitor)) {
-                to = reinterpret_cast<ToPtr>(ptr.get());
+            if (auto ret = ptr.accept(visitor)) {
+                to = static_cast<ToPtr>(ret);
             }
             return to;
         }

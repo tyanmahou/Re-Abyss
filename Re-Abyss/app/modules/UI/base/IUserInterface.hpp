@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/modules/GameObject/GameObject.hpp>
 
 namespace abyss::ui
 {
