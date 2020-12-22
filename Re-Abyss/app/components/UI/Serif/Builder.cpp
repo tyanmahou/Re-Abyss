@@ -12,5 +12,5 @@ namespace abyss::ui::Serif
         {
             pUi->attach<Main>(pUi, serif, faceManager);
         }
-    };
+    }
 }
