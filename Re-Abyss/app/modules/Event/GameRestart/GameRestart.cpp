@@ -6,7 +6,7 @@
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
 
 #include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
-#include <abyss/components/UI/Fade/IrisOut/FadeIrisOut.hpp>
+#include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
 
 namespace abyss::Event
 {
@@ -35,7 +35,7 @@ namespace abyss::Event
             m_globalTimeScale->setScale(m_waitTimer.progress0_1());
             if (m_waitTimer.reachedZero()) {
                 m_fadeTimer.start();
-                m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeIrisOut>();
+                m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeCtrl>();
                 m_phase = Phase::Fade;
             }
         }

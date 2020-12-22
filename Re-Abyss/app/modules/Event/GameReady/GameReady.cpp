@@ -5,7 +5,7 @@
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
 
 #include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
-#include <abyss/components/UI/Fade/IrisOut/FadeIrisOut.hpp>
+#include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
 
 namespace abyss::Event
 {
@@ -17,7 +17,7 @@ namespace abyss::Event
         m_timer = TimerEx(1s, false, [globalTime] {return globalTime->timeMicroSec(); });
         m_timer.start();
         // フェードイン
-        (m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeIrisOut>())
+        (m_fadeUI = m_pManager->getModule<UI>()->create<ui::Fade::IrisOut::Builder>()->find<ui::Fade::IrisOut::FadeCtrl>())
             ->setIsFadeIn(true)
             ;
     }

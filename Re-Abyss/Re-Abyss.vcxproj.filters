@@ -1135,7 +1135,7 @@
     <ClCompile Include="app\components\UI\Serif\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeIrisOut.cpp">
+    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1678,7 +1678,7 @@
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
-    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeIrisOut.hpp" />
+    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

@@ -6,7 +6,7 @@
 
 namespace abyss::ui::Fade::IrisOut
 {
-    class FadeIrisOut;
+    class FadeCtrl;
 }
 
 namespace abyss::Event
@@ -20,7 +20,7 @@ namespace abyss::Event
         };
     private:
         TimerEx m_timer;
-        Ref<ui::Fade::IrisOut::FadeIrisOut> m_fadeUI;
+        Ref<ui::Fade::IrisOut::FadeCtrl> m_fadeUI;
         Phase m_phase = Phase::Fade;
 
     public:

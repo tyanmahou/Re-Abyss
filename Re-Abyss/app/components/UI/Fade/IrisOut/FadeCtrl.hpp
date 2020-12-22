@@ -9,17 +9,17 @@ namespace abyss::ui::Fade::IrisOut
 {
     class IrisOutVM;
 
-    class FadeIrisOut :
+    class FadeCtrl :
         public IComponent,
         public IDraw
     {
     public:
-        FadeIrisOut(IUserInterface* pUi);
+        FadeCtrl(IUserInterface* pUi);
 
-        FadeIrisOut& setPos(const s3d::Vec2& pos);
-        FadeIrisOut& setFadeTime(double fadeTimeSec);
-        FadeIrisOut& setIsFadeOut(bool isFadeOut);
-        FadeIrisOut& setIsFadeIn(bool isFadeIn);
+        FadeCtrl& setPos(const s3d::Vec2& pos);
+        FadeCtrl& setFadeTime(double fadeTimeSec);
+        FadeCtrl& setIsFadeOut(bool isFadeOut);
+        FadeCtrl& setIsFadeIn(bool isFadeIn);
 
         void destroy();
         void onDraw() const override;
@@ -37,7 +37,7 @@ namespace abyss::ui::Fade::IrisOut
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::Fade::IrisOut::FadeIrisOut>
+    struct ComponentTree<ui::Fade::IrisOut::FadeCtrl>
     {
         using Base = MultiComponents<ui::IDraw>;
     };

@@ -300,7 +300,7 @@
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
     <ClCompile Include="app\modules\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\modules\UI\base\IUserInterface.cpp" />
-    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeIrisOut.cpp" />
+    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeCtrl.cpp" />
     <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
@@ -698,7 +698,7 @@
     <ClInclude Include="app\modules\UI\base\IUserInterface.hpp" />
     <ClInclude Include="app\modules\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Main.hpp" />
-    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeIrisOut.hpp" />
+    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\modules\UI\UI.hpp" />
     <ClInclude Include="app\modules\UI\UIOrder.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />

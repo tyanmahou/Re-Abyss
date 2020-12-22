@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 #include <abyss/modules/UI/base/IUserInterface.hpp>
 #include <abyss/modules/UI/UIOrder.hpp>
-#include <abyss/components/UI/Fade/IrisOut/FadeIrisOut.hpp>
+#include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
 
 
 namespace abyss::ui::Fade::IrisOut
@@ -12,7 +12,7 @@ namespace abyss::ui::Fade::IrisOut
 
         // メイン追加
         {
-            pUi->attach<FadeIrisOut>(pUi);
+            pUi->attach<FadeCtrl>(pUi);
         }
     }
 }
