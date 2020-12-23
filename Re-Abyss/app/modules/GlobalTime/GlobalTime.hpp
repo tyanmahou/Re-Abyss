@@ -21,6 +21,7 @@ namespace abyss
 
         double time() const;
         s3d::Microseconds timeMicroSec() const;
+        std::function<s3d::Microseconds()> clock() const;
 
         double deltaTime() const;
 

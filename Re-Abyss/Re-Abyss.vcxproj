@@ -295,7 +295,6 @@
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
     <ClCompile Include="app\modules\Event\GamePause\GamePause.cpp" />
-    <ClCompile Include="app\modules\Event\GameReady\GameReady.cpp" />
     <ClCompile Include="app\modules\Event\GameRestart\GameRestart.cpp" />
     <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp" />
     <ClCompile Include="app\modules\Event\RoomMove\BasicMove\BasicMove.cpp" />
@@ -708,7 +707,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\GamePause\GamePause.hpp" />
-    <ClInclude Include="app\modules\Event\GameReady\GameReady.hpp" />
     <ClInclude Include="app\modules\Event\GameRestart\GameRestart.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />

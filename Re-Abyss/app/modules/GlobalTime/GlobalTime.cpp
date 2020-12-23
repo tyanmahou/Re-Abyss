@@ -2,6 +2,7 @@
 #include <Siv3D/Stopwatch.hpp>
 #include <Siv3D/Math.hpp>
 #include <Siv3D/Array.hpp>
+
 namespace abyss
 {
     using namespace s3d;
@@ -87,6 +88,10 @@ namespace abyss
     s3d::Microseconds GlobalTime::timeMicroSec() const
     {
         return m_pImpl->timeMicroSec();
+    }
+    std::function<s3d::Microseconds()> GlobalTime::clock() const
+    {
+        return [this] {return this->timeMicroSec(); };
     }
     double GlobalTime::deltaTime() const
     {

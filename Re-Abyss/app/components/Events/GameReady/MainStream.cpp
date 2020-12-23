@@ -31,7 +31,7 @@ namespace abyss::Event::GameReady
             auto globalTime = m_pEvent->getModule<GlobalTime>();
             auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
 
-            TimerEx timer(1s, true, [globalTime] {return globalTime->timeMicroSec(); });
+            TimerEx timer(1s, true, globalTime->clock());
 
             while (!timer.reachedZero()) {
                 fade->setPos(playerManager->getPos())
