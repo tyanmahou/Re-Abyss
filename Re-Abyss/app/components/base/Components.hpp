@@ -29,6 +29,8 @@ namespace abyss
 
         void start() const;
 
+        void end() const;
+
         template<class Component>
         Ref<Component> add(const std::shared_ptr<Component>& component) const
             requires IsComponent<Component>

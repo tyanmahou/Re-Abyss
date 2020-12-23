@@ -1,10 +1,10 @@
 #include "Components.hpp"
 #include <unordered_map>
+#include <ranges>
 
 #include <abyss/components/base/DependSort.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
-
 namespace abyss
 {
     class Components::Impl
@@ -35,6 +35,12 @@ namespace abyss
         {
             for (auto&& com : m_tree[typeid(IComponent)]) {
                 com->onStart();
+            }
+        }
+        void end()
+        {
+            for (auto&& com : m_tree[typeid(IComponent)] | std::ranges::views::reverse) {
+                com->onEnd();
             }
         }
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component)
@@ -116,6 +122,11 @@ namespace abyss
     void Components::start() const
     {
         m_pImpl->start();
+    }
+
+    void Components::end() const
+    {
+        m_pImpl->end();
     }
 
     void Components::registTree(const std::type_index& key, const std::shared_ptr<IComponent>& component) const

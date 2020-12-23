@@ -1,4 +1,4 @@
-﻿#include "Events.hpp"
+#include "Events.hpp"
 
 namespace abyss
 {
@@ -7,6 +7,9 @@ namespace abyss
         if (m_events.empty()) {
             return false;
         }
+        auto& front = m_events.front();
+        front->setup();
+        front->start();
         m_events.front()->onStart();
         m_doneCurrentInit = true;
         return true;
@@ -21,21 +24,25 @@ namespace abyss
 
     bool Events::update(double dt)
     {
-        if (m_events.empty()) {
-            return false;
-        }
-        if (!m_doneCurrentInit) {
-            m_events.front()->onStart();
-            m_doneCurrentInit = true;
-        }
-        if (!m_events.front()->update(dt)) {
-            m_events.front()->onEnd();
-            m_events.pop();
-            m_doneCurrentInit = false;
-            return this->update(dt);
-        }
-        return true;
+        do {
+            if (m_events.empty()) {
+                return false;
+            }
+            if (!m_doneCurrentInit) {
+                auto& front = m_events.front();
+                front->setup();
+                front->start();
+                m_events.front()->onStart();
+                m_doneCurrentInit = true;
+            }
+            if (!m_events.front()->update(dt) && !m_events.front()->update()) {
+                m_events.front()->onEnd();
+                m_events.pop();
+                m_doneCurrentInit = false;
+            }
+        } while (!m_doneCurrentInit);
 
+        return true;
     }
 
     bool Events::isEmpty() const

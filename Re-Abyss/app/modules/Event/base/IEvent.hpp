@@ -4,18 +4,25 @@
 
 namespace abyss::Event
 {
+    class StreamHandler;
+
     class IEvent : public GameObject
     {
+    private:
+        Ref<StreamHandler> m_stream;
     protected:
         Manager* m_pManager = nullptr;
         bool m_isWorldStop = true;
     public:
+        IEvent();
+
         virtual ~IEvent() = default;
         void setManager(Manager* manager)
         {
             m_pManager = manager;
         }
         virtual void onStart(){}
+        bool update();
         virtual bool update([[maybe_unused]] double dt) { return true; }
         virtual void onEnd(){}
 

@@ -12,6 +12,7 @@ namespace abyss
         virtual void setup([[maybe_unused]]Depends depends) {}
 
         virtual void onStart() {}
+        virtual void onEnd() {}
     };
 
     template <class ... Args>

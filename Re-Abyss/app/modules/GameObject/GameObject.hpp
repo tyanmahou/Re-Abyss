@@ -23,6 +23,10 @@ namespace abyss
 		{
 			m_components.start();
 		}
+		void end() const
+		{
+			m_components.end();
+		}
 
 		void setManager(Manager* const pManager);
 		Manager* getManager() const;
