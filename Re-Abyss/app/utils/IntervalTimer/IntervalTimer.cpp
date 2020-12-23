@@ -20,6 +20,7 @@ namespace abyss
         bool toEnd()
         {
             m_timer.set(0.0s);
+            return true;
         }
         bool update()
         {
