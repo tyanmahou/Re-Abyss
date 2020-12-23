@@ -17,13 +17,13 @@ namespace abyss::Event
         IEvent();
 
         virtual ~IEvent() = default;
-        void setManager(Manager* manager)
+        void setManager2(Manager* manager)
         {
             m_pManager = manager;
         }
         virtual void onStart(){}
         bool update();
-        virtual bool update([[maybe_unused]] double dt) { return true; }
+        virtual bool update([[maybe_unused]] double dt) { return false; }
         virtual void onEnd(){}
 
         void setIsWorldStop(bool isWorldStop)

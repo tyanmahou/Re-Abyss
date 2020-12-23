@@ -3,6 +3,8 @@
 #include <memory>
 #include <abyss/modules/Event/base/IEvent.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/concepts/Event.hpp>
+
 namespace abyss
 {
     class Events
@@ -12,27 +14,51 @@ namespace abyss
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
     public:
-
-        bool init();
-
-        Events& regist(const std::shared_ptr<Event::IEvent>& event);
-
-        template<class T, class... Args>
-        Events& create(Args&&... args)
-        {
-            auto event = std::make_shared<T>(std::forward<Args>(args)...);
-            return regist(event);
-        }
-
         Events& setManager(Manager* pManager)
         {
             m_pManager = pManager;
             return *this;
         }
-        bool update(double dt);  
+
+        bool init();
+
+        bool update(double dt);
 
         bool isEmpty() const;
 
         bool isWorldStop() const;
+
+
+        /// <summary>
+        /// イベントの生成
+        /// </summary>
+        /// <returns></returns>
+        Ref<Event::IEvent> create();
+
+        /// <summary>
+        /// ビルダーからイベントの生成
+        /// </summary>
+        template<class BuilerType, class... Args>
+        Ref<Event::IEvent> create(Args&& ... args)
+            requires EventBuildy<BuilerType, Args...>
+        {
+            auto event = this->create();
+            BuilerType::Build(event.get(), std::forward<Args>(args)...);
+            return event;
+        }
+
+        template<class T, class... Args>
+        Ref<Event::IEvent> create(Args&&... args)
+        {
+            auto event = std::make_shared<T>(std::forward<Args>(args)...);
+            return regist(event);
+        }
+
+        /// <summary>
+        /// イベントの登録
+        /// </summary>
+        /// <param name="event"></param>
+        /// <returns></returns>
+        Ref<Event::IEvent> regist(const std::shared_ptr<Event::IEvent>& event);
     };
 }

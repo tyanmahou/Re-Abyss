@@ -1704,6 +1704,7 @@
     <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />
+    <ClInclude Include="app\concepts\Event.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

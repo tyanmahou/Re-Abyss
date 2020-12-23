@@ -7,6 +7,7 @@
 #include <abyss/components/Actors/God/Builder.hpp>
 #include <abyss/components/Actors/Player/Builder.hpp>
 #include <abyss/components/Crons/BubbleGenerator/Builder.hpp>
+#include <abyss/components/Events/GameReady/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
@@ -17,7 +18,6 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/Event/GameReady/GameReady.hpp>
 #include <abyss/modules/UI/UI.hpp>
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
 
@@ -159,11 +159,9 @@ namespace abyss
         bool result = true;
         // Readyイベント開始
         if(readyEvent) {
-            m_pManager
-                ->getModule<Events>()
-                ->regist(readyEvent)
-                .init()
-                ;
+            auto events = m_pManager->getModule<Events>();
+            events->regist(readyEvent);
+            events->init();
         }
 
         s3d::Optional<RoomModel> nextRoom;
@@ -233,7 +231,9 @@ namespace abyss
         auto player = std::make_shared<Actor::IActor>();
         Actor::Player::Builder::Build(player.get(), *initStartPos);
 
-        return this->init(player, std::make_shared<Event::GameReady>());
+        auto readyEvent = std::make_shared<Event::IEvent>();
+        Event::GameReady::Builder::Build(readyEvent.get());
+        return this->init(player, readyEvent);
     }
 
     bool Stage::checkOut() const

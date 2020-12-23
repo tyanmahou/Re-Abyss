@@ -15,13 +15,6 @@ namespace abyss
         return true;
     }
 
-    Events& Events::regist(const std::shared_ptr<Event::IEvent>& event)
-    {
-        event->setManager(m_pManager);
-        m_events.push(event);
-        return *this;
-    }
-
     bool Events::update(double dt)
     {
         do {
@@ -54,5 +47,17 @@ namespace abyss
     bool Events::isWorldStop() const
     {
         return !m_events.empty() && m_events.front()->isWorldStop();
+    }
+    Ref<Event::IEvent> Events::create()
+    {
+        return this->regist(std::make_shared<Event::IEvent>());
+    }
+
+    Ref<Event::IEvent> Events::regist(const std::shared_ptr<Event::IEvent>& event)
+    {
+        event->setManager(m_pManager);
+        event->setManager2(m_pManager);
+        m_events.push(event);
+        return event;
     }
 }

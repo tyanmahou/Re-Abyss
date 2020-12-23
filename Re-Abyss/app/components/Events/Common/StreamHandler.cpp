@@ -12,14 +12,9 @@ namespace abyss::Event
     }
     void StreamHandler::onStart()
     {
-        auto streams = m_pEvent->finds<IStream>();
-        if (streams.isEmpty()) {
-            return;
-        }
-
-        auto task = [streams]()->Coro::Task<> {
+        auto task = [this]()->Coro::Task<> {
             s3d::Array<Coro::Task<>> tasks;
-            for (auto& stream : streams) {
+            for (auto&& stream : m_pEvent->finds<IStream>()) {
                 tasks.push_back(stream->onExecute());
             }
             while (true) {

@@ -630,6 +630,7 @@
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
+    <ClInclude Include="app\concepts\Event.hpp" />
     <ClInclude Include="app\modules\Actors\base\Tag.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actors\Commons\DeadCheacker.hpp" />
