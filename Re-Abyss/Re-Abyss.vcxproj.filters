@@ -1147,6 +1147,15 @@
     <ClCompile Include="app\modules\Event\base\IEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Events\GameReady\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\GameReady\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1692,6 +1701,9 @@
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
     <ClInclude Include="app\components\Events\Common\StreamHandler.hpp" />
     <ClInclude Include="app\components\Events\base\IStream.hpp" />
+    <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
+    <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
+    <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

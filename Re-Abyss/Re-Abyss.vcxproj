@@ -265,7 +265,10 @@
     <ClCompile Include="app\components\base\Depends.cpp" />
     <ClCompile Include="app\components\base\DependSort.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\StreamHandler.cpp" />
+    <ClCompile Include="app\components\Events\GameReady\Builder.cpp" />
+    <ClCompile Include="app\components\Events\GameReady\MainStream.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
@@ -610,7 +613,10 @@
     <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Events\base\IStream.hpp" />
+    <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Events\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />
+    <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />

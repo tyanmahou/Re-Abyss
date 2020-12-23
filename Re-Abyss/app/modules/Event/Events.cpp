@@ -28,15 +28,16 @@ namespace abyss
             if (m_events.empty()) {
                 return false;
             }
+            auto& front = m_events.front();
             if (!m_doneCurrentInit) {
-                auto& front = m_events.front();
                 front->setup();
                 front->start();
                 m_events.front()->onStart();
                 m_doneCurrentInit = true;
             }
-            if (!m_events.front()->update(dt) && !m_events.front()->update()) {
+            if (!m_events.front()->update(dt) && !front->update()) {
                 m_events.front()->onEnd();
+                front->end();
                 m_events.pop();
                 m_doneCurrentInit = false;
             }
