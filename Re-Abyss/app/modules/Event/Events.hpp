@@ -47,13 +47,6 @@ namespace abyss
             return event;
         }
 
-        template<class T, class... Args>
-        Ref<Event::IEvent> create(Args&&... args)
-        {
-            auto event = std::make_shared<T>(std::forward<Args>(args)...);
-            return regist(event);
-        }
-
         /// <summary>
         /// イベントの登録
         /// </summary>

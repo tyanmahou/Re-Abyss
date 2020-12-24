@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
@@ -7,8 +8,8 @@
 
 namespace abyss::Event::Talk
 {
-    class SerifModel;
-    class FaceManager;
+    class SerifCtrl;
+    class FaceTable;
 }
 
 namespace abyss::ui::Serif
@@ -24,10 +25,7 @@ namespace abyss::ui::Serif
     {
         
     public:
-        Main(IUserInterface* pUi, 
-            const Ref<Event::Talk::SerifModel>& serif,
-            const std::shared_ptr<Event::Talk::FaceManager>& faceManager
-        );
+        Main(IUserInterface* pUi, Event::Talk::TalkObj* pTalk);
 
         void onStart() override;
 
@@ -36,14 +34,15 @@ namespace abyss::ui::Serif
         void onDraw() const override;
     private:
         IUserInterface* m_pUi;
+        Event::Talk::TalkObj* m_pTalk;
 
-        Ref<Event::Talk::SerifModel> m_serif;
+        Ref<Event::Talk::SerifCtrl> m_serif;
+        Ref<Event::Talk::FaceTable> m_faceTable;
 
         std::unique_ptr<MessageVM> m_messageView;
         std::unique_ptr<MessageBoxVM> m_boxView;
         std::unique_ptr<CursorVM> m_cursorView;
 
-        std::shared_ptr<Event::Talk::FaceManager> m_faceManager;
     };
 }
 

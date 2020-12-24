@@ -1006,36 +1006,6 @@
     <ClCompile Include="app\modules\Effects\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\base\FaceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\base\Serif.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\base\TriggerEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\base\TriggerManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\BossTalk0_0\Build.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\TalkEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Event\Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1111,12 +1081,6 @@
     <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Serif\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Serif\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\UI\Fade\IrisOut\FadeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1166,6 +1130,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Serif\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Serif\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\TalkCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Build.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\Common\Serif\FaceTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1654,16 +1651,6 @@
     <ClInclude Include="app\modules\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\base\FaceManager.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\base\Serif.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\base\TriggerEvent.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\base\TriggerManager.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\TalkEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />
@@ -1700,8 +1687,6 @@
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
@@ -1725,6 +1710,18 @@
     <ClInclude Include="app\components\Events\RoomMove\BasicMove\Builder.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\DoorMove\Builder.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\Events\Talk\Builder.hpp" />
+    <ClInclude Include="app\components\Events\Talk\TalkCtrl.hpp" />
+    <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
+    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Events\Talk\Common\Serif\SerifCtrl.hpp" />
+    <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
+    <ClInclude Include="app\components\Events\Talk\Common\Serif\FaceTable.hpp" />
+    <ClInclude Include="app\components\Events\Talk\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

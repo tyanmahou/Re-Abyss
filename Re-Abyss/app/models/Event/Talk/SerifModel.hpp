@@ -14,7 +14,7 @@ namespace abyss::Event::Talk
             Left,
             Right,
         };
-        using Message = std::pair<s3d::String, String>;
+        using Message = std::pair<s3d::String, s3d::String>;
     private:
         s3d::Optional<s3d::String> m_actorName;
         Side m_side = Side::Left;

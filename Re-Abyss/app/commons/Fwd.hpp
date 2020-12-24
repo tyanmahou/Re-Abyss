@@ -58,8 +58,10 @@ namespace abyss
 
 		namespace Talk
 		{
-			class FaceManager;
-			class TriggerManager;
+			class TalkObj;
+
+			class FaceTable;
+			class TriggerFactory;
 		}
 	}
 

@@ -1,7 +1,7 @@
 #include "Main.hpp"
 #include <abyss/modules/System/System.hpp>
 #include <abyss/modules/Actors/base/IActor.hpp>
-#include <abyss/services/Event/Talk/TalkService.hpp>
+#include <abyss/components/Events/Talk/Builder.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
@@ -12,8 +12,8 @@ namespace abyss::Actor::Gimmick::EventTrigger
 
     void Main::onStart()
     {
-        auto event = Event::Talk::TalkService{}.load(m_path);
-        m_pActor->getModule<Events>()->regist(event);
+        m_pActor->getModule<Events>()->create<Event::Talk::Builder>(m_path);
+
         m_pActor->destroy();
     }
 

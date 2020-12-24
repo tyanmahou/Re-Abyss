@@ -3,5 +3,5 @@
 
 namespace abyss::Event::Talk::BossTalk0_0
 {
-    void Build(TriggerManager& manager);
+    void Build(TriggerFactory& triggerTable);
 }

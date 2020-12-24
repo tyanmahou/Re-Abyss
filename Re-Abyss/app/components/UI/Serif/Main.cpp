@@ -1,8 +1,9 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/IUserInterface.hpp>
-#include <abyss/modules/Event/Talk/base/FaceManager.hpp>
+#include <abyss/modules/Event/Talk/TalkObj.hpp>
 
-#include <abyss/models/Event/Talk/SerifModel.hpp>
+#include <abyss/components/Events/Talk/Common/Serif/SerifCtrl.hpp>
+#include <abyss/components/Events/Talk/Common/Serif/FaceTable.hpp>
 
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
@@ -13,20 +14,18 @@
 
 namespace abyss::ui::Serif
 {
-    Main::Main(IUserInterface* pUi,
-        const Ref<Event::Talk::SerifModel>& serif,
-        const std::shared_ptr<Event::Talk::FaceManager>& faceManager
-    ) :
+    Main::Main(IUserInterface* pUi, Event::Talk::TalkObj* pTalk) :
         m_pUi(pUi),
-        m_serif(serif),
+        m_pTalk(pTalk),
         m_messageView(std::make_unique<MessageVM>()),
         m_boxView(std::make_unique<MessageBoxVM>()),
-        m_cursorView(std::make_unique<CursorVM>()),
-        m_faceManager(faceManager)
+        m_cursorView(std::make_unique<CursorVM>())
     {}
 
     void Main::onStart()
     {
+        m_serif = m_pTalk->find<Event::Talk::SerifCtrl>();
+        m_faceTable = m_pTalk->find<Event::Talk::FaceTable>();
     }
 
     void Main::onUpdate()
@@ -48,10 +47,10 @@ namespace abyss::ui::Serif
             .setPos(pos)
             .setName(m_serif->getActorName());
 
-        if (const auto& actorName = m_serif->getActorName(); m_faceManager && actorName) {
+        if (const auto& actorName = m_serif->getActorName(); m_faceTable && actorName) {
             const auto& faceKind = m_serif->getCurrentKind();
-            if (m_faceManager->isContain(*actorName, faceKind)) {
-                m_boxView->setFaceIcon(m_faceManager->getFace(*actorName, faceKind));
+            if (m_faceTable->isContain(*actorName, faceKind)) {
+                m_boxView->setFaceIcon(m_faceTable->getFace(*actorName, faceKind));
             }
         }
         m_boxView->draw();
