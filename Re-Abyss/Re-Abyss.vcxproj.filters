@@ -1006,9 +1006,6 @@
     <ClCompile Include="app\modules\Effects\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Event\GameRestart\GameRestart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1154,6 +1151,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Events\GamePause\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\GameRestart\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\GameRestart\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1642,7 +1648,6 @@
     <ClInclude Include="app\modules\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
-    <ClInclude Include="app\modules\Event\GameRestart\GameRestart.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\DoorMove\DoorMove.hpp" />
@@ -1705,6 +1710,12 @@
     <ClInclude Include="app\concepts\Event.hpp" />
     <ClInclude Include="app\components\Events\GamePause\Builder.hpp" />
     <ClInclude Include="app\components\Events\GamePause\MainStream.hpp" />
+    <ClInclude Include="app\components\Events\GameRestart\Builder.hpp" />
+    <ClInclude Include="app\components\Events\GameRestart\MainStream.hpp" />
+    <ClInclude Include="app\components\Events\Common\GlobalTimeCtrl.hpp" />
+    <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
+    <ClInclude Include="app\components\Events\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
