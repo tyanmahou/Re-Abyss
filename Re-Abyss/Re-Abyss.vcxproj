@@ -267,6 +267,8 @@
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\StreamHandler.cpp" />
+    <ClCompile Include="app\components\Events\GamePause\Builder.cpp" />
+    <ClCompile Include="app\components\Events\GamePause\MainStream.cpp" />
     <ClCompile Include="app\components\Events\GameReady\Builder.cpp" />
     <ClCompile Include="app\components\Events\GameReady\MainStream.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
@@ -294,7 +296,6 @@
     <ClCompile Include="app\modules\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
-    <ClCompile Include="app\modules\Event\GamePause\GamePause.cpp" />
     <ClCompile Include="app\modules\Event\GameRestart\GameRestart.cpp" />
     <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp" />
     <ClCompile Include="app\modules\Event\RoomMove\BasicMove\BasicMove.cpp" />
@@ -626,6 +627,8 @@
     <ClInclude Include="app\components\Events\base\IStream.hpp" />
     <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Events\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Events\GamePause\Builder.hpp" />
+    <ClInclude Include="app\components\Events\GamePause\MainStream.hpp" />
     <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />
     <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
@@ -706,7 +709,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
-    <ClInclude Include="app\modules\Event\GamePause\GamePause.hpp" />
     <ClInclude Include="app\modules\Event\GameRestart\GameRestart.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />
