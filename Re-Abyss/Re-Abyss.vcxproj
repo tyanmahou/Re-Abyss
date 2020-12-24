@@ -274,6 +274,7 @@
     <ClCompile Include="app\components\Events\GameReady\MainStream.cpp" />
     <ClCompile Include="app\components\Events\GameRestart\Builder.cpp" />
     <ClCompile Include="app\components\Events\GameRestart\MainStream.cpp" />
+    <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
@@ -639,6 +640,8 @@
     <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\Events\GameRestart\Builder.hpp" />
     <ClInclude Include="app\components\Events\GameRestart\MainStream.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\IRoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />

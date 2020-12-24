@@ -1162,6 +1162,9 @@
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1716,6 +1719,8 @@
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Events\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\IRoomMoveCallback.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
