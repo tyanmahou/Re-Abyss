@@ -45,4 +45,8 @@ namespace abyss::Actor::Gimmick::Door
 	{
 		return m_door.fixedVisiterPos(visitSize);
 	}
+	const DoorModel& DoorProxy::getDoor() const
+	{
+		return m_door;
+	}
 }

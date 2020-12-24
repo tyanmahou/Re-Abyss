@@ -6,7 +6,7 @@
 #include <abyss/modules/System/System.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/modules/Save/Save.hpp>
-#include <abyss/modules/Event/RoomMove/DoorMove/DoorMove.hpp>
+#include <abyss/components/Events/RoomMove/DoorMove/Builder.hpp>
 
 #include <Siv3D.hpp>
 
@@ -39,9 +39,15 @@ namespace abyss::Actor::Player
             m_attackCtrl->reset();
             m_body->setVelocity(Vec2::Zero());
             m_body->setForward(col.getTargetForward());
-            Event::RoomMove::DoorMove::Start(col, m_body->getPos(), [this]() {
-                this->m_motion = Motion::Stay;
-            });
+
+            m_pActor->getModule<Events>()->create<Event::RoomMove::DoorMove::Builder>(
+                col.getNextRoom(),
+                col.getDoor(),
+                m_body->getPos(),
+                [this]() {
+                    this->m_motion = Motion::Stay;
+                });
+
             m_pActor->find<AudioSource>()->play(U"DoorMove");
             if (col.isSave()) {
                 // セーブ対象だった場合

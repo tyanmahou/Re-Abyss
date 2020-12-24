@@ -29,6 +29,7 @@ namespace abyss::Actor::Gimmick::Door
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 
         IActor* getActor()const { return m_pActor; }
+        const DoorModel& getDoor() const;
     private:
         IActor* m_pActor;
         DoorModel m_door;

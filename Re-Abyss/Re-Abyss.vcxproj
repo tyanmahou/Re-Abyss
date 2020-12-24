@@ -276,6 +276,8 @@
     <ClCompile Include="app\components\Events\GameRestart\MainStream.cpp" />
     <ClCompile Include="app\components\Events\RoomMove\BasicMove\Builder.cpp" />
     <ClCompile Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.cpp" />
+    <ClCompile Include="app\components\Events\RoomMove\DoorMove\Builder.cpp" />
+    <ClCompile Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
@@ -302,8 +304,6 @@
     <ClCompile Include="app\modules\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
-    <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp" />
-    <ClCompile Include="app\modules\Event\RoomMove\DoorMove\DoorMove.cpp" />
     <ClCompile Include="app\modules\Master\Master.cpp" />
     <ClCompile Include="app\modules\Save\Save.cpp" />
     <ClCompile Include="app\modules\Save\SaveData.cpp" />
@@ -643,6 +643,8 @@
     <ClInclude Include="app\components\Events\GameRestart\MainStream.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\BasicMove\Builder.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\DoorMove\Builder.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
@@ -723,8 +725,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
-    <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
-    <ClInclude Include="app\modules\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\modules\Event\Talk\Common\CreateBossHPBar\ChargeBossHPBar.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
     <ClInclude Include="app\modules\Master\Master.hpp" />

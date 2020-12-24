@@ -47,6 +47,6 @@ namespace abyss::Actor::Gimmick::Door
         {
             return m_isSave;
         }
-        s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize) const;
+        s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
     };
 }
