@@ -3,9 +3,10 @@
 #include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
+#include <abyss/modules/Event/Events.hpp>
 
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
-#include <abyss/modules/Event/RoomMove/BasicMove/BasicMove.hpp>
+#include <abyss/components/Events/RoomMove/BasicMove/Builder.hpp>
 
 #include <abyss/components/Actors/Commons/CameraFixPos.hpp>
 
@@ -34,7 +35,8 @@ namespace abyss::Actor::Player
         if (camera->canNextRoom(pos)) {
             if (auto nextRoom = m_pActor->getModule<Stage>()->findRoom(pos)) {
                 // 移動開始
-                Event::RoomMove::BasicMove::Start(m_pActor->getManager(), *nextRoom);
+                m_pActor->getModule<Events>()
+                    ->create<Event::RoomMove::BasicMove::Builder>(*nextRoom);
             }
         }
     }

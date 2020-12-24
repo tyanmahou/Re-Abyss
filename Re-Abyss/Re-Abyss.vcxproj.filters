@@ -1009,9 +1009,6 @@
     <ClCompile Include="app\modules\Event\RoomMove\base\IRoomMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Event\RoomMove\BasicMove\BasicMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Event\RoomMove\DoorMove\DoorMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1163,6 +1160,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\RoomMove\BasicMove\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1652,7 +1655,6 @@
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\base\IRoomMove.hpp" />
-    <ClInclude Include="app\modules\Event\RoomMove\BasicMove\BasicMove.hpp" />
     <ClInclude Include="app\modules\Event\RoomMove\DoorMove\DoorMove.hpp" />
     <ClInclude Include="app\modules\Event\Talk\base\FaceManager.hpp" />
     <ClInclude Include="app\modules\Event\Talk\base\Serif.hpp" />
@@ -1721,6 +1723,8 @@
     <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
     <ClInclude Include="app\components\Events\RoomMove\IRoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Events\RoomMove\BasicMove\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

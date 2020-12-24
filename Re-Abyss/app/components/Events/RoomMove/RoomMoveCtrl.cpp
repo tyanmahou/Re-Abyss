@@ -34,15 +34,15 @@ namespace abyss::Event::RoomMove
     }
     void RoomMoveCtrl::onEnd()
     {
+        m_callback->onMoveEnd();
         m_pEvent->getModule<Camera>()->applyNextRoom();
         m_pEvent->getModule<Stage>()->checkIn();
-        m_callback->onMoveEnd();
     }
     Coro::Task<> RoomMoveCtrl::onExecute()
     {
         StopwatchEx sw(true, m_pEvent->getModule<GlobalTime>()->clock());
 
-        while (sw.ms() < m_animeMilliSec) {
+        while (true) {
             auto elapsed = s3d::Min<double>(sw.ms(), m_animeMilliSec) / m_animeMilliSec;
             m_callback->onMoveUpdate(elapsed);
 
@@ -51,6 +51,9 @@ namespace abyss::Event::RoomMove
             // プレイヤーの座標更新
             m_pEvent->getModule<Actor::Player::PlayerManager>()->setPos(m_callback->calcPlayerPos());
 
+            if (sw.ms() >= m_animeMilliSec) {
+                break;
+            }
             co_yield{};
         }
         co_return;
