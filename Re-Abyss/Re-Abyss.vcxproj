@@ -268,6 +268,8 @@
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Events\Common\StreamHandler.cpp" />
+    <ClCompile Include="app\components\Events\CreateBossHPBar\Builder.cpp" />
+    <ClCompile Include="app\components\Events\CreateBossHPBar\MainStream.cpp" />
     <ClCompile Include="app\components\Events\GamePause\Builder.cpp" />
     <ClCompile Include="app\components\Events\GamePause\MainStream.cpp" />
     <ClCompile Include="app\components\Events\GameReady\Builder.cpp" />
@@ -634,6 +636,8 @@
     <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Events\Common\GlobalTimeCtrl.hpp" />
     <ClInclude Include="app\components\Events\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Events\CreateBossHPBar\Builder.hpp" />
+    <ClInclude Include="app\components\Events\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Events\GamePause\Builder.hpp" />
     <ClInclude Include="app\components\Events\GamePause\MainStream.hpp" />
     <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />

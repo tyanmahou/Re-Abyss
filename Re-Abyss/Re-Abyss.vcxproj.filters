@@ -1165,6 +1165,12 @@
     <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Events\CreateBossHPBar\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Events\CreateBossHPBar\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1722,6 +1728,8 @@
     <ClInclude Include="app\components\Events\Talk\Common\Serif\FaceTable.hpp" />
     <ClInclude Include="app\components\Events\Talk\base\ITalker.hpp" />
     <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
+    <ClInclude Include="app\components\Events\CreateBossHPBar\MainStream.hpp" />
+    <ClInclude Include="app\components\Events\CreateBossHPBar\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
