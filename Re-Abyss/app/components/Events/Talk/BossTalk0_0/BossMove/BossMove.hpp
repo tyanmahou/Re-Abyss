@@ -30,3 +30,14 @@ namespace abyss::Event::Talk::BossTalk0_0
         Ref<QuakeModel> m_lastQuake;
     };
 }
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Event::Talk::BossTalk0_0::BossMove>
+    {
+        using Base = MultiComponents<
+            Event::Talk::ITalker
+        >;
+    };
+}

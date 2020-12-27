@@ -8,14 +8,14 @@ namespace abyss::Event::Talk::BossTalk0_0
 {
     void Build(TriggerFactory& triggerTable)
     {
-        //triggerTable[U"setup"] = [] {
-        //    return std::make_unique<Setup>();
-        //};
-        //triggerTable[U"boss_move"] = [] {
-        //    return std::make_unique<BossMove>();
-        //};
-        //triggerTable[U"teardown"] = [] {
-        //    return std::make_unique<Teardown>();
-        //};
+        triggerTable[U"setup"] = [](TalkObj* pTalk){
+            pTalk->attach<Setup>(pTalk);
+        };
+        triggerTable[U"boss_move"] = [](TalkObj* pTalk) {
+            pTalk->attach<BossMove>(pTalk);
+        };
+        triggerTable[U"teardown"] = [](TalkObj* pTalk) {
+            pTalk->attach<Teardown>(pTalk);
+        };
     }
 }
