@@ -89,7 +89,7 @@ namespace abyss
             m_world.cleanUp();
         }
 
-        m_events.update(dt);
+        m_events.update();
         m_userInterface.update();
         m_decor->update(m_time.time());
         m_backGround->update(m_time.time());

@@ -22,7 +22,7 @@ namespace abyss
 
         bool init();
 
-        bool update(double dt);
+        bool update();
 
         bool isEmpty() const;
 

@@ -14,7 +14,7 @@ namespace abyss
         return true;
     }
 
-    bool Events::update(double dt)
+    bool Events::update()
     {
         do {
             if (m_events.empty()) {
