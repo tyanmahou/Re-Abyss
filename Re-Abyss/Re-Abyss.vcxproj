@@ -282,6 +282,7 @@
     <ClCompile Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp" />
     <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Build.cpp" />
+    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\Serif\FaceTable.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
@@ -652,6 +653,7 @@
     <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
     <ClInclude Include="app\components\Events\Talk\base\ITalker.hpp" />
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Events\Talk\Common\Serif\SerifCtrl.hpp" />
     <ClInclude Include="app\components\Events\Talk\Common\Serif\FaceTable.hpp" />
     <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
