@@ -1177,6 +1177,9 @@
     <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Teardown\Teardown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1738,6 +1741,7 @@
     <ClInclude Include="app\components\Events\CreateBossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
