@@ -19,3 +19,14 @@ namespace abyss::Event::Talk::BossTalk0_0
         TalkObj* m_pTalk;
     };
 }
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Event::Talk::BossTalk0_0::Setup>
+    {
+        using Base = MultiComponents<
+            Event::Talk::ITalker
+        >;
+    };
+}
