@@ -37,12 +37,19 @@ namespace abyss::cron
     void BatchHolder::erase()
     {
         s3d::Erase_if(m_batchs, [](const std::shared_ptr<Batch>& batch) {
-            return batch->isDestroyed();
+            if (batch->isDestroyed()) {
+                batch->end();
+                return true;
+            }
+            return false;
         });
     }
     void BatchHolder::clear()
     {
         m_reserves.clear();
+        for (auto&& batch : m_batchs) {
+            batch->end();
+        }
         m_batchs.clear();
     }
 }

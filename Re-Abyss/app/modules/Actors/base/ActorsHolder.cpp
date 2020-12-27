@@ -113,16 +113,25 @@ namespace abyss::Actor
 	void ActorsHolder::erase()
 	{
 		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			return obj->isDestroyed();
+			if (obj->isDestroyed()) {
+				obj->end();
+				return true;
+			}
+			return false;
 		});
 	}
 	void ActorsHolder::clear()
 	{
-		auto isDestroyOnLoad = [](const std::shared_ptr<IActor>& obj) {
+		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
 			return !obj->isDontDestoryOnLoad();
-		};
-		s3d::Erase_if(m_reserves, isDestroyOnLoad);
-		s3d::Erase_if(m_actors, isDestroyOnLoad);
+		});
+		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
+			if (!obj->isDontDestoryOnLoad()) {
+				obj->end();
+				return true;
+			}
+			return false;
+		});
 		m_objIdCounter = 0;
 
 		for (auto& actor : m_actors) {

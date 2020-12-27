@@ -48,13 +48,20 @@ namespace abyss::ui
     void UserInterfaceHolder::erase()
     {
         s3d::Erase_if(m_uis, [](const std::shared_ptr<IUserInterface>& obj) {
-            return obj->isDestroyed();
+            if (obj->isDestroyed()) {
+                obj->end();
+                return true;
+            }
+            return false;
         });
     }
 
     void UserInterfaceHolder::clear()
     {
         m_reserves.clear();
+        for (auto&& ui : m_uis) {
+            ui->end();
+        }
         m_uis.clear();
     }
 
