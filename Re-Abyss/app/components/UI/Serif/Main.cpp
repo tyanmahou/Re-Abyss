@@ -14,9 +14,14 @@
 
 namespace abyss::ui::Serif
 {
-    Main::Main(IUserInterface* pUi, Event::Talk::TalkObj* pTalk) :
+    Main::Main(
+        IUserInterface* pUi,
+        const Ref<Event::Talk::SerifCtrl>& serif,
+        const Ref<Event::Talk::FaceTable>& faceTable
+    ) :
         m_pUi(pUi),
-        m_pTalk(pTalk),
+        m_serif(serif),
+        m_faceTable(faceTable),
         m_messageView(std::make_unique<MessageVM>()),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>())
@@ -24,8 +29,6 @@ namespace abyss::ui::Serif
 
     void Main::onStart()
     {
-        m_serif = m_pTalk->find<Event::Talk::SerifCtrl>();
-        m_faceTable = m_pTalk->find<Event::Talk::FaceTable>();
     }
 
     void Main::onUpdate()

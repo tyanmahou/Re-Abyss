@@ -41,7 +41,7 @@ namespace abyss::Event::Talk::BossTalk0_0
         auto camera = m_pTalk->getModule<Camera>();
         m_lastQuake = camera->startQuake(10, 0.3);
 
-        while (!m_lastQuake->isEnd()) {
+        while (m_lastQuake && !m_lastQuake->isEnd()) {
             co_yield{};
         }
     }

@@ -25,7 +25,11 @@ namespace abyss::ui::Serif
     {
         
     public:
-        Main(IUserInterface* pUi, Event::Talk::TalkObj* pTalk);
+        Main(
+            IUserInterface* pUi, 
+            const Ref<Event::Talk::SerifCtrl>& serif,
+            const Ref<Event::Talk::FaceTable>& faceTable
+        );
 
         void onStart() override;
 
@@ -34,7 +38,6 @@ namespace abyss::ui::Serif
         void onDraw() const override;
     private:
         IUserInterface* m_pUi;
-        Event::Talk::TalkObj* m_pTalk;
 
         Ref<Event::Talk::SerifCtrl> m_serif;
         Ref<Event::Talk::FaceTable> m_faceTable;

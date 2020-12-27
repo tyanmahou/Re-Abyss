@@ -32,3 +32,14 @@ namespace abyss::Event::CreateBossHPBar
         s3d::Audio m_se;
     };
 }
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Event::CreateBossHPBar::MainStream>
+    {
+        using Base = MultiComponents<
+            Event::IStream
+        >;
+    };
+}

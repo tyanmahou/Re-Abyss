@@ -60,6 +60,7 @@ namespace abyss
 		{
 			class TalkObj;
 
+			class SerifCtrl;
 			class FaceTable;
 			class TriggerFactory;
 		}

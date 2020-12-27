@@ -2,6 +2,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Events/Talk/base/ITalker.hpp>
+#include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Demo
 {

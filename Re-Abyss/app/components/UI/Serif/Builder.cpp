@@ -4,10 +4,14 @@
 
 namespace abyss::ui::Serif
 {
-    void Builder::Build(IUserInterface* pUi, Event::Talk::TalkObj* pTalk) {
+    void Builder::Build(
+        IUserInterface* pUi,
+        const Ref<Event::Talk::SerifCtrl>& serif,
+        const Ref<Event::Talk::FaceTable>& faceTable
+    ) {
         // メイン追加
         {
-            pUi->attach<Main>(pUi, pTalk);
+            pUi->attach<Main>(pUi, serif, faceTable);
         }
     }
 }
