@@ -57,7 +57,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 body.setVelocity(velocity);
             }
         }
-        body.update(dt);
     }
 
     void HandCtrl::startForAttackWait(Body& body)const
@@ -92,7 +91,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             body.setVelocity(velocity);
             ret = false;
         }
-        body.update(dt);
         return ret;
     }
 

@@ -10,10 +10,6 @@ namespace abyss::Actor::Player
     DamageState::DamageState()
     {
     }
-    void DamageState::onMove(double dt)
-    {
-        this->m_body->update(dt);
-    }
     Task<> DamageState::start()
     {
         co_yield BaseState::start();
@@ -35,8 +31,6 @@ namespace abyss::Actor::Player
     }
     void DamageState::update()
     {
-        auto dt = m_pActor->deltaTime();
-        this->onMove(dt);
         if (m_damageTimer.reachedZero()) {
             this->changeState<SwimState>();
         }

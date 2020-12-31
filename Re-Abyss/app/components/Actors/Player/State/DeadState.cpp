@@ -10,11 +10,6 @@
 
 namespace abyss::Actor::Player
 {
-    void DeadState::onMove(double dt)
-    {
-        this->m_body->update(dt);
-    }
-
     Task<> DeadState::start()
     {
         co_yield BaseState::start();
@@ -48,7 +43,6 @@ namespace abyss::Actor::Player
 
     void DeadState::update()
     {
-        this->onMove(m_pActor->deltaTime());
     }
 
     void DeadState::onDraw(const PlayerVM& view) const

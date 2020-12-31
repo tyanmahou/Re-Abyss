@@ -8,6 +8,7 @@
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/RotateCtrl.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandProxy.h>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandCtrl.hpp>
@@ -33,6 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             pActor->attach<Body>(pActor)
                 ->initPos(parent->find<Body>()->getPos() + s3d::Vec2{ forward * -110, 90 })
                 .noneResistanced();
+            pActor->attach<BodyUpdater>(pActor);
         }
         // 衝突
         {

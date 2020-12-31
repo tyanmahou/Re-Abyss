@@ -6,7 +6,7 @@
 
 namespace abyss::Actor::Player
 {
-    void LadderState::onMove(double dt)
+    void LadderState::onMove([[maybe_unused]]double dt)
     {
         if (InputManager::A.down()) {
             this->changeState<SwimState>();
@@ -17,8 +17,6 @@ namespace abyss::Actor::Player
         }
         double veocityY = Param::Ladder::Speed * (InputManager::Down.pressed() - InputManager::Up.pressed());
         m_body->setVelocity({ 0, veocityY });
-        m_body->update(dt);
-
     }
     void LadderState::onLanding()
     {

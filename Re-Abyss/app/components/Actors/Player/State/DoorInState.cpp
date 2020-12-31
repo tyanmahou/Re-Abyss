@@ -50,7 +50,6 @@ namespace abyss::Actor::Player
     }
     void DoorInState::update()
     {
-        this->onMove(m_pActor->deltaTime());
     }
     void DoorInState::onDraw(const PlayerVM & view) const
     {

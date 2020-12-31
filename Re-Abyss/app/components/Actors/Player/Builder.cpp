@@ -4,6 +4,7 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
+#include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/BreathingCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
@@ -47,6 +48,7 @@ namespace abyss::Actor::Player
                 .initPos(startPos.getPos())
 				.setForward(startPos.getForward())
 				;
+            pActor->attach<BodyUpdater>(pActor);
 		}
 		// Foot
 		{

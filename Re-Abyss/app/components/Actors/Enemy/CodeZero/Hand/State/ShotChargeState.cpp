@@ -9,7 +9,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     Task<> ShotChargeState::start()
     {
-        m_body->noneResistanced();
+        m_body->noneResistanced()
+            .setVelocity(s3d::Vec2::Zero());
         co_return;
     }
     void ShotChargeState::update()

@@ -50,7 +50,7 @@ namespace abyss::Actor::Player
             .setMaxSpeedX(Param::Swim::MaxSpeedX);
         co_return;
     }
-    void BaseState::onMove(double dt)
+    void BaseState::onMove([[maybe_unused]] double dt)
     {
         const bool rightPressed = InputManager::Right.pressed();
         const bool leftPressed = InputManager::Left.pressed();
@@ -66,7 +66,6 @@ namespace abyss::Actor::Player
         } else {
             m_body->setMaxVelocityY(Body::DefaultMaxVelocityY);
         }
-        m_body->update(dt);
     }
     void BaseState::update()
     {

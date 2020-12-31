@@ -22,7 +22,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             this->changeState<AttackState>();
             return;
         }
-        m_body->update(dt);
     }
 
     void AttackWaitState::draw() const
