@@ -1586,7 +1586,6 @@
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
-    <ClInclude Include="app\components\Actors\base\ICollisionReact.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
     <ClInclude Include="app\components\Actors\Commons\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreCollision.hpp" />
@@ -1743,6 +1742,7 @@
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\components\Actors\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IPostPhysics.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostCollision.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

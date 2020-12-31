@@ -30,7 +30,7 @@ namespace abyss::Actor
                 m_current->end();
             }
             m_current = m_next;
-            m_collisionReact = std::dynamic_pointer_cast<ICollisionReact>(m_current);
+            m_collisionReact = std::dynamic_pointer_cast<IPostCollision>(m_current);
             m_startTask = std::make_unique<Coro::Task<void>>(m_current->start());
             m_current->init(this);
             m_next = nullptr;
@@ -61,10 +61,10 @@ namespace abyss::Actor
         }
     }
 
-    void StateCtrl::onCollisionReact()
+    void StateCtrl::onPostCollision()
     {
         if (m_collisionReact) {
-            m_collisionReact->onCollisionReact();
+            m_collisionReact->onPostCollision();
         }
     }
 

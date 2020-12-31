@@ -16,7 +16,7 @@ namespace abyss::Actor
         m_cols = m_pActor->find<CollisionCtrl>();
         m_mapCol = m_pActor->find<MapCollider>();
     }
-    void DeadOnHItReceiver::onCollisionReact()
+    void DeadOnHItReceiver::onPostCollision()
     {
         if (m_pActor->isDestroyed()) {
             return;

@@ -579,7 +579,7 @@
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
-    <ClInclude Include="app\components\Actors\base\ICollisionReact.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostCollision.hpp" />
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\ILocator.hpp" />

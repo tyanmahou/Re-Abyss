@@ -13,7 +13,7 @@ namespace abyss::Actor
 		m_hp = m_pActor->find<HP>();
 		m_colCtrl = m_pActor->find<CollisionCtrl>();
 	}
-	void DamageCtrl::onCollisionReact()
+	void DamageCtrl::onPostCollision()
 	{
 		if (m_pActor->isDestroyed()) {
 			return;

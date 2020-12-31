@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actors/base/ICollisionReact.hpp>
+#include <abyss/components/Actors/base/IPostCollision.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 {
     class DamageCtrl :
         public IComponent,
-        public ICollisionReact
+        public IPostCollision
     {
     protected:
         Ref<CollisionCtrl> m_col;
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         DamageCtrl(IActor* pActor);
 
         void onStart() override;
-        void onCollisionReact()override;
+        void onPostCollision()override;
     };
 }
 
@@ -32,6 +32,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::CodeZero::Head::DamageCtrl>
     {
-        using Base = Actor::ICollisionReact;
+        using Base = Actor::IPostCollision;
     };
 }

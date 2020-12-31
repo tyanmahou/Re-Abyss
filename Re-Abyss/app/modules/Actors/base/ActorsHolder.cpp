@@ -89,13 +89,13 @@ namespace abyss::Actor
 		}
 	}
 
-	void ActorsHolder::collisionReact() const
+	void ActorsHolder::postCollision() const
 	{
 		for (auto& obj : m_actors) {
 			if (!obj->isActive()) {
 				continue;
 			}
-			obj->collisionReact();
+			obj->postCollision();
 		}
 	}
 

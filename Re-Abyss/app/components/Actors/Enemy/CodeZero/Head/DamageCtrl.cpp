@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		m_parent = m_pActor->find<ParentCtrl>();
 		m_col = m_pActor->find<CollisionCtrl>();
 	}
-	void DamageCtrl::onCollisionReact()
+	void DamageCtrl::onPostCollision()
 	{
 		auto parent = m_parent->getParent();
 		auto hp = m_parent->getHp();

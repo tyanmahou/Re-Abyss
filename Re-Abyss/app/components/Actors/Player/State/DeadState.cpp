@@ -56,7 +56,7 @@ namespace abyss::Actor::Player
         view.drawStateDamage();
     }
 
-    void DeadState::onCollisionReact()
+    void DeadState::onPostCollision()
     {}
 
     DeadState::DeadState()

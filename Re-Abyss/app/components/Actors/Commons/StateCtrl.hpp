@@ -5,7 +5,7 @@
 
 # include <abyss/modules/Actors/base/IActor.hpp>
 # include <abyss/components/base/IComponent.hpp>
-# include <abyss/components/Actors/base/ICollisionReact.hpp>
+# include <abyss/components/Actors/base/IPostCollision.hpp>
 # include <abyss/components/Actors/base/IUpdate.hpp>
 # include <abyss/components/Actors/base/ILastUpdate.hpp>
 # include <abyss/components/Actors/base/IDraw.hpp>
@@ -48,14 +48,14 @@ namespace abyss::Actor
         public IUpdate,
         public ILastUpdate,
         public IDraw,
-        public ICollisionReact
+        public IPostCollision
     {
     private:
         using State_t = std::shared_ptr<IState>;
 
         State_t m_current;
         State_t m_next;
-        std::shared_ptr<ICollisionReact> m_collisionReact;
+        std::shared_ptr<IPostCollision> m_collisionReact;
         std::unique_ptr<Task<void>> m_startTask;
 
         IActor* const  m_pActor;
@@ -72,7 +72,7 @@ namespace abyss::Actor
 
         void onDraw() const override;
 
-        void onCollisionReact() override;
+        void onPostCollision() override;
         
         void changeState(const std::shared_ptr<IState>& next);
 
@@ -110,7 +110,7 @@ namespace abyss
             Actor::IUpdate,
             Actor::ILastUpdate,
             Actor::IDraw,
-            Actor::ICollisionReact
+            Actor::IPostCollision
         >;
     };
 }

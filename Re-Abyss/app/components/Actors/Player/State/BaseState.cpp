@@ -104,7 +104,7 @@ namespace abyss::Actor::Player
             m_attackCtrl->startAttack();
         }
     }
-    void BaseState::onCollisionReact()
+    void BaseState::onPostCollision()
     {
         if (m_colCtrl->anyThen<Tag::Door, DoorProxy>([this](const DoorProxy& door) {
             // 扉

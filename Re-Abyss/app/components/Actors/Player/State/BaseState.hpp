@@ -13,7 +13,7 @@
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 #include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/components/Actors/base/ICollisionReact.hpp>
+#include <abyss/components/Actors/base/IPostCollision.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
 
     class BaseState : 
         public IState,
-        public ICollisionReact
+        public IPostCollision
     {
     protected:
         Body* m_body;
@@ -51,7 +51,7 @@ namespace abyss::Actor::Player
 
         void update() override;
 
-        void onCollisionReact() override;
+        void onPostCollision() override;
 
         void lastUpdate() override;
         void draw() const override;

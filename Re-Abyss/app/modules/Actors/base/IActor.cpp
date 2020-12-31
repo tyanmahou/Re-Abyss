@@ -6,7 +6,7 @@
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
 #include <abyss/components/Actors/base/IPostPhysics.hpp>
 #include <abyss/components/Actors/base/IPreCollision.hpp>
-#include <abyss/components/Actors/base/ICollisionReact.hpp>
+#include <abyss/components/Actors/base/IPostCollision.hpp>
 #include <abyss/components/Actors/base/ILastUpdate.hpp>
 #include <abyss/components/Actors/base/IDraw.hpp>
 #include <abyss/components/Actors/base/IPreDraw.hpp>
@@ -60,10 +60,10 @@ namespace abyss::Actor
 		}
 	}
 
-	void IActor::collisionReact()
+	void IActor::postCollision()
 	{
-		for (auto&& com : this->finds<ICollisionReact>()) {
-			com->onCollisionReact();
+		for (auto&& com : this->finds<IPostCollision>()) {
+			com->onPostCollision();
 		}
 	}
 
