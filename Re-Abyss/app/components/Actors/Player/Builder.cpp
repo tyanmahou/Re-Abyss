@@ -20,6 +20,7 @@
 #include <abyss/components/Actors/Player/RoomMoveChecker.hpp>
 #include <abyss/components/Actors/Player/UICtrl.hpp>
 #include <abyss/components/Actors/Player/DebugCtrl.hpp>
+#include <abyss/components/Actors/Player/GimmickReactCtrl.hpp>
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -101,6 +102,10 @@ namespace abyss::Actor::Player
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<SwimState>()
                 ;
+        }
+        // ギミック反応
+        {
+            pActor->attach<GimmickReactCtrl>(pActor);
         }
         // AttackCtrl
         {

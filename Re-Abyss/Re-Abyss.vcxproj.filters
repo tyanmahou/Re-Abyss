@@ -1180,6 +1180,9 @@
     <ClCompile Include="app\components\base\ExecuteSorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\GimmickReactCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1743,6 +1746,8 @@
     <ClInclude Include="app\components\Actors\base\IPostCollision.hpp" />
     <ClInclude Include="app\components\base\Executer.hpp" />
     <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
+    <ClInclude Include="app\components\Actors\Player\GimmickReactCtrl.hpp" />
+    <ClInclude Include="app\components\Actors\Player\IGimmickReacter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
