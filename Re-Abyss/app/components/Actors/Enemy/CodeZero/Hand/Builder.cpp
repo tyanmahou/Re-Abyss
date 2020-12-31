@@ -65,7 +65,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         // AttackerData
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
         // 描画制御
         {

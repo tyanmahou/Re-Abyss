@@ -13,13 +13,15 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
         m_pActor->find<AudioSource>()->play(U"Charge");
+
+        while (!m_chargeTimer.reachedZero()) {
+            co_yield{};
+        }
+        this->changeState<AttackState>();
         co_return;
     }
     void ChargeState::update()
     {
-        if (m_chargeTimer.reachedZero()) {
-            this->changeState<AttackState>();
-        }
     }
     void ChargeState::draw() const
     {

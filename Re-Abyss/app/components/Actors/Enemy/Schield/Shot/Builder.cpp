@@ -68,7 +68,7 @@ namespace abyss::Actor::Enemy::Schield::Shot
         }
         // AttackerData
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
         // 描画制御
         {

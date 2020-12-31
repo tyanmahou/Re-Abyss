@@ -74,7 +74,7 @@ namespace abyss::Actor::Player::Shot
 
 		// AttaerData
 		{
-			pActor->attach<AttackerData>(shot->toPower());
+			pActor->attach<AttackerData>(pActor, shot->toPower());
 		}
     }
 }

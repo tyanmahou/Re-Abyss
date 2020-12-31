@@ -103,11 +103,16 @@ namespace abyss::Actor::Player
     }
     void BaseState::onPostCollision()
     {
-        bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
-            return m_hp->damage(attacker.getPower());
+        s3d::Vec2 velocity;
+        bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this, &velocity](const AttackerData& attacker) {
+            auto ret = m_hp->damage(attacker.getPower());
+            if (ret) {
+                velocity = attacker.getVelocity();
+            }
+            return ret;
         });
         if (isDamaged) {
-            this->changeState<DamageState, StatePriority::Damage>();
+            this->changeState<DamageState, StatePriority::Damage>(velocity);
         }
     }
 

@@ -79,7 +79,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         }
         // 攻撃データ
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
     }
 }

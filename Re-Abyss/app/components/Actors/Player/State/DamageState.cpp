@@ -7,22 +7,30 @@
 
 namespace abyss::Actor::Player
 {
-    DamageState::DamageState()
-    {
-    }
+    DamageState::DamageState(const s3d::Vec2& velocity):
+        m_velocity(velocity)
+    {}
     Task<> DamageState::start()
     {
         co_yield BaseState::start();
         m_pActor->find<AudioSource>()->play(U"Damage");
 
-       m_body
+        auto nextForward = m_body->getForward();
+        if (m_velocity.x > 0) {
+            nextForward = Forward::Left;
+        } else if (m_velocity.x < 0) {
+            nextForward = Forward::Right;
+        }
+
+        m_body
             ->setAccelX(0)
-            .setMaxVelocityY(Body::DefaultMaxVelocityY);
+            .setMaxVelocityY(Body::DefaultMaxVelocityY)
+            .setForward(nextForward);
 
         const Vec2& knockBackSpeed = Param::Damage::KnockBackSpeed;
 
         const Vec2 velocity{ 
-            m_body->getForward() *  -knockBackSpeed.x,
+            nextForward *  -knockBackSpeed.x,
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);

@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::Schield::Shell
         }
         // AttackerData
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
         // ReceiverData
         {

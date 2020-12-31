@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         }
         // 攻撃データ
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
         // 受け身データ
         {

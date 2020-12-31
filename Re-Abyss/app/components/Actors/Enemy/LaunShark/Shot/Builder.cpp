@@ -101,7 +101,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // AttackerData
         {
-            pActor->attach<AttackerData>(1);
+            pActor->attach<AttackerData>(pActor, 1);
         }
         // ReceiverData
         {

@@ -181,6 +181,7 @@
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
     <ClCompile Include="app\components\Actors\base\ICollision.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\AttackerData.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
     <ClCompile Include="app\components\Actors\Commons\BehaviorCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Colliders\CircleCollider.cpp" />

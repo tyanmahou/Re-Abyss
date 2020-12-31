@@ -4,7 +4,7 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/Enemy/CaptainTako/Shot/Builder.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/components/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/BehaviorUtil.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
@@ -15,29 +15,31 @@ namespace abyss::Actor::Enemy::CaptainTako
     {}
     Task<> AttackState::start()
     {
-        m_intervalTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::IntervalTimeSec, false);
+        while (true) {
+            // ショット
+            constexpr s3d::Vec2 offset{ -9, 4 };
+            const s3d::Vec2 fixedOffset{
+                m_body->isForward(Forward::Left) ? offset.x : -offset.x,
+                offset.y
+            };
+            auto pos = m_body->getPos() + fixedOffset;
+            m_pActor->getModule<World>()->create<Shot::Builder>(pos, m_body->getForward());
+
+            if (++m_currentAttackCount >= m_attackCount) {
+                break;
+            }
+            co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Attack::IntervalTimeSec);
+        }
+        this->changeState<WaitState>();
         co_return;
     }
     void AttackState::update()
     {
-        if (m_intervalTimer.reachedZero() || !m_intervalTimer.isRunning()) {
-            constexpr s3d::Vec2 offset{ -9, 4 };
-            const s3d::Vec2 fixedOffset{ 
-                m_body->isForward(Forward::Left) ? offset.x : -offset.x, 
-                offset.y
-            };
-            auto pos =  m_body->getPos() + fixedOffset;
-            m_pActor->getModule<World>()->create<Shot::Builder>(pos, m_body->getForward());
-            m_intervalTimer.restart();
-            if (++m_currentAttackCount >= m_attackCount) {
-                this->changeState<WaitState>();
-            }
-        }
     }
 
     void AttackState::draw() const
     {
-        const double chargeTime = static_cast<double>(m_currentAttackCount) / static_cast<double>(m_attackCount);
+        const double chargeTime = static_cast<double>(m_attackCount - m_currentAttackCount) / static_cast<double>(m_attackCount);
         (*m_view)->drawCharge(chargeTime);
     }
 }

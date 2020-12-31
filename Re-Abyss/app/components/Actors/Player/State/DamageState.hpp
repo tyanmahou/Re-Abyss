@@ -9,7 +9,9 @@ namespace abyss::Actor::Player
         void update()override;
         void onDraw(const PlayerVM& view)const override;
     public:
-        DamageState();
+        DamageState(const s3d::Vec2& velocity);
 
+    private:
+        const s3d::Vec2 m_velocity;
     };
 }
