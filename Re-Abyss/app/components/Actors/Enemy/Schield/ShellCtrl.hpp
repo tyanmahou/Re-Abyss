@@ -17,6 +17,7 @@ namespace abyss::Actor::Enemy::Schield
         ~ShellCtrl();
 
         void onStart() override;
+        void onEnd() override;
         void onDead() override;
     };
 }

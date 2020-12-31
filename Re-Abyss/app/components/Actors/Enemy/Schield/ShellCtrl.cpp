@@ -10,13 +10,16 @@ namespace abyss::Actor::Enemy::Schield
 
     ShellCtrl::~ShellCtrl()
     {
-        if (m_shell) {
-            m_shell->destroy();
-        }
     }
     void ShellCtrl::onStart()
     {
         m_shell = m_pActor->getModule<World>()->create<Shell::Builder>(m_pActor);
+    }
+    void ShellCtrl::onEnd()
+    {
+        if (m_shell) {
+            m_shell->destroy();
+        }
     }
     void ShellCtrl::onDead()
     {
