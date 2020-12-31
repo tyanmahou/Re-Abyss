@@ -27,6 +27,10 @@ namespace abyss::Actor::Gimmick::Door
                 return;
             }
         }
+        if (!player->find<Player::StateChecker>()->canDoorState()) {
+            // ドア移動可能ステートじゃないならスルー
+            return;
+        }
         if (InputManager::Up.down()) {
             player->find<StateCtrl>()->changeState<Player::DoorInState>(m_door);
         }

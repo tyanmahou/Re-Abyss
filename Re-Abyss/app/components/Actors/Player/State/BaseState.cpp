@@ -9,6 +9,7 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
+#include <abyss/components/Actors/utils/StatePriority.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -37,6 +38,7 @@ namespace abyss::Actor::Player
         m_mapCol     = m_pActor->find<MapCollider>().get();
         m_view       = m_pActor->find<ViewCtrl<PlayerVM>>().get();
         m_colCtrl    = m_pActor->find<CollisionCtrl>().get();
+        m_stateChecker = m_pActor->find<StateChecker>().get();
     }
     Task<> BaseState::start()
     {
@@ -106,7 +108,7 @@ namespace abyss::Actor::Player
             return m_hp->damage(attacker.getPower());
         });
         if (isDamaged) {
-            this->changeState<DamageState>();
+            this->changeState<DamageState, StatePriority::Damage>();
         }
     }
 

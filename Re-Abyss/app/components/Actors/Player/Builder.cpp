@@ -102,6 +102,8 @@ namespace abyss::Actor::Player
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<SwimState>()
                 ;
+
+            pActor->attach<StateChecker>(pActor);
         }
         // ギミック反応
         {

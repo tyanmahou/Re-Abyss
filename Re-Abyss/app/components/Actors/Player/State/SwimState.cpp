@@ -30,6 +30,8 @@ namespace abyss::Actor::Player
     Task<> SwimState::start()
     {
         co_yield BaseState::start();
+        // ドアに入れる
+        m_stateChecker->setCanDoorState(true);
     }
     void SwimState::update()
     {

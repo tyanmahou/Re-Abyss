@@ -262,6 +262,7 @@
     <ClCompile Include="app\components\Actors\Player\GimmickReactCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actors\Player\StateChecker.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\DoorInState.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
@@ -638,6 +639,7 @@
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
+    <ClInclude Include="app\components\Actors\Player\StateChecker.hpp" />
     <ClInclude Include="app\components\Crons\base\IJob.hpp" />
     <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
@@ -671,6 +673,7 @@
     <ClInclude Include="app\components\Events\Talk\Common\Serif\FaceTable.hpp" />
     <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
     <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
     <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
     <ClInclude Include="app\components\Events\Talk\Builder.hpp" />

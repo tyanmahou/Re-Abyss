@@ -7,6 +7,7 @@
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/ChargeCtrl.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
+#include <abyss/components/Actors/Player/StateChecker.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
@@ -32,6 +33,7 @@ namespace abyss::Actor::Player
         MapCollider* m_mapCol;
         CollisionCtrl* m_colCtrl;
         ViewCtrl<PlayerVM>* m_view;
+        StateChecker* m_stateChecker;
 
         virtual void onMove(double dt);
         virtual void onLanding(){}

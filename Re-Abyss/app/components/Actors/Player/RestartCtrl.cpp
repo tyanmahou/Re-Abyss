@@ -6,6 +6,7 @@
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 
 #include <abyss/components/Actors/Player/State/DeadState.hpp>
+#include <abyss/components/Actors/utils/StatePriority.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -16,7 +17,7 @@ namespace abyss::Actor::Player
     void RestartCtrl::onDead()
     {
         if (auto state = m_pActor->find<StateCtrl>()) {
-            state->changeState<DeadState>();
+            state->changeState<DeadState, StatePriority::Dead>();
         }
         // ゲームリスタートイベントを開始
         m_pActor->getModule<Events>()->create<Event::GameRestart::Builder>();

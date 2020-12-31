@@ -1189,6 +1189,9 @@
     <ClCompile Include="app\components\Actors\Player\State\DoorInState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\StateChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1757,6 +1760,8 @@
     <ClInclude Include="app\components\Actors\Gimmick\Door\GimmickReacter.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Actors\base\IStateCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Player\StateChecker.hpp" />
+    <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
