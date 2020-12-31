@@ -241,6 +241,7 @@
     <ClCompile Include="app\components\Actors\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\components\Actors\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Gimmick\Door\DoorProxy.cpp" />
+    <ClCompile Include="app\components\Actors\Gimmick\Door\GimmickReacter.cpp" />
     <ClCompile Include="app\components\Actors\Gimmick\EventTrigger\Builder.cpp" />
     <ClCompile Include="app\components\Actors\God\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Map\CommonBuilder.cpp" />
@@ -618,6 +619,7 @@
     <ClInclude Include="app\components\Actors\Enemy\Slime\Sensor\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\DoorProxy.hpp" />
+    <ClInclude Include="app\components\Actors\Gimmick\Door\GimmickReacter.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actors\God\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Map\CommonBuilder.hpp" />
