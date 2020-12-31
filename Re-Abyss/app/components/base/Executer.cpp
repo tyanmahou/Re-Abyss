@@ -1,9 +1,9 @@
-#include "Depends.hpp"
+#include "Executer.hpp"
 #include <Siv3D/HashTable.hpp>
 
 namespace abyss
 {
-    class Depends::Impl
+    class Executer::Impl
     {
         struct Edge
         {
@@ -42,33 +42,33 @@ namespace abyss
         }
     };
 
-    Depends::Command::Command(const Depends* depends, const std::type_index& process):
-        m_depends(depends),
+    Executer::Command::Command(const Executer* executer, const std::type_index& process):
+        m_executer(executer),
         m_process(process)
     {}
 
-    void Depends::Command::addAfter(const std::function<bool(IComponent*)>& f) const
+    void Executer::Command::addAfter(const std::function<bool(IComponent*)>& f) const
     {
-        m_depends->m_pImpl->addAfter(m_process, f);
+        m_executer->m_pImpl->addAfter(m_process, f);
     }
-    void Depends::Command::addBefore(const std::function<bool(IComponent*)>& f) const
+    void Executer::Command::addBefore(const std::function<bool(IComponent*)>& f) const
     {
-        m_depends->m_pImpl->addBefore(m_process, f);
+        m_executer->m_pImpl->addBefore(m_process, f);
     }
-    bool Depends::Command::isAfter(IComponent* c) const
+    bool Executer::Command::isAfter(IComponent* c) const
     {
-        return m_depends->m_pImpl->isAfter(m_process, c);
+        return m_executer->m_pImpl->isAfter(m_process, c);
     }
-    bool Depends::Command::isBefore(IComponent* c) const
+    bool Executer::Command::isBefore(IComponent* c) const
     {
-        return m_depends->m_pImpl->isBefore(m_process, c);
+        return m_executer->m_pImpl->isBefore(m_process, c);
     }
 
-    Depends::Depends():
+    Executer::Executer():
         m_pImpl(std::make_shared<Impl>())
     {}
-    Depends::Command Depends::on(const std::type_index& process) const
+    Executer::Command Executer::on(const std::type_index& process) const
     {
-        return Depends::Command(this, process);
+        return Executer::Command(this, process);
     }
 }

@@ -15,10 +15,10 @@ namespace abyss::Actor::Player
     RoomMoveChecker::RoomMoveChecker(IActor* pActor):
         m_pActor(pActor)
     {}
-    void RoomMoveChecker::setup(Depends depends)
+    void RoomMoveChecker::setup(Executer executer)
     {
         // カメラでフィックスしてからやる
-        depends.on<ILastUpdate>().addAfter<CameraFixPos>();
+        executer.on<ILastUpdate>().addAfter<CameraFixPos>();
     }
     void RoomMoveChecker::onStart()
     {

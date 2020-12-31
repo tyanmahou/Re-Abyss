@@ -20,7 +20,7 @@ namespace abyss::Event::RoomMove
             double animeMilliSec
         );
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
         void onStart() override;
         void onEnd() override;
 

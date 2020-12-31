@@ -30,9 +30,9 @@ namespace abyss::Event::Talk
     TalkHandler::TalkHandler(TalkObj* pTalk):
         m_pTalk(pTalk)
     {}
-    void TalkHandler::setup(Depends depends)
+    void TalkHandler::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<ITalker>();
+        executer.on<IComponent>().addAfter<ITalker>();
     }
     void TalkHandler::onStart()
     {

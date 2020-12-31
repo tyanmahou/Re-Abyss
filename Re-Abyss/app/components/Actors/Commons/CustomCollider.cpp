@@ -2,10 +2,10 @@
 
 namespace abyss::Actor
 {
-    void CustomCollider::setup([[maybe_unused]]Depends depends)
+    void CustomCollider::setup([[maybe_unused]]Executer executer)
     {
         if (m_pImpl) {
-            m_pImpl->setup(depends);
+            m_pImpl->setup(executer);
         }
     }
     void CustomCollider::onStart()

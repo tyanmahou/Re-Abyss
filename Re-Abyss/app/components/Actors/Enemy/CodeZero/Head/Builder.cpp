@@ -81,9 +81,9 @@ namespace
                 .setForward(m_head->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime());
         }
-        void setup(Depends depend) final
+        void setup(Executer executer) final
         {
-            depend.on<IComponent>().addAfter<ParentCtrl>();
+            executer.on<IComponent>().addAfter<ParentCtrl>();
         }
         void onStart() final
         {

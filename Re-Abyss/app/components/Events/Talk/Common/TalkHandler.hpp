@@ -11,7 +11,7 @@ namespace abyss::Event::Talk
     public:
         TalkHandler(TalkObj* pTalk);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

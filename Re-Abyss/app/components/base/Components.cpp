@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include <ranges>
 
-#include <abyss/components/base/DependSort.hpp>
+#include <abyss/components/base/ExecuteSorter.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 namespace abyss
@@ -14,13 +14,13 @@ namespace abyss
     public:
         void setup()
         {
-            DependsSort ds;
+            detail::ExecuteSorter sorter;
             for (auto&& com : m_tree[typeid(IComponent)]) {
 
-                Depends depend;
-                com->setup(depend);
+                Executer executer;
+                com->setup(executer);
 
-                ds.regist(com.get(), depend);
+                sorter.regist(com.get(), executer);
             }
             // 依存関係からソートする
             for (auto& pair : m_tree) {
@@ -28,7 +28,7 @@ namespace abyss
                     // ソート不要
                     continue;
                 }
-                pair.second = ds.sort(pair.first, pair.second);
+                pair.second = sorter.sort(pair.first, pair.second);
             }
         }
         void start()

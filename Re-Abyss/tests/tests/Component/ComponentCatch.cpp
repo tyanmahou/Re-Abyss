@@ -13,48 +13,48 @@ namespace
 
     class ComA : public IComponent
     {
-        void setup([[maybe_unused]] Depends depends) override
+        void setup([[maybe_unused]] Executer executer) override
         {
 
         }
     };
     class ComB : public IComponent
     {
-        void setup([[maybe_unused]] Depends depends) override
+        void setup([[maybe_unused]] Executer executer) override
         {
-            depends.on<IComponent>().addBefore<ComA>();
+            executer.on<IComponent>().addBefore<ComA>();
         }
     };
     class ComC : 
         public IComponent,
         public ITestInterface
     {
-        void setup([[maybe_unused]] Depends depends) override
+        void setup([[maybe_unused]] Executer executer) override
         {
-            depends.on<IComponent>().addAfter<ComA>();
-            depends.on<IComponent>().addBefore<ComB>();
+            executer.on<IComponent>().addAfter<ComA>();
+            executer.on<IComponent>().addBefore<ComB>();
         }
     };
     class ComD : 
         public IComponent, 
         public ITestInterface
     {
-        void setup([[maybe_unused]] Depends depends) override
+        void setup([[maybe_unused]] Executer executer) override
         {
-            depends.on<IComponent>().addBefore<ComA>();
-            depends.on<ITestInterface>().addBefore<ComC>();
+            executer.on<IComponent>().addBefore<ComA>();
+            executer.on<ITestInterface>().addBefore<ComC>();
         }
     };
     class ComE :
         public IComponent,
         public ITestInterface
     {
-        void setup([[maybe_unused]] Depends depends) override
+        void setup([[maybe_unused]] Executer executer) override
         {
-            depends.on<IComponent>().addBefore<ComB>();
-            depends.on<IComponent>().addAfter<ComC>();
-            depends.on<ITestInterface>().addAfter<ComD>();
-            depends.on<ITestInterface>().addBefore<ComC>();
+            executer.on<IComponent>().addBefore<ComB>();
+            executer.on<IComponent>().addAfter<ComC>();
+            executer.on<ITestInterface>().addAfter<ComD>();
+            executer.on<ITestInterface>().addBefore<ComC>();
         }
     };
 }
@@ -79,7 +79,7 @@ namespace abyss
 namespace abyss::tests
 {
 
-    TEST_CASE("Component. Depends")
+    TEST_CASE("Component. Executer")
     {
         Components components;
         components.add(std::make_shared<ComA>());

@@ -13,9 +13,9 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void OutRoomChecker::setup(Depends depends)
+    void OutRoomChecker::setup(Executer executer)
     {
-        depends.on<ILastUpdate>().addBefore<DeadChecker>();
+        executer.on<ILastUpdate>().addBefore<DeadChecker>();
     }
 
     void OutRoomChecker::onStart()

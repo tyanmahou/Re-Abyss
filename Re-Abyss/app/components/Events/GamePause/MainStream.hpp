@@ -11,7 +11,7 @@ namespace abyss::Event::GamePause
     public:
         MainStream(IEvent* pEvent);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
         void onStart() override;
         void onEnd() override;
 

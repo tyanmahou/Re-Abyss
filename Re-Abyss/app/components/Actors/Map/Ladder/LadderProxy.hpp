@@ -14,7 +14,7 @@ namespace abyss::Actor::Map::Ladder
     public:
         LadderProxy(IActor* pActor);
 
-        void setup([[maybe_unused]] Depends depends) override;
+        void setup([[maybe_unused]] Executer executer) override;
 
         void onStart() override;
 

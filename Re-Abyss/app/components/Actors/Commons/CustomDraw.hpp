@@ -26,7 +26,7 @@ namespace abyss::Actor
     private:
         std::unique_ptr<IImpl> m_pImpl;
     public:
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

@@ -16,14 +16,14 @@ namespace abyss::Actor
         {
         public:
             virtual ~IImpl() = default;
-            virtual void setup([[maybe_unused]]Depends depends) {}
+            virtual void setup([[maybe_unused]]Executer executer) {}
             virtual void onStart() {}
             virtual CShape getCollider() const = 0;
         };
     private:
         std::shared_ptr<IImpl> m_pImpl;
     public:
-        void setup(Depends depends)override;
+        void setup(Executer executer)override;
         void onStart()override;
         CustomCollider& setImpl(const std::shared_ptr<IImpl>& impl);
 

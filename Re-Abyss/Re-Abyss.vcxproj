@@ -262,8 +262,8 @@
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
-    <ClCompile Include="app\components\base\Depends.cpp" />
-    <ClCompile Include="app\components\base\DependSort.cpp" />
+    <ClCompile Include="app\components\base\Executer.cpp" />
+    <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
@@ -719,8 +719,8 @@
     <ClInclude Include="app\components\Actors\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actors\utils\BehaviorUtil.hpp" />
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
-    <ClInclude Include="app\components\base\Depends.hpp" />
-    <ClInclude Include="app\components\base\DependSort.hpp" />
+    <ClInclude Include="app\components\base\Executer.hpp" />
+    <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />

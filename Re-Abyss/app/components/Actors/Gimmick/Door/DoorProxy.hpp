@@ -14,7 +14,7 @@ namespace abyss::Actor::Gimmick::Door
     public:
         DoorProxy(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

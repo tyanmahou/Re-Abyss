@@ -31,7 +31,7 @@ namespace abyss::Actor
         return *this;
     }
 
-    void CustomDraw::setup([[maybe_unused]]Depends depends)
+    void CustomDraw::setup([[maybe_unused]]Executer executer)
     {
     }
     void CustomDraw::onStart()

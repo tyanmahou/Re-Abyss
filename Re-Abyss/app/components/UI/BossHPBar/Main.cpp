@@ -9,9 +9,9 @@ namespace abyss::ui::BossHPBar
         m_pUi(pUi)
     {}
 
-    void Main::setup(Depends depends)
+    void Main::setup(Executer executer)
     {
-        depends.on<IUpdate>().addAfter<HPGaugeCtrl>();
+        executer.on<IUpdate>().addAfter<HPGaugeCtrl>();
     }
     void Main::onStart()
     {

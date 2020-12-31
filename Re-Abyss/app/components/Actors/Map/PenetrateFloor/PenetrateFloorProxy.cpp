@@ -7,10 +7,10 @@ namespace abyss::Actor::Map::PenetrateFloor
         m_canDown(canDown),
         m_aroundFloor(aroundFloor)
     {}
-    void PenetrateFloorProxy::setup(Depends depends)
+    void PenetrateFloorProxy::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<MapProxy>();
-        depends.on<IComponent>().addAfter<Terrain>();
+        executer.on<IComponent>().addAfter<MapProxy>();
+        executer.on<IComponent>().addAfter<Terrain>();
     }
     void PenetrateFloorProxy::onStart()
     {

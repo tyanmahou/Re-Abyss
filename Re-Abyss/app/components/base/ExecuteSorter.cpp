@@ -1,4 +1,4 @@
-#include "DependSort.hpp"
+#include "ExecuteSorter.hpp"
 
 namespace
 {
@@ -25,13 +25,13 @@ namespace
         result.push_front(n.component);
     };
 }
-namespace abyss
+namespace abyss::detail
 {
-    void DependsSort::regist(IComponent* component, Depends depends)
+    void ExecuteSorter::regist(IComponent* component, Executer executer)
     {
-        m_depends[component] = depends;
+        m_executer[component] = executer;
     }
-    s3d::Array<Ref<IComponent>> DependsSort::sort(const std::type_index& process, const s3d::Array<Ref<IComponent>>& origin)
+    s3d::Array<Ref<IComponent>> ExecuteSorter::sort(const std::type_index& process, const s3d::Array<Ref<IComponent>>& origin)
     {
         s3d::Array<Node> nodes;
         for (auto& com : origin) {
@@ -40,15 +40,15 @@ namespace abyss
         // 出力ノードをまとめる
         for (auto& node1 : nodes) {
             s3d::Array<Node*> outs;
-            auto& depends1 = m_depends[node1.component.get()];
+            auto& executer1 = m_executer[node1.component.get()];
             for (auto& node2 : nodes) {
                 if (&node1 == &node2) {
                     continue;
                 }
-                auto& depends2 = m_depends[node2.component.get()];
-                if (depends1.on(process).isBefore(node2.component.get())) {
+                auto& executer2 = m_executer[node2.component.get()];
+                if (executer1.on(process).isBefore(node2.component.get())) {
                     outs.push_back(&node2);
-                } else if (depends2.on(process).isAfter(node1.component.get())) {
+                } else if (executer2.on(process).isAfter(node1.component.get())) {
                     outs.push_back(&node2);
                 }
             }

@@ -19,7 +19,7 @@ namespace abyss::Actor
     public:
         CollisionCtrl(IActor* pActor);
         ~CollisionCtrl();
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

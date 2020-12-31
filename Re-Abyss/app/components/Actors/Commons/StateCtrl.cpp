@@ -13,9 +13,9 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void StateCtrl::setup(Depends depends)
+    void StateCtrl::setup(Executer executer)
     {
-        //depends.addAfter<IComponent>();
+        //executer.addAfter<IComponent>();
     }
 
     void StateCtrl::onStart()

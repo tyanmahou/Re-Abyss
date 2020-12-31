@@ -14,7 +14,7 @@ namespace abyss::Actor::Map::PenetrateFloor
     public:
         PenetrateFloorProxy(IActor* pActor, bool canDown, ColDirection aroundFloor);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

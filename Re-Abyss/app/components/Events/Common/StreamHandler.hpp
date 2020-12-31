@@ -11,7 +11,7 @@ namespace abyss::Event
     public:
         StreamHandler(IEvent* m_pEvent);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

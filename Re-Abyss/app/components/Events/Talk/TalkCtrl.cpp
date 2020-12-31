@@ -10,7 +10,7 @@ namespace abyss::Event::Talk
         m_pEvent(pEvent)
     {}
 
-    void TalkCtrl::setup([[maybe_unused]]Depends depends)
+    void TalkCtrl::setup([[maybe_unused]]Executer executer)
     {
     }
 

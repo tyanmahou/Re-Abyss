@@ -21,7 +21,7 @@ namespace abyss::Event::RoomMove
         m_nextRoom(nextRoom),
         m_animeMilliSec(animeMilliSec)
     {}
-    void RoomMoveCtrl::setup(Depends depends)
+    void RoomMoveCtrl::setup(Executer executer)
     {
     }
     void RoomMoveCtrl::onStart()

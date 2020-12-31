@@ -8,10 +8,10 @@ namespace abyss::Actor::Map::Ladder
         m_pActor(pActor)
     {}
 
-    void LadderProxy::setup(Depends depends)
+    void LadderProxy::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<MapProxy>();
-        depends.on<IComponent>().addAfter<Terrain>();
+        executer.on<IComponent>().addAfter<MapProxy>();
+        executer.on<IComponent>().addAfter<Terrain>();
     }
 
     void LadderProxy::onStart()

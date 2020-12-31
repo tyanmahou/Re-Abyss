@@ -40,9 +40,9 @@ namespace abyss::Actor
     {}
     CollisionCtrl::~CollisionCtrl()
     {}
-    void CollisionCtrl::setup(Depends depends)
+    void CollisionCtrl::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<ICollider>();
+        executer.on<IComponent>().addAfter<ICollider>();
     }
     void CollisionCtrl::onStart()
     {

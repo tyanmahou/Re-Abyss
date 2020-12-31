@@ -15,7 +15,7 @@ namespace abyss::Actor::Player
     public:
         RoomMoveChecker(IActor* pActor);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
 
         void onStart() override;
 

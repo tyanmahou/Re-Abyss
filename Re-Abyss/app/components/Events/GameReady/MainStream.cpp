@@ -14,9 +14,9 @@ namespace abyss::Event::GameReady
     MainStream::MainStream(IEvent* pEvent):
         m_pEvent(pEvent)
     {}
-    void MainStream::setup(Depends depends)
+    void MainStream::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<FadeIrisOut>();
+        executer.on<IComponent>().addAfter<FadeIrisOut>();
     }
     void MainStream::onStart()
     {

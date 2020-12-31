@@ -30,9 +30,9 @@ namespace abyss::Event
     StreamHandler::StreamHandler(IEvent* pEvent):
         m_pEvent(pEvent)
     {}
-    void StreamHandler::setup(Depends depends)
+    void StreamHandler::setup(Executer executer)
     {
-        depends.on<IComponent>().addAfter<IStream>();
+        executer.on<IComponent>().addAfter<IStream>();
     }
     void StreamHandler::onStart()
     {

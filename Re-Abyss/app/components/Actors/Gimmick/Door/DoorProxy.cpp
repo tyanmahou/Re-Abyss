@@ -20,7 +20,7 @@ namespace abyss::Actor::Gimmick::Door
 	{
 		return m_nextRoom;
 	}
-	void DoorProxy::setup([[maybe_unused]]Depends depends)
+	void DoorProxy::setup([[maybe_unused]]Executer executer)
 	{}
 	void DoorProxy::onStart()
 	{}

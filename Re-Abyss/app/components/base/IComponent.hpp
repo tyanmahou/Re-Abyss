@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/Depends.hpp>
+#include <abyss/components/base/Executer.hpp>
 
 namespace abyss
 {
@@ -9,7 +9,7 @@ namespace abyss
         IComponent() = default;
         virtual ~IComponent() = default;
 
-        virtual void setup([[maybe_unused]]Depends depends) {}
+        virtual void setup([[maybe_unused]]Executer executer) {}
 
         virtual void onStart() {}
         virtual void onEnd() {}

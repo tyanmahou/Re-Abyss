@@ -9,7 +9,7 @@ namespace abyss::Event::GamePause
     MainStream::MainStream(IEvent* pEvent):
         m_pEvent(pEvent)
     {}
-    void MainStream::setup(Depends depends)
+    void MainStream::setup(Executer executer)
     {
     }
     void MainStream::onStart()

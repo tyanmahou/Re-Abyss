@@ -11,7 +11,7 @@ namespace abyss::Event::GameReady
     public:
         MainStream(IEvent* pEvent);
 
-        void setup(Depends depends) override;
+        void setup(Executer executer) override;
         void onStart() override;
 
         Coro::Task<> onExecute() override;
