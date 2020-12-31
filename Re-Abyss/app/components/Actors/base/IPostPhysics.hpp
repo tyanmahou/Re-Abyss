@@ -4,10 +4,10 @@ namespace abyss::Actor
     /// <summary>
     /// 地形判定の後に呼ぶ
     /// </summary>
-    class ILastPhysics
+    class IPostPhysics
     {
     public:
-        virtual ~ILastPhysics() = default;
-        virtual void onLastPhysics() = 0;
+        virtual ~IPostPhysics() = default;
+        virtual void onPostPhysics() = 0;
     };
 }

@@ -35,13 +35,20 @@ namespace abyss::Actor
 	}
 	void ActorsHolder::update()
 	{
-		this->flush();
-
 		for (auto& obj : m_actors) {
 			if (!obj->isActive()) {
 				continue;
 			}
 			obj->update();
+		}
+	}
+	void ActorsHolder::postUpdate()
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->postUpdate();
 		}
 	}
 	void ActorsHolder::move() const
@@ -62,13 +69,13 @@ namespace abyss::Actor
 			obj->prePhysics();
 		}
 	}
-	void ActorsHolder::lastPhysics() const
+	void ActorsHolder::postPhysics() const
 	{
 		for (auto& obj : m_actors) {
 			if (!obj->isActive()) {
 				continue;
 			}
-			obj->lastPhysics();
+			obj->postPhysics();
 		}
 	}
 

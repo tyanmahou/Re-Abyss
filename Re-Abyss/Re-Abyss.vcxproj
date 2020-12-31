@@ -583,6 +583,7 @@
     <ClInclude Include="app\components\Actors\base\IDamageCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\ILocator.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreCollision.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
@@ -764,7 +765,7 @@
     <ClInclude Include="app\entities\Actors\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
-    <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IPrePhysics.hpp" />

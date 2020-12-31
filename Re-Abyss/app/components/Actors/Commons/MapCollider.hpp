@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
-#include <abyss/components/Actors/base/ILastPhysics.hpp>
+#include <abyss/components/Actors/base/IPostPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/modules/Actors/base/Tag.hpp>
@@ -15,7 +15,7 @@ namespace abyss::Actor
         public IComponent,
         public IPrePhysics,
         public IPhysics,
-        public ILastPhysics
+        public IPostPhysics
     {
     private:
         class Result;
@@ -46,7 +46,7 @@ namespace abyss::Actor
 
         void onCollision(const Ref<Terrain>& terrain) override;
 
-        void onLastPhysics() override;
+        void onPostPhysics() override;
 
         MapCollider& setIsEnableRoomHit(bool enable, const s3d::Optional<ColDirection>& strict = s3d::none)
         {
@@ -140,7 +140,7 @@ namespace abyss
         using Base = MultiComponents<
             Actor::IPrePhysics,
             Actor::IPhysics,
-            Actor::ILastPhysics
+            Actor::IPostPhysics
         >;
     };
 }

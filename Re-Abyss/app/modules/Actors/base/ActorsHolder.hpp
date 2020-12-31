@@ -21,12 +21,13 @@ namespace abyss::Actor
 		void pushActor(const std::shared_ptr<IActor>& obj);
 		void updateDeltaTime(double dt);
 		void update();
+		void postUpdate();
 
 		void move() const;
 
 		void prePhysics() const;
 
-		void lastPhysics() const;
+		void postPhysics() const;
 
 		void preCollision() const;
 

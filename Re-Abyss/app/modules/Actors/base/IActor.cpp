@@ -1,9 +1,10 @@
 #include "IActor.hpp"
 #include <abyss/components/Actors/Commons/ActorTime.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
+#include <abyss/components/Actors/base/IPostUpdate.hpp>
 #include <abyss/components/Actors/base/IMove.hpp>
 #include <abyss/components/Actors/base/IPrePhysics.hpp>
-#include <abyss/components/Actors/base/ILastPhysics.hpp>
+#include <abyss/components/Actors/base/IPostPhysics.hpp>
 #include <abyss/components/Actors/base/IPreCollision.hpp>
 #include <abyss/components/Actors/base/ICollisionReact.hpp>
 #include <abyss/components/Actors/base/ILastUpdate.hpp>
@@ -27,6 +28,13 @@ namespace abyss::Actor
 			com->onUpdate();
 		}
 	}
+	void IActor::postUpdate()
+	{
+		m_time->updateUpdateTime();
+		for (auto&& com : this->finds<IPostUpdate>()) {
+			com->onPostUpdate();
+		}
+	}
 	void IActor::move()
 	{
 		for (auto&& com : this->finds<IMove>()) {
@@ -39,10 +47,10 @@ namespace abyss::Actor
 			com->onPrePhysics();
 		}
 	}
-	void IActor::lastPhysics()
+	void IActor::postPhysics()
 	{
-		for (auto&& com : this->finds<ILastPhysics>()) {
-			com->onLastPhysics();
+		for (auto&& com : this->finds<IPostPhysics>()) {
+			com->onPostPhysics();
 		}
 	}
 	void IActor::preCollision()

@@ -1547,7 +1547,6 @@
     <ClInclude Include="app\components\Actors\base\IMove.hpp" />
     <ClInclude Include="app\components\Actors\base\IPrePhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\IPhysics.hpp" />
-    <ClInclude Include="app\components\Actors\base\ILastPhysics.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastUpdate.hpp" />
@@ -1742,6 +1741,8 @@
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
     <ClInclude Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\base\IPostPhysics.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

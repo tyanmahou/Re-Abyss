@@ -76,6 +76,9 @@ namespace abyss
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
 
+        // フラッシュは常にする
+        m_world.flush();
+
         bool isWorldStop = m_events.isWorldStop();
         if (!isWorldStop) {
             m_world.update();
@@ -86,8 +89,8 @@ namespace abyss
         if (!isWorldStop) {
             m_world.collision();
             m_world.lastUpdate();
-            m_world.cleanUp();
         }
+        m_world.cleanUp();
 
         m_events.update();
         m_userInterface.update();

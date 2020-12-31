@@ -35,7 +35,9 @@ namespace abyss
     }
     void World::update()
     {
+        // preUpdate();
         m_actorsHolder.update();
+        m_actorsHolder.postPhysics();
     }
 
     void World::move()
@@ -48,7 +50,7 @@ namespace abyss
         // 地形判定
         m_actorsHolder.prePhysics();
         m_mapCollision->collisionAll(this->finds<Actor::IPhysics>(), this->finds<Actor::Terrain>());
-        m_actorsHolder.lastPhysics();
+        m_actorsHolder.postPhysics();
     }
 
     void World::collision()

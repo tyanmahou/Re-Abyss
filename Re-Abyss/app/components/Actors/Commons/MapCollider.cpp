@@ -128,7 +128,7 @@ namespace abyss::Actor
 
         m_result->add(terrain);
     }
-    void MapCollider::onLastPhysics()
+    void MapCollider::onPostPhysics()
     {
         if (!m_useBody) {
             return;

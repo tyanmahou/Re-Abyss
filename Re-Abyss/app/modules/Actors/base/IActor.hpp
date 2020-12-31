@@ -35,10 +35,12 @@ namespace abyss::Actor
 		void updateDeltaTime(double worldDt) const;
 
 		void update();
-		void move();
-		void prePhysics();
+		void postUpdate();
 
-		void lastPhysics();
+		void move();
+
+		void prePhysics();
+		void postPhysics();
 
 		void preCollision();
 		void collisionReact();
