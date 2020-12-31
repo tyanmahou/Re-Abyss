@@ -4,7 +4,6 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/modules/System/System.hpp>
-#include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/components/Events/RoomMove/DoorMove/Builder.hpp>
 

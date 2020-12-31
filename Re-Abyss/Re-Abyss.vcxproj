@@ -262,6 +262,7 @@
     <ClCompile Include="app\components\Actors\Player\GimmickReactCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actors\Player\State\DoorInState.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Executer.cpp" />
@@ -635,6 +636,7 @@
     <ClInclude Include="app\components\Actors\Player\IGimmickReacter.hpp" />
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Crons\base\IJob.hpp" />
     <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />

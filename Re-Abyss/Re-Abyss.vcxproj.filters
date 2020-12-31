@@ -1186,6 +1186,9 @@
     <ClCompile Include="app\components\Actors\Gimmick\Door\GimmickReacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\State\DoorInState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1752,6 +1755,7 @@
     <ClInclude Include="app\components\Actors\Player\GimmickReactCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\IGimmickReacter.hpp" />
     <ClInclude Include="app\components\Actors\Gimmick\Door\GimmickReacter.hpp" />
+    <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
