@@ -15,15 +15,24 @@ namespace abyss::Actor
 	}
 	void DamageCtrl::onPostCollision()
 	{
+		if (!m_isActive) {
+			return;
+		}
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		const bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
-			return m_hp->damage(attacker.getPower());
+		DamageData data{};
+		const bool isDamaged = m_colCtrl->anyThen<Tag::Attacker, AttackerData>([this, &data](const AttackerData& attacker) {
+			bool ret = m_hp->damage(attacker.getPower());
+			if (ret) {
+				data.damage = attacker.getPower();
+				data.velocity = attacker.getVelocity();
+			}
+			return ret;
 		});
 		if (isDamaged) {
 			for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
-				callback->onDamaged();
+				callback->onDamaged(data);
 			}
 		}
 	}

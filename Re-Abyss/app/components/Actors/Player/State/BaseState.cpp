@@ -1,5 +1,4 @@
 #include "BaseState.hpp"
-#include "DamageState.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -9,7 +8,6 @@
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
-#include <abyss/components/Actors/utils/StatePriority.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -99,20 +97,6 @@ namespace abyss::Actor::Player
             double charge = m_charge->pop();
             m_pActor->getModule<World>()->create<Shot::Builder>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
             m_attackCtrl->startAttack();
-        }
-    }
-    void BaseState::onPostCollision()
-    {
-        s3d::Vec2 velocity;
-        bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this, &velocity](const AttackerData& attacker) {
-            auto ret = m_hp->damage(attacker.getPower());
-            if (ret) {
-                velocity = attacker.getVelocity();
-            }
-            return ret;
-        });
-        if (isDamaged) {
-            this->changeState<DamageState, StatePriority::Damage>(velocity);
         }
     }
 

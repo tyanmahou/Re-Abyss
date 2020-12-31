@@ -13,7 +13,6 @@
 #include <abyss/components/Actors/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/components/Actors/base/IPostCollision.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -21,8 +20,7 @@ namespace abyss::Actor::Player
     using Actor::Map::Ladder::LadderProxy;
 
     class BaseState : 
-        public IState,
-        public IPostCollision
+        public IState
     {
     protected:
         Body* m_body;
@@ -49,8 +47,6 @@ namespace abyss::Actor::Player
         Task<> start() override;
 
         void update() override;
-
-        void onPostCollision() override;
 
         void lastUpdate() override;
         void draw() const override;

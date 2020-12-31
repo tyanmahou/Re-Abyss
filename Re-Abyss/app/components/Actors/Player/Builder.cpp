@@ -7,6 +7,7 @@
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actors/Commons/BreathingCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
+#include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
@@ -22,6 +23,7 @@
 #include <abyss/components/Actors/Player/UICtrl.hpp>
 #include <abyss/components/Actors/Player/DebugCtrl.hpp>
 #include <abyss/components/Actors/Player/GimmickReactCtrl.hpp>
+#include <abyss/components/Actors/Player/DamageCallback.hpp>
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -78,6 +80,11 @@ namespace abyss::Actor::Player
         // カメラによる座標調整
         {
             pActor->attach<CameraFixPos>(pActor);
+        }
+        // ダメージ制御
+        {
+            pActor->attach<DamageCtrl>(pActor);
+            pActor->attach<DamageCallback>(pActor);
         }
         // 部屋移動の検知
         {

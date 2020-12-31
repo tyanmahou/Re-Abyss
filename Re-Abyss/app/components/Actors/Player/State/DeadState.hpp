@@ -8,7 +8,6 @@ namespace abyss::Actor::Player
         Task<> start()override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;
-        void onPostCollision() override;
     public:
         DeadState();
 

@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy
     {
     }
 
-    void DamageCallback::onDamaged()
+    void DamageCallback::onDamaged([[maybe_unused]]const DamageData& damage)
     {
         m_pActor
             ->find<AudioSource>()

@@ -1,28 +1,28 @@
 #pragma once
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actors/base/IDamageCallback.hpp>
-#include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Enemy
+namespace abyss::Actor::Player
 {
     class DamageCallback :
         public IComponent,
         public IDamageCallback
     {
-    protected:
-        IActor* m_pActor;
     public:
         DamageCallback(IActor* pActor);
 
-        void setup();
         void onDamaged(const DamageData& damage) override;
+
+    private:
+        IActor* m_pActor;
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::DamageCallback>
+    struct ComponentTree<Actor::Player::DamageCallback>
     {
         using Base = Actor::IDamageCallback;
     };

@@ -14,11 +14,18 @@ namespace abyss::Actor
         Ref<HP> m_hp;
         Ref<CollisionCtrl> m_colCtrl;
         IActor* m_pActor;
+
+        bool m_isActive = true;
     public:
         DamageCtrl(IActor* pActor);
 
         void onStart() override;
         void onPostCollision()override;
+
+        void setActive(bool isActive)
+        {
+            m_isActive = isActive;
+        }
     };
 }
 

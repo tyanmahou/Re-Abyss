@@ -1,6 +1,7 @@
 #include "DeadState.hpp"
 #include <abyss/components/Actors/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
+#include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 
@@ -38,6 +39,9 @@ namespace abyss::Actor::Player
             m_body->setVelocity(velocity);
         }
 
+        // ダメージ受けない
+        m_pActor->find<DamageCtrl>()->setActive(false);
+
         co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Dead::TimeSec);
         co_return;
     }
@@ -50,9 +54,6 @@ namespace abyss::Actor::Player
     {
         view.drawStateDamage();
     }
-
-    void DeadState::onPostCollision()
-    {}
 
     DeadState::DeadState()
     {}

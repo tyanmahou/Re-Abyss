@@ -22,12 +22,18 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		if (!hp) {
 			return;
 		}
-		const bool isDamaged = m_col->eachThen<Tag::Attacker, AttackerData>([=](const AttackerData& attacker) {
-			return hp->damage(attacker.getPower());
+		DamageData data{};
+		const bool isDamaged = m_col->anyThen<Tag::Attacker, AttackerData>([this, &data, &hp](const AttackerData& attacker) {
+			bool ret = hp->damage(attacker.getPower());
+			if (ret) {
+				data.damage = attacker.getPower();
+				data.velocity = attacker.getVelocity();
+			}
+			return ret;
 		});
 		if (isDamaged) {
 			for (auto&& callback : parent->finds<IDamageCallback>()) {
-				callback->onDamaged();
+				callback->onDamaged(data);
 			}
 		}
 	}
