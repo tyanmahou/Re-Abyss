@@ -1,6 +1,6 @@
 #include "DamageState.hpp"
 #include "SwimState.hpp"
-#include <abyss/components/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/BehaviorUtil.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <Siv3D.hpp>
@@ -15,8 +15,7 @@ namespace abyss::Actor::Player
         co_yield BaseState::start();
         m_pActor->find<AudioSource>()->play(U"Damage");
 
-        m_damageTimer = ActorUtils::CreateTimer(*m_pActor, Param::Damage::TimeSec);
-        m_body
+       m_body
             ->setAccelX(0)
             .setMaxVelocityY(Body::DefaultMaxVelocityY);
 
@@ -27,13 +26,16 @@ namespace abyss::Actor::Player
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);
+
+        // 一定時間待機
+        co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
+
+        // 泳ぎに戻る
+        this->changeState<SwimState>();
         co_return;
     }
     void DamageState::update()
     {
-        if (m_damageTimer.reachedZero()) {
-            this->changeState<SwimState>();
-        }
     }
     void DamageState::onDraw(const PlayerVM& view) const
     {

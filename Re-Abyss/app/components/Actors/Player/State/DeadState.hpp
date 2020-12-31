@@ -5,7 +5,6 @@ namespace abyss::Actor::Player
 {
     class DeadState final : public BaseState
     {
-        TimerEx m_deadTimer;
         Task<> start()override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;

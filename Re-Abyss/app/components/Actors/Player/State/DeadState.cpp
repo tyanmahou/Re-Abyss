@@ -1,5 +1,5 @@
 #include "DeadState.hpp"
-#include <abyss/components/Actors/utils/ActorUtils.hpp>
+#include <abyss/components/Actors/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -24,7 +24,6 @@ namespace abyss::Actor::Player
 
         m_pActor->find<AudioSource>()->play(U"Dead");
 
-        m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::TimeSec);
         m_body
             ->setAccelX(0)
             .setMaxVelocityY(Body::DefaultMaxVelocityY);
@@ -38,6 +37,8 @@ namespace abyss::Actor::Player
             };
             m_body->setVelocity(velocity);
         }
+
+        co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Dead::TimeSec);
         co_return;
     }
 
