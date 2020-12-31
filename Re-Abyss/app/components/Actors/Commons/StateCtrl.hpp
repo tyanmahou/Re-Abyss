@@ -61,7 +61,6 @@ namespace abyss::Actor
         std::unique_ptr<Task<void>> m_startTask;
 
         IActor* const  m_pActor;
-        void stateUpdate();
     public:
         StateCtrl(IActor* pActor);
         
@@ -75,7 +74,9 @@ namespace abyss::Actor
         void onDraw() const override;
 
         void onPostCollision() override;
-        
+
+        void stateUpdate();
+
         void changeState(const std::shared_ptr<IState>& next, StatePriorityType priority = 0);
 
         template<class State, class... Args>

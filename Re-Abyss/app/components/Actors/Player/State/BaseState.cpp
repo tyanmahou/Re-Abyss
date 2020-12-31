@@ -27,10 +27,6 @@ namespace abyss::Actor::Player
     {
         return false;
     }
-    bool BaseState::onCollisionStay([[maybe_unused]]const DoorProxy& col)
-    {
-        return false;
-    }
     void BaseState::setup()
     {
         m_body       = m_pActor->find<Body>().get();
@@ -106,13 +102,6 @@ namespace abyss::Actor::Player
     }
     void BaseState::onPostCollision()
     {
-        if (m_colCtrl->anyThen<Tag::Door, DoorProxy>([this](const DoorProxy& door) {
-            // 扉
-            return this->onCollisionStay(door);
-        })) {
-            return;
-        }
-
         bool isDamaged = m_colCtrl->eachThen<Tag::Attacker, AttackerData>([this](const AttackerData& attacker) {
             return m_hp->damage(attacker.getPower());
         });

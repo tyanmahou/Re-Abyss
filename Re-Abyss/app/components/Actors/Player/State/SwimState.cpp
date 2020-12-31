@@ -2,10 +2,6 @@
 #include "LadderState.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/commons/Constants.hpp>
-#include <abyss/modules/System/System.hpp>
-#include <abyss/modules/Save/Save.hpp>
-#include <abyss/components/Events/RoomMove/DoorMove/Builder.hpp>
 
 #include <Siv3D.hpp>
 
@@ -31,31 +27,6 @@ namespace abyss::Actor::Player
         return false;
     }
 
-    bool SwimState::onCollisionStay(const DoorProxy& col)
-    {
-        if (InputManager::Up.down()) {
-            m_motion = Motion::Door;
-            m_attackCtrl->reset();
-            m_body->setVelocity(Vec2::Zero());
-            m_body->setForward(col.getTargetForward());
-
-            m_pActor->getModule<Events>()->create<Event::RoomMove::DoorMove::Builder>(
-                col.getNextRoom(),
-                col.getDoor(),
-                m_body->getPos(),
-                [this]() {
-                    this->m_motion = Motion::Stay;
-                });
-
-            m_pActor->find<AudioSource>()->play(U"DoorMove");
-            if (col.isSave()) {
-                // セーブ対象だった場合
-                m_pActor->getModule<Save>()->reserveRestartId(col.getStartId());
-            }
-            return true;
-        }
-        return false;
-    }
     Task<> SwimState::start()
     {
         co_yield BaseState::start();
@@ -96,7 +67,6 @@ namespace abyss::Actor::Player
         case Motion::Run: return view.drawStateRun();
         case Motion::Float: return view.drawStateFloat();
         case Motion::Dive: return view.drawStateDive();
-        case Motion::Door: return view.drawStateDoor();
         case Motion::Ladder: return view.drawStateLadder();
         default:
             break;

@@ -27,7 +27,10 @@ namespace abyss::Actor::Player
             m_door->getDoor(),
             m_body->getPos(),
             [this]() {
-            this->changeState<SwimState>();
+            // ステートを更新する
+            auto stateCtrl = m_pActor->find<StateCtrl>();
+            stateCtrl->changeState<SwimState>();
+            stateCtrl->stateUpdate();
         });
 
         m_pActor->find<AudioSource>()->play(U"DoorMove");

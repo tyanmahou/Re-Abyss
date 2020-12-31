@@ -22,7 +22,6 @@ namespace abyss::Actor::Player
         void onLanding()override;
 
         bool onCollisionStay(const PenetrateFloorProxy& col) override;
-        bool onCollisionStay(const DoorProxy& col) override;
 
         Task<> start() override;
         void update()override;

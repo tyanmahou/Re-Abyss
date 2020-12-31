@@ -11,7 +11,6 @@
 #include <abyss/components/Actors/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actors/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
-#include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/components/Actors/base/IPostCollision.hpp>
 
@@ -19,7 +18,6 @@ namespace abyss::Actor::Player
 {
     using Actor::Map::PenetrateFloor::PenetrateFloorProxy;
     using Actor::Map::Ladder::LadderProxy;
-    using Actor::Gimmick::Door::DoorProxy;
 
     class BaseState : 
         public IState,
@@ -42,7 +40,6 @@ namespace abyss::Actor::Player
         virtual bool onCollisionStay(const PenetrateFloorProxy& col);
         virtual bool onCollisionStay(const LadderProxy& ladder);
         virtual bool onCollisionStayLadderTop(const LadderProxy& ladder);
-        virtual bool onCollisionStay(const DoorProxy& col);
 
     public:
         void setup()override;
