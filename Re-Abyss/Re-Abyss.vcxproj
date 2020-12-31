@@ -589,6 +589,7 @@
     <ClInclude Include="app\components\Actors\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreCollision.hpp" />
     <ClInclude Include="app\components\Actors\base\IPreUpdate.hpp" />
+    <ClInclude Include="app\components\Actors\base\IStateCallback.hpp" />
     <ClInclude Include="app\components\Actors\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actors\Commons\AudioSource.hpp" />

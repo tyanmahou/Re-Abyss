@@ -1,5 +1,8 @@
 #include "StateCtrl.hpp"
 
+#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/components/Actors/base/IStateCallback.hpp>
+
 namespace abyss::Actor
 {
     void IState::init(StateCtrl* manager)
@@ -15,7 +18,7 @@ namespace abyss::Actor
 
     void StateCtrl::setup(Executer executer)
     {
-        //executer.addAfter<IComponent>();
+        executer.on<IComponent>().addAfter<IStateCallback>();
     }
 
     void StateCtrl::onStart()
@@ -35,6 +38,11 @@ namespace abyss::Actor
             m_current->init(this);
             m_next.first = 0;
             m_next.second = nullptr;
+
+            // コールバックを呼ぶ
+            for (auto&& callback : m_pActor->finds<IStateCallback>()) {
+                callback->onStateStart();
+            }
         }
     }
 

@@ -18,10 +18,18 @@ namespace abyss::Actor::Player
         if (!m_door) {
             this->changeState<SwimState>();
         }
+
+        // SE
+        m_pActor->find<AudioSource>()->play(U"DoorMove");
+
+        // 攻撃タイマーリセット
         m_attackCtrl->reset();
+
+        // 速度0にする
         m_body->setVelocity(Vec2::Zero());
         m_body->setForward(m_door->getTargetForward());
 
+        // ドア移動
         m_pActor->getModule<Events>()->create<Event::RoomMove::DoorMove::Builder>(
             m_door->getNextRoom(),
             m_door->getDoor(),
@@ -33,7 +41,6 @@ namespace abyss::Actor::Player
             stateCtrl->stateUpdate();
         });
 
-        m_pActor->find<AudioSource>()->play(U"DoorMove");
         if (m_door->isSave()) {
             // セーブ対象だった場合
             m_pActor->getModule<Save>()->reserveRestartId(m_door->getStartId());
