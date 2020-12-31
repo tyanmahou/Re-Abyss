@@ -6,16 +6,17 @@
 # include <abyss/modules/Actors/base/IActor.hpp>
 # include <abyss/components/base/IComponent.hpp>
 # include <abyss/components/Actors/base/IPostCollision.hpp>
-# include <abyss/components/Actors/base/IUpdate.hpp>
+# include <abyss/components/Actors/base/IPostUpdate.hpp>
 # include <abyss/components/Actors/base/ILastUpdate.hpp>
 # include <abyss/components/Actors/base/IDraw.hpp>
 # include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::Actor
 {
+    class StateCtrl;
     using Coro::Task;
 
-    class StateCtrl;
+    using StatePriorityType = s3d::int32;
 
     class IState
     {
@@ -27,6 +28,8 @@ namespace abyss::Actor
         template<class State, class... Args>
         void changeState(Args&&... args) const;
 
+        template<class State, StatePriorityType priority, class... Args>
+        void changeState(Args&&... args) const;
     public:
         IState()=default;
         virtual ~IState() = default;
@@ -45,16 +48,15 @@ namespace abyss::Actor
 
     class StateCtrl :
         public IComponent,
-        public IUpdate,
+        public IPostUpdate,
         public ILastUpdate,
         public IDraw,
         public IPostCollision
     {
     private:
         using State_t = std::shared_ptr<IState>;
-
         State_t m_current;
-        State_t m_next;
+        std::pair<StatePriorityType, State_t> m_next;
         std::shared_ptr<IPostCollision> m_collisionReact;
         std::unique_ptr<Task<void>> m_startTask;
 
@@ -66,7 +68,7 @@ namespace abyss::Actor
         void setup(Depends depends)override;
         void onStart() override;
 
-        void onUpdate() override;
+        void onPostUpdate() override;
 
         void onLastUpdate() override;
 
@@ -74,12 +76,18 @@ namespace abyss::Actor
 
         void onPostCollision() override;
         
-        void changeState(const std::shared_ptr<IState>& next);
+        void changeState(const std::shared_ptr<IState>& next, StatePriorityType priority = 0);
 
         template<class State, class... Args>
         void changeState(Args&&... args)
         {
-            changeState(std::make_shared<State>(std::forward<Args>(args)...));
+            changeState(std::make_shared<State>(std::forward<Args>(args)...), 0);
+        }
+
+        template<class State, StatePriorityType priority, class... Args>
+        void changeState(Args&&... args)
+        {
+            changeState(std::make_shared<State>(std::forward<Args>(args)...), priority);
         }
 
         inline IActor* getActor() const
@@ -99,6 +107,12 @@ namespace abyss::Actor
     {
         m_manager->changeState<State>(std::forward<Args>(args)...);
     }
+
+    template<class State, StatePriorityType priority, class... Args>
+    void IState::changeState(Args&&... args) const
+    {
+        m_manager->changeState<State, priority>(std::forward<Args>(args)...);
+    }
 }
 
 namespace abyss
@@ -107,7 +121,7 @@ namespace abyss
     struct ComponentTree<Actor::StateCtrl>
     {
         using Base = MultiComponents<
-            Actor::IUpdate,
+            Actor::IPostUpdate,
             Actor::ILastUpdate,
             Actor::IDraw,
             Actor::IPostCollision

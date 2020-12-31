@@ -37,7 +37,7 @@ namespace abyss
     {
         // preUpdate();
         m_actorsHolder.update();
-        m_actorsHolder.postPhysics();
+        m_actorsHolder.postUpdate();
     }
 
     void World::move()

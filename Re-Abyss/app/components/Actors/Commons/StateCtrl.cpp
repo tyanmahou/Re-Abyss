@@ -25,19 +25,20 @@ namespace abyss::Actor
 
     void StateCtrl::stateUpdate()
     {
-        if (m_next) {
+        if (m_next.second) {
             if (m_current) {
                 m_current->end();
             }
-            m_current = m_next;
+            m_current = m_next.second;
             m_collisionReact = std::dynamic_pointer_cast<IPostCollision>(m_current);
             m_startTask = std::make_unique<Coro::Task<void>>(m_current->start());
             m_current->init(this);
-            m_next = nullptr;
+            m_next.first = 0;
+            m_next.second = nullptr;
         }
     }
 
-    void StateCtrl::onUpdate()
+    void StateCtrl::onPostUpdate()
     {
         this->stateUpdate();
         if (m_startTask) {
@@ -68,9 +69,13 @@ namespace abyss::Actor
         }
     }
 
-    void StateCtrl::changeState(const std::shared_ptr<IState>& next)
+    void StateCtrl::changeState(const std::shared_ptr<IState>& next, StatePriorityType priority)
     {
-        m_next = next;
+        if (m_next.second && (m_next.first > priority)) {
+            return;
+        }
+        m_next.first = priority;
+        m_next.second = next;
     }
 
 
