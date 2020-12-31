@@ -46,6 +46,8 @@ namespace abyss::Actor::Player
     Task<> LadderState::start()
     {
         m_body->noneResistanced();
+        // 攻撃可能
+        m_attackCtrl->setActive(true);
         co_return;
     }
     void LadderState::update()

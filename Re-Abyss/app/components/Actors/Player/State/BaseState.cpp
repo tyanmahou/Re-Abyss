@@ -2,11 +2,7 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/components/Actors/Commons/AttackerData.hpp>
-#include <abyss/modules/World/World.hpp>
-#include <abyss/components/Actors/Player/Shot/Builder.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
-#include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
 
 namespace abyss::Actor::Player
@@ -30,7 +26,6 @@ namespace abyss::Actor::Player
     {
         m_body       = m_pActor->find<Body>().get();
         m_foot       = m_pActor->find<Foot>().get();
-        m_charge     = m_pActor->find<ChargeCtrl>().get();
         m_hp         = m_pActor->find<HP>().get();
         m_attackCtrl = m_pActor->find<AttackCtrl>().get();
         m_mapCol     = m_pActor->find<MapCollider>().get();
@@ -67,8 +62,6 @@ namespace abyss::Actor::Player
     }
     void BaseState::update()
     {
-        auto dt = m_pActor->deltaTime();
-
         const bool rightPressed = InputManager::Right.pressed();
         const bool leftPressed = InputManager::Left.pressed();
         if (rightPressed) {
@@ -91,13 +84,6 @@ namespace abyss::Actor::Player
             }
         }
         this->onMove(m_pActor->deltaTime());
-
-        // 攻撃
-        if (m_charge->update(dt)) {
-            double charge = m_charge->pop();
-            m_pActor->getModule<World>()->create<Shot::Builder>(m_body->getPos() + Vec2{30 * m_body->getForward(), -1}, m_body->getForward(), charge);
-            m_attackCtrl->startAttack();
-        }
     }
 
     void BaseState::lastUpdate()

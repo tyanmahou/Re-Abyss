@@ -32,6 +32,8 @@ namespace abyss::Actor::Player
         co_yield BaseState::start();
         // ドアに入れる
         m_stateChecker->setCanDoorState(true);
+        // 攻撃可能
+        m_attackCtrl->setActive(true);
     }
     void SwimState::update()
     {

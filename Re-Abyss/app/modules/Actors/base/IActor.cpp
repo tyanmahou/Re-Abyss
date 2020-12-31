@@ -30,7 +30,6 @@ namespace abyss::Actor
 	}
 	void IActor::postUpdate()
 	{
-		m_time->updateUpdateTime();
 		for (auto&& com : this->finds<IPostUpdate>()) {
 			com->onPostUpdate();
 		}

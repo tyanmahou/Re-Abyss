@@ -5,7 +5,6 @@
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
-#include <abyss/components/Actors/Player/ChargeCtrl.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
 #include <abyss/components/Actors/Player/StateChecker.hpp>
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
@@ -25,7 +24,6 @@ namespace abyss::Actor::Player
     protected:
         Body* m_body;
         Foot* m_foot;
-        ChargeCtrl* m_charge;
         HP* m_hp;
         AttackCtrl* m_attackCtrl;
         MapCollider* m_mapCol;
