@@ -2,7 +2,6 @@
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/Foot.hpp>
-#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Player/AttackCtrl.hpp>
@@ -24,7 +23,6 @@ namespace abyss::Actor::Player
     protected:
         Body* m_body;
         Foot* m_foot;
-        HP* m_hp;
         AttackCtrl* m_attackCtrl;
         MapCollider* m_mapCol;
         CollisionCtrl* m_colCtrl;

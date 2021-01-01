@@ -1,5 +1,6 @@
 #include "DeadState.hpp"
 #include <abyss/components/Actors/utils/BehaviorUtil.hpp>
+#include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/FallChecker.hpp>
 #include <abyss/components/Actors/Commons/DamageCtrl.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -15,7 +16,7 @@ namespace abyss::Actor::Player
     {
         co_yield BaseState::start();
         // 無敵時間をなしに
-        m_hp->setInvincibleTime(0);
+        m_pActor->find<HP>()->setInvincibleTime(0);
 
         // サウンド停止
         m_pActor->getModule<Sound>()->stop(0.5s);
