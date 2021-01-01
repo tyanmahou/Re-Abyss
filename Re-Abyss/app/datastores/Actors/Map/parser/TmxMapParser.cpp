@@ -127,14 +127,14 @@ namespace abyss
         // マージされたマップ
         s3d::Array<MergeParam> mergedMapsX;
         // マージしていいか
-        auto equal = [](const MapEntity& a, const MapEntity& b) {
+        auto equal = [](const MapEntity& a, const MapEntity& b, bool horizontal = false) {
             if (a.type != b.type) {
                 return false;
             }
-            if (a.type == MapType::Ladder && a.col != b.col) {
+            if (horizontal || a.type == MapType::Ladder && a.col != b.col) {
                 return false;
             }
-            if (a.type == MapType::Penetrate && a.canDown != b.canDown) {
+            if (!horizontal || a.type == MapType::Penetrate && a.canDown != b.canDown) {
                 return false;
             }
             return true;
@@ -164,7 +164,7 @@ namespace abyss
                     }
                     if (x != 0) {
                         const auto& prevEntity = m_entityGrid[y][x - 1];
-                        if (prevEntity && equal(*entity, *prevEntity)) {
+                        if (prevEntity && equal(*entity, *prevEntity, true)) {
                             // マージできる
                             auto paramIndex = mergeIndexX[y][x - 1];
                             auto& param = mergedMapsX[paramIndex];

@@ -14,7 +14,7 @@ namespace abyss::Actor::Player
     bool BaseState::onCollisionStay(const LadderProxy& ladder)
     {
         if (ladder.isTop()) {
-            this->onCollisionStayLadderTop(ladder);
+            return this->onCollisionStayLadderTop(ladder);
         }
         return false;
     }
@@ -74,12 +74,16 @@ namespace abyss::Actor::Player
             if (other->getTag().is<Tag::Ladder>()) {
                 // 梯子
                 if (auto ladder = other->find<LadderProxy>()) {
-                    this->onCollisionStay(*ladder);
+                    if (this->onCollisionStay(*ladder)) {
+                        break;
+                    }
                 }
             } else if (other->getTag().is<Tag::PenetrateFloor>()) {
                 // 貫通床
                 if (auto ladder = other->find<PenetrateFloorProxy>()) {
-                    this->onCollisionStay(*ladder);
+                    if (this->onCollisionStay(*ladder)) {
+                        break;
+                    }
                 }
             }
         }

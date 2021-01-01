@@ -23,6 +23,7 @@ namespace abyss::Actor::Player
             ) {
             // 降りる
             m_body->addPosY(10.0);
+            return true;
         }
         return false;
     }
