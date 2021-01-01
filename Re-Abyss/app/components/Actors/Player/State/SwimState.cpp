@@ -17,18 +17,6 @@ namespace abyss::Actor::Player
             m_motion = Motion::Run;
         }
     }
-    bool SwimState::onCollisionStay(const PenetrateFloorProxy& col)
-    {
-        if (m_mapCol->isHitGround() &&
-            col.tryDown(m_body->region()) &&
-            InputManager::Down.down()
-            ) {
-            // 降りる
-            m_body->addPosY(10.0);
-            return true;
-        }
-        return false;
-    }
 
     Task<> SwimState::start()
     {

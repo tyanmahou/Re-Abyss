@@ -121,6 +121,7 @@ namespace abyss
 		class ScaleCtrl;
 		class StateCtrl;
 		class Body;
+		class Foot;
 		class IPhysics;
 		class ICollider;
 		class ICollision;

@@ -6,6 +6,7 @@
 #include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 #include <abyss/components/Actors/Map/Ladder/LadderProxy.hpp>
+#include <abyss/components/Actors/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/types/CShape.hpp>
@@ -123,6 +124,19 @@ namespace abyss::Actor
                     }
                     return false;
                 });
+                // PenetrateFloor情報保持
+                if (col.isUp()) {
+                    terrain->isThen<
+                        Tag::PenetrateFloor,
+                        Map::PenetrateFloor::PenetrateFloorProxy
+                    >([this, col](const Map::PenetrateFloor::PenetrateFloorProxy& floor) {
+                        if (floor.tryDown(m_body->region())) {
+                            m_foot->apply(Foot::Downable);
+                            return true;
+                        }
+                        return false;
+                    });
+                }
             }
         }
 

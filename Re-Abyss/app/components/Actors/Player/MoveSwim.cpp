@@ -5,6 +5,7 @@
 #include <abyss/components/Actors/Commons/AudioSource.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actors/Commons/Foot.hpp>
 #include <abyss/components/Actors/Player/ForwardCtrl.hpp>
 
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -24,6 +25,7 @@ namespace abyss::Actor::Player
     void MoveSwim::onStart()
     {
         m_body = m_pActor->find<Body>();
+        m_foot = m_pActor->find<Foot>();
     }
 
     void MoveSwim::onMove()
@@ -44,6 +46,11 @@ namespace abyss::Actor::Player
             m_body->setMaxVelocityY(Param::Swim::DiveSpeed);
         } else {
             m_body->setMaxVelocityY(Body::DefaultMaxVelocityY);
+        }
+
+        // 降りる
+        if (m_foot->isDownable() && InputManager::Down.down()) {
+            m_body->addPosY(10.0);
         }
     }
 

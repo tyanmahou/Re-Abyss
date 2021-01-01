@@ -28,6 +28,10 @@ namespace abyss::Actor
     {
         return (m_state & LadderTop) == LadderTop;
     }
+    bool Foot::isDownable() const
+    {
+        return (m_state & Downable) != 0;
+    }
     Foot& Foot::setLadderPosX(double posX)
     {
         m_ladderPosX = posX;

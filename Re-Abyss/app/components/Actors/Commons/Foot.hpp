@@ -13,6 +13,7 @@ namespace abyss::Actor
             Landing = 0x1,
             Ladder = 0x2,
             LadderTop = 0x6,
+            Downable = 0x8,
         };
     private:
         State m_state = None;
@@ -24,6 +25,7 @@ namespace abyss::Actor
         bool isFloat() const;
         bool isLadder() const;
         bool isLadderTop() const;
+        bool isDownable() const;
 
         Foot& setLadderPosX(double posX);
         const s3d::Optional<double>& getLadderPosX()const;

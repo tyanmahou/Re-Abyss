@@ -15,6 +15,7 @@ namespace abyss::Actor::Player
     private:
         IActor* m_pActor = nullptr;
         Ref<Body> m_body;
+        Ref<Foot> m_foot;
 
         bool m_isActive = false;
     public:
