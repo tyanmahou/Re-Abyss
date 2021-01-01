@@ -25,6 +25,7 @@
 #include <abyss/components/Actors/Player/GimmickReactCtrl.hpp>
 #include <abyss/components/Actors/Player/DamageCallback.hpp>
 #include <abyss/components/Actors/Player/ForwardCtrl.hpp>
+#include <abyss/components/Actors/Player/MoveSwim.hpp>
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
@@ -55,6 +56,7 @@ namespace abyss::Actor::Player
 
             // 移動制御
             pActor->attach<ForwardCtrl>(pActor);
+            pActor->attach<MoveSwim>(pActor);
 		}
 		// Foot
 		{

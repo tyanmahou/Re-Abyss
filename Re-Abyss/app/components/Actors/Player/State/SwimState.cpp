@@ -2,6 +2,7 @@
 #include "LadderState.hpp"
 
 #include <abyss/components/Actors/Player/ForwardCtrl.hpp>
+#include <abyss/components/Actors/Player/MoveSwim.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 #include <Siv3D.hpp>
@@ -36,7 +37,9 @@ namespace abyss::Actor::Player
         m_stateChecker->setCanDoorState(true);
         // 攻撃可能
         m_attackCtrl->setActive(true);
-
+        // 泳ぎ移動
+        m_pActor->find<MoveSwim>()->setActive(true);
+        // 向き変更可能
         m_pActor->find<ForwardCtrl>()->setActive(true);
     }
     void SwimState::update()

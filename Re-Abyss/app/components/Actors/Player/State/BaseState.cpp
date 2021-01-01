@@ -45,20 +45,6 @@ namespace abyss::Actor::Player
     }
     void BaseState::onMove([[maybe_unused]] double dt)
     {
-        const bool rightPressed = InputManager::Right.pressed();
-        const bool leftPressed = InputManager::Left.pressed();
-
-        m_body->setAccelX(Param::Swim::AccelX *(rightPressed - leftPressed));
-        // ジャンプ
-        if (InputManager::Jump.down()) {
-            m_body->jumpToHeight(Param::Swim::JumpHeight);
-            m_pActor->find<AudioSource>()->play(U"Swim");
-        }
-        if (InputManager::Down.pressed()) {
-            m_body->setMaxVelocityY(Param::Swim::DiveSpeed);
-        } else {
-            m_body->setMaxVelocityY(Body::DefaultMaxVelocityY);
-        }
     }
     void BaseState::update()
     {
