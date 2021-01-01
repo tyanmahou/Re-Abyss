@@ -62,13 +62,6 @@ namespace abyss::Actor::Player
     }
     void BaseState::update()
     {
-        const bool rightPressed = InputManager::Right.pressed();
-        const bool leftPressed = InputManager::Left.pressed();
-        if (rightPressed) {
-            m_body->setForward(Forward::Right);
-        } else if (leftPressed) {
-            m_body->setForward(Forward::Left);
-        }
         // 地形判定
         for (auto* other : m_mapCol->getHitActors()) {
             if (other->getTag().is<Tag::Ladder>()) {

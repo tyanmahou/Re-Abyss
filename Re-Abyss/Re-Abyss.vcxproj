@@ -261,6 +261,7 @@
     <ClCompile Include="app\components\Actors\Player\Builder.cpp" />
     <ClCompile Include="app\components\Actors\Player\ChargeCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\DamageCallback.cpp" />
+    <ClCompile Include="app\components\Actors\Player\ForwardCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\GimmickReactCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
@@ -637,6 +638,7 @@
     <ClInclude Include="app\components\Actors\Ooparts\Xto\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\Builder.hpp" />
     <ClInclude Include="app\components\Actors\Player\DamageCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Player\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\GimmickReactCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\IGimmickReacter.hpp" />
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />

@@ -1198,6 +1198,9 @@
     <ClCompile Include="app\components\Actors\Player\DamageCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actors\Player\ForwardCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1769,6 +1772,7 @@
     <ClInclude Include="app\components\Actors\Player\StateChecker.hpp" />
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Actors\Player\DamageCallback.hpp" />
+    <ClInclude Include="app\components\Actors\Player\ForwardCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

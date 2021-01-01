@@ -2,6 +2,7 @@
 #include "SwimState.hpp"
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/components/Actors/Player/ForwardCtrl.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
 namespace abyss::Actor::Player
@@ -10,9 +11,6 @@ namespace abyss::Actor::Player
     {
         if (InputManager::A.down()) {
             this->changeState<SwimState>();
-            return;
-        }
-        if (m_attackCtrl->isAttacking()) {
             return;
         }
         double veocityY = Param::Ladder::Speed * (InputManager::Down.pressed() - InputManager::Up.pressed());
@@ -48,6 +46,9 @@ namespace abyss::Actor::Player
         m_body->noneResistanced();
         // 攻撃可能
         m_attackCtrl->setActive(true);
+
+        m_pActor->find<ForwardCtrl>()->setActive(true);
+
         co_return;
     }
     void LadderState::update()
