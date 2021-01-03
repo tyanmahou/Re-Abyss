@@ -1,5 +1,5 @@
 #include "Light.hpp"
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace abyss
 {
@@ -21,7 +21,7 @@ namespace abyss
     void Light::draw(double dt, const CameraView& camera) const
     {
 #if ABYSS_DEBUG
-        if (Debug::DebugManager::DisableDarkNess()) {
+        if (Debug::Menu::IsDebug(U"disable-darkness")) {
             return;
         }
 #endif

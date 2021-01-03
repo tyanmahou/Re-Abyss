@@ -81,8 +81,7 @@ namespace abyss
     {
         m_actorsHolder.draw();
 #if ABYSS_DEBUG
-        Debug::DebugManager::DrawColider(*this);
-        Debug::DebugManager::DrawMapColider(*this);
+        Debug::DebugManager::DrawDebug(*this);
 #endif
 
     }

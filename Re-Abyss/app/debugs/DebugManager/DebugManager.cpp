@@ -10,38 +10,87 @@
 #include <abyss/components/Actors/Commons/Terrain.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Util/DebugUtil.hpp>
 
 namespace abyss::Debug
 {
     class DebugManager::Impl
     {
     public:
-        bool m_isDrawColider = false;
-        bool m_isDrawMapColider = false;
-        bool m_disableDarkNess = false;
-        bool m_isLogEffectNum = false;
-        int m_frameRate = 60;
 
         bool m_showFps = false;
         void update()
         {
-            if (Key1.down()) {
-                m_isDrawColider = !m_isDrawColider;
-            }
-            if (Key2.down()) {
-                m_isDrawMapColider = !m_isDrawMapColider;
-            }
-            if (Key3.down()) {
-                m_isLogEffectNum = !m_isLogEffectNum;
-            }
-            if (Key4.down()) {
-                m_disableDarkNess = !m_disableDarkNess;
-            }
             if (KeyF7.down()) {
                 m_showFps ^= true;
             }
             if (m_showFps) {
                 Log::Print << Profiler::FPS();
+            }
+        }
+
+        void drawCollider(const World& world)
+        {
+            if (!Menu::IsDebug(U"draw-collider")) {
+                return;
+            }
+            auto colliders = world.finds<Actor::ICollision>();
+            Log::Print << U"Colliders: " << colliders.size();
+
+            constexpr ColorF color = ColorF(1, 0, 0, 0.4);
+
+            for (auto&& col : colliders) {
+                if (!col->isActive()) {
+                    continue;
+                }
+                DebugUtil::DrawShape(col->getCollider(), color);
+            }
+        }
+        void drawMapCollider(const World& world)
+        {
+            if (!Menu::IsDebug(U"draw-map-collider")) {
+                return;
+            }
+
+            constexpr ColorF color = ColorF(0, 0, 1, 0.4);
+            {
+                auto colliders = world.finds<Actor::IPhysics>();
+                Log::Print << U"Map Colliders: " << colliders.size();
+
+                for (auto&& col : colliders) {
+                    if (!col->isActive()) {
+                        continue;
+                    }
+                    DebugUtil::DrawShape(col->getCollider(), color);
+                }
+            }
+            {
+                auto terrains = world.finds<Actor::Terrain>();
+                Log::Print << U"Map Terrain: " << terrains.size();
+
+                for (auto&& terrain : terrains) {
+                    if (!terrain->isActive()) {
+                        continue;
+                    }
+                    const auto& [region, col] = terrain->getMapColInfo();
+                    const Vec2 qSize = {
+                        Min(10.0, region.size.x / 4.0),
+                        Min(10.0, region.size.y / 4.0)
+                    };
+                    if (col.isUp()) {
+                        RectF(region.x, region.y, region.w, qSize.y).draw(color);
+                    }
+                    if (col.isDown()) {
+                        RectF(region.x, region.y + region.h, region.w, -qSize.y).draw(color);
+                    }
+                    if (col.isLeft()) {
+                        RectF(region.x, region.y, qSize.x, region.h).draw(color);
+                    }
+                    if (col.isRight()) {
+                        RectF(region.x + region.w, region.y, -qSize.x, region.h).draw(color);
+                    }
+                }
             }
         }
     };
@@ -54,105 +103,18 @@ namespace abyss::Debug
         return Instance()->m_pImpl->update();
     }
 
-    bool DebugManager::IsDrawColider()
+    void DebugManager::DrawDebug(const World& world)
     {
-        return Instance()->m_pImpl->m_isDrawColider;
+        auto& impl = Instance()->m_pImpl;
+        impl->drawCollider(world);
+        impl->drawMapCollider(world);
     }
-    bool DebugManager::IsDrawMapColider()
+    void DebugManager::DrawDebug(const Effects& effects)
     {
-        return Instance()->m_pImpl->m_isDrawMapColider;
-    }
-    bool DebugManager::DisableDarkNess()
-    {
-        return Instance()->m_pImpl->m_disableDarkNess;
-    }
-    void DebugManager::DrawColider(const CShape& colider, const s3d::ColorF& color)
-    {
-        std::visit(overloaded{
-            [&color](const auto& c) {
-                c.draw(color);
-            },
-            [&color](const Vec2& c) {
-                Shape2D::Cross(5, 2, c).draw(color);
-            },
-            [&color](const Array<CShape>& c) {
-                for (const auto& shape : c) {
-                    DebugManager::DrawColider(shape, color);
-                }
-            },
-
-            []([[maybe_unused]]const None_t&) {}
-        }, colider);
-    }
-    void DebugManager::DrawColider(const World& world)
-    {
-        if (!IsDrawColider()) {
+        if (!Debug::Menu::IsDebug(U"log-effect-num")) {
             return;
         }
 
-        auto colliders = world.finds<Actor::ICollision>();
-        Log::Print << U"Colliders: " << colliders.size();
-
-        constexpr ColorF color = ColorF(1, 0, 0, 0.4);
-
-        for (auto&& col : colliders) {
-            if (!col->isActive()) {
-                continue;
-            }
-            DrawColider(col->getCollider(), color);
-        }
-    }
-    void DebugManager::DrawMapColider(const World & world)
-    {
-        if (!IsDrawMapColider()) {
-            return;
-        }
-        constexpr ColorF color = ColorF(0, 0, 1, 0.4);
-        {
-            auto colliders = world.finds<Actor::IPhysics>();
-            Log::Print << U"Map Colliders: " << colliders.size();
-
-            for (auto&& col : colliders) {
-                if (!col->isActive()) {
-                    continue;
-                }
-                DrawColider(col->getCollider(), color);
-            }
-        }
-        {
-            auto terrains = world.finds<Actor::Terrain>();
-            Log::Print << U"Map Terrain: " << terrains.size();
-
-            for (auto&& terrain : terrains) {
-                if (!terrain->isActive()) {
-                    continue;
-                }
-                const auto&[region, col] = terrain->getMapColInfo();
-                const Vec2 qSize = {
-                    Min(10.0, region.size.x / 4.0),
-                    Min(10.0, region.size.y / 4.0)
-                };
-                if (col.isUp()) {
-                    RectF(region.x, region.y, region.w, qSize.y).draw(color);
-                }
-                if (col.isDown()) {
-                    RectF(region.x, region.y + region.h, region.w, -qSize.y).draw(color);
-                }
-                if (col.isLeft()) {
-                    RectF(region.x, region.y, qSize.x, region.h).draw(color);
-                }
-                if (col.isRight()) {
-                    RectF(region.x + region.w, region.y, -qSize.x, region.h).draw(color);
-                }
-            }
-        }
-    }
-    bool DebugManager::IsLogEffectNum()
-    {
-        return Instance()->m_pImpl->m_isLogEffectNum;
-    }
-    void DebugManager::LogEffectNum(const Effects& effects)
-    {
         Log::Print << U"DecorBack: "  << effects.num<EffectGroup::DecorBack>();
         Log::Print << U"WorldBack: "  << effects.num<EffectGroup::WorldBack>();
         Log::Print << U"WorldFront: " << effects.num<EffectGroup::WorldFront>();

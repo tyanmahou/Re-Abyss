@@ -12,6 +12,7 @@
 #include <abyss/modules/Save/Save.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -99,9 +100,7 @@ namespace abyss
         m_cron->update();
 
 #if ABYSS_DEBUG
-        if (Debug::DebugManager::IsLogEffectNum()) {
-            Debug::DebugManager::LogEffectNum(m_effects);
-        }
+        Debug::DebugManager::DrawDebug(m_effects);
 #endif
         m_master->sendNotify();
     }

@@ -298,6 +298,7 @@
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
+    <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Events\Talk\Builder.cpp" />
@@ -683,6 +684,7 @@
     <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
+    <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
     <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
     <ClInclude Include="app\components\Events\Talk\Builder.hpp" />

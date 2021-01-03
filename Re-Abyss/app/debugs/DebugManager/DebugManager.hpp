@@ -18,16 +18,10 @@ namespace abyss::Debug
         DebugManager();
     public:
         static void Update();
-        static bool IsDrawColider();
-        static bool IsDrawMapColider();
-        static bool DisableDarkNess();
 
-        static void DrawColider(const CShape& colider, const s3d::ColorF& color);
-        static void DrawColider(const World& world);
-        static void DrawMapColider(const World& world);
+        static void DrawDebug(const World& world);
 
-        static bool IsLogEffectNum();
-        static void LogEffectNum(const Effects& effects);
+        static void DrawDebug(const Effects& effects);
     };
 }
 

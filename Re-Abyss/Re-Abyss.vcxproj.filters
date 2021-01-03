@@ -1207,6 +1207,9 @@
     <ClCompile Include="app\debugs\Menu\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1781,6 +1784,7 @@
     <ClInclude Include="app\components\Actors\Player\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\MoveSwim.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
+    <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
