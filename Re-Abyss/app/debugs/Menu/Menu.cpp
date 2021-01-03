@@ -32,7 +32,21 @@ namespace abyss::Debug
             if (!m_isActive) {
                 return;
             }
+            // 描画
             m_gui.draw();
+
+            // FPS制御
+            if (m_gui.hasChanged(U"cb-fix-fps") || 
+                m_gui.hasChanged(U"sl-fps")
+            ) {
+                const bool isFixFps = m_gui.checkBox(U"cb-fix-fps");
+                std::get<SimpleGUIWidget::Slider>(m_gui.widget(U"sl-fps").widget).enabled = isFixFps;
+                if (isFixFps) {
+                    Graphics::SetTargetFrameRateHz(m_gui.slider(U"sl-fps"));
+                } else {
+                    Graphics::SetTargetFrameRateHz(s3d::none);
+                }
+            }
         }
     };
     Menu::Menu():

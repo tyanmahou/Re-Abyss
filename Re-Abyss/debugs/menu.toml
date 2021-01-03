@@ -16,19 +16,19 @@ default = false
 [[CheckBox]]
 name = "draw-map-collider"
 label = "DrawMapCollider"
-pos = { x = 10, y = 120 }
+pos = { x = 10, y = 110 }
 default = false
 
 [[CheckBox]]
 name = "log-effect-num"
 label = "LogEffectNum"
-pos = { x = 10, y = 160 }
+pos = { x = 10, y = 140 }
 default = false
 
 [[CheckBox]]
 name = "disable-darkness"
 label = "DisableDarkNess"
-pos = { x = 10, y = 200 }
+pos = { x = 10, y = 170 }
 default = false
 
 ###########################
@@ -42,16 +42,16 @@ pos = { x = 250, y = 40 }
 width = 100
 
 [[CheckBox]]
-name = "cb-fps"
+name = "cb-fix-fps"
 label = "固定フレーム"
 pos = { x = 250, y = 80 }
 default = false
 
 [[Slider]]
 name = "sl-fps"
-pos = { x = 250, y = 120 }
+pos = { x = 250, y = 110 }
 label = "FPS"
 default = 60
-min = 1.0
-max = 240.0
+min = 10.0
+max = 120.0
 enabled = false

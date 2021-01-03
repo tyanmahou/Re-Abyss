@@ -37,16 +37,6 @@ namespace abyss::Debug
             if (Key4.down()) {
                 m_disableDarkNess = !m_disableDarkNess;
             }
-            if ((KeyF + KeyDown).down() && m_frameRate > 1) {
-                Graphics::SetTargetFrameRateHz(--m_frameRate);
-            }
-            if ((KeyF + KeyUp).down()) {
-                Graphics::SetTargetFrameRateHz(++m_frameRate);
-            }
-            if ((KeyF + KeyEnter).down()) {
-                m_frameRate = 60;
-                Graphics::SetTargetFrameRateHz(s3d::none);
-            }
             if (KeyF7.down()) {
                 m_showFps ^= true;
             }
