@@ -27,12 +27,8 @@ namespace abyss::Actor::Player
             .setMaxSpeedX(Param::Swim::MaxSpeedX);
         co_return;
     }
-    void BaseState::onMove([[maybe_unused]] double dt)
-    {
-    }
     void BaseState::update()
     {
-        this->onMove(m_pActor->deltaTime());
     }
 
     void BaseState::lastUpdate()

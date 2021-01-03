@@ -24,7 +24,6 @@ namespace abyss::Actor::Player
         ViewCtrl<PlayerVM>* m_view;
         StateChecker* m_stateChecker;
 
-        virtual void onMove(double dt);
         virtual void onLanding(){}
         virtual void onDraw(const PlayerVM& view)const = 0;
 
