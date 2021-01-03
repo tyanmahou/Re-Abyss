@@ -18,6 +18,6 @@ namespace abyss::Resource::UserData
         std::unique_ptr<Impl> m_pImpl;
         Manager();
     public:
-        static s3dsql::SQLite3 LoadDB(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::UserDaraPath);
+        static s3dsql::SQLite3 LoadDB(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::UserDataPath);
     };
 }

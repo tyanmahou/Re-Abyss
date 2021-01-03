@@ -10,6 +10,7 @@
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 
 #include <abyss/debugs/HotReload/HotReload.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace
 {
@@ -93,6 +94,9 @@ namespace abyss
 		void draw() const
 		{
 			m_system->draw();
+#if ABYSS_DEBUG
+			Debug::Menu::OnGUI();
+#endif
 		}
 
 		/// <summary>

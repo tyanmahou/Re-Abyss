@@ -1,0 +1,57 @@
+﻿###########################
+# DebugFlag
+###########################
+
+[[Headline]]
+name = "hl-debug"
+text = "DebugFlag"
+pos = { x = 10, y = 40 }
+
+[[CheckBox]]
+name = "draw-collider"
+label = "DrawCollider"
+pos = { x = 10, y = 80 }
+default = false
+
+[[CheckBox]]
+name = "draw-map-collider"
+label = "DrawMapCollider"
+pos = { x = 10, y = 120 }
+default = false
+
+[[CheckBox]]
+name = "log-effect-num"
+label = "LogEffectNum"
+pos = { x = 10, y = 160 }
+default = false
+
+[[CheckBox]]
+name = "disable-darkness"
+label = "DisableDarkNess"
+pos = { x = 10, y = 200 }
+default = false
+
+###########################
+# FPS
+###########################
+
+[[Headline]]
+name = "hl-FPS"
+text = "FPS"
+pos = { x = 250, y = 40 }
+width = 100
+
+[[CheckBox]]
+name = "cb-fps"
+label = "固定フレーム"
+pos = { x = 250, y = 80 }
+default = false
+
+[[Slider]]
+name = "sl-fps"
+pos = { x = 250, y = 120 }
+label = "FPS"
+default = 60
+min = 1.0
+max = 240.0
+enabled = false
