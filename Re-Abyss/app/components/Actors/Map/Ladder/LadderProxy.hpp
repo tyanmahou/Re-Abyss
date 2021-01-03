@@ -22,6 +22,8 @@ namespace abyss::Actor::Map::Ladder
         s3d::RectF region() const;
         s3d::Line getCenterLine() const;
         bool isTop() const;
+
+        s3d::Vec2 getCenterTopPos() const;
     private:
         IActor* m_pActor;
         Ref<MapProxy> m_map;

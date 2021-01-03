@@ -7,17 +7,6 @@
 
 namespace abyss::Actor::Player
 {
-    bool BaseState::onCollisionStay(const LadderProxy& ladder)
-    {
-        if (ladder.isTop()) {
-            return this->onCollisionStayLadderTop(ladder);
-        }
-        return false;
-    }
-    bool BaseState::onCollisionStayLadderTop([[maybe_unused]] const LadderProxy& ladder)
-    {
-        return false;
-    }
     void BaseState::setup()
     {
         m_body       = m_pActor->find<Body>().get();
@@ -43,17 +32,6 @@ namespace abyss::Actor::Player
     }
     void BaseState::update()
     {
-        // 地形判定
-        for (auto* other : m_mapCol->getHitActors()) {
-            if (other->getTag().is<Tag::Ladder>()) {
-                // 梯子
-                if (auto ladder = other->find<LadderProxy>()) {
-                    if (this->onCollisionStay(*ladder)) {
-                        break;
-                    }
-                }
-            }
-        }
         this->onMove(m_pActor->deltaTime());
     }
 

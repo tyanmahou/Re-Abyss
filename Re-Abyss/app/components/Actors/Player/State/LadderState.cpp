@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Player
 {
-    void LadderState::onMove([[maybe_unused]]double dt)
+    void LadderState::onMove([[maybe_unused]] double dt)
     {
         if (InputManager::A.down()) {
             this->changeState<SwimState>();
@@ -20,27 +20,7 @@ namespace abyss::Actor::Player
     {
         this->changeState<SwimState>();
     }
-    bool LadderState::onCollisionStayLadderTop(const LadderProxy& ladder)
-    {
-        auto&& ladderRegion = ladder.region();
 
-        //上端にきたら状態を繊維する
-        if (m_body->getPos().y <= ladderRegion.y) {
-            if (!m_isTop) {
-                m_ladderTopTimer = 0;
-                m_isTop = true;
-            }
-            m_body->setPosY(ladderRegion.y);
-        } else {
-            m_isTop = false;
-        }
-        if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
-            m_body->setPosY(ladderRegion.y - m_body->region().h / 2.0);
-            this->changeState<SwimState>();
-            return true;
-        }
-        return false;
-    }
     Task<> LadderState::start()
     {
         m_body->noneResistanced();
@@ -55,7 +35,27 @@ namespace abyss::Actor::Player
     {
         auto dt = m_pActor->deltaTime();
 
+        if (m_foot->isLadderTop()) {
+            //上端にきたら状態を繊維する
+            auto topY = m_foot->getLadderInfo()->pos.y;
+            if (m_body->getPos().y <= topY) {
+                if (!m_isTop) {
+                    m_ladderTopTimer = 0;
+                    m_isTop = true;
+                }
+                m_body->setPosY(topY);
+            } else {
+                m_isTop = false;
+            }
+            if (m_isTop && (InputManager::Up.down() || m_ladderTopTimer > 5.0)) {
+                m_body->setPosY(topY - m_body->region().h / 2.0);
+                this->changeState<SwimState>();
+                return;
+            }
+        }
+
         BaseState::update();
+
         if (m_isTop && InputManager::Up.pressed()) {
             m_ladderTopTimer += 60 * dt;
         }

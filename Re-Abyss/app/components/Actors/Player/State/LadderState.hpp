@@ -11,8 +11,6 @@ namespace abyss::Actor::Player
         void onMove(double dt) override;
         void onLanding() override;
 
-        bool onCollisionStayLadderTop(const LadderProxy& ladder) override;
-
         Task<> start()override;
         void update()override;
         void lastUpdate()override;

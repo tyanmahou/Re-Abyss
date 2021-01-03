@@ -116,8 +116,10 @@ namespace abyss::Actor
 
                 // Ladder情報があれば保持
                 terrain->isThen<Tag::Ladder, Map::Ladder::LadderProxy>([this](const Map::Ladder::LadderProxy& ladder) {
+                    m_foot->updateLadderInfo({
+                        .pos = ladder.getCenterTopPos()
+                    });
                     if (ladder.getCenterLine().intersects(m_body->region())) {
-                        m_foot->setLadderPosX(ladder.getPos().x);
                         auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
                         m_foot->apply(state);
                         return true;

@@ -51,7 +51,7 @@ namespace abyss::Actor::Player
             bool canDown = (m_foot->isLadderTop() || !m_foot->isLanding()) && InputManager::Down.down();
             
             if (canUp || canDown) {
-                m_body->setPosX(*m_foot->getLadderPosX());
+                m_body->setPosX(m_foot->getLadderInfo()->pos.x);
                 m_body->addPosY(-2 * (canUp - canDown));
                 this->changeState<LadderState>();
                 m_motion = Motion::Ladder;

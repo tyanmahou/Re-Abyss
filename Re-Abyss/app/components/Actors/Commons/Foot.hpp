@@ -1,7 +1,9 @@
 #pragma once
+#include <abyss/components/base/IComponent.hpp>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Optional.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <Siv3D/Vector2D.hpp>
+
 namespace abyss::Actor
 {
     class Foot : public IComponent
@@ -15,9 +17,13 @@ namespace abyss::Actor
             LadderTop = 0x6,
             Downable = 0x8,
         };
+        struct LadderInfo
+        {
+            s3d::Vec2 pos;
+        };
     private:
         State m_state = None;
-        s3d::Optional<double> m_ladderPosX;
+        s3d::Optional<LadderInfo> m_ladderInfo;
     public:
         void reset();
         bool isNone() const;
@@ -27,8 +33,8 @@ namespace abyss::Actor
         bool isLadderTop() const;
         bool isDownable() const;
 
-        Foot& setLadderPosX(double posX);
-        const s3d::Optional<double>& getLadderPosX()const;
+        Foot& updateLadderInfo(const LadderInfo& info);
+        const s3d::Optional<LadderInfo>& getLadderInfo()const;
 
         Foot& apply(State state);
 

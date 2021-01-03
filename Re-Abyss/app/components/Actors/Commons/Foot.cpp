@@ -5,8 +5,7 @@ namespace abyss::Actor
     void Foot::reset()
     {
         m_state = State::None;
-        m_ladderPosX = s3d::none;
-
+        m_ladderInfo = s3d::none;
     }
     bool Foot::isNone() const
     {
@@ -32,14 +31,20 @@ namespace abyss::Actor
     {
         return (m_state & Downable) != 0;
     }
-    Foot& Foot::setLadderPosX(double posX)
+    Foot& Foot::updateLadderInfo(const LadderInfo& info)
     {
-        m_ladderPosX = posX;
+        if (!m_ladderInfo) {
+            m_ladderInfo = info;
+        } else {
+            if (m_ladderInfo->pos.y > info.pos.y) {
+                m_ladderInfo->pos.y = info.pos.y;
+            }
+        }
         return *this;
     }
-    const s3d::Optional<double>& Foot::getLadderPosX() const
+    const s3d::Optional<Foot::LadderInfo>& Foot::getLadderInfo() const
     {
-        return m_ladderPosX;
+        return m_ladderInfo;
     }
     Foot& Foot::apply(State state)
     {
