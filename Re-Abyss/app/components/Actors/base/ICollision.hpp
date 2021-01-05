@@ -15,7 +15,7 @@ namespace abyss::Actor
         IActor* m_pActor;
         bool m_isActive = true;
 
-        s3d::String m_layer;
+        s3d::int32 m_layer;
     public:
         ICollision(IActor* p) :
             m_pActor(p)
@@ -34,8 +34,8 @@ namespace abyss::Actor
         }
         bool isActive() const;
 
-        ICollision& setLayer(const s3d::String& layer);
-        const s3d::String& getLayer() const;
+        ICollision& setLayer(s3d::int32 layer);
+        s3d::int32 getLayer() const;
 
         s3d::uint64 getId() const;
 

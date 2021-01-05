@@ -9,13 +9,13 @@ namespace abyss::Actor
         return m_isActive && m_pActor->isActive();
     }
 
-    ICollision& ICollision::setLayer(const s3d::String& layer)
+    ICollision& ICollision::setLayer(s3d::int32 layer)
     {
         m_layer = layer;
         return *this;
     }
 
-    const s3d::String& ICollision::getLayer() const
+    s3d::int32 ICollision::getLayer() const
     {
         return m_layer;
     }
