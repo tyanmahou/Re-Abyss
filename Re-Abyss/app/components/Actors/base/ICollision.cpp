@@ -20,7 +20,7 @@ namespace abyss::Actor
         return m_layer;
     }
 
-    ICollision& ICollision::setToLayer([[maybe_unused]]s3d::None_t none)
+    ICollision& ICollision::setToLayer([[maybe_unused]]s3d::None_t)
     {
         m_toLayer = s3d::none;
         return *this;

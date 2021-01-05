@@ -1786,6 +1786,8 @@
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
+    <ClInclude Include="app\utils\Coro\Range\RoundRobin.hpp" />
+    <ClInclude Include="app\utils\Coro\Enumrator\Enumrator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
