@@ -20,6 +20,23 @@ namespace abyss::Actor
         return m_layer;
     }
 
+    ICollision& ICollision::setToLayer([[maybe_unused]]s3d::None_t none)
+    {
+        m_toLayer = s3d::none;
+        return *this;
+    }
+
+    ICollision& ICollision::setToLayer(s3d::int32 toLayer)
+    {
+        m_toLayer = toLayer;
+        return *this;
+    }
+
+    s3d::int32 ICollision::getToLayer() const
+    {
+        return m_toLayer.value_or(~m_layer);
+    }
+
     s3d::uint64 ICollision::getId() const
     {
         return m_pActor->getId();

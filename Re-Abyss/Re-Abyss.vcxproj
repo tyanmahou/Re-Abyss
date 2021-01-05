@@ -685,6 +685,7 @@
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
+    <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
     <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
     <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
     <ClInclude Include="app\components\Events\Talk\Builder.hpp" />

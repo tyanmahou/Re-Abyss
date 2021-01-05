@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
+#include <Siv3D/Optional.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -16,6 +17,7 @@ namespace abyss::Actor
         bool m_isActive = true;
 
         s3d::int32 m_layer;
+        s3d::Optional<s3d::int32> m_toLayer;
     public:
         ICollision(IActor* p) :
             m_pActor(p)
@@ -36,6 +38,10 @@ namespace abyss::Actor
 
         ICollision& setLayer(s3d::int32 layer);
         s3d::int32 getLayer() const;
+
+        ICollision& setToLayer(s3d::None_t none);
+        ICollision& setToLayer(s3d::int32 toLayer);
+        s3d::int32 getToLayer() const;
 
         s3d::uint64 getId() const;
 

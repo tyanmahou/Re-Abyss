@@ -50,7 +50,10 @@ namespace abyss
 		// キャラ等の相互当たり
 		for (auto it1 = actColliders.begin(); it1 != actColliders.end(); ++it1) {
 			for (auto it2 = it1 + 1; it2 != actColliders.end(); ++it2) {
-				if ((*it1)->getLayer() == (*it2)->getLayer()) {
+
+				if (((*it1)->getLayer() & (*it2)->getToLayer()) != 0 && 
+					((*it1)->getToLayer() & (*it2)->getLayer()) != 0
+				) {
 					continue;
 				}
 				check((*it1), (*it2));
