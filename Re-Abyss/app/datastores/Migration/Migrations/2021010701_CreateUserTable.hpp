@@ -1,13 +1,12 @@
 #pragma once
-#include <abyss/datastores/Migration/DB/DBMigration.hpp>
+#include <abyss/datastores/Migration/base/IMigration.hpp>
 
 namespace abyss::User::Migrations
 {
     template<>
-    class DBMigration<2021010701> : public IDBMigraion
+    class Migration<2021010701> : public IMigration
     {
     public:
-        using IDBMigraion::IDBMigraion;
         void up() const override
         {
 

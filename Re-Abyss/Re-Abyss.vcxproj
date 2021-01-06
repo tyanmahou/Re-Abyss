@@ -299,7 +299,7 @@
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
-    <ClCompile Include="app\datastores\Migration\DBMigrationDataStore.cpp" />
+    <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
@@ -693,9 +693,8 @@
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigration.hpp" />
-    <ClInclude Include="app\datastores\Migration\DB\DBMigration.hpp" />
-    <ClInclude Include="app\datastores\Migration\DBMigrationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Migration\DB\2021010701_CreateUserTable.hpp" />
+    <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />

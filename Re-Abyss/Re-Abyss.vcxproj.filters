@@ -1216,13 +1216,13 @@
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Migration\DBMigrationDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1807,12 +1807,11 @@
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigration.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Migration\DB\DBMigration.hpp" />
-    <ClInclude Include="app\datastores\Migration\DBMigrationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Migration\DB\2021010701_CreateUserTable.hpp" />
     <ClInclude Include="app\services\Migration\base\IMigrationService.hpp" />
     <ClInclude Include="app\services\Migration\DBMigrationService.hpp" />
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
+    <ClInclude Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.hpp" />
+    <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

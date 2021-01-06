@@ -5,19 +5,18 @@
 
 namespace abyss::User
 {
-    class DBMigrationDataStore : 
-        public IMigrationDataStore,
-        public DBDataStore
+    class MigrationDataStore : 
+        public IMigrationDataStore
     {
     public:
-        DBMigrationDataStore(const std::shared_ptr<s3dsql::SQLite3>& db);
+        MigrationDataStore();
 
         s3d::Array<s3d::int32> versionIds() const override;
 
         void up(s3d::int32 versionId) const override;
         void down(s3d::int32 versionId) const override;
     private:
-        s3d::HashTable<s3d::int32, std::function<std::shared_ptr<IMigration>()>> m_migrations;
+        s3d::HashTable<s3d::int32, std::function<std::shared_ptr<Migrations::IMigration>()>> m_migrations;
     };
-    using DBMigrationDataStoreInataller = DBDataStoreInataller<IMigrationDataStore, DBMigrationDataStore>;
+    using MigrationDataStoreInataller = DBDataStoreInataller<IMigrationDataStore, MigrationDataStore>;
 }
