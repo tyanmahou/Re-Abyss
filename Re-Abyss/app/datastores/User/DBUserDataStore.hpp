@@ -18,4 +18,7 @@ namespace abyss::User
         bool update(const UserEntity& entity)const final;
         bool erase(s3d::int32 userId)const final;
     };
+
+    using DBUserDataStoreInataller = DBDataStoreInataller<IUserDataStore, DBUserDataStore>;
+
 }

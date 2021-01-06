@@ -20,7 +20,7 @@ namespace abyss::Coro
     }
 
     template<class It>
-    struct Enumrator
+    struct Enumerator
     {
         struct promise_type;
         using handle = std::coroutine_handle<promise_type>;
@@ -28,7 +28,7 @@ namespace abyss::Coro
         struct promise_type
         {
             It it;
-            auto get_return_object() { return Enumrator{ handle::from_promise(*this) }; }
+            auto get_return_object() { return Enumerator{ handle::from_promise(*this) }; }
             auto  initial_suspend() { return std::suspend_never{}; }
             auto final_suspend() { return std::suspend_always{}; }
             auto yield_value(It it)
@@ -42,7 +42,7 @@ namespace abyss::Coro
 
         struct iterator
         {
-            Enumrator* owner;
+            Enumerator* owner;
             iterator& operator++()
             {
                 if (!owner->coro.done()) {
@@ -63,19 +63,19 @@ namespace abyss::Coro
         iterator begin() { return { this }; }
         iterator end() { return { nullptr }; }
     public:
-        explicit Enumrator(handle h)
+        explicit Enumerator(handle h)
             : coro(h)
         {}
 
-        Enumrator(Enumrator const&) = delete;
+        Enumerator(Enumerator const&) = delete;
 
-        Enumrator(Enumrator&& rhs) noexcept
+        Enumerator(Enumerator&& rhs) noexcept
             : coro(std::move(rhs.coro))
         {
             rhs.coro = nullptr;
         }
 
-        ~Enumrator()
+        ~Enumerator()
         {
             if (coro) {
                 coro.destroy();
@@ -89,7 +89,7 @@ namespace abyss::Coro
     /// 複数イテレータに特殊化
     /// </summary>
     template<class... It>
-    struct Enumrator<std::tuple<It...>>
+    struct Enumerator<std::tuple<It...>>
     {
         struct promise_type;
         using handle = std::coroutine_handle<promise_type>;
@@ -97,7 +97,7 @@ namespace abyss::Coro
         struct promise_type
         {
             std::tuple<It...> it;
-            auto get_return_object() { return Enumrator{ handle::from_promise(*this) }; }
+            auto get_return_object() { return Enumerator{ handle::from_promise(*this) }; }
             auto  initial_suspend() { return std::suspend_never{}; }
             auto final_suspend() { return std::suspend_always{}; }
             auto yield_value(std::tuple<It...> it)
@@ -111,7 +111,7 @@ namespace abyss::Coro
 
         struct iterator
         {
-            Enumrator* owner;
+            Enumerator* owner;
             iterator& operator++()
             {
                 if (!owner->coro.done()) {
@@ -135,19 +135,19 @@ namespace abyss::Coro
         iterator begin() { return { this }; }
         iterator end() { return { nullptr }; }
     public:
-        explicit Enumrator(handle h)
+        explicit Enumerator(handle h)
             : coro(h)
         {}
 
-        Enumrator(Enumrator const&) = delete;
+        Enumerator(Enumerator const&) = delete;
 
-        Enumrator(Enumrator&& rhs) noexcept
+        Enumerator(Enumerator&& rhs) noexcept
             : coro(std::move(rhs.coro))
         {
             rhs.coro = nullptr;
         }
 
-        ~Enumrator()
+        ~Enumerator()
         {
             if (coro) {
                 coro.destroy();

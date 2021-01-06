@@ -838,7 +838,7 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
-    <ClInclude Include="app\utils\Coro\Enumrator\Enumrator.hpp" />
+    <ClInclude Include="app\utils\Coro\Enumerator\Enumerator.hpp" />
     <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
     <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
@@ -1016,7 +1016,6 @@
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
-    <ClInclude Include="app\utils\Coro\Range\RoundRobin.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
