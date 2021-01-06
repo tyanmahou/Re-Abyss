@@ -2,6 +2,7 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/Resource/UserData/Migration/Migration.hpp>
 
 #include <abyss/scenes/Splash/SplashScene.hpp>
 #include <abyss/scenes/Title/TitleScene.hpp>
@@ -38,6 +39,8 @@ namespace abyss
 		{
 			this->registerScene();
 			this->loadFont();
+
+			Resource::UserData::Migration::Update();
 		}
 
 		bool update()

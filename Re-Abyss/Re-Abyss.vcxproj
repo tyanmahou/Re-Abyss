@@ -180,6 +180,7 @@
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
+    <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
     <ClCompile Include="app\components\Actors\base\ICollision.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AttackerData.cpp" />
     <ClCompile Include="app\components\Actors\Commons\AudioSource.cpp" />
@@ -297,8 +298,11 @@
     <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
+    <ClCompile Include="app\datastores\Migration\DBMigrationDataStore.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
+    <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Events\Talk\Builder.cpp" />
@@ -366,6 +370,7 @@
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp" />
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />
     <ClCompile Include="app\scenes\Title\TitleScene.cpp" />
+    <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
@@ -587,6 +592,7 @@
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
+    <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
     <ClInclude Include="app\components\Actors\base\IPostCollision.hpp" />
@@ -683,8 +689,16 @@
     <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
     <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
+    <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
+    <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\base\IMigration.hpp" />
+    <ClInclude Include="app\datastores\Migration\DB\DBMigration.hpp" />
+    <ClInclude Include="app\datastores\Migration\DBMigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\DB\2021010701_CreateUserTable.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
+    <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
     <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
     <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
     <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
@@ -832,6 +846,8 @@
     <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
+    <ClInclude Include="app\services\Migration\base\IMigrationService.hpp" />
+    <ClInclude Include="app\services\Migration\DBMigrationService.hpp" />
     <ClInclude Include="app\types\UserPlayMode.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />

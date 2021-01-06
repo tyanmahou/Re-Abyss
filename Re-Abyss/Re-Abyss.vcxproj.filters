@@ -1210,6 +1210,21 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Migration\DBMigrationDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Migration\DBMigrationService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\factories\Migration\MigrationInjector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1787,6 +1802,17 @@
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
     <ClInclude Include="app\utils\Coro\Enumerator\Enumerator.hpp" />
+    <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
+    <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
+    <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\base\IMigration.hpp" />
+    <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\DB\DBMigration.hpp" />
+    <ClInclude Include="app\datastores\Migration\DBMigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Migration\DB\2021010701_CreateUserTable.hpp" />
+    <ClInclude Include="app\services\Migration\base\IMigrationService.hpp" />
+    <ClInclude Include="app\services\Migration\DBMigrationService.hpp" />
+    <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

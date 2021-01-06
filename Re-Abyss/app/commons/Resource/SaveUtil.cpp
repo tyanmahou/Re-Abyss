@@ -5,6 +5,6 @@ namespace abyss::Resource::SaveUtil
 {
     s3dsql::SQLite3 DB()
     {
-        return UserData::Manager::LoadDB(U"savedata.add");
+        return UserData::Manager::LoadDB(U"savedata");
     }
 }

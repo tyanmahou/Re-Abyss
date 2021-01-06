@@ -1,0 +1,73 @@
+#include "DBMigrationVersionDataStore.hpp"
+
+#include <Siv3D.hpp>
+
+namespace abyss::User
+{
+    bool DBMigrationVersionDataStore::create() const
+    {
+        StringView sql = U""
+            "CREATE TABLE IF NOT EXISTS `migration_versions` ("
+            "  `version_id` INTEGER PRIMARY KEY NOT NULL,"
+            "  `created_at` TEXT DEFAULT(DATETIME('now', 'localtime')) NOT NULL"
+            "); "
+        ;
+        m_db.exec(sql);
+        return true;
+    }
+    s3d::int32 DBMigrationVersionDataStore::selectCurrentVersion() const
+    {
+        auto raw = m_db.fetchOne(U"SELECT MAX(version_id) as current_version FROM migration_versions;");
+        if (!raw) {
+            return 0;
+        }
+        return (*raw)[U"current_version"].getOr<s3d::int32>(0);
+    }
+    bool DBMigrationVersionDataStore::update(const s3d::Array<s3d::int32>& versions) const
+    {
+        if (versions.empty()) {
+            return false;
+
+        }
+        s3dsql::DBValueArray params;
+
+        String sql = U""
+            "INSERT OR IGNORE INTO"
+            "    migration_versions(version_id)"
+            "VALUES"
+            "    {}"
+            ";"
+        ;
+
+        // TODO Util化
+        String ph;
+        bool isFirst = true;
+        for (auto versionId : versions) {
+            if (!isFirst) {
+                ph += U",";
+            } else {
+                isFirst = false;
+            }
+            ph += U"(?)";
+
+            params << versionId;
+        }
+
+        return m_db.exec(s3d::Fmt(sql)(ph), params) != 0;
+    }
+    bool DBMigrationVersionDataStore::erase(s3d::int32 versionId) const
+    {
+        StringView sql = U""
+            "DELETE"
+            "    migration_versions"
+            "WHERE"
+            "    `version_id` = :versionId"
+            ";"
+        ;
+
+        s3dsql::DBValueMap params;
+        params[U":versionId"] = versionId;
+
+        return m_db.exec(sql, params) != 0;
+    }
+}
