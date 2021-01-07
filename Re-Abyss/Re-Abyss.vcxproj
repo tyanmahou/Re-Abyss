@@ -300,6 +300,7 @@
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
+    <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
@@ -374,6 +375,7 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
+    <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp" />
     <ClCompile Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.cpp" />
     <ClCompile Include="app\views\BackGround\Sky\SkyShader.cpp" />
@@ -692,9 +694,8 @@
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Migration\base\IMigration.hpp" />
+    <ClInclude Include="app\utils\Migration\Migration.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />

@@ -10,6 +10,7 @@ namespace abyss::User
         virtual ~IMigrationDataStore() = default;
 
         virtual s3d::Array<s3d::int32> versionIds() const = 0;
+        virtual s3d::Array<s3d::int32> updateVersionIds(s3d::int32 currentVersionId) const = 0;
         virtual void up(s3d::int32 versionId) const = 0;
         virtual void down(s3d::int32 versionId) const = 0;
     };
