@@ -1817,6 +1817,7 @@
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
     <ClInclude Include="app\utils\Migration\Migration.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

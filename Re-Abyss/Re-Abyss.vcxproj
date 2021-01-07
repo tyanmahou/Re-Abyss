@@ -694,6 +694,7 @@
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
     <ClInclude Include="app\utils\Migration\Migration.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />

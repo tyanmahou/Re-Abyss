@@ -10,8 +10,6 @@ namespace abyss::User
     {
     public:
         using DBDataStore::DBDataStore;
-
-        bool create() const final;
         s3d::Array<UserEntity> selectAll()const final;
         s3d::Optional<UserEntity> select(s3d::int32 userId)const final;
 

@@ -16,6 +16,6 @@ namespace abyss::User
         // プレイ時間
         s3d::Duration playTime;
         // 作成日
-        s3d::DateTime created_at;
+        s3d::DateTime createdAt;
     };
 }
