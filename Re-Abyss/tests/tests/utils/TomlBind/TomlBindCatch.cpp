@@ -50,7 +50,7 @@ namespace abyss::tests
         Array<Item> items;
     };
 
-    TEST_CASE("TomlBind. Test")
+    TEST_CASE("utils::TomlBind. Test")
     {
         TOMLReader  toml(U"tests/data/TOMLBind/config.toml");
 

@@ -170,9 +170,6 @@
     <ClCompile Include="app\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\tests\TOMLBind\TOMLBindCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -799,12 +796,6 @@
     <ClCompile Include="tests\tests\Collision\TagCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\tests\FixedPtr\FixedPtrCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\tests\Di\DiCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\factories\Main\MainInjector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1229,6 +1220,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\Di\DiCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\FixedPtr\FixedPtrCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1818,6 +1824,7 @@
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
     <ClInclude Include="app\utils\Migration\Migration.hpp" />
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
+    <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

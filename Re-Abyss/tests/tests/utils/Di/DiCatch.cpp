@@ -95,7 +95,7 @@ namespace
 
 namespace abyss::tests
 {
-    TEST_CASE("Di. Test")
+    TEST_CASE("utils::Di. Test")
     {
         SECTION("test cache")
         {

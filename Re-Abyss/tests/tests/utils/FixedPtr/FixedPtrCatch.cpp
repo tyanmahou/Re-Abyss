@@ -47,7 +47,7 @@ namespace
 }
 namespace abyss::tests
 {
-    TEST_CASE("FixedPtr. Test")
+    TEST_CASE("utils::FixedPtr. Test")
     {
         SECTION("delete test")
         {
