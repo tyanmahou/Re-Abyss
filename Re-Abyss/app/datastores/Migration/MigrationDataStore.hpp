@@ -10,10 +10,10 @@ namespace abyss::User
     public:
         MigrationDataStore();
 
-        s3d::Array<s3d::int32> versionIds() const override;
-        s3d::Array<s3d::int32> updateVersionIds(s3d::int32 currentVersionId) const override;
-        void up(s3d::int32 versionId) const override;
-        void down(s3d::int32 versionId) const override;
+        s3d::Array<s3d::int64> versionIds() const override;
+        s3d::Array<s3d::int64> updateVersionIds(s3d::int64 currentVersionId) const override;
+        void up(s3d::int64 versionId) const override;
+        void down(s3d::int64 versionId) const override;
     private:
     };
     using MigrationDataStoreInataller = DBDataStoreInataller<IMigrationDataStore, MigrationDataStore>;

@@ -15,15 +15,15 @@ namespace abyss::User
         m_db.exec(sql);
         return true;
     }
-    s3d::int32 DBMigrationVersionDataStore::selectCurrentVersion() const
+    s3d::int64 DBMigrationVersionDataStore::selectCurrentVersion() const
     {
         auto raw = m_db.fetchOne(U"SELECT MAX(version_id) as current_version FROM migration_versions;");
         if (!raw) {
             return 0;
         }
-        return (*raw)[U"current_version"].getOr<s3d::int32>(0);
+        return (*raw)[U"current_version"].getOr<s3d::int64>(0);
     }
-    bool DBMigrationVersionDataStore::update(const s3d::Array<s3d::int32>& versions) const
+    bool DBMigrationVersionDataStore::update(const s3d::Array<s3d::int64>& versions) const
     {
         if (versions.empty()) {
             return false;
@@ -55,7 +55,7 @@ namespace abyss::User
 
         return m_db.exec(s3d::Fmt(sql)(ph), params) != 0;
     }
-    bool DBMigrationVersionDataStore::erase(s3d::int32 versionId) const
+    bool DBMigrationVersionDataStore::erase(s3d::int64 versionId) const
     {
         StringView sql = U""
             "DELETE"

@@ -13,9 +13,9 @@ namespace abyss::User
 
         bool create() const override;
 
-        s3d::int32 selectCurrentVersion()const override;
-        bool update(const s3d::Array<s3d::int32>& versions)const override;
-        bool erase(s3d::int32 versionId)const override;
+        s3d::int64 selectCurrentVersion()const override;
+        bool update(const s3d::Array<s3d::int64>& versions)const override;
+        bool erase(s3d::int64 versionId)const override;
     };
 
     using DBMigrationVersionDataStoreInataller = DBDataStoreInataller<IMigrationVersionDataStore, DBMigrationVersionDataStore>;

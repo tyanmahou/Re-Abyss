@@ -19,7 +19,7 @@ namespace abyss::User
             return;
         }
         // 最新までアップデート
-        s3d::Array<s3d::int32> updateVersions = m_migrarion->updateVersionIds(current);
+        s3d::Array<s3d::int64> updateVersions = m_migrarion->updateVersionIds(current);
         for (auto version : updateVersions) {
             m_migrarion->up(version);
         }
