@@ -19,15 +19,11 @@ namespace abyss::User
             return;
         }
         // 最新までアップデート
-        s3d::Array<s3d::int32> updateVersions;
-        for (auto version : m_migrarion->versionIds()) {
-            if (current < version) {
-                m_migrarion->up(version);
-                current = version;
-                updateVersions << version;
-            }
+        s3d::Array<s3d::int32> updateVersions = m_migrarion->updateVersionIds(current);
+        for (auto version : updateVersions) {
+            m_migrarion->up(version);
         }
-        m_version->update(versions);
+        m_version->update(updateVersions);
     }
     void DBMigrationService::down() const
     {

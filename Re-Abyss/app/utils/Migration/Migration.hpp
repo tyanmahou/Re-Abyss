@@ -49,37 +49,27 @@ namespace abyss::Migration
 
     namespace detail
     {
-        constexpr bool is_digit(char c)
+        consteval s3d::int32 versionId(const char* path)
         {
-            return c <= '9' && c >= '0';
-        }
-
-        constexpr s3d::int32 stoi_impl(const char* str, s3d::int32 value = 0)
-        {
-            return *str ?
-                is_digit(*str) ?
-                stoi_impl(str + 1, (*str - '0') + value * 10)
-                : value
-                : value;
-        }
-
-        constexpr s3d::int32 stoi(const char* str)
-        {
-            return stoi_impl(str);
-        }
-        constexpr const char* filename(const char* path)
-        {
-            const char* file = path;
+            // filename取得
+            const char* filename = path;
             while (*path) {
                 if (*path++ == '\\') {
-                    file = path;
+                    filename = path;
                 }
             }
-            return file;
-        }
-        constexpr s3d::int32 versionId(const char* path)
-        {
-            return stoi(filename(path));
+            // バージョン値取得
+            const char* str = filename;
+            s3d::int32 value = 0;
+            while (char c = *str) {
+                if (c <= '9' && c >= '0') {
+                    value = (c - '0') + value * 10;
+                } else {
+                    break;
+                }
+                ++str;
+            }
+            return value;
         }
     }
 }
