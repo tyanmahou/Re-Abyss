@@ -8,7 +8,7 @@ namespace abyss
     {}
 
     DBDataStore::DBDataStore(const s3d::String& path) :
-        m_db(Resource::UserData::Manager::LoadDB(path))
+        m_db(Resource::UserData::Manager::LoadDB(path, U""))
     {}
 
     DBDataStore::DBDataStore(const std::shared_ptr<s3dsql::SQLite3>& db) :
@@ -20,7 +20,7 @@ namespace abyss
     {}
 
     DBInstaller::DBInstaller(const s3d::String& path):
-        m_db(std::make_shared<s3dsql::SQLite3>(Resource::UserData::Manager::LoadDB(path)))
+        m_db(std::make_shared<s3dsql::SQLite3>(Resource::UserData::Manager::LoadDB(path, U"")))
     {}
 
     void DBInstaller::onBinding(emaject::Container * conatienr) const
