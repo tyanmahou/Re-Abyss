@@ -27,7 +27,7 @@ namespace abyss::tests
 
         SECTION("test duration")
         {
-            auto d = DateTimeUtil::ToDuration(U"12:01:02");
+            auto d = DateTimeUtil::ToTimeDuration(U"12:01:02");
             REQUIRE(s3d::FormatTime(d, U"HH:mm:ss") == U"12:01:02");
         }
     }

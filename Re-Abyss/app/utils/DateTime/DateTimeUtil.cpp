@@ -43,7 +43,8 @@ namespace abyss::DateTimeUtil
             t.tm_mday
         );
     }
-    s3d::Duration ToDuration(const s3d::String& str, s3d::StringView format)
+
+    s3d::Duration ToTimeDuration(const s3d::String& str, s3d::StringView format)
     {
         using namespace s3d::Literals::FormatLiterals;
 
