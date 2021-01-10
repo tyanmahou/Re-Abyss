@@ -52,7 +52,7 @@ namespace abyss
 	{
 		Type operator()(const s3dsql::DBValue& row) const
 		{
-			return Parse<Type>(row.get<s3d::String>());
+			return Enum::Parse<Type>(row.get<s3d::String>());
 		}
 	};
 }
