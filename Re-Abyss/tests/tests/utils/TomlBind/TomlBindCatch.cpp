@@ -1,8 +1,9 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <Siv3D.hpp>
 
-namespace abyss::tests
+namespace
 {
     struct Item
     {
@@ -49,7 +50,9 @@ namespace abyss::tests
         [[TOML_BIND_PARAM(items, "Items")]]
         Array<Item> items;
     };
-
+}
+namespace abyss::tests
+{
     TEST_CASE("utils::TomlBind. Test")
     {
         TOMLReader  toml(U"tests/data/TOMLBind/config.toml");

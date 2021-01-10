@@ -1237,6 +1237,9 @@
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\DB\DBBindCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

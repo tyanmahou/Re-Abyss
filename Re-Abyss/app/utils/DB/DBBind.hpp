@@ -121,25 +121,23 @@ namespace abyss
 //----------------------------------------
 #define DB_BIND_PP_IMPL_OVERLOAD_2(e1, e2, NAME, ...) NAME
 #define DB_BIND_PP_IMPL_OVERLOAD_3(e1, e2, e3, NAME, ...) NAME
-#define DB_BIND_PP_EXPAND(x) x
+#define DB_BIND_PP_EXPAND( x ) x
 
 // DB_COLUMN
-#define DB_COLUMN_IMPL_2(value, columnName) ]];\
-template<class ThisType>\
-friend auto operator|(ThisType& a, const ::abyss::detail::AutoDBBindLine<__LINE__>& l){\
+#define DB_COLUMN_IMPL_2(value, columnName) ]]\
+void operator|(const ::abyss::detail::AutoDBBindLine<__LINE__>& l){\
     static_assert(__LINE__ < ::abyss::detail::AUTO_DB_BIND_MAX_LINES);\
-    a.value = ::abyss::GetValue<decltype(a.value)>(l.row[U##columnName]);\
+    value = ::abyss::GetValue<decltype(value)>(l.row[U##columnName]);\
 }[[
-#define DB_COLUMN_IMPL_1(value) DB_COLUMN_PP_IMPL_2(value, #value)
+#define DB_COLUMN_IMPL_1(value) DB_COLUMN_IMPL_2(value, #value)
 #define DB_COLUMN(...) DB_BIND_PP_EXPAND(DB_BIND_PP_IMPL_OVERLOAD_2(__VA_ARGS__, DB_COLUMN_IMPL_2, DB_COLUMN_IMPL_1)(__VA_ARGS__))
 
 // DB_COLUMN_OPT
-#define DB_COLUMN_OPT_IMPL_3(value, columnName, optValue) ]];\
-template<class ThisType>\
-friend auto operator|(ThisType& a, const ::abyss::detail::AutoDBBindLine<__LINE__>& l){\
+#define DB_COLUMN_OPT_IMPL_3(value, columnName, optValue) ]]\
+void operator|(const ::abyss::detail::AutoDBBindLine<__LINE__>& l){\
     static_assert(__LINE__ < ::abyss::detail::AUTO_DB_BIND_MAX_LINES);\
-    a.value = ::abyss::GetOpt<decltype(a.value)>(l.row[U##columnName]).value_or(optValue);\
+    value = ::abyss::GetOpt<decltype(value)>(l.row[U##columnName]).value_or(optValue);\
 }[[
-#define DB_COLUMN_OPT_IMPL_2(value, columnName) DB_COLUMN_OPT_IMPL_3(value, columnName, {})
+#define DB_COLUMN_OPT_IMPL_2(value, columnName) DB_COLUMN_OPT_IMPL_3(value, columnName, decltype(value){})
 #define DB_COLUMN_OPT_IMPL_1(value) DB_COLUMN_OPT_IMPL_2(value, #value)
 #define DB_COLUMN_OPT(...) DB_BIND_PP_EXPAND(DB_BIND_PP_IMPL_OVERLOAD_3(__VA_ARGS__, DB_COLUMN_OPT_IMPL_3, DB_COLUMN_OPT_IMPL_2, DB_COLUMN_OPT_IMPL_1)(__VA_ARGS__))
