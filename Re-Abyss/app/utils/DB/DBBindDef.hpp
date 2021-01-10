@@ -12,11 +12,11 @@ namespace abyss
 	/// Duration
 	/// </summary>
 	template<>
-	struct DBBind<s3d::Duration>
+	struct DBValueTraits<s3d::Duration>
 	{
-		s3d::Duration operator()(const s3dsql::DBValue& row) const
+		s3d::Duration operator()(const s3dsql::DBValue& value) const
 		{
-			return s3d::Duration(row.get<double>());
+			return s3d::Duration(value.get<double>());
 		}
 	};
 
@@ -24,11 +24,11 @@ namespace abyss
 	/// Date
 	/// </summary>
 	template<>
-	struct DBBind<s3d::Date>
+	struct DBValueTraits<s3d::Date>
 	{
-		s3d::Date operator()(const s3dsql::DBValue& row) const
+		s3d::Date operator()(const s3dsql::DBValue& value) const
 		{
-			return DateTimeUtil::ToDate(row.get<s3d::String>());
+			return DateTimeUtil::ToDate(value.get<s3d::String>());
 		}
 	};
 
@@ -36,11 +36,11 @@ namespace abyss
 	/// DateTime
 	/// </summary>
 	template<>
-	struct DBBind<s3d::DateTime>
+	struct DBValueTraits<s3d::DateTime>
 	{
-		s3d::DateTime operator()(const s3dsql::DBValue& row) const
+		s3d::DateTime operator()(const s3dsql::DBValue& value) const
 		{
-			return DateTimeUtil::ToDateTime(row.get<s3d::String>());
+			return DateTimeUtil::ToDateTime(value.get<s3d::String>());
 		}
 	};
 
@@ -48,11 +48,11 @@ namespace abyss
 	/// Enum
 	/// </summary>
 	template<Enum::Parsable Type>
-	struct DBBind<Type>
+	struct DBValueTraits<Type>
 	{
-		Type operator()(const s3dsql::DBValue& row) const
+		Type operator()(const s3dsql::DBValue& value) const
 		{
-			return Enum::Parse<Type>(row.get<s3d::String>());
+			return Enum::Parse<Type>(value.get<s3d::String>());
 		}
 	};
 }

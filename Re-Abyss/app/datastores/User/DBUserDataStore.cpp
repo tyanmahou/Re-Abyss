@@ -1,29 +1,35 @@
 #include "DBUserDataStore.hpp"
+#include <abyss/utils/DB/DBUtil.hpp>
 
+namespace abyss
+{
+    using namespace User;
+
+    template<>
+    struct DBBind<UserEntity>
+    {
+        UserEntity operator()(s3dsql::DBRow& row) const
+        {
+            return {
+                .userId = GetValue<s3d::int32>(row[U"user_id"]),
+                .playMode = GetValue<UserPlayMode>(row[U"play_mode"]),
+                .playTime = GetValue<s3d::Duration>(row[U"play_time"]),
+                .updatedAt = GetValue<s3d::DateTime>(row[U"updated_at"]),
+                .createdAt = GetValue<s3d::DateTime>(row[U"created_at"]),
+            };
+        }
+    };
+}
 namespace abyss::User
 {
-    UserEntity FromRow(s3dsql::DBRow& row)
-    {
-        return {
-            .userId = row[U"user_id"].get<s3d::int32>(),
-            .playMode = Enum::Parse<UserPlayMode>(row[U"play_mode"].get<s3d::String>()),
-            .playTime = s3d::Duration(row[U"play_time"].get <double>()),
-            .createdAt = s3d::DateTime()
-        };
-    }
-
     s3d::Array<UserEntity> DBUserDataStore::selectAll() const
     {
-        s3d::Array<UserEntity> ret;
         s3d::String sql = U""
             "SELECT * FROM"
             "    users"
             ";"
             ;
-        for (auto&& row : m_db.fetch(sql)) {
-            ret << FromRow(row);
-        }
-        return ret;
+        return DBUtil::Fetch<UserEntity>(m_db, sql);
     }
 
     s3d::Optional<UserEntity> DBUserDataStore::select(s3d::int32 userId) const
@@ -35,11 +41,7 @@ namespace abyss::User
             "    user_id = ?"
             ";"
             ;
-        s3d::Optional<UserEntity> ret;
-        m_db.fetchOne(sql, s3dsql::DBValueArray{ userId }).then([&](auto& row) {
-            ret = FromRow(row);
-        });
-        return ret;
+        return DBUtil::FetchOne<UserEntity>(m_db, sql, s3dsql::DBValueArray{ userId });
     }
 
     bool DBUserDataStore::update(const UserEntity& entity) const

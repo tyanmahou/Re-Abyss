@@ -4,25 +4,43 @@
 namespace abyss
 {
     template<class Type>
-	struct DBBind
+	struct DBValueTraits
 	{
-		Type operator()(const s3dsql::DBValue& row) const
+		Type operator()(const s3dsql::DBValue& value) const
 		{
-			return row.get<Type>();
+			return value.get<Type>();
 		}
 	};
 
 	template<class Type>
-	Type FromRow(const s3dsql::DBValue& row)
+	Type GetValue(const s3dsql::DBValue& value)
 	{
-		return DBBind<Type>{}(row);
+		return DBValueTraits<Type>{}(value);
 	}
 	template<class Type>
-	s3d::Optional<Type> FromRowOpt(const s3dsql::DBValue& row)
+	s3d::Optional<Type> GetOpt(const s3dsql::DBValue& value)
 	{
-		if (row.isNull()) {
+		if (value.isNull()) {
 			return s3d::none;
 		}
+		return DBValueTraits<Type>{}(value);
+	}
+
+	template<class Type>
+	struct DBBind
+	{
+		// Type operator()(s3dsql::DBRow& row) const;
+	};
+
+	template<class Type>
+	concept DBBindable = requires(s3dsql::DBRow & row)
+	{
+		{ DBBind<Type>{}(row) }->std::same_as<Type>;
+	};
+
+	template<DBBindable Type>
+	Type FromRow(s3dsql::DBRow& row)
+	{
 		return DBBind<Type>{}(row);
 	}
 }

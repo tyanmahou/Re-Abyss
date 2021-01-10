@@ -15,6 +15,8 @@ namespace abyss::User
         UserPlayMode playMode;
         // プレイ時間
         s3d::Duration playTime;
+        // 更新日
+        s3d::DateTime updatedAt;
         // 作成日
         s3d::DateTime createdAt;
     };
