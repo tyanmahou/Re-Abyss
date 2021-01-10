@@ -1,25 +1,6 @@
 #include "DBUserDataStore.hpp"
 #include <abyss/utils/DB/DBUtil.hpp>
 
-namespace abyss
-{
-    using namespace User;
-
-    template<>
-    struct DBBind<UserEntity>
-    {
-        UserEntity operator()(s3dsql::DBRow& row) const
-        {
-            return {
-                .userId = GetValue<s3d::int32>(row[U"user_id"]),
-                .playMode = GetValue<UserPlayMode>(row[U"play_mode"]),
-                .playTime = GetValue<s3d::Duration>(row[U"play_time"]),
-                .updatedAt = GetValue<s3d::DateTime>(row[U"updated_at"]),
-                .createdAt = GetValue<s3d::DateTime>(row[U"created_at"]),
-            };
-        }
-    };
-}
 namespace abyss::User
 {
     s3d::Array<UserEntity> DBUserDataStore::selectAll() const
