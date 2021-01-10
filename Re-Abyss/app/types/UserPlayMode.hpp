@@ -17,7 +17,7 @@ namespace abyss
     };
 }
 
-namespace abyss
+namespace abyss::Enum
 {
     template<>
     struct EnumTraits<UserPlayMode>

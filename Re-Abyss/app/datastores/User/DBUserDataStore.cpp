@@ -6,7 +6,7 @@ namespace abyss::User
     {
         return {
             .userId = row[U"user_id"].get<s3d::int32>(),
-            .playMode = Parse<UserPlayMode>(row[U"play_mode"].get<s3d::String>()),
+            .playMode = Enum::Parse<UserPlayMode>(row[U"play_mode"].get<s3d::String>()),
             .playTime = s3d::Duration(row[U"play_time"].get <double>()),
             .createdAt = s3d::DateTime()
         };
@@ -58,7 +58,7 @@ namespace abyss::User
         ;
         return m_db.exec(sql, s3dsql::DBValueArray{ 
             entity.userId, 
-            ToStr(entity.playMode),
+            Enum::ToStr(entity.playMode),
             entity.playTime.count()
         }) != 0;
     }
