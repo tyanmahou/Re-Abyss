@@ -50,7 +50,7 @@ namespace abyss
 	template<EnumTraity Type>
 	struct DBBind<Type>
 	{
-		s3d::Type operator()(const s3dsql::DBValue& row) const
+		Type operator()(const s3dsql::DBValue& row) const
 		{
 			return Parse<Type>(row.get<s3d::String>());
 		}
