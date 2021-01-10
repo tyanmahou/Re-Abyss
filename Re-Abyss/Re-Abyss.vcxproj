@@ -697,6 +697,9 @@
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
+    <ClInclude Include="app\utils\DB\DBBind.hpp" />
+    <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
+    <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
     <ClInclude Include="app\utils\Migration\Migration.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
