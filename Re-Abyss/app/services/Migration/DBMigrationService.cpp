@@ -8,18 +8,16 @@ namespace abyss::User
     {
         // DBなければ生成
         m_version->create();
-        auto versions = m_migrarion->versionIds();
-        if (versions.empty()) {
-            return;
-        }
-        
+
+        // 現在のバージョン取得
         auto current = m_version->selectCurrentVersion();
-        if (current >= versions.back()) {
-            // すでに最新
-            return;
-        }
+
         // 最新までアップデート
         s3d::Array<s3d::int64> updateVersions = m_migrarion->updateVersionIds(current);
+        if (updateVersions.empty()) {
+            // 更新無し
+            return;
+        }
         for (auto version : updateVersions) {
             m_migrarion->up(version);
         }
