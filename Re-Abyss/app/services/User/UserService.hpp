@@ -8,7 +8,7 @@ namespace abyss::User
     class UserService : public IUserService
     {
     public:
-        s3d::Array<UserModel> getUsers() const override;
+        s3d::HashTable<s3d::int32, UserModel> getUsers() const override;
         UserModel create(s3d::int32 userId, UserPlayMode playMode) const override;
 
     private:

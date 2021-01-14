@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/UserPlayMode.hpp>
 #include <Siv3D/Fwd.hpp>
-#include <Siv3D/Array.hpp>
+#include <Siv3D/HashTable.hpp>
 
 namespace abyss::User
 {
@@ -11,7 +11,7 @@ namespace abyss::User
     public:
         virtual ~IUserService() = default;
 
-        virtual s3d::Array<UserModel> getUsers() const = 0;
+        virtual s3d::HashTable<s3d::int32, UserModel> getUsers() const = 0;
         virtual UserModel create(s3d::int32 userId, UserPlayMode playMode = UserPlayMode::Normal) const = 0;
     };
 }

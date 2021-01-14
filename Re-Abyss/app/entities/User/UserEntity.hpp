@@ -4,7 +4,7 @@
 #include <Siv3D/DateTime.hpp>
 
 #include <abyss/types/UserPlayMode.hpp>
-#include <abyss/utils/DB/DBBind.hpp>
+#include <abyss/utils/DB/DBBindDef.hpp>
 
 namespace abyss::User
 {
