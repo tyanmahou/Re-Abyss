@@ -372,6 +372,7 @@
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />
     <ClCompile Include="app\scenes\Title\TitleScene.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
+    <ClCompile Include="app\services\User\UserService.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
@@ -598,6 +599,7 @@
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
+    <ClInclude Include="app\commons\Resource\UserData\Storage\Storage.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollision.hpp" />
     <ClInclude Include="app\components\Actors\base\IPostCollision.hpp" />
@@ -697,6 +699,9 @@
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\services\User\base\IUserService.hpp" />
+    <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />

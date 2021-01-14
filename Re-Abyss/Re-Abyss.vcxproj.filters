@@ -1240,6 +1240,9 @@
     <ClCompile Include="tests\tests\utils\DB\DBBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\services\User\UserService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1831,6 +1834,10 @@
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
+    <ClInclude Include="app\commons\Resource\UserData\Storage\Storage.hpp" />
+    <ClInclude Include="app\services\User\UserService.hpp" />
+    <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\services\User\base\IUserService.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

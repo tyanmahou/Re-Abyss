@@ -105,6 +105,10 @@ namespace abyss
 	class CameraModel;
 	class QuakeModel;
 	class IDecorModel;
+	namespace User
+	{
+		class UserModel;
+	}
 
 	/// <summary>
 	/// Components
