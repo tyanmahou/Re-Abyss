@@ -32,7 +32,7 @@ namespace abyss::User
             "    users(user_id, play_mode, play_time)"
             "VALUES"
             "    (?, ?, ?)"
-            "ON CONFLICT(user_id) DO UPDATE"
+            "ON CONFLICT(user_id) DO UPDATE "
             "SET"
             "    play_mode = excluded.play_mode,"
             "    play_time = excluded.play_time,"

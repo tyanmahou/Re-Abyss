@@ -42,6 +42,18 @@ namespace abyss::User
         return newUser;
     }
 
+    UserModel UserService::login(const UserModel& user) const
+    {
+        m_users->update(UserEntity{
+            .userId = user.getUserId(),
+            .playMode = user.getPlayMode(),
+            .playTime = user.getPlayTime(),
+            });
+        UserModel updated = user;
+        updated.setUpdatedAt(DateTime::Now());
+        return updated;
+    }
+
     void UserServiceInstaller::onBinding(emaject::Container* container) const
     {
         container->bind<IUserService>()

@@ -3,7 +3,9 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
-
+#include <abyss/factories/Storage/StorageInjector.hpp>
+#include <abyss/services/User/base/IUserService.hpp>
+#include <abyss/models/User/UserModel.hpp>
 namespace abyss
 {
     class SaveSelectScene::Impl
@@ -20,9 +22,15 @@ namespace abyss
         std::function<void()> m_onLoadGameFunc;
         std::function<void()> m_onNewGameFunc;
         std::function<void()> m_onBackFunc;
+
+        std::shared_ptr<User::IUserService> m_userService;
+
+        s3d::HashTable<s3d::int32, User::UserModel> m_users;
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
+            m_userService = Factory::Storage::Injector().resolve<User::IUserService>();
+            m_users = m_userService->getUsers();
         }
 
         void update()
@@ -51,6 +59,11 @@ namespace abyss
                 } else {
                     // データ選択
                     if (m_mode == Mode::GameStart) {
+                        if (!m_users.contains(m_selectId)) {
+                            m_users[m_selectId] = m_userService->create(m_selectId);
+                        } else {
+                            m_userService->login(m_users[m_selectId]);
+                        }
                         // 選択
                         m_onLoadGameFunc();
                     } else {
@@ -87,12 +100,30 @@ namespace abyss
             {
                 RectF(tl + Vec2{ size.x, 0 } - selectSize, selectSize).drawFrame(1.0);
             }
+
             RectF(tl - Vec2{ 0, selectSize.y }, { size.x, selectSize.y }).drawFrame(1.0);
             RectF(tl, size).drawFrame(1.0);
+
+            // 選択中
+            {
+                Vec2 pos = tl +
+                    (m_selectId == -1 ? Vec2{ size.x, 0 } - selectSize :
+                    Vec2{ selectSize.x * m_selectId, -selectSize.y });
+                RectF(pos, selectSize).drawFrame(1.0, Palette::Red);
+            }
+
             if (m_mode == Mode::GameStart) {
                 FontAsset(U"titleSelect")(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
             } else {
                 FontAsset(U"titleSelect")(U"- データ削除 -").drawAt(480, 50, Color(255, 0, 0));
+            }
+
+            if (m_selectId != -1) {
+                if (m_users.contains(m_selectId)) {
+                    FontAsset(U"titleSelect")(U"つづきから").drawAt(480, 270);
+                } else {
+                    FontAsset(U"titleSelect")(U"はじめから").drawAt(480, 270);
+                }
             }
         }
 

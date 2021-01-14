@@ -586,6 +586,7 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
+    <ClCompile Include="vendor\abyss\include\abyss\services\User\base\IUserService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

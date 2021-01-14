@@ -1246,6 +1246,9 @@
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\abyss\include\abyss\services\User\base\IUserService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
