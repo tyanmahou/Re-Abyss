@@ -54,6 +54,11 @@ namespace abyss::User
         return updated;
     }
 
+    bool UserService::erase(s3d::int32 userId) const
+    {
+        return m_users->erase(userId);
+    }
+
     void UserServiceInstaller::onBinding(emaject::Container* container) const
     {
         container->bind<IUserService>()

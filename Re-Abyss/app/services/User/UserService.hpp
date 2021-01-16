@@ -11,6 +11,8 @@ namespace abyss::User
         s3d::HashTable<s3d::int32, UserModel> getUsers() const override;
         UserModel create(s3d::int32 userId, UserPlayMode playMode) const override;
         UserModel login(const UserModel& user) const override;
+
+        bool erase(s3d::int32 userId) const override;
     private:
         [[INJECT(m_users)]]
         std::shared_ptr<IUserDataStore> m_users;
