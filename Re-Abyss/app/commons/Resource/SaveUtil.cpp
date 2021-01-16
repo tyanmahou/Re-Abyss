@@ -1,8 +1,10 @@
 #include "SaveUtil.hpp"
 #include <abyss/commons/Resource/UserData/Manager/Manager.hpp>
 #include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
+
 #include <abyss/services/User/base/IUserService.hpp>
 
+#include <abyss/models/User/UserModel.hpp>
 namespace abyss::Resource::SaveUtil
 {
     using namespace abyss::User;
@@ -16,5 +18,14 @@ namespace abyss::Resource::SaveUtil
     {
         Storage::Get<IUserService>()->erase(userId);
         return true;
+    }
+    UserModel CreateUser(s3d::int32 userId)
+    {
+        return Storage::Get<IUserService>()->create(userId);
+    }
+
+    UserModel Login(const UserModel& user)
+    {
+        return Storage::Get<IUserService>()->login(user);
     }
 }

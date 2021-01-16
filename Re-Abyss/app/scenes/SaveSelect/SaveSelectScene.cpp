@@ -3,11 +3,14 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
-#include <abyss/factories/Storage/StorageInjector.hpp>
+#include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
+#include <abyss/commons/Resource/SaveUtil.hpp>
+
 #include <abyss/services/User/base/IUserService.hpp>
 #include <abyss/models/User/UserModel.hpp>
 namespace abyss
 {
+    using Resource::UserData::Storage;
     class SaveSelectScene::Impl
     {
         enum class Mode
@@ -22,15 +25,11 @@ namespace abyss
         std::function<void()> m_onLoadGameFunc;
         std::function<void()> m_onNewGameFunc;
         std::function<void()> m_onBackFunc;
-
-        std::shared_ptr<User::IUserService> m_userService;
-
         s3d::HashTable<s3d::int32, User::UserModel> m_users;
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
-            m_userService = Factory::Storage::Injector().resolve<User::IUserService>();
-            m_users = m_userService->getUsers();
+            m_users = Storage::Get<User::IUserService>()->getUsers();
         }
 
         void update()
@@ -60,14 +59,18 @@ namespace abyss
                     // データ選択
                     if (m_mode == Mode::GameStart) {
                         if (!m_users.contains(m_selectId)) {
-                            m_users[m_selectId] = m_userService->create(m_selectId);
+                            m_users[m_selectId] = Resource::SaveUtil::CreateUser(m_selectId);
                         } else {
-                            m_userService->login(m_users[m_selectId]);
+                            m_users[m_selectId] = Resource::SaveUtil::Login(m_users[m_selectId]);
                         }
                         // 選択
                         m_onLoadGameFunc();
                     } else {
                         // 削除確認
+                        if (m_users.contains(m_selectId)) {
+                            Resource::SaveUtil::EraseUser(m_selectId);
+                            m_users.erase(m_selectId);
+                        }
                     }
                 }
             }
