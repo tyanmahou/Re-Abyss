@@ -24,4 +24,9 @@ namespace abyss::Resource::SaveUtil
     /// ログイン
     /// </summary>
     User::UserModel Login(const User::UserModel& user);
+
+    /// <summary>
+    /// ユーザーの保存
+    /// </summary>
+    User::UserModel SaveUser(const User::UserModel& user);
 }

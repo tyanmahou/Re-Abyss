@@ -33,6 +33,9 @@ namespace abyss
 
 			// タイトル
 			FontAsset::Register(U"titleSelect", 25, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
+
+			// 
+			FontAsset::Register(U"pm12-bb", 12, U"/resources/fonts/PixelMplus12-Bold.ttf", FontStyle::BoldBitmap);
 		}
 	public:
 		Impl()

@@ -51,6 +51,7 @@ namespace abyss::Resource
 
 
         void setIsBuilded(bool isBuilded) const;
+
     public:
         static Assets* Main();
     };

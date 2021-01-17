@@ -1246,10 +1246,10 @@
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vendor\abyss\include\abyss\services\User\base\IUserService.cpp">
+    <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp">
+    <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1848,6 +1848,9 @@
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
+    <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoVM.hpp" />
+    <ClInclude Include="app\commons\FontName.hpp" />
+    <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

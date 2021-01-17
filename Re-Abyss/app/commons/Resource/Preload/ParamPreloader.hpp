@@ -9,4 +9,5 @@ namespace abyss::Resource::Prelaod
     void LoadTitleToml(const Assets& resource);
 
     void LoadActorToml(const Assets& resource);
+    void LoadUIToml(const Assets& resource);
 }

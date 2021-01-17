@@ -393,6 +393,7 @@
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
+    <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp" />
@@ -587,7 +588,6 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
-    <ClCompile Include="vendor\abyss\include\abyss\services\User\base\IUserService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -597,6 +597,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
@@ -704,6 +705,7 @@
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
@@ -1106,6 +1108,7 @@
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
+    <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />

@@ -18,6 +18,7 @@ namespace
 	void PreloadResourece(const Resource::Assets& resource)
 	{
 		Resource::Prelaod::LoadActorToml(resource);
+		Resource::Prelaod::LoadUIToml(resource);
 	}
 }
 namespace abyss

@@ -54,6 +54,22 @@ namespace abyss::User
         return updated;
     }
 
+    UserModel UserService::save(const UserModel& user) const
+    {
+        auto now = s3d::DateTime::Now();
+        auto addPlayTime = now - user.getUpdatedAt();
+        auto newPlayTime = user.getPlayTime() + addPlayTime;
+        m_users->update(UserEntity{
+            .userId = user.getUserId(),
+            .playMode = user.getPlayMode(),
+            .playTime = newPlayTime,
+            });
+        UserModel updated = user;
+        updated.setPlayTime(newPlayTime);
+        updated.setUpdatedAt(now);
+        return updated;
+    }
+
     bool UserService::erase(s3d::int32 userId) const
     {
         return m_users->erase(userId);

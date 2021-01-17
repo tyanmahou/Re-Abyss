@@ -25,6 +25,9 @@
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
+// UI
+#include <abyss/params/UI/PlayerInfo/Param.hpp>
+
 namespace abyss::Resource::Prelaod
 {
 	void LoadTomlAll(const Assets& resource)
@@ -32,6 +35,7 @@ namespace abyss::Resource::Prelaod
 		LoadSplashToml(resource);
 		LoadTitleToml(resource);
 		LoadActorToml(resource);
+		LoadUIToml(resource);
 	}
 	void LoadSplashToml(const Assets& resource)
 	{
@@ -73,4 +77,10 @@ namespace abyss::Resource::Prelaod
 		resource.loadToml<CodeZero::HandParam>(U"Actors/CodeZero/hand_param.toml");
 		resource.loadToml<CodeZero::ShotParam>(U"Actors/CodeZero/shot_param.toml");
     }
+
+	void LoadUIToml(const Assets& resource)
+	{
+		using namespace ui;
+		resource.loadToml<PlayerInfo::Param>(U"UI/PlayerInfo/param.toml");
+	}
 }

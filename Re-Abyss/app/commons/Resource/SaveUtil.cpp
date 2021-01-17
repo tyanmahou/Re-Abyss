@@ -28,4 +28,9 @@ namespace abyss::Resource::SaveUtil
     {
         return Storage::Get<IUserService>()->login(user);
     }
+
+    UserModel SaveUser(const UserModel& user)
+    {
+        return Storage::Get<IUserService>()->save(user);
+    }
 }
