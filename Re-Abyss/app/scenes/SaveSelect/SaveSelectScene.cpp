@@ -15,6 +15,7 @@
 
 #include <abyss/views/Cycle/SaveSelect/BackGround/BackGroundVM.hpp>
 #include <abyss/views/Cycle/SaveSelect/SelectFrame/SelectFrameVM.hpp>
+#include <abyss/views/Cycle/SaveSelect/UserInfo/UserInfoView.hpp>
 
 #include <abyss/debugs/HotReload/HotReload.hpp>
 
@@ -41,13 +42,15 @@ namespace abyss
 
         Cycle::SaveSelect::BackGround::BackGroundVM m_bg;
         std::unique_ptr<SelectFrame::SelectFrameVM> m_selectFrame;
+        std::unique_ptr<UserInfo::UserInfoView> m_userInfo;
 
 #if ABYSS_DEBUG
         Debug::HotReload m_reloader;
 #endif
     public:
         Impl([[maybe_unused]] const InitData& init):
-            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>())
+            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
+            m_userInfo(std::make_unique<UserInfo::UserInfoView>())
         {
 #if ABYSS_DEBUG
             m_reloader
@@ -150,7 +153,7 @@ namespace abyss
 
             if (m_selectId != -1) {
                 if (m_users.contains(m_selectId)) {
-                    FontAsset(FontName::SceneName)(U"つづきから").drawAt(480, 270);
+                    m_userInfo->draw(m_users.at(m_selectId));
                 } else {
                     FontAsset(FontName::SceneName)(U"はじめから").drawAt(480, 270);
                 }

@@ -9,6 +9,7 @@
 
 // SaveSelect
 #include <abyss/params/Cycle/SaveSelect/Param.hpp>
+#include <abyss/params/Cycle/SaveSelect/UserInfoParam.hpp>
 
 // Actors
 #include <abyss/params/Actors/Player/Param.hpp>
@@ -53,6 +54,7 @@ namespace abyss::Resource::Prelaod
 	void LoadSaveSelectToml(const Assets& resource)
 	{
 		resource.loadToml<Cycle::SaveSelect::Param>(U"Cycle/SaveSelect/param.toml");
+		resource.loadToml<Cycle::SaveSelect::UserInfoParam>(U"Cycle/SaveSelect/user_info_param.toml");
 	}
 	void LoadActorToml(const Assets& resource)
     {
