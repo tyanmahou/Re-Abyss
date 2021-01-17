@@ -69,11 +69,25 @@ namespace abyss::User
         {
             return m_createdAt;
         }
+
+        UserModel& setLoginOrSaveAt(const  s3d::DateTime& loginAt)
+        {
+            m_loginOrSaveAt = loginAt;
+            return *this;
+        }
+
+        const  s3d::DateTime& getLoginOrSaveAt() const
+        {
+            return m_loginOrSaveAt;
+        }
+
     private:
         s3d::int32 m_userId;
         UserPlayMode m_playMode;
         s3d::Duration m_playTime;
         s3d::DateTime m_updatedAt;
         s3d::DateTime m_createdAt;
+
+        s3d::DateTime m_loginOrSaveAt;
     };
 }

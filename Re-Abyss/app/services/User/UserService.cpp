@@ -32,6 +32,7 @@ namespace abyss::User
             .setPlayTime(0s)
             .setUpdatedAt(now)
             .setCreatedAt(now)
+            .setLoginOrSaveAt(now)
             ;
 
         m_users->update(UserEntity{
@@ -44,20 +45,15 @@ namespace abyss::User
 
     UserModel UserService::login(const UserModel& user) const
     {
-        m_users->update(UserEntity{
-            .userId = user.getUserId(),
-            .playMode = user.getPlayMode(),
-            .playTime = user.getPlayTime(),
-            });
         UserModel updated = user;
-        updated.setUpdatedAt(DateTime::Now());
+        updated.setLoginOrSaveAt(DateTime::Now());
         return updated;
     }
 
     UserModel UserService::save(const UserModel& user) const
     {
         auto now = s3d::DateTime::Now();
-        auto addPlayTime = now - user.getUpdatedAt();
+        auto addPlayTime = now - user.getLoginOrSaveAt();
         auto newPlayTime = user.getPlayTime() + addPlayTime;
         m_users->update(UserEntity{
             .userId = user.getUserId(),
@@ -65,8 +61,10 @@ namespace abyss::User
             .playTime = newPlayTime,
             });
         UserModel updated = user;
-        updated.setPlayTime(newPlayTime);
-        updated.setUpdatedAt(now);
+        updated
+            .setPlayTime(newPlayTime)
+            .setUpdatedAt(now)
+            .setLoginOrSaveAt(now);
         return updated;
     }
 
