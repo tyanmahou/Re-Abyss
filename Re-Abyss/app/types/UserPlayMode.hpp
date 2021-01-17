@@ -15,6 +15,16 @@ namespace abyss
         /// <summary>ハード</summary>
         Hard,
     };
+
+    inline s3d::String Name(UserPlayMode value)
+    {
+        if (value == UserPlayMode::Normal) {
+            return U"ノーマルモード";
+        }
+        if (value == UserPlayMode::Hard) {
+            return U"ハードモード";
+        }
+    }
 }
 
 namespace abyss::Enum

@@ -18,6 +18,12 @@ namespace abyss::Cycle::SaveSelect
             inline static s3d::Vec2 Pos{ 80, 120 };
         };
 
+        [[TOML_BIND_PARAM(PlayMode::Pos, "PlayMode.pos")]]
+        struct PlayMode
+        {
+            inline static s3d::Vec2 Pos{ 80, 120 };
+        };
+
         [[TOML_BIND_PARAM(PlayTime::Pos, "PlayTime.pos")]]
         struct PlayTime
         {
