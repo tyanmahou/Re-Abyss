@@ -26,6 +26,9 @@ namespace abyss::Cycle::SaveSelect::UserInfo
 
         FontAsset(FontName::UserInfo)(Name(user.getPlayMode())).draw(basePos + UserInfoParam::PlayMode::Pos);
 
+        FontAsset(FontName::UserInfo)(U"プレイタイム").draw(basePos + UserInfoParam::PlayTime::LabelPos);
+        FontAsset(FontName::UserInfo)(FormatTime(user.getPlayTime(), U"HH:mm:ss")).draw(basePos + UserInfoParam::PlayTime::Pos);
+
         FontAsset(FontName::UserInfo)(user.getUpdatedAt().format()).draw(basePos + UserInfoParam::UpdatedAt::Pos);
     }
 }

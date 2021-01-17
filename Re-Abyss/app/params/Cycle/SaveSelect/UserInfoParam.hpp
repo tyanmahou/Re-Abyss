@@ -24,9 +24,11 @@ namespace abyss::Cycle::SaveSelect
             inline static s3d::Vec2 Pos{ 80, 120 };
         };
 
+        [[TOML_BIND_PARAM(PlayTime::LabelPos, "PlayTime.labelPos")]]
         [[TOML_BIND_PARAM(PlayTime::Pos, "PlayTime.pos")]]
         struct PlayTime
         {
+            inline static s3d::Vec2 LabelPos{ 80, 120 };
             inline static s3d::Vec2 Pos{ 80, 120 };
         };
 
