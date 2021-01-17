@@ -2,14 +2,15 @@
 #include <abyss/modules/UI/base/IUserInterface.hpp>
 #include <abyss/modules/Actors/base/IActor.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
-
-#include <abyss/debugs/Log/Log.hpp>
+#include <abyss/views/UI/PlayerInfo/PlayerInfoVM.hpp>
+#include <abyss/params/UI/PlayerInfo/Param.hpp>
 
 namespace abyss::ui::PlayerInfo
 {
     Main::Main(IUserInterface* pUi, Actor::IActor* pActor):
         m_pUi(pUi),
-        m_pActor(pActor)
+        m_pActor(pActor),
+        m_view(std::make_unique<PlayerInfoVM>())
     {}
 
     void Main::onStart()
@@ -23,9 +24,12 @@ namespace abyss::ui::PlayerInfo
 
     void Main::onDraw() const
     {
-#if ABYSS_DEBUG
-        Debug::Log::Print << m_hpModel->getHp() << U"/" << m_hpModel->getMaxHp();
-#endif
+        m_view
+            ->setHp(m_hpModel->getHp())
+            .setMaxHp(m_hpModel->getMaxHp())
+            .setPos(Param::Main::DrawPos)
+            .draw()
+            ;
     }
 
 }

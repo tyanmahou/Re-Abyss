@@ -25,5 +25,11 @@ namespace abyss::ui::PlayerInfo
             inline static s3d::Vec2 BasePos{ 80, 20 };
             inline static s3d::Vec2 NamePos{ 80, 20 };
         };
+
+        [[TOML_BIND_PARAM(Main::DrawPos, "Main.drawPos")]]
+        struct Main
+        {
+            inline static s3d::Vec2 DrawPos{ 80, 20 };
+        };
     };
 }

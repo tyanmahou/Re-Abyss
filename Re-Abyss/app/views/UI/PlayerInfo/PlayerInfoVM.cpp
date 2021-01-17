@@ -14,6 +14,7 @@ namespace abyss::ui::PlayerInfo
     {
         // Face
         {
+            m_texture(U"face_mask").draw(m_pos);
             auto mask = MaskUtil::Instance().equal([&]() {
                 m_texture(U"face_mask").draw(m_pos);
             });
@@ -25,7 +26,12 @@ namespace abyss::ui::PlayerInfo
 
         // HP
         {
-
+            for (int32 hp : step(1, m_maxHp)) {
+                m_texture(U"hp_gauge_base").draw(m_pos + Param::HP::BasePos + Vec2{ (hp - 1) * Param::HP::Offset, 0});
+            }
+            for (int32 hp : step(1, m_hp)) {
+                m_texture(U"hp_gauge").draw(m_pos + Param::HP::BasePos + Vec2{ (hp - 1) * Param::HP::Offset, 0 });
+            }
         }
 
         // Ooparts

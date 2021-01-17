@@ -63,6 +63,7 @@ namespace abyss
 
 				m_rt2.draw();
 			}
+			Graphics2D::Flush();
 		}
 
 		const RenderTexture& getDrawerTarget()
