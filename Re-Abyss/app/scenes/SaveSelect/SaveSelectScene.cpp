@@ -1,6 +1,7 @@
 #include "SaveSelectScene.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
@@ -13,12 +14,15 @@
 #include <abyss/models/User/UserModel.hpp>
 
 #include <abyss/views/Cycle/SaveSelect/BackGround/BackGroundVM.hpp>
+#include <abyss/views/Cycle/SaveSelect/SelectFrame/SelectFrameVM.hpp>
 
 #include <abyss/debugs/HotReload/HotReload.hpp>
 
 namespace abyss
 {
     using Resource::UserData::Storage;
+    using namespace Cycle::SaveSelect;
+
     class SaveSelectScene::Impl
     {
         enum class Mode
@@ -36,12 +40,14 @@ namespace abyss
         s3d::HashTable<s3d::int32, User::UserModel> m_users;
 
         Cycle::SaveSelect::BackGround::BackGroundVM m_bg;
+        std::unique_ptr<SelectFrame::SelectFrameVM> m_selectFrame;
 
 #if ABYSS_DEBUG
         Debug::HotReload m_reloader;
 #endif
     public:
-        Impl([[maybe_unused]] const InitData& init)
+        Impl([[maybe_unused]] const InitData& init):
+            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>())
         {
 #if ABYSS_DEBUG
             m_reloader
@@ -130,44 +136,23 @@ namespace abyss
         void draw() const
         {
             m_bg.draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
-            constexpr Vec2 size{ 800, 300 };
-            constexpr Vec2 framePos = Constants::GameScreenSize / 2.0;
-            constexpr Vec2 tl = framePos - size / 2.0 + Vec2{0, 50};
-            constexpr Vec2 selectSize{ 50.0 , 50.0 };
+            m_selectFrame
+                ->setSelectUserId(m_selectId)
+                .draw();
 
-            // ユーザー番号
-            for (int32 userId = 0; userId < Constants::UserNum; ++userId) {
-                Vec2 pos = tl + Vec2{ selectSize.x * userId, -selectSize.y };
-                RectF(pos, selectSize).drawFrame(1.0);
-                FontAsset(U"titleSelect")(U"{}"_fmt(userId + 1)).drawAt(pos + selectSize/2.0);
-            }
-            // ゴミ箱
-            {
-                RectF(tl + Vec2{ size.x, 0 } - selectSize, selectSize).drawFrame(1.0);
-            }
 
-            RectF(tl - Vec2{ 0, selectSize.y }, { size.x, selectSize.y }).drawFrame(1.0);
-            RectF(tl, size).drawFrame(1.0);
-
-            // 選択中
-            {
-                Vec2 pos = tl +
-                    (m_selectId == -1 ? Vec2{ size.x, 0 } - selectSize :
-                    Vec2{ selectSize.x * m_selectId, -selectSize.y });
-                RectF(pos, selectSize).drawFrame(1.0, Palette::Red);
-            }
 
             if (m_mode == Mode::GameStart) {
-                FontAsset(U"titleSelect")(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
+                FontAsset(FontName::SceneName)(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
             } else {
-                FontAsset(U"titleSelect")(U"- データ削除 -").drawAt(480, 50, Color(255, 0, 0));
+                FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(480, 50, Color(255, 0, 0));
             }
 
             if (m_selectId != -1) {
                 if (m_users.contains(m_selectId)) {
-                    FontAsset(U"titleSelect")(U"つづきから").drawAt(480, 270);
+                    FontAsset(FontName::SceneName)(U"つづきから").drawAt(480, 270);
                 } else {
-                    FontAsset(U"titleSelect")(U"はじめから").drawAt(480, 270);
+                    FontAsset(FontName::SceneName)(U"はじめから").drawAt(480, 270);
                 }
             }
         }

@@ -1261,6 +1261,9 @@
     <ClCompile Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1866,6 +1869,7 @@
     <ClInclude Include="app\views\actors\Ooparts\base\IconView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
+    <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

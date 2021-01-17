@@ -1,6 +1,6 @@
 #include "Cursor.hpp"
 #include "Shot.hpp"
-
+#include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Cycle/Title/Cursor/CursorVM.hpp>
 
@@ -79,7 +79,7 @@ namespace abyss::Cycle::Title::Cursor
         m_view->setPos({ 350, viewParams[modeIndex].posY }).draw();
 
         for (const auto& param : viewParams) {
-            FontAsset(U"titleSelect")(param.name).drawAt(480, param.posY);
+            FontAsset(FontName::SceneName)(param.name).drawAt(480, param.posY);
         }
         if (m_isGameStart) {
             m_shot->draw();
