@@ -43,7 +43,7 @@ namespace abyss::ui::PlayerInfo
             }
 
             FontAsset(FontName::PlayerInfoOopartsName)(m_oopartsName)
-                .draw(m_pos + Param::Ooparts::BasePos);
+                .draw(m_pos + Param::Ooparts::NamePos);
         }
     }
 }

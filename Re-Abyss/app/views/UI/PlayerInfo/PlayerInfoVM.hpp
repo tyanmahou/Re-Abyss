@@ -6,7 +6,7 @@ namespace abyss::ui::PlayerInfo
 {
     class PlayerInfoVM
     {
-    private:
+    protected:
         TexturePacker m_texture;
 
         // 座標
@@ -24,6 +24,7 @@ namespace abyss::ui::PlayerInfo
         s3d::String m_oopartsName;
     public:
         PlayerInfoVM();
+        virtual ~PlayerInfoVM() = default;
 
         PlayerInfoVM& setPos(const s3d::Vec2& pos)
         {

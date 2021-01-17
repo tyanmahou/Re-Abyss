@@ -393,6 +393,7 @@
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
+    <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoExVM.cpp" />
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp" />
@@ -708,6 +709,7 @@
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
+    <ClInclude Include="app\types\OopartsType.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
@@ -1108,6 +1110,7 @@
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
+    <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoExVM.hpp" />
     <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />

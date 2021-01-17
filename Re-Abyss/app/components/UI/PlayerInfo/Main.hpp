@@ -7,7 +7,7 @@
 
 namespace abyss::ui::PlayerInfo
 {
-    class PlayerInfoVM;
+    class PlayerInfoExVM;
 
     class Main : 
         public IComponent,
@@ -29,7 +29,7 @@ namespace abyss::ui::PlayerInfo
         Actor::IActor* m_pActor;
         Ref<Actor::HP> m_hpModel;
 
-        std::unique_ptr<PlayerInfoVM> m_view;
+        std::unique_ptr<PlayerInfoExVM> m_view;
     };
 }
 
