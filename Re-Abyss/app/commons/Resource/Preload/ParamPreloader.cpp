@@ -7,6 +7,9 @@
 #include <abyss/params/Cycle/Title/LogoParam.hpp>
 #include <abyss/params/Cycle/Title/BgParam.hpp>
 
+// SaveSelect
+#include <abyss/params/Cycle/SaveSelect/Param.hpp>
+
 // Actors
 #include <abyss/params/Actors/Player/Param.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
@@ -46,6 +49,10 @@ namespace abyss::Resource::Prelaod
 	{
 		resource.loadToml<Cycle::Title::LogoParam>(U"Cycle/Title/logo_param.toml");
 		resource.loadToml<Cycle::Title::BgParam>(U"Cycle/Title/bg_param.toml");
+	}
+	void LoadSaveSelectToml(const Assets& resource)
+	{
+		resource.loadToml<Cycle::SaveSelect::Param>(U"Cycle/SaveSelect/param.toml");
 	}
 	void LoadActorToml(const Assets& resource)
     {

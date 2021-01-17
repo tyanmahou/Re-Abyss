@@ -3,11 +3,19 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
+#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
+
 #include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
 #include <abyss/commons/Resource/SaveUtil.hpp>
 
 #include <abyss/services/User/base/IUserService.hpp>
 #include <abyss/models/User/UserModel.hpp>
+
+#include <abyss/views/Cycle/SaveSelect/BackGround/BackGroundVM.hpp>
+
+#include <abyss/debugs/HotReload/HotReload.hpp>
+
 namespace abyss
 {
     using Resource::UserData::Storage;
@@ -26,14 +34,47 @@ namespace abyss
         std::function<void()> m_onNewGameFunc;
         std::function<void()> m_onBackFunc;
         s3d::HashTable<s3d::int32, User::UserModel> m_users;
+
+        Cycle::SaveSelect::BackGround::BackGroundVM m_bg;
+
+#if ABYSS_DEBUG
+        Debug::HotReload m_reloader;
+#endif
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
-            m_users = Storage::Get<User::IUserService>()->getUsers();
+#if ABYSS_DEBUG
+            m_reloader
+                .setMessage(U"SaveSelect")
+                .setCallback([this]() {
+                    this->reload();
+                })
+                .setSuperCallback([this] {
+                    this->init();
+                })
+                ;
+#endif
+            this->init();
         }
 
+        void reload()
+        {
+            Resource::Assets::Main()->release();
+            // リロード時はリソースを直で
+            Resource::Assets::Main()->setIsBuilded(false);
+            this->init();
+        }
+        void init()
+        {
+            Resource::Prelaod::LoadSaveSelectToml(*Resource::Assets::Main());
+            Resource::Prelaod::LoadUIToml(*Resource::Assets::Main());
+            m_users = Storage::Get<User::IUserService>()->getUsers();
+        }
         void update()
         {
+#if ABYSS_DEBUG
+            m_reloader.detection();
+#endif
             // selectId更新
             if (InputManager::Left.down()) {
                 --m_selectId;
@@ -88,6 +129,7 @@ namespace abyss
 
         void draw() const
         {
+            m_bg.draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
             constexpr Vec2 size{ 800, 300 };
             constexpr Vec2 framePos = Constants::GameScreenSize / 2.0;
             constexpr Vec2 tl = framePos - size / 2.0 + Vec2{0, 50};
