@@ -29,6 +29,7 @@
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
 
 namespace
@@ -212,7 +213,6 @@ namespace
                 .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
                 .setIsDamaging(m_hp->isInInvincibleTime())
-                .setManager(m_pActor->getManager())
                 ;
         }
         void onStart() final
@@ -222,9 +222,10 @@ namespace
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
 
-            auto xtoView = std::make_unique<XtoAtkVM>();
-            xtoView->setCallback(std::make_unique<Ooparts::ActDrawCallbackView>(xtoView.get(), m_pActor->getManager()));
-            m_view->setXtoAtkView(std::move(xtoView));
+            auto oopartsView = std::make_unique<Ooparts::OopartsVM>();
+            oopartsView->setCallback(std::make_unique<Ooparts::ActDrawCallbackView>(oopartsView.get(), m_pActor->getManager()));
+            m_view->setOopartsView(std::move(oopartsView));
+            m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
         }
     public:
         ViewBinder(IActor* pActor) :

@@ -10,10 +10,15 @@ namespace abyss::Actor::Ooparts::Xto
         m_texture(Resource::Assets::Main()->loadTexture(U"actors/Ooparts/Xto/xto.png"))
     {}
 
-    void XtoVM::drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const
+    void XtoVM::draw(const s3d::ColorF & color) const
     {
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Square0_1(1s, m_time)) % 2;
-        m_texture({ 0, 20 * page }, { 20, 20 }).mirrored(isRight).drawAt(pos, color);
+        m_texture({ 0, 20 * page }, { 20, 20 }).mirrored(isRight).drawAt(m_pos, color);
+    }
+
+    s3d::TextureRegion XtoVM::icon() const
+    {
+        return m_texture({ 0, 0 }, { 20, 20 });
     }
 }

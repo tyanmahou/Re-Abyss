@@ -4,6 +4,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 #include <abyss/views/Actors/Player/Xto/XtoAtkVM.hpp>
 
 namespace abyss::Actor::Player
@@ -21,13 +22,14 @@ namespace abyss::Actor::Player
         bool m_isDamaging = false;
         double m_time = 0;
 
-        Manager* m_pManager = nullptr;
         s3d::ColorF calcColor() const;
 
-        std::unique_ptr<XtoAtkVM> m_xto;
+        std::unique_ptr<Ooparts::OopartsVM> m_oopartsView;
+        std::shared_ptr<XtoAtkVM> m_xto;
     public:
         PlayerVM();
-        PlayerVM& setXtoAtkView(std::unique_ptr<XtoAtkVM>&& xto);
+        PlayerVM& setOopartsView(std::unique_ptr<Ooparts::OopartsVM>&& ooparts);
+        PlayerVM& setXtoAtkView(std::shared_ptr<XtoAtkVM>&& xto);
 
         PlayerVM& setTime(double time);
         PlayerVM& setPos(const s3d::Vec2& pos);

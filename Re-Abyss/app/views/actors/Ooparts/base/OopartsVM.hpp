@@ -6,6 +6,7 @@
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 #include <abyss/views/Actors/Ooparts/base/IDrawCallbackView.hpp>
+#include <abyss/views/Actors/Ooparts/base/BaseVM.hpp>
 
 namespace abyss::Actor::Ooparts
 {
@@ -13,8 +14,7 @@ namespace abyss::Actor::Ooparts
     {
     private:
         std::unique_ptr<IDrawCallbackView> m_drawCallback;
-
-        virtual void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const = 0;
+        std::shared_ptr<BaseVM> m_character;
     protected:
         s3d::Vec2 m_pos{0, 0};
         Forward m_forward{Forward::Right};
@@ -26,6 +26,12 @@ namespace abyss::Actor::Ooparts
         OopartsVM& setCallback(std::unique_ptr<IDrawCallbackView>&& callback)
         {
             m_drawCallback = std::move(callback);
+            return *this;
+        }
+
+        OopartsVM& setCharacter(std::shared_ptr<BaseVM>&& character)
+        {
+            m_character = character;
             return *this;
         }
 

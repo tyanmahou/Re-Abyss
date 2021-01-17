@@ -4,6 +4,7 @@
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/CommonBuilder.hpp>
 
+#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
 #include <abyss/views/Actors/Ooparts/Nyan/NyanVM.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
 
@@ -38,7 +39,7 @@ namespace
         IActor* m_pActor = nullptr;
         Ref<Body> m_body;
 
-        std::unique_ptr<NyanVM> m_view;
+        std::unique_ptr<OopartsVM> m_view;
     private:
         OopartsVM* bind() const final
         {
@@ -52,11 +53,12 @@ namespace
         {
             m_body = m_pActor->find<Body>();
             m_view->setCallback(std::make_unique<ActDrawCallbackView>(m_view.get(), m_pActor->getManager()));
+            m_view->setCharacter(std::make_shared<NyanVM>());
         }
     public:
         ViewBinder(IActor* pActor) :
             m_pActor(pActor),
-            m_view(std::make_unique<NyanVM>())
+            m_view(std::make_unique<OopartsVM>())
         {}
     };
 }

@@ -31,7 +31,13 @@ namespace abyss::Actor::Ooparts
         {
             auto charaColor = static_cast<s3d::int32>(m_time * 10.0) % 2 ? s3d::ColorF(1.0, 0.5) : s3d::ColorF(0.9);
 
-            this->drawCharacter(pos, charaColor);
+            if (m_character) {
+                m_character
+                    ->setPos(pos)
+                    .setForward(m_forward)
+                    .setTime(m_time)
+                    .draw();
+            }
         }
         {
             ScopedRenderStates2D t2d(BlendState::Additive);

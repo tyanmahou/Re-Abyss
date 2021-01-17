@@ -1075,6 +1075,7 @@
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.hpp" />
+    <ClInclude Include="app\views\actors\Ooparts\base\BaseVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\IDrawCallbackView.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\OopartsVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Nyan\NyanVM.hpp" />

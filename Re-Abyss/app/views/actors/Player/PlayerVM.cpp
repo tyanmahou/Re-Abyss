@@ -36,9 +36,14 @@ namespace abyss::Actor::Player
     PlayerVM::PlayerVM():
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
-    PlayerVM& PlayerVM::setXtoAtkView(std::unique_ptr<XtoAtkVM> && xto)
+    PlayerVM& PlayerVM::setOopartsView(std::unique_ptr<Ooparts::OopartsVM> && ooparts)
     {
-        m_xto = std::move(xto);
+        m_oopartsView = std::move(ooparts);
+        return *this;
+    }
+    PlayerVM& PlayerVM::setXtoAtkView(std::shared_ptr<XtoAtkVM> && xto)
+    {
+        m_xto = xto;
         return *this;
     }
     PlayerVM& PlayerVM::setTime(double time)
@@ -79,12 +84,6 @@ namespace abyss::Actor::Player
         return *this;
     }
 
-    PlayerVM& PlayerVM::setManager(Manager* pManager)
-    {
-        m_pManager = pManager;
-        return *this;
-    }
-
     void PlayerVM::drawStateStay() const
     {
         if (m_isAttacking) {
@@ -104,8 +103,9 @@ namespace abyss::Actor::Player
             m_texture(U"stay_atk")({ 0, isRight ? 80 : 0 }, { 80, 80 })
                 .drawAt(m_pos, this->calcColor());
         };
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{23 * m_forward, -2 })
@@ -140,8 +140,9 @@ namespace abyss::Actor::Player
             double y = 80 * (timer / 30 % 2);
             m_texture(U"float_atk")({ isRight ? 70 : 0, y }, { 70, 80 }).drawAt(m_pos, this->calcColor());
         };
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ 26 * m_forward, -4 })
@@ -171,8 +172,9 @@ namespace abyss::Actor::Player
             int32 x = page * 80;
             m_texture(U"run_atk")({ x, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
         };
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ 30 * m_forward, -3 })
@@ -204,8 +206,9 @@ namespace abyss::Actor::Player
             bool isRight = m_forward == Forward::Right;
             m_texture(U"swim_atk")({ isRight ? 80 : 0, 80 * (timer / 30 % 2) }, { 80, 80 }).drawAt(m_pos, this->calcColor());
         };
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ 30 * m_forward, -3 })
@@ -233,8 +236,9 @@ namespace abyss::Actor::Player
             m_texture(U"dive_atk")({ isRight ? 80 : 0, y }, { 80, 80 }).drawAt(m_pos, this->calcColor());
         };
         double offsetX = m_forward == Forward::Right ? 22 : -21;
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ offsetX, -3 })
@@ -270,8 +274,9 @@ namespace abyss::Actor::Player
         } else {
             offsetX = isRight ? 18 : -26;
         }
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ offsetX, -3 })
@@ -293,8 +298,9 @@ namespace abyss::Actor::Player
             m_texture(U"ladder_atk")({ isRight ? 70 : 0, 160 }, { 70, 80 }).drawAt(m_pos, this->calcColor());
         };
         double offsetX = isRight ? 17 : -22;
-        m_xto
-            ->setDrawFunc(drawer)
+        m_xto->setDrawFunc(drawer);
+        m_oopartsView
+            ->setCharacter(m_xto)
             .setTime(m_time)
             .setForward(m_forward)
             .setPos(m_pos + s3d::Vec2{ offsetX, -3 })

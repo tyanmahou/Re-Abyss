@@ -1,16 +1,18 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/BaseVM.hpp>
 
 namespace abyss::Actor::Ooparts::Nyan
 {
-    class NyanVM : public OopartsVM
+    class NyanVM : public BaseVM
     {
     private:
         s3d::Texture m_texture;
 
-        void drawCharacter(const s3d::Vec2& pos, const s3d::ColorF& color) const override;
     public:
         NyanVM();
+
+        void draw(const s3d::ColorF& color) const override;
+        s3d::TextureRegion icon() const override;
     };
 }
