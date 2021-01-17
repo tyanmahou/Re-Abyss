@@ -36,7 +36,7 @@ namespace abyss::Actor::Player
     PlayerVM::PlayerVM():
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/player.json"))
     {}
-    PlayerVM& PlayerVM::setOopartsView(std::unique_ptr<Ooparts::OopartsVM> && ooparts)
+    PlayerVM& PlayerVM::setOopartsView(std::unique_ptr<Ooparts::OopartsView> && ooparts)
     {
         m_oopartsView = std::move(ooparts);
         return *this;

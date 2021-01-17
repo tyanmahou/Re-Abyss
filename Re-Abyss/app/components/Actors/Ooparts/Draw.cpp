@@ -3,7 +3,7 @@
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsView.hpp>
 
 namespace abyss::Actor::Ooparts
 {
@@ -13,7 +13,7 @@ namespace abyss::Actor::Ooparts
 
     void Draw::onStart()
     {
-        m_view = m_pActor->find<ViewCtrl<OopartsVM>>();
+        m_view = m_pActor->find<ViewCtrl<OopartsView>>();
     }
 
     void Draw::onDraw() const

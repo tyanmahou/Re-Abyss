@@ -7,16 +7,16 @@
 
 namespace abyss::Actor::Ooparts
 {
-    class OopartsVM;
+    class OopartsView;
 
     class ActDrawCallbackView : public IDrawCallbackView
     {
-        OopartsVM* m_pView;
+        OopartsView* m_pView;
 
         IntervalTimer m_effectTimer;
         Manager* m_pManager;
     public:
-        ActDrawCallbackView(OopartsVM* view, Manager* manager);
+        ActDrawCallbackView(OopartsView* view, Manager* manager);
 
         void onDraw(const s3d::Vec2& pos) const final;
     };

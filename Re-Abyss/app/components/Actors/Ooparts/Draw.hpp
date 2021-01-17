@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    class OopartsVM;
+    class OopartsView;
 
     class Draw :
         public IComponent,
@@ -15,7 +15,7 @@ namespace abyss::Actor::Ooparts
     {
     private:
         IActor* m_pActor;
-        Ref<ViewCtrl<OopartsVM>> m_view;
+        Ref<ViewCtrl<OopartsView>> m_view;
     public:
         Draw(IActor* pActor);
         void onStart() override;

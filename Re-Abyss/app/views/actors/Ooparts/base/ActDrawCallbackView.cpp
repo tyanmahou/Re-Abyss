@@ -1,12 +1,12 @@
 #include "ActDrawCallbackView.hpp"
 #include <Siv3D.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actors/Common/KiraKiraEffect.hpp>
 #include <abyss/modules/System/System.hpp>
 
 namespace abyss::Actor::Ooparts
 {
-    ActDrawCallbackView::ActDrawCallbackView(OopartsVM* view, Manager* manager):
+    ActDrawCallbackView::ActDrawCallbackView(OopartsView* view, Manager* manager):
         m_pManager(manager),
         m_effectTimer(0.05, true, [view] {return Time::FromSec(view->getTime()); })
     {}

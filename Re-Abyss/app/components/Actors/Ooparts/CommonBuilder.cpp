@@ -23,7 +23,7 @@ namespace abyss::Actor::Ooparts
         }
         // 描画
         {
-            pActor->attach<ViewCtrl<OopartsVM>>();
+            pActor->attach<ViewCtrl<OopartsView>>();
             pActor->attach<Draw>(pActor);
         }
     }

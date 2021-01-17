@@ -37,7 +37,7 @@ namespace abyss::ui::PlayerInfo
         // Ooparts
         {
             if(m_ooparts.texture) {
-                ScopedColorAdd2D scoped(Palette::White);
+                ScopedColorAdd2D scoped(ColorF(1.0, 0.0));
 
                 m_ooparts.draw(m_pos + Param::Ooparts::BasePos);
             }

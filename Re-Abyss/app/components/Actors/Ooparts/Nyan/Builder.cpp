@@ -4,7 +4,7 @@
 #include <abyss/components/Actors/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actors/Ooparts/CommonBuilder.hpp>
 
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actors/Ooparts/Nyan/NyanVM.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
 
@@ -21,7 +21,7 @@ namespace abyss::Actor::Ooparts::Nyan
         // 描画制御
         {
             pActor
-                ->find<ViewCtrl<OopartsVM>>()
+                ->find<ViewCtrl<OopartsView>>()
                 ->createBinder<ViewBinder>(pActor);
         }
     };
@@ -34,14 +34,14 @@ namespace
     using namespace abyss::Actor::Ooparts;
     using namespace abyss::Actor::Ooparts::Nyan;
 
-    class ViewBinder : public ViewCtrl<OopartsVM>::IBinder
+    class ViewBinder : public ViewCtrl<OopartsView>::IBinder
     {
         IActor* m_pActor = nullptr;
         Ref<Body> m_body;
 
-        std::unique_ptr<OopartsVM> m_view;
+        std::unique_ptr<OopartsView> m_view;
     private:
-        OopartsVM* bind() const final
+        OopartsView* bind() const final
         {
             return  &m_view
                 ->setTime(m_pActor->getDrawTimeSec())
@@ -58,7 +58,7 @@ namespace
     public:
         ViewBinder(IActor* pActor) :
             m_pActor(pActor),
-            m_view(std::make_unique<OopartsVM>())
+            m_view(std::make_unique<OopartsView>())
         {}
     };
 }

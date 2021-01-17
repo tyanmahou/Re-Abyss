@@ -362,9 +362,6 @@
     <ClCompile Include="app\views\Actors\Ooparts\Xto\XtoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actors\Ooparts\base\OopartsVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actors\Common\KiraKiraEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1255,6 +1252,12 @@
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoExVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actors\Ooparts\base\OopartsView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\actors\Ooparts\base\IconView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1479,7 +1482,6 @@
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\Xto\XtoVM.hpp" />
-    <ClInclude Include="app\views\Actors\Ooparts\base\OopartsVM.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
     <ClInclude Include="app\views\Actors\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
@@ -1857,6 +1859,8 @@
     <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoExVM.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
     <ClInclude Include="app\views\actors\Ooparts\base\BaseVM.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\OopartsView.hpp" />
+    <ClInclude Include="app\views\actors\Ooparts\base\IconView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

@@ -16,7 +16,11 @@ namespace abyss::ui::PlayerInfo
     }
     PlayerInfoExVM& PlayerInfoExVM::setOoparts(OopartsType ooparts)
     {
-        PlayerInfoVM::setOoparts(s3d::TextureRegion(), Enum::ToStr(ooparts).uppercase());
+        if (ooparts == OopartsType::Invalid) {
+            PlayerInfoVM::setOoparts(s3d::TextureRegion(), U"");
+        } else {
+            PlayerInfoVM::setOoparts(m_icons(ooparts), Enum::ToStr(ooparts).uppercase());
+        }
         return *this;
     }
 }

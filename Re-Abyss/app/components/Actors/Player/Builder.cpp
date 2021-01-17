@@ -29,7 +29,7 @@
 #include <abyss/components/Actors/Player/State/SwimState.hpp>
 
 #include <abyss/views/Actors/Player/PlayerVM.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actors/Ooparts/base/ActDrawCallbackView.hpp>
 
 namespace
@@ -222,7 +222,7 @@ namespace
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
 
-            auto oopartsView = std::make_unique<Ooparts::OopartsVM>();
+            auto oopartsView = std::make_unique<Ooparts::OopartsView>();
             oopartsView->setCallback(std::make_unique<Ooparts::ActDrawCallbackView>(oopartsView.get(), m_pActor->getManager()));
             m_view->setOopartsView(std::move(oopartsView));
             m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());

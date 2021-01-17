@@ -4,7 +4,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/views/Actors/Ooparts/base/OopartsVM.hpp>
+#include <abyss/views/Actors/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actors/Player/Xto/XtoAtkVM.hpp>
 
 namespace abyss::Actor::Player
@@ -24,11 +24,11 @@ namespace abyss::Actor::Player
 
         s3d::ColorF calcColor() const;
 
-        std::unique_ptr<Ooparts::OopartsVM> m_oopartsView;
+        std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
         std::shared_ptr<XtoAtkVM> m_xto;
     public:
         PlayerVM();
-        PlayerVM& setOopartsView(std::unique_ptr<Ooparts::OopartsVM>&& ooparts);
+        PlayerVM& setOopartsView(std::unique_ptr<Ooparts::OopartsView>&& ooparts);
         PlayerVM& setXtoAtkView(std::shared_ptr<XtoAtkVM>&& xto);
 
         PlayerVM& setTime(double time);
