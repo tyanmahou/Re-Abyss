@@ -10,7 +10,8 @@ namespace abyss::Cycle::SaveSelect::UserInfo
 {
     UserInfoView::UserInfoView():
         m_playerInfo(std::make_unique<ui::PlayerInfo::PlayerInfoExVM>()),
-        m_player(std::make_unique<PlayerView>())
+        m_player(std::make_unique<PlayerView>()),
+        m_oopartsList(std::make_unique<OopartsListView>())
     {
     }
     void UserInfoView::draw(const User::UserModel& user) const
@@ -36,5 +37,12 @@ namespace abyss::Cycle::SaveSelect::UserInfo
         FontAsset(FontName::UserInfo)(FormatTime(user.getPlayTime(), U"HH:mm:ss")).draw(basePos + UserInfoParam::PlayTime::Pos);
 
         FontAsset(FontName::UserInfo)(user.getUpdatedAt().format()).draw(basePos + UserInfoParam::UpdatedAt::Pos);
+
+        m_oopartsList
+            ->setPos(basePos + UserInfoParam::OopartsList::Pos)
+            .setOffsetX(UserInfoParam::OopartsList::OffsetX)
+            // TODO
+            .setHaving({OopartsType::Xto, OopartsType::Nyan})
+            .draw();
     }
 }

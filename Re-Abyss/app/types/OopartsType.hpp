@@ -7,7 +7,7 @@ namespace abyss
     {
         Invalid,
         Xto,
-        Nyan
+        Nyan,
     };
 }
 
@@ -27,6 +27,7 @@ namespace abyss::Enum
             if (value == U"Nyan") {
                 return OopartsType::Nyan;
             }
+            return OopartsType::Invalid;
         }
 
         s3d::String operator()(OopartsType value)
@@ -40,6 +41,7 @@ namespace abyss::Enum
             if (value == OopartsType::Nyan) {
                 return U"Nyan";
             }
+            return U"Invalid";
         }
     };
 }

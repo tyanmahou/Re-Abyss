@@ -43,5 +43,13 @@ namespace abyss::Cycle::SaveSelect
         {
             inline static s3d::Vec2 Pos{ 80, 120 };
         };
+
+        [[TOML_BIND_PARAM(OopartsList::Pos, "OopartsList.pos")]]
+        [[TOML_BIND_PARAM(OopartsList::OffsetX, "OopartsList.offsetX")]]
+        struct OopartsList
+        {
+            inline static s3d::Vec2 Pos{ 80, 120 };
+            inline static double OffsetX{10};
+        };
     };
 }
