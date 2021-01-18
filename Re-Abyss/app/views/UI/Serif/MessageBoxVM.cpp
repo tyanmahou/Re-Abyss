@@ -38,10 +38,6 @@ namespace abyss::ui::Serif
         m_boxTexture.mirrored(!m_isLeft).drawAt(m_pos);
 
         if (m_name) {
-            ScopedRenderStates2D state2d(SamplerState::ClampNearest);
-            static const auto& ps = Resource::Assets::Main()->loadPs(U"bitmap_font.hlsl");
-            ScopedCustomShader2D shader(ps);
-
             double nameOffset = m_isLeft ? -140 : 140;
             FontAsset(U"serifName")(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 });
         }
