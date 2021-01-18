@@ -26,6 +26,13 @@ namespace abyss::Cycle::SaveSelect::UserInfo
             .setPos(basePos + UserInfoParam::HPBar::Pos)
             .draw();
 
+        // Chapter
+        {
+            FontAsset(FontName::Chapter)(U"Chapter").draw(basePos + UserInfoParam::Chapter::LabelPos);
+            FontAsset(FontName::UserInfo)(U"あいうえお").drawAt(basePos + UserInfoParam::Chapter::PosAt);
+
+            Line(basePos + UserInfoParam::Chapter::LinePos, Arg::direction = Vec2::UnitX() * UserInfoParam::Chapter::LineLength).draw(1.0);
+        }
         m_player
             ->setPos(basePos + UserInfoParam::Player::Pos)
             .setOoparts(OopartsType::Nyan)

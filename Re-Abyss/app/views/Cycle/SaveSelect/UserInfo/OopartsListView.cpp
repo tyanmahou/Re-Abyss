@@ -12,9 +12,9 @@ namespace abyss::Cycle::SaveSelect::UserInfo
             auto pos = m_pos + s3d::Vec2{ m_offsetX * (index), 0 };
             {
                 ScopedColorAdd2D add(ColorF(1.0, 0));
-                m_icon(type).resized(42, 42).draw(pos - Vec2{ 1, 1 });
+                m_icon(type).resized(40, 40).draw(pos + Vec2{2, 2});
             }
-            m_icon(type).scaled(2.0f).draw(pos);
+            m_icon(type).resized(40, 40).draw(pos);
         }
     }
 }

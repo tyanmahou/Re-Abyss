@@ -18,6 +18,18 @@ namespace abyss::Cycle::SaveSelect
             inline static s3d::Vec2 Pos{ 80, 120 };
         };
 
+        [[TOML_BIND_PARAM(Chapter::LabelPos, "Chapter.labelPos")]]
+        [[TOML_BIND_PARAM(Chapter::PosAt, "Chapter.posAt")]]
+        [[TOML_BIND_PARAM(Chapter::LinePos, "Chapter.linePos")]]
+        [[TOML_BIND_PARAM(Chapter::LineLength, "Chapter.lineLength")]]
+        struct Chapter
+        {
+            inline static s3d::Vec2 LabelPos{ 80, 120 };
+            inline static s3d::Vec2 PosAt{ 80, 120 };
+            inline static s3d::Vec2 LinePos{ 80, 120 };
+            inline static double LineLength = 100;
+        };
+
         [[TOML_BIND_PARAM(Player::Pos, "Player.pos")]]
         struct Player
         {
