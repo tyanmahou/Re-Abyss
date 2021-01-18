@@ -40,6 +40,7 @@ namespace abyss::Enum
             if (value == U"Hard") {
                 return UserPlayMode::Hard;
             }
+            return UserPlayMode::Normal;
         }
 
         s3d::String operator()(UserPlayMode value)
@@ -50,6 +51,7 @@ namespace abyss::Enum
             if (value == UserPlayMode::Hard) {
                 return U"Hard";
             }
+            return U"Normal";
         }
     };
 }

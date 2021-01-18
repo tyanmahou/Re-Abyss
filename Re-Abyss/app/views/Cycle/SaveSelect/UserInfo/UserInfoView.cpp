@@ -25,7 +25,9 @@ namespace abyss::Cycle::SaveSelect::UserInfo
             .setPos(basePos + UserInfoParam::HPBar::Pos)
             .draw();
 
-        m_player->setPos(basePos + UserInfoParam::Player::Pos)
+        m_player
+            ->setPos(basePos + UserInfoParam::Player::Pos)
+            .setOoparts(OopartsType::Nyan)
             .setTime(Scene::Time())
             .draw();
         FontAsset(FontName::UserInfo)(Name(user.getPlayMode())).draw(basePos + UserInfoParam::PlayMode::Pos);

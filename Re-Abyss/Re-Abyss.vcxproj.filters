@@ -1270,6 +1270,12 @@
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\actors\Ooparts\base\OopartsViewUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\actors\Ooparts\base\SimpleDrawCallbackView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1879,6 +1885,8 @@
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />
+    <ClInclude Include="app\views\actors\Ooparts\base\OopartsViewUtil.hpp" />
+    <ClInclude Include="app\views\actors\Ooparts\base\SimpleDrawCallbackView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
