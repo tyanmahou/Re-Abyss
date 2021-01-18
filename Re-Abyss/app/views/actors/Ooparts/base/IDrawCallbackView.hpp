@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Fwd.hpp>
+#include <Siv3D/Effect.hpp>
 namespace abyss::Actor::Ooparts
 {
     class IDrawCallbackView
@@ -7,6 +7,11 @@ namespace abyss::Actor::Ooparts
     public:
         virtual ~IDrawCallbackView() = default;
 
-        virtual void onDraw(const s3d::Vec2& pos) const = 0;
+        template<class EffectType, class... Args>
+        void onAddEffect(Args&&... args) const
+        {
+            onAddEffect(std::make_unique<EffectType>(std::forward<Args>(args)...));
+        }
+        virtual void onAddEffect(std::unique_ptr<s3d::IEffect>&& effect) const = 0;
     };
 }

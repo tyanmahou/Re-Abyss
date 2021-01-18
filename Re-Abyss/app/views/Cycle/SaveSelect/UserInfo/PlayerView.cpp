@@ -1,6 +1,5 @@
 #include "PlayerView.hpp"
 #include <abyss/views/actors/Ooparts/base/OopartsViewUtil.hpp>
-#include <abyss/views/actors/Ooparts/base/SimpleDrawCallbackView.hpp>
 
 #include <Siv3D.hpp>
 
@@ -10,9 +9,10 @@ namespace abyss::Cycle::SaveSelect::UserInfo
         m_player(std::make_shared<Actor::Player::PlayerVM>()),
         m_ooparts(std::make_shared<Actor::Ooparts::OopartsView>())
     {
-        m_ooparts->setCallback(
-            std::make_unique<Actor::Ooparts::SimpleDrawCallbackView>(m_ooparts.get())
-        );
+        m_oopartsCallback = std::make_shared<Actor::Ooparts::SimpleDrawCallbackView>([this]() {
+            return Time::FromSec(m_time);
+        });
+        m_ooparts->setCallback(m_oopartsCallback);
     }
     PlayerView& PlayerView::setPos(const s3d::Vec2& pos)
     {
@@ -34,6 +34,8 @@ namespace abyss::Cycle::SaveSelect::UserInfo
     }
     void PlayerView::draw() const
     {
+        m_oopartsCallback->update();
+
         if (m_oopartsType != OopartsType::Invalid) {
             auto localTarget = s3d::Vec2{ Forward::Left * -20 , -40 };
             localTarget += s3d::Vec2{

@@ -5,7 +5,8 @@
 
 namespace abyss::Actor::Ooparts
 {
-    OopartsView::OopartsView()
+    OopartsView::OopartsView():
+        m_effectTimer(0.05, true, [this] {return Time::FromSec(this->getTime()); })
     {
     }
     void OopartsView::draw() const
@@ -15,7 +16,13 @@ namespace abyss::Actor::Ooparts
         constexpr double period = 0.8;
         {
             if (m_drawCallback) {
-                m_drawCallback->onDraw(pos);
+                if (m_effectTimer.update()) {
+                    if (RandomBool(0.7)) {
+                        m_drawCallback->onAddEffect<KiraKiraEffect>(pos + RandomVec2({ -15, 15 }, { 0, 20 }));
+                    } else {
+                        m_drawCallback->onAddEffect<KiraKiraEffect>(pos + RandomVec2(17), KiraKiraEffect::Type2);
+                    }
+                }
             }
         }
         {

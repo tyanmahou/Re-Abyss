@@ -10,13 +10,10 @@ namespace abyss::Actor::Ooparts
 
     class ActDrawCallbackView : public IDrawCallbackView
     {
-        OopartsView* m_pView;
-
-        IntervalTimer m_effectTimer;
         Manager* m_pManager;
     public:
-        ActDrawCallbackView(OopartsView* view, Manager* manager);
+        ActDrawCallbackView(Manager* manager);
 
-        void onDraw(const s3d::Vec2& pos) const final;
+        void onAddEffect(std::unique_ptr<s3d::IEffect>&& effect) const final;
     };
 }

@@ -13,23 +13,25 @@ namespace abyss::Actor::Ooparts
     class OopartsView
     {
     private:
-        std::unique_ptr<IDrawCallbackView> m_drawCallback;
+        std::shared_ptr<IDrawCallbackView> m_drawCallback;
         std::shared_ptr<BaseVM> m_character;
-    protected:
+
         s3d::Vec2 m_pos{0, 0};
         Forward m_forward{Forward::Right};
         double m_time = 0;
+
+        IntervalTimer m_effectTimer;
     public:
         OopartsView();
         virtual ~OopartsView() = default;
 
-        OopartsView& setCallback(std::unique_ptr<IDrawCallbackView>&& callback)
+        OopartsView& setCallback(const std::shared_ptr<IDrawCallbackView>& callback)
         {
-            m_drawCallback = std::move(callback);
+            m_drawCallback = callback;
             return *this;
         }
 
-        OopartsView& setCharacter(std::shared_ptr<BaseVM>&& character)
+        OopartsView& setCharacter(const std::shared_ptr<BaseVM>& character)
         {
             m_character = character;
             return *this;

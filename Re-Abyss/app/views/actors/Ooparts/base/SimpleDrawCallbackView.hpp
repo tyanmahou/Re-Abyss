@@ -12,11 +12,10 @@ namespace abyss::Actor::Ooparts
     class SimpleDrawCallbackView : public IDrawCallbackView
     {
     public:
-        SimpleDrawCallbackView(OopartsView* view);
-        void onDraw(const s3d::Vec2& pos) const override;
+        SimpleDrawCallbackView(TimeGetFunction_t clock);
+        void update() const;
+        void onAddEffect(std::unique_ptr<s3d::IEffect>&& effect) const override;
     private:
-        OopartsView* m_pView;
         EffectEx m_effect;
-        IntervalTimer m_effectTimer;
     };
 }

@@ -21,10 +21,22 @@ namespace abyss
         Effects();
 
         void init(const GlobalTime& time);
+
+        template<EffectGroup Group>
+        void add(std::unique_ptr<s3d::IEffect>&& effect) const
+        {
+            m_effects[static_cast<size_t>(Group)].add(std::move(effect));
+        }
+
         template<EffectGroup Group, class Type, class... Args>
         void add(Args&& ... args) const
         {
             m_effects[static_cast<size_t>(Group)].add<Type>(std::forward<Args>(args)...);
+        }
+
+        void addWorldBack(std::unique_ptr<s3d::IEffect>&& effect) const
+        {
+            this->add<EffectGroup::WorldBack>(std::move(effect));
         }
 
         template<class Type, class... Args>
@@ -32,6 +44,12 @@ namespace abyss
         {
             this->add<EffectGroup::WorldBack, Type>(std::forward<Args>(args)...);
         }
+
+        void addWorldFront(std::unique_ptr<s3d::IEffect>&& effect) const
+        {
+            this->add<EffectGroup::WorldFront>(std::move(effect));
+        }
+
         template<class Type, class... Args>
         void addWorldFront(Args&& ... args) const
         {

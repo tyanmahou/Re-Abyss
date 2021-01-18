@@ -223,7 +223,7 @@ namespace
             m_attackCtrl = m_pActor->find<AttackCtrl>();
 
             auto oopartsView = std::make_unique<Ooparts::OopartsView>();
-            oopartsView->setCallback(std::make_unique<Ooparts::ActDrawCallbackView>(oopartsView.get(), m_pActor->getManager()));
+            oopartsView->setCallback(std::make_shared<Ooparts::ActDrawCallbackView>(m_pActor->getManager()));
             m_view->setOopartsView(std::move(oopartsView));
             m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
         }
