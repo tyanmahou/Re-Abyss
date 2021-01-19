@@ -1,20 +1,60 @@
 #include "OopartsListView.hpp"
 #include <Siv3D.hpp>
+
+#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/commons/Constants.hpp>
+
 namespace abyss::Cycle::SaveSelect::UserInfo
 {
-    OopartsListView::OopartsListView()
+    OopartsListView::OopartsListView():
+        m_rt(Constants::AppResolution)
     {
     
     }
     void OopartsListView::draw() const
     {
-        for (auto&&[index, type] : s3d::Indexed(m_having)) {
-            auto pos = m_pos + s3d::Vec2{ m_offsetX * (index), 0 };
-            {
-                ScopedColorAdd2D add(ColorF(1.0, 0));
-                m_icon(type).resized(40, 40).draw(pos + Vec2{2, 2});
+        m_rt.clear(ColorF(0.0, 0.0));
+
+        {
+            //static BlendState blend{
+            //    true,
+            //    Blend::SrcAlpha,
+            //    Blend::InvSrcAlpha,
+            //    BlendOp::Add,
+            //    Blend::Zero,
+            //    Blend::InvSrcAlpha
+            //};
+            static BlendState blend{
+                true,
+                Blend::SrcAlpha,
+                Blend::InvSrcAlpha,
+                BlendOp::Add,
+                Blend::One,
+                Blend::Zero
+            };
+            ScopedRenderStates2D scopedBlend(blend);
+            ScopedRenderTarget2D scopedRt(m_rt);
+            for (auto&& [index, type] : s3d::Indexed(m_having)) {
+                auto pos = m_pos + s3d::Vec2{ m_offsetX * (index), 0 };
+                m_icon(type).resized(40, 40).draw(pos);
             }
-            m_icon(type).resized(40, 40).draw(pos);
+        }
+        {
+            //static BlendState blend{
+            //    true,
+            //    Blend::One,
+            //    Blend::SrcAlpha
+            //};
+            //ScopedRenderStates2D scopedBlend(blend);
+            Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
+            Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
+
+            auto shader = m_outLineShader
+                .setTextureSize(Constants::AppResolution)
+                .setOutLineSize(1.0)
+                .setColor(s3d::Palette::White)
+                .start();
+            m_rt.draw();
         }
     }
 }

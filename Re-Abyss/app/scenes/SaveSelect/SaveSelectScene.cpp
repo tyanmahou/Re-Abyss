@@ -49,8 +49,7 @@ namespace abyss
 #endif
     public:
         Impl([[maybe_unused]] const InitData& init):
-            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
-            m_userInfo(std::make_unique<UserInfo::UserInfoView>())
+            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>())
         {
 #if ABYSS_DEBUG
             m_reloader
@@ -78,6 +77,7 @@ namespace abyss
             Resource::Prelaod::LoadSaveSelectToml(*Resource::Assets::Main());
             Resource::Prelaod::LoadUIToml(*Resource::Assets::Main());
             m_users = Storage::Get<User::IUserService>()->getUsers();
+            m_userInfo = std::make_unique<UserInfo::UserInfoView>();
         }
         void update()
         {

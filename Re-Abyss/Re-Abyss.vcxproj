@@ -567,6 +567,7 @@
     <ClCompile Include="app\views\Light\LightView.cpp" />
     <ClCompile Include="app\views\Light\LightVM.cpp" />
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
+    <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">NotUsing</PrecompiledHeader>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">
@@ -1139,6 +1140,7 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
+    <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

@@ -1,6 +1,9 @@
 #pragma once
 #include <abyss/views/actors/Ooparts/base/IconView.hpp>
 
+#include <abyss/views/util/OutLine/OutLineShader.hpp>
+#include <Siv3D/RenderTexture.hpp>
+
 namespace abyss::Cycle::SaveSelect::UserInfo
 {
     class OopartsListView
@@ -10,6 +13,9 @@ namespace abyss::Cycle::SaveSelect::UserInfo
         double m_offsetX = 10;
 
         s3d::Array<OopartsType> m_having;
+
+        RenderTexture m_rt;
+        OutLineShader m_outLineShader;
     public:
         OopartsListView();
 
