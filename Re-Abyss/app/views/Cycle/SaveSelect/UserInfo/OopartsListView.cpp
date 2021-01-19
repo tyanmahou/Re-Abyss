@@ -16,14 +16,6 @@ namespace abyss::Cycle::SaveSelect::UserInfo
         m_rt.clear(ColorF(0.0, 0.0));
 
         {
-            //static BlendState blend{
-            //    true,
-            //    Blend::SrcAlpha,
-            //    Blend::InvSrcAlpha,
-            //    BlendOp::Add,
-            //    Blend::Zero,
-            //    Blend::InvSrcAlpha
-            //};
             static BlendState blend{
                 true,
                 Blend::SrcAlpha,
@@ -40,12 +32,6 @@ namespace abyss::Cycle::SaveSelect::UserInfo
             }
         }
         {
-            //static BlendState blend{
-            //    true,
-            //    Blend::One,
-            //    Blend::SrcAlpha
-            //};
-            //ScopedRenderStates2D scopedBlend(blend);
             Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
             Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
 

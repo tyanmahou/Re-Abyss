@@ -33,34 +33,31 @@ struct PSInput
 	float2 uv		: TEXCOORD0;
 };
 
-bool checkOutLine(float2 uv, float2 offset)
+bool checkOutLine(float2 uv)
 {
-	if (g_texture0.Sample(g_sampler0, uv + float2(0, offset.y)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(0, -offset.y)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(offset.x, 0)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, 0)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(offset.x, offset.y)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(offset.x, -offset.y)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, offset.y)).a > 0 ||
-		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, -offset.y)).a > 0
-		) {
-		return true;
+	bool ret = false;
+	float outlineSize = 1;// g_outlineSize;
+	float rangeSq = outlineSize * outlineSize;
+	int thick = outlineSize;
+	int count = thick * 2 + 1;
+	int countSq = count * count;
+	[unroll(9)] for (int i = 0; i < countSq; ++i) {
+		int x = (int)(i / (float)count) - thick;
+		int y = (int)(i % (float)count) - thick;
+		float a = g_texture0.Sample(g_sampler0, uv + float2(x, y) / g_textureSize).a;
+		if (a > 0.0 && x * x + y * y <= rangeSq) {
+			ret = true;
+			break;
+		}
 	}
-	return false;
+	return ret;
 }
 float4 getOutLine(float2 uv)
 {
 	float4 result = g_texture0.Sample(g_sampler0, uv);
 	if (result.a <= 0.0) {
-		float2 pixel = float2(1, 1) / g_textureSize;
-		float2 offset = pixel;
-		int count = g_outlineSize;
-		[unroll(10)]for (int i = 0; i < count; ++i) {
-			if (checkOutLine(uv, offset)) {
-				result = g_outlineColor;
-				break;
-			}
-			offset += pixel;
+		if (checkOutLine(uv)) {
+			result = g_outlineColor;
 		}
 	}
 	return result;
