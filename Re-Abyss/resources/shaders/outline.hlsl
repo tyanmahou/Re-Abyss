@@ -33,22 +33,34 @@ struct PSInput
 	float2 uv		: TEXCOORD0;
 };
 
+bool checkOutLine(float2 uv, float2 offset)
+{
+	if (g_texture0.Sample(g_sampler0, uv + float2(0, offset.y)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(0, -offset.y)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(offset.x, 0)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, 0)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(offset.x, offset.y)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(offset.x, -offset.y)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, offset.y)).a > 0 ||
+		g_texture0.Sample(g_sampler0, uv + float2(-offset.x, -offset.y)).a > 0
+		) {
+		return true;
+	}
+	return false;
+}
 float4 getOutLine(float2 uv)
 {
 	float4 result = g_texture0.Sample(g_sampler0, uv);
 	if (result.a <= 0.0) {
-		float2 offset = float2(g_outlineSize, g_outlineSize) / g_textureSize;
-
-		if (g_texture0.Sample(g_sampler0, uv + float2(0, offset.y)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(0, -offset.y)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(offset.x, 0)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(-offset.x, 0)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(offset.x, offset.y)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(offset.x, -offset.y)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(-offset.x, offset.y)).a > 0 ||
-			g_texture0.Sample(g_sampler0, uv + float2(-offset.x, -offset.y)).a > 0
-			){
-			result = g_outlineColor;
+		float2 pixel = float2(1, 1) / g_textureSize;
+		float2 offset = pixel;
+		int count = g_outlineSize;
+		[unroll(10)]for (int i = 0; i < count; ++i) {
+			if (checkOutLine(uv, offset)) {
+				result = g_outlineColor;
+				break;
+			}
+			offset += pixel;
 		}
 	}
 	return result;
