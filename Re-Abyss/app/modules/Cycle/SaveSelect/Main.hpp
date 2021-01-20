@@ -34,14 +34,22 @@ namespace abyss::Cycle::SaveSelect
     {
         IMainObserver* m_observer;
 
+        enum Phase
+        {
+            Select,
+            Confirm,
+        };
         enum class Mode
         {
             GameStart,
             Delete,
         };
+
         s3d::int32 m_selectId = 0;
         Mode m_mode = Mode::GameStart;
-
+        Phase m_phase = Phase::Select;
+        UserPlayMode m_playMode = UserPlayMode::Normal;
+        bool m_yesNo = false;
         s3d::HashTable<s3d::int32, User::UserModel> m_users;
 
         std::unique_ptr<BackGround::BackGroundVM> m_bg;
