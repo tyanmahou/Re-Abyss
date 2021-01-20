@@ -36,15 +36,21 @@ struct PSInput
 bool checkOutLine(float2 uv)
 {
 	bool ret = false;
+	// どうせサイズ変えないと思うから定数化してる
 	float outlineSize = 1;// g_outlineSize;
 	float rangeSq = outlineSize * outlineSize;
 	int thick = outlineSize;
-	int count = thick * 2 + 1;
+	int count = thick + 1;
 	int countSq = count * count;
-	[unroll(9)] for (int i = 0; i < countSq; ++i) {
+
+	// (size + 1)^2 の値をいれる
+	[unroll(4)] for (int i = 0; i < countSq; ++i) {
 		int x = (int)(i / (float)count) - thick;
 		int y = (int)(i % (float)count) - thick;
-		float a = g_texture0.Sample(g_sampler0, uv + float2(x, y) / g_textureSize).a;
+		float a = g_texture0.Sample(g_sampler0, uv + float2(x, y) / g_textureSize).a +
+			g_texture0.Sample(g_sampler0, uv + float2(x, -y) / g_textureSize).a +
+			g_texture0.Sample(g_sampler0, uv + float2(-x, y) / g_textureSize).a +
+			g_texture0.Sample(g_sampler0, uv + float2(-x, -y) / g_textureSize).a;
 		if (a > 0.0 && x * x + y * y <= rangeSq) {
 			ret = true;
 			break;
