@@ -17,18 +17,49 @@ namespace abyss::Cycle::SaveSelect
 {
     using Resource::UserData::Storage;
 
+
+    //class EraseUserConfirm : public IHierarchy
+    //{
+
+    //};
+    //class PlayModeConfirm : public IHierarchy
+    //{
+
+    //};
+    class UserSelect : public Main::Hierarchy
+    {
+    public:
+        void start() override
+        {
+
+        }
+
+        bool update() override
+        {
+            return true;
+        }
+
+        void draw() const override
+        {
+
+        }
+    };
     Main::Main(IMainObserver* observer):
         m_observer(observer),
         m_bg(std::make_unique<BackGround::BackGroundVM>()),
         m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
         m_userInfo(std::make_unique<UserInfo::UserInfoView>()),
         m_users(Storage::Get<User::IUserService>()->getUsers())
-    {}
+    {
+        m_hierarcy.push<UserSelect>();
+    }
 
     Main::~Main()
     {}
     void Main::update()
     {
+        m_hierarcy.update();
+
         // selectId更新
         if (m_phase == Phase::Select) {
             if (InputManager::Left.down()) {
@@ -121,6 +152,8 @@ namespace abyss::Cycle::SaveSelect
 
     void Main::draw() const
     {
+        m_hierarcy.draw();
+
         m_bg->draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
         m_selectFrame
             ->setSelectUserId(m_selectId)

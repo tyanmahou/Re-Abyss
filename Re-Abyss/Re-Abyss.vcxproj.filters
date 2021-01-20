@@ -1899,6 +1899,7 @@
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
+    <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

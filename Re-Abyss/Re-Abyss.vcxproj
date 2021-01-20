@@ -728,6 +728,7 @@
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
+    <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\utils\Migration\Migration.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />

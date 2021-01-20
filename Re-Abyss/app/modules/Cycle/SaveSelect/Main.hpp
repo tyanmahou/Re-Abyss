@@ -2,6 +2,7 @@
 #include <memory>
 
 #include <abyss/models/User/UserModel.hpp>
+#include <abyss/utils/Hierarchy/Hierarchy.hpp>
 
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/HashTable.hpp>
@@ -32,6 +33,10 @@ namespace abyss::Cycle::SaveSelect
     };
     class Main
     {
+        using HierarchyManager = HierarchyManager<int>;
+    public:
+        using Hierarchy = HierarchyManager::Hierarchy;
+    private:
         IMainObserver* m_observer;
 
         enum Phase
@@ -45,6 +50,7 @@ namespace abyss::Cycle::SaveSelect
             Delete,
         };
 
+        HierarchyManager m_hierarcy;
         s3d::int32 m_selectId = 0;
         Mode m_mode = Mode::GameStart;
         Phase m_phase = Phase::Select;
