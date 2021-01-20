@@ -19,9 +19,9 @@ namespace abyss::Resource::SaveUtil
         Storage::Get<IUserService>()->erase(userId);
         return true;
     }
-    UserModel CreateUser(s3d::int32 userId)
+    UserModel CreateUser(s3d::int32 userId, UserPlayMode playMode)
     {
-        return Storage::Get<IUserService>()->create(userId);
+        return Storage::Get<IUserService>()->create(userId, playMode);
     }
 
     UserModel Login(const UserModel& user)

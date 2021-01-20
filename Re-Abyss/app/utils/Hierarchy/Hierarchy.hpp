@@ -6,32 +6,21 @@ namespace abyss
     /// <summary>
     /// 階層管理
     /// </summary>
-    template <class Data>
     class HierarchyManager;
 
-    template <class Data>
     class IHierarchy : Uncopyable
     {
     private:
-        HierarchyManager<Data>* m_manager;
+        HierarchyManager* m_manager;
     protected:
         template<class Hierarchy, class... Args>
-        void push(Args&&... args) const
-        {
-            m_manager->push<Hierarchy>(std::forward<Args>(args)...);
-        }
-
-
-        [[nodiscard]] std::shared_ptr<Data> getData() const
-        {
-            return m_manager->get();
-        }
+        void push(Args&&... args) const;
 
     public:
         IHierarchy() = default;
         virtual ~IHierarchy() = default;
 
-        void init(HierarchyManager<Data>* manager)
+        void init(HierarchyManager* manager)
         {
             m_manager = manager;
         }
@@ -42,29 +31,17 @@ namespace abyss
         virtual void onBack(){}
     };
 
-    template <class Data>
     class HierarchyManager
     {
     private:
 
-        using Hierarchy_t = std::shared_ptr<IHierarchy<Data>>;
-
-        std::shared_ptr<Data> m_data;
+        using Hierarchy_t = std::shared_ptr<IHierarchy>;
 
         std::list<Hierarchy_t> m_list;
         Hierarchy_t m_next;
     public:
-        using Hierarchy = IHierarchy<Data>;
-
         HierarchyManager()
-            : m_data(MakeShared<Data>())
         {}
-
-
-        [[nodiscard]] std::shared_ptr<Data> get() const
-        {
-            return m_data;
-        }
 
         void hierarchyUpdate()
         {
@@ -106,4 +83,10 @@ namespace abyss
             push(std::make_shared<Hierarchy>(std::forward<Args>(args)...));
         }
     };
+
+    template<class Hierarchy, class... Args>
+    void IHierarchy::push(Args&&... args) const
+    {
+        m_manager->push<Hierarchy>(std::forward<Args>(args)...);
+    }
 }

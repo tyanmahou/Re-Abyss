@@ -9,19 +9,6 @@
 
 namespace abyss::Cycle::SaveSelect
 {
-    namespace BackGround
-    {
-        class BackGroundVM;
-    }
-    namespace SelectFrame
-    {
-        class SelectFrameVM;
-    }
-    namespace UserInfo
-    {
-        class UserInfoView;
-    }
-
     class IMainObserver
     {
     public:
@@ -33,34 +20,9 @@ namespace abyss::Cycle::SaveSelect
     };
     class Main
     {
-        using HierarchyManager = HierarchyManager<int>;
-    public:
-        using Hierarchy = HierarchyManager::Hierarchy;
     private:
-        IMainObserver* m_observer;
-
-        enum Phase
-        {
-            Select,
-            Confirm,
-        };
-        enum class Mode
-        {
-            GameStart,
-            Delete,
-        };
-
         HierarchyManager m_hierarcy;
-        s3d::int32 m_selectId = 0;
-        Mode m_mode = Mode::GameStart;
-        Phase m_phase = Phase::Select;
-        UserPlayMode m_playMode = UserPlayMode::Normal;
-        bool m_yesNo = false;
-        s3d::HashTable<s3d::int32, User::UserModel> m_users;
 
-        std::unique_ptr<BackGround::BackGroundVM> m_bg;
-        std::unique_ptr<SelectFrame::SelectFrameVM> m_selectFrame;
-        std::unique_ptr<UserInfo::UserInfoView> m_userInfo;
     public:
         Main(IMainObserver* observer);
         ~Main();

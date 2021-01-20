@@ -18,17 +18,91 @@ namespace abyss::Cycle::SaveSelect
     using Resource::UserData::Storage;
 
 
-    //class EraseUserConfirm : public IHierarchy
-    //{
-
-    //};
-    //class PlayModeConfirm : public IHierarchy
-    //{
-
-    //};
-    class UserSelect : public Main::Hierarchy
+    class EraseUserConfirm : public IHierarchy
     {
+        bool m_yes = false;
+        std::function<void()> m_callback;
     public:
+        EraseUserConfirm(std::function<void()> callback) :
+            m_callback(callback)
+        {}
+
+        bool update() override
+        {
+            if (InputManager::Up.down()) {
+                m_yes = true;
+            }
+            if (InputManager::Down.down()) {
+                m_yes = false;
+            }
+            if (InputManager::A.down()) {
+                if (m_yes) {
+                    m_callback();
+                }
+                return false;
+            }
+            return !InputManager::B.down();
+        }
+
+        void draw() const override
+        {
+            FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(480, 320);
+        }
+    };
+    class CreateUserConfirm : public IHierarchy
+    {
+        UserPlayMode m_playMode = UserPlayMode::Normal;
+        std::function<void(UserPlayMode)> m_callback;
+
+        bool m_isDone = false;
+    public:
+        CreateUserConfirm(std::function<void(UserPlayMode)> callback):
+            m_callback(callback)
+        {}
+        bool update() override
+        {
+            if (InputManager::Up.down()) {
+                m_playMode = UserPlayMode::Normal;
+            }
+            if (InputManager::Down.down()) {
+                m_playMode = UserPlayMode::Hard;
+            }
+            if (InputManager::A.down()) {
+                m_callback(m_playMode);
+                m_isDone = true;
+            }
+            return m_isDone || !InputManager::B.down();
+        }
+
+        void draw() const override
+        {
+            FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(480, 320);
+        }
+    };
+    class UserSelect : public IHierarchy
+    {
+        enum class Mode
+        {
+            GameStart,
+            Delete,
+        };
+        IMainObserver* m_observer;
+
+        s3d::int32 m_selectId = 0;
+        Mode m_mode = Mode::GameStart;
+        s3d::HashTable<s3d::int32, User::UserModel> m_users;
+
+        std::unique_ptr<BackGround::BackGroundVM> m_bg;
+        std::unique_ptr<SelectFrame::SelectFrameVM> m_selectFrame;
+        std::unique_ptr<UserInfo::UserInfoView> m_userInfo;
+    public:
+        UserSelect(IMainObserver* observer):
+            m_observer(observer),
+            m_bg(std::make_unique<BackGround::BackGroundVM>()),
+            m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
+            m_userInfo(std::make_unique<UserInfo::UserInfoView>()),
+            m_users(Storage::Get<User::IUserService>()->getUsers())
+        {}
         void start() override
         {
 
@@ -36,32 +110,7 @@ namespace abyss::Cycle::SaveSelect
 
         bool update() override
         {
-            return true;
-        }
-
-        void draw() const override
-        {
-
-        }
-    };
-    Main::Main(IMainObserver* observer):
-        m_observer(observer),
-        m_bg(std::make_unique<BackGround::BackGroundVM>()),
-        m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
-        m_userInfo(std::make_unique<UserInfo::UserInfoView>()),
-        m_users(Storage::Get<User::IUserService>()->getUsers())
-    {
-        m_hierarcy.push<UserSelect>();
-    }
-
-    Main::~Main()
-    {}
-    void Main::update()
-    {
-        m_hierarcy.update();
-
-        // selectId更新
-        if (m_phase == Phase::Select) {
+            // selectId更新
             if (InputManager::Left.down()) {
                 --m_selectId;
             }
@@ -73,26 +122,8 @@ namespace abyss::Cycle::SaveSelect
             } else if (m_selectId >= Constants::UserNum) {
                 m_selectId = -1;
             }
-        } else {
-            if (m_mode == Mode::GameStart) {
-                if (InputManager::Up.down()) {
-                    m_playMode = UserPlayMode::Normal;
-                }
-                if (InputManager::Down.down()) {
-                    m_playMode = UserPlayMode::Hard;
-                }
-            } else {
-                if (InputManager::Up.down()) {
-                    m_yesNo = true;
-                }
-                if (InputManager::Down.down()) {
-                    m_yesNo = false;
-                }
-            }
-        }
 
-        if (InputManager::A.down()) {
-            if (m_phase == Phase::Select) {
+            if (InputManager::A.down()) {
                 if (m_selectId == -1) {
                     // モード切替
                     if (m_mode == Mode::GameStart) {
@@ -104,41 +135,30 @@ namespace abyss::Cycle::SaveSelect
                     // データ選択
                     if (m_mode == Mode::GameStart) {
                         if (!m_users.contains(m_selectId)) {
-                            m_phase = Phase::Confirm;
+                            this->push<CreateUserConfirm>([this](UserPlayMode playMode) {
+                                // ユーザー生成
+                                m_users[m_selectId] = Resource::SaveUtil::CreateUser(m_selectId, playMode);
+                                m_observer->onNewGame();
+                            });
                         } else {
                             m_users[m_selectId] = Resource::SaveUtil::Login(m_users[m_selectId]);
                             // 選択
                             m_observer->onLoadGame();
-                            return;
+                            return true;
                         }
                     } else {
                         // 削除確認
                         if (m_users.contains(m_selectId)) {
-                            m_phase = Phase::Confirm;
-                            m_yesNo = false;
+                            this->push<EraseUserConfirm>([this]() {
+                                Resource::SaveUtil::EraseUser(m_selectId);
+                                m_users.erase(m_selectId);
+                            });
                         }
                     }
                 }
-            } else {
-                if (m_mode == Mode::GameStart) {
-                    // ユーザー生成
-                    m_users[m_selectId] = Resource::SaveUtil::CreateUser(m_selectId);
-                    m_observer->onNewGame();
-                } else {
-                    if (m_yesNo) {
-                        Resource::SaveUtil::EraseUser(m_selectId);
-                        m_users.erase(m_selectId);
-                    } else {
-                        m_phase = Phase::Select;
-                    }
-                }
             }
-        }
 
-        if (InputManager::B.down()) {
-            if (m_phase == Phase::Confirm) {
-                m_phase = Phase::Select;
-            } else {
+            if (InputManager::B.down()) {
                 if (m_mode == Mode::Delete) {
                     // 削除キャンセル
                     m_mode = Mode::GameStart;
@@ -147,41 +167,49 @@ namespace abyss::Cycle::SaveSelect
                     m_observer->onBack();
                 }
             }
+            return true;
         }
+
+        void draw() const override
+        {
+            m_bg->draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
+            m_selectFrame
+                ->setSelectUserId(m_selectId)
+                .draw();
+
+            if (m_mode == Mode::GameStart) {
+                FontAsset(FontName::SceneName)(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
+            } else {
+                FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(480, 50, Color(255, 0, 0));
+            }
+
+            if (m_selectId != -1) {
+                if (m_users.contains(m_selectId)) {
+                    m_userInfo->draw(m_users.at(m_selectId));
+                } else {
+                    FontAsset(FontName::SceneName)(U"はじめから").drawAt(480, 320);
+                }
+            } else {
+                FontAsset(FontName::SceneName)(U"データ削除").drawAt(480, 320);
+            }
+        }
+    };
+    Main::Main(IMainObserver* observer)
+    {
+        m_hierarcy.push<UserSelect>(observer);
+        m_hierarcy.hierarchyUpdate();
+    }
+
+    Main::~Main()
+    {}
+    void Main::update()
+    {
+        m_hierarcy.update();
     }
 
     void Main::draw() const
     {
         m_hierarcy.draw();
-
-        m_bg->draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
-        m_selectFrame
-            ->setSelectUserId(m_selectId)
-            .draw();
-
-        if (m_mode == Mode::GameStart) {
-            FontAsset(FontName::SceneName)(U"- データ選択 -").drawAt(480, 50, Color(0, 255, 255));
-        } else {
-            FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(480, 50, Color(255, 0, 0));
-        }
-
-        if (m_selectId != -1) {
-            if (m_users.contains(m_selectId)) {
-                m_userInfo->draw(m_users.at(m_selectId));
-            } else {
-                FontAsset(FontName::SceneName)(U"はじめから").drawAt(480, 320);
-            }
-        } else {
-            FontAsset(FontName::SceneName)(U"データ削除").drawAt(480, 320);
-        }
-
-        if (m_phase == Phase::Confirm) {
-            if (m_mode == Mode::GameStart) {
-                FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(480, 320);
-            } else {
-                FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(480, 320);
-            }
-        }
     }
 
     void Main::finally()

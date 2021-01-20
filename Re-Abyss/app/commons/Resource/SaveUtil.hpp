@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/types/UserPlayMode.hpp>
 #include <Siv3DSQL.hpp>
 
 namespace abyss::Resource::UserData
@@ -13,7 +14,7 @@ namespace abyss::Resource::SaveUtil
     /// <summary>
     /// ユーザーの生成
     /// </summary>
-    User::UserModel CreateUser(s3d::int32 userId);
+    User::UserModel CreateUser(s3d::int32 userId, UserPlayMode playMode);
 
     /// <summary>
     /// ユーザーの削除
