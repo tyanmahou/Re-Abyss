@@ -307,6 +307,7 @@
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
+    <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp" />
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Events\Talk\Builder.cpp" />
     <ClCompile Include="app\components\Events\Talk\TalkCtrl.cpp" />
@@ -715,6 +716,7 @@
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />

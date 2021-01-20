@@ -1282,6 +1282,9 @@
     <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1895,6 +1898,7 @@
     <ClInclude Include="app\views\actors\Ooparts\base\SimpleDrawCallbackView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
+    <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
