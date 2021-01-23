@@ -15,7 +15,10 @@ namespace abyss::ui::Serif
 
     void CursorVM::draw() const
     {
-        m_texture.scaled(Sin(Scene::Time() * 2.0), 1.0).drawAt(m_pos);
+        m_texture
+            .scaled(Sin(Scene::Time() * 2.0), 1.0)
+            .rotated(m_isVertical ? 0 : -90.0_deg)
+            .drawAt(m_pos);
     }
 
 }

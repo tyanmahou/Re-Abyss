@@ -1285,6 +1285,9 @@
     <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\Tips\TipsView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1900,6 +1903,7 @@
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
+    <ClInclude Include="app\views\util\Tips\TipsView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

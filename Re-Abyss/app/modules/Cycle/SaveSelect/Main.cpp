@@ -10,7 +10,9 @@
 #include <abyss/views/Cycle/SaveSelect/BackGround/BackGroundVM.hpp>
 #include <abyss/views/Cycle/SaveSelect/SelectFrame/SelectFrameVM.hpp>
 #include <abyss/views/Cycle/SaveSelect/UserInfo/UserInfoView.hpp>
+#include <abyss/views/UI/Serif/CursorVM.hpp>
 
+#include <abyss/params/Cycle/SaveSelect/Param.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Cycle::SaveSelect
@@ -22,9 +24,11 @@ namespace abyss::Cycle::SaveSelect
     {
         bool m_yes = false;
         std::function<void()> m_callback;
+        std::unique_ptr<ui::Serif::CursorVM> m_cursor;
     public:
         EraseUserConfirm(std::function<void()> callback) :
-            m_callback(callback)
+            m_callback(callback),
+            m_cursor(std::make_unique<ui::Serif::CursorVM>())
         {}
 
         bool update() override
@@ -46,18 +50,35 @@ namespace abyss::Cycle::SaveSelect
 
         void draw() const override
         {
-            FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(480, 320);
+            Param::Confirm::Board().draw(Palette::Black);
+            FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(Param::Confirm::MessagePos);
+
+            FontAsset(FontName::UserInfo)(U"はい").drawAt(Param::Confirm::ChoiceBasePos);
+            FontAsset(FontName::UserInfo)(U"いいえ").drawAt(Param::Confirm::ChoiceBasePos + Vec2{0, Param::Confirm::ChoiceOffset});
+
+            {
+                Vec2 pos = Param::Confirm::ChoiceBasePos + 
+                    Vec2{
+                    Param::Confirm::CursorOffset, 
+                    m_yes ? 0 : Param::Confirm::ChoiceOffset
+                };
+
+                m_cursor->setVertical(false)
+                    .setPos(pos)
+                    .draw();
+            }
         }
     };
     class CreateUserConfirm : public IHierarchy
     {
         UserPlayMode m_playMode = UserPlayMode::Normal;
         std::function<void(UserPlayMode)> m_callback;
-
+        std::unique_ptr<ui::Serif::CursorVM> m_cursor;
         bool m_isDone = false;
     public:
         CreateUserConfirm(std::function<void(UserPlayMode)> callback):
-            m_callback(callback)
+            m_callback(callback),
+            m_cursor(std::make_unique<ui::Serif::CursorVM>())
         {}
         bool update() override
         {
@@ -76,7 +97,27 @@ namespace abyss::Cycle::SaveSelect
 
         void draw() const override
         {
-            FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(480, 320);
+            if (m_isDone) {
+                return;
+            }
+            Param::Confirm::Board().draw(Palette::Black);
+
+            FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(Param::Confirm::MessagePos);
+
+            FontAsset(FontName::UserInfo)(U"ノーマルモード").drawAt(Param::Confirm::ChoiceBasePos);
+            FontAsset(FontName::UserInfo)(U"ハードモード").drawAt(Param::Confirm::ChoiceBasePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
+
+            {
+                Vec2 pos = Param::Confirm::ChoiceBasePos +
+                    Vec2{
+                    Param::Confirm::CursorOffset,
+                    m_playMode == UserPlayMode::Normal ? 0 : Param::Confirm::ChoiceOffset
+                };
+
+                m_cursor->setVertical(false)
+                    .setPos(pos)
+                    .draw();
+            }
         }
     };
     class UserSelect : public IHierarchy
