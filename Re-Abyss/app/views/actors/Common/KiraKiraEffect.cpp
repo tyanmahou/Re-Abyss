@@ -13,6 +13,8 @@ namespace abyss
     {
         ScopedRenderStates2D t2d(BlendState::Additive);
 
+        t = s3d::Saturate(t);
+
         switch (m_type) {
         case Type1:
         {
