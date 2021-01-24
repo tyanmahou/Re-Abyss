@@ -569,7 +569,7 @@
     <ClCompile Include="app\views\Light\LightVM.cpp" />
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
     <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp" />
-    <ClCompile Include="app\views\util\Tips\TipsView.cpp" />
+    <ClCompile Include="app\views\Cycle\Common\Tips\TipsView.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">NotUsing</PrecompiledHeader>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='AbyssDebug|x64'">
@@ -718,6 +718,7 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
+    <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
@@ -1145,7 +1146,7 @@
     <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
-    <ClInclude Include="app\views\util\Tips\TipsView.hpp" />
+    <ClInclude Include="app\views\Cycle\Common\Tips\TipsView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

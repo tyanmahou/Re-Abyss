@@ -11,7 +11,7 @@
 #include <abyss/views/Cycle/SaveSelect/SelectFrame/SelectFrameVM.hpp>
 #include <abyss/views/Cycle/SaveSelect/UserInfo/UserInfoView.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
-
+#include <abyss/views/Cycle/Common/Tips/TipsView.hpp>
 #include <abyss/params/Cycle/SaveSelect/Param.hpp>
 #include <Siv3D.hpp>
 
@@ -251,6 +251,7 @@ namespace abyss::Cycle::SaveSelect
     void Main::draw() const
     {
         m_hierarcy.draw();
+        TipsView::DrawFooter(U"Z…決定 X…キャンセル");
     }
 
     void Main::finally()

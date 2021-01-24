@@ -1,5 +1,8 @@
 #include "ParamPreloader.hpp"
 
+// Cycle
+#include <abyss/params/Cycle/Common/FooterParam.hpp>
+
 // Splash
 #include <abyss/params/Cycle/Splash/Param.hpp>
 
@@ -41,6 +44,10 @@ namespace abyss::Resource::Prelaod
 		LoadActorToml(resource);
 		LoadUIToml(resource);
 	}
+	void LoadCycleCommon(const Assets& resource)
+	{
+		resource.loadToml<Cycle::FooterParam>(U"Cycle/Common/footer_param.toml");
+	}
 	void LoadSplashToml(const Assets& resource)
 	{
 		resource.loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
@@ -53,6 +60,8 @@ namespace abyss::Resource::Prelaod
 	}
 	void LoadSaveSelectToml(const Assets& resource)
 	{
+		LoadCycleCommon(resource);
+
 		resource.loadToml<Cycle::SaveSelect::Param>(U"Cycle/SaveSelect/param.toml");
 		resource.loadToml<Cycle::SaveSelect::UserInfoParam>(U"Cycle/SaveSelect/user_info_param.toml");
 	}

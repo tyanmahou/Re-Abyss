@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/String.hpp>
 
-namespace abyss::Tips
+namespace abyss::Cycle
 {
     class TipsView
     {
