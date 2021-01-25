@@ -3,15 +3,15 @@
 
 namespace abyss::Path
 {
-    inline static s3d::FilePath Root = U"";
-    inline static s3d::FilePath ResourcePath = U"resources/";
-    inline static s3d::FilePath ImagePath = ResourcePath + U"images/";
-    inline static s3d::FilePath MapPath = ResourcePath + U"maps/";
-    inline static s3d::FilePath ParamPath = ResourcePath + U"params/";
-    inline static s3d::FilePath ShaderPath = ResourcePath + U"shaders/";
-    inline static s3d::FilePath SoundPath = ResourcePath + U"sounds/";
+    inline s3d::FilePath Root = U"";
+    inline s3d::FilePath ResourcePath = U"resources/";
+    inline s3d::FilePath ImagePath = ResourcePath + U"images/";
+    inline s3d::FilePath MapPath = ResourcePath + U"maps/";
+    inline s3d::FilePath ParamPath = ResourcePath + U"params/";
+    inline s3d::FilePath ShaderPath = ResourcePath + U"shaders/";
+    inline s3d::FilePath SoundPath = ResourcePath + U"sounds/";
 
-    inline static s3d::FilePath UserDataPath = U"userdata/";
+    inline s3d::FilePath UserDataPath = U"userdata/";
 
-    inline static s3d::FilePath DebugPath = U"debugs/";
+    inline s3d::FilePath DebugPath = U"debugs/";
 }
