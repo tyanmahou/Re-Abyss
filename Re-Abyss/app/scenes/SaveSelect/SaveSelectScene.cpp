@@ -23,8 +23,6 @@ namespace abyss
         void reload()
         {
             Resource::Assets::Main()->release();
-            // リロード時はリソースを直で
-            Resource::Assets::Main()->setIsBuilded(false);
             this->init();
         }
         void init()

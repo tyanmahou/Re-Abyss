@@ -16,7 +16,7 @@ namespace abyss::Resource
         s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
-#if ABYSS_DEBUG
+#if ABYSS_NO_BUILD_RESOURCE
         bool m_isBuilded = false;
 #else
         bool m_isBuilded = true;
@@ -147,11 +147,6 @@ namespace abyss::Resource
     void Assets::release() const
     {
         return m_pImpl->release();
-    }
-
-    void Assets::setIsBuilded(bool isBuilded) const
-    {
-        m_pImpl->setIsBuilded(isBuilded);
     }
 
     Assets* Assets::Main()

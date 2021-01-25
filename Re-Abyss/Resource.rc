@@ -57,7 +57,7 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //
 //////////////////////////////////////////////////////
 
-#if ABYSS_DEBUG
+#if ABYSS_NO_BUILD_RESOURCE
 Resource(resources/fonts/PixelMplus12-Bold.ttf)
 Resource(resources/fonts/PixelMplus12-Regular.ttf)
 #else
