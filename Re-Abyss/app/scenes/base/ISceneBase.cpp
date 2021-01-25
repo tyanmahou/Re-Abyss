@@ -5,7 +5,7 @@ namespace abyss
 {
     void ISceneBase::update()
     {
-#if ABYSS_DEBUG
+#if ABYSS_NO_BUILD_RESOURCE
         m_reloader.detection();
 #endif
         this->onSceneUpdate();
