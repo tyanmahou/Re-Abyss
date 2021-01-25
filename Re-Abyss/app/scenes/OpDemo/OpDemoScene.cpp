@@ -22,12 +22,12 @@ namespace abyss
         m_pImpl(std::make_unique<Impl>(init))
     {}
 
-    void OpDemoScene::update()
+    void OpDemoScene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void OpDemoScene::draw() const
+    void OpDemoScene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

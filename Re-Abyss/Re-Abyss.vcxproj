@@ -370,6 +370,7 @@
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
+    <ClCompile Include="app\scenes\base\ISceneBase.cpp" />
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp" />
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp" />
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />

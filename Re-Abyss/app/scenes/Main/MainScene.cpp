@@ -9,9 +9,6 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 
-#include <abyss/debugs/HotReload/HotReload.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
-
 namespace
 {
 	using namespace abyss;
@@ -33,26 +30,14 @@ namespace abyss
 		String mapName;
 
 		std::shared_ptr<Data_t> m_data;
-#if ABYSS_DEBUG
-		Debug::HotReload m_reloader;
-#endif
+
 	public:
 		Impl([[maybe_unused]] const MainScene::InitData& init):
 			m_saveData(std::make_shared<SaveData>()),
 			m_data(init._s)
 		{
 			mapName = U"stage0";
-#if ABYSS_DEBUG
-			m_reloader
-				.setMessage(mapName)
-				.setCallback([this]() {
-					this->reload();
-				})
-				.setSuperCallback([this] {
-					this->init();
-				})
-			;
-#endif
+
 			this->init();
 		}
 
@@ -86,18 +71,13 @@ namespace abyss
 
 		void update()
 		{
-#if ABYSS_DEBUG
-			m_reloader.detection();
-#endif
 			m_system->update();
 		}
 
 		void draw() const
 		{
 			m_system->draw();
-#if ABYSS_DEBUG
-			Debug::Menu::OnGUI();
-#endif
+
 		}
 
 		/// <summary>
@@ -127,13 +107,25 @@ namespace abyss
 	MainScene::MainScene(const InitData& init) :
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
-	{}
+	{
+#if ABYSS_DEBUG
+		m_reloader
+			.setMessage(U"stage0")
+			.setCallback([this]() {
+			    m_pImpl->reload();
+		    })
+			.setSuperCallback([this] {
+			    m_pImpl->init();
+		    })
+			;
+#endif	
+	}
 
-	void MainScene::update()
+	void MainScene::onSceneUpdate()
 	{
 		m_pImpl->update();
 	}
-	void MainScene::draw() const
+	void MainScene::onSceneDraw() const
 	{
 		m_pImpl->draw();
 	}

@@ -59,12 +59,12 @@ namespace abyss
         });
     }
 
-    void TitleScene::update()
+    void TitleScene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void TitleScene::draw() const
+    void TitleScene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

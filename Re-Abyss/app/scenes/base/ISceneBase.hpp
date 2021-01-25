@@ -1,5 +1,7 @@
 # pragma once
 #include <Siv3D.hpp>
+#include <abyss/debugs/HotReload/HotReload.hpp>
+
 namespace abyss
 {
     /// <summary>
@@ -16,7 +18,11 @@ namespace abyss
     class ISceneBase : public AppScene::Scene
     {
     protected:
+        virtual void onSceneUpdate() = 0;
+        virtual void onSceneDraw()const = 0;
+
         virtual void finally() {}
+
         void changeScene(const String& state, int transitionTimeMillisec = 1000, bool crossFade = false)
         {
             this->getData().m_fromScene = std::move(this->getData().m_toScene);
@@ -26,6 +32,13 @@ namespace abyss
         }
     public:
         using AppScene::Scene::Scene;
+
+        void update() final;
+        void draw() const final;
+    protected:
+#if ABYSS_DEBUG
+        Debug::HotReload m_reloader;
+#endif
     };
 
     namespace SceneName

@@ -51,12 +51,12 @@ namespace abyss
         });
     }
 
-    void SplashScene::update()
+    void SplashScene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void SplashScene::draw() const
+    void SplashScene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

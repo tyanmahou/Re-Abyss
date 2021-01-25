@@ -2,7 +2,6 @@
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-#include <abyss/debugs/HotReload/HotReload.hpp>
 #include <abyss/modules/Cycle/SaveSelect/Main.hpp>
 #include <Siv3D.hpp>
 namespace abyss
@@ -14,23 +13,10 @@ namespace abyss
         std::function<void()> m_onBackFunc;
 
         std::unique_ptr<Cycle::SaveSelect::Main> m_main;
-#if ABYSS_DEBUG
-        Debug::HotReload m_reloader;
-#endif
+
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
-#if ABYSS_DEBUG
-            m_reloader
-                .setMessage(U"SaveSelect")
-                .setCallback([this]() {
-                    this->reload();
-                })
-                .setSuperCallback([this] {
-                    this->init();
-                })
-                ;
-#endif
             this->init();
         }
 
@@ -50,10 +36,6 @@ namespace abyss
         }
         void update()
         {
-#if ABYSS_DEBUG
-            m_reloader.detection();
-#endif
-
             m_main->update();
         }
 
@@ -111,14 +93,26 @@ namespace abyss
         m_pImpl->bindBackFunc([this] {
             this->changeScene(SceneName::Title);
         });
+
+#if ABYSS_DEBUG
+        m_reloader
+            .setMessage(U"SaveSelect")
+            .setCallback([this]() {
+            m_pImpl->reload();
+        })
+            .setSuperCallback([this] {
+            m_pImpl->init();
+        })
+            ;
+#endif
     }
 
-    void SaveSelectScene::update()
+    void SaveSelectScene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void SaveSelectScene::draw() const
+    void SaveSelectScene::onSceneDraw() const
     {
         m_pImpl->draw();
     }
