@@ -104,7 +104,7 @@ namespace abyss
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
 	{
-#if ABYSS_DEBUG
+#if ABYSS_NO_BUILD_RESOURCE
 		m_reloader
 			.setMessage(U"stage0")
 			.setCallback([this]() {
