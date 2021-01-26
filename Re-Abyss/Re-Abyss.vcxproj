@@ -451,6 +451,7 @@
     <ClCompile Include="app\views\BackGround\Sky\SkyShader.cpp" />
     <ClCompile Include="app\views\BackGround\Sky\SkyView.cpp" />
     <ClCompile Include="app\views\BackGround\WaterSarface\WaterSarfaceView.cpp" />
+    <ClCompile Include="app\views\Cycle\Common\Loading\LoadingView.cpp" />
     <ClCompile Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.cpp" />
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.cpp" />
@@ -1181,6 +1182,7 @@
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
+    <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />

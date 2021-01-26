@@ -1291,6 +1291,9 @@
     <ClCompile Include="app\scenes\base\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Cycle\Common\Loading\LoadingView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1908,6 +1911,7 @@
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
+    <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
