@@ -3,7 +3,6 @@
 #include <abyss/modules/Cycle/Title/Main.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/views/Cycle/Common/Loading/LoadingView.hpp>
 
 namespace abyss
 {
@@ -13,8 +12,6 @@ namespace abyss
         std::unique_ptr<Cycle::Title::Main> m_main;
 
         std::function<void()> m_onGameStartFunc;
-
-        Cycle::LoadingView m_loading;
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
@@ -38,7 +35,6 @@ namespace abyss
         void draw() const
         {
             m_main->draw();
-            m_loading.draw();
         }
 
         void finally()
