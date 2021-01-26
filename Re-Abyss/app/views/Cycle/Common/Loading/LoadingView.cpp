@@ -1,7 +1,9 @@
 #include "LoadingView.hpp"
+#include <abyss/commons/FontName.hpp>
+#include <abyss/params/Cycle/Common/LoadingParam.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss
+namespace abyss::Cycle
 {
     LoadingView::LoadingView():
         m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>())
@@ -9,10 +11,11 @@ namespace abyss
     void LoadingView::draw() const
     {
         s3d::Scene::Rect().draw(Palette::Black);
+        // Slime君
         {
             ScopedColorAdd2D scopedColorAdd(ColorF(1,0));
 
-            Vec2 pos{ 630, 500 };
+            Vec2 pos = LoadingParam::Slime::BasePos;
 
             constexpr double periodicSec = 1.3;
             constexpr double jumpSec = 1.0;
@@ -23,13 +26,22 @@ namespace abyss
             m_slime
                 ->setPos(pos)
                 .setForward(Forward::Left)
-                .setTime(s3d::Math::Lerp(0.0, 1.0, (t - jumpSec) / (periodicSec - jumpSec)));
+                .setTime(0.5 + s3d::Math::Lerp(0.0, 1.0, (t - jumpSec) / (periodicSec - jumpSec)));
             if (t <= jumpSec) {
                 m_slime
                     ->setVelocity(t <= jumpSec / 2.0 ? Vec2{ 0, -1 } : Vec2{0, 1})
                     .drawJump();
             } else {
                 m_slime->drawWalk();
+            }
+        }
+
+        // Loading
+        {
+            Vec2 basePos = LoadingParam::Text::BasePos;
+            for (auto&& glyph : FontAsset(FontName::Loading)(U"NOW LOADING...")) {
+                glyph.texture.draw(basePos + glyph.offset, Palette::White);
+                basePos.x += glyph.xAdvance + LoadingParam::Text::OffsetX;
             }
         }
     }

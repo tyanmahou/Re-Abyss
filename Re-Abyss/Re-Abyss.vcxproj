@@ -790,6 +790,7 @@
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
+    <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />

@@ -14,15 +14,22 @@ namespace abyss
 
         std::function<void()> m_onGameStartFunc;
 
-        LoadingView m_loading;
+        Cycle::LoadingView m_loading;
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            Resource::Prelaod::LoadTitleToml(*Resource::Assets::Main());
+            this->reload();
 
             m_main = std::make_unique<Cycle::Title::Main>(this);
         }
 
+        void reload()
+        {
+            Resource::Assets::Main()->release();
+
+            Resource::Prelaod::LoadTitleToml();
+            Resource::Prelaod::LoadCycleCommon();
+        }
         void update()
         {
             m_main->update();
@@ -60,6 +67,14 @@ namespace abyss
     {
         m_pImpl->bindGameStartFunc([this] {
             this->changeScene(SceneName::SaveSelect);
+        });
+
+        m_reloader
+            .setMessage(U"Title")
+            .setCallback([this]() {
+            this->m_pImpl->reload();
+        }).setSuperCallback([this] {
+            this->m_pImpl->reload();
         });
     }
 

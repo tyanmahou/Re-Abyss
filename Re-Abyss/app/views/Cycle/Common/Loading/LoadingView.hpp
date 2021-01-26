@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/views/actors/Enemy/Slime/SlimeVM.hpp>
 
-namespace abyss
+namespace abyss::Cycle
 {
     class LoadingView
     {

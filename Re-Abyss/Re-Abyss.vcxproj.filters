@@ -1912,6 +1912,7 @@
     <ClInclude Include="app\views\Cycle\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
+    <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

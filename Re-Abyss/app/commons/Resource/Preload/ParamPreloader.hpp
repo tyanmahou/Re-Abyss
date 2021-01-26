@@ -4,11 +4,13 @@
 
 namespace abyss::Resource::Prelaod
 {
-    void LoadTomlAll(const Assets& resource);
-    void LoadSplashToml(const Assets& resource);
-    void LoadTitleToml(const Assets& resource);
-    void LoadSaveSelectToml(const Assets& resource);
+    void LoadTomlAll(const Assets& resource = *Assets::Main());
+    void LoadCycleCommon(const Assets& resource = *Assets::Main());
 
-    void LoadActorToml(const Assets& resource);
-    void LoadUIToml(const Assets& resource);
+    void LoadSplashToml(const Assets& resource = *Assets::Main());
+    void LoadTitleToml(const Assets& resource = *Assets::Main());
+    void LoadSaveSelectToml(const Assets& resource = *Assets::Main());
+
+    void LoadActorToml(const Assets& resource = *Assets::Main());
+    void LoadUIToml(const Assets& resource = *Assets::Main());
 }
