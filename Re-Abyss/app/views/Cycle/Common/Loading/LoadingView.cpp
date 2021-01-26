@@ -42,15 +42,22 @@ namespace abyss::Cycle
             using Text = LoadingParam::Text;
 
             const double periodicSec = Text::PeriodicSec;
-            const auto t = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::JumpPeriodicOffset) * periodicSec;
+            const auto jumpTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::JumpPeriodicOffset) * periodicSec;
+            const auto jumpIndex = jumpTime * Text::JumpIndexCoef;
 
-            const auto jumpIndex = t * Text::JumpIndexCoef;
+            const auto rotateTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::RotatePeriodicOffset) * periodicSec;
+            const auto rotateIndex = rotateTime * Text::RotateIndexCoef;
+
             Vec2 basePos = LoadingParam::Text::BasePos;
             for (auto&& glyph : FontAsset(FontName::Loading)(U"NOW LOADING...")) {
                 auto pos = basePos;
                 pos.y -= Text::JumpHeight * Periodic::Jump0_1(1s, Saturate((jumpIndex - glyph.index) * Text::JumpTimeRate));
-
-                glyph.texture.draw(pos + glyph.offset, Palette::White);
+                const auto rotate = Saturate((rotateIndex - glyph.index) * Text::RotateTimeRate) * Math::TwoPi;
+                auto tex = glyph.texture;
+                auto baseSize = tex.size;
+                tex = tex.scaled(Cos(rotate), 1.0);
+                pos.x += (baseSize.x - tex.size.x) / 2.0;
+                tex.draw(pos + glyph.offset, Palette::White);
                 basePos.x += glyph.xAdvance + LoadingParam::Text::OffsetX;
             }
         }

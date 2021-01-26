@@ -23,6 +23,9 @@ namespace abyss::Cycle
         [[TOML_BIND_PARAM(Text::JumpIndexCoef, "Text.jumpIndexCoef")]]
         [[TOML_BIND_PARAM(Text::JumpTimeRate, "Text.jumpTimeRate")]]
         [[TOML_BIND_PARAM(Text::JumpHeight, "Text.jumpHeight")]]
+        [[TOML_BIND_PARAM(Text::RotatePeriodicOffset, "Text.rotatePeriodicOffset")]]
+        [[TOML_BIND_PARAM(Text::RotateIndexCoef, "Text.rotateIndexCoef")]]
+        [[TOML_BIND_PARAM(Text::RotateTimeRate, "Text.rotateTimeRate")]]
         struct Text
         {
             inline static s3d::Vec2 BasePos{ 900, 540 };
@@ -32,6 +35,10 @@ namespace abyss::Cycle
             inline static double JumpIndexCoef{ 2.0 };
             inline static double JumpTimeRate{ 2.0 };
             inline static double JumpHeight{ 2.0 };
+
+            inline static double RotatePeriodicOffset{ 2.0 };
+            inline static double RotateIndexCoef{ 2.0 };
+            inline static double RotateTimeRate{ 2.0 };
         };
     };
 }
