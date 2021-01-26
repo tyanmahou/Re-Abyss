@@ -13,12 +13,13 @@ namespace abyss::Cycle
         s3d::Scene::Rect().draw(Palette::Black);
         // Slime君
         {
+            using Slime = LoadingParam::Slime;
             ScopedColorAdd2D scopedColorAdd(ColorF(1,0));
 
-            Vec2 pos = LoadingParam::Slime::BasePos;
+            Vec2 pos = Slime::BasePos;
 
-            constexpr double periodicSec = 1.3;
-            constexpr double jumpSec = 1.0;
+            const double periodicSec = Slime::PeriodicSec;
+            const double jumpSec = Slime::JumpSec;
             auto t = Periodic::Sawtooth0_1(periodicSec) * periodicSec;
             if (t <= jumpSec) {
                 pos.y -= 80 * Periodic::Jump0_1(jumpSec, t);
@@ -38,9 +39,18 @@ namespace abyss::Cycle
 
         // Loading
         {
+            using Text = LoadingParam::Text;
+
+            const double periodicSec = Text::PeriodicSec;
+            const auto t = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::JumpPeriodicOffset) * periodicSec;
+
+            const auto jumpIndex = t * Text::JumpIndexCoef;
             Vec2 basePos = LoadingParam::Text::BasePos;
             for (auto&& glyph : FontAsset(FontName::Loading)(U"NOW LOADING...")) {
-                glyph.texture.draw(basePos + glyph.offset, Palette::White);
+                auto pos = basePos;
+                pos.y -= Text::JumpHeight * Periodic::Jump0_1(1s, Saturate((jumpIndex - glyph.index) * Text::JumpTimeRate));
+
+                glyph.texture.draw(pos + glyph.offset, Palette::White);
                 basePos.x += glyph.xAdvance + LoadingParam::Text::OffsetX;
             }
         }
