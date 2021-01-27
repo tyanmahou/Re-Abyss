@@ -24,6 +24,7 @@ namespace abyss
         if (value == UserPlayMode::Hard) {
             return U"ハードモード";
         }
+        return U"ノーマルモード";
     }
 }
 

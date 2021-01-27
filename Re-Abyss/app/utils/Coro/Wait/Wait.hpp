@@ -47,10 +47,10 @@ namespace abyss::Coro
     /// <summary>
     /// 別スレッドで処理し完了するまで待機
     /// </summary>
-    template<class Fty>
-    [[nodiscard]] auto Aysnc(Fty func)->Task<decltype(func())>
+    template<class Fty, class... Args>
+    [[nodiscard]] auto Aysnc(Fty func, Args&&... args)->Task<decltype(func(std::forward<Args>(args)...))>
     {
-        auto f = std::async(std::launch::async, func);
+        auto f = std::async(std::launch::async, func, std::forward<Args>(args)...);
         while (f.wait_for(0s) != std::future_status::ready) {
             co_yield{};
         }
