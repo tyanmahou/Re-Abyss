@@ -15,9 +15,9 @@ namespace abyss::Coro
             auto get_return_object() { return Generator{ handle::from_promise(*this) }; }
             auto  initial_suspend() { return std::suspend_never{}; }
             auto final_suspend() { return std::suspend_always{}; }
-            auto yield_value(const Type& value)
+            auto yield_value(const Type& _value)
             {
-                this->value = value;
+                this->value = _value;
                 return std::suspend_always{};
             }
             void unhandled_exception() { std::terminate(); }
