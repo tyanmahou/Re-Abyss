@@ -8,6 +8,11 @@ namespace abyss::Cycle
     LoadingView::LoadingView():
         m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>())
     {}
+    LoadingView& LoadingView::setProgress(double progress)
+    {
+        m_progress = s3d::Saturate(progress);
+        return *this;
+    }
     void LoadingView::draw() const
     {
         s3d::Scene::Rect().draw(Palette::Black);
@@ -60,6 +65,13 @@ namespace abyss::Cycle
                 tex.draw(pos + glyph.offset, Palette::White);
                 basePos.x += glyph.xAdvance + LoadingParam::Text::OffsetX;
             }
+        }
+
+        // ProgressBar
+        {
+            using Bar = LoadingParam::ProgressBar;
+            RectF(Bar::BasePos, Vec2{Bar::Size.x * m_progress, Bar::Size.y}).draw();
+            RectF(Bar::BasePos, Bar::Size).drawFrame();
         }
     }
 }

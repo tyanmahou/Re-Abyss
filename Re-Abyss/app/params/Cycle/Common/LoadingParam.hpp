@@ -40,5 +40,13 @@ namespace abyss::Cycle
             inline static double RotateIndexCoef{ 2.0 };
             inline static double RotateTimeRate{ 2.0 };
         };
+
+        [[TOML_BIND_PARAM(ProgressBar::BasePos, "ProgressBar.basePos")]]
+        [[TOML_BIND_PARAM(ProgressBar::Size, "ProgressBar.size")]]
+        struct ProgressBar
+        {
+            inline static s3d::Vec2 BasePos{ 740, 500 };
+            inline static s3d::Vec2 Size{ 200, 10 };
+        };
     };
 }

@@ -5,6 +5,8 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Cycle/Common/Loading.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/debugs/Log/Log.hpp>
+
 namespace abyss
 {
     class TitleScene::Impl :
@@ -18,19 +20,18 @@ namespace abyss
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            m_loading.start([this](double& progress) {
+            m_loading.start([this]() {
                 this->reload();
-                progress = 0.1;
                 auto wait = [&]()->Coro::Task<void> {
                     [[maybe_unused]]s3d::Array<int8> dummy;
-                    for (; progress < 1.0; progress += 0.1) {
+                    while(true) {
                         co_yield Coro::WaitForSeconds(1s);
                     }
                     co_return;
                 }();
                 while (wait.moveNext()) {
+                    //Debug::Log::PrintCache << *progress;
                 }
-                progress = 1.0;
             });
 
             m_main = std::make_unique<Cycle::Title::Main>(this);

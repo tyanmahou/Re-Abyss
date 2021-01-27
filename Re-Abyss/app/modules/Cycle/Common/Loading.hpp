@@ -18,7 +18,7 @@ namespace abyss::Cycle
         Loading();
         ~Loading();
 
-        void start(std::function<void(double& progress)> func);
+        void start(std::function<void()> func);
         bool isDone() const;
 
         void draw() const;
