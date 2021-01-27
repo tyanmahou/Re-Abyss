@@ -9,9 +9,17 @@ namespace
     class AsyncLoading final : public ILoadingTask
     {
     public:
-        AsyncLoading(std::function<void()> func):
-            m_task(Coro::Aysnc(func))
+        AsyncLoading(Coro::Generator<double> task)
         {
+            auto func = [t = std::move(task), this]() {
+                for (auto progress : t) {
+                    m_progress = progress;
+                }
+            };
+            m_task = std::make_unique<Coro::Task<void>>(Coro::Aysnc(std::move(func)));
+            //for (auto progress : task) {
+            //    m_progress = progress;
+            //}
         }
         double progress() const override
         {
@@ -19,11 +27,11 @@ namespace
         }
         bool isDone() const override
         {
-            return m_task.isDone() || !m_task.moveNext();
+            return m_task->isDone() || !m_task->moveNext();
         }
     private:
         double m_progress = 0.0;
-        Coro::Task<void> m_task;
+        std::unique_ptr<Coro::Task<void>> m_task;
     };
 }
 namespace abyss::Cycle
@@ -33,9 +41,9 @@ namespace abyss::Cycle
     {}
     Loading::~Loading()
     {}
-    void Loading::start(std::function<void()> func)
+    void Loading::start(Coro::Generator<double> task)
     {
-        m_task = std::make_unique<AsyncLoading>(func);
+        m_task = std::make_unique<AsyncLoading>(std::move(task));
     }
     bool Loading::isDone() const
     {

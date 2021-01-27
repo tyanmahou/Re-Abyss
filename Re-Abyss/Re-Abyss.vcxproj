@@ -799,6 +799,7 @@
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
+    <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />

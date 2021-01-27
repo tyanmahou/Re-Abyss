@@ -1917,6 +1917,7 @@
     <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
+    <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

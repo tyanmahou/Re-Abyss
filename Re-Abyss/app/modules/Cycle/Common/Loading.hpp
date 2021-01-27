@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-
+#include <abyss/utils/Coro/Generator/Generator.hpp>
 namespace abyss::Cycle
 {
     class LoadingView;
@@ -18,7 +18,7 @@ namespace abyss::Cycle
         Loading();
         ~Loading();
 
-        void start(std::function<void()> func);
+        void start(Coro::Generator<double> task);
         bool isDone() const;
 
         void draw() const;

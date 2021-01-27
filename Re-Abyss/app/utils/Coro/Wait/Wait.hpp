@@ -50,7 +50,7 @@ namespace abyss::Coro
     template<class Fty, class... Args>
     [[nodiscard]] auto Aysnc(Fty func, Args&&... args)->Task<decltype(func(std::forward<Args>(args)...))>
     {
-        auto f = std::async(std::launch::async, func, std::forward<Args>(args)...);
+        auto f = std::async(std::launch::async, std::move(func), std::forward<Args>(args)...);
         while (f.wait_for(0s) != std::future_status::ready) {
             co_yield{};
         }

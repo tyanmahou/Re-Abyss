@@ -20,19 +20,19 @@ namespace abyss
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            m_loading.start([this]() {
-                this->reload();
-                auto wait = [&]()->Coro::Task<void> {
-                    [[maybe_unused]]s3d::Array<int8> dummy;
-                    while(true) {
-                        co_yield Coro::WaitForSeconds(1s);
-                    }
-                    co_return;
-                }();
-                while (wait.moveNext()) {
-                    //Debug::Log::PrintCache << *progress;
-                }
-            });
+            //m_loading.start([this]() {
+            //    this->reload();
+            //    auto wait = [&]()->Coro::Task<void> {
+            //        [[maybe_unused]]s3d::Array<int8> dummy;
+            //        while(true) {
+            //            co_yield Coro::WaitForSeconds(1s);
+            //        }
+            //        co_return;
+            //    }();
+            //    while (wait.moveNext()) {
+            //        //Debug::Log::PrintCache << *progress;
+            //    }
+            //});
 
             m_main = std::make_unique<Cycle::Title::Main>(this);
         }
