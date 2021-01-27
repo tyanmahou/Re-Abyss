@@ -1294,6 +1294,9 @@
     <ClCompile Include="app\views\Cycle\Common\Loading\LoadingView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Cycle\Common\Loading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1913,6 +1916,7 @@
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
+    <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
