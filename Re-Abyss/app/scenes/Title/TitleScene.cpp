@@ -3,7 +3,8 @@
 #include <abyss/modules/Cycle/Title/Main.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-
+#include <abyss/modules/Cycle/Common/Loading.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 namespace abyss
 {
     class TitleScene::Impl :
@@ -12,10 +13,25 @@ namespace abyss
         std::unique_ptr<Cycle::Title::Main> m_main;
 
         std::function<void()> m_onGameStartFunc;
+
+        Cycle::Loading m_loading;
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            this->reload();
+            m_loading.start([this](double& progress) {
+                this->reload();
+                progress = 0.1;
+                auto wait = [&]()->Coro::Task<void> {
+                    [[maybe_unused]]s3d::Array<int8> dummy;
+                    for (; progress < 1.0; progress += 0.1) {
+                        co_yield Coro::WaitForSeconds(1s);
+                    }
+                    co_return;
+                }();
+                while (wait.moveNext()) {
+                }
+                progress = 1.0;
+            });
 
             m_main = std::make_unique<Cycle::Title::Main>(this);
         }
@@ -29,11 +45,18 @@ namespace abyss
         }
         void update()
         {
+            if (!m_loading.isDone()) {
+                return;
+            }
             m_main->update();
         }
 
         void draw() const
         {
+            if (!m_loading.isDone()) {
+                m_loading.draw();
+                return;
+            }
             m_main->draw();
         }
 

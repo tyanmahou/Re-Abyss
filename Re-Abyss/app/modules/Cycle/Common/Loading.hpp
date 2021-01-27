@@ -16,7 +16,8 @@ namespace abyss::Cycle
     {
     public:
         Loading();
-        
+        ~Loading();
+
         void start(std::function<void(double& progress)> func);
         bool isDone() const;
 

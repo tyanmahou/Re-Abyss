@@ -19,7 +19,7 @@ namespace
         }
         bool isDone() const override
         {
-            return !m_task.moveNext();
+            return m_task.isDone() || !m_task.moveNext();
         }
     private:
         double m_progress = 0.0;
@@ -30,6 +30,8 @@ namespace abyss::Cycle
 {
     Loading::Loading():
         m_view(std::make_unique<LoadingView>())
+    {}
+    Loading::~Loading()
     {}
     void Loading::start(std::function<void(double& progress)> func)
     {
@@ -43,5 +45,7 @@ namespace abyss::Cycle
         return m_task->isDone();
     }
     void Loading::draw() const
-    {}
+    {
+        m_view->draw();
+    }
 }
