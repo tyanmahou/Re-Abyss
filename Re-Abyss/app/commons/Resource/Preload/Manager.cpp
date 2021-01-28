@@ -5,50 +5,54 @@
 
 #include <abyss/debugs/Log/Log.hpp>
 
-namespace
+namespace 
 {
-    /// <summary>
-    /// プリロード情報
-    /// </summary>
-    struct PreloadInfo
+    using namespace abyss::Resource::Preload;
+
+    struct PreloadInfoEx : PreloadInfo
     {
         s3d::Array<s3d::String> preload;
-        s3d::Array<s3d::String> texture;
-        s3d::Array<s3d::String> texturePacker;
-        s3d::Array<s3d::String> tmx;
-        s3d::Array<s3d::String> pixelShader;
-        s3d::Array<s3d::String> audio;
-        s3d::Array<s3d::String> audioSetting;
-        s3d::Array<s3d::String> toml;
-
-        PreloadInfo(const s3d::JSONObjectView& json)
-        {
-            for (const auto& [name, value] : json) {
-                if (name == U"Preload") {
-                    preload = value.getArray<s3d::String>();
-                } else if (name == U"Texture") {
-                    texture = value.getArray<s3d::String>();
-                } else if (name == U"TexturePacker") {
-                    texturePacker = value.getArray<s3d::String>();
-                } else if (name == U"Tmx") {
-                    tmx = value.getArray<s3d::String>();
-                } else if (name == U"PixelShader") {
-                    pixelShader = value.getArray<s3d::String>();
-                } else if (name == U"Audio") {
-                    audio = value.getArray<s3d::String>();
-                } else if (name == U"AudioSetting") {
-                    audioSetting = value.getArray<s3d::String>();
-                } else if (name == U"Audio") {
-                    audio = value.getArray<s3d::String>();
-                } else if (name == U"Toml") {
-                    toml = value.getArray<s3d::String>();
-                }
+    };
+    PreloadInfoEx FromJson(const s3d::JSONObjectView& json)
+    {
+        PreloadInfoEx ret;
+        for (const auto& [name, value] : json) {
+            if (name == U"Preload") {
+                ret.preload = value.getArray<s3d::String>();
+            } else if (name == U"Texture") {
+                ret.texture = value.getArray<s3d::String>();
+            } else if (name == U"TexturePacker") {
+                ret.texturePacker = value.getArray<s3d::String>();
+            } else if (name == U"Tmx") {
+                ret.tmx = value.getArray<s3d::String>();
+            } else if (name == U"PixelShader") {
+                ret.pixelShader = value.getArray<s3d::String>();
+            } else if (name == U"Audio") {
+                ret.audio = value.getArray<s3d::String>();
+            } else if (name == U"AudioSetting") {
+                ret.audioSetting = value.getArray<s3d::String>();
+            } else if (name == U"Audio") {
+                ret.audio = value.getArray<s3d::String>();
+            } else if (name == U"Toml") {
+                ret.toml = value.getArray<s3d::String>();
             }
         }
-    };
+        return ret;
+    }
 }
+
 namespace abyss::Resource::Preload
 {
+    Preloader::Preloader(const s3d::String& preloadName):
+        m_info(Manager::GetInfo(preloadName))
+    {
+
+    }
+
+    Preloader::Preloader(PreloadInfo&& info):
+        m_info(std::move(info))
+    {}
+
     class Manager::Impl
     {
     public:
@@ -66,7 +70,7 @@ namespace abyss::Resource::Preload
                 if (!json.isObject()) {
                     continue;
                 }
-                for (auto&& [name, value] : json.objectView()) {
+                for (const auto& [name, value] : json.objectView()) {
                     if (!value.isObject()) {
                         continue;
                     }
@@ -75,13 +79,22 @@ namespace abyss::Resource::Preload
                         Debug::Log::PrintCache << U"Duplicated Preload Name: {}"_fmt(name);
                     }
 #endif
-                    m_prelaodInfos.emplace(name, value.objectView());
+                    m_prelaodInfos.emplace(name, FromJson(value.objectView()));
                 }
             }
         }
+    public:
+        PreloadInfo getInfo(const s3d::String& preloadName)
+        {
+            return PreloadInfo{};
+        }
     private:
-        HashTable<String, PreloadInfo> m_prelaodInfos;
+        HashTable<String, PreloadInfoEx> m_prelaodInfos;
     };
+    PreloadInfo Manager::GetInfo(const s3d::String& preloadName)
+    {
+        return Instance()->m_pImpl->getInfo(preloadName);
+    }
     Manager::Manager():
         m_pImpl(std::make_unique<Impl>())
     {}
