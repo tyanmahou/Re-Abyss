@@ -16,7 +16,6 @@ namespace abyss
         Impl([[maybe_unused]]const InitData& init):
             m_data(init._s)
         {
-            m_main = std::make_unique<Cycle::Splash::Main>(this);
         }
 
         Coro::Generator<double> loading()
@@ -24,6 +23,8 @@ namespace abyss
             // 最初にToml全部ロード
             Resource::Prelaod::LoadTomlAll();
             Resource::Assets::Main()->release();
+
+            m_main = std::make_unique<Cycle::Splash::Main>(this);
             co_yield 1.0;
         }
         void update()

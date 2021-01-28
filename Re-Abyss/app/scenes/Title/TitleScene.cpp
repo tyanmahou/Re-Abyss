@@ -13,22 +13,29 @@ namespace abyss
         std::unique_ptr<Cycle::Title::Main> m_main;
 
         std::function<void()> m_onGameStartFunc;
-
-        Cycle::Loading m_loading;
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            this->reload();
-            m_main = std::make_unique<Cycle::Title::Main>(this);
         }
 
+        Coro::Generator<double> loading()
+        {
+            Resource::Assets::Main()->release();
+            m_main = std::make_unique<Cycle::Title::Main>(this);
+            co_yield 1.0;
+        }
+
+#if ABYSS_NO_BUILD_RESOURCE
         void reload()
         {
             Resource::Assets::Main()->release();
 
             Resource::Prelaod::LoadTitleToml();
             Resource::Prelaod::LoadCycleCommon();
+
+            m_main = std::make_unique<Cycle::Title::Main>(this);
         }
+#endif
         void update()
         {
             m_main->update();
@@ -76,17 +83,7 @@ namespace abyss
         });
 #endif
 
-        m_loading.start([this]()->Coro::Generator<double> {
-            double progress = 0.0;
-            co_yield 0.0;
-            for (int i = 0; i < 100; ++i) {
-                auto wait = Coro::WaitForSeconds(0.05s);
-                while (wait.moveNext()) {}
-                progress += 0.01;
-                co_yield progress;
-            }
-            co_yield 1.0;
-        }());
+        m_loading.start(m_pImpl->loading());
     }
 
     void TitleScene::onSceneUpdate()
