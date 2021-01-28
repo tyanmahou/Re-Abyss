@@ -14,6 +14,10 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::String> audio;
         s3d::Array<s3d::String> audioSetting;
         s3d::Array<s3d::String> toml;
+
+        PreloadInfo& unique();
+
+        PreloadInfo& operator +=(const PreloadInfo& other);
     };
 
     class Preloader

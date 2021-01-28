@@ -43,6 +43,27 @@ namespace
 
 namespace abyss::Resource::Preload
 {
+    PreloadInfo& PreloadInfo::unique()
+    {
+        texture.unique();
+        texturePacker.unique();
+        tmx.unique();
+        pixelShader.unique();
+        audio.unique();
+        audioSetting.unique();
+        toml.unique();
+        return *this;
+    }
+    PreloadInfo& PreloadInfo::operator+=(const PreloadInfo& other)
+    {
+        texture.append(other.texture);
+        texturePacker.append(other.texturePacker);
+        tmx.append(other.tmx);
+        pixelShader.append(other.pixelShader);
+        audio.append(other.audio);
+        audioSetting.append(other.audioSetting);
+        toml.append(other.toml);
+    }
     Preloader::Preloader(const s3d::String& preloadName):
         m_info(Manager::GetInfo(preloadName))
     {
@@ -86,10 +107,23 @@ namespace abyss::Resource::Preload
     public:
         PreloadInfo getInfo(const s3d::String& preloadName)
         {
-            return PreloadInfo{};
+            if (m_cache.contains(preloadName)) {
+                return m_cache[preloadName];
+            }
+            // 先にインスタンス生成
+            m_cache[preloadName] = PreloadInfo{};
+
+            PreloadInfo ret{};
+            const auto& other = m_prelaodInfos[preloadName];
+            ret += other;
+            for (const auto& p : other.preload) {
+                ret += getInfo(p);
+            }
+            return m_cache[preloadName] = ret.unique();
         }
     private:
         HashTable<String, PreloadInfoEx> m_prelaodInfos;
+        HashTable<String, PreloadInfo> m_cache;
     };
     PreloadInfo Manager::GetInfo(const s3d::String& preloadName)
     {
