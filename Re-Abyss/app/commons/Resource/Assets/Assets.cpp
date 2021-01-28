@@ -110,7 +110,7 @@ namespace abyss::Resource
     Assets::~Assets()
     {
     }
-    s3dTiled::TiledMap Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix)
+    s3dTiled::TiledMap Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTmx(FileUtil::FixRelativePath(prefix + path));
     }

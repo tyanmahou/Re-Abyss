@@ -2,7 +2,8 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
-
+#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
+#include <S3DTiled.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 namespace 
@@ -39,30 +40,33 @@ namespace
         }
         return ret;
     }
+
+    using PreloadInfoMemPtr = decltype(&PreloadInfo::texture);
+    constexpr PreloadInfoMemPtr g_prelaodInfoMemPtrs[]{
+        &PreloadInfo::texture,
+        &PreloadInfo::texturePacker,
+        &PreloadInfo::tmx,
+        &PreloadInfo::pixelShader,
+        &PreloadInfo::audio,
+        &PreloadInfo::audioSetting,
+        &PreloadInfo::toml
+    };
 }
 
 namespace abyss::Resource::Preload
 {
     PreloadInfo& PreloadInfo::unique()
     {
-        texture.unique();
-        texturePacker.unique();
-        tmx.unique();
-        pixelShader.unique();
-        audio.unique();
-        audioSetting.unique();
-        toml.unique();
+        for (auto&& memP : g_prelaodInfoMemPtrs) {
+            (this->*memP).unique();
+        }
         return *this;
     }
     PreloadInfo& PreloadInfo::operator+=(const PreloadInfo& other)
     {
-        texture.append(other.texture);
-        texturePacker.append(other.texturePacker);
-        tmx.append(other.tmx);
-        pixelShader.append(other.pixelShader);
-        audio.append(other.audio);
-        audioSetting.append(other.audioSetting);
-        toml.append(other.toml);
+        for (auto&& memP : g_prelaodInfoMemPtrs) {
+            (this->*memP).append(other.*memP);
+        }
     }
     Preloader::Preloader(const s3d::String& preloadName):
         m_info(Manager::GetInfo(preloadName))
@@ -73,6 +77,32 @@ namespace abyss::Resource::Preload
     Preloader::Preloader(PreloadInfo&& info):
         m_info(std::move(info))
     {}
+
+    Coro::Generator<double> Preloader::preloadProgress(const Assets * assets) const
+    {
+        uint32 loadNum = 0;
+        for (auto&& memP : g_prelaodInfoMemPtrs) {
+            loadNum += (m_info.*memP).size();
+        }
+        uint32 count = 0;
+#define LOAD_ASSET(a, b)\
+        for (const auto& path : m_info.##a) {\
+            assets->load##b(path);\
+            ++count;\
+            co_yield static_cast<double>(count) / static_cast<double>(loadNum);\
+        }
+
+        LOAD_ASSET(texture, Texture);
+        LOAD_ASSET(texturePacker, TexturePacker);
+        LOAD_ASSET(tmx, Tmx);
+        LOAD_ASSET(pixelShader, Audio);
+        LOAD_ASSET(audio, Texture);
+        LOAD_ASSET(audioSetting, AudioSettingGroup);
+        LOAD_ASSET(toml, Toml);
+
+#undef LOAD_ASSET
+        co_yield 1.0;
+    }
 
     class Manager::Impl
     {

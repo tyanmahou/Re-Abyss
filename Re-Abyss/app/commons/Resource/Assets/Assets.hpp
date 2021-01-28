@@ -31,7 +31,7 @@ namespace abyss::Resource
     public:
         ~Assets();
 
-        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath);
+        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
         s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         TexturePacker loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;

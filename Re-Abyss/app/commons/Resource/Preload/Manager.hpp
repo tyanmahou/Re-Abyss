@@ -2,6 +2,8 @@
 #include <Siv3D/JSONReader.hpp>
 #include <Siv3D/Array.hpp>
 #include <abyss/utils/Singleton.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/utils/Coro/Generator/Generator.hpp>
 
 namespace abyss::Resource::Preload
 {
@@ -27,6 +29,8 @@ namespace abyss::Resource::Preload
         Preloader(const s3d::String& preloadName);
 
         Preloader(PreloadInfo&& info);
+
+        Coro::Generator<double> preloadProgress(const Assets* assets = Assets::Main()) const;
     private:
         PreloadInfo m_info;
     };
