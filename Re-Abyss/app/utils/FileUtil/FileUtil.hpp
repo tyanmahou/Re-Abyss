@@ -22,4 +22,12 @@ namespace abyss::FileUtil
     //
     s3d::String Extension(const s3d::FilePath& path);
 
+    /// <summary>
+    /// FixRelativePath -> FixResource
+    /// </summary>
+#if ABYSS_NO_BUILD_RESOURCE
+    s3d::String FixPath(const s3d::FilePath& path, bool useResource = false);
+#else
+    s3d::String FixPath(const s3d::FilePath& path, bool useResource = true);
+#endif
 }

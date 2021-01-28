@@ -1297,6 +1297,9 @@
     <ClCompile Include="app\modules\Cycle\Common\Loading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Resource\Preload\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1918,6 +1921,7 @@
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

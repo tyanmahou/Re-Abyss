@@ -62,4 +62,8 @@ namespace abyss::FileUtil
 		auto basePath = path[0] == U'/' ? path.substr(1) : path;
 		return FileSystem::Extension(basePath);
 	}
+	s3d::String FixPath(const s3d::FilePath& path, bool useResource)
+	{
+		return FixResource(FixRelativePath(path), useResource);
+	}
 }
