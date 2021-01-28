@@ -27,8 +27,8 @@ namespace abyss
         }
         void init()
         {
-            Resource::Prelaod::LoadSaveSelectToml(*Resource::Assets::Main());
-            Resource::Prelaod::LoadUIToml(*Resource::Assets::Main());
+            Resource::Prelaod::LoadSaveSelectToml();
+            Resource::Prelaod::LoadUIToml();
 
             m_main = std::make_unique<Cycle::SaveSelect::Main>(this);
         }

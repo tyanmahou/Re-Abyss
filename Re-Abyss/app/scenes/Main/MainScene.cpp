@@ -12,7 +12,7 @@
 namespace
 {
 	using namespace abyss;
-	void PreloadResourece(const Resource::Assets& resource)
+	void PreloadResourece(const Resource::Assets* resource)
 	{
 		Resource::Prelaod::LoadActorToml(resource);
 		Resource::Prelaod::LoadUIToml(resource);
@@ -57,7 +57,7 @@ namespace abyss
 			m_stageData = injector.resolve<StageData>();
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
-			::PreloadResourece(*Resource::Assets::Main());
+			::PreloadResourece(Resource::Assets::Main());
 			if (player) {
 				m_system->init(player);
 			} else {
