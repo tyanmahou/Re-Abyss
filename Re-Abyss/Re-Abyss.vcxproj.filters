@@ -410,9 +410,6 @@
     <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1306,6 +1303,9 @@
     <ClCompile Include="app\commons\Resource\Preload\Preloader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Resource\Preload\Param.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1552,7 +1552,6 @@
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
     <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
-    <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
     <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
@@ -1930,6 +1929,7 @@
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Preloader.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\PreloadInfo.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

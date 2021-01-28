@@ -1,5 +1,5 @@
 #include "SaveSelectScene.hpp"
-#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 #include <abyss/modules/Cycle/SaveSelect/Main.hpp>
@@ -30,9 +30,9 @@ namespace abyss
         void reload()
         {
             Resource::Assets::Main()->release();
-            Resource::Prelaod::LoadCycleCommon();
-            Resource::Prelaod::LoadSaveSelectToml();
-            Resource::Prelaod::LoadUIToml();
+            Resource::Preload::LoadCycleCommon();
+            Resource::Preload::LoadSaveSelectToml();
+            Resource::Preload::LoadUIToml();
 
             this->init();
         }

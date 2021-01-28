@@ -1,6 +1,6 @@
 #include "SplashScene.hpp"
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
-#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/modules/Cycle/Splash/Main.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 namespace abyss
@@ -22,7 +22,7 @@ namespace abyss
         Coro::Generator<double> loading()
         {
             // 最初にToml全部ロード
-            Resource::Prelaod::LoadTomlAll();
+            Resource::Preload::LoadTomlAll();
             Resource::Assets::Main()->release();
 
             Resource::Preload::Preloader preloader(U"@Cycle/Splash");

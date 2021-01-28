@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss::Resource::Prelaod
+namespace abyss::Resource::Preload
 {
     void LoadTomlAll(const Assets* resource = Assets::Main());
     void LoadCycleCommon(const Assets* resource = Assets::Main());

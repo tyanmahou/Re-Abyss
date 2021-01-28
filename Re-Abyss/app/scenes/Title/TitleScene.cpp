@@ -1,5 +1,5 @@
 #include "TitleScene.hpp"
-#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/modules/Cycle/Title/Main.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
@@ -30,8 +30,8 @@ namespace abyss
         {
             Resource::Assets::Main()->release();
 
-            Resource::Prelaod::LoadCycleCommon();
-            Resource::Prelaod::LoadTitleToml();
+            Resource::Preload::LoadCycleCommon();
+            Resource::Preload::LoadTitleToml();
 
             this->init();
         }

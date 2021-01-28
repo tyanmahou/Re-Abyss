@@ -7,7 +7,7 @@
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
 
 namespace abyss
 {
@@ -40,8 +40,8 @@ namespace abyss
 		void reload()
 		{
 			Resource::Assets::Main()->release();
-			Resource::Prelaod::LoadActorToml();
-			Resource::Prelaod::LoadUIToml();
+			Resource::Preload::LoadActorToml();
+			Resource::Preload::LoadUIToml();
 
 			this->init(true);
 		}

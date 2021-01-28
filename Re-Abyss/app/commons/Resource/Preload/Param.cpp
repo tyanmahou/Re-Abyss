@@ -1,4 +1,4 @@
-#include "ParamPreloader.hpp"
+#include "Param.hpp"
 
 // Cycle
 #include <abyss/params/Cycle/Common/FooterParam.hpp>
@@ -36,7 +36,7 @@
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 
-namespace abyss::Resource::Prelaod
+namespace abyss::Resource::Preload
 {
 	void LoadTomlAll(const Assets* resource)
 	{
