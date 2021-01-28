@@ -14,6 +14,11 @@ namespace abyss::Resource::Preload
         Preloader(PreloadInfo&& info);
 
         Coro::Generator<double> preloadProgress(const Assets* assets = Assets::Main()) const;
+
+        size_t size() const
+        {
+            return m_info.size();
+        }
     private:
         PreloadInfo m_info;
     };
