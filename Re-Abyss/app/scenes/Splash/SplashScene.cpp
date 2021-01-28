@@ -1,4 +1,5 @@
 #include "SplashScene.hpp"
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 #include <abyss/modules/Cycle/Splash/Main.hpp>
 
@@ -24,6 +25,10 @@ namespace abyss
             Resource::Prelaod::LoadTomlAll();
             Resource::Assets::Main()->release();
 
+            Resource::Preload::Preloader preloader(U"@Cycle/Splash");
+            for (auto p : preloader.preloadProgress()) {
+                co_yield p;
+            }
             m_main = std::make_unique<Cycle::Splash::Main>(this);
             co_yield 1.0;
         }

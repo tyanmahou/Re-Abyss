@@ -240,6 +240,8 @@
   <ItemGroup>
     <ClCompile Include="app\commons\Resource\Preload\ParamPreloader.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
+    <ClCompile Include="app\commons\Resource\Preload\Preloader.cpp" />
+    <ClCompile Include="app\commons\Resource\Preload\PreloadInfo.cpp" />
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
@@ -686,6 +688,8 @@
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\ParamPreloader.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Preloader.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\PreloadInfo.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
