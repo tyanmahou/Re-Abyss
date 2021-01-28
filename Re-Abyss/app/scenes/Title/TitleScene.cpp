@@ -21,7 +21,7 @@ namespace abyss
         Coro::Generator<double> loading()
         {
             Resource::Assets::Main()->release();
-            m_main = std::make_unique<Cycle::Title::Main>(this);
+            this->init();
             co_yield 1.0;
         }
 
@@ -30,12 +30,16 @@ namespace abyss
         {
             Resource::Assets::Main()->release();
 
-            Resource::Prelaod::LoadTitleToml();
             Resource::Prelaod::LoadCycleCommon();
+            Resource::Prelaod::LoadTitleToml();
 
-            m_main = std::make_unique<Cycle::Title::Main>(this);
+            this->init();
         }
 #endif
+        void init()
+        {
+            m_main = std::make_unique<Cycle::Title::Main>(this);
+        }
         void update()
         {
             m_main->update();

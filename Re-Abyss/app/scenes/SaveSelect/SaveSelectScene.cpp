@@ -17,19 +17,28 @@ namespace abyss
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
-            this->init();
         }
 
+        Coro::Generator<double> loading()
+        {
+            Resource::Assets::Main()->release();
+
+            this->init();
+            co_yield 1.0;
+        }
+#if ABYSS_NO_BUILD_RESOURCE
         void reload()
         {
             Resource::Assets::Main()->release();
-            this->init();
-        }
-        void init()
-        {
+            Resource::Prelaod::LoadCycleCommon();
             Resource::Prelaod::LoadSaveSelectToml();
             Resource::Prelaod::LoadUIToml();
 
+            this->init();
+        }
+#endif
+        void init()
+        {
             m_main = std::make_unique<Cycle::SaveSelect::Main>(this);
         }
         void update()
@@ -92,6 +101,7 @@ namespace abyss
             this->changeScene(SceneName::Title);
         });
 
+        m_loading.start(m_pImpl->loading());
 #if ABYSS_NO_BUILD_RESOURCE
         m_reloader
             .setMessage(U"SaveSelect")
