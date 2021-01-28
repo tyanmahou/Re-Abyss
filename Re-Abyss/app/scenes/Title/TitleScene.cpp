@@ -3,9 +3,7 @@
 #include <abyss/modules/Cycle/Title/Main.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/modules/Cycle/Common/Loading.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
-#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss
 {
@@ -20,19 +18,7 @@ namespace abyss
     public:
         Impl([[maybe_unused]]const InitData& init)
         {
-            m_loading.start([this]()->Coro::Generator<double>{
-                this->reload();
-                double progress = 0.0;
-                co_yield 0.0;
-                for (int i = 0; i < 100; ++i) {
-                    auto wait = Coro::WaitForSeconds(0.1s);
-                    while (wait.moveNext()) {}
-                    progress += 0.01;
-                    co_yield progress;
-                }
-                co_yield 1.0;
-            }());
-
+            this->reload();
             m_main = std::make_unique<Cycle::Title::Main>(this);
         }
 
@@ -45,18 +31,11 @@ namespace abyss
         }
         void update()
         {
-            if (!m_loading.isDone()) {
-                return;
-            }
             m_main->update();
         }
 
         void draw() const
         {
-            if (!m_loading.isDone()) {
-                m_loading.draw();
-                return;
-            }
             m_main->draw();
         }
 
@@ -87,7 +66,7 @@ namespace abyss
         m_pImpl->bindGameStartFunc([this] {
             this->changeScene(SceneName::SaveSelect);
         });
-
+#if ABYSS_NO_BUILD_RESOURCE
         m_reloader
             .setMessage(U"Title")
             .setCallback([this]() {
@@ -95,6 +74,19 @@ namespace abyss
         }).setSuperCallback([this] {
             this->m_pImpl->reload();
         });
+#endif
+
+        m_loading.start([this]()->Coro::Generator<double> {
+            double progress = 0.0;
+            co_yield 0.0;
+            for (int i = 0; i < 100; ++i) {
+                auto wait = Coro::WaitForSeconds(0.05s);
+                while (wait.moveNext()) {}
+                progress += 0.01;
+                co_yield progress;
+            }
+            co_yield 1.0;
+        }());
     }
 
     void TitleScene::onSceneUpdate()

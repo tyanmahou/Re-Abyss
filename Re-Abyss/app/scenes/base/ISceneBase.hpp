@@ -1,6 +1,7 @@
 # pragma once
 #include <Siv3D.hpp>
 #include <abyss/debugs/HotReload/HotReload.hpp>
+#include <abyss/modules/Cycle/Common/Loading.hpp>
 
 namespace abyss
 {
@@ -36,6 +37,7 @@ namespace abyss
         void update() final;
         void draw() const final;
     protected:
+        Cycle::Loading m_loading;
 #if ABYSS_NO_BUILD_RESOURCE
         Debug::HotReload m_reloader;
 #endif
