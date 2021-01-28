@@ -16,11 +16,16 @@ namespace abyss
         Impl([[maybe_unused]]const InitData& init):
             m_data(init._s)
         {
-            Resource::Prelaod::LoadSplashToml();
-
             m_main = std::make_unique<Cycle::Splash::Main>(this);
         }
 
+        Coro::Generator<double> loading()
+        {
+            // 最初にToml全部ロード
+            Resource::Prelaod::LoadTomlAll();
+            Resource::Assets::Main()->release();
+            co_yield 1.0;
+        }
         void update()
         {
             m_main->update();
@@ -49,6 +54,8 @@ namespace abyss
             // TODO OpDemoに変更
             this->changeScene(SceneName::Title, 0);
         });
+
+        m_loading.start(m_pImpl->loading());
     }
 
     void SplashScene::onSceneUpdate()
