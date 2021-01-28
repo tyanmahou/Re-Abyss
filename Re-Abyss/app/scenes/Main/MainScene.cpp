@@ -9,15 +9,6 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/ParamPreloader.hpp>
 
-namespace
-{
-	using namespace abyss;
-	void PreloadResourece(const Resource::Assets* resource)
-	{
-		Resource::Prelaod::LoadActorToml(resource);
-		Resource::Prelaod::LoadUIToml(resource);
-	}
-}
 namespace abyss
 {
 	class MainScene::Impl :
@@ -37,15 +28,24 @@ namespace abyss
 			m_data(init._s)
 		{
 			mapName = U"stage0";
-
-			this->init();
 		}
 
+		Coro::Generator<double> loading()
+		{
+			co_yield 0.0;
+			this->init();
+			co_yield 1.0;
+		}
+#if ABYSS_NO_BUILD_RESOURCE
 		void reload()
 		{
 			Resource::Assets::Main()->release();
+			Resource::Prelaod::LoadActorToml();
+			Resource::Prelaod::LoadUIToml();
+
 			this->init(true);
 		}
+#endif
 		void init(bool isLockPlayer = false)
 		{
 			std::shared_ptr<Actor::IActor> player = nullptr;
@@ -57,7 +57,6 @@ namespace abyss
 			m_stageData = injector.resolve<StageData>();
 			m_system->loadStage(m_stageData);
 			m_system->loadSaveData(m_saveData);
-			::PreloadResourece(Resource::Assets::Main());
 			if (player) {
 				m_system->init(player);
 			} else {
@@ -104,6 +103,8 @@ namespace abyss
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
 	{
+		m_loading.start(m_pImpl->loading());
+
 #if ABYSS_NO_BUILD_RESOURCE
 		m_reloader
 			.setMessage(U"stage0")
@@ -114,7 +115,7 @@ namespace abyss
 			    m_pImpl->init();
 		    })
 			;
-#endif	
+#endif
 	}
 
 	void MainScene::onSceneUpdate()
