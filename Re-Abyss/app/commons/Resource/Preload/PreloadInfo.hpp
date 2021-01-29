@@ -9,13 +9,13 @@ namespace abyss::Resource::Preload
     /// </summary>
     struct PreloadInfo
     {
-        s3d::Array<s3d::String> texture;
-        s3d::Array<s3d::String> texturePacker;
-        s3d::Array<s3d::String> tmx;
-        s3d::Array<s3d::String> pixelShader;
-        s3d::Array<s3d::String> audio;
-        s3d::Array<s3d::String> audioSetting;
-        s3d::Array<s3d::String> toml;
+        s3d::Array<s3d::FilePath> texture;
+        s3d::Array<s3d::FilePath> texturePacker;
+        s3d::Array<s3d::FilePath> tmx;
+        s3d::Array<s3d::FilePath> pixelShader;
+        s3d::Array<s3d::FilePath> audio;
+        s3d::Array<s3d::FilePath> audioSetting;
+        s3d::Array<s3d::FilePath> toml;
 
         PreloadInfo& unique();
         size_t size() const;
