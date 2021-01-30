@@ -21,6 +21,9 @@ namespace abyss::Resource
 #else
         bool m_isBuilded = true;
 #endif
+#if ABYSS_DEBUG
+        bool m_useLoadWarn = false;
+#endif
     public:
         template<class Type, class ReadType = Type, class ... Args> 
         const Type& load(s3d::HashTable<String, Type>& cache, const s3d::FilePath& path, Args&&... args)
