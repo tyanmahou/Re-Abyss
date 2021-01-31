@@ -64,7 +64,7 @@ namespace abyss::Resource
             if (cache.find(path) != cache.end()) {
                 return cache[path];
             }
-            ReadType rc = AssetLoadTraits<ReadType>{}.load(FileUtil::FixResource(path, m_isBuilded), std::forward<Args>(args)...);
+            ReadType rc = AssetLoadTraits<ReadType>{}.load(FileUtil::FixPath(path, m_isBuilded), std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -139,36 +139,36 @@ namespace abyss::Resource
     }
     s3dTiled::TiledMap Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTmx(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadTmx(prefix + path);
     }
     s3d::Texture Assets::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexture(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadTexture(prefix + path);
     }
 
     TexturePacker Assets::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadTexturePacker(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadTexturePacker(prefix + path);
     }
 
     s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadAudio(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadAudio(prefix + path);
     }
 
     AudioSettingGroup Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadAudioSettingGroup(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadAudioSettingGroup(prefix + path);
     }
 
     s3d::PixelShader Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadPs(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadPs(prefix + path);
     }
 
     const s3d::TOMLValue& Assets::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
-        return m_pImpl->loadToml(FileUtil::FixRelativePath(prefix + path));
+        return m_pImpl->loadToml(prefix + path);
     }
 
     void Assets::release() const
