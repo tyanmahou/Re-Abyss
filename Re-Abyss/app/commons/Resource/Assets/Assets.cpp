@@ -5,6 +5,39 @@
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 #include <Siv3D.hpp>
 #include <S3DTiled.hpp>
+
+namespace
+{
+    using namespace abyss;
+
+    template<class Type>
+    struct AssetLoadTraits
+    {
+        template<class... Args>
+        Type load(const s3d::FilePath& path, Args&&... args) const
+        {
+            return Type(path, std::forward<Args>(args)...);
+        }
+    };
+
+    template<>
+    struct AssetLoadTraits<s3d::Audio>
+    {
+        template<class Callback>
+        s3d::Audio load(const s3d::FilePath& path, const Callback& callback) const
+        {
+            if (FileUtil::Extension(path) == U"aas") {
+                AudioSettingReader reader;
+                auto as = reader.load(path);
+                Audio ret = callback(as.path);
+                as.apply(ret);
+                return ret;
+            } else {
+                return s3d::Audio(path);
+            }
+        }
+    };
+}
 namespace abyss::Resource
 {
     class Assets::Impl
@@ -31,7 +64,7 @@ namespace abyss::Resource
             if (cache.find(path) != cache.end()) {
                 return cache[path];
             }
-            ReadType rc(FileUtil::FixResource(path, m_isBuilded), std::forward<Args>(args)...);
+            ReadType rc = AssetLoadTraits<ReadType>{}.load(FileUtil::FixResource(path, m_isBuilded), std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
@@ -57,26 +90,9 @@ namespace abyss::Resource
         }
         Audio loadAudio(const s3d::FilePath& path)
         {
-            if (m_audioCache.find(path) != m_audioCache.end()) {
-                return m_audioCache[path];
-            }
-            Audio ret;
-            auto fixPath = FileUtil::FixResource(path, m_isBuilded);
-            if (FileUtil::Extension(fixPath) == U"aas") {
-                AudioSettingReader reader;
-                auto as = reader.load(fixPath);
-                ret = this->loadAudio(as.path);
-                as.apply(ret);
-            } else {
-                ret = Audio(fixPath);
-            }
-
-#if ABYSS_DEBUG
-            if (!ret) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
-            }
-#endif
-            return m_audioCache[path] = ret;
+            return this->load(m_audioCache, path, [this](const s3d::FilePath& callbackPath) {
+                return this->loadAudio(callbackPath);
+            });
         }
         AudioSettingGroup loadAudioSettingGroup(const s3d::FilePath& path)
         {
