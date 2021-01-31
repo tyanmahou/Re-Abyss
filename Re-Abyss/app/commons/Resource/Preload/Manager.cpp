@@ -40,7 +40,24 @@ namespace
         return ret;
     }
 
-
+    s3d::Array<s3d::FilePath> GetPreloadFile()
+    {
+        s3d::Array<s3d::FilePath> ret;
+#if ABYSS_NO_BUILD_RESOURCE
+        for (auto& path : s3d::FileSystem::DirectoryContents(abyss::Path::PreloadPath)) {
+            if (s3d::FileSystem::Extension(path) == U"json") {
+                ret.push_back(s3d::FileSystem::RelativePath(path));
+            }
+        }
+#else
+        for (auto&& path : s3d::EnumResourceFiles()) {
+            if (path.starts_with(U"RESOURCES/PRELOAD")) {
+                ret.push_back(path);
+            }
+        }
+#endif
+        return ret;
+    }
 }
 
 namespace abyss::Resource::Preload
@@ -50,13 +67,7 @@ namespace abyss::Resource::Preload
     public:
         Impl()
         {
-            s3d::Array<s3d::FilePathView> paths{
-                U"Cycle/splash.json",
-                U"Cycle/title.json",
-            };
-
-            for (const auto& preloadPath : paths) {
-                const auto& path = Path::PreloadPath + preloadPath;
+            for (const auto& path : GetPreloadFile()) {
                 JSONReader json(FileUtil::FixPath(path));
                 if (!json) {
                     continue;
@@ -64,30 +75,34 @@ namespace abyss::Resource::Preload
                 if (!json.isObject()) {
                     continue;
                 }
+                // リソースが大文字になっちゃうのでアッパーケースでキャッシュする
+                auto fixName = path.uppercased();
 #if ABYSS_DEBUG
-                if (m_prelaodInfos.contains(path)) {
-                    Debug::Log::PrintCache << U"Duplicated Load Preload File: {}"_fmt(path);
+                if (m_prelaodInfos.contains(fixName)) {
+                    Debug::Log::PrintCache << U"Duplicated Load Preload File: {}"_fmt(fixName);
                 }
 #endif
-                m_prelaodInfos.emplace(path, FromJson(json.objectView()));
+                m_prelaodInfos.emplace(fixName, FromJson(json.objectView()));
             }
         }
     public:
         PreloadInfo getInfo(const s3d::String& preloadName)
         {
-            if (m_cache.contains(preloadName)) {
-                return m_cache[preloadName];
+            // リソースが大文字になっちゃうのでアッパーケースでキャッシュする
+            auto fixName = preloadName.uppercased();
+            if (m_cache.contains(fixName)) {
+                return m_cache[fixName];
             }
             // 先にインスタンス生成
-            m_cache[preloadName] = PreloadInfo{};
+            m_cache[fixName] = PreloadInfo{};
 
             PreloadInfo ret{};
-            const auto& other = m_prelaodInfos[preloadName];
+            const auto& other = m_prelaodInfos[fixName];
             ret += other;
             for (const auto& p : other.preload) {
                 ret += getInfo(p);
             }
-            return m_cache[preloadName] = ret.unique();
+            return m_cache[fixName] = ret.unique();
         }
     private:
         HashTable<String, PreloadInfoEx> m_prelaodInfos;
