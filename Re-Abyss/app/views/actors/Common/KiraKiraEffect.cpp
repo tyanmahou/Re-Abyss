@@ -9,11 +9,11 @@ namespace abyss
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
     {}
 
-    bool KiraKiraEffect::update(double t)
+    bool KiraKiraEffect::update(double time)
     {
         ScopedRenderStates2D t2d(BlendState::Additive);
 
-        t = s3d::Saturate(t);
+        auto t = s3d::Saturate(time);
 
         switch (m_type) {
         case Type1:
@@ -36,7 +36,7 @@ namespace abyss
         default:
             break;
         }
-        return t <= 1.0;
+        return time <= 1.0;
     }
 
 }
