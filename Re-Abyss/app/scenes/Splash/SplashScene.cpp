@@ -19,19 +19,16 @@ namespace abyss
         {
         }
 
-        Coro::Generator<double> loading()
+        void loading()
         {
             // 最初にToml全部ロード
             Resource::Preload::LoadTomlAll();
             Resource::Assets::Main()->release();
 
             Resource::Preload::Preloader preloader(U"@Cycle/splash");
-            for (auto p : preloader.preloadProgress()) {
-                co_yield p;
-            }
+            preloader.preload();
 
             m_main = std::make_unique<Cycle::Splash::Main>(this);
-            co_yield 1.0;
         }
         void update()
         {
@@ -62,7 +59,8 @@ namespace abyss
             this->changeScene(SceneName::Title, 0);
         });
 
-        m_loading.start(m_pImpl->loading());
+        // ローディング
+        m_pImpl->loading();
     }
 
     void SplashScene::onSceneUpdate()

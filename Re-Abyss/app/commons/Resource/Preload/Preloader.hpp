@@ -13,6 +13,17 @@ namespace abyss::Resource::Preload
 
         Preloader(PreloadInfo&& info);
 
+        /// <summary>
+        /// プリロード
+        /// </summary>
+        /// <param name="assets"></param>
+        void preload(const Assets* assets = Assets::Main());
+
+        /// <summary>
+        /// 進捗率を取得するジェネレータとしてロード
+        /// </summary>
+        /// <param name="assets"></param>
+        /// <returns></returns>
         Coro::Generator<double> preloadProgress(const Assets* assets = Assets::Main()) const;
 
         size_t size() const

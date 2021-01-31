@@ -19,16 +19,13 @@ namespace abyss
         {
         }
 
-        Coro::Generator<double> loading()
+        void loading()
         {
             Resource::Assets::Main()->release();
             Resource::Preload::Preloader preloader(U"@Cycle/title");
-            for (auto p : preloader.preloadProgress()) {
-                co_yield p;
-            }
+            preloader.preload();
 
             this->init();
-            co_yield 1.0;
         }
 
 #if ABYSS_NO_BUILD_RESOURCE
@@ -93,7 +90,7 @@ namespace abyss
         });
 #endif
 
-        m_loading.start(m_pImpl->loading());
+        m_pImpl->loading();
     }
 
     void TitleScene::onSceneUpdate()

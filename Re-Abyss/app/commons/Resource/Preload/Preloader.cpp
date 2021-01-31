@@ -14,6 +14,24 @@ namespace abyss::Resource::Preload
         m_info(std::move(info))
     {}
 
+    void Preloader::preload(const Assets* assets)
+    {
+#define LOAD_ASSET(a, b)\
+        for (const auto& path : m_info.##a) {\
+            assets->load##b(path);\
+        }
+
+        LOAD_ASSET(texture, Texture);
+        LOAD_ASSET(texturePacker, TexturePacker);
+        LOAD_ASSET(tmx, Tmx);
+        LOAD_ASSET(pixelShader, Ps);
+        LOAD_ASSET(audio, Audio);
+        LOAD_ASSET(audioSetting, AudioSettingGroup);
+        LOAD_ASSET(toml, Toml);
+
+#undef LOAD_ASSET
+    }
+
     Coro::Generator<double> Preloader::preloadProgress(const Assets* assets) const
     {
 #if ABYSS_DEBUG
