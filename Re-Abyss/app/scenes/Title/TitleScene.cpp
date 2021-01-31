@@ -80,6 +80,10 @@ namespace abyss
         m_pImpl->bindGameStartFunc([this] {
             this->changeScene(SceneName::SaveSelect);
         });
+
+        // ローディング
+        m_pImpl->loading();
+
 #if ABYSS_NO_BUILD_RESOURCE
         m_reloader
             .setMessage(U"Title")
@@ -89,8 +93,6 @@ namespace abyss
             this->m_pImpl->reload();
         });
 #endif
-
-        m_pImpl->loading();
     }
 
     void TitleScene::onSceneUpdate()

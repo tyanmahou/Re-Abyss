@@ -19,12 +19,11 @@ namespace abyss
         {
         }
 
-        Coro::Generator<double> loading()
+        void loading()
         {
             Resource::Assets::Main()->release();
 
             this->init();
-            co_yield 1.0;
         }
 #if ABYSS_NO_BUILD_RESOURCE
         void reload()
@@ -101,7 +100,9 @@ namespace abyss
             this->changeScene(SceneName::Title);
         });
 
-        m_loading.start(m_pImpl->loading());
+        // ローディング
+        m_pImpl->loading();
+
 #if ABYSS_NO_BUILD_RESOURCE
         m_reloader
             .setMessage(U"SaveSelect")
