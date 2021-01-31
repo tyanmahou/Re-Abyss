@@ -22,7 +22,7 @@ namespace abyss::Resource
         bool m_isBuilded = true;
 #endif
 #if ABYSS_DEBUG
-        bool m_useLoadWarn = false;
+        bool m_isWarnMode = false;
 #endif
     public:
         template<class Type, class ReadType = Type, class ... Args> 
@@ -35,6 +35,8 @@ namespace abyss::Resource
 #if ABYSS_DEBUG
             if (!rc) {
                 Debug::Log::PrintCache << U"Failed Load:" << path;
+            } else if (m_isWarnMode) {
+                Debug::Log::PrintCache << U"Load: " << path;
             }
 #endif
             return cache[path] = rc;
@@ -104,6 +106,12 @@ namespace abyss::Resource
         {
             m_isBuilded = isBuilded;
         }
+#if ABYSS_DEBUG
+        void setWarnMode(bool isWarnMode)
+        {
+            m_isWarnMode = isWarnMode;
+        }
+#endif
     };
 
     Assets::Assets():
@@ -152,6 +160,12 @@ namespace abyss::Resource
         return m_pImpl->release();
     }
 
+#if ABYSS_DEBUG
+    void Assets::setWarnMode(bool isWarnMode) const
+    {
+        m_pImpl->setWarnMode(isWarnMode);
+    }
+#endif
     Assets* Assets::Main()
     {
         return Instance();

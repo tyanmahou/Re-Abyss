@@ -49,6 +49,13 @@ namespace abyss::Resource
 
         void release() const;
 
+#if ABYSS_DEBUG
+        /// <summary>
+        /// ロード入ると警告入れます
+        /// </summary>
+        /// <param name="isWarnMode"></param>
+        void setWarnMode(bool isWarnMode) const;
+#endif
     public:
         static Assets* Main();
     };

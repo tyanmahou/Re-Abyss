@@ -16,6 +16,9 @@ namespace abyss::Resource::Preload
 
     Coro::Generator<double> Preloader::preloadProgress(const Assets* assets) const
     {
+#if ABYSS_DEBUG
+        assets->setWarnMode(false);
+#endif
         size_t loadNum = m_info.size();
         size_t count = 0;
 #define LOAD_ASSET(a, b)\
@@ -34,6 +37,11 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
+
+#if ABYSS_DEBUG
+        assets->setWarnMode(true);
+#endif
+
         co_yield 1.0;
     }
 }
