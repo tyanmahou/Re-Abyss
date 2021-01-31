@@ -25,7 +25,7 @@ namespace abyss
             Resource::Preload::LoadTomlAll();
             Resource::Assets::Main()->release();
 
-            Resource::Preload::Preloader preloader(U"Cycle/splash.json");
+            Resource::Preload::Preloader preloader(U"@Cycle/splash");
             for (auto p : preloader.preloadProgress()) {
                 co_yield p;
             }

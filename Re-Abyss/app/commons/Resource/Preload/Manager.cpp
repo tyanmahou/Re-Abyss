@@ -75,34 +75,35 @@ namespace abyss::Resource::Preload
                 if (!json.isObject()) {
                     continue;
                 }
-                // リソースが大文字になっちゃうのでアッパーケースでキャッシュする
-                auto fixName = path.uppercased();
+                for (const auto& [name, value] : json.objectView()) {
+                    if (!value.isObject()) {
+                        continue;
+                    }
 #if ABYSS_DEBUG
-                if (m_prelaodInfos.contains(fixName)) {
-                    Debug::Log::PrintCache << U"Duplicated Load Preload File: {}"_fmt(fixName);
-                }
+                    if (m_prelaodInfos.contains(name)) {
+                        Debug::Log::PrintCache << U"Duplicated Load Preload Name: {}"_fmt(name);
+                    }
 #endif
-                m_prelaodInfos.emplace(fixName, FromJson(json.objectView()));
+                    m_prelaodInfos.emplace(name, FromJson(value.objectView()));
+                }
             }
         }
     public:
         PreloadInfo getInfo(const s3d::String& preloadName)
         {
-            // リソースが大文字になっちゃうのでアッパーケースでキャッシュする
-            auto fixName = preloadName.uppercased();
-            if (m_cache.contains(fixName)) {
-                return m_cache[fixName];
+            if (m_cache.contains(preloadName)) {
+                return m_cache[preloadName];
             }
             // 先にインスタンス生成
-            m_cache[fixName] = PreloadInfo{};
+            m_cache[preloadName] = PreloadInfo{};
 
             PreloadInfo ret{};
-            const auto& other = m_prelaodInfos[fixName];
+            const auto& other = m_prelaodInfos[preloadName];
             ret += other;
             for (const auto& p : other.preload) {
                 ret += getInfo(p);
             }
-            return m_cache[fixName] = ret.unique();
+            return m_cache[preloadName] = ret.unique();
         }
     private:
         HashTable<String, PreloadInfoEx> m_prelaodInfos;
@@ -110,7 +111,7 @@ namespace abyss::Resource::Preload
     };
     PreloadInfo Manager::GetInfo(const s3d::String& preloadName)
     {
-        return Instance()->m_pImpl->getInfo(Path::PreloadPath + preloadName);
+        return Instance()->m_pImpl->getInfo(preloadName);
     }
     Manager::Manager():
         m_pImpl(std::make_unique<Impl>())

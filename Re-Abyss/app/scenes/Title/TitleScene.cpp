@@ -22,7 +22,7 @@ namespace abyss
         Coro::Generator<double> loading()
         {
             Resource::Assets::Main()->release();
-            Resource::Preload::Preloader preloader(U"Cycle/title.json");
+            Resource::Preload::Preloader preloader(U"@Cycle/title");
             for (auto p : preloader.preloadProgress()) {
                 co_yield p;
             }
