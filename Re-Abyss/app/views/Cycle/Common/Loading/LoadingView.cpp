@@ -6,7 +6,7 @@
 namespace abyss::Cycle
 {
     LoadingView::LoadingView():
-        m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>())
+        m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::Norelease()))
     {}
     LoadingView& LoadingView::setProgress(double progress)
     {

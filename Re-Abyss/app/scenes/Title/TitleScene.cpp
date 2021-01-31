@@ -1,4 +1,5 @@
 #include "TitleScene.hpp"
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/modules/Cycle/Title/Main.hpp>
 
@@ -21,6 +22,11 @@ namespace abyss
         Coro::Generator<double> loading()
         {
             Resource::Assets::Main()->release();
+            Resource::Preload::Preloader preloader(U"Cycle/title.json");
+            for (auto p : preloader.preloadProgress()) {
+                co_yield p;
+            }
+
             this->init();
             co_yield 1.0;
         }

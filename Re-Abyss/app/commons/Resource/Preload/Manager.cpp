@@ -52,27 +52,24 @@ namespace abyss::Resource::Preload
         {
             s3d::Array<s3d::FilePathView> paths{
                 U"Cycle/splash.json",
+                U"Cycle/title.json",
             };
 
             for (const auto& preloadPath : paths) {
-                JSONReader json(FileUtil::FixPath(Path::PreloadPath + preloadPath));
+                const auto& path = Path::PreloadPath + preloadPath;
+                JSONReader json(FileUtil::FixPath(path));
                 if (!json) {
                     continue;
                 }
                 if (!json.isObject()) {
                     continue;
                 }
-                for (const auto& [name, value] : json.objectView()) {
-                    if (!value.isObject()) {
-                        continue;
-                    }
 #if ABYSS_DEBUG
-                    if (m_prelaodInfos.contains(name)) {
-                        Debug::Log::PrintCache << U"Duplicated Preload Name: {}"_fmt(name);
-                    }
-#endif
-                    m_prelaodInfos.emplace(name, FromJson(value.objectView()));
+                if (m_prelaodInfos.contains(path)) {
+                    Debug::Log::PrintCache << U"Duplicated Load Preload File: {}"_fmt(path);
                 }
+#endif
+                m_prelaodInfos.emplace(path, FromJson(json.objectView()));
             }
         }
     public:
@@ -98,7 +95,7 @@ namespace abyss::Resource::Preload
     };
     PreloadInfo Manager::GetInfo(const s3d::String& preloadName)
     {
-        return Instance()->m_pImpl->getInfo(preloadName);
+        return Instance()->m_pImpl->getInfo(Path::PreloadPath + preloadName);
     }
     Manager::Manager():
         m_pImpl(std::make_unique<Impl>())

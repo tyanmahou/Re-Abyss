@@ -184,6 +184,12 @@ namespace abyss::Resource
 #endif
     Assets* Assets::Main()
     {
-        return Instance();
+        static Assets instance;
+        return &instance;
+    }
+    Assets* Assets::Norelease()
+    {
+        static Assets instance;
+        return &instance;
     }
 }

@@ -3,6 +3,7 @@
 #include <Siv3D/Texture.hpp>
 
 #include <abyss/types/Forward.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {
@@ -18,7 +19,7 @@ namespace abyss::Actor::Enemy::Slime
         double m_time;
 
     public:
-        SlimeVM();
+        SlimeVM(Resource::Assets* asset = Resource::Assets::Main());
         SlimeVM& setTime(double time);
         SlimeVM& setForward(const Forward& forward);
         SlimeVM& setPos(const s3d::Vec2& pos);

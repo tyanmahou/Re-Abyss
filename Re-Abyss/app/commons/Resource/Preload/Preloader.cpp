@@ -31,8 +31,8 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(texture, Texture);
         LOAD_ASSET(texturePacker, TexturePacker);
         LOAD_ASSET(tmx, Tmx);
-        LOAD_ASSET(pixelShader, Audio);
-        LOAD_ASSET(audio, Texture);
+        LOAD_ASSET(pixelShader, Ps);
+        LOAD_ASSET(audio, Audio);
         LOAD_ASSET(audioSetting, AudioSettingGroup);
         LOAD_ASSET(toml, Toml);
 

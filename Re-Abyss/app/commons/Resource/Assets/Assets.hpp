@@ -6,7 +6,6 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
-#include <abyss/utils/Singleton.hpp>
 
 namespace s3dTiled
 {
@@ -20,9 +19,8 @@ namespace abyss
 namespace abyss::Resource
 {
 
-    class Assets : protected Singleton<Assets>
+    class Assets : s3d::Uncopyable
     {
-        friend class Singleton<Assets>;
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
 
@@ -57,6 +55,15 @@ namespace abyss::Resource
         void setWarnMode(bool isWarnMode) const;
 #endif
     public:
+        /// <summary>
+        /// メインアセット
+        /// </summary>
+        /// <returns></returns>
         static Assets* Main();
+        /// <summary>
+        /// リリースしないアセット
+        /// </summary>
+        /// <returns></returns>
+        static Assets* Norelease();
     };
 }
