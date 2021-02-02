@@ -257,8 +257,12 @@ namespace abyss::Actor::Player
         if (frame == 5) {
             frame = 4;
         }
+        auto pos = m_pos;
+        if (frame == 4) {
+            pos.y += 3;
+        }
         m_texture(U"dead")({ 0, frame * 80 }, {80, 80})
-            .drawAt(m_pos, this->calcColor());
+            .drawAt(pos, this->calcColor());
     }
     void PlayerVM::drawStateLadder() const
     {
