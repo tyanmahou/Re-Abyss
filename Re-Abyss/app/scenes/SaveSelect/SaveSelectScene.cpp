@@ -1,4 +1,5 @@
 #include "SaveSelectScene.hpp"
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
@@ -22,6 +23,9 @@ namespace abyss
         void loading()
         {
             Resource::Assets::Main()->release();
+
+            Resource::Preload::Preloader preloader(U"@Cycle/SaveSelect");
+            preloader.preload();
 
             this->init();
         }

@@ -25,7 +25,7 @@ namespace abyss
             Resource::Preload::LoadTomlAll();
             Resource::Assets::Main()->release();
 
-            Resource::Preload::Preloader preloader(U"@Cycle/splash");
+            Resource::Preload::Preloader preloader(U"@Cycle/Splash");
             preloader.preload();
 
             m_main = std::make_unique<Cycle::Splash::Main>(this);

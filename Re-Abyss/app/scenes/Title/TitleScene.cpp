@@ -22,7 +22,7 @@ namespace abyss
         void loading()
         {
             Resource::Assets::Main()->release();
-            Resource::Preload::Preloader preloader(U"@Cycle/title");
+            Resource::Preload::Preloader preloader(U"@Cycle/Title");
             preloader.preload();
 
             this->init();
