@@ -16,6 +16,9 @@ namespace abyss::Resource::Preload
 
     void Preloader::preload(const Assets* assets)
     {
+#if ABYSS_DEBUG
+        assets->setWarnMode(false);
+#endif
 #define LOAD_ASSET(a, b)\
         for (const auto& path : m_info.##a) {\
             assets->load##b(path);\
@@ -30,6 +33,9 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
+#if ABYSS_DEBUG
+        assets->setWarnMode(true);
+#endif
     }
 
     Coro::Generator<double> Preloader::preloadProgress(const Assets* assets) const
