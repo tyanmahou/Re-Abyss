@@ -253,7 +253,7 @@ namespace abyss::Actor::Player
     }
     void PlayerVM::drawStateDead(double rate) const
     {
-        int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, rate));
+        int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, s3d::Pow(rate, 1.8)));
         if (frame == 5) {
             frame = 4;
         }
