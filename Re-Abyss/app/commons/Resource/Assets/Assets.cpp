@@ -61,18 +61,19 @@ namespace abyss::Resource
         template<class Type, class ReadType = Type, class ... Args> 
         const Type& load(s3d::HashTable<String, Type>& cache, const s3d::FilePath& path, Args&&... args)
         {
-            if (cache.find(path) != cache.end()) {
-                return cache[path];
+            const auto fixPath = FileUtil::FixPath(path, m_isBuilded);
+            if (cache.find(fixPath) != cache.end()) {
+                return cache[fixPath];
             }
-            ReadType rc = AssetLoadTraits<ReadType>{}.load(FileUtil::FixPath(path, m_isBuilded), std::forward<Args>(args)...);
+            ReadType rc = AssetLoadTraits<ReadType>{}.load(fixPath, std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
-                Debug::Log::PrintCache << U"Failed Load:" << path;
+                Debug::Log::PrintCache << U"Failed Load:" << fixPath;
             } else if (m_isWarnMode) {
-                Debug::Log::PrintCache << U"Load: " << path;
+                Debug::Log::PrintCache << U"Load: " << fixPath;
             }
 #endif
-            return cache[path] = rc;
+            return cache[fixPath] = rc;
         }
 
         s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
