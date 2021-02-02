@@ -253,6 +253,8 @@ namespace abyss::Actor::Player
     }
     void PlayerVM::drawStateDead(double rate) const
     {
+        bool isRight = m_forward == Forward::Right;
+
         int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, s3d::Pow(rate, 1.8)));
         if (frame == 5) {
             frame = 4;
@@ -261,7 +263,7 @@ namespace abyss::Actor::Player
         if (frame == 4) {
             pos.y += 3;
         }
-        m_texture(U"dead")({ 0, frame * 80 }, {80, 80})
+        m_texture(U"dead")({ isRight ? 80 : 0, frame * 80 }, {80, 80})
             .drawAt(pos, this->calcColor());
     }
     void PlayerVM::drawStateLadder() const
