@@ -251,6 +251,15 @@ namespace abyss::Actor::Player
 
         m_texture(U"damage")({ isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
     }
+    void PlayerVM::drawStateDead(double rate) const
+    {
+        int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, rate));
+        if (frame == 5) {
+            frame = 4;
+        }
+        m_texture(U"dead")({ 0, frame * 80 }, {80, 80})
+            .drawAt(m_pos, this->calcColor());
+    }
     void PlayerVM::drawStateLadder() const
     {
         if (m_isAttacking) {

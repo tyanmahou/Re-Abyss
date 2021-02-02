@@ -8,6 +8,7 @@
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/components/Actors/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
@@ -15,6 +16,7 @@ namespace abyss::Actor::Player
     Task<> DeadState::start()
     {
         co_yield BaseState::start();
+
         // 無敵時間をなしに
         m_pActor->find<HP>()->setInvincibleTime(0);
 
@@ -43,6 +45,10 @@ namespace abyss::Actor::Player
         // ダメージ受けない
         m_pActor->find<DamageCtrl>()->setActive(false);
 
+        // アニメ用タイマー開始
+        m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::AnimeTimeSec, true);
+
+        // 待ち
         co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Dead::TimeSec);
         co_return;
     }
@@ -53,7 +59,7 @@ namespace abyss::Actor::Player
 
     void DeadState::onDraw(const PlayerVM& view) const
     {
-        view.drawStateDamage();
+        view.drawStateDead(s3d::Saturate(m_deadTimer.progress0_1()));
     }
 
     DeadState::DeadState()

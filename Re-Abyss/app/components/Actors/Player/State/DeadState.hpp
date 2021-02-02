@@ -10,6 +10,7 @@ namespace abyss::Actor::Player
         void onDraw(const PlayerVM& view)const override;
     public:
         DeadState();
-
+    private:
+        TimerEx m_deadTimer;
     };
 }

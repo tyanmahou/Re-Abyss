@@ -45,10 +45,12 @@ namespace abyss::Actor::Player
         };
 
         [[TOML_BIND_PARAM(Dead::TimeSec, "Dead.timeSec")]]
+        [[TOML_BIND_PARAM(Dead::AnimeTimeSec, "Dead.animeTimeSec")]]
         [[TOML_BIND_PARAM(Dead::KnockBackSpeed, "Dead.knockBackSpeed")]]
         struct Dead
         {
             inline static double TimeSec{ 0.5 };
+            inline static double AnimeTimeSec{ 0.5 };
             inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
         };
 
