@@ -11,6 +11,8 @@ namespace abyss::Actor::Player
     void DamageCallback::onDamaged(const DamageData& damage)
     {
         m_pActor->find<StateCtrl>()
-            ->changeState<DamageState, StatePriority::Damage>(damage.velocity);
+            ->changeState<DamageState, StatePriority::Damage>(
+            m_pActor->find<Body>()->getPos() - damage.pos
+            );
     }
 }
