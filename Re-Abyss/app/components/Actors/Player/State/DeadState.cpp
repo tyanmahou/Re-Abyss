@@ -35,11 +35,22 @@ namespace abyss::Actor::Player
         if (!m_pActor->find<FallChecker>()->isFall()) {
             const Vec2& knockBackSpeed = Param::Dead::KnockBackSpeed;
 
+            auto nextForward = m_body->getForward();
+            if (const auto& damage = m_pActor->find<DamageCtrl>()->getData()) {
+                auto toPlayer = m_body->getCenterPos() - damage->pos;
+                if (toPlayer.x > 0) {
+                    nextForward = Forward::Left;
+                } else if (toPlayer.x < 0) {
+                    nextForward = Forward::Right;
+                }
+            }
             const Vec2 velocity{
-                m_body->getForward() * -knockBackSpeed.x,
+                nextForward * -knockBackSpeed.x,
                 -knockBackSpeed.y
             };
-            m_body->setVelocity(velocity);
+            m_body
+                ->setVelocity(velocity)
+                .setForward(nextForward);
         }
 
         // ダメージ受けない

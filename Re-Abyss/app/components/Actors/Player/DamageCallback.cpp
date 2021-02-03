@@ -12,7 +12,7 @@ namespace abyss::Actor::Player
     {
         m_pActor->find<StateCtrl>()
             ->changeState<DamageState, StatePriority::Damage>(
-            m_pActor->find<Body>()->getPos() - damage.pos
+            m_pActor->find<Body>()->getCenterPos() - damage.pos
             );
     }
 }
