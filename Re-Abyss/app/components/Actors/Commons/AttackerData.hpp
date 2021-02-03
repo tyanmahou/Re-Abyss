@@ -13,6 +13,7 @@ namespace abyss::Actor
         {}
 
         void onStart() override;
+        s3d::Vec2 getPos()const;
         s3d::Vec2 getVelocity()const;
         s3d::int32 getPower()const { return m_power; }
     private:

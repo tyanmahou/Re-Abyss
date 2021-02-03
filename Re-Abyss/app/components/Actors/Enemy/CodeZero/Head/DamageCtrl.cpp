@@ -27,6 +27,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 			bool ret = hp->damage(attacker.getPower());
 			if (ret) {
 				data.damage = attacker.getPower();
+				data.pos = attacker.getPos();
 				data.velocity = attacker.getVelocity();
 			}
 			return ret;

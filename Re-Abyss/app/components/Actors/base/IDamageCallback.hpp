@@ -6,6 +6,7 @@ namespace abyss::Actor
     struct DamageData
     {
         s3d::int32 damage;
+        s3d::Vec2 pos;
         s3d::Vec2 velocity;
     };
 
