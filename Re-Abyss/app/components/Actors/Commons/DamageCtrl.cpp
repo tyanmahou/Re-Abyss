@@ -21,7 +21,7 @@ namespace abyss::Actor
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		DamageData data{};
+		DamageData data;
 		const bool isDamaged = m_colCtrl->anyThen<Tag::Attacker, AttackerData>([this, &data](const AttackerData& attacker) {
 			bool ret = m_hp->damage(attacker.getPower());
 			if (ret) {
@@ -32,9 +32,12 @@ namespace abyss::Actor
 			return ret;
 		});
 		if (isDamaged) {
+			m_damageData = data;
 			for (auto&& callback : m_pActor->finds<IDamageCallback>()) {
 				callback->onDamaged(data);
 			}
+		} else {
+			m_damageData = s3d::none;
 		}
 	}
 }
