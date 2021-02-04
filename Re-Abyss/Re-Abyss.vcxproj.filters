@@ -1309,6 +1309,9 @@
     <ClCompile Include="app\modules\Decor\base\DecorObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Decor\base\DecorHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1935,6 +1938,7 @@
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
+    <ClInclude Include="app\concepts\Decor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
