@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/GameObject.hpp>
 
-namespace abyss::Decor
+namespace abyss::decor
 {
     class DecorObj final : public GameObject
     {

@@ -373,6 +373,7 @@
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Cycle\Common\Loading.cpp" />
     <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp" />
+    <ClCompile Include="app\modules\Decor\base\DecorObj.cpp" />
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Events\Talk\Builder.cpp" />
     <ClCompile Include="app\components\Events\Talk\TalkCtrl.cpp" />
@@ -797,6 +798,8 @@
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
+    <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
+    <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />

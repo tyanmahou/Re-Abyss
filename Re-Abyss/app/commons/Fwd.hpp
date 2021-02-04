@@ -71,6 +71,11 @@ namespace abyss
 		class IUserInterface;
 	}
 
+	namespace decor
+	{
+		class DecorObj;
+	}
+
 	/// <summary>
 	/// Datastores
 	/// </summary>

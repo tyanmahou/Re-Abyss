@@ -1,6 +1,6 @@
 #include "DecorObj.hpp"
 
-namespace abyss::Decor
+namespace abyss::decor
 {
     DecorObj::DecorObj()
     {}
