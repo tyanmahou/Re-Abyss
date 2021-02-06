@@ -5,14 +5,14 @@ namespace abyss
 	/// <summary>
 	/// Singleton template
 	/// </summary>
-	template<class _Tp>
+	template<class Type>
 	class Singleton
 	{
 	public:
 
-		static _Tp* Instance()
+		static Type* Instance()
 		{
-			static _Tp instance;
+			static Type instance;
 			return &instance;
 		}
 	protected:
