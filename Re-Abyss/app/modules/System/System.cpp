@@ -49,6 +49,7 @@ namespace abyss
         m_userInterface.setManager(&m_manager);
         m_effects.init(m_time);
         m_stage->setManager(&m_manager);
+        m_decor->setManager(&m_manager);
         m_cron->setManager(&m_manager);
     }
     System::~System()
