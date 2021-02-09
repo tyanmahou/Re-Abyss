@@ -25,6 +25,7 @@ namespace abyss::Actor::Gimmick::Door
         const s3d::Vec2& getPos() const;
         const s3d::Vec2& getTargetPos() const;
         Forward getTargetForward() const;
+        DoorKind getKind() const;
         bool isSave()const;
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 

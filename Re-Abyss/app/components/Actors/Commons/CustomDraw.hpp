@@ -20,6 +20,7 @@ namespace abyss::Actor
         public:
             virtual ~IImpl() = default;
 
+            virtual void setup([[maybe_unused]]Executer executer) {}
             virtual void onStart() = 0;
             virtual void onDraw()const = 0;
         };

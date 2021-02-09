@@ -450,6 +450,7 @@
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\views\Actors\Common\BreathEffect.cpp" />
+    <ClCompile Include="app\views\actors\Gimmick\Door\DoorVM.cpp" />
     <ClCompile Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.cpp" />
     <ClCompile Include="app\views\actors\Ooparts\base\IconView.cpp" />
     <ClCompile Include="app\views\actors\Ooparts\base\OopartsViewUtil.cpp" />
@@ -1176,6 +1177,7 @@
     <ClInclude Include="app\views\Actors\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\LaunShark\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\actors\Gimmick\Door\DoorVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\ActDrawCallbackView.hpp" />
     <ClInclude Include="app\views\actors\Ooparts\base\BaseVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\IDrawCallbackView.hpp" />

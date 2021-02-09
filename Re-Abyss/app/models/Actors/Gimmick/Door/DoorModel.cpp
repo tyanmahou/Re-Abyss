@@ -8,6 +8,7 @@ namespace abyss::Actor::Gimmick::Door
         const s3d::Vec2& targetPos,
         Forward targetForward,
         const s3d::Vec2& size,
+        DoorKind kind,
         bool isSave
     ):
         m_startId(startId),
@@ -15,6 +16,7 @@ namespace abyss::Actor::Gimmick::Door
         m_targetPos(targetPos),
         m_targetForward(targetForward),
         m_size(size),
+        m_kind(kind),
         m_isSave(isSave)
     {}
 

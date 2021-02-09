@@ -17,7 +17,6 @@ namespace abyss::Actor
             Impl(const std::function<void()>& drawer) :
                 m_drawer(drawer)
             {}
-
             void onStart() override
             {}
             void onDraw() const override
@@ -31,8 +30,11 @@ namespace abyss::Actor
         return *this;
     }
 
-    void CustomDraw::setup([[maybe_unused]]Executer executer)
+    void CustomDraw::setup(Executer executer)
     {
+        if (m_pImpl) {
+            m_pImpl->setup(executer);
+        }
     }
     void CustomDraw::onStart()
     {

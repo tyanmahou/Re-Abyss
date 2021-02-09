@@ -30,6 +30,7 @@ namespace abyss
                         startPos->getPos(),
                         startPos->getForward(),
                         doorEntity.size,
+                        doorEntity.kind,
                         startPos->isSave()
                     };
                     return world.create<Door::Builder>(door, *room);

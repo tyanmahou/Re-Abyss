@@ -37,6 +37,10 @@ namespace abyss::Actor::Gimmick::Door
 	{
 		return m_door.getTargetForward();
 	}
+	DoorKind DoorProxy::getKind() const
+	{
+		return m_door.getKind();
+	}
 	bool DoorProxy::isSave() const
 	{
 		return m_door.isSave();

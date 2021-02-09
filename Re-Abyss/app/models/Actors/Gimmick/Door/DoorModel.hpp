@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
@@ -11,6 +12,7 @@ namespace abyss::Actor::Gimmick::Door
         s3d::Vec2 m_targetPos;
         Forward m_targetForward;
         s3d::Vec2 m_size;
+        DoorKind m_kind;
         bool m_isSave = true;
     public:
         DoorModel() = default;
@@ -20,6 +22,7 @@ namespace abyss::Actor::Gimmick::Door
             const s3d::Vec2& targetPos, 
             Forward targetForward,
             const s3d::Vec2& size,
+            DoorKind kind,
             bool isSave
         );
 
@@ -42,6 +45,10 @@ namespace abyss::Actor::Gimmick::Door
         const s3d::Vec2& getSize() const
         {
             return m_size;
+        }
+        DoorKind getKind() const
+        {
+            return m_kind;
         }
         bool isSave() const
         {

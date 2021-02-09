@@ -1312,6 +1312,9 @@
     <ClCompile Include="app\modules\Decor\base\DecorHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\actors\Gimmick\Door\DoorVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1939,6 +1942,7 @@
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
+    <ClInclude Include="app\views\actors\Gimmick\Door\DoorVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

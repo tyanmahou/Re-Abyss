@@ -16,7 +16,6 @@ namespace abyss
     public:
         INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
-            std::shared_ptr<IGimmickDataStore> gimmick,
             std::shared_ptr<IMapDataStore> map
         ));
         const s3d::Array<std::shared_ptr<IDecorModel>>& getFront() const override
