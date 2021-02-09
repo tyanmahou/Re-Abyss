@@ -127,27 +127,55 @@ namespace abyss::Actor
 			return false;
 		});
 	}
-	void ActorsHolder::clear()
+	void ActorsHolder::onCheckIn()
 	{
 		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
-			return !obj->isDestoryNever();
+			return obj->isDestoryCheckIn();
 		});
 		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			if (!obj->isDestoryNever()) {
+			if (obj->isDestoryCheckIn()) {
 				obj->end();
 				return true;
 			}
 			return false;
 		});
 		m_objIdCounter = 0;
-
 		for (auto& actor : m_actors) {
 			actor->setId(m_objIdCounter++);
 		}
 		for (auto& actor : m_reserves) {
 			actor->setId(m_objIdCounter++);
 		}
+	}
+	void ActorsHolder::onCheckOut()
+	{
+		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
+			return obj->isDestoryCheckOut();
+		});
+		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
+			if (obj->isDestoryCheckOut()) {
+				obj->end();
+				return true;
+			}
+			return false;
+		});
+		m_objIdCounter = 0;
+		for (auto& actor : m_actors) {
+			actor->setId(m_objIdCounter++);
+		}
+		for (auto& actor : m_reserves) {
+			actor->setId(m_objIdCounter++);
+		}
+	}
+	void ActorsHolder::clear()
+	{
+		for (auto&& actor : m_actors) {
+			actor->end();
+		}
+		m_reserves.clear();
+		m_actors.clear();
 
+		m_objIdCounter = 0;
 	}
 	s3d::Array<std::shared_ptr<IActor>>& ActorsHolder::getActors()
 	{

@@ -239,7 +239,7 @@ namespace abyss
     bool Stage::checkOut() const
     {
         bool result = true;
-        // Worldリセット
+        // World CheckOut
         {
             auto world = m_pManager->getModule<World>();
             world->onCheckOut();
@@ -262,7 +262,10 @@ namespace abyss
 
     bool Stage::checkIn() const
     {
+        // World CheckIn
         auto world = m_pManager->getModule<World>();
+        world->onCheckIn();
+
         auto camera = m_pManager->getModule<Camera>();
         const auto& room = camera->getCurrentRoom();
         auto sound = m_pManager->getModule<Sound>();
