@@ -574,7 +574,6 @@
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\models\Collision\FixPos.cpp" />
     <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp" />
-    <ClCompile Include="app\models\Decor\Door\DoorDecorModel.cpp" />
     <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp" />
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp" />
     <ClCompile Include="app\models\Light\LightModel.cpp" />
@@ -627,7 +626,6 @@
     <ClCompile Include="app\modules\Decor\DecorGraphicsManager.cpp" />
     <ClCompile Include="app\views\Decor\Common\CommonDecorVM.cpp" />
     <ClCompile Include="app\views\Decor\DecorView.cpp" />
-    <ClCompile Include="app\views\Decor\Door\DoorDecorVM.cpp" />
     <ClCompile Include="app\views\Decor\Map\MapDecorVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleEffect.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />
@@ -1095,7 +1093,6 @@
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Door\DoorDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\CaptainTako\Param.hpp" />
@@ -1214,7 +1211,6 @@
     <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\DecorView.hpp" />
-    <ClInclude Include="app\views\Decor\Door\DoorDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />

@@ -6,7 +6,6 @@ namespace abyss
     enum class DecorType
     {
         Common,
-        Door,
         Map,
     };
     class IDecorModel

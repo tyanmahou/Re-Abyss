@@ -2,11 +2,9 @@
 #include <Siv3D.hpp>
 
 #include <abyss/models/Decor/Common/CommonDecorModel.hpp>
-#include <abyss/models/Decor/Door/DoorDecorModel.hpp>
 #include <abyss/models/Decor/Map/MapDecorModel.hpp>
 
 #include <abyss/views/Decor/Common/CommonDecorVM.hpp>
-#include <abyss/views/Decor/Door/DoorDecorVM.hpp>
 #include <abyss/views/Decor/Map/MapDecorVM.hpp>
 
 namespace abyss
@@ -27,12 +25,6 @@ namespace abyss
         model->setType(DecorType::Common);
         return model;
     }
-    std::shared_ptr<IDecorModel> DecorTranslator::toModel(const DoorEntity& entity)const
-    {
-        auto model = std::make_shared<DoorDecorModel>(entity.pos, entity.size, entity.kind);
-        model->setType(DecorType::Door);
-        return model;
-    }
     std::shared_ptr<IDecorModel> DecorTranslator::toModel(const MapEntity& entity)const
     {
         RectF rect{ entity.pos - entity.size / 2.0, entity.size };
@@ -46,10 +38,6 @@ namespace abyss
         case DecorType::Common:
         {
             return std::make_shared<CommonDecorVM>(m_manager, static_cast<const CommonDecorModel&>(model));
-        }break;
-        case DecorType::Door:
-        {
-            return std::make_shared<DoorDecorVM>(static_cast<const DoorDecorModel&>(model));
         }break;
         case DecorType::Map:
         {

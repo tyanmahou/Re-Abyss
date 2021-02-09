@@ -254,12 +254,6 @@
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Decor\Door\DoorDecorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Decor\Door\DoorDecorVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Stage\StageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1454,14 +1448,12 @@
     <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Door\DoorDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\views\Decor\DecorView.hpp" />
     <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
     <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
-    <ClInclude Include="app\views\Decor\Door\DoorDecorVM.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
