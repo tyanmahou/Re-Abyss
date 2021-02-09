@@ -7,13 +7,22 @@
 
 namespace abyss::Actor
 {
+	enum class DestoryTiming
+	{
+		CheckOut,
+		CheckIn,
+		Never,
+
+		Default = CheckOut,
+	};
+
 	class IActor final : public GameObject
 	{
 	private:
 		Ref<Actor::ActorTime> m_time;
 		s3d::uint64 m_id;
 		s3d::int32 m_order = 0;
-		bool m_isDontDestoryOnLoad = false;
+		DestoryTiming m_destoryTiming = DestoryTiming::Default;
 
 		TagType m_tag;
 	public:
@@ -23,8 +32,10 @@ namespace abyss::Actor
 		void setId(s3d::uint64 id);
 		s3d::uint64 getId() const;
 		
-		void setIsDontDestoryOnLoad(bool isDontDestoryOnLoad = true);
-		bool isDontDestoryOnLoad() const;
+		void setDestoryTiming(DestoryTiming timing);
+		bool isDestoryCheckOut() const;
+		bool isDestoryCheckIn() const;
+		bool isDestoryNever() const;
 
 		void setOrder(s3d::int32 order);
 		s3d::int32 getOrder() const;

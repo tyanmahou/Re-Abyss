@@ -130,10 +130,10 @@ namespace abyss::Actor
 	void ActorsHolder::clear()
 	{
 		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
-			return !obj->isDontDestoryOnLoad();
+			return !obj->isDestoryNever();
 		});
 		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			if (!obj->isDontDestoryOnLoad()) {
+			if (!obj->isDestoryNever()) {
 				obj->end();
 				return true;
 			}

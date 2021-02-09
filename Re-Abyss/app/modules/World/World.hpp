@@ -54,7 +54,11 @@ namespace abyss
 
         void cleanUp();
 
-        void reset();
+        /// <summary>
+        /// チェックアウト
+        /// </summary>
+        void onCheckOut();
+
         void draw() const;
 
 

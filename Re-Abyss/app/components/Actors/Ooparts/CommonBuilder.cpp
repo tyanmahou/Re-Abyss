@@ -8,7 +8,7 @@ namespace abyss::Actor::Ooparts
 {
     void CommonBuilder::Build(IActor* pActor, IActor* parent)
     {
-        pActor->setIsDontDestoryOnLoad();
+        pActor->setDestoryTiming(DestoryTiming::Never);
         pActor->setOrder(parent->getOrder() - 1);
 
         // ボディと追従

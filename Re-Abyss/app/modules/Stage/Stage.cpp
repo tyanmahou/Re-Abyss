@@ -242,7 +242,7 @@ namespace abyss
         // Worldリセット
         {
             auto world = m_pManager->getModule<World>();
-            world->reset();
+            world->onCheckOut();
         }
 
         auto camera = m_pManager->getModule<Camera>();

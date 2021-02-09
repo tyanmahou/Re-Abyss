@@ -6,7 +6,7 @@ namespace abyss::Actor::God
     void Builder::Build(IActor* pActor)
     {
         // 死なない
-        pActor->setIsDontDestoryOnLoad();
+        pActor->setDestoryTiming(DestoryTiming::Never);
 
         // ポーズ制御
         pActor->attach<PauseCtrl>(pActor);

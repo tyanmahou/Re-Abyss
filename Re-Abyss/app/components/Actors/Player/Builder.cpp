@@ -42,7 +42,7 @@ namespace abyss::Actor::Player
 	void Builder::Build(IActor* pActor, const StartPosModel& startPos)
 	{
 		// 基本設定
-		pActor->setIsDontDestoryOnLoad();
+        pActor->setDestoryTiming(DestoryTiming::Never);
 		pActor->setTag(Tag::Player{});
         pActor->setOrder(10);
 

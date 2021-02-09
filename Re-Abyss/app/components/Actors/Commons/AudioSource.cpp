@@ -170,7 +170,7 @@ namespace abyss::Actor
     void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
     {
         auto pActor = m_pActor->getModule<World>()->create().get();
-        pActor->setIsDontDestoryOnLoad();
+        pActor->setDestoryTiming(DestoryTiming::Never);
         pActor->attach<Body>(pActor)->initPos(pos);
         pActor->attach<TemporarySoundEffect>(pActor, audio);
     }

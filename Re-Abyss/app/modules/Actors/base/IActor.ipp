@@ -11,15 +11,22 @@ namespace abyss::Actor
 	{
 		return m_id;
 	}
-	inline void IActor::setIsDontDestoryOnLoad(bool isDontDestoryOnLoad)
+	inline void IActor::setDestoryTiming(DestoryTiming timing)
 	{
-		m_isDontDestoryOnLoad = isDontDestoryOnLoad;
+		m_destoryTiming = timing;
 	}
-	inline bool IActor::isDontDestoryOnLoad() const
+	inline bool IActor::isDestoryCheckOut() const
 	{
-		return m_isDontDestoryOnLoad;
+		return m_destoryTiming == DestoryTiming::CheckOut;
 	}
-
+	inline bool IActor::isDestoryCheckIn() const
+	{
+		return m_destoryTiming == DestoryTiming::CheckIn;
+	}
+	inline bool IActor::isDestoryNever() const
+	{
+		return m_destoryTiming == DestoryTiming::Never;
+	}
 	inline void IActor::setOrder(s3d::int32 order)
 	{
 		m_order = order;

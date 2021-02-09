@@ -71,7 +71,7 @@ namespace abyss
         m_actorsHolder.erase();
     }
 
-    void World::reset()
+    void World::onCheckOut()
     {
         m_actorsHolder.clear();
         m_collision->reset();
