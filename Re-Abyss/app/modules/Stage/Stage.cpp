@@ -264,7 +264,6 @@ namespace abyss
     {
         // World CheckIn
         auto world = m_pManager->getModule<World>();
-        world->onCheckIn();
 
         auto camera = m_pManager->getModule<Camera>();
         const auto& room = camera->getCurrentRoom();

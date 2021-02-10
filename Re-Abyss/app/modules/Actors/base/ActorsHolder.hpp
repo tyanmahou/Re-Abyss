@@ -37,7 +37,6 @@ namespace abyss::Actor
 
 		void erase();
 
-		void onCheckIn();
 		void onCheckOut();
 
 		void clear();

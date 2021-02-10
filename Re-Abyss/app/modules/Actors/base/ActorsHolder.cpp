@@ -127,26 +127,6 @@ namespace abyss::Actor
 			return false;
 		});
 	}
-	void ActorsHolder::onCheckIn()
-	{
-		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
-			return obj->isDestoryCheckIn();
-		});
-		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			if (obj->isDestoryCheckIn()) {
-				obj->end();
-				return true;
-			}
-			return false;
-		});
-		m_objIdCounter = 0;
-		for (auto& actor : m_actors) {
-			actor->setId(m_objIdCounter++);
-		}
-		for (auto& actor : m_reserves) {
-			actor->setId(m_objIdCounter++);
-		}
-	}
 	void ActorsHolder::onCheckOut()
 	{
 		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {

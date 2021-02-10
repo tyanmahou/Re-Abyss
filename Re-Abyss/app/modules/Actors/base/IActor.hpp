@@ -10,7 +10,6 @@ namespace abyss::Actor
 	enum class DestoryTiming
 	{
 		CheckOut,
-		CheckIn,
 		Never,
 
 		Default = CheckOut,
@@ -34,7 +33,6 @@ namespace abyss::Actor
 		
 		void setDestoryTiming(DestoryTiming timing);
 		bool isDestoryCheckOut() const;
-		bool isDestoryCheckIn() const;
 		bool isDestoryNever() const;
 
 		void setOrder(s3d::int32 order);
