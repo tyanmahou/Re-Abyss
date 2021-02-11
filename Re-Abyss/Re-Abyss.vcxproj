@@ -760,6 +760,8 @@
     <ClInclude Include="app\components\Crons\base\IJob.hpp" />
     <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Events\base\IStream.hpp" />
