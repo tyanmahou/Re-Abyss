@@ -1309,6 +1309,9 @@
     <ClCompile Include="app\views\actors\Gimmick\Door\DoorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1937,6 +1940,8 @@
     <ClInclude Include="app\views\actors\Gimmick\Door\DoorVM.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
+    <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
