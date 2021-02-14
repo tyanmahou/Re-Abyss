@@ -3,7 +3,7 @@
 namespace abyss
 {
 	using namespace s3d;
-	TimerEx::TimerEx(const double timeSec, const bool startImmediately, TimeGetFunction_t timeGetter)
+	TimerEx::TimerEx(const double timeSec, const bool startImmediately, Clock_t timeGetter)
 		: m_initialTimeMicrosec(static_cast<int64>(timeSec * 1'000'000)),
 		m_timeGetter(timeGetter)
 	{
@@ -14,7 +14,7 @@ namespace abyss
 		}
 	}
 
-	TimerEx::TimerEx(const Duration& time, const bool startImmediately, TimeGetFunction_t timeGetter)
+	TimerEx::TimerEx(const Duration& time, const bool startImmediately, Clock_t timeGetter)
 		: m_initialTimeMicrosec(static_cast<int64>(time.count() * 1'000'000)),
 		m_timeGetter(timeGetter)
 	{

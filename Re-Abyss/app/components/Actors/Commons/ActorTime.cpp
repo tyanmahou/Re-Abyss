@@ -17,7 +17,7 @@ namespace abyss::Actor
     }
     s3d::Microseconds ActorTime::getUpdateTime() const
     {
-        return Time::FromSec(m_updateTimeSec);
+        return Clock::FromSec(m_updateTimeSec);
     }
     double ActorTime::getUpdateTimeSec() const
     {
@@ -25,7 +25,7 @@ namespace abyss::Actor
     }
     s3d::Microseconds ActorTime::getDrawTime() const
     {
-        return Time::FromSec(m_drawTimeSec);
+        return Clock::FromSec(m_drawTimeSec);
     }
     double ActorTime::getDrawTimeSec() const
     {

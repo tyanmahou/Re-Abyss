@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Effect.hpp>
-#include "../Time/Time.hpp"
+#include "../Clock/Clock.hpp"
 
 namespace abyss
 {
@@ -17,7 +17,7 @@ namespace abyss
 		std::shared_ptr<Impl> m_pImpl;
 	public:
 
-		EffectEx(TimeGetFunction_t timeGetter = Time::GetNow);
+		EffectEx(Clock_t timeGetter = Clock::GetNow);
 
 		~EffectEx();
 

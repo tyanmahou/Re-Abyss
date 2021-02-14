@@ -9,9 +9,9 @@ namespace abyss
         std::shared_ptr<Impl> m_pImpl;
 
     public:
-        IntervalTimer(double timeSec = 0.0, bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow);
+        IntervalTimer(double timeSec = 0.0, bool startImmediately = false, Clock_t timeGetter = Clock::GetNow);
 
-        IntervalTimer(const s3d::Duration& time, bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow);
+        IntervalTimer(const s3d::Duration& time, bool startImmediately = false, Clock_t timeGetter = Clock::GetNow);
 
         /// <summary>
         /// タイマー更新

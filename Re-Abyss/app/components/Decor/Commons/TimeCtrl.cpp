@@ -1,6 +1,6 @@
 #include "TimeCtrl.hpp"
 
-namespace abyss::Actor
+namespace abyss::decor
 {
     void TimeCtrl::updateDeltaTime(double dt)
     {
@@ -17,7 +17,7 @@ namespace abyss::Actor
     }
     s3d::Microseconds TimeCtrl::getUpdateTime() const
     {
-        return Time::FromSec(m_updateTimeSec);
+        return Clock::FromSec(m_updateTimeSec);
     }
     double TimeCtrl::getUpdateTimeSec() const
     {
@@ -25,7 +25,7 @@ namespace abyss::Actor
     }
     s3d::Microseconds TimeCtrl::getDrawTime() const
     {
-        return Time::FromSec(m_drawTimeSec);
+        return Clock::FromSec(m_drawTimeSec);
     }
     double TimeCtrl::getDrawTimeSec() const
     {

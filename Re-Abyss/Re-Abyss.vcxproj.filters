@@ -161,9 +161,6 @@
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Time\Time.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1312,7 +1309,10 @@
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\ActorTime.cpp">
+    <ClCompile Include="app\components\Decor\Commons\TimeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Clock\Clock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1404,7 +1404,6 @@
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
-    <ClInclude Include="app\utils\Time\Time.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />
@@ -1945,7 +1944,8 @@
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\ActorTime.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\TimeCtrl.hpp" />
+    <ClInclude Include="app\utils\Clock\Clock.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

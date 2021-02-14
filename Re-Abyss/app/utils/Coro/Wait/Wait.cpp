@@ -15,7 +15,7 @@ namespace abyss::Coro
         }
     }
 
-    Task<> WaitForSecondsEx(const s3d::Duration& duration, TimeGetFunction_t timeGetter)
+    Task<> WaitForSecondsEx(const s3d::Duration& duration, Clock_t timeGetter)
     {
         TimerEx timer(duration, true, timeGetter);
         while (!timer.reachedZero()) {

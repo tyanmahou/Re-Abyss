@@ -339,7 +339,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
-    <ClCompile Include="app\components\Decor\Commons\ActorTime.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\TimeCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
@@ -604,7 +604,7 @@
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
-    <ClCompile Include="app\utils\Time\Time.cpp" />
+    <ClCompile Include="app\utils\Clock\Clock.cpp" />
     <ClCompile Include="app\views\Actors\Common\KiraKiraEffect.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\CaptainTako\Shot\ShotVM.cpp" />
@@ -764,7 +764,7 @@
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\ActorTime.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\TimeCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
@@ -1164,7 +1164,7 @@
     <ClInclude Include="app\utils\Singleton.hpp" />
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
-    <ClInclude Include="app\utils\Time\Time.hpp" />
+    <ClInclude Include="app\utils\Clock\Clock.hpp" />
     <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />

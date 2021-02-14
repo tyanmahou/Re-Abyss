@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    SimpleDrawCallbackView::SimpleDrawCallbackView(TimeGetFunction_t clock):
+    SimpleDrawCallbackView::SimpleDrawCallbackView(Clock_t clock):
         m_effect(clock)
     {}
 

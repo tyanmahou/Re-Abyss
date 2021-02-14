@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/utils/Time/Time.hpp>
+#include <abyss/utils/Clock/Clock.hpp>
 namespace abyss::decor
 {
     class TimeCtrl final: public IComponent

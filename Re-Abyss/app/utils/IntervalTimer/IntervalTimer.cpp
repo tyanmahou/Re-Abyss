@@ -9,11 +9,11 @@ namespace abyss
         TimerEx m_timer;
         bool m_onReachedZero = false;
     public:
-        Impl(double timeSec, bool startImmediately, TimeGetFunction_t timeGetter):
+        Impl(double timeSec, bool startImmediately, Clock_t timeGetter):
             m_timeSec(timeSec),
             m_timer(timeSec, startImmediately, timeGetter)
         {}
-        Impl(const s3d::Duration& time, bool startImmediately, TimeGetFunction_t timeGetter) :
+        Impl(const s3d::Duration& time, bool startImmediately, Clock_t timeGetter) :
             m_timeSec(time),
             m_timer(time, startImmediately, timeGetter)
         {}
@@ -37,11 +37,11 @@ namespace abyss
             return m_onReachedZero;
         }
     };
-    IntervalTimer::IntervalTimer(double timeSec, bool startImmediately, TimeGetFunction_t timeGetter) :
+    IntervalTimer::IntervalTimer(double timeSec, bool startImmediately, Clock_t timeGetter) :
         m_pImpl(std::make_shared<Impl>(timeSec, startImmediately, timeGetter))
     {}
 
-    IntervalTimer::IntervalTimer(const s3d::Duration & time, bool startImmediately, TimeGetFunction_t timeGetter) :
+    IntervalTimer::IntervalTimer(const s3d::Duration & time, bool startImmediately, Clock_t timeGetter) :
         m_pImpl(std::make_shared<Impl>(time, startImmediately, timeGetter))
     {}
 

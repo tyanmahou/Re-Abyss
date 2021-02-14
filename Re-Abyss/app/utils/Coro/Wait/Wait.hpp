@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Siv3D/Duration.hpp>
-#include <abyss/utils/Time/Time.hpp>
+#include <abyss/utils/Clock/Clock.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 #include <future>
 
@@ -15,7 +15,7 @@ namespace abyss::Coro
     /// <summary>
     /// 指定病待つ 時計指定版
     /// </summary>
-    [[nodiscard]] Task<> WaitForSecondsEx(const s3d::Duration& duration, TimeGetFunction_t timeGetter = Time::GetNow);
+    [[nodiscard]] Task<> WaitForSecondsEx(const s3d::Duration& duration, Clock_t timeGetter = Clock::GetNow);
 
     /// <summary>
     /// 指定フレーム待つ

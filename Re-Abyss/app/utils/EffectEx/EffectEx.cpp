@@ -15,11 +15,11 @@ namespace abyss
         bool m_paused = false;
 
         uint64 m_previousTimeUs = 0;
-        TimeGetFunction_t m_timeGetter;
+        Clock_t m_timeGetter;
     public:
         struct Null {};
 
-        Impl(TimeGetFunction_t timeGetter):
+        Impl(Clock_t timeGetter):
             m_timeGetter(timeGetter)
         {}
 
@@ -103,7 +103,7 @@ namespace abyss
         }
     };
 
-    EffectEx::EffectEx(TimeGetFunction_t timeGetter):
+    EffectEx::EffectEx(Clock_t timeGetter):
         m_pImpl(std::make_shared<Impl>(timeGetter))
     {}
     EffectEx::~EffectEx()

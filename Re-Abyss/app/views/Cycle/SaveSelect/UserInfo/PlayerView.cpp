@@ -10,7 +10,7 @@ namespace abyss::Cycle::SaveSelect::UserInfo
         m_ooparts(std::make_shared<Actor::Ooparts::OopartsView>())
     {
         m_oopartsCallback = std::make_shared<Actor::Ooparts::SimpleDrawCallbackView>([this]() {
-            return Time::FromSec(m_time);
+            return Clock::FromSec(m_time);
         });
         m_ooparts->setCallback(m_oopartsCallback);
     }

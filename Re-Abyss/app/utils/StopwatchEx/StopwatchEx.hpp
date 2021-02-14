@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
-#include "../Time/Time.hpp"
+#include "../Clock/Clock.hpp"
 
 namespace abyss
 {
@@ -23,7 +23,7 @@ namespace abyss
 
 		bool m_pausing = true;
 
-		TimeGetFunction_t m_timeGetter;
+		Clock_t m_timeGetter;
 	public:
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace abyss
 		/// <param name="startImmediately">
 		/// 即座に計測を開始する場合は true
 		/// </param>
-		explicit StopwatchEx(bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow):
+		explicit StopwatchEx(bool startImmediately = false, Clock_t timeGetter = Clock::GetNow):
 			m_timeGetter(timeGetter)
 		{
 			if (startImmediately) {
@@ -46,7 +46,7 @@ namespace abyss
 		/// <param name="startImmediately">
 		/// 即座に計測を開始する場合は true
 		/// </param>
-		explicit StopwatchEx(const s3d::Duration& time, bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow):
+		explicit StopwatchEx(const s3d::Duration& time, bool startImmediately = false, Clock_t timeGetter = Clock::GetNow):
 			m_timeGetter(timeGetter)
 		{
 			set(time);

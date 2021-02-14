@@ -20,7 +20,7 @@ namespace abyss
 
 		bool m_pausing = true;
 
-		TimeGetFunction_t m_timeGetter;
+		Clock_t m_timeGetter;
 	public:
 
 		/// <summary>
@@ -29,7 +29,7 @@ namespace abyss
 		/// <param name="startImmediately">
 		/// 即座に計測を開始する場合は true
 		/// </param>
-		explicit TimerEx(double timeSec = 0.0, bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow);
+		explicit TimerEx(double timeSec = 0.0, bool startImmediately = false, Clock_t timeGetter = Clock::GetNow);
 
 		/// <summary>
 		/// タイマーを作成します。
@@ -37,7 +37,7 @@ namespace abyss
 		/// <param name="startImmediately">
 		/// 即座に計測を開始する場合は true
 		/// </param>
-		explicit TimerEx(const s3d::Duration& time, bool startImmediately = false, TimeGetFunction_t timeGetter = Time::GetNow);
+		explicit TimerEx(const s3d::Duration& time, bool startImmediately = false, Clock_t timeGetter = Clock::GetNow);
 
 		/// <summary>
 		/// タイマーを開始・再開します。

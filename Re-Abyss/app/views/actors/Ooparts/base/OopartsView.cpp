@@ -6,7 +6,7 @@
 namespace abyss::Actor::Ooparts
 {
     OopartsView::OopartsView():
-        m_effectTimer(0.05, true, [this] {return Time::FromSec(this->getTime()); })
+        m_effectTimer(0.05, true, [this] {return Clock::FromSec(this->getTime()); })
     {
     }
     void OopartsView::draw() const

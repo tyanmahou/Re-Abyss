@@ -12,7 +12,7 @@ namespace abyss::Actor::Ooparts
     class SimpleDrawCallbackView : public IDrawCallbackView
     {
     public:
-        SimpleDrawCallbackView(TimeGetFunction_t clock);
+        SimpleDrawCallbackView(Clock_t clock);
         void update() const;
         void onAddEffect(std::unique_ptr<s3d::IEffect>&& effect) const override;
     private:

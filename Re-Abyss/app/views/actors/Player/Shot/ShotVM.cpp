@@ -10,7 +10,7 @@ namespace abyss::Actor::Player::Shot
         m_texture(Resource::Assets::Main()->loadTexture(U"actors/Player/player_shot.png")),
         m_shot(shot),
         m_forward(forward),
-        m_effectTimer(0.033, true, [this] {return Time::FromSec(this->m_time); })
+        m_effectTimer(0.033, true, [this] {return Clock::FromSec(this->m_time); })
     {}
 
     ShotVM& ShotVM::setManager(Manager * pManager)
