@@ -3,7 +3,7 @@
 #include <abyss/utils/Clock/Clock.hpp>
 namespace abyss::decor
 {
-    class TimeCtrl final: public IComponent
+    class ClockCtrl final: public IComponent
     {
         double m_deltaTime = 0.0;
 
