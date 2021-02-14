@@ -339,7 +339,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
-    <ClCompile Include="app\components\Decor\Commons\TimeCtrl.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
@@ -552,7 +552,7 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\modules\Actors\base\ActorsHolder.cpp" />
     <ClCompile Include="app\components\base\Components.cpp" />
-    <ClCompile Include="app\components\Actors\Commons\ActorTime.cpp" />
+    <ClCompile Include="app\components\Actors\Commons\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Commons\DeadOnHItReceiver.cpp" />
@@ -764,7 +764,7 @@
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\TimeCtrl.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
@@ -1078,7 +1078,7 @@
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\components\Actors\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actors\base\ILastUpdate.hpp" />
-    <ClInclude Include="app\components\Actors\Commons\ActorTime.hpp" />
+    <ClInclude Include="app\components\Actors\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Actors\base\ICollider.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\HandCtrl.hpp" />

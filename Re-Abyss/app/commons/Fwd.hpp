@@ -120,7 +120,7 @@ namespace abyss
 	/// </summary>
 	namespace Actor
 	{
-		class ActorTime;
+		class ClockCtrl;
 		class Terrain;
 		class MapCollider;
 		class DeadChecker;

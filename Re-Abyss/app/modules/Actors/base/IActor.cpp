@@ -1,5 +1,5 @@
 #include "IActor.hpp"
-#include <abyss/components/Actors/Commons/ActorTime.hpp>
+#include <abyss/components/Actors/Commons/ClockCtrl.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/base/IPostUpdate.hpp>
 #include <abyss/components/Actors/base/IMove.hpp>
@@ -15,7 +15,7 @@ namespace abyss::Actor
 {
 	IActor::IActor()
 	{
-		m_time = this->attach<ActorTime>();
+		m_time = this->attach<ClockCtrl>();
 	}
 	void IActor::updateDeltaTime(double worldDt) const
 	{
