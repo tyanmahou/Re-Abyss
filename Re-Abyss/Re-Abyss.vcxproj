@@ -339,6 +339,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\ActorTime.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
@@ -763,6 +764,7 @@
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\ActorTime.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
