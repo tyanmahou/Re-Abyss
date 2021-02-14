@@ -59,11 +59,11 @@ namespace abyss::Actor
 
 		s3d::Microseconds getUpdateTime() const;
 		double getUpdateTimeSec() const;
-		std::function<s3d::Microseconds()> getUpdateTimer() const;
+		std::function<s3d::Microseconds()> getUpdateClock() const;
 
 		s3d::Microseconds getDrawTime() const;
 		double getDrawTimeSec() const;
-		std::function<s3d::Microseconds()> getDrawTimer() const;
+		std::function<s3d::Microseconds()> getDrawClock() const;
 
 		double deltaTime() const;
 
