@@ -15,15 +15,15 @@ namespace abyss::Actor
 {
 	IActor::IActor()
 	{
-		m_time = this->attach<ClockCtrl>();
+		m_clock = this->attach<ClockCtrl>();
 	}
 	void IActor::updateDeltaTime(double worldDt) const
 	{
-		m_time->updateDeltaTime(worldDt);
+		m_clock->updateDeltaTime(worldDt);
 	}
 	void IActor::update()
 	{
-		m_time->updateUpdateTime();
+		m_clock->updateUpdateTime();
 		for (auto&& com : this->finds<IUpdate>()) {
 			com->onUpdate();
 		}
@@ -74,7 +74,7 @@ namespace abyss::Actor
 	}
 	void IActor::draw() const
 	{
-		m_time->updateDrawTime();
+		m_clock->updateDrawTime();
 		for (auto&& com : this->finds<IPreDraw>()) {
 			com->onPreDraw();
 		}
@@ -84,11 +84,11 @@ namespace abyss::Actor
 	}
 	s3d::Microseconds IActor::getUpdateTime() const
 	{
-		return m_time->getUpdateTime();
+		return m_clock->getUpdateTime();
 	}
 	double IActor::getUpdateTimeSec() const
 	{
-		return m_time->getUpdateTimeSec();
+		return m_clock->getUpdateTimeSec();
 	}
     std::function<s3d::Microseconds()> IActor::getUpdateClock() const
     {
@@ -96,11 +96,11 @@ namespace abyss::Actor
     }
 	s3d::Microseconds IActor::getDrawTime() const
 	{
-		return m_time->getDrawTime();
+		return m_clock->getDrawTime();
 	}
 	double IActor::getDrawTimeSec() const
 	{
-		return m_time->getDrawTimeSec();
+		return m_clock->getDrawTimeSec();
 	}
 	std::function<s3d::Microseconds()> IActor::getDrawClock() const
 	{
@@ -108,6 +108,6 @@ namespace abyss::Actor
 	}
 	double IActor::deltaTime() const
 	{
-		return m_time->getDeltaTime();
+		return m_clock->getDeltaTime();
 	}
 }
