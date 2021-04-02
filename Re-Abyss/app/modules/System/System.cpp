@@ -113,7 +113,6 @@ namespace abyss
         {
             auto t2d = cameraView.getTransformer();
 
-            auto cameraScreen = m_camera.screenRegion();
             // 背面
             {
                 m_backGround->draw(cameraView);
