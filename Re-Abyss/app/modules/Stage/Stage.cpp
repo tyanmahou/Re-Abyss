@@ -27,7 +27,6 @@
 #include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 
-#include <abyss/models/Decor/base/IDecorModel.hpp>
 #include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>

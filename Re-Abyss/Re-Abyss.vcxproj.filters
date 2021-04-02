@@ -197,12 +197,6 @@
     <ClCompile Include="app\datastores\Actors\Map\parser\TmxMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1402,9 +1396,6 @@
     <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
-    <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
@@ -1891,6 +1882,9 @@
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ClockCtrl.hpp" />
+    <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\Common\CommonEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

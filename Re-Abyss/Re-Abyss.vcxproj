@@ -570,8 +570,6 @@
     <ClCompile Include="app\models\Collision\CollisionModel.cpp" />
     <ClCompile Include="app\models\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\models\Collision\FixPos.cpp" />
-    <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp" />
-    <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp" />
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp" />
     <ClCompile Include="app\models\Light\LightModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
@@ -790,6 +788,9 @@
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\Common\CommonEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
@@ -1077,9 +1078,6 @@
     <ClInclude Include="app\components\Actors\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actors\Gimmick\StartPos\StartPosModel.hpp" />
-    <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
-    <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actors\Enemy\CaptainTako\ShotParam.hpp" />
