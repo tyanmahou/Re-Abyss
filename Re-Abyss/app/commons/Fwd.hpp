@@ -92,9 +92,6 @@ namespace abyss
 	struct EnemyEntity;
 	struct GimmickEntity;
 	struct BackGroundEntity;
-	struct DecorEntity;
-	struct DecorGraphicsEntity;
-	struct DecorAnimationEntity;
 
 	/// <summary>
 	/// Models
@@ -105,7 +102,6 @@ namespace abyss
 	class IMapCollisionModel;
 	class CameraModel;
 	class QuakeModel;
-	class IDecorModel;
 	namespace User
 	{
 		class UserModel;
@@ -137,8 +133,6 @@ namespace abyss
 	/// Services
 	/// </summary>
 	class IStageService;
-	class IDecorService;
-	class IDecorGraphicsService;
 	class IBackGroundService;
 
 	/// <summary>
@@ -155,7 +149,5 @@ namespace abyss
 	class WorldView;
 	class CameraView;
 
-	class DecorView;
-	class IDecorVM;
 	class BackGroundVM;
 }
