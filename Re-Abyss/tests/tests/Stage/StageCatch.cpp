@@ -46,7 +46,7 @@ namespace abyss::tests
     {
         auto rep = std::make_shared<Test_StageRepository>();
         Stage stage;
-        stage.setStageData(std::make_shared<StageData>(nullptr, nullptr, nullptr, rep));
+        stage.setStageData(std::make_shared<StageData>(nullptr, rep));
 
         SECTION("find border min: pos (0, 0)")
         {

@@ -11,7 +11,6 @@
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
-#include <abyss/modules/Decor/DecorGraphicsManager.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Cron.hpp>
@@ -36,11 +35,8 @@
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
-#include <abyss/translators/Decor/DecorTranslator.hpp>
 
 #include <abyss/services/BackGround/base/IBackGroundService.hpp>
-#include <abyss/services/Decor/base/IDecorService.hpp>
-#include <abyss/services/Decor/base/IDecorGraphicsService.hpp>
 
 namespace
 {
@@ -119,33 +115,6 @@ namespace abyss
         backGround.setBgColor(service->getBgColor());
         return true;
     }
-    bool Stage::initDecorGraphics(Decor& decor) const
-    {
-        if (!m_stageData) {
-            return false;
-        }
-        auto service = m_stageData->getDecorGraphicsService();
-        if (!service) {
-            return false;
-        }
-        auto manager = decor.getGraphicsManager();
-        for (const auto& [gId, graphics] : service->getGraphics()) {
-            DecorGraphicsManager::Info info{
-                .filePath = graphics.filePath,
-                .offset = graphics.offset,
-                .size = graphics.size
-            };
-            manager->addInfo(gId, std::move(info));
-        }
-        for (const auto& [gId, animes] : service->getAnimations()) {
-            DecorGraphicsManager::Anime anime;
-            for (const auto& elm : animes) {
-                anime.add(elm.toGId, elm.timeMilliSec);
-            }
-            manager->addAnime(gId, std::move(anime));
-        }
-        return true;
-    }
     bool Stage::restart() const
     {
         auto save = m_pManager->getModule<Save>();
@@ -194,7 +163,6 @@ namespace abyss
         // 装飾の初期化
         {
             auto decor = m_pManager->getModule<Decor>();
-            result &= this->initDecorGraphics(*decor);
             result &= this->initDecor(*decor, *camera);
         }
 
@@ -281,33 +249,35 @@ namespace abyss
 
     bool Stage::initDecor(Decor& decor, const Camera& camera) const
     {
-        decor.clear();
-        auto decorService = m_stageData->getDecorService();
-        if (!decorService) {
-            return false;
-        }
-        DecorTranslator m_translator{ decor.getGraphicsManager() };
+        // TODO Init Decor
+        
+        //decor.clear();
+        //auto decorService = m_stageData->getDecorService();
+        //if (!decorService) {
+        //    return false;
+        //}
+        //DecorTranslator m_translator{ decor.getGraphicsManager() };
 
-        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<IDecorModel>>& decors) {
-            for (const auto& model : decors) {
-                if (!model) {
-                    continue;
-                }
-                bool isInScreen = model->isInScreen(camera.getCurrentRoom().getRegion());
-                if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
-                    isInScreen |= model->isInScreen(nextRoom->getRegion());
-                }
-                if (!isInScreen) {
-                    continue;
-                }
-                if (auto vm = m_translator.toVM(*model)) {
-                    decor.regist(order, vm);
-                }
-            }
-        };
-        add(DecorOrder::Front, decorService->getFront());
-        add(DecorOrder::Back, decorService->getBack());
-        add(DecorOrder::Middle, decorService->getCustom());
+        //auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<IDecorModel>>& decors) {
+        //    for (const auto& model : decors) {
+        //        if (!model) {
+        //            continue;
+        //        }
+        //        bool isInScreen = model->isInScreen(camera.getCurrentRoom().getRegion());
+        //        if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
+        //            isInScreen |= model->isInScreen(nextRoom->getRegion());
+        //        }
+        //        if (!isInScreen) {
+        //            continue;
+        //        }
+        //        if (auto vm = m_translator.toVM(*model)) {
+        //            decor.regist(order, vm);
+        //        }
+        //    }
+        //};
+        //add(DecorOrder::Front, decorService->getFront());
+        //add(DecorOrder::Back, decorService->getBack());
+        //add(DecorOrder::Middle, decorService->getCustom());
         return true;
     }
     bool Stage::initRoom(World& world, const RoomModel& nextRoom) const

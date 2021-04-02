@@ -3,7 +3,6 @@
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/concepts/Decor.hpp>
-#include <abyss/views/Decor/DecorView.hpp>
 #include <abyss/modules/Decor/base/DecorHolder.hpp>
 
 namespace abyss
@@ -12,10 +11,6 @@ namespace abyss
     {
         std::unordered_map<s3d::int32, decor::DecorHolder> m_decors;
         Manager* m_pManager = nullptr;
-
-        std::shared_ptr<DecorGraphicsManager> m_graphicsManager;
-
-        DecorView m_view;
     public:
         Decor();
 
@@ -27,13 +22,11 @@ namespace abyss
 
         void flush();
 
-        void update(double time);
+        void update();
         void draw(s3d::int32 order, const s3d::RectF& screen) const;
         void drawBack(const s3d::RectF& screen) const;
         void drawMiddle(const s3d::RectF& screen) const;
         void drawFront(const s3d::RectF& screen) const;
-
-        void clear();
 
         /// <summary>
         /// 装飾の生成
@@ -57,10 +50,6 @@ namespace abyss
         /// 装飾を登録
         /// </summary>
         Ref<decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor);
-
-        void regist(s3d::int32 order, const std::shared_ptr<IDecorVM>& decor);
-
-        DecorGraphicsManager* getGraphicsManager() const;
     };
 
     namespace DecorOrder

@@ -540,11 +540,6 @@
     <ClCompile Include="app\datastores\Actors\Map\TmxMapDataStore.cpp" />
     <ClCompile Include="app\datastores\BackGround\TmxBackGroundDataStore.cpp" />
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp" />
-    <ClCompile Include="app\datastores\Decor\base\IDecorAnimationDataStore.cpp" />
-    <ClCompile Include="app\datastores\Decor\base\IDecorGraphicsDataStore.cpp" />
-    <ClCompile Include="app\datastores\Decor\TmxDecorAnimationDataStore.cpp" />
-    <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp" />
-    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp" />
     <ClCompile Include="app\modules\Camera\Camera.cpp" />
     <ClCompile Include="app\modules\Stage\Stage.cpp" />
@@ -583,8 +578,6 @@
     <ClCompile Include="app\modules\World\World.cpp" />
     <ClCompile Include="app\scenes\Main\MainScene.cpp" />
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp" />
-    <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp" />
-    <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Event\Talk\TalkService.cpp" />
     <ClCompile Include="app\services\Stage\StageService.cpp" />
     <ClCompile Include="app\stdafx.cpp">
@@ -594,7 +587,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
-    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp" />
     <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
@@ -625,10 +617,6 @@
     <ClCompile Include="app\views\Actors\Enemy\Schield\SchieldVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\Schield\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actors\Enemy\Slime\SlimeVM.cpp" />
-    <ClCompile Include="app\modules\Decor\DecorGraphicsManager.cpp" />
-    <ClCompile Include="app\views\Decor\Common\CommonDecorVM.cpp" />
-    <ClCompile Include="app\views\Decor\DecorView.cpp" />
-    <ClCompile Include="app\views\Decor\Map\MapDecorVM.cpp" />
     <ClCompile Include="app\views\Stage\Bubble\BubbleEffect.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />
     <ClCompile Include="app\views\BackGround\BackGroundVM.cpp" />
@@ -1045,10 +1033,6 @@
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\TmxMapDataStore.hpp" />
     <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorAnimationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorGraphicsDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorAnimationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
@@ -1057,8 +1041,6 @@
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGraphicsEntity.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
@@ -1136,16 +1118,11 @@
     <ClInclude Include="app\scenes\Main\MainScene.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
-    <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
-    <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
-    <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
-    <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
-    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp" />
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\translators\Map\MapTranslator.hpp" />
@@ -1198,7 +1175,6 @@
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\Schield\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actors\Enemy\Slime\SlimeVM.hpp" />
-    <ClInclude Include="app\modules\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\views\Actors\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
@@ -1215,10 +1191,6 @@
     <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
-    <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
-    <ClInclude Include="app\views\Decor\DecorView.hpp" />
-    <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp" />

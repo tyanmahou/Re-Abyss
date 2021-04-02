@@ -173,16 +173,7 @@
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Decor\TmxDecorAnimationDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\datastores\BackGround\TmxBackGroundDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp">
@@ -206,34 +197,10 @@
     <ClCompile Include="app\datastores\Actors\Map\parser\TmxMapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\services\Decor\DecorService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\Decor\base\IDecorGraphicsDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\datastores\Decor\base\IDecorAnimationDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\services\Decor\DecorGraphicsService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Decor\Common\CommonDecorModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Decor\Map\MapDecorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Decor\DecorView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Decor\Common\CommonDecorVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Decor\Map\MapDecorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp">
@@ -967,9 +934,6 @@
     <ClCompile Include="app\modules\Decor\Decor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Decor\DecorGraphicsManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Effects\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1425,16 +1389,10 @@
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorAnimationEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGraphicsEntity.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorGraphicsDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\base\IDecorAnimationDataStore.hpp" />
     <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorAnimationDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
@@ -1447,18 +1405,9 @@
     <ClInclude Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Gimmick\parser\TmxGimmickParser.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\parser\TmxMapParser.hpp" />
-    <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\models\Decor\base\IDecorModel.hpp" />
-    <ClInclude Include="app\services\Decor\DecorGraphicsService.hpp" />
-    <ClInclude Include="app\services\Decor\base\IDecorGraphicsService.hpp" />
-    <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\models\Decor\Common\CommonDecorModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\MapDecorModel.hpp" />
-    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
-    <ClInclude Include="app\views\Decor\DecorView.hpp" />
-    <ClInclude Include="app\views\Decor\base\IDecorVM.hpp" />
-    <ClInclude Include="app\views\Decor\Common\CommonDecorVM.hpp" />
-    <ClInclude Include="app\views\Decor\Map\MapDecorVM.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
@@ -1788,7 +1737,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Decor\Decor.hpp" />
-    <ClInclude Include="app\modules\Decor\DecorGraphicsManager.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
