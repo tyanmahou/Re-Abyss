@@ -1388,9 +1388,6 @@
     <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorAnimationEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorGraphicsEntity.hpp" />
     <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />

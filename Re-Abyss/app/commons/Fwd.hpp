@@ -23,7 +23,6 @@ namespace abyss
 	class StageData;
 	class Light;
 	class Decor;
-	class DecorGraphicsManager;
 	class BackGround;
 	class Effects;
 	class Sound;
@@ -83,9 +82,6 @@ namespace abyss
 	class IEnemyDataStore;
 	class IGimmickDataStore;
 	class IMapDataStore;
-	class IDecorDataStore;
-	class IDecorGraphicsDataStore;
-	class IDecorAnimationDataStore;
 	class IBackGroundDataStore;
 
 	/// <summary>

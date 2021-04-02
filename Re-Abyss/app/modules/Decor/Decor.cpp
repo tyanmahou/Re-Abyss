@@ -16,24 +16,24 @@ namespace abyss
             decor.update();
         }
     }
-    void Decor::draw(s3d::int32 order, const s3d::RectF& screen) const
+    void Decor::draw(s3d::int32 order) const
     {
         if (m_decors.find(order) == m_decors.end()) {
             return;
         }
         m_decors.at(order).draw();
     }
-    void Decor::drawBack(const s3d::RectF& screen) const
+    void Decor::drawBack() const
     {
-        this->draw(DecorOrder::Back, screen);
+        this->draw(DecorOrder::Back);
     }
-    void Decor::drawMiddle(const s3d::RectF& screen) const
+    void Decor::drawMiddle() const
     {
-        this->draw(DecorOrder::Middle, screen);
+        this->draw(DecorOrder::Middle);
     }
-    void Decor::drawFront(const s3d::RectF & screen) const
+    void Decor::drawFront() const
     {
-        this->draw(DecorOrder::Front, screen);
+        this->draw(DecorOrder::Front);
     }
 
     Ref<decor::DecorObj> Decor::create(s3d::int32 order)

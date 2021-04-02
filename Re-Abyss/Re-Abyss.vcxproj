@@ -1037,11 +1037,8 @@
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
     <ClInclude Include="app\entities\Actors\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
-    <ClInclude Include="app\entities\Decor\DecorAnimationEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorGraphicsEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\GimmickEntity.hpp" />

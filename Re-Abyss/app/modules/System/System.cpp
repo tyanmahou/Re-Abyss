@@ -119,20 +119,20 @@ namespace abyss
                 m_backGround->draw(cameraView);
                 m_backGround->drawWaterSarfaceBack(cameraView);
                 m_effects.update<EffectGroup::DecorBack>();
-                m_decor->drawBack(cameraScreen);
+                m_decor->drawBack();
             }
             cameraView.drawDeathLine();
             
 
             // 中面
-            m_decor->drawMiddle(cameraScreen);
+            m_decor->drawMiddle();
 
             m_effects.update<EffectGroup::WorldBack>();
             m_world.draw();
             m_effects.update<EffectGroup::WorldFront>();
 
             // 全面
-            m_decor->drawFront(cameraScreen);
+            m_decor->drawFront();
 
             m_effects.update<EffectGroup::Bubble>();
             m_backGround->drawWaterSarfaceFront(cameraView);

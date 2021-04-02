@@ -23,10 +23,10 @@ namespace abyss
         void flush();
 
         void update();
-        void draw(s3d::int32 order, const s3d::RectF& screen) const;
-        void drawBack(const s3d::RectF& screen) const;
-        void drawMiddle(const s3d::RectF& screen) const;
-        void drawFront(const s3d::RectF& screen) const;
+        void draw(s3d::int32 order) const;
+        void drawBack() const;
+        void drawMiddle() const;
+        void drawFront() const;
 
         /// <summary>
         /// 装飾の生成
