@@ -785,6 +785,8 @@
     <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />

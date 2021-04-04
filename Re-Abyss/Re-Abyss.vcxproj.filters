@@ -1887,6 +1887,8 @@
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\entities\Decor\Motif.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
