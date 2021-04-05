@@ -1,16 +1,19 @@
 #pragma once
-#include <abyss/commons/Fwd.hpp>
-#include <abyss/entities/Decor/DecorEntity.hpp>
-#include <abyss/entities/Decor/DecorGroup.hpp>
-#include <Siv3D/Array.hpp>
+#include <S3DTiled.hpp>
+#include <abyss/datastores/base/TmxDataStore.hpp>
+#include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 
 namespace abyss::decor
 {
-    class IDecorDataStore
+    class TmxDecorDataStore :
+        public TmxDataStore,
+        public IDecorDataStore
     {
     public:
-        virtual ~IDecorDataStore() = default;
+        using TmxDataStore::TmxDataStore;
 
-        virtual s3d::Array<DecorEntity> select(DecorGroup group)const = 0;
+        s3d::Array<DecorEntity> select(DecorGroup group)const override;
     };
+
+    using TmxDecorDataStoreInataller = TmxDataStoreInataller<IDecorDataStore, TmxDecorDataStore>;
 }
