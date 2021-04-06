@@ -365,6 +365,7 @@
     <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />

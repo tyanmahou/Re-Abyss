@@ -1273,6 +1273,9 @@
     <ClCompile Include="app\components\Actors\Commons\ClockCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

@@ -13,3 +13,4 @@ namespace abyss::decor
 
         virtual s3d::Array<DecorEntity> select(DecorGroup group) const = 0;
     };
+}
