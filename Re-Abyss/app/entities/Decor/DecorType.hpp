@@ -10,6 +10,7 @@ namespace abyss::decor
 	public:
 		enum class Common
 		{
+			None,
 			Common,
 		};
 
@@ -59,6 +60,12 @@ namespace abyss::decor
 		bool operator !=(const Type& value) const
 		{
 			return !(*this == value);
+		}
+
+		template<class Func>
+		decltype(auto) visit(const Func& visitor) const
+		{
+			return std::visit(visitor, m_value);
 		}
 	private:
 		std::variant<Common, City, Gimmick, Map> m_value;

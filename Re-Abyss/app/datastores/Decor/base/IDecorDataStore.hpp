@@ -11,6 +11,6 @@ namespace abyss::decor
     public:
         virtual ~IDecorDataStore() = default;
 
-        virtual s3d::Array<DecorEntity> select(DecorGroup group) const = 0;
+        virtual s3d::Array<std::shared_ptr<DecorEntity>> select(DecorGroup group) const = 0;
     };
 }

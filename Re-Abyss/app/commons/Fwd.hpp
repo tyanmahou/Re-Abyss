@@ -93,6 +93,11 @@ namespace abyss
 	struct GimmickEntity;
 	struct BackGroundEntity;
 
+	namespace decor
+	{
+		struct DecorEntity;
+	}
+
 	/// <summary>
 	/// Models
 	/// </summary>

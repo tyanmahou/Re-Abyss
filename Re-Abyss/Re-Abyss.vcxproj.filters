@@ -1276,6 +1276,9 @@
     <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Decor\parser\TmxDecorParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1892,6 +1895,9 @@
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />
+    <ClInclude Include="app\datastores\Decor\parser\TmxDecorParser.hpp" />
+    <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\Gimmick\DoorEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

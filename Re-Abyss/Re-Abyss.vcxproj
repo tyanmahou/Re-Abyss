@@ -365,6 +365,7 @@
     <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\datastores\Decor\parser\TmxDecorParser.cpp" />
     <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
@@ -787,6 +788,7 @@
     <ClInclude Include="app\components\Actors\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\parser\TmxDecorParser.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
@@ -796,6 +798,8 @@
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />
+    <ClInclude Include="app\entities\Decor\Gimmick\DoorEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
