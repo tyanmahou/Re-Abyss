@@ -31,44 +31,34 @@ namespace abyss::decor
 	public:
 		DecorType() = default;
 
-		DecorType(const Common& value):
+		template<class Type>
+		DecorType(const Type& value):
 			m_value(value)
 		{}
 
-		DecorType(const City& value) :
-			m_value(value)
-		{}
-
-		DecorType(const Gimmick& value) :
-			m_value(value)
-		{}
-
-		DecorType(const Map& value) :
-			m_value(value)
-		{}
-
+		template<class Type>
 		DecorType& operator =(const Common& value)
 		{
 			this->m_value = value;
 			return *this;
 		}
 
-		DecorType& operator =(const City& value)
+		template<class Type>
+		bool operator ==(const Type& value) const
 		{
-			this->m_value = value;
-			return *this;
+			return std::visit([value]<class U>(const U& v) {
+				if constexpr (!std::is_same_v<Type, U>) {
+					return false;
+				} else {
+					return v == value;
+				}
+			}, m_value);
 		}
 
-		DecorType& operator =(const Gimmick& value)
+		template<class Type>
+		bool operator !=(const Type& value) const
 		{
-			this->m_value = value;
-			return *this;
-		}
-
-		DecorType& operator =(const Map& value)
-		{
-			this->m_value = value;
-			return *this;
+			return !(*this == value);
 		}
 	private:
 		std::variant<Common, City, Gimmick, Map> m_value;
