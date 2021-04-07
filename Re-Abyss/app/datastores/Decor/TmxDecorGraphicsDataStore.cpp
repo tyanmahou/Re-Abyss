@@ -19,7 +19,7 @@ namespace abyss::decor
                 auto pos = obj.pos + s3d::Vec2{ size.x / 2, -size.y / 2 };
                 DecorEntity entity{
                     .id = obj.id,
-                    .type = Motif::Common::Common,
+                    .type = DecorType::Common::Common,
                     .pos = pos,
                     .size = size,
                     .rotation = obj.rotation,

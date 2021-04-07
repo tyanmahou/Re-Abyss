@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/entities/Decor/Motif.hpp>
+#include <abyss/entities/Decor/DecorType.hpp>
 
 namespace abyss::decor
 {
