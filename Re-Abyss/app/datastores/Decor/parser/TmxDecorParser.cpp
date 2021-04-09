@@ -61,8 +61,7 @@ namespace
         }
         return entity;
     }
-    std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::TiledObject& obj)
-    {
+
 #define PARSE_CAREGORY(category, ...) [&](DecorType::##category c) -> std::shared_ptr<DecorEntity> {\
             using enum DecorType::##category;\
             using namespace abyss::decor::##category;\
@@ -80,6 +79,9 @@ namespace
     __VA_ARGS__\
 	return ParseCommon(it, obj);\
 }
+
+    std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::TiledObject& obj)
+    {
         auto common = PARSE_CAREGORY(Common,
             PARSE_TYPE(Common, {
                 it->path = obj.getProperty(U"path").value_or("");
@@ -106,9 +108,9 @@ namespace
             }
         };
         return type.visit(visiter);
+    }
 #undef PARSE_TYPE
 #undef PARSE_CATEGORY
-    }
 }
 namespace abyss::decor
 {
