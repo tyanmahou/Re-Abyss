@@ -7,9 +7,12 @@
 
 namespace abyss
 {
+    class DecorGraphics;
+
     class Decor
     {
         std::unordered_map<s3d::int32, decor::DecorHolder> m_decors;
+        std::shared_ptr<DecorGraphics> m_graphics;
         Manager* m_pManager = nullptr;
     public:
         Decor();
@@ -50,6 +53,11 @@ namespace abyss
         /// 装飾を登録
         /// </summary>
         Ref<decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor);
+
+        /// <summary>
+        /// 装飾グラフィックを取得
+        /// </summary>
+        s3d::TextureRegion getTexture(s3d::uint32 gId, double time) const;
     };
 
     namespace DecorOrder

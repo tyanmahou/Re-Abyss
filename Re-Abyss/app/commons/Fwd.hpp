@@ -96,6 +96,8 @@ namespace abyss
 	namespace decor
 	{
 		struct DecorEntity;
+		struct AnimationEntity;
+		struct GraphicsEntity;
 	}
 
 	/// <summary>

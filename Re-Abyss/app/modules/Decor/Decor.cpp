@@ -1,4 +1,5 @@
 #include "Decor.hpp"
+#include "DecorGraphics.hpp"
 
 namespace abyss
 {
@@ -46,5 +47,9 @@ namespace abyss
         decor->setManager(m_pManager);
         m_decors[order].push(decor);
         return decor;
+    }
+    s3d::TextureRegion Decor::getTexture(s3d::uint32 gId, double time) const
+    {
+        return m_graphics->getTexture(gId, time);
     }
 }

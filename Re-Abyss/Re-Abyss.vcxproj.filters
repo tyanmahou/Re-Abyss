@@ -1294,6 +1294,9 @@
     <ClCompile Include="app\datastores\Decor\TmxAnimationDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Decor\DecorGraphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1921,6 +1924,7 @@
     <ClInclude Include="app\datastores\Decor\base\IGraphicsDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxAnimationDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxGraphicsDataStore.hpp" />
+    <ClInclude Include="app\modules\Decor\DecorGraphics.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
