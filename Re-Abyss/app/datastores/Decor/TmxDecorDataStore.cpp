@@ -17,7 +17,7 @@ namespace abyss::decor
         auto parseAll = [&](const ObjectGroup& layer) {
             for (const auto& obj : layer.getObjects()) {
                 TmxDecorParser parser(obj);
-                if (auto entity = parser.parse(); entity->type != DecorType::Common::None) {
+                if (auto entity = parser.parse(); entity && entity->type != DecorType::Common::None) {
                     ret.push_back(entity);
                 }
             }

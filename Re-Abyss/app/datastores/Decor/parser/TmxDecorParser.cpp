@@ -120,7 +120,7 @@ namespace abyss::decor
     std::shared_ptr<DecorEntity> TmxDecorParser::parse() const
     {
         auto categoryStr = m_obj.getProperty(U"category").value_or(s3d::String(U"common"));
-        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"none"));
+        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"common"));
         auto type = ToType(categoryStr, typeStr);
 
         return Parse(type, m_obj);
