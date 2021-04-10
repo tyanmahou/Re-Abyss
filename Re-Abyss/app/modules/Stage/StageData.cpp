@@ -1,13 +1,6 @@
 #include "StageData.hpp"
 namespace abyss
 {
-    StageData::StageData(
-        std::shared_ptr<IBackGroundService> bg, 
-        std::shared_ptr<IStageService> stage
-    ):
-        m_backGroundService(bg),
-        m_stageService(stage)
-    {}
     const s3d::Array<BackGroundEntity>& StageData::getBgs() const
     {
         return m_backGroundService->getBgs();
@@ -32,5 +25,9 @@ namespace abyss
     IBackGroundService* StageData::getBackGroundService() const
     {
         return m_backGroundService.get();
+    }
+    decor::IDecorService* StageData::getDecorService() const
+    {
+        return m_decorService.get();
     }
 }

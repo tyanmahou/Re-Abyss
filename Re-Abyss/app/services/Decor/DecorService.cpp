@@ -3,6 +3,7 @@
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 #include <abyss/datastores/Decor/base/IAnimationDataStore.hpp>
 #include <abyss/datastores/Decor/base/IGraphicsDataStore.hpp>
+#include <abyss/datastores/Actors/Gimmick/base/IGimmickDataStore.hpp>
 #include <abyss/datastores/Actors/Map/base/IMapDataStore.hpp>
 
 namespace abyss::decor
@@ -20,5 +21,11 @@ namespace abyss::decor
 
         m_graphics = graphics->selectWithKey();
         m_animation = animation->selectWithKey();
+    }
+    void DecorServiceInstaller::onBinding(emaject::Container* container) const
+    {
+        container->bind<IDecorService>()
+            .to<DecorService>()
+            .asCache();
     }
 }

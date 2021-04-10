@@ -5,8 +5,12 @@
 #include <abyss/datastores/Actors/Map/TmxMapDataStore.hpp>
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 #include <abyss/datastores/BackGround/TmxBackGroundDataStore.hpp>
+#include <abyss/datastores/Decor/TmxDecorDataStore.hpp>
+#include <abyss/datastores/Decor/TmxGraphicsDataStore.hpp>
+#include <abyss/datastores/Decor/TmxAnimationDataStore.hpp>
 
 #include <abyss/services/Stage/StageService.hpp>
+#include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
 
 namespace abyss::Factory::Main
@@ -23,9 +27,13 @@ namespace abyss::Factory::Main
             .install<TmxMapDataStoreInataller>()
             .install<TmxRoomDataStoreInataller>()
             .install<TmxBackGroundDataStoreInataller>()
+            .install<decor::TmxDecorDataStoreInataller>()
+            .install<decor::TmxGraphicsDataStoreInataller>()
+            .install<decor::TmxAnimationDataStoreInataller>()
             // service
             .install<StageServiceInstaller>()
             .install<BackGroundServiceInstaller>()
+            .install<decor::DecorServiceInstaller>()
             ;
         return injector;
     }

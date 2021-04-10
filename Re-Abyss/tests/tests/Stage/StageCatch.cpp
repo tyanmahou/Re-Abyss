@@ -44,9 +44,12 @@ namespace abyss::tests
 
     TEST_CASE("Stage. findRoom Test")
     {
-        auto rep = std::make_shared<Test_StageRepository>();
+        emaject::Injector injector;
+        injector.install([](emaject::Container* c) {
+            c->bind<IStageService>().to<Test_StageRepository>().asCache();
+        });
         Stage stage;
-        stage.setStageData(std::make_shared<StageData>(nullptr, rep));
+        stage.setStageData(injector.resolve<StageData>());
 
         SECTION("find border min: pos (0, 0)")
         {

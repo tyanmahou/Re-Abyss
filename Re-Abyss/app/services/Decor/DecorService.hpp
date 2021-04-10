@@ -47,4 +47,9 @@ namespace abyss::decor
             return m_animation;
         }
     };
+
+    struct DecorServiceInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* container) const override;
+    };
 }
