@@ -1,4 +1,4 @@
-#include "TmxDecorGraphicsDataStore.hpp"
+#include "TmxDecorDataStore.hpp"
 #include "parser/TmxDecorParser.hpp"
 
 namespace abyss::decor

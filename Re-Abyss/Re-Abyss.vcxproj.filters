@@ -1273,10 +1273,25 @@
     <ClCompile Include="app\components\Actors\Commons\ClockCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Decor\TmxDecorGraphicsDataStore.cpp">
+    <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\Decor\parser\TmxDecorParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Decor\DecorService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\base\IGraphicsDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\TmxGraphicsDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Decor\TmxAnimationDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1893,11 +1908,19 @@
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
-    <ClInclude Include="app\datastores\Decor\TmxDecorGraphicsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />
     <ClInclude Include="app\datastores\Decor\parser\TmxDecorParser.hpp" />
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\Gimmick\DoorEntity.hpp" />
+    <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
+    <ClInclude Include="app\services\Decor\DecorService.hpp" />
+    <ClInclude Include="app\entities\Decor\AnimationEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IAnimationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\base\IGraphicsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxAnimationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Decor\TmxGraphicsDataStore.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

@@ -5,6 +5,5 @@ namespace abyss::decor::Common
 {
     struct CommonEntity : DecorEntity
     {
-        s3d::String path;
     };
 }

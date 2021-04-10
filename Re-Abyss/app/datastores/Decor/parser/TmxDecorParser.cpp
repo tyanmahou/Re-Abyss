@@ -53,6 +53,7 @@ namespace
             auto pos = obj.pos + s3d::Vec2{ size.x / 2, -size.y / 2 };
 
             entity->id = obj.id;
+            entity->gId = obj.gId.value_or(0);
             entity->pos = pos;
             entity->size = size;
             entity->rotation = obj.rotation;
@@ -83,9 +84,7 @@ namespace
     std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::TiledObject& obj)
     {
         auto common = PARSE_CAREGORY(Common,
-            PARSE_TYPE(Common, {
-                it->path = obj.getProperty(U"path").value_or("");
-            });
+            PARSE_TYPE(Common);
         );
 
         auto city = PARSE_CAREGORY(City,
