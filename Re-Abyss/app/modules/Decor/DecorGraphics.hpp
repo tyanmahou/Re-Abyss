@@ -8,7 +8,7 @@ namespace abyss
 {
     namespace decor
     {
-        class DecorService;
+        class IDecorService;
     }
 
     class DecorGraphics
@@ -36,7 +36,7 @@ namespace abyss
         };
     public:
         DecorGraphics() = default;
-        DecorGraphics(std::shared_ptr<decor::DecorService> service);
+        DecorGraphics(decor::IDecorService* service);
 
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time);
 

@@ -54,6 +54,12 @@ namespace abyss
         /// </summary>
         Ref<decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor);
 
+        Decor& setGraphics(const std::shared_ptr<DecorGraphics>& graphics)
+        {
+            m_graphics = graphics;
+            return *this;
+        }
+
         /// <summary>
         /// 装飾グラフィックを取得
         /// </summary>

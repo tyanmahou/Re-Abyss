@@ -11,6 +11,7 @@
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/DecorGraphics.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Cron.hpp>
@@ -162,6 +163,7 @@ namespace abyss
         // 装飾の初期化
         {
             auto decor = m_pManager->getModule<Decor>();
+            decor->setGraphics(std::make_shared<DecorGraphics>(m_stageData->getDecorService()));
             result &= this->initDecor(*decor, *camera);
         }
 
