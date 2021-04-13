@@ -12,6 +12,7 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
 #include <abyss/modules/Decor/DecorGraphics.hpp>
+#include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Cron.hpp>
@@ -35,6 +36,7 @@
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
+#include <abyss/translators/Decor/DecorTranslator.hpp>
 
 #include <abyss/services/BackGround/base/IBackGroundService.hpp>
 
@@ -219,6 +221,7 @@ namespace abyss
         // 装飾のリセット
         {
             auto decor = m_pManager->getModule<Decor>();
+            decor->onCheckOut();
             result &= this->initDecor(*decor, *camera);
         }
         // サウンドが変わる場合は停止
@@ -250,35 +253,31 @@ namespace abyss
 
     bool Stage::initDecor(Decor& decor, const Camera& camera) const
     {
-        // TODO Init Decor
-        
-        //decor.clear();
-        //auto decorService = m_stageData->getDecorService();
-        //if (!decorService) {
-        //    return false;
-        //}
-        //DecorTranslator m_translator{ decor.getGraphicsManager() };
+        auto decorService = m_stageData->getDecorService();
+        if (!decorService) {
+            return false;
+        }
+        decor::DecorTranslator m_translator;
 
-        //auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<IDecorModel>>& decors) {
-        //    for (const auto& model : decors) {
-        //        if (!model) {
-        //            continue;
-        //        }
-        //        bool isInScreen = model->isInScreen(camera.getCurrentRoom().getRegion());
-        //        if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
-        //            isInScreen |= model->isInScreen(nextRoom->getRegion());
-        //        }
-        //        if (!isInScreen) {
-        //            continue;
-        //        }
-        //        if (auto vm = m_translator.toVM(*model)) {
-        //            decor.regist(order, vm);
-        //        }
-        //    }
-        //};
-        //add(DecorOrder::Front, decorService->getFront());
-        //add(DecorOrder::Back, decorService->getBack());
-        //add(DecorOrder::Middle, decorService->getCustom());
+        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<decor::DecorEntity>>& decors) {
+            for (const auto& entity : decors) {
+                if (!entity) {
+                    continue;
+                }
+                bool isInScreen = DecorBuildUtil::IsInScreen(*entity, camera.getCurrentRoom().getRegion());
+                if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
+                    isInScreen |= DecorBuildUtil::IsInScreen(*entity, nextRoom->getRegion());
+                }
+                if (!isInScreen) {
+                    continue;
+                }
+                m_translator.build(decor, order, *entity);
+            }
+        };
+        add(DecorOrder::Front, decorService->getFront());
+        add(DecorOrder::Back, decorService->getBack());
+        add(DecorOrder::Middle, decorService->getCustom());
+        decor.flush();
         return true;
     }
     bool Stage::initRoom(World& world, const RoomModel& nextRoom) const

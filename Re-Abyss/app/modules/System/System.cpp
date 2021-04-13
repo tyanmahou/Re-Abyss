@@ -80,6 +80,7 @@ namespace abyss
 
         // フラッシュは常にする
         m_world.flush();
+        m_decor->flush();
 
         bool isWorldStop = m_events.isWorldStop();
         if (!isWorldStop) {

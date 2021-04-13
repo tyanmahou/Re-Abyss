@@ -37,6 +37,13 @@ namespace abyss
         this->draw(DecorOrder::Front);
     }
 
+    void Decor::onCheckOut()
+    {
+        for (auto&& [layer, decor] : m_decors) {
+            decor.clear();
+        }
+    }
+
     Ref<decor::DecorObj> Decor::create(s3d::int32 order)
     {
         return  this->regist(order, std::make_shared<decor::DecorObj>());

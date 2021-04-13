@@ -32,6 +32,11 @@ namespace abyss
         void drawFront() const;
 
         /// <summary>
+        /// チェックアウト時の処理
+        /// </summary>
+        void onCheckOut();
+
+        /// <summary>
         /// 装飾の生成
         /// </summary>
         /// <returns></returns>

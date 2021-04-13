@@ -383,6 +383,7 @@
     <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp" />
     <ClCompile Include="app\modules\Decor\base\DecorHolder.cpp" />
     <ClCompile Include="app\modules\Decor\base\DecorObj.cpp" />
+    <ClCompile Include="app\modules\Decor\DecorBuildUtil.cpp" />
     <ClCompile Include="app\modules\Decor\DecorGraphics.cpp" />
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Events\Talk\Builder.cpp" />
@@ -454,6 +455,7 @@
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
     <ClCompile Include="app\services\User\UserService.cpp" />
+    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
@@ -818,6 +820,7 @@
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
+    <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />
     <ClInclude Include="app\modules\Decor\DecorGraphics.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
@@ -828,6 +831,7 @@
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
+    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
