@@ -830,6 +830,7 @@
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
+    <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />

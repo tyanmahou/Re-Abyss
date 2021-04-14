@@ -13,6 +13,8 @@ namespace abyss
     {
         std::unordered_map<s3d::int32, decor::DecorHolder> m_decors;
         std::shared_ptr<DecorGraphics> m_graphics;
+
+        decor::BufferLayer m_bufferLayer = decor::BufferLayer::Front;
         Manager* m_pManager = nullptr;
     public:
         Decor();
@@ -35,6 +37,11 @@ namespace abyss
         /// チェックアウト時の処理
         /// </summary>
         void onCheckOut();
+
+        /// <summary>
+        /// チェックイン時の処理
+        /// </summary>
+        void onCheckIn();
 
         /// <summary>
         /// 装飾の生成

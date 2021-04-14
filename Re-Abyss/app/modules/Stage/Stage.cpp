@@ -234,6 +234,11 @@ namespace abyss
 
     bool Stage::checkIn() const
     {
+        // Decor CheckIn
+        {
+            auto decor = m_pManager->getModule<Decor>();
+            decor->onCheckIn();
+        }
         // World CheckIn
         auto world = m_pManager->getModule<World>();
 

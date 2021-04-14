@@ -1,6 +1,5 @@
 #include "DecorHolder.hpp"
 #include <abyss/modules/Decor/base/DecorObj.hpp>
-
 namespace abyss::decor
 {
     void DecorHolder::flush()
@@ -57,10 +56,27 @@ namespace abyss::decor
     void DecorHolder::clear()
     {
         m_reserves.clear();
-        for (auto&& ui : m_decors) {
-            ui->end();
+        for (auto&& obj : m_decors) {
+            obj->end();
         }
         m_decors.clear();
+    }
+
+    void DecorHolder::clear(BufferLayer layer)
+    {
+        auto pred = [layer](const std::shared_ptr<DecorObj>& obj) {
+            return obj->getBufferLayer() == layer;
+        };
+        s3d::Erase_if(m_reserves, pred);
+
+        auto predAndEnd = [pred](const std::shared_ptr<DecorObj>& obj) {
+            if (pred(obj)) {
+                obj->end();
+                return true;
+            }
+            return false;
+        };
+        s3d::Erase_if(m_decors, predAndEnd);
     }
 
     size_t DecorHolder::size() const

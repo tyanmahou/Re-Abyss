@@ -1957,6 +1957,7 @@
     <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\Common\Builder.hpp" />
+    <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

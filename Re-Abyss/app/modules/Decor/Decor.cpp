@@ -39,8 +39,13 @@ namespace abyss
 
     void Decor::onCheckOut()
     {
+        m_bufferLayer = decor::FlipBuffer(m_bufferLayer);
+    }
+
+    void Decor::onCheckIn()
+    {
         for (auto&& [layer, decor] : m_decors) {
-            decor.clear();
+            decor.clear(decor::FlipBuffer(m_bufferLayer));
         }
     }
 
@@ -52,6 +57,7 @@ namespace abyss
     Ref<decor::DecorObj> Decor::regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor)
     {
         decor->setManager(m_pManager);
+        decor->setBufferLayer(m_bufferLayer);
         m_decors[order].push(decor);
         return decor;
     }
