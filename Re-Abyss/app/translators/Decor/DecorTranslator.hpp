@@ -8,6 +8,8 @@ namespace abyss::decor
 	class DecorTranslator
 	{
 	public:
-		Ref<DecorObj> build(Decor& decor, s3d::int32 order, const DecorEntity& entity);
+		Ref<DecorObj> build(Decor& decor, s3d::int32 order, const DecorEntity& entity) const;
+
+		std::shared_ptr<DecorEntity> toEntity(const MapEntity& map) const;
 	};
 }

@@ -6,6 +6,8 @@
 #include <abyss/datastores/Actors/Gimmick/base/IGimmickDataStore.hpp>
 #include <abyss/datastores/Actors/Map/base/IMapDataStore.hpp>
 
+#include <abyss/translators/Decor/DecorTranslator.hpp>
+
 namespace abyss::decor
 {
     DecorService::DecorService(
@@ -19,6 +21,16 @@ namespace abyss::decor
         m_front = decor->select(DecorGroup::Front);
         m_back = decor->select(DecorGroup::Back);
 
+        // Custom
+        {
+            DecorTranslator translator;
+
+            auto mapEntities = map->select(false);
+            m_custom.reserve(mapEntities.size());
+            for (const auto& entity : mapEntities) {
+                m_custom.push_back(translator.toEntity(*entity));
+            }
+        }
         m_graphics = graphics->selectWithKey();
         m_animation = animation->selectWithKey();
     }

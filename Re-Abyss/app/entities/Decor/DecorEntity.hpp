@@ -12,7 +12,7 @@ namespace abyss::decor
 		DecorType type;
 		s3d::Vec2 pos;
 		s3d::Vec2 size;
-		double rotation;
+		double rotation = 0.0;
 		bool isMirrored = false;
 		bool isFlipped = false;
 	};
