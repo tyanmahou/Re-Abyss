@@ -59,4 +59,13 @@ namespace abyss
     {
         return m_graphics->getTexture(gId, time);
     }
+
+    size_t Decor::size() const
+    {
+        size_t ret = 0;
+        for (auto&& [layer, decor] : m_decors) {
+            ret += decor.size();
+        }
+        return ret;
+    }
 }

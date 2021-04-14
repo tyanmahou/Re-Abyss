@@ -5,6 +5,7 @@
 #include <abyss/utils/Visitor.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Decor/Decor.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/components/Actors/base/IPhysics.hpp>
 #include <abyss/components/Actors/Commons/Terrain.hpp>
@@ -114,11 +115,19 @@ namespace abyss::Debug
         if (!Debug::Menu::IsDebug(U"log-effect-num")) {
             return;
         }
-
+        Log::Print << U"---LogEffectNum---";
         Log::Print << U"DecorBack: "  << effects.num<EffectGroup::DecorBack>();
         Log::Print << U"WorldBack: "  << effects.num<EffectGroup::WorldBack>();
         Log::Print << U"WorldFront: " << effects.num<EffectGroup::WorldFront>();
         Log::Print << U"DecorFront: " << effects.num<EffectGroup::DecorFront>();
+    }
+    void DebugManager::DrawDebug(const Decor& decor)
+    {
+        if (!Debug::Menu::IsDebug(U"log-decor-num")) {
+            return;
+        }
+        Log::Print << U"---LogDecorNum---";
+        Log::Print << U"Decor: " << decor.size();
     }
 }
 

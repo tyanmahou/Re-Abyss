@@ -31,6 +31,12 @@ label = "DisableDarkNess"
 pos = { x = 10, y = 170 }
 default = false
 
+[[CheckBox]]
+name = "log-decor-num"
+label = "LogDecorNum"
+pos = { x = 10, y = 200 }
+default = false
+
 ###########################
 # FPS
 ###########################

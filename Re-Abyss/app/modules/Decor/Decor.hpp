@@ -69,6 +69,12 @@ namespace abyss
         /// 装飾グラフィックを取得
         /// </summary>
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time) const;
+
+        /// <summary>
+        /// 装飾数
+        /// </summary>
+        /// <returns></returns>
+        size_t size() const;
     };
 
     namespace DecorOrder

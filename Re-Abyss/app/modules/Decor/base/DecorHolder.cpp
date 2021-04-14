@@ -63,4 +63,9 @@ namespace abyss::decor
         m_decors.clear();
     }
 
+    size_t DecorHolder::size() const
+    {
+        return m_decors.size();
+    }
+
 }

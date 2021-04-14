@@ -102,6 +102,7 @@ namespace abyss
         m_cron->update();
 
 #if ABYSS_DEBUG
+        Debug::DebugManager::DrawDebug(*m_decor);
         Debug::DebugManager::DrawDebug(m_effects);
 #endif
         m_master->sendNotify();

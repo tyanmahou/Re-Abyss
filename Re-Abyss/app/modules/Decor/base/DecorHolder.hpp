@@ -16,6 +16,8 @@ namespace abyss::decor
         void erase();
 
         void clear();
+
+        size_t size() const;
     private:
         s3d::Array<std::shared_ptr<DecorObj>> m_reserves;
         s3d::Array<std::shared_ptr<DecorObj>> m_decors;
