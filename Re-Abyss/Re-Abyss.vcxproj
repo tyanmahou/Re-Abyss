@@ -340,7 +340,10 @@
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Commons\ClockCtrl.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
+    <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Events\Common\StreamHandler.cpp" />
@@ -760,6 +763,9 @@
     <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
+    <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
@@ -807,7 +813,7 @@
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\AnimationEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\Common\CommonEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />

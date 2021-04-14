@@ -8,7 +8,7 @@ namespace abyss::decor
 	class DecorType
 	{
 	public:
-		enum class Common
+		enum class General
 		{
 			None,
 			Common,
@@ -30,7 +30,9 @@ namespace abyss::decor
 		};
 
 	public:
-		DecorType() = default;
+		DecorType():
+			m_value(General::None)
+		{}
 
 		template<class Type>
 		DecorType(const Type& value):
@@ -38,7 +40,7 @@ namespace abyss::decor
 		{}
 
 		template<class Type>
-		DecorType& operator =(const Common& value)
+		DecorType& operator =(const Type& value)
 		{
 			this->m_value = value;
 			return *this;
@@ -68,6 +70,6 @@ namespace abyss::decor
 			return std::visit(visitor, m_value);
 		}
 	private:
-		std::variant<Common, City, Gimmick, Map> m_value;
+		std::variant<General, City, Gimmick, Map> m_value;
 	};
 }

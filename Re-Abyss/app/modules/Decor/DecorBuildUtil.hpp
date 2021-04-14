@@ -4,6 +4,8 @@
 
 namespace abyss::DecorBuildUtil
 {
+    s3d::Quad ToQuad(const decor::DecorEntity& entity);
+
     /// <summary>
     /// スクリーンに入っているか
     /// </summary>

@@ -1,6 +1,6 @@
 #include "TmxDecorParser.hpp"
 #include <abyss/entities/Decor/DecorEntity.hpp>
-#include <abyss/entities/Decor/Common/CommonEntity.hpp>
+#include <abyss/entities/Decor/General/CommonEntity.hpp>
 #include <abyss/entities/Decor/City/StreetLightEntity.hpp>
 #include <abyss/entities/Decor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Decor/Map/CommonEntity.hpp>
@@ -13,10 +13,10 @@ namespace
 
     DecorType ToType(const String& category, const String& type)
     {
-        if (category == U"common") {
+        if (category == U"general") {
             static const std::unordered_map<String, DecorType> toTypeMap{
-                {U"none", DecorType::Common::None},
-                {U"common", DecorType::Common::Common},
+                {U"none", DecorType::General::None},
+                {U"common", DecorType::General::Common},
             };
             if (toTypeMap.find(type) != toTypeMap.end()) {
                 return toTypeMap.at(type);
@@ -43,7 +43,7 @@ namespace
                 return toTypeMap.at(type);
             }
         }
-        return DecorType::Common::None;
+        return DecorType::General::None;
     };
 
     std::shared_ptr<DecorEntity> ParseCommon(const std::shared_ptr<DecorEntity>& entity, const s3dTiled::TiledObject& obj)
@@ -83,7 +83,7 @@ namespace
 
     std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::TiledObject& obj)
     {
-        auto common = PARSE_CAREGORY(Common,
+        auto general = PARSE_CAREGORY(General,
             PARSE_TYPE(Common);
         );
 
@@ -98,7 +98,7 @@ namespace
         );
 
         auto visiter = abyss::overloaded{
-            common,
+            general,
             city,
             gimmick,
             map,
@@ -119,7 +119,7 @@ namespace abyss::decor
 
     std::shared_ptr<DecorEntity> TmxDecorParser::parse() const
     {
-        auto categoryStr = m_obj.getProperty(U"category").value_or(s3d::String(U"common"));
+        auto categoryStr = m_obj.getProperty(U"category").value_or(s3d::String(U"general"));
         auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"common"));
         auto type = ToType(categoryStr, typeStr);
 

@@ -1303,6 +1303,15 @@
     <ClCompile Include="app\modules\Decor\DecorBuildUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Decor\General\Common\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1913,7 +1922,7 @@
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\Common\CommonEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
@@ -1933,6 +1942,9 @@
     <ClInclude Include="app\modules\Decor\DecorGraphics.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />
+    <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
