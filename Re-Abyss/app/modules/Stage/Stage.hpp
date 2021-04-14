@@ -21,7 +21,7 @@ namespace abyss
 	private:
 
 		bool initBackGround(BackGround& backGround) const;
-		bool initDecor(Decor& decor, const Camera& camera) const;
+		bool initDecor(Decor& decor, const RoomModel& nextRoom) const;
 		bool initRoom(World& world, const RoomModel& nextRoom) const;
 
 	public:

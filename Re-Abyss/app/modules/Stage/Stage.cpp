@@ -166,7 +166,11 @@ namespace abyss
         {
             auto decor = m_pManager->getModule<Decor>();
             decor->setGraphics(std::make_shared<DecorGraphics>(m_stageData->getDecorService()));
-            result &= this->initDecor(*decor, *camera);
+            if (nextRoom) {
+                result &= this->initDecor(*decor, *nextRoom);
+            } else {
+                result = false;
+            }
         }
 
         // バブルエフェクト開始
@@ -222,7 +226,11 @@ namespace abyss
         {
             auto decor = m_pManager->getModule<Decor>();
             decor->onCheckOut();
-            result &= this->initDecor(*decor, *camera);
+            if (const auto& nextRoom = camera->nextRoom()) {
+                result &= this->initDecor(*decor, *nextRoom);
+            } else {
+                result = false;
+            }
         }
         // サウンドが変わる場合は停止
         auto sound = m_pManager->getModule<Sound>();
@@ -256,7 +264,7 @@ namespace abyss
         return this->initRoom(*world, room);
     }
 
-    bool Stage::initDecor(Decor& decor, const Camera& camera) const
+    bool Stage::initDecor(Decor& decor, const RoomModel& nextRoom) const
     {
         auto decorService = m_stageData->getDecorService();
         if (!decorService) {
@@ -269,11 +277,7 @@ namespace abyss
                 if (!entity) {
                     continue;
                 }
-                bool isInScreen = DecorBuildUtil::IsInScreen(*entity, camera.getCurrentRoom().getRegion());
-                if (const auto& nextRoom = camera.nextRoom(); nextRoom) {
-                    isInScreen |= DecorBuildUtil::IsInScreen(*entity, nextRoom->getRegion());
-                }
-                if (!isInScreen) {
+                if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
                     continue;
                 }
                 m_translator.build(decor, order, *entity);
