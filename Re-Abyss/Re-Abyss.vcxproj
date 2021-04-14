@@ -339,6 +339,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
@@ -764,6 +765,7 @@
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
     <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />

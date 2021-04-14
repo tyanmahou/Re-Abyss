@@ -13,8 +13,14 @@ namespace abyss::decor
 			this->entity = _entity;
 			return *this;
 		}
+		BuildOption& setIsEnableBasicDraw(bool isEnable)
+		{
+			this->isEnableBasicDraw = isEnable;
+			return *this;
+		}
 	private:
 		DecorEntity entity;
+		bool isEnableBasicDraw = true;
 	};
 
 	struct CommonBuilder

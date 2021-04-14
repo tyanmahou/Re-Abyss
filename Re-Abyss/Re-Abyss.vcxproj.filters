@@ -1312,6 +1312,9 @@
     <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1945,6 +1948,7 @@
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
