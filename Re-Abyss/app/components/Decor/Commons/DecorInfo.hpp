@@ -19,6 +19,7 @@ namespace abyss::decor
 
 		bool isInScreen(const s3d::RectF& screen) const;
 
+		s3d::RectF toRect() const;
 		s3d::Quad toQuad() const;
 	private:
 		DecorObj* m_pObj;

@@ -345,6 +345,7 @@
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
+    <ClCompile Include="app\components\Decor\Map\Common\Builder.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Events\Common\StreamHandler.cpp" />
@@ -677,6 +678,7 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
+    <ClCompile Include="vendor\abyss\include\abyss\components\Decor\Map\MapDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -771,6 +773,8 @@
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\Map\Common\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Events\base\IStream.hpp" />

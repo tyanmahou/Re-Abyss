@@ -11,6 +11,10 @@ namespace abyss::decor
     {
         return DecorBuildUtil::IsInScreen(m_entity, screen);
     }
+    s3d::RectF DecorInfo::toRect() const
+    {
+        return DecorBuildUtil::ToRect(m_entity);
+    }
     s3d::Quad DecorInfo::toQuad() const
     {
         return DecorBuildUtil::ToQuad(m_entity);

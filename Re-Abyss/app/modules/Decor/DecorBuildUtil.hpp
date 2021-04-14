@@ -4,6 +4,14 @@
 
 namespace abyss::DecorBuildUtil
 {
+    /// <summary>
+    /// RectFに変換
+    /// </summary>
+    s3d::RectF ToRect(const decor::DecorEntity& entity);
+
+    /// <summary>
+    /// Quadに変換
+    /// </summary>
     s3d::Quad ToQuad(const decor::DecorEntity& entity);
 
     /// <summary>
