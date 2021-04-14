@@ -1,8 +1,10 @@
 #include "DecorTranslator.hpp"
 
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
+#include <abyss/entities/Decor/Map/CommonEntity.hpp>
 
 #include <abyss/components/Decor/General/Common/Builder.hpp>
+#include <abyss/components/Decor/Map/Common/Builder.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
 
 namespace abyss::decor
@@ -12,7 +14,11 @@ namespace abyss::decor
 #define BUILD_DECOR(buildType) if(entity.type == DecorType::##buildType) {\
     return decor.create<buildType::Builder>(order, static_cast<const buildType##Entity&>(entity)); \
 }
+        // General
         BUILD_DECOR(General::Common);
+        
+        // Map
+        BUILD_DECOR(Map::Common);
 
         return nullptr;
     }
