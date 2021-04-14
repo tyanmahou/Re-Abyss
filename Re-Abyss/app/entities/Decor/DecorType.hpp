@@ -69,6 +69,11 @@ namespace abyss::decor
 		{
 			return std::visit(visitor, m_value);
 		}
+
+		s3d::uint32 categoryId() const
+		{
+			return static_cast<s3d::uint32>(m_value.index());
+		}
 	private:
 		std::variant<General, City, Gimmick, Map> m_value;
 	};

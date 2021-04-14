@@ -81,7 +81,7 @@ namespace abyss
         ret.pos = Vec2{ size.x * x, size.y * y } + static_cast<Vec2>(size) / 2;
         ret.size = m_tiledMap.getTile(gId).size;
         ret.aroundFloor = calcAroundFloor(x, y);
-        ret.id = x + size.y * y;
+        ret.id = x + static_cast<s3d::int32>(m_grid.width()) * y;
         ret.gId = gId;
         switch (ret.type) {
         case MapType::Floor:

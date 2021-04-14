@@ -1,11 +1,16 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Array.hpp>
+#include <Siv3D/HashTable.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/entities/Decor/DecorType.hpp>
 #include <abyss/modules/Decor/base/BufferLayer.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::decor
 {
+    using DecorIdTable = s3d::HashTable<s3d::uint32, s3d::HashTable<s3d::uint32, Ref<DecorObj>>>;
+
     class DecorHolder
     {
     public:
@@ -20,6 +25,8 @@ namespace abyss::decor
         void clear(BufferLayer layer);
 
         size_t size() const;
+
+        DecorIdTable getIdTable() const;
     private:
         s3d::Array<std::shared_ptr<DecorObj>> m_reserves;
         s3d::Array<std::shared_ptr<DecorObj>> m_decors;

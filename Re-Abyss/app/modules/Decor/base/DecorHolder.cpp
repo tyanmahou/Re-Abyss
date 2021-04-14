@@ -1,5 +1,7 @@
 #include "DecorHolder.hpp"
 #include <abyss/modules/Decor/base/DecorObj.hpp>
+#include <abyss/components/Decor/Commons/DecorInfo.hpp>
+
 namespace abyss::decor
 {
     void DecorHolder::flush()
@@ -83,5 +85,19 @@ namespace abyss::decor
     {
         return m_decors.size();
     }
-
+    DecorIdTable DecorHolder::getIdTable() const
+    {
+        DecorIdTable ret;
+        for (auto&& obj : m_reserves) {
+            if (auto info = obj->find<DecorInfo>()) {
+                ret[info->getType().categoryId()][info->getId()] = obj;
+            }
+        }
+        for (auto&& obj : m_decors) {
+            if (auto info = obj->find<DecorInfo>()) {
+                ret[info->getType().categoryId()][info->getId()] = obj;
+            }
+        }
+        return ret;
+    }
 }

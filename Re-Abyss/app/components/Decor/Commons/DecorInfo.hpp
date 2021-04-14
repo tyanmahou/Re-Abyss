@@ -11,6 +11,7 @@ namespace abyss::decor
 
 		s3d::uint32 getId() const { return m_entity.id; }
 		s3d::uint32 getGId() const { return m_entity.gId; }
+		DecorType getType() const { return m_entity.type; }
 		s3d::Vec2 getPos() const { return m_entity.pos; }
 		s3d::Vec2 getSize() const { return m_entity.size; }
 		double getRotation() const { return m_entity.rotation; }

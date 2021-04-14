@@ -82,6 +82,12 @@ namespace abyss
         /// </summary>
         /// <returns></returns>
         size_t size() const;
+
+        decor::BufferLayer getBufferLayer() const
+        {
+            return m_bufferLayer;
+        }
+        decor::DecorIdTable getIdTable() const;
     };
 
     namespace DecorOrder

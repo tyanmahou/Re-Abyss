@@ -74,4 +74,14 @@ namespace abyss
         }
         return ret;
     }
+
+    decor::DecorIdTable Decor::getIdTable() const
+    {
+        decor::DecorIdTable ret;
+        for (auto&& [layer, decor] : m_decors) {
+            auto table = decor.getIdTable();
+            ret.insert(table.begin(), table.end());
+        }
+        return ret;
+    }
 }

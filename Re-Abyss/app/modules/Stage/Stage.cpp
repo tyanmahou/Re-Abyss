@@ -28,6 +28,7 @@
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
 #include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
+#include <abyss/entities/Decor/DecorEntity.hpp>
 
 #include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
 
@@ -271,6 +272,7 @@ namespace abyss
             return false;
         }
         decor::DecorTranslator m_translator;
+        auto idTable = decor.getIdTable();
 
         auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<decor::DecorEntity>>& decors) {
             for (const auto& entity : decors) {
@@ -280,7 +282,12 @@ namespace abyss
                 if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
                     continue;
                 }
-                m_translator.build(decor, order, *entity);
+                if (idTable[entity->type.categoryId()].contains(entity->id)) {
+                    // すでに生成済みなら引継ぎする
+                    idTable[entity->type.categoryId()][entity->id]->setBufferLayer(decor.getBufferLayer());
+                } else {
+                    m_translator.build(decor, order, *entity);
+                }
             }
         };
         add(DecorOrder::Front, decorService->getFront());

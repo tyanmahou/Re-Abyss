@@ -1318,7 +1318,7 @@
     <ClCompile Include="app\components\Decor\Map\Common\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vendor\abyss\include\abyss\components\Decor\Map\MapDraw.cpp">
+    <ClCompile Include="app\components\Decor\Map\MapDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
