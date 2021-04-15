@@ -5,11 +5,15 @@
 
 namespace abyss::decor
 {
+	namespace Map
+	{
+		class TileMapModel;
+	}
 	class DecorTranslator
 	{
 	public:
 		Ref<DecorObj> build(Decor& decor, s3d::int32 order, const DecorEntity& entity) const;
 
-		std::shared_ptr<DecorEntity> toEntity(const MapEntity& map) const;
+		Ref<DecorObj> build(Decor& decor, s3d::int32 order, const Map::TileMapModel& tileMap) const;
 	};
 }

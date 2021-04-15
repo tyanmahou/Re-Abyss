@@ -1315,10 +1315,10 @@
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Map\Common\Builder.cpp">
+    <ClCompile Include="app\components\Decor\Map\MapDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Map\MapDraw.cpp">
+    <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1956,10 +1956,10 @@
     <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
-    <ClInclude Include="app\components\Decor\Map\Common\Builder.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
+    <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

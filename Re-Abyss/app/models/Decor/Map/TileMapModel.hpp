@@ -66,6 +66,11 @@ namespace abyss::decor::Map
         {
             return m_gIds[y];
         }
+
+        const s3d::Grid<s3d::uint32>& gIds()const
+        {
+            return m_gIds;
+        }
     private:
         s3d::Vec2 m_pos;
         s3d::String m_filePath;
