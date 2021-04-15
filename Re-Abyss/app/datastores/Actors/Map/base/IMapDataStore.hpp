@@ -2,6 +2,7 @@
 #include <memory>
 #include <Siv3D/Array.hpp>
 #include <abyss/entities/Actors/Map/MapEntity.hpp>
+
 namespace abyss
 {
     class IMapDataStore

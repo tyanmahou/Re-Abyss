@@ -24,4 +24,22 @@ namespace abyss
 		return ret;
     }
 
+	s3d::Vec2 TmxMapDataStore::getTileSize() const
+	{
+		return s3d::Vec2(m_tmx.getTileSize());
+	}
+
+	s3d::Grid<s3d::uint32> TmxMapDataStore::selectRawGrid() const
+	{
+		s3d::Grid<s3d::uint32> ret;
+		auto layer = m_tmx.getLayer(U"map");
+		if (!layer) {
+			return ret;
+		}
+		layer->then([&](const TileLayer& layer) {
+			ret = layer.getGrid();
+		});
+		return ret;
+	}
+
 }

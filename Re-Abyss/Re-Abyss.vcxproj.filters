@@ -1958,6 +1958,8 @@
     <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\Common\Builder.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
+    <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
+    <ClInclude Include="app\datastores\Actors\Map\base\ITileMapDataStore.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />
