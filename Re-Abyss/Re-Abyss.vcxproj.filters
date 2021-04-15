@@ -1315,9 +1315,6 @@
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Map\MapDraw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1955,7 +1952,6 @@
     <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
-    <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\datastores\Actors\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />

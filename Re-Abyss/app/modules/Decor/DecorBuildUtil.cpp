@@ -15,11 +15,6 @@ namespace abyss::DecorBuildUtil
     }
     bool IsInScreen(const decor::DecorEntity& entity, const s3d::RectF& screen)
     {
-        if (entity.type == decor::DecorType::Map::Common) {
-            // マップ最適化
-            return ToRect(entity).intersects(screen);
-        }
-
         return ToQuad(entity).intersects(screen);
     }
 }

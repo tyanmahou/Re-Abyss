@@ -24,11 +24,6 @@ namespace abyss::decor
 			Door,
 		};
 
-		enum class Map
-		{
-			Common,
-		};
-
 	public:
 		DecorType():
 			m_value(General::None)
@@ -75,6 +70,6 @@ namespace abyss::decor
 			return static_cast<s3d::uint32>(m_value.index());
 		}
 	private:
-		std::variant<General, City, Gimmick, Map> m_value;
+		std::variant<General, City, Gimmick> m_value;
 	};
 }

@@ -33,6 +33,7 @@ float4 PS(PSInput input) : SV_TARGET
     if (gIdMapColor.a < 1.0) {
         discard;
     }
+    // タイル番号
     float gId = gIdMapColor.r * 255.0;
     float2 pixel = uv * g_textureSize;
     float2 ajustPixel = pixel % g_tileSize;

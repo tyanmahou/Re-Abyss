@@ -345,7 +345,6 @@
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
-    <ClCompile Include="app\components\Decor\Map\MapDraw.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
     <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp" />
@@ -773,7 +772,6 @@
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
-    <ClInclude Include="app\components\Decor\Map\MapDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
     <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
