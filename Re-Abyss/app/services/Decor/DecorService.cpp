@@ -37,7 +37,11 @@ namespace abyss::decor
 
                     if (model.isEmpty()) {
                         // 初期化
-                        model.setFilePath(graphic.filePath);
+                        model
+                            .setFilePath(graphic.filePath)
+                            .setTileSize(map->getTileSize())
+                            .setFirstGId(1) // TODO ちゃんととってくる
+                            ;
                         model.resize(grid.width(), grid.height());
                     }
                     model[y][x] = gId;
@@ -51,9 +55,33 @@ namespace abyss::decor
             .to<DecorService>()
             .asCache();
     }
-    s3d::Array<std::shared_ptr<DecorEntity>> DecorService::getTileMap(const s3d::RectF& screen) const
+    s3d::Array<Map::TileMapModel> DecorService::getTileMap(const s3d::RectF& screen) const
     {
-        s3d::Array<std::shared_ptr<DecorEntity>> ret;
+        s3d::Array<Map::TileMapModel> ret;
+        for (auto&& [path, tileMap] : m_tileMap) {
+            const Vec2& tileSize = tileMap.getTileSize();
+            const Size& mapSize = tileMap.size();
+            uint32 xStart = Max<uint32>(0, screen.x / tileSize.x);
+            uint32 yStart = Max<uint32>(0, screen.y / tileSize.y);
+
+            uint32 xEnd = Min<uint32>(mapSize.x, xStart + static_cast<uint32>(screen.w / tileSize.x));
+            uint32 yEnd = Min<uint32>(mapSize.y, yStart + static_cast<uint32>(screen.h / tileSize.y));
+
+            Map::TileMapModel model;
+            model
+                .setPos(Vec2{ xStart * tileSize.x, yStart * tileSize.y })
+                .setFilePath(path)
+                .setTileSize(tileSize)
+                .setFirstGId(tileMap.getFirstGId())
+                .resize(xEnd - xStart + 1, yEnd - yStart + 1);
+            for (uint32 y = yStart; y <= yEnd; ++y) {
+                for (uint32 x = xStart; x <= xEnd; ++x) {
+                    uint32 gId = tileMap[y][x];
+                    model[y - yStart][x - xStart] = gId;
+                }
+            }
+            ret.push_back(std::move(model));
+        }
         return ret;
     }
 }

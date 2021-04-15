@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 #include <abyss/services/Decor/base/IDecorService.hpp>
-#include <abyss/models/Decor/Map/TileMapModel.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
@@ -44,7 +43,7 @@ namespace abyss::decor
         {
             return m_custom;
         }
-        s3d::Array<std::shared_ptr<DecorEntity>> getTileMap(const s3d::RectF& screen) const override;
+        s3d::Array<Map::TileMapModel> getTileMap(const s3d::RectF& screen) const override;
 
         const DecorGraphics& getGraphics() const override
         {
