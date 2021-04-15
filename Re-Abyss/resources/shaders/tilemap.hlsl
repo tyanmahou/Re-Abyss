@@ -23,9 +23,6 @@ struct PSInput
     float2 uv       : TEXCOORD0;
 };
 
-static const float pi = 4.0f * atan(1.0f);
-
-
 float4 PS(PSInput input) : SV_TARGET
 {
     float2 uv = input.uv;
