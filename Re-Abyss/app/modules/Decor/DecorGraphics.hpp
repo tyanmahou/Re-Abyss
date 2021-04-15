@@ -38,6 +38,7 @@ namespace abyss
         DecorGraphics() = default;
         DecorGraphics(decor::IDecorService* service);
 
+        s3d::uint32 getAnimGId(s3d::uint32 gId, double time);
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time);
 
     private:

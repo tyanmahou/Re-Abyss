@@ -73,6 +73,11 @@ namespace abyss
         }
 
         /// <summary>
+        /// アニメーションしたグラフィックId
+        /// </summary>
+        s3d::uint32 getAnimGId(s3d::uint32 gId, double time) const;
+
+        /// <summary>
         /// 装飾グラフィックを取得
         /// </summary>
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time) const;

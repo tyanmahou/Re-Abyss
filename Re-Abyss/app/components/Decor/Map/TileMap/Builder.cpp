@@ -6,6 +6,7 @@
 
 #include <abyss/modules/Decor/Decor.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -31,7 +32,9 @@ namespace
     public:
         Drawer(DecorObj* pObj, const TileMapModel& tileMap):
             m_pObj(pObj),
-            m_tileMap(tileMap)
+            m_tileMap(tileMap),
+            m_mapChip(Resource::Assets::Main()->loadTexture(tileMap.getFilePath(), Path::Root)),
+            m_gId(tileMap.size(), Palette::White)
         {}
         void onStart()
         {
@@ -54,10 +57,11 @@ namespace
                     decor->getTexture(gId, time).draw(pos + tileSize * Vec2{x, y});
                 }
             }
-
         }
     private:
         DecorObj* m_pObj;
         TileMapModel m_tileMap;
+        Texture m_mapChip;
+        DynamicTexture m_gId;
     };
 }

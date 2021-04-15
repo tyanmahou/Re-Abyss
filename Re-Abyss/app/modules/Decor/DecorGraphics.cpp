@@ -64,13 +64,18 @@ namespace abyss
     {
         m_animes[gId] = std::move(anime);
     }
+    s3d::uint32 DecorGraphics::getAnimGId(s3d::uint32 gId, double time)
+    {
+        if (!m_animes[gId].isEmpty()) {
+            gId = m_animes.at(gId).getGId(time);
+        }
+        return gId;
+    }
     s3d::TextureRegion DecorGraphics::getTexture(s3d::uint32 gId, double time)
     {
         auto rawInfo = m_infos[gId];
         auto size = rawInfo.size;
-        if (!m_animes[gId].isEmpty()) {
-            gId = m_animes.at(gId).getGId(time);
-        }
+        gId = this->getAnimGId(gId, time);
         if (m_textures.find(gId) != m_textures.end()) {
             return m_textures.at(gId).resized(size);
         }

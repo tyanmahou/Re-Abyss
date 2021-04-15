@@ -61,6 +61,11 @@ namespace abyss
         m_decors[order].push(decor);
         return decor;
     }
+
+    s3d::uint32 Decor::getAnimGId(s3d::uint32 gId, double time) const
+    {
+        return m_graphics->getAnimGId(gId, time);
+    }
     s3d::TextureRegion Decor::getTexture(s3d::uint32 gId, double time) const
     {
         return m_graphics->getTexture(gId, time);
