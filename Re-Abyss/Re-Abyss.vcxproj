@@ -828,6 +828,7 @@
     <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
+    <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
@@ -1229,7 +1230,6 @@
     <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
-    <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />

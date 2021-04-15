@@ -1,9 +1,13 @@
 #pragma once
 #include <memory>
 #include <abyss/services/Decor/base/IDecorService.hpp>
-
+#include <abyss/models/Decor/Map/TileMapModel.hpp>
 #include <Emaject.hpp>
 
+namespace abyss
+{
+    class ITileMapDataStore;
+}
 namespace abyss::decor
 {
     class IDecorDataStore;
@@ -18,11 +22,13 @@ namespace abyss::decor
 
         DecorGraphics m_graphics;
         DecorAnimations m_animation;
+
+        s3d::HashTable<s3d::String, Map::TileMapModel> m_tileMap;
     public:
         INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
             std::shared_ptr<IGimmickDataStore> gimmick,
-            std::shared_ptr<IMapDataStore> map,
+            std::shared_ptr<ITileMapDataStore> map,
             std::shared_ptr<IGraphicsDataStore> graphics,
             std::shared_ptr<IAnimationDataStore> animation
         ));
@@ -38,6 +44,8 @@ namespace abyss::decor
         {
             return m_custom;
         }
+        s3d::Array<std::shared_ptr<DecorEntity>> getTileMap(const s3d::RectF& screen) const override;
+
         const DecorGraphics& getGraphics() const override
         {
             return m_graphics;
