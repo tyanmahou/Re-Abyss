@@ -28,16 +28,21 @@ float4 PS(PSInput input) : SV_TARGET
     float2 uv = input.uv;
     float4 gIdMapColor = g_gIdMap.Sample(g_sampler0, uv);
     if (gIdMapColor.a < 1.0) {
+        // 描画しない
         discard;
     }
     // タイル番号
     float gId = gIdMapColor.r * 255.0;
+
+    // マップチップテクスチャのピクセルオフセットを計算
     float2 pixel = uv * g_textureSize;
     float2 ajustPixel = pixel % g_tileSize;
 
+    // タイル番号からマップチップテクスチャのuvを計算
     float x = gId % g_mapChipGIdSize.x;
     float y = floor(gId / g_mapChipGIdSize.x);
     float2 mapChipUv = (float2(x, y) * g_tileSize + ajustPixel) / g_mapChipSize;
+
     float4 result = g_mapChip.Sample(g_sampler0, mapChipUv);
 
     return (result * input.color) + g_colorAdd;
