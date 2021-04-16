@@ -487,6 +487,8 @@
     <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp" />
+    <ClCompile Include="app\views\Decor\Map\TileMapShader.cpp" />
+    <ClCompile Include="app\views\Decor\Map\TileMapView.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoExVM.cpp" />
@@ -1228,6 +1230,8 @@
     <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
+    <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
+    <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />
     <ClInclude Include="app\views\Actors\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />

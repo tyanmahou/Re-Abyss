@@ -1318,6 +1318,12 @@
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Decor\Map\TileMapShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Decor\Map\TileMapView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1956,6 +1962,8 @@
     <ClInclude Include="app\datastores\Actors\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
+    <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
+    <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

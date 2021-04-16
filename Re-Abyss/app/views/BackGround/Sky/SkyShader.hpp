@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include <functional>
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Fwd.hpp>
 
