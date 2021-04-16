@@ -2,10 +2,9 @@
 #include <abyss/components/Decor/Commons/CustomDraw.hpp>
 
 #include <abyss/modules/Decor/base/DecorObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/views/Decor/Map/TileMapView.hpp>
 
-#include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <Siv3D.hpp>
 
 namespace
 {
