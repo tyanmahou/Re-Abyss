@@ -17,5 +17,8 @@ namespace abyss::decor::Map
         TileMapModel m_tileMap; 
         s3d::Texture m_texture;
         TileMapShader m_shader;
+
+        // 最適化用インデックス配列
+        s3d::Array<s3d::Size> m_indexPoints;
     };
 }
