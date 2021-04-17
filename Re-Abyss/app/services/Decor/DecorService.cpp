@@ -40,7 +40,7 @@ namespace abyss::decor
                         model
                             .setFilePath(graphic.filePath)
                             .setTileSize(map->getTileSize())
-                            .setFirstGId(1) // TODO ちゃんととってくる
+                            .setFirstGId(graphic.firstGId)
                             ;
                         model.resize(grid.width(), grid.height());
                     }

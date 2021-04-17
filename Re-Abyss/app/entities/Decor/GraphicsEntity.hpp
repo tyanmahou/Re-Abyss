@@ -7,6 +7,7 @@ namespace abyss::decor
     struct GraphicsEntity
     {
         s3d::uint32 gId;
+        s3d::uint32 firstGId;
         s3d::String filePath;
         s3d::Vec2 offset;
         s3d::Vec2 size;

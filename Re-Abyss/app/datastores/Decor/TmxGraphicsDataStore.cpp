@@ -8,6 +8,7 @@ namespace abyss::decor
         for (const auto& tile : m_tmx.getTiles()) {
             GraphicsEntity entity{
                 .gId = tile.gId,
+                .firstGId = tile.gId - tile.tileId,
                 .filePath = tile.image,
                 .offset = tile.offset,
                 .size = tile.size
