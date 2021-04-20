@@ -33,6 +33,7 @@ namespace abyss::Actor
 		s3d::uint64 getId() const;
 		
 		void setDestoryTiming(DestoryTiming timing);
+		bool isDestoryCheckIn() const;
 		bool isDestoryCheckOut() const;
 		bool isDestoryNever() const;
 

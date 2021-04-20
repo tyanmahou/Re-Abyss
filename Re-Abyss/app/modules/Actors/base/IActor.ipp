@@ -15,6 +15,10 @@ namespace abyss::Actor
 	{
 		m_destoryTiming = timing;
 	}
+	inline bool IActor::isDestoryCheckIn() const
+	{
+		return m_destoryTiming == DestoryTiming::CheckIn;
+	}
 	inline bool IActor::isDestoryCheckOut() const
 	{
 		return m_destoryTiming == DestoryTiming::CheckOut;
