@@ -71,6 +71,11 @@ namespace abyss
         m_actorsHolder.erase();
     }
 
+    void World::onCheckIn()
+    {
+        m_actorsHolder.onCheckIn();
+    }
+
     void World::onCheckOut()
     {
         m_actorsHolder.onCheckOut();

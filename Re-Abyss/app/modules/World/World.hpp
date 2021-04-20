@@ -55,6 +55,11 @@ namespace abyss
         void cleanUp();
 
         /// <summary>
+        /// チェックイン
+        /// </summary>
+        void onCheckIn();
+
+        /// <summary>
         /// チェックアウト
         /// </summary>
         void onCheckOut();
