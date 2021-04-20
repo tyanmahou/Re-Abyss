@@ -2,7 +2,6 @@
 #include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
-#include <abyss/services/Event/Talk/TalkService.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <abyss/modules/BackGround/BackGround.hpp>

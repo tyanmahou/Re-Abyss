@@ -593,7 +593,6 @@
     <ClCompile Include="app\modules\World\World.cpp" />
     <ClCompile Include="app\scenes\Main\MainScene.cpp" />
     <ClCompile Include="app\services\BackGround\BackGroundService.cpp" />
-    <ClCompile Include="app\services\Event\Talk\TalkService.cpp" />
     <ClCompile Include="app\services\Stage\StageService.cpp" />
     <ClCompile Include="app\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -1156,7 +1155,6 @@
     <ClInclude Include="app\scenes\Main\MainScene.hpp" />
     <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
     <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
-    <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\services\Stage\StageService.hpp" />
     <ClInclude Include="app\stdafx.hpp" />

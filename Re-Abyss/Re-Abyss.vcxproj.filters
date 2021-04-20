@@ -218,9 +218,6 @@
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\services\Event\Talk\TalkService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1463,7 +1460,6 @@
     <ClInclude Include="app\params\Actors\Player\Param.hpp" />
     <ClInclude Include="app\params\Actors\Player\ShotParam.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
-    <ClInclude Include="app\services\Event\Talk\TalkService.hpp" />
     <ClInclude Include="app\entities\Actors\Gimmick\EventTriggerEntity.h" />
     <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
     <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
