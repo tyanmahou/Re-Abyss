@@ -18,13 +18,13 @@ namespace abyss
         m_view.push(vm);
     }
 
-    void Light::draw(double dt, const CameraView& camera) const
+    void Light::draw(double time, const CameraView& camera) const
     {
 #if ABYSS_DEBUG
         if (Debug::Menu::IsDebug(U"disable-darkness")) {
             return;
         }
 #endif
-        m_view.draw(dt, camera);
+        m_view.draw(time, camera);
     }
 }

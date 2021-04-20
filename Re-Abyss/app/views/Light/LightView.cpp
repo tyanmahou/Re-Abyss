@@ -18,16 +18,14 @@ namespace abyss
     {
         m_rights.push_back(light);
     }
-    void LightView::draw(double dt, const CameraView& camera) const
+    void LightView::draw(double time, const CameraView& camera) const
     {
         {
             ScopedRenderTarget2D target(m_rt);
+            m_rt.clear(ColorF(0, 1));
             Transformer2D t2d(Mat3x2::Translate(-Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
-            // 徐々に暗くする
-            const double alpha = Min(1.0, 6.0 * dt);
-            camera.screenRegion().draw(ColorF(0, alpha));
             for (const auto& light : m_rights) {
-                light.draw(dt);
+                light.draw(time);
             }
         }
         ScopedRenderStates2D state(BlendState::Multiplicative);

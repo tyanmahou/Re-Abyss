@@ -136,7 +136,7 @@ namespace abyss
 
             m_effects.update<EffectGroup::Bubble>();
             m_backGround->drawWaterSarfaceFront(cameraView);
-            //m_light.draw(m_time.deltaTime(), cameraView);
+            // m_light.draw(m_time.time(), cameraView);
         }
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
