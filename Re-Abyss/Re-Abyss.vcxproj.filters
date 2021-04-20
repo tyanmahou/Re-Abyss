@@ -1321,6 +1321,15 @@
     <ClCompile Include="app\views\Decor\Map\TileMapView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Decor\City\StreetLight\LightVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1960,6 +1969,9 @@
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
     <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
     <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />
+    <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\City\StreetLight\LightCtrl.hpp" />
+    <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

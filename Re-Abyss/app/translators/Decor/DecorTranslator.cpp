@@ -1,9 +1,11 @@
 #include "DecorTranslator.hpp"
 
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
+#include <abyss/entities/Decor/City/StreetLightEntity.hpp>
 #include <abyss/entities/Decor/Map/CommonEntity.hpp>
 
 #include <abyss/components/Decor/General/Common/Builder.hpp>
+#include <abyss/components/Decor/City/StreetLight/Builder.hpp>
 #include <abyss/components/Decor/Map/TileMap/Builder.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
 
@@ -16,6 +18,9 @@ namespace abyss::decor
 }
         // General
         BUILD_DECOR(General::Common);
+
+        // City
+        BUILD_DECOR(City::StreetLight);
 
         return nullptr;
     }
