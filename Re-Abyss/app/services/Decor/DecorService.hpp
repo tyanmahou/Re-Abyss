@@ -17,7 +17,7 @@ namespace abyss::decor
     {
         s3d::Array<std::shared_ptr<DecorEntity>> m_front;
         s3d::Array<std::shared_ptr<DecorEntity>> m_back;
-        s3d::Array<std::shared_ptr<DecorEntity>> m_custom;
+        s3d::Array<std::shared_ptr<DecorEntity>> m_middle;
 
         DecorGraphics m_graphics;
         DecorAnimations m_animation;
@@ -26,7 +26,6 @@ namespace abyss::decor
     public:
         INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
-            std::shared_ptr<IGimmickDataStore> gimmick,
             std::shared_ptr<ITileMapDataStore> map,
             std::shared_ptr<IGraphicsDataStore> graphics,
             std::shared_ptr<IAnimationDataStore> animation
@@ -39,9 +38,9 @@ namespace abyss::decor
         {
             return m_back;
         }
-        const s3d::Array<std::shared_ptr<DecorEntity>>& getCustom() const override
+        const s3d::Array<std::shared_ptr<DecorEntity>>& getMiddle() const override
         {
-            return m_custom;
+            return m_middle;
         }
         s3d::Array<Map::TileMapModel> getTileMap(const s3d::RectF& screen) const override;
 

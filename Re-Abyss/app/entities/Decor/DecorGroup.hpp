@@ -4,7 +4,8 @@ namespace abyss::decor
 {
 	enum class DecorGroup
 	{
-		Front,
 		Back,
+		Middle,
+		Front,
 	};
 }

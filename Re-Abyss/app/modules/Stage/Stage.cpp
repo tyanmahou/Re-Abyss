@@ -292,7 +292,7 @@ namespace abyss
         };
         add(DecorOrder::Front, decorService->getFront());
         add(DecorOrder::Back, decorService->getBack());
-        add(DecorOrder::Middle, decorService->getCustom());
+        add(DecorOrder::Middle, decorService->getMiddle());
 
         for (const auto& tileMap : decorService->getTileMap(nextRoom.getRegion())) {
             m_translator.build(decor, DecorOrder::Middle, tileMap);

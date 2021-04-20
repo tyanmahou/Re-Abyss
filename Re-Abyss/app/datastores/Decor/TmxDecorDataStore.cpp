@@ -9,6 +9,7 @@ namespace abyss::decor
     {
         static const std::unordered_map<DecorGroup, s3d::String> toLayerNameMap{
             {DecorGroup::Back, U"back"},
+            {DecorGroup::Middle, U"middle"},
             {DecorGroup::Front, U"front"},
         };
 

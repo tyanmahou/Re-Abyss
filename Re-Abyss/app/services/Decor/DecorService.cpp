@@ -11,7 +11,6 @@ namespace abyss::decor
 {
     DecorService::DecorService(
         std::shared_ptr<IDecorDataStore>decor, 
-        std::shared_ptr<IGimmickDataStore>gimmick,
         std::shared_ptr<ITileMapDataStore>map,
         std::shared_ptr<IGraphicsDataStore> graphics,
         std::shared_ptr<IAnimationDataStore> animation
@@ -19,6 +18,7 @@ namespace abyss::decor
     {
         m_front = decor->select(DecorGroup::Front);
         m_back = decor->select(DecorGroup::Back);
+        m_middle = decor->select(DecorGroup::Middle);
 
         m_graphics = graphics->selectWithKey();
         m_animation = animation->selectWithKey();
@@ -61,8 +61,8 @@ namespace abyss::decor
         for (auto&& [path, tileMap] : m_tileMap) {
             const Vec2& tileSize = tileMap.getTileSize();
             const Size& mapSize = tileMap.size();
-            uint32 xStart = Max<uint32>(0, screen.x / tileSize.x);
-            uint32 yStart = Max<uint32>(0, screen.y / tileSize.y);
+            uint32 xStart = Max<uint32>(0, static_cast<uint32>(screen.x / tileSize.x));
+            uint32 yStart = Max<uint32>(0, static_cast<uint32>(screen.y / tileSize.y));
 
             uint32 xEnd = Min<uint32>(mapSize.x, xStart + static_cast<uint32>(screen.w / tileSize.x));
             uint32 yEnd = Min<uint32>(mapSize.y, yStart + static_cast<uint32>(screen.h / tileSize.y));

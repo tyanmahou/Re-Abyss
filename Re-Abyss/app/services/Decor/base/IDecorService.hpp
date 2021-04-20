@@ -18,7 +18,7 @@ namespace abyss::decor
 
         virtual const s3d::Array<std::shared_ptr<DecorEntity>>& getFront() const = 0;
         virtual const s3d::Array<std::shared_ptr<DecorEntity>>& getBack() const = 0;
-        virtual const s3d::Array<std::shared_ptr<DecorEntity>>& getCustom() const = 0;
+        virtual const s3d::Array<std::shared_ptr<DecorEntity>>& getMiddle() const = 0;
 
         virtual s3d::Array<Map::TileMapModel> getTileMap(const s3d::RectF& screen) const = 0;
 
