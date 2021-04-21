@@ -18,7 +18,7 @@ namespace abyss::ui::DyingEffect
             Constants::GameScreen.draw(ColorF(1, 0, 0, 0.8));
             return;
         }
-        auto color = ColorF(1, 0.8 - 0.4 * Periodic::Sawtooth0_1(1s, m_time));
+        auto color = ColorF(1, 0, 0, 0.8 - 0.4 * Periodic::Sawtooth0_1(1s, m_time));
         m_texture.draw(Constants::GameScreenOffset, color);
     }
 
