@@ -22,11 +22,6 @@ namespace
         }
         return image;
     }
-    struct ShaderParam
-    {
-        Float2 size;
-        float _unused[2];
-    };
 }
 
 namespace abyss
@@ -40,22 +35,14 @@ namespace abyss
         {
 
         }
-        
-        LightShader& setSize(const Size& size)
-        {
-            m_cb->size = static_cast<Float2>(size);
-            return *this;
-        }
         ScopedCustomShader2D start()
         {
-            s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
             s3d::Graphics2D::SetTexture(1, m_dither);
             return ScopedCustomShader2D(m_ps);
         }
     private:
         PixelShader m_ps;
         s3d::Texture m_dither;
-        ConstantBuffer<ShaderParam> m_cb;
     };
 
     LightView::LightView():
@@ -84,7 +71,7 @@ namespace abyss
             }
         }
         {
-            auto ps = m_shader->setSize(m_rt.size()).start();
+            auto ps = m_shader->start();
             ScopedRenderStates2D state(BlendState::Multiplicative);
             m_rt.drawAt(camera.getCameraPos());
         }

@@ -1,14 +1,3 @@
-//-----------------------------------------------
-//
-//	This file is part of the Siv3D Engine.
-//
-//	Copyright (c) 2008-2019 Ryo Suzuki
-//	Copyright (c) 2016-2019 OpenSiv3D Project
-//
-//	Licensed under the MIT License.
-//
-//-----------------------------------------------
-
 Texture2D		g_texture0 : register(t0);
 Texture2D		g_texture1 : register(t1);
 SamplerState	g_sampler0 : register(s0);
@@ -27,15 +16,9 @@ struct PSInput
 	float2 uv		: TEXCOORD0;
 };
 
-cbuffer ShaderParam : register(b1)
-{
-	float2 g_size;
-}
-
 float4 PS(PSInput input) : SV_TARGET
 {
 	const float2 uv = input.uv;
-    const float2 pixel = uv * g_size;
 
 	float4 result = g_texture0.Sample(g_sampler0, uv);
 	float2 ditherUv = input.position.xy % 4;
