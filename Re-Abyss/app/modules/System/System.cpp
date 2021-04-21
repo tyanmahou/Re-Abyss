@@ -16,7 +16,7 @@
 
 namespace abyss
 {
-    System::System(IMasterObserver* masterObserver):
+    System::System(IMasterObserver* masterObserver) :
         m_master(std::make_unique<Master>(masterObserver)),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
@@ -52,8 +52,7 @@ namespace abyss
         m_cron->setManager(&m_manager);
     }
     System::~System()
-    {
-    }
+    {    }
 
     void System::init()
     {
@@ -111,31 +110,38 @@ namespace abyss
         auto cameraView = m_camera.createView();
 
         // in camera
+        static RenderTexture rt(Constants::GameScreenSize.asPoint());
         {
             auto t2d = cameraView.getTransformer();
-
-            // 背面
+            rt.clear(ColorF(0, 1));
             {
-                m_backGround->draw(cameraView);
-                m_backGround->drawWaterSarfaceBack(cameraView);
-                m_effects.update<EffectGroup::DecorBack>();
-                m_decor->drawBack();
+                Transformer2D t2d2(Mat3x2::Translate(-Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
+                ScopedRenderTarget2D target(rt);
+                // 背面
+                {
+                    m_backGround->draw(cameraView);
+                    m_backGround->drawWaterSarfaceBack(cameraView);
+                    m_effects.update<EffectGroup::DecorBack>();
+                    m_decor->drawBack();
+                }
+                cameraView.drawDeathLine();
+
+
+                // 中面
+                m_decor->drawMiddle();
+
+                m_effects.update<EffectGroup::WorldBack>();
+                m_world.draw();
+                m_effects.update<EffectGroup::WorldFront>();
+
+                // 全面
+                m_decor->drawFront();
+
+                m_effects.update<EffectGroup::Bubble>();
+                m_backGround->drawWaterSarfaceFront(cameraView);
             }
-            cameraView.drawDeathLine();
-            
-
-            // 中面
-            m_decor->drawMiddle();
-
-            m_effects.update<EffectGroup::WorldBack>();
-            m_world.draw();
-            m_effects.update<EffectGroup::WorldFront>();
-
-            // 全面
-            m_decor->drawFront();
-
-            m_effects.update<EffectGroup::Bubble>();
-            m_backGround->drawWaterSarfaceFront(cameraView);
+            s3d::Graphics2D::Flush();
+            s3d::Graphics2D::SetTexture(2, rt);
             m_light.draw(m_time.time(), cameraView);
         }
         {

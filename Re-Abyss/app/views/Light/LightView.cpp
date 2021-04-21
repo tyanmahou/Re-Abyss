@@ -72,7 +72,6 @@ namespace abyss
         }
         {
             auto ps = m_shader->start();
-            ScopedRenderStates2D state(BlendState::Multiplicative);
             m_rt.drawAt(camera.getCameraPos());
         }
     }
