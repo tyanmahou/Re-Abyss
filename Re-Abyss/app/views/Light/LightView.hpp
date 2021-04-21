@@ -12,7 +12,6 @@ namespace abyss
     {
     private:
         s3d::RenderTexture m_rt;
-        s3d::RenderTexture m_rt2;
         s3d::Array<LightVM> m_rights;
         std::shared_ptr<LightShader> m_shader;
     public:

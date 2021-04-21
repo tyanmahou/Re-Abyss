@@ -12,11 +12,12 @@ namespace abyss
 
     void LightVM::draw(double time) const
     {
-        const double sin0_1 = s3d::Periodic::Sine0_1(5s, time);
-        const double alpha = s3d::Saturate(m_brightness * (0.4 + sin0_1 * 0.6));
-        const double r = m_range / 2.0 + 10 * sin0_1;
-        const double halfR = r / 2.0;
-        Circle(m_pos, halfR)
-            .drawShadow(Vec2::Zero(), halfR, halfR, ColorF(1.0, alpha));
+        const double sin0_1 = s3d::Periodic::Sine0_1(2.0s, time);
+        const double alpha = s3d::Saturate(m_brightness * (0.9 + sin0_1 * 0.1));
+        const double r = m_range / 2.0 + 1 * sin0_1;
+        const double maxAlphaR = r / 4.0;
+        Circle(m_pos, maxAlphaR)
+            .draw(ColorF(1.0, alpha))
+            .drawFrame(1, r - maxAlphaR, ColorF(1.0, alpha), ColorF(0.0, alpha));
     }
 }
