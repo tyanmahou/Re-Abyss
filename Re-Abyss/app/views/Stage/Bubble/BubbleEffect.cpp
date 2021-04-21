@@ -2,6 +2,8 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Light/Light.hpp>
+
 namespace abyss
 {
     BubbleEffect::BubbleEffect(Manager* pManager, const Vec2& offset, Small) :
@@ -44,6 +46,9 @@ namespace abyss
         ColorF color = m_type == Type::Big ? m_color : m_color * Abs(Sin(t));
         Circle(pos, r).draw(color);
 
+        if (m_type == Type::Small) {
+            m_pManager->getModule<Light>()->addLight({ pos, r * 2.0f, color.a });
+        }
         return m_pManager->getModule<Camera>()->getCurrentRoom().getRegion().stretched(480, 520).intersects(pos);
     }
 
