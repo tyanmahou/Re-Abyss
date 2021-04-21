@@ -37,7 +37,6 @@ namespace abyss
             m_rt.clear(ColorF(0.0, 1.0));
             {
                 ScopedRenderTarget2D target(m_rt);
-                Transformer2D t2d(Mat3x2::Translate({ 0, -20.0f }), Transformer2D::Target::PushLocal);
                 drawer();
             }
             {

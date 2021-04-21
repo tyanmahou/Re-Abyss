@@ -126,7 +126,6 @@ namespace abyss
                 }
                 cameraView.drawDeathLine();
 
-
                 // 中面
                 m_decor->drawMiddle();
 
@@ -140,7 +139,6 @@ namespace abyss
                 m_effects.update<EffectGroup::Bubble>();
                 m_backGround->drawWaterSarfaceFront(cameraView);
             }
-            s3d::Graphics2D::Flush();
             s3d::Graphics2D::SetTexture(2, rt);
             m_light.draw(m_time.time(), cameraView);
         }
