@@ -1,5 +1,4 @@
 #include "Light.hpp"
-#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace abyss
 {
@@ -18,13 +17,8 @@ namespace abyss
         m_view.push(vm);
     }
 
-    void Light::draw(double time, const CameraView& camera) const
+    void Light::draw(const s3d::Texture& dest, double time) const
     {
-#if ABYSS_DEBUG
-        if (Debug::Menu::IsDebug(U"disable-darkness")) {
-            return;
-        }
-#endif
-        m_view.draw(time, camera);
+        m_view.draw(dest, time);
     }
 }

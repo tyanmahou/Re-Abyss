@@ -2,6 +2,7 @@
 #include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
+#include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <abyss/modules/BackGround/BackGround.hpp>
@@ -108,39 +109,40 @@ namespace abyss
     void System::draw() const
     {
         auto cameraView = m_camera.createView();
-
+        const auto& snapshot = m_camera.getSnapshot();
         // in camera
-        static RenderTexture rt(Constants::GameScreenSize.asPoint());
         {
-            auto t2d = cameraView.getTransformer();
-            rt.clear(ColorF(0, 1));
+            auto postRender = snapshot.startPostRender();
             {
-                ScopedRenderTarget2D target(rt);
-                // 背面
+                auto t2d = cameraView.getTransformer();
                 {
-                    m_backGround->draw(cameraView);
-                    m_backGround->drawWaterSarfaceBack(cameraView);
-                    m_effects.update<EffectGroup::DecorBack>();
-                    m_decor->drawBack();
+                    auto sceneRender = snapshot.startSceneRender();
+                    // 背面
+                    {
+                        m_backGround->draw(cameraView);
+                        m_backGround->drawWaterSarfaceBack(cameraView);
+                        m_effects.update<EffectGroup::DecorBack>();
+                        m_decor->drawBack();
+                    }
+                    cameraView.drawDeathLine();
+
+                    // 中面
+                    m_decor->drawMiddle();
+
+                    m_effects.update<EffectGroup::WorldBack>();
+                    m_world.draw();
+                    m_effects.update<EffectGroup::WorldFront>();
+
+                    // 全面
+                    m_decor->drawFront();
+
+                    m_effects.update<EffectGroup::Bubble>();
+                    m_backGround->drawWaterSarfaceFront(cameraView);
                 }
-                cameraView.drawDeathLine();
-
-                // 中面
-                m_decor->drawMiddle();
-
-                m_effects.update<EffectGroup::WorldBack>();
-                m_world.draw();
-                m_effects.update<EffectGroup::WorldFront>();
-
-                // 全面
-                m_decor->drawFront();
-
-                m_effects.update<EffectGroup::Bubble>();
-                m_backGround->drawWaterSarfaceFront(cameraView);
+                m_light.draw(snapshot.getSceneTexture(), m_time.time());
             }
-            s3d::Graphics2D::SetTexture(2, rt);
-            m_light.draw(m_time.time(), cameraView);
         }
+        snapshot.getPostTexture().draw(Constants::GameScreenOffset);
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
             blackBand.draw(Palette::Black);

@@ -19,6 +19,6 @@ namespace abyss
 
         void clear();
         void push(const LightVM& light);
-        void draw(double time, const CameraView& camera) const;
+        void draw(const s3d::Texture& dest, double time) const;
     };
 }

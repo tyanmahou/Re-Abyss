@@ -9,6 +9,8 @@
 
 namespace abyss
 {
+	class SnapshotView;
+
     class Camera
     {
 	private:
@@ -16,7 +18,7 @@ namespace abyss
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<Quake> m_quake;
-
+		std::unique_ptr<SnapshotView> m_snapshot;
 	public:
 		Camera();
 		~Camera();
@@ -132,5 +134,7 @@ namespace abyss
 		/// <param name="pos"></param>
 		/// <returns></returns>
 		s3d::Vec2 transform(const s3d::Vec2& pos) const;
+
+		const SnapshotView& getSnapshot() const;
     };
 }

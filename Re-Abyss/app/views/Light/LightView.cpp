@@ -4,6 +4,8 @@
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
+#include <abyss/debugs/Menu/Menu.hpp>
+
 namespace
 {
     Image CreateDither()
@@ -35,14 +37,21 @@ namespace abyss
         {
 
         }
+        LightShader& setLightsTexture(const s3d::Texture& lights)
+        {
+            m_lights = lights;
+            return *this;
+        }
         ScopedCustomShader2D start()
         {
             s3d::Graphics2D::SetTexture(1, m_dither);
+            s3d::Graphics2D::SetTexture(2, m_lights);
             return ScopedCustomShader2D(m_ps);
         }
     private:
         PixelShader m_ps;
         s3d::Texture m_dither;
+        s3d::Texture m_lights;
     };
 
     LightView::LightView():
@@ -59,7 +68,7 @@ namespace abyss
     {
         m_rights.push_back(light);
     }
-    void LightView::draw(double time, const CameraView& camera) const
+    void LightView::draw(const s3d::Texture& dest, double time) const
     {
         {
             ScopedRenderTarget2D target(m_rt);
@@ -70,9 +79,18 @@ namespace abyss
             }
         }
         {
-            Transformer2D t2d2(Mat3x2::Translate(Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
-            auto ps = m_shader->start();
-            m_rt.drawAt(camera.getCameraPos());
+            Transformer2D t2d(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
+
+#if ABYSS_DEBUG
+            if (Debug::Menu::IsDebug(U"disable-darkness")) {
+                dest.draw();
+                return;
+            }
+#endif
+            auto ps = m_shader
+                ->setLightsTexture(m_rt)
+                .start();
+            dest.draw();
         }
     }
 }

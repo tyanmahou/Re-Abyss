@@ -1330,6 +1330,9 @@
     <ClCompile Include="app\views\Decor\City\StreetLight\LightVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Camera\SnapshotView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1972,6 +1975,7 @@
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\LightCtrl.hpp" />
     <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />
+    <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

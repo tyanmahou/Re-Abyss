@@ -1,6 +1,6 @@
 Texture2D		g_texture0 : register(t0);
 Texture2D		g_texture1 : register(t1);
-Texture2D		g_destTexture : register(t2);
+Texture2D		g_texture2 : register(t2);
 SamplerState	g_sampler0 : register(s0);
 
 cbuffer PSConstants2D : register(b0)
@@ -88,13 +88,14 @@ float4 hardLight(float4 dest, float4 src)
 float4 PS(PSInput input) : SV_TARGET
 {
 	const float2 uv = input.uv;
-    float4 dest = g_destTexture.Sample(g_sampler0, uv);
-	float4 result = g_texture0.Sample(g_sampler0, uv);
+    float4 dest = g_texture0.Sample(g_sampler0, uv);
+	float4 light = g_texture2.Sample(g_sampler0, uv);
 
-	float4 src = (result * input.color) + g_colorAdd + float4(14, 56, 72, 0) / 255.0;
+	float4 src = (light * input.color) + g_colorAdd + float4(14, 56, 72, 0) / 255.0;
+
 	float2 ditherUv = input.position.xy % 4;
 	float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
-	if (dither - result.r <= 0) {
+	if (dither - light.r <= 0) {
 		return dest;
 	}
 	float4 outColor = hardLight(dest, src);

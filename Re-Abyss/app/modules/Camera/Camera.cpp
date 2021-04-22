@@ -8,6 +8,7 @@
 #include <abyss/modules/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
+#include <abyss/views/Camera/SnapshotView.hpp>
 
 #include <Siv3D.hpp>
 
@@ -15,7 +16,8 @@ namespace abyss
 {
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
-		m_quake(std::make_unique<Quake>())
+		m_quake(std::make_unique<Quake>()),
+		m_snapshot(std::make_unique<SnapshotView>())
 	{}
 
 	Camera::~Camera()
@@ -152,5 +154,8 @@ namespace abyss
 	{
 		return this->createView().getMat().transform(pos);
 	}
-
+	const SnapshotView& Camera::getSnapshot() const
+	{
+		return *m_snapshot;
+	}
 }
