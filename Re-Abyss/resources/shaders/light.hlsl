@@ -116,7 +116,6 @@ float4 PS(PSInput input) : SV_TARGET
 	}
 
 	float4 src = screen(light * input.color + g_colorAdd, g_bgColor);
-
 	float4 outColor = hardLight(dest, src);
-	return outColor;
+	return outColor * (dest * 1.5);
 }
