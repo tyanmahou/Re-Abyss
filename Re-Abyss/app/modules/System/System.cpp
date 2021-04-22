@@ -115,7 +115,6 @@ namespace abyss
             auto t2d = cameraView.getTransformer();
             rt.clear(ColorF(0, 1));
             {
-                Transformer2D t2d2(Mat3x2::Translate(-Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
                 ScopedRenderTarget2D target(rt);
                 // 背面
                 {

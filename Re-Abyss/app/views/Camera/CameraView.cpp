@@ -42,7 +42,7 @@ namespace abyss
     }
 	s3d::Mat3x2 CameraView::getMat() const
 	{
-		return s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2 + Constants::GameScreenOffset);
+		return s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2);
 	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{

@@ -65,12 +65,12 @@ namespace abyss
             ScopedRenderTarget2D target(m_rt);
             ScopedRenderStates2D state(BlendState::Additive);
             m_rt.clear(ColorF(0, 1));
-            Transformer2D t2d(Mat3x2::Translate(-Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
             for (const auto& light : m_rights) {
                 light.draw(time);
             }
         }
         {
+            Transformer2D t2d2(Mat3x2::Translate(Constants::GameScreenOffset_v<float>), Transformer2D::Target::PushLocal);
             auto ps = m_shader->start();
             m_rt.drawAt(camera.getCameraPos());
         }
