@@ -139,7 +139,7 @@ namespace abyss
                     m_effects.update<EffectGroup::Bubble>();
                     m_backGround->drawWaterSarfaceFront(cameraView);
                 }
-                m_light.draw(snapshot.getSceneTexture(), m_time.time());
+                m_light.draw(snapshot.getSceneTexture(), m_time.time(), m_backGround->getBgColor());
             }
             // post effectなどあればここで
             snapshot.getPostTexture().draw(Constants::GameScreenOffset);

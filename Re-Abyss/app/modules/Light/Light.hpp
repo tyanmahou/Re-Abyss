@@ -11,6 +11,6 @@ namespace abyss
     public:
         void clear();
         void addLight(const LightModel& light);
-        void draw(const s3d::Texture& dest, double time) const;
+        void draw(const s3d::Texture& dest, double time, const s3d::ColorF& color) const;
     };
 }

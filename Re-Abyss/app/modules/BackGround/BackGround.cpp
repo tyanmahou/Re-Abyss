@@ -11,9 +11,13 @@ namespace abyss
     {
         m_view.addBackGround(backGround);
     }
-    void BackGround::setBgColor(const s3d::Color& color)
+    void BackGround::setBgColor(const s3d::ColorF& color)
     {
         m_view.setBgColor(color);
+    }
+    const s3d::ColorF& BackGround::getBgColor() const
+    {
+        return m_view.getBgColor();
     }
     void BackGround::draw(const CameraView& camera) const
     {

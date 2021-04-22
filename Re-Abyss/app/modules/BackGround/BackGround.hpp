@@ -16,7 +16,8 @@ namespace abyss
         void update(double time);
 
         void add(const BackGroundVM& backGround);
-        void setBgColor(const s3d::Color& color);
+        void setBgColor(const s3d::ColorF& color);
+        const s3d::ColorF& getBgColor() const;
         void draw(const CameraView& camera) const;
         void drawWaterSarfaceBack(const CameraView& camera) const;
         void drawWaterSarfaceFront(const CameraView& camera) const;

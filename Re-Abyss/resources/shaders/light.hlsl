@@ -10,6 +10,10 @@ cbuffer PSConstants2D : register(b0)
 	float4 g_internal;
 }
 
+cbuffer ShaderParam : register(b1)
+{
+	float4 g_bgColor;
+}
 struct PSInput
 {
 	float4 position	: SV_POSITION;
@@ -91,7 +95,7 @@ float4 PS(PSInput input) : SV_TARGET
     float4 dest = g_texture0.Sample(g_sampler0, uv);
 	float4 light = g_texture2.Sample(g_sampler0, uv);
 
-	float4 src = (light * input.color) + g_colorAdd + float4(14, 56, 72, 0) / 255.0;
+	float4 src = (light * input.color) + g_colorAdd + g_bgColor;
 
 	float2 ditherUv = input.position.xy % 4;
 	float dither = g_texture1.Sample(g_sampler0, ditherUv).r;

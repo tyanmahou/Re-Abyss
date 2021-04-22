@@ -8,6 +8,10 @@
 
 namespace
 {
+    struct ShaderParam
+    {
+        Float4 bgColor;
+    };
     Image CreateDither()
     {
         Image image(4, 4);
@@ -37,6 +41,11 @@ namespace abyss
         {
 
         }
+        LightShader& setBgColor(const s3d::ColorF& color)
+        {
+            m_cb->bgColor = color.toFloat4();
+            return *this;
+        }
         LightShader& setLightsTexture(const s3d::Texture& lights)
         {
             m_lights = lights;
@@ -46,10 +55,12 @@ namespace abyss
         {
             s3d::Graphics2D::SetTexture(1, m_dither);
             s3d::Graphics2D::SetTexture(2, m_lights);
+            s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
             return ScopedCustomShader2D(m_ps);
         }
     private:
         PixelShader m_ps;
+        ConstantBuffer<ShaderParam> m_cb;
         s3d::Texture m_dither;
         s3d::Texture m_lights;
     };
@@ -68,7 +79,7 @@ namespace abyss
     {
         m_rights.push_back(light);
     }
-    void LightView::draw(const s3d::Texture& dest, double time) const
+    void LightView::draw(const s3d::Texture& dest, double time, const s3d::ColorF& color) const
     {
         {
             ScopedRenderTarget2D target(m_rt);
@@ -88,7 +99,8 @@ namespace abyss
             }
 #endif
             auto ps = m_shader
-                ->setLightsTexture(m_rt)
+                ->setBgColor(color)
+                .setLightsTexture(m_rt)
                 .start();
             dest.draw();
         }
