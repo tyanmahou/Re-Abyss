@@ -89,13 +89,27 @@ float4 hardLight(float4 dest, float4 src)
 	color.a = 1.0;
 	return color;
 }
+
+float screen(float dest, float src)
+{
+	return 1 - (1 - dest) * (1 - src);
+}
+float4 screen(float4 dest, float4 src)
+{
+	float4 color;
+	color.r = screen(dest.r, src.r);
+	color.g = screen(dest.g, src.g);
+	color.b = screen(dest.b, src.b);
+	color.a = 1.0;
+	return color;
+}
 float4 PS(PSInput input) : SV_TARGET
 {
 	const float2 uv = input.uv;
     float4 dest = g_texture0.Sample(g_sampler0, uv);
 	float4 light = g_texture2.Sample(g_sampler0, uv);
 
-	float4 src = (light * input.color) + g_colorAdd + g_bgColor;
+	float4 src = screen(light* input.color + g_colorAdd, g_bgColor);
 
 	float2 ditherUv = input.position.xy % 4;
 	float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
@@ -103,5 +117,5 @@ float4 PS(PSInput input) : SV_TARGET
 		return dest;
 	}
 	float4 outColor = hardLight(dest, src);
-	return outColor * (dest * 1.5);
+	return outColor;
 }
