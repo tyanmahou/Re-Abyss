@@ -112,8 +112,8 @@ namespace abyss
         const auto& snapshot = m_camera.getSnapshot();
         // in camera
         {
-            auto postRender = snapshot.startPostRender();
             {
+                auto postRender = snapshot.startPostRender();
                 auto t2d = cameraView.getTransformer();
                 {
                     auto sceneRender = snapshot.startSceneRender();
@@ -141,8 +141,9 @@ namespace abyss
                 }
                 m_light.draw(snapshot.getSceneTexture(), m_time.time());
             }
+            // post effectなどあればここで
+            snapshot.getPostTexture().draw(Constants::GameScreenOffset);
         }
-        snapshot.getPostTexture().draw(Constants::GameScreenOffset);
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
             blackBand.draw(Palette::Black);
