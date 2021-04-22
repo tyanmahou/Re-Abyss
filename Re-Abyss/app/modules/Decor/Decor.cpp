@@ -85,7 +85,9 @@ namespace abyss
         decor::DecorIdTable ret;
         for (auto&& [layer, decor] : m_decors) {
             auto table = decor.getIdTable();
-            ret.insert(table.begin(), table.end());
+            for (auto&& [category, objs] : table) {
+                ret[category].insert(objs.begin(), objs.end());
+            }
         }
         return ret;
     }
