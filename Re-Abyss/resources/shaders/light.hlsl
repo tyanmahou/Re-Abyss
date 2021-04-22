@@ -109,13 +109,14 @@ float4 PS(PSInput input) : SV_TARGET
     float4 dest = g_texture0.Sample(g_sampler0, uv);
 	float4 light = g_texture2.Sample(g_sampler0, uv);
 
-	float4 src = screen(light* input.color + g_colorAdd, g_bgColor);
-
 	float2 ditherUv = input.position.xy % 4;
 	float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
 	if (dither - light.r <= 0) {
 		return dest;
 	}
+
+	float4 src = screen(light * input.color + g_colorAdd, g_bgColor);
+
 	float4 outColor = hardLight(dest, src);
 	return outColor;
 }
