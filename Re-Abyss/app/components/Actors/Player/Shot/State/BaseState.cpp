@@ -13,7 +13,6 @@ namespace abyss::Actor::Player::Shot
 
     Task<> BaseState::start()
     {
-        (*m_view)->addShotFiringEffect();
         if (m_shot->isBig()) {
             m_pActor->find<AudioSource>()->playAt(U"ShotBig");
         } else if (m_shot->isMedium()) {

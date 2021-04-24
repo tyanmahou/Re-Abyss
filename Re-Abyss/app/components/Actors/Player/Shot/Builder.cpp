@@ -11,6 +11,7 @@
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/components/Actors/Player/Shot/Collider.hpp>
+#include <abyss/components/Actors/Player/Shot/EffectCtrl.hpp>
 #include <abyss/components/Actors/Player/Shot/State/BaseState.hpp>
 
 #include <abyss/params/Actors/Player/ShotParam.hpp>
@@ -63,6 +64,8 @@ namespace abyss::Actor::Player::Shot
 		{
 			pActor->attach<ViewCtrl<ShotVM>>()
 				->createBinder<ViewBinder>(pActor, *shot, forward);
+
+			pActor->attach<EffectCtrl>(pActor);
 		}
 
 		// State
@@ -98,7 +101,7 @@ namespace
 			return &m_view
 				->setTime(m_pActor->getDrawTimeSec())
 				.setPos(m_body->getPos())
-				.setManager(m_pActor->getManager());
+				;
 		}
 		void onStart() override
 		{

@@ -3,7 +3,6 @@
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
@@ -15,15 +14,11 @@ namespace abyss::Actor::Player::Shot
 		Forward m_forward;
 
 		double m_time = 0;
-		IntervalTimer m_effectTimer;
-		Manager* m_pManager;
 	public:
 		ShotVM(const PlayerShot& shot, Forward forward);
 		ShotVM& setTime(double time);
-		ShotVM& setManager(Manager* pManager);
 		ShotVM& setPos(const s3d::Vec2& pos);
 
-		void addShotFiringEffect();
 		void draw();
     };
 }

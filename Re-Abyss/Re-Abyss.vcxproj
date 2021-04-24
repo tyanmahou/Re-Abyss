@@ -332,6 +332,7 @@
     <ClCompile Include="app\components\Actors\Player\MoveSwim.cpp" />
     <ClCompile Include="app\components\Actors\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actors\Player\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actors\Player\Shot\EffectCtrl.cpp" />
     <ClCompile Include="app\components\Actors\Player\StateChecker.cpp" />
     <ClCompile Include="app\components\Actors\Player\State\DoorInState.cpp" />
     <ClCompile Include="app\components\Actors\utils\ActorUtils.cpp" />
@@ -763,6 +764,7 @@
     <ClInclude Include="app\components\Actors\Player\MoveSwim.hpp" />
     <ClInclude Include="app\components\Actors\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actors\Player\Shot\EffectCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Actors\Player\StateChecker.hpp" />
     <ClInclude Include="app\components\Crons\base\IJob.hpp" />
