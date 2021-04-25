@@ -1336,6 +1336,9 @@
     <ClCompile Include="app\components\Actors\Player\Shot\EffectCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\actors\Player\Shot\ShotEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

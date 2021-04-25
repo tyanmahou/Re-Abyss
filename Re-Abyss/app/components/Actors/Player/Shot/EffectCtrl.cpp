@@ -34,10 +34,11 @@ namespace abyss::Actor::Player::Shot
         Vec2 pos = m_body->getPos();
         double radius = m_shot->toRadius();
 
+        auto* pLight = m_pActor->getModule<Light>();
         // effect
         if (m_effectTimer.update() && *m_shot >= PlayerShotType::Medium) {
-            m_pActor->getModule<Effects>()->addWorldFront<ShotEffect>(pos, radius, m_shot->toColorF());
+            m_pActor->getModule<Effects>()->addWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
         }
-        m_pActor->getModule<Light>()->addLight({ pos, radius * 5 });
+        pLight->addLight({ pos, radius * 5 });
     }
 }
