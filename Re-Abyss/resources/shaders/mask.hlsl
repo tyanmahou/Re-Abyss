@@ -27,9 +27,7 @@ float4 PS(PSInput input) : SV_TARGET
 	float4 texColor = g_texture0.Sample(g_sampler0, input.uv);
 	
 	float mask = g_texture1.Sample(g_sampler1, input.uv).a;
-	if (!g_isEqual) {
-		mask = 1 - mask;
-	}
+	mask = !g_isEqual ? 1 - mask : mask;
 	texColor.r *= mask;
 	texColor.g *= mask;
 	texColor.b *= mask;
