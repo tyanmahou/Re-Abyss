@@ -12,6 +12,12 @@ namespace abyss
 {
     class Stage
     {
+		enum class BuildTiming : s3d::int8
+		{
+			CheckIn = 0x01,
+			CheckOut = 0x02,
+			All = CheckIn | CheckOut,
+		};
     private:
 		std::shared_ptr<StageData> m_stageData;
 
@@ -22,7 +28,7 @@ namespace abyss
 
 		bool initBackGround(BackGround& backGround) const;
 		bool initDecor(Decor& decor, const RoomModel& nextRoom) const;
-		bool initRoom(World& world, const RoomModel& nextRoom) const;
+		bool initRoom(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const;
 
 	public:
 		Stage();

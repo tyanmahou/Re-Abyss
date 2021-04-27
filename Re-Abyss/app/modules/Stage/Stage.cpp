@@ -147,7 +147,7 @@ namespace abyss
             world->create<Actor::God::Builder>();
             world->regist(player);
             if (nextRoom = this->findRoom(playerManager->getPos())) {
-                result &= this->initRoom(*world, *nextRoom);
+                result &= this->initRoom(*world, *nextRoom, BuildTiming::All);
             } else {
                 result = false;
             }
@@ -214,14 +214,19 @@ namespace abyss
 
     bool Stage::checkOut() const
     {
+        auto camera = m_pManager->getModule<Camera>();
         bool result = true;
         // World CheckOut
         {
             auto world = m_pManager->getModule<World>();
             world->onCheckOut();
+            if (const auto& nextRoom = camera->nextRoom()) {
+                result &= this->initRoom(*world, *nextRoom, BuildTiming::CheckOut);
+            } else {
+                result = false;
+            }
         }
 
-        auto camera = m_pManager->getModule<Camera>();
 
         // 装飾のリセット
         {
@@ -263,7 +268,7 @@ namespace abyss
         if (auto reservedRestartId = save->popReservedRestartId()) {
             save->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
         }
-        return this->initRoom(*world, room);
+        return this->initRoom(*world, room, BuildTiming::CheckIn);
     }
 
     bool Stage::initDecor(Decor& decor, const RoomModel& nextRoom) const
@@ -301,35 +306,45 @@ namespace abyss
         decor.flush();
         return true;
     }
-    bool Stage::initRoom(World& world, const RoomModel& nextRoom) const
+    bool Stage::initRoom(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const
     {
         if (!m_stageData) {
             return false;
         }
-        MapTranslator mapTranslator{};
-        for (const auto& map : m_stageData->getMaps()) {
-            if (!nextRoom.getRegion().intersects(RectF(map->pos- map->size/ 2.0, map->size))) {
-                continue;
+        bool isCheckIn = (static_cast<int8>(buildTiming) & static_cast<int8>(BuildTiming::CheckIn)) != 0;
+        bool isCheckOut = (static_cast<int8>(buildTiming) & static_cast<int8>(BuildTiming::CheckOut)) != 0;
+
+        if (isCheckIn) {
+            // マップの生成
+            MapTranslator mapTranslator{};
+            for (const auto& map : m_stageData->getMaps()) {
+                if (!nextRoom.getRegion().intersects(RectF(map->pos - map->size / 2.0, map->size))) {
+                    continue;
+                }
+                mapTranslator.buildActor(world, *map);
             }
-            mapTranslator.buildActor(world, *map);
         }
 
-        // ギミックの生成
-        GimmickTranslator gimmickTranslator(this);
-        for (const auto& gimmick : m_stageData->getGimmicks()) {
-            if (!nextRoom.getRegion().intersects(gimmick->pos)) {
-                continue;
+        if (isCheckOut) {
+            // ギミックの生成
+            GimmickTranslator gimmickTranslator(this);
+            for (const auto& gimmick : m_stageData->getGimmicks()) {
+                if (!nextRoom.getRegion().intersects(gimmick->pos)) {
+                    continue;
+                }
+                gimmickTranslator.buildActor(world, *gimmick);
             }
-            gimmickTranslator.buildActor(world, *gimmick);
         }
 
-        // エネミーの生成
-        EnemyTranslator enemyTranslator{};
-        for (const auto& enemy : m_stageData->getEnemies()) {
-            if (!nextRoom.getRegion().intersects(enemy->pos)) {
-                continue;
+        if (isCheckIn) {
+            // エネミーの生成
+            EnemyTranslator enemyTranslator{};
+            for (const auto& enemy : m_stageData->getEnemies()) {
+                if (!nextRoom.getRegion().intersects(enemy->pos)) {
+                    continue;
+                }
+                enemyTranslator.buildActor(world, *enemy);
             }
-            enemyTranslator.buildActor(world, *enemy);
         }
         world.flush();
         return true;
