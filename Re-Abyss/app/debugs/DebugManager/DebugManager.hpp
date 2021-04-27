@@ -23,7 +23,7 @@ namespace abyss::Debug
 
         static void DrawDebug(const Effects& effects);
 
-        static void DrawDebug(const Decor& decor);
+        static void DrawDebug(const Decors& decor);
     };
 }
 

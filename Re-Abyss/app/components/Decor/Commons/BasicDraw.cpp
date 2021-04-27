@@ -2,7 +2,7 @@
 #include <abyss/components/Decor/Commons/DecorInfo.hpp>
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 
 #include <Siv3D.hpp>
@@ -23,7 +23,7 @@ namespace abyss::decor
         if (!quad.intersects(camera->screenRegion())) {
             return;
         }
-        auto decor = m_pObj->getModule<Decor>();
+        auto decor = m_pObj->getModule<Decors>();
         auto time = m_pObj->getModule<GlobalTime>()->time();
         auto tex = decor
             ->getTexture(m_info->getGId(), time)

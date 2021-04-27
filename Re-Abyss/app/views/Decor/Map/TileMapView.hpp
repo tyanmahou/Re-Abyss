@@ -12,7 +12,7 @@ namespace abyss::decor::Map
     public:
         TileMapView(const TileMapModel& tileMap);
 
-        void draw(const Decor& decor, double time)const;
+        void draw(const Decors& decor, double time)const;
     private:
         TileMapModel m_tileMap; 
         s3d::Texture m_texture;

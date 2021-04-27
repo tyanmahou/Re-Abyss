@@ -7,11 +7,11 @@
 #include <abyss/components/Decor/General/Common/Builder.hpp>
 #include <abyss/components/Decor/City/StreetLight/Builder.hpp>
 #include <abyss/components/Decor/Map/TileMap/Builder.hpp>
-#include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/Decors.hpp>
 
 namespace abyss::decor
 {
-    Ref<DecorObj> DecorTranslator::build(Decor& decor, s3d::int32 order, const DecorEntity& entity) const
+    Ref<DecorObj> DecorTranslator::build(Decors& decor, s3d::int32 order, const DecorEntity& entity) const
     {
 #define BUILD_DECOR(buildType) if(entity.type == DecorType::##buildType) {\
     return decor.create<buildType::Builder>(order, static_cast<const buildType##Entity&>(entity)); \
@@ -25,7 +25,7 @@ namespace abyss::decor
         return nullptr;
     }
 
-    Ref<DecorObj> DecorTranslator::build(Decor& decor, s3d::int32 order, const Map::TileMapModel& tileMap) const
+    Ref<DecorObj> DecorTranslator::build(Decors& decor, s3d::int32 order, const Map::TileMapModel& tileMap) const
     {
         return decor.create<Map::TileMap::Builder>(order, tileMap);
     }

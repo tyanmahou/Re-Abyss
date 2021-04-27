@@ -10,12 +10,12 @@
 #include <abyss/components/Events/GameReady/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
-#include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/Decor/DecorGraphics.hpp>
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
-#include <abyss/modules/Crons/Crons.hpp>
+#include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -165,7 +165,7 @@ namespace abyss
         }
         // 装飾の初期化
         {
-            auto decor = m_pManager->getModule<Decor>();
+            auto decor = m_pManager->getModule<Decors>();
             decor->setGraphics(std::make_shared<DecorGraphics>(m_stageData->getDecorService()));
             if (nextRoom) {
                 result &= this->initDecor(*decor, *nextRoom);
@@ -230,7 +230,7 @@ namespace abyss
 
         // 装飾のリセット
         {
-            auto decor = m_pManager->getModule<Decor>();
+            auto decor = m_pManager->getModule<Decors>();
             decor->onCheckOut();
             if (const auto& nextRoom = camera->nextRoom()) {
                 result &= this->initDecor(*decor, *nextRoom);
@@ -250,7 +250,7 @@ namespace abyss
     {
         // Decor CheckIn
         {
-            auto decor = m_pManager->getModule<Decor>();
+            auto decor = m_pManager->getModule<Decors>();
             decor->onCheckIn();
         }
         // World CheckIn
@@ -271,7 +271,7 @@ namespace abyss
         return this->initRoom(*world, room, BuildTiming::CheckIn);
     }
 
-    bool Stage::initDecor(Decor& decor, const RoomModel& nextRoom) const
+    bool Stage::initDecor(Decors& decor, const RoomModel& nextRoom) const
     {
         auto decorService = m_stageData->getDecorService();
         if (!decorService) {

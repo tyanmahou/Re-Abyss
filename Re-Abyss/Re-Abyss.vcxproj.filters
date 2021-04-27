@@ -922,7 +922,7 @@
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Decor\Decor.cpp">
+    <ClCompile Include="app\modules\Decor\Decors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Effects\Effects.cpp">
@@ -1789,7 +1789,7 @@
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
-    <ClInclude Include="app\modules\Decor\Decor.hpp" />
+    <ClInclude Include="app\modules\Decor\Decors.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />

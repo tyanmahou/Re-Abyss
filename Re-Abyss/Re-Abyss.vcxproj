@@ -552,7 +552,7 @@
     <ClCompile Include="app\components\Actors\Enemy\Schield\State\WaitState.cpp" />
     <ClCompile Include="app\modules\BackGround\BackGround.cpp" />
     <ClCompile Include="app\modules\Camera\CameraWork\base\ICameraWork.cpp" />
-    <ClCompile Include="app\modules\Decor\Decor.cpp" />
+    <ClCompile Include="app\modules\Decor\Decors.cpp" />
     <ClCompile Include="app\modules\Event\Events.cpp" />
     <ClCompile Include="app\modules\Light\Light.cpp" />
     <ClCompile Include="app\datastores\Actors\Enemy\parser\TmxEnemyParser.cpp" />
@@ -1073,7 +1073,7 @@
     <ClInclude Include="app\components\Actors\Enemy\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Camera\CameraWork\base\ICameraWork.hpp" />
-    <ClInclude Include="app\modules\Decor\Decor.hpp" />
+    <ClInclude Include="app\modules\Decor\Decors.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />

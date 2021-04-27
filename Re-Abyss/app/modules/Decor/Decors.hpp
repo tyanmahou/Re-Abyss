@@ -9,7 +9,7 @@ namespace abyss
 {
     class DecorGraphics;
 
-    class Decor
+    class Decors
     {
         std::unordered_map<s3d::int32, decor::DecorHolder> m_decors;
         std::shared_ptr<DecorGraphics> m_graphics;
@@ -17,9 +17,9 @@ namespace abyss
         decor::BufferLayer m_bufferLayer = decor::BufferLayer::Front;
         Manager* m_pManager = nullptr;
     public:
-        Decor();
+        Decors();
 
-        Decor& setManager(Manager* pManager)
+        Decors& setManager(Manager* pManager)
         {
             m_pManager = pManager;
             return *this;
@@ -66,7 +66,7 @@ namespace abyss
         /// </summary>
         Ref<decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor);
 
-        Decor& setGraphics(const std::shared_ptr<DecorGraphics>& graphics)
+        Decors& setGraphics(const std::shared_ptr<DecorGraphics>& graphics)
         {
             m_graphics = graphics;
             return *this;

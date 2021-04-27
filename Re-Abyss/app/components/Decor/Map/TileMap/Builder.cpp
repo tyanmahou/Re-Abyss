@@ -35,7 +35,7 @@ namespace
         }
         void onDraw() const
         {
-            auto decor = m_pObj->getModule<Decor>();
+            auto decor = m_pObj->getModule<Decors>();
             auto time = m_pObj->getModule<GlobalTime>()->time();
             m_view.draw(*decor, time);
         }

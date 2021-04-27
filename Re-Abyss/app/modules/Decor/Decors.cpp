@@ -1,60 +1,60 @@
-#include "Decor.hpp"
+#include "Decors.hpp"
 #include "DecorGraphics.hpp"
 
 namespace abyss
 {
-    Decor::Decor()
+    Decors::Decors()
     {}
-    void Decor::flush()
+    void Decors::flush()
     {
         for (auto&& [layer, decor] : m_decors) {
             decor.flush();
         }
     }
-    void Decor::update()
+    void Decors::update()
     {
         for (auto&& [layer, decor] : m_decors) {
             decor.update();
         }
     }
-    void Decor::draw(s3d::int32 order) const
+    void Decors::draw(s3d::int32 order) const
     {
         if (m_decors.find(order) == m_decors.end()) {
             return;
         }
         m_decors.at(order).draw();
     }
-    void Decor::drawBack() const
+    void Decors::drawBack() const
     {
         this->draw(DecorOrder::Back);
     }
-    void Decor::drawMiddle() const
+    void Decors::drawMiddle() const
     {
         this->draw(DecorOrder::Middle);
     }
-    void Decor::drawFront() const
+    void Decors::drawFront() const
     {
         this->draw(DecorOrder::Front);
     }
 
-    void Decor::onCheckOut()
+    void Decors::onCheckOut()
     {
         m_bufferLayer = decor::FlipBuffer(m_bufferLayer);
     }
 
-    void Decor::onCheckIn()
+    void Decors::onCheckIn()
     {
         for (auto&& [layer, decor] : m_decors) {
             decor.clear(decor::FlipBuffer(m_bufferLayer));
         }
     }
 
-    Ref<decor::DecorObj> Decor::create(s3d::int32 order)
+    Ref<decor::DecorObj> Decors::create(s3d::int32 order)
     {
         return  this->regist(order, std::make_shared<decor::DecorObj>());
     }
 
-    Ref<decor::DecorObj> Decor::regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor)
+    Ref<decor::DecorObj> Decors::regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor)
     {
         decor->setManager(m_pManager);
         decor->setBufferLayer(m_bufferLayer);
@@ -62,16 +62,16 @@ namespace abyss
         return decor;
     }
 
-    s3d::uint32 Decor::getAnimGId(s3d::uint32 gId, double time) const
+    s3d::uint32 Decors::getAnimGId(s3d::uint32 gId, double time) const
     {
         return m_graphics->getAnimGId(gId, time);
     }
-    s3d::TextureRegion Decor::getTexture(s3d::uint32 gId, double time) const
+    s3d::TextureRegion Decors::getTexture(s3d::uint32 gId, double time) const
     {
         return m_graphics->getTexture(gId, time);
     }
 
-    size_t Decor::size() const
+    size_t Decors::size() const
     {
         size_t ret = 0;
         for (auto&& [layer, decor] : m_decors) {
@@ -80,7 +80,7 @@ namespace abyss
         return ret;
     }
 
-    decor::DecorIdTable Decor::getIdTable() const
+    decor::DecorIdTable Decors::getIdTable() const
     {
         decor::DecorIdTable ret;
         for (auto&& [layer, decor] : m_decors) {

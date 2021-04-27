@@ -19,7 +19,7 @@ namespace abyss
         Sound* m_pSound = nullptr;
         UI* m_pUserInterface = nullptr;
         BackGround* m_pBackGround = nullptr;
-        Decor* m_pDecor = nullptr;
+        Decors* m_pDecors = nullptr;
         Stage* m_pStage = nullptr;
         Crons* m_pCrons = nullptr;
         Save* m_pSave = nullptr;
@@ -45,7 +45,7 @@ namespace abyss
 
         Manager& set(BackGround* pBackGround);
 
-        Manager& set(Decor* pDecor);
+        Manager& set(Decors* pDecors);
 
         Manager& set(Stage* pStage);
 

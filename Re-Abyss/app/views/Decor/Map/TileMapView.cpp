@@ -1,6 +1,6 @@
 #include "TileMapView.hpp"
 
-#include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
@@ -31,7 +31,7 @@ namespace abyss::decor::Map
         }
     }
 
-    void TileMapView::draw(const Decor& decor, double time) const
+    void TileMapView::draw(const Decors& decor, double time) const
     {
         if (m_indexPoints.empty()) {
             // 描画するものがない

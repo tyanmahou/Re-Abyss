@@ -22,7 +22,7 @@ namespace abyss
 	class Stage;
 	class StageData;
 	class Light;
-	class Decor;
+	class Decors;
 	class BackGround;
 	class Effects;
 	class Sound;

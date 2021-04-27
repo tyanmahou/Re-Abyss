@@ -6,9 +6,9 @@
 #include <abyss/commons/Constants.hpp>
 
 #include <abyss/modules/BackGround/BackGround.hpp>
-#include <abyss/modules/Decor/Decor.hpp>
+#include <abyss/modules/Decor/Decors.hpp>
 
-#include <abyss/modules/Crons/Crons.hpp>
+#include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Save/Save.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
@@ -21,8 +21,8 @@ namespace abyss
         m_master(std::make_unique<Master>(masterObserver)),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
-        m_decor(std::make_unique<Decor>()),
-        m_cron(std::make_unique<Crons>()),
+        m_decors(std::make_unique<Decors>()),
+        m_crons(std::make_unique<Crons>()),
         m_save(std::make_unique<Save>()),
         m_playerManager(std::make_unique<Actor::Player::PlayerManager>())
     {
@@ -37,9 +37,9 @@ namespace abyss
             .set(&m_sound)
             .set(&m_userInterface)
             .set(m_backGround.get())
-            .set(m_decor.get())
+            .set(m_decors.get())
             .set(m_stage.get())
-            .set(m_cron.get())
+            .set(m_crons.get())
             .set(m_save.get())
             .set(m_playerManager.get())
             ;
@@ -49,8 +49,8 @@ namespace abyss
         m_userInterface.setManager(&m_manager);
         m_effects.init(m_time);
         m_stage->setManager(&m_manager);
-        m_decor->setManager(&m_manager);
-        m_cron->setManager(&m_manager);
+        m_decors->setManager(&m_manager);
+        m_crons->setManager(&m_manager);
     }
     System::~System()
     {    }
@@ -79,7 +79,7 @@ namespace abyss
 
         // フラッシュは常にする
         m_world.flush();
-        m_decor->flush();
+        m_decors->flush();
 
         bool isWorldStop = m_events.isWorldStop();
         if (!isWorldStop) {
@@ -96,12 +96,12 @@ namespace abyss
 
         m_events.update();
         m_userInterface.update();
-        m_decor->update();
+        m_decors->update();
         m_backGround->update(m_time.time());
-        m_cron->update();
+        m_crons->update();
 
 #if ABYSS_DEBUG
-        Debug::DebugManager::DrawDebug(*m_decor);
+        Debug::DebugManager::DrawDebug(*m_decors);
         Debug::DebugManager::DrawDebug(m_effects);
 #endif
         m_master->sendNotify();
@@ -122,19 +122,19 @@ namespace abyss
                         m_backGround->draw(cameraView);
                         m_backGround->drawWaterSarfaceBack(cameraView);
                         m_effects.update<EffectGroup::DecorBack>();
-                        m_decor->drawBack();
+                        m_decors->drawBack();
                     }
                     cameraView.drawDeathLine();
 
                     // 中面
-                    m_decor->drawMiddle();
+                    m_decors->drawMiddle();
 
                     m_effects.update<EffectGroup::WorldBack>();
                     m_world.draw();
                     m_effects.update<EffectGroup::WorldFront>();
 
                     // 全面
-                    m_decor->drawFront();
+                    m_decors->drawFront();
 
                     m_effects.update<EffectGroup::Bubble>();
                     m_backGround->drawWaterSarfaceFront(cameraView);
