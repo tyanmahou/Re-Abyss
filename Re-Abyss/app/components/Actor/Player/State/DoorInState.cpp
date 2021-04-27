@@ -3,7 +3,7 @@
 
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/components/Events/RoomMove/DoorMove/Builder.hpp>
+#include <abyss/components/Event/RoomMove/DoorMove/Builder.hpp>
 
 #include <Siv3D.hpp>
 

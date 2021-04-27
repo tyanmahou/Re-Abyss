@@ -2,8 +2,8 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 
-#include <abyss/components/Events/Talk/Common/Serif/SerifCtrl.hpp>
-#include <abyss/components/Events/Talk/Common/Serif/FaceTable.hpp>
+#include <abyss/components/Event/Talk/Common/Serif/SerifCtrl.hpp>
+#include <abyss/components/Event/Talk/Common/Serif/FaceTable.hpp>
 
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>

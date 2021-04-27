@@ -1,7 +1,7 @@
 #include "IEvent.hpp"
-#include <abyss/components/Events/Common/StreamHandler.hpp>
-#include <abyss/components/Events/base/IUpdate.hpp>
-#include <abyss/components/Events/base/ILastUpdate.hpp>
+#include <abyss/components/Event/Common/StreamHandler.hpp>
+#include <abyss/components/Event/base/IUpdate.hpp>
+#include <abyss/components/Event/base/ILastUpdate.hpp>
 
 namespace abyss::Event
 {

@@ -1009,49 +1009,49 @@
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Common\StreamHandler.cpp">
+    <ClCompile Include="app\components\Event\Common\StreamHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Event\base\IEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GameReady\MainStream.cpp">
+    <ClCompile Include="app\components\Event\GameReady\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Common\FadeIrisOut.cpp">
+    <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GameReady\Builder.cpp">
+    <ClCompile Include="app\components\Event\GameReady\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GamePause\Builder.cpp">
+    <ClCompile Include="app\components\Event\GamePause\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GamePause\MainStream.cpp">
+    <ClCompile Include="app\components\Event\GamePause\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GameRestart\Builder.cpp">
+    <ClCompile Include="app\components\Event\GameRestart\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\GameRestart\MainStream.cpp">
+    <ClCompile Include="app\components\Event\GameRestart\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Common\GlobalTimeCtrl.cpp">
+    <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\RoomMove\RoomMoveCtrl.cpp">
+    <ClCompile Include="app\components\Event\RoomMove\RoomMoveCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.cpp">
+    <ClCompile Include="app\components\Event\RoomMove\BasicMove\RoomMoveCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\RoomMove\BasicMove\Builder.cpp">
+    <ClCompile Include="app\components\Event\RoomMove\BasicMove\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\RoomMove\DoorMove\Builder.cpp">
+    <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.cpp">
+    <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\Serif\Builder.cpp">
@@ -1060,46 +1060,46 @@
     <ClCompile Include="app\components\UI\Serif\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\Builder.cpp">
+    <ClCompile Include="app\components\Event\Talk\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\TalkCtrl.cpp">
+    <ClCompile Include="app\components\Event\Talk\TalkCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Build.cpp">
+    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Build.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\TriggerFactory.cpp">
+    <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\Common\Serif\FaceTable.cpp">
+    <ClCompile Include="app\components\Event\Talk\Common\Serif\FaceTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\Common\TalkHandler.cpp">
+    <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\Common\Serif\SerifCtrl.cpp">
+    <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\CreateBossHPBar\MainStream.cpp">
+    <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\CreateBossHPBar\Builder.cpp">
+    <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.cpp">
+    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\Teardown\Teardown.cpp">
+    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.cpp">
+    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\base\Executer.cpp">
@@ -1831,43 +1831,43 @@
     <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
-    <ClInclude Include="app\components\Events\Common\StreamHandler.hpp" />
-    <ClInclude Include="app\components\Events\base\IStream.hpp" />
-    <ClInclude Include="app\components\Events\GameReady\MainStream.hpp" />
-    <ClInclude Include="app\components\Events\Common\FadeIrisOut.hpp" />
-    <ClInclude Include="app\components\Events\GameReady\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Event\base\IStream.hpp" />
+    <ClInclude Include="app\components\Event\GameReady\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp" />
+    <ClInclude Include="app\components\Event\GameReady\Builder.hpp" />
     <ClInclude Include="app\concepts\Event.hpp" />
-    <ClInclude Include="app\components\Events\GamePause\Builder.hpp" />
-    <ClInclude Include="app\components\Events\GamePause\MainStream.hpp" />
-    <ClInclude Include="app\components\Events\GameRestart\Builder.hpp" />
-    <ClInclude Include="app\components\Events\GameRestart\MainStream.hpp" />
-    <ClInclude Include="app\components\Events\Common\GlobalTimeCtrl.hpp" />
-    <ClInclude Include="app\components\Events\base\IGlobalTimeScale.hpp" />
-    <ClInclude Include="app\components\Events\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Events\base\ILastUpdate.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\RoomMoveCtrl.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\IRoomMoveCallback.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\BasicMove\RoomMoveCallback.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\BasicMove\Builder.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\DoorMove\Builder.hpp" />
-    <ClInclude Include="app\components\Events\RoomMove\DoorMove\RoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\GamePause\Builder.hpp" />
+    <ClInclude Include="app\components\Event\GamePause\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\GameRestart\Builder.hpp" />
+    <ClInclude Include="app\components\Event\GameRestart\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp" />
+    <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
+    <ClInclude Include="app\components\Event\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\IRoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\BasicMove\RoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\BasicMove\Builder.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\DoorMove\Builder.hpp" />
+    <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
-    <ClInclude Include="app\components\Events\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Events\Talk\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Talk\TalkCtrl.hpp" />
     <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
-    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\components\Events\Talk\TriggerFactory.hpp" />
-    <ClInclude Include="app\components\Events\Talk\Common\Serif\SerifCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Event\Talk\Common\Serif\SerifCtrl.hpp" />
     <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
-    <ClInclude Include="app\components\Events\Talk\Common\Serif\FaceTable.hpp" />
-    <ClInclude Include="app\components\Events\Talk\base\ITalker.hpp" />
-    <ClInclude Include="app\components\Events\Talk\Common\TalkHandler.hpp" />
-    <ClInclude Include="app\components\Events\CreateBossHPBar\MainStream.hpp" />
-    <ClInclude Include="app\components\Events\CreateBossHPBar\Builder.hpp" />
-    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Events\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\components\Event\Talk\Common\Serif\FaceTable.hpp" />
+    <ClInclude Include="app\components\Event\Talk\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Event\Talk\Common\TalkHandler.hpp" />
+    <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />

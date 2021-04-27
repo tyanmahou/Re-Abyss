@@ -1,5 +1,5 @@
 #include "TalkObj.hpp"
-#include <abyss/components/Events/Talk/Common/TalkHandler.hpp>
+#include <abyss/components/Event/Talk/Common/TalkHandler.hpp>
 
 namespace abyss::Event::Talk
 {

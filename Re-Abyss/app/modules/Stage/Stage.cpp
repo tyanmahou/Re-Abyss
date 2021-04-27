@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/God/Builder.hpp>
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
-#include <abyss/components/Events/GameReady/Builder.hpp>
+#include <abyss/components/Event/GameReady/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decors.hpp>

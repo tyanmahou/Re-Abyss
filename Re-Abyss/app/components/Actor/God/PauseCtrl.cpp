@@ -3,7 +3,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/components/Events/GamePause/Builder.hpp>
+#include <abyss/components/Event/GamePause/Builder.hpp>
 
 
 namespace abyss::Actor::God

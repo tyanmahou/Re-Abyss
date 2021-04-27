@@ -1,7 +1,7 @@
 #include "Main.hpp"
 #include <abyss/modules/System/System.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Events/Talk/Builder.hpp>
+#include <abyss/components/Event/Talk/Builder.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {

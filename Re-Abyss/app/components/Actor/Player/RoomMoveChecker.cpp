@@ -6,7 +6,7 @@
 #include <abyss/modules/Event/Events.hpp>
 
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/components/Events/RoomMove/BasicMove/Builder.hpp>
+#include <abyss/components/Event/RoomMove/BasicMove/Builder.hpp>
 
 #include <abyss/components/Actor/Commons/CameraFixPos.hpp>
 

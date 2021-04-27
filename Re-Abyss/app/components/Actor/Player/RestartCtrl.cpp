@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/components/Events/GameRestart/Builder.hpp>
+#include <abyss/components/Event/GameRestart/Builder.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 
 #include <abyss/components/Actor/Player/State/DeadState.hpp>
