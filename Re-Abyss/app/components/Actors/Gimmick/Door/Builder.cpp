@@ -16,6 +16,8 @@ namespace abyss::Actor::Gimmick::Door
 {
     void Builder::Build(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom)
     {
+		pActor->setDestoryTiming(DestoryTiming::CheckIn);
+
 		// プロキシー
 		auto proxy = pActor->attach<DoorProxy>(pActor, door, nextRoom);
 
