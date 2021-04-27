@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Enemy::Slime
 {
-    SenserCtrl::SenserCtrl(IActor* pActor):
+    SenserCtrl::SenserCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void SenserCtrl::onStart()

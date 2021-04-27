@@ -5,7 +5,7 @@
 
 namespace abyss::UI::DyingEffect
 {
-    void Builder::Build(UIObj* pUi, Actor::IActor* pActor)
+    void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
         pUi->setOrder(UIOrder::MostBack);
 

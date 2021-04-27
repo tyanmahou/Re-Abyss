@@ -1,11 +1,11 @@
 #include "LightCtrl.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/System/System.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor
 {
-    LightCtrl::LightCtrl(IActor* pActor):
+    LightCtrl::LightCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

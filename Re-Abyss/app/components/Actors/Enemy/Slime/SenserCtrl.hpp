@@ -10,10 +10,10 @@ namespace abyss::Actor::Enemy::Slime
 
     class SenserCtrl : public IComponent
     {
-        IActor* m_pActor;
-        Ref<IActor> m_senser;
+        ActorObj* m_pActor;
+        Ref<ActorObj> m_senser;
     public:
-        SenserCtrl(IActor* pActor);
+        SenserCtrl(ActorObj* pActor);
         void onStart() override;
 
         void destroy();

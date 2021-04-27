@@ -1,11 +1,11 @@
 #include "HeadCtrl.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    HeadCtrl::HeadCtrl(IActor* pActor):
+    HeadCtrl::HeadCtrl(ActorObj* pActor):
         m_forward(Forward::None),
         m_pActor(pActor)
     {}

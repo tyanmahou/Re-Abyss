@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Enemy::Slime::Sensor
 {
-    ParentCtrl::ParentCtrl(IActor* parent):
+    ParentCtrl::ParentCtrl(ActorObj* parent):
         m_parent(parent)
     {}
 

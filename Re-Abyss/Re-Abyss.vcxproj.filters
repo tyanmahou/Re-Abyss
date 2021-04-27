@@ -874,7 +874,7 @@
     <ClCompile Include="app\modules\Actors\base\ActorsHolder.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Actors\base\IActor.cpp">
+    <ClCompile Include="app\modules\Actors\base\ActorObj.cpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Actors\Player\PlayerManager.cpp">
@@ -1765,10 +1765,10 @@
     <ClInclude Include="app\modules\Actors\base\ActorsHolder.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Actors\base\IActor.hpp">
+    <ClInclude Include="app\modules\Actors\base\ActorObj.hpp">
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Actors\base\IActor.ipp" />
+    <ClInclude Include="app\modules\Actors\base\ActorObj.ipp" />
     <ClInclude Include="app\modules\Actors\base\Tag.hpp" />
     <ClInclude Include="app\modules\Actors\Player\PlayerManager.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />

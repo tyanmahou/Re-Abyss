@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Enemy
 {
-    DamageCallback::DamageCallback(IActor* pActor):
+    DamageCallback::DamageCallback(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

@@ -1,5 +1,5 @@
 #include "Draw.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 
@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    Draw::Draw(IActor* pActor):
+    Draw::Draw(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

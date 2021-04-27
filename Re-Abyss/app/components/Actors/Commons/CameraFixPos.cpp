@@ -1,11 +1,11 @@
 #include "CameraFixPos.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor
 {
-    CameraFixPos::CameraFixPos(IActor* pActor):
+    CameraFixPos::CameraFixPos(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

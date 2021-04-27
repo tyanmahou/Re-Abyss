@@ -1,5 +1,5 @@
 #include "Terrain.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {

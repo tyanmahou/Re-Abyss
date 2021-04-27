@@ -1,5 +1,5 @@
 #include "DeadCheacker.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Master/Master.hpp>
 
 #include <abyss/components/Actors/Commons/HP.hpp>
@@ -22,7 +22,7 @@ namespace
 }
 namespace abyss::Actor
 {
-    DeadChecker::DeadChecker(IActor* pActor) :
+    DeadChecker::DeadChecker(ActorObj* pActor) :
         m_pActor(pActor)
     {}
 

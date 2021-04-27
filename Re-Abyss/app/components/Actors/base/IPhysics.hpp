@@ -14,15 +14,15 @@ namespace abyss::Actor
     class IPhysics
     {
     protected:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         bool m_isActive = true;
     public:
-        IPhysics(IActor* p):
+        IPhysics(ActorObj* p):
             m_pActor(p)
         {}
         virtual ~IPhysics() = default;
 
-        IActor* getActor() const
+        ActorObj* getActor() const
         {
             return m_pActor;
         }

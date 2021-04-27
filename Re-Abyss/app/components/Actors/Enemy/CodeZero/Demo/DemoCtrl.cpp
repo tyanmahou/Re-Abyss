@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Demo
 {
-    DemoCtrl::DemoCtrl(IActor* pActor):
+    DemoCtrl::DemoCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
     bool DemoCtrl::moveToTarget(double dt)

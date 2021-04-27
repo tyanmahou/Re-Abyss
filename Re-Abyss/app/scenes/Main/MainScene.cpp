@@ -48,7 +48,7 @@ namespace abyss
 #endif
 		void init(bool isLockPlayer = false)
 		{
-			std::shared_ptr<Actor::IActor> player = nullptr;
+			std::shared_ptr<Actor::ActorObj> player = nullptr;
 			if (isLockPlayer) {
 				player = m_system->lockPlayer();
 			}

@@ -9,7 +9,7 @@ namespace
 }
 namespace abyss::UI::BossHPBar
 {
-    void Builder::Build(UIObj* pUi, Actor::IActor* pActor)
+    void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
         // メイン制御
         {

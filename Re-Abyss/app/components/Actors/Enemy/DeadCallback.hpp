@@ -9,10 +9,10 @@ namespace abyss::Actor::Enemy
         public IDeadCallback
     {
     protected:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         bool m_useQuake = true;
     public:
-        DeadCallback(IActor* pActor);
+        DeadCallback(ActorObj* pActor);
 
         void onDead() override;
 

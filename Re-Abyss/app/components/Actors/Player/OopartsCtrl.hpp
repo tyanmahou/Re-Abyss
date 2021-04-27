@@ -13,16 +13,16 @@ namespace abyss::Actor::Player
         public ILastUpdate
     {
     private:
-        Ref<IActor> m_mainOoparts;
+        Ref<ActorObj> m_mainOoparts;
         Ref<AttackCtrl> m_attackCtrl;
         Ref<Body> m_body;
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        OopartsCtrl(IActor* pActor);
+        OopartsCtrl(ActorObj* pActor);
 
         void onStart() override;
 
-        OopartsCtrl& setMain(const Ref<IActor>& main);
+        OopartsCtrl& setMain(const Ref<ActorObj>& main);
 
         void onLastUpdate() override;
     };

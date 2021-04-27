@@ -11,9 +11,9 @@ namespace abyss::Actor::Player
         public ILastUpdate
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        RoomMoveChecker(IActor* pActor);
+        RoomMoveChecker(ActorObj* pActor);
 
         void setup(Executer executer) override;
 

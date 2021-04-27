@@ -1,6 +1,6 @@
 #include "RestartCtrl.hpp"
 #include <Siv3D.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/components/Events/GameRestart/Builder.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
@@ -10,7 +10,7 @@
 
 namespace abyss::Actor::Player
 {
-    RestartCtrl::RestartCtrl(IActor* pActor):
+    RestartCtrl::RestartCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

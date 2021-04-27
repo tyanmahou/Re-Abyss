@@ -10,7 +10,7 @@ namespace abyss::Actor::Player
         public IComponent
     {
     public:
-        PlayerProxy(IActor* pActor);
+        PlayerProxy(ActorObj* pActor);
 
         void onStart() override;
 
@@ -18,7 +18,7 @@ namespace abyss::Actor::Player
 
         Forward getForward() const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<Body> m_body;
     };
 }

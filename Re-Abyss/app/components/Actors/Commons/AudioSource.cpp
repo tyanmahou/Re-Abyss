@@ -1,6 +1,6 @@
 #include "AudioSource.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
@@ -35,7 +35,7 @@ namespace
         public IUpdate
     {
     public:
-        TemporarySoundEffect(IActor* pActor, const s3d::Audio& audio) :
+        TemporarySoundEffect(ActorObj* pActor, const s3d::Audio& audio) :
             m_pActor(pActor),
             m_audio(audio)
         {}
@@ -59,7 +59,7 @@ namespace
         }
     private:
         Ref<Body> m_body;
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Audio m_audio;
     };
 }
@@ -73,7 +73,7 @@ namespace abyss
 }
 namespace abyss::Actor
 {
-    AudioSource::AudioSource(IActor* pActor) :
+    AudioSource::AudioSource(ActorObj* pActor) :
         m_pActor(pActor)
     {}
 

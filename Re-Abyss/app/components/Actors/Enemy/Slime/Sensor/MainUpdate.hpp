@@ -15,12 +15,12 @@ namespace abyss::Actor::Enemy::Slime::Sensor
         public IUpdate,
         public IPrePhysics
     {
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<ParentCtrl> m_parentCtrl;
         Ref<MapCollider> m_mapColl;
         Ref<Locator> m_locator;
     public:
-        MainUpdate(IActor* pActor);
+        MainUpdate(ActorObj* pActor);
         void onStart() override;
         void onUpdate() override;
 

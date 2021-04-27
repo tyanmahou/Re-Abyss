@@ -6,6 +6,6 @@ namespace abyss::UI::DyingEffect
 {
     struct Builder
     {
-        static void Build(UIObj* pUi, Actor::IActor* pActor);
+        static void Build(UIObj* pUi, Actor::ActorObj* pActor);
     };
 }

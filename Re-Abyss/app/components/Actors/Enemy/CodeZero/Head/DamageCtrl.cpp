@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-	DamageCtrl::DamageCtrl(IActor* pActor) :
+	DamageCtrl::DamageCtrl(ActorObj* pActor) :
 		m_pActor(pActor)
 	{}
 	void DamageCtrl::onStart()

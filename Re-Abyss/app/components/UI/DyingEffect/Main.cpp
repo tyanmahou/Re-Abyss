@@ -1,6 +1,6 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 
 #include <abyss/components/Actors/Commons/HP.hpp>
@@ -8,7 +8,7 @@
 
 namespace abyss::UI::DyingEffect
 {
-    Main::Main(UIObj* pUi, Actor::IActor* pActor):
+    Main::Main(UIObj* pUi, Actor::ActorObj* pActor):
         m_pUi(pUi),
         m_pActor(pActor),
         m_view(std::make_unique<DyingEffectVM>())

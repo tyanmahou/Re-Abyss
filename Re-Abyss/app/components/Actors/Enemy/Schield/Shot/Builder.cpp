@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Enemy/Schield/Shot/State/BaseState.hpp>
 
@@ -24,7 +24,7 @@ namespace
 
 namespace abyss::Actor::Enemy::Schield::Shot
 {
-    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, const s3d::Vec2& dir)
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
         // タグ
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
@@ -87,7 +87,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
 
         std::unique_ptr<ShotVM> m_view;
@@ -103,7 +103,7 @@ namespace
             m_body = m_pActor->find<Body>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

@@ -1,10 +1,10 @@
 #pragma once
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor::God
 {
     struct Builder
     {
-        static void Build(IActor* pActor);
+        static void Build(ActorObj* pActor);
     };
 }

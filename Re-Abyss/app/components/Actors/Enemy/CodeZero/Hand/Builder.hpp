@@ -5,6 +5,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     struct Builder
     {
-        static void Build(IActor* pActor, IActor* parent, HandKind kind);
+        static void Build(ActorObj* pActor, ActorObj* parent, HandKind kind);
     };
 }

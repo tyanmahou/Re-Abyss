@@ -32,9 +32,9 @@ namespace abyss::Actor
 
         s3d::Vec2 m_size{ 0, 0 };
 
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        Body(IActor* pActor);
+        Body(ActorObj* pActor);
 
         void update(double dt);
 

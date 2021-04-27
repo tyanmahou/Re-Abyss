@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss
 {
@@ -9,6 +9,6 @@ namespace abyss::Actor::Enemy::RollingTako
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const RollingTakoEntity& entity);
+		static void Build(ActorObj* pActor, const RollingTakoEntity& entity);
 	};
 }

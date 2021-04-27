@@ -17,7 +17,7 @@ namespace abyss::Actor
     private:
         class Result;
     public:
-        CollisionCtrl(IActor* pActor);
+        CollisionCtrl(ActorObj* pActor);
         ~CollisionCtrl();
         void setup(Executer executer) override;
 
@@ -38,7 +38,7 @@ namespace abyss::Actor
         /// 衝突したアクターとして取得
         /// </summary>
         /// <returns></returns>
-        s3d::Array<IActor*> getHitActors()const;
+        s3d::Array<ActorObj*> getHitActors()const;
 
         /// <summary>
         /// 衝突したいずれかに対して処理を行う

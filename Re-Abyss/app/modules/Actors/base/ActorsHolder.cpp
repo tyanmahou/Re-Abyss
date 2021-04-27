@@ -2,7 +2,7 @@
 
 #include <Siv3D/Utility.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 namespace abyss::Actor
 {
     void ActorsHolder::flush()
@@ -16,12 +16,12 @@ namespace abyss::Actor
 				obj->start();
 				m_actors.push_back(std::move(obj));
 			}
-			m_actors.sort_by([](const std::shared_ptr<IActor>& a, const std::shared_ptr<IActor>& b) {
+			m_actors.sort_by([](const std::shared_ptr<ActorObj>& a, const std::shared_ptr<ActorObj>& b) {
 				return a->getOrder() < b->getOrder();
 			});
 		}
 	}
-    void ActorsHolder::pushActor(const std::shared_ptr<IActor>& obj)
+    void ActorsHolder::pushActor(const std::shared_ptr<ActorObj>& obj)
 	{
 		obj->setId(m_objIdCounter++);
 		m_reserves.push_back(obj);
@@ -118,7 +118,7 @@ namespace abyss::Actor
 	}
 	void ActorsHolder::erase()
 	{
-		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
+		s3d::Erase_if(m_actors, [](const std::shared_ptr<ActorObj>& obj) {
 			if (obj->isDestroyed()) {
 				obj->end();
 				return true;
@@ -146,10 +146,10 @@ namespace abyss::Actor
 	}
 	void ActorsHolder::clear(DestoryTiming timing, BufferLayer layer)
 	{
-		s3d::Erase_if(m_reserves, [&](const std::shared_ptr<IActor>& obj) {
+		s3d::Erase_if(m_reserves, [&](const std::shared_ptr<ActorObj>& obj) {
 			return obj->getDestoryTiming() == timing && obj->getBufferLayer() == layer;
 		});
-		s3d::Erase_if(m_actors, [&](const std::shared_ptr<IActor>& obj) {
+		s3d::Erase_if(m_actors, [&](const std::shared_ptr<ActorObj>& obj) {
 			if (obj->getDestoryTiming() == timing && obj->getBufferLayer() == layer) {
 				obj->end();
 				return true;
@@ -165,11 +165,11 @@ namespace abyss::Actor
 		}
 	}
 
-	s3d::Array<std::shared_ptr<IActor>>& ActorsHolder::getActors()
+	s3d::Array<std::shared_ptr<ActorObj>>& ActorsHolder::getActors()
 	{
 		return m_actors;
 	}
-	const s3d::Array<std::shared_ptr<IActor>>& ActorsHolder::getActors() const
+	const s3d::Array<std::shared_ptr<ActorObj>>& ActorsHolder::getActors() const
 	{
 		return m_actors;
 	}

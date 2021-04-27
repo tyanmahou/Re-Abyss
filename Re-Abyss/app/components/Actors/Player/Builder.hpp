@@ -6,6 +6,6 @@ namespace abyss::Actor::Player
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const StartPosModel& startPos);
+		static void Build(ActorObj* pActor, const StartPosModel& startPos);
 	};
 }

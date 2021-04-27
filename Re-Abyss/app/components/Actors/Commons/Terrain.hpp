@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/types/MapColInfo.hpp>
 
 namespace abyss::Actor
@@ -10,11 +10,11 @@ namespace abyss::Actor
         public IComponent
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         MapColInfo m_mapColInfo;
         bool m_isActive = true;
     public:
-        Terrain(IActor* pActor):
+        Terrain(ActorObj* pActor):
             m_pActor(pActor)
         {}
 
@@ -37,13 +37,13 @@ namespace abyss::Actor
 
         bool isActive() const;
 
-        IActor* getActor()const
+        ActorObj* getActor()const
         {
             return m_pActor;
         }
 
         template<Tag::Tagged T>
-        bool isThen(std::function<bool(IActor*)> callback) const
+        bool isThen(std::function<bool(ActorObj*)> callback) const
         {
             return m_pActor->isThen<T>(callback);
         }
@@ -53,7 +53,7 @@ namespace abyss::Actor
             return m_pActor->isThen<T, C>(callback);
         }
         template<Tag::Tagged T>
-        bool isNotThen(std::function<bool(IActor*)> callback) const
+        bool isNotThen(std::function<bool(ActorObj*)> callback) const
         {
             return m_pActor->isNotThen<T>(callback);
         }

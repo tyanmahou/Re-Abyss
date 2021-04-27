@@ -9,6 +9,6 @@ namespace abyss::Actor::Enemy::CaptainTako
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const CaptainTakoEntity& entity);
+		static void Build(ActorObj* pActor, const CaptainTakoEntity& entity);
 	};
 }

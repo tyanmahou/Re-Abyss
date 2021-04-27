@@ -7,6 +7,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const s3d::Vec2& pos, Forward forward);
+		static void Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward);
 	};
 }

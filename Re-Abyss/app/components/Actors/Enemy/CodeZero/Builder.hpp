@@ -8,6 +8,6 @@ namespace abyss::Actor::Enemy::CodeZero
 {
 	struct Builder
 	{
-		static void Build(IActor*pActor, const CodeZeroEntity& entity);
+		static void Build(ActorObj*pActor, const CodeZeroEntity& entity);
 	};
 }

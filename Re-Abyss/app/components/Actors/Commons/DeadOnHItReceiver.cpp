@@ -7,7 +7,7 @@
 
 namespace abyss::Actor
 {
-    DeadOnHItReceiver::DeadOnHItReceiver(IActor* pActor):
+    DeadOnHItReceiver::DeadOnHItReceiver(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void DeadOnHItReceiver::onStart()

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss
 {
@@ -10,6 +10,6 @@ namespace abyss
     public:
         GimmickTranslator(const Stage* pStage);
 
-        Ref<Actor::IActor> buildActor(World& world, const GimmickEntity& entity);
+        Ref<Actor::ActorObj> buildActor(World& world, const GimmickEntity& entity);
     };
 }

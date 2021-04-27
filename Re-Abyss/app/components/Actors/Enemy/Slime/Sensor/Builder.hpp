@@ -5,6 +5,6 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, IActor* parent);
+		static void Build(ActorObj* pActor, ActorObj* parent);
 	};
 }

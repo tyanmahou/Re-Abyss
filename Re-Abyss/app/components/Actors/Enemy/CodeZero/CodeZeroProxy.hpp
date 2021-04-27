@@ -9,18 +9,18 @@ namespace abyss::Actor::Enemy::CodeZero
         public IComponent
     {
     public:
-        CodeZeroProxy(IActor* pActor);
+        CodeZeroProxy(ActorObj* pActor);
 
         void onStart() override;
         void setActive(bool isActive);
 
         const s3d::Vec2& getPos()const;
-        IActor* getActor() const
+        ActorObj* getActor() const
         {
             return m_pActor;
         }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<Actor::Body> m_body;
         Ref<PartsCtrl> m_parts;
     };

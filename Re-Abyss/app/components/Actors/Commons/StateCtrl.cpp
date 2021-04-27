@@ -1,6 +1,6 @@
 #include "StateCtrl.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/base/IStateCallback.hpp>
 
 namespace abyss::Actor
@@ -12,7 +12,7 @@ namespace abyss::Actor
         this->setup();
     }
 
-    StateCtrl::StateCtrl(IActor* pActor):
+    StateCtrl::StateCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

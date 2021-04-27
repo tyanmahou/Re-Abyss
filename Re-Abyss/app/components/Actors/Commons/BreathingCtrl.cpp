@@ -1,14 +1,14 @@
 #include "BreathingCtrl.hpp"
 #include <Siv3D.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/views/Actors/Common/BreathEffect.hpp>
 
 namespace abyss::Actor
 {
-    BreathingCtrl::BreathingCtrl(IActor* pActor):
+    BreathingCtrl::BreathingCtrl(ActorObj* pActor):
         m_pActor(pActor),
         m_timer(5.0, true, [this, pActor]{return pActor->getUpdateTime() + s3d::DurationCast<s3d::Microseconds>(s3d::Duration(m_timeOffsetSec)); }),
         m_timeOffsetSec(Random(0.0, 10.0))

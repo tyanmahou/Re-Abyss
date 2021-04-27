@@ -36,7 +36,7 @@ namespace abyss
 	/// Modules/Actors
 	namespace Actor
 	{
-		class IActor;
+		class ActorObj;
 		namespace Player
 		{
 			class PlayerManager;

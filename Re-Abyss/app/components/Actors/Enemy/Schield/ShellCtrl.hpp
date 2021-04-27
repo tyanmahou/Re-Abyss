@@ -10,10 +10,10 @@ namespace abyss::Actor::Enemy::Schield
         public IComponent,
         public IDeadCallback
     {
-        IActor* m_pActor;
-        Ref<IActor> m_shell;
+        ActorObj* m_pActor;
+        Ref<ActorObj> m_shell;
     public:
-        ShellCtrl(IActor* pActor);
+        ShellCtrl(ActorObj* pActor);
         ~ShellCtrl();
 
         void onStart() override;

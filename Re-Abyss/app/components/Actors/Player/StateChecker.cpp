@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Player
 {
-    StateChecker::StateChecker(IActor* pActor):
+    StateChecker::StateChecker(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

@@ -16,12 +16,12 @@ namespace abyss::Actor
         public IUpdate
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<Body> m_body;
         s3d::Array<s3d::Audio> m_audios;
         AudioSettingGroup m_audioSettingGroup;
     public:
-        AudioSource(IActor* pActor);
+        AudioSource(ActorObj* pActor);
         void onStart() override;
 
         void load(const s3d::FilePath& path);

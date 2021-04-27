@@ -14,7 +14,7 @@ namespace
 
 namespace abyss::Actor::Gimmick::Door
 {
-    void Builder::Build(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom)
+    void Builder::Build(ActorObj* pActor, const DoorModel& door, const RoomModel& nextRoom)
     {
 		pActor->setDestoryTiming(DestoryTiming::CheckIn);
 
@@ -49,7 +49,7 @@ namespace
 	class Drawer : public CustomDraw::IImpl
 	{
 	public:
-		Drawer(IActor* pActor) :
+		Drawer(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<DoorVM>())
 		{}
@@ -67,7 +67,7 @@ namespace
 				.draw();
 		}
 	private:
-		IActor* m_pActor;
+		ActorObj* m_pActor;
 		Ref<DoorProxy> m_door;
 
 		std::unique_ptr<DoorVM> m_view;

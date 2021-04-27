@@ -9,12 +9,12 @@ namespace abyss::Actor
         public IComponent,
         public IPostCollision
     {
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<DeadChecker> m_deadChecker;
         Ref<MapCollider> m_mapCol;
         Ref<CollisionCtrl> m_cols;
     public:
-        DeadOnHItReceiver(IActor* pActor);
+        DeadOnHItReceiver(ActorObj* pActor);
         void onStart() override;
         void onPostCollision()override;
     };

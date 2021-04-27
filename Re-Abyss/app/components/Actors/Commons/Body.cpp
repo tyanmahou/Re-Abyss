@@ -5,7 +5,7 @@
 
 namespace abyss::Actor
 {
-    Body::Body(IActor* pActor):
+    Body::Body(ActorObj* pActor):
         m_pActor(pActor)
     {
         m_maxVelocity.y = DefaultMaxVelocityY;

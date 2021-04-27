@@ -1,7 +1,7 @@
 #include "IPhysics.hpp"
 #include <Siv3D/Rectangle.hpp>
 #include <abyss/types/MapColInfo.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/types/CShape.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>

@@ -3,7 +3,7 @@
 
 namespace abyss::Actor::God
 {
-    void Builder::Build(IActor* pActor)
+    void Builder::Build(ActorObj* pActor)
     {
         // 死なない
         pActor->setDestoryTiming(DestoryTiming::Never);

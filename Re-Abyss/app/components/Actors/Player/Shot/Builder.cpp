@@ -23,7 +23,7 @@ namespace
 
 namespace abyss::Actor::Player::Shot
 {
-    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward, double charge)
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward, double charge)
     {
         // タグ
         pActor->setTag(Tag::Hero{} | Tag::Attacker{});
@@ -92,7 +92,7 @@ namespace
 
 	class ViewBinder : public ViewCtrl<ShotVM>::IBinder
 	{
-		IActor* m_pActor = nullptr;
+		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
 		std::unique_ptr<ShotVM> m_view;
 	private:
@@ -108,7 +108,7 @@ namespace
 			m_body = m_pActor->find<Body>();
 		}
 	public:
-		ViewBinder(IActor* pActor, const PlayerShot& shot, Forward forward) :
+		ViewBinder(ActorObj* pActor, const PlayerShot& shot, Forward forward) :
 			m_pActor(pActor),
 			m_view(std::make_unique<ShotVM>(shot, forward))
 		{}

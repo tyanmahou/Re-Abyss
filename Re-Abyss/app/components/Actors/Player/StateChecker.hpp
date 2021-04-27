@@ -9,7 +9,7 @@ namespace abyss::Actor::Player
         public IStateCallback
     {
     public:
-        StateChecker(IActor* pActor);
+        StateChecker(ActorObj* pActor);
 
         void onStateStart() override;
 
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
             return m_canDoorState;
         }
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
 
         bool m_canDoorState = false;
     };

@@ -12,7 +12,7 @@ namespace abyss::Actor
         public ILastUpdate
     {
     public:
-        BreathingCtrl(IActor* pActor);
+        BreathingCtrl(ActorObj* pActor);
 
         void onStart() override;
         void onLastUpdate() override;
@@ -22,7 +22,7 @@ namespace abyss::Actor
             m_offset = offset;
         }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         IntervalTimer m_timer;
         s3d::Vec2 m_offset;
         double m_timeOffsetSec = 0;

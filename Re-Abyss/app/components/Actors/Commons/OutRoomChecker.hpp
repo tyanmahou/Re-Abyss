@@ -14,14 +14,14 @@ namespace abyss::Actor
         public ILastUpdate
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<DeadChecker> m_deadChecker;
         std::function<CShape()> m_colliderFunc;
 
         bool m_isOutRoom = false;
         bool m_isAutoDestroy = true;
     public:
-        OutRoomChecker(IActor* pActor);
+        OutRoomChecker(ActorObj* pActor);
 
         void setup(Executer executer)override;
         void onStart() override;

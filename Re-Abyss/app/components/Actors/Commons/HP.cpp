@@ -1,9 +1,9 @@
 #include "HP.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
-    HP::HP(IActor* pActor):
+    HP::HP(ActorObj* pActor):
         m_hp(0),
         m_invincibleTime(1.0, false, [pActor] {return pActor->getUpdateTime();}),
         m_pActor(pActor)

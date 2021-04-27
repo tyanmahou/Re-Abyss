@@ -10,17 +10,17 @@ namespace abyss::Actor::Enemy::CodeZero
 
     class ParentCtrl : public IComponent
     {
-        IActor* m_parent;
+        ActorObj* m_parent;
         Ref<HP> m_hp;
         Ref<Body> m_body;
         Ref<StateCtrl> m_state;
         Ref<PartsCtrl> m_parts;
 
     public:
-        ParentCtrl(IActor* parent);
+        ParentCtrl(ActorObj* parent);
 
         void onStart() override;
-        IActor* getParent()const
+        ActorObj* getParent()const
         {
             return m_parent;
         }

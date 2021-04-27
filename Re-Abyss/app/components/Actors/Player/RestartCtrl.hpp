@@ -11,9 +11,9 @@ namespace abyss::Actor::Player
         public IDeadCallback
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
     public:
-        RestartCtrl(IActor* pActor);
+        RestartCtrl(ActorObj* pActor);
 
         void onDead() override;
     };

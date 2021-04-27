@@ -8,6 +8,6 @@ namespace abyss
 	class EnemyTranslator
 	{
 	public:
-		Ref<Actor::IActor> buildActor(World& world, const EnemyEntity& entity);
+		Ref<Actor::ActorObj> buildActor(World& world, const EnemyEntity& entity);
 	};
 }

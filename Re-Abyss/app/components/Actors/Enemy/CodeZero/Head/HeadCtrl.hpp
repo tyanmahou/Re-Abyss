@@ -19,10 +19,10 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     {
         Forward m_forward;
 
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<ParentCtrl> m_parentCtrl;
     public:
-        HeadCtrl(IActor* pActor);
+        HeadCtrl(ActorObj* pActor);
         void onStart() override;
 
         s3d::Vec2 getPos() const;

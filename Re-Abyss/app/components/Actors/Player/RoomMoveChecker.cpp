@@ -1,6 +1,6 @@
 #include "RoomMoveChecker.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -12,7 +12,7 @@
 
 namespace abyss::Actor::Player
 {
-    RoomMoveChecker::RoomMoveChecker(IActor* pActor):
+    RoomMoveChecker::RoomMoveChecker(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void RoomMoveChecker::setup(Executer executer)

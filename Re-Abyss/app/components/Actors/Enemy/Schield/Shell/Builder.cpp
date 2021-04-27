@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
@@ -8,7 +8,7 @@
 
 namespace abyss::Actor::Enemy::Schield::Shell
 {
-    void Builder::Build(IActor* pActor, IActor* parent)
+    void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
         // タグ
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});

@@ -10,9 +10,9 @@ namespace abyss::Actor::God
         public IComponent,
         public IUpdate
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
     public:
-        PauseCtrl(IActor* pActor);
+        PauseCtrl(ActorObj* pActor);
         void onUpdate() override;
     };
 }

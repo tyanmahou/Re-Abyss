@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Enemy::Schield
 {
-    ShellCtrl::ShellCtrl(IActor* pActor):
+    ShellCtrl::ShellCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/base/IComponent.hpp>
 
 #include <Siv3D/Vector2D.hpp>
@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
         public IComponent
     {
     public:
-        DemoCtrl(IActor* pActor);
+        DemoCtrl(ActorObj* pActor);
 
         bool moveToTarget(double dt);
         DemoCtrl& setPos(const s3d::Vec2& pos)
@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
 
         void destroy() const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         s3d::Vec2 m_pos;
         s3d::Vec2 m_targetPos;
     };

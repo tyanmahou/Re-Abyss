@@ -93,14 +93,14 @@ namespace abyss
 
     }
 
-    std::shared_ptr<Actor::IActor> World::create()
+    std::shared_ptr<Actor::ActorObj> World::create()
     {
-        auto obj = std::make_shared<Actor::IActor>();
+        auto obj = std::make_shared<Actor::ActorObj>();
         this->regist(obj);
         return obj;
     }
 
-    void World::regist(const std::shared_ptr<Actor::IActor>& pActor)
+    void World::regist(const std::shared_ptr<Actor::ActorObj>& pActor)
     {
         pActor->setManager(m_pManager);
         pActor->setBufferLayer(m_bufferLayer);

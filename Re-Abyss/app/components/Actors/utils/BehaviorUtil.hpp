@@ -7,6 +7,6 @@
 
 namespace abyss::Actor::BehaviorUtils
 {
-    [[nodiscard]] Coro::Task<> WaitForSeconds(IActor* pActor, double sec);
-    [[nodiscard]] Coro::Task<> WaitForSeconds(IActor* pActor, s3d::Duration duration);
+    [[nodiscard]] Coro::Task<> WaitForSeconds(ActorObj* pActor, double sec);
+    [[nodiscard]] Coro::Task<> WaitForSeconds(ActorObj* pActor, s3d::Duration duration);
 }

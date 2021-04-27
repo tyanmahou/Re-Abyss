@@ -12,12 +12,12 @@ namespace abyss::Actor::Gimmick::Door
         public Player::IGimmickReacter
     {
     public:
-        GimmickReacter(IActor* pActor);
+        GimmickReacter(ActorObj* pActor);
 
         void onStart() override;
-        void onGimmickReact(IActor* player) override;
+        void onGimmickReact(ActorObj* player) override;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<DoorProxy> m_door;
         Ref<ICollider> m_collider;
     };

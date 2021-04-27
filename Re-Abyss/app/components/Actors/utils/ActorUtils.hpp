@@ -5,10 +5,10 @@
 
 namespace abyss::Actor::ActorUtils
 {
-    const s3d::Vec2& PlayerPos(const IActor& actor);
+    const s3d::Vec2& PlayerPos(const ActorObj& actor);
 
-    s3d::Vec2 PlayerDiffVec(const IActor& actor, const Body& body);
-    bool IsPlayerFrontByDistance(const IActor& actor, const Body& body, double range);
+    s3d::Vec2 PlayerDiffVec(const ActorObj& actor, const Body& body);
+    bool IsPlayerFrontByDistance(const ActorObj& actor, const Body& body, double range);
 
-    TimerEx CreateTimer(const IActor& actor, double sec, bool start = true);
+    TimerEx CreateTimer(const ActorObj& actor, double sec, bool start = true);
 }

@@ -1,12 +1,12 @@
 #include "Collider.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/Shot/PlayerShot.hpp>
 #include <abyss/params/Actors/Player/ShotParam.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
-    Collider::Collider(IActor* pActor):
+    Collider::Collider(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void Collider::onStart()

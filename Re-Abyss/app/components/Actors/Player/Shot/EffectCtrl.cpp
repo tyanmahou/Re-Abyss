@@ -1,13 +1,13 @@
 #include "EffectCtrl.hpp"
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/views/actors/Player/Shot/ShotEffect.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
-    EffectCtrl::EffectCtrl(IActor* pActor):
+    EffectCtrl::EffectCtrl(ActorObj* pActor):
         m_pActor(pActor),
         m_effectTimer(0.033, true, pActor->getDrawClock())
     {}

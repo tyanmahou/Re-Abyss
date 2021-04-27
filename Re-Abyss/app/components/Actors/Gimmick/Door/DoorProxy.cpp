@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Gimmick::Door
 {
-	DoorProxy::DoorProxy(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom) :
+	DoorProxy::DoorProxy(ActorObj* pActor, const DoorModel& door, const RoomModel& nextRoom) :
 		m_pActor(pActor),
 		m_door(door),
 		m_nextRoom(nextRoom)

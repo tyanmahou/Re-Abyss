@@ -12,12 +12,12 @@ namespace abyss::Actor::Player::Shot
         public IDraw
     {
     public:
-        EffectCtrl(IActor* pActor);
+        EffectCtrl(ActorObj* pActor);
         void setup([[maybe_unused]] Executer executer) override;
         void onStart() override;
         void onDraw()const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<Body> m_body;
         Ref<PlayerShot> m_shot;
 

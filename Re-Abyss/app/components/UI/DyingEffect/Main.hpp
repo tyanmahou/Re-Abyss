@@ -18,7 +18,7 @@ namespace abyss::UI::DyingEffect
     {
         
     public:
-        Main(UIObj* pUi, Actor::IActor* actor);
+        Main(UIObj* pUi, Actor::ActorObj* actor);
 
         void onStart() override;
 
@@ -28,7 +28,7 @@ namespace abyss::UI::DyingEffect
     private:
         UIObj* m_pUi;
 
-        Actor::IActor* m_pActor;
+        Actor::ActorObj* m_pActor;
         Ref <Actor::HP> m_hpModel;
         std::unique_ptr<DyingEffectVM> m_view;
 

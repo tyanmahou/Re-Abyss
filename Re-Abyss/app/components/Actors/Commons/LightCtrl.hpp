@@ -13,13 +13,13 @@ namespace abyss::Actor
         public IComponent,
         public IDraw
     {
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         
         Ref<Body> m_body;
         double m_radius = 2.0;
         double m_brightness = 1.0;
     public:
-        LightCtrl(IActor* pActor);
+        LightCtrl(ActorObj* pActor);
 
         void onStart()override;
         void onDraw() const override;

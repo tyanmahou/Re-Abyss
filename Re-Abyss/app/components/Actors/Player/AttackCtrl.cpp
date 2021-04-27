@@ -1,14 +1,14 @@
 #include "AttackCtrl.hpp"
 #include <Siv3D.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Player/Shot/Builder.hpp>
 
 namespace abyss::Actor::Player
 {
-    AttackCtrl::AttackCtrl(IActor* pActor):
+    AttackCtrl::AttackCtrl(ActorObj* pActor):
         m_timer(0.4s, false, pActor->getUpdateClock()),
         m_pActor(pActor)
     {}

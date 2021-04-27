@@ -1,12 +1,12 @@
 #include "BehaviorCtrl.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
-    BehaviorCtrl::BehaviorCtrl(IActor* pActor):
+    BehaviorCtrl::BehaviorCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
-    void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(IActor*)> behavior)
+    void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
     {
         m_task = std::make_unique<Coro::Task<>>(behavior(m_pActor));
     }

@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
@@ -21,7 +21,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
-    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward)
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward)
     {
         // タグ
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
@@ -93,7 +93,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         std::unique_ptr<ShotVM> m_view;
     private:
@@ -109,7 +109,7 @@ namespace
             m_body = m_pActor->find<Body>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

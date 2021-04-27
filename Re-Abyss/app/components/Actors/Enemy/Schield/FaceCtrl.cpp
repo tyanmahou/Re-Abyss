@@ -2,13 +2,13 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/params/Actors/Enemy/Schield/Param.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
-    FaceCtrl::FaceCtrl(IActor* pActor):
+    FaceCtrl::FaceCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void FaceCtrl::onStart()

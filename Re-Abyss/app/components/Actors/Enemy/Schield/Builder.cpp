@@ -18,7 +18,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::Schield
 {
-	void Builder::Build(IActor* pActor, const SchieldEntity& entity)
+	void Builder::Build(ActorObj* pActor, const SchieldEntity& entity)
 	{
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
@@ -60,7 +60,7 @@ namespace
     class Collider final : public CustomCollider::IImpl
     {
     public:
-        Collider(IActor* pActor):
+        Collider(ActorObj* pActor):
             m_pActor(pActor)
         {}
         void onStart() override
@@ -75,7 +75,7 @@ namespace
             return s3d::none;
         }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<FaceCtrl> m_face;
     };
 
@@ -84,7 +84,7 @@ namespace
     /// </summary>
     class ViewBinder : public ViewCtrl<SchieldVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
 
@@ -104,7 +104,7 @@ namespace
             m_hp = m_pActor->find<HP>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<SchieldVM>())
         {}

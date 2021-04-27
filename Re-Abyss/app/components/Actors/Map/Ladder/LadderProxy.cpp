@@ -1,10 +1,10 @@
 #include "LadderProxy.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Map::Ladder
 {
-    LadderProxy::LadderProxy(IActor* pActor):
+    LadderProxy::LadderProxy(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

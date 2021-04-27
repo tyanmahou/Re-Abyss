@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
 #include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
@@ -19,7 +19,7 @@ namespace
 
 namespace abyss::Actor::Enemy::Ikalien
 {
-    void Builder::Build(IActor* pActor, const IkalienEntity& entity)
+    void Builder::Build(ActorObj* pActor, const IkalienEntity& entity)
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
@@ -58,7 +58,7 @@ namespace
     class Collider final : public CustomCollider::IImpl
     {
     public:
-        Collider(IActor* pActor) :
+        Collider(ActorObj* pActor) :
             m_pActor(pActor)
         {}
 
@@ -71,13 +71,13 @@ namespace
             return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
         }
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
     };
 
     class ViewBinder : public ViewCtrl<IkalienVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
@@ -99,7 +99,7 @@ namespace
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<IkalienVM>())
         {}

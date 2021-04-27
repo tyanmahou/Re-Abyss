@@ -6,6 +6,6 @@ namespace abyss::Actor::Enemy::Schield::Shell
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, IActor* parent);
+		static void Build(ActorObj* pActor, ActorObj* parent);
 	};
 }

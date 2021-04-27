@@ -521,7 +521,7 @@
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\modules\System\System.cpp" />
     <ClCompile Include="app\modules\Manager\Manager.cpp" />
-    <ClCompile Include="app\modules\Actors\base\IActor.cpp" />
+    <ClCompile Include="app\modules\Actors\base\ActorObj.cpp" />
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.cpp" />
@@ -1041,8 +1041,8 @@
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\modules\System\System.hpp" />
     <ClInclude Include="app\modules\Manager\Manager.hpp" />
-    <ClInclude Include="app\modules\Actors\base\IActor.hpp" />
-    <ClInclude Include="app\modules\Actors\base\IActor.ipp" />
+    <ClInclude Include="app\modules\Actors\base\ActorObj.hpp" />
+    <ClInclude Include="app\modules\Actors\base\ActorObj.ipp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actors\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />

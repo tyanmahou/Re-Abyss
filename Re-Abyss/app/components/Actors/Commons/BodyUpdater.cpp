@@ -1,10 +1,10 @@
 #include "BodyUpdater.hpp"
 #include "Body.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
-    BodyUpdater::BodyUpdater(IActor* pActor):
+    BodyUpdater::BodyUpdater(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

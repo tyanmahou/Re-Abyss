@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
 
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
@@ -22,7 +22,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    void Builder::Build(IActor* pActor, IActor* parent, HandKind kind)
+    void Builder::Build(ActorObj* pActor, ActorObj* parent, HandKind kind)
     {
         // タグ
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
@@ -88,7 +88,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<HandVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<RotateCtrl> m_rotate;
         std::unique_ptr<HandVM> m_view;
@@ -106,7 +106,7 @@ namespace
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
-        ViewBinder(IActor* pActor, Forward forward) :
+        ViewBinder(ActorObj* pActor, Forward forward) :
             m_pActor(pActor),
             m_view(std::make_unique<HandVM>(forward))
         {}

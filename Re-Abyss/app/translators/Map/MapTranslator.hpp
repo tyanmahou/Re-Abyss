@@ -9,6 +9,6 @@ namespace abyss
 	class MapTranslator
 	{
 	public:
-		Ref<Actor::IActor> buildActor(World& world, const MapEntity& entity);
+		Ref<Actor::ActorObj> buildActor(World& world, const MapEntity& entity);
 	};
 }

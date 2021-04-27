@@ -1,11 +1,11 @@
 #include "MainUpdate.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Enemy/Slime/Sensor/ParentCtrl.hpp>
 #include <abyss/components/Actors/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sensor
 {
-	MainUpdate::MainUpdate(IActor* pActor):
+	MainUpdate::MainUpdate(ActorObj* pActor):
 		m_pActor(pActor)
 	{}
 	void MainUpdate::onStart()

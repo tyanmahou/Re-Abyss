@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
 
@@ -14,7 +14,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CaptainTako
 {
-    void Builder::Build(IActor* pActor, const CaptainTakoEntity& entity)
+    void Builder::Build(ActorObj* pActor, const CaptainTakoEntity& entity)
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
@@ -42,7 +42,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<CaptainTakoVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
 
@@ -62,7 +62,7 @@ namespace
             m_hp = m_pActor->find<HP>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<CaptainTakoVM>())
         {}

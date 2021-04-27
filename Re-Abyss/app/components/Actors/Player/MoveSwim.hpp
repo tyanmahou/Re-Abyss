@@ -13,13 +13,13 @@ namespace abyss::Actor::Player
         public IStateCallback
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<Foot> m_foot;
 
         bool m_isActive = false;
     public:
-        MoveSwim(IActor* pActor);
+        MoveSwim(ActorObj* pActor);
 
         void setup(Executer executer) override;
 

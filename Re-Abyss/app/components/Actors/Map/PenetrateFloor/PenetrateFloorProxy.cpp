@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
-    PenetrateFloorProxy::PenetrateFloorProxy(IActor* pActor, bool canDown, ColDirection aroundFloor):
+    PenetrateFloorProxy::PenetrateFloorProxy(ActorObj* pActor, bool canDown, ColDirection aroundFloor):
         m_pActor(pActor),
         m_canDown(canDown),
         m_aroundFloor(aroundFloor)

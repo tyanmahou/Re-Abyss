@@ -23,9 +23,9 @@ namespace abyss::Actor
         {
             return m_results;
         }
-        s3d::Array<IActor*> getHitActors() const
+        s3d::Array<ActorObj*> getHitActors() const
         {
-            s3d::Array<IActor*> ret;
+            s3d::Array<ActorObj*> ret;
             for (const auto& col : m_results) {
                 if (col) {
                     ret.push_back(col->getActor());
@@ -34,7 +34,7 @@ namespace abyss::Actor
             return ret;
         }
     };
-    CollisionCtrl::CollisionCtrl(IActor* pActor):
+    CollisionCtrl::CollisionCtrl(ActorObj* pActor):
         ICollision(pActor),
         m_result(std::make_unique<Result>())
     {}
@@ -65,7 +65,7 @@ namespace abyss::Actor
     {
         return m_result->getResults();
     }
-    s3d::Array<IActor*> CollisionCtrl::getHitActors() const
+    s3d::Array<ActorObj*> CollisionCtrl::getHitActors() const
     {
         return m_result->getHitActors();
     }

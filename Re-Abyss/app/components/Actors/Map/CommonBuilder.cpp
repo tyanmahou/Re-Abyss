@@ -6,7 +6,7 @@
 
 namespace abyss::Actor::Map
 {
-    void CommonBuilder::Build(IActor* pActor, ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size)
+    void CommonBuilder::Build(ActorObj* pActor, ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size)
     {
         pActor->setTag(Tag::Map{});
 

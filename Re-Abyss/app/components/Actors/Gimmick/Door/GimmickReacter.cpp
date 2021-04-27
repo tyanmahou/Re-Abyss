@@ -1,7 +1,7 @@
 #include "GimmickReacter.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
@@ -10,7 +10,7 @@
 
 namespace abyss::Actor::Gimmick::Door
 {
-    GimmickReacter::GimmickReacter(IActor* pActor):
+    GimmickReacter::GimmickReacter(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void GimmickReacter::onStart()
@@ -18,7 +18,7 @@ namespace abyss::Actor::Gimmick::Door
         m_door = m_pActor->find<DoorProxy>();
         m_collider = m_pActor->find<ICollider>();
     }
-    void GimmickReacter::onGimmickReact(IActor * player)
+    void GimmickReacter::onGimmickReact(ActorObj * player)
     {
         auto playerCollider = player->find<ICollider>();
         if (m_collider && playerCollider) {

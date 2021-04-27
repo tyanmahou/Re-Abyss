@@ -10,12 +10,12 @@ namespace abyss::Actor::Player
         public IPostUpdate
     {
     public:
-        GimmickReactCtrl(IActor* pActor);
+        GimmickReactCtrl(ActorObj* pActor);
 
         void setup(Executer executer) override;
         void onPostUpdate() override;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     };
 }
 

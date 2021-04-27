@@ -12,13 +12,13 @@ namespace abyss::Actor
 {
 	class ActorsHolder
 	{
-		s3d::Array<std::shared_ptr<IActor>> m_reserves;
-		s3d::Array<std::shared_ptr<IActor>> m_actors;
+		s3d::Array<std::shared_ptr<ActorObj>> m_reserves;
+		s3d::Array<std::shared_ptr<ActorObj>> m_actors;
 
 		s3d::uint64 m_objIdCounter = 0;
 	public:
 		void flush();
-		void pushActor(const std::shared_ptr<IActor>& obj);
+		void pushActor(const std::shared_ptr<ActorObj>& obj);
 		void updateDeltaTime(double dt);
 		void update();
 		void postUpdate();
@@ -45,8 +45,8 @@ namespace abyss::Actor
 
 		void clear(DestoryTiming timing, BufferLayer layer);
 
-		s3d::Array<std::shared_ptr<IActor>>& getActors();
-		const s3d::Array<std::shared_ptr<IActor>>& getActors() const;
+		s3d::Array<std::shared_ptr<ActorObj>>& getActors();
+		const s3d::Array<std::shared_ptr<ActorObj>>& getActors() const;
 
 		template<class Type>
 		[[nodiscard]] Ref<Type> find() const
@@ -59,7 +59,7 @@ namespace abyss::Actor
 			return nullptr;
 		}
 		template<class Type>
-		[[nodiscard]] Ref<IActor> findActor() const
+		[[nodiscard]] Ref<ActorObj> findActor() const
 		{
 			for (const auto& actor : m_actors) {
 				if (auto&& c = actor->find<Type>()) {

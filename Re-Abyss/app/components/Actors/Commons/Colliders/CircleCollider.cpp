@@ -3,7 +3,7 @@
 
 namespace abyss::Actor
 {
-    CircleCollider::CircleCollider(IActor* pActor):
+    CircleCollider::CircleCollider(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void CircleCollider::onStart()

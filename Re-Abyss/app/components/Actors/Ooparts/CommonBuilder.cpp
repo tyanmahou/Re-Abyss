@@ -6,7 +6,7 @@
 
 namespace abyss::Actor::Ooparts
 {
-    void CommonBuilder::Build(IActor* pActor, IActor* parent)
+    void CommonBuilder::Build(ActorObj* pActor, ActorObj* parent)
     {
         pActor->setDestoryTiming(DestoryTiming::Never);
         pActor->setOrder(parent->getOrder() - 1);

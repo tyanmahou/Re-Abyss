@@ -12,7 +12,7 @@ namespace abyss::Actor::Map::PenetrateFloor
         public IComponent
     {
     public:
-        PenetrateFloorProxy(IActor* pActor, bool canDown, ColDirection aroundFloor);
+        PenetrateFloorProxy(ActorObj* pActor, bool canDown, ColDirection aroundFloor);
 
         void setup(Executer executer) override;
 
@@ -25,7 +25,7 @@ namespace abyss::Actor::Map::PenetrateFloor
 
         bool tryDown(const s3d::RectF& region) const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         bool m_canDown;
         ColDirection m_aroundFloor;
 

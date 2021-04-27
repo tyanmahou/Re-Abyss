@@ -11,6 +11,6 @@ namespace abyss::Actor::Enemy::Schield
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const SchieldEntity& entity);
+		static void Build(ActorObj* pActor, const SchieldEntity& entity);
 	};
 }

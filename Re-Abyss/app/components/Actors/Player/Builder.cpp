@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/params/Actors/Player/Param.hpp>
 
@@ -39,7 +39,7 @@ namespace
 }
 namespace abyss::Actor::Player
 {
-	void Builder::Build(IActor* pActor, const StartPosModel& startPos)
+	void Builder::Build(ActorObj* pActor, const StartPosModel& startPos)
 	{
 		// 基本設定
         pActor->setDestoryTiming(DestoryTiming::Never);
@@ -178,7 +178,7 @@ namespace
     class Collider final : public CustomCollider::IImpl
     {
     public:
-        Collider(IActor* pActor) :
+        Collider(ActorObj* pActor) :
             m_pActor(pActor)
         {}
         void onStart() override
@@ -190,13 +190,13 @@ namespace
             return m_body->region();
         }
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
     };
 
     class ViewBinder : public ViewCtrl<PlayerVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<ChargeCtrl> m_charge;
@@ -228,7 +228,7 @@ namespace
             m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<PlayerVM>())
         {}

@@ -2,7 +2,7 @@
 
 namespace abyss::Actor
 {
-    PointCollider::PointCollider(IActor* pActor):
+    PointCollider::PointCollider(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void PointCollider::onStart()

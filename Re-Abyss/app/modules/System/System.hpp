@@ -47,7 +47,7 @@ namespace abyss
         /// デバッグモードなどで使用
         /// </summary>
         /// <param name="player"></param>
-        void init(const std::shared_ptr<Actor::IActor>& player);
+        void init(const std::shared_ptr<Actor::ActorObj>& player);
 
         void update();
         void draw() const;
@@ -59,7 +59,7 @@ namespace abyss
         /// <param name="saveData"></param>
         void loadSaveData(const std::shared_ptr<SaveData>& saveData);
 
-        std::shared_ptr<Actor::IActor> lockPlayer() const;
+        std::shared_ptr<Actor::ActorObj> lockPlayer() const;
 
         void restart();
     private:

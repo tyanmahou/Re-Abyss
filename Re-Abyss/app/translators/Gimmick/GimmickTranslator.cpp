@@ -14,7 +14,7 @@ namespace abyss
         m_pStage(pStage)
     {}
 
-    Ref<Actor::IActor> GimmickTranslator::buildActor(World& world, const GimmickEntity& entity)
+    Ref<Actor::ActorObj> GimmickTranslator::buildActor(World& world, const GimmickEntity& entity)
     {
         using namespace Actor::Gimmick;
         switch (entity.type) {

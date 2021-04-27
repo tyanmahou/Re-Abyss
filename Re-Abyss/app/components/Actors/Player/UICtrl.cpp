@@ -1,13 +1,13 @@
 #include "UICtrl.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/UI/DyingEffect/Builder.hpp>
 #include <abyss/components/UI/PlayerInfo/Builder.hpp>
 
 namespace abyss::Actor::Player
 {
-    UICtrl::UICtrl(IActor* pActor):
+    UICtrl::UICtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

@@ -1,12 +1,12 @@
 #include "PursuitCtrl.hpp"
 #include <Siv3D.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Ooparts
 {
-    PursuitCtrl::PursuitCtrl(IActor* pActor, const Ref<Body>& pParent):
+    PursuitCtrl::PursuitCtrl(ActorObj* pActor, const Ref<Body>& pParent):
         m_pActor(pActor),
         m_pParent(pParent),
         m_localPos(0, 0)

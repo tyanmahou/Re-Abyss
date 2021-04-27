@@ -11,12 +11,12 @@ namespace abyss::Actor
         public IMove
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
 
         bool m_isActive = true;
     public:
-        BodyUpdater(IActor* pActor);
+        BodyUpdater(ActorObj* pActor);
 
         void onStart() override;
         void onMove() override;

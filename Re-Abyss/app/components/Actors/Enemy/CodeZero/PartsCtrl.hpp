@@ -12,16 +12,16 @@ namespace abyss::Actor::Enemy::CodeZero
 
     class PartsCtrl : public IComponent
     {
-        IActor* m_pActor;
-        Ref<IActor> m_head;
+        ActorObj* m_pActor;
+        Ref<ActorObj> m_head;
         Ref<Hand::HandProxy> m_leftHand;
         Ref<Hand::HandProxy> m_rightHand;
     public:
-        PartsCtrl(IActor* pActor);
+        PartsCtrl(ActorObj* pActor);
 
         void onStart() override;
 
-        const Ref<IActor>& getHead()const { return m_head; }
+        const Ref<ActorObj>& getHead()const { return m_head; }
         const Ref<Hand::HandProxy>& getLeftHand()const { return m_leftHand; }
         const Ref<Hand::HandProxy>& getRightHand()const { return m_rightHand; }
 

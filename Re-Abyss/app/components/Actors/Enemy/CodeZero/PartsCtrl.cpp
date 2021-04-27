@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 { 
-    PartsCtrl::PartsCtrl(IActor* pActor):
+    PartsCtrl::PartsCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

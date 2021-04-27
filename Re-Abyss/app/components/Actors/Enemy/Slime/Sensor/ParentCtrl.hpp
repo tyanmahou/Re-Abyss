@@ -8,11 +8,11 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 {
     class ParentCtrl : public IComponent
     {
-        IActor* m_parent;
+        ActorObj* m_parent;
         Ref<StateCtrl> m_state;
         Ref<Body> m_body;
     public:
-        ParentCtrl(IActor* parent);
+        ParentCtrl(ActorObj* parent);
 
         void onStart()override;
 

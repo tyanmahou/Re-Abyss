@@ -8,7 +8,7 @@
 
 namespace abyss
 {
-	Ref<Actor::IActor> MapTranslator::buildActor(World& world, const MapEntity& entity)
+	Ref<Actor::ActorObj> MapTranslator::buildActor(World& world, const MapEntity& entity)
 	{
 		using namespace Actor::Map;
 		if (entity.type == MapType::Floor) {

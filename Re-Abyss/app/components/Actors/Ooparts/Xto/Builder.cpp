@@ -15,7 +15,7 @@ namespace
 }
 namespace abyss::Actor::Ooparts::Xto
 {
-    void Builder::Build(IActor* pActor, IActor* parent)
+    void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
         CommonBuilder::Build(pActor, parent);
 
@@ -37,7 +37,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<OopartsView>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
 
         std::unique_ptr<OopartsView> m_view;
@@ -57,7 +57,7 @@ namespace
             m_view->setCharacter(std::make_shared<XtoVM>());
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<OopartsView>())
         {}

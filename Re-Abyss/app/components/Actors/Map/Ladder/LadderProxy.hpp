@@ -12,7 +12,7 @@ namespace abyss::Actor::Map::Ladder
         public IComponent
     {
     public:
-        LadderProxy(IActor* pActor);
+        LadderProxy(ActorObj* pActor);
 
         void setup([[maybe_unused]] Executer executer) override;
 
@@ -25,7 +25,7 @@ namespace abyss::Actor::Map::Ladder
 
         s3d::Vec2 getCenterTopPos() const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<MapProxy> m_map;
         Ref<Terrain> m_terrain;
     };

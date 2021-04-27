@@ -1,6 +1,6 @@
 #include "OopartsCtrl.hpp"
 #include <abyss/modules/World/World.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Ooparts/Xto/Builder.hpp>
 
@@ -10,7 +10,7 @@
 
 namespace abyss::Actor::Player
 {
-    OopartsCtrl::OopartsCtrl(IActor* pActor):
+    OopartsCtrl::OopartsCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void OopartsCtrl::onStart()
@@ -18,10 +18,10 @@ namespace abyss::Actor::Player
         m_attackCtrl = m_pActor->find<AttackCtrl>();
         m_body = m_pActor->find<Body>();
 
-        std::shared_ptr<IActor> main = m_pActor->getModule<World>()->create<Ooparts::Xto::Builder>(m_pActor);
+        std::shared_ptr<ActorObj> main = m_pActor->getModule<World>()->create<Ooparts::Xto::Builder>(m_pActor);
         this->setMain(main);
     }
-    OopartsCtrl& Player::OopartsCtrl::setMain(const Ref<IActor> & main)
+    OopartsCtrl& Player::OopartsCtrl::setMain(const Ref<ActorObj> & main)
     {
         if (m_mainOoparts) {
             m_mainOoparts->destroy();

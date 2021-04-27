@@ -11,10 +11,10 @@ namespace abyss::Actor
         public ILastUpdate
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body = nullptr;
     public:
-        CameraFixPos(IActor* pActor);
+        CameraFixPos(ActorObj* pActor);
 
         void onStart() override;
         void onLastUpdate() override;

@@ -1,5 +1,5 @@
 #include "DeadCallback.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 
@@ -11,7 +11,7 @@
 
 namespace abyss::Actor::Enemy
 {
-    DeadCallback::DeadCallback(IActor* pActor):
+    DeadCallback::DeadCallback(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void DeadCallback::onDead()

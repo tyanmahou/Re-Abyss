@@ -1,5 +1,5 @@
 #include "MapCollider.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/base/ICollider.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
@@ -66,9 +66,9 @@ namespace abyss::Actor
             return m_results;
         }
 
-        s3d::Array<IActor*> getHitActors() const
+        s3d::Array<ActorObj*> getHitActors() const
         {
-            s3d::Array<IActor*> ret;
+            s3d::Array<ActorObj*> ret;
             for (const auto& terrain : m_results) {
                 if (terrain) {
                     ret.push_back(terrain->getActor());
@@ -78,7 +78,7 @@ namespace abyss::Actor
         }
     };
 
-    MapCollider::MapCollider(IActor* pActor, bool useBody):
+    MapCollider::MapCollider(ActorObj* pActor, bool useBody):
         IPhysics(pActor),
         m_result(std::make_unique<Result>()),
         m_useBody(useBody)
@@ -176,7 +176,7 @@ namespace abyss::Actor
     {
         return m_result->getResults();
     }
-    s3d::Array<IActor*> MapCollider::getHitActors() const
+    s3d::Array<ActorObj*> MapCollider::getHitActors() const
     {
         return m_result->getHitActors();
     }

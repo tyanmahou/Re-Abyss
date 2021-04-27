@@ -17,7 +17,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero::Demo
 {
-    void Builder::Build(IActor* pActor, const s3d::Vec2& pos)
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos)
     {
         // デモ制御
         {
@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
 namespace
 {
     using namespace abyss;
-    using abyss::Actor::IActor;
+    using abyss::Actor::ActorObj;
     using abyss::Actor::CustomDraw;
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Demo;
@@ -44,7 +44,7 @@ namespace
     class Drawer : public CustomDraw::IImpl
     {
     public:
-        Drawer(IActor* pActor):
+        Drawer(ActorObj* pActor):
             m_pActor(pActor),
             m_bodyVM(std::make_unique<Body::BodyVM>()),
             m_headVM(std::make_unique<Head::HeadVM>()),
@@ -75,7 +75,7 @@ namespace
             }
         }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         std::unique_ptr<Body::BodyVM> m_bodyVM;
         std::unique_ptr<Head::HeadVM> m_headVM;
         std::unique_ptr<Hand::HandVM> m_leftHandVM;

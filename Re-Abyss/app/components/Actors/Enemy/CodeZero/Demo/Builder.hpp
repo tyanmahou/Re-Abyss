@@ -6,6 +6,6 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
 {
 	struct Builder
 	{
-		static void Build(IActor* pActor, const s3d::Vec2& pos);
+		static void Build(ActorObj* pActor, const s3d::Vec2& pos);
 	};
 }

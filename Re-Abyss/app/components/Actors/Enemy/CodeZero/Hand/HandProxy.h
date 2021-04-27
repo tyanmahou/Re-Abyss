@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         public IComponent
     {
     public:
-        HandProxy(IActor* pActor);
+        HandProxy(ActorObj* pActor);
         void onStart()override;
 
         bool tryAttack();
@@ -18,12 +18,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool isShotCharge()const;
         bool isPursuit() const;
 
-        IActor* getActor() const
+        ActorObj* getActor() const
         {
             return m_pActor;
         }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<StateCtrl> m_state;
     };
 }

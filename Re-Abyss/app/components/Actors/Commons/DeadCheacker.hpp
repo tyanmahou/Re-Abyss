@@ -11,7 +11,7 @@ namespace abyss::Actor
         public ILastUpdate
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<HP> m_hp;
 
         bool m_isAutoDestroy = true;
@@ -19,7 +19,7 @@ namespace abyss::Actor
         bool m_isDead = false;
         bool m_requestDead = false;
     public:
-        DeadChecker(IActor* pActor);
+        DeadChecker(ActorObj* pActor);
 
         DeadChecker& setIsAutoDestroy(bool isAuto)
         {

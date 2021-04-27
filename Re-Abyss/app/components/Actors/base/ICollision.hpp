@@ -13,18 +13,18 @@ namespace abyss::Actor
     class ICollision
     {
     protected:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         bool m_isActive = true;
 
         s3d::int32 m_layer;
         s3d::Optional<s3d::int32> m_toLayer;
     public:
-        ICollision(IActor* p) :
+        ICollision(ActorObj* p) :
             m_pActor(p)
         {}
         virtual ~ICollision() = default;
 
-        IActor* getActor() const
+        ActorObj* getActor() const
         {
             return m_pActor;
         }

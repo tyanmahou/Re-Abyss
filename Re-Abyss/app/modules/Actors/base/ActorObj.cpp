@@ -1,4 +1,4 @@
-#include "IActor.hpp"
+#include "ActorObj.hpp"
 #include <abyss/components/Actors/Commons/ClockCtrl.hpp>
 #include <abyss/components/Actors/base/IUpdate.hpp>
 #include <abyss/components/Actors/base/IPostUpdate.hpp>
@@ -13,66 +13,66 @@
 
 namespace abyss::Actor
 {
-	IActor::IActor()
+	ActorObj::ActorObj()
 	{
 		m_clock = this->attach<ClockCtrl>();
 	}
-	void IActor::updateDeltaTime(double worldDt) const
+	void ActorObj::updateDeltaTime(double worldDt) const
 	{
 		m_clock->updateDeltaTime(worldDt);
 	}
-	void IActor::update()
+	void ActorObj::update()
 	{
 		m_clock->updateUpdateTime();
 		for (auto&& com : this->finds<IUpdate>()) {
 			com->onUpdate();
 		}
 	}
-	void IActor::postUpdate()
+	void ActorObj::postUpdate()
 	{
 		for (auto&& com : this->finds<IPostUpdate>()) {
 			com->onPostUpdate();
 		}
 	}
-	void IActor::move()
+	void ActorObj::move()
 	{
 		for (auto&& com : this->finds<IMove>()) {
 			com->onMove();
 		}
 	}
-	void IActor::prePhysics()
+	void ActorObj::prePhysics()
 	{
 		for (auto&& com : this->finds<IPrePhysics>()) {
 			com->onPrePhysics();
 		}
 	}
-	void IActor::postPhysics()
+	void ActorObj::postPhysics()
 	{
 		for (auto&& com : this->finds<IPostPhysics>()) {
 			com->onPostPhysics();
 		}
 	}
-	void IActor::preCollision()
+	void ActorObj::preCollision()
 	{
 		for (auto&& com : this->finds<IPreCollision>()) {
 			com->onPreCollision();
 		}
 	}
 
-	void IActor::postCollision()
+	void ActorObj::postCollision()
 	{
 		for (auto&& com : this->finds<IPostCollision>()) {
 			com->onPostCollision();
 		}
 	}
 
-	void IActor::lastUpdate()
+	void ActorObj::lastUpdate()
 	{
 		for (auto&& com : this->finds<ILastUpdate>()) {
 			com->onLastUpdate();
 		}
 	}
-	void IActor::draw() const
+	void ActorObj::draw() const
 	{
 		m_clock->updateDrawTime();
 		for (auto&& com : this->finds<IPreDraw>()) {
@@ -82,31 +82,31 @@ namespace abyss::Actor
 			com->onDraw();
 		}
 	}
-	s3d::Microseconds IActor::getUpdateTime() const
+	s3d::Microseconds ActorObj::getUpdateTime() const
 	{
 		return m_clock->getUpdateTime();
 	}
-	double IActor::getUpdateTimeSec() const
+	double ActorObj::getUpdateTimeSec() const
 	{
 		return m_clock->getUpdateTimeSec();
 	}
-    std::function<s3d::Microseconds()> IActor::getUpdateClock() const
+    std::function<s3d::Microseconds()> ActorObj::getUpdateClock() const
     {
 		return [this] {return this->getUpdateTime(); };
     }
-	s3d::Microseconds IActor::getDrawTime() const
+	s3d::Microseconds ActorObj::getDrawTime() const
 	{
 		return m_clock->getDrawTime();
 	}
-	double IActor::getDrawTimeSec() const
+	double ActorObj::getDrawTimeSec() const
 	{
 		return m_clock->getDrawTimeSec();
 	}
-	std::function<s3d::Microseconds()> IActor::getDrawClock() const
+	std::function<s3d::Microseconds()> ActorObj::getDrawClock() const
 	{
 		return [this] {return this->getDrawTime(); };
 	}
-	double IActor::deltaTime() const
+	double ActorObj::deltaTime() const
 	{
 		return m_clock->getDeltaTime();
 	}

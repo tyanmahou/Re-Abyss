@@ -18,9 +18,9 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     protected:
         Ref<CollisionCtrl> m_col;
         Ref<ParentCtrl> m_parent;
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        DamageCtrl(IActor* pActor);
+        DamageCtrl(ActorObj* pActor);
 
         void onStart() override;
         void onPostCollision()override;

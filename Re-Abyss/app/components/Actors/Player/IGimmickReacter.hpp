@@ -8,6 +8,6 @@ namespace abyss::Actor::Player
     public:
         virtual ~IGimmickReacter() = default;
 
-        virtual void onGimmickReact(IActor* player) = 0;
+        virtual void onGimmickReact(ActorObj* player) = 0;
     };
 }

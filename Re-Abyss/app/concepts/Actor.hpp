@@ -1,6 +1,6 @@
 #pragma once
 #include <type_traits>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss
 {
@@ -8,10 +8,10 @@ namespace abyss
     /// アクターか
     /// </summary>
     template<class Type>
-    concept Actory = std::is_same_v<Actor::IActor, Type>;
+    concept Actory = std::is_same_v<Actor::ActorObj, Type>;
 
     template<class Type, class... Args>
-    concept ActBuildy = requires(Actor::IActor*pActor, Args&&... args)
+    concept ActBuildy = requires(Actor::ActorObj*pActor, Args&&... args)
     {
         Type::Build(pActor, std::forward<Args>(args)...);
     };

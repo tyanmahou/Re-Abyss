@@ -7,7 +7,7 @@ namespace abyss::Actor
     class AttackerData final : public IComponent
     {
     public:
-        AttackerData(IActor* pActor, s3d::int32 power) :
+        AttackerData(ActorObj* pActor, s3d::int32 power) :
             m_pActor(pActor),
             m_power(power)
         {}
@@ -17,7 +17,7 @@ namespace abyss::Actor
         s3d::Vec2 getVelocity()const;
         s3d::int32 getPower()const { return m_power; }
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         s3d::int32 m_power = 1;
 
         Ref<Body> m_body;

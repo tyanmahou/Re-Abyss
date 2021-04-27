@@ -1,5 +1,5 @@
 #include "ParentCtrl.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/State/Phase1State.hpp>
@@ -10,7 +10,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    ParentCtrl::ParentCtrl(IActor* parent):
+    ParentCtrl::ParentCtrl(ActorObj* parent):
         m_parent(parent)
     {
     

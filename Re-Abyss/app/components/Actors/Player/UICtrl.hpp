@@ -10,9 +10,9 @@ namespace abyss::Actor::Player
         public IComponent
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
     public:
-        UICtrl(IActor* pActor);
+        UICtrl(ActorObj* pActor);
 
         void onStart() override;
     };

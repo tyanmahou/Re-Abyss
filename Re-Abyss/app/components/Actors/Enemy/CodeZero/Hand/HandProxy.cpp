@@ -1,5 +1,5 @@
 #include "HandProxy.h"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>
@@ -8,7 +8,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    HandProxy::HandProxy(IActor* pActor):
+    HandProxy::HandProxy(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void HandProxy::onStart()

@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Map::Ladder
 {
-    void Builder::Build(IActor* pActor, ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size)
+    void Builder::Build(ActorObj* pActor, ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size)
     {
         // 共通
         CommonBuilder::Build(pActor, col, pos, size);

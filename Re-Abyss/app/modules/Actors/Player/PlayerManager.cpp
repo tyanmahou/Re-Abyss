@@ -1,10 +1,10 @@
 #include "PlayerManager.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Player
 {
-    void PlayerManager::regist(const Ref<IActor>& player)
+    void PlayerManager::regist(const Ref<ActorObj>& player)
     {
         m_player = player;
         m_body = player->find<Body>();
@@ -18,7 +18,7 @@ namespace abyss::Actor::Player
     {
         return m_body->getPos();
     }
-    const Ref<IActor>& PlayerManager::getActor() const
+    const Ref<ActorObj>& PlayerManager::getActor() const
     {
         return m_player;
     }

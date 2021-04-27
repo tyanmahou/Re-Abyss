@@ -11,13 +11,13 @@ namespace abyss::Actor
         public ILastUpdate
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<DeadChecker> m_deadChecker;
         Ref<Body> m_body;
 
         bool m_isFall = false;
     public:
-        FallChecker(IActor* pActor);
+        FallChecker(ActorObj* pActor);
 
         void onStart() override;
         void onLastUpdate() override;

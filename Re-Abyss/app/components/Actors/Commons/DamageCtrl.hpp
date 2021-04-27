@@ -14,12 +14,12 @@ namespace abyss::Actor
     protected:
         Ref<HP> m_hp;
         Ref<CollisionCtrl> m_colCtrl;
-        IActor* m_pActor;
+        ActorObj* m_pActor;
 
         bool m_isActive = true;
         s3d::Optional<DamageData> m_damageData;
     public:
-        DamageCtrl(IActor* pActor);
+        DamageCtrl(ActorObj* pActor);
 
         void onStart() override;
         void onPostCollision()override;

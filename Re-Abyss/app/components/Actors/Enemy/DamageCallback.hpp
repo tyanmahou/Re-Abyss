@@ -10,9 +10,9 @@ namespace abyss::Actor::Enemy
         public IDamageCallback
     {
     protected:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        DamageCallback(IActor* pActor);
+        DamageCallback(ActorObj* pActor);
 
         void setup();
         void onDamaged(const DamageData& damage) override;

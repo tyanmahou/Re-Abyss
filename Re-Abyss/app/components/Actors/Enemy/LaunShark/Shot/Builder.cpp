@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/components/Actors/Commons/AttackerData.hpp>
@@ -28,7 +28,7 @@ namespace
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
-    void Builder::Build(IActor* pActor, const s3d::Vec2& pos, Forward forward)
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward)
     {
         // タグ
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
@@ -124,7 +124,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
@@ -146,7 +146,7 @@ namespace
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

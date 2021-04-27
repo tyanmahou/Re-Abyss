@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
 
 #include <abyss/components/Actors/Commons/ReceiverData.hpp>
@@ -20,7 +20,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
-    void Builder::Build(IActor* pActor, IActor* parent)
+    void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
         pActor->setTag(Tag::Enemy{} | Tag::Receiver{});
 
@@ -69,7 +69,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<HeadVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;
         Ref<HP> m_hp;
         std::unique_ptr<HeadVM> m_view;
@@ -91,7 +91,7 @@ namespace
             m_hp = m_pActor->find<ParentCtrl>()->getHp();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<HeadVM>())
         {}

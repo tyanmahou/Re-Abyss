@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 #include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
 
@@ -22,7 +22,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    void Builder::Build(IActor* pActor, IActor* parent)
+    void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
         pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
 
@@ -81,7 +81,7 @@ namespace
 
     class ViewBinder : public ViewCtrl<ShotVM>::IBinder
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
         std::unique_ptr<ShotVM> m_view;
@@ -98,7 +98,7 @@ namespace
             m_scale = m_pActor->find<ScaleCtrl>();
         }
     public:
-        ViewBinder(IActor* pActor) :
+        ViewBinder(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}
@@ -106,7 +106,7 @@ namespace
 
     class Collider : public Actor::CustomCollider::IImpl
     {
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
     private:
@@ -120,7 +120,7 @@ namespace
             return s3d::Circle(m_body->getPos(), ShotParam::Base::ColRadius * m_scale->get());
         }
     public:
-        Collider(IActor* pActor) :
+        Collider(ActorObj* pActor) :
             m_pActor(pActor)
         {}
         ~Collider()

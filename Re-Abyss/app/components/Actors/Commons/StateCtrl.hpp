@@ -3,7 +3,7 @@
 # include <Siv3D/Uncopyable.hpp>
 # include <Siv3D/HashTable.hpp>
 
-# include <abyss/modules/Actors/base/IActor.hpp>
+# include <abyss/modules/Actors/base/ActorObj.hpp>
 # include <abyss/components/base/IComponent.hpp>
 # include <abyss/components/Actors/base/IPostCollision.hpp>
 # include <abyss/components/Actors/base/IPostUpdate.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor
     private:
         StateCtrl* m_manager;
     protected:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
 
         template<class State, class... Args>
         void changeState(Args&&... args) const;
@@ -60,9 +60,9 @@ namespace abyss::Actor
         std::shared_ptr<IPostCollision> m_collisionReact;
         std::unique_ptr<Task<void>> m_startTask;
 
-        IActor* const  m_pActor;
+        ActorObj* const  m_pActor;
     public:
-        StateCtrl(IActor* pActor);
+        StateCtrl(ActorObj* pActor);
         
         void setup(Executer executer)override;
         void onStart() override;
@@ -91,7 +91,7 @@ namespace abyss::Actor
             changeState(std::make_shared<State>(std::forward<Args>(args)...), priority);
         }
 
-        inline IActor* getActor() const
+        inline ActorObj* getActor() const
         {
             return m_pActor;
         }

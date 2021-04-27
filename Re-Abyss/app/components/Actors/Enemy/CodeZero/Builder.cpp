@@ -17,7 +17,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
-    void Builder::Build(IActor* pActor, const CodeZeroEntity& entity)
+    void Builder::Build(ActorObj* pActor, const CodeZeroEntity& entity)
     {
         pActor->setOrder(-99);
 
@@ -65,7 +65,7 @@ namespace
 
     class ViewBinder : public Actor::ViewCtrl<Body::BodyVM>::IBinder
     {
-        Actor::IActor* m_pActor = nullptr;
+        Actor::ActorObj* m_pActor = nullptr;
         Ref<Actor::Body> m_body;
         std::unique_ptr<Body::BodyVM> m_view;
     private:
@@ -78,7 +78,7 @@ namespace
             m_body = m_pActor->find<Actor::Body>();
         }
     public:
-        ViewBinder(Actor::IActor* pActor) :
+        ViewBinder(Actor::ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<Body::BodyVM>())
         {}

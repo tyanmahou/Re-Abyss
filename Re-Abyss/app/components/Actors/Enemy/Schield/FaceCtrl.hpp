@@ -8,11 +8,11 @@ namespace abyss::Actor::Enemy::Schield
     class FaceCtrl :
         public IComponent
     {
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<Body> m_body;
         bool m_onFace = true;
     public:
-        FaceCtrl(IActor* pActor);
+        FaceCtrl(ActorObj* pActor);
 
         void onStart() override;
 

@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
 
@@ -14,7 +14,7 @@ namespace
 }
 namespace abyss::Actor::Enemy::LaunShark
 {
-	void Builder::Build(IActor* pActor, const LaunSharkEntity& entity)
+	void Builder::Build(ActorObj* pActor, const LaunSharkEntity& entity)
 	{
 		// 共通ビルド
 		CommonBuilder::Build(pActor, BuildOption{}
@@ -51,7 +51,7 @@ namespace
 
 	class ViewBinder : public ViewCtrl<LaunSharkVM>::IBinder
 	{
-		IActor* m_pActor = nullptr;
+		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
 		Ref<HP> m_hp;
 		std::unique_ptr<LaunSharkVM> m_view;
@@ -69,7 +69,7 @@ namespace
 			m_hp = m_pActor->find<HP>();
 		}
 	public:
-		ViewBinder(IActor* pActor) :
+		ViewBinder(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<LaunSharkVM>())
 		{}

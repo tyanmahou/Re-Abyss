@@ -11,9 +11,9 @@ namespace abyss::Actor::Player
         public IUpdate
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        DebugCtrl(IActor* pActor);
+        DebugCtrl(ActorObj* pActor);
 
         void onUpdate() override;
     };

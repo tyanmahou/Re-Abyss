@@ -12,10 +12,10 @@ namespace abyss::Actor
         public ICollider
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<ILocator> m_locator;
     public:
-        PointCollider(IActor* pActor);
+        PointCollider(ActorObj* pActor);
 
         void onStart() override;
 

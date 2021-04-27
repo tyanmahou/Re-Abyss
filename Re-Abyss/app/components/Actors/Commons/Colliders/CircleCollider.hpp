@@ -12,11 +12,11 @@ namespace abyss::Actor
         public ICollider
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<ILocator> m_locator;
         double m_radius;
     public:
-        CircleCollider(IActor* pActor);
+        CircleCollider(ActorObj* pActor);
 
         void onStart() override;
 

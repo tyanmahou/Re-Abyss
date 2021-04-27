@@ -1,5 +1,5 @@
 #include "CollisionModel.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
 #include <abyss/components/Actors/base/ICollision.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>

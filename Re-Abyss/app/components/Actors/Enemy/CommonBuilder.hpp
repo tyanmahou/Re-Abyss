@@ -8,7 +8,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actors/Commons/StateCtrl.hpp>
 #include <abyss/components/Actors/Commons/CustomCollider.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy
 {
@@ -156,6 +156,6 @@ namespace abyss::Actor::Enemy
 
     struct CommonBuilder
     {
-        static void Build(IActor* pActor, const BuildOption& opt = BuildOption{});
+        static void Build(ActorObj* pActor, const BuildOption& opt = BuildOption{});
     };
 }

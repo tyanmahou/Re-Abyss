@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Player
 {
-    DamageCallback::DamageCallback(IActor* pActor):
+    DamageCallback::DamageCallback(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

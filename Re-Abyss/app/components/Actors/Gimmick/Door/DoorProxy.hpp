@@ -12,7 +12,7 @@ namespace abyss::Actor::Gimmick::Door
         public IComponent
     {
     public:
-        DoorProxy(IActor* pActor, const DoorModel& door, const RoomModel& nextRoom);
+        DoorProxy(ActorObj* pActor, const DoorModel& door, const RoomModel& nextRoom);
 
         void setup(Executer executer) override;
 
@@ -29,10 +29,10 @@ namespace abyss::Actor::Gimmick::Door
         bool isSave()const;
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 
-        IActor* getActor()const { return m_pActor; }
+        ActorObj* getActor()const { return m_pActor; }
         const DoorModel& getDoor() const;
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         DoorModel m_door;
         RoomModel m_nextRoom;
     };

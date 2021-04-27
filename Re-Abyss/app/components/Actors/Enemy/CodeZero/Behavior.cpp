@@ -5,7 +5,7 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Hand/HandProxy.h>
 #include <abyss/components/Actors/Enemy/CodeZero/Shot/Builder.hpp>
 
@@ -16,7 +16,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    Coro::Task<> Behavior::Petern1(IActor* pActor)
+    Coro::Task<> Behavior::Petern1(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -39,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Petern2(IActor* pActor)
+    Coro::Task<> Behavior::Petern2(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -73,7 +73,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Petern3(IActor* pActor)
+    Coro::Task<> Behavior::Petern3(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 

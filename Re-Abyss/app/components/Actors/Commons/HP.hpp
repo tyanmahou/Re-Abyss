@@ -13,9 +13,9 @@ namespace abyss::Actor
         s3d::int32 m_maxHp;
 
         TimerEx m_invincibleTime;
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     public:
-        HP(IActor* m_pActor);
+        HP(ActorObj* m_pActor);
 
         void setup();
 

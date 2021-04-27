@@ -14,10 +14,10 @@ namespace abyss::Actor::Ooparts
         public IDraw
     {
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
         Ref<ViewCtrl<OopartsView>> m_view;
     public:
-        Draw(IActor* pActor);
+        Draw(ActorObj* pActor);
         void onStart() override;
         void onDraw() const override;
     };

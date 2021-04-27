@@ -1,13 +1,13 @@
 #include "ForwardCtrl.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
 
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 #include <abyss/components/Actors/Commons/BodyUpdater.hpp>
 
 namespace abyss::Actor::Player
 {
-    ForwardCtrl::ForwardCtrl(IActor* pActor):
+    ForwardCtrl::ForwardCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

@@ -1,12 +1,12 @@
 #include "FallChecker.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actors/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 \
 namespace abyss::Actor
 {
-    FallChecker::FallChecker(IActor* pActor):
+    FallChecker::FallChecker(ActorObj* pActor):
         m_pActor(pActor)
     {}
 

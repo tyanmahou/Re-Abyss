@@ -1,10 +1,10 @@
 #include "PlayerProxy.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/Body.hpp>
 
 namespace abyss::Actor::Player
 {
-    PlayerProxy::PlayerProxy(IActor* pActor):
+    PlayerProxy::PlayerProxy(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void PlayerProxy::onStart()

@@ -23,7 +23,7 @@
 
 namespace abyss
 {
-	Ref<Actor::IActor> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
+	Ref<Actor::ActorObj> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
 	{
 		using namespace Actor::Enemy;
 #define CASE_ENEMY(type) case EnemyType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))

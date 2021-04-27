@@ -13,12 +13,12 @@ namespace abyss::Actor::Player
         public IStateCallback
     {
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
 
         bool m_isActive = false;
     public:
-        ForwardCtrl(IActor* pActor);
+        ForwardCtrl(ActorObj* pActor);
 
         void setup(Executer executer) override;
 

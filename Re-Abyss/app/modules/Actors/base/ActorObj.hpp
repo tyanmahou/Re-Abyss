@@ -9,7 +9,7 @@
 
 namespace abyss::Actor
 {
-	class IActor final : public GameObject
+	class ActorObj final : public GameObject
 	{
 	private:
 		Ref<Actor::ClockCtrl> m_clock;
@@ -20,8 +20,8 @@ namespace abyss::Actor
 		TagType m_tag;
 		BufferLayer m_bufferLayer;
 	public:
-		IActor();
-		~IActor() = default;
+		ActorObj();
+		~ActorObj() = default;
 
 		void setId(s3d::uint64 id);
 		s3d::uint64 getId() const;
@@ -69,13 +69,13 @@ namespace abyss::Actor
 		double deltaTime() const;
 
 		template<Tag::Tagged T>
-		bool isThen(std::function<bool(IActor*)> callback);
+		bool isThen(std::function<bool(ActorObj*)> callback);
 
 		template<Tag::Tagged T, IsComponent C>
 		bool isThen(std::function<bool(C&)> callback) const;
 
 		template<Tag::Tagged T>
-		bool isNotThen(std::function<bool(IActor*)> callback);
+		bool isNotThen(std::function<bool(ActorObj*)> callback);
 	};
 }
-#include "IActor.ipp"
+#include "ActorObj.ipp"

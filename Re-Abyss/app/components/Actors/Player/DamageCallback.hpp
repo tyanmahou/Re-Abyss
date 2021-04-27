@@ -10,12 +10,12 @@ namespace abyss::Actor::Player
         public IDamageCallback
     {
     public:
-        DamageCallback(IActor* pActor);
+        DamageCallback(ActorObj* pActor);
 
         void onDamaged(const DamageData& damage) override;
 
     private:
-        IActor* m_pActor;
+        ActorObj* m_pActor;
     };
 }
 

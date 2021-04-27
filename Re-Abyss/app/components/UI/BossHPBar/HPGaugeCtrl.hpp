@@ -18,7 +18,7 @@ namespace abyss::UI::BossHPBar
         public IUpdate
     {
     public:
-        HPGaugeCtrl(Actor::IActor* pActor);
+        HPGaugeCtrl(Actor::ActorObj* pActor);
 
         void onStart() override;
 
@@ -37,7 +37,7 @@ namespace abyss::UI::BossHPBar
             return m_maxHp;
         }
     private:
-        Actor::IActor* m_pActor;
+        Actor::ActorObj* m_pActor;
         Ref<Actor::HP> m_hpModel;
 
         double m_hp = 0;

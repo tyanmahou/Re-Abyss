@@ -4,7 +4,7 @@
 
 namespace abyss::UI::PlayerInfo
 {
-    void Builder::Build(UIObj* pUi, Actor::IActor* pActor)
+    void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
         // メイン追加
         {

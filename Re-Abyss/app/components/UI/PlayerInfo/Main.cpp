@@ -1,13 +1,13 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 #include <abyss/views/UI/PlayerInfo/PlayerInfoExVM.hpp>
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 
 namespace abyss::UI::PlayerInfo
 {
-    Main::Main(UIObj* pUi, Actor::IActor* pActor):
+    Main::Main(UIObj* pUi, Actor::ActorObj* pActor):
         m_pUi(pUi),
         m_pActor(pActor),
         m_view(std::make_unique<PlayerInfoExVM>())

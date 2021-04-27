@@ -15,7 +15,7 @@ namespace abyss::Actor::Player
         public IStateCallback
     {
     public:
-        AttackCtrl(IActor* pActor);
+        AttackCtrl(ActorObj* pActor);
 
         void reset();
         bool isAttacking() const;
@@ -31,7 +31,7 @@ namespace abyss::Actor::Player
     private:
         void startAttack();
     private:
-        IActor* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         TimerEx m_timer;
 
         Ref<Body> m_body;

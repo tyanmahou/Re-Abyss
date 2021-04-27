@@ -69,7 +69,7 @@ namespace abyss
 
 
         template<class Type, class... Args>
-        std::shared_ptr<Actor::IActor> create(Args&& ... args)
+        std::shared_ptr<Actor::ActorObj> create(Args&& ... args)
             requires ActBuildy<Type, Args...>
         {
             auto obj = this->create();
@@ -81,13 +81,13 @@ namespace abyss
         /// アクターの生成
         /// </summary>
         /// <returns></returns>
-        std::shared_ptr<Actor::IActor> create();
+        std::shared_ptr<Actor::ActorObj> create();
 
         /// <summary>
         /// アクターの登録
         /// </summary>
         /// <param name="pAactor"></param>
-        void regist(const std::shared_ptr<Actor::IActor>& pAactor);
+        void regist(const std::shared_ptr<Actor::ActorObj>& pAactor);
 
         template<class Type>
         [[nodiscard]] Ref<Type> find() const
@@ -96,7 +96,7 @@ namespace abyss
         }
 
         template<class Type>
-        [[nodiscard]] Ref<Actor::IActor> findActor() const
+        [[nodiscard]] Ref<Actor::ActorObj> findActor() const
         {
             return m_actorsHolder.findActor<Type>();
         }

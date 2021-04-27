@@ -1,11 +1,11 @@
 #include "HPGaugeCtrl.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 
 namespace abyss::UI::BossHPBar
 {
-    HPGaugeCtrl::HPGaugeCtrl(Actor::IActor* pActor):
+    HPGaugeCtrl::HPGaugeCtrl(Actor::ActorObj* pActor):
         m_pActor(pActor)
     {}
     void HPGaugeCtrl::onStart()

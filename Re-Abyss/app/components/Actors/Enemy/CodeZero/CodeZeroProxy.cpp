@@ -1,9 +1,9 @@
 #include "CodeZeroProxy.hpp"
-#include <abyss/modules/Actors/base/IActor.hpp>
+#include <abyss/modules/Actors/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    CodeZeroProxy::CodeZeroProxy(IActor* pActor):
+    CodeZeroProxy::CodeZeroProxy(ActorObj* pActor):
         m_pActor(pActor)
     {}
     void CodeZeroProxy::onStart()

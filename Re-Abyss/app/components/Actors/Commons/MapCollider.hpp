@@ -36,7 +36,7 @@ namespace abyss::Actor
         /// </summary>
         /// <param name="pActor"></param>
         /// <param name="useBody">Bodyを使用するか、使わない場合はICollider判定</param>
-        MapCollider(IActor* pActor, bool useBody = true);
+        MapCollider(ActorObj* pActor, bool useBody = true);
 
         void onStart() override;
 
@@ -95,7 +95,7 @@ namespace abyss::Actor
         /// 衝突した地形をアクターとして取得
         /// </summary>
         /// <returns></returns>
-        s3d::Array<IActor*> getHitActors()const;
+        s3d::Array<ActorObj*> getHitActors()const;
 
         /// <summary>
         /// 衝突した地形いずれかに対して処理を行う
