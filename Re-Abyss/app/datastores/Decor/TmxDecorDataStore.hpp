@@ -3,7 +3,7 @@
 #include <abyss/datastores/base/TmxDataStore.hpp>
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class TmxDecorDataStore :
         public TmxDataStore,

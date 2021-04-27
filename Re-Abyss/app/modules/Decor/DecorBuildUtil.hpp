@@ -7,15 +7,15 @@ namespace abyss::DecorBuildUtil
     /// <summary>
     /// RectFに変換
     /// </summary>
-    s3d::RectF ToRect(const decor::DecorEntity& entity);
+    s3d::RectF ToRect(const Decor::DecorEntity& entity);
 
     /// <summary>
     /// Quadに変換
     /// </summary>
-    s3d::Quad ToQuad(const decor::DecorEntity& entity);
+    s3d::Quad ToQuad(const Decor::DecorEntity& entity);
 
     /// <summary>
     /// スクリーンに入っているか
     /// </summary>
-    bool IsInScreen(const decor::DecorEntity& entity, const s3d::RectF& screen);
+    bool IsInScreen(const Decor::DecorEntity& entity, const s3d::RectF& screen);
 }

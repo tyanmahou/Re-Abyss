@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss::decor::Gimmick::Door
+namespace abyss::Decor::Gimmick::Door
 {
     struct Builder
     {

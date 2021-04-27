@@ -5,7 +5,7 @@
 
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     class TileMapView
     {

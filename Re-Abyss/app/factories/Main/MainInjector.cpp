@@ -27,13 +27,13 @@ namespace abyss::Factory::Main
             .install<TmxMapDataStoreInataller>()
             .install<TmxRoomDataStoreInataller>()
             .install<TmxBackGroundDataStoreInataller>()
-            .install<decor::TmxDecorDataStoreInataller>()
-            .install<decor::TmxGraphicsDataStoreInataller>()
-            .install<decor::TmxAnimationDataStoreInataller>()
+            .install<Decor::TmxDecorDataStoreInataller>()
+            .install<Decor::TmxGraphicsDataStoreInataller>()
+            .install<Decor::TmxAnimationDataStoreInataller>()
             // service
             .install<StageServiceInstaller>()
             .install<BackGroundServiceInstaller>()
-            .install<decor::DecorServiceInstaller>()
+            .install<Decor::DecorServiceInstaller>()
             ;
         return injector;
     }

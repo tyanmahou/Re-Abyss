@@ -10,7 +10,7 @@ namespace
 {
     class Drawer;
 }
-namespace abyss::decor::Map::TileMap
+namespace abyss::Decor::Map::TileMap
 {
     void Builder::Build(DecorObj* pObj, const TileMapModel& tileMap)
     {
@@ -21,8 +21,8 @@ namespace abyss::decor::Map::TileMap
 namespace
 {
     using namespace abyss;
-    using namespace abyss::decor;
-    using namespace abyss::decor::Map;
+    using namespace abyss::Decor;
+    using namespace abyss::Decor::Map;
     class Drawer : public CustomDraw::IImpl
     {
     public:

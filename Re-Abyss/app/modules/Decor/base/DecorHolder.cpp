@@ -2,7 +2,7 @@
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/components/Decor/Commons/DecorInfo.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     void DecorHolder::flush()
     {

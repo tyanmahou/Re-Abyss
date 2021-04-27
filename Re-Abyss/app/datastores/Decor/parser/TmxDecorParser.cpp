@@ -9,7 +9,7 @@
 
 namespace
 {
-    using namespace abyss::decor;
+    using namespace abyss::Decor;
 
     DecorType ToType(const String& category, const String& type)
     {
@@ -58,7 +58,7 @@ namespace
 
 #define PARSE_CAREGORY(category, ...) [&](DecorType::##category c) -> std::shared_ptr<DecorEntity> {\
             using enum DecorType::##category;\
-            using namespace abyss::decor::##category;\
+            using namespace abyss::Decor::##category;\
             switch(c){\
             __VA_ARGS__ \
             default: \
@@ -100,7 +100,7 @@ namespace
 #undef PARSE_TYPE
 #undef PARSE_CATEGORY
 }
-namespace abyss::decor
+namespace abyss::Decor
 {
     TmxDecorParser::TmxDecorParser(const s3dTiled::TiledObject& obj) :
         m_obj(obj)

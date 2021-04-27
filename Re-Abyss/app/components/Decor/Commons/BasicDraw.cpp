@@ -7,7 +7,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     BasicDraw::BasicDraw(DecorObj* pObj):
         m_pObj(pObj)

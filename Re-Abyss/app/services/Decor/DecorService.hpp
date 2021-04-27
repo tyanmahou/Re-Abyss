@@ -7,7 +7,7 @@ namespace abyss
 {
     class ITileMapDataStore;
 }
-namespace abyss::decor
+namespace abyss::Decor
 {
     class IDecorDataStore;
     class IAnimationDataStore;

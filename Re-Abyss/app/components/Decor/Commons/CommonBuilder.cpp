@@ -3,7 +3,7 @@
 #include <abyss/components/Decor/Commons/DecorInfo.hpp>
 #include <abyss/components/Decor/Commons/BasicDraw.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     void CommonBuilder::Build(DecorObj* pObj, const BuildOption& opt)
     {

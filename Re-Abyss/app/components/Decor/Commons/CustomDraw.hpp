@@ -5,7 +5,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     /// <summary>
     /// 汎用描画
@@ -47,8 +47,8 @@ namespace abyss::decor
 namespace abyss
 {
     template<>
-    struct ComponentTree<decor::CustomDraw>
+    struct ComponentTree<Decor::CustomDraw>
     {
-        using Base = decor::IDraw;
+        using Base = Decor::IDraw;
     };
 }

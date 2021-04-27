@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <S3DTiled.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class TmxDecorParser
     {

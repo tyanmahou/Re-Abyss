@@ -1,6 +1,6 @@
 #include "TmxAnimationDataStore.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     s3d::Array<AnimationEntity> TmxAnimationDataStore::select() const
     {

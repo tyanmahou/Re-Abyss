@@ -2,7 +2,7 @@
 #include <abyss/components/Decor/base/IUpdate.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     DecorObj::DecorObj()
     {}

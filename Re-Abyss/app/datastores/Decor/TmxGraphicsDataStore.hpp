@@ -2,7 +2,7 @@
 #include <abyss/datastores/base/TmxDataStore.hpp>
 #include <abyss/datastores/Decor/base/IGraphicsDataStore.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class TmxGraphicsDataStore :
         public TmxDataStore,

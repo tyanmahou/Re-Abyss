@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     struct AnimationEntity
     {

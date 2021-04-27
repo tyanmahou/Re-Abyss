@@ -1,6 +1,6 @@
 #include "CustomDraw.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     CustomDraw& CustomDraw::setDrawer(std::unique_ptr<IImpl>&& drawer)
     {

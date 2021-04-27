@@ -3,7 +3,7 @@
 #include <abyss/components/Decor/Commons/CommonBuilder.hpp>
 #include <abyss/components/Decor/City/StreetLight/LightCtrl.hpp>
 #include <abyss/modules/Decor/base/DecorObj.hpp>
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     void Builder::Build(DecorObj* pObj, const StreetLightEntity& entity)
     {

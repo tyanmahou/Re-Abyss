@@ -1,7 +1,7 @@
 #include "DecorInfo.hpp"
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     DecorInfo::DecorInfo(DecorObj* pObj, const DecorEntity& entity):
         m_pObj(pObj),

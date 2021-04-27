@@ -1,6 +1,6 @@
 #include "TmxGraphicsDataStore.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     s3d::Array<GraphicsEntity> TmxGraphicsDataStore::select() const
     {

@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
 	namespace Map
 	{

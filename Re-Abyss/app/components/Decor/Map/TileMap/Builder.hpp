@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     class TileMapModel;
 }
 
-namespace abyss::decor::Map::TileMap
+namespace abyss::Decor::Map::TileMap
 {
     struct Builder
     {

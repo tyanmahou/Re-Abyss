@@ -277,10 +277,10 @@ namespace abyss
         if (!decorService) {
             return false;
         }
-        decor::DecorTranslator m_translator;
+        Decor::DecorTranslator m_translator;
         auto idTable = decor.getIdTable();
 
-        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<decor::DecorEntity>>& decors) {
+        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<Decor::DecorEntity>>& decors) {
             for (const auto& entity : decors) {
                 if (!entity) {
                     continue;

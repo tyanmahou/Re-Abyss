@@ -4,7 +4,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     TileMapView::TileMapView(const TileMapModel& tileMap):
         m_tileMap(tileMap),

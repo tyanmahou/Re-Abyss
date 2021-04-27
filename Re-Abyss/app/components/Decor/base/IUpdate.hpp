@@ -1,5 +1,5 @@
 #pragma once
-namespace abyss::decor
+namespace abyss::Decor
 {
     class IUpdate
     {

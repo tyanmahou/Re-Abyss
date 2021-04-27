@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
 	struct BuildOption
 	{

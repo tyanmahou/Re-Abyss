@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     /// <summary>
     /// バッファレイヤー

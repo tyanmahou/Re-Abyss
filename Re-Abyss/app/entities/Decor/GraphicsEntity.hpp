@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/String.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     struct GraphicsEntity
     {

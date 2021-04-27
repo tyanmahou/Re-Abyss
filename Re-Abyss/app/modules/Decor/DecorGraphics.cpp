@@ -30,7 +30,7 @@ namespace abyss
     {
         return m_frames.isEmpty();
     }
-    DecorGraphics::DecorGraphics(decor::IDecorService* service)
+    DecorGraphics::DecorGraphics(Decor::IDecorService* service)
     {
         for (const auto& [gId, graphics] : service->getGraphics()) {
             Info info{

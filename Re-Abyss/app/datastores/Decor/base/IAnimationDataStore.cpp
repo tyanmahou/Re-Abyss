@@ -1,6 +1,6 @@
 #include "IAnimationDataStore.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     s3d::HashTable<s3d::uint32, s3d::Array<AnimationEntity>> IAnimationDataStore::selectWithKey() const
     {

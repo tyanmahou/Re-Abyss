@@ -9,7 +9,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     LightCtrl::LightCtrl(DecorObj* pObj):
         m_pObj(pObj),

@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::decor::City
+namespace abyss::Decor::City
 {
     struct  StreetLightEntity;
 }
 
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     struct Builder
     {

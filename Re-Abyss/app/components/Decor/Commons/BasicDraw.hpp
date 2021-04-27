@@ -4,7 +4,7 @@
 #include <abyss/components/Decor/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class DecorInfo;
 
@@ -30,8 +30,8 @@ namespace abyss::decor
 namespace abyss
 {
     template<>
-    struct ComponentTree<decor::BasicDraw>
+    struct ComponentTree<Decor::BasicDraw>
     {
-        using Base = decor::IDraw;
+        using Base = Decor::IDraw;
     };
 }

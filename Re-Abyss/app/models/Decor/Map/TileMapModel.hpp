@@ -3,7 +3,7 @@
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     class TileMapModel
     {

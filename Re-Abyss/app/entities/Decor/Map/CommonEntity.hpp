@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     struct CommonEntity : DecorEntity
     {

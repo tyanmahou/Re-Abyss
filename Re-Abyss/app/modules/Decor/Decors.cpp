@@ -39,22 +39,22 @@ namespace abyss
 
     void Decors::onCheckOut()
     {
-        m_bufferLayer = decor::FlipBuffer(m_bufferLayer);
+        m_bufferLayer = Decor::FlipBuffer(m_bufferLayer);
     }
 
     void Decors::onCheckIn()
     {
         for (auto&& [layer, decor] : m_decors) {
-            decor.clear(decor::FlipBuffer(m_bufferLayer));
+            decor.clear(Decor::FlipBuffer(m_bufferLayer));
         }
     }
 
-    Ref<decor::DecorObj> Decors::create(s3d::int32 order)
+    Ref<Decor::DecorObj> Decors::create(s3d::int32 order)
     {
-        return  this->regist(order, std::make_shared<decor::DecorObj>());
+        return  this->regist(order, std::make_shared<Decor::DecorObj>());
     }
 
-    Ref<decor::DecorObj> Decors::regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor)
+    Ref<Decor::DecorObj> Decors::regist(s3d::int32 order, const std::shared_ptr<Decor::DecorObj>& decor)
     {
         decor->setManager(m_pManager);
         decor->setBufferLayer(m_bufferLayer);
@@ -80,9 +80,9 @@ namespace abyss
         return ret;
     }
 
-    decor::DecorIdTable Decors::getIdTable() const
+    Decor::DecorIdTable Decors::getIdTable() const
     {
-        decor::DecorIdTable ret;
+        Decor::DecorIdTable ret;
         for (auto&& [layer, decor] : m_decors) {
             auto table = decor.getIdTable();
             for (auto&& [category, objs] : table) {

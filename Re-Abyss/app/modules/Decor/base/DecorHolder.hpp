@@ -7,7 +7,7 @@
 #include <abyss/modules/Decor/base/BufferLayer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     using DecorIdTable = s3d::HashTable<s3d::uint32, s3d::HashTable<s3d::uint32, Ref<DecorObj>>>;
 

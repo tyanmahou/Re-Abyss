@@ -7,7 +7,7 @@
 #include <abyss/datastores/Actors/Map/base/ITileMapDataStore.hpp>
 
 #include <Siv3D.hpp>
-namespace abyss::decor
+namespace abyss::Decor
 {
     DecorService::DecorService(
         std::shared_ptr<IDecorDataStore>decor, 

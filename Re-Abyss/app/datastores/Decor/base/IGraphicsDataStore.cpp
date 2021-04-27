@@ -1,6 +1,6 @@
 #include "IGraphicsDataStore.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     s3d::HashTable<s3d::uint32, GraphicsEntity> IGraphicsDataStore::selectWithKey() const
     {

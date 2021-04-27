@@ -6,7 +6,7 @@
 
 namespace abyss
 {
-    namespace decor
+    namespace Decor
     {
         class IDecorService;
     }
@@ -36,7 +36,7 @@ namespace abyss
         };
     public:
         DecorGraphics() = default;
-        DecorGraphics(decor::IDecorService* service);
+        DecorGraphics(Decor::IDecorService* service);
 
         s3d::uint32 getAnimGId(s3d::uint32 gId, double time);
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time);

@@ -8,10 +8,10 @@ namespace abyss
     /// 装飾か
     /// </summary>
     template<class Type>
-    concept Decory = std::is_same_v<decor::DecorObj, Type>;
+    concept Decory = std::is_same_v<Decor::DecorObj, Type>;
 
     template<class Type, class... Args>
-    concept DecorBuildy = requires(decor::DecorObj* pDecor, Args&&... args)
+    concept DecorBuildy = requires(Decor::DecorObj* pDecor, Args&&... args)
     {
         Type::Build(pDecor, std::forward<Args>(args)...);
     };

@@ -70,7 +70,7 @@ namespace abyss
 		class IUserInterface;
 	}
 
-	namespace decor
+	namespace Decor
 	{
 		class DecorObj;
 	}
@@ -93,7 +93,7 @@ namespace abyss
 	struct GimmickEntity;
 	struct BackGroundEntity;
 
-	namespace decor
+	namespace Decor
 	{
 		struct DecorEntity;
 		struct AnimationEntity;

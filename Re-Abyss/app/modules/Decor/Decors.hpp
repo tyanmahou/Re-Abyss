@@ -11,10 +11,10 @@ namespace abyss
 
     class Decors
     {
-        std::unordered_map<s3d::int32, decor::DecorHolder> m_decors;
+        std::unordered_map<s3d::int32, Decor::DecorHolder> m_decors;
         std::shared_ptr<DecorGraphics> m_graphics;
 
-        decor::BufferLayer m_bufferLayer = decor::BufferLayer::Front;
+        Decor::BufferLayer m_bufferLayer = Decor::BufferLayer::Front;
         Manager* m_pManager = nullptr;
     public:
         Decors();
@@ -47,13 +47,13 @@ namespace abyss
         /// 装飾の生成
         /// </summary>
         /// <returns></returns>
-        Ref<decor::DecorObj> create(s3d::int32 order);
+        Ref<Decor::DecorObj> create(s3d::int32 order);
 
         /// <summary>
         /// ビルダーから装飾の生成
         /// </summary>
         template<class BuilerType, class... Args>
-        Ref<decor::DecorObj> create(s3d::int32 order, Args&& ... args)
+        Ref<Decor::DecorObj> create(s3d::int32 order, Args&& ... args)
             requires DecorBuildy<BuilerType, Args...>
         {
             auto decor = this->create(order);
@@ -64,7 +64,7 @@ namespace abyss
         /// <summary>
         /// 装飾を登録
         /// </summary>
-        Ref<decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<decor::DecorObj>& decor);
+        Ref<Decor::DecorObj> regist(s3d::int32 order, const std::shared_ptr<Decor::DecorObj>& decor);
 
         Decors& setGraphics(const std::shared_ptr<DecorGraphics>& graphics)
         {
@@ -88,11 +88,11 @@ namespace abyss
         /// <returns></returns>
         size_t size() const;
 
-        decor::BufferLayer getBufferLayer() const
+        Decor::BufferLayer getBufferLayer() const
         {
             return m_bufferLayer;
         }
-        decor::DecorIdTable getIdTable() const;
+        Decor::DecorIdTable getIdTable() const;
     };
 
     namespace DecorOrder

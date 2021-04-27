@@ -1,7 +1,7 @@
 #include "LightVM.hpp"
 #include <Siv3D.hpp>
 
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     void LightVM::draw() const
     {

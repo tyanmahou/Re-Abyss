@@ -9,7 +9,7 @@
 #include <abyss/components/Decor/Map/TileMap/Builder.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     Ref<DecorObj> DecorTranslator::build(Decors& decor, s3d::int32 order, const DecorEntity& entity) const
     {

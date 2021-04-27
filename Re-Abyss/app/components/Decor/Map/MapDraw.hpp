@@ -4,11 +4,11 @@
 #include <abyss/components/Decor/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class DecorInfo;
 }
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     /// <summary>
     /// 地形描画
@@ -32,8 +32,8 @@ namespace abyss::decor::Map
 namespace abyss
 {
     template<>
-    struct ComponentTree<decor::Map::MapDraw>
+    struct ComponentTree<Decor::Map::MapDraw>
     {
-        using Base = decor::IDraw;
+        using Base = Decor::IDraw;
     };
 }

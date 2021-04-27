@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     class LightVM
     {

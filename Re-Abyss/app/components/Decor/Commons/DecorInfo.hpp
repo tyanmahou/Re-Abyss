@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class DecorInfo final : public IComponent
     {

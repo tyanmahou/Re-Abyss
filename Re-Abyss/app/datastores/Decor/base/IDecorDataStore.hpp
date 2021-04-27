@@ -4,7 +4,7 @@
 #include <abyss/entities/Decor/DecorGroup.hpp>
 #include <Siv3D/Array.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class IDecorDataStore
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Fwd.hpp>
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     /// <summary>
     /// TileMapShader

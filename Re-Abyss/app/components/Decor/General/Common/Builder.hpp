@@ -1,12 +1,12 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::decor::General
+namespace abyss::Decor::General
 {
     struct  CommonEntity;
 }
 
-namespace abyss::decor::General::Common
+namespace abyss::Decor::General::Common
 {
     struct Builder
     {

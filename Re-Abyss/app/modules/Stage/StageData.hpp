@@ -17,7 +17,7 @@ namespace abyss
         std::shared_ptr<IStageService> m_stageService;
 
         [[INJECT(m_decorService)]]
-        std::shared_ptr<decor::IDecorService> m_decorService;
+        std::shared_ptr<Decor::IDecorService> m_decorService;
     public:
         StageData() = default;
         const s3d::Array<BackGroundEntity>& getBgs() const;
@@ -28,6 +28,6 @@ namespace abyss
         const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const;
 
         IBackGroundService* getBackGroundService() const;
-        decor::IDecorService* getDecorService() const;
+        Decor::IDecorService* getDecorService() const;
     };
 }

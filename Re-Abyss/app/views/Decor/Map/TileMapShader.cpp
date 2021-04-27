@@ -15,7 +15,7 @@ namespace
         Float2 tileSize;
     };
 }
-namespace abyss::decor::Map
+namespace abyss::Decor::Map
 {
     class TileMapShader::Impl
     {

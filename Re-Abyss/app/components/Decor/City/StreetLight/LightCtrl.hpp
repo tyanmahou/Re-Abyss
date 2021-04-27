@@ -5,11 +5,11 @@
 #include <abyss/components/Decor/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class DecorInfo;
 }
-namespace abyss::decor::City::StreetLight
+namespace abyss::Decor::City::StreetLight
 {
     class LightVM;
 
@@ -36,8 +36,8 @@ namespace abyss::decor::City::StreetLight
 namespace abyss
 {
     template<>
-    struct ComponentTree<decor::City::StreetLight::LightCtrl>
+    struct ComponentTree<Decor::City::StreetLight::LightCtrl>
     {
-        using Base = decor::IDraw;
+        using Base = Decor::IDraw;
     };
 }

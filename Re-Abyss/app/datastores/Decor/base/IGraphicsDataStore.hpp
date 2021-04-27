@@ -3,7 +3,7 @@
 #include <abyss/entities/Decor/GraphicsEntity.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/HashTable.hpp>
-namespace abyss::decor
+namespace abyss::Decor
 {
     class IGraphicsDataStore
     {

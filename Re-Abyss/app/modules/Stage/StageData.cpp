@@ -26,7 +26,7 @@ namespace abyss
     {
         return m_backGroundService.get();
     }
-    decor::IDecorService* StageData::getDecorService() const
+    Decor::IDecorService* StageData::getDecorService() const
     {
         return m_decorService.get();
     }

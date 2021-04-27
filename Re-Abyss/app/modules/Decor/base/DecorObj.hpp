@@ -2,7 +2,7 @@
 #include <abyss/modules/GameObject/GameObject.hpp>
 #include <abyss/modules/Decor/base/BufferLayer.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class DecorObj final : public GameObject
     {

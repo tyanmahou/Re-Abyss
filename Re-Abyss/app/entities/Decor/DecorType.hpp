@@ -3,7 +3,7 @@
 #include <variant>
 #include <type_traits>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
 	class DecorType
 	{

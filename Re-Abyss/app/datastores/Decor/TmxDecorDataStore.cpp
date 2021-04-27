@@ -1,11 +1,11 @@
 #include "TmxDecorDataStore.hpp"
 #include "parser/TmxDecorParser.hpp"
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     using namespace s3dTiled;
 
-    s3d::Array<std::shared_ptr<DecorEntity>> abyss::decor::TmxDecorDataStore::select(DecorGroup group) const
+    s3d::Array<std::shared_ptr<DecorEntity>> abyss::Decor::TmxDecorDataStore::select(DecorGroup group) const
     {
         static const std::unordered_map<DecorGroup, s3d::String> toLayerNameMap{
             {DecorGroup::Back, U"back"},

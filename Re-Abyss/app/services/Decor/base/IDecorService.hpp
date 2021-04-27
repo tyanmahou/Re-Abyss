@@ -6,7 +6,7 @@
 #include <abyss/entities/Decor/GraphicsEntity.hpp>
 #include <abyss/models/Decor/Map/TileMapModel.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
     class IDecorService
     {

@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/entities/Decor/DecorType.hpp>
 
-namespace abyss::decor
+namespace abyss::Decor
 {
 
 	struct DecorEntity
