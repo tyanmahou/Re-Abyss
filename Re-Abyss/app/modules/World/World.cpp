@@ -73,12 +73,14 @@ namespace abyss
 
     void World::onCheckIn()
     {
-        m_actorsHolder.onCheckIn();
+        m_actorsHolder.onCheckIn(Actor::FlipBuffer(m_bufferLayer));
+        m_collision->reset();
     }
 
     void World::onCheckOut()
     {
-        m_actorsHolder.onCheckOut();
+        m_bufferLayer = Actor::FlipBuffer(m_bufferLayer);
+        m_actorsHolder.onCheckOut(Actor::FlipBuffer(m_bufferLayer));
         m_collision->reset();
     }
 
@@ -101,6 +103,7 @@ namespace abyss
     void World::regist(const std::shared_ptr<Actor::IActor>& pActor)
     {
         pActor->setManager(m_pManager);
+        pActor->setBufferLayer(m_bufferLayer);
         m_actorsHolder.pushActor(pActor);
     }
 }

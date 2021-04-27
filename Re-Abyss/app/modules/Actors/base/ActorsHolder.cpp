@@ -126,45 +126,13 @@ namespace abyss::Actor
 			return false;
 		});
 	}
-	void ActorsHolder::onCheckIn()
+	void ActorsHolder::onCheckIn(BufferLayer layer)
 	{
-		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
-			return obj->isDestoryCheckIn();
-		});
-		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			if (obj->isDestoryCheckIn()) {
-				obj->end();
-				return true;
-			}
-			return false;
-		});
-		m_objIdCounter = 0;
-		for (auto& actor : m_actors) {
-			actor->setId(m_objIdCounter++);
-		}
-		for (auto& actor : m_reserves) {
-			actor->setId(m_objIdCounter++);
-		}
+		this->clear(DestoryTiming::CheckIn, layer);
 	}
-	void ActorsHolder::onCheckOut()
+	void ActorsHolder::onCheckOut(BufferLayer layer)
 	{
-		s3d::Erase_if(m_reserves, [](const std::shared_ptr<IActor>& obj) {
-			return obj->isDestoryCheckOut();
-		});
-		s3d::Erase_if(m_actors, [](const std::shared_ptr<IActor>& obj) {
-			if (obj->isDestoryCheckOut()) {
-				obj->end();
-				return true;
-			}
-			return false;
-		});
-		m_objIdCounter = 0;
-		for (auto& actor : m_actors) {
-			actor->setId(m_objIdCounter++);
-		}
-		for (auto& actor : m_reserves) {
-			actor->setId(m_objIdCounter++);
-		}
+		this->clear(DestoryTiming::CheckOut, layer);
 	}
 	void ActorsHolder::clear()
 	{
@@ -176,6 +144,27 @@ namespace abyss::Actor
 
 		m_objIdCounter = 0;
 	}
+	void ActorsHolder::clear(DestoryTiming timing, BufferLayer layer)
+	{
+		s3d::Erase_if(m_reserves, [&](const std::shared_ptr<IActor>& obj) {
+			return obj->getDestoryTiming() == timing && obj->getBufferLayer() == layer;
+		});
+		s3d::Erase_if(m_actors, [&](const std::shared_ptr<IActor>& obj) {
+			if (obj->getDestoryTiming() == timing && obj->getBufferLayer() == layer) {
+				obj->end();
+				return true;
+			}
+			return false;
+		});
+		m_objIdCounter = 0;
+		for (auto& actor : m_actors) {
+			actor->setId(m_objIdCounter++);
+		}
+		for (auto& actor : m_reserves) {
+			actor->setId(m_objIdCounter++);
+		}
+	}
+
 	s3d::Array<std::shared_ptr<IActor>>& ActorsHolder::getActors()
 	{
 		return m_actors;

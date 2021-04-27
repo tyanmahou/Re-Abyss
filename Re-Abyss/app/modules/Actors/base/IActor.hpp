@@ -4,18 +4,11 @@
 #include <Siv3D/Duration.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 #include <abyss/modules/Actors/base/Tag.hpp>
+#include <abyss/modules/Actors/base/BufferLayer.hpp>
+#include <abyss/modules/Actors/base/DestroyTiming.hpp>
 
 namespace abyss::Actor
 {
-	enum class DestoryTiming
-	{
-		CheckOut,
-		CheckIn,
-		Never,
-
-		Default = CheckOut,
-	};
-
 	class IActor final : public GameObject
 	{
 	private:
@@ -25,6 +18,7 @@ namespace abyss::Actor
 		DestoryTiming m_destoryTiming = DestoryTiming::Default;
 
 		TagType m_tag;
+		BufferLayer m_bufferLayer;
 	public:
 		IActor();
 		~IActor() = default;
@@ -33,6 +27,7 @@ namespace abyss::Actor
 		s3d::uint64 getId() const;
 		
 		void setDestoryTiming(DestoryTiming timing);
+		DestoryTiming getDestoryTiming() const;
 		bool isDestoryCheckIn() const;
 		bool isDestoryCheckOut() const;
 		bool isDestoryNever() const;
@@ -42,6 +37,10 @@ namespace abyss::Actor
 
 		void setTag(const TagType& tag);
 		const TagType& getTag() const;
+
+		void setBufferLayer(BufferLayer layer);
+
+		BufferLayer getBufferLayer()const;
 
 		void updateDeltaTime(double worldDt) const;
 

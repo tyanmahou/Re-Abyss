@@ -15,6 +15,10 @@ namespace abyss::Actor
 	{
 		m_destoryTiming = timing;
 	}
+	inline DestoryTiming IActor::getDestoryTiming() const
+	{
+		return m_destoryTiming;
+	}
 	inline bool IActor::isDestoryCheckIn() const
 	{
 		return m_destoryTiming == DestoryTiming::CheckIn;
@@ -45,6 +49,15 @@ namespace abyss::Actor
 	inline const TagType& IActor::getTag() const
 	{
 		return m_tag;
+	}
+	inline void IActor::setBufferLayer(BufferLayer layer)
+	{
+		m_bufferLayer = layer;
+	}
+
+	inline BufferLayer IActor::getBufferLayer()const
+	{
+		return m_bufferLayer;
 	}
 
 	template<Tag::Tagged T>

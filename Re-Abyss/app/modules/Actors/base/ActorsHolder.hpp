@@ -37,11 +37,13 @@ namespace abyss::Actor
 
 		void erase();
 
-		void onCheckIn();
+		void onCheckIn(BufferLayer layer);
 
-		void onCheckOut();
+		void onCheckOut(BufferLayer layer);
 
 		void clear();
+
+		void clear(DestoryTiming timing, BufferLayer layer);
 
 		s3d::Array<std::shared_ptr<IActor>>& getActors();
 		const s3d::Array<std::shared_ptr<IActor>>& getActors() const;

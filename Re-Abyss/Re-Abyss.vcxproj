@@ -838,6 +838,8 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\modules\Actors\base\BufferLayer.hpp" />
+    <ClInclude Include="app\modules\Actors\base\DestroyTiming.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />

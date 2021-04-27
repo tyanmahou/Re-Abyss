@@ -1983,6 +1983,8 @@
     <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
     <ClInclude Include="app\components\Actors\Player\Shot\EffectCtrl.hpp" />
+    <ClInclude Include="app\modules\Actors\base\BufferLayer.hpp" />
+    <ClInclude Include="app\modules\Actors\base\DestroyTiming.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actors\Enemy\CodeZero\Builder.hpp" />

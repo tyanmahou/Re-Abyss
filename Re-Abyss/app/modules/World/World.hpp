@@ -12,6 +12,7 @@ namespace abyss
         std::unique_ptr<IMapCollisionModel> m_mapCollision;
 
         Manager* m_pManager = nullptr;
+        Actor::BufferLayer m_bufferLayer = Actor::BufferLayer::Front;
     public:
         World();
         ~World();
