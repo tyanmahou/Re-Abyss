@@ -967,16 +967,16 @@
     <ClCompile Include="app\modules\UI\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp">
+    <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Crons\BubbleGenerator\Generator.cpp">
+    <ClCompile Include="app\components\Cron\BubbleGenerator\Generator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Crons\Commons\IntervalTimeScheduler.cpp">
+    <ClCompile Include="app\components\Cron\Commons\IntervalTimeScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Crons\Commons\OnceScheduler.cpp">
+    <ClCompile Include="app\components\Cron\Commons\OnceScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\UI\base\IUserInterface.cpp">
@@ -1811,13 +1811,13 @@
     <ClInclude Include="app\modules\UI\base\UserInterfaceHolder.hpp" />
     <ClInclude Include="app\modules\UI\UI.hpp" />
     <ClInclude Include="app\modules\UI\UIOrder.hpp" />
-    <ClInclude Include="app\components\Crons\base\IJob.hpp" />
-    <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
-    <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
-    <ClInclude Include="app\components\Crons\BubbleGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
+    <ClInclude Include="app\components\Cron\BubbleGenerator\Generator.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
-    <ClInclude Include="app\components\Crons\Commons\IntervalTimeScheduler.hpp" />
-    <ClInclude Include="app\components\Crons\Commons\OnceScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\Commons\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\Commons\OnceScheduler.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />

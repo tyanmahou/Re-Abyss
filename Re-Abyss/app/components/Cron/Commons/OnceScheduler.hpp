@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/Components.hpp>
-#include <abyss/components/Crons/base/IScheduler.hpp>
+#include <abyss/components/Cron/base/IScheduler.hpp>
 
 namespace abyss::Cron
 {

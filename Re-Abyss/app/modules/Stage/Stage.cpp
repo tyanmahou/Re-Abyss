@@ -6,7 +6,7 @@
 
 #include <abyss/components/Actors/God/Builder.hpp>
 #include <abyss/components/Actors/Player/Builder.hpp>
-#include <abyss/components/Crons/BubbleGenerator/Builder.hpp>
+#include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Events/GameReady/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
@@ -15,7 +15,7 @@
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
-#include <abyss/modules/Cron/Crons.hpp>
+#include <abyss/modules/Crons/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>

@@ -2,7 +2,7 @@
 #include <memory>
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/modules/Cron/base/Batch.hpp>
+#include <abyss/modules/Crons/base/Batch.hpp>
 
 namespace abyss::Cron
 {

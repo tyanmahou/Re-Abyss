@@ -1,8 +1,8 @@
 #include "Builder.hpp"
-#include <abyss/modules/Cron/base/Batch.hpp>
+#include <abyss/modules/Crons/base/Batch.hpp>
 
-#include <abyss/components/Crons/BubbleGenerator/Generator.hpp>
-#include <abyss/components/Crons/Commons/IntervalTimeScheduler.hpp>
+#include <abyss/components/Cron/BubbleGenerator/Generator.hpp>
+#include <abyss/components/Cron/Commons/IntervalTimeScheduler.hpp>
 
 namespace abyss::Cron::BubbleGenerator
 {

@@ -339,7 +339,7 @@
     <ClCompile Include="app\components\Actors\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
-    <ClCompile Include="app\components\Crons\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
@@ -409,9 +409,9 @@
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\modules\Cron\base\Batch.cpp" />
     <ClCompile Include="app\modules\Cron\base\BatchHolder.cpp" />
-    <ClCompile Include="app\components\Crons\BubbleGenerator\Generator.cpp" />
-    <ClCompile Include="app\components\Crons\Commons\IntervalTimeScheduler.cpp" />
-    <ClCompile Include="app\components\Crons\Commons\OnceScheduler.cpp" />
+    <ClCompile Include="app\components\Cron\BubbleGenerator\Generator.cpp" />
+    <ClCompile Include="app\components\Cron\Commons\IntervalTimeScheduler.cpp" />
+    <ClCompile Include="app\components\Cron\Commons\OnceScheduler.cpp" />
     <ClCompile Include="app\modules\Cron\Crons.cpp" />
     <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp" />
     <ClCompile Include="app\modules\Cycle\Splash\Main.cpp" />
@@ -768,9 +768,9 @@
     <ClInclude Include="app\components\Actors\Player\Shot\EffectCtrl.hpp" />
     <ClInclude Include="app\components\Actors\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Actors\Player\StateChecker.hpp" />
-    <ClInclude Include="app\components\Crons\base\IJob.hpp" />
-    <ClInclude Include="app\components\Crons\base\IScheduler.hpp" />
-    <ClInclude Include="app\components\Crons\BubbleGenerator\Builder.hpp" />
+    <ClInclude Include="app\components\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />
@@ -941,9 +941,9 @@
     <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
-    <ClInclude Include="app\components\Crons\BubbleGenerator\Generator.hpp" />
-    <ClInclude Include="app\components\Crons\Commons\IntervalTimeScheduler.hpp" />
-    <ClInclude Include="app\components\Crons\Commons\OnceScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\BubbleGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Cron\Commons\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\Commons\OnceScheduler.hpp" />
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />

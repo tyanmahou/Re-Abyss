@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/Components.hpp>
-#include <abyss/components/Crons/base/IJob.hpp>
+#include <abyss/components/Cron/base/IJob.hpp>
 
 namespace abyss::Cron::BubbleGenerator
 {
