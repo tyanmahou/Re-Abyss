@@ -2,7 +2,7 @@
 #include <abyss/components/base/Components.hpp>
 #include <abyss/components/Crons/base/IScheduler.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
 	class OnceScheduler :
 		public IComponent,
@@ -18,8 +18,8 @@ namespace abyss::cron
 namespace abyss
 {
 	template<>
-	struct ComponentTree<cron::OnceScheduler>
+	struct ComponentTree<Cron::OnceScheduler>
 	{
-		using Base = cron::IScheduler;
+		using Base = Cron::IScheduler;
 	};
 }

@@ -2,7 +2,7 @@
 #include <abyss/components/base/Components.hpp>
 #include <abyss/components/Crons/base/IJob.hpp>
 
-namespace abyss::cron::BubbleGenerator
+namespace abyss::Cron::BubbleGenerator
 {
 	class Generator : 
 		public IComponent,
@@ -20,8 +20,8 @@ namespace abyss::cron::BubbleGenerator
 namespace abyss
 {
 	template<>
-	struct ComponentTree<cron::BubbleGenerator::Generator>
+	struct ComponentTree<Cron::BubbleGenerator::Generator>
 	{
-		using Base = cron::IJob;
+		using Base = Cron::IJob;
 	};
 }

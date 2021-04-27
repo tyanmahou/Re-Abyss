@@ -27,7 +27,7 @@ namespace abyss
 	class Effects;
 	class Sound;
 	class UI;
-	class Cron;
+	class Crons;
 	class Save;
 	class SaveData;
 	class Master;
@@ -43,7 +43,7 @@ namespace abyss
 		}
 	}
 
-	namespace cron
+	namespace Cron
 	{
 		class Batch;
 	}

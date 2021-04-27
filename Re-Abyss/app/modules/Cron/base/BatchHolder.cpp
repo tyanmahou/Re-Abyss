@@ -1,6 +1,6 @@
 #include "BatchHolder.hpp"
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     void BatchHolder::flush()
     {

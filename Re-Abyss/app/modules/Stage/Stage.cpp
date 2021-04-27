@@ -15,7 +15,7 @@
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
-#include <abyss/modules/Cron/Cron.hpp>
+#include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -176,8 +176,8 @@ namespace abyss
 
         // バブルエフェクト開始
         {
-            auto cron = m_pManager->getModule<Cron>();
-            cron->create<cron::BubbleGenerator::BuildIntervalTime>(3s);
+            auto cron = m_pManager->getModule<Crons>();
+            cron->create<Cron::BubbleGenerator::BuildIntervalTime>(3s);
         }
         auto save = m_pManager->getModule<Save>();
         auto sound = m_pManager->getModule<Sound>();

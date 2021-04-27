@@ -3,7 +3,7 @@
 #include <abyss/modules/GameObject/GameObject.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     class Batch final : public GameObject
     {

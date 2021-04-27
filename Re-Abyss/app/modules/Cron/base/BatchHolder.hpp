@@ -4,7 +4,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Cron/base/Batch.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     class BatchHolder
     {

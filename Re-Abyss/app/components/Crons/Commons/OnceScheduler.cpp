@@ -1,6 +1,6 @@
 #include "OnceScheduler.hpp"
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     Coro::Task<> OnceScheduler::execute(std::function<Coro::Task<>()> task)
     {

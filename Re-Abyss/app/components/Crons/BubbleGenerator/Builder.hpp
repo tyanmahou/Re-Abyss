@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Duration.hpp>
 
-namespace abyss::cron::BubbleGenerator
+namespace abyss::Cron::BubbleGenerator
 {
 	struct Builder
 	{

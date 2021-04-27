@@ -30,7 +30,7 @@ namespace abyss
         std::unique_ptr<Stage> m_stage;
         std::unique_ptr<BackGround> m_backGround;
         std::unique_ptr<Decor> m_decor;
-        std::unique_ptr<Cron> m_cron;
+        std::unique_ptr<Crons> m_cron;
 
         std::unique_ptr<Save> m_save;
         std::unique_ptr<Actor::Player::PlayerManager> m_playerManager;

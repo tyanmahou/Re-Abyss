@@ -8,14 +8,14 @@
 
 namespace abyss
 {
-    class Cron
+    class Crons
     {
     private:
-        cron::BatchHolder m_batchs;
+        Cron::BatchHolder m_batchs;
 
         Manager* m_pManager = nullptr;
     public:
-        Cron& setManager(Manager* pManager)
+        Crons& setManager(Manager* pManager)
         {
             m_pManager = pManager;
             return *this;
@@ -27,14 +27,14 @@ namespace abyss
         /// バッチの作成
         /// </summary>
         /// <returns></returns>
-        Ref<cron::Batch> create();
+        Ref<Cron::Batch> create();
 
         /// <summary>
         /// ビルダーからバッチの作成
         /// </summary>
         template<class Type, class... Args>
-        Ref<cron::Batch> create(Args&& ... args)
-            requires cron::BatchBuildy<Type, Args...>
+        Ref<Cron::Batch> create(Args&& ... args)
+            requires Cron::BatchBuildy<Type, Args...>
         {
             auto obj = this->create();
             Type::Build(obj.get(), std::forward<Args>(args)...);
@@ -46,6 +46,6 @@ namespace abyss
         /// </summary>
         /// <param name="batch"></param>
         /// <returns></returns>
-        Ref<cron::Batch> regist(const std::shared_ptr<cron::Batch>& batch);
+        Ref<Cron::Batch> regist(const std::shared_ptr<Cron::Batch>& batch);
     };
 }

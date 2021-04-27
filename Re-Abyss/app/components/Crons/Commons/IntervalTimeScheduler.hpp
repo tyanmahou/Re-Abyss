@@ -3,7 +3,7 @@
 #include <abyss/components/base/Components.hpp>
 #include <abyss/components/Crons/base/IScheduler.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
 	class IntervalTimeScheduler :
 		public IComponent, 
@@ -22,8 +22,8 @@ namespace abyss::cron
 namespace abyss
 {
 	template<>
-	struct ComponentTree<cron::IntervalTimeScheduler>
+	struct ComponentTree<Cron::IntervalTimeScheduler>
 	{
-		using Base = cron::IScheduler;
+		using Base = Cron::IScheduler;
 	};
 }

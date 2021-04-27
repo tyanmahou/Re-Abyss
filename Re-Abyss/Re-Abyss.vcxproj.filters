@@ -898,7 +898,7 @@
     <ClCompile Include="app\modules\Cron\base\BatchHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cron\Cron.cpp">
+    <ClCompile Include="app\modules\Cron\Crons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp">
@@ -1195,7 +1195,7 @@
     <ClCompile Include="app\views\Actors\Ooparts\base\OopartsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\actors\Ooparts\base\IconView.cpp">
+    <ClCompile Include="app\views\Actors\Ooparts\base\IconView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.cpp">
@@ -1210,10 +1210,10 @@
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\actors\Ooparts\base\OopartsViewUtil.cpp">
+    <ClCompile Include="app\views\Actors\Ooparts\base\OopartsViewUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\actors\Ooparts\base\SimpleDrawCallbackView.cpp">
+    <ClCompile Include="app\views\Actors\Ooparts\base\SimpleDrawCallbackView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.cpp">
@@ -1255,7 +1255,7 @@
     <ClCompile Include="app\modules\Decor\base\DecorHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\actors\Gimmick\Door\DoorVM.cpp">
+    <ClCompile Include="app\views\Actors\Gimmick\Door\DoorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp">
@@ -1336,7 +1336,7 @@
     <ClCompile Include="app\components\Actors\Player\Shot\EffectCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\actors\Player\Shot\ShotEffect.cpp">
+    <ClCompile Include="app\views\Actors\Player\Shot\ShotEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1781,7 +1781,7 @@
     </ClInclude>
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
-    <ClInclude Include="app\modules\Cron\Cron.hpp" />
+    <ClInclude Include="app\modules\Cron\Crons.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\BackGround\BackGround.hpp" />
@@ -1911,17 +1911,17 @@
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoExVM.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
-    <ClInclude Include="app\views\actors\Ooparts\base\BaseVM.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\BaseVM.hpp" />
     <ClInclude Include="app\views\Actors\Ooparts\base\OopartsView.hpp" />
-    <ClInclude Include="app\views\actors\Ooparts\base\IconView.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\IconView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />
-    <ClInclude Include="app\views\actors\Ooparts\base\OopartsViewUtil.hpp" />
-    <ClInclude Include="app\views\actors\Ooparts\base\SimpleDrawCallbackView.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\OopartsViewUtil.hpp" />
+    <ClInclude Include="app\views\Actors\Ooparts\base\SimpleDrawCallbackView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
@@ -1939,7 +1939,7 @@
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
-    <ClInclude Include="app\views\actors\Gimmick\Door\DoorVM.hpp" />
+    <ClInclude Include="app\views\Actors\Gimmick\Door\DoorVM.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />

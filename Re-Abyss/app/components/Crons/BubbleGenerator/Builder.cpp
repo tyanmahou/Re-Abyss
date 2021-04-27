@@ -4,7 +4,7 @@
 #include <abyss/components/Crons/BubbleGenerator/Generator.hpp>
 #include <abyss/components/Crons/Commons/IntervalTimeScheduler.hpp>
 
-namespace abyss::cron::BubbleGenerator
+namespace abyss::Cron::BubbleGenerator
 {
     void Builder::Build(Batch* batch)
     {

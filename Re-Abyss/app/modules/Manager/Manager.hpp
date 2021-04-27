@@ -21,7 +21,7 @@ namespace abyss
         BackGround* m_pBackGround = nullptr;
         Decor* m_pDecor = nullptr;
         Stage* m_pStage = nullptr;
-        Cron* m_pCron = nullptr;
+        Crons* m_pCrons = nullptr;
         Save* m_pSave = nullptr;
         Actor::Player::PlayerManager* m_pPlayer = nullptr;
     public:
@@ -49,7 +49,7 @@ namespace abyss
 
         Manager& set(Stage* pStage);
 
-        Manager& set(Cron* pCron);
+        Manager& set(Crons* pCrons);
 
         Manager& set(Save* pSave);
 

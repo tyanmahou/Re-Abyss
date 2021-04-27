@@ -5,7 +5,7 @@
 #include <abyss/utils/Coro/Task/Task.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     IntervalTimeScheduler::IntervalTimeScheduler(Manager* pManager, const s3d::Duration& duration):
         m_pManager(pManager),

@@ -1,7 +1,7 @@
 #include "Batch.hpp"
 #include <abyss/components/Crons/base/IJob.hpp>
 #include <abyss/components/Crons/base/IScheduler.hpp>
-namespace abyss::cron
+namespace abyss::Cron
 {
     void Batch::reset()
     {

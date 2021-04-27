@@ -8,7 +8,7 @@
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Decor/Decor.hpp>
 
-#include <abyss/modules/Cron/Cron.hpp>
+#include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Save/Save.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
@@ -22,7 +22,7 @@ namespace abyss
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decor(std::make_unique<Decor>()),
-        m_cron(std::make_unique<Cron>()),
+        m_cron(std::make_unique<Crons>()),
         m_save(std::make_unique<Save>()),
         m_playerManager(std::make_unique<Actor::Player::PlayerManager>())
     {

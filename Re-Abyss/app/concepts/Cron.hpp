@@ -2,7 +2,7 @@
 #include <type_traits>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::cron
+namespace abyss::Cron
 {
     template<class Type, class... Args>
     concept BatchBuildy = requires(Batch * pBatch, Args&&... args)

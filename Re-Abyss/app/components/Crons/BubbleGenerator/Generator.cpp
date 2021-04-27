@@ -3,7 +3,7 @@
 #include <abyss/views/Stage/Bubble/BubbleEffect.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
-namespace abyss::cron::BubbleGenerator
+namespace abyss::Cron::BubbleGenerator
 {
 	Generator::Generator(Manager* pManager):
 		m_pManager(pManager)
