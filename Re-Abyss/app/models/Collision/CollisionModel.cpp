@@ -1,7 +1,7 @@
 #include "CollisionModel.hpp"
-#include <abyss/modules/Actors/base/ActorObj.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/models/Collision/CollisionUtil.hpp>
-#include <abyss/components/Actors/base/ICollision.hpp>
+#include <abyss/components/Actor/base/ICollision.hpp>
 #include <abyss/models/Collision/LayerGroup.hpp>
 
 namespace abyss

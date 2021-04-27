@@ -1,7 +1,7 @@
 #include "HPGaugeCtrl.hpp"
-#include <abyss/modules/Actors/base/ActorObj.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/components/Actors/Commons/HP.hpp>
+#include <abyss/components/Actor/Commons/HP.hpp>
 
 namespace abyss::UI::BossHPBar
 {

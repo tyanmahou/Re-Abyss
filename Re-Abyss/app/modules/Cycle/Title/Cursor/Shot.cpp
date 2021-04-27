@@ -2,8 +2,8 @@
 #include <Siv3D.hpp>
 
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/params/Actors/Player/ShotParam.hpp>
-#include <abyss/views/Actors/Player/Shot/ShotEffect.hpp>
+#include <abyss/params/Actor/Player/ShotParam.hpp>
+#include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
 #include <abyss/views/Cycle/Title/Cursor/Shot/ShotVM.hpp>
 
 namespace abyss::Cycle::Title::Cursor

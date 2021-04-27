@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/modules/Actors/base/ActorObj.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Actors/Gimmick/Door/DoorModel.hpp>
+#include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove
 {

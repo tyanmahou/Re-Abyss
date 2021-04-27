@@ -3,8 +3,8 @@
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 #include <abyss/datastores/Decor/base/IAnimationDataStore.hpp>
 #include <abyss/datastores/Decor/base/IGraphicsDataStore.hpp>
-#include <abyss/datastores/Actors/Gimmick/base/IGimmickDataStore.hpp>
-#include <abyss/datastores/Actors/Map/base/ITileMapDataStore.hpp>
+#include <abyss/datastores/Actor/Gimmick/base/IGimmickDataStore.hpp>
+#include <abyss/datastores/Actor/Map/base/ITileMapDataStore.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss::Decor

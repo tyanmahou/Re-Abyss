@@ -1,7 +1,7 @@
 #pragma once
-#include <abyss/views/actors/Player/PlayerVM.hpp>
-#include <abyss/views/actors/Ooparts/base/OopartsView.hpp>
-#include <abyss/views/actors/Ooparts/base/SimpleDrawCallbackView.hpp>
+#include <abyss/views/Actor/Player/PlayerVM.hpp>
+#include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
+#include <abyss/views/Actor/Ooparts/base/SimpleDrawCallbackView.hpp>
 #include <abyss/types/OopartsType.hpp>
 
 namespace abyss::Cycle::SaveSelect::UserInfo

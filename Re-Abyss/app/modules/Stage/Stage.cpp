@@ -4,8 +4,8 @@
 
 #include <abyss/modules/Camera/Camera.hpp>
 
-#include <abyss/components/Actors/God/Builder.hpp>
-#include <abyss/components/Actors/Player/Builder.hpp>
+#include <abyss/components/Actor/God/Builder.hpp>
+#include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Events/GameReady/Builder.hpp>
 
@@ -20,13 +20,13 @@
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
-#include <abyss/entities/Actors/Gimmick/StartPosEntity.hpp>
-#include <abyss/entities/Actors/Gimmick/BgmChangerEntity.hpp>
-#include <abyss/entities/Actors/Map/MapEntity.hpp>
-#include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
+#include <abyss/entities/Actor/Map/MapEntity.hpp>
+#include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 

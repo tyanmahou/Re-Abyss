@@ -5,7 +5,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Demo/DemoCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 
 namespace abyss::Event::Talk::BossTalk0_0
 {

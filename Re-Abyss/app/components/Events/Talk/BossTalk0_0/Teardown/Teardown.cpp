@@ -5,8 +5,8 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
-#include <abyss/components/Actors/Enemy/CodeZero/CodeZeroProxy.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Demo/DemoCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 #include <abyss/components/Events/CreateBossHPBar/Builder.hpp>
 #include <abyss/components/Events/CreateBossHPBar/MainStream.hpp>
 #include <abyss/components/UI/BossHPBar/Builder.hpp>

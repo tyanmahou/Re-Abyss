@@ -1,8 +1,8 @@
 #include "MapTranslator.hpp"
-#include <abyss/entities/Actors/Map/MapEntity.hpp>
-#include <abyss/components/Actors/Map/Floor/Builder.hpp>
-#include <abyss/components/Actors/Map/PenetrateFloor/Builder.hpp>
-#include <abyss/components/Actors/Map/Ladder/Builder.hpp>
+#include <abyss/entities/Actor/Map/MapEntity.hpp>
+#include <abyss/components/Actor/Map/Floor/Builder.hpp>
+#include <abyss/components/Actor/Map/PenetrateFloor/Builder.hpp>
+#include <abyss/components/Actor/Map/Ladder/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 

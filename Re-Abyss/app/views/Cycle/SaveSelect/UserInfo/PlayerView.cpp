@@ -1,5 +1,5 @@
 #include "PlayerView.hpp"
-#include <abyss/views/actors/Ooparts/base/OopartsViewUtil.hpp>
+#include <abyss/views/Actor/Ooparts/base/OopartsViewUtil.hpp>
 
 #include <Siv3D.hpp>
 

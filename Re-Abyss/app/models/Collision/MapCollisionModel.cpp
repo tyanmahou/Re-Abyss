@@ -1,7 +1,7 @@
 #include "MapCollisionModel.hpp"
 
-#include <abyss/components/Actors/base/IPhysics.hpp>
-#include <abyss/components/Actors/Commons/Terrain.hpp>
+#include <abyss/components/Actor/base/IPhysics.hpp>
+#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 namespace abyss
 {

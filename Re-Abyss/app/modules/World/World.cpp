@@ -3,9 +3,9 @@
 #include <abyss/models/Collision/CollisionModel.hpp>
 #include <abyss/models/Collision/MapCollisionModel.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/components/Actors/base/ICollision.hpp>
-#include <abyss/components/Actors/base/IPhysics.hpp>
-#include <abyss/components/Actors/Commons/Terrain.hpp>
+#include <abyss/components/Actor/base/ICollision.hpp>
+#include <abyss/components/Actor/base/IPhysics.hpp>
+#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 

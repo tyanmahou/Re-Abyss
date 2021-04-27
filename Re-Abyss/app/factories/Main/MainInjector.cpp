@@ -1,8 +1,8 @@
 #include "MainInjector.hpp"
 
-#include <abyss/datastores/Actors/Enemy/TmxEnemyDataStore.hpp>
-#include <abyss/datastores/Actors/Gimmick/TmxGimmickDataStore.hpp>
-#include <abyss/datastores/Actors/Map/TmxMapDataStore.hpp>
+#include <abyss/datastores/Actor/Enemy/TmxEnemyDataStore.hpp>
+#include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>
+#include <abyss/datastores/Actor/Map/TmxMapDataStore.hpp>
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 #include <abyss/datastores/BackGround/TmxBackGroundDataStore.hpp>
 #include <abyss/datastores/Decor/TmxDecorDataStore.hpp>

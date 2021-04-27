@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/views/actors/Ooparts/base/IconView.hpp>
+#include <abyss/views/Actor/Ooparts/base/IconView.hpp>
 
 #include <abyss/views/util/OutLine/OutLineShader.hpp>
 #include <Siv3D/RenderTexture.hpp>

@@ -3,7 +3,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/base/IEvent.hpp>
 
 #include <abyss/utils/StopwatchEx/StopwatchEx.hpp>

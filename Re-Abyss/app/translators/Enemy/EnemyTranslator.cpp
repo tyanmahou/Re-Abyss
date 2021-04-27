@@ -1,23 +1,23 @@
 #include "EnemyTranslator.hpp"
 
-#include <abyss/entities/Actors/Enemy/EnemyEntity.hpp>
-#include <abyss/entities/Actors/Enemy/SlimeEntity.hpp>
-#include <abyss/entities/Actors/Enemy/RollingTakoEntity.hpp>
-#include <abyss/entities/Actors/Enemy/CaptainTakoEntity.hpp>
-#include <abyss/entities/Actors/Enemy/IkalienEntity.hpp>
-#include <abyss/entities/Actors/Enemy/LaunSharkEntity.hpp>
-#include <abyss/entities/Actors/Enemy/SchieldEntity.hpp>
+#include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
+#include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
+#include <abyss/entities/Actor/Enemy/RollingTakoEntity.hpp>
+#include <abyss/entities/Actor/Enemy/CaptainTakoEntity.hpp>
+#include <abyss/entities/Actor/Enemy/IkalienEntity.hpp>
+#include <abyss/entities/Actor/Enemy/LaunSharkEntity.hpp>
+#include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
 
-#include <abyss/entities/Actors/Enemy/CodeZeroEntity.hpp>
+#include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 
-#include <abyss/components/Actors/Enemy/CaptainTako/Builder.hpp>
-#include <abyss/components/Actors/Enemy/Ikalien/Builder.hpp>
-#include <abyss/components/Actors/Enemy/LaunShark/Builder.hpp>
-#include <abyss/components/Actors/Enemy/RollingTako/Builder.hpp>
-#include <abyss/components/Actors/Enemy/Schield/Builder.hpp>
-#include <abyss/components/Actors/Enemy/Slime/Builder.hpp>
+#include <abyss/components/Actor/Enemy/CaptainTako/Builder.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/Builder.hpp>
+#include <abyss/components/Actor/Enemy/LaunShark/Builder.hpp>
+#include <abyss/components/Actor/Enemy/RollingTako/Builder.hpp>
+#include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
+#include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
 
-#include <abyss/components/Actors/Enemy/CodeZero/Builder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 

@@ -6,9 +6,9 @@
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
-#include <abyss/components/Actors/base/ICollision.hpp>
-#include <abyss/components/Actors/base/IPhysics.hpp>
-#include <abyss/components/Actors/Commons/Terrain.hpp>
+#include <abyss/components/Actor/base/ICollision.hpp>
+#include <abyss/components/Actor/base/IPhysics.hpp>
+#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>

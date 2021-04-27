@@ -3,7 +3,7 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
 
-#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>

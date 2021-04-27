@@ -4,8 +4,8 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
-#include <abyss/components/Actors/Enemy/CodeZero/CodeZeroProxy.hpp>
-#include <abyss/components/Actors/Enemy/CodeZero/Demo/Builder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Demo/Builder.hpp>
 
 namespace abyss::Event::Talk::BossTalk0_0
 {

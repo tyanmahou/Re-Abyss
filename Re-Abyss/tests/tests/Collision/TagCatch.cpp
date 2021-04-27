@@ -1,6 +1,6 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/modules/Actors/base/Tag.hpp>
+#include <abyss/modules/Actor/base/Tag.hpp>
 
 namespace abyss::tests
 {

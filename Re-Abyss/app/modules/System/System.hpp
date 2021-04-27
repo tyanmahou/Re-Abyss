@@ -7,7 +7,7 @@
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss

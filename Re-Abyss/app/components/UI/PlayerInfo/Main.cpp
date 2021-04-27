@@ -1,7 +1,7 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/modules/Actors/base/ActorObj.hpp>
-#include <abyss/components/Actors/Commons/HP.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/views/UI/PlayerInfo/PlayerInfoExVM.hpp>
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 

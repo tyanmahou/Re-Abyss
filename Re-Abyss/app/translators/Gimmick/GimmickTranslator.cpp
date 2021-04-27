@@ -1,9 +1,9 @@
 #include "GimmickTranslator.hpp"
-#include <abyss/entities/Actors/Gimmick/DoorEntity.hpp>
-#include <abyss/entities/Actors/Gimmick/EventTriggerEntity.h>
+#include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/EventTriggerEntity.h>
 
-#include <abyss/components/Actors/Gimmick/Door/Builder.hpp>
-#include <abyss/components/Actors/Gimmick/EventTrigger/Builder.hpp>
+#include <abyss/components/Actor/Gimmick/Door/Builder.hpp>
+#include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/World/World.hpp>

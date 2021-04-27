@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Event/base/IEvent.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/modules/Actors/Player/PlayerManager.hpp>
+#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Master/Master.hpp>
 
 #include <abyss/components/Events/Common/FadeIrisOut.hpp>

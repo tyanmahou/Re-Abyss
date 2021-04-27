@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/views/actors/Enemy/Slime/SlimeVM.hpp>
+#include <abyss/views/Actor/Enemy/Slime/SlimeVM.hpp>
 
 namespace abyss::Cycle
 {

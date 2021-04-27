@@ -16,22 +16,22 @@
 #include <abyss/params/Cycle/SaveSelect/UserInfoParam.hpp>
 
 // Actors
-#include <abyss/params/Actors/Player/Param.hpp>
-#include <abyss/params/Actors/Player/ShotParam.hpp>
+#include <abyss/params/Actor/Player/Param.hpp>
+#include <abyss/params/Actor/Player/ShotParam.hpp>
 
-#include <abyss/params/Actors/Enemy/CaptainTako/Param.hpp>
-#include <abyss/params/Actors/Enemy/CaptainTako/ShotParam.hpp>
-#include <abyss/params/Actors/Enemy/Ikalien/Param.hpp>
-#include <abyss/params/Actors/Enemy/LaunShark/Param.hpp>
-#include <abyss/params/Actors/Enemy/LaunShark/ShotParam.hpp>
-#include <abyss/params/Actors/Enemy/RollingTako/Param.hpp>
-#include <abyss/params/Actors/Enemy/Slime/Param.hpp>
-#include <abyss/params/Actors/Enemy/Schield/Param.hpp>
-#include <abyss/params/Actors/Enemy/Schield/ShotParam.hpp>
+#include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
+#include <abyss/params/Actor/Enemy/CaptainTako/ShotParam.hpp>
+#include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
+#include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
+#include <abyss/params/Actor/Enemy/LaunShark/ShotParam.hpp>
+#include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>
+#include <abyss/params/Actor/Enemy/Slime/Param.hpp>
+#include <abyss/params/Actor/Enemy/Schield/Param.hpp>
+#include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
 
-#include <abyss/params/Actors/Enemy/CodeZero/Param.hpp>
-#include <abyss/params/Actors/Enemy/CodeZero/HandParam.hpp>
-#include <abyss/params/Actors/Enemy/CodeZero/ShotParam.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
