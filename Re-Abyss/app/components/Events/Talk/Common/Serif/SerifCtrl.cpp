@@ -1,7 +1,7 @@
 #include "SerifCtrl.hpp"
 
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
-#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/UI/Serif/Builder.hpp>
 #include <abyss/components/Events/Talk/Common/Serif/FaceTable.hpp>
 
@@ -13,8 +13,8 @@ namespace abyss::Event::Talk
     {}
     void SerifCtrl::onStart()
     {
-        m_pTalk->getModule<UI>()
-            ->create<ui::Serif::Builder>(m_pTalk->find<SerifCtrl>(), m_pTalk->find<FaceTable>());
+        m_pTalk->getModule<UIs>()
+            ->create<UI::Serif::Builder>(m_pTalk->find<SerifCtrl>(), m_pTalk->find<FaceTable>());
     }
     void SerifCtrl::onEnd()
     {}

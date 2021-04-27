@@ -4,7 +4,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 #include <Siv3D.hpp>
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
     PlayerInfoVM::PlayerInfoVM() :
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/PlayerInfo/player_info.json"))

@@ -3,7 +3,7 @@
 #include <abyss/types/OopartsType.hpp>
 #include <abyss/views/actors/Ooparts/base/IconView.hpp>
 
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
     class PlayerInfoExVM : public PlayerInfoVM
     {

@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss::ui::Serif
+namespace abyss::UI::Serif
 {
     MessageVM& MessageVM::setPos(const s3d::Vec2& pos)
     {

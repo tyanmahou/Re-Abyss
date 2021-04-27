@@ -6,7 +6,7 @@
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
-#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
@@ -26,7 +26,7 @@ namespace abyss
         Effects m_effects;
 
         Sound m_sound;
-        UI m_userInterface;
+        UIs m_userInterface;
         std::unique_ptr<Stage> m_stage;
         std::unique_ptr<BackGround> m_backGround;
         std::unique_ptr<Decors> m_decors;

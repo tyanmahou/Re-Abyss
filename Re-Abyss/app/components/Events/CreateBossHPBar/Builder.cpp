@@ -4,7 +4,7 @@
 
 namespace abyss::Event::CreateBossHPBar
 {
-    void Builder::Build(IEvent* pEvent, const Ref<ui::IUserInterface>& hpBar)
+    void Builder::Build(IEvent* pEvent, const Ref<UI::UIObj>& hpBar)
     {
         // メイン
         {

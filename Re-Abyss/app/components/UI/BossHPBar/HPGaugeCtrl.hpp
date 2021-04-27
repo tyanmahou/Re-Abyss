@@ -4,11 +4,11 @@
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     class BossHPBarVM;
 }
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     /// <summary>
     /// HPゲージ制御
@@ -48,8 +48,8 @@ namespace abyss::ui::BossHPBar
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::BossHPBar::HPGaugeCtrl>
+    struct ComponentTree<UI::BossHPBar::HPGaugeCtrl>
     {
-        using Base = MultiComponents<ui::IUpdate>;
+        using Base = MultiComponents<UI::IUpdate>;
     };
 }

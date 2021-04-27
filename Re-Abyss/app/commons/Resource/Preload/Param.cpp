@@ -104,7 +104,7 @@ namespace abyss::Resource::Preload
 
 	void LoadUIToml(const Assets* resource)
 	{
-		using namespace ui;
+		using namespace UI;
 		resource->loadToml<PlayerInfo::Param>(U"UI/PlayerInfo/param.toml");
 	}
 }

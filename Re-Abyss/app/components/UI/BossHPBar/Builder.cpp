@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/BossHPBar/Main.hpp>
 
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
@@ -7,9 +7,9 @@ namespace
 {
     class ViewBinder;
 }
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
-    void Builder::Build(IUserInterface* pUi, Actor::IActor* pActor)
+    void Builder::Build(UIObj* pUi, Actor::IActor* pActor)
     {
         // メイン制御
         {
@@ -30,13 +30,13 @@ namespace abyss::ui::BossHPBar
 namespace
 {
     using namespace abyss;
-    using namespace abyss::ui;
-    using namespace abyss::ui::BossHPBar;
+    using namespace abyss::UI;
+    using namespace abyss::UI::BossHPBar;
 
     class ViewBinder final : public ViewCtrl<BossHPBarVM>::IBinder
     {
     public:
-        ViewBinder(IUserInterface* pUi) :
+        ViewBinder(UIObj* pUi) :
             m_pUi(pUi),
             m_view(std::make_unique<BossHPBarVM>())
         {}
@@ -53,7 +53,7 @@ namespace
             m_hpGauge = m_pUi->find<HPGaugeCtrl>();
         }
     private:
-        IUserInterface* m_pUi = nullptr;
+        UIObj* m_pUi = nullptr;
         Ref<HPGaugeCtrl> m_hpGauge;
 
         std::unique_ptr<BossHPBarVM> m_view;

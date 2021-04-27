@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::ui::DyingEffect
+namespace abyss::UI::DyingEffect
 {
     class DyingEffectVM
     {

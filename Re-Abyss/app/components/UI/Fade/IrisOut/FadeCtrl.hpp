@@ -5,7 +5,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::ui::Fade::IrisOut
+namespace abyss::UI::Fade::IrisOut
 {
     class IrisOutVM;
 
@@ -14,7 +14,7 @@ namespace abyss::ui::Fade::IrisOut
         public IDraw
     {
     public:
-        FadeCtrl(IUserInterface* pUi);
+        FadeCtrl(UIObj* pUi);
 
         FadeCtrl& setPos(const s3d::Vec2& pos);
         FadeCtrl& setFadeTime(double fadeTimeSec);
@@ -24,7 +24,7 @@ namespace abyss::ui::Fade::IrisOut
         void destroy();
         void onDraw() const override;
     private:
-        IUserInterface* m_pUi;
+        UIObj* m_pUi;
 
         s3d::Vec2 m_pos;
         double m_fadeTimeSec = 0;
@@ -37,8 +37,8 @@ namespace abyss::ui::Fade::IrisOut
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::Fade::IrisOut::FadeCtrl>
+    struct ComponentTree<UI::Fade::IrisOut::FadeCtrl>
     {
-        using Base = MultiComponents<ui::IDraw>;
+        using Base = MultiComponents<UI::IDraw>;
     };
 }

@@ -1,32 +1,32 @@
-#include "UI.hpp"
+#include "UIs.hpp"
 
 namespace abyss
 {
-    void UI::flush()
+    void UIs::flush()
     {
         m_userInterfaces.flush();
     }
-    void UI::update()
+    void UIs::update()
     {
         m_userInterfaces.update();
         m_userInterfaces.erase();
     }
-    void UI::draw() const
+    void UIs::draw() const
     {
         m_userInterfaces.draw();
     }
-    Ref<ui::IUserInterface> UI::create()
+    Ref<UI::UIObj> UIs::create()
     {
-        return this->regist(std::make_shared<ui::IUserInterface>());
+        return this->regist(std::make_shared<UI::UIObj>());
     }
-    Ref<ui::IUserInterface> UI::regist(const std::shared_ptr<ui::IUserInterface>& ui)
+    Ref<UI::UIObj> UIs::regist(const std::shared_ptr<UI::UIObj>& ui)
     {
         ui->setManager(m_pManager);
         m_userInterfaces.push(ui);
         return ui;
     }
 
-    void UI::setActiveAll(bool isActive)
+    void UIs::setActiveAll(bool isActive)
     {
         m_userInterfaces.setActiveAll(isActive);
     }

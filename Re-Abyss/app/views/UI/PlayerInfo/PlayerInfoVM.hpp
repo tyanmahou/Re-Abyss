@@ -2,7 +2,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <Siv3D/TextureRegion.hpp>
 
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
     class PlayerInfoVM
     {

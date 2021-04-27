@@ -5,7 +5,7 @@
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
     class PlayerInfoExVM;
 
@@ -16,7 +16,7 @@ namespace abyss::ui::PlayerInfo
     {
         
     public:
-        Main(IUserInterface* pUi, Actor::IActor* actor);
+        Main(UIObj* pUi, Actor::IActor* actor);
 
         void onStart() override;
 
@@ -24,7 +24,7 @@ namespace abyss::ui::PlayerInfo
 
         void onDraw() const override;
     private:
-        IUserInterface* m_pUi;
+        UIObj* m_pUi;
 
         Actor::IActor* m_pActor;
         Ref<Actor::HP> m_hpModel;
@@ -36,8 +36,8 @@ namespace abyss::ui::PlayerInfo
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::PlayerInfo::Main>
+    struct ComponentTree<UI::PlayerInfo::Main>
     {
-        using Base = MultiComponents<ui::IUpdate, ui::IDraw>;
+        using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
     };
 }

@@ -1,5 +1,5 @@
 #include "Main.hpp"
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 
 #include <abyss/components/Events/Talk/Common/Serif/SerifCtrl.hpp>
@@ -12,10 +12,10 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::ui::Serif
+namespace abyss::UI::Serif
 {
     Main::Main(
-        IUserInterface* pUi,
+        UIObj* pUi,
         const Ref<Event::Talk::SerifCtrl>& serif,
         const Ref<Event::Talk::FaceTable>& faceTable
     ) :

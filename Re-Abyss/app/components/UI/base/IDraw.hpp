@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss::ui
+namespace abyss::UI
 {
     class IDraw
     {

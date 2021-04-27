@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 #include <abyss/modules/World/World.hpp>
-#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/Actors/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actors/Enemy/CodeZero/Demo/Builder.hpp>
@@ -15,7 +15,7 @@ namespace abyss::Event::Talk::BossTalk0_0
 
     void Setup::onStart()
     {
-        m_pTalk->getModule<UI>()->setActiveAll(false);
+        m_pTalk->getModule<UIs>()->setActiveAll(false);
         auto world = m_pTalk->getModule<World>();
         
         if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {

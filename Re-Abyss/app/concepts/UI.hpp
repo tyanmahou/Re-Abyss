@@ -1,6 +1,6 @@
 #pragma once
 #include <type_traits>
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 
 namespace abyss
 {
@@ -8,10 +8,10 @@ namespace abyss
     /// UIかどうか
     /// </summary>
     template<class Type>
-    concept UserInterfacey = std::is_same_v<ui::IUserInterface, Type>;
+    concept UserInterfacey = std::is_same_v<UI::UIObj, Type>;
 
     template<class Type, class... Args>
-    concept UIBuildy = requires(ui::IUserInterface * pUi, Args&&... args)
+    concept UIBuildy = requires(UI::UIObj * pUi, Args&&... args)
     {
         Type::Build(pUi, std::forward<Args>(args)...);
     };

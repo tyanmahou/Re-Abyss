@@ -1,7 +1,7 @@
-#include "UserInterfaceHolder.hpp"
-namespace abyss::ui
+#include "UIHolder.hpp"
+namespace abyss::UI
 {
-    void UserInterfaceHolder::flush()
+    void UIHolder::flush()
     {
         if (m_reserves.empty()) {
             return;
@@ -14,17 +14,17 @@ namespace abyss::ui
             obj->start();
             m_uis.push_back(std::move(obj));
         }
-        m_uis.sort_by([](const std::shared_ptr<IUserInterface>& a, const std::shared_ptr<IUserInterface>& b) {
+        m_uis.sort_by([](const std::shared_ptr<UIObj>& a, const std::shared_ptr<UIObj>& b) {
             return a->getOrder() < b->getOrder();
         });
     }
 
-    void UserInterfaceHolder::push(const std::shared_ptr<IUserInterface> & ui)
+    void UIHolder::push(const std::shared_ptr<UIObj> & ui)
     {
         m_reserves.push_back(ui);
     }
 
-    void UserInterfaceHolder::update()
+    void UIHolder::update()
     {
         this->flush();
         for (auto& obj : m_uis) {
@@ -35,7 +35,7 @@ namespace abyss::ui
         }
     }
 
-    void UserInterfaceHolder::draw() const
+    void UIHolder::draw() const
     {
         for (auto& obj : m_uis) {
             if (!obj->isActive()) {
@@ -45,9 +45,9 @@ namespace abyss::ui
         }
     }
 
-    void UserInterfaceHolder::erase()
+    void UIHolder::erase()
     {
-        s3d::Erase_if(m_uis, [](const std::shared_ptr<IUserInterface>& obj) {
+        s3d::Erase_if(m_uis, [](const std::shared_ptr<UIObj>& obj) {
             if (obj->isDestroyed()) {
                 obj->end();
                 return true;
@@ -56,7 +56,7 @@ namespace abyss::ui
         });
     }
 
-    void UserInterfaceHolder::clear()
+    void UIHolder::clear()
     {
         m_reserves.clear();
         for (auto&& ui : m_uis) {
@@ -65,7 +65,7 @@ namespace abyss::ui
         m_uis.clear();
     }
 
-    void UserInterfaceHolder::setActiveAll(bool isActive)
+    void UIHolder::setActiveAll(bool isActive)
     {
         for (auto&& ui : m_reserves) {
             ui->setActive(isActive);

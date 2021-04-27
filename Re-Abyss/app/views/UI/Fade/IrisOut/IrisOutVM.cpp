@@ -3,7 +3,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::ui::Fade::IrisOut
+namespace abyss::UI::Fade::IrisOut
 {
     void IrisOutVM::draw() const
     {

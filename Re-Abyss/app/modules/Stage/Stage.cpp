@@ -19,7 +19,7 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Save/Save.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actors/Player/PlayerManager.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
@@ -194,7 +194,7 @@ namespace abyss
 
         // UI初期化
         {
-            m_pManager->getModule<UI>()->flush();
+            m_pManager->getModule<UIs>()->flush();
         }
         return result;
     }

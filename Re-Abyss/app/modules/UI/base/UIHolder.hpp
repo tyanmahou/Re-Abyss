@@ -3,19 +3,19 @@
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/concepts/UI.hpp>
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 
-namespace abyss::ui
+namespace abyss::UI
 {
-    class UserInterfaceHolder
+    class UIHolder
     {
     private:
-        s3d::Array<std::shared_ptr<IUserInterface>> m_reserves;
-        s3d::Array<std::shared_ptr<IUserInterface>> m_uis;
+        s3d::Array<std::shared_ptr<UIObj>> m_reserves;
+        s3d::Array<std::shared_ptr<UIObj>> m_uis;
 
     public:
         void flush();
-        void push(const std::shared_ptr<IUserInterface>& ui);
+        void push(const std::shared_ptr<UIObj>& ui);
         void update();
         void draw() const;
 

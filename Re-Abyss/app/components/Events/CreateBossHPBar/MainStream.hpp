@@ -14,7 +14,7 @@ namespace abyss::Event::CreateBossHPBar
         public IStream
     {
     public:
-        MainStream(IEvent* pEvent, const Ref<ui::IUserInterface>& hpBar);
+        MainStream(IEvent* pEvent, const Ref<UI::UIObj>& hpBar);
 
         void onStart() override;
         void onEnd() override;
@@ -27,7 +27,7 @@ namespace abyss::Event::CreateBossHPBar
         }
     private:
         IEvent* m_pEvent;
-        Ref<ui::IUserInterface> m_hpBar;
+        Ref<UI::UIObj> m_hpBar;
         s3d::Optional<s3d::FilePath> m_bossBgmPath;
         s3d::Audio m_se;
     };

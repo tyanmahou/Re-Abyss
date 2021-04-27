@@ -3,7 +3,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Actors/Commons/HP.hpp>
 
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     HPGaugeCtrl::HPGaugeCtrl(Actor::IActor* pActor):
         m_pActor(pActor)

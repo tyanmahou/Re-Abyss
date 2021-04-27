@@ -1,12 +1,12 @@
 #include "Builder.hpp"
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/UI/UIOrder.hpp>
 #include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
 
 
-namespace abyss::ui::Fade::IrisOut
+namespace abyss::UI::Fade::IrisOut
 {
-    void Builder::Build(IUserInterface* pUi)
+    void Builder::Build(UIObj* pUi)
     {
         pUi->setOrder(UIOrder::Fade);
 

@@ -1,12 +1,12 @@
 #include "FadeCtrl.hpp"
 #include <abyss/views/UI/Fade/IrisOut/IrisOutVM.hpp>
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 
-namespace abyss::ui::Fade::IrisOut
+namespace abyss::UI::Fade::IrisOut
 {
-    FadeCtrl::FadeCtrl(IUserInterface* pUi):
+    FadeCtrl::FadeCtrl(UIObj* pUi):
         m_pUi(pUi),
         m_view(std::make_unique<IrisOutVM>())
     {

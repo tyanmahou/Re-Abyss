@@ -1,10 +1,10 @@
 #include "Builder.hpp"
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/PlayerInfo/Main.hpp>
 
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
-    void Builder::Build(IUserInterface* pUi, Actor::IActor* pActor)
+    void Builder::Build(UIObj* pUi, Actor::IActor* pActor)
     {
         // メイン追加
         {

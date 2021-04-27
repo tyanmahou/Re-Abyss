@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::ui::Serif
+namespace abyss::UI::Serif
 {
     class CursorVM
     {

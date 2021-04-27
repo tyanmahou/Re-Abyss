@@ -2,10 +2,10 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::DyingEffect
+namespace abyss::UI::DyingEffect
 {
     struct Builder
     {
-        static void Build(IUserInterface* pUi, Actor::IActor* pActor);
+        static void Build(UIObj* pUi, Actor::IActor* pActor);
     };
 }

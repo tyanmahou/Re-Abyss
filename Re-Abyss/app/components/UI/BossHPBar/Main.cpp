@@ -1,11 +1,11 @@
 #include "Main.hpp"
-#include <abyss/modules/UI/base/IUserInterface.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
-    Main::Main(IUserInterface* pUi):
+    Main::Main(UIObj* pUi):
         m_pUi(pUi)
     {}
 

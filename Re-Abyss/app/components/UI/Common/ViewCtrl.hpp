@@ -2,7 +2,7 @@
 #include <memory>
 #include <abyss/components/base/IComponent.hpp>
 
-namespace abyss::ui
+namespace abyss::UI
 {
     template<class View>
     class ViewCtrl : public IComponent

@@ -24,11 +24,11 @@ namespace abyss::Cycle::SaveSelect
     {
         bool m_yes = false;
         std::function<void()> m_callback;
-        std::unique_ptr<ui::Serif::CursorVM> m_cursor;
+        std::unique_ptr<UI::Serif::CursorVM> m_cursor;
     public:
         EraseUserConfirm(std::function<void()> callback) :
             m_callback(callback),
-            m_cursor(std::make_unique<ui::Serif::CursorVM>())
+            m_cursor(std::make_unique<UI::Serif::CursorVM>())
         {}
 
         bool update() override
@@ -73,12 +73,12 @@ namespace abyss::Cycle::SaveSelect
     {
         UserPlayMode m_playMode = UserPlayMode::Normal;
         std::function<void(UserPlayMode)> m_callback;
-        std::unique_ptr<ui::Serif::CursorVM> m_cursor;
+        std::unique_ptr<UI::Serif::CursorVM> m_cursor;
         bool m_isDone = false;
     public:
         CreateUserConfirm(std::function<void(UserPlayMode)> callback):
             m_callback(callback),
-            m_cursor(std::make_unique<ui::Serif::CursorVM>())
+            m_cursor(std::make_unique<UI::Serif::CursorVM>())
         {}
         bool update() override
         {

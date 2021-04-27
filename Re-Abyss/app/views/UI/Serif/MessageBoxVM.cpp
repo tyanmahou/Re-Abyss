@@ -2,7 +2,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::ui::Serif
+namespace abyss::UI::Serif
 {
     MessageBoxVM::MessageBoxVM() :
         m_boxTexture(Resource::Assets::Main()->loadTexture(U"ui/common/message_box.png"))

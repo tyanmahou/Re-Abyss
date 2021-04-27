@@ -9,7 +9,7 @@
 namespace abyss::Cycle::SaveSelect::UserInfo
 {
     UserInfoView::UserInfoView():
-        m_playerInfo(std::make_unique<ui::PlayerInfo::PlayerInfoExVM>()),
+        m_playerInfo(std::make_unique<UI::PlayerInfo::PlayerInfoExVM>()),
         m_player(std::make_unique<PlayerView>()),
         m_oopartsList(std::make_unique<OopartsListView>())
     {

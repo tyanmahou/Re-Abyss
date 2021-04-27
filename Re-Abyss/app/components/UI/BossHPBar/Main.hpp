@@ -7,11 +7,11 @@
 #include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     class BossHPBarVM;
 }
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     class Main : 
         public IComponent,
@@ -20,7 +20,7 @@ namespace abyss::ui::BossHPBar
     {
         
     public:
-        Main(IUserInterface* pUi);
+        Main(UIObj* pUi);
 
         void setup(Executer executer) override;
 
@@ -30,7 +30,7 @@ namespace abyss::ui::BossHPBar
 
         void onDraw() const override;
     private:
-        IUserInterface* m_pUi;
+        UIObj* m_pUi;
         Ref<HPGaugeCtrl> m_hpGauge;
         Ref<ViewCtrl<BossHPBarVM>> m_view;
     };
@@ -39,8 +39,8 @@ namespace abyss::ui::BossHPBar
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::BossHPBar::Main>
+    struct ComponentTree<UI::BossHPBar::Main>
     {
-        using Base = MultiComponents<ui::IUpdate, ui::IDraw>;
+        using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
     };
 }

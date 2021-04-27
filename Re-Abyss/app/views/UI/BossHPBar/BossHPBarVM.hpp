@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss::ui::BossHPBar
+namespace abyss::UI::BossHPBar
 {
     class BossHPBarVM
     {

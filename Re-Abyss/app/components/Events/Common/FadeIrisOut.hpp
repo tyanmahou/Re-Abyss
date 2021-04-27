@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::Fade::IrisOut
+namespace abyss::UI::Fade::IrisOut
 {
     class FadeCtrl;
 }
@@ -25,7 +25,7 @@ namespace abyss::Event
         FadeIrisOut& setFadeTime(double time);
     private:
         IEvent* m_pEvent;
-        Ref<ui::Fade::IrisOut::FadeCtrl> m_fadeUI;
+        Ref<UI::Fade::IrisOut::FadeCtrl> m_fadeUI;
         bool m_createOnStart;
     };
 }

@@ -961,10 +961,10 @@
     <ClCompile Include="app\modules\System\System.cpp">
       <Filter>Source Files\ActionSystem</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\UI\base\UserInterfaceHolder.cpp">
+    <ClCompile Include="app\modules\UI\base\UIHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\UI\UI.cpp">
+    <ClCompile Include="app\modules\UI\UIs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp">
@@ -979,7 +979,7 @@
     <ClCompile Include="app\components\Cron\Commons\OnceScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\UI\base\IUserInterface.cpp">
+    <ClCompile Include="app\modules\UI\base\UIObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp">
@@ -1807,9 +1807,9 @@
     <ClInclude Include="app\modules\System\System.hpp">
       <Filter>Source Files\ActionSystem</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\UI\base\IUserInterface.hpp" />
-    <ClInclude Include="app\modules\UI\base\UserInterfaceHolder.hpp" />
-    <ClInclude Include="app\modules\UI\UI.hpp" />
+    <ClInclude Include="app\modules\UI\base\UIObj.hpp" />
+    <ClInclude Include="app\modules\UI\base\UIHolder.hpp" />
+    <ClInclude Include="app\modules\UI\UIs.hpp" />
     <ClInclude Include="app\modules\UI\UIOrder.hpp" />
     <ClInclude Include="app\components\Cron\base\IJob.hpp" />
     <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />

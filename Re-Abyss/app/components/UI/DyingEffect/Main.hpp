@@ -5,11 +5,11 @@
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::ui::DyingEffect
+namespace abyss::UI::DyingEffect
 {
     class DyingEffectVM;
 }
-namespace abyss::ui::DyingEffect
+namespace abyss::UI::DyingEffect
 {
     class Main : 
         public IComponent,
@@ -18,7 +18,7 @@ namespace abyss::ui::DyingEffect
     {
         
     public:
-        Main(IUserInterface* pUi, Actor::IActor* actor);
+        Main(UIObj* pUi, Actor::IActor* actor);
 
         void onStart() override;
 
@@ -26,7 +26,7 @@ namespace abyss::ui::DyingEffect
 
         void onDraw() const override;
     private:
-        IUserInterface* m_pUi;
+        UIObj* m_pUi;
 
         Actor::IActor* m_pActor;
         Ref <Actor::HP> m_hpModel;
@@ -41,8 +41,8 @@ namespace abyss::ui::DyingEffect
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::DyingEffect::Main>
+    struct ComponentTree<UI::DyingEffect::Main>
     {
-        using Base = MultiComponents<ui::IUpdate, ui::IDraw>;
+        using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
     };
 }

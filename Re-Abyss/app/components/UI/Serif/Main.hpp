@@ -12,7 +12,7 @@ namespace abyss::Event::Talk
     class FaceTable;
 }
 
-namespace abyss::ui::Serif
+namespace abyss::UI::Serif
 {
     class MessageVM;
     class MessageBoxVM;
@@ -26,7 +26,7 @@ namespace abyss::ui::Serif
         
     public:
         Main(
-            IUserInterface* pUi, 
+            UIObj* pUi, 
             const Ref<Event::Talk::SerifCtrl>& serif,
             const Ref<Event::Talk::FaceTable>& faceTable
         );
@@ -37,7 +37,7 @@ namespace abyss::ui::Serif
 
         void onDraw() const override;
     private:
-        IUserInterface* m_pUi;
+        UIObj* m_pUi;
 
         Ref<Event::Talk::SerifCtrl> m_serif;
         Ref<Event::Talk::FaceTable> m_faceTable;
@@ -52,8 +52,8 @@ namespace abyss::ui::Serif
 namespace abyss
 {
     template<>
-    struct ComponentTree<ui::Serif::Main>
+    struct ComponentTree<UI::Serif::Main>
     {
-        using Base = MultiComponents<ui::IUpdate, ui::IDraw>;
+        using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
     };
 }

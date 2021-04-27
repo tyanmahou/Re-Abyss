@@ -1,7 +1,7 @@
 #include "FadeIrisOut.hpp"
 
 #include <abyss/modules/Event/base/IEvent.hpp>
-#include <abyss/modules/UI/UI.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
 #include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
@@ -28,9 +28,9 @@ namespace abyss::Event
     void FadeIrisOut::create()
     {
         if (!m_fadeUI) {
-            m_fadeUI = m_pEvent->getModule<UI>()
-                ->create<ui::Fade::IrisOut::Builder>()
-                ->find<ui::Fade::IrisOut::FadeCtrl>()
+            m_fadeUI = m_pEvent->getModule<UIs>()
+                ->create<UI::Fade::IrisOut::Builder>()
+                ->find<UI::Fade::IrisOut::FadeCtrl>()
                 ;
         }
     }

@@ -26,7 +26,7 @@ namespace abyss
 	class BackGround;
 	class Effects;
 	class Sound;
-	class UI;
+	class UIs;
 	class Crons;
 	class Save;
 	class SaveData;
@@ -65,9 +65,9 @@ namespace abyss
 		}
 	}
 
-	namespace ui
+	namespace UI
 	{
-		class IUserInterface;
+		class UIObj;
 	}
 
 	namespace Decor

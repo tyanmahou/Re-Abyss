@@ -12,7 +12,7 @@ namespace abyss::Cycle::SaveSelect::UserInfo
     /// </summary>
     class UserInfoView
     {
-        std::unique_ptr<ui::PlayerInfo::PlayerInfoExVM> m_playerInfo;
+        std::unique_ptr<UI::PlayerInfo::PlayerInfoExVM> m_playerInfo;
         std::unique_ptr<PlayerView> m_player;
         std::unique_ptr<OopartsListView> m_oopartsList;
 

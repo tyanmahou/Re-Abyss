@@ -2,7 +2,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::ui::PlayerInfo
+namespace abyss::UI::PlayerInfo
 {
     PlayerInfoExVM::PlayerInfoExVM():
         m_face(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/face.json"))

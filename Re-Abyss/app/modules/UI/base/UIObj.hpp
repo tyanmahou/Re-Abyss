@@ -3,9 +3,9 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 
-namespace abyss::ui
+namespace abyss::UI
 {
-    class IUserInterface final : public GameObject
+    class UIObj final : public GameObject
     {
     private:
         s3d::int32 m_order = 0;
