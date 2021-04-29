@@ -10,6 +10,7 @@
 
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Save/Save.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -24,7 +25,8 @@ namespace abyss
         m_decors(std::make_unique<Decors>()),
         m_crons(std::make_unique<Crons>()),
         m_save(std::make_unique<Save>()),
-        m_playerManager(std::make_unique<Actor::Player::PlayerManager>())
+        m_playerManager(std::make_unique<Actor::Player::PlayerManager>()),
+        m_drawer(std::make_unique<DrawManager>())
     {
         m_manager
             .set(m_master.get())

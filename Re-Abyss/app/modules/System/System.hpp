@@ -34,6 +34,7 @@ namespace abyss
 
         std::unique_ptr<Save> m_save;
         std::unique_ptr<Actor::Player::PlayerManager> m_playerManager;
+        std::unique_ptr<DrawManager> m_drawer;
         Manager m_manager;
     public:
 

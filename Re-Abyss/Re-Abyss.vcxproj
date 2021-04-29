@@ -847,6 +847,8 @@
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
     <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />
     <ClInclude Include="app\modules\Decor\DecorGraphics.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawManager.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawLayer.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />

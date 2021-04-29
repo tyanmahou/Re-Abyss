@@ -1985,6 +1985,8 @@
     <ClInclude Include="app\components\Actor\Player\Shot\EffectCtrl.hpp" />
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawManager.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawLayer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

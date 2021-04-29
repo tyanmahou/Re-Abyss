@@ -32,6 +32,7 @@ namespace abyss
 	class SaveData;
 	class Master;
 	class IMasterObserver;
+	class DrawManager;
 
 	/// Modules/Actors
 	namespace Actor
