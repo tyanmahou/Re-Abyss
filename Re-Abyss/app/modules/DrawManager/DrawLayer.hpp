@@ -7,6 +7,11 @@ namespace abyss
     /// </summary>
     enum class DrawLayer
     {
+        DecorBack,
+        DecorMiddle,
+        World,
+        DecorFront,
+
         Size,
     };
 

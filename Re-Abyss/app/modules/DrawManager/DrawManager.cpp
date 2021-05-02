@@ -12,4 +12,10 @@ namespace abyss
     {
         m_drawers[static_cast<size_t>(layer)].push_back(drawer);
     }
+    void DrawManager::draw(DrawLayer layer) const
+    {
+        for (auto& drawer : m_drawers[static_cast<size_t>(layer)]) {
+            drawer();
+        }
+    }
 }
