@@ -78,6 +78,12 @@ namespace abyss
         return *this;
     }
 
+    Manager& Manager::set(DrawManager* pDrawer)
+    {
+        m_pDrawer = pDrawer;
+        return *this;
+    }
+
     template<class T>
     T* Manager::getModule() const
     {
@@ -109,8 +115,10 @@ namespace abyss
             return m_pCrons;
         } else if constexpr (std::is_same_v<Save, T>) {
             return m_pSave;
-        } else if (std::is_same_v<Actor::Player::PlayerManager, T>) {
+        } else if constexpr (std::is_same_v<Actor::Player::PlayerManager, T>) {
             return m_pPlayer;
+        } else if constexpr (std::is_same_v<DrawManager, T>) {
+            return m_pDrawer;
         }
     }
     template Master* Manager::getModule<Master>() const;
@@ -128,5 +136,6 @@ namespace abyss
     template Crons* Manager::getModule<Crons>() const;
     template Save* Manager::getModule<Save>() const;
     template Actor::Player::PlayerManager* Manager::getModule<Actor::Player::PlayerManager>() const;
+    template DrawManager* Manager::getModule<DrawManager>() const;
 
 }

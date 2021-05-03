@@ -10,6 +10,7 @@
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/base/IDraw.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Actor
 {
@@ -78,8 +79,11 @@ namespace abyss::Actor
 		for (auto&& com : this->finds<IPreDraw>()) {
 			com->onPreDraw();
 		}
+		auto drawer = this->getModule<DrawManager>();
 		for (auto&& com : this->finds<IDraw>()) {
-			com->onDraw();
+			drawer->add(com->getLayer(), [com] {
+				com->onDraw();
+			});
 		}
 	}
 	s3d::Microseconds ActorObj::getUpdateTime() const

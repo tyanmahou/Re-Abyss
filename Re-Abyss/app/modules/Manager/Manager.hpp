@@ -24,6 +24,7 @@ namespace abyss
         Crons* m_pCrons = nullptr;
         Save* m_pSave = nullptr;
         Actor::Player::PlayerManager* m_pPlayer = nullptr;
+        DrawManager* m_pDrawer = nullptr;
     public:
         Manager& set(Master* pMaster);
 
@@ -54,6 +55,8 @@ namespace abyss
         Manager& set(Save* pSave);
 
         Manager& set(Actor::Player::PlayerManager* pPlayer);
+
+        Manager& set(DrawManager* pDrawer);
 
         template<class T>
         T* getModule() const;

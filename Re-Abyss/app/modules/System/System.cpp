@@ -44,6 +44,7 @@ namespace abyss
             .set(m_crons.get())
             .set(m_save.get())
             .set(m_playerManager.get())
+            .set(m_drawer.get())
             ;
         m_world.setManager(&m_manager);
         m_camera.setManager(&m_manager);
@@ -112,6 +113,9 @@ namespace abyss
     {
         m_drawer->clear();
 
+        // Actor Draw
+        m_world.draw();
+
         auto cameraView = m_camera.createView();
         const auto& snapshot = m_camera.getSnapshot();
         // in camera
@@ -136,7 +140,6 @@ namespace abyss
                     m_drawer->draw(DrawLayer::DecorMiddle);
 
                     m_effects.update<EffectGroup::WorldBack>();
-                    m_world.draw();
                     m_drawer->draw(DrawLayer::World);
                     m_effects.update<EffectGroup::WorldFront>();
 
