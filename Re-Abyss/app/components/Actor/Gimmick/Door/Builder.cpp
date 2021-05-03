@@ -35,7 +35,8 @@ namespace abyss::Actor::Gimmick::Door
 		// 描画制御
 		{
 			pActor->attach<CustomDraw>()
-				->setDrawer<Drawer>(pActor);
+				->setDrawer<Drawer>(pActor)
+				.setLayer(DrawLayer::DecorMiddle);
 		}
     }
 }
