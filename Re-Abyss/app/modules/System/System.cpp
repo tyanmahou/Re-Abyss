@@ -1,6 +1,7 @@
 #include "System.hpp"
 #include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
+#include <abyss/modules/Camera/Distortion/Distortion.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/commons/Constants.hpp>
@@ -76,6 +77,7 @@ namespace abyss
     {
         m_time.update();
         m_light.clear();
+        m_camera.getDistortion()->clear();
 
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
@@ -117,48 +119,49 @@ namespace abyss
         m_world.draw();
 
         auto cameraView = m_camera.createView();
-        const auto& snapshot = m_camera.getSnapshot();
+        auto* snapshot = m_camera.getSnapshot();
+        auto* distortion = m_camera.getDistortion();
         // in camera
         {
+            auto sceneRender = snapshot->startSceneRender();
+            auto t2d = cameraView.getTransformer();
+
+            // 背面
             {
-                auto sceneRender = snapshot.startSceneRender();
-                auto t2d = cameraView.getTransformer();
-
-                // 背面
-                {
-                    m_backGround->draw(cameraView);
-                    m_backGround->drawWaterSarfaceBack(cameraView);
-                    m_effects.update<EffectGroup::DecorBack>();
-                    m_decors->drawBack();
-                    m_drawer->draw(DrawLayer::DecorBack);
-                }
-                cameraView.drawDeathLine();
-
-                // 中面
-                m_decors->drawMiddle();
-                m_drawer->draw(DrawLayer::DecorMiddle);
-
-                m_effects.update<EffectGroup::WorldBack>();
-                m_drawer->draw(DrawLayer::World);
-                m_effects.update<EffectGroup::WorldFront>();
-
-                // 全面
-                m_decors->drawFront();
-                m_drawer->draw(DrawLayer::DecorFront);
-
-                m_effects.update<EffectGroup::Bubble>();
-                m_backGround->drawWaterSarfaceFront(cameraView);
-
-                m_light.render(m_time.time());
+                m_backGround->draw(cameraView);
+                m_backGround->drawWaterSarfaceBack(cameraView);
+                m_effects.update<EffectGroup::DecorBack>();
+                m_decors->drawBack();
+                m_drawer->draw(DrawLayer::DecorBack);
             }
-            // post effectなどあればここで
-            // Light適用
-            {
-                auto postRender = snapshot.startPostRender();
-                auto scopedLight = m_light.start(m_backGround->getBgColor());
-                snapshot.getSceneTexture().draw();
-            }
-            snapshot.getPostTexture().draw(Constants::GameScreenOffset);
+            cameraView.drawDeathLine();
+
+            // 中面
+            m_decors->drawMiddle();
+            m_drawer->draw(DrawLayer::DecorMiddle);
+
+            m_effects.update<EffectGroup::WorldBack>();
+            m_drawer->draw(DrawLayer::World);
+            m_effects.update<EffectGroup::WorldFront>();
+
+            // 全面
+            m_decors->drawFront();
+            m_drawer->draw(DrawLayer::DecorFront);
+
+            m_effects.update<EffectGroup::Bubble>();
+            m_backGround->drawWaterSarfaceFront(cameraView);
+
+            // Light Map更新
+            m_light.render(m_time.time());
+            // Distortion Map更新
+            distortion->render();
+        }
+        // PostEffect適用
+        {
+            snapshot->copySceneToPost()
+                .apply([=] { return m_light.start(m_backGround->getBgColor()); })
+                .apply([=] { return distortion->start(); })
+                .getPostTexture().draw(Constants::GameScreenOffset);
         }
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };

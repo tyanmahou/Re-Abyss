@@ -1,5 +1,7 @@
 #include "SnapshotView.hpp"
 #include <abyss/commons/Constants.hpp>
+#include <Siv3D/Shader.hpp>
+#include <Siv3D/TextureRegion.hpp>
 
 namespace abyss
 {
@@ -13,9 +15,35 @@ namespace abyss
         m_sceneTexture.clear(s3d::ColorF(0, 1));
         return s3d::ScopedRenderTarget2D(m_sceneTexture);
     }
-    s3d::ScopedRenderTarget2D SnapshotView::startPostRender() const
+    s3d::ScopedRenderTarget2D SnapshotView::startPostRender()
     {
-        m_postTexture.clear(s3d::ColorF(0, 1));
-        return s3d::ScopedRenderTarget2D(m_postTexture);
+        m_isSwapPostTexture = !m_isSwapPostTexture;
+        const auto& rt = this->getPostTexture();
+        rt.clear(s3d::ColorF(0, 1));
+        return s3d::ScopedRenderTarget2D(rt);
+    }
+    SnapshotView& SnapshotView::copySceneToPost()
+    {
+        s3d::Shader::Copy(m_sceneTexture, m_isSwapPostTexture ? m_postTexture2 : m_postTexture);
+        return *this;
+    }
+    SnapshotView& SnapshotView::apply(std::function<void(const s3d::Texture&)> callback)
+    {
+        const auto& prev = this->getPostTexture();
+        auto postRender = this->startPostRender();
+        callback(prev);
+        return *this;
+    }
+    SnapshotView& SnapshotView::apply(std::function<s3d::ScopedCustomShader2D()> callback)
+    {
+        const auto& prev = this->getPostTexture();
+        auto postRender = this->startPostRender();
+        auto scoped = callback();
+        prev.draw();
+        return *this;
+    }
+    const s3d::RenderTexture& SnapshotView::getPostTexture() const
+    {
+        return m_isSwapPostTexture ? m_postTexture2 : m_postTexture;
     }
 }

@@ -13,6 +13,10 @@ namespace abyss
     {
         m_view.addCircleFrame(circle, thickness, power);
     }
+    void Distortion::render() const
+    {
+        m_view.render();
+    }
     s3d::ScopedCustomShader2D Distortion::start() const
     {
         return m_view.start();

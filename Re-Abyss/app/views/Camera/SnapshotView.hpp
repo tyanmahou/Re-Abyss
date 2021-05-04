@@ -14,15 +14,19 @@ namespace abyss
         {
             return m_sceneTexture;
         }
-        s3d::ScopedRenderTarget2D startPostRender() const;
-        const s3d::Texture& getPostTexture() const
-        {
-            return m_postTexture;
-        }
+        s3d::ScopedRenderTarget2D startPostRender();
+        const s3d::RenderTexture& getPostTexture() const;
+
+        SnapshotView& copySceneToPost();
+
+        SnapshotView& apply(std::function<void(const s3d::Texture&)> callback);
+        SnapshotView& apply(std::function<s3d::ScopedCustomShader2D()> callback);
+
     private:
         s3d::RenderTexture m_sceneTexture;
 
         s3d::RenderTexture m_postTexture;
         s3d::RenderTexture m_postTexture2;
+        bool m_isSwapPostTexture = false;
     };
 }

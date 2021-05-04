@@ -17,6 +17,7 @@ namespace abyss
 
         void addCircleFrame(const s3d::Circle& circle, double thickness, double power);
 
+        void render() const;
         s3d::ScopedCustomShader2D start() const;
     private:
         s3d::RenderTexture m_rt;

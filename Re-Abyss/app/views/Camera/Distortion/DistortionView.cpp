@@ -23,21 +23,22 @@ namespace abyss
         });
     }
 
+    void DistortionView::render() const
+    {
+        ScopedRenderTarget2D target(m_rt);
+        m_rt.clear(ColorF(0.5, 0.5, 0.0, 1.0));
+        ScopedRenderStates2D blend(BlendState(
+            true,
+            Blend::SrcAlpha,
+            Blend::SrcAlpha
+        ));
+        for (auto&& drawer : m_drawer) {
+            drawer();
+        }
+    }
+
     s3d::ScopedCustomShader2D DistortionView::start() const
     {
-        // Rendering
-        {
-            ScopedRenderTarget2D target(m_rt);
-            m_rt.clear(ColorF(0.5, 0.5, 0.0, 1.0));
-            ScopedRenderStates2D blend(BlendState(
-                true,
-                Blend::SrcAlpha,
-                Blend::SrcAlpha
-            ));
-            for (auto&& drawer : m_drawer) {
-                drawer();
-            }
-        }
         return m_shader.start();
     }
 }
