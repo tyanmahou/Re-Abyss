@@ -3,8 +3,6 @@
 
 namespace abyss
 {
-    class DistortionView;
-
     /// <summary>
     /// 歪み
     /// </summary>
