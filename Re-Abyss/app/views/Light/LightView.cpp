@@ -7,7 +7,7 @@
 namespace abyss
 {
     LightView::LightView():
-        m_rt(Constants::GameScreenSize_v<uint32>.x, Constants::GameScreenSize_v<uint32>.y),
+        m_rt(Constants::GameScreenSize_v<int32>.asPoint()),
         m_shader(std::make_shared<LightShader>())
     {
         m_rt.clear(ColorF(0.0, 1.0));

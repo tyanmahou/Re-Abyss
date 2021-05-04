@@ -1354,6 +1354,9 @@
     <ClCompile Include="app\views\Camera\Distortion\DistortionShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Camera\Distortion\DistortionView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2006,6 +2009,7 @@
     <ClInclude Include="app\utils\DistUtil\DistUtl.hpp" />
     <ClInclude Include="app\views\Camera\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Light\LightShader.hpp" />
+    <ClInclude Include="app\views\Camera\Distortion\DistortionView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

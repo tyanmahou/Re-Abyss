@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Array.hpp>
-#include <Siv3D/PixelShader.hpp>
+#include <Siv3D/RenderTexture.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 #include "LightVM.hpp"
