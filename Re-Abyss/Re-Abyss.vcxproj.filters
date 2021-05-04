@@ -1357,6 +1357,9 @@
     <ClCompile Include="app\views\Camera\Distortion\DistortionView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Common\ShockWaveDist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2010,6 +2013,7 @@
     <ClInclude Include="app\views\Camera\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Camera\Distortion\DistortionView.hpp" />
+    <ClInclude Include="app\views\Actor\Common\ShockWaveDist.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

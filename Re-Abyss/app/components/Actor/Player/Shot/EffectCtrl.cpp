@@ -4,6 +4,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
+#include <abyss/views/Actor/Common/ShockWaveDist.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
@@ -21,17 +22,24 @@ namespace abyss::Actor::Player::Shot
         m_body = m_pActor->find<Body>();
         m_shot = m_pActor->find<PlayerShot>();
         if (!m_shot->isNormal()) {
+            const s3d::Vec2& pos = m_body->getPos();
+            double r = m_shot->toRadius();
             m_pActor->getModule<Effects>()->addWorldFront<ShotFiringEffect>(
-                m_body->getPos(),
-                m_shot->toRadius(),
+                pos,
+                r,
                 m_shot->toColorF()
+                );
+            m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
+                m_pActor->getManager(),
+                pos,
+                r * r / 2.0
                 );
         }
     }
 
     void EffectCtrl::onDraw() const
     {
-        Vec2 pos = m_body->getPos();
+        s3d::Vec2 pos = m_body->getPos();
         double radius = m_shot->toRadius();
 
         auto* pLight = m_pActor->getModule<Light>();

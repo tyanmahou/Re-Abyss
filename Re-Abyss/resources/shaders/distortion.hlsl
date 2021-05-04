@@ -23,7 +23,11 @@ cbuffer ShaderParam : register(b1)
 
 float4 PS(PSInput input) : SV_TARGET
 {
-	float4 dist = g_texture1.Sample(g_sampler0, input.uv);
-	float2 distTex = ((dist.xy * 2.0f - 1.0f) * dist.z) / g_textureSize;
-    return g_texture0.Sample(g_sampler0, input.uv);
+    // 歪みマップ
+    float4 dist = g_texture1.Sample(g_sampler0, input.uv);
+    float2 dir = dist.xy * 2.0f - 1.0f;
+    dir = (dir.x == 0.0f && dir.y == 0.0f) ? float2(0, 0) : normalize(dir);
+    // 歪み
+    float2 distTex = (dist.xy * 2.0f - 1.0f) * dist.z * 255.0f / g_textureSize;
+    return g_texture0.Sample(g_sampler0, input.uv + distTex);
 }
