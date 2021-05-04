@@ -1,70 +1,11 @@
 #include "LightView.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
-#include <abyss/commons/Resource/Assets/Assets.hpp>
-
 #include <abyss/debugs/Menu/Menu.hpp>
-
-namespace
-{
-    struct ShaderParam
-    {
-        Float4 bgColor;
-    };
-    Image CreateDither()
-    {
-        Image image(4, 4);
-        constexpr double dither[4][4] = {
-            {1, 13, 4, 16},
-            {9, 5, 12, 8},
-            {3, 15, 2, 14},
-            {11, 7, 10, 6},
-        };
-        for (int32 y : step(0, 4)) {
-            for (int32 x : step(0, 4)) {
-                image[y][x] = ColorF(dither[y][x] / 17.0);
-            }
-        }
-        return image;
-    }
-}
+#include <abyss/views/Light/LightShader.hpp>
 
 namespace abyss
 {
-    class LightShader
-    {
-    public:
-        LightShader():
-            m_ps(Resource::Assets::Main()->loadPs(U"light.hlsl")),
-            m_dither(::CreateDither())
-        {
-
-        }
-        LightShader& setBgColor(const s3d::ColorF& color)
-        {
-            m_cb->bgColor = color.toFloat4();
-            return *this;
-        }
-        LightShader& setLightsTexture(const s3d::Texture& lights)
-        {
-            m_lights = lights;
-            return *this;
-        }
-        ScopedCustomShader2D start()
-        {
-            s3d::Graphics2D::SetTexture(1, m_dither);
-            s3d::Graphics2D::SetTexture(2, m_lights);
-            s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
-            return ScopedCustomShader2D(m_ps);
-        }
-    private:
-        PixelShader m_ps;
-        ConstantBuffer<ShaderParam> m_cb;
-        s3d::Texture m_dither;
-        s3d::Texture m_lights;
-    };
-
     LightView::LightView():
         m_rt(Constants::GameScreenSize_v<uint32>.x, Constants::GameScreenSize_v<uint32>.y),
         m_shader(std::make_shared<LightShader>())

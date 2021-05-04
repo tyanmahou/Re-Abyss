@@ -498,6 +498,7 @@
     <ClCompile Include="app\views\Decor\City\StreetLight\LightVM.cpp" />
     <ClCompile Include="app\views\Decor\Map\TileMapShader.cpp" />
     <ClCompile Include="app\views\Decor\Map\TileMapView.cpp" />
+    <ClCompile Include="app\views\Light\LightShader.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoExVM.cpp" />
@@ -1233,6 +1234,7 @@
     <ClInclude Include="app\views\BackGround\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\BackGround\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\BackGround\WaterSarface\WaterSarfaceView.hpp" />
+    <ClInclude Include="app\views\Camera\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
@@ -1250,6 +1252,7 @@
     <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />
     <ClInclude Include="app\views\Decor\Map\TileMapShader.hpp" />
     <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />
+    <ClInclude Include="app\views\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp" />
     <ClInclude Include="app\views\Actor\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />
