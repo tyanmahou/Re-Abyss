@@ -1342,6 +1342,12 @@
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Camera\Distortion\Distortion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DistUtil\DistUtl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1990,6 +1996,8 @@
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawManager.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawLayer.hpp" />
+    <ClInclude Include="app\modules\Camera\Distortion\Distortion.hpp" />
+    <ClInclude Include="app\utils\DistUtil\DistUtl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
