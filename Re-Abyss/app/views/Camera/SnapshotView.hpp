@@ -21,6 +21,8 @@ namespace abyss
         }
     private:
         s3d::RenderTexture m_sceneTexture;
+
         s3d::RenderTexture m_postTexture;
+        s3d::RenderTexture m_postTexture2;
     };
 }

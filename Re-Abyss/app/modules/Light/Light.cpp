@@ -17,8 +17,13 @@ namespace abyss
         m_view.push(vm);
     }
 
-    void Light::draw(const s3d::Texture& dest, double time, const s3d::ColorF& color) const
+    void Light::render(double time) const
     {
-        m_view.draw(dest, time, color);
+        m_view.render(time);
+    }
+
+    s3d::ScopedCustomShader2D Light::start(const s3d::ColorF& color) const
+    {
+        return m_view.start(color);
     }
 }

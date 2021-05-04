@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/models/Light/LightModel.hpp>
 #include <abyss/views/Light/LightView.hpp>
-
 namespace abyss
 {
     class Light
@@ -11,6 +10,8 @@ namespace abyss
     public:
         void clear();
         void addLight(const LightModel& light);
-        void draw(const s3d::Texture& dest, double time, const s3d::ColorF& color) const;
+
+        void render(double time) const;
+        s3d::ScopedCustomShader2D start(const s3d::ColorF& color) const;
     };
 }

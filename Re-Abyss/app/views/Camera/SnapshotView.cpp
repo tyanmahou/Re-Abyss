@@ -5,7 +5,8 @@ namespace abyss
 {
     SnapshotView::SnapshotView():
         m_sceneTexture(Constants::GameScreenSize.asPoint()),
-        m_postTexture(Constants::GameScreenSize.asPoint())
+        m_postTexture(Constants::GameScreenSize.asPoint()),
+        m_postTexture2(Constants::GameScreenSize.asPoint())
     {}
     s3d::ScopedRenderTarget2D SnapshotView::startSceneRender() const
     {

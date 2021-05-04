@@ -121,38 +121,43 @@ namespace abyss
         // in camera
         {
             {
-                auto postRender = snapshot.startPostRender();
+                auto sceneRender = snapshot.startSceneRender();
                 auto t2d = cameraView.getTransformer();
+
+                // 背面
                 {
-                    auto sceneRender = snapshot.startSceneRender();
-                    // 背面
-                    {
-                        m_backGround->draw(cameraView);
-                        m_backGround->drawWaterSarfaceBack(cameraView);
-                        m_effects.update<EffectGroup::DecorBack>();
-                        m_decors->drawBack();
-                        m_drawer->draw(DrawLayer::DecorBack);
-                    }
-                    cameraView.drawDeathLine();
-
-                    // 中面
-                    m_decors->drawMiddle();
-                    m_drawer->draw(DrawLayer::DecorMiddle);
-
-                    m_effects.update<EffectGroup::WorldBack>();
-                    m_drawer->draw(DrawLayer::World);
-                    m_effects.update<EffectGroup::WorldFront>();
-
-                    // 全面
-                    m_decors->drawFront();
-                    m_drawer->draw(DrawLayer::DecorFront);
-
-                    m_effects.update<EffectGroup::Bubble>();
-                    m_backGround->drawWaterSarfaceFront(cameraView);
+                    m_backGround->draw(cameraView);
+                    m_backGround->drawWaterSarfaceBack(cameraView);
+                    m_effects.update<EffectGroup::DecorBack>();
+                    m_decors->drawBack();
+                    m_drawer->draw(DrawLayer::DecorBack);
                 }
-                m_light.draw(snapshot.getSceneTexture(), m_time.time(), m_backGround->getBgColor());
+                cameraView.drawDeathLine();
+
+                // 中面
+                m_decors->drawMiddle();
+                m_drawer->draw(DrawLayer::DecorMiddle);
+
+                m_effects.update<EffectGroup::WorldBack>();
+                m_drawer->draw(DrawLayer::World);
+                m_effects.update<EffectGroup::WorldFront>();
+
+                // 全面
+                m_decors->drawFront();
+                m_drawer->draw(DrawLayer::DecorFront);
+
+                m_effects.update<EffectGroup::Bubble>();
+                m_backGround->drawWaterSarfaceFront(cameraView);
+
+                m_light.render(m_time.time());
             }
             // post effectなどあればここで
+            // Light適用
+            {
+                auto postRender = snapshot.startPostRender();
+                auto scopedLight = m_light.start(m_backGround->getBgColor());
+                snapshot.getSceneTexture().draw();
+            }
             snapshot.getPostTexture().draw(Constants::GameScreenOffset);
         }
         {
