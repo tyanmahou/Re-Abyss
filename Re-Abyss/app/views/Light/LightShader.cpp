@@ -1,7 +1,7 @@
 #include "LightShader.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+
 namespace
 {
     struct ShaderParam
@@ -34,9 +34,7 @@ namespace abyss
         Impl() :
             m_ps(Resource::Assets::Main()->loadPs(U"light.hlsl")),
             m_dither(::CreateDither())
-        {
-
-        }
+        {}
         void setBgColor(const s3d::ColorF& color)
         {
             m_cb->bgColor = color.toFloat4();
@@ -45,7 +43,7 @@ namespace abyss
         {
             m_lights = lights;
         }
-        ScopedCustomShader2D start()
+        ScopedCustomShader2D start() const
         {
             s3d::Graphics2D::SetTexture(1, m_dither);
             s3d::Graphics2D::SetTexture(2, m_lights);
