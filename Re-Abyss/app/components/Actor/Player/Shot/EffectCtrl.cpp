@@ -52,7 +52,7 @@ namespace abyss::Actor::Player::Shot
                 m_pActor->getManager(),
                 pos,
                 radius * std::sqrt(radius) / 2.0,
-                20,
+                10,
                 2.0
                 );
         }
