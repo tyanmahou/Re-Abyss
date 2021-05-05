@@ -29,11 +29,13 @@ namespace abyss::Actor::Player::Shot
                 r,
                 m_shot->toColorF()
                 );
-            m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
-                m_pActor->getManager(),
-                pos,
-                r * r / 2.0
-                );
+            if (!m_shot->isSmall()) {
+                m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
+                    m_pActor->getManager(),
+                    pos,
+                    r * r / 2.0
+                    );
+            }
         }
     }
 
