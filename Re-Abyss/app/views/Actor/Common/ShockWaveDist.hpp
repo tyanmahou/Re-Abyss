@@ -8,12 +8,14 @@ namespace abyss
     struct ShockWaveDist : s3d::IEffect
     {
     public:
-        ShockWaveDist(Manager* pManager, const s3d::Vec2& pos, double radius);
+        ShockWaveDist(Manager* pManager, const s3d::Vec2& pos, double radius, double power = 30.0, double timeScale = 1.0);
 
         bool update(double t)override;
     private:
         Manager* m_pManager;
         s3d::Vec2 m_pos;
         double m_radius;
+        double m_power;
+        double m_timeScale;
     };
 }

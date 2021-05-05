@@ -48,6 +48,13 @@ namespace abyss::Actor::Player::Shot
         // effect
         if (m_effectTimer.update() && *m_shot >= PlayerShotType::Medium) {
             m_pActor->getModule<Effects>()->addWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
+            m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
+                m_pActor->getManager(),
+                pos,
+                radius * std::sqrt(radius) / 2.0,
+                20,
+                2.0
+                );
         }
         pLight->addLight({ pos, radius * 5 });
     }
