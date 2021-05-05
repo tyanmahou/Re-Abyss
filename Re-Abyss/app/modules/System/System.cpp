@@ -159,7 +159,11 @@ namespace abyss
         // PostEffect適用
         {
             snapshot->copySceneToPost()
+#if ABYSS_DEBUG
+                .apply(!Debug::Menu::IsDebug(U"disable-darkness"), [=] { return m_light.start(m_backGround->getBgColor()); })
+#else
                 .apply([=] { return m_light.start(m_backGround->getBgColor()); })
+#endif 
                 .apply([=] { return distortion->start(); })
                 .getPostTexture().draw(Constants::GameScreenOffset);
         }

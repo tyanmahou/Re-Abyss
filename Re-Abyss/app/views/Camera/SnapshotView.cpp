@@ -42,6 +42,13 @@ namespace abyss
         prev.draw();
         return *this;
     }
+    SnapshotView& SnapshotView::apply(bool enable, std::function<s3d::ScopedCustomShader2D()> callback)
+    {
+        if (!enable) {
+            return *this;
+        }
+        return this->apply(callback);
+    }
     const s3d::RenderTexture& SnapshotView::getPostTexture() const
     {
         return m_isSwapPostTexture ? m_postTexture2 : m_postTexture;
