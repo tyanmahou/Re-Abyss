@@ -23,7 +23,7 @@ namespace abyss
             10,
             10,
             0,
-            s3d::Math::Lerp(0.0, 20.0, s3d::Periodic::Triangle0_1(1s, rate))
+            s3d::Math::Lerp(0.0, 30.0, s3d::Periodic::Triangle0_1(1s, rate))
         );
         return t <= 1.0f;
     }
