@@ -18,7 +18,7 @@ namespace abyss
         double rate = EaseOut(Easing::Quint, t);
         auto distortion = m_pManager->getModule<Camera>()->getDistortion();
 
-        distortion->addCircleFrame(Circle(m_pos, m_radius * rate), 10, s3d::Math::Lerp(0.0, 10.0, s3d::Periodic::Triangle0_1(1s, rate)));
+        distortion->addCircleFrame(Circle(m_pos, m_radius * rate), 20, s3d::Math::Lerp(0.0, 20.0, s3d::Periodic::Triangle0_1(1s, rate)));
         return t <= 1.0f;
     }
 }
