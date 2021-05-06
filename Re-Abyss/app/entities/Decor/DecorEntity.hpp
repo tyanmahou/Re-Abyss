@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/entities/Decor/DecorType.hpp>
+#include <abyss/modules/DrawManager/DrawLayer.hpp>
 
 namespace abyss::Decor
 {
@@ -15,5 +16,7 @@ namespace abyss::Decor
 		double rotation = 0.0;
 		bool isMirrored = false;
 		bool isFlipped = false;
+
+		DrawLayer layer;
 	};
 }

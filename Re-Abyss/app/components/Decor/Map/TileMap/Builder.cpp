@@ -14,7 +14,9 @@ namespace abyss::Decor::Map::TileMap
 {
     void Builder::Build(DecorObj* pObj, const TileMapModel& tileMap)
     {
-        pObj->attach<CustomDraw>()->setDrawer<Drawer>(pObj, tileMap);
+        pObj->attach<CustomDraw>()
+            ->setDrawer<Drawer>(pObj, tileMap)
+            .setLayer(DrawLayer::Land);
     }
 }
 

@@ -12,7 +12,7 @@ namespace abyss::Decor
     public:
         using TmxDataStore::TmxDataStore;
 
-        s3d::Array<std::shared_ptr<DecorEntity>> select(DecorGroup group)const override;
+        s3d::Array<std::shared_ptr<DecorEntity>> select()const override;
     };
 
     using TmxDecorDataStoreInataller = TmxDataStoreInataller<IDecorDataStore, TmxDecorDataStore>;

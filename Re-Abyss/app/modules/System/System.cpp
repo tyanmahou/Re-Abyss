@@ -117,6 +117,7 @@ namespace abyss
 
         // Actor Draw
         m_world.draw();
+        m_decors->draw();
 
         auto cameraView = m_camera.createView();
         auto* snapshot = m_camera.getSnapshot();
@@ -131,13 +132,11 @@ namespace abyss
                 m_backGround->draw(cameraView);
                 m_backGround->drawWaterSarfaceBack(cameraView);
                 m_effects.update<EffectGroup::DecorBack>();
-                m_decors->drawBack();
                 m_drawer->draw(DrawLayer::DecorBack);
             }
             cameraView.drawDeathLine();
 
             // 中面
-            m_decors->drawMiddle();
             m_drawer->draw(DrawLayer::DecorMiddle);
 
             m_effects.update<EffectGroup::WorldBack>();
@@ -145,7 +144,6 @@ namespace abyss
             m_effects.update<EffectGroup::WorldFront>();
 
             // 全面
-            m_decors->drawFront();
             m_drawer->draw(DrawLayer::DecorFront);
 
             m_effects.update<EffectGroup::Bubble>();

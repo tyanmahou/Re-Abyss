@@ -15,9 +15,7 @@ namespace abyss::Decor
 
     class DecorService : public IDecorService
     {
-        s3d::Array<std::shared_ptr<DecorEntity>> m_front;
-        s3d::Array<std::shared_ptr<DecorEntity>> m_back;
-        s3d::Array<std::shared_ptr<DecorEntity>> m_middle;
+        s3d::Array<std::shared_ptr<DecorEntity>> m_decors;
 
         DecorGraphics m_graphics;
         DecorAnimations m_animation;
@@ -30,17 +28,9 @@ namespace abyss::Decor
             std::shared_ptr<IGraphicsDataStore> graphics,
             std::shared_ptr<IAnimationDataStore> animation
         ));
-        const s3d::Array<std::shared_ptr<DecorEntity>>& getFront() const override
+        const s3d::Array<std::shared_ptr<DecorEntity>>& getDecors() const override
         {
-            return m_front;
-        }
-        const s3d::Array<std::shared_ptr<DecorEntity>>& getBack() const override
-        {
-            return m_back;
-        }
-        const s3d::Array<std::shared_ptr<DecorEntity>>& getMiddle() const override
-        {
-            return m_middle;
+            return m_decors;
         }
         s3d::Array<Map::TileMapModel> getTileMap(const s3d::RectF& screen) const override;
 

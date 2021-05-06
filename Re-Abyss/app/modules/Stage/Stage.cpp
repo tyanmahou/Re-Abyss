@@ -280,28 +280,23 @@ namespace abyss
         Decor::DecorTranslator m_translator;
         auto idTable = decor.getIdTable();
 
-        auto add = [&](s3d::int32 order, const s3d::Array<std::shared_ptr<Decor::DecorEntity>>& decors) {
-            for (const auto& entity : decors) {
-                if (!entity) {
-                    continue;
-                }
-                if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
-                    continue;
-                }
-                if (idTable[entity->type.categoryId()].contains(entity->id)) {
-                    // すでに生成済みなら引継ぎする
-                    idTable[entity->type.categoryId()][entity->id]->setBufferLayer(decor.getBufferLayer());
-                } else {
-                    m_translator.build(decor, order, *entity);
-                }
+        for (const auto& entity : decorService->getDecors()) {
+            if (!entity) {
+                continue;
             }
-        };
-        add(DecorOrder::Front, decorService->getFront());
-        add(DecorOrder::Back, decorService->getBack());
-        add(DecorOrder::Middle, decorService->getMiddle());
+            if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
+                continue;
+            }
+            if (idTable[entity->type.categoryId()].contains(entity->id)) {
+                // すでに生成済みなら引継ぎする
+                idTable[entity->type.categoryId()][entity->id]->setBufferLayer(decor.getBufferLayer());
+            } else {
+                m_translator.build(decor, *entity);
+            }
+        }
 
         for (const auto& tileMap : decorService->getTileMap(nextRoom.getRegion())) {
-            m_translator.build(decor, DecorOrder::Middle, tileMap);
+            m_translator.build(decor, tileMap);
         }
         decor.flush();
         return true;

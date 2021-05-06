@@ -1971,7 +1971,6 @@
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />

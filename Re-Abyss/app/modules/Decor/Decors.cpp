@@ -7,34 +7,15 @@ namespace abyss
     {}
     void Decors::flush()
     {
-        for (auto&& [layer, decor] : m_decors) {
-            decor.flush();
-        }
+        m_decors.flush();
     }
     void Decors::update()
     {
-        for (auto&& [layer, decor] : m_decors) {
-            decor.update();
-        }
+        m_decors.update();
     }
-    void Decors::draw(s3d::int32 order) const
+    void Decors::draw() const
     {
-        if (m_decors.find(order) == m_decors.end()) {
-            return;
-        }
-        m_decors.at(order).draw();
-    }
-    void Decors::drawBack() const
-    {
-        this->draw(DecorOrder::Back);
-    }
-    void Decors::drawMiddle() const
-    {
-        this->draw(DecorOrder::Middle);
-    }
-    void Decors::drawFront() const
-    {
-        this->draw(DecorOrder::Front);
+        m_decors.draw();
     }
 
     void Decors::onCheckOut()
@@ -44,21 +25,19 @@ namespace abyss
 
     void Decors::onCheckIn()
     {
-        for (auto&& [layer, decor] : m_decors) {
-            decor.clear(Decor::FlipBuffer(m_bufferLayer));
-        }
+        m_decors.clear(Decor::FlipBuffer(m_bufferLayer));
     }
 
-    Ref<Decor::DecorObj> Decors::create(s3d::int32 order)
+    Ref<Decor::DecorObj> Decors::create()
     {
-        return  this->regist(order, std::make_shared<Decor::DecorObj>());
+        return  this->regist(std::make_shared<Decor::DecorObj>());
     }
 
-    Ref<Decor::DecorObj> Decors::regist(s3d::int32 order, const std::shared_ptr<Decor::DecorObj>& decor)
+    Ref<Decor::DecorObj> Decors::regist(const std::shared_ptr<Decor::DecorObj>& decor)
     {
         decor->setManager(m_pManager);
         decor->setBufferLayer(m_bufferLayer);
-        m_decors[order].push(decor);
+        m_decors.push(decor);
         return decor;
     }
 
@@ -73,22 +52,11 @@ namespace abyss
 
     size_t Decors::size() const
     {
-        size_t ret = 0;
-        for (auto&& [layer, decor] : m_decors) {
-            ret += decor.size();
-        }
-        return ret;
+        return m_decors.size();
     }
 
     Decor::DecorIdTable Decors::getIdTable() const
     {
-        Decor::DecorIdTable ret;
-        for (auto&& [layer, decor] : m_decors) {
-            auto table = decor.getIdTable();
-            for (auto&& [category, objs] : table) {
-                ret[category].insert(objs.begin(), objs.end());
-            }
-        }
-        return ret;
+        return m_decors.getIdTable();
     }
 }

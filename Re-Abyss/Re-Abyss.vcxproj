@@ -837,7 +837,6 @@
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
-    <ClInclude Include="app\entities\Decor\DecorGroup.hpp" />
     <ClInclude Include="app\entities\Decor\DecorType.hpp" />
     <ClInclude Include="app\entities\Decor\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />

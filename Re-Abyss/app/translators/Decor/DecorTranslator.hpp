@@ -12,8 +12,8 @@ namespace abyss::Decor
 	class DecorTranslator
 	{
 	public:
-		Ref<DecorObj> build(Decors& decor, s3d::int32 order, const DecorEntity& entity) const;
+		Ref<DecorObj> build(Decors& decor, const DecorEntity& entity) const;
 
-		Ref<DecorObj> build(Decors& decor, s3d::int32 order, const Map::TileMapModel& tileMap) const;
+		Ref<DecorObj> build(Decors& decor, const Map::TileMapModel& tileMap) const;
 	};
 }

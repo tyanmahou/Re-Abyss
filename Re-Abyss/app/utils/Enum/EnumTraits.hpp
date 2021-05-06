@@ -9,19 +9,27 @@ namespace abyss::Enum
     struct EnumTraits{};
 
     template<class T>
-    concept Parsable = std::is_enum_v<T> && requires(T value, const s3d::String & str)
+    concept ParsableToStr = std::is_enum_v<T> && requires(T value)
     {
         { EnumTraits<T>{}(value) } -> std::same_as<s3d::String>;
+    };
+
+    template<class T>
+    concept ParsableFromStr = std::is_enum_v<T> && requires(const s3d::String & str)
+    {
         { EnumTraits<T>{}(str) } -> std::same_as<T>;
     };
 
-    template<Parsable T>
+    template<class T>
+    concept Parsable = ParsableToStr<T> && ParsableFromStr<T>;
+
+    template<ParsableToStr T>
     s3d::String ToStr(T value)
     {
         return EnumTraits<T>{}(value);
     }
 
-    template<Parsable T>
+    template<ParsableFromStr T>
     T Parse(const s3d::String& value)
     {
         return EnumTraits<T>{}(value);

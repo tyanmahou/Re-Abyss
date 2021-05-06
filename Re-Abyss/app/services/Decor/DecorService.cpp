@@ -16,10 +16,7 @@ namespace abyss::Decor
         std::shared_ptr<IAnimationDataStore> animation
     )
     {
-        m_front = decor->select(DecorGroup::Front);
-        m_back = decor->select(DecorGroup::Back);
-        m_middle = decor->select(DecorGroup::Middle);
-
+        m_decors = decor->select();
         m_graphics = graphics->selectWithKey();
         m_animation = animation->selectWithKey();
 
