@@ -1964,7 +1964,6 @@
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
-    <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\ClockCtrl.hpp" />

@@ -788,7 +788,6 @@
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
-    <ClInclude Include="app\components\Decor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
     <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
