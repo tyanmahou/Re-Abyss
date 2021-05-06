@@ -13,7 +13,8 @@ namespace abyss::Decor::City::StreetLight
 
         // LightCtrl
         {
-            pObj->attach<LightCtrl>(pObj);
+            pObj->attach<LightCtrl>(pObj)
+                ->setLayer(entity.layer);
         }
     }
 }

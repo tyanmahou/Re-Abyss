@@ -12,7 +12,8 @@ namespace abyss::Decor
 
         // 基本描画
         if (opt.isEnableBasicDraw) {
-            pObj->attach<BasicDraw>(pObj);
+            pObj->attach<BasicDraw>(pObj)
+                ->setLayer(opt.entity.layer);
         }
     }
 }
