@@ -1,6 +1,7 @@
 #include "DecorObj.hpp"
 #include <abyss/components/Decor/base/IUpdate.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Decor
 {
@@ -16,8 +17,11 @@ namespace abyss::Decor
 
     void DecorObj::draw() const
     {
+        auto drawer = this->getModule<DrawManager>();
         for (auto&& com : this->finds<IDraw>()) {
-            com->onDraw();
+            drawer->add(com->getLayer(), [com] {
+                com->onDraw();
+            });
         }
     }
 
