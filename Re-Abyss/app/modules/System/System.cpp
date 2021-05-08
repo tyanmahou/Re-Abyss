@@ -117,6 +117,7 @@ namespace abyss
 
         // Actor Draw
         m_world.draw();
+        // Deor Draw
         m_decors->draw();
 
         auto cameraView = m_camera.createView();
