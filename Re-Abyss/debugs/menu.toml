@@ -26,15 +26,30 @@ pos = { x = 10, y = 140 }
 default = false
 
 [[CheckBox]]
-name = "disable-darkness"
-label = "DisableDarkNess"
+name = "log-decor-num"
+label = "LogDecorNum"
 pos = { x = 10, y = 170 }
 default = false
 
+###########################
+# Shader
+###########################
+
+[[Headline]]
+name = "hl-shader"
+text = "Shader"
+pos = { x = 250, y = 40 }
+
 [[CheckBox]]
-name = "log-decor-num"
-label = "LogDecorNum"
-pos = { x = 10, y = 200 }
+name = "disable-light"
+label = "DisableLight"
+pos = { x = 250, y = 80 }
+default = false
+
+[[CheckBox]]
+name = "disable-distortion"
+label = "DisableDistortion"
+pos = { x = 250, y = 110 }
 default = false
 
 ###########################
@@ -44,18 +59,18 @@ default = false
 [[Headline]]
 name = "hl-FPS"
 text = "FPS"
-pos = { x = 250, y = 40 }
+pos = { x = 490, y = 40 }
 width = 100
 
 [[CheckBox]]
 name = "cb-fix-fps"
 label = "固定フレーム"
-pos = { x = 250, y = 80 }
+pos = { x = 490, y = 80 }
 default = false
 
 [[Slider]]
 name = "sl-fps"
-pos = { x = 250, y = 110 }
+pos = { x = 490, y = 110 }
 label = "FPS"
 default = 60
 min = 10.0

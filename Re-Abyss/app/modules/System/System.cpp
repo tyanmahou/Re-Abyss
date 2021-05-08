@@ -158,11 +158,15 @@ namespace abyss
         {
             snapshot->copySceneToPost()
 #if ABYSS_DEBUG
-                .apply(!Debug::Menu::IsDebug(U"disable-darkness"), [=] { return m_light.start(m_backGround->getBgColor()); })
+                .apply(!Debug::Menu::IsDebug(U"disable-light"), [=] { return m_light.start(m_backGround->getBgColor()); })
 #else
                 .apply([=] { return m_light.start(m_backGround->getBgColor()); })
 #endif 
+#if ABYSS_DEBUG
+                .apply(!Debug::Menu::IsDebug(U"disable-distortion"), [=] { return distortion->start(); })
+#else
                 .apply([=] { return distortion->start(); })
+#endif
                 .getPostTexture().draw(Constants::GameScreenOffset);
         }
         {
