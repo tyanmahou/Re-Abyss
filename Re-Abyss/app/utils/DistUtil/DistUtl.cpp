@@ -84,6 +84,72 @@ namespace
                 : static_cast<uint16>(std::min(64.0f, r * 0.2f + 6));
         }
     }
+
+    void DrawCircle(const Float2& center, float r, const float innerPower, const float outerPower, const float scale)
+    {
+        const float absR = Math::Abs(r);
+        const IndexType quality = detail::CalculateCircleQuality(absR * scale);
+        const IndexType vertexSize = quality + 1, indexSize = quality * 3;
+
+        Sprite sprite(vertexSize, indexSize);
+        Vertex2D* pVertex = sprite.vertices.data();
+        IndexType* pIndex = sprite.indices.data();
+
+        // 中心
+        const float centerX = center.x;
+        const float centerY = center.y;
+        pVertex[0].pos.set(centerX, centerY);
+
+        // 周
+        if (quality <= detail::MaxSinCosTableQuality) {
+            const Float2* pCS = detail::GetSinCosTableStartPtr(quality);
+            Vertex2D* pDst = &pVertex[1];
+
+            for (IndexType i = 0; i < quality; ++i) {
+                Float2 dir = (Float2{ pCS->x, pCS->y }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+                (pDst)->pos.set(r * pCS->x + centerX, r * pCS->y + centerY);
+                (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
+                ++pCS;
+            }
+        } else {
+            const float radDelta = s3d::Math::TwoPiF / quality;
+            Vertex2D* pDst = &pVertex[1];
+
+            for (IndexType i = 0; i < quality; ++i) {
+                const float rad = radDelta * i;
+                const float c = std::cos(rad);
+                const float s = std::sin(rad);
+
+                Float2 dir = (Float2{ c, -s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+
+                (pDst)->pos.set(centerX + r * c, centerY - r * s);
+                (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
+            }
+        }
+
+        {
+            (pVertex++)->color = Float4(0.5f, 0.5f, innerPower / 128.0f, 0.5f);
+
+            for (size_t i = 1; i < vertexSize; ++i) {
+                (pVertex++)->color.z = outerPower / 128.0f;
+            }
+        }
+
+        {
+            for (IndexType i = 0; i < quality - 1; ++i) {
+                *pIndex++ = (i + 1);
+                *pIndex++ = 0;
+                *pIndex++ = (i + 2);
+            }
+
+            *pIndex++ = quality;
+            *pIndex++ = 0;
+            *pIndex++ = 1;
+        }
+
+        sprite.draw();
+    }
+
     void DrawCircleFrame(const Float2& center, const float rInner, const float thickness, const float innerPower, const float outerPower, const float scale)
     {
         const float rOuter = rInner + thickness;
@@ -144,6 +210,20 @@ namespace
 
 namespace abyss::DistUtil
 {
+    void Draw(const s3d::Circle& circle, double innerPower, double outerPower)
+    {
+        DrawCircle(
+            circle.center,
+            static_cast<float>(circle.r),
+            static_cast<float>(innerPower),
+            static_cast<float>(outerPower),
+            1.0f
+        );
+    }
+    void Draw(const s3d::Circle & circle, double power)
+    {
+        Draw(circle, power, power);
+    }
     void DrawFrame(const s3d::Circle& circle, double innerThickness, double outerThickness, double innerPower, double outerPower)
     {
         DrawCircleFrame(

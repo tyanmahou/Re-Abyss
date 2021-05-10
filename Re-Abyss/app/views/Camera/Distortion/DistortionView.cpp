@@ -16,6 +16,20 @@ namespace abyss
         m_drawer.clear();
     }
 
+    void DistortionView::addCircle(const s3d::Circle& circle, double power)
+    {
+        m_drawer.push_back([=] {
+            DistUtil::Draw(circle, power);
+        });
+    }
+
+    void DistortionView::addCircle(const s3d::Circle & circle, double innerPower, double outerPower)
+    {
+        m_drawer.push_back([=] {
+            DistUtil::Draw(circle, innerPower, outerPower);
+        });
+    }
+
     void DistortionView::addCircleFrame(const s3d::Circle& circle, double thickness, double power)
     {
         m_drawer.push_back([=] {
