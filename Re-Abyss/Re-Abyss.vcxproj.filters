@@ -1499,7 +1499,7 @@
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
-    <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.h" />
+    <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
     <ClInclude Include="app\utils\EffectEx\EffectEx.hpp" />
     <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />

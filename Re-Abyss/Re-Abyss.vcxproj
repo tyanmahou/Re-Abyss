@@ -1099,7 +1099,7 @@
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
-    <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.h" />
+    <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
