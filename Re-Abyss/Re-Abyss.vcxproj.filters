@@ -1360,6 +1360,9 @@
     <ClCompile Include="app\views\Actor\Common\ShockWaveDist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2012,6 +2015,10 @@
     <ClInclude Include="app\views\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Camera\Distortion\DistortionView.hpp" />
     <ClInclude Include="app\views\Actor\Common\ShockWaveDist.hpp" />
+    <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

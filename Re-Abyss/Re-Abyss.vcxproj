@@ -373,6 +373,7 @@
     <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\parser\TmxDecorParser.cpp" />
@@ -821,6 +822,8 @@
     <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IAnimationDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IDecorDataStore.hpp" />
@@ -832,6 +835,8 @@
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
+    <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
     <ClInclude Include="app\entities\Decor\AnimationEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
