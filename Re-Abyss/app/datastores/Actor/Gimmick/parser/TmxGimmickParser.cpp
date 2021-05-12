@@ -1,7 +1,7 @@
 #include "TmxGimmickParser.hpp"
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
-#include <abyss/entities/Actor/Gimmick/EventTriggerEntity.h>
+#include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
 
 using namespace s3d;
