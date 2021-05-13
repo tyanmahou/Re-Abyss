@@ -1363,6 +1363,9 @@
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Actor\Item\parser\TmxItemParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2019,6 +2022,7 @@
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

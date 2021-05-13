@@ -1,4 +1,5 @@
 #include "TmxItemDataStore.hpp"
+#include "parser/TmxItemParser.hpp"
 
 namespace abyss::Actor::Item
 {
@@ -8,14 +9,17 @@ namespace abyss::Actor::Item
     s3d::Array<std::shared_ptr<ItemEntity>> TmxItemDataStore::select() const
     {
         s3d::Array<std::shared_ptr<ItemEntity>> ret;
-        // 敵
+        // アイテム
         auto layer = m_tmx.getLayer(U"item");
         if (!layer) {
             return ret;
         }
         auto parse = [&](const ObjectGroup& layer) {
             for (const auto& obj : layer.getObjects()) {
-                // TODO パース処理
+                TmxItemParser parser(obj);
+                if (auto e = parser.parse(); e && e->type != ItemType::None) {
+                    ret.push_back(std::move(e));
+                }
             }
         };
         layer->then(parse);

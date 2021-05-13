@@ -93,7 +93,13 @@ namespace abyss
 	struct EnemyEntity;
 	struct GimmickEntity;
 	struct BackGroundEntity;
-
+	namespace Actor
+	{
+		namespace Item
+		{
+			struct ItemEntity;
+		}
+	}
 	namespace Decor
 	{
 		struct DecorEntity;

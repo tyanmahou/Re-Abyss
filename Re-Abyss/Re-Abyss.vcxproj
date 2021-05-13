@@ -373,6 +373,7 @@
     <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\datastores\Actor\Item\parser\TmxItemParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IGraphicsDataStore.cpp" />
@@ -823,6 +824,7 @@
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
+    <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\base\IAnimationDataStore.hpp" />
