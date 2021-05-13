@@ -1,13 +1,13 @@
 #pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/services/BackGround/BackGroundService.hpp>
+#include <abyss/services/BackGround/base/IBackGroundService.hpp>
 #include <abyss/services/Actor/Enemy/base/IEnemyService.hpp>
 #include <abyss/services/Actor/Gimmick/base/IGimmickService.hpp>
 #include <abyss/services/Actor/Item/base/IItemService.hpp>
 #include <abyss/services/Actor/Map/base/IMapService.hpp>
 #include <abyss/services/Stage/StageService.hpp>
-#include <abyss/services/Decor/DecorService.hpp>
+#include <abyss/services/Decor/base/IDecorService.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
