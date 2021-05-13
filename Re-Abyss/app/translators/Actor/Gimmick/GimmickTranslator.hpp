@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     class GimmickTranslator
     {

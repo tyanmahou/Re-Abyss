@@ -7,6 +7,7 @@
 using namespace s3d;
 using namespace s3dTiled;
 using namespace abyss;
+using namespace abyss::Actor::Gimmick;
 
 namespace
 {
@@ -73,7 +74,7 @@ namespace
 	}
 #undef PARSE_GIMMICK
 }
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
 	TmxGimmickParser::TmxGimmickParser(const s3dTiled::TiledObject& obj) :
 		m_obj(obj)

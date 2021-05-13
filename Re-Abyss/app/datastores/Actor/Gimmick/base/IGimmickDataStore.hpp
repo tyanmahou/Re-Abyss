@@ -2,7 +2,7 @@
 #include <memory>
 #include <Siv3D/Array.hpp>
 #include <abyss/entities/Actor/Gimmick/GimmickEntity.hpp>
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     class IGimmickDataStore
     {

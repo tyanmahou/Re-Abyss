@@ -10,6 +10,7 @@
 #include <abyss/datastores/Decor/TmxGraphicsDataStore.hpp>
 #include <abyss/datastores/Decor/TmxAnimationDataStore.hpp>
 
+#include <abyss/services/Actor/Gimmick/GimmickService.hpp>
 #include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/services/Stage/StageService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
@@ -25,7 +26,7 @@ namespace abyss::Factory::Main
             .install<TiledMapInstaller>(mapName)
             // datastore
             .install<TmxEnemyDataStoreInataller>()
-            .install<TmxGimmickDataStoreInataller>()
+            .install<Actor::Gimmick::TmxGimmickDataStoreInataller>()
             .install<TmxMapDataStoreInataller>()
             .install<Actor::Item::TmxItemDataStoreInataller>()
             .install<TmxRoomDataStoreInataller>()
@@ -34,6 +35,7 @@ namespace abyss::Factory::Main
             .install<Decor::TmxGraphicsDataStoreInataller>()
             .install<Decor::TmxAnimationDataStoreInataller>()
             // service
+            .install<Actor::Gimmick::GimmickServiceInstaller>()
             .install<Actor::Item::ItemServiceInstaller>()
             .install<StageServiceInstaller>()
             .install<BackGroundServiceInstaller>()

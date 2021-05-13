@@ -464,6 +464,7 @@
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp" />
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp" />
     <ClCompile Include="app\scenes\Title\TitleScene.cpp" />
+    <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
@@ -618,7 +619,7 @@
     </ClCompile>
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp" />
-    <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp" />
+    <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp" />
@@ -868,6 +869,8 @@
     <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
+    <ClInclude Include="app\services\Actor\Gimmick\GimmickService.hpp" />
+    <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
     <ClInclude Include="app\services\Actor\Item\base\IItemService.hpp" />
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
@@ -1190,7 +1193,7 @@
     <ClInclude Include="app\stdafx.hpp" />
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp" />
-    <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
+    <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\translators\Map\MapTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\types\ColDirection.hpp" />

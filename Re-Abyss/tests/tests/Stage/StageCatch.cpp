@@ -15,7 +15,6 @@ namespace abyss::tests
     private:
         s3d::Array<RoomEntity> rooms;
         s3d::Array<std::shared_ptr<MapEntity>> maps;
-        s3d::Array<std::shared_ptr<GimmickEntity>> gimmicks;
         s3d::Array<std::shared_ptr<EnemyEntity>> enemys;
     public:
         Test_StageRepository()
@@ -35,10 +34,6 @@ namespace abyss::tests
         const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const
         {
             return enemys;
-        }
-        const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const
-        {
-            return gimmicks;
         }
     };
 

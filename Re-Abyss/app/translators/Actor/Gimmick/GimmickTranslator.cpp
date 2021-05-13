@@ -8,7 +8,7 @@
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/World/World.hpp>
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     GimmickTranslator::GimmickTranslator(const Stage* pStage):
         m_pStage(pStage)

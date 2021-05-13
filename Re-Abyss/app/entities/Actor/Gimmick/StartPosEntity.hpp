@@ -1,7 +1,7 @@
 #pragma once
 #include "GimmickEntity.hpp"
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     struct StartPosEntity : GimmickEntity
     { 

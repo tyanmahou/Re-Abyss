@@ -35,7 +35,7 @@
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Map/MapTranslator.hpp>
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
-#include <abyss/translators/Gimmick/GimmickTranslator.hpp>
+#include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
 #include <abyss/translators/Decor/DecorTranslator.hpp>
 
@@ -55,31 +55,31 @@ namespace
         return s3d::none;
     }
 
-    StartPosListModel GetStartPosList(const s3d::Array<std::shared_ptr<GimmickEntity>>& gimmicks)
+    StartPosListModel GetStartPosList(const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
     {
         StartPosListModel ret;
 
         for (const auto& gimmick : gimmicks) {
-            if (gimmick->type != GimmickType::StartPos) {
+            if (gimmick->type != Actor::Gimmick::GimmickType::StartPos) {
                 continue;
             }
-            const auto& startPos = static_cast<const StartPosEntity&>(*gimmick);
+            const auto& startPos = static_cast<const Actor::Gimmick::StartPosEntity&>(*gimmick);
             StartPosModel model{ startPos.startId, startPos.pos, startPos.forward, startPos.isSave };
             ret.add(model);
         }
         return ret;
     }
-    Optional<FilePath> NextBgm(const RoomModel& nextRoom, const s3d::Array<std::shared_ptr<GimmickEntity>>& gimmicks)
+    Optional<FilePath> NextBgm(const RoomModel& nextRoom, const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
     {
         for (const auto& gimmick : gimmicks) {
-            if (gimmick->type != GimmickType::BgmChanger) {
+            if (gimmick->type != Actor::Gimmick::GimmickType::BgmChanger) {
                 continue;
             }
             if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                 continue;
             }
 
-            const auto& bgmChanger = static_cast<const BgmChangerEntity&>(*gimmick);
+            const auto& bgmChanger = static_cast<const Actor::Gimmick::BgmChangerEntity&>(*gimmick);
             return bgmChanger.bgm;
         }
         return s3d::none;
@@ -322,7 +322,7 @@ namespace abyss
 
         if (isCheckOut) {
             // ギミックの生成
-            GimmickTranslator gimmickTranslator(this);
+            Actor::Gimmick::GimmickTranslator gimmickTranslator(this);
             for (const auto& gimmick : m_stageData->getGimmicks()) {
                 if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                     continue;

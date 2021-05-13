@@ -2,7 +2,7 @@
 #include "GimmickEntity.hpp"
 #include <Siv3D/String.hpp>
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     struct EventTriggerEntity : GimmickEntity
     {

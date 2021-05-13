@@ -167,7 +167,7 @@
     <ClCompile Include="app\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Gimmick\GimmickTranslator.cpp">
+    <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp">
@@ -1369,6 +1369,9 @@
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1475,7 +1478,7 @@
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
     <ClInclude Include="app\entities\Actor\Gimmick\StartPosEntity.hpp" />
-    <ClInclude Include="app\translators\Gimmick\GimmickTranslator.hpp" />
+    <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
@@ -2028,6 +2031,8 @@
     <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
     <ClInclude Include="app\services\Actor\Item\base\IItemService.hpp" />
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp" />
+    <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
+    <ClInclude Include="app\services\Actor\Gimmick\GimmickService.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

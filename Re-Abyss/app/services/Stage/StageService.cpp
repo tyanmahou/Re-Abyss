@@ -9,13 +9,11 @@ namespace abyss
     StageService::StageService(
         std::shared_ptr<IRoomDataStore> rooms, 
         std::shared_ptr<IMapDataStore> maps, 
-        std::shared_ptr<IEnemyDataStore> enemies,
-        std::shared_ptr<IGimmickDataStore> gimmicks
+        std::shared_ptr<IEnemyDataStore> enemies
     ):
         m_rooms(rooms->select()),
         m_maps(maps->selectFiltered()),
-        m_enemies(enemies->select()),
-        m_gimmicks(gimmicks->select())
+        m_enemies(enemies->select())
     {}
     void StageServiceInstaller::onBinding(emaject::Container* container) const
     {

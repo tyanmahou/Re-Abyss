@@ -81,7 +81,6 @@ namespace abyss
 	/// </summary>
 	class IRoomDataStore;
 	class IEnemyDataStore;
-	class IGimmickDataStore;
 	class IMapDataStore;
 	class IBackGroundDataStore;
 
@@ -91,10 +90,13 @@ namespace abyss
 	struct RoomEntity;
 	struct MapEntity;
 	struct EnemyEntity;
-	struct GimmickEntity;
 	struct BackGroundEntity;
 	namespace Actor
 	{
+		namespace Gimmick
+		{
+			struct GimmickEntity;
+		}
 		namespace Item
 		{
 			struct ItemEntity;

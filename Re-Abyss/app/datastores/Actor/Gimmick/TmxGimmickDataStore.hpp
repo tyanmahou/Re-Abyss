@@ -2,7 +2,7 @@
 #include <abyss/datastores/Actor/Gimmick/base/IGimmickDataStore.hpp>
 #include <abyss/datastores/base/TmxDataStore.hpp>
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     class TmxGimmickDataStore :
         public TmxDataStore,

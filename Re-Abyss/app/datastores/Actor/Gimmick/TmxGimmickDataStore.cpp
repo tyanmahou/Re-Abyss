@@ -1,12 +1,12 @@
 #include "TmxGimmickDataStore.hpp"
 #include "parser/TmxGimmickParser.hpp"
 
-namespace abyss
+namespace abyss::Actor::Gimmick
 {
     using namespace s3d;
     using namespace s3dTiled;
 
-    s3d::Array<std::shared_ptr<GimmickEntity>> abyss::TmxGimmickDataStore::select() const
+    s3d::Array<std::shared_ptr<GimmickEntity>> TmxGimmickDataStore::select() const
     {
 		s3d::Array<std::shared_ptr<GimmickEntity>> ret;
 
