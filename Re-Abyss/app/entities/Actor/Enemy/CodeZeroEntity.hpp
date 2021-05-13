@@ -2,7 +2,7 @@
 #include "EnemyEntity.hpp"
 
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
     struct CodeZeroEntity : EnemyEntity
     { };

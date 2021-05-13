@@ -2,7 +2,7 @@
 #include <abyss/datastores/Actor/Enemy/base/IEnemyDataStore.hpp>
 #include <abyss/datastores/base/TmxDataStore.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
     class TmxEnemyDataStore:
         public TmxDataStore,

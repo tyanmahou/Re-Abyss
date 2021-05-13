@@ -80,17 +80,19 @@ namespace abyss
 	/// Datastores
 	/// </summary>
 	class IRoomDataStore;
-	class IEnemyDataStore;
 	class IBackGroundDataStore;
 
 	/// <summary>
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
-	struct EnemyEntity;
 	struct BackGroundEntity;
 	namespace Actor
 	{
+		namespace Enemy
+		{
+			struct EnemyEntity;
+		}
 		namespace Gimmick
 		{
 			struct GimmickEntity;

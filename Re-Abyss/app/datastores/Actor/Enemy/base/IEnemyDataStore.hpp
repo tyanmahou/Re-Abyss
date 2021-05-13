@@ -3,7 +3,7 @@
 #include <Siv3D/Array.hpp>
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
     class IEnemyDataStore
     {

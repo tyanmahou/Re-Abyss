@@ -1,6 +1,6 @@
 #include "TmxEnemyDataStore.hpp"
 #include "parser/TmxEnemyParser.hpp"
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	using namespace s3d;
 	using namespace s3dTiled;

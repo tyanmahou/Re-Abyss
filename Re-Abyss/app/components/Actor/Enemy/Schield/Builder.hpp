@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	struct SchieldEntity;
 }

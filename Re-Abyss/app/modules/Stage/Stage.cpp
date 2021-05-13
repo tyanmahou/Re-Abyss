@@ -34,7 +34,7 @@
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Actor/Map/MapTranslator.hpp>
-#include <abyss/translators/Enemy/EnemyTranslator.hpp>
+#include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
 #include <abyss/translators/Decor/DecorTranslator.hpp>
@@ -333,7 +333,7 @@ namespace abyss
 
         if (isCheckIn) {
             // エネミーの生成
-            EnemyTranslator enemyTranslator{};
+            Actor::Enemy::EnemyTranslator enemyTranslator{};
             for (const auto& enemy : m_stageData->getEnemies()) {
                 if (!nextRoom.getRegion().intersects(enemy->pos)) {
                     continue;

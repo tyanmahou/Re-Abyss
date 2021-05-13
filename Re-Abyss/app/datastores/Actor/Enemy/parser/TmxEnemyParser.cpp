@@ -13,6 +13,8 @@
 using namespace s3d;
 using namespace s3dTiled;
 using namespace abyss;
+using namespace abyss::Actor::Enemy;
+
 namespace
 {
 	EnemyType ToType(const String& type)
@@ -70,7 +72,7 @@ namespace
 	}
 #undef PARSE_ENEMY
 }
-namespace abyss
+namespace abyss::Actor::Enemy
 {
     TmxEnemyParser::TmxEnemyParser(const s3dTiled::TiledObject& obj) :
         m_obj(obj)

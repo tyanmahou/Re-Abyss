@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <S3DTiled.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
     class TmxEnemyParser
     {

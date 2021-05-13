@@ -14,7 +14,6 @@ namespace abyss::tests
         inline static constexpr s3d::RectF Room2{ 100, 100, 100, 100 };
     private:
         s3d::Array<RoomEntity> rooms;
-        s3d::Array<std::shared_ptr<EnemyEntity>> enemys;
     public:
         Test_StageRepository()
         {
@@ -25,10 +24,6 @@ namespace abyss::tests
         const s3d::Array<RoomEntity>& getRooms() const
         {
             return rooms;
-        }
-        const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const
-        {
-            return enemys;
         }
     };
 

@@ -13,9 +13,9 @@ namespace abyss
     {
         return m_mapService->getMaps();
     }
-    const s3d::Array<std::shared_ptr<EnemyEntity>>& StageData::getEnemies() const
+    const s3d::Array<std::shared_ptr<Actor::Enemy::EnemyEntity>>& StageData::getEnemies() const
     {
-        return m_stageService->getEnemies();
+        return m_enemyService->getEnemies();
     }
     const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& StageData::getGimmicks() const
     {

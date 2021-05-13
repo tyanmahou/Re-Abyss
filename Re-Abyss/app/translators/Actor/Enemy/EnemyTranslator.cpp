@@ -21,7 +21,7 @@
 
 #include <abyss/modules/World/World.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	Ref<Actor::ActorObj> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
 	{

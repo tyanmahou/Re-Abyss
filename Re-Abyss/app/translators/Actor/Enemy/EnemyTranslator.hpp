@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	class EnemyTranslator
 	{

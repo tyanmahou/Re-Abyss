@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	struct SlimeEntity;
 }

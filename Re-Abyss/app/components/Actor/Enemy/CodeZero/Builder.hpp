@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-namespace abyss
+namespace abyss::Actor::Enemy
 {
 	struct CodeZeroEntity;
 }
