@@ -1,6 +1,8 @@
 #include "System.hpp"
 #include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
+
+#include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -21,6 +23,7 @@ namespace abyss
 {
     System::System(IMasterObserver* masterObserver) :
         m_master(std::make_unique<Master>(masterObserver)),
+        m_light(std::make_unique<Light>()),
         m_distortion(std::make_unique<Distortion>()),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
@@ -34,7 +37,7 @@ namespace abyss
             .set(m_master.get())
             .set(&m_time)
             .set(&m_camera)
-            .set(&m_light)
+            .set(m_light.get())
             .set(m_distortion.get())
             .set(&m_world)
             .set(&m_events)
@@ -78,7 +81,7 @@ namespace abyss
     void System::update()
     {
         m_time.update();
-        m_light.clear();
+        m_light->clear();
         m_distortion->clear();
 
         double dt = m_time.deltaTime();
@@ -152,7 +155,7 @@ namespace abyss
             m_backGround->drawWaterSarfaceFront(cameraView);
 
             // Light Map更新
-            m_light.render(m_time.time());
+            m_light->render(m_time.time());
             // Distortion Map更新
             m_distortion->render();
         }
@@ -160,9 +163,9 @@ namespace abyss
         {
             snapshot->copySceneToPost()
 #if ABYSS_DEBUG
-                .apply(!Debug::Menu::IsDebug(U"disable-light"), [=] { return m_light.start(m_backGround->getBgColor()); })
+                .apply(!Debug::Menu::IsDebug(U"disable-light"), [=] { return m_light->start(m_backGround->getBgColor()); })
 #else
-                .apply([=] { return m_light.start(m_backGround->getBgColor()); })
+                .apply([=] { return m_light->start(m_backGround->getBgColor()); })
 #endif 
 #if ABYSS_DEBUG
                 .apply(!Debug::Menu::IsDebug(U"disable-distortion"), [=] { return m_distortion->start(); })

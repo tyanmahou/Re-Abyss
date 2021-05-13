@@ -3,7 +3,6 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
@@ -22,7 +21,7 @@ namespace abyss
         World m_world;
         Events m_events;
         Camera m_camera;
-        Light m_light;
+        std::unique_ptr<Light> m_light;
         std::unique_ptr<Distortion> m_distortion;
 
         Effects m_effects;
