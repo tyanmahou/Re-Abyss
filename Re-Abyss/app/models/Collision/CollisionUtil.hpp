@@ -8,6 +8,6 @@ namespace abyss
     private:
         ColisionUtil() = default;
     public:
-        static [[nodiscard]] bool Intersects(const CShape& a, const CShape& b);
+        [[nodiscard]] static bool Intersects(const CShape& a, const CShape& b);
     };
 }
