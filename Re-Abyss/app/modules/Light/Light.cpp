@@ -12,16 +12,6 @@ namespace abyss
         m_view.addCircle(pos, range, brightness);
     }
 
-    void Light::addLight(const LightModel& light)
-    {
-        LightVM vm{
-            light.getPos(),
-            light.getRange(),
-            light.getBrightness(),
-        };
-        m_view.push(vm);
-    }
-
     void Light::render(double time) const
     {
         m_view.render(time);

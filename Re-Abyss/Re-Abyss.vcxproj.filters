@@ -140,13 +140,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Light\LightModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Light\LightView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Light\LightVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
@@ -1459,9 +1453,7 @@
     </ClInclude>
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
-    <ClInclude Include="app\models\Light\LightModel.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
-    <ClInclude Include="app\views\Light\LightVM.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\models\Collision\FixPos.hpp" />
     <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />

@@ -17,6 +17,6 @@ namespace abyss::Actor
     void LightCtrl::onDraw() const
     {
         auto pos = m_body->getPos();
-        m_pActor->getModule<Light>()->addLight({ pos, m_radius, m_brightness });
+        m_pActor->getModule<Light>()->addCircle(pos, m_radius, m_brightness);
     }
 }

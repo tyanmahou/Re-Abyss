@@ -15,7 +15,6 @@ namespace abyss
     void LightView::clear()
     {
         m_lights.clear();
-        m_rights.clear();
     }
     void LightView::addCircle(const s3d::Vec2& pos, double range, double brightness)
     {
@@ -23,18 +22,11 @@ namespace abyss
             LightUtil::DrawCircleLight(pos, range, brightness, time);
         });
     }
-    void LightView::push(const LightVM & light)
-    {
-        m_rights.push_back(light);
-    }
     void LightView::render(double time) const
     {
         ScopedRenderTarget2D target(m_rt);
         ScopedRenderStates2D state(BlendState::Additive);
         m_rt.clear(ColorF(0, 1));
-        for (const auto& light : m_rights) {
-            light.draw(time);
-        }
         for (const auto& light : m_lights) {
             light(time);
         }

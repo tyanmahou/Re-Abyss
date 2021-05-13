@@ -5,7 +5,6 @@
 
 #include <abyss/commons/Fwd.hpp>
 
-#include "LightVM.hpp"
 namespace abyss
 {
     class LightShader;
@@ -19,12 +18,10 @@ namespace abyss
 
         void addCircle(const s3d::Vec2& pos, double range, double brightness = 1.0);
 
-        void push(const LightVM& light);
         void render(double time) const;
         s3d::ScopedCustomShader2D start(const s3d::ColorF& color) const;
     private:
         s3d::RenderTexture m_rt;
-        s3d::Array<LightVM> m_rights;
         std::shared_ptr<LightShader> m_shader;
         s3d::Array<std::function<void(double)>> m_lights;
     };

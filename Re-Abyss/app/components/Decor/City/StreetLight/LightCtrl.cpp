@@ -35,6 +35,6 @@ namespace abyss::Decor::City::StreetLight
             .setRadius(radius)
             .setTime(time)
             .draw();
-        m_pObj->getModule<Light>()->addLight({ pos, radius * 5.0});
+        m_pObj->getModule<Light>()->addCircle(pos, radius * 5.0);
     }
 }
