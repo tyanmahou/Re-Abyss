@@ -212,9 +212,6 @@
     <ClCompile Include="app\views\BackGround\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\services\Stage\StageService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1494,7 +1491,6 @@
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
-    <ClInclude Include="app\services\Stage\StageService.hpp" />
     <ClInclude Include="app\datastores\Actor\Gimmick\base\IGimmickDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\base\IEnemyDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Map\base\IMapDataStore.hpp" />
@@ -1514,7 +1510,6 @@
       <Filter>Source Files\ActionSystem\Stage\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="app\views\BackGround\Wave\WaveShader.hpp" />
-    <ClInclude Include="app\services\Stage\base\IStageService.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />

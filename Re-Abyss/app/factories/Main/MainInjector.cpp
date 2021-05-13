@@ -15,7 +15,6 @@
 #include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/services/Actor/Map/MapService.hpp>
 #include <abyss/services/Room/RoomService.hpp>
-#include <abyss/services/Stage/StageService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
 

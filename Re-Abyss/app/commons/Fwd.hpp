@@ -151,7 +151,6 @@ namespace abyss
 	/// <summary>
 	/// Services
 	/// </summary>
-	class IStageService;
 	class IBackGroundService;
 
 	/// <summary>

@@ -2,12 +2,14 @@
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
-#include <abyss/services/Stage/base/IStageService.hpp>
+#include <abyss/services/Room/base/IRoomService.hpp>
 #include <abyss/entities/Room/RoomEntity.hpp>
 
-namespace abyss::tests
+namespace 
 {
-    class Test_StageRepository : public IStageService
+    using namespace abyss;
+
+    class Test_RoomService : public IRoomService
     {
     public:
         inline static constexpr s3d::RectF Room1{ 0, 0, 100, 100 };
@@ -15,23 +17,25 @@ namespace abyss::tests
     private:
         s3d::Array<RoomEntity> rooms;
     public:
-        Test_StageRepository()
+        Test_RoomService()
         {
-            rooms.push_back(RoomEntity{ 0, Room1 , 0});
+            rooms.push_back(RoomEntity{ 0, Room1 , 0 });
             rooms.push_back(RoomEntity{ 1, Room2 , 0 });
         }
-        ~Test_StageRepository() = default;
+        ~Test_RoomService() = default;
         const s3d::Array<RoomEntity>& getRooms() const
         {
             return rooms;
         }
     };
-
+}
+namespace abyss::tests
+{
     TEST_CASE("Stage. findRoom Test")
     {
         emaject::Injector injector;
         injector.install([](emaject::Container* c) {
-            c->bind<IStageService>().to<Test_StageRepository>().asCache();
+            c->bind<IRoomService>().to<Test_RoomService>().asCache();
         });
         Stage stage;
         stage.setStageData(injector.resolve<StageData>());
@@ -40,19 +44,19 @@ namespace abyss::tests
         {
             auto room = stage.findRoom({ 0, 0 });
             REQUIRE(room.has_value());
-            REQUIRE(room->getRegion() == Test_StageRepository::Room1);
+            REQUIRE(room->getRegion() == Test_RoomService::Room1);
         }
         SECTION("find border max: pos (100, 100)")
         {
             auto room = stage.findRoom({ 100, 100 });
             REQUIRE(room.has_value());
-            REQUIRE(room->getRegion() == Test_StageRepository::Room2);
+            REQUIRE(room->getRegion() == Test_RoomService::Room2);
         }
         SECTION("find: pos (150, 150)")
         {
             auto room = stage.findRoom({ 150, 150 });
             REQUIRE(room.has_value());
-            REQUIRE(room->getRegion() == Test_StageRepository::Room2);
+            REQUIRE(room->getRegion() == Test_RoomService::Room2);
         }
         SECTION("not find: pos (-50, -50)")
         {
