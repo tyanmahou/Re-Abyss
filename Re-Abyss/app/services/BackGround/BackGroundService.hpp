@@ -6,6 +6,8 @@
 
 namespace abyss
 {
+    class IBackGroundDataStore;
+
     class BackGroundService : public IBackGroundService
     {
         s3d::Array<BackGroundEntity> m_bgs;

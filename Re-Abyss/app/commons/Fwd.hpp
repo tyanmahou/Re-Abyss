@@ -77,11 +77,6 @@ namespace abyss
 	}
 
 	/// <summary>
-	/// Datastores
-	/// </summary>
-	class IBackGroundDataStore;
-
-	/// <summary>
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
@@ -147,11 +142,6 @@ namespace abyss
 		class ICollision;
 		class CollisionCtrl;
 	}
-
-	/// <summary>
-	/// Services
-	/// </summary>
-	class IBackGroundService;
 
 	/// <summary>
 	/// Types
