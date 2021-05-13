@@ -7,6 +7,11 @@ namespace abyss
         m_view.clear();
     }
 
+    void Light::addCircle(const s3d::Vec2& pos, double range, double brightness)
+    {
+        m_view.addCircle(pos, range, brightness);
+    }
+
     void Light::addLight(const LightModel& light)
     {
         LightVM vm{

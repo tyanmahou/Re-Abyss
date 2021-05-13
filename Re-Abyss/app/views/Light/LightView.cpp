@@ -2,6 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/views/Light/LightShader.hpp>
+#include <abyss/views/Light/LightUtil.hpp>
 
 namespace abyss
 {
@@ -15,6 +16,12 @@ namespace abyss
     {
         m_lights.clear();
         m_rights.clear();
+    }
+    void LightView::addCircle(const s3d::Vec2& pos, double range, double brightness)
+    {
+        m_lights.push_back([=](double time){
+            LightUtil::DrawCircleLight(pos, range, brightness, time);
+        });
     }
     void LightView::push(const LightVM & light)
     {

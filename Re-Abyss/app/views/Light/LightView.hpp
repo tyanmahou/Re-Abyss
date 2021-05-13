@@ -16,6 +16,9 @@ namespace abyss
         LightView();
 
         void clear();
+
+        void addCircle(const s3d::Vec2& pos, double range, double brightness = 1.0);
+
         void push(const LightVM& light);
         void render(double time) const;
         s3d::ScopedCustomShader2D start(const s3d::ColorF& color) const;
