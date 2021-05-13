@@ -10,7 +10,6 @@
 namespace abyss
 {
 	class SnapshotView;
-	class Distortion;
 
     class Camera
     {
@@ -19,7 +18,6 @@ namespace abyss
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<Quake> m_quake;
-		std::unique_ptr<Distortion> m_distortion;
 		std::unique_ptr<SnapshotView> m_snapshot;
 	public:
 		Camera();
@@ -138,7 +136,5 @@ namespace abyss
 		s3d::Vec2 transform(const s3d::Vec2& pos) const;
 
 		SnapshotView* getSnapshot() const;
-
-		Distortion* getDistortion() const;
     };
 }

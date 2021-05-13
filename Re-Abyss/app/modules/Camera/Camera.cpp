@@ -7,7 +7,6 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
-#include <abyss/modules/Camera/Distortion/Distortion.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 
@@ -18,7 +17,6 @@ namespace abyss
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
 		m_quake(std::make_unique<Quake>()),
-		m_distortion(std::make_unique<Distortion>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}
 
@@ -159,9 +157,5 @@ namespace abyss
 	SnapshotView* Camera::getSnapshot() const
 	{
 		return m_snapshot.get();
-	}
-	Distortion* Camera::getDistortion() const
-	{
-		return m_distortion.get();
 	}
 }

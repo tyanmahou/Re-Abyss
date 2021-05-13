@@ -16,6 +16,7 @@ namespace abyss
 	class GlobalTime;
 	class Camera;
 	class Quake;
+	class Distortion;
 	class ICameraWork;
 	class World;
 	class Events;

@@ -1339,7 +1339,7 @@
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Camera\Distortion\Distortion.cpp">
+    <ClCompile Include="app\modules\Distortion\Distortion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\DistUtil\DistUtl.cpp">
@@ -1348,10 +1348,10 @@
     <ClCompile Include="app\views\Light\LightShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Camera\Distortion\DistortionShader.cpp">
+    <ClCompile Include="app\views\Distortion\DistortionShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Camera\Distortion\DistortionView.cpp">
+    <ClCompile Include="app\views\Distortion\DistortionView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Common\ShockWaveDist.cpp">
@@ -2022,11 +2022,11 @@
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawManager.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawLayer.hpp" />
-    <ClInclude Include="app\modules\Camera\Distortion\Distortion.hpp" />
+    <ClInclude Include="app\modules\Distortion\Distortion.hpp" />
     <ClInclude Include="app\utils\DistUtil\DistUtl.hpp" />
-    <ClInclude Include="app\views\Camera\Distortion\DistortionShader.hpp" />
+    <ClInclude Include="app\views\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Light\LightShader.hpp" />
-    <ClInclude Include="app\views\Camera\Distortion\DistortionView.hpp" />
+    <ClInclude Include="app\views\Distortion\DistortionView.hpp" />
     <ClInclude Include="app\views\Actor\Common\ShockWaveDist.hpp" />
     <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />

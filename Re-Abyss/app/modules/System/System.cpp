@@ -1,7 +1,7 @@
 #include "System.hpp"
 #include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
-#include <abyss/modules/Camera/Distortion/Distortion.hpp>
+#include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/commons/Constants.hpp>
@@ -21,6 +21,7 @@ namespace abyss
 {
     System::System(IMasterObserver* masterObserver) :
         m_master(std::make_unique<Master>(masterObserver)),
+        m_distortion(std::make_unique<Distortion>()),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decors(std::make_unique<Decors>()),
@@ -34,6 +35,7 @@ namespace abyss
             .set(&m_time)
             .set(&m_camera)
             .set(&m_light)
+            .set(m_distortion.get())
             .set(&m_world)
             .set(&m_events)
             .set(&m_effects)
@@ -77,7 +79,7 @@ namespace abyss
     {
         m_time.update();
         m_light.clear();
-        m_camera.getDistortion()->clear();
+        m_distortion->clear();
 
         double dt = m_time.deltaTime();
         m_world.updateDeltaTime(dt);
@@ -122,7 +124,6 @@ namespace abyss
 
         auto cameraView = m_camera.createView();
         auto* snapshot = m_camera.getSnapshot();
-        auto* distortion = m_camera.getDistortion();
         // in camera
         {
             auto sceneRender = snapshot->startSceneRender();
@@ -153,7 +154,7 @@ namespace abyss
             // Light Map更新
             m_light.render(m_time.time());
             // Distortion Map更新
-            distortion->render();
+            m_distortion->render();
         }
         // PostEffect適用
         {
@@ -164,9 +165,9 @@ namespace abyss
                 .apply([=] { return m_light.start(m_backGround->getBgColor()); })
 #endif 
 #if ABYSS_DEBUG
-                .apply(!Debug::Menu::IsDebug(U"disable-distortion"), [=] { return distortion->start(); })
+                .apply(!Debug::Menu::IsDebug(U"disable-distortion"), [=] { return m_distortion->start(); })
 #else
-                .apply([=] { return distortion->start(); })
+                .apply([=] { return m_distortion->start(); })
 #endif
                 .getPostTexture().draw(Constants::GameScreenOffset);
         }

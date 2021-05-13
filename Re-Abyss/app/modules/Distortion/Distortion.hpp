@@ -1,18 +1,14 @@
 #pragma once
-#include <functional>
-
-#include <abyss/views/Camera/Distortion/DistortionShader.hpp>
-
-#include <Siv3D/Array.hpp>
-#include <Siv3D/RenderTexture.hpp>
+#include <abyss/views/Distortion/DistortionView.hpp>
 
 namespace abyss
 {
-    class DistortionView
+    /// <summary>
+    /// 歪み
+    /// </summary>
+    class Distortion
     {
     public:
-        DistortionView();
-
         void clear();
 
         void addCircle(const s3d::Circle& circle, double power);
@@ -24,8 +20,6 @@ namespace abyss
         void render() const;
         s3d::ScopedCustomShader2D start() const;
     private:
-        s3d::RenderTexture m_rt;
-        DistortionShader m_shader;
-        s3d::Array<std::function<void()>> m_drawer;
+        DistortionView m_view;
     };
 }

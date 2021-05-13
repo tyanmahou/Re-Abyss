@@ -23,6 +23,8 @@ namespace abyss
         Events m_events;
         Camera m_camera;
         Light m_light;
+        std::unique_ptr<Distortion> m_distortion;
+
         Effects m_effects;
 
         Sound m_sound;

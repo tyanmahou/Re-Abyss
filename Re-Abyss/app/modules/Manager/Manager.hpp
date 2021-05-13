@@ -15,6 +15,7 @@ namespace abyss
         Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
+        Distortion* m_pDistortion = nullptr;
         Effects* m_pEffects = nullptr;
         Sound* m_pSound = nullptr;
         UIs* m_pUserInterface = nullptr;
@@ -37,6 +38,8 @@ namespace abyss
         Manager& set(Camera* pCamera);
 
         Manager& set(Light* pLight);
+
+        Manager& set(Distortion* pDistortion);
 
         Manager& set(Effects* pEffects);
 

@@ -1,7 +1,6 @@
 #include "ShockWaveDist.hpp"
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Camera/Distortion/Distortion.hpp>
+#include <abyss/modules/Distortion/Distortion.hpp>
 
 #include <Siv3D.hpp>
 
@@ -19,7 +18,7 @@ namespace abyss
     {
         t *= m_timeScale;
         double rate = EaseOut(Easing::Quint, t);
-        auto distortion = m_pManager->getModule<Camera>()->getDistortion();
+        auto distortion = m_pManager->getModule<Distortion>();
 
         distortion->addCircleFrame(
             Circle(m_pos, m_radius * rate),
