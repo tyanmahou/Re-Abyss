@@ -22,6 +22,10 @@ namespace abyss
         return m_stageService->getGimmicks();
 
     }
+    const s3d::Array<std::shared_ptr<Actor::Item::ItemEntity>>& StageData::getItems() const
+    {
+        return m_itemService->getItems();
+    }
     IBackGroundService* StageData::getBackGroundService() const
     {
         return m_backGroundService.get();

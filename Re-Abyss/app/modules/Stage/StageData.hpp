@@ -2,6 +2,7 @@
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
+#include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/services/Stage/StageService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <Emaject.hpp>
@@ -16,6 +17,9 @@ namespace abyss
         [[INJECT(m_stageService)]]
         std::shared_ptr<IStageService> m_stageService;
 
+        [[INJECT(m_itemService)]]
+        std::shared_ptr<Actor::Item::IItemService> m_itemService;
+
         [[INJECT(m_decorService)]]
         std::shared_ptr<Decor::IDecorService> m_decorService;
     public:
@@ -26,6 +30,7 @@ namespace abyss
         const s3d::Array<std::shared_ptr<MapEntity>>& getMaps() const;
         const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const;
         const s3d::Array<std::shared_ptr<GimmickEntity>>& getGimmicks() const;
+        const s3d::Array<std::shared_ptr<Actor::Item::ItemEntity>>& getItems() const;
 
         IBackGroundService* getBackGroundService() const;
         Decor::IDecorService* getDecorService() const;
