@@ -14,6 +14,7 @@
 #include <abyss/services/Actor/Gimmick/GimmickService.hpp>
 #include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/services/Actor/Map/MapService.hpp>
+#include <abyss/services/Room/RoomService.hpp>
 #include <abyss/services/Stage/StageService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
@@ -41,7 +42,7 @@ namespace abyss::Factory::Main
             .install<Actor::Gimmick::GimmickServiceInstaller>()
             .install<Actor::Item::ItemServiceInstaller>()
             .install<Actor::Map::MapServiceInstaller>()
-            .install<StageServiceInstaller>()
+            .install<RoomServiceInstaller>()
             .install<BackGroundServiceInstaller>()
             .install<Decor::DecorServiceInstaller>()
             ;

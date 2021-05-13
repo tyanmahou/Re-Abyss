@@ -6,11 +6,6 @@
 
 namespace abyss
 {
-    StageService::StageService(
-        std::shared_ptr<IRoomDataStore> rooms
-    ):
-        m_rooms(rooms->select())
-    {}
     void StageServiceInstaller::onBinding(emaject::Container* container) const
     {
         container->bind<IStageService>()

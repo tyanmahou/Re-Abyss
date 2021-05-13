@@ -8,6 +8,5 @@ namespace abyss
 	{
 	public:
 		virtual ~IStageService() = default;
-		virtual const s3d::Array<RoomEntity>& getRooms() const = 0;
 	};
 }

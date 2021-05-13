@@ -470,6 +470,7 @@
     <ClCompile Include="app\services\Actor\Map\MapService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
+    <ClCompile Include="app\services\Room\RoomService.cpp" />
     <ClCompile Include="app\services\User\UserService.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
@@ -881,6 +882,8 @@
     <ClInclude Include="app\services\Actor\Map\MapService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
+    <ClInclude Include="app\services\Room\base\IRoomService.hpp" />
+    <ClInclude Include="app\services\Room\RoomService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />

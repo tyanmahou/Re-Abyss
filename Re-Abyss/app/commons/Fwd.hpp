@@ -79,7 +79,6 @@ namespace abyss
 	/// <summary>
 	/// Datastores
 	/// </summary>
-	class IRoomDataStore;
 	class IBackGroundDataStore;
 
 	/// <summary>

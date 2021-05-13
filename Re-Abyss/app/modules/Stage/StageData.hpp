@@ -6,7 +6,7 @@
 #include <abyss/services/Actor/Gimmick/base/IGimmickService.hpp>
 #include <abyss/services/Actor/Item/base/IItemService.hpp>
 #include <abyss/services/Actor/Map/base/IMapService.hpp>
-#include <abyss/services/Stage/StageService.hpp>
+#include <abyss/services/Room/base/IRoomService.hpp>
 #include <abyss/services/Decor/base/IDecorService.hpp>
 #include <Emaject.hpp>
 
@@ -17,8 +17,8 @@ namespace abyss
         [[INJECT(m_backGroundService)]]
         std::shared_ptr<IBackGroundService> m_backGroundService;
 
-        [[INJECT(m_stageService)]]
-        std::shared_ptr<IStageService> m_stageService;
+        [[INJECT(m_roomService)]]
+        std::shared_ptr<IRoomService> m_roomService;
 
         [[INJECT(m_enemyService)]]
         std::shared_ptr<Actor::Enemy::IEnemyService> m_enemyService;
