@@ -11,7 +11,7 @@ namespace abyss::Decor
 {
     DecorService::DecorService(
         std::shared_ptr<IDecorDataStore>decor, 
-        std::shared_ptr<ITileMapDataStore>map,
+        std::shared_ptr<Actor::Map::ITileMapDataStore>map,
         std::shared_ptr<IGraphicsDataStore> graphics,
         std::shared_ptr<IAnimationDataStore> animation
     )

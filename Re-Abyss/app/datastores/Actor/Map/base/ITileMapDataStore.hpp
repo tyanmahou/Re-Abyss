@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Grid.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
     class ITileMapDataStore
     {

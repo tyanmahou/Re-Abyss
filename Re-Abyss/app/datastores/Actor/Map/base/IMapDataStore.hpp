@@ -3,7 +3,7 @@
 #include <Siv3D/Array.hpp>
 #include <abyss/entities/Actor/Map/MapEntity.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
     class IMapDataStore
     {

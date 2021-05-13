@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
     MapType TmxMapParser::getFieldType(s3dTiled::GId gId)
     {

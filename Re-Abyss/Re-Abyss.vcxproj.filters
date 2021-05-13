@@ -128,7 +128,7 @@
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Map\MapTranslator.cpp">
+    <ClCompile Include="app\translators\Actor\Map\MapTranslator.cpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
@@ -1372,6 +1372,9 @@
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\services\Actor\Map\MapService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1442,7 +1445,7 @@
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp">
       <Filter>Source Files\ActionSystem\Actors\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="app\translators\Map\MapTranslator.hpp">
+    <ClInclude Include="app\translators\Actor\Map\MapTranslator.hpp">
       <Filter>Source Files\ActionSystem\Actors\Map</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
@@ -2033,6 +2036,8 @@
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp" />
     <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
     <ClInclude Include="app\services\Actor\Gimmick\GimmickService.hpp" />
+    <ClInclude Include="app\services\Actor\Map\base\IMapService.hpp" />
+    <ClInclude Include="app\services\Actor\Map\MapService.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -81,14 +81,12 @@ namespace abyss
 	/// </summary>
 	class IRoomDataStore;
 	class IEnemyDataStore;
-	class IMapDataStore;
 	class IBackGroundDataStore;
 
 	/// <summary>
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
-	struct MapEntity;
 	struct EnemyEntity;
 	struct BackGroundEntity;
 	namespace Actor
@@ -100,6 +98,10 @@ namespace abyss
 		namespace Item
 		{
 			struct ItemEntity;
+		}
+		namespace Map
+		{
+			struct MapEntity;
 		}
 	}
 	namespace Decor

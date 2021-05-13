@@ -6,7 +6,7 @@
 
 #include <abyss/modules/World/World.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
 	Ref<Actor::ActorObj> MapTranslator::buildActor(World& world, const MapEntity& entity)
 	{

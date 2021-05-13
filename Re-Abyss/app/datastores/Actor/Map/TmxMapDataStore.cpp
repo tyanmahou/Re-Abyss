@@ -1,12 +1,12 @@
 #include "TmxMapDataStore.hpp"
 #include "parser/TmxMapParser.hpp"
 
-namespace abyss
+namespace abyss::Actor::Map
 {
 	using namespace s3d;
 	using namespace s3dTiled;
 
-    s3d::Array<std::shared_ptr<MapEntity>> abyss::TmxMapDataStore::select(bool isMerge) const
+    s3d::Array<std::shared_ptr<MapEntity>> TmxMapDataStore::select(bool isMerge) const
     {
 		s3d::Array<std::shared_ptr<MapEntity>> ret;
 		// 床情報

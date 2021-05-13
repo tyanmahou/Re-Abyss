@@ -3,7 +3,7 @@
 #include <abyss/datastores/Actor/Map/base/ITileMapDataStore.hpp>
 #include <abyss/datastores/base/TmxDataStore.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
     class TmxMapDataStore :
         public TmxDataStore,

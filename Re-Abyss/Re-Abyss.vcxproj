@@ -466,6 +466,7 @@
     <ClCompile Include="app\scenes\Title\TitleScene.cpp" />
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
+    <ClCompile Include="app\services\Actor\Map\MapService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
     <ClCompile Include="app\services\User\UserService.cpp" />
@@ -620,7 +621,7 @@
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
     <ClCompile Include="app\translators\Enemy\EnemyTranslator.cpp" />
     <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp" />
-    <ClCompile Include="app\translators\Map\MapTranslator.cpp" />
+    <ClCompile Include="app\translators\Actor\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp" />
     <ClCompile Include="app\utils\IntervalTimer\IntervalTimer.cpp" />
@@ -873,6 +874,8 @@
     <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
     <ClInclude Include="app\services\Actor\Item\base\IItemService.hpp" />
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp" />
+    <ClInclude Include="app\services\Actor\Map\base\IMapService.hpp" />
+    <ClInclude Include="app\services\Actor\Map\MapService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
@@ -1194,7 +1197,7 @@
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
     <ClInclude Include="app\translators\Enemy\EnemyTranslator.hpp" />
     <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp" />
-    <ClInclude Include="app\translators\Map\MapTranslator.hpp" />
+    <ClInclude Include="app\translators\Actor\Map\MapTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\types\ColDirection.hpp" />
     <ClInclude Include="app\types\CollisionPairHash.hpp" />

@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/ColDirection.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
 	enum class MapType
 	{

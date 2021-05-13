@@ -4,7 +4,7 @@
 #include <S3DTiled.hpp>
 #include <abyss/entities/Actor/Map/MapEntity.hpp>
 
-namespace abyss
+namespace abyss::Actor::Map
 {
 	using s3dTiled::GId;
 

@@ -33,7 +33,7 @@
 #include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
-#include <abyss/translators/Map/MapTranslator.hpp>
+#include <abyss/translators/Actor/Map/MapTranslator.hpp>
 #include <abyss/translators/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
@@ -311,7 +311,7 @@ namespace abyss
 
         if (isCheckIn) {
             // マップの生成
-            MapTranslator mapTranslator{};
+            Actor::Map::MapTranslator mapTranslator{};
             for (const auto& map : m_stageData->getMaps()) {
                 if (!nextRoom.getRegion().intersects(RectF(map->pos - map->size / 2.0, map->size))) {
                     continue;

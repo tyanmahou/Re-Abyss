@@ -4,6 +4,7 @@
 #include <abyss/services/BackGround/BackGroundService.hpp>
 #include <abyss/services/Actor/Gimmick/base/IGimmickService.hpp>
 #include <abyss/services/Actor/Item/base/IItemService.hpp>
+#include <abyss/services/Actor/Map/base/IMapService.hpp>
 #include <abyss/services/Stage/StageService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <Emaject.hpp>
@@ -22,6 +23,8 @@ namespace abyss
         std::shared_ptr<Actor::Gimmick::IGimmickService> m_gimmickService;
         [[INJECT(m_itemService)]]
         std::shared_ptr<Actor::Item::IItemService> m_itemService;
+        [[INJECT(m_mapService)]]
+        std::shared_ptr<Actor::Map::IMapService> m_mapService;
 
         [[INJECT(m_decorService)]]
         std::shared_ptr<Decor::IDecorService> m_decorService;
@@ -30,7 +33,7 @@ namespace abyss
         const s3d::Array<BackGroundEntity>& getBgs() const;
 
         const s3d::Array<RoomEntity>& getRooms() const;
-        const s3d::Array<std::shared_ptr<MapEntity>>& getMaps() const;
+        const s3d::Array<std::shared_ptr<Actor::Map::MapEntity>>& getMaps() const;
         const s3d::Array<std::shared_ptr<EnemyEntity>>& getEnemies() const;
         const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& getGimmicks() const;
         const s3d::Array<std::shared_ptr<Actor::Item::ItemEntity>>& getItems() const;
