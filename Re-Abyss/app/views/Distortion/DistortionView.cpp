@@ -1,7 +1,7 @@
 #include "DistortionView.hpp"
 
 #include <abyss/commons/Constants.hpp>
-#include <abyss/utils/DistUtil/DistUtl.hpp>
+#include <abyss/views/Distortion/DistUtl.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
