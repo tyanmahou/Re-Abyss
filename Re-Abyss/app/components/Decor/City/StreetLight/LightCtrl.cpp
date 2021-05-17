@@ -41,7 +41,8 @@ namespace abyss::Decor::City::StreetLight
             radius * 8.0,
             40.0f,
             Math::ToRadians(185.0),
-            Math::ToRadians(30.0)
+            Math::ToRadians(30.0),
+            0.5
         );
     }
 }
