@@ -12,6 +12,11 @@ namespace abyss
         m_view.addCircle(pos, range, brightness);
     }
 
+    void Light::addPie(const s3d::Vec2& pos, double range, double startAngle, double endAngle, double brightness)
+    {
+        m_view.addPie(pos, range, startAngle, endAngle, brightness);
+    }
+
     void Light::render(double time) const
     {
         m_view.render(time);
