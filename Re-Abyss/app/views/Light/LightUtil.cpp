@@ -14,13 +14,39 @@ namespace abyss::LightUtil
 
     }
 
-    void DrawPieLight(const s3d::Vec2& pos, double range, double startAngle, double endAngle, double brightness, double time)
+    void DrawPieLight(const s3d::Vec2& pos, double radius, double startAngle, double angle, double brightness, double time)
     {
         const double sin0_1 = s3d::Periodic::Sine0_1(2.0s, time);
         const double alpha = s3d::Saturate(brightness * (0.9 + sin0_1 * 0.1));
-        const double r = range / 2.0 + 1.0 * sin0_1;
+        const double r = radius + 1.0 * sin0_1;
 
         const double offsetRad = s3d::Math::ToRadians(sin0_1 * 0.5);
-        Circle(pos, r).drawPie(startAngle - offsetRad, endAngle + offsetRad * 2.0, ColorF(1.0, alpha), ColorF(1.0, 0.0));
+        const double fixedStart = startAngle - offsetRad;
+        const double fixedAngle = angle + offsetRad * 2.0;
+        Circle(pos, r).drawPie(
+            fixedStart,
+            fixedAngle,
+            ColorF(1.0, alpha),
+            ColorF(1.0, 0.0)
+        );
+    }
+    void DrawArcLight(const s3d::Vec2& pos, double radius, double innerAntiRadius, double startAngle, double angle, double brightness, double time)
+    {
+        const double sin0_1 = s3d::Periodic::Sine0_1(2.0s, time);
+        const double alpha = s3d::Saturate(brightness * (0.9 + sin0_1 * 0.1));
+        const double r = radius + 1.0 * sin0_1;
+
+        const double offsetRad = s3d::Math::ToRadians(sin0_1 * 0.5);
+        const double fixedStart = startAngle - offsetRad;
+        const double fixedAngle = angle + offsetRad * 2.0;
+        const auto offs = -Vec2{ 0, -1 }.rotate(fixedStart + fixedAngle / 2.0) * innerAntiRadius;
+        Circle(pos + offs, r).drawArc(
+            fixedStart,
+            fixedAngle,
+            r - innerAntiRadius,
+            0,
+            ColorF(1.0, alpha),
+            ColorF(1.0, 0.0)
+        );
     }
 }

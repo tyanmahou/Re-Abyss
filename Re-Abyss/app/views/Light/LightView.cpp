@@ -22,10 +22,16 @@ namespace abyss
             LightUtil::DrawCircleLight(pos, range, brightness, time);
         });
     }
-    void LightView::addPie(const s3d::Vec2& pos, double range, double startAngle, double endAngle, double brightness)
+    void LightView::addPie(const s3d::Vec2& pos, double radius, double startAngle, double angle, double brightness)
     {
         m_lights.push_back([=](double time) {
-            LightUtil::DrawPieLight(pos, range, startAngle, endAngle, brightness, time);
+            LightUtil::DrawPieLight(pos, radius, startAngle, angle, brightness, time);
+        });
+    }
+    void LightView::addArc(const s3d::Vec2& pos, double radius, double innerAntiRadius, double startAngle, double angle, double brightness)
+    {
+        m_lights.push_back([=](double time) {
+            LightUtil::DrawArcLight(pos, radius, innerAntiRadius, startAngle, angle, brightness, time);
         });
     }
     void LightView::render(double time) const
