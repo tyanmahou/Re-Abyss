@@ -56,6 +56,6 @@ namespace abyss::Actor::Player::Shot
                 2.0
                 );
         }
-        pLight->addCircle(pos, radius * 5);
+        pLight->addCircle(pos, radius * 2.5);
     }
 }

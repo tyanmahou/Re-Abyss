@@ -23,7 +23,7 @@ namespace abyss::Actor::Player::Shot
 		Circle(m_pos, r).draw(m_hsv.toColor(static_cast<uint32>(50.0 * revT)));
 
 		if (m_pLight) {
-			m_pLight->addCircle(m_pos, r * 5.0,  1.0f - (1.0 - revT) * (1.0 - revT));
+			m_pLight->addCircle(m_pos, r * 2.5,  1.0f - (1.0 - revT) * (1.0 - revT));
 		}
 		return t <= 1.0;
 	}

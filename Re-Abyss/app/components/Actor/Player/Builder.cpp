@@ -150,7 +150,7 @@ namespace abyss::Actor::Player
         // Light
         {
             pActor->attach<LightCtrl>(pActor)
-                ->setRadius(700.0);
+                ->setRadius(350.0);
         }
         // UI制御
         {

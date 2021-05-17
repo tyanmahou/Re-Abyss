@@ -16,10 +16,10 @@ namespace abyss
     {
         m_lights.clear();
     }
-    void LightView::addCircle(const s3d::Vec2& pos, double range, double brightness)
+    void LightView::addCircle(const s3d::Vec2& pos, double radius, double brightness)
     {
         m_lights.push_back([=](double time){
-            LightUtil::DrawCircleLight(pos, range, brightness, time);
+            LightUtil::DrawCircleLight(pos, radius, brightness, time);
         });
     }
     void LightView::addPie(const s3d::Vec2& pos, double radius, double startAngle, double angle, double brightness)

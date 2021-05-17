@@ -7,9 +7,9 @@ namespace abyss
         m_view.clear();
     }
 
-    void Light::addCircle(const s3d::Vec2& pos, double range, double brightness)
+    void Light::addCircle(const s3d::Vec2& pos, double radius, double brightness)
     {
-        m_view.addCircle(pos, range, brightness);
+        m_view.addCircle(pos, radius, brightness);
     }
 
     void Light::addPie(const s3d::Vec2& pos, double radius, double startAngle, double angle, double brightness)

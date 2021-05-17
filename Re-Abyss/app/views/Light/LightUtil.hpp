@@ -6,7 +6,7 @@ namespace abyss::LightUtil
     /// <summary>
     /// サークルライト
     /// </summary>
-    void DrawCircleLight(const s3d::Vec2& pos, double range, double brightness, double time);
+    void DrawCircleLight(const s3d::Vec2& pos, double radius, double brightness, double time);
 
     /// <summary>
     /// 扇ライト
