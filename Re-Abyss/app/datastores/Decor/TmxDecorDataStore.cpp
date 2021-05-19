@@ -1,7 +1,26 @@
 #include "TmxDecorDataStore.hpp"
 #include "parser/TmxDecorParser.hpp"
-#include <abyss/utils/Enum/EnumTraits.hpp>
 
+namespace 
+{
+    using namespace abyss;
+    DrawLayer ToDrawLayer(const s3d::String& value)
+    {
+        if (value == U"decor_back") {
+            return DrawLayer::DecorBack;
+        }
+        if (value == U"decor_middle" || value == U"land") {
+            return DrawLayer::DecorMiddle;
+        }
+        if (value == U"world") {
+            return DrawLayer::World;
+        }
+        if (value == U"decor_front") {
+            return DrawLayer::DecorFront;
+        }
+        return DrawLayer::World;
+    }
+}
 namespace abyss::Decor
 {
     using namespace s3dTiled;
@@ -11,7 +30,7 @@ namespace abyss::Decor
         s3d::Array<std::shared_ptr<DecorEntity>> ret;
 
         auto parseAll = [&](const ObjectGroup& layer) {
-            auto drawLayer = Enum::Parse<DrawLayer>(layer.getProperty(U"layer").value_or(U"decor_middle"));
+            auto drawLayer = ::ToDrawLayer(layer.getProperty(U"layer").value_or(U"decor_middle"));
             for (const auto& obj : layer.getObjects()) {
                 TmxDecorParser parser(obj);
                 if (auto entity = parser.parse(); entity && entity->type != DecorType::General::None) {
