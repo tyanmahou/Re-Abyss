@@ -27,6 +27,7 @@
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
 #include <abyss/entities/Actor/Map/MapEntity.hpp>
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
+#include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
@@ -36,6 +37,7 @@
 #include <abyss/translators/Actor/Map/MapTranslator.hpp>
 #include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
+#include <abyss/translators/Actor/Item/ItemTranslator.hpp>
 #include <abyss/translators/BackGround/BackGroundTranslator.hpp>
 #include <abyss/translators/Decor/DecorTranslator.hpp>
 
@@ -341,6 +343,18 @@ namespace abyss
                 enemyTranslator.buildActor(world, *enemy);
             }
         }
+
+        if (isCheckIn) {
+            // アイテムの生成
+            Actor::Item::ItemTranslator itemTranslator{};
+            for (const auto& item : m_stageData->getItems()) {
+                if (!nextRoom.getRegion().intersects(item->pos)) {
+                    continue;
+                }
+                itemTranslator.buildActor(world, *item);
+            }
+        }
+
         world.flush();
         return true;
     }

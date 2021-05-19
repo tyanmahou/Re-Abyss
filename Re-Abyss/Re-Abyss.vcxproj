@@ -472,6 +472,7 @@
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
     <ClCompile Include="app\services\Room\RoomService.cpp" />
     <ClCompile Include="app\services\User\UserService.cpp" />
+    <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
@@ -884,6 +885,7 @@
     <ClInclude Include="app\services\Room\RoomService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
+    <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />

@@ -1375,6 +1375,9 @@
     <ClCompile Include="app\views\Light\LightUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2039,6 +2042,7 @@
     <ClInclude Include="app\services\Room\base\IRoomService.hpp" />
     <ClInclude Include="app\services\Room\RoomService.hpp" />
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
+    <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
