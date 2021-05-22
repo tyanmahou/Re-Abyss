@@ -311,6 +311,7 @@
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReacter.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Builder.cpp" />
     <ClCompile Include="app\components\Actor\God\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Item\Recovery\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Map\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Map\Floor\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Map\Ladder\Builder.cpp" />
@@ -762,6 +763,7 @@
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReacter.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actor\God\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Item\Recovery\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Map\Floor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\Ladder\Builder.hpp" />
