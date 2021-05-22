@@ -23,23 +23,23 @@
 
 namespace abyss::Actor::Enemy
 {
-	Ref<Actor::ActorObj> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
-	{
+    Ref<Actor::ActorObj> EnemyTranslator::buildActor(World& world, const EnemyEntity& entity)
+    {
 #define CASE_ENEMY(type) case EnemyType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))
 
-		switch (entity.type) {
-			CASE_ENEMY(CaptainTako);
-			CASE_ENEMY(Ikalien);
-			CASE_ENEMY(LaunShark);
-			CASE_ENEMY(RollingTako);
-			CASE_ENEMY(Schield);
-			CASE_ENEMY(Slime);
+        switch (entity.type) {
+            CASE_ENEMY(CaptainTako);
+            CASE_ENEMY(Ikalien);
+            CASE_ENEMY(LaunShark);
+            CASE_ENEMY(RollingTako);
+            CASE_ENEMY(Schield);
+            CASE_ENEMY(Slime);
 
-			CASE_ENEMY(CodeZero);
-		default:
-			break;
-		}
-		return nullptr;
+            CASE_ENEMY(CodeZero);
+        default:
+            break;
+        }
+        return nullptr;
 #undef CASE_ENEMY
-	}
+    }
 }
