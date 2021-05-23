@@ -1381,6 +1381,9 @@
     <ClCompile Include="app\components\Actor\Item\Recovery\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Item\CommonBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2047,6 +2050,7 @@
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
     <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

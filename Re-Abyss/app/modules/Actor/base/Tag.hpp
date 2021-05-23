@@ -70,6 +70,11 @@ namespace abyss::Actor
         /// </summary>
         struct Gimmick : virtual ITag {};
 
+        /// <summary>
+        /// アイテム
+        /// </summary>
+        struct Item : virtual ITag {};
+
         template<Tagged T, Tagged U>
         constexpr auto operator |(const T&, const U&)
         {
@@ -108,7 +113,9 @@ namespace abyss::Actor
             Ladder,
             PenetrateFloor,
 
-            Gimmick
+            Gimmick,
+
+            Item
         >;
     }
 
