@@ -1,4 +1,4 @@
-#include "GimmickReacter.hpp"
+#include "GimmickReactor.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
@@ -10,15 +10,15 @@
 
 namespace abyss::Actor::Gimmick::Door
 {
-    GimmickReacter::GimmickReacter(ActorObj* pActor):
+    GimmickReactor::GimmickReactor(ActorObj* pActor):
         m_pActor(pActor)
     {}
-    void GimmickReacter::onStart()
+    void GimmickReactor::onStart()
     {
         m_door = m_pActor->find<DoorProxy>();
         m_collider = m_pActor->find<ICollider>();
     }
-    void GimmickReacter::onGimmickReact(ActorObj * player)
+    void GimmickReactor::onGimmickReact(ActorObj * player)
     {
         auto playerCollider = player->find<ICollider>();
         if (m_collider && playerCollider) {

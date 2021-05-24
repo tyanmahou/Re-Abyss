@@ -3,10 +3,10 @@
 
 namespace abyss::Actor::Player
 {
-    class IGimmickReacter
+    class IGimmickReactor
     {
     public:
-        virtual ~IGimmickReacter() = default;
+        virtual ~IGimmickReactor() = default;
 
         virtual void onGimmickReact(ActorObj* player) = 0;
     };

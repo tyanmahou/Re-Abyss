@@ -1,5 +1,5 @@
 #include "GimmickReactCtrl.hpp"
-#include "IGimmickReacter.hpp"
+#include "IGimmickReactor.hpp"
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
@@ -19,7 +19,7 @@ namespace abyss::Actor::Player
 
    void GimmickReactCtrl::onPostUpdate()
    {
-       for (auto&& reacter : m_pActor->getModule<World>()->finds<IGimmickReacter>()) {
+       for (auto&& reacter : m_pActor->getModule<World>()->finds<IGimmickReactor>()) {
            reacter->onGimmickReact(m_pActor);
        }
    }

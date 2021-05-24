@@ -1,18 +1,18 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/Player/IGimmickReacter.hpp>
+#include <abyss/components/Actor/Player/IGimmickReactor.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
     class DoorProxy;
 
-    class GimmickReacter : 
+    class GimmickReactor : 
         public IComponent,
-        public Player::IGimmickReacter
+        public Player::IGimmickReactor
     {
     public:
-        GimmickReacter(ActorObj* pActor);
+        GimmickReactor(ActorObj* pActor);
 
         void onStart() override;
         void onGimmickReact(ActorObj* player) override;
@@ -26,8 +26,8 @@ namespace abyss::Actor::Gimmick::Door
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Gimmick::Door::GimmickReacter>
+    struct ComponentTree<Actor::Gimmick::Door::GimmickReactor>
     {
-        using Base = Actor::Player::IGimmickReacter;
+        using Base = Actor::Player::IGimmickReactor;
     };
 }

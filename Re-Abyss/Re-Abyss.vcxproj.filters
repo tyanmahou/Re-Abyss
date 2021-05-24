@@ -1102,7 +1102,7 @@
     <ClCompile Include="app\components\Actor\Player\GimmickReactCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReacter.cpp">
+    <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\State\DoorInState.cpp">
@@ -1918,8 +1918,8 @@
     <ClInclude Include="app\components\base\Executer.hpp" />
     <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
     <ClInclude Include="app\components\Actor\Player\GimmickReactCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Player\IGimmickReacter.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReacter.hpp" />
+    <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Actor\base\IStateCallback.hpp" />
     <ClInclude Include="app\components\Actor\Player\StateChecker.hpp" />

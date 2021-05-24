@@ -3,7 +3,7 @@
 #include <abyss/components/Actor/Commons/CustomCollider.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
-#include <abyss/components/Actor/Gimmick/Door/GimmickReacter.hpp>
+#include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
 #include <abyss/views/Actor/Gimmick/Door/DoorVM.hpp>
 
@@ -29,7 +29,7 @@ namespace abyss::Actor::Gimmick::Door
 
 		// ギミック反応
 		{
-			pActor->attach<GimmickReacter>(pActor);
+			pActor->attach<GimmickReactor>(pActor);
 		}
 
 		// 描画制御

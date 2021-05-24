@@ -308,7 +308,7 @@
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReacter.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Builder.cpp" />
     <ClCompile Include="app\components\Actor\God\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Item\CommonBuilder.cpp" />
@@ -762,7 +762,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReacter.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actor\God\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
@@ -779,7 +779,7 @@
     <ClInclude Include="app\components\Actor\Player\DamageCallback.hpp" />
     <ClInclude Include="app\components\Actor\Player\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\GimmickReactCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Player\IGimmickReacter.hpp" />
+    <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\MoveSwim.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\Builder.hpp" />
