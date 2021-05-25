@@ -177,6 +177,11 @@ namespace abyss::Resource
         return m_pImpl->release();
     }
 
+    void Assets::free()
+    {
+        m_pImpl.release();
+    }
+
 #if ABYSS_DEBUG
     void Assets::setWarnMode(bool isWarnMode) const
     {

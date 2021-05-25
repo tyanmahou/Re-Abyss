@@ -47,6 +47,7 @@ namespace abyss::Resource
 
         void release() const;
 
+        void free();
 #if ABYSS_DEBUG
         /// <summary>
         /// ロード入ると警告入れます

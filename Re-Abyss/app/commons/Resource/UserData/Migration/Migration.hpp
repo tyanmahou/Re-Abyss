@@ -9,6 +9,7 @@ namespace abyss::Resource::UserData
         friend class Singleton<Migration>;
     public:
         static bool Update();
+        static void Release();
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;

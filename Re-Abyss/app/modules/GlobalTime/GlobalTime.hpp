@@ -2,7 +2,6 @@
 #include <memory>
 #include <Siv3D/Duration.hpp>
 #include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
-#include <abyss/utils/Singleton.hpp>
 
 using namespace std::literals;
 

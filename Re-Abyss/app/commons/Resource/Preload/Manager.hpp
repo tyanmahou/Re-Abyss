@@ -10,6 +10,8 @@ namespace abyss::Resource::Preload
         friend class Singleton<Manager>;
     public:
         static PreloadInfo GetInfo(const s3d::String& preloadName);
+
+        static void Release();
     private:
         Manager();
     private:

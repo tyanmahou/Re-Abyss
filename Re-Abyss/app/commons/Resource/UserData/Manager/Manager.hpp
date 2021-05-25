@@ -19,5 +19,7 @@ namespace abyss::Resource::UserData
         Manager();
     public:
         static s3dsql::SQLite3 LoadDB(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::UserDataPath);
+
+        static void Release();
     };
 }

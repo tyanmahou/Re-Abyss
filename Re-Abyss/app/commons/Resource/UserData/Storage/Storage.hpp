@@ -15,6 +15,8 @@ namespace abyss::Resource::UserData
         {
             return Instance()->getService<T>();
         }
+
+        static void Release();
     private:
         std::shared_ptr<Impl> m_pImpl;
         Storage();

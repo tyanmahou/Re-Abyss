@@ -41,7 +41,12 @@ namespace abyss::Resource::UserData
     {
         return Instance()->m_pImpl->update();
     }
+    void Migration::Release()
+    {
+        Instance()->m_pImpl.release();
+    }
     Migration::Migration():
         m_pImpl(std::make_unique<Impl>())
     {}
+
 }

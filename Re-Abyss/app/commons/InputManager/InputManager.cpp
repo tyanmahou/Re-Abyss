@@ -81,6 +81,11 @@ namespace abyss
         KeyPovD8Updater::Instance()->update();
     }
 
+    void InputManager::Release()
+    {
+        InputManager::Instance()->m_pImpl.release();
+    }
+
     bool AbyssKey::up() const
     {
         return InputManager::Instance()->m_pImpl->up(m_type);

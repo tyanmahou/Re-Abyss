@@ -42,4 +42,8 @@ namespace abyss::Resource::UserData
     {
         return Instance()->m_pImpl->loadDB(prefix + path);
     }
+    void Manager::Release()
+    {
+        Instance()->m_pImpl.release();
+    }
 }

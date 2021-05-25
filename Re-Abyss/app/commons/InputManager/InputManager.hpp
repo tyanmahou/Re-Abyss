@@ -48,7 +48,7 @@ namespace abyss
         ~InputManager();
     public:
         static void Update();
-
+        static void Release();
         inline static constexpr AbyssKey A{ AbyssKey::A };
         inline static constexpr AbyssKey B{ AbyssKey::B };
 
