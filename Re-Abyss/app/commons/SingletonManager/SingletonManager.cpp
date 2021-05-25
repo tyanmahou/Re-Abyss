@@ -27,8 +27,8 @@ namespace abyss
 		Resource::UserData::Manager::Release();
 #if ABYSS_DEBUG
 		Debug::DebugManager::Release();
-		Debug::Menu::Release();
 		Debug::Log::Release();
 #endif    
+		DynamicSingletonFinalizer::Finalize();
     }
 }

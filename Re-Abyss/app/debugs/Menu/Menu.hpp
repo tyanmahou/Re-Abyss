@@ -3,13 +3,13 @@
 #if ABYSS_DEBUG
 #include <memory>
 #include <Siv3D/StringView.hpp>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/DynamicSingleton.hpp>
 
 namespace abyss::Debug
 {
-    class Menu : protected Singleton<Menu>
+    class Menu : protected DynamicSingleton<Menu>
     {
-        friend class Singleton<Menu>;
+        friend class DynamicSingleton<Menu>;
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
@@ -18,7 +18,6 @@ namespace abyss::Debug
     public:
         static bool IsDebug(s3d::StringView label);
         static void OnGUI();
-        static void Release();
     };
 }
 
