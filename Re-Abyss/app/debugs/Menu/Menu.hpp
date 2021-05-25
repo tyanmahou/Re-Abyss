@@ -18,6 +18,7 @@ namespace abyss::Debug
     public:
         static bool IsDebug(s3d::StringView label);
         static void OnGUI();
+        static void Release();
     };
 }
 

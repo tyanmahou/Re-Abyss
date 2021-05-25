@@ -1,19 +1,16 @@
 #pragma once
-
-# include <memory>
-# include <abyss/utils/Singleton.hpp>
+#include <memory>
 
 namespace abyss
 {
-	class Game : protected Singleton<Game>
+	class Game
 	{
-		friend Singleton < Game >;
+	public:
+		Game();
+		~Game();
+		bool update();
 	private:
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
-
-		Game();
-	public:
-		static bool Update();
 	};
 }

@@ -76,7 +76,7 @@ namespace abyss
 	{
 	}
 
-	bool IApplication::run() const
+	bool IApplication::run()
 	{
 		while (System::Update()) {
 

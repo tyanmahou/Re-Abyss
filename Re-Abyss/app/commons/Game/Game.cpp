@@ -65,8 +65,11 @@ namespace abyss
 		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
 	}
 
-	bool Game::Update()
+	Game::~Game()
+	{}
+
+	bool Game::update()
 	{
-		return Instance()->m_pImpl->update();
+		return m_pImpl->update();
 	}
 }

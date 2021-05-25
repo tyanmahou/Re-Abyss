@@ -60,6 +60,10 @@ namespace abyss::Debug
     {
         Instance()->m_pImpl->onGUI();
     }
+    void Menu::Release()
+    {
+        Instance()->m_pImpl.release();
+    }
 }
 #endif
 

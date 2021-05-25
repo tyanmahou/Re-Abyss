@@ -3,14 +3,13 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/String.hpp>
 
-#include <abyss/commons/Game/Game.hpp>
 #include <abyss/commons/Constants.hpp>
 
 namespace abyss
 {
-	bool MainApp::update() const
+	bool MainApp::update()
 	{
-		return Game::Update();
+		return m_game.update();
 	}
 
     MainApp::MainApp() :
@@ -18,5 +17,6 @@ namespace abyss
 	{}
 
     MainApp::~MainApp()
-	{}
+	{
+	}
 }
