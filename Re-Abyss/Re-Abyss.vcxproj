@@ -246,6 +246,7 @@
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp" />
+    <ClCompile Include="app\commons\SingletonManager\SingletonManager.cpp" />
     <ClCompile Include="app\components\Actor\base\ICollision.cpp" />
     <ClCompile Include="app\components\Actor\Commons\AttackerData.cpp" />
     <ClCompile Include="app\components\Actor\Commons\AudioSource.cpp" />
@@ -721,6 +722,7 @@
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Storage\Storage.hpp" />
+    <ClInclude Include="app\commons\SingletonManager\SingletonManager.hpp" />
     <ClInclude Include="app\commons\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\components\Actor\base\ICollision.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />
