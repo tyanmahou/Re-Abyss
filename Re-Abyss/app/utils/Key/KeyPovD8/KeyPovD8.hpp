@@ -2,7 +2,7 @@
 #include <Siv3D/Gamepad.hpp>
 
 #include <abyss/utils/Key/InputState/InputState.hpp>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/Singleton/Singleton.hpp>
 
 namespace abyss
 {

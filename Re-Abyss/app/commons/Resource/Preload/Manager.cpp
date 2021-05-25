@@ -113,10 +113,6 @@ namespace abyss::Resource::Preload
     {
         return Instance()->m_pImpl->getInfo(preloadName);
     }
-    void Manager::Release()
-    {
-        Instance()->m_pImpl.release();
-    }
     Manager::Manager():
         m_pImpl(std::make_unique<Impl>())
     {}

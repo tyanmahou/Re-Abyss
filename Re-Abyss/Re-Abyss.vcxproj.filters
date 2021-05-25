@@ -1390,7 +1390,7 @@
     <ClCompile Include="app\commons\SingletonManager\SingletonManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\DynamicSingleton.cpp">
+    <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1433,7 +1433,7 @@
     <ClInclude Include="app\scenes\base\ISceneBase.hpp">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Singleton.hpp">
+    <ClInclude Include="app\utils\Singleton\Singleton.hpp">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp">
@@ -2062,7 +2062,7 @@
     <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\commons\SingletonManager\SingletonManager.hpp" />
-    <ClInclude Include="app\utils\DynamicSingleton.hpp" />
+    <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -21,11 +21,6 @@ namespace abyss::Resource::UserData
         >services;
     };
 
-    void Storage::Release()
-    {
-        Instance()->m_pImpl = nullptr;
-    }
-
     Storage::Storage()
     {
         m_pImpl = Factory::Storage::Injector().resolve<Impl>();

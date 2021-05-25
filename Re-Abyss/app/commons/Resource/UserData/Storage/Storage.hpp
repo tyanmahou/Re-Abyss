@@ -1,12 +1,12 @@
 #pragma once
 #include <memory>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss::Resource::UserData
 {
-    class Storage final : protected Singleton<Storage>
+    class Storage final : protected DynamicSingleton<Storage>
     {
-        friend class Singleton<Storage>;
+        friend class DynamicSingleton<Storage>;
     public:
         class Impl;
 
@@ -15,8 +15,6 @@ namespace abyss::Resource::UserData
         {
             return Instance()->getService<T>();
         }
-
-        static void Release();
     private:
         std::shared_ptr<Impl> m_pImpl;
         Storage();

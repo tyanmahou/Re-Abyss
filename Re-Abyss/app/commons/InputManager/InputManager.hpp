@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Duration.hpp>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss
 {
@@ -37,9 +37,9 @@ namespace abyss
 
         s3d::Duration pressedDuration() const;
     };
-    class InputManager : protected Singleton<InputManager>
+    class InputManager : protected DynamicSingleton<InputManager>
     {
-        friend class Singleton<InputManager>;
+        friend class DynamicSingleton<InputManager>;
         friend class AbyssKey;
     private:
         class Impl;
@@ -48,7 +48,6 @@ namespace abyss
         ~InputManager();
     public:
         static void Update();
-        static void Release();
         inline static constexpr AbyssKey A{ AbyssKey::A };
         inline static constexpr AbyssKey B{ AbyssKey::B };
 

@@ -129,10 +129,6 @@ namespace abyss::Debug
         Log::Print << U"---LogDecorNum---";
         Log::Print << U"Decor: " << decor.size();
     }
-    void DebugManager::Release()
-    {
-        Instance()->m_pImpl.release();
-    }
 }
 
 #endif

@@ -3,7 +3,7 @@
 #if ABYSS_DEBUG
 #include <memory>
 #include <Siv3D/StringView.hpp>
-#include <abyss/utils/DynamicSingleton.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss::Debug
 {

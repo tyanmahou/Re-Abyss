@@ -1,15 +1,14 @@
 #pragma once
 #include <memory>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss::Resource::UserData
 {
-    class Migration final : protected Singleton<Migration>
+    class Migration final : protected DynamicSingleton<Migration>
     {
-        friend class Singleton<Migration>;
+        friend class DynamicSingleton<Migration>;
     public:
         static bool Update();
-        static void Release();
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;

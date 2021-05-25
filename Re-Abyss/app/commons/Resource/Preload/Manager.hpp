@@ -1,17 +1,16 @@
 #pragma once
 #include <memory>
-#include <abyss/utils/Singleton.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
+
 namespace abyss::Resource::Preload
 {
     struct PreloadInfo;
 
-    class Manager final : protected Singleton<Manager>
+    class Manager final : protected DynamicSingleton<Manager>
     {
-        friend class Singleton<Manager>;
+        friend class DynamicSingleton<Manager>;
     public:
         static PreloadInfo GetInfo(const s3d::String& preloadName);
-
-        static void Release();
     private:
         Manager();
     private:
