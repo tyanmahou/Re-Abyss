@@ -1393,6 +1393,9 @@
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Item\ItemCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2063,6 +2066,8 @@
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\commons\SingletonManager\SingletonManager.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
+    <ClInclude Include="app\components\Actor\Item\ItemCollision.hpp" />
+    <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
