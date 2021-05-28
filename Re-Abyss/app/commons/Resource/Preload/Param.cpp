@@ -33,6 +33,8 @@
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
+#include <abyss/params/Actor/Item/Recovery/Param.hpp>
+
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 
@@ -74,32 +76,40 @@ namespace abyss::Resource::Preload
 	void LoadActorToml(const Assets* resource)
     {
 		using namespace Actor;
-		using namespace Actor::Enemy;
 
 		// Player
 		resource->loadToml<Player::Param>(U"Actors/Player/param.toml");
 		resource->loadToml<Player::ShotParam>(U"Actors/Player/shot_param.toml");
 
 		// Enemy
-		resource->loadToml<CaptainTako::Param>(U"Actors/CaptainTako/param.toml");
-		resource->loadToml<CaptainTako::ShotParam>(U"Actors/CaptainTako/shot_param.toml");
+		{
+			using namespace Actor::Enemy;
 
-		resource->loadToml<Ikalien::Param>(U"Actors/Ikalien/param.toml");
+			resource->loadToml<CaptainTako::Param>(U"Actors/Enemy/CaptainTako/param.toml");
+			resource->loadToml<CaptainTako::ShotParam>(U"Actors/Enemy/CaptainTako/shot_param.toml");
 
-		resource->loadToml<LaunShark::Param>(U"Actors/LaunShark/param.toml");
-		resource->loadToml<LaunShark::ShotParam>(U"Actors/LaunShark/shot_param.toml");
+			resource->loadToml<Ikalien::Param>(U"Actors/Enemy/Ikalien/param.toml");
 
-		resource->loadToml<RollingTako::Param>(U"Actors/RollingTako/param.toml");
+			resource->loadToml<LaunShark::Param>(U"Actors/Enemy/LaunShark/param.toml");
+			resource->loadToml<LaunShark::ShotParam>(U"Actors/Enemy/LaunShark/shot_param.toml");
 
-		resource->loadToml<Slime::Param>(U"Actors/Slime/param.toml");
+			resource->loadToml<RollingTako::Param>(U"Actors/Enemy/RollingTako/param.toml");
 
-		resource->loadToml<Schield::Param>(U"Actors/Schield/param.toml");
-		resource->loadToml<Schield::ShotParam>(U"Actors/Schield/shot_param.toml");
+			resource->loadToml<Slime::Param>(U"Actors/Enemy/Slime/param.toml");
 
-		// Boss
-		resource->loadToml<CodeZero::Param>(U"Actors/CodeZero/param.toml");
-		resource->loadToml<CodeZero::HandParam>(U"Actors/CodeZero/hand_param.toml");
-		resource->loadToml<CodeZero::ShotParam>(U"Actors/CodeZero/shot_param.toml");
+			resource->loadToml<Schield::Param>(U"Actors/Enemy/Schield/param.toml");
+			resource->loadToml<Schield::ShotParam>(U"Actors/Enemy/Schield/shot_param.toml");
+
+			// Boss
+			resource->loadToml<CodeZero::Param>(U"Actors/Enemy/CodeZero/param.toml");
+			resource->loadToml<CodeZero::HandParam>(U"Actors/Enemy/CodeZero/hand_param.toml");
+			resource->loadToml<CodeZero::ShotParam>(U"Actors/Enemy/CodeZero/shot_param.toml");
+		}
+
+		{
+			using namespace Actor::Item;
+			resource->loadToml<Recovery::Param>(U"Actors/Item/Recovery/param.toml");
+		}
     }
 
 	void LoadUIToml(const Assets* resource)

@@ -2068,6 +2068,7 @@
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\components\Actor\Item\ItemCollision.hpp" />
     <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
+    <ClInclude Include="app\params\Actor\Item\Recovery\Param.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
