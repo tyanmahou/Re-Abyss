@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 
+#include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>
 
 namespace
@@ -16,18 +17,39 @@ namespace
     class ViewBinder;
     class Drawer;
 }
+namespace
+{
+    using namespace abyss::Actor::Item;
+    using namespace abyss::Actor::Item::Recovery;
+
+    Setting GetSetting(RecoveryKind kind)
+    {
+        switch (kind) 	{
+        case RecoveryKind::Small:
+            return Param::Small;
+        case RecoveryKind::Big :
+            return Param::Big;
+        default:
+            break;
+        }
+        return Param::Small;
+    }
+}
 namespace abyss::Actor::Item::Recovery
 {
     void Builder::Build(ActorObj* pActor, const RecoveryEntity& entity)
     {
+        auto setting = ::GetSetting(entity.kind);
+
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
+            .setBodySize(setting.size)
         );
 
         // View
         {
             pActor->attach<ViewCtrl<RecoveryVM>>()
-                ->createBinder<ViewBinder>(pActor);
+                ->createBinder<ViewBinder>(pActor, entity.kind, setting);
 
             pActor->attach<CustomDraw>()
                 ->setDrawer<Drawer>(pActor);
@@ -53,15 +75,18 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_view->setKind(m_kind);
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        ViewBinder(ActorObj* pActor, RecoveryKind kind, const Setting& setting) :
             m_pActor(pActor),
-            m_view(std::make_unique<RecoveryVM>())
+            m_kind(kind),
+            m_view(std::make_unique<RecoveryVM>(setting))
         {}
     private:
 
         ActorObj* m_pActor = nullptr;
+        RecoveryKind m_kind;
         Ref<Body> m_body;
 
         std::unique_ptr<RecoveryVM> m_view;
