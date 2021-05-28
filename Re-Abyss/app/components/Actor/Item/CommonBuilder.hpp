@@ -25,7 +25,11 @@ namespace abyss::Actor::Item
             this->bodySize = size;
             return *this;
         }
-
+        BuildOption& setBodyPivot(const s3d::Vec2& pivot)
+        {
+            this->bodyPivot = pivot;
+            return *this;
+        }
         BuildOption& setInitState(const std::shared_ptr<IState>& _initState)
         {
             this->initState = _initState;
@@ -41,6 +45,7 @@ namespace abyss::Actor::Item
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
+        s3d::Vec2 bodyPivot;
         std::shared_ptr<IState> initState = nullptr;
     };
     struct CommonBuilder
