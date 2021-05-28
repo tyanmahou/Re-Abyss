@@ -158,6 +158,10 @@ namespace abyss
             m_light->render(m_time.time());
             // Distortion Map更新
             m_distortion->render();
+
+#if ABYSS_DEBUG
+            Debug::DebugManager::DrawDebug(m_world);
+#endif
         }
         // PostEffect適用
         {

@@ -7,6 +7,7 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/components/Actor/base/ICollision.hpp>
+#include <abyss/components/Actor/base/ICollider.hpp>
 #include <abyss/components/Actor/base/IPhysics.hpp>
 #include <abyss/components/Actor/Commons/Terrain.hpp>
 
@@ -36,15 +37,12 @@ namespace abyss::Debug
             if (!Menu::IsDebug(U"draw-collider")) {
                 return;
             }
-            auto colliders = world.finds<Actor::ICollision>();
+            auto colliders = world.finds<Actor::ICollider>();
             Log::Print << U"Colliders: " << colliders.size();
 
             constexpr ColorF color = ColorF(1, 0, 0, 0.4);
 
             for (auto&& col : colliders) {
-                if (!col->isActive()) {
-                    continue;
-                }
                 DebugUtil::DrawShape(col->getCollider(), color);
             }
         }

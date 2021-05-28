@@ -7,8 +7,6 @@
 #include <abyss/components/Actor/base/IPhysics.hpp>
 #include <abyss/components/Actor/Commons/Terrain.hpp>
 
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
-
 namespace abyss
 {
     World::World() :
@@ -87,10 +85,6 @@ namespace abyss
     void World::draw() const
     {
         m_actorsHolder.draw();
-#if ABYSS_DEBUG
-        Debug::DebugManager::DrawDebug(*this);
-#endif
-
     }
 
     std::shared_ptr<Actor::ActorObj> World::create()
