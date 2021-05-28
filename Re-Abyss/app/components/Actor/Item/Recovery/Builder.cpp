@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 
 #include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>
@@ -13,6 +14,7 @@
 namespace
 {
     class ViewBinder;
+    class Drawer;
 }
 namespace abyss::Actor::Item::Recovery
 {
@@ -26,6 +28,9 @@ namespace abyss::Actor::Item::Recovery
         {
             pActor->attach<ViewCtrl<RecoveryVM>>()
                 ->createBinder<ViewBinder>(pActor);
+
+            pActor->attach<CustomDraw>()
+                ->setDrawer<Drawer>(pActor);
         }
     }
 }
@@ -38,10 +43,6 @@ namespace
 
     class ViewBinder : public ViewCtrl<RecoveryVM>::IBinder
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-
-        std::unique_ptr<RecoveryVM> m_view;
     private:
         RecoveryVM* bind() const final
         {
@@ -58,5 +59,31 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<RecoveryVM>())
         {}
+    private:
+
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+
+        std::unique_ptr<RecoveryVM> m_view;
+    };
+
+    class Drawer : public CustomDraw::IImpl
+    {
+    public:
+        Drawer(ActorObj* pActor):
+            m_pActor(pActor)
+        {}
+        void onStart()
+        {
+            m_view = m_pActor->find<ViewCtrl<RecoveryVM>>();
+        }
+        void onDraw()const
+        {
+            (*m_view)->draw();
+        }
+    private:
+
+        ActorObj* m_pActor = nullptr;
+        Ref<ViewCtrl<RecoveryVM>> m_view;
     };
 }
