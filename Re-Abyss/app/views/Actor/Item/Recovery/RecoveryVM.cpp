@@ -26,8 +26,9 @@ namespace abyss::Actor::Item::Recovery
 
     void RecoveryVM::draw() const
     {
+        auto offset = Vec2{ 0, Sin(m_time * 2.0) * 1.0 };
         auto baseFrame = static_cast<int32>(Periodic::Sawtooth0_1(Param::Shared::BaseAnimTimeSec, m_time) * 6.0) % 6;
-        m_texture(U"base")(32 * baseFrame, 14, 32, 14).drawAt(m_pos + m_baseBottomOffset);
+        m_texture(U"base")(32 * baseFrame, 14, 32, 14).drawAt(m_pos + m_baseBottomOffset + offset);
 
         // コア
         auto frame0_1 = Periodic::Sawtooth0_1(Param::Shared::FrameAnimTimeSec, m_time);
@@ -41,6 +42,6 @@ namespace abyss::Actor::Item::Recovery
             m_texture(U"heal_color")(14 * coreFrame, 0, 14, 14).drawAt(m_pos + m_coreOffset);
             m_texture(U"heal_frame")(0, 14 * frameFrame, 40, 14).drawAt(m_pos + m_coreOffset);
         }
-        m_texture(U"base")(32 * baseFrame, 0, 32, 14).drawAt(m_pos + m_baseTopOffset);
+        m_texture(U"base")(32 * baseFrame, 0, 32, 14).drawAt(m_pos + m_baseTopOffset - offset);
     }
 }
