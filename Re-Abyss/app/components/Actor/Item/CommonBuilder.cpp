@@ -2,6 +2,7 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
+#include <abyss/components/Actor/Item/ItemCollision.hpp>
 
 namespace abyss::Actor::Item
 {
@@ -33,6 +34,10 @@ namespace abyss::Actor::Item
             pActor->attach<MapCollider>(pActor);
         }
 
+        // アイテム当たり
+        {
+            pActor->attach<ItemCollision>(pActor);
+        }
         // 状態管理
         {
             auto state = pActor->attach<StateCtrl>(pActor);
