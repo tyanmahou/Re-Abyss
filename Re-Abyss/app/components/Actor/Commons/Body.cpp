@@ -29,12 +29,12 @@ namespace abyss::Actor
         });
 
         if (m_accel.x == 0.0) {
-            if (m_velocity.x > 0) {
-                m_velocity.x -= m_decelX * dt;
-            } else if (m_velocity.x < 0) {
-                m_velocity.x += m_decelX * dt;
-            }
-            if (s3d::Abs(m_velocity.x) < 0.6) {
+            auto deltaDecel = m_decelX* dt;
+            if (m_velocity.x - deltaDecel > 0) {
+                m_velocity.x -= deltaDecel;
+            } else if (m_velocity.x + deltaDecel < 0) {
+                m_velocity.x += deltaDecel;
+            } else {
                 m_velocity.x = 0;
             }
         }
