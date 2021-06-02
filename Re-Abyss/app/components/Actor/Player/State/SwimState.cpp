@@ -35,7 +35,7 @@ namespace abyss::Actor::Player
         BaseState::update();
 
         m_motion = Motion::Float;
-        if (InputManager::Left.pressed() || InputManager::Right.pressed()) {
+        if (InputManager::Left.pressed() ^ InputManager::Right.pressed()) {
             m_motion = Motion::Swim;
         }
         if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {

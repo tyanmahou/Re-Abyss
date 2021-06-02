@@ -5,6 +5,7 @@
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
+#include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
 #include <abyss/components/Actor/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
@@ -47,6 +48,9 @@ namespace abyss::Actor::Item::Recovery
             .setBodyPivot(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
         );
 
+        {
+            pActor->attach<ItemReactor>(pActor, entity.kind, entity.id);
+        }
         // View
         {
             pActor->attach<ViewCtrl<RecoveryVM>>()
