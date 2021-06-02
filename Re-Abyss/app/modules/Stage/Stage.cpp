@@ -218,6 +218,9 @@ namespace abyss
 
     bool Stage::checkOut() const
     {
+        // チェックアウト時にはルーム移動で消えるフラグを消す
+        m_pManager->getModule<Temporary>()->clearFlag(TempLevel::Room);
+
         auto camera = m_pManager->getModule<Camera>();
         bool result = true;
         // World CheckOut
