@@ -1405,6 +1405,9 @@
     <ClCompile Include="app\types\Temporary\TempKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\Temporary\TempFlag\TempFlagCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
