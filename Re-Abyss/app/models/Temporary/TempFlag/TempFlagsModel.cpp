@@ -5,25 +5,37 @@ namespace abyss
 {
     bool TempFlagsModel::add(const TempKey& key, TempLevel level)
     {
-        if (this->isContain(key)) {
-            if (static_cast<s3d::int32>(m_flags[key]) >= static_cast<s3d::int32>(level)) {
-                return false;
+        for (auto&& pair : m_flags) {
+            auto l = pair.first;
+            auto& sets = m_flags[l];
+
+            if (sets.find(key) != sets.end()) {
+                if (static_cast<s3d::int32>(l) >= static_cast<s3d::int32>(level)) {
+                    return false;
+                } else {
+                    sets.erase(key);
+                    break;
+                }
             }
         }
-        m_flags[key] = level;
+        m_flags[level].insert(key);
         return true;
     }
     bool TempFlagsModel::isContain(const TempKey& key) const
     {
-        return m_flags.find(key) != m_flags.end();
+        for (const auto& [level, sets] : m_flags) {
+            if (sets.find(key) != sets.end()) {
+                return true;
+            }
+        }
+        return false;
     }
     void TempFlagsModel::clear(TempLevel level)
     {
-        for (auto it = m_flags.begin(); it != m_flags.end();) {
-            if (static_cast<s3d::int32>(it->second) <= static_cast<s3d::int32>(level)) {
-                it = m_flags.erase(it);
-            }else{
-                ++it;
+        for (auto&& pair : m_flags) {
+            auto l = pair.first;
+            if (static_cast<s3d::int32>(l) <= static_cast<s3d::int32>(level)) {
+                m_flags[l].clear();
             }
         }
     }
