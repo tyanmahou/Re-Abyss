@@ -28,6 +28,7 @@ namespace abyss::Actor::Player
 
         m_pActor->find<AudioSource>()->play(U"Dead");
 
+        m_pActor->find<StateChecker>()->setIsDeadState(true);
         m_body
             ->setAccelX(0)
             .setMaxVelocityY(Body::DefaultMaxVelocityY);

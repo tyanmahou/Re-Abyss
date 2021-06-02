@@ -9,5 +9,6 @@ namespace abyss::Actor::Player
     void StateChecker::onStateStart()
     {
         m_canDoorState = false;
+        m_isDeadState = false;
     }
 }

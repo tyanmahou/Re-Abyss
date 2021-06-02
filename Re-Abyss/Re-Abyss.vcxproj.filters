@@ -1399,6 +1399,9 @@
     <ClCompile Include="app\components\Actor\Item\Recovery\ItemReactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Player\PlayerUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2073,6 +2076,7 @@
     <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
     <ClInclude Include="app\params\Actor\Item\Recovery\Param.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\ItemReactor.hpp" />
+    <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

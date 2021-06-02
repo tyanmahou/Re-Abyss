@@ -22,10 +22,21 @@ namespace abyss::Actor::Player
         {
             return m_canDoorState;
         }
+
+        StateChecker& setIsDeadState(bool isDeadState)
+        {
+            m_isDeadState = isDeadState;
+            return *this;
+        }
+        bool isDeadState() const
+        {
+            return m_isDeadState;
+        }
     private:
         ActorObj* m_pActor = nullptr;
 
         bool m_canDoorState = false;
+        bool m_isDeadState = false;
     };
 }
 

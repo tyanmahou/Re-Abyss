@@ -32,6 +32,10 @@ namespace abyss::Actor
         /// </summary>
         void requestDead();
 
+        bool isDead() const
+        {
+            return m_isDead;
+        }
         void onStart()override;
         void onLastUpdate() override;
     };
