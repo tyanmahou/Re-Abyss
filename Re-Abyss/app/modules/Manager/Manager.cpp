@@ -72,9 +72,9 @@ namespace abyss
         m_pCrons = pCrons;
         return *this;
     }
-    Manager& Manager::set(Save* pSave)
+    Manager& Manager::set(Temporary* pTemporary)
     {
-        m_pSave = pSave;
+        m_pTemporary = pTemporary;
         return *this;
     }
     Manager& Manager::set(Actor::Player::PlayerManager* pPlayer)
@@ -120,8 +120,8 @@ namespace abyss
             return m_pStage;
         } else if constexpr (std::is_same_v<Crons, T>) {
             return m_pCrons;
-        } else if constexpr (std::is_same_v<Save, T>) {
-            return m_pSave;
+        } else if constexpr (std::is_same_v<Temporary, T>) {
+            return m_pTemporary;
         } else if constexpr (std::is_same_v<Actor::Player::PlayerManager, T>) {
             return m_pPlayer;
         } else if constexpr (std::is_same_v<DrawManager, T>) {
@@ -142,7 +142,7 @@ namespace abyss
     template Decors* Manager::getModule<Decors>() const;
     template Stage* Manager::getModule<Stage>() const;
     template Crons* Manager::getModule<Crons>() const;
-    template Save* Manager::getModule<Save>() const;
+    template Temporary* Manager::getModule<Temporary>() const;
     template Actor::Player::PlayerManager* Manager::getModule<Actor::Player::PlayerManager>() const;
     template DrawManager* Manager::getModule<DrawManager>() const;
 

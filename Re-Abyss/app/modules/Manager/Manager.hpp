@@ -23,7 +23,7 @@ namespace abyss
         Decors* m_pDecors = nullptr;
         Stage* m_pStage = nullptr;
         Crons* m_pCrons = nullptr;
-        Save* m_pSave = nullptr;
+        Temporary* m_pTemporary = nullptr;
         Actor::Player::PlayerManager* m_pPlayer = nullptr;
         DrawManager* m_pDrawer = nullptr;
     public:
@@ -55,7 +55,7 @@ namespace abyss
 
         Manager& set(Crons* pCrons);
 
-        Manager& set(Save* pSave);
+        Manager& set(Temporary* pTemporary);
 
         Manager& set(Actor::Player::PlayerManager* pPlayer);
 

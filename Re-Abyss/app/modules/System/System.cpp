@@ -12,7 +12,7 @@
 #include <abyss/modules/Decor/Decors.hpp>
 
 #include <abyss/modules/Cron/Crons.hpp>
-#include <abyss/modules/Save/Save.hpp>
+#include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
@@ -29,7 +29,7 @@ namespace abyss
         m_backGround(std::make_unique<BackGround>()),
         m_decors(std::make_unique<Decors>()),
         m_crons(std::make_unique<Crons>()),
-        m_save(std::make_unique<Save>()),
+        m_temporary(std::make_unique<Temporary>()),
         m_playerManager(std::make_unique<Actor::Player::PlayerManager>()),
         m_drawer(std::make_unique<DrawManager>())
     {
@@ -48,7 +48,7 @@ namespace abyss
             .set(m_decors.get())
             .set(m_stage.get())
             .set(m_crons.get())
-            .set(m_save.get())
+            .set(m_temporary.get())
             .set(m_playerManager.get())
             .set(m_drawer.get())
             ;
@@ -190,9 +190,9 @@ namespace abyss
         m_stage->setStageData(stageData);
         m_stage->load();
     }
-    void System::loadSaveData(const std::shared_ptr<SaveData>& saveData)
+    void System::loadTemporaryData(const std::shared_ptr<TemporaryData>& tempData)
     {
-        m_save->setSaveData(saveData);
+        m_temporary->setTemporaryData(tempData);
     }
     std::shared_ptr<Actor::ActorObj> System::lockPlayer() const
     {

@@ -1,17 +1,18 @@
 #pragma once
-#include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
-#include <abyss/models/Save/KeyFlag/KeyFlagsModel.hpp>
+#include <abyss/models/Temporary/RestartInfo/RestartInfoModel.hpp>
+#include <abyss/models/Temporary/TempFlag/TempFlagsModel.hpp>
 
 namespace abyss
 {
-    class SaveData
+    class TemporaryData
     {
         s3d::Optional<RestartInfoModel> m_restartInfo;
         s3d::Optional<s3d::int32> m_reservedRestartId;
-        KeyFlagsModel m_flags;
+        TempFlagsModel m_flags;
     public:
-        bool saveFlag(const s3d::String& key, SaveLevel level);
-        bool onFlag(const s3d::String& key)const;
+        bool saveFlag(const TempKey& key, TempLevel level);
+        bool onFlag(const TempKey& key)const;
+        void clearFlag(TempLevel level);
 
         /// <summary>
         /// リスタートIdを予約

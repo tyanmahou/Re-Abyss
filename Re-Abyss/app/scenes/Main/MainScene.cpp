@@ -3,7 +3,7 @@
 #include <abyss/modules/Master/Master.hpp>
 
 #include <abyss/modules/System/System.hpp>
-#include <abyss/modules/Save/SaveData.hpp>
+#include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -16,7 +16,7 @@ namespace abyss
 	{
 		std::unique_ptr<System> m_system;
 		std::shared_ptr<StageData> m_stageData;
-		std::shared_ptr<SaveData> m_saveData;
+		std::shared_ptr<TemporaryData> m_tempData;
 
 		String mapName;
 
@@ -24,7 +24,7 @@ namespace abyss
 
 	public:
 		Impl([[maybe_unused]] const MainScene::InitData& init):
-			m_saveData(std::make_shared<SaveData>()),
+			m_tempData(std::make_shared<TemporaryData>()),
 			m_data(init._s)
 		{
 			mapName = U"stage0";
@@ -56,7 +56,7 @@ namespace abyss
 			auto injector = Factory::Main::Injector(mapName);
 			m_stageData = injector.resolve<StageData>();
 			m_system->loadStage(m_stageData);
-			m_system->loadSaveData(m_saveData);
+			m_system->loadTemporaryData(m_tempData);
 			if (player) {
 				m_system->init(player);
 			} else {
@@ -83,7 +83,7 @@ namespace abyss
 		{
 			m_system = std::make_unique<System>(this);
 			m_system->loadStage(m_stageData);
-			m_system->loadSaveData(m_saveData);
+			m_system->loadTemporaryData(m_tempData);
 
 			m_system->restart();
 			return true;

@@ -29,8 +29,8 @@ namespace abyss
 	class Sound;
 	class UIs;
 	class Crons;
-	class Save;
-	class SaveData;
+	class Temporary;
+	class TemporaryData;
 	class Master;
 	class IMasterObserver;
 	class DrawManager;

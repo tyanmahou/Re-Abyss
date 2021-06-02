@@ -1,7 +1,7 @@
 #include "DoorInState.hpp"
 #include "SwimState.hpp"
 
-#include <abyss/modules/Save/Save.hpp>
+#include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/components/Event/RoomMove/DoorMove/Builder.hpp>
 
@@ -43,7 +43,7 @@ namespace abyss::Actor::Player
 
         if (m_door->isSave()) {
             // セーブ対象だった場合
-            m_pActor->getModule<Save>()->reserveRestartId(m_door->getStartId());
+            m_pActor->getModule<Temporary>()->reserveRestartId(m_door->getStartId());
         }
 
         co_return;

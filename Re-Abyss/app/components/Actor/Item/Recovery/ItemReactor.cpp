@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Temporary/Temporary.hpp>
 
 namespace
 {
@@ -32,6 +33,10 @@ namespace abyss::Actor::Item::Recovery
         // 破棄
         m_pActor->destroy();
 
+        // TODO effect
+        // TODO se
+        // TODO save
+        //m_pActor->getModule<Temporary>()->saveFlagRoom();
         auto playerHp = player->find<HP>();
         if (!playerHp) {
             return;

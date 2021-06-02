@@ -432,8 +432,8 @@
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
     <ClCompile Include="app\modules\Master\Master.cpp" />
-    <ClCompile Include="app\modules\Save\Save.cpp" />
-    <ClCompile Include="app\modules\Save\SaveData.cpp" />
+    <ClCompile Include="app\modules\Temporary\Temporary.cpp" />
+    <ClCompile Include="app\modules\Temporary\TemporaryData.cpp" />
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
     <ClCompile Include="app\modules\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
@@ -464,7 +464,7 @@
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
-    <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp" />
+    <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp" />
     <ClCompile Include="app\scenes\base\ISceneBase.cpp" />
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp" />
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp" />
@@ -904,6 +904,7 @@
     <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
+    <ClInclude Include="app\types\Temporary\TempKey.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
@@ -1004,8 +1005,8 @@
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
     <ClInclude Include="app\modules\Master\Master.hpp" />
-    <ClInclude Include="app\modules\Save\SaveData.hpp" />
-    <ClInclude Include="app\modules\Save\Save.hpp" />
+    <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
+    <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
     <ClInclude Include="app\modules\Sound\Sound.hpp" />
     <ClInclude Include="app\modules\Stage\StageData.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
@@ -1056,9 +1057,9 @@
     <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
     <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
-    <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
-    <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
-    <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
+    <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
+    <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\types\Temporary\TempLevel.hpp" />
     <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
     <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
     <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />

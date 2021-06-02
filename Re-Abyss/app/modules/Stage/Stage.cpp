@@ -17,7 +17,7 @@
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
-#include <abyss/modules/Save/Save.hpp>
+#include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
@@ -31,7 +31,7 @@
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
-#include <abyss/models/Save/RestartInfo/RestartInfoModel.hpp>
+#include <abyss/models/Temporary/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Actor/Map/MapTranslator.hpp>
@@ -122,8 +122,8 @@ namespace abyss
     }
     bool Stage::restart() const
     {
-        auto save = m_pManager->getModule<Save>();
-        auto restartId = save->getRestartId().value_or(0);
+        auto temporary = m_pManager->getModule<Temporary>();
+        auto restartId = temporary->getRestartId().value_or(0);
         return this->init(restartId);
     }
     bool Stage::init(
@@ -181,18 +181,18 @@ namespace abyss
             auto cron = m_pManager->getModule<Crons>();
             cron->create<Cron::BubbleGenerator::BuildIntervalTime>(3s);
         }
-        auto save = m_pManager->getModule<Save>();
+        auto temporary = m_pManager->getModule<Temporary>();
         auto sound = m_pManager->getModule<Sound>();
         // サウンド初期化
         if (nextRoom) {
             if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
                 sound->play(*bgm);
-            } else if (auto restartBgm = save->getRestartBgm()) {
+            } else if (auto&& restartBgm = temporary->getRestartBgm()) {
                 sound->play(*restartBgm);
             }
         }
         // 初期情報をリスタート情報として残す
-        save->setRestartInfo(save->getRestartId().value_or(0), sound->currentBgmPath());
+        temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmPath());
 
         // UI初期化
         {
@@ -266,9 +266,9 @@ namespace abyss
             sound->play(*bgm);
         }
         // セーブ予約があった場合はリスタート地点の保存をする
-        auto save = m_pManager->getModule<Save>();
-        if (auto reservedRestartId = save->popReservedRestartId()) {
-            save->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
+        auto temporary = m_pManager->getModule<Temporary>();
+        if (auto reservedRestartId = temporary->popReservedRestartId()) {
+            temporary->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
         }
         return this->initRoom(*world, room, BuildTiming::CheckIn);
     }

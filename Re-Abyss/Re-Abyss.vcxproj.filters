@@ -335,7 +335,7 @@
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Save\KeyFlag\KeyFlagsModel.cpp">
+    <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\Serif\CursorVM.cpp">
@@ -934,10 +934,10 @@
     <ClCompile Include="app\modules\Master\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Save\Save.cpp">
+    <ClCompile Include="app\modules\Temporary\Temporary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Save\SaveData.cpp">
+    <ClCompile Include="app\modules\Temporary\TemporaryData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Sound\Sound.cpp">
@@ -1611,9 +1611,9 @@
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
-    <ClInclude Include="app\models\Save\RestartInfo\RestartInfoModel.hpp" />
-    <ClInclude Include="app\models\Save\KeyFlag\SaveLevel.hpp" />
-    <ClInclude Include="app\models\Save\KeyFlag\KeyFlagsModel.hpp" />
+    <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp" />
+    <ClInclude Include="app\types\Temporary\TempLevel.hpp" />
+    <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
@@ -1856,8 +1856,8 @@
     <ClInclude Include="app\modules\Light\Light.hpp" />
     <ClInclude Include="app\modules\Manager\Manager.hpp" />
     <ClInclude Include="app\modules\Master\Master.hpp" />
-    <ClInclude Include="app\modules\Save\Save.hpp" />
-    <ClInclude Include="app\modules\Save\SaveData.hpp" />
+    <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
+    <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\Sound\Sound.hpp" />
     <ClInclude Include="app\modules\Stage\Stage.hpp">
       <Filter>Source Files\ActionSystem\Stage</Filter>
@@ -2077,6 +2077,7 @@
     <ClInclude Include="app\params\Actor\Item\Recovery\Param.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\ItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
+    <ClInclude Include="app\types\Temporary\TempKey.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
