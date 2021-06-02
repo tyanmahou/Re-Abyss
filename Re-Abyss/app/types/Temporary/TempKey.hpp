@@ -10,6 +10,8 @@ namespace abyss
     {
         friend struct std::hash<TempKey>;
     public:
+        static TempKey ItemGet(s3d::uint32 id);
+    public:
         [[nodiscard]] auto operator <=>(const TempKey& other) const = default;
     private:
         TempKey(const s3d::String& key) :

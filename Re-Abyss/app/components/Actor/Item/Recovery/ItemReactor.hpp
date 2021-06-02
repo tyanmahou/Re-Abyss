@@ -13,6 +13,7 @@ namespace abyss::Actor::Item::Recovery
     public:
         ItemReactor(ActorObj* pActor, RecoveryKind kind, const s3d::Optional<s3d::uint32>& objId = s3d::none);
 
+        void onStart() override;
         void onGained(ActorObj* player) override;
     private:
         ActorObj* m_pActor;

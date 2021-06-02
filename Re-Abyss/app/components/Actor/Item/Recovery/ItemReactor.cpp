@@ -28,6 +28,16 @@ namespace abyss::Actor::Item::Recovery
         m_kind(kind),
         m_objId(objId)
     {}
+    void ItemReactor::onStart()
+    {
+        if (m_objId) {
+            // 取得済みなら破棄
+            if (m_pActor->getModule<Temporary>()->onFlag(TempKey::ItemGet(*m_objId))) {
+                m_pActor->destroy();
+                return;
+            }
+        }
+    }
     void ItemReactor::onGained(ActorObj* player)
     {
         // 破棄
@@ -35,8 +45,11 @@ namespace abyss::Actor::Item::Recovery
 
         // TODO effect
         // TODO se
-        // TODO save
-        //m_pActor->getModule<Temporary>()->saveFlagRoom();
+
+        if (m_objId) {
+            // IDありならリスタートレベルの保存する
+            m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
+        }
         auto playerHp = player->find<HP>();
         if (!playerHp) {
             return;

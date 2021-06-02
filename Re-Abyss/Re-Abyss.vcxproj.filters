@@ -1402,6 +1402,9 @@
     <ClCompile Include="app\components\Actor\Player\PlayerUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\types\Temporary\TempKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

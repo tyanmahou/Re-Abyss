@@ -480,6 +480,7 @@
     <ClCompile Include="app\services\User\UserService.cpp" />
     <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
+    <ClCompile Include="app\types\Temporary\TempKey.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
