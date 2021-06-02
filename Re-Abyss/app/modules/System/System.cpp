@@ -102,7 +102,6 @@ namespace abyss
             m_world.collision();
             m_world.lastUpdate();
         }
-        m_world.cleanUp();
 
         m_events.update();
         m_userInterface.update();
@@ -110,6 +109,7 @@ namespace abyss
         m_backGround->update(m_time.time());
         m_crons->update();
 
+        m_world.cleanUp();
 #if ABYSS_DEBUG
         Debug::DebugManager::DrawDebug(*m_decors);
         Debug::DebugManager::DrawDebug(m_effects);

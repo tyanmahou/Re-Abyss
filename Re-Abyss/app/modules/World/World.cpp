@@ -26,6 +26,8 @@ namespace abyss
     void World::flush()
     {
         m_actorsHolder.flush();
+        // 即死んだものはこの時点で削除
+        m_actorsHolder.erase();
     }
     void World::updateDeltaTime(double dt)
     {
