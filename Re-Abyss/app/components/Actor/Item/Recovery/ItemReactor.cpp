@@ -29,6 +29,9 @@ namespace abyss::Actor::Item::Recovery
     {}
     void ItemReactor::onGained(ActorObj* player)
     {
+        // 破棄
+        m_pActor->destroy();
+
         auto playerHp = player->find<HP>();
         if (!playerHp) {
             return;
