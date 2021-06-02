@@ -123,6 +123,8 @@ namespace abyss
     bool Stage::restart() const
     {
         auto temporary = m_pManager->getModule<Temporary>();
+        // リスタートでリセットのフラグをリセット
+        temporary->clearFlag(TempLevel::Restart);
         auto restartId = temporary->getRestartId().value_or(0);
         return this->init(restartId);
     }
