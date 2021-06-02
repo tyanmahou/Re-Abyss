@@ -2,6 +2,7 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
+#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Item/ItemCollision.hpp>
 
 namespace abyss::Actor::Item
@@ -37,6 +38,10 @@ namespace abyss::Actor::Item
         // アイテム当たり
         {
             pActor->attach<ItemCollision>(pActor);
+
+            pActor->attach<CircleCollider>(pActor)
+                ->setRadius(opt.m_colliderRadius.value_or((opt.bodySize.x + opt.bodySize.y) / 4.0))
+                ;
         }
         // 状態管理
         {

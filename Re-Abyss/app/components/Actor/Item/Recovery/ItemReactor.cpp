@@ -15,8 +15,7 @@ namespace
         case RecoveryKind::Small:
             return Param::Small.recoveryValue;
         case RecoveryKind::Big:
-            return  Param::Small.recoveryValue;
-        default:
+            return Param::Small.recoveryValue;
         }
         return 0;
     }

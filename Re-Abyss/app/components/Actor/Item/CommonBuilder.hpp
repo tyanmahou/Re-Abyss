@@ -30,6 +30,12 @@ namespace abyss::Actor::Item
             this->bodyPivot = pivot;
             return *this;
         }
+        BuildOption& setColliderRadius(double radius)
+        {
+            this->m_colliderRadius = radius;
+            return *this;
+        }
+
         BuildOption& setInitState(const std::shared_ptr<IState>& _initState)
         {
             this->initState = _initState;
@@ -46,6 +52,9 @@ namespace abyss::Actor::Item
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
         s3d::Vec2 bodyPivot;
+
+        // collider
+        s3d::Optional<double> m_colliderRadius;
         std::shared_ptr<IState> initState = nullptr;
     };
     struct CommonBuilder
