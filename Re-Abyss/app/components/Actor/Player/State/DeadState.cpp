@@ -28,11 +28,13 @@ namespace abyss::Actor::Player
 
         m_pActor->find<AudioSource>()->play(U"Dead");
 
-        m_pActor->find<StateChecker>()->setIsDeadState(true);
+        m_stateChecker->setIsDeadState(true);
         m_body
             ->setAccelX(0)
             .setMaxVelocityY(Body::DefaultMaxVelocityY);
 
+        // 死んだらルーム壁にあたる
+        m_mapCol->setIsEnableRoomHit(true, ColDirection(ColDirection::All).ignored(ColDirection::Down));
         if (!m_pActor->find<FallChecker>()->isFall()) {
             const Vec2& knockBackSpeed = Param::Dead::KnockBackSpeed;
 
