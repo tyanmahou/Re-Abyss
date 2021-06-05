@@ -9,6 +9,8 @@
 
 namespace abyss
 {
+	class ICameraTarget;
+	class CameraTarget;
 	class SnapshotView;
 
     class Camera
@@ -16,6 +18,7 @@ namespace abyss
 	private:
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
+		std::unique_ptr<CameraTarget> m_target;
 		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<Quake> m_quake;
 		std::unique_ptr<SnapshotView> m_snapshot;
@@ -40,6 +43,12 @@ namespace abyss
 		/// </summary>
 		/// <returns></returns>
 		const s3d::Vec2& getPos() const;
+
+		/// <summary>
+		/// カメラターゲット追加
+		/// </summary>
+		/// <param name="target"></param>
+		void addTarget(const std::shared_ptr<ICameraTarget>& target);
 
 		/// <summary>
 		/// 地震開始

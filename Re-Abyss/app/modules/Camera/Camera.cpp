@@ -3,8 +3,9 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
 
-#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/Camera/CameraTarget/CameraTarget.hpp>
 #include <abyss/modules/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
@@ -16,6 +17,7 @@ namespace abyss
 {
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
+		m_target(std::make_unique<CameraTarget>()),
 		m_quake(std::make_unique<Quake>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}
@@ -30,8 +32,8 @@ namespace abyss
 
 	void Camera::update()
 	{
-		auto player = m_pManager->getModule<Actor::Player::PlayerManager>();
-		const Vec2& playerPos = player->getPos();
+		const double dt = m_pManager->getModule<GlobalTime>()->deltaTime();
+		const Vec2& targetPos = m_target->update(dt);
 
 		// カメラ座標調整
 		{
@@ -52,7 +54,7 @@ namespace abyss
 			} else {
 				cameraPos = m_camera
 					->currentRoom()
-					.cameraBorderAdjusted(playerPos);
+					.cameraBorderAdjusted(targetPos);
 			}
 			// 地震適用
 			if (this->isQuake()) {
@@ -73,6 +75,11 @@ namespace abyss
 	const s3d::Vec2& Camera::getPos() const
 	{
 		return m_camera->getPos();
+	}
+
+	void Camera::addTarget(const std::shared_ptr<ICameraTarget>& target)
+	{
+		m_target->add(target);
 	}
 
 	Ref<QuakeModel> Camera::startQuake(double maxOffset, double timeSec)

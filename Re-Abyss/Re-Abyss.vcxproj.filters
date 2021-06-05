@@ -1408,6 +1408,9 @@
     <ClCompile Include="tests\tests\Temporary\TempFlag\TempFlagCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Camera\CameraTarget\CameraTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2084,6 +2087,9 @@
     <ClInclude Include="app\components\Actor\Item\Recovery\ItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
     <ClInclude Include="app\types\Temporary\TempKey.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\base\ICameraTarget.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTarget.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
