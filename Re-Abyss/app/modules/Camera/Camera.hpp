@@ -19,7 +19,6 @@ namespace abyss
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<CameraTarget> m_target;
-		std::unique_ptr<ICameraWork> m_cameraWork;
 		std::unique_ptr<Quake> m_quake;
 		std::unique_ptr<SnapshotView> m_snapshot;
 	public:
@@ -29,8 +28,6 @@ namespace abyss
 		void setManager(Manager* pManager);
 
 		void update();
-
-		bool isCameraWork() const;
 
 		/// <summary>
 		/// カメラ座標をセット

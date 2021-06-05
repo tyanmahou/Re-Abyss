@@ -14,6 +14,7 @@
 #include <abyss/components/Actor/Commons/CameraFixPos.hpp>
 #include <abyss/components/Actor/Commons/LightCtrl.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
+#include <abyss/components/Actor/Commons/CameraTargetCtrl.hpp>
 
 #include <abyss/components/Actor/Player/PlayerProxy.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
@@ -84,6 +85,10 @@ namespace abyss::Actor::Player
 		{
 			pActor->attach<MapCollider>(pActor);
 		}
+        // カメラターゲット
+        {
+            pActor->attach<CameraTargetCtrl>(pActor, CameraTargetPriority::Player);
+        }
         // カメラによる座標調整
         {
             pActor->attach<CameraFixPos>(pActor);

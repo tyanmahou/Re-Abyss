@@ -251,6 +251,7 @@
     <ClCompile Include="app\components\Actor\Commons\AttackerData.cpp" />
     <ClCompile Include="app\components\Actor\Commons\AudioSource.cpp" />
     <ClCompile Include="app\components\Actor\Commons\BehaviorCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Commons\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\CircleCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\PointCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CollisionCtrl.cpp" />
@@ -577,7 +578,6 @@
     <ClCompile Include="app\components\Actor\Enemy\Schield\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Schield\State\WaitState.cpp" />
     <ClCompile Include="app\modules\BackGround\BackGround.cpp" />
-    <ClCompile Include="app\modules\Camera\CameraWork\base\ICameraWork.cpp" />
     <ClCompile Include="app\modules\Decor\Decors.cpp" />
     <ClCompile Include="app\modules\Event\Events.cpp" />
     <ClCompile Include="app\modules\Light\Light.cpp" />
@@ -744,6 +744,7 @@
     <ClInclude Include="app\components\Actor\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actor\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BehaviorCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\CameraTargetCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\PointCollider.hpp" />
@@ -874,6 +875,7 @@
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\ICameraTarget.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTarget.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
@@ -1128,7 +1130,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraWork\base\ICameraWork.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />

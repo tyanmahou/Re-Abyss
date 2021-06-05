@@ -6,7 +6,6 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/CameraTarget/CameraTarget.hpp>
-#include <abyss/modules/Camera/CameraWork/base/ICameraWork.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -37,25 +36,10 @@ namespace abyss
 
 		// カメラ座標調整
 		{
-			Vec2 cameraPos = m_camera->getPos();
-			if (this->isCameraWork()) {
-				// カメラワーク中
-				if (!m_cameraWork->isActive()) {
-					m_cameraWork->start();
-					m_cameraWork->onStart();
-				}
-				m_cameraWork->update();
-				cameraPos = m_cameraWork->calcCameraPos();
+			Vec2 cameraPos = m_camera
+				->currentRoom()
+				.cameraBorderAdjusted(targetPos);
 
-				if (m_cameraWork->isEnd()) {
-					m_cameraWork->onEnd();
-					m_cameraWork = nullptr;
-				}
-			} else {
-				cameraPos = m_camera
-					->currentRoom()
-					.cameraBorderAdjusted(targetPos);
-			}
 			// 地震適用
 			if (this->isQuake()) {
 				cameraPos = m_quake->apply(cameraPos);
@@ -63,11 +47,6 @@ namespace abyss
 			m_camera->setPos(Math::Round(cameraPos));
 		}
 	}
-
-	bool Camera::isCameraWork() const
-    {
-        return m_cameraWork != nullptr;
-    }
 	void Camera::setPos(const s3d::Vec2& cameraPos) const
 	{
 		m_camera->setPos(Math::Round(cameraPos));
@@ -115,9 +94,6 @@ namespace abyss
     }
 	bool Camera::canNextRoom(const s3d::Vec2& pos) const
 	{
-		if (this->isCameraWork()) {
-			return false;
-		}
 		if (m_camera->inRoom(pos)) {
 			return false;
 		}
