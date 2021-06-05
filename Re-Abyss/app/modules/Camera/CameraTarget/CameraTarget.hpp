@@ -17,13 +17,6 @@ namespace abyss
         const s3d::Vec2& update(double dt);
     private:
         s3d::Array<std::shared_ptr<ICameraTarget>> m_targets;
-
-        std::shared_ptr<ICameraTarget> m_current;
-        std::shared_ptr<ICameraTarget> m_prev;
-
-        TimerEx m_lerpTimer;
-        double m_time = 0;
-
         s3d::Vec2 m_targetPos;
     };
 }

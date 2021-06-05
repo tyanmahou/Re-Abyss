@@ -487,6 +487,7 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
+    <ClCompile Include="app\utils\Lerp\LerpUtil.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
@@ -918,6 +919,7 @@
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
+    <ClInclude Include="app\utils\Lerp\LerpUtil.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\views\Distortion\DistUtl.hpp" />

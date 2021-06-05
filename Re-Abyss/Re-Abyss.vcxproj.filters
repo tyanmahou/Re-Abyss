@@ -1411,6 +1411,9 @@
     <ClCompile Include="app\components\Actor\Commons\CameraTargetCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Lerp\LerpUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2089,6 +2092,7 @@
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
     <ClInclude Include="app\components\Actor\Commons\CameraTargetCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
+    <ClInclude Include="app\utils\Lerp\LerpUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
