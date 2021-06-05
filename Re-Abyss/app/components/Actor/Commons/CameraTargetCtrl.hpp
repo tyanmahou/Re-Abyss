@@ -18,6 +18,7 @@ namespace abyss::Actor
         void onStart() override;
         void onEnd() override;
     private:
+        ActorObj* m_pActor;
         std::shared_ptr<CameraTarget> m_target;
     };
 }

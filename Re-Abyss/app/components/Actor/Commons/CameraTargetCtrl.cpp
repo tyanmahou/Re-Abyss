@@ -8,45 +8,32 @@ namespace abyss::Actor
     class CameraTargetCtrl::CameraTarget : public CameraTargetBase
     {
     public:
-        CameraTarget(ActorObj* pActor, CameraTargetPriorityType priority):
-            CameraTargetBase(priority),
-            m_pActor(pActor)
+        CameraTarget(CameraTargetPriorityType priority):
+            CameraTargetBase(priority)
         {}
         s3d::Vec2 targetPos() const
         {
             return m_locator->getCenterPos();
         }
-        void setup(Executer executer)
+        void setLocator(const Ref<ILocator>& locator)
         {
-            executer.on<IComponent>().addAfter<ILocator>();
-        }
-        void onStart()
-        {
-            m_locator = m_pActor->find<ILocator>();
-        }
-        void onEnd()
-        {
-            this->destory();
-        }
-        ActorObj* actor() const
-        {
-            return m_pActor;
+            m_locator = locator;
         }
     private:
-        ActorObj* m_pActor;
         Ref<ILocator> m_locator;
     };
     CameraTargetCtrl::CameraTargetCtrl(ActorObj* pActor, CameraTargetPriorityType priority):
-        m_target(std::make_shared<CameraTarget>(pActor, priority))
+        m_pActor(pActor),
+        m_target(std::make_shared<CameraTarget>(priority))
     {}
     void CameraTargetCtrl::setup(Executer executer)
     {
-        m_target->setup(executer);
+        executer.on<IComponent>().addAfter<ILocator>();
     }
     void CameraTargetCtrl::onStart()
     {
-        m_target->onStart();
-        m_target->actor()->getModule<Camera>()->addTarget(m_target);
+        m_target->setLocator(m_pActor->find<ILocator>());
+        m_pActor->getModule<Camera>()->addTarget(m_target);
     }
     void CameraTargetCtrl::onEnd()
     {
