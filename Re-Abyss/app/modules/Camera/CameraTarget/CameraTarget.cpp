@@ -2,7 +2,7 @@
 #include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
 #include <Siv3D.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+
 namespace  abyss
 {
     CameraTarget::CameraTarget()
@@ -13,7 +13,7 @@ namespace  abyss
     {
         m_targets.push_back(target);
     }
-    const s3d::Vec2& CameraTarget::update(double dt)
+    const s3d::Vec2& CameraTarget::update()
     {
         // 不要なもの削除
         m_targets.remove_if([](const std::shared_ptr<ICameraTarget>& elm) {
@@ -32,8 +32,7 @@ namespace  abyss
         }
         // ターゲット座標更新
         if (current) {
-            auto targetPosPrev = m_targetPos;
-            m_targetPos = s3d::Math::Lerp(targetPosPrev, current->targetPos(), InterpUtil::DampRatio(0.05, dt));
+            m_targetPos = current->targetPos();
         }
         return m_targetPos;
     }

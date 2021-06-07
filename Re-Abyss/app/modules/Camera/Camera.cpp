@@ -31,8 +31,7 @@ namespace abyss
 
 	void Camera::update()
 	{
-		const double dt = m_pManager->getModule<GlobalTime>()->deltaTime();
-		const Vec2& targetPos = m_target->update(dt);
+		const Vec2& targetPos = m_target->update();
 
 		// カメラ座標調整
 		{
