@@ -2,7 +2,7 @@
 #include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
 #include <Siv3D.hpp>
-#include <abyss/utils/Lerp/LerpUtil.hpp>
+#include <abyss/utils/Interp/InterpUtil.hpp>
 namespace  abyss
 {
     CameraTarget::CameraTarget()
@@ -33,7 +33,7 @@ namespace  abyss
         // ターゲット座標更新
         if (current) {
             auto targetPosPrev = m_targetPos;
-            m_targetPos = s3d::Math::Lerp(targetPosPrev, current->targetPos(), LerpUtil::Ratio(0.05, dt));
+            m_targetPos = s3d::Math::Lerp(targetPosPrev, current->targetPos(), InterpUtil::DampRatio(0.05, dt));
         }
         return m_targetPos;
     }

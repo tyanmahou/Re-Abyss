@@ -1,9 +1,9 @@
 #pragma once
 
-namespace abyss::LerpUtil
+namespace abyss::InterpUtil
 {
     /// <summary>
     /// デルタタイムを考慮して、補間率
     /// </summary>
-    double Ratio(double ratio, double dt);
+    double DampRatio(double ratio, double dt, double baseFps = 60.0);
 }
