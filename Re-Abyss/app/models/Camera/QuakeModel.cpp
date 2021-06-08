@@ -14,7 +14,7 @@ namespace abyss
         if (dt <= 0.0) {
             return;
         }
-
+        m_elapsedSec += dt;
         double radiusRate = m_timeSec <= 0 ? 1.0 : Max(1.0 - m_elapsedSec / m_timeSec, 0.0);
         m_offset = s3d::RandomVec2(Circle(m_maxOffset * radiusRate));
     }
