@@ -2,26 +2,20 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/GlobalTime/GlobalTime.hpp>
-
 namespace abyss
 {
-    QuakeModel::QuakeModel(Manager* pManager, double maxOffset, double timeSec) :
+    QuakeModel::QuakeModel(double maxOffset, double timeSec) :
         m_maxOffset(maxOffset),
-        m_timeSec(timeSec),
-        m_stopwatch(true, [pManager]() {return pManager->getModule<GlobalTime>()->timeMicroSec(); }),
-        m_pManager(pManager)
-    {
-    }
+        m_timeSec(timeSec)
+    {}
 
-    void QuakeModel::update()
+    void QuakeModel::update(double dt)
     {
-        if (m_pManager->getModule<GlobalTime>()->isPuase()) {
+        if (dt <= 0.0) {
             return;
         }
 
-        double radiusRate = m_timeSec <= 0 ? 1.0 : Max(1.0 - m_stopwatch.sF() / m_timeSec, 0.0);
+        double radiusRate = m_timeSec <= 0 ? 1.0 : Max(1.0 - m_elapsedSec / m_timeSec, 0.0);
         m_offset = s3d::RandomVec2(Circle(m_maxOffset * radiusRate));
     }
     void QuakeModel::stop()
@@ -36,7 +30,7 @@ namespace abyss
         if (m_timeSec <= 0) {
             return false;
         }
-        return m_stopwatch.sF() > m_timeSec;
+        return m_elapsedSec > m_timeSec;
     }
     const s3d::Vec2& QuakeModel::getOffset() const
     {

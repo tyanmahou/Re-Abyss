@@ -41,7 +41,7 @@ namespace abyss
 
 			// 地震適用
 			if (this->isQuake()) {
-				cameraPos = m_quake->apply(cameraPos);
+				cameraPos = m_quake->apply(cameraPos, dt);
 			}
 			m_camera->setPos(Math::Round(cameraPos));
 		}
@@ -62,7 +62,7 @@ namespace abyss
 
 	Ref<QuakeModel> Camera::startQuake(double maxOffset, double timeSec)
 	{
-		auto quake = std::make_shared<QuakeModel>(m_pManager, maxOffset, timeSec);
+		auto quake = std::make_shared<QuakeModel>(maxOffset, timeSec);
 		m_quake->add(quake);
 		return quake;
 	}

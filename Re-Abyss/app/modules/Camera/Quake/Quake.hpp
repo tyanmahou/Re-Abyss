@@ -13,7 +13,7 @@ namespace abyss
 
         void stopAll();
 
-        s3d::Vec2 apply(const s3d::Vec2& pos);
+        s3d::Vec2 apply(const s3d::Vec2& pos, double dt);
 
         bool isEnd() const;
     };

@@ -14,11 +14,11 @@ namespace abyss
         m_quakes.clear();
     }
 
-    s3d::Vec2 Quake::apply(const s3d::Vec2& pos)
+    s3d::Vec2 Quake::apply(const s3d::Vec2& pos, double dt)
     {
         Vec2 offset{ 0, 0 };
         for (const auto& quake : m_quakes) {
-            quake->update();
+            quake->update(dt);
             offset += quake->getOffset();
         }
         m_quakes.remove_if([](const std::shared_ptr<QuakeModel>& quake) {
