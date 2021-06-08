@@ -14,7 +14,7 @@ namespace abyss
         CameraTarget();
 
         void add(const std::shared_ptr<ICameraTarget>& target);
-        const s3d::Vec2& update();
+        const s3d::Vec2& update(double dt);
         const s3d::Vec2& targetPos() const
         {
             return m_targetPos;

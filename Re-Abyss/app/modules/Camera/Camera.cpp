@@ -29,9 +29,9 @@ namespace abyss
 		m_pManager = pManager;
 	}
 
-	void Camera::update()
+	void Camera::update(double dt)
 	{
-		const Vec2& targetPos = m_target->update();
+		const Vec2& targetPos = m_target->update(dt);
 
 		// カメラ座標調整
 		{

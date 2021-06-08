@@ -160,7 +160,7 @@ namespace abyss
         auto camera = m_pManager->getModule<Camera>();
         if (nextRoom) {
             camera->setRoom(*nextRoom);
-            camera->update();
+            camera->update(0);
         }
         // 背景の初期化
         {

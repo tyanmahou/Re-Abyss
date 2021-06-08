@@ -97,7 +97,7 @@ namespace abyss
             m_world.move();
             m_world.physics();
         }
-        m_camera.update();
+        m_camera.update(dt);
         if (!isWorldStop) {
             m_world.collision();
             m_world.lastUpdate();

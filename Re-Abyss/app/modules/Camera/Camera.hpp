@@ -27,7 +27,7 @@ namespace abyss
 
 		void setManager(Manager* pManager);
 
-		void update();
+		void update(double dt);
 
 		/// <summary>
 		/// カメラ座標をセット

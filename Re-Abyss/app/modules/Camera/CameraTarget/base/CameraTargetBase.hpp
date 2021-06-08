@@ -17,7 +17,14 @@ namespace abyss
         {
             return m_priority;
         }
-
+        void setInterpRate(double rate)
+        {
+            m_interpRate = rate;
+        }
+        double interpRate() const override
+        {
+            return m_interpRate;
+        }
         void setActive(bool isActive)
         {
             m_isActive = isActive;
@@ -36,6 +43,7 @@ namespace abyss
         }
     private:
         CameraTargetPriorityType m_priority;
+        double m_interpRate = 1.0;
         bool m_isActive = true;
         bool m_isEnd = false;
     };
