@@ -5,7 +5,7 @@
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/modules/Camera/CameraTarget/CameraTarget.hpp>
+#include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -16,7 +16,7 @@ namespace abyss
 {
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
-		m_target(std::make_unique<CameraTarget>()),
+		m_target(std::make_unique<CameraTargetCtrl>()),
 		m_quake(std::make_unique<Quake>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}

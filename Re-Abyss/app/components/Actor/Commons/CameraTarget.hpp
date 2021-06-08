@@ -7,18 +7,18 @@ namespace abyss::Actor
     /// <summary>
     /// カメラターゲット制御
     /// </summary>
-    class CameraTargetCtrl :
+    class CameraTarget :
         public IComponent
     {
-        class CameraTarget;
+        class Impl;
     public:
-        CameraTargetCtrl(ActorObj* pActor, CameraTargetPriorityType priority);
+        CameraTarget(ActorObj* pActor, CameraTargetPriorityType priority);
 
         void setup(Executer executer) override;
         void onStart() override;
         void onEnd() override;
     private:
         ActorObj* m_pActor;
-        std::shared_ptr<CameraTarget> m_target;
+        std::shared_ptr<Impl> m_target;
     };
 }

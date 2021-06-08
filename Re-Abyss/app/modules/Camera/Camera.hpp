@@ -10,7 +10,7 @@
 namespace abyss
 {
 	class ICameraTarget;
-	class CameraTarget;
+	class CameraTargetCtrl;
 	class SnapshotView;
 
     class Camera
@@ -18,7 +18,7 @@ namespace abyss
 	private:
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
-		std::unique_ptr<CameraTarget> m_target;
+		std::unique_ptr<CameraTargetCtrl> m_target;
 		std::unique_ptr<Quake> m_quake;
 		std::unique_ptr<SnapshotView> m_snapshot;
 	public:

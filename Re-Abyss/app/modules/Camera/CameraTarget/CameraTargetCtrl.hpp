@@ -8,10 +8,10 @@ namespace abyss
 {
     class ICameraTarget;
 
-    class CameraTarget
+    class CameraTargetCtrl
     {
     public:
-        CameraTarget();
+        CameraTargetCtrl();
 
         void add(const std::shared_ptr<ICameraTarget>& target);
         const s3d::Vec2& update(double dt);

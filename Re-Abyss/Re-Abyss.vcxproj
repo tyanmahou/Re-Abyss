@@ -251,7 +251,7 @@
     <ClCompile Include="app\components\Actor\Commons\AttackerData.cpp" />
     <ClCompile Include="app\components\Actor\Commons\AudioSource.cpp" />
     <ClCompile Include="app\components\Actor\Commons\BehaviorCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Commons\CameraTargetCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Commons\CameraTarget.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\CircleCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\PointCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CollisionCtrl.cpp" />
@@ -396,7 +396,7 @@
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
-    <ClCompile Include="app\modules\Camera\CameraTarget\CameraTarget.cpp" />
+    <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\modules\Distortion\Distortion.cpp" />
     <ClCompile Include="app\modules\Cycle\Common\Loading.cpp" />
     <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp" />
@@ -745,7 +745,7 @@
     <ClInclude Include="app\components\Actor\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actor\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BehaviorCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\CameraTargetCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\CameraTarget.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\PointCollider.hpp" />
@@ -878,7 +878,7 @@
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\ICameraTarget.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTarget.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
     <ClInclude Include="app\modules\Distortion\Distortion.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />

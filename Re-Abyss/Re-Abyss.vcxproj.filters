@@ -1405,10 +1405,10 @@
     <ClCompile Include="tests\tests\Temporary\TempFlag\TempFlagCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Camera\CameraTarget\CameraTarget.cpp">
+    <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Commons\CameraTargetCtrl.cpp">
+    <ClCompile Include="app\components\Actor\Commons\CameraTarget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp">
@@ -2088,9 +2088,9 @@
     <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
     <ClInclude Include="app\types\Temporary\TempKey.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\ICameraTarget.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTarget.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\CameraTargetCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\CameraTarget.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
   </ItemGroup>

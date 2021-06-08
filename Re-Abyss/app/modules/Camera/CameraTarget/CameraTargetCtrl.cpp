@@ -1,19 +1,19 @@
-#include "CameraTarget.hpp"
+#include "CameraTargetCtrl.hpp"
 #include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 namespace  abyss
 {
-    CameraTarget::CameraTarget()
+    CameraTargetCtrl::CameraTargetCtrl()
     {
     }
 
-    void CameraTarget::add(const std::shared_ptr<ICameraTarget>& target)
+    void CameraTargetCtrl::add(const std::shared_ptr<ICameraTarget>& target)
     {
         m_targets.push_back(target);
     }
-    const s3d::Vec2& CameraTarget::update(double dt)
+    const s3d::Vec2& CameraTargetCtrl::update(double dt)
     {
         // 不要なもの削除
         m_targets.remove_if([](const std::shared_ptr<ICameraTarget>& elm) {
