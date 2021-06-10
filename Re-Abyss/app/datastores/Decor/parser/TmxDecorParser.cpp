@@ -39,7 +39,7 @@ namespace
         return DecorType::General::None;
     };
 
-    std::shared_ptr<DecorEntity> ParseCommon(const std::shared_ptr<DecorEntity>& entity, const s3dTiled::TiledObject& obj)
+    std::shared_ptr<DecorEntity> ParseCommon(const std::shared_ptr<DecorEntity>& entity, const s3dTiled::Object& obj)
     {
         if (entity) {
             auto size = obj.toRectF().size;
@@ -74,7 +74,7 @@ namespace
 	return ParseCommon(it, obj);\
 }
 
-    std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::TiledObject& obj)
+    std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::Object& obj)
     {
         auto general = PARSE_CAREGORY(General,
             PARSE_TYPE(Common);
@@ -102,7 +102,7 @@ namespace
 }
 namespace abyss::Decor
 {
-    TmxDecorParser::TmxDecorParser(const s3dTiled::TiledObject& obj) :
+    TmxDecorParser::TmxDecorParser(const s3dTiled::Object& obj) :
         m_obj(obj)
     {}
 

@@ -25,7 +25,7 @@ namespace
 		return GimmickType::None;
 	};
 
-	std::shared_ptr<GimmickEntity> ParseCommon(const std::shared_ptr<GimmickEntity>& entity, const s3dTiled::TiledObject& obj)
+	std::shared_ptr<GimmickEntity> ParseCommon(const std::shared_ptr<GimmickEntity>& entity, const s3dTiled::Object& obj)
 	{
 		if (entity) {
 			Vec2 size = obj.toRectF().size;
@@ -42,7 +42,7 @@ namespace
 	return ParseCommon(it, obj);\
 }
 
-	std::shared_ptr<GimmickEntity> Parse(GimmickType type, const s3dTiled::TiledObject& obj)
+	std::shared_ptr<GimmickEntity> Parse(GimmickType type, const s3dTiled::Object& obj)
 	{
 		switch (type) {
 			PARSE_GIMMICK(StartPos, {
@@ -76,7 +76,7 @@ namespace
 }
 namespace abyss::Actor::Gimmick
 {
-	TmxGimmickParser::TmxGimmickParser(const s3dTiled::TiledObject& obj) :
+	TmxGimmickParser::TmxGimmickParser(const s3dTiled::Object& obj) :
 		m_obj(obj)
 	{}
 	std::shared_ptr<GimmickEntity> TmxGimmickParser::parse() const

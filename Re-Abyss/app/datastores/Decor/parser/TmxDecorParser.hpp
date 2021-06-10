@@ -7,9 +7,9 @@ namespace abyss::Decor
 {
     class TmxDecorParser
     {
-        const s3dTiled::TiledObject& m_obj;
+        const s3dTiled::Object& m_obj;
     public:
-        TmxDecorParser(const s3dTiled::TiledObject& obj);
+        TmxDecorParser(const s3dTiled::Object& obj);
 
         std::shared_ptr<DecorEntity> parse() const;
     };

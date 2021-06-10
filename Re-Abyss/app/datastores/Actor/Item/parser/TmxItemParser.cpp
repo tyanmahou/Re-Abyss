@@ -35,7 +35,7 @@ namespace
 		return RecoveryKind::Small;
 	};
 
-	std::shared_ptr<ItemEntity> ParseCommon(const std::shared_ptr<ItemEntity>& entity, const s3dTiled::TiledObject& obj)
+	std::shared_ptr<ItemEntity> ParseCommon(const std::shared_ptr<ItemEntity>& entity, const s3dTiled::Object& obj)
 	{
 		if (entity) {
 			Vec2 size = obj.toRectF().size;
@@ -52,7 +52,7 @@ namespace
 	return ParseCommon(it, obj);\
 }
 
-	std::shared_ptr<ItemEntity> Parse(ItemType type, const s3dTiled::TiledObject& obj)
+	std::shared_ptr<ItemEntity> Parse(ItemType type, const s3dTiled::Object& obj)
 	{
 		switch (type) {
 			PARSE_ITEM(Recovery, {
@@ -68,7 +68,7 @@ namespace
 
 namespace abyss::Actor::Item
 {
-    TmxItemParser::TmxItemParser(const s3dTiled::TiledObject& obj):
+    TmxItemParser::TmxItemParser(const s3dTiled::Object& obj):
         m_obj(obj)
     {}
 

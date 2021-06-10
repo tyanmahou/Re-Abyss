@@ -7,9 +7,9 @@ namespace abyss::Actor::Gimmick
 {
     class TmxGimmickParser
     {
-        const s3dTiled::TiledObject& m_obj;
+        const s3dTiled::Object& m_obj;
     public:
-        TmxGimmickParser(const s3dTiled::TiledObject&);
+        TmxGimmickParser(const s3dTiled::Object&);
 
         std::shared_ptr<GimmickEntity> parse() const;
     };

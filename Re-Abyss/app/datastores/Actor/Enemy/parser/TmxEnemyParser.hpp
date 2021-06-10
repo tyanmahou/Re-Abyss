@@ -7,9 +7,9 @@ namespace abyss::Actor::Enemy
 {
     class TmxEnemyParser
     {
-        const s3dTiled::TiledObject& m_obj;
+        const s3dTiled::Object& m_obj;
     public:
-        TmxEnemyParser(const s3dTiled::TiledObject&);
+        TmxEnemyParser(const s3dTiled::Object&);
 
         std::shared_ptr<EnemyEntity> parse() const;
     };

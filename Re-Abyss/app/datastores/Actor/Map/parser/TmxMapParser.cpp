@@ -79,7 +79,7 @@ namespace abyss::Actor::Map
         ret.type = this->getFieldType(gId);
         auto size = m_tiledMap.getTileSize();
         ret.pos = Vec2{ size.x * x, size.y * y } + static_cast<Vec2>(size) / 2;
-        ret.size = m_tiledMap.getTile(gId).size;
+        ret.size = size;
         ret.aroundFloor = calcAroundFloor(x, y);
         ret.id = x + static_cast<s3d::int32>(m_grid.width()) * y;
         ret.gId = gId;
