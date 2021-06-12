@@ -2,6 +2,15 @@
 #include <stack>
 #include <Siv3D.hpp>
 #include <abyss/debugs/Log/Log.hpp>
+
+namespace
+{
+	bool IsResourcePath(const s3d::FilePath& path)
+	{
+		return path.starts_with(U'/');
+	}
+}
+
 namespace abyss::FileUtil
 {
     s3d::FilePath FixRelativePath(const s3d::FilePath& path)
@@ -33,13 +42,13 @@ namespace abyss::FileUtil
 	{
 		if (useResource) {
 			s3d::FilePath resourcePath;
-			if (path[0] == '/') {
+			if (::IsResourcePath(path)) {
 				resourcePath = path;
 			} else {
 				resourcePath = Resource(path);
 			}
 #if ABYSS_DEBUG
-			if (FileSystem::IsResource(resourcePath)) {
+			if (::IsResourcePath(resourcePath)) {
 				return resourcePath;
 			}
 			Debug::Log::PrintCache << U"Not Found Resoure: " << path;
@@ -51,7 +60,7 @@ namespace abyss::FileUtil
 	}
 	s3d::FilePath ParentPath(const s3d::FilePath& path)
 	{
-		if (FileSystem::IsResource(path)) {
+		if (::IsResourcePath(path)) {
 			return U"/" + FileSystem::RelativePath(FileSystem::ParentPath(path.substr(1)));
 		} else {
 			return FileSystem::RelativePath(FileSystem::ParentPath(path));
@@ -59,7 +68,7 @@ namespace abyss::FileUtil
 	}
 	s3d::String Extension(const s3d::FilePath& path)
 	{
-		auto basePath = path[0] == U'/' ? path.substr(1) : path;
+		auto basePath = ::IsResourcePath(path) ? path.substr(1) : path;
 		return FileSystem::Extension(basePath);
 	}
 	s3d::String FixPath(const s3d::FilePath& path, bool useResource)
