@@ -5,6 +5,7 @@ namespace abyss::Actor::Item
 {
     enum class RecoveryKind
     {
+        None,
         Small,
         Big,
     };

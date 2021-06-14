@@ -1414,6 +1414,9 @@
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2093,6 +2096,7 @@
     <ClInclude Include="app\components\Actor\Commons\CameraTarget.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\ItemDropCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

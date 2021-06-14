@@ -287,6 +287,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\PartsCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\Builder.cpp" />
@@ -762,6 +763,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\ItemDropCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\Builder.hpp" />
