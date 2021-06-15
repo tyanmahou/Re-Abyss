@@ -38,7 +38,7 @@ namespace abyss::Actor::Item::Recovery
         [[TOML_BIND_PARAM(Small)]]
         inline static Setting Small;
 
-        [[TOML_BIND_PARAM(Small)]]
+        [[TOML_BIND_PARAM(Middle)]]
         inline static Setting Middle;
 
         [[TOML_BIND_PARAM(Big)]]
