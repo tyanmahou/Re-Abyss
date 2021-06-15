@@ -12,10 +12,11 @@ namespace abyss::Actor::Player
     void DebugCtrl::onUpdate()
     {
         auto hp = m_pActor->find<HP>();
-        if (KeyD.down()) {
+        if ((KeyShift + KeyD).down()) {
+            hp->setHp(1);
+        } else if (KeyD.down()) {
             hp->setHp(0);
-        }
-        if (KeyS.down()) {
+        } else if (KeyS.down()) {
             hp->reset();
         }
     }
