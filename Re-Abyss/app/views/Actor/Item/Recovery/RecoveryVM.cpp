@@ -51,7 +51,34 @@ namespace abyss::Actor::Item::Recovery
                 frameTex.draw(m_pos + m_coreOffset - Vec2{ 20 - frameLeft , 7 });
                 frameTex.mirrored().draw(m_pos + m_coreOffset - Vec2{ 0, 7 });
             }
-            //m_texture(U"heal_frame")(0, 14 * frameFrame, 40, 14).drawAt(m_pos + m_coreOffset);
+        } else if (m_kind == RecoveryKind::Middle) {
+            auto coreFrame = static_cast<int32>(Periodic::Sawtooth0_1(m_coreAnimTimeSec, m_time) * 2.0) % 2;
+            m_texture(U"heal_middle_color")(20 * coreFrame, 0, 20, 20).drawAt(m_pos + m_coreOffset);
+
+            if (frameFrame > 0) {
+                auto frameLeft =
+                    frameFrame == 1 ? 7 :
+                    frameFrame == 2 ? 3 :
+                    0;
+                auto frameTex = m_texture(U"heal_middle_frame")(frameLeft, 0, 22 - frameLeft, 14);
+
+                frameTex.draw(m_pos + m_coreOffset - Vec2{ 22 - frameLeft , 7 });
+                frameTex.mirrored().draw(m_pos + m_coreOffset - Vec2{ 0, 7 });
+            }
+        } else if (m_kind == RecoveryKind::Big) {
+            auto coreFrame = static_cast<int32>(Periodic::Sawtooth0_1(m_coreAnimTimeSec, m_time) * 2.0) % 2;
+            m_texture(U"heal_big_color")(24 * coreFrame, 0, 24, 24).drawAt(m_pos + m_coreOffset);
+
+            if (frameFrame > 0) {
+                auto frameLeft =
+                    frameFrame == 1 ? 12 :
+                    frameFrame == 2 ? 7 :
+                    0;
+                auto frameTex = m_texture(U"heal_big_frame")(frameLeft, 0, 30 - frameLeft, 20);
+
+                frameTex.draw(m_pos + m_coreOffset - Vec2{ 30 - frameLeft , 10 });
+                frameTex.mirrored().draw(m_pos + m_coreOffset - Vec2{ 0, 10 });
+            }
         }
         m_texture(U"base")(32 * baseFrame, 0, 32, 14).drawAt(m_pos + m_baseTopOffset - offset);
     }
