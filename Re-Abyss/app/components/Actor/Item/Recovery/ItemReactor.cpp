@@ -15,8 +15,10 @@ namespace
         switch (kind) {
         case RecoveryKind::Small:
             return Param::Small.recoveryValue;
+        case RecoveryKind::Middle:
+            return Param::Middle.recoveryValue;
         case RecoveryKind::Big:
-            return Param::Small.recoveryValue;
+            return Param::Big.recoveryValue;
         }
         return 0;
     }
