@@ -7,6 +7,7 @@ namespace abyss::Actor::Item
     {
         None,
         Small,
+        Middle,
         Big,
     };
     struct RecoveryEntity : ItemEntity

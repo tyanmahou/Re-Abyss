@@ -40,7 +40,18 @@ namespace abyss::Actor::Item::Recovery
         if (m_kind == RecoveryKind::Small) {
             auto coreFrame = static_cast<int32>(Periodic::Sawtooth0_1(m_coreAnimTimeSec, m_time) * 2.0) % 2;
             m_texture(U"heal_color")(14 * coreFrame, 0, 14, 14).drawAt(m_pos + m_coreOffset);
-            m_texture(U"heal_frame")(0, 14 * frameFrame, 40, 14).drawAt(m_pos + m_coreOffset);
+
+            if (frameFrame > 0) {
+                auto frameLeft =
+                    frameFrame == 1 ? 6 :
+                    frameFrame == 2 ? 3 :
+                    0;
+                auto frameTex = m_texture(U"heal_frame")(frameLeft, 0, 20 - frameLeft, 14);
+
+                frameTex.draw(m_pos + m_coreOffset - Vec2{ 20 - frameLeft , 7 });
+                frameTex.mirrored().draw(m_pos + m_coreOffset - Vec2{ 0, 7 });
+            }
+            //m_texture(U"heal_frame")(0, 14 * frameFrame, 40, 14).drawAt(m_pos + m_coreOffset);
         }
         m_texture(U"base")(32 * baseFrame, 0, 32, 14).drawAt(m_pos + m_baseTopOffset - offset);
     }

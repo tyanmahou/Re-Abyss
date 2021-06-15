@@ -28,6 +28,8 @@ namespace
         switch (kind) 	{
         case RecoveryKind::Small:
             return Param::Small;
+        case RecoveryKind::Middle:
+            return Param::Middle;
         case RecoveryKind::Big :
             return Param::Big;
         default:

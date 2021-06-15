@@ -27,6 +27,7 @@ namespace
 	{
 		static const std::unordered_map<String, RecoveryKind> toTypeMap{
 			{U"small", RecoveryKind::Small},
+			{U"middle", RecoveryKind::Middle},
 			{U"big", RecoveryKind::Big},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
