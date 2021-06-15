@@ -45,6 +45,11 @@ namespace abyss
 
 			this->init(true);
 		}
+		void superReload()
+		{
+			m_tempData->clearFlag(abyss::TempLevel::Exit);
+			this->init();
+		}
 #endif
 		void init(bool isLockPlayer = false)
 		{
@@ -112,7 +117,7 @@ namespace abyss
 			    m_pImpl->reload();
 		    })
 			.setSuperCallback([this] {
-			    m_pImpl->init();
+				m_pImpl->superReload();
 		    })
 			;
 #endif
