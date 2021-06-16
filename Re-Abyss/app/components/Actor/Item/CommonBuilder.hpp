@@ -36,6 +36,12 @@ namespace abyss::Actor::Item
             return *this;
         }
 
+        BuildOption& setAudioSettingGroupPath(const s3d::String& path)
+        {
+            this->audioSettingGroupPath = path;
+            return *this;
+        }
+
         BuildOption& setInitState(const std::shared_ptr<IState>& _initState)
         {
             this->initState = _initState;
@@ -56,6 +62,9 @@ namespace abyss::Actor::Item
         // collider
         s3d::Optional<double> m_colliderRadius;
         std::shared_ptr<IState> initState = nullptr;
+
+        // audio sourece
+        s3d::String audioSettingGroupPath;
     };
     struct CommonBuilder
     {

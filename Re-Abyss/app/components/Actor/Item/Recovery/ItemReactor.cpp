@@ -1,6 +1,7 @@
 #include "ItemReactor.hpp"
 
 #include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
@@ -56,7 +57,10 @@ namespace abyss::Actor::Item::Recovery
         if (!playerHp) {
             return;
         }
-
+        if (playerHp->isFull()) {
+            return;
+        }
+        m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));
     }

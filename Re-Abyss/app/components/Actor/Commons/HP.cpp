@@ -72,6 +72,11 @@ namespace abyss::Actor
         m_hp = m_maxHp;
     }
 
+    bool HP::isFull() const
+    {
+        return m_hp >= m_maxHp;
+    }
+
     bool HP::isDead() const
     {
         return m_hp <= 0;

@@ -39,6 +39,7 @@ namespace abyss::Actor
         /// </summary>
         void reset();
 
+        bool isFull() const;
         bool isDead() const;
 
         bool isInInvincibleTime() const;

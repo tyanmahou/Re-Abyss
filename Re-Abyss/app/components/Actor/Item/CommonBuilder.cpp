@@ -3,13 +3,15 @@
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
 #include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/components/Actor/Item/ItemCollision.hpp>
 
 namespace abyss::Actor::Item
 {
     BuildOption::BuildOption():
         pos(0, 0),
-        bodySize(40, 40)
+        bodySize(40, 40),
+        audioSettingGroupPath(U"Item/item.aase")
     {}
 
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
@@ -42,6 +44,11 @@ namespace abyss::Actor::Item
             pActor->attach<CircleCollider>(pActor)
                 ->setRadius(opt.m_colliderRadius.value_or((opt.bodySize.x + opt.bodySize.y) / 4.0))
                 ;
+        }
+        // 音源
+        {
+            pActor->attach<AudioSource>(pActor)
+                ->load(opt.audioSettingGroupPath);
         }
         // 状態管理
         {
