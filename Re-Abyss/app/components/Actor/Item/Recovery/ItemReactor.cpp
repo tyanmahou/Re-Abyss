@@ -57,9 +57,6 @@ namespace abyss::Actor::Item::Recovery
         if (!playerHp) {
             return;
         }
-        if (playerHp->isFull()) {
-            return;
-        }
         m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));
