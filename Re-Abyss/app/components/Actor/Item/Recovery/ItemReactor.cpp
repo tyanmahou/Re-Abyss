@@ -47,7 +47,6 @@ namespace abyss::Actor::Item::Recovery
         m_pActor->destroy();
 
         // TODO effect
-        // TODO se
 
         if (m_objId) {
             // IDありならリスタートレベルの保存する
