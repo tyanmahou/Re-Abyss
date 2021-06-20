@@ -15,7 +15,7 @@ namespace abyss::Actor
 
         void onUpdate();
 
-        void request(double maxOffset = 3.0, double timeSec = 0.5);
+        void request(double maxOffset = 3.0, double timeSec = 0.3);
 
         const s3d::Vec2& getShakeOffset() const
         {
