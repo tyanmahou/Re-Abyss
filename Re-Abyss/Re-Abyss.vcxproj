@@ -264,6 +264,7 @@
     <ClCompile Include="app\components\Actor\Commons\LightCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\RotateCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\ScaleCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Commons\ShakeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\StateCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.cpp" />
@@ -752,6 +753,7 @@
     <ClInclude Include="app\components\Actor\Commons\Colliders\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actor\Commons\ReceiverData.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\ShakeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.hpp" />

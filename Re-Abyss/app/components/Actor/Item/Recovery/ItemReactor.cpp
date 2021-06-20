@@ -40,9 +40,27 @@ namespace abyss::Actor::Item::Recovery
                 return;
             }
         }
+        m_shake = m_pActor->find<ShakeCtrl>();
+    }
+    void ItemReactor::onUpdate()
+    {
+        m_isCollide = m_isCollideNext;
+        m_isCollideNext = false;
     }
     void ItemReactor::onGained(ActorObj* player)
     {
+        m_isCollideNext = true;
+        auto playerHp = player->find<HP>();
+        if (!playerHp) {
+            return;
+        }
+        if (playerHp->isFull()) {
+            if (!m_isCollide && m_shake) {
+                // あたったばかりならシェイク
+                m_shake->request();
+            }
+            return;
+        }
         // 破棄
         m_pActor->destroy();
 
@@ -51,10 +69,6 @@ namespace abyss::Actor::Item::Recovery
         if (m_objId) {
             // IDありならリスタートレベルの保存する
             m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
-        }
-        auto playerHp = player->find<HP>();
-        if (!playerHp) {
-            return;
         }
         m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復

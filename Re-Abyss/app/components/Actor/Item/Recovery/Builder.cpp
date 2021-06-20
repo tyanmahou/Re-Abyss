@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Commons/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Commons/ShakeCtrl.hpp>
 
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>
@@ -54,6 +55,9 @@ namespace abyss::Actor::Item::Recovery
         {
             pActor->attach<ItemReactor>(pActor, entity.kind, entity.id);
         }
+        {
+            pActor->attach<ShakeCtrl>(pActor);
+        }
         // View
         {
             pActor->attach<ViewCtrl<RecoveryVM>>()
@@ -78,11 +82,12 @@ namespace
         {
             return &m_view
                 ->setTime(m_pActor->getDrawTimeSec())
-                .setPos(m_body->getPos());
+                .setPos(m_body->getPos() + m_shake->getShakeOffset());
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_shake = m_pActor->find<ShakeCtrl>();
             m_view->setKind(m_kind);
         }
     public:
@@ -96,6 +101,7 @@ namespace
         ActorObj* m_pActor = nullptr;
         RecoveryKind m_kind;
         Ref<Body> m_body;
+        Ref<ShakeCtrl> m_shake;
 
         std::unique_ptr<RecoveryVM> m_view;
     };
