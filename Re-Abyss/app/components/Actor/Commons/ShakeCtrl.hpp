@@ -3,6 +3,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/PerlinNoise.hpp>
 
 namespace abyss::Actor
 {
@@ -27,6 +28,7 @@ namespace abyss::Actor
         double m_shakeTime = 0;
         double m_maxOffset = 5.0;
         s3d::Vec2 m_offset;
+        s3d::PerlinNoise m_noise;
     };
 }
 
