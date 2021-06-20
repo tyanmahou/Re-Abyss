@@ -22,7 +22,7 @@ namespace abyss::Actor
         m_time -= dt;
         double rate = s3d::Saturate(m_time / m_shakeTime);
 
-        auto periodTime = m_time * rate * 11.4514;
+        auto periodTime = m_time * m_time * 11.4514;
         double noise = s3d::Periodic::Sine0_1(m_shakeTime, periodTime);
         double offsetFactor = s3d::Periodic::Triangle0_1(m_shakeTime, periodTime * 5.0);
         m_offset = Vec2::UnitX().rotated((noise + m_randOffset + s3d::Periodic::Square0_1(s3d::Math::InvPi, rate)) * s3d::Math::TwoPi) * (m_maxOffset * offsetFactor) * rate;
