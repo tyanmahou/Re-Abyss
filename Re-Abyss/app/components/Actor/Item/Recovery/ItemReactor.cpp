@@ -5,7 +5,7 @@
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
-#include <abyss/debugs/Log/Log.hpp>
+
 namespace
 {
     using namespace abyss::Actor::Item;
@@ -46,7 +46,6 @@ namespace abyss::Actor::Item::Recovery
     {
         m_isCollide = m_isCollideNext;
         m_isCollideNext = false;
-        Debug::Log::Print << *m_objId;
     }
     void ItemReactor::onGained(ActorObj* player)
     {
