@@ -39,6 +39,8 @@ namespace
 	std::shared_ptr<ItemEntity> ParseCommon(const std::shared_ptr<ItemEntity>& entity, const s3dTiled::Object& obj)
 	{
 		if (entity) {
+			entity->id = obj.id;
+
 			Vec2 size = obj.toRectF().size;
 			entity->pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
 		}
