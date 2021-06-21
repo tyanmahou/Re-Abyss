@@ -1,10 +1,13 @@
 #include "ItemReactor.hpp"
 
+#include <abyss/components/Actor/base/ILocator.hpp>
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
+#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/views/Actor/Item/Recovery/RecoveryEffect.hpp>
 
 namespace
 {
@@ -61,12 +64,12 @@ namespace abyss::Actor::Item::Recovery
         // 破棄
         m_pActor->destroy();
 
-        // TODO effect
-
         if (m_objId) {
             // IDありならリスタートレベルの保存する
             m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
         }
+
+        m_pActor->getModule<Effects>()->addWorldFront<RecoveryEffect>(player->find<ILocator>()->getCenterPos());
         m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));

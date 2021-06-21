@@ -491,6 +491,7 @@
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
+    <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
@@ -925,6 +926,7 @@
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
+    <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\views\Distortion\DistUtl.hpp" />
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
