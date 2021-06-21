@@ -11,13 +11,13 @@ namespace abyss::Actor::Item::Recovery
 	/// </summary>
 	struct RecoveryEffect : s3d::IEffect
 	{
+	private:
+		struct Impl;
 	public:
 		RecoveryEffect(const Ref<ILocator>& locator);
 
 		bool update(double t) override;
 	private:
-		Ref<ILocator> m_locator;
-		s3d::Vec2 m_pos;
-		double m_startAngle = 0.0;
+		std::unique_ptr<Impl> m_pImpl;
 	};
 }
