@@ -2,13 +2,20 @@
 #include <Siv3D.hpp>
 namespace abyss::Actor::Item::Recovery
 {
-    RecoveryEffect::RecoveryEffect(const s3d::Vec2& pos):
-        m_pos(pos),
+    RecoveryEffect::RecoveryEffect(const Ref<ILocator>& locator):
+        m_locator(locator),
         m_startAngle(Random() * Math::TwoPi)
-    {}
+    {
+        if (m_locator) {
+            m_pos = m_locator->getCenterPos();
+        }
+    }
 
     bool RecoveryEffect::update(double t)
     {
+        if (m_locator) {
+            m_pos = m_locator->getCenterPos();
+        }
         ScopedRenderStates2D blend(BlendState::Additive);
 
         constexpr ColorF color0 = Color(14, 255, 51);

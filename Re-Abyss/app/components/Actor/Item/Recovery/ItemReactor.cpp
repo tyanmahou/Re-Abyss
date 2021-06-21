@@ -69,7 +69,7 @@ namespace abyss::Actor::Item::Recovery
             m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
         }
 
-        m_pActor->getModule<Effects>()->addWorldFront<RecoveryEffect>(player->find<ILocator>()->getCenterPos());
+        m_pActor->getModule<Effects>()->addWorldFront<RecoveryEffect>(player->find<ILocator>());
         m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));
