@@ -31,7 +31,7 @@ namespace abyss::Actor
 
         // ノイズ
         const double noise = s3d::Periodic::Sine0_1(m_shakeTime, periodTime)
-            + s3d::Periodic::Square0_1(s3d::Math::InvPi, rate)
+            + s3d::Periodic::Triangle0_1(s3d::Math::InvPi, rate)
             + m_noiseOffset;
 
         // 左右に往復させるためのオフセット
