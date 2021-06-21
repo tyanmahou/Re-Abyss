@@ -26,11 +26,14 @@ namespace abyss::Actor::Item::Recovery
 
             bool update(const Vec2& pos, double t)
             {
-                constexpr double moveTime = 0.55;
+                constexpr double moveTime = 0.5;
                 auto spreadRate = s3d::EaseOutCirc(s3d::Min(t, moveTime) / moveTime);
                 auto newPos = pos + m_localPos * spreadRate;
-                if (t >= 0.1) {
-                    newPos += Vec2{ 0, -40.0 } * (t - moveTime);
+                if (t >= moveTime) {
+                    newPos += Vec2{ m_localPos.x / 2.0, 0} * (t - moveTime);
+                }
+                if (t >= moveTime / 2.0) {
+                    newPos += Vec2{ 0.0, -50.0 } * (t - moveTime / 2.0);
                 }
                 {
                     auto rotateRate = spreadRate * 5.0;
@@ -41,7 +44,7 @@ namespace abyss::Actor::Item::Recovery
                     if (alpha >= moveTime) {
                         alpha = 1.0 - (t - moveTime) / (1.0 - moveTime);
                     }
-                    Vec2 sizeVec2{ m_size * (1 - t), m_size  * (1 - t)};
+                    Vec2 sizeVec2 = Vec2::One() * m_size * (1 - t);
                     auto quad = RectF(newPos - sizeVec2 / 2.0, sizeVec2)
                         .rotatedAt(newPos, m_angle + s3d::Math::TwoPi * rotateRate);
                     if (m_isFrame) {
@@ -100,8 +103,8 @@ namespace abyss::Actor::Item::Recovery
                 m_pos = m_locator->getCenterPos();
             }
 
-            for (auto count : step(1, 10)) {
-                m_particles.emplace_back(count > 5);
+            for (auto count : step(1, 20)) {
+                m_particles.emplace_back(count > 10);
             }
         }
 
