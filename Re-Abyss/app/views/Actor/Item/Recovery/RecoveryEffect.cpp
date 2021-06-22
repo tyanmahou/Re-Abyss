@@ -13,6 +13,9 @@ namespace abyss::Actor::Item::Recovery
 {
     struct RecoveryEffect::Impl
     {
+        /// <summary>
+        /// パーティクル
+        /// </summary>
         struct Particle
         {
         public:
@@ -65,6 +68,10 @@ namespace abyss::Actor::Item::Recovery
             bool m_isFrame;
             ColorF m_color;
         };
+
+        /// <summary>
+        /// 円
+        /// </summary>
         struct Circles
         {
         public:
@@ -98,6 +105,10 @@ namespace abyss::Actor::Item::Recovery
         private:
             double m_startAngle = 0.0;
         };
+
+        /// <summary>
+        /// 閃光
+        /// </summary>
         struct Flashs
         {
             struct Flash
@@ -188,6 +199,7 @@ namespace abyss::Actor::Item::Recovery
         Flashs m_flashs;
         s3d::Array<Particle> m_particles;
     };
+
     RecoveryEffect::RecoveryEffect(const Ref<ILocator>& locator) :
         m_pImpl(std::make_unique<Impl>(locator))
     {
