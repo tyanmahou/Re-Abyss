@@ -49,6 +49,14 @@ namespace abyss
         }
         return this->apply(callback);
     }
+    void SnapshotView::draw(const s3d::Vec2& offset) const
+    {
+        if (offset.isZero()) {
+            this->getPostTexture().draw(Constants::GameScreenOffset);
+        } else {
+            this->getPostTexture()(offset, Constants::GameScreenSize).draw(Constants::GameScreenOffset);
+        }
+    }
     const s3d::RenderTexture& SnapshotView::getPostTexture() const
     {
         return m_isSwapPostTexture ? m_postTexture2 : m_postTexture;

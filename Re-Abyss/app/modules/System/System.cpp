@@ -176,7 +176,7 @@ namespace abyss
 #else
                 .apply([=] { return m_distortion->start(); })
 #endif
-                .getPostTexture().draw(Constants::GameScreenOffset);
+                .draw(cameraView.getQuakeOffset());
         }
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };

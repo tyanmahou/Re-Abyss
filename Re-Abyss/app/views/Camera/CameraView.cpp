@@ -7,13 +7,19 @@
 
 namespace abyss
 {
-	CameraView::CameraView(const CameraModel* const pCamera) :
-		m_pCamera(pCamera)
+	CameraView::CameraView(const CameraModel* const pCamera, const s3d::Vec2& quakeOffset) :
+		m_pCamera(pCamera),
+		m_quakeOffset(quakeOffset)
 	{}
 
 	const s3d::Vec2& CameraView::getCameraPos() const
 	{
 		return m_pCamera->getPos();
+	}
+
+	const s3d::Vec2& CameraView::getQuakeOffset() const
+	{
+		return m_quakeOffset;
 	}
 
 	void CameraView::drawDeathLine() const

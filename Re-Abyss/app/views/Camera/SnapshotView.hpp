@@ -23,6 +23,7 @@ namespace abyss
         SnapshotView& apply(std::function<s3d::ScopedCustomShader2D()> callback);
         SnapshotView& apply(bool enable, std::function<s3d::ScopedCustomShader2D()> callback);
 
+        void draw(const s3d::Vec2& offset) const;
     private:
         s3d::RenderTexture m_sceneTexture;
 

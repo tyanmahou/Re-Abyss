@@ -40,9 +40,8 @@ namespace abyss
 				.cameraBorderAdjusted(targetPos);
 
 			// 地震適用
-			if (this->isQuake()) {
-				cameraPos = m_quake->apply(cameraPos, dt);
-			}
+			m_quake->update(dt);
+
 			m_camera->setPos(Math::Round(cameraPos));
 		}
 	}
@@ -126,7 +125,7 @@ namespace abyss
 
 	CameraView Camera::createView() const
 	{
-		return CameraView(m_camera.get());
+		return CameraView(m_camera.get(), m_quake->getOffset());
 	}
 	s3d::RectF Camera::screenRegion() const
 	{
