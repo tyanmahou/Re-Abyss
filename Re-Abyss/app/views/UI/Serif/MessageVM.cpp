@@ -26,9 +26,6 @@ namespace abyss::UI::Serif
     }
     void MessageVM::draw() const
     {
-        static const auto& ps = Resource::Assets::Main()->loadPs(U"bitmap_font.hlsl");
-        ScopedCustomShader2D shader(ps);
-
         auto&& font = FontAsset(U"serif");
         if (!m_prevMessage.isEmpty()) {
             const auto offset = EaseIn(Easing::Linear, static_cast<double>(m_strIndex) / 2.0) * 2;
