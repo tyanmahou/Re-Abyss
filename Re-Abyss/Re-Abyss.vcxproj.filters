@@ -1423,6 +1423,9 @@
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\Dither\DitherShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2105,6 +2108,7 @@
     <ClInclude Include="app\components\Actor\Enemy\ItemDropCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\ShakeCtrl.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
+    <ClInclude Include="app\views\util\Dither\DitherShader.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
