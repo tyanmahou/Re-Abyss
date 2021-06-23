@@ -14,7 +14,10 @@ namespace abyss::Actor::God
     void PauseCtrl::onUpdate()
     {
         if (InputManager::Start.down()) {
-            m_pActor->getModule<Events>()->create<Event::GamePause::Builder>();
+            auto pEvent = m_pActor->getModule<Events>();
+            if (pEvent->isEmpty()) {
+                pEvent->create<Event::GamePause::Builder>();
+            }
         }
     }
 }
