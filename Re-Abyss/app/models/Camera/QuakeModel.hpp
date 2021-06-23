@@ -11,6 +11,9 @@ namespace abyss
         double m_timeSec = 1.0;
         double m_elapsedSec = 0.0;
 
+        double m_nextTargetTimeSec = 0.0;
+        Vec2 m_offsetTarget;
+
         Vec2 m_offset;
         bool m_isStop = false;
     public:
