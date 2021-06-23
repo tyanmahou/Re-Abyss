@@ -17,6 +17,7 @@ namespace abyss::Actor::Item::Recovery
         RecoveryKind m_kind;
         double m_time = 0;
 
+        double m_alpha = 1.0;
     public:
         RecoveryVM();
         RecoveryVM(const Setting& setting);
