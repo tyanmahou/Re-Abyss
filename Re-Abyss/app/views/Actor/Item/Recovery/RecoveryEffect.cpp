@@ -19,13 +19,13 @@ namespace abyss::Actor::Item::Recovery
         struct Particle
         {
         public:
-            Particle(bool isFrame = false) :
+            Particle(bool isFrame = false, bool isColor0 = RandomBool()) :
                 m_localPos(RandomVec2(Circle(Vec2{0, 15}, 40.0))),
                 m_size(Random(4.0, 10.0)),
                 m_angle(Random()* Math::TwoPi),
                 m_isFrame(isFrame)
             {
-                auto hsv = HSV(RandomBool() ? color0 : color1);
+                auto hsv = HSV(isColor0 ? color0 : color1);
                 hsv.s += 0.5;
                 m_color = hsv.toColorF();
             }
@@ -173,7 +173,7 @@ namespace abyss::Actor::Item::Recovery
             }
 
             for (auto count : step(1, 20)) {
-                m_particles.emplace_back(count > 10);
+                m_particles.emplace_back(count > 10, count % 2 == 0);
             }
         }
 
