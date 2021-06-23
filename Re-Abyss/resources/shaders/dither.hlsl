@@ -23,7 +23,7 @@ float4 PS(PSInput input) : SV_TARGET
     float2 ditherUv = input.position.xy % 4;
     float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
     float4 inputColor = input.color;
-    if (dither - inputColor.a <= 0) {
+    if (inputColor.a - dither <= 0) {
         discard;
     }
     inputColor.a = 1.0;

@@ -16,9 +16,7 @@ namespace abyss::Actor::Item::Recovery
         m_coreAnimTimeSec(setting.coreAnimTimeSec),
         m_baseTopOffset(setting.baseTopOffset),
         m_baseBottomOffset(setting.baseBottomOffset)
-    {
-        m_alpha = 0.5;
-    }
+    {}
 
     RecoveryVM& RecoveryVM::setPos(const s3d::Vec2 & pos)
     {
