@@ -1,7 +1,7 @@
 // Windowのサイズをスケーリング可能にするか
 // #define USE_SCALABLE_WINDOW
 
-#include "IApplication.hpp"
+#include "BaseApp.hpp"
 
 #include <Siv3D.hpp>
 
@@ -9,9 +9,16 @@ namespace
 {
 	enum class WindowSize
 	{
+		ThreeSecond,
+		FiveFourth,
+		SixFifth,
 		Default,
-		Hurf,
-		FullScrren
+		FourFifth,
+		ThreeFourth,
+		Half,
+		FullScrren,
+
+		KIND_MAX
 	};
 
 	bool SetFullScreen(bool isFullScreen)
@@ -22,10 +29,25 @@ namespace
 	{
 		switch (windowSize)
 		{
+		case WindowSize::ThreeSecond:
+			Window::Resize(Scene::Size() * 3 / 2, WindowResizeOption::KeepSceneSize);
+			break;
+		case WindowSize::FiveFourth:
+			Window::Resize(Scene::Size() * 5 / 4, WindowResizeOption::KeepSceneSize);
+			break;
+		case WindowSize::SixFifth:
+			Window::Resize(Scene::Size() * 6 / 5, WindowResizeOption::KeepSceneSize);
+			break;
 		case WindowSize::Default:
 			Window::Resize(Scene::Size(), WindowResizeOption::KeepSceneSize);
 			break;
-		case WindowSize::Hurf:
+		case WindowSize::FourFifth:
+			Window::Resize(Scene::Size() * 4 / 5, WindowResizeOption::KeepSceneSize);
+			break;
+		case WindowSize::ThreeFourth:
+			Window::Resize(Scene::Size() * 3 / 4, WindowResizeOption::KeepSceneSize);
+			break;
+		case WindowSize::Half:
 			Window::Resize(Scene::Size() / 2, WindowResizeOption::KeepSceneSize);
 			break;
 		case WindowSize::FullScrren:
@@ -40,27 +62,14 @@ namespace
 		if (ws != WindowSize::FullScrren) {
 			::SetFullScreen(false);
 		}
-		switch (ws)
-		{
-		case WindowSize::Default:
-			ws = WindowSize::Hurf;
-			break;
-		case WindowSize::Hurf:
-			ws = WindowSize::FullScrren;
-			break;
-		case WindowSize::FullScrren:
-			ws = WindowSize::Default;
-			break;
-		default:
-			break;
-		}
+		ws = static_cast<WindowSize>((static_cast<s3d::int32>(ws) + 1) % static_cast<s3d::int32>(WindowSize::KIND_MAX));
 
 		::ChangeWindowSize(ws);
 	}
 }
 namespace abyss
 {
-    IApplication::IApplication(const s3d::String& appName, s3d::Size windowSize)
+    BaseApp::BaseApp(const s3d::String& appName, s3d::Size windowSize)
 	{
 		Window::SetTitle(appName);
 		Window::Resize(windowSize);
@@ -68,15 +77,11 @@ namespace abyss
 		Scene::SetBackground(Palette::Black);
 		System::SetTerminationTriggers((KeyAlt + KeyF4).down() | UserAction::CloseButtonClicked);
 #ifdef USE_SCALABLE_WINDOW
-		Window::SetStyle(WindowState::Sizable);
+		Window::SetStyle(WindowStyle::Sizable);
 #endif
 	}
 
-    IApplication::~IApplication()
-	{
-	}
-
-	bool IApplication::run()
+	bool BaseApp::run()
 	{
 		while (System::Update()) {
 

@@ -9,7 +9,7 @@ namespace abyss
 	}
 
     MainApp::MainApp() :
-		IApplication(Constants::AppName, Constants::AppResolution)
+		BaseApp(Constants::AppName, Constants::AppResolution)
 	{
 	}
 

@@ -116,7 +116,7 @@
     <ClCompile Include="app\commons\Application\MainApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Application\base\IApplication.cpp">
+    <ClCompile Include="app\commons\Application\base\BaseApp.cpp">
       <Filter>Source Files\Commons\Appication</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Game\Game.cpp">
@@ -2109,6 +2109,7 @@
     <ClInclude Include="app\components\Actor\Commons\ShakeCtrl.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
     <ClInclude Include="app\views\util\Dither\DitherShader.hpp" />
+    <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
