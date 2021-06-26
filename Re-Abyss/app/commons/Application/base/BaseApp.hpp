@@ -1,6 +1,7 @@
 #pragma once
 
 #include <abyss/commons/Application/base/IApplication.hpp>
+#include <abyss/commons/Application/WindowCtrl.hpp>
 
 namespace abyss
 {
@@ -12,5 +13,8 @@ namespace abyss
 		BaseApp(const s3d::String& appName, s3d::Size windowSize);
 
 		bool run() override;
+
+	protected:
+		WindowCtrl m_windowCtrl;
 	};
 }

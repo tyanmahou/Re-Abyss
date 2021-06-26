@@ -238,6 +238,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Param.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Preloader.cpp" />
@@ -725,6 +726,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
+    <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />

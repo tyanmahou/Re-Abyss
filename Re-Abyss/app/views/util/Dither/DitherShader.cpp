@@ -7,7 +7,7 @@ namespace
     Image g_ditherImage = []
     {
         Image image(4, 4);
-        constexpr double dither[4][4] = {
+        double dither[4][4] = {
             {1, 13, 4, 16},
             {9, 5, 12, 8},
             {3, 15, 2, 14},

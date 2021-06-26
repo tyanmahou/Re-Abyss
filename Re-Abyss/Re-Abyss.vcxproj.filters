@@ -1426,6 +1426,9 @@
     <ClCompile Include="app\views\util\Dither\DitherShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Application\WindowCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2110,6 +2113,7 @@
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
     <ClInclude Include="app\views\util\Dither\DitherShader.hpp" />
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
+    <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
