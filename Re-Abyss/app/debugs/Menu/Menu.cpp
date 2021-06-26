@@ -4,36 +4,74 @@
 #include <Siv3D.hpp>
 
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::Debug;
 
+    void ParseCheckButton(
+        Windows::MenuItem& menu,
+        const String& label,
+        JSONValue& json,
+        std::stack<String>& flagNamePath,
+        s3d::HashTable<String, bool>& flags
+    ) {
+        bool isChecked = json[U"isChecked"].getOr<bool>(false);
+        auto callback = [&flags, key = flagNamePath.top()](bool isChecked) {
+            flags[key] = isChecked;
+        };
+        callback(isChecked);
+        menu.createCheckButton(label, callback, isChecked);
+    }
+    void ParseList(
+        Windows::MenuItem& menu,
+        JSONObjectView json,
+        std::stack<String>& flagNamePath,
+        s3d::HashTable<String, bool>& flags
+    ) {
+        for (auto&& [name, obj] : json) {
+            if (flagNamePath.empty()) {
+                flagNamePath.push(name);
+            } else {
+                flagNamePath.push(flagNamePath.top() + U"/" + name);
+            }
+
+            auto kind = obj[U"kind"].getOr<String>(U"checkButton");
+            if (kind == U"checkButton") {
+                auto label = obj[U"label"].getOr<String>(name);
+                ParseCheckButton(menu, label, obj, flagNamePath, flags);
+            } else if (kind == U"radioButton") {
+
+            } else if (kind == U"popup") {
+                auto label = obj[U"label"].getOr<String>(name);
+                auto nextMenu = menu.createItem(label);
+                ParseList(nextMenu, obj[U"list"].objectView(), flagNamePath, flags);
+            }
+            flagNamePath.pop();
+        }
+    }
+}
 namespace abyss::Debug
 {
     class Menu::Impl
     {
-        inline static const String MenuTomlPath = Path::DebugPath + U"menu.toml";
-
-        bool m_isActive = false;
-        SimpleGUIManager m_gui;
-        DirectoryWatcher m_watcher;
+        inline static const String MenuPath = Path::DebugPath + U"menu.json";
     public:
-        Impl():
-            m_gui(MenuTomlPath),
-            m_watcher(FileSystem::ParentPath(MenuTomlPath))
+        Impl()
         {
-            this->init();
         }
 
         void init()
         {
             auto& mainMenu = Windows::WindowMenu::Main();
             auto debugMenu = mainMenu.createItem(U"デバッグ(&D)");
-            {
-                auto menu = debugMenu.createItem(U"デバッグフラグ");
-            }
-            {
-                auto menu = debugMenu.createItem(U"ポストエフェクト");
-                menu.createCheckButton(U"ライト", [](bool isChecked) {}, true);
-                menu.createCheckButton(U"歪み", [](bool isChecked) {}, true);
-            }
+
+            JSONReader json(MenuPath);
+            std::stack<String> flagNamePath;
+
+            // パース
+            ::ParseList(debugMenu, json.objectView(), flagNamePath, m_debugFlag);
+
             {
                 auto menu = debugMenu.createItem(U"FPS");
                 auto list = menu.createRadioButton({U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120"}, [](size_t index) {
@@ -60,48 +98,23 @@ namespace abyss::Debug
             }
             mainMenu.show(true);
         }
-        bool isDebug(StringView label)
+        bool isDebug(const String& label)
         {
-            return m_gui.checkBox(label);
+            return m_debugFlag[label];
         }
-        void onGUI()
-        {
-            if (!m_watcher.retrieveChanges().isEmpty()) {
-                m_gui.load(MenuTomlPath);
-            }
-            if (KeyF11.down()) {
-                m_isActive = !m_isActive;
-            }
-            if (!m_isActive) {
-                return;
-            }
-            // 描画
-            m_gui.draw();
-
-            // FPS制御
-            if (m_gui.hasChanged(U"cb-fix-fps") || 
-                m_gui.hasChanged(U"sl-fps")
-            ) {
-                const bool isFixFps = m_gui.checkBox(U"cb-fix-fps");
-                std::get<SimpleGUIWidget::Slider>(m_gui.widget(U"sl-fps").widget).enabled = isFixFps;
-                if (isFixFps) {
-                    Graphics::SetTargetFrameRateHz(m_gui.slider(U"sl-fps"));
-                } else {
-                    Graphics::SetTargetFrameRateHz(s3d::none);
-                }
-            }
-        }
+    private:
+        s3d::HashTable<String, bool> m_debugFlag;
     };
     Menu::Menu():
         m_pImpl(std::make_unique<Impl>())
     {}
-    bool Menu::IsDebug(StringView label)
+    void Menu::Init()
+    {
+        return Instance()->m_pImpl->init();
+    }
+    bool Menu::IsDebug(const String& label)
     {
         return Instance()->m_pImpl->isDebug(label);
-    }
-    void Menu::OnGUI()
-    {
-        Instance()->m_pImpl->onGUI();
     }
 }
 #endif

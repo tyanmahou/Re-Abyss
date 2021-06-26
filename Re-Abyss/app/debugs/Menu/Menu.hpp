@@ -4,6 +4,7 @@
 #include <memory>
 #include <Siv3D/StringView.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
+#include "DebugFlag.hpp"
 
 namespace abyss::Debug
 {
@@ -16,8 +17,8 @@ namespace abyss::Debug
 
         Menu();
     public:
-        static bool IsDebug(s3d::StringView label);
-        static void OnGUI();
+        static void Init();
+        static bool IsDebug(const String& label);
     };
 }
 

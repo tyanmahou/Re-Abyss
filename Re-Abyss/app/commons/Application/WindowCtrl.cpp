@@ -1,6 +1,7 @@
 #include "WindowCtrl.hpp"
 #include <Siv3D.hpp>
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace
 {
@@ -44,7 +45,7 @@ namespace abyss
         Window::Resize(windowSize);
 
 #if ABYSS_DEBUG
-        Windows::WindowMenu::Main().show(true);
+        Debug::Menu::Init();
         this->changeWindowSize(m_windowSizeKind);
 #endif
         Scene::SetBackground(Palette::Black);

@@ -20,8 +20,5 @@ namespace abyss
             return;
         }
         this->onSceneDraw();
-#if ABYSS_DEBUG
-        Debug::Menu::OnGUI();
-#endif
     }
 }

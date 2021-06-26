@@ -1,0 +1,44 @@
+{
+	"Log" : {
+	    "label": "ログ",
+		"kind": "popup",
+		"list": {
+	        "EffectCount": {
+			    "label": "エフェクト数",
+				"isChecked": false
+		    },
+	        "DecorCount": {
+			    "label": "装飾数",
+				"isChecked": false
+		    }
+	    }
+	},
+	"Draw" : {
+	    "label": "デバッグ描画",
+		"kind": "popup",
+	    "list": {
+	        "Collider": {
+			    "label": "コライダー",
+				"isChecked": false
+		    },
+	        "MapCollider": {
+			    "label": "地形コライダー",
+				"isChecked": false
+		    }
+	    }
+	},
+	"PostEffect" : {
+	    "label": "ポストエフェクト設定",
+		"kind": "popup",
+	    "list": {
+	        "Light": {
+			    "label": "ライト",
+				"isChecked": true
+		    },
+	        "Distortion": {
+			    "label": "歪み",
+				"isChecked": true
+		    }
+	    }
+	}
+}

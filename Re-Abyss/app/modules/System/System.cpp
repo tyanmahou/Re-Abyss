@@ -167,12 +167,12 @@ namespace abyss
         {
             snapshot->copySceneToPost()
 #if ABYSS_DEBUG
-                .apply(!Debug::Menu::IsDebug(U"disable-light"), [=] { return m_light->start(m_backGround->getBgColor()); })
+                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return m_light->start(m_backGround->getBgColor()); })
 #else
                 .apply([=] { return m_light->start(m_backGround->getBgColor()); })
 #endif 
 #if ABYSS_DEBUG
-                .apply(!Debug::Menu::IsDebug(U"disable-distortion"), [=] { return m_distortion->start(); })
+                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return m_distortion->start(); })
 #else
                 .apply([=] { return m_distortion->start(); })
 #endif

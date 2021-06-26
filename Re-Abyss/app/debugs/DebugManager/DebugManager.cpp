@@ -34,7 +34,7 @@ namespace abyss::Debug
 
         void drawCollider(const World& world)
         {
-            if (!Menu::IsDebug(U"draw-collider")) {
+            if (!Menu::IsDebug(Debug::DebugFlag::DrawCollider)) {
                 return;
             }
             auto colliders = world.finds<Actor::ICollider>();
@@ -48,7 +48,7 @@ namespace abyss::Debug
         }
         void drawMapCollider(const World& world)
         {
-            if (!Menu::IsDebug(U"draw-map-collider")) {
+            if (!Menu::IsDebug(Debug::DebugFlag::DrawMapCollider)) {
                 return;
             }
 
@@ -110,7 +110,7 @@ namespace abyss::Debug
     }
     void DebugManager::DrawDebug(const Effects& effects)
     {
-        if (!Debug::Menu::IsDebug(U"log-effect-num")) {
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogEffectCount)) {
             return;
         }
         Log::Print << U"---LogEffectNum---";
@@ -121,7 +121,7 @@ namespace abyss::Debug
     }
     void DebugManager::DrawDebug(const Decors& decor)
     {
-        if (!Debug::Menu::IsDebug(U"log-decor-num")) {
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogDecorCount)) {
             return;
         }
         Log::Print << U"---LogDecorNum---";
