@@ -1429,6 +1429,12 @@
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2114,6 +2120,8 @@
     <ClInclude Include="app\views\util\Dither\DitherShader.hpp" />
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
+    <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
+    <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

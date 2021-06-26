@@ -1,5 +1,6 @@
 #include "WindowCtrl.hpp"
 #include <Siv3D.hpp>
+#include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 
 namespace
 {
@@ -42,6 +43,10 @@ namespace abyss
         Window::SetTitle(appName);
         Window::Resize(windowSize);
 
+#if ABYSS_DEBUG
+        Windows::WindowMenu::Main().show(true);
+        this->changeWindowSize(m_windowSizeKind);
+#endif
         Scene::SetBackground(Palette::Black);
         System::SetTerminationTriggers((KeyAlt + KeyF4).down() | UserAction::CloseButtonClicked);
 
@@ -53,13 +58,22 @@ namespace abyss
     {
         switch (kind) {
         case WindowSizeKind::FullScrren:
+#if ABYSS_DEBUG
+            Windows::WindowMenu::Main().show(false);
+#endif
             ::SetFullScreen(false);
             ::SetFullScreen(true);
             break;
         default:
         {
             auto [num, denom] = ::ToRational(kind);
-            Window::Resize(m_baseSceneSize * num / denom, WindowResizeOption::KeepSceneSize);
+            auto newClientSize = m_baseSceneSize * num / denom;
+
+#if ABYSS_DEBUG
+            Windows::WindowMenu::Main().show(true);
+            newClientSize += Size(0, 20);
+#endif
+            Window::Resize(newClientSize, WindowResizeOption::KeepSceneSize);
         }
         break;
         }

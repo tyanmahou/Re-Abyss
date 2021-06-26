@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
+#include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 
 namespace abyss
 {
@@ -31,6 +32,7 @@ namespace abyss
 		/// <param name="kind"></param>
 		void changeWindowSize(WindowSizeKind kind);
 		void changeWindowSizeNext();
+
 	private:
 		s3d::Size m_baseSceneSize;
 		WindowSizeKind m_windowSizeKind;
