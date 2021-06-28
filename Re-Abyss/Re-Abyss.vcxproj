@@ -398,6 +398,7 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\models\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\modules\Distortion\Distortion.cpp" />
@@ -884,6 +885,7 @@
     <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
+    <ClInclude Include="app\models\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
@@ -932,6 +934,7 @@
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
+    <ClInclude Include="app\utils\Math\Math.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />

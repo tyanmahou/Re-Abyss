@@ -21,6 +21,7 @@ namespace abyss::Actor::Enemy::Slime::Sensor
         Ref<Locator> m_locator;
     public:
         MainUpdate(ActorObj* pActor);
+        void setup(Executer executer);
         void onStart() override;
         void onUpdate() override;
 

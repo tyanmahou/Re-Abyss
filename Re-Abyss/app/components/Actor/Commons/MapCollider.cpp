@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/models/Collision/SweepUtil.hpp>
 #include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor
@@ -90,9 +91,26 @@ namespace abyss::Actor
         m_foot = m_pActor->find<Foot>();
     }
 
+    CShape MapCollider::calcCollider() const
+    {
+        if (m_useBody) {
+            // Body使用
+            if (!m_isEnableMoveHistory) {
+                return m_body->region();
+            } else {
+                // 移動差分をみて、6角形で考える
+                return SweepUtil::Sweep(m_body->region(), -m_body->moveDiff());
+            }
+        }
+        return m_collider->getCollider();
+    }
+
     CShape MapCollider::getCollider() const
     {
-        return m_useBody ? m_body->region() : m_collider->getCollider() ;
+        if (m_colliderCache) {
+            return m_colliderCache.value();
+        }
+        return this->calcCollider(); 
     }
 
     void MapCollider::onPrePhysics()
@@ -101,6 +119,8 @@ namespace abyss::Actor
             m_foot->reset();
         }
         m_result->onReflesh();
+        
+        m_colliderCache = this->calcCollider();
     }
 
     void MapCollider::onCollision(const Ref<Terrain>& terrain)

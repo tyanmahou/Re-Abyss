@@ -8,6 +8,10 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 	MainUpdate::MainUpdate(ActorObj* pActor):
 		m_pActor(pActor)
 	{}
+	void MainUpdate::setup(Executer executer)
+	{
+		executer.on<IPrePhysics>().addBefore<MapCollider>();
+	}
 	void MainUpdate::onStart()
     {
         m_parentCtrl = m_pActor->find<ParentCtrl>();

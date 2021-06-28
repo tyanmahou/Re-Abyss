@@ -1435,6 +1435,9 @@
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\models\Collision\SweepUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2123,6 +2126,8 @@
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
+    <ClInclude Include="app\utils\Math\Math.hpp" />
+    <ClInclude Include="app\models\Collision\SweepUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

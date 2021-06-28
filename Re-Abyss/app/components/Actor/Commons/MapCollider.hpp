@@ -6,6 +6,7 @@
 #include <abyss/concepts/Component.hpp>
 #include <abyss/components/Actor/Commons/Terrain.hpp>
 #include <abyss/modules/Actor/base/Tag.hpp>
+#include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor
 {
@@ -30,6 +31,8 @@ namespace abyss::Actor
        s3d::Optional<ColDirection> m_roomHitStrict;
        bool m_isThrough = false; // すりぬけるか
        bool m_useBody = true;
+       bool m_isEnableMoveHistory = false;
+       s3d::Optional<CShape> m_colliderCache;
     public:
         /// <summary>
         /// MapCollider
@@ -40,6 +43,7 @@ namespace abyss::Actor
 
         void onStart() override;
 
+        CShape calcCollider() const;
         CShape getCollider() const override;
 
         void onPrePhysics() override;
@@ -61,6 +65,11 @@ namespace abyss::Actor
             return *this;
         }
 
+        MapCollider& setIsEnableMoveHistory(bool enable)
+        {
+            m_isEnableMoveHistory = enable;
+            return *this;
+        }
         /// <summary>
         /// 床とあたったか
         /// </summary>

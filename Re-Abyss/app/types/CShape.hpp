@@ -17,6 +17,8 @@ namespace abyss
 		s3d::Circle,
 		s3d::Quad,
 		s3d::Vec2,
+		s3d::Line,
+		s3d::Triangle,
 		s3d::Array<CShape>,
 		s3d::None_t
 	>;

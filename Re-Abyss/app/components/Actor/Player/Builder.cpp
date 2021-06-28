@@ -83,7 +83,9 @@ namespace abyss::Actor::Player
         }
 		// 地形判定
 		{
-			pActor->attach<MapCollider>(pActor);
+            pActor->attach<MapCollider>(pActor)
+                ->setIsEnableMoveHistory(true) // 移動差分考慮する
+                ;
 		}
         // カメラターゲット
         {
