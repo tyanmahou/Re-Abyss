@@ -281,6 +281,10 @@ namespace abyss::Actor
     {
         return this->getPivotPos();
     }
+    s3d::Vec2 Body::moveDiff() const
+    {
+        return m_pos - m_prevPos;
+    }
     s3d::RectF Body::region() const
     {
         return { m_pos + m_pivot - m_size / 2, m_size };

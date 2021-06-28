@@ -99,6 +99,8 @@ namespace abyss::Actor
         ColDirection fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
         s3d::Vec2 getCenterPos()const override;
+
+        s3d::Vec2 moveDiff() const;
     public:
         inline static constexpr double DefaultGravity = 720.0;
         inline static constexpr double DefaultMaxVelocityY = 78;
