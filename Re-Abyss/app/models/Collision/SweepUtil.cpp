@@ -100,7 +100,7 @@ namespace abyss
                     frontEdgeIndex = 2;
                     break;
                 } else if (backEdgeCount == 0) {
-                    // 既に前に2つあったなら残りは必ず前なので計算不要
+                    // 既に前に2つあったなら残りは必ず後ろなので計算不要
                     backEdgeIndex = 2;
                     backEdgeCount = 1;
                     break;
