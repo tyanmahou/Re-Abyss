@@ -1,6 +1,18 @@
 #include "SweepUtil.hpp"
 #include <abyss/types/CShape.hpp>
 #include <Siv3D.hpp>
+
+namespace
+{
+    Vec2 InnerCenter(const Triangle& triangle)
+    {
+        const auto& [p0, p1, p2] = triangle;
+        const double d0 = p1.distanceFrom(p2);
+        const double d1 = p2.distanceFrom(p0);
+        const double d2 = p0.distanceFrom(p1);
+        return (d0 * p0 + d1 * p1 + d2 * p2) / (d0 + d1 + d2);
+    }
+}
 namespace abyss
 {
     CShape SweepUtil::Sweep(const s3d::RectF& rect, const s3d::Vec2& move)
@@ -56,5 +68,64 @@ namespace abyss
     CShape SweepUtil::Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
     {
         return Line(pos, pos + move);
+    }
+
+    CShape SweepUtil::Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move)
+    {
+        if (move.isZero()) {
+            // 移動無し
+            return triangle;
+        }
+        auto centroid = triangle.centroid(); // 三角形の中にある点をてきとーに一つ
+
+        size_t frontEdgeIndex = 0; // 前方の辺インデックス
+        size_t backEdgeIndex = 0; // 後方の辺インデックス
+        size_t backEdgeCount = 0; // 後方の辺の数
+        for (size_t posIndex = 0; posIndex < 3; ++posIndex) {
+
+            const auto& begin = triangle.p(posIndex);
+            const auto& end = triangle.p((posIndex + 1) % 3);
+            auto toEnd = end - begin;
+
+            auto vertical = toEnd.cross(centroid - begin) < 0 ? Vec2(-toEnd.y, toEnd.x) : Vec2(toEnd.y, -toEnd.x);
+            if (vertical.dot(move) <= 0) {
+                ++backEdgeCount;
+                backEdgeIndex = posIndex;
+            } else {
+                frontEdgeIndex = posIndex;
+            }
+            if (posIndex == 1) {
+                if (backEdgeCount == 2) {
+                    // 既に後ろに2つあったなら残りは必ず前なので計算不要
+                    frontEdgeIndex = 2;
+                    break;
+                } else if (backEdgeCount == 0) {
+                    // 既に前に2つあったなら残りは必ず前なので計算不要
+                    backEdgeIndex = 2;
+                    backEdgeCount = 1;
+                    break;
+                }
+            }
+        }
+        if (backEdgeCount == 1) {
+            // 後ろの辺が一つなら、移動後の三角形と後ろの辺が描く四角形
+            Array<CShape> ret;
+            ret.emplace_back(triangle.movedBy(move));
+            const auto& begin = triangle.p(backEdgeIndex);
+            const auto& end = triangle.p((backEdgeIndex + 1) % 3);
+            ret.emplace_back(Quad(begin, begin + move, end + move, end));
+            return ret;
+        } else if (backEdgeCount == 2) {
+            // 後ろの辺が二つなら、移動前の三角形と前の辺が描く四角形
+            Array<CShape> ret;
+            ret.emplace_back(triangle);
+            const auto& begin = triangle.p(frontEdgeIndex);
+            const auto& end = triangle.p((frontEdgeIndex + 1) % 3);
+            ret.emplace_back(Quad(begin, begin + move, end + move, end));
+            return ret;
+        }
+
+        // ここにはこないはず
+        return triangle.movedBy(move);
     }
 }
