@@ -1,7 +1,7 @@
 #include "SweepUtil.hpp"
 #include <abyss/types/CShape.hpp>
 #include <Siv3D.hpp>
-
+#include <abyss/utils/Math/Math.hpp>
 namespace
 {
     Vec2 InnerCenter(const Triangle& triangle)
@@ -67,11 +67,36 @@ namespace abyss
     }
     CShape SweepUtil::Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
     {
+        if (move.isZero()) {
+            return pos;
+        }
         return Line(pos, pos + move);
+    }
+
+    CShape SweepUtil::Sweep(const s3d::Line& line, const s3d::Vec2& move)
+    {
+        if (move.isZero()) {
+            return line;
+        }
+        return Quad(line.begin, line.begin + move, line.end + move, line.end);
     }
 
     CShape SweepUtil::Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move)
     {
+        if (triangle.p0 == triangle.p1 && triangle.p1 == triangle.p2) {
+            // 何故か点だった
+            return Sweep(triangle.p0, move);
+        } else if (Math::IsZeroLoose((triangle.p1 - triangle.p0).cross(triangle.p2 - triangle.p0))) {
+            // 何故か線だった
+            if ((triangle.p1 - triangle.p0).dot((triangle.p2 - triangle.p0)) <= 0) {
+                return Sweep(Line(triangle.p1, triangle.p2), move);
+            } else if ((triangle.p2 - triangle.p1).dot((triangle.p0 - triangle.p1)) <= 0) {
+                return Sweep(Line(triangle.p2, triangle.p0), move);
+            } else {
+                return Sweep(Line(triangle.p0, triangle.p1), move);
+            }
+        }
+
         if (move.isZero()) {
             // 移動無し
             return triangle;
