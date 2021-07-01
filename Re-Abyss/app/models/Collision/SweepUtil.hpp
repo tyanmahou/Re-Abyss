@@ -15,5 +15,7 @@ namespace abyss
         [[nodiscard]] static CShape Sweep(const s3d::Vec2& pos, const s3d::Vec2& move);
         [[nodiscard]] static CShape Sweep(const s3d::Line& line, const s3d::Vec2& move);
         [[nodiscard]] static CShape Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move);
+
+        [[nodiscard]] static CShape Sweep(const CShape& shape, const s3d::Vec2& move);
     };
 }

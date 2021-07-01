@@ -2,20 +2,13 @@
 #include <abyss/types/CShape.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/Math/Math.hpp>
+#include <abyss/utils/Overloaded.hpp>
+
 namespace
 {
-    Vec2 InnerCenter(const Triangle& triangle)
-    {
-        const auto& [p0, p1, p2] = triangle;
-        const double d0 = p1.distanceFrom(p2);
-        const double d1 = p2.distanceFrom(p0);
-        const double d2 = p0.distanceFrom(p1);
-        return (d0 * p0 + d1 * p1 + d2 * p2) / (d0 + d1 + d2);
-    }
-}
-namespace abyss
-{
-    CShape SweepUtil::Sweep(const s3d::RectF& rect, const s3d::Vec2& move)
+    using namespace abyss;
+
+    CShape Sweep(const s3d::RectF& rect, const s3d::Vec2& move)
     {
         bool isZeroMoveX = move.x == 0.0;
         bool isZeroMoveY = move.y == 0.0;
@@ -65,7 +58,7 @@ namespace abyss
         // ここにはこないはず
         return movedRect;
     }
-    CShape SweepUtil::Sweep(const s3d::Circle& circle, const s3d::Vec2& move)
+    CShape Sweep(const s3d::Circle& circle, const s3d::Vec2& move)
     {
         if (move.isZero()) {
             return circle;
@@ -80,7 +73,7 @@ namespace abyss
         ret.emplace_back(Quad(p0, p0 + move, p1 + move, p1));
         return ret;
     }
-    CShape SweepUtil::Sweep(const s3d::Quad& quad, const s3d::Vec2& move)
+    CShape Sweep(const s3d::Quad& quad, const s3d::Vec2& move)
     {
         if (move.isZero()) {
             return quad;
@@ -113,7 +106,7 @@ namespace abyss
         }
         return ret;
     }
-    CShape SweepUtil::Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
+    CShape Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
     {
         if (move.isZero()) {
             return pos;
@@ -121,7 +114,7 @@ namespace abyss
         return Line(pos, pos + move);
     }
 
-    CShape SweepUtil::Sweep(const s3d::Line& line, const s3d::Vec2& move)
+    CShape Sweep(const s3d::Line& line, const s3d::Vec2& move)
     {
         if (move.isZero()) {
             return line;
@@ -129,12 +122,12 @@ namespace abyss
         return Quad(line.begin, line.begin + move, line.end + move, line.end);
     }
 
-    CShape SweepUtil::Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move)
+    CShape Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move)
     {
         if (triangle.p0 == triangle.p1 && triangle.p1 == triangle.p2) {
             // 何故か点だった
             return Sweep(triangle.p0, move);
-        } else if (Math::IsZeroLoose((triangle.p1 - triangle.p0).cross(triangle.p2 - triangle.p0))) {
+        } else if (abyss::Math::IsZeroLoose((triangle.p1 - triangle.p0).cross(triangle.p2 - triangle.p0))) {
             // 何故か線だった
             if ((triangle.p1 - triangle.p0).dot((triangle.p2 - triangle.p0)) <= 0) {
                 return Sweep(Line(triangle.p1, triangle.p2), move);
@@ -200,5 +193,58 @@ namespace abyss
 
         // ここにはこないはず
         return triangle.movedBy(move);
+    }
+
+    template<class T>
+    concept Sweepable = requires(T & a, const Vec2& move)
+    {
+        { ::Sweep(a, move) }->std::same_as<CShape>;
+    };
+}
+namespace abyss
+{
+    CShape SweepUtil::Sweep(const s3d::RectF& rect, const s3d::Vec2& move)
+    {
+        return ::Sweep(rect, move);
+    }
+    CShape SweepUtil::Sweep(const s3d::Circle& circle, const s3d::Vec2& move)
+    {
+        return ::Sweep(circle, move);
+    }
+    CShape SweepUtil::Sweep(const s3d::Quad& quad, const s3d::Vec2& move)
+    {
+        return ::Sweep(quad, move);
+    }
+    CShape SweepUtil::Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
+    {
+        return ::Sweep(pos, move);
+    }
+
+    CShape SweepUtil::Sweep(const s3d::Line& line, const s3d::Vec2& move)
+    {
+        return ::Sweep(line, move);
+    }
+
+    CShape SweepUtil::Sweep(const s3d::Triangle& triangle, const s3d::Vec2& move)
+    {
+        return ::Sweep(triangle, move);
+    }
+    CShape SweepUtil::Sweep(const CShape& shape, const s3d::Vec2& move)
+    {
+        return std::visit(overloaded{
+            [&move](const Sweepable auto& s)->CShape {
+                return ::Sweep(s, move);
+            },
+            [&move](const Array<CShape>& ar)->CShape {
+                Array<CShape> ret;
+                for (const auto& s : ar) {
+                    ret.push_back(SweepUtil::Sweep(s, move));
+                }
+                return ret;
+            },
+            []([[maybe_unused]] const None_t&)->CShape {
+                return s3d::none;
+            }
+        }, shape);
     }
 }
