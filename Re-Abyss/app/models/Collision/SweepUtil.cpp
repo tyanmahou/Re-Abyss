@@ -65,6 +65,44 @@ namespace abyss
         // ここにはこないはず
         return movedRect;
     }
+    CShape SweepUtil::Sweep(const s3d::Circle& circle, const s3d::Vec2& move)
+    {
+        if (move.isZero()) {
+            return circle;
+        }
+        auto vertiacal = Vec2(move.y, -move.x).normalized();
+
+        Array<CShape> ret;
+        ret.emplace_back(circle);
+        ret.emplace_back(circle.movedBy(move));
+        Vec2 p0 = circle.center + vertiacal * circle.r;
+        Vec2 p1 = circle.center - vertiacal * circle.r;
+        ret.emplace_back(Quad(p0, p0 + move, p1 + move, p1));
+        return ret;
+    }
+    CShape SweepUtil::Sweep(const s3d::Quad& quad, const s3d::Vec2& move)
+    {
+        if (move.isZero()) {
+            return quad;
+        }
+        auto centroid = (quad.p0 + quad.p1 + quad.p2 * quad.p3) / 4.0;
+
+        Array<CShape> ret;
+        ret.emplace_back(quad);
+
+        for (size_t posIndex = 0; posIndex < 4; ++posIndex) {
+
+            const auto& begin = quad.p(posIndex);
+            const auto& end = quad.p((posIndex + 1) % 4);
+            auto toEnd = end - begin;
+
+            auto vertical = toEnd.cross(centroid - begin) < 0 ? Vec2(-toEnd.y, toEnd.x) : Vec2(toEnd.y, -toEnd.x);
+            if (vertical.dot(move) > 0) {
+                ret.emplace_back(Quad(begin, begin + move, end + move, end));
+            }
+        }
+        return ret;
+    }
     CShape SweepUtil::Sweep(const s3d::Vec2& pos, const s3d::Vec2& move)
     {
         if (move.isZero()) {
