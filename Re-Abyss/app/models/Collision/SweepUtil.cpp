@@ -85,19 +85,40 @@ namespace abyss
         if (move.isZero()) {
             return quad;
         }
-        auto centroid = (quad.p0 + quad.p1 + quad.p2 * quad.p3) / 4.0;
-
         Array<CShape> ret;
         ret.emplace_back(quad);
 
+        std::array<bool, 4> isFront{};
+
+        constexpr std::array<std::array<int, 3>, 2> posIndexes{{
+            {0, 1, 3},
+            {3, 1, 2}
+        }};
+        for (const auto& triangle : posIndexes) {
+
+            const auto centroid = (quad.p(triangle[0]) + quad.p(triangle[1]) + quad.p(triangle[2])) / 3.0;
+
+            for (size_t tIndex = 0; tIndex < 3; ++tIndex) {
+                auto posIndex = triangle[tIndex];
+                auto posIndex2 = triangle[(tIndex + 1) % 3];
+                if ((posIndex2 - posIndex + 4) % 4 != 1) {
+                    continue;
+                }
+                if (isFront[posIndex]) {
+                    continue;
+                }
+                const auto& begin = quad.p(posIndex);
+                const auto& end = quad.p(posIndex2);
+                auto toEnd = end - begin;
+                auto vertical = toEnd.cross(centroid - begin) < 0 ? Vec2(-toEnd.y, toEnd.x) : Vec2(toEnd.y, -toEnd.x);
+
+                isFront[posIndex] |= vertical.dot(move) > 0;
+            }
+        }
         for (size_t posIndex = 0; posIndex < 4; ++posIndex) {
-
-            const auto& begin = quad.p(posIndex);
-            const auto& end = quad.p((posIndex + 1) % 4);
-            auto toEnd = end - begin;
-
-            auto vertical = toEnd.cross(centroid - begin) < 0 ? Vec2(-toEnd.y, toEnd.x) : Vec2(toEnd.y, -toEnd.x);
-            if (vertical.dot(move) > 0) {
+            if (isFront[posIndex]) {
+                const auto& begin = quad.p(posIndex);
+                const auto& end = quad.p((posIndex + 1) % 4);
                 ret.emplace_back(Quad(begin, begin + move, end + move, end));
             }
         }
