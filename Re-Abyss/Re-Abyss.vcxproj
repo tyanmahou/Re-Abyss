@@ -353,7 +353,6 @@
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
-    <ClCompile Include="app\components\Decor\Commons\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
@@ -604,7 +603,7 @@
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
     <ClCompile Include="app\components\base\Components.cpp" />
-    <ClCompile Include="app\components\Actor\Commons\ClockCtrl.cpp" />
+    <ClCompile Include="app\components\Common\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Body.cpp" />
     <ClCompile Include="app\components\Actor\Commons\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\DeadOnHItReceiver.cpp" />
@@ -824,7 +823,6 @@
     <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
     <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
     <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
@@ -1188,7 +1186,7 @@
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\components\Actor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\ClockCtrl.hpp" />
+    <ClInclude Include="app\components\Common\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\ICollider.hpp" />
     <ClInclude Include="app\components\base\IComponent.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandCtrl.hpp" />

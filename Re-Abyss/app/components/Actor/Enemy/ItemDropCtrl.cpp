@@ -11,6 +11,7 @@ namespace abyss::Actor::Enemy
     {}
     void ItemDropCtrl::drop() const
     {
+        // TODO 生成
         auto world = m_pActor->getModule<World>();
 
         using abyss::Actor::Item::RecoveryKind;
@@ -20,6 +21,8 @@ namespace abyss::Actor::Enemy
         case RecoveryKind::None:
             break;
         case RecoveryKind::Small:
+            break;
+        case RecoveryKind::Middle:
             break;
         case RecoveryKind::Big:
             break;

@@ -1252,10 +1252,7 @@
     <ClCompile Include="app\utils\Clock\Clock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\ClockCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Commons\ClockCtrl.cpp">
+    <ClCompile Include="app\components\Common\ClockCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp">
@@ -2036,8 +2033,7 @@
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\ClockCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\ClockCtrl.hpp" />
+    <ClInclude Include="app\components\Common\ClockCtrl.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
     <ClInclude Include="app\entities\Decor\General\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />

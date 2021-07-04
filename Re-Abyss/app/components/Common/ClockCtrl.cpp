@@ -3,9 +3,8 @@
 namespace abyss::Actor
 {
     void ClockCtrl::updateDeltaTime(double dt)
-    {
-        // TODO timeScaleとかあれば
-        m_deltaTime = dt;
+    {        
+        m_deltaTime = dt * m_timeScale;
     }
     void ClockCtrl::updateUpdateTime()
     {
@@ -14,6 +13,10 @@ namespace abyss::Actor
     void ClockCtrl::updateDrawTime()
     {
         m_drawTimeSec += m_deltaTime;
+    }
+    void ClockCtrl::setTimeScale(double timeScale)
+    {
+        m_timeScale = timeScale;
     }
     s3d::Microseconds ClockCtrl::getUpdateTime() const
     {
