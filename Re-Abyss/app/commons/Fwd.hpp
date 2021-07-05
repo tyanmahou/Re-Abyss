@@ -35,6 +35,9 @@ namespace abyss
 	class IMasterObserver;
 	class DrawManager;
 
+	class ICollision;
+	class IMapCollision;
+	
 	/// Modules/Actors
 	namespace Actor
 	{
@@ -113,8 +116,6 @@ namespace abyss
 	/// </summary>
 	struct RoomBorders;
 	class RoomModel;
-	class ICollisionModel;
-	class IMapCollisionModel;
 	class CameraModel;
 	class QuakeModel;
 	namespace User

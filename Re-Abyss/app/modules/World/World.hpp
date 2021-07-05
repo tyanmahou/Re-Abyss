@@ -8,8 +8,8 @@ namespace abyss
     {
     private:
         Actor::ActorsHolder m_actorsHolder;
-        std::unique_ptr<ICollisionModel> m_collision;
-        std::unique_ptr<IMapCollisionModel> m_mapCollision;
+        std::unique_ptr<ICollision> m_collision;
+        std::unique_ptr<IMapCollision> m_mapCollision;
 
         Manager* m_pManager = nullptr;
         Actor::BufferLayer m_bufferLayer = Actor::BufferLayer::Front;

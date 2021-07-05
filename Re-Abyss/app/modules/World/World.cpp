@@ -1,7 +1,7 @@
 #include "World.hpp"
 
-#include <abyss/models/Collision/CollisionModel.hpp>
-#include <abyss/models/Collision/MapCollisionModel.hpp>
+#include <abyss/modules/World/Collision/Collision.hpp>
+#include <abyss/modules/World/Physics/MapCollision.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/components/Actor/base/ICollision.hpp>
 #include <abyss/components/Actor/base/IPhysics.hpp>

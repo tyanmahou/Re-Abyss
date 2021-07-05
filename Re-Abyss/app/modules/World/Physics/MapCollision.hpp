@@ -7,10 +7,10 @@
 
 namespace abyss
 {
-    class IMapCollisionModel
+    class IMapCollision
     {
     public:
-        virtual ~IMapCollisionModel() = default;
+        virtual ~IMapCollision() = default;
 
         virtual void collisionAll(
             const s3d::Array<Ref<Actor::IPhysics>>& physics, 
@@ -19,7 +19,7 @@ namespace abyss
         
     };
 
-    class SimpleMapCollision : public IMapCollisionModel
+    class SimpleMapCollision : public IMapCollision
     {
     public:
         void collisionAll(

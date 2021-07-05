@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/base/ICollider.hpp>
-#include <abyss/models/Collision/CollisionUtil.hpp>
+#include <abyss/modules/World/CollisionUtil.hpp>
 
 namespace abyss::Actor::Item
 {

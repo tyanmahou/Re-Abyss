@@ -1,4 +1,4 @@
-#include "MapCollisionModel.hpp"
+#include "MapCollision.hpp"
 
 #include <abyss/components/Actor/base/IPhysics.hpp>
 #include <abyss/components/Actor/Commons/Terrain.hpp>

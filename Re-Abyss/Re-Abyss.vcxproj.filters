@@ -104,7 +104,7 @@
     <ClCompile Include="app\views\Camera\CameraView.cpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Collision\CollisionModel.cpp">
+    <ClCompile Include="app\modules\World\Collision\Collision.cpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
@@ -146,10 +146,10 @@
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Collision\FixPos.cpp">
+    <ClCompile Include="app\modules\World\FixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Collision\CollisionUtil.cpp">
+    <ClCompile Include="app\modules\World\CollisionUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp">
@@ -347,7 +347,7 @@
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Collision\MapCollisionModel.cpp">
+    <ClCompile Include="app\modules\World\Physics\MapCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
@@ -1432,7 +1432,7 @@
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Collision\SweepUtil.cpp">
+    <ClCompile Include="app\modules\World\SweepUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1451,7 +1451,7 @@
     <ClInclude Include="app\views\Camera\CameraView.hpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Collision\CollisionModel.hpp">
+    <ClInclude Include="app\modules\World\Collision\Collision.hpp">
       <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClInclude>
     <ClInclude Include="app\types\CShape.hpp">
@@ -1515,8 +1515,8 @@
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
-    <ClInclude Include="app\models\Collision\FixPos.hpp" />
-    <ClInclude Include="app\models\Collision\CollisionUtil.hpp" />
+    <ClInclude Include="app\modules\World\FixPos.hpp" />
+    <ClInclude Include="app\modules\World\CollisionUtil.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
@@ -1626,7 +1626,7 @@
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
-    <ClInclude Include="app\models\Collision\LayerGroup.hpp" />
+    <ClInclude Include="app\modules\World\LayerGroup.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Xto\XtoVM.hpp" />
@@ -1650,7 +1650,7 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
-    <ClInclude Include="app\models\Collision\MapCollisionModel.hpp" />
+    <ClInclude Include="app\modules\World\Physics\MapCollision.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -2123,7 +2123,7 @@
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
-    <ClInclude Include="app\models\Collision\SweepUtil.hpp" />
+    <ClInclude Include="app\modules\World\SweepUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -1,6 +1,6 @@
 #include "Body.hpp"
 #include <Siv3D/Math.hpp>
-#include <abyss/models/Collision/FixPos.hpp>
+#include <abyss/modules/World/FixPos.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
 
 namespace abyss::Actor

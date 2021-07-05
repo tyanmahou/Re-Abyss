@@ -10,11 +10,11 @@ namespace abyss
 	/// <summary>
 	/// 当たり判定インターフェース
 	/// </summary>
-	class ICollisionModel
+	class ICollision
 	{
 	public:
-		ICollisionModel() = default;
-		virtual ~ICollisionModel() = default;
+		ICollision() = default;
+		virtual ~ICollision() = default;
 		virtual void collisionAll(const s3d::Array<Ref<Actor::ICollision>>&) = 0;
 		virtual void reset() = 0;
 	};
@@ -22,7 +22,7 @@ namespace abyss
 	/// <summary>
 	/// シンプルなあたり判定
 	/// </summary>
-	class SimpleCollision : public ICollisionModel
+	class SimpleCollision : public ICollision
 	{
 	public:
 		~SimpleCollision() override = default;
