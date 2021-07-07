@@ -397,7 +397,9 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
-    <ClCompile Include="app\modules\World\SweepUtil.cpp" />
+    <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
+    <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
+    <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\modules\Distortion\Distortion.cpp" />
@@ -465,7 +467,7 @@
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
-    <ClCompile Include="app\modules\World\Physics\MapCollision.cpp" />
+    <ClCompile Include="app\modules\Physics\MapCollision.cpp" />
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
@@ -624,7 +626,7 @@
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\modules\World\Collision\Collision.cpp" />
-    <ClCompile Include="app\modules\World\CollisionUtil.cpp" />
+    <ClCompile Include="app\utils\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\modules\World\FixPos.cpp" />
     <ClCompile Include="app\models\Event\Talk\SerifModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
@@ -883,7 +885,13 @@
     <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
-    <ClInclude Include="app\modules\World\SweepUtil.hpp" />
+    <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\Physics\base\IDetector.hpp" />
+    <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
+    <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
+    <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
+    <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
@@ -1076,7 +1084,7 @@
     <ClInclude Include="app\components\Actor\Player\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Player\UICtrl.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
-    <ClInclude Include="app\modules\World\Physics\MapCollision.hpp" />
+    <ClInclude Include="app\modules\Physics\MapCollision.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
@@ -1230,7 +1238,7 @@
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
     <ClInclude Include="app\modules\World\Collision\Collision.hpp" />
-    <ClInclude Include="app\modules\World\CollisionUtil.hpp" />
+    <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\modules\World\FixPos.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\Schield\Param.hpp" />

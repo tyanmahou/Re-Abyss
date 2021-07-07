@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/base/ICollider.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/modules/World/CollisionUtil.hpp>
+#include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
 namespace abyss::Actor

@@ -1,6 +1,6 @@
 #include "Collision.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/CollisionUtil.hpp>
+#include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <abyss/components/Actor/base/ICollision.hpp>
 #include <abyss/modules/World/LayerGroup.hpp>
 

@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>
-#include <abyss/modules/World/CollisionUtil.hpp>
+#include <abyss/utils/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {

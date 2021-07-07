@@ -149,7 +149,7 @@
     <ClCompile Include="app\modules\World\FixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\CollisionUtil.cpp">
+    <ClCompile Include="app\utils\Collision\CollisionUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp">
@@ -347,7 +347,7 @@
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\Physics\MapCollision.cpp">
+    <ClCompile Include="app\modules\Physics\MapCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
@@ -1432,7 +1432,13 @@
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\SweepUtil.cpp">
+    <ClCompile Include="app\utils\Collision\SweepUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Physics\PhysicsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Physics\SimpleDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1516,7 +1522,7 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\modules\World\FixPos.hpp" />
-    <ClInclude Include="app\modules\World\CollisionUtil.hpp" />
+    <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
@@ -1650,7 +1656,7 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
-    <ClInclude Include="app\modules\World\Physics\MapCollision.hpp" />
+    <ClInclude Include="app\modules\Physics\MapCollision.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -2123,7 +2129,13 @@
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
-    <ClInclude Include="app\modules\World\SweepUtil.hpp" />
+    <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
+    <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
+    <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
+    <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
+    <ClInclude Include="app\modules\Physics\base\IDetector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

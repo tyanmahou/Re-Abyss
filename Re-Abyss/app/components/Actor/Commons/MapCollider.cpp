@@ -9,7 +9,7 @@
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/World/SweepUtil.hpp>
+#include <abyss/utils/Collision/SweepUtil.hpp>
 #include <abyss/types/CShape.hpp>
 
 namespace abyss::Actor

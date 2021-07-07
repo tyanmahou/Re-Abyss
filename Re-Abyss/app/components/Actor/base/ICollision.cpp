@@ -1,6 +1,6 @@
 #include "ICollision.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/CollisionUtil.hpp>
+#include <abyss/utils/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor
 {
