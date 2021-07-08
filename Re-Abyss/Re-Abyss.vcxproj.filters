@@ -1441,6 +1441,9 @@
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Physics\Detector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2136,6 +2139,8 @@
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetector.hpp" />
+    <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
+    <ClInclude Include="app\modules\Physics\Detector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

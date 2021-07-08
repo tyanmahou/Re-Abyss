@@ -29,5 +29,6 @@ namespace abyss
 	struct CShape : ShapeVariant
 	{
 		using ShapeVariant::variant;
+		using ShapeVariant::operator=;
 	};
 }

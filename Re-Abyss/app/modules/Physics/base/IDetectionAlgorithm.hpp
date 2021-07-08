@@ -4,7 +4,7 @@
 
 namespace abyss::Physics
 {
-    class IDetector;
+    class IContacter;
     class ITerrain;
 
     /// <summary>
@@ -16,7 +16,7 @@ namespace abyss::Physics
         virtual ~IDetectionAlgorithm() = default;
 
         virtual void collisionAll(
-            const s3d::Array<Ref<IDetector>>& detectors,
+            const s3d::Array<Ref<IContacter>>& contacters,
             const s3d::Array<Ref<ITerrain>>& terrains
         ) = 0;
     };

@@ -397,6 +397,7 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\modules\Physics\Detector.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
@@ -888,7 +889,9 @@
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetector.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
+    <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
+    <ClInclude Include="app\modules\Physics\Detector.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
