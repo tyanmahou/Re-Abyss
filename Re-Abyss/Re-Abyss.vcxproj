@@ -397,7 +397,7 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
-    <ClCompile Include="app\modules\Physics\Detector.cpp" />
+    <ClCompile Include="app\modules\Physics\Contacter.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
@@ -493,6 +493,7 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Coro\Wait\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
+    <ClCompile Include="app\utils\IdGenerator\IdGenerator.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
@@ -887,11 +888,11 @@
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
-    <ClInclude Include="app\modules\Physics\base\IDetector.hpp" />
+    <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
-    <ClInclude Include="app\modules\Physics\Detector.hpp" />
+    <ClInclude Include="app\modules\Physics\Contacter.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
@@ -942,6 +943,7 @@
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
+    <ClInclude Include="app\utils\IdGenerator\IdGenerator.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />

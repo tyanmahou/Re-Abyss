@@ -5,7 +5,7 @@
 
 namespace abyss::Physics
 {
-    void SimpleDetection::collisionAll(const s3d::Array<Ref<IContacter>>& contacters, const s3d::Array<Ref<ITerrain>>& terrains)
+    void SimpleDetection::collisionAll(const s3d::Array<std::shared_ptr<IContacter>>& contacters, const s3d::Array<std::shared_ptr<ITerrain>>& terrains)
     {
         for (const auto& c : contacters) {
             if (!c || !c->isActive()) {
@@ -16,9 +16,12 @@ namespace abyss::Physics
                 if (!t || !t->isActive()) {
                     continue;
                 }
-                if(c->id() == t->id())
+                if (c->id() == t->id()) {
+                    // 同じidならスルー
+                    continue;
+                }
                 if (ColisionUtil::Intersects(c->getShape(), t->getData().region)) {
-                    d->onCollision(t->getData());
+                    c->onCollision(t->getData());
                 }
             }
         }

@@ -7,8 +7,8 @@ namespace abyss::Physics
     {
     private:
         void collisionAll(
-            const s3d::Array<Ref<IContacter>>& contacters,
-            const s3d::Array<Ref<ITerrain>>& terrains
+            const s3d::Array<std::shared_ptr<IContacter>>& contacters,
+            const s3d::Array<std::shared_ptr<ITerrain>>& terrains
         );
     };
 }

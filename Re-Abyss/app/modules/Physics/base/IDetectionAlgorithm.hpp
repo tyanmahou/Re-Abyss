@@ -1,6 +1,6 @@
 #pragma once
+#include <memory>
 #include <Siv3D/Array.hpp>
-#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Physics
 {
@@ -16,8 +16,8 @@ namespace abyss::Physics
         virtual ~IDetectionAlgorithm() = default;
 
         virtual void collisionAll(
-            const s3d::Array<Ref<IContacter>>& contacters,
-            const s3d::Array<Ref<ITerrain>>& terrains
+            const s3d::Array<std::shared_ptr<IContacter>>& contacters,
+            const s3d::Array<std::shared_ptr<ITerrain>>& terrains
         ) = 0;
     };
 }
