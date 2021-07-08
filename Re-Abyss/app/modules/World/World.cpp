@@ -1,17 +1,13 @@
 #include "World.hpp"
 
 #include <abyss/modules/World/Collision/Collision.hpp>
-#include <abyss/modules/Physics/MapCollision.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/components/Actor/base/ICollision.hpp>
-#include <abyss/components/Actor/base/IPhysics.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 namespace abyss
 {
     World::World() :
-        m_collision(std::make_unique<SimpleCollision>()),
-        m_mapCollision(std::make_unique<SimpleMapCollision>())
+        m_collision(std::make_unique<SimpleCollision>())
     {}
     World::~World()
     {}
@@ -45,11 +41,14 @@ namespace abyss
         m_actorsHolder.move();
     }
 
-    void World::physics()
+    void World::prePhysics()
+    {
+        m_actorsHolder.prePhysics();
+    }
+
+    void World::postPhysics()
     {
         // 地形判定
-        m_actorsHolder.prePhysics();
-        m_mapCollision->collisionAll(this->finds<Actor::IPhysics>(), this->finds<Actor::Terrain>());
         m_actorsHolder.postPhysics();
     }
 

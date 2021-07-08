@@ -17,6 +17,11 @@ namespace abyss
         m_pWorld = pWorld;
         return *this;
     }
+    Manager& Manager::set(PhysicsManager* pPhysics)
+    {
+        m_pPhysics = pPhysics;
+        return *this;
+    }
     Manager& Manager::set(Events* pEvents)
     {
         m_pEvents = pEvents;
@@ -98,6 +103,8 @@ namespace abyss
             return m_pGlobalTime;
         } else if constexpr (std::is_same_v<World, T>) {
             return m_pWorld;
+        } else if constexpr (std::is_same_v<PhysicsManager, T>) {
+            return m_pPhysics;
         } else if constexpr (std::is_same_v<Events, T>) {
             return m_pEvents;
         } else if constexpr (std::is_same_v<Camera, T>) {
@@ -131,6 +138,7 @@ namespace abyss
     template Master* Manager::getModule<Master>() const;
     template GlobalTime* Manager::getModule<GlobalTime>() const;
     template World* Manager::getModule<World>() const;
+    template PhysicsManager* Manager::getModule<PhysicsManager>() const;
     template Events* Manager::getModule<Events>() const;
     template Camera* Manager::getModule<Camera>() const;
     template Light* Manager::getModule<Light>() const;

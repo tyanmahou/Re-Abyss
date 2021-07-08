@@ -1,6 +1,6 @@
 #include "CommonBuilder.hpp"
 
-#include <abyss/components/Actor/Commons/Terrain.hpp>
+#include <abyss/components/Actor/Commons/TerrainProxy.hpp>
 #include <abyss/components/Actor/Map/MapProxy.hpp>
 #include <abyss/types/CShape.hpp>
 
@@ -15,8 +15,9 @@ namespace abyss::Actor::Map
 
         // 地形
         {
-            pActor->attach<Terrain>(pActor)
-                ->setMapColInfo(mapProxy->getMapColInfo());
+            pActor->attach<TerrainProxy>(pActor)
+                ->setColDirection(mapProxy->getCol())
+                .setRegion(mapProxy->region());
         }
     }
 }

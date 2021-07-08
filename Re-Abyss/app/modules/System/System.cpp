@@ -23,6 +23,7 @@ namespace abyss
 {
     System::System(IMasterObserver* masterObserver) :
         m_master(std::make_unique<Master>(masterObserver)),
+        m_physics(std::make_unique<PhysicsManager>()),
         m_light(std::make_unique<Light>()),
         m_distortion(std::make_unique<Distortion>()),
         m_stage(std::make_unique<Stage>()),
@@ -40,6 +41,7 @@ namespace abyss
             .set(m_light.get())
             .set(m_distortion.get())
             .set(&m_world)
+            .set(m_physics.get())
             .set(&m_events)
             .set(&m_effects)
             .set(&m_sound)
@@ -90,12 +92,18 @@ namespace abyss
         // フラッシュは常にする
         m_world.flush();
         m_decors->flush();
+        m_physics->cleanUp();
 
         bool isWorldStop = m_events.isWorldStop();
         if (!isWorldStop) {
             m_world.update();
             m_world.move();
-            m_world.physics();
+            {
+                // 地形衝突
+                m_world.prePhysics();
+                m_physics->onPhysicsCollision();
+                m_world.postPhysics();
+            }
         }
         m_camera.update(dt);
         if (!isWorldStop) {
@@ -110,6 +118,7 @@ namespace abyss
         m_crons->update();
 
         m_world.cleanUp();
+        m_physics->cleanUp();
 #if ABYSS_DEBUG
         Debug::DebugManager::DrawDebug(*m_decors);
         Debug::DebugManager::DrawDebug(m_effects);
@@ -161,6 +170,7 @@ namespace abyss
 
 #if ABYSS_DEBUG
             Debug::DebugManager::DrawDebug(m_world);
+            Debug::DebugManager::DrawDebug(*m_physics);
 #endif
         }
         // PostEffect適用

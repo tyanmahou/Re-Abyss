@@ -1,12 +1,13 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/IPhysics.hpp>
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
 #include <abyss/components/Actor/base/IPostPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 #include <abyss/modules/Actor/base/Tag.hpp>
 #include <abyss/types/CShape.hpp>
+#include <abyss/types/ColDirection.hpp>
+
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor
 {
@@ -15,12 +16,12 @@ namespace abyss::Actor
     class MapCollider:
         public IComponent,
         public IPrePhysics,
-        public IPhysics,
         public IPostPhysics
     {
     private:
         class Result;
     private:
+        ActorObj* m_pActor;
         Ref<Body> m_body;
         Ref<ICollider> m_collider;
 
@@ -44,11 +45,9 @@ namespace abyss::Actor
         void onStart() override;
 
         CShape calcCollider() const;
-        CShape getCollider() const override;
+        CShape getCollider() const;
 
         void onPrePhysics() override;
-
-        void onCollision(const Ref<Terrain>& terrain) override;
 
         void onPostPhysics() override;
 
@@ -93,51 +92,6 @@ namespace abyss::Actor
         /// </summary>
         /// <returns></returns>
         bool isHitAny() const;
-
-        /// <summary>
-        /// 衝突した地形を取得
-        /// </summary>
-        /// <returns></returns>
-        const s3d::Array<Ref<Terrain>>& getHitTerrains() const;
-
-        /// <summary>
-        /// 衝突した地形をアクターとして取得
-        /// </summary>
-        /// <returns></returns>
-        s3d::Array<ActorObj*> getHitActors()const;
-
-        /// <summary>
-        /// 衝突した地形いずれかに対して処理を行う
-        /// </summary>
-        template<Tag::Tagged T, IsComponent C>
-        bool anyThen(std::function<bool(C&)> callback) const
-        {
-            for (const auto& terrain : this->getHitTerrains()) {
-                if (!terrain) {
-                    continue;
-                }
-                if (terrain->isThen<T, C>(callback)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// 衝突した地形すべてに対して処理を行う
-        /// </summary>
-        template<Tag::Tagged T, IsComponent C>
-        bool eachThen(std::function<bool(C&)> callback) const
-        {
-            bool result = false;
-            for (const auto& terrain : this->getHitTerrains()) {
-                if (!terrain) {
-                    continue;
-                }
-                result |= terrain->isThen<T, C>(callback);
-            }
-            return result;
-        }
     };
 }
 
@@ -148,7 +102,6 @@ namespace abyss
     {
         using Base = MultiComponents<
             Actor::IPrePhysics,
-            Actor::IPhysics,
             Actor::IPostPhysics
         >;
     };

@@ -2,6 +2,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
@@ -19,6 +20,7 @@ namespace abyss
         std::unique_ptr<Master> m_master;
         GlobalTime m_time;
         World m_world;
+        std::unique_ptr<PhysicsManager> m_physics;
         Events m_events;
         Camera m_camera;
         std::unique_ptr<Light> m_light;

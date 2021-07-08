@@ -1,4 +1,5 @@
 #include "PenetrateFloorProxy.hpp"
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
@@ -10,12 +11,11 @@ namespace abyss::Actor::Map::PenetrateFloor
     void PenetrateFloorProxy::setup(Executer executer)
     {
         executer.on<IComponent>().addAfter<MapProxy>();
-        executer.on<IComponent>().addAfter<Terrain>();
+        //executer.on<IComponent>().addAfter<Terrain>();
     }
     void PenetrateFloorProxy::onStart()
     {
         m_map = m_pActor->find<MapProxy>();
-        m_terrain = m_pActor->find<Terrain>();
     }
     const s3d::Vec2& PenetrateFloorProxy::getPos() const
     {

@@ -4,7 +4,6 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Actor/Map/MapProxy.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
@@ -30,6 +29,5 @@ namespace abyss::Actor::Map::PenetrateFloor
         ColDirection m_aroundFloor;
 
         Ref<MapProxy> m_map;
-        Ref<Terrain> m_terrain;
     };
 }

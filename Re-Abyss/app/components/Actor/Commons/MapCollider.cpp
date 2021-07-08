@@ -4,20 +4,20 @@
 #include <abyss/components/Actor/base/ICollider.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/Foot.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 #include <abyss/components/Actor/Map/Ladder/LadderProxy.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/utils/Collision/SweepUtil.hpp>
 #include <abyss/types/CShape.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
     class MapCollider::Result
     {
     private:
-        s3d::Array<Ref<Terrain>> m_results;
+        //s3d::Array<Ref<Terrain>> m_results;
         ColDirection m_col;
     public:
         Result() = default;
@@ -27,13 +27,13 @@ namespace abyss::Actor
             m_col |= col;
         }
 
-        void add(const Ref<Terrain>& terrain)
-        {
-            m_results.push_back(terrain);
-        }
+        //void add(const Ref<Terrain>& terrain)
+        //{
+        //    m_results.push_back(terrain);
+        //}
         void onReflesh()
         {
-            m_results.clear();
+            //m_results.clear();
             m_col = ColDirection::None;
         }
         bool isHitGround() const
@@ -59,28 +59,12 @@ namespace abyss::Actor
 
         bool isHitAny() const
         {
-            return !m_results.empty();
-        }
-
-        const s3d::Array<Ref<Terrain>>& getResults() const
-        {
-            return m_results;
-        }
-
-        s3d::Array<ActorObj*> getHitActors() const
-        {
-            s3d::Array<ActorObj*> ret;
-            for (const auto& terrain : m_results) {
-                if (terrain) {
-                    ret.push_back(terrain->getActor());
-                }
-            }
-            return ret;
+            return false;// !m_results.empty();
         }
     };
 
     MapCollider::MapCollider(ActorObj* pActor, bool useBody):
-        IPhysics(pActor),
+        m_pActor(pActor),
         m_result(std::make_unique<Result>()),
         m_useBody(useBody)
     {}
@@ -123,47 +107,47 @@ namespace abyss::Actor
         m_colliderCache = this->calcCollider();
     }
 
-    void MapCollider::onCollision(const Ref<Terrain>& terrain)
-    {
-        if (!m_isThrough && m_useBody) {
-            auto col = m_body->fixPos(terrain->getMapColInfo());
-            m_result->add(col);
+    //void MapCollider::onCollision(const Ref<Terrain>& terrain)
+    //{
+    //    if (!m_isThrough && m_useBody) {
+    //        auto col = m_body->fixPos(terrain->getMapColInfo());
+    //        m_result->add(col);
 
-            if (m_foot) {
-                if (col.isUp()) {
-                    m_foot->apply(Foot::Landing);
-                }
+    //        if (m_foot) {
+    //            if (col.isUp()) {
+    //                m_foot->apply(Foot::Landing);
+    //            }
 
-                // Ladder情報があれば保持
-                terrain->isThen<Tag::Ladder, Map::Ladder::LadderProxy>([this](const Map::Ladder::LadderProxy& ladder) {
-                    m_foot->updateLadderInfo({
-                        .pos = ladder.getCenterTopPos()
-                    });
-                    if (ladder.getCenterLine().intersects(m_body->region())) {
-                        auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
-                        m_foot->apply(state);
-                        return true;
-                    }
-                    return false;
-                });
-                // PenetrateFloor情報保持
-                if (col.isUp()) {
-                    terrain->isThen<
-                        Tag::PenetrateFloor,
-                        Map::PenetrateFloor::PenetrateFloorProxy
-                    >([this, col](const Map::PenetrateFloor::PenetrateFloorProxy& floor) {
-                        if (floor.tryDown(m_body->region())) {
-                            m_foot->apply(Foot::Downable);
-                            return true;
-                        }
-                        return false;
-                    });
-                }
-            }
-        }
+    //            // Ladder情報があれば保持
+    //            terrain->isThen<Tag::Ladder, Map::Ladder::LadderProxy>([this](const Map::Ladder::LadderProxy& ladder) {
+    //                m_foot->updateLadderInfo({
+    //                    .pos = ladder.getCenterTopPos()
+    //                });
+    //                if (ladder.getCenterLine().intersects(m_body->region())) {
+    //                    auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
+    //                    m_foot->apply(state);
+    //                    return true;
+    //                }
+    //                return false;
+    //            });
+    //            // PenetrateFloor情報保持
+    //            if (col.isUp()) {
+    //                terrain->isThen<
+    //                    Tag::PenetrateFloor,
+    //                    Map::PenetrateFloor::PenetrateFloorProxy
+    //                >([this, col](const Map::PenetrateFloor::PenetrateFloorProxy& floor) {
+    //                    if (floor.tryDown(m_body->region())) {
+    //                        m_foot->apply(Foot::Downable);
+    //                        return true;
+    //                    }
+    //                    return false;
+    //                });
+    //            }
+    //        }
+    //    }
 
-        m_result->add(terrain);
-    }
+    //    m_result->add(terrain);
+    //}
     void MapCollider::onPostPhysics()
     {
         if (!m_useBody) {
@@ -192,12 +176,12 @@ namespace abyss::Actor
     {
         return m_result->isHitAny();
     }
-    const s3d::Array<Ref<Terrain>>& MapCollider::getHitTerrains() const
-    {
-        return m_result->getResults();
-    }
-    s3d::Array<ActorObj*> MapCollider::getHitActors() const
-    {
-        return m_result->getHitActors();
-    }
+    //const s3d::Array<Ref<Terrain>>& MapCollider::getHitTerrains() const
+    //{
+    //    return m_result->getResults();
+    //}
+    //s3d::Array<ActorObj*> MapCollider::getHitActors() const
+    //{
+    //    return m_result->getHitActors();
+    //}
 }

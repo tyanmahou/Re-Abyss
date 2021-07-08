@@ -12,6 +12,7 @@ namespace abyss
         Master* m_pMaster = nullptr;
         GlobalTime* m_pGlobalTime = nullptr;
         World* m_pWorld = nullptr;
+        PhysicsManager* m_pPhysics = nullptr;
         Events* m_pEvents = nullptr;
         Camera* m_pCamera = nullptr;
         Light* m_pLight = nullptr;
@@ -32,6 +33,8 @@ namespace abyss
         Manager& set(GlobalTime* pGlobalTime);
 
         Manager& set(World* pWorld);
+
+        Manager& set(PhysicsManager* pPhysics);
 
         Manager& set(Events* pEvents);
 

@@ -11,13 +11,13 @@ namespace abyss::Actor::Map::Ladder
     void LadderProxy::setup(Executer executer)
     {
         executer.on<IComponent>().addAfter<MapProxy>();
-        executer.on<IComponent>().addAfter<Terrain>();
+        //executer.on<IComponent>().addAfter<Terrain>();
     }
 
     void LadderProxy::onStart()
     {
         m_map = m_pActor->find<MapProxy>();
-        m_terrain = m_pActor->find<Terrain>();
+        //m_terrain = m_pActor->find<Terrain>();
     }
 
     const s3d::Vec2& LadderProxy::getPos() const
@@ -51,6 +51,7 @@ namespace abyss::Actor::Map::Ladder
     }
     bool LadderProxy::isTop() const
     {
-        return (m_terrain->getMapColInfo().col & ColDirection::Up) != ColDirection::None;
+        // TODO
+        return true;// (m_terrain->getMapColInfo().col & ColDirection::Up) != ColDirection::None;
     }
 }

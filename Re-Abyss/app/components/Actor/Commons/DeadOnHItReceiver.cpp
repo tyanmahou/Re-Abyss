@@ -30,8 +30,9 @@ namespace abyss::Actor
         if (m_cols && m_cols->anyThen<Tag::Receiver, ReceiverData>(callback)) {
             return;
         }
-        if (m_mapCol && m_mapCol->anyThen<Tag::Receiver, ReceiverData>(callback)) {
-            return;
-        }
+        // TODO FIX
+        //if (m_mapCol && m_mapCol->anyThen<Tag::Receiver, ReceiverData>(callback)) {
+        //    return;
+        //}
     }
 }

@@ -19,6 +19,12 @@ namespace abyss
 	class Distortion;
 	class ICameraWork;
 	class World;
+	namespace Physics
+	{
+		class PhysicsManager;
+	}
+	using Physics::PhysicsManager;
+
 	class Events;
 	class Stage;
 	class StageData;
@@ -36,7 +42,6 @@ namespace abyss
 	class DrawManager;
 
 	class ICollision;
-	class IMapCollision;
 	
 	/// Modules/Actors
 	namespace Actor
@@ -129,7 +134,6 @@ namespace abyss
 	namespace Actor
 	{
 		class ClockCtrl;
-		class Terrain;
 		class MapCollider;
 		class DeadChecker;
 		class CustomCollider;
@@ -139,7 +143,6 @@ namespace abyss
 		class StateCtrl;
 		class Body;
 		class Foot;
-		class IPhysics;
 		class ICollider;
 		class ICollision;
 		class CollisionCtrl;

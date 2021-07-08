@@ -30,6 +30,16 @@ namespace abyss::Physics
 
         void onPhysicsCollision();
         void cleanUp();
+
+        const s3d::Array<std::shared_ptr<IContacter>>& getContacters() const
+        {
+            return m_contacters;
+        }
+        const s3d::Array<std::shared_ptr<ITerrain>>& getTerrains() const
+        {
+            return m_terrains;
+        }
+
     private:
         std::shared_ptr<IDetectionAlgorithm> m_detection;
         s3d::Array<std::shared_ptr<IContacter>> m_contacters;
@@ -37,9 +47,4 @@ namespace abyss::Physics
 
         IdGenerator m_idCounter;
     };
-}
-
-namespace abyss
-{
-    using Physics::PhysicsManager;
 }

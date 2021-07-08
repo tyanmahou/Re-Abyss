@@ -18,7 +18,7 @@ namespace abyss::Debug
         Menu();
     public:
         static void Init();
-        static bool IsDebug(const String& label);
+        static bool IsDebug(const s3d::String& label);
     };
 }
 

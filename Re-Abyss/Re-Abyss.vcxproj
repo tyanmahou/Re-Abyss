@@ -327,6 +327,7 @@
     <ClCompile Include="app\components\Actor\Map\MapProxy.cpp" />
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.cpp" />
+    <ClCompile Include="app\components\Actor\Commons\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Draw.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Nyan\Builder.cpp" />
@@ -450,13 +451,11 @@
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\factories\Main\MainInjector.cpp" />
-    <ClCompile Include="app\components\Actor\base\IPhysics.cpp" />
     <ClCompile Include="app\components\Actor\Commons\BodyUpdater.cpp" />
     <ClCompile Include="app\components\Actor\Commons\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CameraFixPos.cpp" />
     <ClCompile Include="app\components\Actor\Commons\MapCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\OutRoomChecker.cpp" />
-    <ClCompile Include="app\components\Actor\Commons\Terrain.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Shot\State\StartState.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Main.cpp" />
     <ClCompile Include="app\components\Actor\God\PauseCtrl.cpp" />
@@ -468,7 +467,6 @@
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
-    <ClCompile Include="app\modules\Physics\MapCollision.cpp" />
     <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
@@ -801,6 +799,7 @@
     <ClInclude Include="app\components\Actor\Map\Ladder\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\Nyan\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\Xto\Builder.hpp" />
@@ -1064,7 +1063,6 @@
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
-    <ClInclude Include="app\components\Actor\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
     <ClInclude Include="app\components\Actor\Commons\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
@@ -1073,7 +1071,6 @@
     <ClInclude Include="app\components\Actor\Commons\CameraFixPos.hpp" />
     <ClInclude Include="app\components\Actor\Commons\MapCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\OutRoomChecker.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\Terrain.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\DamageCallback.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\State\StartState.hpp" />
@@ -1089,7 +1086,6 @@
     <ClInclude Include="app\components\Actor\Player\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Player\UICtrl.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
-    <ClInclude Include="app\modules\Physics\MapCollision.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />

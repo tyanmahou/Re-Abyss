@@ -347,9 +347,6 @@
     <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Physics\MapCollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -614,9 +611,6 @@
     <ClCompile Include="app\components\Actor\Commons\OutRoomChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Commons\Terrain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Commons\MapCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -663,9 +657,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Commons\BodyUpdater.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\base\IPhysics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
@@ -1447,6 +1438,9 @@
     <ClCompile Include="app\utils\IdGenerator\IdGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Commons\TerrainProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1662,7 +1656,6 @@
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
-    <ClInclude Include="app\modules\Physics\MapCollision.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -1759,7 +1752,6 @@
     <ClInclude Include="app\components\Actor\Commons\AudioSource.hpp" />
     <ClInclude Include="app\components\Actor\Commons\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actor\Commons\OutRoomChecker.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\Terrain.hpp" />
     <ClInclude Include="app\components\Actor\Commons\MapCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Foot.hpp" />
     <ClInclude Include="app\components\Actor\Commons\FallChecker.hpp" />
@@ -1781,7 +1773,6 @@
     <ClInclude Include="app\components\Actor\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\components\Actor\base\IPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp" />
@@ -2145,6 +2136,7 @@
     <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
     <ClInclude Include="app\modules\Physics\Contacter.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGenerator.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

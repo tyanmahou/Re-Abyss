@@ -9,7 +9,6 @@ namespace abyss
     private:
         Actor::ActorsHolder m_actorsHolder;
         std::unique_ptr<ICollision> m_collision;
-        std::unique_ptr<IMapCollision> m_mapCollision;
 
         Manager* m_pManager = nullptr;
         Actor::BufferLayer m_bufferLayer = Actor::BufferLayer::Front;
@@ -42,9 +41,14 @@ namespace abyss
         void move();
 
         /// <summary>
-        /// 物理衝突
+        /// 物理衝突前
         /// </summary>
-        void physics();
+        void prePhysics();
+
+        /// <summary>
+        /// 物理衝突後
+        /// </summary>
+        void postPhysics();
 
         /// <summary>
         /// 衝突判定

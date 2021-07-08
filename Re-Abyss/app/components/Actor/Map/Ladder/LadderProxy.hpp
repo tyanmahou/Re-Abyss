@@ -4,7 +4,6 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Actor/Map/MapProxy.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 namespace abyss::Actor::Map::Ladder
 {
@@ -27,6 +26,5 @@ namespace abyss::Actor::Map::Ladder
     private:
         ActorObj* m_pActor;
         Ref<MapProxy> m_map;
-        Ref<Terrain> m_terrain;
     };
 }

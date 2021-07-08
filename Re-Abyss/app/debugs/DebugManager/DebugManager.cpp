@@ -5,11 +5,12 @@
 #include <abyss/utils/Visitor.hpp>
 #include <abyss/modules/Effects/Effects.hpp>
 #include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Physics/PhysicsManager.hpp>
+#include <abyss/modules/Physics/base/IContacter.hpp>
+#include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/components/Actor/base/ICollision.hpp>
 #include <abyss/components/Actor/base/ICollider.hpp>
-#include <abyss/components/Actor/base/IPhysics.hpp>
-#include <abyss/components/Actor/Commons/Terrain.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -46,7 +47,7 @@ namespace abyss::Debug
                 DebugUtil::DrawShape(col->getCollider(), color);
             }
         }
-        void drawMapCollider(const World& world)
+        void drawMapCollider(const PhysicsManager& physics)
         {
             if (!Menu::IsDebug(Debug::DebugFlag::DrawMapCollider)) {
                 return;
@@ -54,25 +55,25 @@ namespace abyss::Debug
 
             constexpr ColorF color = ColorF(0, 0, 1, 0.4);
             {
-                auto colliders = world.finds<Actor::IPhysics>();
+                const auto& colliders = physics.getContacters();
                 Log::Print << U"Map Colliders: " << colliders.size();
 
                 for (auto&& col : colliders) {
                     if (!col->isActive()) {
                         continue;
                     }
-                    DebugUtil::DrawShape(col->getCollider(), color);
+                    DebugUtil::DrawShape(col->getShape(), color);
                 }
             }
             {
-                auto terrains = world.finds<Actor::Terrain>();
+                const auto& terrains = physics.getTerrains();
                 Log::Print << U"Map Terrain: " << terrains.size();
 
                 for (auto&& terrain : terrains) {
                     if (!terrain->isActive()) {
                         continue;
                     }
-                    const auto& [region, col] = terrain->getMapColInfo();
+                    const auto& [region, col, _] = terrain->getData();
                     const Vec2 qSize = {
                         Min(10.0, region.size.x / 4.0),
                         Min(10.0, region.size.y / 4.0)
@@ -104,9 +105,11 @@ namespace abyss::Debug
 
     void DebugManager::DrawDebug(const World& world)
     {
-        auto& impl = Instance()->m_pImpl;
-        impl->drawCollider(world);
-        impl->drawMapCollider(world);
+        Instance()->m_pImpl->drawCollider(world);
+    }
+    void DebugManager::DrawDebug(const PhysicsManager& physics)
+    {
+        Instance()->m_pImpl->drawMapCollider(physics);
     }
     void DebugManager::DrawDebug(const Effects& effects)
     {
