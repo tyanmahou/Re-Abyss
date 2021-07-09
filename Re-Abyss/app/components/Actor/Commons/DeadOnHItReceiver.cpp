@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
 #include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/modules/Physics/base/Tag.hpp>
 
 namespace abyss::Actor
 {
@@ -30,9 +31,9 @@ namespace abyss::Actor
         if (m_cols && m_cols->anyThen<Tag::Receiver, ReceiverData>(callback)) {
             return;
         }
-        // TODO FIX
-        //if (m_mapCol && m_mapCol->anyThen<Tag::Receiver, ReceiverData>(callback)) {
-        //    return;
-        //}
+        if (m_mapCol && m_mapCol->isHitBy<Physics::Tag::Receiver>()) {
+            m_deadChecker->requestDead();
+            return;
+        }
     }
 }

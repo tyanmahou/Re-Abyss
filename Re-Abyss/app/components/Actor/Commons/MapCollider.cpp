@@ -64,6 +64,11 @@ namespace abyss::Actor
         {
             return !m_results.empty();
         }
+
+        const s3d::Array<Physics::TerrainData>& getHitTerrains() const
+        {
+            return m_results;
+        }
     };
     class MapCollider::Contacter final : public Physics::IContacter
     {
@@ -221,6 +226,10 @@ namespace abyss::Actor
         {
             return m_result->isHitAny();
         }
+        const s3d::Array<Physics::TerrainData>& getHitTerrains() const
+        {
+            return m_result->getHitTerrains();
+        }
     private:
         ActorObj* m_pActor;
         bool m_isDestroyed = false;
@@ -295,12 +304,8 @@ namespace abyss::Actor
     {
         return m_contacter->isHitAny();
     }
-    //const s3d::Array<Ref<Terrain>>& MapCollider::getHitTerrains() const
-    //{
-    //    return m_result->getResults();
-    //}
-    //s3d::Array<ActorObj*> MapCollider::getHitActors() const
-    //{
-    //    return m_result->getHitActors();
-    //}
+    const s3d::Array<Physics::TerrainData>& MapCollider::getHitTerrains() const
+    {
+        return m_contacter->getHitTerrains();
+    }
 }

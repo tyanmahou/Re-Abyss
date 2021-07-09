@@ -3,7 +3,7 @@
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
 #include <abyss/components/Actor/base/IPostPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
-#include <abyss/modules/Actor/base/Tag.hpp>
+#include <abyss/modules/Physics/base/TerrainData.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/types/ColDirection.hpp>
 
@@ -65,6 +65,26 @@ namespace abyss::Actor
         /// </summary>
         /// <returns></returns>
         bool isHitAny() const;
+
+        /// <summary>
+        /// 衝突した地形を取得
+        /// </summary>
+        /// <returns></returns>
+        const s3d::Array<Physics::TerrainData>& getHitTerrains() const;
+
+        /// <summary>
+        /// 特定のタグの地形に衝突したか
+        /// </summary>
+        template<TaggedOf<Physics::Tag::PhysicsTagKind> T>
+        bool isHitBy() const
+        {
+            for (const auto& terrain : this->getHitTerrains()) {
+                if (terrain.tag.is<T>()) {
+                    return true;
+                }
+            }
+            return false;
+        }
     private:
         ActorObj* m_pActor;
         std::shared_ptr<Contacter> m_contacter;
