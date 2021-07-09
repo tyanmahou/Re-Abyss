@@ -2137,6 +2137,8 @@
     <ClInclude Include="app\modules\Physics\Contacter.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGenerator.hpp" />
     <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
+    <ClInclude Include="app\modules\Physics\base\Tag.hpp" />
+    <ClInclude Include="app\utils\Tag\Tag.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

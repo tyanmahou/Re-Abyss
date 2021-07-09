@@ -890,6 +890,7 @@
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
+    <ClInclude Include="app\modules\Physics\base\Tag.hpp" />
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\Contacter.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
@@ -946,6 +947,7 @@
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
+    <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />

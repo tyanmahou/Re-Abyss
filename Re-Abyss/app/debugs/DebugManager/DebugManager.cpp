@@ -73,7 +73,10 @@ namespace abyss::Debug
                     if (!terrain->isActive()) {
                         continue;
                     }
-                    const auto& [region, col, _] = terrain->getData();
+                    const auto& data = terrain->getData();
+                    const auto& region = data.region;
+                    const auto& col = data.col;
+
                     const Vec2 qSize = {
                         Min(10.0, region.size.x / 4.0),
                         Min(10.0, region.size.y / 4.0)

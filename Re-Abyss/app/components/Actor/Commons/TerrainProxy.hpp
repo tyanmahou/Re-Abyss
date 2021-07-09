@@ -19,6 +19,7 @@ namespace abyss::Actor
 
         TerrainProxy& setColDirection(ColDirection col);
         TerrainProxy& setRegion(const s3d::RectF& region);
+        TerrainProxy& setTag(const Physics::TagType& tag);
         TerrainProxy& setExtData(std::shared_ptr<Physics::ITerrainExtData> data);
 
     private:

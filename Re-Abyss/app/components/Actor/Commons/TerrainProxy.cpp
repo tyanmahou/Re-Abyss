@@ -77,6 +77,11 @@ namespace abyss::Actor
         m_terrain->getData().region = region;
         return *this;
     }
+    TerrainProxy& TerrainProxy::setTag(const Physics::TagType& tag)
+    {
+        m_terrain->getData().tag = tag;
+        return *this;
+    }
     TerrainProxy& TerrainProxy::setExtData(std::shared_ptr<Physics::ITerrainExtData> data)
     {
         m_terrain->getData().extData = data;
