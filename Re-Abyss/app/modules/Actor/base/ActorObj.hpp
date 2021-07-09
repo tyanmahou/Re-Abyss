@@ -68,13 +68,13 @@ namespace abyss::Actor
 
 		double deltaTime() const;
 
-		template<Tag::Tagged T>
+		template<TaggedOf<Tag::ActorTagKind> T>
 		bool isThen(std::function<bool(ActorObj*)> callback);
 
-		template<Tag::Tagged T, IsComponent C>
+		template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>
 		bool isThen(std::function<bool(C&)> callback) const;
 
-		template<Tag::Tagged T>
+		template<TaggedOf<Tag::ActorTagKind> T>
 		bool isNotThen(std::function<bool(ActorObj*)> callback);
 	};
 }

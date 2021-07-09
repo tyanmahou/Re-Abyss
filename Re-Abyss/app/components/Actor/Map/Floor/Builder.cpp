@@ -10,8 +10,6 @@ namespace abyss::Actor::Map::Floor
         // 共通
         CommonBuilder::Build(pActor, col, pos, size);
 
-        // タグ再設定
-        pActor->setTag(Tag::Floor{});
 
         // ReceiverData
         {

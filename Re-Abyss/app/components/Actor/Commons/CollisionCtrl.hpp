@@ -43,7 +43,7 @@ namespace abyss::Actor
         /// <summary>
         /// 衝突したいずれかに対して処理を行う
         /// </summary>
-        template<Tag::Tagged T, IsComponent C>
+        template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>
         bool anyThen(std::function<bool(C&)> callback) const
         {
             for (const auto& col : this->getResults()) {
@@ -60,7 +60,7 @@ namespace abyss::Actor
         /// <summary>
         /// 衝突したすべてに対して処理を行う
         /// </summary>
-        template<Tag::Tagged T, IsComponent C>
+        template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>
         bool eachThen(std::function<bool(C&)> callback) const
         {
             bool result = false;

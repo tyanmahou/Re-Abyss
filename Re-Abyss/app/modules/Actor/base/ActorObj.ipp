@@ -60,7 +60,7 @@ namespace abyss::Actor
 		return m_bufferLayer;
 	}
 
-	template<Tag::Tagged T>
+	template<TaggedOf<Tag::ActorTagKind> T>
 	bool ActorObj::isThen(std::function<bool(ActorObj*)> callback)
 	{
 		if (m_tag.is<T>()) {
@@ -68,7 +68,7 @@ namespace abyss::Actor
 		}
 		return false;
 	}
-	template<Tag::Tagged T, IsComponent C>
+	template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>
 	bool ActorObj::isThen(std::function<bool(C&)> callback) const
 	{
 		if (m_tag.is<T>()) {
@@ -78,7 +78,7 @@ namespace abyss::Actor
 		}
 		return false;
 	}
-	template<Tag::Tagged T>
+	template<TaggedOf<Tag::ActorTagKind> T>
 	bool ActorObj::isNotThen(std::function<bool(ActorObj*)> callback)
 	{
 		if (m_tag.isNot<T>()) {

@@ -11,7 +11,7 @@ namespace abyss::tests
 
         SECTION("tag is")
         {
-            TagType tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
+            Actor::TagType tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.is<Tag::Attacker>());
             REQUIRE(tag.is<Tag::Receiver>());
@@ -21,7 +21,7 @@ namespace abyss::tests
 
         SECTION("tag any of")
         {
-            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.anyOf<Tag::Attacker, Tag::Player>());
             REQUIRE(!tag.anyOf<Tag::Invalid, Tag::Player>());
@@ -29,7 +29,7 @@ namespace abyss::tests
 
         SECTION("tag all of")
         {
-            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.allOf<Tag::Attacker, Tag::Receiver>());
             REQUIRE(!tag.allOf<Tag::Attacker, Tag::Player>());
@@ -37,7 +37,7 @@ namespace abyss::tests
 
         SECTION("tag is not")
         {
-            TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(!tag.isNot<Tag::Attacker>());
             REQUIRE(!tag.isNot<Tag::Receiver>());
