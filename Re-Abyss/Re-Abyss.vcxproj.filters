@@ -1432,9 +1432,6 @@
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Physics\Contacter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\IdGenerator\IdGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2134,7 +2131,6 @@
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrainExtData.hpp" />
-    <ClInclude Include="app\modules\Physics\Contacter.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGenerator.hpp" />
     <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
     <ClInclude Include="app\modules\Physics\base\Tag.hpp" />

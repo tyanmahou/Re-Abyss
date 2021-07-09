@@ -3,11 +3,11 @@
 #include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Optional.hpp>
 
-#include <abyss/types/MapColInfo.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/ILocator.hpp>
+#include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Actor
 {
@@ -95,7 +95,7 @@ namespace abyss::Actor
 
         bool isForward(Forward f) const;
 
-        ColDirection fixPos(const MapColInfo& info);
+        ColDirection fixPos(const Physics::TerrainData& terrain);
         ColDirection fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
         s3d::Vec2 getCenterPos()const override;

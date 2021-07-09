@@ -19,21 +19,8 @@ namespace abyss::Actor
         public IPostPhysics
     {
     private:
+        class Contacter;
         class Result;
-    private:
-        ActorObj* m_pActor;
-        Ref<Body> m_body;
-        Ref<ICollider> m_collider;
-
-        Ref<Foot> m_foot;
-        std::unique_ptr<Result> m_result;
-
-       bool m_isEnableRoomHit = false;
-       s3d::Optional<ColDirection> m_roomHitStrict;
-       bool m_isThrough = false; // すりぬけるか
-       bool m_useBody = true;
-       bool m_isEnableMoveHistory = false;
-       s3d::Optional<CShape> m_colliderCache;
     public:
         /// <summary>
         /// MapCollider
@@ -43,32 +30,18 @@ namespace abyss::Actor
         MapCollider(ActorObj* pActor, bool useBody = true);
 
         void onStart() override;
-
-        CShape calcCollider() const;
-        CShape getCollider() const;
+        void onEnd() override;
 
         void onPrePhysics() override;
 
         void onPostPhysics() override;
 
-        MapCollider& setIsEnableRoomHit(bool enable, const s3d::Optional<ColDirection>& strict = s3d::none)
-        {
-            m_isEnableRoomHit = enable;
-            m_roomHitStrict = strict;
-            return *this;
-        }
+        MapCollider& setIsEnableRoomHit(bool enable, const s3d::Optional<ColDirection>& strict = s3d::none);
 
-        MapCollider& setIsThrough(bool isThrough)
-        {
-            m_isThrough = isThrough;
-            return *this;
-        }
+        MapCollider& setIsThrough(bool isThrough);
 
-        MapCollider& setIsEnableMoveHistory(bool enable)
-        {
-            m_isEnableMoveHistory = enable;
-            return *this;
-        }
+        MapCollider& setIsEnableTrajectory(bool enable);
+
         /// <summary>
         /// 床とあたったか
         /// </summary>
@@ -92,6 +65,9 @@ namespace abyss::Actor
         /// </summary>
         /// <returns></returns>
         bool isHitAny() const;
+    private:
+        ActorObj* m_pActor;
+        std::shared_ptr<Contacter> m_contacter;
     };
 }
 

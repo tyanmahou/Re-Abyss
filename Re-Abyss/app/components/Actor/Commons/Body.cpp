@@ -250,15 +250,15 @@ namespace abyss::Actor
     {
         return m_forward == f;
     }
-    ColDirection Body::fixPos(const MapColInfo& info)
+    ColDirection Body::fixPos(const Physics::TerrainData& terrain)
     {
-        auto c = info.col;
+        auto c = terrain.col;
         c.ignoredForVelocity(m_velocity);
 
         auto selfRegion = this->region();
         s3d::Vec2 before = selfRegion.center();
         
-        auto [after, colDir] = FixPos::ByPrevPos(info.region, selfRegion, m_prevPos, c);
+        auto [after, colDir] = FixPos::ByPrevPos(terrain.region, selfRegion, m_prevPos, c);
 
         this->addPos(after - before);
 
