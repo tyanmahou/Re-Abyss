@@ -6,18 +6,24 @@
 
 namespace abyss::Actor::Map
 {
-    void CommonBuilder::Build(ActorObj* pActor, ColDirection col, const s3d::Vec2& pos, const s3d::Vec2& size)
+    BuildOption::BuildOption()
+    {}
+
+    void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
         pActor->setTag(Tag::Map{});
 
         // マップ情報
-        auto mapProxy = pActor->attach<MapProxy>(col, pos, size);
+        auto mapProxy = pActor->attach<MapProxy>(opt.col, opt.pos, opt.size);
 
         // 地形
         {
             pActor->attach<TerrainProxy>(pActor)
                 ->setColDirection(mapProxy->getCol())
-                .setRegion(mapProxy->region());
+                .setRegion(mapProxy->region())
+                .setTag(opt.terrainTag)
+                .setExtData(opt.terrainExtData)
+                ;
         }
     }
 }
