@@ -1438,6 +1438,9 @@
     <ClCompile Include="app\components\Actor\Commons\TerrainProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Map\Ladder\LadderUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2135,6 +2138,7 @@
     <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
     <ClInclude Include="app\modules\Physics\base\Tag.hpp" />
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
+    <ClInclude Include="app\components\Actor\Map\Ladder\LadderUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

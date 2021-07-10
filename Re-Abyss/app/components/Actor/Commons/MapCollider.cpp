@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/base/ICollider.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/Foot.hpp>
-#include <abyss/components/Actor/Map/Ladder/LadderProxy.hpp>
+#include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
@@ -113,18 +113,18 @@ namespace abyss::Actor
                     }
 
                     // TODO
-                    //// Ladder情報があれば保持
-                    //terrain->isThen<Tag::Ladder, Map::Ladder::LadderProxy>([this](const Map::Ladder::LadderProxy& ladder) {
-                    //    m_foot->updateLadderInfo({
-                    //        .pos = ladder.getCenterTopPos()
-                    //        });
-                    //    if (ladder.getCenterLine().intersects(m_body->region())) {
-                    //        auto state = ladder.isTop() ? Foot::LadderTop : Foot::Ladder;
-                    //        m_foot->apply(state);
-                    //        return true;
-                    //    }
-                    //    return false;
-                    //});
+                    // Ladder情報があれば保持
+                    if (terrain.tag.is<Physics::Tag::Ladder>()) {
+                        using Map::Ladder::LadderUtil;
+                        m_foot->updateLadderInfo({
+                            .pos = LadderUtil::CenterTopPos(terrain)
+                        });
+
+                        if (LadderUtil::CenterLine(terrain).intersects(m_body->region())) {
+                            auto state = LadderUtil::IsTop(terrain) ? Foot::LadderTop : Foot::Ladder;
+                            m_foot->apply(state);
+                        }
+                    }
                     //// PenetrateFloor情報保持
                     //if (col.isUp()) {
                     //    terrain->isThen<
