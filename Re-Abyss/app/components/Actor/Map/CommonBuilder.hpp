@@ -39,6 +39,11 @@ namespace abyss::Actor::Map
             return *this;
         }
 
+        template<Physics::TerrainExtended T, class... Args>
+        BuildOption& setTerrainExtData(Args&&... args)
+        {
+            return this->setTerrainExtData(std::make_shared<T>(std::forward<Args>(args)...));
+        }
     private:
         s3d::Vec2 pos{0,0};
         s3d::Vec2 size{0,0};

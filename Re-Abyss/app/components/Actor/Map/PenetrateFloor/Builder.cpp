@@ -13,7 +13,7 @@ namespace abyss::Actor::Map::PenetrateFloor
             .setSize(size - s3d::Vec2{ 0, 35 })
             .setColDirection(ColDirection::Up)
             .setTerrainTag(Physics::Tag::PenetrateFloor{})
-            .setTerrainExtData(std::make_shared<PenetrateFloorExtension>(canDown, aroundFloor))
+            .setTerrainExtData<PenetrateFloorExtension>(canDown, aroundFloor)
         );
    }
 }
