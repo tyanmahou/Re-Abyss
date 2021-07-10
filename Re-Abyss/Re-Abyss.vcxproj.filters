@@ -763,9 +763,6 @@
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CommonBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1438,6 +1435,9 @@
     <ClCompile Include="app\components\Actor\Map\Ladder\LadderUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1821,7 +1821,6 @@
     <ClInclude Include="app\components\Actor\Map\Floor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\Ladder\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\Builder.hpp" />
@@ -2135,6 +2134,7 @@
     <ClInclude Include="app\modules\Physics\base\Tag.hpp" />
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\components\Actor\Map\Ladder\LadderUtil.hpp" />
+    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

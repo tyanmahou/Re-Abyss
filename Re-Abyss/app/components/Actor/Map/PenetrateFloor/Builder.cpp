@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Map/CommonBuilder.hpp>
-#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
+#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
@@ -13,9 +13,7 @@ namespace abyss::Actor::Map::PenetrateFloor
             .setSize(size - s3d::Vec2{ 0, 35 })
             .setColDirection(ColDirection::Up)
             .setTerrainTag(Physics::Tag::PenetrateFloor{})
+            .setTerrainExtData(std::make_shared<PenetrateFloorExtension>(canDown, aroundFloor))
         );
-
-        // プロキシ
-        pActor->attach<PenetrateFloorProxy>(pActor, canDown, aroundFloor);
    }
 }

@@ -20,7 +20,7 @@ namespace abyss::Physics
         bool isThen(std::function<bool(D&)> callback) const
         {
             if (tag.is<T>()) {
-                if (auto d = std::dynamic_pointer_cast<TerrainExtended>(extData)) {
+                if (auto d = std::dynamic_pointer_cast<D>(extData)) {
                     return callback(*d);
                 }
             }

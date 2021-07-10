@@ -326,7 +326,7 @@
     <ClCompile Include="app\components\Actor\Map\Ladder\LadderUtil.cpp" />
     <ClCompile Include="app\components\Actor\Map\MapProxy.cpp" />
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.cpp" />
+    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp" />
     <ClCompile Include="app\components\Actor\Commons\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Draw.cpp" />
@@ -798,7 +798,7 @@
     <ClInclude Include="app\components\Actor\Map\Ladder\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Map\Ladder\LadderUtil.hpp" />
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorProxy.hpp" />
+    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.hpp" />
     <ClInclude Include="app\components\Actor\Commons\TerrainProxy.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\Nyan\Builder.hpp" />

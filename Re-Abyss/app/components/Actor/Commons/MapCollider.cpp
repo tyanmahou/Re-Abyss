@@ -5,7 +5,7 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/Foot.hpp>
 #include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
-#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorProxy.hpp>
+#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
@@ -112,7 +112,6 @@ namespace abyss::Actor
                         m_foot->apply(Foot::Landing);
                     }
 
-                    // TODO
                     // Ladder情報があれば保持
                     if (terrain.tag.is<Physics::Tag::Ladder>()) {
                         using Map::Ladder::LadderUtil;
@@ -125,19 +124,21 @@ namespace abyss::Actor
                             m_foot->apply(state);
                         }
                     }
-                    //// PenetrateFloor情報保持
-                    //if (col.isUp()) {
-                    //    terrain->isThen<
-                    //        Tag::PenetrateFloor,
-                    //        Map::PenetrateFloor::PenetrateFloorProxy
-                    //    >([this, col](const Map::PenetrateFloor::PenetrateFloorProxy& floor) {
-                    //        if (floor.tryDown(m_body->region())) {
-                    //            m_foot->apply(Foot::Downable);
-                    //            return true;
-                    //        }
-                    //        return false;
-                    //    });
-                    //}
+                    // PenetrateFloor情報保持
+                    if (col.isUp()) {
+                        using Map::PenetrateFloor::PenetrateFloorExtension;
+
+                        terrain.isThen<
+                            Physics::Tag::PenetrateFloor,
+                            PenetrateFloorExtension
+                        >([this, &terrain, col](const PenetrateFloorExtension& floor) {
+                            if (floor.tryDown(terrain, m_body->region())) {
+                                m_foot->apply(Foot::Downable);
+                                return true;
+                            }
+                            return false;
+                        });
+                    }
                 }
             }
 
