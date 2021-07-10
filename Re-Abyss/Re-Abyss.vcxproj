@@ -323,7 +323,6 @@
     <ClCompile Include="app\components\Actor\Map\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Map\Floor\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Map\Ladder\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Map\Ladder\LadderProxy.cpp" />
     <ClCompile Include="app\components\Actor\Map\Ladder\LadderUtil.cpp" />
     <ClCompile Include="app\components\Actor\Map\MapProxy.cpp" />
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\Builder.cpp" />
@@ -1010,7 +1009,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\components\Actor\Map\Ladder\LadderProxy.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\AttackCtrl.hpp" />

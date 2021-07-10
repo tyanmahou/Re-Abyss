@@ -1,7 +1,6 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Map/CommonBuilder.hpp>
-#include <abyss/components/Actor/Map/Ladder/LadderProxy.hpp>
 
 namespace abyss::Actor::Map::Ladder
 {
@@ -14,10 +13,5 @@ namespace abyss::Actor::Map::Ladder
             .setColDirection(col)
             .setTerrainTag(Physics::Tag::Ladder{})
         );
-
-        // プロキシ
-        {
-            pActor->attach<LadderProxy>(pActor);
-        }
    }
 }

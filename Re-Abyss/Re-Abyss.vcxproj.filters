@@ -709,9 +709,6 @@
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\Ladder\LadderProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests\tests\Component\ComponentCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1803,7 +1800,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Behavior.hpp" />
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
-    <ClInclude Include="app\components\Actor\Map\Ladder\LadderProxy.hpp" />
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
     <ClInclude Include="app\components\Actor\Commons\AttackerData.hpp" />
     <ClInclude Include="app\components\Actor\Commons\ReceiverData.hpp" />
