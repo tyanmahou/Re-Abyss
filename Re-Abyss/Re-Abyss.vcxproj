@@ -351,6 +351,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />

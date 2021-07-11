@@ -1444,6 +1444,9 @@
     <ClCompile Include="vendor\abyss\include\abyss\modules\Cycle\base\CycleObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Cycle\Main\Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

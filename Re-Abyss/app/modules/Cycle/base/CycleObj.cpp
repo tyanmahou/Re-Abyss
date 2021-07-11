@@ -3,10 +3,12 @@
 
 namespace abyss::Cycle
 {
-    void CycleObj::listen()
+    bool CycleObj::listen()
     {
+        bool ret = false;
         for (auto&& com : this->finds<IListener>()) {
-            com->listen();
+            ret |= com->listen();
         }
+        return ret;
     }
 }

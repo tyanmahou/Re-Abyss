@@ -13,6 +13,6 @@ namespace abyss::Cycle
         using GameObject::attach;
         using GameObject::find;
 
-        void listen();
+        bool listen();
     };
 }

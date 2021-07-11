@@ -7,6 +7,6 @@ namespace abyss::Cycle
     public:
         virtual ~IListener() = default;
 
-        virtual void listen() = 0;
+        virtual bool listen() = 0;
     };
 }
