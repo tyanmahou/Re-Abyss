@@ -85,6 +85,14 @@ namespace abyss
 		class DecorObj;
 	}
 
+	/// Modules/Cycle
+	namespace Cycle
+	{
+		class CycleObj;
+		class CycleMaster;
+	}
+	using Cycle::CycleMaster;
+
 	/// <summary>
 	/// Entities
 	/// </summary>
