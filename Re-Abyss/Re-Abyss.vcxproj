@@ -719,6 +719,7 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
+    <ClCompile Include="vendor\abyss\include\abyss\modules\Cycle\base\CycleObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

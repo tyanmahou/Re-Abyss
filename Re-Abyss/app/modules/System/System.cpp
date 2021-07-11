@@ -127,6 +127,7 @@ namespace abyss
         Debug::DebugManager::DrawDebug(m_effects);
 #endif
         m_master->sendNotify();
+        m_cycleMaster->update();
     }
     void System::draw() const
     {

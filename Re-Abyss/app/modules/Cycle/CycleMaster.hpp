@@ -22,6 +22,11 @@ namespace abyss::Cycle
         void init();
 
         /// <summary>
+        /// 更新
+        /// </summary>
+        void update();
+
+        /// <summary>
         /// ファイナライザ
         /// </summary>
         void finalize();

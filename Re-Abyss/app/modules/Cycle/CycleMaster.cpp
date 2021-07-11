@@ -11,6 +11,10 @@ namespace abyss::Cycle
         m_master.setup();
         m_master.start();
     }
+    void CycleMaster::update()
+    {
+        m_master.update();
+    }
     void CycleMaster::finalize()
     {
         m_master.end();

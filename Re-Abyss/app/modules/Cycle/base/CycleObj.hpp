@@ -12,5 +12,7 @@ namespace abyss::Cycle
         using GameObject::end;
         using GameObject::attach;
         using GameObject::find;
+
+        void update();
     };
 }
