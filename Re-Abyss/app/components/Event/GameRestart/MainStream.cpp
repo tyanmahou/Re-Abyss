@@ -6,6 +6,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
+#include <abyss/components/Cycle/Main/Master.hpp>
 
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 
@@ -24,7 +25,9 @@ namespace abyss::Event::GameRestart
     void MainStream::onEnd()
     {
         // リスタート
-        //m_pEvent->getModule<CycleMaster>()->restart();
+        m_pEvent->getModule<CycleMaster>()
+            ->find<Cycle::Main::Master>()
+            ->restart();
     }
     Coro::Task<> MainStream::onExecute()
     {

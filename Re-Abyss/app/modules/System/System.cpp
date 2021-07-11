@@ -1,5 +1,4 @@
 #include "System.hpp"
-#include <abyss/modules/Master/Master.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 
 #include <abyss/modules/Light/Light.hpp>
@@ -7,10 +6,9 @@
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/commons/Constants.hpp>
-
+#include <abyss/components/Cycle/Main/Builder.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
-
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
@@ -21,8 +19,7 @@
 
 namespace abyss
 {
-    System::System(IMasterObserver* masterObserver) :
-        m_master(std::make_unique<Master>(masterObserver)),
+    System::System(Cycle::Main::IMasterObserver* pObserver) :
         m_physics(std::make_unique<PhysicsManager>()),
         m_light(std::make_unique<Light>()),
         m_distortion(std::make_unique<Distortion>()),
@@ -36,7 +33,6 @@ namespace abyss
         m_cycleMaster(std::make_unique<CycleMaster>())
     {
         m_manager
-            .set(m_master.get())
             .set(&m_time)
             .set(&m_camera)
             .set(m_light.get())
@@ -65,6 +61,9 @@ namespace abyss
         m_decors->setManager(&m_manager);
         m_crons->setManager(&m_manager);
         m_cycleMaster->setManager(&m_manager);
+
+        m_cycleMaster->build<Cycle::Main::Builder>(pObserver);
+        m_cycleMaster->init();
     }
     System::~System()
     {    }
@@ -126,7 +125,6 @@ namespace abyss
         Debug::DebugManager::DrawDebug(*m_decors);
         Debug::DebugManager::DrawDebug(m_effects);
 #endif
-        m_master->sendNotify();
         m_cycleMaster->listen();
     }
     void System::draw() const

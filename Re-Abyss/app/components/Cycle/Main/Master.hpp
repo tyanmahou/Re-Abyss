@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Cycle/base/IListener.hpp>
 #include <Siv3D/Fwd.hpp>
 
@@ -19,6 +20,7 @@ namespace abyss::Cycle::Main
     /// 上位命令クラス
     /// </summary>
     class Master final:
+        public IComponent,
         public IListener
     {
         // 優先度昇順で通知種類
@@ -57,5 +59,14 @@ namespace abyss::Cycle::Main
     private:
         Notify m_notify = Notify::None;
         IMasterObserver* m_observer = nullptr;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Cycle::Main::Master>
+    {
+        using Base = MultiComponents<Cycle::IListener>;
     };
 }

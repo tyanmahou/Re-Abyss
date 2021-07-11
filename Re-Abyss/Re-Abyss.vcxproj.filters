@@ -913,9 +913,6 @@
     <ClCompile Include="app\modules\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Master\Master.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Temporary\Temporary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1447,6 +1444,9 @@
     <ClCompile Include="app\components\Cycle\Main\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Cycle\Main\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1892,7 +1892,6 @@
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />
     <ClInclude Include="app\modules\Manager\Manager.hpp" />
-    <ClInclude Include="app\modules\Master\Master.hpp" />
     <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
     <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\Sound\Sound.hpp" />
@@ -2149,6 +2148,7 @@
     <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
+    <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

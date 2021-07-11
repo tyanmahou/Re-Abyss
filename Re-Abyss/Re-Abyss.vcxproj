@@ -351,6 +351,7 @@
     <ClCompile Include="app\components\base\Executer.cpp" />
     <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Main\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
@@ -441,7 +442,6 @@
     <ClCompile Include="app\modules\Cycle\Title\Logo\Logo.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
-    <ClCompile Include="app\modules\Master\Master.cpp" />
     <ClCompile Include="app\modules\Temporary\Temporary.cpp" />
     <ClCompile Include="app\modules\Temporary\TemporaryData.cpp" />
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
@@ -822,6 +822,7 @@
     <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
+    <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
@@ -1050,7 +1051,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
-    <ClInclude Include="app\modules\Master\Master.hpp" />
     <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
     <ClInclude Include="app\modules\Sound\Sound.hpp" />

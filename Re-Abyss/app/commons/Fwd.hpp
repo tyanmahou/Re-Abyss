@@ -37,8 +37,6 @@ namespace abyss
 	class Crons;
 	class Temporary;
 	class TemporaryData;
-	class Master;
-	class IMasterObserver;
 	class DrawManager;
 
 	class ICollision;

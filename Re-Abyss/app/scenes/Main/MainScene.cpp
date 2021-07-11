@@ -1,6 +1,6 @@
 #include "MainScene.hpp"
 
-#include <abyss/modules/Master/Master.hpp>
+#include <abyss/components/Cycle/Main/Master.hpp>
 
 #include <abyss/modules/System/System.hpp>
 #include <abyss/modules/Temporary/TemporaryData.hpp>
@@ -12,7 +12,7 @@
 namespace abyss
 {
 	class MainScene::Impl :
-		public IMasterObserver
+		public Cycle::Main::IMasterObserver
 	{
 		std::unique_ptr<System> m_system;
 		std::shared_ptr<StageData> m_stageData;

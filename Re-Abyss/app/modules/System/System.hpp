@@ -11,6 +11,8 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
+#include <abyss/components/Cycle/Main/Builder.hpp>
+
 namespace abyss
 {
     /// <summary>
@@ -18,7 +20,6 @@ namespace abyss
     /// </summary>
     class System
     {
-        std::unique_ptr<Master> m_master;
         GlobalTime m_time;
         World m_world;
         std::unique_ptr<PhysicsManager> m_physics;
@@ -43,7 +44,7 @@ namespace abyss
         Manager m_manager;
     public:
 
-        System(IMasterObserver* masterObserver = nullptr);
+        System(Cycle::Main::IMasterObserver* pObserver);
         ~System();
 
         void init();

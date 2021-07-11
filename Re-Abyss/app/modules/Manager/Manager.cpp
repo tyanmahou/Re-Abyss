@@ -2,11 +2,6 @@
 
 namespace abyss
 {
-    Manager& Manager::set(Master* pMaster)
-    {
-        m_pMaster = pMaster;
-        return *this;
-    }
     Manager& Manager::set(GlobalTime* pGlobalTime)
     {
         m_pGlobalTime = pGlobalTime;
@@ -103,9 +98,7 @@ namespace abyss
     template<class T>
     T* Manager::getModule() const
     {
-        if constexpr (std::is_same_v<Master, T>) {
-            return m_pMaster;
-        } else if constexpr (std::is_same_v<GlobalTime, T>) {
+        if constexpr (std::is_same_v<GlobalTime, T>) {
             return m_pGlobalTime;
         } else if constexpr (std::is_same_v<World, T>) {
             return m_pWorld;
@@ -143,7 +136,6 @@ namespace abyss
             return m_pCycleMaster;
         }
     }
-    template Master* Manager::getModule<Master>() const;
     template GlobalTime* Manager::getModule<GlobalTime>() const;
     template World* Manager::getModule<World>() const;
     template PhysicsManager* Manager::getModule<PhysicsManager>() const;

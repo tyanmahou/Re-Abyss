@@ -9,7 +9,6 @@ namespace abyss
     class Manager
     {
     private:
-        Master* m_pMaster = nullptr;
         GlobalTime* m_pGlobalTime = nullptr;
         World* m_pWorld = nullptr;
         PhysicsManager* m_pPhysics = nullptr;
@@ -29,7 +28,6 @@ namespace abyss
         DrawManager* m_pDrawer = nullptr;
         CycleMaster* m_pCycleMaster = nullptr;
     public:
-        Manager& set(Master* pMaster);
 
         Manager& set(GlobalTime* pGlobalTime);
 

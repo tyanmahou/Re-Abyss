@@ -40,6 +40,12 @@ namespace abyss::Cycle
         {
             Type::Build(&m_master, std::forward<Args>(args)...);
         }
+
+        template<class Component>
+        Ref<Component> find() const
+        {
+            return m_master.find<Component>();
+        }
     private:
         CycleObj m_master;
     };
