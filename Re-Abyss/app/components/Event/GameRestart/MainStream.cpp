@@ -3,7 +3,7 @@
 #include <abyss/modules/Event/base/IEvent.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Master/Master.hpp>
+#include <abyss/modules/Cycle/CycleMaster.hpp>
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 
@@ -24,7 +24,7 @@ namespace abyss::Event::GameRestart
     void MainStream::onEnd()
     {
         // リスタート
-        m_pEvent->getModule<Master>()->restart();
+        //m_pEvent->getModule<CycleMaster>()->restart();
     }
     Coro::Task<> MainStream::onExecute()
     {

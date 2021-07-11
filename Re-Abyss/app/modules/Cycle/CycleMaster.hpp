@@ -22,9 +22,9 @@ namespace abyss::Cycle
         void init();
 
         /// <summary>
-        /// 更新
+        /// 監視
         /// </summary>
-        void update();
+        void listen();
 
         /// <summary>
         /// ファイナライザ

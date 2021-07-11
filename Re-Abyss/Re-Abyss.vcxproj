@@ -820,6 +820,8 @@
     <ClInclude Include="app\components\Cron\base\IJob.hpp" />
     <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
+    <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />

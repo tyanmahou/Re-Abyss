@@ -2144,6 +2144,8 @@
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
     <ClInclude Include="app\concepts\Cycle.hpp" />
+    <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
