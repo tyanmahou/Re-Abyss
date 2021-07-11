@@ -8,6 +8,7 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
+#include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss
@@ -38,6 +39,7 @@ namespace abyss
         std::unique_ptr<Temporary> m_temporary;
         std::unique_ptr<Actor::Player::PlayerManager> m_playerManager;
         std::unique_ptr<DrawManager> m_drawer;
+        std::unique_ptr<CycleMaster> m_cycleMaster;
         Manager m_manager;
     public:
 

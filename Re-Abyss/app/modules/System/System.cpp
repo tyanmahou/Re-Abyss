@@ -32,7 +32,8 @@ namespace abyss
         m_crons(std::make_unique<Crons>()),
         m_temporary(std::make_unique<Temporary>()),
         m_playerManager(std::make_unique<Actor::Player::PlayerManager>()),
-        m_drawer(std::make_unique<DrawManager>())
+        m_drawer(std::make_unique<DrawManager>()),
+        m_cycleMaster(std::make_unique<CycleMaster>())
     {
         m_manager
             .set(m_master.get())
@@ -53,6 +54,7 @@ namespace abyss
             .set(m_temporary.get())
             .set(m_playerManager.get())
             .set(m_drawer.get())
+            .set(m_cycleMaster.get())
             ;
         m_world.setManager(&m_manager);
         m_camera.setManager(&m_manager);
@@ -62,6 +64,7 @@ namespace abyss
         m_stage->setManager(&m_manager);
         m_decors->setManager(&m_manager);
         m_crons->setManager(&m_manager);
+        m_cycleMaster->setManager(&m_manager);
     }
     System::~System()
     {    }
