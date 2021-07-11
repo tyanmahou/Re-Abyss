@@ -1438,6 +1438,9 @@
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Cycle\CycleMaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2135,6 +2138,9 @@
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\components\Actor\Map\Ladder\LadderUtil.hpp" />
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.hpp" />
+    <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
+    <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
+    <ClInclude Include="app\concepts\Cycle.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

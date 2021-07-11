@@ -398,6 +398,7 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
@@ -859,6 +860,7 @@
     <ClInclude Include="app\components\Event\Talk\Common\TalkHandler.hpp" />
     <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
+    <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
@@ -886,6 +888,8 @@
     <ClInclude Include="app\entities\Decor\GraphicsEntity.hpp" />
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
+    <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
+    <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
