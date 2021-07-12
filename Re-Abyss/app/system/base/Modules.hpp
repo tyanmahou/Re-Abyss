@@ -16,19 +16,19 @@ namespace abyss::Sys
         Modules(Manager* pManager)
         {
             // 初期化 / Manager設定
-            (this->createMod<Mods>(pManager)...);
+            (this->createMod<Mods>(pManager), ...);
         }
         template<class Mod>
-        Mod* get() const
+        inline Mod* get() const
         {
-            return std::get<Mod>(m_modules).get();
+            return std::get<std::unique_ptr<Mod>>(m_modules).get();
         }
     private:
         template <class Mod>
         void createMod(Manager* pManager)
         {
-            auto& mod = std::get<Mod>(m_modules);
-            mods = std::make_unique<Mods>();
+            auto& mod = std::get<std::unique_ptr<Mod>>(m_modules);
+            mod = std::make_unique<Mod>();
 
             if constexpr (Managed<Mod>) {
                 pManager->set(mod.get());
@@ -42,4 +42,10 @@ namespace abyss::Sys
             std::unique_ptr<Mods>...
         > m_modules;
     };
+
+    template<class... Mods>
+    using ModuleSet = Meta::remove_param_void_t<
+        Modules,
+        Mods...
+    >;
 }

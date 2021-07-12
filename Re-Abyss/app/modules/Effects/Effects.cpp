@@ -1,14 +1,15 @@
 #include "Effects.hpp"
+#include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 namespace abyss
 {
     Effects::Effects()
     {
     }
-    void Effects::init(const GlobalTime& time)
+    void Effects::setManager(Manager* pManager)
     {
         for (auto&& e : m_effects) {
-            e = EffectEx([&time] {return time.timeMicroSec(); });
+            e = EffectEx([pManager] {return pManager->getModule<GlobalTime>()->timeMicroSec(); });
         }
     }
 }

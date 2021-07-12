@@ -16,7 +16,6 @@
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
-#include "..\Splash\System.hpp"
 
 namespace abyss::Sys::Main
 {
@@ -64,7 +63,7 @@ namespace abyss::Sys::Main
         m_camera->setManager(&m_manager);
         m_events->setManager(&m_manager);
         m_userInterface->setManager(&m_manager);
-        m_effects->init(*m_time);
+        m_effects->setManager(&m_manager);
         m_stage->setManager(&m_manager);
         m_decors->setManager(&m_manager);
         m_crons->setManager(&m_manager);

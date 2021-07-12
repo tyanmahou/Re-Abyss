@@ -3,11 +3,15 @@
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/modules/Cycle/Splash/Main.hpp>
 #include <abyss/debugs/Log/Log.hpp>
+
+#include <abyss/system/System.hpp>
+
 namespace abyss
 {
     class SplashScene::Impl : 
         public Cycle::Splash::IMainObserver
     {
+        std::unique_ptr<Sys::System<Sys::Config::Splash()>> m_system;
         std::unique_ptr<Cycle::Splash::Main> m_main;
 
         std::function<void()> m_changeOpDemoSceneFunc;

@@ -20,7 +20,7 @@ namespace abyss
     public:
         Effects();
 
-        void init(const GlobalTime& time);
+        void setManager(Manager* pManager);
 
         template<EffectGroup Group>
         void add(std::unique_ptr<s3d::IEffect>&& effect) const

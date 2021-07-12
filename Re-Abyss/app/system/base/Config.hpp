@@ -4,7 +4,19 @@ namespace abyss::Sys
 {
 	struct Config
 	{
-		consteval Config()
-		{}
+		static consteval Config Splash()
+		{
+			return Config{
+				.isStage = false
+			};
+		}
+		static consteval Config Main()
+		{
+			return Config{
+				.isStage = true
+			};
+		}
+	public:
+		bool isStage = false;
 	};
 }
