@@ -13,13 +13,13 @@ namespace abyss::Sys
     class Modules
     {
     public:
-        Module(Manager* pManager)
+        Modules(Manager* pManager)
         {
             // 初期化 / Manager設定
             (this->createMod<Mods>(pManager)...);
         }
         template<class Mod>
-        Mod* get()
+        Mod* get() const
         {
             return std::get<Mod>(m_modules).get();
         }
