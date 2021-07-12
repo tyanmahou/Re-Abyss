@@ -3,7 +3,8 @@
 
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Common/ClockCtrl.hpp>
 
 namespace abyss::Actor::Enemy::Schield

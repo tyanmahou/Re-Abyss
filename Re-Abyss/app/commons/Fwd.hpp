@@ -11,7 +11,6 @@ namespace abyss
 	/// <summary>
 	/// Modules
 	/// </summary>
-	class System;
 	class Manager;
 	class GlobalTime;
 	class Camera;

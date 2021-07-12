@@ -1,6 +1,8 @@
 #include "WaitState.hpp"
 #include "PursuitState.hpp"
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
+
 namespace abyss::Actor::Enemy::Ikalien
 {
     Task<> WaitState::start()

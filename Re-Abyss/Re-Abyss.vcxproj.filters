@@ -928,9 +928,6 @@
     <ClCompile Include="app\modules\Stage\StageData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\System\System.cpp">
-      <Filter>Source Files\ActionSystem</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1447,10 +1444,7 @@
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\system\Main\MainCore.cpp">
+    <ClCompile Include="app\system\Main\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1905,9 +1899,6 @@
       <Filter>Source Files\ActionSystem\Stage</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Stage\StageData.hpp" />
-    <ClInclude Include="app\modules\System\System.hpp">
-      <Filter>Source Files\ActionSystem</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\UI\base\UIObj.hpp" />
     <ClInclude Include="app\modules\UI\base\UIHolder.hpp" />
     <ClInclude Include="app\modules\UI\UIs.hpp" />
@@ -2155,9 +2146,7 @@
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
-    <ClInclude Include="app\system\System.hpp" />
-    <ClInclude Include="app\system\Main\MainCore.hpp" />
-    <ClInclude Include="app\system\base\ICoreSystem.hpp" />
+    <ClInclude Include="app\system\Main\System.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

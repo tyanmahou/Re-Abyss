@@ -4,7 +4,8 @@
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/components/Actor/Enemy/Schield/Shot/Builder.hpp>
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/World/World.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {

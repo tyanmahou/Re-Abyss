@@ -1,5 +1,5 @@
 #include "DamageCallback.hpp"
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 

@@ -2,7 +2,7 @@
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 
-#include <abyss/modules/System/System.hpp>
+#include <abyss/system/Main/System.hpp>
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
@@ -14,7 +14,7 @@ namespace abyss
 	class MainScene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
-		std::unique_ptr<System> m_system;
+		std::unique_ptr<Sys::Main::System> m_system;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
 
@@ -57,7 +57,7 @@ namespace abyss
 			if (isLockPlayer) {
 				player = m_system->lockPlayer();
 			}
-			m_system = std::make_unique<System>(this);
+			m_system = std::make_unique<Sys::Main::System>(this);
 			auto injector = Factory::Main::Injector(mapName);
 			m_stageData = injector.resolve<StageData>();
 			m_system->loadStage(m_stageData);
@@ -86,7 +86,7 @@ namespace abyss
 		/// <returns></returns>
 		bool onRestart() override
 		{
-			m_system = std::make_unique<System>(this);
+			m_system = std::make_unique<Sys::Main::System>(this);
 			m_system->loadStage(m_stageData);
 			m_system->loadTemporaryData(m_tempData);
 

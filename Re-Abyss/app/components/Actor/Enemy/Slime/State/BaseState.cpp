@@ -1,5 +1,5 @@
 #include "BaseState.hpp"
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 
 namespace abyss::Actor::Enemy::Slime

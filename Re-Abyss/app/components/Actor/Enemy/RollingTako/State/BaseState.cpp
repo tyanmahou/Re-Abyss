@@ -1,5 +1,5 @@
 #include "BaseState.hpp"
-#include <abyss/modules/System/System.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::RollingTako

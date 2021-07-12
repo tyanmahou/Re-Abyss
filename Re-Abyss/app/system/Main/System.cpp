@@ -17,12 +17,19 @@
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss
+namespace abyss::Sys::Main
 {
-    System::System(Cycle::Main::IMasterObserver* pObserver) :
+    System::System(Cycle::Main::IMasterObserver* pObserver):
+        m_time(std::make_unique<GlobalTime>()),
+        m_world(std::make_unique<World>()),
+        m_events(std::make_unique<Events>()),
+        m_camera(std::make_unique<Camera>()),
         m_physics(std::make_unique<PhysicsManager>()),
         m_light(std::make_unique<Light>()),
         m_distortion(std::make_unique<Distortion>()),
+        m_effects(std::make_unique<Effects>()),
+        m_sound(std::make_unique<Sound>()),
+        m_userInterface(std::make_unique<UIs>()),
         m_stage(std::make_unique<Stage>()),
         m_backGround(std::make_unique<BackGround>()),
         m_decors(std::make_unique<Decors>()),
@@ -33,16 +40,16 @@ namespace abyss
         m_cycleMaster(std::make_unique<CycleMaster>())
     {
         m_manager
-            .set(&m_time)
-            .set(&m_camera)
+            .set(m_time.get())
+            .set(m_camera.get())
             .set(m_light.get())
             .set(m_distortion.get())
-            .set(&m_world)
+            .set(m_world.get())
             .set(m_physics.get())
-            .set(&m_events)
-            .set(&m_effects)
-            .set(&m_sound)
-            .set(&m_userInterface)
+            .set(m_events.get())
+            .set(m_effects.get())
+            .set(m_sound.get())
+            .set(m_userInterface.get())
             .set(m_backGround.get())
             .set(m_decors.get())
             .set(m_stage.get())
@@ -52,11 +59,11 @@ namespace abyss
             .set(m_drawer.get())
             .set(m_cycleMaster.get())
             ;
-        m_world.setManager(&m_manager);
-        m_camera.setManager(&m_manager);
-        m_events.setManager(&m_manager);
-        m_userInterface.setManager(&m_manager);
-        m_effects.init(m_time);
+        m_world->setManager(&m_manager);
+        m_camera->setManager(&m_manager);
+        m_events->setManager(&m_manager);
+        m_userInterface->setManager(&m_manager);
+        m_effects->init(*m_time);
         m_stage->setManager(&m_manager);
         m_decors->setManager(&m_manager);
         m_crons->setManager(&m_manager);
@@ -66,64 +73,58 @@ namespace abyss
         m_cycleMaster->init();
     }
     System::~System()
-    {    }
+    {}
 
     void System::init()
     {
         m_stage->init();
     }
-
-    void System::init(const std::shared_ptr<Actor::ActorObj>& player)
+    void System::init(const std::shared_ptr<Actor::ActorObj>&player)
     {
         m_stage->init(player, nullptr);
     }
-    void System::restart()
-    {
-        m_stage->restart();
-    }
-
     void System::update()
     {
-        m_time.update();
+        m_time->update();
         m_light->clear();
         m_distortion->clear();
 
-        double dt = m_time.deltaTime();
-        m_world.updateDeltaTime(dt);
+        double dt = m_time->deltaTime();
+        m_world->updateDeltaTime(dt);
 
         // フラッシュは常にする
-        m_world.flush();
+        m_world->flush();
         m_decors->flush();
         m_physics->cleanUp();
 
-        bool isWorldStop = m_events.isWorldStop();
+        bool isWorldStop = m_events->isWorldStop();
         if (!isWorldStop) {
-            m_world.update();
-            m_world.move();
+            m_world->update();
+            m_world->move();
             {
                 // 地形衝突
-                m_world.prePhysics();
+                m_world->prePhysics();
                 m_physics->onPhysicsCollision();
-                m_world.postPhysics();
+                m_world->postPhysics();
             }
         }
-        m_camera.update(dt);
+        m_camera->update(dt);
         if (!isWorldStop) {
-            m_world.collision();
-            m_world.lastUpdate();
+            m_world->collision();
+            m_world->lastUpdate();
         }
 
-        m_events.update();
-        m_userInterface.update();
+        m_events->update();
+        m_userInterface->update();
         m_decors->update();
-        m_backGround->update(m_time.time());
+        m_backGround->update(m_time->time());
         m_crons->update();
 
-        m_world.cleanUp();
+        m_world->cleanUp();
         m_physics->cleanUp();
 #if ABYSS_DEBUG
         Debug::DebugManager::DrawDebug(*m_decors);
-        Debug::DebugManager::DrawDebug(m_effects);
+        Debug::DebugManager::DrawDebug(*m_effects);
 #endif
         m_cycleMaster->listen();
     }
@@ -132,12 +133,12 @@ namespace abyss
         m_drawer->clear();
 
         // Actor Draw
-        m_world.draw();
+        m_world->draw();
         // Deor Draw
         m_decors->draw();
 
-        auto cameraView = m_camera.createView();
-        auto* snapshot = m_camera.getSnapshot();
+        auto cameraView = m_camera->createView();
+        auto* snapshot = m_camera->getSnapshot();
         // in camera
         {
             auto sceneRender = snapshot->startSceneRender();
@@ -147,7 +148,7 @@ namespace abyss
             {
                 m_backGround->draw(cameraView);
                 m_backGround->drawWaterSarfaceBack(cameraView);
-                m_effects.update<EffectGroup::DecorBack>();
+                m_effects->update<EffectGroup::DecorBack>();
                 m_drawer->draw(DrawLayer::DecorBack);
             }
             cameraView.drawDeathLine();
@@ -155,23 +156,23 @@ namespace abyss
             // 中面
             m_drawer->draw(DrawLayer::DecorMiddle);
 
-            m_effects.update<EffectGroup::WorldBack>();
+            m_effects->update<EffectGroup::WorldBack>();
             m_drawer->draw(DrawLayer::World);
-            m_effects.update<EffectGroup::WorldFront>();
+            m_effects->update<EffectGroup::WorldFront>();
 
             // 全面
             m_drawer->draw(DrawLayer::DecorFront);
 
-            m_effects.update<EffectGroup::Bubble>();
+            m_effects->update<EffectGroup::Bubble>();
             m_backGround->drawWaterSarfaceFront(cameraView);
 
             // Light Map更新
-            m_light->render(m_time.time());
+            m_light->render(m_time->time());
             // Distortion Map更新
             m_distortion->render();
 
 #if ABYSS_DEBUG
-            Debug::DebugManager::DrawDebug(m_world);
+            Debug::DebugManager::DrawDebug(*m_world);
             Debug::DebugManager::DrawDebug(*m_physics);
 #endif
         }
@@ -194,7 +195,7 @@ namespace abyss
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
             blackBand.draw(Palette::Black);
 
-            m_userInterface.draw();
+            m_userInterface->draw();
         }
     }
     void System::loadStage(const std::shared_ptr<StageData>& stageData)
@@ -202,7 +203,7 @@ namespace abyss
         m_stage->setStageData(stageData);
         m_stage->load();
     }
-    void System::loadTemporaryData(const std::shared_ptr<TemporaryData>& tempData)
+    void System::loadTemporaryData(const std::shared_ptr<TemporaryData>&tempData)
     {
         m_temporary->setTemporaryData(tempData);
     }
@@ -210,5 +211,8 @@ namespace abyss
     {
         return m_playerManager->getActor().lock();
     }
-
+    void System::restart()
+    {
+        m_stage->restart();
+    }
 }
