@@ -1447,6 +1447,9 @@
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\system\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

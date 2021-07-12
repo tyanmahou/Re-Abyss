@@ -12,6 +12,7 @@ namespace abyss
     void Decors::update()
     {
         m_decors.update();
+        m_decors.erase();
     }
     void Decors::draw() const
     {

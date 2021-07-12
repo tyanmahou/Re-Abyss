@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/system/ModulePackage.hpp>
-#include <abyss/system/base/IBooter.hpp>
 
 namespace abyss::Sys
 {
@@ -12,10 +11,17 @@ namespace abyss::Sys
             m_mods(&m_manager)
         {}
 
-        bool boot(IBooter* pBooter)
-        {
-            return pBooter->onBoot(&m_manager);
-        }
+        /// <summary>
+        /// 起動
+        /// </summary>
+        /// <param name="pBooter"></param>
+        /// <returns></returns>
+        bool boot(IBooter* pBooter);
+
+        void update();
+
+        void draw() const;
+
     private:
         template<class Mod>
         inline Mod* mod() const
