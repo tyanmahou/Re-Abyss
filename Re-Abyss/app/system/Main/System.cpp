@@ -16,6 +16,7 @@
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
+#include "..\Splash\System.hpp"
 
 namespace abyss::Sys::Main
 {

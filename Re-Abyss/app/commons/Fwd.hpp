@@ -8,6 +8,10 @@ namespace abyss
 {
 	class IComponent;
 
+	namespace Sys
+	{
+		class IBooter;
+	}
 	/// <summary>
 	/// Modules
 	/// </summary>
