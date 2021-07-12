@@ -1447,6 +1447,12 @@
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\system\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\system\Main\MainCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2149,6 +2155,9 @@
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
+    <ClInclude Include="app\system\System.hpp" />
+    <ClInclude Include="app\system\Main\MainCore.hpp" />
+    <ClInclude Include="app\system\base\ICoreSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

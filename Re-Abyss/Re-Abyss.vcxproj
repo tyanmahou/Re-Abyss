@@ -403,6 +403,8 @@
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
+    <ClCompile Include="app\system\Main\MainCore.cpp" />
+    <ClCompile Include="app\system\System.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -903,6 +905,9 @@
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\system\base\ICoreSystem.hpp" />
+    <ClInclude Include="app\system\Main\MainCore.hpp" />
+    <ClInclude Include="app\system\System.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
