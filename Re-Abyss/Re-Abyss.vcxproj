@@ -400,10 +400,12 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\system\Main\System.cpp" />
+    <ClCompile Include="app\system\Splash\System.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -720,7 +722,6 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
-    <ClCompile Include="vendor\abyss\include\abyss\modules\Cycle\base\CycleObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -903,7 +904,9 @@
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\system\base\IBooter.hpp" />
     <ClInclude Include="app\system\Main\System.hpp" />
+    <ClInclude Include="app\system\Splash\System.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />

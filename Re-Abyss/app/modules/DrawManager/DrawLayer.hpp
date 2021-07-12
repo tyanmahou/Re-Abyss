@@ -13,6 +13,7 @@ namespace abyss
         World,
         DecorFront,
 
+        UI,
         Size,
         Land = DecorMiddle,
     };

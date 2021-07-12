@@ -1435,9 +1435,6 @@
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vendor\abyss\include\abyss\modules\Cycle\base\CycleObj.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Cycle\Main\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1445,6 +1442,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\system\Main\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\system\Splash\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2147,6 +2150,8 @@
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
     <ClInclude Include="app\system\Main\System.hpp" />
+    <ClInclude Include="app\system\base\IBooter.hpp" />
+    <ClInclude Include="app\system\Splash\System.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -137,6 +137,8 @@ namespace abyss::Sys::Main
         m_world->draw();
         // Deor Draw
         m_decors->draw();
+        // UI Draw
+        m_userInterface->draw();
 
         auto cameraView = m_camera->createView();
         auto* snapshot = m_camera->getSnapshot();
@@ -192,11 +194,12 @@ namespace abyss::Sys::Main
 #endif
                 .draw(cameraView.getQuakeOffset());
         }
+        // UI
         {
             constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
             blackBand.draw(Palette::Black);
 
-            m_userInterface->draw();
+            m_drawer->draw(DrawLayer::UI);
         }
     }
     void System::loadStage(const std::shared_ptr<StageData>& stageData)

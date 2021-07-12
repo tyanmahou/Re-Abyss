@@ -2,6 +2,7 @@
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::UI
 {
@@ -14,8 +15,11 @@ namespace abyss::UI
 
     void UIObj::draw() const
     {
+        auto drawer = this->getModule<DrawManager>();
         for (auto&& com : this->finds<IDraw>()) {
-            com->onDraw();
+            drawer->add(com->getLayer(), [com] {
+                com->onDraw();
+            });
         }
     }
     double UIObj::deltaTime() const
