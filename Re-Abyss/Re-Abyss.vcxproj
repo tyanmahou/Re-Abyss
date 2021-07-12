@@ -868,6 +868,7 @@
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
+    <ClInclude Include="app\concepts\Module.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp" />
@@ -904,8 +905,10 @@
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\system\base\Config.hpp" />
     <ClInclude Include="app\system\base\IBooter.hpp" />
     <ClInclude Include="app\system\Main\System.hpp" />
+    <ClInclude Include="app\system\Modules.hpp" />
     <ClInclude Include="app\system\Splash\System.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
@@ -958,6 +961,7 @@
     <ClInclude Include="app\utils\IdGenerator\IdGenerator.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
+    <ClInclude Include="app\utils\Meta\RemoveParam.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />

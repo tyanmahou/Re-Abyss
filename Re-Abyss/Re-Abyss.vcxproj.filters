@@ -2152,6 +2152,10 @@
     <ClInclude Include="app\system\Main\System.hpp" />
     <ClInclude Include="app\system\base\IBooter.hpp" />
     <ClInclude Include="app\system\Splash\System.hpp" />
+    <ClInclude Include="app\system\base\Config.hpp" />
+    <ClInclude Include="app\system\Modules.hpp" />
+    <ClInclude Include="app\utils\Meta\RemoveParam.hpp" />
+    <ClInclude Include="app\concepts\Module.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
