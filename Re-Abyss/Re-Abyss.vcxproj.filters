@@ -1456,7 +1456,7 @@
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Effect\Effect.cpp">
+    <ClCompile Include="app\modules\Effect\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2171,6 +2171,8 @@
     <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
     <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
     <ClInclude Include="app\modules\Effect\Effects.hpp" />
+    <ClInclude Include="app\concepts\Effect.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectLayer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

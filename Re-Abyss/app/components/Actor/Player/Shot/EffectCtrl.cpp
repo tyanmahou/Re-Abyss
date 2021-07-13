@@ -1,6 +1,6 @@
 #include "EffectCtrl.hpp"
 #include <abyss/modules/Light/Light.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
@@ -24,13 +24,13 @@ namespace abyss::Actor::Player::Shot
         if (!m_shot->isNormal()) {
             const s3d::Vec2& pos = m_body->getPos();
             double r = m_shot->toRadius();
-            m_pActor->getModule<Effects>()->addWorldFront<ShotFiringEffect>(
+            m_pActor->getModule<Effects>()->createWorldFront<ShotFiringEffect>(
                 pos,
                 r,
                 m_shot->toColorF()
                 );
             if (!m_shot->isSmall()) {
-                m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
+                m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist>(
                     m_pActor->getManager(),
                     pos,
                     r * r / 2.0
@@ -47,8 +47,8 @@ namespace abyss::Actor::Player::Shot
         auto* pLight = m_pActor->getModule<Light>();
         // effect
         if (m_effectTimer.update() && *m_shot >= PlayerShotType::Medium) {
-            m_pActor->getModule<Effects>()->addWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
-            m_pActor->getModule<Effects>()->addWorldFront<ShockWaveDist>(
+            m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
+            m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist>(
                 m_pActor->getManager(),
                 pos,
                 radius * std::sqrt(radius) / 2.0,

@@ -3,7 +3,7 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/views/Actor/Common/BreathEffect.hpp>
 
 namespace abyss::Actor
@@ -22,7 +22,7 @@ namespace abyss::Actor
     void BreathingCtrl::onLastUpdate()
     {
         if (m_timer.update() && RandomBool(0.7)) {
-            m_pActor->getModule<Effects>()->add<EffectGroup::Bubble, BreathEffect>(m_body->getPos() + m_offset);
+            m_pActor->getModule<Effects>()->createDecorFront<BreathEffect>(m_body->getPos() + m_offset);
         }
     }
 }

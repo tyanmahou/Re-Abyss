@@ -405,7 +405,7 @@
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
     <ClCompile Include="app\modules\Effect\base\EffectObj.cpp" />
     <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp" />
-    <ClCompile Include="app\modules\Effect\Effect.cpp" />
+    <ClCompile Include="app\modules\Effect\Effects.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\system\Main\System.cpp" />
@@ -874,6 +874,7 @@
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
+    <ClInclude Include="app\concepts\Effect.hpp" />
     <ClInclude Include="app\concepts\Module.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\parser\TmxItemParser.hpp" />
@@ -903,6 +904,7 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectLayer.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
     <ClInclude Include="app\modules\Effect\Effects.hpp" />

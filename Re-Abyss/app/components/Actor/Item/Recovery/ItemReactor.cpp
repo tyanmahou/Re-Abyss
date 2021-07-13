@@ -6,7 +6,7 @@
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/views/Actor/Item/Recovery/RecoveryEffect.hpp>
 
 namespace
@@ -69,7 +69,7 @@ namespace abyss::Actor::Item::Recovery
             m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
         }
 
-        m_pActor->getModule<Effects>()->addWorldFront<RecoveryEffect>(player->find<ILocator>());
+        m_pActor->getModule<Effects>()->createWorldFront<RecoveryEffect>(player->find<ILocator>());
         m_pActor->find<AudioSource>()->playAt(U"Gained");
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));

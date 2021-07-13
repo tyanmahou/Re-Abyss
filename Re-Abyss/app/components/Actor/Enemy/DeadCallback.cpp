@@ -1,6 +1,6 @@
 #include "DeadCallback.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 
 #include <abyss/components/Actor/Commons/Body.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy
             }
         }
         if (auto body = m_pActor->find<Body>()) {
-            m_pActor->getModule<Effects>()->addWorldFront<EnemyDeadEffect>(body->getPos());
+            m_pActor->getModule<Effects>()->createWorldFront<EnemyDeadEffect>(body->getPos());
         }
         if (m_useQuake) {
             m_pActor->getModule<Camera>()->startQuake(5.0, 0.3);

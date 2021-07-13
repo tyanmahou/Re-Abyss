@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/GameObject.hpp>
-#include <abyss/modules/DrawManager/DrawLayer.hpp>
+#include <abyss/modules/Effect/base/EffectLayer.hpp>
 
 namespace abyss::Effect
 {
@@ -25,6 +25,6 @@ namespace abyss::Effect
 
     private:
         Ref<ClockCtrl> m_clock;
-        DrawLayer m_layer = DrawLayer::EffectWorldFront;
+        DrawLayer m_layer = EffectLayer::WorldFront;
     };
 }

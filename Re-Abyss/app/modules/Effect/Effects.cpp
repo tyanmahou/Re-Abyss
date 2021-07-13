@@ -1,4 +1,6 @@
 #include "Effects.hpp"
+#include <abyss/modules/Effect/base/EffectObj.hpp>
+#include <abyss/components/Effect/Common/SivEffect.hpp>
 
 namespace abyss::Effect
 {
@@ -20,5 +22,23 @@ namespace abyss::Effect
     void Effects::clear()
     {
         m_effects.clear();
+    }
+    Ref<EffectObj> Effects::create(DrawLayer layer)
+    {
+        auto obj = std::make_shared<EffectObj>();
+        obj->setLayer(layer);
+        return this->regist(obj);
+    }
+    Ref<EffectObj> Effects::regist(const std::shared_ptr<EffectObj>& effect)
+    {
+        effect->setManager(m_pManager);
+        m_effects.push(effect);
+        return effect;
+    }
+    Ref<EffectObj> Effects::regist(std::unique_ptr<s3d::IEffect>&& effect, DrawLayer layer)
+    {
+        auto obj = this->create(layer);
+        obj->attach<SivEffect>(std::move(effect));
+        return obj;
     }
 }

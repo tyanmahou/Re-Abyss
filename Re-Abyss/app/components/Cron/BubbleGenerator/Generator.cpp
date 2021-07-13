@@ -1,7 +1,7 @@
 #include "Generator.hpp"
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/views/Stage/Bubble/BubbleEffect.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
@@ -16,11 +16,11 @@ namespace abyss::Cron::BubbleGenerator
 		const auto& pos = camera->getPos();
 		auto effects = m_pManager->getModule<Effects>();
 
-		effects->add<EffectGroup::DecorBack, BubbleEffect>(m_pManager, pos, BubbleEffect::Big{});
+		effects->createDecorBack<BubbleEffect>(m_pManager, pos, BubbleEffect::Big{});
 
-		effects->add<EffectGroup::Bubble, BubbleEffect>(m_pManager, pos);
+		effects->createDecorFront<BubbleEffect>(m_pManager, pos);
 		for ([[maybe_unused]] auto&& index : step(3)) {
-			effects->add<EffectGroup::Bubble, BubbleEffect>(m_pManager, pos, BubbleEffect::Small{});
+			effects->createDecorFront<BubbleEffect>(m_pManager, pos, BubbleEffect::Small{});
 		}
 		co_return;
     }

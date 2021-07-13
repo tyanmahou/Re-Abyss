@@ -12,7 +12,7 @@
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Light/Light.hpp>

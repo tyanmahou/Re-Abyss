@@ -1,6 +1,6 @@
 #include "ActDrawCallbackView.hpp"
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 
 namespace abyss::Actor::Ooparts
 {
@@ -10,6 +10,6 @@ namespace abyss::Actor::Ooparts
     void ActDrawCallbackView::onAddEffect(std::unique_ptr<s3d::IEffect>&& effect) const
     {
         auto* effects = m_pManager->getModule<Effects>();
-        effects->addWorldBack(std::move(effect));
+        effects->regist(std::move(effect), Effect::EffectLayer::WorldBack);
     }
 }

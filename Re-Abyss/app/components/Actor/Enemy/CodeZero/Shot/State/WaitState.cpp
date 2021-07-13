@@ -1,6 +1,6 @@
 #include "WaitState.hpp"
 #include "PursuitState.hpp"
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
-            ->addWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
+            ->createWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
         co_return;
     }
 
