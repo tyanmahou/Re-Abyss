@@ -8,6 +8,7 @@ namespace abyss
     /// </summary>
     enum class DrawLayer
     {
+        BackGround,
         DecorBack,
         DecorMiddle,
         World,
@@ -16,6 +17,11 @@ namespace abyss
         UI,
         Size,
         Land = DecorMiddle,
+
+        EffectDecorBack = DecorBack - 1,
+        EffectWorldBack = World - 1,
+        EffectWorldFront = World,
+        EffectDecorFront = DecorFront,
     };
 
     inline constexpr size_t DrawLayerSize = static_cast<size_t>(DrawLayer::Size);

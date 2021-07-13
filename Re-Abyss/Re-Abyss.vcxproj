@@ -402,6 +402,8 @@
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
+    <ClCompile Include="app\modules\Effects\base\EffectObj.cpp" />
+    <ClCompile Include="app\modules\Effects\base\EffectsHolder.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\system\Main\System.cpp" />
@@ -835,6 +837,8 @@
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Event\base\IStream.hpp" />
@@ -897,6 +901,8 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
+    <ClInclude Include="app\modules\Effects\base\EffectObj.hpp" />
+    <ClInclude Include="app\modules\Effects\base\EffectsHolder.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />

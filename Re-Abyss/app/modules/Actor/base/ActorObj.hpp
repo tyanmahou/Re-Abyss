@@ -12,7 +12,7 @@ namespace abyss::Actor
 	class ActorObj final : public GameObject
 	{
 	private:
-		Ref<Actor::ClockCtrl> m_clock;
+		Ref<ClockCtrl> m_clock;
 		s3d::uint64 m_id;
 		s3d::int32 m_order = 0;
 		DestoryTiming m_destoryTiming = DestoryTiming::Default;

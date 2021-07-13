@@ -1,6 +1,6 @@
 #include "ClockCtrl.hpp"
 
-namespace abyss::Actor
+namespace abyss
 {
     void ClockCtrl::updateDeltaTime(double dt)
     {        

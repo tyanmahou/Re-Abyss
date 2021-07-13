@@ -34,7 +34,6 @@ namespace abyss
 	class Light;
 	class Decors;
 	class BackGround;
-	class Effects;
 	class Sound;
 	class UIs;
 	class Crons;
@@ -58,6 +57,17 @@ namespace abyss
 	{
 		class Batch;
 	}
+
+	/// <summary>
+	/// Modules/Effect
+	/// </summary>
+	class Effects;
+	namespace Effect
+	{
+		class EffectManager;
+		class EffectObj;
+	}
+	using Effect::EffectManager;
 
 	/// <summary>
 	/// Modules/Event
@@ -140,9 +150,9 @@ namespace abyss
 	/// <summary>
 	/// Components
 	/// </summary>
+	class ClockCtrl;
 	namespace Actor
 	{
-		class ClockCtrl;
 		class MapCollider;
 		class DeadChecker;
 		class CustomCollider;

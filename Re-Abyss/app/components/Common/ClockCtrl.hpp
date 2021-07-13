@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
-namespace abyss::Actor
+namespace abyss
 {
     class ClockCtrl final: public IComponent
     {

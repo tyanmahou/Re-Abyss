@@ -1450,6 +1450,12 @@
     <ClCompile Include="app\system\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Effects\base\EffectObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Effects\base\EffectsHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2157,6 +2163,10 @@
     <ClInclude Include="app\concepts\Module.hpp" />
     <ClInclude Include="app\system\System.hpp" />
     <ClInclude Include="app\system\ModulePackage.hpp" />
+    <ClInclude Include="app\modules\Effects\base\EffectObj.hpp" />
+    <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\modules\Effects\base\EffectsHolder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
