@@ -1,5 +1,9 @@
 #include "System.hpp"
+#include <abyss/commons/Constants.hpp>
 #include <abyss/system/base/IBooter.hpp>
+
+#include <abyss/views/Camera/CameraView.hpp>
+#include <abyss/views/Camera/SnapshotView.hpp>
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -92,21 +96,111 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             world->cleanUp();
             physics->cleanUp();
+        }
 
+        // エフェクト更新
+        mod<Effects>()->updateAll(dt);
+
+        // 上位命令聴講
+        mod<CycleMaster>()->listen();
+
+        if constexpr (config.isStage) {
 #if ABYSS_DEBUG
             Debug::DebugManager::DrawDebug(*decors);
             Debug::DebugManager::DrawDebug(*mod<Effects>());
 #endif
         }
-
-        // 上位命令聴講
-        mod<CycleMaster>()->listen();
     }
 
     template<Config config>
     void System<config>::draw() const
     {
         auto* drawer = mod<DrawManager>();
+
+        // バッファクリア
+        drawer->clear();
+
+        if constexpr (config.isStage) {
+            // Actor Draw
+            mod<World>()->draw();
+            // Deor Draw
+            mod<Decors>()->draw();
+        }
+        // UI Draw
+        mod<UIs>()->draw();
+        // Effect Draw
+        mod<Effects>()->draw();
+
+        auto* camera = mod<Camera>();
+        auto cameraView = camera->createView();
+        auto* snapshot = camera->getSnapshot();
+        // in camera
+        {
+            auto sceneRender = snapshot->startSceneRender();
+            auto t2d = cameraView.getTransformer();
+
+            // 背面
+            {
+                if constexpr (config.isStage) {
+                    mod<BackGround>()->draw(cameraView);
+                    mod<BackGround>()->drawWaterSarfaceBack(cameraView);
+                }
+                drawer->draw(DrawLayer::BackGround);
+                drawer->draw(DrawLayer::DecorBack);
+            }
+            if constexpr (config.isStage) {
+                cameraView.drawDeathLine();
+            }
+
+            // 中面
+            drawer->draw(DrawLayer::DecorMiddle);
+            drawer->draw(DrawLayer::World);
+
+            // 全面
+            drawer->draw(DrawLayer::DecorFront);
+            if constexpr (config.isStage) {
+                mod<BackGround>()->drawWaterSarfaceFront(cameraView);
+            }
+            if constexpr (config.isStage) {
+                // Light Map更新
+                mod<Light>()->render(mod<GlobalTime>()->time());
+                // Distortion Map更新
+                mod<Distortion>()->render();
+            }
+
+            if constexpr (config.isStage) {
+#if ABYSS_DEBUG
+                Debug::DebugManager::DrawDebug(*mod<World>());
+                Debug::DebugManager::DrawDebug(*mod<PhysicsManager>());
+#endif
+            }
+        }
+        // PostEffect適用
+        if constexpr (config.isStage) {
+            snapshot->copySceneToPost()
+#if ABYSS_DEBUG
+                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(mod<BackGround>()->getBgColor()); })
+#else
+                .apply([=] { return mod<Light>()->start(mod<BackGround>()->getBgColor()); })
+#endif 
+#if ABYSS_DEBUG
+                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return mod<Distortion>()->start(); })
+#else
+                .apply([=] { return mod<Distortion>()->start(); })
+#endif
+                .draw(cameraView.getQuakeOffset());
+        } else {
+            snapshot->draw(cameraView.getQuakeOffset());
+        }
+        // UI
+        {
+            if constexpr (config.isStage) {
+                constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
+                blackBand.draw(Palette::Black);
+            }
+
+            drawer->draw(DrawLayer::UI);
+        }
     }
 
     template class System<Config::Splash()>;
