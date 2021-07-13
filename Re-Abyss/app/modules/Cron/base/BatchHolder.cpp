@@ -13,9 +13,13 @@ namespace abyss::Cron
         for (auto& batch : registing) {
             batch->setup();
             batch->start();
-            // task初期化
-            batch->reset();
-            m_batchs.push_back(std::move(batch));
+            if (batch->isDestroyed()) {
+                batch->end();
+            } else {
+                // task初期化
+                batch->reset();
+                m_batchs.push_back(std::move(batch));
+            }
         }
     }
     void BatchHolder::push(const std::shared_ptr<Batch>& batch)

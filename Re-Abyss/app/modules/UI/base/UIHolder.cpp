@@ -12,7 +12,11 @@ namespace abyss::UI
         for (auto& obj : registing) {
             obj->setup();
             obj->start();
-            m_uis.push_back(std::move(obj));
+            if (obj->isDestroyed()) {
+                obj->end();
+            } else {
+                m_uis.push_back(std::move(obj));
+            }
         }
         m_uis.sort_by([](const std::shared_ptr<UIObj>& a, const std::shared_ptr<UIObj>& b) {
             return a->getOrder() < b->getOrder();

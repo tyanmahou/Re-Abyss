@@ -15,7 +15,11 @@ namespace abyss::Decor
         for (auto& obj : registing) {
             obj->setup();
             obj->start();
-            m_decors.push_back(std::move(obj));
+            if (obj->isDestroyed()) {
+                obj->end();
+            } else {
+                m_decors.push_back(std::move(obj));
+            }
         }
     }
 

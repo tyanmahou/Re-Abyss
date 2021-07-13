@@ -8,7 +8,6 @@ namespace abyss
     void Decors::flush()
     {
         m_decors.flush();
-        m_decors.erase();
     }
     void Decors::update()
     {

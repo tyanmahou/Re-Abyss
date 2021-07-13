@@ -14,7 +14,11 @@ namespace abyss::Actor
 			for (auto& obj : registing) {
 				obj->setup();
 				obj->start();
-				m_actors.push_back(std::move(obj));
+				if (obj->isDestroyed()) {
+					obj->end();
+				} else {
+					m_actors.push_back(std::move(obj));
+				}
 			}
 			m_actors.sort_by([](const std::shared_ptr<ActorObj>& a, const std::shared_ptr<ActorObj>& b) {
 				return a->getOrder() < b->getOrder();
