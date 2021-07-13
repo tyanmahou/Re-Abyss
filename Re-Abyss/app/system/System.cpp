@@ -1,5 +1,4 @@
 #include "System.hpp"
-#include <abyss/commons/Constants.hpp>
 #include <abyss/system/base/IBooter.hpp>
 
 #include <abyss/views/Camera/CameraView.hpp>
@@ -194,11 +193,6 @@ namespace abyss::Sys
         }
         // UI
         {
-            if constexpr (config.isStage) {
-                constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
-                blackBand.draw(Palette::Black);
-            }
-
             drawer->draw(DrawLayer::UI);
         }
     }

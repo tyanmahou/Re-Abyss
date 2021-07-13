@@ -195,9 +195,6 @@ namespace abyss::Sys::Main
         }
         // UI
         {
-            constexpr RectF blackBand{ 0, 0, Constants::GameScreenSize.x, Constants::GameScreenOffset.y };
-            blackBand.draw(Palette::Black);
-
             m_drawer->draw(DrawLayer::UI);
         }
     }
