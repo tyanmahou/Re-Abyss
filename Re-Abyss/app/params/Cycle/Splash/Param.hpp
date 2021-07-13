@@ -6,7 +6,7 @@ namespace abyss::Cycle::Splash
 {
     struct Param
     {
-        [[TOML_BIND_PARAM(Common::FadeTime, "Common.fadeTime")]]
+        [[TOML_BIND(Common::FadeTime, "Common.fadeTime")]]
         struct Common
         {
             inline static double FadeTime{ 3.0 };

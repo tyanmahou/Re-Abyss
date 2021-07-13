@@ -6,10 +6,10 @@ namespace abyss::Cycle::Title
 {
     struct LogoParam
     {
-        [[TOML_BIND_PARAM(Step::TimeSec, "Step.timeSec")]]
-        [[TOML_BIND_PARAM(Step::BasePos, "Step.basePos")]]
-        [[TOML_BIND_PARAM(Step::MoveOffset, "Step.moveOffset")]]
-        [[TOML_BIND_PARAM(Step::MoveDiff, "Step.moveDiff")]]
+        [[TOML_BIND(Step::TimeSec, "Step.timeSec")]]
+        [[TOML_BIND(Step::BasePos, "Step.basePos")]]
+        [[TOML_BIND(Step::MoveOffset, "Step.moveOffset")]]
+        [[TOML_BIND(Step::MoveDiff, "Step.moveDiff")]]
         struct Step
         {
             inline static double TimeSec{ 0.166 };
@@ -17,7 +17,7 @@ namespace abyss::Cycle::Title
             inline static s3d::Vec2 MoveOffset{ 200, 200 };
             inline static s3d::Vec2 MoveDiff{ 100, 100 };
         };
-        [[TOML_BIND_PARAM(End::Pos, "End.pos")]]
+        [[TOML_BIND(End::Pos, "End.pos")]]
         struct End
         {
             inline static s3d::Vec2 Pos{ 480, 270 };

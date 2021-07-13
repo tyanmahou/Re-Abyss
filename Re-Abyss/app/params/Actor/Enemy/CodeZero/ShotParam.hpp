@@ -6,21 +6,21 @@ namespace abyss::Actor::Enemy::CodeZero
 {
     struct ShotParam
     {
-        [[TOML_BIND_PARAM(Base::ColRadius, "Base.colRadius")]]
+        [[TOML_BIND(Base::ColRadius, "Base.colRadius")]]
         struct Base
         {
             inline static double ColRadius{ 70.0 };
         };
 
-        [[TOML_BIND_PARAM(Wait::ScaleTime, "Wait.scaleTime")]]
+        [[TOML_BIND(Wait::ScaleTime, "Wait.scaleTime")]]
         struct Wait
         {
             inline static double ScaleTime{ 3.0 };
         };
 
-        [[TOML_BIND_PARAM(Pursuit::Speed, "Pursuit.speed")]]
-        [[TOML_BIND_PARAM(Pursuit::TimeSec, "Pursuit.timeSec")]]
-        [[TOML_BIND_PARAM(Pursuit::EndToDeadTimeSec, "Pursuit.endToDeadTimeSec")]]
+        [[TOML_BIND(Pursuit::Speed, "Pursuit.speed")]]
+        [[TOML_BIND(Pursuit::TimeSec, "Pursuit.timeSec")]]
+        [[TOML_BIND(Pursuit::EndToDeadTimeSec, "Pursuit.endToDeadTimeSec")]]
         struct Pursuit
         {
             inline static double Speed{ 90.0 };

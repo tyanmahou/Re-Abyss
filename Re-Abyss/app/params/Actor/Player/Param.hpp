@@ -6,9 +6,9 @@ namespace abyss::Actor::Player
 {
     struct Param
     {
-        [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
-        [[TOML_BIND_PARAM(Base::InvincibleTime, "Base.invincibleTime")]]
-        [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
+        [[TOML_BIND(Base::Hp, "Base.hp")]]
+        [[TOML_BIND(Base::InvincibleTime, "Base.invincibleTime")]]
+        [[TOML_BIND(Base::Size, "Base.size")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 8 };
@@ -16,11 +16,11 @@ namespace abyss::Actor::Player
             inline static s3d::Vec2 Size{ 22, 80 };
         };
 
-        [[TOML_BIND_PARAM(Swim::AccelX, "Swim.accelX")]]
-        [[TOML_BIND_PARAM(Swim::DecelX, "Swim.decelX")]]
-        [[TOML_BIND_PARAM(Swim::MaxSpeedX, "Swim.maxSpeedX")]]
-        [[TOML_BIND_PARAM(Swim::DiveSpeed, "Swim.diveSpeed")]]
-        [[TOML_BIND_PARAM(Swim::JumpHeight, "Swim.jumpHeight")]]
+        [[TOML_BIND(Swim::AccelX, "Swim.accelX")]]
+        [[TOML_BIND(Swim::DecelX, "Swim.decelX")]]
+        [[TOML_BIND(Swim::MaxSpeedX, "Swim.maxSpeedX")]]
+        [[TOML_BIND(Swim::DiveSpeed, "Swim.diveSpeed")]]
+        [[TOML_BIND(Swim::JumpHeight, "Swim.jumpHeight")]]
         struct Swim
         {
             inline static double AccelX{ 360.0 };
@@ -30,23 +30,23 @@ namespace abyss::Actor::Player
             inline static double JumpHeight{ 90.0 };
         };
 
-        [[TOML_BIND_PARAM(Ladder::Speed, "Ladder.speed")]]
+        [[TOML_BIND(Ladder::Speed, "Ladder.speed")]]
         struct Ladder
         {
             inline static double Speed{ 120.0 };
         };
 
-        [[TOML_BIND_PARAM(Damage::TimeSec, "Damage.timeSec")]]
-        [[TOML_BIND_PARAM(Damage::KnockBackSpeed, "Damage.knockBackSpeed")]]
+        [[TOML_BIND(Damage::TimeSec, "Damage.timeSec")]]
+        [[TOML_BIND(Damage::KnockBackSpeed, "Damage.knockBackSpeed")]]
         struct Damage
         {
             inline static double TimeSec{ 0.5 };
             inline static s3d::Vec2 KnockBackSpeed{ 210, 210 };
         };
 
-        [[TOML_BIND_PARAM(Dead::TimeSec, "Dead.timeSec")]]
-        [[TOML_BIND_PARAM(Dead::AnimeTimeSec, "Dead.animeTimeSec")]]
-        [[TOML_BIND_PARAM(Dead::KnockBackSpeed, "Dead.knockBackSpeed")]]
+        [[TOML_BIND(Dead::TimeSec, "Dead.timeSec")]]
+        [[TOML_BIND(Dead::AnimeTimeSec, "Dead.animeTimeSec")]]
+        [[TOML_BIND(Dead::KnockBackSpeed, "Dead.knockBackSpeed")]]
         struct Dead
         {
             inline static double TimeSec{ 0.5 };

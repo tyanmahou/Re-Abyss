@@ -9,45 +9,45 @@ namespace
     {
         struct Pos
         {
-            [[TOML_BIND_PARAM(x, "x")]]
+            [[TOML_BIND(x, "x")]]
             double x;
 
-            [[TOML_BIND_PARAM(y, "y")]]
+            [[TOML_BIND(y, "y")]]
             double y;
         };
-        [[TOML_BIND_PARAM(label, "label")]]
+        [[TOML_BIND(label, "label")]]
         String label;
 
-        [[TOML_BIND_PARAM(pos, "pos")]]
+        [[TOML_BIND(pos, "pos")]]
         Pos pos;
     };
     struct Config
     {
         struct Window
         {
-            [[TOML_BIND_PARAM(title, "title")]]
+            [[TOML_BIND(title, "title")]]
             String title;
 
-            [[TOML_BIND_PARAM(width, "width")]]
+            [[TOML_BIND(width, "width")]]
             int32 width;
 
-            [[TOML_BIND_PARAM(height, "height")]]
+            [[TOML_BIND(height, "height")]]
             int32 height;
 
-            [[TOML_BIND_PARAM(sizable, "sizable")]]
+            [[TOML_BIND(sizable, "sizable")]]
             bool sizable;
         };
 
-        [[TOML_BIND_PARAM(window, "Window")]]
+        [[TOML_BIND(window, "Window")]]
         Window window;
 
-        [[TOML_BIND_PARAM(sceneBackGround, "Scene.background")]]
+        [[TOML_BIND(sceneBackGround, "Scene.background")]]
         ColorF sceneBackGround;
 
-        [[TOML_BIND_PARAM(values, "Array.values")]]
+        [[TOML_BIND(values, "Array.values")]]
         Array<int32> values;
 
-        [[TOML_BIND_PARAM(items, "Items")]]
+        [[TOML_BIND(items, "Items")]]
         Array<Item> items;
     };
 }

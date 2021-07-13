@@ -6,17 +6,17 @@ namespace abyss::Actor::Enemy::Slime
 {
     struct Param
     {
-        [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
+        [[TOML_BIND(Base::Hp, "Base.hp")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 6 };
         };
 
-        [[TOML_BIND_PARAM(Walk::Size, "Walk.size")]]
-        [[TOML_BIND_PARAM(Walk::Pivot, "Walk.pivot")]]
-        [[TOML_BIND_PARAM(Walk::AccelX, "Walk.accelX")]]
-        [[TOML_BIND_PARAM(Walk::MaxSpeedX, "Walk.maxSpeedX")]]
-        [[TOML_BIND_PARAM(Walk::SearchRange, "Walk.searchRange")]]
+        [[TOML_BIND(Walk::Size, "Walk.size")]]
+        [[TOML_BIND(Walk::Pivot, "Walk.pivot")]]
+        [[TOML_BIND(Walk::AccelX, "Walk.accelX")]]
+        [[TOML_BIND(Walk::MaxSpeedX, "Walk.maxSpeedX")]]
+        [[TOML_BIND(Walk::SearchRange, "Walk.searchRange")]]
         struct Walk
         {
             inline static s3d::Vec2 Size{ 35, 25 };
@@ -26,15 +26,15 @@ namespace abyss::Actor::Enemy::Slime
             inline static double SearchRange{ 200 };
         };
 
-        [[TOML_BIND_PARAM(Jump::Size, "Jump.size")]]
-        [[TOML_BIND_PARAM(Jump::JumpHeight, "Jump.jumpHeight")]]
+        [[TOML_BIND(Jump::Size, "Jump.size")]]
+        [[TOML_BIND(Jump::JumpHeight, "Jump.jumpHeight")]]
         struct Jump
         {
             inline static s3d::Vec2 Size{ 32, 32 };
             inline static double JumpHeight{ 80 };
         };
 
-        [[TOML_BIND_PARAM(View::WalkAnimeTimeSec, "View.walkAnimeTimeSec")]]
+        [[TOML_BIND(View::WalkAnimeTimeSec, "View.walkAnimeTimeSec")]]
         struct View
         {
             inline static double WalkAnimeTimeSec{ 1.0 };

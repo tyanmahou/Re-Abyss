@@ -5,25 +5,25 @@ namespace abyss::Actor::Player
 {
     struct ShotParam
     {
-        [[TOML_BIND_PARAM(Base::Speed, "Base.speed")]]
-        [[TOML_BIND_PARAM(Base::ColliderRate, "Base.colliderRate")]]
+        [[TOML_BIND(Base::Speed, "Base.speed")]]
+        [[TOML_BIND(Base::ColliderRate, "Base.colliderRate")]]
         struct Base
         {
             inline static double Speed{ 840 };
             inline static double ColliderRate{ 1.3 };
         };
 
-        [[TOML_BIND_PARAM(Normal::Radius, "Normal.radius")]]
-        [[TOML_BIND_PARAM(Normal::Power, "Normal.power")]]
+        [[TOML_BIND(Normal::Radius, "Normal.radius")]]
+        [[TOML_BIND(Normal::Power, "Normal.power")]]
         struct Normal
         {
             inline static double Radius{ 5 };
             inline static s3d::int32 Power{ 2 };
         };
 
-        [[TOML_BIND_PARAM(Small::Charge, "Small.charge")]]
-        [[TOML_BIND_PARAM(Small::Radius, "Small.radius")]]
-        [[TOML_BIND_PARAM(Small::Power, "Small.power")]]
+        [[TOML_BIND(Small::Charge, "Small.charge")]]
+        [[TOML_BIND(Small::Radius, "Small.radius")]]
+        [[TOML_BIND(Small::Power, "Small.power")]]
         struct Small
         {
             inline static double Charge{ 10 };
@@ -31,9 +31,9 @@ namespace abyss::Actor::Player
             inline static s3d::int32 Power{ 3 };
         };
 
-        [[TOML_BIND_PARAM(Medium::Charge, "Medium.charge")]]
-        [[TOML_BIND_PARAM(Medium::Radius, "Medium.radius")]]
-        [[TOML_BIND_PARAM(Medium::Power, "Medium.power")]]
+        [[TOML_BIND(Medium::Charge, "Medium.charge")]]
+        [[TOML_BIND(Medium::Radius, "Medium.radius")]]
+        [[TOML_BIND(Medium::Power, "Medium.power")]]
         struct Medium
         {
             inline static double Charge{ 60 };
@@ -41,9 +41,9 @@ namespace abyss::Actor::Player
             inline static s3d::int32 Power{ 6 };
         };
 
-        [[TOML_BIND_PARAM(Big::Charge, "Big.charge")]]
-        [[TOML_BIND_PARAM(Big::Radius, "Big.radius")]]
-        [[TOML_BIND_PARAM(Big::Power, "Big.power")]]
+        [[TOML_BIND(Big::Charge, "Big.charge")]]
+        [[TOML_BIND(Big::Radius, "Big.radius")]]
+        [[TOML_BIND(Big::Power, "Big.power")]]
         struct Big
         {
             inline static double Charge{ 120 };

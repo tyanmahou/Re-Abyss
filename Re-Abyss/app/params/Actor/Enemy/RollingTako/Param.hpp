@@ -6,9 +6,9 @@ namespace abyss::Actor::Enemy::RollingTako
 {
     struct Param
     {
-        [[TOML_BIND_PARAM(Base::Hp, "Base.hp")]]
-        [[TOML_BIND_PARAM(Base::Size, "Base.size")]]
-        [[TOML_BIND_PARAM(Base::Pivot, "Base.pivot")]]
+        [[TOML_BIND(Base::Hp, "Base.hp")]]
+        [[TOML_BIND(Base::Size, "Base.size")]]
+        [[TOML_BIND(Base::Pivot, "Base.pivot")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 6 };
@@ -16,22 +16,22 @@ namespace abyss::Actor::Enemy::RollingTako
             inline static s3d::Vec2 Pivot{ 0, 7.5 };
         };
 
-        [[TOML_BIND_PARAM(Wait::SearchRange, "Wait.searchRange")]]
+        [[TOML_BIND(Wait::SearchRange, "Wait.searchRange")]]
         struct Wait
         {
             inline static double SearchRange{ 300 };
         };
 
-        [[TOML_BIND_PARAM(Run::AccelX, "Run.accelX")]]
-        [[TOML_BIND_PARAM(Run::MaxSpeedX, "Run.maxSpeedX")]]
+        [[TOML_BIND(Run::AccelX, "Run.accelX")]]
+        [[TOML_BIND(Run::MaxSpeedX, "Run.maxSpeedX")]]
         struct Run
         {
             inline static double AccelX{ 180 };
             inline static double MaxSpeedX{ 200 };
         };
 
-        [[TOML_BIND_PARAM(View::WaitAnimeTimeSec, "View.waitAnimeTimeSec")]]
-        [[TOML_BIND_PARAM(View::RunAnimeTimeSec, "View.runAnimeTimeSec")]]
+        [[TOML_BIND(View::WaitAnimeTimeSec, "View.waitAnimeTimeSec")]]
+        [[TOML_BIND(View::RunAnimeTimeSec, "View.runAnimeTimeSec")]]
         struct View
         {
             inline static double WaitAnimeTimeSec{ 1.0 };

@@ -6,9 +6,9 @@ namespace abyss::Cycle
 {
     struct LoadingParam
     {
-        [[TOML_BIND_PARAM(Slime::BasePos, "Slime.basePos")]]
-        [[TOML_BIND_PARAM(Slime::PeriodicSec, "Slime.periodicSec")]]
-        [[TOML_BIND_PARAM(Slime::JumpSec, "Slime.jumpSec")]]
+        [[TOML_BIND(Slime::BasePos, "Slime.basePos")]]
+        [[TOML_BIND(Slime::PeriodicSec, "Slime.periodicSec")]]
+        [[TOML_BIND(Slime::JumpSec, "Slime.jumpSec")]]
         struct Slime
         {
             inline static s3d::Vec2 BasePos{ 700, 500 };
@@ -16,16 +16,16 @@ namespace abyss::Cycle
             inline static double JumpSec{ 1.0 };
         };
 
-        [[TOML_BIND_PARAM(Text::BasePos, "Text.basePos")]]
-        [[TOML_BIND_PARAM(Text::OffsetX, "Text.offsetX")]]
-        [[TOML_BIND_PARAM(Text::PeriodicSec, "Text.periodicSec")]]
-        [[TOML_BIND_PARAM(Text::JumpPeriodicOffset, "Text.jumpPeriodicOffset")]]
-        [[TOML_BIND_PARAM(Text::JumpIndexCoef, "Text.jumpIndexCoef")]]
-        [[TOML_BIND_PARAM(Text::JumpTimeRate, "Text.jumpTimeRate")]]
-        [[TOML_BIND_PARAM(Text::JumpHeight, "Text.jumpHeight")]]
-        [[TOML_BIND_PARAM(Text::RotatePeriodicOffset, "Text.rotatePeriodicOffset")]]
-        [[TOML_BIND_PARAM(Text::RotateIndexCoef, "Text.rotateIndexCoef")]]
-        [[TOML_BIND_PARAM(Text::RotateTimeRate, "Text.rotateTimeRate")]]
+        [[TOML_BIND(Text::BasePos, "Text.basePos")]]
+        [[TOML_BIND(Text::OffsetX, "Text.offsetX")]]
+        [[TOML_BIND(Text::PeriodicSec, "Text.periodicSec")]]
+        [[TOML_BIND(Text::JumpPeriodicOffset, "Text.jumpPeriodicOffset")]]
+        [[TOML_BIND(Text::JumpIndexCoef, "Text.jumpIndexCoef")]]
+        [[TOML_BIND(Text::JumpTimeRate, "Text.jumpTimeRate")]]
+        [[TOML_BIND(Text::JumpHeight, "Text.jumpHeight")]]
+        [[TOML_BIND(Text::RotatePeriodicOffset, "Text.rotatePeriodicOffset")]]
+        [[TOML_BIND(Text::RotateIndexCoef, "Text.rotateIndexCoef")]]
+        [[TOML_BIND(Text::RotateTimeRate, "Text.rotateTimeRate")]]
         struct Text
         {
             inline static s3d::Vec2 BasePos{ 900, 540 };
@@ -41,8 +41,8 @@ namespace abyss::Cycle
             inline static double RotateTimeRate{ 2.0 };
         };
 
-        [[TOML_BIND_PARAM(ProgressBar::BasePos, "ProgressBar.basePos")]]
-        [[TOML_BIND_PARAM(ProgressBar::Size, "ProgressBar.size")]]
+        [[TOML_BIND(ProgressBar::BasePos, "ProgressBar.basePos")]]
+        [[TOML_BIND(ProgressBar::Size, "ProgressBar.size")]]
         struct ProgressBar
         {
             inline static s3d::Vec2 BasePos{ 740, 500 };

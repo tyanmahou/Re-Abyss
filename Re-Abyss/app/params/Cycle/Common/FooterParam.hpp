@@ -6,7 +6,7 @@ namespace abyss::Cycle
 {
     struct FooterParam
     {
-        [[TOML_BIND_PARAM(Tips::BasePos, "Tips.basePos")]]
+        [[TOML_BIND(Tips::BasePos, "Tips.basePos")]]
         struct Tips
         {
             inline static s3d::Vec2 BasePos{ 900, 540 };

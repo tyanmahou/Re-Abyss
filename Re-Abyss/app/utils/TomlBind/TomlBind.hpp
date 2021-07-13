@@ -150,8 +150,8 @@ namespace abyss
 // Macro
 //----------------------------------------
 
-#define TOML_BIND_PARAM_IMPL_OVERLOAD(e1, e2, NAME, ...) NAME
-#define TOML_BIND_PARAM_IMPL_2(Value, TOMLKey)\
+#define TOML_BIND_IMPL_OVERLOAD(e1, e2, NAME, ...) NAME
+#define TOML_BIND_IMPL_2(Value, TOMLKey)\
 ]]  void operator()(const abyss::detail::TOMLBindId<__LINE__>& id)\
 {\
     static_assert(__LINE__ - 2 < abyss::detail::AUTO_TOML_BINDABLE_MAX_LINES);\
@@ -159,8 +159,8 @@ namespace abyss
     Value = abyss::detail::GetData<Type>(id.toml[U##TOMLKey]);\
 }[[
 
-#define TOML_BIND_PARAM_IMPL_1(Value) TOML_BIND_PARAM_IMPL_2(Value, #Value)
+#define TOML_BIND_IMPL_1(Value) TOML_BIND_IMPL_2(Value, #Value)
 #define TOML_BIND_PP_EXPAND( x ) x
 
-#define TOML_BIND_PARAM(...) TOML_BIND_PP_EXPAND(TOML_BIND_PARAM_IMPL_OVERLOAD(__VA_ARGS__, TOML_BIND_PARAM_IMPL_2, TOML_BIND_PARAM_IMPL_1)(__VA_ARGS__))
+#define TOML_BIND(...) TOML_BIND_PP_EXPAND(TOML_BIND_IMPL_OVERLOAD(__VA_ARGS__, TOML_BIND_IMPL_2, TOML_BIND_IMPL_1)(__VA_ARGS__))
 
