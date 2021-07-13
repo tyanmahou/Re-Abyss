@@ -8,6 +8,7 @@ namespace abyss
     void Decors::flush()
     {
         m_decors.flush();
+        m_decors.erase();
     }
     void Decors::update()
     {
@@ -31,7 +32,7 @@ namespace abyss
 
     Ref<Decor::DecorObj> Decors::create()
     {
-        return  this->regist(std::make_shared<Decor::DecorObj>());
+        return this->regist(std::make_shared<Decor::DecorObj>());
     }
 
     Ref<Decor::DecorObj> Decors::regist(const std::shared_ptr<Decor::DecorObj>& decor)

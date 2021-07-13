@@ -5,6 +5,7 @@ namespace abyss
     void UIs::flush()
     {
         m_userInterfaces.flush();
+        m_userInterfaces.erase();
     }
     void UIs::update()
     {

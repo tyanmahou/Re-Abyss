@@ -122,6 +122,9 @@ namespace abyss::Sys::Main
 
         m_world->cleanUp();
         m_physics->cleanUp();
+
+        m_effects->updateAll(dt);
+
 #if ABYSS_DEBUG
         Debug::DebugManager::DrawDebug(*m_decors);
         Debug::DebugManager::DrawDebug(*m_effects);
@@ -138,6 +141,8 @@ namespace abyss::Sys::Main
         m_decors->draw();
         // UI Draw
         m_userInterface->draw();
+        // Effect Draw
+        m_effects->draw();
 
         auto cameraView = m_camera->createView();
         auto* snapshot = m_camera->getSnapshot();
@@ -150,22 +155,17 @@ namespace abyss::Sys::Main
             {
                 m_backGround->draw(cameraView);
                 m_backGround->drawWaterSarfaceBack(cameraView);
-                m_effects->update<EffectGroup::DecorBack>();
+                m_drawer->draw(DrawLayer::BackGround);
                 m_drawer->draw(DrawLayer::DecorBack);
             }
             cameraView.drawDeathLine();
 
             // 中面
             m_drawer->draw(DrawLayer::DecorMiddle);
-
-            m_effects->update<EffectGroup::WorldBack>();
             m_drawer->draw(DrawLayer::World);
-            m_effects->update<EffectGroup::WorldFront>();
 
             // 全面
             m_drawer->draw(DrawLayer::DecorFront);
-
-            m_effects->update<EffectGroup::Bubble>();
             m_backGround->drawWaterSarfaceFront(cameraView);
 
             // Light Map更新

@@ -9,6 +9,6 @@ namespace abyss::Effect
 
         virtual void onDraw(double time) = 0;
 
-        virtual bool isEnd() = 0;
+        virtual bool isEnd() const = 0;
     };
 }

@@ -61,13 +61,12 @@ namespace abyss
 	/// <summary>
 	/// Modules/Effect
 	/// </summary>
-	class Effects;
 	namespace Effect
 	{
-		class EffectManager;
+		class Effects;
 		class EffectObj;
 	}
-	using Effect::EffectManager;
+	using Effect::Effects;
 
 	/// <summary>
 	/// Modules/Event

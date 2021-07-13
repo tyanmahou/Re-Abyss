@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>
-#include <abyss/modules/Effects/Effects.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Physics/base/IContacter.hpp>
@@ -120,10 +120,7 @@ namespace abyss::Debug
             return;
         }
         Log::Print << U"---LogEffectNum---";
-        Log::Print << U"DecorBack: "  << effects.num<EffectGroup::DecorBack>();
-        Log::Print << U"WorldBack: "  << effects.num<EffectGroup::WorldBack>();
-        Log::Print << U"WorldFront: " << effects.num<EffectGroup::WorldFront>();
-        Log::Print << U"DecorFront: " << effects.num<EffectGroup::DecorFront>();
+        Log::Print << U"Effect: "  << effects.size();
     }
     void DebugManager::DrawDebug(const Decors& decor)
     {

@@ -898,9 +898,6 @@
     <ClCompile Include="app\modules\Decor\Decors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Effects\Effects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Event\Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1450,10 +1447,16 @@
     <ClCompile Include="app\system\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Effects\base\EffectObj.cpp">
+    <ClCompile Include="app\modules\Effect\base\EffectObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Effects\base\EffectsHolder.cpp">
+    <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Common\SivEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Effect\Effect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1895,7 +1898,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
-    <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
@@ -2163,10 +2165,12 @@
     <ClInclude Include="app\concepts\Module.hpp" />
     <ClInclude Include="app\system\System.hpp" />
     <ClInclude Include="app\system\ModulePackage.hpp" />
-    <ClInclude Include="app\modules\Effects\base\EffectObj.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
     <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
-    <ClInclude Include="app\modules\Effects\base\EffectsHolder.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
+    <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
+    <ClInclude Include="app\modules\Effect\Effects.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

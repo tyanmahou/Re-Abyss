@@ -1,5 +1,5 @@
 #include "EffectsHolder.hpp"
-#include <abyss/modules/Effects/base/EffectObj.hpp>
+#include <abyss/modules/Effect/base/EffectObj.hpp>
 
 namespace abyss::Effect
 {
@@ -14,12 +14,23 @@ namespace abyss::Effect
         for (auto& obj : registing) {
             obj->setup();
             obj->start();
-            m_effects.push_back(std::move(obj));
+            if (obj->isDestroyed()) {
+                // 即破棄されたら即死ぬ
+                obj->end();
+            } else {
+                m_effects.push_back(std::move(obj));
+            }
         }
     }
     void EffectsHolder::push(const std::shared_ptr<EffectObj>&effect)
     {
         m_reserves.push_back(effect);
+    }
+    void EffectsHolder::updateDeltaTime(double dt)
+    {
+        for (auto& obj : m_effects) {
+            obj->updateDeltaTime(dt);
+        }
     }
     void EffectsHolder::update()
     {
@@ -56,5 +67,9 @@ namespace abyss::Effect
             obj->end();
         }
         m_effects.clear();
+    }
+    size_t EffectsHolder::size() const
+    {
+        return m_effects.size();
     }
 }

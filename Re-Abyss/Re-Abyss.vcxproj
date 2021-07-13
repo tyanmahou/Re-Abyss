@@ -361,6 +361,7 @@
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\StreamHandler.cpp" />
@@ -402,8 +403,9 @@
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
-    <ClCompile Include="app\modules\Effects\base\EffectObj.cpp" />
-    <ClCompile Include="app\modules\Effects\base\EffectsHolder.cpp" />
+    <ClCompile Include="app\modules\Effect\base\EffectObj.cpp" />
+    <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp" />
+    <ClCompile Include="app\modules\Effect\Effect.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\system\Main\System.cpp" />
@@ -548,7 +550,6 @@
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
-    <ClCompile Include="app\modules\Effects\Effects.cpp" />
     <ClCompile Include="app\modules\Sound\Sound.cpp" />
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Main.cpp" />
@@ -839,6 +840,7 @@
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
     <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
     <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
     <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Event\base\IStream.hpp" />
@@ -901,8 +903,9 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
-    <ClInclude Include="app\modules\Effects\base\EffectObj.hpp" />
-    <ClInclude Include="app\modules\Effects\base\EffectsHolder.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
+    <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
+    <ClInclude Include="app\modules\Effect\Effects.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
@@ -1064,7 +1067,6 @@
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
-    <ClInclude Include="app\modules\Effects\Effects.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
     <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
