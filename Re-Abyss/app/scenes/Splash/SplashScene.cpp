@@ -5,13 +5,16 @@
 #include <abyss/debugs/Log/Log.hpp>
 
 #include <abyss/system/System.hpp>
+#include <abyss/system/Splash/Booter.hpp>
 
 namespace abyss
 {
     class SplashScene::Impl : 
         public Cycle::Splash::IMainObserver
     {
-        std::unique_ptr<Sys::System<Sys::Config::Splash()>> m_system;
+        using System = Sys::System<Sys::Config::Splash()>;
+        std::unique_ptr<System> m_system;
+
         std::unique_ptr<Cycle::Splash::Main> m_main;
 
         std::function<void()> m_changeOpDemoSceneFunc;
@@ -23,6 +26,14 @@ namespace abyss
         {
         }
 
+        void initSystem()
+        {
+            m_system = std::make_unique<System>();
+            auto booter = std::make_unique<Sys::Splash::Booter>();
+            m_system->boot(booter.get());
+
+            m_main = std::make_unique<Cycle::Splash::Main>(this);
+        }
         void loading()
         {
             // 最初にToml全部ロード
@@ -32,15 +43,17 @@ namespace abyss
             Resource::Preload::Preloader preloader(U"@Cycle/Splash");
             preloader.preload();
 
-            m_main = std::make_unique<Cycle::Splash::Main>(this);
+            this->initSystem();
         }
         void update()
         {
+            m_system->update();
             m_main->update();
         }
 
         void draw() const
         {
+            m_system->draw();
             m_main->draw();
         }
 

@@ -1465,6 +1465,9 @@
     <ClCompile Include="app\components\UI\Header\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\system\Splash\Booter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2181,6 +2184,7 @@
     <ClInclude Include="app\modules\Effect\base\EffectLayer.hpp" />
     <ClInclude Include="app\components\UI\Header\Main.hpp" />
     <ClInclude Include="app\components\UI\Header\Builder.hpp" />
+    <ClInclude Include="app\system\Splash\Booter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
