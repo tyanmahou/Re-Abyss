@@ -353,10 +353,10 @@
     <ClCompile Include="app\scenes\Splash\SplashScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp">
+    <ClCompile Include="app\views\UI\Splash\Logo\LogoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp">
+    <ClCompile Include="app\components\UI\Splash\Logo\LogoTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp">
@@ -872,12 +872,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Cron\Crons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Splash\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Cycle\Title\BackGround\BackGround.cpp">
@@ -1474,6 +1468,15 @@
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Splash\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Splash\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1692,10 +1695,10 @@
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
-    <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
+    <ClInclude Include="app\views\UI\Splash\Logo\LogoVM.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
-    <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
-    <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\LogoTimer.hpp" />
+    <ClInclude Include="app\params\UI\Splash\Param.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
     <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
@@ -1905,8 +1908,6 @@
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
-    <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
-    <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Cursor.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
@@ -2193,6 +2194,9 @@
     <ClInclude Include="app\system\Splash\Booter.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

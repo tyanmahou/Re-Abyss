@@ -4,8 +4,6 @@
 #include <abyss/params/Cycle/Common/FooterParam.hpp>
 #include <abyss/params/Cycle/Common/LoadingParam.hpp>
 
-// Splash
-#include <abyss/params/Cycle/Splash/Param.hpp>
 
 // Title
 #include <abyss/params/Cycle/Title/LogoParam.hpp>
@@ -38,6 +36,9 @@
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 
+// Splash
+#include <abyss/params/UI/Splash/Param.hpp>
+
 namespace abyss::Resource::Preload
 {
 	void LoadTomlAll(const Assets* resource)
@@ -60,7 +61,7 @@ namespace abyss::Resource::Preload
 	}
 	void LoadSplashToml(const Assets* resource)
 	{
-		resource->loadToml<Cycle::Splash::Param>(U"Cycle/Splash/param.toml");
+		resource->loadToml<UI::Splash::Param>(U"UI/Splash/param.toml");
 	}
 
 	void LoadTitleToml(const Assets* resource)

@@ -2,7 +2,7 @@
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::Cycle::Splash
+namespace abyss::UI::Splash
 {
     struct Param
     {

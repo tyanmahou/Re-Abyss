@@ -1,16 +1,17 @@
 #pragma once
 #include <Siv3D/Timer.hpp>
 
-namespace abyss::Cycle::Splash::Logo
+namespace abyss::UI::Splash::Logo
 {
-    class LogoModel
+    class LogoTimer
     {
-        s3d::Timer m_timer;
     public:
-        LogoModel();
+        LogoTimer();
 
         double time0_1() const;
 
         bool isEnd() const;
+    private:
+        s3d::Timer m_timer;
     };
 }

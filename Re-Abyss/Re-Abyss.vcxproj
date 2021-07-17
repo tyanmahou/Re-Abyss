@@ -390,6 +390,9 @@
     <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
     <ClCompile Include="app\components\UI\Header\Builder.cpp" />
     <ClCompile Include="app\components\UI\Header\Main.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Main.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\parser\TmxItemParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp" />
@@ -446,8 +449,6 @@
     <ClCompile Include="app\components\Cron\Commons\IntervalTimeScheduler.cpp" />
     <ClCompile Include="app\components\Cron\Commons\OnceScheduler.cpp" />
     <ClCompile Include="app\modules\Cron\Crons.cpp" />
-    <ClCompile Include="app\modules\Cycle\Splash\Logo\Logo.cpp" />
-    <ClCompile Include="app\modules\Cycle\Splash\Main.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\BackGround\BackGround.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\Cursor\Cursor.cpp" />
     <ClCompile Include="app\modules\Cycle\Title\Cursor\Shot.cpp" />
@@ -480,7 +481,7 @@
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
-    <ClCompile Include="app\models\Cycle\Splash\Logo\LogoModel.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Logo\LogoTimer.cpp" />
     <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp" />
     <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp" />
     <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp" />
@@ -533,7 +534,7 @@
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.cpp" />
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.cpp" />
     <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.cpp" />
-    <ClCompile Include="app\views\Cycle\Splash\Logo\LogoVM.cpp" />
+    <ClCompile Include="app\views\UI\Splash\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp" />
@@ -881,6 +882,9 @@
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\UI\Header\Builder.hpp" />
     <ClInclude Include="app\components\UI\Header\Main.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />
     <ClInclude Include="app\concepts\Effect.hpp" />
@@ -1072,8 +1076,6 @@
     <ClInclude Include="app\components\Cron\Commons\IntervalTimeScheduler.hpp" />
     <ClInclude Include="app\components\Cron\Commons\OnceScheduler.hpp" />
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
-    <ClInclude Include="app\modules\Cycle\Splash\Logo\Logo.hpp" />
-    <ClInclude Include="app\modules\Cycle\Splash\Main.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Cursor.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
@@ -1124,7 +1126,7 @@
     <ClInclude Include="app\components\Actor\Player\UICtrl.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
-    <ClInclude Include="app\models\Cycle\Splash\Logo\LogoModel.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\LogoTimer.hpp" />
     <ClInclude Include="app\models\Cycle\Splash\MainModel.hpp" />
     <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
     <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
@@ -1132,7 +1134,7 @@
     <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
     <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\types\Temporary\TempLevel.hpp" />
-    <ClInclude Include="app\params\Cycle\Splash\Param.hpp" />
+    <ClInclude Include="app\params\UI\Splash\Param.hpp" />
     <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
     <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
@@ -1352,7 +1354,7 @@
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.hpp" />
-    <ClInclude Include="app\views\Cycle\Splash\Logo\LogoVM.hpp" />
+    <ClInclude Include="app\views\UI\Splash\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
