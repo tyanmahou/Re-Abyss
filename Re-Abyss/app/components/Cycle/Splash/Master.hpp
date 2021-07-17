@@ -11,6 +11,7 @@ namespace abyss::Cycle::Splash
     class IMasterObserver
     {
     public:
+        virtual ~IMasterObserver() = default;
         virtual bool chageOpDemoScene() = 0;
     };
 

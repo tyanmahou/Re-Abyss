@@ -353,6 +353,8 @@
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
@@ -831,6 +833,8 @@
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />

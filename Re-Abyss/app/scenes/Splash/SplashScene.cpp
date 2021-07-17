@@ -1,7 +1,6 @@
 #include "SplashScene.hpp"
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
-#include <abyss/modules/Cycle/Splash/Main.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 #include <abyss/system/System.hpp>
@@ -9,13 +8,11 @@
 
 namespace abyss
 {
-    class SplashScene::Impl : 
-        public Cycle::Splash::IMainObserver
+    class SplashScene::Impl :
+        public Cycle::Splash::IMasterObserver
     {
         using System = Sys::System<Sys::Config::Splash()>;
         std::unique_ptr<System> m_system;
-
-        std::unique_ptr<Cycle::Splash::Main> m_main;
 
         std::function<void()> m_changeOpDemoSceneFunc;
 
@@ -29,10 +26,8 @@ namespace abyss
         void initSystem()
         {
             m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Sys::Splash::Booter>();
+            auto booter = std::make_unique<Sys::Splash::Booter>(this);
             m_system->boot(booter.get());
-
-            m_main = std::make_unique<Cycle::Splash::Main>(this);
         }
         void loading()
         {
@@ -48,18 +43,17 @@ namespace abyss
         void update()
         {
             m_system->update();
-            m_main->update();
         }
 
         void draw() const
         {
             m_system->draw();
-            m_main->draw();
         }
 
-       void chageOpDemoScene() final
+       bool chageOpDemoScene() final
        {
            m_changeOpDemoSceneFunc();
+           return true;
        }
 
        void bindChangeOpDemoScene(const std::function<void()>& callback)
