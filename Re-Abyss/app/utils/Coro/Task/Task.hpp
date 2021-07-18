@@ -6,6 +6,19 @@ namespace abyss::Coro
 {
     namespace detail
     {
+        struct Yield
+        {
+            constexpr Yield():
+                count(1)
+            {}
+
+            constexpr Yield(std::uint32_t _count) :
+                count(_count)
+            {}
+
+            std::uint32_t count;
+        };
+
         /// <summary>
         /// タスク用インターフェース
         /// </summary>
@@ -39,7 +52,7 @@ namespace abyss::Coro
             {
                 this->value = value;
             }
-            auto yield_value([[maybe_unused]]int)
+            auto yield_value([[maybe_unused]]detail::Yield yield)
             {
                 return std::suspend_always{};
             }
@@ -159,7 +172,7 @@ namespace abyss::Coro
             void unhandled_exception() { std::terminate(); }
             void return_void() {}
 
-            auto yield_value([[maybe_unused]] int)
+            auto yield_value([[maybe_unused]] detail::Yield yield)
             {
                 return std::suspend_always{};
             }
