@@ -35,49 +35,38 @@ namespace abyss::Coro
     template <class T = void>
     struct Task : detail::ITask
     {
-        struct promise_type;
-        using handle = std::coroutine_handle<promise_type>;
+        struct promise_type; // coroutine_traitsを特殊化してないのでスネイクケース
+        using Handle = std::coroutine_handle<promise_type>;
 
-        template<class U>
-        struct value_base
+        struct PromiseValue
         {
-            void return_value(const U& value)
+            void return_value(const T& value)
             {
                 this->value = value;
             }
 
-            const U& getValue() const
+            const T& getValue() const
             {
                 return value;
             }
-            U value;
+            T value;
         };
 
-        // void特殊化
-        template<>
-        struct value_base<void>
-        {
-            void return_void() {}
 
-            void getValue() const
-            {
-            }
-        };
-
-        struct promise_type : value_base<T>
+        struct promise_type : PromiseValue
         {
             static Task get_return_object_on_allocation_failure()
             {
                 return Task{ nullptr };
             }
-            auto get_return_object() { return Task{ Task::handle::from_promise(*this) }; }
-            auto initial_suspend() { return std::suspend_always{}; }
+            auto get_return_object() { return Task{ Task::Handle::from_promise(*this) }; }
+            auto initial_suspend() { return std::suspend_never{}; }
             auto final_suspend() noexcept { return std::suspend_always{}; }
             void unhandled_exception() { std::terminate(); }
 
             auto yield_value(const detail::Yield& _yield)
             {
-                struct  awaiter
+                struct Awaiter
                 {
                     bool await_ready() const noexcept
                     {
@@ -90,10 +79,10 @@ namespace abyss::Coro
                     bool ready = false;
                 };
                 if (_yield.count == 0) {
-                    return awaiter{true};
+                    return Awaiter{true};
                 }
                 --(this->yield = _yield).count;
-                return awaiter{false};
+                return Awaiter{false};
             }
             template<class U>
             auto yield_value(Task<U> other)
@@ -101,7 +90,7 @@ namespace abyss::Coro
                 auto nextTask = std::make_shared<Task<U>>(std::move(other));
                 auto ready = !nextTask->moveNext();
                 next = nextTask;
-                struct awaiter
+                struct Awaiter
                 {
                     bool ready = false;
                     std::shared_ptr<Task<U>> pTask;
@@ -114,13 +103,13 @@ namespace abyss::Coro
                     void await_suspend(std::coroutine_handle<>)
                     {}
                 };
-                return awaiter{ ready, nextTask };
+                return Awaiter{ ready, nextTask };
             }
             detail::Yield yield;
             std::shared_ptr<detail::ITask> next;
         };
 
-        Task(handle h) :
+        Task(Handle h) :
             coro(h)
         {}
 
@@ -197,7 +186,17 @@ namespace abyss::Coro
         }
 
     private:
-        handle coro;
+        Handle coro;
+    };
+
+    // void特殊化
+    template<>
+    struct Task<void>::PromiseValue
+    {
+        void return_void() {}
+
+        void getValue() const
+        {}
     };
 
     template<class T, class U>
