@@ -38,7 +38,33 @@ namespace abyss::Coro
         struct promise_type;
         using handle = std::coroutine_handle<promise_type>;
 
-        struct promise_type
+        template<class U>
+        struct value_base
+        {
+            void return_value(const U& value)
+            {
+                this->value = value;
+            }
+
+            const U& getValue() const
+            {
+                return value;
+            }
+            U value;
+        };
+
+        // void特殊化
+        template<>
+        struct value_base<void>
+        {
+            void return_void() {}
+
+            void getValue() const
+            {
+            }
+        };
+
+        struct promise_type : value_base<T>
         {
             static Task get_return_object_on_allocation_failure()
             {
@@ -48,13 +74,26 @@ namespace abyss::Coro
             auto initial_suspend() { return std::suspend_always{}; }
             auto final_suspend() noexcept { return std::suspend_always{}; }
             void unhandled_exception() { std::terminate(); }
-            void return_value(const T& value)
+
+            auto yield_value(const detail::Yield& _yield)
             {
-                this->value = value;
-            }
-            auto yield_value([[maybe_unused]]detail::Yield yield)
-            {
-                return std::suspend_always{};
+                struct  awaiter
+                {
+                    bool await_ready() const noexcept
+                    {
+                        return ready;
+                    }
+
+                    void await_suspend(std::coroutine_handle<>){}
+                    void await_resume(){}
+
+                    bool ready = false;
+                };
+                if (_yield.count == 0) {
+                    return awaiter{true};
+                }
+                --(this->yield = _yield).count;
+                return awaiter{false};
             }
             template<class U>
             auto yield_value(Task<U> other)
@@ -77,9 +116,8 @@ namespace abyss::Coro
                 };
                 return awaiter{ ready, nextTask };
             }
+            detail::Yield yield;
             std::shared_ptr<detail::ITask> next;
-
-            T value;
         };
 
         Task(handle h) :
@@ -113,13 +151,24 @@ namespace abyss::Coro
             if (coro.done()) {
                 return false;
             }
-            auto& next = coro.promise().next;
-            if (next) {
-
-                if (!next->moveNext()) {
-                    next = nullptr;
-                } else {
+            // Yield
+            {
+                auto& yield = coro.promise().yield;
+                if (yield.count > 0 && yield.count-- > 0) {
+                    // カウンタが残ってるなら
                     return true;
+                }
+            }
+            // 割り込み別タスク
+            {
+                auto& next = coro.promise().next;
+                if (next) {
+
+                    if (!next->moveNext()) {
+                        next = nullptr;
+                    } else {
+                        return true;
+                    }
                 }
             }
             coro.resume();
@@ -142,121 +191,11 @@ namespace abyss::Coro
         /// 取得
         /// </summary>
         /// <returns></returns>
-        [[nodiscard]] const T& get() const
+        [[nodiscard]] decltype(auto) get() const
         {
-            return coro.promise().value;
+            return coro.promise().getValue();
         }
 
-    private:
-        handle coro;
-    };
-
-    /// <summary>
-    /// タスク void特殊化
-    /// </summary>
-    template <>
-    struct Task<void> : detail::ITask
-    {
-        struct promise_type;
-        using handle = std::coroutine_handle<promise_type>;
-
-        struct promise_type
-        {
-            static Task get_return_object_on_allocation_failure()
-            {
-                return Task{ nullptr };
-            }
-            auto get_return_object() { return Task{ Task::handle::from_promise(*this) }; }
-            auto initial_suspend() { return std::suspend_always{}; }
-            auto final_suspend() noexcept { return std::suspend_always{}; }
-            void unhandled_exception() { std::terminate(); }
-            void return_void() {}
-
-            auto yield_value([[maybe_unused]] detail::Yield yield)
-            {
-                return std::suspend_always{};
-            }
-            template<class U>
-            auto yield_value(Task<U> other)
-            {
-                auto nextTask = std::make_shared<Task<U>>(std::move(other));
-                auto ready = !nextTask->moveNext();
-                next = nextTask;
-                struct awaiter
-                {
-                    bool ready = false;
-                    std::shared_ptr<Task<U>> pTask;
-
-                    bool await_ready() const { return ready; }
-                    decltype(auto) await_resume()
-                    {
-                        return pTask->get();
-                    }
-                    void await_suspend(std::coroutine_handle<>)
-                    {}
-                };
-                return awaiter{ ready, nextTask };
-            }
-            std::shared_ptr<detail::ITask> next;
-        };
-
-        Task(handle h) :
-            coro(h)
-        {}
-
-        Task(Task const&) = delete;
-
-        Task(Task&& rhs) noexcept
-            : coro(std::move(rhs.coro))
-        {
-            rhs.coro = nullptr;
-        }
-        ~Task()
-        {
-            if (coro) {
-                coro.destroy();
-            }
-        }
-
-        /// <summary>
-        /// 再開
-        /// </summary>
-        /// <returns></returns>
-        bool moveNext() const override
-        {
-            if (!coro) {
-                return false;
-            }
-            if (coro.done()) {
-                return false;
-            }
-            auto& next = coro.promise().next;
-            if (next) {
-
-                if (!next->moveNext()) {
-                    next = nullptr;
-                } else {
-                    return true;
-                }
-            }
-            coro.resume();
-            return !coro.done();
-        }
-
-        /// <summary>
-        /// 完了したか
-        /// </summary>
-        /// <returns></returns>
-        bool isDone()const
-        {
-            if (!coro) {
-                return false;
-            }
-            return coro.done();
-        }
-
-        void get() const
-        {}
     private:
         handle coro;
     };
