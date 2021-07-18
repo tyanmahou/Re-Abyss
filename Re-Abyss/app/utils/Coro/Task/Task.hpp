@@ -60,7 +60,7 @@ namespace abyss::Coro
                 return Task{ nullptr };
             }
             auto get_return_object() { return Task{ Task::Handle::from_promise(*this) }; }
-            auto initial_suspend() { return std::suspend_never{}; }
+            auto initial_suspend() { return std::suspend_always{}; }
             auto final_suspend() noexcept { return std::suspend_always{}; }
             void unhandled_exception() { std::terminate(); }
 
@@ -105,7 +105,7 @@ namespace abyss::Coro
                 };
                 return Awaiter{ ready, nextTask };
             }
-            detail::Yield yield;
+            detail::Yield yield{0};
             std::shared_ptr<detail::ITask> next;
         };
 
