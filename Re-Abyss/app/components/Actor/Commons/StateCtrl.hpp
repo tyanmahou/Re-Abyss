@@ -38,7 +38,8 @@ namespace abyss::Actor
 
         virtual void setup() {}
 
-        virtual Task<void> start() { co_return; }
+        virtual void start() {}
+        virtual Task<void> task() { co_return; }
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
@@ -58,8 +59,8 @@ namespace abyss::Actor
         State_t m_current;
         std::pair<StatePriorityType, State_t> m_next;
         std::shared_ptr<IPostCollision> m_collisionReact;
-        std::unique_ptr<Task<void>> m_startTask;
-
+        std::unique_ptr<Task<void>> m_task;
+        bool m_doneOnStart = false;
         ActorObj* const  m_pActor;
     public:
         StateCtrl(ActorObj* pActor);

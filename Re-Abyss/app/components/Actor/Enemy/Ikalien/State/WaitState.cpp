@@ -5,9 +5,8 @@
 
 namespace abyss::Actor::Enemy::Ikalien
 {
-    Task<> WaitState::start()
+    void WaitState::start()
     {
-        co_return;
     }
     void WaitState::update()
     {

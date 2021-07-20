@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::LaunShark
         TimerEx m_attackTimer;
     public:
         AttackState();
-        Task<> start();
+        void start();
         void update() override;
 
         void draw() const override;

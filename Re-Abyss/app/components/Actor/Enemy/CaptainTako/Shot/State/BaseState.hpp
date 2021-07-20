@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
     public:
         void setup()override;
 
-        Task<> start() override;
+        void start() override;
 
         void draw() const override;
     };

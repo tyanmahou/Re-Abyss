@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::LaunShark
         bool m_out = false;
     public:
         LauncherState();
-        Task<> start();
+        void start();
         void update() override;
         void end();
 

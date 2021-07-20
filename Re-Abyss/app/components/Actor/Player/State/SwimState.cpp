@@ -18,9 +18,9 @@ namespace abyss::Actor::Player
         }
     }
 
-    Task<> SwimState::start()
+    void SwimState::start()
     {
-        co_yield BaseState::start();
+        BaseState::start();
         // ドアに入れる
         m_stateChecker->setCanDoorState(true);
         // 攻撃可能

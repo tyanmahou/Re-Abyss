@@ -21,7 +21,7 @@ namespace abyss::Actor::Player
     private:
         void onLanding()override;
 
-        Task<> start() override;
+        void start() override;
         void update()override;
         void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;

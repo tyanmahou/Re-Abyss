@@ -10,10 +10,9 @@ namespace abyss::Actor::Enemy::CodeZero
     {
 
     }
-    Task<> Phase2State::start()
+    void Phase2State::start()
     {
         m_behavior->setBehavior(Behavior::Petern2);
-        co_return;
     }
     void Phase2State::update()
     {

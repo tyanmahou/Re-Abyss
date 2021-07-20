@@ -13,9 +13,9 @@
 
 namespace abyss::Actor::Player
 {
-    Task<> DeadState::start()
+    void DeadState::start()
     {
-        co_yield BaseState::start();
+        BaseState::start();
 
         // 無敵時間をなしに
         m_pActor->find<HP>()->setInvincibleTime(0);
@@ -61,10 +61,6 @@ namespace abyss::Actor::Player
 
         // アニメ用タイマー開始
         m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::AnimeTimeSec, true);
-
-        // 待ち
-        co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Dead::TimeSec);
-        co_return;
     }
 
     void DeadState::update()

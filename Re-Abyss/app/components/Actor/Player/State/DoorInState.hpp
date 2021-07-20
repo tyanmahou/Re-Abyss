@@ -9,7 +9,7 @@ namespace abyss::Actor::Player
     public:
         DoorInState(const Ref<Gimmick::Door::DoorProxy>& door);
     private:
-        Task<> start() override;
+        void start() override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;
     private:

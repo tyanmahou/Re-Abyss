@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     class WaitState : public BaseState
     {
     public:
-        Task<> start();
+        void start();
 
         void update() override;
 

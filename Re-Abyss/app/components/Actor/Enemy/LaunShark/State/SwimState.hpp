@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::LaunShark
 
     public:
         SwimState();
-        Task<> start();
+        void start();
         void update() override;
         void lastUpdate() override;
 

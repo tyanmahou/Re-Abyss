@@ -5,7 +5,7 @@ namespace abyss::Actor::Player
 {
     class DeadState final : public BaseState
     {
-        Task<> start()override;
+        void start()override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;
     public:

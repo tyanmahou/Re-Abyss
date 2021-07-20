@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CaptainTako
 {
     ChargeState::ChargeState()
     {}
-    Task<> ChargeState::start()
+    Task<> ChargeState::task()
     {
         m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
         m_pActor->find<AudioSource>()->play(U"Charge");

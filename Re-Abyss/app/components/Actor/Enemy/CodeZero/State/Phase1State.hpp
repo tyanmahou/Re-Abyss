@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {   
     public:
         Phase1State();
-        Task<> start();
+        void start();
         void update() override;
     };
 }

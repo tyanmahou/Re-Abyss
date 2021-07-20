@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::Schield
     public:
         WaitState();
 
-        Task<> start() override;
+        void start() override;
         void update() override;
         void end() override;
 

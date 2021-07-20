@@ -11,13 +11,12 @@ namespace abyss::Actor::Enemy::Schield
 {
     WaitState::WaitState()
     {}
-    Task<> WaitState::start()
+    void WaitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
         m_pActor->find<ClockCtrl>()->resetDrawTime();
 
         m_face->on();
-        co_return;
     }
     void WaitState::update()
     {

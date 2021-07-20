@@ -13,7 +13,7 @@ namespace abyss::Actor::Player
         m_door(door)
     {}
 
-    Task<> DoorInState::start()
+    void DoorInState::start()
     {
         if (!m_door) {
             this->changeState<SwimState>();
@@ -45,8 +45,6 @@ namespace abyss::Actor::Player
             // セーブ対象だった場合
             m_pActor->getModule<Temporary>()->reserveRestartId(m_door->getStartId());
         }
-
-        co_return;
     }
     void DoorInState::update()
     {

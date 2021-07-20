@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     AttackState::AttackState():
         m_attackCount(Param::Attack::AttackCount)
     {}
-    Task<> AttackState::start()
+    Task<> AttackState::task()
     {
         while (true) {
             // ショット

@@ -12,10 +12,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     PursuitState::PursuitState()
     {}
 
-    Task<> PursuitState::start()
+    void PursuitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
-        co_return;
     }
     void PursuitState::update()
     {

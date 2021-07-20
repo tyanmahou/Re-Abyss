@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
     class JumpState final: public BaseState
     {
     public:
-        Task<> start() override;
+        void start() override;
         void lastUpdate() override;
 
         void draw()const override;

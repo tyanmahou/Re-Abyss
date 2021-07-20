@@ -34,11 +34,11 @@ namespace abyss::Actor
             }
             m_current = m_next.second;
             m_collisionReact = std::dynamic_pointer_cast<IPostCollision>(m_current);
-            m_startTask = std::make_unique<Coro::Task<void>>(m_current->start());
+            m_task = std::make_unique<Coro::Task<void>>(m_current->task());
             m_current->init(this);
             m_next.first = 0;
             m_next.second = nullptr;
-
+            m_doneOnStart = false;
             // コールバックを呼ぶ
             for (auto&& callback : m_pActor->finds<IStateCallback>()) {
                 callback->onStateStart();
@@ -49,8 +49,12 @@ namespace abyss::Actor
     void StateCtrl::onPostUpdate()
     {
         this->stateUpdate();
-        if (m_startTask) {
-            m_startTask->moveNext();
+        if (!m_doneOnStart && m_current) {
+            m_current->start();
+            m_doneOnStart = true;
+        }
+        if (m_task) {
+            m_task->moveNext();
         }
         if (m_current) {
             m_current->update();

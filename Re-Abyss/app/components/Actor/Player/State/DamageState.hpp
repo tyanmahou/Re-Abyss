@@ -5,7 +5,8 @@ namespace abyss::Actor::Player
 {
     class DamageState final : public BaseState
     {
-        Task<> start()override;
+        void start()override;
+        Task<> task()override;
         void update()override;
         void onDraw(const PlayerVM& view)const override;
     public:

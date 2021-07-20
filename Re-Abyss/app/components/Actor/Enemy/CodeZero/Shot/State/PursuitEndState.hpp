@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         TimerEx m_timer;
     public:
         PursuitEndState();
-        Task<> start();
+        void start();
         void update() override;
     };
 }

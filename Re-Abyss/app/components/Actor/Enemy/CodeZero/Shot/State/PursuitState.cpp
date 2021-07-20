@@ -8,10 +8,9 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     PursuitState::PursuitState()
     {
     }
-    Task<> PursuitState::start()
+    void PursuitState::start()
     {
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::TimeSec);
-        co_return;
     }
     void PursuitState::update()
     {

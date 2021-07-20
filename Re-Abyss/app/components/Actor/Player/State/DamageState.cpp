@@ -10,9 +10,9 @@ namespace abyss::Actor::Player
     DamageState::DamageState(const s3d::Vec2& velocity):
         m_velocity(velocity)
     {}
-    Task<> DamageState::start()
+    void DamageState::start()
     {
-        co_yield BaseState::start();
+        BaseState::start();
         m_pActor->find<AudioSource>()->play(U"Damage");
 
         auto nextForward = m_body->getForward();
@@ -34,13 +34,14 @@ namespace abyss::Actor::Player
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);
-
+    }
+    Task<> DamageState::task()
+    {
         // 一定時間待機
         co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
 
         // 泳ぎに戻る
         this->changeState<SwimState>();
-        co_return;
     }
     void DamageState::update()
     {

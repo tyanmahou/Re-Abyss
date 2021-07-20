@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     { 
     public:
         void update() override;
-        Task<> start()override;
+        void start()override;
         void lastUpdate() override;
     };
 }

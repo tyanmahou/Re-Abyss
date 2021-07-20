@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::Schield
     public:
         AttackPlusState();
 
-        Task<> start();
+        void start();
         void update() override;
 
         void draw() const override;

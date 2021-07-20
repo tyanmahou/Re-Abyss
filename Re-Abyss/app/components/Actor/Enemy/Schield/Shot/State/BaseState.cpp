@@ -7,9 +7,8 @@ namespace abyss::Actor::Enemy::Schield::Shot
         m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
-    Task<> BaseState::start()
+    void BaseState::start()
     {
-        co_return;
     }
 
     void BaseState::draw() const

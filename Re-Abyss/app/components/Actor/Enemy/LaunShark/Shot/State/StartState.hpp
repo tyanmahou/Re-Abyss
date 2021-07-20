@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     class StartState : public BaseState
     {
     public:
-        Task<> start()override;
+        void start()override;
         void update() override;
 
         void draw() const override;

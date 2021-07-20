@@ -5,10 +5,9 @@
 
 namespace abyss::Actor::Enemy::Slime
 {
-    Task<> WalkState::start()
+    void WalkState::start()
     {
         m_body->setSize(Param::Walk::Size).setPivot(Param::Walk::Pivot);
-        co_return;
     }
     void WalkState::update()
     {

@@ -17,7 +17,7 @@ namespace abyss::Actor::Player
         m_colCtrl    = m_pActor->find<CollisionCtrl>().get();
         m_stateChecker = m_pActor->find<StateChecker>().get();
     }
-    Task<> BaseState::start()
+    void BaseState::start()
     {
         (*m_body)
             .setAccelY(Body::DefaultGravity)
@@ -25,7 +25,6 @@ namespace abyss::Actor::Player
             .setMaxVelocityY(Body::DefaultMaxVelocityY)
             .setDecelX(Param::Swim::DecelX)
             .setMaxSpeedX(Param::Swim::MaxSpeedX);
-        co_return;
     }
     void BaseState::update()
     {

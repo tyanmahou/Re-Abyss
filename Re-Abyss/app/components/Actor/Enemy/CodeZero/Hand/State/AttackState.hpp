@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool m_isReturn = false;
     public:
         AttackState();
-        Task<> start()override;
+        void start()override;
         void update()override;
     };
 }

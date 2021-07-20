@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     AttackWaitState::AttackWaitState()
     {}
 
-    Task<> AttackWaitState::start()
+    Task<> AttackWaitState::task()
     {
         m_hand->startForAttackWait(*m_body);
 

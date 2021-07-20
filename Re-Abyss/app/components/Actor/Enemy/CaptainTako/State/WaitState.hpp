@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CaptainTako
         TimerEx m_waitTimer;
     public:
         WaitState();
-        Task<> start() override;
+        void start() override;
         void update() override;
         void draw() const override;
     };

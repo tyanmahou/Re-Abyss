@@ -11,7 +11,7 @@ namespace abyss::Actor::Player::Shot
         m_view = this->m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
-    Task<> BaseState::start()
+    void BaseState::start()
     {
         if (m_shot->isBig()) {
             m_pActor->find<AudioSource>()->playAt(U"ShotBig");
@@ -20,7 +20,6 @@ namespace abyss::Actor::Player::Shot
         } else {
             m_pActor->find<AudioSource>()->playAt(U"ShotSmall");
         }
-        co_return;
     }
 
     void BaseState::update()

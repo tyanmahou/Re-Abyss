@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
     public:
         ShotChargeState();
-        Task<> start()override;
+        void start()override;
         void update()override;
     };
 }

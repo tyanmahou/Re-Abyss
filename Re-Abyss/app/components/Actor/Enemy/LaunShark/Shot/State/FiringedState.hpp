@@ -6,7 +6,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     class FiringedState final : public BaseState
     {
     public:
-        Task<> start();
+        void start();
 
         void draw() const override;
     };
