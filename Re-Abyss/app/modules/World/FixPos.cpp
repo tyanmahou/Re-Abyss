@@ -1,6 +1,71 @@
 #include "FixPos.hpp"
 #include <Siv3D.hpp>
 
+namespace
+{
+	// SivGeometry2D.cpp 移植
+
+	bool IntersectLoose(const Triangle& a, const Triangle& b) noexcept
+	{
+		const int32 other[3] = { 1, 2, 0 };
+		const int32 pindex[4] = { 1, 2, 0, 1 };
+		const Triangle* tri[3] = { &a, &b, &a };
+
+		for (int32 t = 0; t < 2; ++t) {
+			const Triangle& ta = *tri[t];
+			const Triangle& tb = *tri[t + 1];
+
+			for (int32 i = 0; i < 3; ++i) {
+				const Float2 vec = (ta.p(pindex[i + 1]) - ta.p(pindex[i])).normalized();
+				const Float2 sepVec(vec.y, -vec.x);
+
+				float s1min = sepVec.dot(ta.p(i));
+				float s1max = sepVec.dot(ta.p(other[i]));
+
+				if (s1min > s1max) {
+					std::swap(s1min, s1max);
+				}
+
+				float s2min = sepVec.dot(tb.p(0));
+				float s2max = sepVec.dot(tb.p(1));
+
+				if (s2min > s2max) {
+					std::swap(s2min, s2max);
+				}
+
+				const float d3 = sepVec.dot(tb.p(2));
+
+				if (d3 < s2min) {
+					s2min = d3;
+				} else if (d3 > s2max) {
+					s2max = d3;
+				}
+
+				if ((s2min < s1min && s1min < s2max)
+					|| (s2min < s1max && s1max < s2max)
+					|| (s1min < s2min && s2min < s1max)
+					|| (s1min < s2max && s2max < s1max)) {
+					continue;
+				}
+
+				return false;
+			}
+		}
+
+		return true;
+	}
+	bool IntersectLoose(const Rect& a, const Triangle& b) noexcept
+	{
+		return IntersectLoose(Triangle(a.tl(), a.tr(), a.bl()), b)
+			|| IntersectLoose(Triangle(a.bl(), a.tr(), a.br()), b);
+	}
+	bool IntersectLoose(const Rect& a, const Quad& b) noexcept
+	{
+		return IntersectLoose(a, Triangle(b.p0, b.p1, b.p2))
+			|| IntersectLoose(a, Triangle(b.p0, b.p2, b.p3));
+	}
+
+}
 namespace abyss
 {
     FixPos::Result FixPos::ByLatestPos(const s3d::RectF& from, const s3d::RectF& come, ColDirection col)
@@ -64,22 +129,22 @@ namespace abyss
 
 		const RectF topRect{ from.tl(), { from.w, qSize.y } };
 		const RectF bottomRect{ from.bl() - Vec2{0, qSize.y}, { from.w, qSize.y } };
-		const RectF leftRect{ from.tl(), { qSize.x, from.h } };
-		const RectF rightRect{ from.tr() - Vec2{qSize.x, 0}, { qSize.x, from.h } };
+		const RectF leftRect{ from.tl(), { qSize.x, from.h} };
+		const RectF rightRect{ from.tr() - Vec2{qSize.x, 0}, { qSize.x, from.h} };
 
-		if (up && topRect.intersects(toQuad(come.bottom(), moveVec))) {
+		if (up && ::IntersectLoose(topRect, toQuad(come.bottom(), moveVec))) {
 			// ブロックの上端
 			retCol = retCol | ColDirection::Up;
 			comePos.y = fromPos.y - (comeSize.y + fromSize.y) / 2;
-		} else if (down && bottomRect.intersects(toQuad(come.top(), moveVec))) {
+		} else if (down && ::IntersectLoose(bottomRect, toQuad(come.top(), moveVec))) {
 			// ブロックの下端
 			retCol = retCol | ColDirection::Down;
 			comePos.y = fromPos.y + (comeSize.y + fromSize.y) / 2;
-		} else if (left && leftRect.intersects(toQuad(come.right(), moveVec))) {
+		} else if (left && ::IntersectLoose(leftRect, toQuad(come.right(), moveVec))) {
 			//ブロックの左端
 			retCol = retCol | ColDirection::Left;
 			comePos.x = fromPos.x - (comeSize.x + fromSize.x) / 2;
-		} else if (right && rightRect.intersects(toQuad(come.left(), moveVec))) {
+		} else if (right && ::IntersectLoose(rightRect, toQuad(come.left(), moveVec))) {
 			//ブロックの右端
 			retCol = retCol | ColDirection::Right;
 			comePos.x = fromPos.x + (comeSize.x + fromSize.x) / 2;
