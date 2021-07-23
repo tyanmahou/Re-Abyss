@@ -10,6 +10,12 @@ namespace abyss::Sys
 				.isStage = false
 			};
 		}
+		static consteval Config Title()
+		{
+			return Config{
+				.isStage = false
+			};
+		}
 		static consteval Config Main()
 		{
 			return Config{

@@ -86,7 +86,7 @@ namespace abyss::Sys
             // 装飾更新
             decors->update();
             // 背景更新
-            mod<BackGround>()->update(time->time());
+            mod<BackGround>()->update(timer->time());
         }
         // クーロン更新
         mod<Crons>()->update();
@@ -198,4 +198,6 @@ namespace abyss::Sys
     }
 
     template class System<Config::Splash()>;
+    template class System<Config::Title()>;
+    template class System<Config::Main()>;
 }
