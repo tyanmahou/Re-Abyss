@@ -200,4 +200,5 @@ namespace abyss::Sys
     template class System<Config::Splash()>;
     template class System<Config::Title()>;
     template class System<Config::Main()>;
+    template class System<Config::SaveSelect()>;
 }
