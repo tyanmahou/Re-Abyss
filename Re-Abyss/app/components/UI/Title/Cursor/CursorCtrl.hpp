@@ -37,6 +37,10 @@ namespace abyss::UI::Title::Cursor
 
         void onDraw()const override;
 
+        bool isDone() const
+        {
+            return m_isDone;
+        }
     private:
         std::function<void()>& operator[](Mode mode)
         {
@@ -52,6 +56,8 @@ namespace abyss::UI::Title::Cursor
         s3d::Timer m_gameStartTimer;
         bool m_isGameStart = false;
         std::unique_ptr<Shot> m_shot;
+
+        bool m_isDone = false;
     };
 }
 

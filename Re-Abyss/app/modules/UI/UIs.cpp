@@ -8,6 +8,7 @@ namespace abyss
     }
     void UIs::update()
     {
+        m_userInterfaces.flush();
         m_userInterfaces.update();
         m_userInterfaces.erase();
     }

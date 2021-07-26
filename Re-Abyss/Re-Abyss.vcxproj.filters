@@ -874,9 +874,6 @@
     <ClCompile Include="app\components\UI\Title\Cursor\Shot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Title\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Decor\Decors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1492,6 +1489,15 @@
     <ClCompile Include="app\components\UI\Title\Logo\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\Title\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Title\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1923,7 +1929,6 @@
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\CursorCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Shot.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
@@ -2217,6 +2222,9 @@
     <ClInclude Include="app\components\UI\Title\BackGround\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Title\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

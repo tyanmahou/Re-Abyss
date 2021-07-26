@@ -7,6 +7,7 @@ namespace abyss
 
     namespace CameraTargetPriority
     {
+        inline constexpr CameraTargetPriorityType Lowest{ -999 };
         inline constexpr CameraTargetPriorityType Normal{ 0 };
         inline constexpr CameraTargetPriorityType Player{ 1 };
         inline constexpr CameraTargetPriorityType Move{ 2 };

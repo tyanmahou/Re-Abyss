@@ -6,6 +6,8 @@ namespace abyss::UI::Title::Logo
 {
     void Builder::Build(UIObj* pUi)
     {
+        pUi->setOrder(2);
+
         // メイン追加
         {
             pUi->attach<LogoCtrl>(pUi);

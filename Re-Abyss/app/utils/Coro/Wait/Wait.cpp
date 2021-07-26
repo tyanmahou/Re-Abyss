@@ -28,4 +28,10 @@ namespace abyss::Coro
             co_yield{};
         }
     }
+    Task<> Stop()
+    {
+        while (true) {
+            co_yield{};
+        }
+    }
 }

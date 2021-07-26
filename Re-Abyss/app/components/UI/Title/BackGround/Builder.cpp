@@ -7,6 +7,7 @@ namespace abyss::UI::Title::BackGround
 {
     void Builder::Build(UIObj* pUi)
     {
+        pUi->setOrder(1);
         // メイン追加
         {
             pUi->attach<BgCtrl>(pUi);

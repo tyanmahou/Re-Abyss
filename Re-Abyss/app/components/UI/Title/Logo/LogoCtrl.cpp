@@ -11,7 +11,6 @@ namespace abyss::UI::Title::Logo
         m_timer(LogoParam::Step::TimeSec),
         m_view(std::make_unique<LogoVM>())
     {
-        this->setLayer(DrawLayer::DecorBack);
     }
     void LogoCtrl::onUpdate()
     {

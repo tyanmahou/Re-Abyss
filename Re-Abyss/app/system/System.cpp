@@ -189,7 +189,8 @@ namespace abyss::Sys
 #endif
                 .draw(cameraView.getQuakeOffset());
         } else {
-            snapshot->draw(cameraView.getQuakeOffset());
+            snapshot->copySceneToPost()
+                .draw(cameraView.getQuakeOffset());
         }
         // UI
         {

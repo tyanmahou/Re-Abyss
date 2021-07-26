@@ -56,4 +56,9 @@ namespace abyss::Coro
         }
         co_return f.get();
     }
+
+    /// <summary>
+    /// 停止
+    /// </summary>
+    [[nodiscard]] Task<> Stop();
 }

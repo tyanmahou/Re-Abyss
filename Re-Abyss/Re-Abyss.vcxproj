@@ -390,6 +390,9 @@
     <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp" />
     <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
+    <ClCompile Include="app\components\Event\Title\Builder.cpp" />
+    <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\Header\Builder.cpp" />
     <ClCompile Include="app\components\UI\Header\Main.cpp" />
     <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
@@ -460,7 +463,6 @@
     <ClCompile Include="app\modules\Cron\Crons.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\CursorCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\Shot.cpp" />
-    <ClCompile Include="app\modules\Cycle\Title\Main.cpp" />
     <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
     <ClCompile Include="app\modules\Temporary\Temporary.cpp" />
     <ClCompile Include="app\modules\Temporary\TemporaryData.cpp" />
@@ -887,6 +889,9 @@
     <ClInclude Include="app\components\Event\Talk\Common\TalkHandler.hpp" />
     <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
+    <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Title\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
     <ClInclude Include="app\components\UI\Header\Builder.hpp" />
     <ClInclude Include="app\components\UI\Header\Main.hpp" />
     <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
@@ -1092,7 +1097,6 @@
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\CursorCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Shot.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
     <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\Temporary\Temporary.hpp" />

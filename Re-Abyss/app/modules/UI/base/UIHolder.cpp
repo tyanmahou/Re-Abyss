@@ -30,7 +30,6 @@ namespace abyss::UI
 
     void UIHolder::update()
     {
-        this->flush();
         for (auto& obj : m_uis) {
             if (!obj->isActive()) {
                 continue;

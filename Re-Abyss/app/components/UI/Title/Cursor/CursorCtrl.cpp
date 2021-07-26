@@ -32,18 +32,19 @@ namespace abyss::UI::Title::Cursor
         m_gameStartTimer(1s, false),
         m_shot(std::make_unique<Shot>(Vec2{ 350.0 , 360.0 } + Vec2{ 30, -1 }))
     {
-        this->setLayer(DrawLayer::World);
     }
     CursorCtrl::~CursorCtrl()
     {}
     void CursorCtrl::onStart()
     {
         auto manager = m_pUi->getManager();
-        (*this)[Mode::GameStart] = [manager] {
+        (*this)[Mode::GameStart] = [manager, this] {
             manager->getModule<CycleMaster>()->find<Cycle::Title::Master>()->gameStart();
+            this->m_isDone = true;
         };
-        (*this)[Mode::Exit] = [manager] {
+        (*this)[Mode::Exit] = [manager, this] {
             manager->getModule<CycleMaster>()->find<Cycle::Title::Master>()->exit();
+            this->m_isDone = true;
         };
     }
     void CursorCtrl::onUpdate()
