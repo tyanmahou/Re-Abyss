@@ -2,7 +2,6 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
-#include <abyss/utils/Ref/Ref.hpp>
 
 
 namespace abyss::UI::Title::Logo

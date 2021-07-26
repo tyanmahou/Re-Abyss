@@ -362,19 +362,13 @@
     <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\Logo\LogoVM.cpp">
+    <ClCompile Include="app\views\UI\Title\Logo\LogoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\BackGround\BackGroundVM.cpp">
+    <ClCompile Include="app\views\UI\Title\BackGround\BackGroundVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Cycle\Title\Logo\LogoModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\models\Cycle\Title\BackGround\BackGroundModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\BackGround\AtlantisVM.cpp">
+    <ClCompile Include="app\views\UI\Title\BackGround\AtlantisVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Ooparts\base\ActDrawCallbackView.cpp">
@@ -664,10 +658,10 @@
     <ClCompile Include="app\components\Actor\Commons\LightCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\Cursor\CursorVM.cpp">
+    <ClCompile Include="app\views\UI\Title\Cursor\CursorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.cpp">
+    <ClCompile Include="app\views\UI\Title\Cursor\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp">
@@ -874,16 +868,10 @@
     <ClCompile Include="app\modules\Cron\Crons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Title\BackGround\BackGround.cpp">
+    <ClCompile Include="app\components\UI\Title\Cursor\CursorCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Title\Cursor\Cursor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Title\Cursor\Shot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Title\Logo\Logo.cpp">
+    <ClCompile Include="app\components\UI\Title\Cursor\Shot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Cycle\Title\Main.cpp">
@@ -1486,6 +1474,15 @@
     <ClCompile Include="app\components\Cycle\Title\Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Title\Logo\LogoCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Title\BackGround\BgCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Title\BackGround\ViewCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1709,13 +1706,11 @@
     <ClInclude Include="app\components\UI\Splash\Logo\LogoTimer.hpp" />
     <ClInclude Include="app\params\UI\Splash\Param.hpp" />
     <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\BackGround\BackGroundVM.hpp" />
-    <ClInclude Include="app\models\Cycle\Title\Logo\LogoModel.hpp" />
-    <ClInclude Include="app\params\Cycle\Title\LogoParam.hpp" />
-    <ClInclude Include="app\models\Cycle\Title\BackGround\BackGroundModel.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\BackGround\AtlantisVM.hpp" />
-    <ClInclude Include="app\params\Cycle\Title\BgParam.hpp" />
+    <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp" />
+    <ClInclude Include="app\views\UI\Title\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
+    <ClInclude Include="app\views\UI\Title\BackGround\AtlantisVM.hpp" />
+    <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\IDrawCallbackView.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\ActDrawCallbackView.hpp" />
     <ClInclude Include="app\components\base\Components.hpp" />
@@ -1826,9 +1821,9 @@
     <ClInclude Include="app\components\Actor\base\IDamageCallback.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\components\Actor\Commons\LightCtrl.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\Cursor\CursorVM.hpp" />
+    <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
-    <ClInclude Include="app\views\Cycle\Title\Cursor\Shot\ShotVM.hpp" />
+    <ClInclude Include="app\views\UI\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\views\Actor\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\types\UserPlayMode.hpp" />
@@ -1917,10 +1912,8 @@
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\BackGround\BackGround.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\Cursor\Cursor.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\Cursor\Shot.hpp" />
-    <ClInclude Include="app\modules\Cycle\Title\Logo\Logo.hpp" />
+    <ClInclude Include="app\components\UI\Title\Cursor\CursorCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\modules\Cycle\Title\Main.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
     <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
@@ -2209,6 +2202,9 @@
     <ClInclude Include="app\system\Title\Booter.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Master.hpp" />
+    <ClInclude Include="app\components\UI\Title\Logo\LogoCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\BackGround\ViewCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

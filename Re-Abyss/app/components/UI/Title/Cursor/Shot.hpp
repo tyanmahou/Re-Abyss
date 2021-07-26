@@ -4,7 +4,7 @@
 #include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     class ShotVM;
 

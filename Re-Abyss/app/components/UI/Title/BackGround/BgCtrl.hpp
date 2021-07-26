@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Timer.hpp>
 #include <Siv3D/Vector2D.hpp>
 

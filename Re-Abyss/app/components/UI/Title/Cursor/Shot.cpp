@@ -4,9 +4,9 @@
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
-#include <abyss/views/Cycle/Title/Cursor/Shot/ShotVM.hpp>
+#include <abyss/views/UI/Title/Cursor/Shot/ShotVM.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     Shot::Shot(const s3d::Vec2& pos):
         m_pos(pos),
