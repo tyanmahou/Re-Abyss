@@ -396,7 +396,10 @@
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
     <ClCompile Include="app\components\UI\Splash\Main.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\BgCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\BackGround\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\ViewCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\Cursor\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Title\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\Logo\LogoCtrl.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\parser\TmxItemParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
@@ -890,7 +893,10 @@
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\BackGround\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Cursor\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Title\Logo\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\concepts\Cycle.hpp" />
     <ClInclude Include="app\concepts\Decor.hpp" />

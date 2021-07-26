@@ -1483,6 +1483,15 @@
     <ClCompile Include="app\components\UI\Title\BackGround\ViewCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Title\BackGround\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Title\Cursor\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Title\Logo\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2205,6 +2214,9 @@
     <ClInclude Include="app\components\UI\Title\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\BackGround\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Title\Cursor\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Title\Logo\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

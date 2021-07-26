@@ -16,7 +16,7 @@ namespace abyss::UI::Title::BackGround
     {
     public:
         ViewCtrl(UIObj* pUi);
-
+        ~ViewCtrl();
         void setup(Executer executer) override;
         void onStart() override;
         void onDraw() const override;
