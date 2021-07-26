@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::UI::Splash
+namespace abyss::UI::Splash::Logo
 {
     struct Builder
     {

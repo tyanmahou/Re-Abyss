@@ -382,6 +382,8 @@
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\RoomMoveCtrl.cpp" />
+    <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
+    <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp" />
     <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Build.cpp" />
     <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.cpp" />
@@ -395,9 +397,8 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\Header\Builder.cpp" />
     <ClCompile Include="app\components\UI\Header\Main.cpp" />
-    <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
-    <ClCompile Include="app\components\UI\Splash\Main.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\BgCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\ViewCtrl.cpp" />
@@ -880,6 +881,8 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\base\ITalker.hpp" />
     <ClInclude Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Build.hpp" />
@@ -895,9 +898,8 @@
     <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
     <ClInclude Include="app\components\UI\Header\Builder.hpp" />
     <ClInclude Include="app\components\UI\Header\Main.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\ViewCtrl.hpp" />

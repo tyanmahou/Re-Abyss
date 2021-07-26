@@ -1456,12 +1456,6 @@
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Splash\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Splash\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\system\Title\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1499,6 +1493,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\Title\Logo\ViewCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Splash\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Splash\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2214,8 +2217,6 @@
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
     <ClInclude Include="app\system\Title\Booter.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Master.hpp" />
@@ -2229,6 +2230,9 @@
     <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
