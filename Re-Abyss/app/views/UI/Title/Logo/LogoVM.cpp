@@ -2,10 +2,10 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::Title::Logo
+namespace abyss::UI::Title::Logo
 {
     LogoVM::LogoVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/title/logo.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/Title/logo.png"))
     {}
     void LogoVM::draw() const
     {

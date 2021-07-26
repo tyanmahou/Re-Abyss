@@ -4,11 +4,6 @@
 #include <abyss/params/Cycle/Common/FooterParam.hpp>
 #include <abyss/params/Cycle/Common/LoadingParam.hpp>
 
-
-// Title
-#include <abyss/params/Cycle/Title/LogoParam.hpp>
-#include <abyss/params/Cycle/Title/BgParam.hpp>
-
 // SaveSelect
 #include <abyss/params/Cycle/SaveSelect/Param.hpp>
 #include <abyss/params/Cycle/SaveSelect/UserInfoParam.hpp>
@@ -39,6 +34,10 @@
 // Splash
 #include <abyss/params/UI/Splash/Param.hpp>
 
+// Title
+#include <abyss/params/UI/Title/LogoParam.hpp>
+#include <abyss/params/UI/Title/BgParam.hpp>
+
 namespace abyss::Resource::Preload
 {
 	void LoadTomlAll(const Assets* resource)
@@ -66,8 +65,8 @@ namespace abyss::Resource::Preload
 
 	void LoadTitleToml(const Assets* resource)
 	{
-		resource->loadToml<Cycle::Title::LogoParam>(U"Cycle/Title/logo_param.toml");
-		resource->loadToml<Cycle::Title::BgParam>(U"Cycle/Title/bg_param.toml");
+		resource->loadToml<UI::Title::LogoParam>(U"UI/Title/logo_param.toml");
+		resource->loadToml<UI::Title::BgParam>(U"UI/Title/bg_param.toml");
 	}
 	void LoadSaveSelectToml(const Assets* resource)
 	{

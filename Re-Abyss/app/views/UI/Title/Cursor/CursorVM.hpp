@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     /// <summary>
     /// カーソル

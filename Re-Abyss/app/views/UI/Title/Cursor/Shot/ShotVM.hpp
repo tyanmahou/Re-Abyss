@@ -2,7 +2,7 @@
 #include <Siv3D/Texture.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     class ShotVM
     {

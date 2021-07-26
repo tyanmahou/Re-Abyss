@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     ShotVM::ShotVM():
         m_texture(Resource::Assets::Main()->loadTexture(U"actors/Player/player_shot.png"))

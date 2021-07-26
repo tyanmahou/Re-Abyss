@@ -1,7 +1,7 @@
 #include "CursorVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss::Cycle::Title::Cursor
+namespace abyss::UI::Title::Cursor
 {
     CursorVM::CursorVM() :
         m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/player.json"))

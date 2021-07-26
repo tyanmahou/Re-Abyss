@@ -2,7 +2,7 @@
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::Cycle::Title
+namespace abyss::UI::Title
 {
     struct BgParam
     {

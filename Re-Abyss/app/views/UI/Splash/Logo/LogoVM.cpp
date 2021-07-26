@@ -5,7 +5,7 @@
 namespace abyss::UI::Splash::Logo
 {
     LogoVM::LogoVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/splash/logo.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/Splash/logo.png"))
     {}
     void LogoVM::draw() const
     {

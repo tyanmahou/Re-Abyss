@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Cycle::Title::BackGround
+namespace abyss::UI::Title::BackGround
 {
     /// <summary>
     /// 背景

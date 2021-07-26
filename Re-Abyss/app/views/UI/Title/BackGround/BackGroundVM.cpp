@@ -3,10 +3,10 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::Title::BackGround
+namespace abyss::UI::Title::BackGround
 {
     BackGroundVM::BackGroundVM() :
-        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/title/bg.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/Title/bg.png"))
     {}
 
     void BackGroundVM::draw() const
