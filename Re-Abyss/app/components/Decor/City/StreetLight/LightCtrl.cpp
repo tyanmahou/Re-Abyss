@@ -38,7 +38,7 @@ namespace abyss::Decor::City::StreetLight
         m_pObj->getModule<Light>()->addCircle(pos, radius * 2.5);
         m_pObj->getModule<Light>()->addArc(
             pos + Vec2{ 10, -10 },
-            radius * 8.0,
+            radius * 6.0,
             40.0f,
             Math::ToRadians(185.0),
             Math::ToRadians(30.0),

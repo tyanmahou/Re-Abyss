@@ -15,10 +15,10 @@ namespace abyss::Decor::City::StreetLight
 
         const double innerRadius = 40.0;
         const auto offs = Vec2{ 10, -10 } - Vec2{ 0, -1 }.rotate(Math::ToRadians(185.0 + 15.0)) * innerRadius;
-        Circle(m_pos + offs, m_radius * 7.0).drawArc(
+        Circle(m_pos + offs, m_radius * 6.0).drawArc(
             Math::ToRadians(185.0),
             Math::ToRadians(30.0),
-            m_radius * 7.0 - innerRadius,
+            m_radius * 6.0 - innerRadius,
             0,
             innerColor.setA(innerColor.a * 0.8),
             outerColor
