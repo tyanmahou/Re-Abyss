@@ -38,13 +38,11 @@ namespace abyss::UI::Title::Cursor
     void CursorCtrl::onStart()
     {
         auto manager = m_pUi->getManager();
-        (*this)[Mode::GameStart] = [manager, this] {
+        (*this)[Mode::GameStart] = [manager] {
             manager->getModule<CycleMaster>()->find<Cycle::Title::Master>()->gameStart();
-            this->m_isDone = true;
         };
-        (*this)[Mode::Exit] = [manager, this] {
+        (*this)[Mode::Exit] = [manager] {
             manager->getModule<CycleMaster>()->find<Cycle::Title::Master>()->exit();
-            this->m_isDone = true;
         };
     }
     void CursorCtrl::onUpdate()
@@ -55,6 +53,7 @@ namespace abyss::UI::Title::Cursor
                 const auto& event = m_events[static_cast<size_t>(Mode::GameStart)];
                 if (event) {
                     event();
+                    m_isDone = true;
                 }
             }
             return;
@@ -76,6 +75,7 @@ namespace abyss::UI::Title::Cursor
                 const auto& event = m_events[static_cast<size_t>(m_mode)];
                 if (event) {
                     event();
+                    m_isDone = true;
                 }
             }
         }

@@ -36,7 +36,11 @@ namespace abyss::Event::Title
             return !logoCtrl || logoCtrl->isEnd();
         });
 
-        auto cursor = uis->create<Cursor::Builder>()->find<Cursor::CursorCtrl>();
+        // カーソル生成
+        auto cursor = uis->create<Cursor::Builder>()
+            ->find<Cursor::CursorCtrl>();
+
+        // 背景生成
         uis->create<UI::Title::BackGround::Builder>();
 
         // 停止

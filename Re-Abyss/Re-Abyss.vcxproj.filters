@@ -1498,6 +1498,9 @@
     <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Title\Logo\ViewCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2225,6 +2228,7 @@
     <ClInclude Include="app\components\Event\Title\Builder.hpp" />
     <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Logo\ViewCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

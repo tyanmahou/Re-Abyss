@@ -1,17 +1,13 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
 
 
 namespace abyss::UI::Title::Logo
 {
-    class LogoVM;
-
     class LogoCtrl :
         public IComponent,
-        public IUpdate,
-        public IDraw
+        public IUpdate
     {
         enum class Phase
         {
@@ -33,19 +29,16 @@ namespace abyss::UI::Title::Logo
 
         void onUpdate() override;
 
-        void onDraw() const override;
-
         bool isEnd() const;
 
+        std::pair<s3d::Optional<ViewParam>, s3d::Optional<ViewParam>> getViewParams() const;
     private:
         double time0_1() const;
-        std::pair<s3d::Optional<ViewParam>, s3d::Optional<ViewParam>> getViewParams() const;
     private:
         UIObj* m_pUi;
 
         s3d::Timer m_timer;
         Phase m_phase = Phase::Start;
-        std::unique_ptr <Logo::LogoVM> m_view;
     };
 }
 
@@ -54,6 +47,6 @@ namespace abyss
     template<>
     struct ComponentTree<UI::Title::Logo::LogoCtrl>
     {
-        using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
+        using Base = MultiComponents<UI::IUpdate>;
     };
 }

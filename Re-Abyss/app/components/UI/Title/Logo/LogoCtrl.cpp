@@ -1,5 +1,4 @@
 #include "LogoCtrl.hpp"
-#include <abyss/views/UI/Title/Logo/LogoVM.hpp>
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
@@ -8,8 +7,7 @@ namespace abyss::UI::Title::Logo
 {
     LogoCtrl::LogoCtrl(UIObj* pUi):
         m_pUi(pUi),
-        m_timer(LogoParam::Step::TimeSec),
-        m_view(std::make_unique<LogoVM>())
+        m_timer(LogoParam::Step::TimeSec)
     {
     }
     void LogoCtrl::onUpdate()
@@ -24,23 +22,6 @@ namespace abyss::UI::Title::Logo
         if (m_timer.reachedZero()) {
             m_phase = static_cast<Phase>(static_cast<int32>(m_phase) + 1);
             m_timer.restart();
-        }
-    }
-    void LogoCtrl::onDraw() const
-    {
-        auto [view1, view2] = this->getViewParams();
-
-        if (view1) {
-            m_view
-                ->setPos(view1->pos)
-                .setAlpha(view1->alpha)
-                .draw();
-        }
-        if (view2) {
-            m_view
-                ->setPos(view2->pos)
-                .setAlpha(view2->alpha)
-                .draw();
         }
     }
     double LogoCtrl::time0_1() const

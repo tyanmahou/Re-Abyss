@@ -12,6 +12,7 @@ namespace abyss::UI::Title::BackGround
         {
             pUi->attach<BgCtrl>(pUi);
         }
+        // View
         {
             pUi->attach<ViewCtrl>(pUi);
         }
