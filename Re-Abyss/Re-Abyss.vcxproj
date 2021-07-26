@@ -355,6 +355,8 @@
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\Title\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Title\Master.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
@@ -418,6 +420,7 @@
     <ClCompile Include="app\system\Main\System.cpp" />
     <ClCompile Include="app\system\Splash\Booter.cpp" />
     <ClCompile Include="app\system\System.cpp" />
+    <ClCompile Include="app\system\Title\Booter.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -836,6 +839,8 @@
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Title\Master.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />
@@ -936,6 +941,7 @@
     <ClInclude Include="app\system\base\Modules.hpp" />
     <ClInclude Include="app\system\Splash\Booter.hpp" />
     <ClInclude Include="app\system\System.hpp" />
+    <ClInclude Include="app\system\Title\Booter.hpp" />
     <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />

@@ -1477,6 +1477,15 @@
     <ClCompile Include="app\components\UI\Splash\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\system\Title\Booter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cycle\Title\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cycle\Title\Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2197,6 +2206,9 @@
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
+    <ClInclude Include="app\system\Title\Booter.hpp" />
+    <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Title\Master.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

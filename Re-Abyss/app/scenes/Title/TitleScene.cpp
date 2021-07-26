@@ -1,17 +1,17 @@
 #include "TitleScene.hpp"
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
-#include <abyss/modules/Cycle/Title/Main.hpp>
 
-#include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/system/System.hpp>
+#include <abyss/system/Title/Booter.hpp>
 
 namespace abyss
 {
     class TitleScene::Impl :
-        public Cycle::Title::IMainObserver
+        public Cycle::Title::IMasterObserver
     {
-        std::unique_ptr<Cycle::Title::Main> m_main;
+        using System = Sys::System<Sys::Config::Title()>;
+        std::unique_ptr<System> m_system;
 
         std::function<void()> m_onGameStartFunc;
     public:
@@ -41,31 +41,30 @@ namespace abyss
 #endif
         void init()
         {
-            m_main = std::make_unique<Cycle::Title::Main>(this);
+            m_system = std::make_unique<System>();
+            auto booter = std::make_unique<Sys::Title::Booter>(this);
+            m_system->boot(booter.get());
         }
         void update()
         {
-            m_main->update();
+            m_system->update();
         }
 
         void draw() const
         {
-            m_main->draw();
+            m_system->draw();
         }
 
-        void finally()
-        {
-            m_main->finally();
-        }
-
-        void onGameStart() final
+        bool onGameStart() final
         {
             m_onGameStartFunc();
+            return true;
         }
-        void onExit() final
+        bool onExit() final
         {
             // 閉じる
             s3d::System::Exit();
+            return true;
         }
 
         void bindGameStartFunc(const std::function<void()>& callback)
@@ -106,6 +105,5 @@ namespace abyss
     }
     void TitleScene::finally()
     {
-        m_pImpl->finally();
     }
 }
