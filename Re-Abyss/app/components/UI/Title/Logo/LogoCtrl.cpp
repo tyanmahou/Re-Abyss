@@ -1,19 +1,21 @@
-#include "LogoModel.hpp"
-#include <abyss/params/Cycle/Title/LogoParam.hpp>
+#include "LogoCtrl.hpp"
+#include <abyss/views/UI/Title/Logo/LogoVM.hpp>
+#include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::Title::Logo
+namespace abyss::UI::Title::Logo
 {
-    LogoModel::LogoModel() :
-        m_timer(LogoParam::Step::TimeSec)
+    LogoCtrl::LogoCtrl(UIObj* pUi):
+        m_pUi(pUi),
+        m_timer(LogoParam::Step::TimeSec),
+        m_view(std::make_unique<LogoVM>())
     {}
-
-    void LogoModel::update()
+    void LogoCtrl::onUpdate()
     {
         if (this->isEnd()) {
             return;
-        }else if (m_phase == Phase::Start) {
+        } else if (m_phase == Phase::Start) {
             m_phase = Phase::Step1;
             m_timer.start();
         }
@@ -23,16 +25,33 @@ namespace abyss::Cycle::Title::Logo
             m_timer.restart();
         }
     }
+    void LogoCtrl::onDraw() const
+    {
+        auto [view1, view2] = this->getViewParams();
 
-    double LogoModel::time0_1() const
+        if (view1) {
+            m_view
+                ->setPos(view1->pos)
+                .setAlpha(view1->alpha)
+                .draw();
+        }
+        if (view2) {
+            m_view
+                ->setPos(view2->pos)
+                .setAlpha(view2->alpha)
+                .draw();
+        }
+    }
+    double LogoCtrl::time0_1() const
     {
         return m_timer.progress0_1();
     }
-    bool LogoModel::isEnd() const
+    bool LogoCtrl::isEnd() const
     {
         return m_phase == Phase::End;
     }
-    std::pair<s3d::Optional<LogoModel::ViewParam>, s3d::Optional<LogoModel::ViewParam>> LogoModel::getViewParams() const
+    std::pair<s3d::Optional<LogoCtrl::ViewParam>, s3d::Optional<LogoCtrl::ViewParam>>
+        LogoCtrl::getViewParams() const
     {
         const auto& basePos = LogoParam::Step::BasePos;
         const auto& endPos = LogoParam::End::Pos;
@@ -45,7 +64,8 @@ namespace abyss::Cycle::Title::Logo
         double time0_1 = this->time0_1();
 
         switch (m_phase) {
-        case Phase::Step1: {
+        case Phase::Step1:
+        {
             const auto offset = moveOffset - time0_1 * moveDiff;
             return {
                 ViewParam{
@@ -56,8 +76,9 @@ namespace abyss::Cycle::Title::Logo
             };
         }
         break;
-        case Phase::Step2: {
-            const auto offset = - moveOffset + time0_1 * moveDiff;
+        case Phase::Step2:
+        {
+            const auto offset = -moveOffset + time0_1 * moveDiff;
             return {
                 ViewParam{
                     .pos = basePos + offset,
@@ -67,7 +88,8 @@ namespace abyss::Cycle::Title::Logo
             };
         }
         break;
-        case Phase::Step3: {
+        case Phase::Step3:
+        {
             const auto offset = moveOffset2 - time0_1 * moveDiff2;
             return {
                 ViewParam{
@@ -78,7 +100,8 @@ namespace abyss::Cycle::Title::Logo
             };
         }
         break;
-        case Phase::Step4: {
+        case Phase::Step4:
+        {
             const auto offset = -moveOffset2 + time0_1 * moveDiff2;
             return {
                 ViewParam{
@@ -89,7 +112,8 @@ namespace abyss::Cycle::Title::Logo
             };
         }
         break;
-        case Phase::Step5: {
+        case Phase::Step5:
+        {
             auto offset1 = -moveOffset + time0_1 * moveDiff;
             offset1.y = 0;
             auto offset2 = moveOffset - time0_1 * moveDiff;
@@ -107,12 +131,13 @@ namespace abyss::Cycle::Title::Logo
             };
         }
         break;
-        case Phase::End: {
+        case Phase::End:
+        {
             return {
                 ViewParam{
                     .pos = endPos,
                     .alpha = 1.0
-                }, 
+                },
                 s3d::none
             };
         }
@@ -122,4 +147,3 @@ namespace abyss::Cycle::Title::Logo
         }
     }
 }
-
