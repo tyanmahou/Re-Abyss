@@ -31,7 +31,9 @@ namespace abyss::UI::Title::Cursor
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, false),
         m_shot(std::make_unique<Shot>(Vec2{ 350.0 , 360.0 } + Vec2{ 30, -1 }))
-    {}
+    {
+        this->setLayer(DrawLayer::World);
+    }
     CursorCtrl::~CursorCtrl()
     {}
     void CursorCtrl::onStart()
