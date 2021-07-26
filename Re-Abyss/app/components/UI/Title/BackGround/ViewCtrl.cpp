@@ -12,7 +12,7 @@ namespace abyss::UI::Title::BackGround
         m_pUi(pUi),
         m_bgView(std::make_unique<BackGroundVM>()),
         m_atlantisView(std::make_unique<AtlantisVM>())
-    {\
+    {
         this->setLayer(DrawLayer::BackGround);
     }
 
