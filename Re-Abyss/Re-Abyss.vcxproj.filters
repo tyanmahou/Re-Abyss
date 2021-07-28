@@ -1531,6 +1531,12 @@
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\SaveSelect\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2268,6 +2274,8 @@
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.hpp" />
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
+    <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
+    <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

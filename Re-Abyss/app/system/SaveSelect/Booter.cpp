@@ -4,7 +4,7 @@
 #include <abyss/modules/Event/Events.hpp>
 
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
-//#include <abyss/components/Event/Title/Builder.hpp>
+#include <abyss/components/Event/SaveSelect/Builder.hpp>
 
 namespace abyss::Sys::SaveSelect
 {
@@ -18,8 +18,8 @@ namespace abyss::Sys::SaveSelect
         pManager->getModule<CycleMaster>()->init();
 
         // Mainイベント初期化
-        //pManager->getModule<Events>()->create<Event::Title::Builder>();
-        //pManager->getModule<Events>()->init();
+        pManager->getModule<Events>()->create<Event::SaveSelect::Builder>();
+        pManager->getModule<Events>()->init();
 
         return true;
     }

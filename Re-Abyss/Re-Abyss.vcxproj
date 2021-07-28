@@ -384,6 +384,8 @@
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\RoomMoveCtrl.cpp" />
+    <ClCompile Include="app\components\Event\SaveSelect\Builder.cpp" />
+    <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp" />
@@ -892,6 +894,8 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />
+    <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
+    <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\base\ITalker.hpp" />
