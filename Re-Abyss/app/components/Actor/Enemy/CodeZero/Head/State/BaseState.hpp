@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Head/HeadCtrl.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>

@@ -5,7 +5,7 @@
 
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Head/HeadCtrl.hpp>

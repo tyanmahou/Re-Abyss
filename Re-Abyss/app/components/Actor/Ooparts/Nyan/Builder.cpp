@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Ooparts/CommonBuilder.hpp>
 
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>

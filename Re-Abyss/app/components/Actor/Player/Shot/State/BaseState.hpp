@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Player/Shot/Collider.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotVM.hpp>

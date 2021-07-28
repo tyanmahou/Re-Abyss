@@ -1835,7 +1835,7 @@
     <ClInclude Include="app\components\Actor\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BreathingCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\RotateCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\HP.hpp" />
     <ClInclude Include="app\components\Actor\Commons\StateCtrl.hpp" />
@@ -1982,7 +1982,6 @@
     <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
     <ClInclude Include="app\components\Event\Common\StreamHandler.hpp" />
     <ClInclude Include="app\components\Event\base\IStream.hpp" />
@@ -2077,7 +2076,6 @@
     <ClInclude Include="app\views\Actor\Ooparts\base\SimpleDrawCallbackView.hpp" />
     <ClInclude Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
-    <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />

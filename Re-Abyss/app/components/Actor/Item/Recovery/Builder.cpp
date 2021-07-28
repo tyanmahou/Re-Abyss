@@ -6,7 +6,7 @@
 
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/ShakeCtrl.hpp>

@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/ScaleCtrl.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotVM.hpp>
 

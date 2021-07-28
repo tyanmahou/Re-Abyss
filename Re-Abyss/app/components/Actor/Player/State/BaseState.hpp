@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/StateChecker.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 

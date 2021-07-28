@@ -3,7 +3,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
-#include <abyss/components/UI/Common/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

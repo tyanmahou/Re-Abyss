@@ -979,7 +979,6 @@
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
     <ClInclude Include="app\modules\Distortion\Distortion.hpp" />
     <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
-    <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
@@ -1043,7 +1042,6 @@
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Builder.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
@@ -1132,7 +1130,7 @@
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\components\Actor\Commons\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BreathingCtrl.hpp" />

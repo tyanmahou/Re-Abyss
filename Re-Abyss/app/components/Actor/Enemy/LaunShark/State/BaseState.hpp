@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
 #include <abyss/components/Actor/Commons/TimeCounter.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/views/Actor/Enemy/LaunShark/LaunSharkVM.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark

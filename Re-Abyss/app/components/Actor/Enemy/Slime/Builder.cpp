@@ -5,7 +5,7 @@
 
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
-#include <abyss/components/Actor/Commons/ViewCtrl.hpp>
+#include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/Slime/SenserCtrl.hpp>
