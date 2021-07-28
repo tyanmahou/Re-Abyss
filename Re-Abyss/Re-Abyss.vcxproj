@@ -353,6 +353,8 @@
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Title\Builder.cpp" />
@@ -395,6 +397,7 @@
     <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
     <ClCompile Include="app\components\Event\Title\Builder.cpp" />
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
+    <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
     <ClCompile Include="app\components\UI\Header\Builder.cpp" />
     <ClCompile Include="app\components\UI\Header\Main.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
@@ -429,6 +432,7 @@
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\system\Main\System.cpp" />
+    <ClCompile Include="app\system\SaveSelect\Booter.cpp" />
     <ClCompile Include="app\system\Splash\Booter.cpp" />
     <ClCompile Include="app\system\System.cpp" />
     <ClCompile Include="app\system\Title\Booter.cpp" />
@@ -538,11 +542,11 @@
     <ClCompile Include="app\views\Distortion\DistortionView.cpp" />
     <ClCompile Include="app\views\Camera\SnapshotView.cpp" />
     <ClCompile Include="app\views\Cycle\Common\Loading\LoadingView.cpp" />
-    <ClCompile Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.cpp" />
-    <ClCompile Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.cpp" />
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.cpp" />
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.cpp" />
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.cpp" />
+    <ClCompile Include="app\views\UI\SaveSelect\BackGround\BackGroundVM.cpp" />
+    <ClCompile Include="app\views\UI\SaveSelect\SelectFrame\SelectFrameVM.cpp" />
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.cpp" />
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\PlayerView.cpp" />
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\UserInfoView.cpp" />
     <ClCompile Include="app\views\UI\Splash\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\Title\BackGround\AtlantisVM.cpp" />
     <ClCompile Include="app\views\UI\Title\BackGround\BackGroundVM.cpp" />
@@ -843,6 +847,8 @@
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\SaveSelect\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\SaveSelect\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
@@ -896,6 +902,8 @@
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
     <ClInclude Include="app\components\Event\Title\Builder.hpp" />
     <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
+    <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
+    <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
     <ClInclude Include="app\components\UI\Header\Builder.hpp" />
     <ClInclude Include="app\components\UI\Header\Main.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
@@ -956,6 +964,7 @@
     <ClInclude Include="app\system\Main\System.hpp" />
     <ClInclude Include="app\system\ModulePackage.hpp" />
     <ClInclude Include="app\system\base\Modules.hpp" />
+    <ClInclude Include="app\system\SaveSelect\Booter.hpp" />
     <ClInclude Include="app\system\Splash\Booter.hpp" />
     <ClInclude Include="app\system\System.hpp" />
     <ClInclude Include="app\system\Title\Booter.hpp" />
@@ -981,8 +990,8 @@
     <ClInclude Include="app\params\Actor\Item\Recovery\Param.hpp" />
     <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
     <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
-    <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
-    <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
+    <ClInclude Include="app\params\UI\SaveSelect\Param.hpp" />
+    <ClInclude Include="app\params\UI\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\EnemyService.hpp" />
@@ -1368,12 +1377,12 @@
     <ClInclude Include="app\views\Distortion\DistortionView.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
     <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\PlayerView.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\UserInfoView.hpp" />
     <ClInclude Include="app\views\UI\Splash\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\views\UI\Title\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />

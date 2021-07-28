@@ -33,9 +33,9 @@ namespace abyss
 
     class HierarchyManager
     {
-    private:
-
+    public:
         using Hierarchy_t = std::shared_ptr<IHierarchy>;
+    private:
 
         std::list<Hierarchy_t> m_list;
         Hierarchy_t m_next;

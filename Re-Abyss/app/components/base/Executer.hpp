@@ -22,12 +22,12 @@ namespace abyss
         public:
             Command(const Executer* executer, const std::type_index& process);
 
-            template<class Component>
+            template<class Component = IComponent>
             void addAfter() const
             {
                 addAfter([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });
             }
-            template<class Component>
+            template<class Component = IComponent>
             void addBefore() const
             {
                 addBefore([](IComponent* c) {return dynamic_cast<Component*>(c) != nullptr; });

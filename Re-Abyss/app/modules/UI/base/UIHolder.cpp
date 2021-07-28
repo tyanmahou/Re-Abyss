@@ -38,6 +38,16 @@ namespace abyss::UI
         }
     }
 
+    void UIHolder::postUpdate()
+    {
+        for (auto& obj : m_uis) {
+            if (!obj->isActive()) {
+                continue;
+            }
+            obj->postUpdate();
+        }
+    }
+
     void UIHolder::draw() const
     {
         for (auto& obj : m_uis) {

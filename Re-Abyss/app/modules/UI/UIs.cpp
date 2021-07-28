@@ -10,6 +10,7 @@ namespace abyss
     {
         m_userInterfaces.flush();
         m_userInterfaces.update();
+        m_userInterfaces.postUpdate();
         m_userInterfaces.erase();
     }
     void UIs::draw() const

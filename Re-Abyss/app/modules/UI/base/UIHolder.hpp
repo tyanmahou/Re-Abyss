@@ -17,6 +17,7 @@ namespace abyss::UI
         void flush();
         void push(const std::shared_ptr<UIObj>& ui);
         void update();
+        void postUpdate();
         void draw() const;
 
         void erase();

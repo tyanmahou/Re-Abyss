@@ -66,7 +66,7 @@ namespace abyss::Cycle::SaveSelect
 namespace abyss
 {
     template<>
-    struct ComponentTree<Cycle::Title::Master>
+    struct ComponentTree<Cycle::SaveSelect::Master>
     {
         using Base = MultiComponents<Cycle::IListener>;
     };

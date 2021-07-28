@@ -22,6 +22,7 @@ namespace abyss::UI
         }
 
         void update();
+        void postUpdate();
 
         void draw() const;
 

@@ -1141,16 +1141,16 @@
     <ClCompile Include="app\views\Actor\Ooparts\base\IconView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.cpp">
+    <ClCompile Include="app\views\UI\SaveSelect\BackGround\BackGroundVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.cpp">
+    <ClCompile Include="app\views\UI\SaveSelect\SelectFrame\SelectFrameVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.cpp">
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\UserInfoView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.cpp">
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\PlayerView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Ooparts\base\OopartsViewUtil.cpp">
@@ -1159,7 +1159,7 @@
     <ClCompile Include="app\views\Actor\Ooparts\base\SimpleDrawCallbackView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.cpp">
+    <ClCompile Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp">
@@ -1502,6 +1502,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\system\SaveSelect\Booter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2055,15 +2067,15 @@
     <ClInclude Include="app\views\Actor\Ooparts\base\BaseVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\OopartsView.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\IconView.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\BackGround\BackGroundVM.hpp" />
-    <ClInclude Include="app\params\Cycle\SaveSelect\Param.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\UserInfoView.hpp" />
-    <ClInclude Include="app\params\Cycle\SaveSelect\UserInfoParam.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\PlayerView.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\params\UI\SaveSelect\Param.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\SelectFrame\SelectFrameVM.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\UserInfoView.hpp" />
+    <ClInclude Include="app\params\UI\SaveSelect\UserInfoParam.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\PlayerView.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\OopartsViewUtil.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\SimpleDrawCallbackView.hpp" />
-    <ClInclude Include="app\views\Cycle\SaveSelect\UserInfo\OopartsListView.hpp" />
+    <ClInclude Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\modules\Cycle\SaveSelect\Main.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
@@ -2233,6 +2245,11 @@
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\SaveSelect\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\SaveSelect\Builder.hpp" />
+    <ClInclude Include="app\system\SaveSelect\Booter.hpp" />
+    <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
+    <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

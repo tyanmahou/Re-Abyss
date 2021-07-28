@@ -1,5 +1,6 @@
 #include "UIObj.hpp"
 #include <abyss/components/UI/base/IUpdate.hpp>
+#include <abyss/components/UI/base/IPostUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
@@ -10,6 +11,13 @@ namespace abyss::UI
     {
         for (auto&& com : this->finds<IUpdate>()) {
             com->onUpdate();
+        }
+    }
+
+    void UIObj::postUpdate()
+    {
+        for (auto&& com : this->finds<IPostUpdate>()) {
+            com->onPostUpdate();
         }
     }
 
