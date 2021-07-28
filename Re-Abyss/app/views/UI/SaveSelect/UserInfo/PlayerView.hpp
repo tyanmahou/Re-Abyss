@@ -4,7 +4,7 @@
 #include <abyss/views/Actor/Ooparts/base/SimpleDrawCallbackView.hpp>
 #include <abyss/types/OopartsType.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     class PlayerView
     {

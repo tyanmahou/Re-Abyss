@@ -4,9 +4,6 @@
 #include <abyss/params/Cycle/Common/FooterParam.hpp>
 #include <abyss/params/Cycle/Common/LoadingParam.hpp>
 
-// SaveSelect
-#include <abyss/params/Cycle/SaveSelect/Param.hpp>
-#include <abyss/params/Cycle/SaveSelect/UserInfoParam.hpp>
 
 // Actors
 #include <abyss/params/Actor/Player/Param.hpp>
@@ -37,6 +34,10 @@
 // Title
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
+
+// SaveSelect
+#include <abyss/params/UI/SaveSelect/Param.hpp>
+#include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 
 namespace abyss::Resource::Preload
 {
@@ -70,8 +71,8 @@ namespace abyss::Resource::Preload
 	}
 	void LoadSaveSelectToml(const Assets* resource)
 	{
-		resource->loadToml<Cycle::SaveSelect::Param>(U"Cycle/SaveSelect/param.toml");
-		resource->loadToml<Cycle::SaveSelect::UserInfoParam>(U"Cycle/SaveSelect/user_info_param.toml");
+		resource->loadToml<UI::SaveSelect::Param>(U"UI/SaveSelect/param.toml");
+		resource->loadToml<UI::SaveSelect::UserInfoParam>(U"UI/SaveSelect/user_info_param.toml");
 	}
 	void LoadActorToml(const Assets* resource)
     {

@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Cycle::SaveSelect::SelectFrame
+namespace abyss::UI::SaveSelect::SelectFrame
 {
     /// <summary>
     /// 選択枠

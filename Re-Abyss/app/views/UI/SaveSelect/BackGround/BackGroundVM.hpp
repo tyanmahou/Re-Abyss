@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Cycle::SaveSelect::BackGround
+namespace abyss::UI::SaveSelect::BackGround
 {
     /// <summary>
     /// 背景

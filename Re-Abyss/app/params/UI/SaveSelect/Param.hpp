@@ -3,7 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Rectangle.hpp>
 
-namespace abyss::Cycle::SaveSelect
+namespace abyss::UI::SaveSelect
 {
     struct Param
     {

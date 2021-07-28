@@ -1,15 +1,15 @@
 #include "BackGroundVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/params/Cycle/SaveSelect/Param.hpp>
+#include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::SaveSelect::BackGround
+namespace abyss::UI::SaveSelect::BackGround
 {
     BackGroundVM::BackGroundVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"cycle/SaveSelect/bg.png")),
-        m_fade(Resource::Assets::Main()->loadTexture(U"cycle/SaveSelect/dot_fade.png")),
-        m_horizon(Resource::Assets::Main()->loadTexture(U"cycle/SaveSelect/horizon.png")),
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/SaveSelect/bg.png")),
+        m_fade(Resource::Assets::Main()->loadTexture(U"ui/SaveSelect/dot_fade.png")),
+        m_horizon(Resource::Assets::Main()->loadTexture(U"ui/SaveSelect/horizon.png")),
         m_pos(Constants::AppResolutionF / 2.0)
     {}
 

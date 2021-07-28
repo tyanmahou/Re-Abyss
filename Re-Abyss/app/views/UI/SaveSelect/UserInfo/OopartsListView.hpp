@@ -4,7 +4,7 @@
 #include <abyss/views/util/OutLine/OutLineShader.hpp>
 #include <Siv3D/RenderTexture.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     class OopartsListView
     {

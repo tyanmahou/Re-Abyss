@@ -3,7 +3,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     PlayerView::PlayerView():
         m_player(std::make_shared<Actor::Player::PlayerVM>()),

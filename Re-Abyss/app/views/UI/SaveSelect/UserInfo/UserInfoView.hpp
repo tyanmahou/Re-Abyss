@@ -1,11 +1,11 @@
 #pragma once
 
 #include <abyss/models/User/UserModel.hpp>
-#include <abyss/views/Cycle/SaveSelect/UserInfo/PlayerView.hpp>
-#include <abyss/views/Cycle/SaveSelect/UserInfo/OopartsListView.hpp>
+#include <abyss/views/UI/SaveSelect/UserInfo/PlayerView.hpp>
+#include <abyss/views/UI/SaveSelect/UserInfo/OopartsListView.hpp>
 #include <abyss/views/UI/PlayerInfo/PlayerInfoExVM.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     /// <summary>
     /// ユーザー情報

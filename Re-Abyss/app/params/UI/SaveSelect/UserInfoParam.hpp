@@ -2,7 +2,7 @@
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::Cycle::SaveSelect
+namespace abyss::UI::SaveSelect
 {
     struct UserInfoParam
     {

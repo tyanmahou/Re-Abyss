@@ -2,14 +2,14 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/params/Cycle/SaveSelect/Param.hpp>
+#include <abyss/params/UI/SaveSelect/Param.hpp>
 
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::SaveSelect::SelectFrame
+namespace abyss::UI::SaveSelect::SelectFrame
 {
     SelectFrameVM::SelectFrameVM():
-        m_trashIcon(Resource::Assets::Main()->loadTexture(U"cycle/SaveSelect/erase_user.png"))
+        m_trashIcon(Resource::Assets::Main()->loadTexture(U"ui/SaveSelect/erase_user.png"))
     {}
 
     void SelectFrameVM::draw() const

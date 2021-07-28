@@ -1,12 +1,12 @@
 #include "UserInfoView.hpp"
 
 #include <abyss/commons/FontName.hpp>
-#include <abyss/params/Cycle/SaveSelect/UserInfoParam.hpp>
+#include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 #include <abyss/utils/DateTime/DateTimeUtil.hpp>
 
 #include <Siv3D.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     UserInfoView::UserInfoView():
         m_playerInfo(std::make_unique<UI::PlayerInfo::PlayerInfoExVM>()),

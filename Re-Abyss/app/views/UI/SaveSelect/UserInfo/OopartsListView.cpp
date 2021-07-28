@@ -4,7 +4,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
 
-namespace abyss::Cycle::SaveSelect::UserInfo
+namespace abyss::UI::SaveSelect::UserInfo
 {
     OopartsListView::OopartsListView():
         m_rt(Constants::AppResolution)
