@@ -3,17 +3,20 @@
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-#include <abyss/modules/Cycle/SaveSelect/Main.hpp>
-#include <Siv3D.hpp>
+#include <abyss/system/System.hpp>
+#include <abyss/system/SaveSelect/Booter.hpp>
+
 namespace abyss
 {
-    class SaveSelectScene::Impl : public Cycle::SaveSelect::IMainObserver
+    class SaveSelectScene::Impl final:
+        public Cycle::SaveSelect::IMasterObserver
     {
+        using System = Sys::System<Sys::Config::SaveSelect()>;
+        std::unique_ptr<System> m_system;
+
         std::function<void()> m_onLoadGameFunc;
         std::function<void()> m_onNewGameFunc;
         std::function<void()> m_onBackFunc;
-
-        std::unique_ptr<Cycle::SaveSelect::Main> m_main;
 
     public:
         Impl([[maybe_unused]] const InitData& init)
@@ -42,40 +45,43 @@ namespace abyss
 #endif
         void init()
         {
-            m_main = std::make_unique<Cycle::SaveSelect::Main>(this);
+            m_system = std::make_unique<System>();
+            auto booter = std::make_unique<Sys::SaveSelect::Booter>(this);
+            m_system->boot(booter.get());
         }
         void update()
         {
-            m_main->update();
+            m_system->update();
         }
 
         void draw() const
         {
-            m_main->draw();
+            m_system->draw();
         }
 
-        void finally()
-        {
-            m_main->finally();
-        }
-
-        void onNewGame()
+        bool onNewGame() override
         {
             if (m_onNewGameFunc) {
                 m_onNewGameFunc();
+                return true;
             }
+            return false;
         }
-        void onLoadGame()
+        bool onLoadGame() override
         {
             if (m_onLoadGameFunc) {
                 m_onLoadGameFunc();
+                return true;
             }
+            return false;
         }
-        void onBack()
+        bool onBack() override
         {
             if (m_onBackFunc) {
                 m_onBackFunc();
+                return true;
             }
+            return false;
         }
         void bindLoadGameFunc(const std::function<void()>& callback)
         {
@@ -131,6 +137,5 @@ namespace abyss
     }
     void SaveSelectScene::finally()
     {
-        m_pImpl->finally();
     }
 }
