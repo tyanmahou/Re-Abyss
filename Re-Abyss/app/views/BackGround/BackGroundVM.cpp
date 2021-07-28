@@ -4,7 +4,6 @@
 
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include "..\Cycle\Title\BackGround\BackGroundVM.hpp"
 namespace abyss
 {
     BackGroundVM::BackGroundVM(
