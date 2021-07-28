@@ -1,9 +1,6 @@
 #include "MainStream.hpp"
 
 #include <abyss/modules/Event/base/IEvent.hpp>
-#include <abyss/modules/UI/UIs.hpp>
-
-#include <abyss/components/UI/SaveSelect/Panel/Builder.hpp>
 
 namespace abyss::Event::SaveSelect
 {
@@ -15,11 +12,6 @@ namespace abyss::Event::SaveSelect
     }
     void MainStream::onStart()
     {
-        using namespace UI::SaveSelect;
-        auto uis = m_pEvent->getModule<UIs>();
-
-        // パネル作成
-        uis->create<Panel::Builder>();
     }
     void MainStream::onEnd()
     {
