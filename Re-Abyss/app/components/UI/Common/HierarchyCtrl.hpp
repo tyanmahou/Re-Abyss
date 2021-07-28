@@ -19,9 +19,10 @@ namespace abyss::UI
         void onPostUpdate() override;
         void onDraw() const override;
 
-        void setupCallback(const std::function<void(Executer)>& callback)
+        HierarchyCtrl& setupCallback(const std::function<void(Executer)>& callback)
         {
             m_setupCallback = callback;
+            return *this;
         }
         void push(const HierarchyManager::Hierarchy_t& next);
 

@@ -1516,6 +1516,21 @@
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Common\FooterTips.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2248,6 +2263,11 @@
     <ClInclude Include="app\system\SaveSelect\Booter.hpp" />
     <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.hpp" />
+    <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
