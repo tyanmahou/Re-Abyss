@@ -4,6 +4,9 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/models/Camera/QuakeModel.hpp>
+
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     void WaitState::start()
@@ -12,6 +15,17 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         m_pActor
             ->getModule<Effects>()
             ->createWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
+
+        m_quake = m_pActor
+            ->getModule<Camera>()
+            ->startQuake(1.0);
+    }
+
+    void WaitState::end()
+    {
+        if (m_quake) {
+            m_quake->stop();
+        }
     }
 
     void WaitState::update()

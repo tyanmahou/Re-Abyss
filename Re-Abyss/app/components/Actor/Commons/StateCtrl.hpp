@@ -67,7 +67,7 @@ namespace abyss::Actor
         
         void setup(Executer executer)override;
         void onStart() override;
-
+        void onEnd() override;
         void onPostUpdate() override;
 
         void onLastUpdate() override;

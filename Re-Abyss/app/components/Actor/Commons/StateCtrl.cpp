@@ -26,6 +26,13 @@ namespace abyss::Actor
         this->stateUpdate();
     }
 
+    void StateCtrl::onEnd()
+    {
+        if (m_current) {
+            m_current->end();
+        }
+    }
+
     void StateCtrl::stateUpdate()
     {
         if (m_next.second) {
