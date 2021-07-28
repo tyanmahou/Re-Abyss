@@ -1,9 +1,12 @@
 #pragma once
 #include <memory>
 #include <abyss/utils/Coro/Generator/Generator.hpp>
-namespace abyss::Cycle
+namespace abyss
 {
-    class LoadingView;
+    namespace UI
+    {
+        class LoadingView;
+    }
 
     class ILoadingTask
     {
@@ -24,6 +27,6 @@ namespace abyss::Cycle
         void draw() const;
     private:
         std::unique_ptr<ILoadingTask> m_task;
-        std::unique_ptr<LoadingView> m_view;
+        std::unique_ptr<UI::LoadingView> m_view;
     };
 }

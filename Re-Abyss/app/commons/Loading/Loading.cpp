@@ -1,11 +1,11 @@
 #include "Loading.hpp"
-#include <abyss/views/Cycle/Common/Loading/LoadingView.hpp>
+#include <abyss/views/UI/Common/Loading/LoadingView.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 
 namespace
 {
     using namespace abyss;
-    using namespace abyss::Cycle;
+    using namespace abyss::UI;
     class AsyncLoading final : public ILoadingTask
     {
     public:
@@ -32,10 +32,10 @@ namespace
         Coro::Task<void> m_task;
     };
 }
-namespace abyss::Cycle
+namespace abyss
 {
     Loading::Loading():
-        m_view(std::make_unique<LoadingView>())
+        m_view(std::make_unique<UI::LoadingView>())
     {}
     Loading::~Loading()
     {}

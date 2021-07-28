@@ -1165,19 +1165,16 @@
     <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cycle\SaveSelect\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Cycle\Common\Tips\TipsView.cpp">
+    <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\base\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Cycle\Common\Loading\LoadingView.cpp">
+    <ClCompile Include="app\views\UI\Common\Loading\LoadingView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Cycle\Common\Loading.cpp">
+    <ClCompile Include="app\commons\Loading\Loading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp">
@@ -2098,11 +2095,11 @@
     <ClInclude Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
-    <ClInclude Include="app\views\Cycle\Common\Tips\TipsView.hpp" />
-    <ClInclude Include="app\params\Cycle\Common\FooterParam.hpp" />
-    <ClInclude Include="app\views\Cycle\Common\Loading\LoadingView.hpp" />
-    <ClInclude Include="app\params\Cycle\Common\LoadingParam.hpp" />
-    <ClInclude Include="app\modules\Cycle\Common\Loading.hpp" />
+    <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
+    <ClInclude Include="app\params\UI\Common\FooterParam.hpp" />
+    <ClInclude Include="app\views\UI\Common\Loading\LoadingView.hpp" />
+    <ClInclude Include="app\params\UI\Common\LoadingParam.hpp" />
+    <ClInclude Include="app\commons\Loading\Loading.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Preloader.hpp" />

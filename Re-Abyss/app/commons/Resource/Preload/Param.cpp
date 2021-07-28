@@ -1,10 +1,5 @@
 #include "Param.hpp"
 
-// Cycle
-#include <abyss/params/Cycle/Common/FooterParam.hpp>
-#include <abyss/params/Cycle/Common/LoadingParam.hpp>
-
-
 // Actors
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
@@ -27,6 +22,12 @@
 
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
+
+
+// Cycle関連
+// Common
+#include <abyss/params/UI/Common/FooterParam.hpp>
+#include <abyss/params/UI/Common/LoadingParam.hpp>
 
 // Splash
 #include <abyss/params/UI/Splash/Param.hpp>
@@ -56,8 +57,8 @@ namespace abyss::Resource::Preload
 	}
 	void LoadCycleCommon(const Assets* resource)
 	{
-		resource->loadToml<Cycle::FooterParam>(U"Cycle/Common/footer_param.toml");
-		resource->loadToml<Cycle::LoadingParam>(U"Cycle/Common/loading_param.toml");
+		resource->loadToml<UI::FooterParam>(U"UI/Common/footer_param.toml");
+		resource->loadToml<UI::LoadingParam>(U"UI/Common/loading_param.toml");
 	}
 	void LoadSplashToml(const Assets* resource)
 	{

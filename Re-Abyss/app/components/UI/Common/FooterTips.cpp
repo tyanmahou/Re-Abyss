@@ -1,5 +1,5 @@
 #include "FooterTips.hpp"
-#include <abyss/views/Cycle/Common/Tips/TipsView.hpp>
+#include <abyss/views/UI/Common/Tips/TipsView.hpp>
 
 namespace abyss::UI
 {
@@ -9,6 +9,6 @@ namespace abyss::UI
 
     void FooterTips::onDraw() const
     {
-        Cycle::TipsView::DrawFooter(m_tips);
+        TipsView::DrawFooter(m_tips);
     }
 }
