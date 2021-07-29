@@ -1,5 +1,6 @@
 #include "TmxDecorDataStore.hpp"
 #include "parser/TmxDecorParser.hpp"
+#include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace 
 {
@@ -41,11 +42,7 @@ namespace abyss::Decor
         };
 
         if (auto&& decor = m_tmx.getLayer(U"decor")) {
-            decor->then([&](const GroupLayer& layer) {
-                for(auto&& l : layer.getLayers()) {
-                    l.then(parseAll);
-                }
-            });
+            TmxParseUtil::ParseForGroup(*decor, parseAll);
         }
         return ret;
     }

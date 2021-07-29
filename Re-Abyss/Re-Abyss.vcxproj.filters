@@ -2277,5 +2277,6 @@
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
     <None Include="app\modules\GameObject\GameObject.hpp" />
+    <None Include="app\datastores\base\parser\TmxParseUtil.hpp" />
   </ItemGroup>
 </Project>
