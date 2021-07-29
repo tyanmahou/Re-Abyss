@@ -11,35 +11,40 @@
 
 namespace abyss::Sys::Main
 {
-    Booter::Booter(Cycle::Main::IMasterObserver* pObserver) :
+    template<BootKind kind>
+    Booter<kind>::Booter(Cycle::Main::IMasterObserver* pObserver) :
         m_pObserver(pObserver)
     {}
-    bool Booter::onBoot(Manager* pManager) const
+    template<BootKind kind>
+    bool Booter<kind>::onBoot(Manager* pManager) const
     {
         // Cycle初期化
         auto* cycle = pManager->getModule<CycleMaster>();
         cycle->build<Cycle::Main::Builder>(m_pObserver);
         cycle->init();
 
-        // StageLoad
+        // Stage初期化
         auto* stage = pManager->getModule<Stage>();
         stage->setStageData(m_stageData);
         stage->load();
 
-        // TemporaryLoad
+        // Temporary初期化
         auto* temporary = pManager->getModule<Temporary>();
         temporary->setTemporaryData(m_tempData);
 
-        if (m_bootKind == BootKind::Init) {
+        if constexpr (kind == BootKind::Normal) {
             if (m_initPlayer) {
-                stage->init(m_initPlayer, nullptr);
+                return stage->init(m_initPlayer, m_initEvent);
             } else {
-                stage->init();
+                return stage->init();
             }
-        } else if (m_bootKind == BootKind::Restart) {
-            stage->restart();
+        } else if constexpr (kind == BootKind::Restart) {
+            return stage->restart();
+        } else {
+            return false;
         }
-
-        return true;
     }
+
+    template class Booter<BootKind::Normal>;
+    template class Booter<BootKind::Restart>;
 }

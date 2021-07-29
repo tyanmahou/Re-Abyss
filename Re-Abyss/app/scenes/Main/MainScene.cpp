@@ -68,7 +68,7 @@ namespace abyss
 			auto injector = Factory::Main::Injector(mapName);
 			m_stageData = injector.resolve<StageData>();
 
-			auto booter = std::make_unique<Sys::Main::Booter>(this);
+			auto booter = std::make_unique<Sys::Main::BooterNormal>(this);
 			booter->setInitPlayer(player)
 				.setStageData(m_stageData)
 				.setTempData(m_tempData);
@@ -93,11 +93,11 @@ namespace abyss
 		/// <returns></returns>
 		bool onRestart() override
 		{
+			using namespace Sys::Main;
 			m_system = std::make_unique<System>();
 
-			auto booter = std::make_unique<Sys::Main::Booter>(this);
-			booter->setBootKind(Sys::Main::BootKind::Restart)
-				.setStageData(m_stageData)
+			auto booter = std::make_unique<Sys::Main::BooterRestart>(this);
+			booter->setStageData(m_stageData)
 				.setTempData(m_tempData);
 
 			m_system->boot(booter.get());
