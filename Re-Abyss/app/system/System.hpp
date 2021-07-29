@@ -22,7 +22,6 @@ namespace abyss::Sys
 
         void draw() const;
 
-    private:
         template<class Mod>
         inline Mod* mod() const
         {

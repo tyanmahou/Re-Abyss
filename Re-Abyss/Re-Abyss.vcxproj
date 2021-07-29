@@ -438,7 +438,7 @@
     <ClCompile Include="app\modules\Effect\Effects.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
-    <ClCompile Include="app\system\Main\System.cpp" />
+    <ClCompile Include="app\system\Main\Booter.cpp" />
     <ClCompile Include="app\system\SaveSelect\Booter.cpp" />
     <ClCompile Include="app\system\Splash\Booter.cpp" />
     <ClCompile Include="app\system\System.cpp" />
@@ -974,7 +974,7 @@
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
     <ClInclude Include="app\system\base\Config.hpp" />
     <ClInclude Include="app\system\base\IBooter.hpp" />
-    <ClInclude Include="app\system\Main\System.hpp" />
+    <ClInclude Include="app\system\Main\Booter.hpp" />
     <ClInclude Include="app\system\ModulePackage.hpp" />
     <ClInclude Include="app\system\base\Modules.hpp" />
     <ClInclude Include="app\system\SaveSelect\Booter.hpp" />

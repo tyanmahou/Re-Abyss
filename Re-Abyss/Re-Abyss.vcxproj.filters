@@ -1414,9 +1414,6 @@
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\Main\System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1532,6 +1529,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\system\Main\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2223,7 +2223,6 @@
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
-    <ClInclude Include="app\system\Main\System.hpp" />
     <ClInclude Include="app\system\base\IBooter.hpp" />
     <ClInclude Include="app\system\base\Config.hpp" />
     <ClInclude Include="app\system\base\Modules.hpp" />
@@ -2273,6 +2272,7 @@
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
     <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
+    <ClInclude Include="app\system\Main\Booter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

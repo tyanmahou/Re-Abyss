@@ -2,19 +2,23 @@
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 
-#include <abyss/system/Main/System.hpp>
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
+#include <abyss/system/System.hpp>
+#include <abyss/system/Main/Booter.hpp>
+
 namespace abyss
 {
 	class MainScene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
-		std::unique_ptr<Sys::Main::System> m_system;
+		using System = Sys::System<Sys::Config::Main()>;
+
+		std::unique_ptr<System> m_system;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
 
@@ -54,19 +58,22 @@ namespace abyss
 		void init(bool isLockPlayer = false)
 		{
 			std::shared_ptr<Actor::ActorObj> player = nullptr;
-			if (isLockPlayer) {
-				player = m_system->lockPlayer();
+			if (isLockPlayer && m_system) {
+				player = m_system
+					->mod<Actor::Player::PlayerManager>()
+					->getActor()
+					.lock();
 			}
-			m_system = std::make_unique<Sys::Main::System>(this);
+			m_system = std::make_unique<System>();
 			auto injector = Factory::Main::Injector(mapName);
 			m_stageData = injector.resolve<StageData>();
-			m_system->loadStage(m_stageData);
-			m_system->loadTemporaryData(m_tempData);
-			if (player) {
-				m_system->init(player);
-			} else {
-				m_system->init();
-			}
+
+			auto booter = std::make_unique<Sys::Main::Booter>(this);
+			booter->setInitPlayer(player)
+				.setStageData(m_stageData)
+				.setTempData(m_tempData);
+
+			m_system->boot(booter.get());
 		}
 
 		void update()
@@ -86,11 +93,16 @@ namespace abyss
 		/// <returns></returns>
 		bool onRestart() override
 		{
-			m_system = std::make_unique<Sys::Main::System>(this);
-			m_system->loadStage(m_stageData);
-			m_system->loadTemporaryData(m_tempData);
+			m_system = std::make_unique<System>();
 
-			m_system->restart();
+			auto booter = std::make_unique<Sys::Main::Booter>(this);
+			booter->setBootKind(Sys::Main::BootKind::Restart)
+				.setStageData(m_stageData)
+				.setTempData(m_tempData);
+
+			m_system->boot(booter.get());
+
+			//m_system->restart();
 			return true;
 		}
 		bool onEscape() override
