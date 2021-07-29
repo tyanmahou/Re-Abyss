@@ -1,5 +1,7 @@
 #include "TmxEnemyDataStore.hpp"
 #include "parser/TmxEnemyParser.hpp"
+#include <abyss/datastores/base/parser/TmxParseUtil.hpp>
+
 namespace abyss::Actor::Enemy
 {
 	using namespace s3d;
@@ -22,7 +24,9 @@ namespace abyss::Actor::Enemy
 				}
 			}
 		};
-		layer->then(parse);
+
+		TmxParseUtil::ParseForGroup(*layer, parse);
+
 		return ret;
     }
 }

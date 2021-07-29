@@ -29,7 +29,10 @@ namespace abyss::Decor
     s3d::Array<std::shared_ptr<DecorEntity>> abyss::Decor::TmxDecorDataStore::select() const
     {
         s3d::Array<std::shared_ptr<DecorEntity>> ret;
-
+        auto layer = m_tmx.getLayer(U"decor");
+        if (!layer) {
+            return ret;
+        }
         auto parseAll = [&](const ObjectGroup& layer) {
             auto drawLayer = ::ToDrawLayer(layer.getProperty(U"layer").value_or(U"decor_middle"));
             for (const auto& obj : layer.getObjects()) {
@@ -41,9 +44,8 @@ namespace abyss::Decor
             }
         };
 
-        if (auto&& decor = m_tmx.getLayer(U"decor")) {
-            TmxParseUtil::ParseForGroup(*decor, parseAll);
-        }
+        TmxParseUtil::ParseForGroup(*layer, parseAll);
+
         return ret;
     }
 }

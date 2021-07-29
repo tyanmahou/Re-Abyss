@@ -1,5 +1,6 @@
 #include "TmxItemDataStore.hpp"
 #include "parser/TmxItemParser.hpp"
+#include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Item
 {
@@ -22,7 +23,9 @@ namespace abyss::Actor::Item
                 }
             }
         };
-        layer->then(parse);
+
+        TmxParseUtil::ParseForGroup(*layer, parse);
+
         return ret;
     }
 }

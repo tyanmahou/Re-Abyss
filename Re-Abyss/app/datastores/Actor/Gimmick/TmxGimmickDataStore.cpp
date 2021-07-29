@@ -1,5 +1,6 @@
 #include "TmxGimmickDataStore.hpp"
 #include "parser/TmxGimmickParser.hpp"
+#include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Gimmick
 {
@@ -23,7 +24,9 @@ namespace abyss::Actor::Gimmick
 				}
 			}
 		};
-		layer->then(parse);
+
+		TmxParseUtil::ParseForGroup(*layer, parse);
+
 		return ret;
     }
 }
