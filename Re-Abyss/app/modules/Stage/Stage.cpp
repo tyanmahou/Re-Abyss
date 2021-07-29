@@ -121,39 +121,18 @@ namespace abyss
         backGround.setBgColor(service->getBgColor());
         return true;
     }
-    bool Stage::restart() const
+    bool Stage::init() const
     {
-        auto temporary = m_pManager->getModule<Temporary>();
-        // リスタートでリセットのフラグをリセット
-        temporary->clearFlag(TempLevel::Restart);
-        auto restartId = temporary->getRestartId().value_or(0);
-        return this->init(restartId);
-    }
-    bool Stage::init(
-        const std::shared_ptr<Actor::ActorObj>& player,
-        const std::shared_ptr<Event::IEvent>& readyEvent
-    ) const {
         // ヘッダー
         m_pManager->getModule<UIs>()->create<UI::Header::Builder>();
 
         bool result = true;
-        // Readyイベント開始
-        if(readyEvent) {
-            auto events = m_pManager->getModule<Events>();
-            events->regist(readyEvent);
-            events->init();
-        }
 
         s3d::Optional<RoomModel> nextRoom;
         // World初期化
         {
-            // プレイヤーを登録
             auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
-            playerManager->regist(player);
-
             auto world = m_pManager->getModule<World>();
-            world->create<Actor::God::Builder>();
-            world->regist(player);
             if (nextRoom = this->findRoom(playerManager->getPos())) {
                 result &= this->initRoom(*world, *nextRoom, BuildTiming::All);
             } else {
@@ -182,11 +161,6 @@ namespace abyss
             }
         }
 
-        // バブルエフェクト開始
-        {
-            auto cron = m_pManager->getModule<Crons>();
-            cron->create<Cron::BubbleGenerator::BuildIntervalTime>(3s);
-        }
         auto temporary = m_pManager->getModule<Temporary>();
         auto sound = m_pManager->getModule<Sound>();
         // サウンド初期化
@@ -205,19 +179,6 @@ namespace abyss
             m_pManager->getModule<UIs>()->flush();
         }
         return result;
-    }
-    bool Stage::init(s3d::int32 startId) const
-    {
-        auto initStartPos = m_startPos.find(startId);
-        if (!initStartPos) {
-            return false;
-        }
-        auto player = std::make_shared<Actor::ActorObj>();
-        Actor::Player::Builder::Build(player.get(), *initStartPos);
-
-        auto readyEvent = std::make_shared<Event::IEvent>();
-        Event::GameReady::Builder::Build(readyEvent.get());
-        return this->init(player, readyEvent);
     }
 
     bool Stage::checkOut() const

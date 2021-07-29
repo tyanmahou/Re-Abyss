@@ -36,12 +36,7 @@ namespace abyss
 
 		void setManager(Manager* pManager);
 
-		bool restart()const;
-		bool init(
-			const std::shared_ptr<Actor::ActorObj>& player,
-			const std::shared_ptr<Event::IEvent>& readyEvent
-		) const;
-		bool init(s3d::int32 startId = 0) const;
+		bool init() const;
 
 		bool checkOut() const;
 		bool checkIn() const;

@@ -1,11 +1,12 @@
 #include "CameraModel.hpp"
-
+#include <abyss/commons/Constants.hpp>
 using namespace s3d;
 
 namespace abyss
 {
 
-	CameraModel::CameraModel()
+	CameraModel::CameraModel():
+		m_currentRoom{Constants::GameScreen, 0}
 	{}
 
 	bool CameraModel::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const

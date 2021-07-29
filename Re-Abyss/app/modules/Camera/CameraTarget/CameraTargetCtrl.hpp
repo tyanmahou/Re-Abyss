@@ -21,6 +21,6 @@ namespace abyss
         }
     private:
         s3d::Array<std::shared_ptr<ICameraTarget>> m_targets;
-        s3d::Vec2 m_targetPos;
+        s3d::Vec2 m_targetPos{0, 0};
     };
 }
