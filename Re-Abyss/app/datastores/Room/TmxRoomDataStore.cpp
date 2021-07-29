@@ -1,5 +1,6 @@
 #include "TmxRoomDataStore.hpp"
 #include <abyss/types/Forward.hpp>
+#include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss
 {
@@ -34,7 +35,9 @@ namespace abyss
 				ret.push_back({ obj.id, obj.toRectF(), passbleBits });
 			}
 		};
-		layer->then(parser);
+
+		TmxParseUtil::ParseForGroup(*layer, parser);
+
 		return ret;
     }
 }

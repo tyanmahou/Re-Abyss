@@ -21,27 +21,28 @@ namespace abyss::Decor
         m_animation = animation->selectWithKey();
 
         {
-            auto grid = map->selectRawGrid();
-            for (uint32 y = 0; y < grid.height(); ++y) {
-                for (uint32 x = 0; x < grid.width(); ++x) {
-                    auto gId = grid[y][x];
-                    if (gId == 0) {
-                        continue;
-                    }
-                    const auto& graphic = m_graphics[gId];
+            for (auto&& grid : map->selectRawGrid()) {
+                for (uint32 y = 0; y < grid.height(); ++y) {
+                    for (uint32 x = 0; x < grid.width(); ++x) {
+                        auto gId = grid[y][x];
+                        if (gId == 0) {
+                            continue;
+                        }
+                        const auto& graphic = m_graphics[gId];
 
-                    auto& model = m_tileMap[graphic.filePath];
+                        auto& model = m_tileMap[graphic.filePath];
 
-                    if (model.isEmpty()) {
-                        // 初期化
-                        model
-                            .setFilePath(graphic.filePath)
-                            .setTileSize(map->getTileSize())
-                            .setFirstGId(graphic.firstGId)
-                            ;
-                        model.resize(grid.width(), grid.height());
+                        if (model.isEmpty()) {
+                            // 初期化
+                            model
+                                .setFilePath(graphic.filePath)
+                                .setTileSize(map->getTileSize())
+                                .setFirstGId(graphic.firstGId)
+                                ;
+                            model.resize(grid.width(), grid.height());
+                        }
+                        model[y][x] = gId;
                     }
-                    model[y][x] = gId;
                 }
             }
         }
