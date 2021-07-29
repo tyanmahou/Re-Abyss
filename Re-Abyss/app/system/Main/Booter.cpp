@@ -65,8 +65,8 @@ namespace abyss::Sys::Main
 
         // プレイヤー初期化
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
+        std::shared_ptr<Actor::ActorObj> player = m_initPlayer;
         {
-            std::shared_ptr<Actor::ActorObj> player = m_initPlayer;
             if (!player) {
                 // 未初期化なら生成
                 s3d::int32 startId = 0;
@@ -90,7 +90,7 @@ namespace abyss::Sys::Main
         auto* world = pManager->getModule<World>();
         {
             world->create<Actor::God::Builder>(); // God生成
-            world->regist(m_initPlayer);          // プレイヤー登録
+            world->regist(player);          // プレイヤー登録
         }
 
         // Cron初期化
