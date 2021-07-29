@@ -101,8 +101,6 @@ namespace abyss
 				.setTempData(m_tempData);
 
 			m_system->boot(booter.get());
-
-			//m_system->restart();
 			return true;
 		}
 		bool onEscape() override
