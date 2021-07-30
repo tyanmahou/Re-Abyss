@@ -1534,6 +1534,9 @@
     <ClCompile Include="app\system\Main\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Player\CameraTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2273,6 +2276,7 @@
     <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\system\Main\Booter.hpp" />
+    <ClInclude Include="app\components\Actor\Player\CameraTarget.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

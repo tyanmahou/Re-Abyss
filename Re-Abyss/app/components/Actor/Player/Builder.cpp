@@ -14,7 +14,6 @@
 #include <abyss/components/Actor/Commons/CameraFixPos.hpp>
 #include <abyss/components/Actor/Commons/LightCtrl.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/CameraTarget.hpp>
 
 #include <abyss/components/Actor/Player/PlayerProxy.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
@@ -28,6 +27,7 @@
 #include <abyss/components/Actor/Player/ForwardCtrl.hpp>
 #include <abyss/components/Actor/Player/MoveSwim.hpp>
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
+#include <abyss/components/Actor/Player/CameraTarget.hpp>
 
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
@@ -89,7 +89,7 @@ namespace abyss::Actor::Player
 		}
         // カメラターゲット
         {
-            pActor->attach<CameraTarget>(pActor, CameraTargetPriority::Player);
+            pActor->attach<CameraTarget>(pActor);
         }
         // カメラによる座標調整
         {

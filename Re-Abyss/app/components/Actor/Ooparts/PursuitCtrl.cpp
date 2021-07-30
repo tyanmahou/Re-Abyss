@@ -32,8 +32,10 @@ namespace abyss::Actor::Ooparts
                 10 * s3d::Sin(time * 4.0)
             };
             auto diff = localTarget - m_localPos;
-            constexpr double speed = 60.0f;
-            m_localPos += diff.normalized() * speed * dt;
+            if (!diff.isZero()) {
+                constexpr double speed = 60.0f;
+                m_localPos += diff.normalized() * speed * dt;
+            }
         }
         m_body->setForward(m_pParent->getForward());
         m_body->setPos(m_pParent->getPos() + m_localPos);
