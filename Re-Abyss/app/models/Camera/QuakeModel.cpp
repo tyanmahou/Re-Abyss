@@ -7,6 +7,7 @@ namespace abyss
     QuakeModel::QuakeModel(double maxOffset, double timeSec) :
         m_maxOffset(maxOffset),
         m_timeSec(timeSec),
+        m_offset(0, 0),
         m_offsetTarget(0, 0)
     {}
 
