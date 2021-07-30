@@ -13,6 +13,7 @@ namespace abyss
 	{
 	private:
 		s3d::Vec2 m_pos;
+		s3d::Vec2 m_targetPos;
 
 		RoomModel m_currentRoom;
 		s3d::Optional<RoomModel> m_nextRoom;
@@ -30,6 +31,9 @@ namespace abyss
 
 		void setPos(const s3d::Vec2 pos);
 		const s3d::Vec2& getPos()const;
+
+		void setTargetPos(const s3d::Vec2 pos);
+		const s3d::Vec2& getTargetPos()const;
 
 		template<class T>
 		bool inRoom(const T& shape)const

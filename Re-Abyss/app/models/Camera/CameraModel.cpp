@@ -6,6 +6,8 @@ namespace abyss
 {
 
 	CameraModel::CameraModel():
+		m_pos(Constants::GameScreen.center()),
+		m_targetPos(Constants::GameScreen.center()),
 		m_currentRoom{Constants::GameScreen, 0}
 	{}
 
@@ -28,6 +30,14 @@ namespace abyss
 	const s3d::Vec2& CameraModel::getPos() const
 	{
 		return m_pos;
+	}
+	void CameraModel::setTargetPos(const s3d::Vec2 pos)
+	{
+		m_targetPos = pos;
+	}
+	const s3d::Vec2& CameraModel::getTargetPos() const
+	{
+		return m_targetPos;
 	}
 	const RoomModel & CameraModel::currentRoom() const
 	{

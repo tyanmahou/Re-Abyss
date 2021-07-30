@@ -43,6 +43,7 @@ namespace abyss
 			m_quake->update(dt);
 
 			m_camera->setPos(Math::Round(cameraPos));
+			m_camera->setTargetPos(Math::Round(targetPos));
 		}
 	}
 	void Camera::setPos(const s3d::Vec2& cameraPos) const
