@@ -9,32 +9,32 @@ namespace
     {
         struct Pos
         {
-            [[TOML_BIND(x, "x")]]
+            [[TOML_BIND(x)]]
             double x;
 
-            [[TOML_BIND(y, "y")]]
+            [[TOML_BIND(y)]]
             double y;
         };
-        [[TOML_BIND(label, "label")]]
+        [[TOML_BIND(label)]]
         String label;
 
-        [[TOML_BIND(pos, "pos")]]
+        [[TOML_BIND(pos)]]
         Pos pos;
     };
     struct Config
     {
         struct Window
         {
-            [[TOML_BIND(title, "title")]]
+            [[TOML_BIND(title)]]
             String title;
 
-            [[TOML_BIND(width, "width")]]
+            [[TOML_BIND(width)]]
             int32 width;
 
-            [[TOML_BIND(height, "height")]]
+            [[TOML_BIND(height)]]
             int32 height;
 
-            [[TOML_BIND(sizable, "sizable")]]
+            [[TOML_BIND(sizable)]]
             bool sizable;
         };
 

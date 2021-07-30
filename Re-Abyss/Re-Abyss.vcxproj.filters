@@ -2277,6 +2277,7 @@
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\system\Main\Booter.hpp" />
     <ClInclude Include="app\components\Actor\Player\CameraTarget.hpp" />
+    <ClInclude Include="app\params\Actor\Player\CameraParam.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -3,6 +3,7 @@
 // Actors
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
+#include <abyss/params/Actor/Player/CameraParam.hpp>
 
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/ShotParam.hpp>
@@ -80,8 +81,11 @@ namespace abyss::Resource::Preload
 		using namespace Actor;
 
 		// Player
-		resource->loadToml<Player::Param>(U"Actors/Player/param.toml");
-		resource->loadToml<Player::ShotParam>(U"Actors/Player/shot_param.toml");
+		{
+			resource->loadToml<Player::Param>(U"Actors/Player/param.toml");
+			resource->loadToml<Player::ShotParam>(U"Actors/Player/shot_param.toml");
+			resource->loadToml<Player::CameraParam>(U"Actors/Player/camera_param.toml");
+		}
 
 		// Enemy
 		{

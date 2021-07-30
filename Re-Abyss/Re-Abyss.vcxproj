@@ -974,6 +974,7 @@
     <ClInclude Include="app\modules\Physics\base\TerrainData.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
+    <ClInclude Include="app\params\Actor\Player\CameraParam.hpp" />
     <ClInclude Include="app\system\base\Config.hpp" />
     <ClInclude Include="app\system\base\IBooter.hpp" />
     <ClInclude Include="app\system\Main\Booter.hpp" />

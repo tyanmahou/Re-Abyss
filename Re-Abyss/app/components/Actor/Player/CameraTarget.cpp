@@ -6,6 +6,9 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
+
+#include <abyss/params/Actor/Player/Param.hpp>
+#include <abyss/params/Actor/Player/CameraParam.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
@@ -30,36 +33,39 @@ namespace abyss::Actor::Player
         {
             const auto& velocity = m_body->getVelocity();
             s3d::Vec2 targetLocalPos{0, 0};
-            if (velocity.x > 40.0) {
+            const auto& maxOffset = CameraParam::MaxOffsetPos;
+            const auto& startSpeed = CameraParam::StartSpeed;
+ 
+            if (velocity.x > startSpeed.x) {
                 targetLocalPos.x = s3d::Math::Lerp(
                     0,
-                    40.0, 
-                    s3d::Saturate((velocity.x - 40.0) / 200.0)
+                    maxOffset.x,
+                    s3d::Saturate((velocity.x - startSpeed.x) / (Param::Swim::MaxSpeedX - startSpeed.x))
                 );
-            } else if (velocity.x < -40.0) {
+            } else if (velocity.x < -startSpeed.x) {
                 targetLocalPos.x = s3d::Math::Lerp(
                     0,
-                    -40.0,
-                    s3d::Saturate((-velocity.x - 40.0) / 200.0)
+                    -maxOffset.x,
+                    s3d::Saturate((-velocity.x - startSpeed.x) / (Param::Swim::MaxSpeedX - startSpeed.x))
                 );
             }
 
-            if (velocity.y > 40.0) {
+            if (velocity.y > startSpeed.y) {
                 targetLocalPos.y = s3d::Math::Lerp(
                     0,
-                    40.0,
-                    s3d::Saturate((velocity.y - 40.0) / 110.0)
+                    maxOffset.y,
+                    s3d::Saturate((velocity.y - startSpeed.y) / (Param::Swim::DiveSpeed - startSpeed.y))
                 );
-            } else if (velocity.y < -40.0) {
+            } else if (velocity.y < -startSpeed.y) {
                 targetLocalPos.y = s3d::Math::Lerp(
                     0,
-                    -40.0,
-                    s3d::Saturate((-velocity.y - 40.0) / 200.0)
+                    -maxOffset.y,
+                    s3d::Saturate((-velocity.y - startSpeed.y) / (Param::Swim::MaxSpeedX - startSpeed.y))
                 );
             }
 
             auto dt = m_pActor->deltaTime();
-            m_localPos = s3d::Math::Lerp(m_localPos, targetLocalPos, InterpUtil::DampRatio(0.02, dt));
+            m_localPos = s3d::Math::Lerp(m_localPos, targetLocalPos, InterpUtil::DampRatio(CameraParam::ErpRate, dt));
         }
     private:
         ActorObj* m_pActor;
