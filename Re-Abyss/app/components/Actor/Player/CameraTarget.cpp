@@ -1,11 +1,12 @@
 #include "CameraTarget.hpp"
 
 #include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actor/Commons/MapCollider.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/Math.hpp>
 
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/params/Actor/Player/CameraParam.hpp>
@@ -29,9 +30,14 @@ namespace abyss::Actor::Player
         {
             m_body = m_pActor->find<Body>();
         }
-        void onMove()
+        void onPostPhysics()
         {
-            const auto& velocity = m_body->getVelocity();
+            auto dt = m_pActor->deltaTime();
+            Vec2 velocity{ 0,0 };
+            if (!Math::IsZeroLoose(dt)) {
+                // 地形衝突を考慮するためにvelocityは直接使わない
+                velocity = m_body->moveDiff() / dt;
+            }
             s3d::Vec2 targetLocalPos{0, 0};
             const auto& maxOffset = CameraParam::MaxOffsetPos;
             const auto& startSpeed = CameraParam::StartSpeed;
@@ -63,8 +69,6 @@ namespace abyss::Actor::Player
                     s3d::Saturate((-velocity.y - startSpeed.y) / (Param::Swim::MaxSpeedX - startSpeed.y))
                 );
             }
-
-            auto dt = m_pActor->deltaTime();
             m_localPos = s3d::Math::Lerp(m_localPos, targetLocalPos, InterpUtil::DampRatio(CameraParam::ErpRate, dt));
         }
     private:
@@ -80,7 +84,7 @@ namespace abyss::Actor::Player
     void CameraTarget::setup(Executer executer)
     {
         executer.on<IComponent>().addAfter<Body>();
-        executer.on<IMove>().addAfter<BodyUpdater>();
+        executer.on<IPostPhysics>().addAfter<MapCollider>();
     }
     void CameraTarget::onStart()
     {
@@ -91,8 +95,8 @@ namespace abyss::Actor::Player
     {
         m_target->destory();
     }
-    void CameraTarget::onMove()
+    void CameraTarget::onPostPhysics()
     {
-        m_target->onMove();
+        m_target->onPostPhysics();
     }
 }
