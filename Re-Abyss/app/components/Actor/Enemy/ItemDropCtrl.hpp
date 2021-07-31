@@ -3,6 +3,12 @@
 
 namespace abyss::Actor::Enemy
 {
+    // ドロップテーブル種類
+    enum class ItemDropTableKind
+    {
+        Normal,
+    };
+
     /// <summary>
     /// アイテムドロップ制御
     /// </summary>
@@ -10,10 +16,11 @@ namespace abyss::Actor::Enemy
         public IComponent
     {
     public:
-        ItemDropCtrl(ActorObj* pActor);
+        ItemDropCtrl(ActorObj* pActor, ItemDropTableKind tableKind = ItemDropTableKind::Normal);
 
-        void drop() const;
+        Ref<ActorObj> drop() const;
     private:
         ActorObj* m_pActor;
+        ItemDropTableKind m_tableKind = ItemDropTableKind::Normal;
     };
 }
