@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
+#include <abyss/components/Actor/Item/LifeSpan.hpp>
 #include <abyss/components/Common/ViewCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
@@ -68,6 +69,7 @@ namespace abyss::Actor::Item::Recovery
         }
         if (!objId) {
             // 直接生成の場合は時間制限で消える
+            pActor->attach<LifeSpan>(pActor)->setLifeSpan(10.0);
         }
         // View
         {
