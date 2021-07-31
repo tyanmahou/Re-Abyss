@@ -318,6 +318,7 @@
     <ClCompile Include="app\components\Actor\God\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Item\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Item\ItemCollision.cpp" />
+    <ClCompile Include="app\components\Actor\Item\LifeSpan.cpp" />
     <ClCompile Include="app\components\Actor\Item\Recovery\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Item\Recovery\ItemReactor.cpp" />
     <ClCompile Include="app\components\Actor\Map\CommonBuilder.cpp" />
@@ -824,6 +825,7 @@
     <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Item\ItemCollision.hpp" />
+    <ClInclude Include="app\components\Actor\Item\LifeSpan.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\ItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Map\CommonBuilder.hpp" />

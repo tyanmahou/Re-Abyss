@@ -28,7 +28,7 @@ namespace abyss::Actor::Item
     private:
         ActorObj* m_pActor;
         double m_restTimeSec = 0;
-    }
+    };
 }
 
 namespace abyss

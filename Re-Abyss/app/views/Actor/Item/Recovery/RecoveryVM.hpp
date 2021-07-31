@@ -50,7 +50,11 @@ namespace abyss::Actor::Item::Recovery
             m_time = time;
             return *this;
         }
-
+        RecoveryVM& setAlpha(double alpha)
+        {
+            m_alpha = alpha;
+            return *this;
+        }
         void draw() const;
     };
 }

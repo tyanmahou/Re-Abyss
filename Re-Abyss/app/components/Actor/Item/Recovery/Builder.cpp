@@ -14,6 +14,7 @@
 
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>
+#include <Siv3D.hpp>
 
 namespace
 {
@@ -93,14 +94,23 @@ namespace
     private:
         RecoveryVM* bind() const final
         {
+            auto time = m_pActor->getDrawTimeSec();
+            double alpha = 1.0;
+            if (m_lifeSpan && m_lifeSpan->isWarn()) {
+                auto rest = m_lifeSpan->restTimeSec();
+                alpha = 0.2 + 0.8 * s3d::Periodic::Triangle0_1( (9.0 - (3.0 - rest) * ( 3.0 - rest)) / 3.0, time);
+            }
             return &m_view
-                ->setTime(m_pActor->getDrawTimeSec())
-                .setPos(m_body->getPos() + m_shake->getShakeOffset());
+                ->setTime(time)
+                .setPos(m_body->getPos() + m_shake->getShakeOffset())
+                .setAlpha(alpha)
+                ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_shake = m_pActor->find<ShakeCtrl>();
+            m_lifeSpan = m_pActor->find<LifeSpan>();
             m_view->setKind(m_kind);
         }
     public:
@@ -115,6 +125,7 @@ namespace
         RecoveryKind m_kind;
         Ref<Body> m_body;
         Ref<ShakeCtrl> m_shake;
+        Ref<LifeSpan> m_lifeSpan;
 
         std::unique_ptr<RecoveryVM> m_view;
     };
