@@ -46,9 +46,45 @@ namespace abyss
     {
         return s3d::RectF{ m_pCamera->getPos() - Constants::AppResolutionF / 2, Constants::AppResolutionF };
     }
+	s3d::Vec2 CameraView::adjustTargetPos() const
+	{
+		s3d::Vec2 targetPos = m_pCamera->getTargetPos();
+		double zoomScale = m_pCamera->getZoomScale();
+
+		s3d::RectF region = this->screenRegion();
+		auto tl = region.tl();
+		auto br = region.br();
+		auto harfSize = region.size / 2 / zoomScale;
+		if (auto borderL = tl.x + harfSize.x;  targetPos.x < borderL) {
+			// 左端
+			targetPos.x = borderL;
+		} else if (auto borderR = br.x - harfSize.x; targetPos.x > borderR) {
+			// 右端
+			targetPos.x = borderR;
+		}
+		if (auto borderT = tl.y + harfSize.y;  targetPos.y < borderT) {
+			// 上端
+			targetPos.y = borderT;
+		} else if (auto borderB = br.y - harfSize.y; targetPos.y > borderB) {
+			// 下端
+			targetPos.y = borderB;
+		}
+		return targetPos;
+	}
 	s3d::Mat3x2 CameraView::getMat() const
 	{
-		return s3d::Mat3x2::Translate(-m_pCamera->getPos()).translated(Constants::GameScreenSize / 2);
+		static double scale = 1.0;
+		scale += (KeyQ.pressed() - KeyW.pressed()) * Scene::DeltaTime();
+		if (KeyR.down()) {
+			scale = 1.0;
+		}
+		if (KeyT.down()) {
+			scale = 2.0;
+		}
+		const_cast<CameraModel*>(m_pCamera)->setZoomScale(scale);
+		auto targetPos = this->adjustTargetPos();
+		auto cameraPos = -targetPos + (Constants::GameScreenSize / 2);
+		return s3d::Mat3x2::Scale(m_pCamera->getZoomScale(), s3d::Round(targetPos)).translated(s3d::Round(cameraPos));
 	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{

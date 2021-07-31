@@ -14,6 +14,7 @@ namespace abyss
 	private:
 		s3d::Vec2 m_pos;
 		s3d::Vec2 m_targetPos;
+		double m_zoomScale = 1.0;
 
 		RoomModel m_currentRoom;
 		s3d::Optional<RoomModel> m_nextRoom;
@@ -34,6 +35,15 @@ namespace abyss
 
 		void setTargetPos(const s3d::Vec2 pos);
 		const s3d::Vec2& getTargetPos()const;
+
+		void setZoomScale(double scale)
+		{
+			m_zoomScale = scale;
+		}
+		double getZoomScale()const
+		{
+			return m_zoomScale;
+		}
 
 		template<class T>
 		bool inRoom(const T& shape)const

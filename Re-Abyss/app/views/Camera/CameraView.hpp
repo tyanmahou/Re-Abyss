@@ -20,6 +20,7 @@ namespace abyss
 		s3d::RectF screenRegion() const;
 		s3d::RectF resolutionRegion() const;
 
+		s3d::Vec2 adjustTargetPos() const;
 		s3d::Mat3x2 getMat() const;
 		s3d::Transformer2D getTransformer() const;
 	};
