@@ -5,6 +5,7 @@
 
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 
 #include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
 
@@ -21,6 +22,9 @@ namespace abyss::Actor::Enemy
             if (outRoom->isOutRoom()) {
                 return;
             }
+        }
+        if (auto itemDrop = m_pActor->find<ItemDropCtrl>()) {
+            itemDrop->drop();
         }
         if (auto body = m_pActor->find<Body>()) {
             m_pActor->getModule<Effects>()->createWorldFront<EnemyDeadEffect>(body->getPos());

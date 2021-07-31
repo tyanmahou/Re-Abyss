@@ -43,25 +43,36 @@ namespace abyss::Actor::Item::Recovery
 {
     void Builder::Build(ActorObj* pActor, const RecoveryEntity& entity)
     {
-        auto setting = ::GetSetting(entity.kind);
+        Build(pActor, entity.pos, entity.kind, entity.id);
+    }
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, RecoveryKind kind)
+    {
+        Build(pActor, pos, kind, s3d::none);
+    }
+    void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, RecoveryKind kind, const s3d::Optional<s3d::uint32>& objId)
+    {
+        auto setting = ::GetSetting(kind);
 
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.pos)
+            .setInitPos(pos)
             .setBodySize(setting.size)
             .setBodyPivot(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
             .setAudioSettingGroupPath(U"Item/Recovery/recovery.aase")
         );
 
         {
-            pActor->attach<ItemReactor>(pActor, entity.kind, entity.id);
+            pActor->attach<ItemReactor>(pActor, kind, objId);
         }
         {
             pActor->attach<ShakeCtrl>(pActor);
         }
+        if (!objId) {
+            // 直接生成の場合は時間制限で消える
+        }
         // View
         {
             pActor->attach<ViewCtrl<RecoveryVM>>()
-                ->createBinder<ViewBinder>(pActor, entity.kind, setting);
+                ->createBinder<ViewBinder>(pActor, kind, setting);
 
             pActor->attach<CustomDraw>()
                 ->setDrawer<Drawer>(pActor);

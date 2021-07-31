@@ -50,6 +50,9 @@ namespace abyss::Actor::Enemy
         // breathing
         bool isEnableBreathing = true;
 
+        // itemdrop
+        bool isEnableItemDrop = true;
+
         bool isAutoDestroy = true;
 
         std::shared_ptr<IState> initState = nullptr;
@@ -132,6 +135,11 @@ namespace abyss::Actor::Enemy
         BuildOption& setIsEnableBreathing(bool enable)
         {
             this->isEnableBreathing = enable;
+            return *this;
+        }
+        BuildOption& setIsEnableItemDrop(bool enable)
+        {
+            this->isEnableItemDrop = enable;
             return *this;
         }
 

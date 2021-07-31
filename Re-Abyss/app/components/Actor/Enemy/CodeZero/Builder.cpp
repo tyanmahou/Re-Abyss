@@ -30,6 +30,7 @@ namespace abyss::Actor::Enemy::CodeZero
             .setIsEnableDamage(false)
             .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
+            .setIsEnableItemDrop(false)
             .setIsAutoDestroy(false)
             .setInitState<Phase1State>()
         );

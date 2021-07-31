@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 
+#include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actor/Enemy/DeadCallback.hpp>
 
@@ -90,7 +91,9 @@ namespace abyss::Actor::Enemy
 		if (opt.isEnableBreathing) {
 			pActor->attach<BreathingCtrl>(pActor);
 		}
-
+		if (opt.isEnableItemDrop) {
+			pActor->attach<ItemDropCtrl>(pActor);
+		}
 		// 死亡チェック
 		{
 			pActor->attach<DeadChecker>(pActor)
