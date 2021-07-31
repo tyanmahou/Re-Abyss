@@ -18,7 +18,7 @@ namespace abyss::Decor
     }
     void BasicDraw::onDraw() const
     {
-        auto quad = m_info->toQuad();
+        auto quad = m_info->toParallaxQuad();
         auto camera = m_pObj->getModule<Camera>();
         if (!quad.intersects(camera->screenRegion())) {
             return;

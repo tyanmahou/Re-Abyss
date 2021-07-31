@@ -18,5 +18,6 @@ namespace abyss::Decor
 		bool isFlipped = false;
 
 		DrawLayer layer;
+		s3d::Vec2 parallax;
 	};
 }

@@ -17,11 +17,19 @@ namespace abyss::Decor
 		double getRotation() const { return m_entity.rotation; }
 		bool isMirrored() const { return m_entity.isMirrored; }
 		double isFlipped() const { return m_entity.isFlipped; }
+		s3d::Vec2 getParallax() const { return m_entity.parallax; }
 
 		bool isInScreen(const s3d::RectF& screen) const;
 
 		s3d::RectF toRect() const;
+		s3d::Vec2 parallaxPos() const;
 		s3d::Quad toQuad() const;
+		s3d::Quad toParallaxQuad() const;
+
+		DecorEntity getRaw() const
+		{
+			return m_entity;
+		}
 	private:
 		DecorObj* m_pObj;
 

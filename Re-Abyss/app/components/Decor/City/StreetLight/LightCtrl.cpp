@@ -29,7 +29,7 @@ namespace abyss::Decor::City::StreetLight
     {
         constexpr float radius = 50.0;
         auto time = m_pObj->getModule<GlobalTime>()->time();
-        const auto pos = m_info->getPos() + Vec2{ -10, -130.0 };
+        const auto pos = m_info->parallaxPos() + Vec2{ -10, -130.0 };
         m_view
             ->setPos(pos)
             .setRadius(radius)

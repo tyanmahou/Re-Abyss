@@ -10,9 +10,19 @@ namespace abyss::DecorBuildUtil
     s3d::RectF ToRect(const Decor::DecorEntity& entity);
 
     /// <summary>
+    /// バウンドレクト計算
+    /// </summary>
+    s3d::RectF ToBoundRect(const Decor::DecorEntity& entity);
+
+    /// <summary>
     /// Quadに変換
     /// </summary>
     s3d::Quad ToQuad(const Decor::DecorEntity& entity);
+
+    /// <summary>
+    /// Quadに変換
+    /// </summary>
+    s3d::Quad ToQuad(const s3d::Vec2& pos, const Decor::DecorEntity& entity);
 
     /// <summary>
     /// スクリーンに入っているか

@@ -39,6 +39,7 @@ namespace abyss::Decor
                 TmxDecorParser parser(obj);
                 if (auto entity = parser.parse(); entity && entity->type != DecorType::General::None) {
                     entity->layer = drawLayer;
+                    entity->parallax = layer.getParallax();
                     ret.push_back(entity);
                 }
             }
