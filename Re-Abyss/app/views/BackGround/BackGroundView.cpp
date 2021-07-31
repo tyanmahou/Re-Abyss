@@ -29,8 +29,8 @@ namespace abyss
 
     void BackGroundView::draw(const CameraView& camera) const
     {
-		m_waveShader.apply(camera, [&]() {
-			auto pos = camera.getCameraPos();
+		m_waveShader.apply([&]() {
+			Vec2 pos = camera.getCameraPos();
 			camera.screenRegion().draw(m_bgColor);
 			m_sky.draw(camera);
 			{

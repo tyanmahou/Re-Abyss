@@ -2,7 +2,6 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
 
 namespace
 {
@@ -32,7 +31,7 @@ namespace abyss
         {
             m_multiply = multiply;
         }
-        void apply(const CameraView& camera, std::function<void()> drawer)
+        void apply(std::function<void()> drawer)
         {
             m_rt.clear(ColorF(0.0, 1.0));
             {
@@ -42,7 +41,8 @@ namespace abyss
             {
                 ScopedRenderStates2D state(SamplerState::Default2D);
                 auto shader = this->start();
-                m_rt.draw(camera.screenRegion().pos);
+                Transformer2D t2dIdenty(Mat3x2::Identity(), s3d::Transformer2D::Target::SetLocal);
+                m_rt.draw();
             }
 
         }
@@ -73,9 +73,9 @@ namespace abyss
         return m_pImpl->start();
     }
 
-    void WaveShader::apply(const CameraView& camera, std::function<void()> drawer) const
+    void WaveShader::apply(std::function<void()> drawer) const
     {
-        m_pImpl->apply(camera, drawer);
+        m_pImpl->apply(drawer);
     }
 
 }

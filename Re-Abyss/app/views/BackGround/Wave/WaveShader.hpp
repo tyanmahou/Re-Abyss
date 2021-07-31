@@ -15,6 +15,6 @@ namespace abyss
 
         const WaveShader& setMultiply(float multiply) const;
         ScopedCustomShader2D start() const;
-        void apply(const CameraView& camera, std::function<void()> drawer) const;
+        void apply(std::function<void()> drawer) const;
     };
 }
