@@ -178,9 +178,9 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             snapshot->copySceneToPost()
 #if ABYSS_DEBUG
-                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(mod<BackGround>()->getBgColor()); })
+                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(); })
 #else
-                .apply([=] { return mod<Light>()->start(mod<BackGround>()->getBgColor()); })
+                .apply([=] { return mod<Light>()->start(); })
 #endif 
 #if ABYSS_DEBUG
                 .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return mod<Distortion>()->start(); })

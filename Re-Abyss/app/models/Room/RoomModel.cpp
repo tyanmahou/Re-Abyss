@@ -6,9 +6,10 @@ using namespace s3d;
 
 namespace abyss
 {
-	RoomModel::RoomModel(const s3d::RectF& region, s3d::uint8 passbleBits) :
+	RoomModel::RoomModel(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::Color>& lightColor) :
 		m_region(region),
-		m_passbleBits(passbleBits)
+		m_passbleBits(passbleBits),
+		m_lightColor(lightColor)
 	{}
 
 	bool RoomModel::passable(Forward f) const
@@ -136,5 +137,9 @@ namespace abyss
 			col |= ColDirection::Left;
 		}
 		return col;
+	}
+	const s3d::Optional<s3d::Color>& RoomModel::getLightColor() const
+	{
+		return m_lightColor;
 	}
 }

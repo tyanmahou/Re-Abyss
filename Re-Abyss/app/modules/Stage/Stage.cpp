@@ -18,6 +18,7 @@
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
@@ -146,9 +147,10 @@ namespace abyss
             camera->update(0);
         }
         // 背景の初期化
+        auto backGround = m_pManager->getModule<BackGround>();
         {
-            auto backGround = m_pManager->getModule<BackGround>();
             result &= this->initBackGround(*backGround);
+
         }
         // 装飾の初期化
         {
@@ -159,6 +161,15 @@ namespace abyss
             } else {
                 result = false;
             }
+        }
+
+        // Light
+        {
+            auto* light = m_pManager->getModule<Light>();
+
+            // デフォルトライトカラー設定
+            light->setDefaultColor(backGround->getBgColor());
+            light->setColor(nextRoom->getLightColor());
         }
 
         auto temporary = m_pManager->getModule<Temporary>();
@@ -231,6 +242,11 @@ namespace abyss
 
         auto camera = m_pManager->getModule<Camera>();
         const auto& room = camera->getCurrentRoom();
+
+        // Light
+        m_pManager->getModule<Light>()->setColor(room.getLightColor());
+
+        // Sound
         auto sound = m_pManager->getModule<Sound>();
         if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
             sound->play(*bgm);

@@ -8,7 +8,7 @@ namespace abyss
 	CameraModel::CameraModel():
 		m_pos(Constants::GameScreen.center()),
 		m_targetPos(Constants::GameScreen.center()),
-		m_currentRoom{Constants::GameScreen, 0}
+		m_currentRoom{Constants::GameScreen, 0, s3d::none}
 	{}
 
 	bool CameraModel::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const

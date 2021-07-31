@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Siv3D/Rectangle.hpp>
+#include <Siv3D/Color.hpp>
+#include <Siv3D/Optional.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 
@@ -19,9 +21,10 @@ namespace abyss
     private:
 		s3d::RectF m_region;
 		s3d::uint8 m_passbleBits;
+		s3d::Optional<s3d::Color> m_lightColor;
 	public:
 		RoomModel() = default;
-		RoomModel(const s3d::RectF & region, s3d::uint8 passbleBits);
+		RoomModel(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::Color>& lightColor);
 
 		bool passable(Forward f) const;
 		double pos(Forward f) const;
@@ -38,5 +41,7 @@ namespace abyss
 		s3d::Vec2 strictBorderAdjusted(s3d::Vec2 pos) const;
 
 		ColDirection getCol() const;
+
+		const s3d::Optional<s3d::Color>& getLightColor() const;
     };
 }

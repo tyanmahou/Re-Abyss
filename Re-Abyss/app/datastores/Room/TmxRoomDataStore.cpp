@@ -32,7 +32,16 @@ namespace abyss
 				if (obj.getProperty(U"right").value_or(false)) {
 					passbleBits |= static_cast<uint8>(Forward::Right);
 				}
-				ret.push_back({ obj.id, obj.toRectF(), passbleBits });
+				s3d::Optional<s3d::Color> lightColor;
+				if (auto c = obj.getProperty(U"light_color")) {
+					lightColor = c->toColor();
+				}
+				ret.push_back({ 
+					obj.id,
+					obj.toRectF(),
+					passbleBits,
+					lightColor
+					});
 			}
 		};
 

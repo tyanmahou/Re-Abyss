@@ -6,6 +6,6 @@ namespace abyss
 {
     RoomModel RoomTranslator::ToModel(const RoomEntity& entity)
     {
-        return RoomModel(entity.region, entity.passbleBits);
+        return RoomModel(entity.region, entity.passbleBits, entity.lightColor);
     }
 }

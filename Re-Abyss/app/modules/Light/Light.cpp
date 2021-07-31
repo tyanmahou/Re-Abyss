@@ -27,8 +27,13 @@ namespace abyss
         m_view.render(time);
     }
 
-    s3d::ScopedCustomShader2D Light::start(const s3d::ColorF& color) const
+    s3d::Color Light::calcColor() const
     {
-        return m_view.start(color);
+        return m_color.value_or(m_defaultColor);
+    }
+
+    s3d::ScopedCustomShader2D Light::start() const
+    {
+        return m_view.start(this->calcColor());
     }
 }
