@@ -84,7 +84,8 @@ namespace abyss
 		const_cast<CameraModel*>(m_pCamera)->setZoomScale(scale);
 		auto targetPos = this->adjustTargetPos();
 		auto cameraPos = -targetPos + (Constants::GameScreenSize / 2);
-		return s3d::Mat3x2::Scale(m_pCamera->getZoomScale(), s3d::Round(targetPos)).translated(s3d::Round(cameraPos));
+		return s3d::Mat3x2::Scale(m_pCamera->getZoomScale(), s3d::Round(targetPos))
+			.translated(s3d::Round(cameraPos));
 	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
