@@ -73,15 +73,6 @@ namespace abyss
 	}
 	s3d::Mat3x2 CameraView::getMat() const
 	{
-		static double scale = 1.0;
-		scale += (KeyQ.pressed() - KeyW.pressed()) * Scene::DeltaTime();
-		if (KeyR.down()) {
-			scale = 1.0;
-		}
-		if (KeyT.down()) {
-			scale = 2.0;
-		}
-		const_cast<CameraModel*>(m_pCamera)->setZoomScale(scale);
 		auto targetPos = this->adjustTargetPos();
 		auto cameraPos = -targetPos + (Constants::GameScreenSize / 2);
 		return s3d::Mat3x2::Scale(m_pCamera->getZoomScale(), s3d::Round(targetPos))
