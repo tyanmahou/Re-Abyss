@@ -766,6 +766,7 @@
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Preloader.hpp" />
