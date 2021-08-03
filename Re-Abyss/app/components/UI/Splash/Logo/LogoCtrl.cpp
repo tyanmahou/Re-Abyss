@@ -1,6 +1,7 @@
 #include "LogoCtrl.hpp"
 #include <abyss/views/UI/Splash/Logo/LogoVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Splash::Logo
@@ -18,7 +19,7 @@ namespace abyss::UI::Splash::Logo
     void LogoCtrl::onDraw() const
     {
         m_view
-            ->setPos(Scene::Center())
+            ->setPos(Constants::AppResolutionF / 2.0)
             .setTime(m_timer.time0_1())
             .draw();
     }
