@@ -16,7 +16,6 @@ namespace abyss
         INJECT_CTOR(BackGroundService(std::shared_ptr<IBackGroundDataStore> dataStore));
 
         const s3d::Array<BackGroundEntity>& getBgs()const override;
-        const s3d::Color& getBgColor()const override;
     };
 
     struct BackGroundServiceInstaller : emaject::IInstaller

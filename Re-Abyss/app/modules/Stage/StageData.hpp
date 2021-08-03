@@ -8,6 +8,7 @@
 #include <abyss/services/Actor/Map/base/IMapService.hpp>
 #include <abyss/services/Room/base/IRoomService.hpp>
 #include <abyss/services/Decor/base/IDecorService.hpp>
+#include <abyss/services/Attribute/base/IAttributeService.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
@@ -31,6 +32,9 @@ namespace abyss
 
         [[INJECT(m_decorService)]]
         std::shared_ptr<Decor::IDecorService> m_decorService;
+
+        [[INJECT(m_attributeService)]]
+        std::shared_ptr<Attribute::IAttributeService> m_attributeService;
     public:
         StageData() = default;
         const s3d::Array<BackGroundEntity>& getBgs() const;
@@ -43,5 +47,7 @@ namespace abyss
 
         IBackGroundService* getBackGroundService() const;
         Decor::IDecorService* getDecorService() const;
+
+        Attribute::IAttributeService* getAttributeService() const;
     };
 }

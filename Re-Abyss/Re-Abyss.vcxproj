@@ -420,6 +420,7 @@
     <ClCompile Include="app\components\UI\Title\Logo\ViewCtrl.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\parser\TmxItemParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
+    <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IGraphicsDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\parser\TmxDecorParser.cpp" />
@@ -440,6 +441,7 @@
     <ClCompile Include="app\modules\Effect\Effects.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
+    <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
     <ClCompile Include="app\system\Main\Booter.cpp" />
     <ClCompile Include="app\system\SaveSelect\Booter.cpp" />
     <ClCompile Include="app\system\Splash\Booter.cpp" />
@@ -766,6 +768,10 @@
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
+    <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
+    <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
+    <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />

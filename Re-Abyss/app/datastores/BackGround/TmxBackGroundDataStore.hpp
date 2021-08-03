@@ -12,7 +12,6 @@ namespace abyss
         using TmxDataStore::TmxDataStore;
 
         s3d::Array<BackGroundEntity> select()const override;
-        s3d::Color getBgColor() const override;
     };
 
     using TmxBackGroundDataStoreInataller = TmxDataStoreInataller<IBackGroundDataStore, TmxBackGroundDataStore>;

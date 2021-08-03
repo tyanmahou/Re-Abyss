@@ -33,8 +33,4 @@ namespace abyss
 
         return ret;
     }
-	s3d::Color TmxBackGroundDataStore::getBgColor() const
-	{
-		return m_tmx.getBackGroundColor().value_or(s3d::Palette::Black);
-	}
 }

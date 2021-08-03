@@ -119,7 +119,7 @@ namespace abyss
             backGround.add(translator.toVM(entity));
         }
 
-        backGround.setBgColor(service->getBgColor());
+        backGround.setBgColor(m_stageData->getAttributeService()->getBgColor());
         return true;
     }
     bool Stage::init() const

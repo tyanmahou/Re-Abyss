@@ -4,6 +4,7 @@
 #include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>
 #include <abyss/datastores/Actor/Map/TmxMapDataStore.hpp>
 #include <abyss/datastores/Actor/Item/TmxItemDataStore.hpp>
+#include <abyss/datastores/Attribute/TmxAttributeDataStore.hpp>
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 #include <abyss/datastores/BackGround/TmxBackGroundDataStore.hpp>
 #include <abyss/datastores/Decor/TmxDecorDataStore.hpp>
@@ -14,6 +15,7 @@
 #include <abyss/services/Actor/Gimmick/GimmickService.hpp>
 #include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/services/Actor/Map/MapService.hpp>
+#include <abyss/services/Attribute/AttributeService.hpp>
 #include <abyss/services/Room/RoomService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
@@ -31,6 +33,7 @@ namespace abyss::Factory::Main
             .install<Actor::Gimmick::TmxGimmickDataStoreInataller>()
             .install<Actor::Item::TmxItemDataStoreInataller>()
             .install<Actor::Map::TmxMapDataStoreInataller>()
+            .install<Attribute::TmxAttributeDataStoreInataller>()
             .install<TmxRoomDataStoreInataller>()
             .install<TmxBackGroundDataStoreInataller>()
             .install<Decor::TmxDecorDataStoreInataller>()
@@ -41,6 +44,7 @@ namespace abyss::Factory::Main
             .install<Actor::Gimmick::GimmickServiceInstaller>()
             .install<Actor::Item::ItemServiceInstaller>()
             .install<Actor::Map::MapServiceInstaller>()
+            .install<Attribute::AttributeServiceInstaller>()
             .install<RoomServiceInstaller>()
             .install<BackGroundServiceInstaller>()
             .install<Decor::DecorServiceInstaller>()

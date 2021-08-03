@@ -10,7 +10,5 @@ namespace abyss
         virtual ~IBackGroundService() = default;
 
         virtual  const s3d::Array<BackGroundEntity>& getBgs()const = 0;
-
-        virtual const s3d::Color& getBgColor()const = 0;
     };
 }

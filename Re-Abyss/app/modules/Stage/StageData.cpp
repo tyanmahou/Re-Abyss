@@ -34,4 +34,8 @@ namespace abyss
     {
         return m_decorService.get();
     }
+    Attribute::IAttributeService* StageData::getAttributeService() const
+    {
+        return m_attributeService.get();
+    }
 }

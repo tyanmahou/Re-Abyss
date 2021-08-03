@@ -1540,6 +1540,12 @@
     <ClCompile Include="app\components\Actor\Item\LifeSpan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Attribute\AttributeService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2283,6 +2289,10 @@
     <ClInclude Include="app\params\Actor\Player\CameraParam.hpp" />
     <ClInclude Include="app\components\Actor\Item\LifeSpan.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
+    <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
+    <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
+    <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
+    <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
