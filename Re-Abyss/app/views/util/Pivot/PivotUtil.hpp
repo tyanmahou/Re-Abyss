@@ -10,5 +10,9 @@ namespace abyss
         {
             return pos + Constants::AppResolution / 2.0;
         }
+        static constexpr s3d::Vec2 FromCenter(double x, double y)
+        {
+            return FromCenter(s3d::Vec2{ x, y });
+        }
     };
 }

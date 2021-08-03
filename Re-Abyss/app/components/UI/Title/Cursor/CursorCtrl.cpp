@@ -2,7 +2,9 @@
 #include "Shot.hpp"
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/commons/Constants.hpp>
 #include <abyss/views/UI/Title/Cursor/CursorVM.hpp>
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
@@ -30,7 +32,7 @@ namespace abyss::UI::Title::Cursor
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, false),
-        m_shot(std::make_unique<Shot>(Vec2{ 350.0 , 360.0 } + Vec2{ 30, -1 }))
+        m_shot(std::make_unique<Shot>(PivotUtil::FromCenter(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }
     CursorCtrl::~CursorCtrl()
@@ -90,14 +92,14 @@ namespace abyss::UI::Title::Cursor
         };
         static const std::array<CursorViewParam, ModeTerm> viewParams
         {
-            CursorViewParam{U"GAME START", 360.0},
-            CursorViewParam{U"Exit", 410.0},
+            CursorViewParam{U"GAME START", 90.0},
+            CursorViewParam{U"Exit", 140.0},
         };
         size_t modeIndex = static_cast<size_t>(m_mode);
-        m_view->setPos({ 350, viewParams[modeIndex].posY }).draw();
+        m_view->setPos(PivotUtil::FromCenter(-130, viewParams[modeIndex].posY)).draw();
 
         for (const auto& param : viewParams) {
-            FontAsset(FontName::SceneName)(param.name).drawAt(480, param.posY);
+            FontAsset(FontName::SceneName)(param.name).drawAt(PivotUtil::FromCenter(0, param.posY));
         }
         if (m_isGameStart) {
             m_shot->draw();
