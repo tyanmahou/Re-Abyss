@@ -1,6 +1,7 @@
 #include "BgCtrl.hpp"
 #include <Siv3D.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
 
 namespace abyss::UI::Title::BackGround
 {
@@ -22,10 +23,10 @@ namespace abyss::UI::Title::BackGround
     }
     s3d::Vec2 BgCtrl::getPos() const
     {
-        return EaseIn(Easing::Linear, Scene::CenterF(), BgParam::BackGround::EndPos, this->time0_1());
+        return PivotUtil::FromCenter(EaseIn(Easing::Linear, { 0, 0 }, BgParam::BackGround::EndPos, this->time0_1()));
     }
     s3d::Vec2 BgCtrl::getAtlantisPos() const
     {
-        return EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, Scene::CenterF(), this->time0_1());
+        return PivotUtil::FromCenter(EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, {0, 0}, this->time0_1()));
     }
 }
