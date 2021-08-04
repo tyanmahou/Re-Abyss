@@ -1,0 +1,20 @@
+#pragma once
+#include <Siv3D/Color.hpp>
+
+namespace abyss::Env
+{
+    class Bg
+    {
+    public:
+        Bg();
+
+        void setColor(const s3d::ColorF& color)
+        {
+            m_bgColor = color;
+        }
+
+        void draw(const s3d::RectF& screen) const;
+    private:
+        s3d::ColorF m_bgColor;
+    };
+}

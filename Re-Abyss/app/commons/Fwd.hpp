@@ -103,6 +103,12 @@ namespace abyss
 	}
 	using Cycle::CycleMaster;
 
+	namespace Env
+	{
+		class Environment;
+	}
+	using Env::Environment;
+
 	/// <summary>
 	/// Entities
 	/// </summary>
