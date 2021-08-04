@@ -13,6 +13,6 @@ namespace abyss::Env
 
         SkyView& setTime(double time);
 
-        void draw(const CameraView& camera) const;
+        void draw(const s3d::Vec2& pos) const;
     };
 }

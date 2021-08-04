@@ -32,7 +32,7 @@ namespace abyss
 		m_waveShader.apply([&]() {
 			Vec2 pos = camera.getCameraPos();
 			camera.screenRegion().draw(m_bgColor);
-			m_sky.draw(camera);
+			m_sky.draw(camera.screenRegion().tl());
 			{
 				ScopedRenderStates2D state(YClamp);
 				for (const auto& bg : m_bgs) {

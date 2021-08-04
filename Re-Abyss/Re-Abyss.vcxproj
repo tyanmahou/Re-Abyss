@@ -440,6 +440,7 @@
     <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp" />
     <ClCompile Include="app\modules\Effect\Effects.cpp" />
     <ClCompile Include="app\modules\Env\Bg\Bg.cpp" />
+    <ClCompile Include="app\modules\Env\Sky\Sky.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
@@ -773,6 +774,7 @@
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Environment.hpp" />
+    <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />

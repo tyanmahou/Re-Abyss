@@ -1549,6 +1549,9 @@
     <ClCompile Include="app\modules\Env\Bg\Bg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Env\Sky\Sky.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2298,6 +2301,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\modules\Env\Environment.hpp" />
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
+    <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
