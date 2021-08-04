@@ -443,6 +443,7 @@
     <ClCompile Include="app\modules\Env\Environment.cpp" />
     <ClCompile Include="app\modules\Env\Sky\Sky.cpp" />
     <ClCompile Include="app\modules\Env\WaterSurface\WaterSurface.cpp" />
+    <ClCompile Include="app\modules\Env\Wave\Wave.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />

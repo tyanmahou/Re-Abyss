@@ -11,6 +11,9 @@ namespace abyss::Env
         if (desc.useWaterSurface) {
             m_waterSurface = std::make_unique<WaterSurface>();
         }
+        if (desc.useWave) {
+            m_wave = std::make_unique<Wave>();
+        }
     }
     void Environment::update(double dt)
     {
@@ -19,6 +22,17 @@ namespace abyss::Env
         }
         if (m_waterSurface) {
             m_waterSurface->update(dt);
+        }
+        if (m_wave) {
+            m_wave->update(dt);
+        }
+    }
+    void Environment::applyWave(std::function<void()> drawer) const
+    {
+        if (m_wave) {
+            m_wave->apply(drawer);
+        } else {
+            drawer();
         }
     }
 }

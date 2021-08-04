@@ -3,13 +3,10 @@
 #include <abyss/modules/Env/Bg/Bg.hpp>
 #include <abyss/modules/Env/Sky/Sky.hpp>
 #include <abyss/modules/Env/WaterSurface/WaterSurface.hpp>
+#include <abyss/modules/Env/Wave/Wave.hpp>
 
 namespace abyss::Env
 {
-    class Bg;
-    class Sky;
-    class WaterSurface;
-
     struct EnvDesc
     {
         bool useSky = false;
@@ -30,7 +27,7 @@ namespace abyss::Env
         {
             return m_bg.get();
         }
-        Sky* geSky() const
+        Sky* getSky() const
         {
             return m_sky.get();
         }
@@ -38,9 +35,12 @@ namespace abyss::Env
         {
             return m_waterSurface.get();
         }
+
+        void applyWave(std::function<void()> drawer) const;
     private:
         std::unique_ptr<Bg> m_bg;
         std::unique_ptr<Sky> m_sky;
         std::unique_ptr<WaterSurface> m_waterSurface;
+        std::unique_ptr<Wave> m_wave;
     };
 }

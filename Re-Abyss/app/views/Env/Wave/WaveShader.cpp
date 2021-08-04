@@ -20,6 +20,7 @@ namespace abyss::Env
         RenderTexture m_rt;
         PixelShader m_ps;
         ConstantBuffer<WaveParam> m_cb;
+        float m_timer = 0.0f;
         float m_multiply = 2.0f;
     public:
         Impl() :
@@ -27,6 +28,10 @@ namespace abyss::Env
             m_ps(Resource::Assets::Main()->loadPs(U"wave.hlsl"))
         {}
 
+        void setTimer(double timer)
+        {
+            m_timer = static_cast<float>(timer);
+        }
         void setMultiply(float multiply)
         {
             m_multiply = multiply;
@@ -51,7 +56,7 @@ namespace abyss::Env
             constexpr auto ScreenSizeF = Constants::GameScreenSize_v<float>;
             m_cb->width = ScreenSizeF.x;
             m_cb->height = ScreenSizeF.y;
-            m_cb->timer = static_cast<float>(Scene::Time());
+            m_cb->timer = m_timer;
             m_cb->multiply = m_multiply;
             Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
             return ScopedCustomShader2D(m_ps);
@@ -61,6 +66,12 @@ namespace abyss::Env
     WaveShader::WaveShader() :
         m_pImpl(std::make_shared<Impl>())
     {}
+
+    const WaveShader& WaveShader::setTime(double time) const
+    {
+        m_pImpl->setTimer(time);
+        return *this;
+    }
 
     const WaveShader& WaveShader::setMultiply(float multiply)const
     {

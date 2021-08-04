@@ -142,12 +142,15 @@ namespace abyss::Sys
 
             auto* env = mod<Environment>();
             // 背面
-            {
+            env->applyWave([&] {
+                if (auto sky = env->getSky()) {
+                    sky->draw(cameraView.tl());
+                }
                 if constexpr (config.isStage) {
                     mod<BackGround>()->draw(cameraView);
                 }
                 drawer->draw(DrawLayer::BackGround);
-            }
+            });
             if (auto ws = env->getWaterSurface()) {
                 ws->drawBack(cameraView.getCameraPos());
             }
