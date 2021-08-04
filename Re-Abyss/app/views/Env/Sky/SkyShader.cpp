@@ -11,7 +11,7 @@ namespace
         float _unused[2];
     };
 }
-namespace abyss
+namespace abyss::Env
 {
     class SkyShader::Impl
     {
@@ -57,7 +57,7 @@ namespace abyss
         return *this;
     }
 
-    ScopedCustomShader2D abyss::SkyShader::start() const
+    ScopedCustomShader2D SkyShader::start() const
     {
         return m_pImpl->start();
     }

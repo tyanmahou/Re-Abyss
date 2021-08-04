@@ -1,7 +1,7 @@
 #pragma once
 
 #include <abyss/views/BackGround/BackGroundView.hpp>
-#include <abyss/views/BackGround/WaterSarface/WaterSarfaceView.hpp>
+#include <abyss/views/Env/WaterSarface/WaterSarfaceView.hpp>
 #include <abyss/commons/Fwd.hpp>
 namespace abyss
 {
@@ -9,7 +9,7 @@ namespace abyss
     {
     private:
         BackGroundView m_view;
-        WaterSarfaceView m_waterSarface;
+        Env::WaterSarfaceView m_waterSarface;
     public:
         BackGround() = default;
 

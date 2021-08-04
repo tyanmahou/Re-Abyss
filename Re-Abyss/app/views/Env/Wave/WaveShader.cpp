@@ -13,7 +13,7 @@ namespace
         float multiply;
     };
 }
-namespace abyss
+namespace abyss::Env
 {
     class WaveShader::Impl
     {

@@ -4,7 +4,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Env
 {
     class WaveShader
     {

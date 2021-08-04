@@ -2,7 +2,7 @@
 #include <Siv3D/Texture.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Env
 {
     class WaterSarfaceView
     {

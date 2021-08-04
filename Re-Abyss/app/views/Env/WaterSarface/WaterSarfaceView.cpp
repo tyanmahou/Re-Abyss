@@ -29,7 +29,7 @@ namespace
 		}
 	}
 }
-namespace abyss
+namespace abyss::Env
 {
     WaterSarfaceView::WaterSarfaceView():
 		m_texture(Resource::Assets::Main()->loadTexture(U"bgs/surface.png"))

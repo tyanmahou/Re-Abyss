@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
-namespace abyss
+namespace abyss::Env
 {
     SkyView::SkyView() :
         m_texture(Resource::Assets::Main()->loadTexture(U"bgs/sky.png")),

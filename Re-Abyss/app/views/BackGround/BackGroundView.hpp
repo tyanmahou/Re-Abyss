@@ -3,8 +3,8 @@
 #include <Siv3D/Array.hpp>
 
 #include "BackGroundVM.hpp"
-#include "Wave/WaveShader.hpp"
-#include "Sky/SkyView.hpp"
+#include <abyss/views/Env/Wave/WaveShader.hpp>
+#include <abyss/views/Env/Sky/SkyView.hpp>
 
 namespace abyss
 {
@@ -12,8 +12,8 @@ namespace abyss
 	{
 	private:
 		s3d::Array<BackGroundVM> m_bgs;
-		WaveShader m_waveShader;
-		SkyView m_sky;
+		Env::WaveShader m_waveShader;
+		Env::SkyView m_sky;
 		s3d::ColorF m_bgColor;
 	public:
 		BackGroundView();
