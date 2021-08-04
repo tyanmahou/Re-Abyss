@@ -47,7 +47,9 @@ namespace abyss
         Circle(pos, r).draw(color);
 
         if (m_type == Type::Small) {
-            m_pManager->getModule<Light>()->addCircle(pos, r, color.a);
+            if (auto* light = m_pManager->getModule<Light>()) {
+                light->addCircle(pos, r, color.a);
+            }
         }
         return m_pManager->getModule<Camera>()->getCurrentRoom().getRegion().stretched(480, 520).intersects(pos);
     }

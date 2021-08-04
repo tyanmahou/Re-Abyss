@@ -3,6 +3,8 @@
 #include <abyss/modules/Event/base/IEvent.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
+#include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
+
 #include <abyss/components/UI/Title/Logo/Builder.hpp>
 #include <abyss/components/UI/Title/Logo/LogoCtrl.hpp>
 #include <abyss/components/UI/Title/Cursor/Builder.hpp>

@@ -13,9 +13,8 @@
 
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Actor/God/Builder.hpp>
-#include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Event/GameReady/Builder.hpp>
-
+#include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Main/Builder.hpp>
 
 namespace abyss::Sys::Main
