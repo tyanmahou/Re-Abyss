@@ -17,11 +17,6 @@ namespace abyss
 {
 	BackGroundView::BackGroundView()
 	{}
-
-	void BackGroundView::setTime(double time)
-	{
-		m_sky.setTime(time);
-	}
 	void BackGroundView::addBackGround(const BackGroundVM & bg)
 	{
 		m_bgs.push_back(bg);
@@ -29,17 +24,11 @@ namespace abyss
 
     void BackGroundView::draw(const CameraView& camera) const
     {
-		m_waveShader.apply([&]() {
-			Vec2 pos = camera.getCameraPos();
-			camera.screenRegion().draw(m_bgColor);
-			m_sky.draw(camera.screenRegion().tl());
-			{
-				ScopedRenderStates2D state(YClamp);
-				for (const auto& bg : m_bgs) {
-					bg.draw(pos);
-				}
-			}
-		});
+		Vec2 pos = camera.getCameraPos();
+		ScopedRenderStates2D state(YClamp);
+		for (const auto& bg : m_bgs) {
+			bg.draw(pos);
+		}
 	}
 
 }

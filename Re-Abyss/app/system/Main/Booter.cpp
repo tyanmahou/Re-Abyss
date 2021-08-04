@@ -9,6 +9,7 @@
 #include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
+#include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 
 #include <abyss/components/Actor/Player/Builder.hpp>
@@ -102,11 +103,14 @@ namespace abyss::Sys::Main
         }
 
         // Env初期化
-        pManager->getModule<Environment>()->init(Env::EnvDesc{
+        auto env = pManager->getModule<Environment>();
+        env->init(Env::EnvDesc{
             .useSky = true,
             .useWaterSurface = true,
             .useWave = true
         });
+        // 背景色
+        env->getBg()->setColor(m_stageData->getAttributeService()->getBgColor());
 
         return stage->init();
     }

@@ -118,8 +118,6 @@ namespace abyss
         for (const auto& entity : service->getBgs()) {
             backGround.add(translator.toVM(entity));
         }
-
-        backGround.setBgColor(m_stageData->getAttributeService()->getBgColor());
         return true;
     }
     bool Stage::init() const
@@ -168,7 +166,7 @@ namespace abyss
             auto* light = m_pManager->getModule<Light>();
 
             // デフォルトライトカラー設定
-            light->setDefaultColor(backGround->getBgColor());
+            light->setDefaultColor(m_stageData->getAttributeService()->getBgColor());
             light->setColor(nextRoom->getLightColor());
         }
 

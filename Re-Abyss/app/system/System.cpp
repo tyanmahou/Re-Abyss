@@ -89,8 +89,6 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             // 装飾更新
             decors->update();
-            // 背景更新
-            mod<BackGround>()->update(timer->time());
         }
         // クーロン更新
         mod<Crons>()->update();

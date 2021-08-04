@@ -2309,6 +2309,7 @@
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
+    <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
