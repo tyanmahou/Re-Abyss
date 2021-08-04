@@ -1,6 +1,5 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
-#include <abyss/commons/Fwd.hpp>
 
 namespace abyss::Env
 {
@@ -13,7 +12,7 @@ namespace abyss::Env
 
         WaterSarfaceView& setTime(double time);
 
-        void drawBack(const CameraView& camera) const;
-        void drawFront(const CameraView& camera) const;
+        void drawBack(const s3d::Vec2& pos) const;
+        void drawFront(const s3d::Vec2& pos) const;
     };
 }

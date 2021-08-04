@@ -1,4 +1,5 @@
 #include "BackGround.hpp"
+#include <abyss/views/Camera/CameraView.hpp>
 
 namespace abyss
 {
@@ -25,10 +26,10 @@ namespace abyss
     }
     void BackGround::drawWaterSarfaceBack(const CameraView& camera) const
     {
-        m_waterSarface.drawBack(camera);
+        m_waterSarface.drawBack(camera.getCameraPos());
     }
     void BackGround::drawWaterSarfaceFront(const CameraView & camera) const
     {
-        m_waterSarface.drawFront(camera);
+        m_waterSarface.drawFront(camera.getCameraPos());
     }
 }

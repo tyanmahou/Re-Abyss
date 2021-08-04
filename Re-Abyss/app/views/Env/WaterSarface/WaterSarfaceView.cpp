@@ -1,6 +1,5 @@
 #include "WaterSarfaceView.hpp"
 #include <Siv3D.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
@@ -9,14 +8,13 @@ namespace
 	using namespace abyss;
 
 	void Draw(
-		const CameraView& camera, 
+		const Vec2& pos, 
 		const s3d::Texture& texture,
 		double uvRate,
 		const Vec2& timeRate,
 		double scale,
 		double time
 	) {
-		const auto& pos = camera.getCameraPos();
 		double u = pos.x / Constants::GameScreenSize.x / uvRate;
 		double v = pos.y / Constants::GameScreenSize.y / uvRate;
 		{
@@ -41,14 +39,14 @@ namespace abyss::Env
 		return *this;
 	}
 
-	void WaterSarfaceView::drawBack(const CameraView& camera) const
+	void WaterSarfaceView::drawBack(const Vec2& pos) const
 	{
 		auto time = m_time / 60.0;
-		::Draw(camera, m_texture, 8.0, Vec2{ 1.0, 1.0 }, 2.0, time);
+		::Draw(pos, m_texture, 8.0, Vec2{ 1.0, 1.0 }, 2.0, time);
 	}
-	void WaterSarfaceView::drawFront(const CameraView& camera) const
+	void WaterSarfaceView::drawFront(const Vec2& pos) const
 	{
 		auto time = m_time / 30.0;
-		::Draw(camera, m_texture, 2.0, Vec2{ -1.0, 1.0 }, 1.5, time);
+		::Draw(pos, m_texture, 2.0, Vec2{ -1.0, 1.0 }, 1.5, time);
 	}
 }
