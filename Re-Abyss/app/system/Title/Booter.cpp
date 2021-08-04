@@ -2,6 +2,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/components/Cycle/Title/Builder.hpp>
 #include <abyss/components/Event/Title/Builder.hpp>
@@ -21,6 +22,11 @@ namespace abyss::Sys::Title
         pManager->getModule<Events>()->create<Event::Title::Builder>();
         pManager->getModule<Events>()->init();
 
+        // Env初期化
+        pManager->getModule<Environment>()->init(Env::EnvDesc{
+            .useWaterSurface = true,
+            .useWave = true
+        });
         return true;
     }
 }

@@ -38,6 +38,11 @@ namespace abyss
 		}
 	}
 
+	s3d::Vec2 CameraView::tl() const
+	{
+		return m_pCamera->getPos() - Constants::GameScreenSize / 2;
+	}
+
 	s3d::RectF CameraView::screenRegion() const
 	{
 		return s3d::RectF{ m_pCamera->getPos() - Constants::GameScreenSize / 2, Constants::GameScreenSize };

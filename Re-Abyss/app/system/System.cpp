@@ -47,6 +47,10 @@ namespace abyss::Sys
 
         // Dt計算
         double dt = timer->deltaTime();
+
+        // 環境更新
+        mod<Environment>()->update(dt);
+
         if constexpr (config.isStage) {
             world->updateDeltaTime(dt);
         }
@@ -138,15 +142,19 @@ namespace abyss::Sys
             auto sceneRender = snapshot->startSceneRender();
             auto t2d = cameraView.getTransformer();
 
+            auto* env = mod<Environment>();
             // 背面
             {
                 if constexpr (config.isStage) {
                     mod<BackGround>()->draw(cameraView);
-                    mod<BackGround>()->drawWaterSurfaceBack(cameraView);
                 }
                 drawer->draw(DrawLayer::BackGround);
-                drawer->draw(DrawLayer::DecorBack);
             }
+            if (auto ws = env->getWaterSurface()) {
+                ws->drawBack(cameraView.getCameraPos());
+            }
+            drawer->draw(DrawLayer::DecorBack);
+
             if constexpr (config.isStage) {
                 cameraView.drawDeathLine();
             }
@@ -157,8 +165,8 @@ namespace abyss::Sys
 
             // 全面
             drawer->draw(DrawLayer::DecorFront);
-            if constexpr (config.isStage) {
-                mod<BackGround>()->drawWaterSurfaceFront(cameraView);
+            if (auto ws = env->getWaterSurface()) {
+                ws->drawFront(cameraView.getCameraPos());
             }
             if constexpr (config.isStage) {
                 // Light Map更新

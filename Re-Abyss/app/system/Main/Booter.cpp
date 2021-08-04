@@ -6,6 +6,7 @@
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
@@ -100,6 +101,14 @@ namespace abyss::Sys::Main
             // バブルエフェクト
             cron->create<Cron::BubbleGenerator::BuildIntervalTime>(3s);
         }
+
+        // Env初期化
+        pManager->getModule<Environment>()->init(Env::EnvDesc{
+            .useSky = true,
+            .useWaterSurface = true,
+            .useWave = true
+        });
+
         return stage->init();
     }
 

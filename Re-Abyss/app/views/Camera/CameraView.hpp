@@ -17,6 +17,8 @@ namespace abyss
 		const s3d::Vec2& getCameraPos() const;
 		const s3d::Vec2& getQuakeOffset() const;
 		void drawDeathLine() const;
+
+		s3d::Vec2 tl() const;
 		s3d::RectF screenRegion() const;
 		s3d::RectF resolutionRegion() const;
 

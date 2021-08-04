@@ -17,6 +17,7 @@ namespace abyss
         Light* m_pLight = nullptr;
         Distortion* m_pDistortion = nullptr;
         Effects* m_pEffects = nullptr;
+        Environment* m_pEnv = nullptr;
         Sound* m_pSound = nullptr;
         UIs* m_pUserInterface = nullptr;
         BackGround* m_pBackGround = nullptr;
@@ -44,6 +45,8 @@ namespace abyss
         Manager& set(Distortion* pDistortion);
 
         Manager& set(Effects* pEffects);
+
+        Manager& set(Environment* pEnv);
 
         Manager& set(Sound* pSound);
 
