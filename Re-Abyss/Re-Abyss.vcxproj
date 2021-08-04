@@ -440,6 +440,7 @@
     <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp" />
     <ClCompile Include="app\modules\Effect\Effects.cpp" />
     <ClCompile Include="app\modules\Env\Bg\Bg.cpp" />
+    <ClCompile Include="app\modules\Env\Environment.cpp" />
     <ClCompile Include="app\modules\Env\Sky\Sky.cpp" />
     <ClCompile Include="app\modules\Env\WaterSurface\WaterSurface.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
