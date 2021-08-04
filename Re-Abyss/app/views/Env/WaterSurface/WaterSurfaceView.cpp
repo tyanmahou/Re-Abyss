@@ -1,4 +1,4 @@
-#include "WaterSarfaceView.hpp"
+#include "WaterSurfaceView.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -29,22 +29,22 @@ namespace
 }
 namespace abyss::Env
 {
-    WaterSarfaceView::WaterSarfaceView():
-		m_texture(Resource::Assets::Main()->loadTexture(U"bgs/surface.png"))
+    WaterSurfaceView::WaterSurfaceView():
+		m_texture(Resource::Assets::Main()->loadTexture(U"env/surface.png"))
     {}
 
-	WaterSarfaceView& WaterSarfaceView::setTime(double time)
+	WaterSurfaceView& WaterSurfaceView::setTime(double time)
 	{
 		m_time = time;
 		return *this;
 	}
 
-	void WaterSarfaceView::drawBack(const Vec2& pos) const
+	void WaterSurfaceView::drawBack(const Vec2& pos) const
 	{
 		auto time = m_time / 60.0;
 		::Draw(pos, m_texture, 8.0, Vec2{ 1.0, 1.0 }, 2.0, time);
 	}
-	void WaterSarfaceView::drawFront(const Vec2& pos) const
+	void WaterSurfaceView::drawFront(const Vec2& pos) const
 	{
 		auto time = m_time / 30.0;
 		::Draw(pos, m_texture, 2.0, Vec2{ -1.0, 1.0 }, 1.5, time);

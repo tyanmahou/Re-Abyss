@@ -142,7 +142,7 @@ namespace abyss::Sys
             {
                 if constexpr (config.isStage) {
                     mod<BackGround>()->draw(cameraView);
-                    mod<BackGround>()->drawWaterSarfaceBack(cameraView);
+                    mod<BackGround>()->drawWaterSurfaceBack(cameraView);
                 }
                 drawer->draw(DrawLayer::BackGround);
                 drawer->draw(DrawLayer::DecorBack);
@@ -158,7 +158,7 @@ namespace abyss::Sys
             // 全面
             drawer->draw(DrawLayer::DecorFront);
             if constexpr (config.isStage) {
-                mod<BackGround>()->drawWaterSarfaceFront(cameraView);
+                mod<BackGround>()->drawWaterSurfaceFront(cameraView);
             }
             if constexpr (config.isStage) {
                 // Light Map更新

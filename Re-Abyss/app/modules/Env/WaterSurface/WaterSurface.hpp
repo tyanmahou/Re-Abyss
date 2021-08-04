@@ -1,9 +1,9 @@
 #pragma once
-#include <abyss/views/Env/WaterSarface/WaterSarfaceView.hpp>
+#include <abyss/views/Env/WaterSurface/WaterSurfaceView.hpp>
 
 namespace abyss::Env
 {
-    class WaterSarface
+    class WaterSurface
     {
     public:
         void update(double dt);
@@ -11,6 +11,6 @@ namespace abyss::Env
         void drawFront(const s3d::Vec2& pos) const;
     private:
         double m_time = 0.0;
-        WaterSarfaceView m_view;
+        WaterSurfaceView m_view;
     };
 }

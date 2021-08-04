@@ -1,7 +1,7 @@
 #pragma once
 
 #include <abyss/views/BackGround/BackGroundView.hpp>
-#include <abyss/views/Env/WaterSarface/WaterSarfaceView.hpp>
+#include <abyss/views/Env/WaterSurface/WaterSurfaceView.hpp>
 #include <abyss/commons/Fwd.hpp>
 namespace abyss
 {
@@ -9,7 +9,7 @@ namespace abyss
     {
     private:
         BackGroundView m_view;
-        Env::WaterSarfaceView m_waterSarface;
+        Env::WaterSurfaceView m_waterSarface;
     public:
         BackGround() = default;
 
@@ -19,7 +19,7 @@ namespace abyss
         void setBgColor(const s3d::ColorF& color);
         const s3d::ColorF& getBgColor() const;
         void draw(const CameraView& camera) const;
-        void drawWaterSarfaceBack(const CameraView& camera) const;
-        void drawWaterSarfaceFront(const CameraView& camera) const;
+        void drawWaterSurfaceBack(const CameraView& camera) const;
+        void drawWaterSurfaceFront(const CameraView& camera) const;
     };
 }

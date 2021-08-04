@@ -3,14 +3,14 @@
 
 namespace abyss::Env
 {
-    class WaterSarfaceView
+    class WaterSurfaceView
     {
         s3d::Texture m_texture;
         double m_time;
     public:
-        WaterSarfaceView();
+        WaterSurfaceView();
 
-        WaterSarfaceView& setTime(double time);
+        WaterSurfaceView& setTime(double time);
 
         void drawBack(const s3d::Vec2& pos) const;
         void drawFront(const s3d::Vec2& pos) const;
