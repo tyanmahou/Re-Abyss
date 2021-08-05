@@ -39,7 +39,11 @@ namespace abyss::Event::RoomMove::DoorMove
                 fadeInCallback
                 );
 
-            pEvent->attach<RoomMoveCtrl>(pEvent, std::move(callback), nextRoom, milliSec);
+            pEvent
+                ->attach<RoomMoveCtrl>(pEvent, std::move(callback), nextRoom, milliSec)
+                ->setCheckInDesc(CheckInDesc{
+                    .isErpLight = false
+                });
         }
     
         // フェード

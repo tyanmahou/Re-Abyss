@@ -22,18 +22,24 @@ namespace abyss
         m_view.addArc(pos, radius, innerAntiRadius, startAngle, angle, brightness);
     }
 
-    void Light::render(double time) const
+    void Light::update(double dt)
     {
-        m_view.render(time);
+        m_time += dt;
+        m_color.update(dt);
     }
 
-    s3d::Color Light::calcColor() const
+    void Light::render() const
     {
-        return m_color.value_or(m_defaultColor);
+        m_view.render(m_time);
+    }
+
+    const s3d::ColorF& Light::getColor() const
+    {
+        return m_color.getColor();
     }
 
     s3d::ScopedCustomShader2D Light::start() const
     {
-        return m_view.start(this->calcColor());
+        return m_view.start(this->getColor());
     }
 }

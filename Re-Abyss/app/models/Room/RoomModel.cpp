@@ -6,7 +6,7 @@ using namespace s3d;
 
 namespace abyss
 {
-	RoomModel::RoomModel(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::Color>& lightColor) :
+	RoomModel::RoomModel(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor) :
 		m_region(region),
 		m_passbleBits(passbleBits),
 		m_lightColor(lightColor)
@@ -138,7 +138,7 @@ namespace abyss
 		}
 		return col;
 	}
-	const s3d::Optional<s3d::Color>& RoomModel::getLightColor() const
+	const s3d::Optional<s3d::ColorF>& RoomModel::getLightColor() const
 	{
 		return m_lightColor;
 	}

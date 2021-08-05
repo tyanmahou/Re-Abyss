@@ -21,10 +21,10 @@ namespace abyss
     private:
 		s3d::RectF m_region;
 		s3d::uint8 m_passbleBits;
-		s3d::Optional<s3d::Color> m_lightColor;
+		s3d::Optional<s3d::ColorF> m_lightColor;
 	public:
 		RoomModel() = default;
-		RoomModel(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::Color>& lightColor);
+		RoomModel(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor);
 
 		bool passable(Forward f) const;
 		double pos(Forward f) const;
@@ -42,6 +42,6 @@ namespace abyss
 
 		ColDirection getCol() const;
 
-		const s3d::Optional<s3d::Color>& getLightColor() const;
+		const s3d::Optional<s3d::ColorF>& getLightColor() const;
     };
 }

@@ -52,6 +52,8 @@ namespace abyss::Sys
         mod<Environment>()->update(dt);
 
         if constexpr (config.isStage) {
+            mod<Light>()->update(dt);
+
             world->updateDeltaTime(dt);
         }
 
@@ -174,7 +176,7 @@ namespace abyss::Sys
             }
             if constexpr (config.isStage) {
                 // Light Map更新
-                mod<Light>()->render(mod<GlobalTime>()->time());
+                mod<Light>()->render();
                 // Distortion Map更新
                 mod<Distortion>()->render();
             }

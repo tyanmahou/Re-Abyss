@@ -167,7 +167,7 @@ namespace abyss
 
             // デフォルトライトカラー設定
             light->setDefaultColor(m_stageData->getAttributeService()->getBgColor());
-            light->setColor(nextRoom->getLightColor());
+            light->initColor(nextRoom->getLightColor());
         }
 
         auto temporary = m_pManager->getModule<Temporary>();
@@ -242,7 +242,7 @@ namespace abyss
         const auto& room = camera->getCurrentRoom();
 
         // Light
-        m_pManager->getModule<Light>()->setColor(room.getLightColor());
+        m_pManager->getModule<Light>()->setNextColor(room.getLightColor());
 
         // Sound
         auto sound = m_pManager->getModule<Sound>();
