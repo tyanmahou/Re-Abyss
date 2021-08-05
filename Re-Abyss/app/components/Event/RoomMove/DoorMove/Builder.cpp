@@ -40,10 +40,7 @@ namespace abyss::Event::RoomMove::DoorMove
                 );
 
             pEvent
-                ->attach<RoomMoveCtrl>(pEvent, std::move(callback), nextRoom, milliSec)
-                ->setCheckInDesc(CheckInDesc{
-                    .isErpLight = false
-                });
+                ->attach<RoomMoveCtrl>(pEvent, std::move(callback), nextRoom, milliSec);
         }
     
         // フェード
