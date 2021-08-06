@@ -28,13 +28,14 @@ namespace abyss::UI::SaveSelect::Panel
     void EraseUserConfirm::draw() const
     {
         Param::Confirm::Board().draw(Palette::Black);
-        FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(Param::Confirm::MessagePos);
+        FontAsset(FontName::UserInfo)(U"本当に削除しますか？").drawAt(PivotUtil::FromCenter(Param::Confirm::MessagePos));
 
-        FontAsset(FontName::UserInfo)(U"はい").drawAt(Param::Confirm::ChoiceBasePos);
-        FontAsset(FontName::UserInfo)(U"いいえ").drawAt(Param::Confirm::ChoiceBasePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
+        auto choicePos = PivotUtil::FromCenter(Param::Confirm::ChoiceBasePos);
+        FontAsset(FontName::UserInfo)(U"はい").drawAt(choicePos);
+        FontAsset(FontName::UserInfo)(U"いいえ").drawAt(choicePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
 
         {
-            Vec2 pos = Param::Confirm::ChoiceBasePos +
+            Vec2 pos = choicePos +
                 Vec2{
                 Param::Confirm::CursorOffset,
                 m_yes ? 0 : Param::Confirm::ChoiceOffset

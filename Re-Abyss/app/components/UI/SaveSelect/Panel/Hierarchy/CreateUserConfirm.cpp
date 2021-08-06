@@ -35,13 +35,15 @@ namespace abyss::UI::SaveSelect::Panel
         }
         Param::Confirm::Board().draw(Palette::Black);
 
-        FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(Param::Confirm::MessagePos);
+        FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(PivotUtil::FromCenter(Param::Confirm::MessagePos));
 
-        FontAsset(FontName::UserInfo)(U"ノーマルモード").drawAt(Param::Confirm::ChoiceBasePos);
-        FontAsset(FontName::UserInfo)(U"ハードモード").drawAt(Param::Confirm::ChoiceBasePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
+        auto choicePos = PivotUtil::FromCenter(Param::Confirm::ChoiceBasePos);
+
+        FontAsset(FontName::UserInfo)(U"ノーマルモード").drawAt(choicePos);
+        FontAsset(FontName::UserInfo)(U"ハードモード").drawAt(choicePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
 
         {
-            Vec2 pos = Param::Confirm::ChoiceBasePos +
+            Vec2 pos = choicePos +
                 Vec2{
                 Param::Confirm::CursorOffset,
                 m_playMode == UserPlayMode::Normal ? 0 : Param::Confirm::ChoiceOffset

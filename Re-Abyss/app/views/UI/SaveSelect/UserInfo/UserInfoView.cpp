@@ -3,7 +3,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 #include <abyss/utils/DateTime/DateTimeUtil.hpp>
-
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::SaveSelect::UserInfo
@@ -16,7 +16,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     }
     void UserInfoView::draw(const User::UserModel& user) const
     {
-        const auto& basePos = UserInfoParam::Common::BasePos;
+        const Vec2 basePos = PivotUtil::FromCenter(UserInfoParam::Common::BasePos);
 
         m_playerInfo
             ->setFace(U"default")
@@ -43,7 +43,7 @@ namespace abyss::UI::SaveSelect::UserInfo
         FontAsset(FontName::UserInfo)(U"プレイタイム").draw(basePos + UserInfoParam::PlayTime::LabelPos);
         FontAsset(FontName::UserInfo)(FormatTime(user.getPlayTime(), U"HH:mm:ss")).draw(basePos + UserInfoParam::PlayTime::Pos);
 
-        FontAsset(FontName::UserInfo)(user.getUpdatedAt().format()).draw(basePos + UserInfoParam::UpdatedAt::Pos);
+        FontAsset(FontName::UserInfo)(user.getUpdatedAt().format(DateTimeUtil::FormatFromDateTime)).draw(basePos + UserInfoParam::UpdatedAt::Pos);
 
         m_oopartsList
             ->setPos(basePos + UserInfoParam::OopartsList::Pos)

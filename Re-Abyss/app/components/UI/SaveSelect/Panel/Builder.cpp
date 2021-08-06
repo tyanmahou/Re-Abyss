@@ -9,7 +9,10 @@ namespace abyss::UI::SaveSelect::Panel
     void Builder::Build(UIObj* pUi)
     {
         pUi->attach<HierarchyCtrl>(pUi)
-            ->push<UserSelect>(pUi);
+            ->setupCallback([](Executer executer){
+                executer.on<IDraw>().addBefore<FooterTips>();
+            })
+            .push<UserSelect>(pUi);
 
         pUi->attach<FooterTips>(U"Z…決定 X…キャンセル");
     }
