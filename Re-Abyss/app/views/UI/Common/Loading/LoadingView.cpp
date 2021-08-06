@@ -1,6 +1,8 @@
 #include "LoadingView.hpp"
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/Common/LoadingParam.hpp>
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss::UI
@@ -21,7 +23,7 @@ namespace abyss::UI
             using Slime = LoadingParam::Slime;
             ScopedColorAdd2D scopedColorAdd(ColorF(1,0));
 
-            Vec2 pos = Slime::BasePos;
+            Vec2 pos = PivotUtil::FromBr(Slime::BasePos);
 
             const double periodicSec = Slime::PeriodicSec;
             const double jumpSec = Slime::JumpSec;
@@ -53,7 +55,7 @@ namespace abyss::UI
             const auto rotateTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::RotatePeriodicOffset) * periodicSec;
             const auto rotateIndex = rotateTime * Text::RotateIndexCoef;
 
-            Vec2 basePos = LoadingParam::Text::BasePos;
+            Vec2 basePos = PivotUtil::FromBr(LoadingParam::Text::BasePos);
             for (auto&& glyph : FontAsset(FontName::Loading)(U"NOW LOADING...")) {
                 auto pos = basePos;
                 pos.y -= Text::JumpHeight * Periodic::Jump0_1(1s, Saturate((jumpIndex - glyph.index) * Text::JumpTimeRate));
@@ -70,8 +72,9 @@ namespace abyss::UI
         // ProgressBar
         {
             using Bar = LoadingParam::ProgressBar;
-            RectF(Bar::BasePos, Vec2{Bar::Size.x * m_progress, Bar::Size.y}).draw();
-            RectF(Bar::BasePos, Bar::Size).drawFrame();
+            Vec2 basePos = PivotUtil::FromBr(Bar::BasePos);
+            RectF(basePos, Vec2{Bar::Size.x * m_progress, Bar::Size.y}).draw();
+            RectF(basePos, Bar::Size).drawFrame();
         }
     }
 }

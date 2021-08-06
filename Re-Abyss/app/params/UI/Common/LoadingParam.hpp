@@ -11,7 +11,7 @@ namespace abyss::UI
         [[TOML_BIND(Slime::JumpSec, "Slime.jumpSec")]]
         struct Slime
         {
-            inline static s3d::Vec2 BasePos{ 700, 500 };
+            inline static s3d::Vec2 BasePos{ -260, -40 };
             inline static double PeriodicSec{ 1.3 };
             inline static double JumpSec{ 1.0 };
         };
@@ -28,7 +28,7 @@ namespace abyss::UI
         [[TOML_BIND(Text::RotateTimeRate, "Text.rotateTimeRate")]]
         struct Text
         {
-            inline static s3d::Vec2 BasePos{ 900, 540 };
+            inline static s3d::Vec2 BasePos{ -220, -54 };
             inline static double OffsetX{ 5.0 };
             inline static double PeriodicSec{ 2.0 };
             inline static double JumpPeriodicOffset{ 2.0 };
@@ -45,7 +45,7 @@ namespace abyss::UI
         [[TOML_BIND(ProgressBar::Size, "ProgressBar.size")]]
         struct ProgressBar
         {
-            inline static s3d::Vec2 BasePos{ 740, 500 };
+            inline static s3d::Vec2 BasePos{ -220, -25 };
             inline static s3d::Vec2 Size{ 200, 10 };
         };
     };
