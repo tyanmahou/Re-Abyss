@@ -403,8 +403,6 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp" />
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
-    <ClCompile Include="app\components\UI\Header\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Header\Main.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp" />
@@ -937,8 +935,6 @@
     <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
     <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Header\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Header\Main.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Builder.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.hpp" />

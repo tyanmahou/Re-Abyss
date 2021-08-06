@@ -8,7 +8,6 @@
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Event/GameReady/Builder.hpp>
-#include <abyss/components/UI/Header/Builder.hpp>
 
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
@@ -122,9 +121,6 @@ namespace abyss
     }
     bool Stage::init() const
     {
-        // ヘッダー
-        m_pManager->getModule<UIs>()->create<UI::Header::Builder>();
-
         bool result = true;
 
         s3d::Optional<RoomModel> nextRoom;

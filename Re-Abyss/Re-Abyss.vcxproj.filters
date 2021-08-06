@@ -1432,12 +1432,6 @@
     <ClCompile Include="app\modules\Effect\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Header\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Header\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\system\Splash\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2268,8 +2262,6 @@
     <ClInclude Include="app\modules\Effect\Effects.hpp" />
     <ClInclude Include="app\concepts\Effect.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectLayer.hpp" />
-    <ClInclude Include="app\components\UI\Header\Main.hpp" />
-    <ClInclude Include="app\components\UI\Header\Builder.hpp" />
     <ClInclude Include="app\system\Splash\Booter.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
