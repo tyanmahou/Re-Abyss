@@ -13,6 +13,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/SaveSelect/Master.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/params/UI/SaveSelect/Param.hpp>
 
 namespace abyss::UI::SaveSelect::Panel
 {
@@ -108,14 +109,15 @@ namespace abyss::UI::SaveSelect::Panel
             FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(PivotUtil::FromTc(0, 50), Color(255, 0, 0));
         }
 
+        auto msgPos = PivotUtil::FromCenter(Param::SelectFrame::BasePos) + Param::Confirm::BoardPos;
         if (m_selectId != -1) {
             if (m_users.contains(m_selectId)) {
                 m_userInfo->draw(m_users.at(m_selectId));
             } else {
-                FontAsset(FontName::SceneName)(U"はじめから").drawAt(PivotUtil::FromCenter(0, 60));
+                FontAsset(FontName::SceneName)(U"はじめから").drawAt(msgPos);
             }
         } else {
-            FontAsset(FontName::SceneName)(U"データ削除").drawAt(PivotUtil::FromCenter(0, 60));
+            FontAsset(FontName::SceneName)(U"データ削除").drawAt(msgPos);
         }
     }
 }

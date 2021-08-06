@@ -33,12 +33,13 @@ namespace abyss::UI::SaveSelect::Panel
         if (m_isDone) {
             return;
         }
-        Param::Confirm::Board().draw(Palette::Black);
+        const auto board = Param::Confirm::Board();
+        board.draw(Palette::Black);
 
-        FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(PivotUtil::FromCenter(Param::Confirm::MessagePos));
+        auto msgPos = board.center() + Param::Confirm::MessagePos;
+        FontAsset(FontName::UserInfo)(U"難易度をえらんでください").drawAt(msgPos);
 
-        auto choicePos = PivotUtil::FromCenter(Param::Confirm::ChoiceBasePos);
-
+        auto choicePos = board.center() + Param::Confirm::ChoiceBasePos;
         FontAsset(FontName::UserInfo)(U"ノーマルモード").drawAt(choicePos);
         FontAsset(FontName::UserInfo)(U"ハードモード").drawAt(choicePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
 

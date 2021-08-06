@@ -1,6 +1,7 @@
 #include "UserInfoView.hpp"
 
 #include <abyss/commons/FontName.hpp>
+#include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 #include <abyss/utils/DateTime/DateTimeUtil.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
@@ -16,7 +17,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     }
     void UserInfoView::draw(const User::UserModel& user) const
     {
-        const Vec2 basePos = PivotUtil::FromCenter(UserInfoParam::Common::BasePos);
+        const Vec2 basePos = PivotUtil::FromCenter(Param::SelectFrame::BasePos) + UserInfoParam::Common::BasePos;
 
         m_playerInfo
             ->setFace(U"default")
