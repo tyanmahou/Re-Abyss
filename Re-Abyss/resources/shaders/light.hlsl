@@ -21,45 +21,6 @@ struct PSInput
     float2 uv		: TEXCOORD0;
 };
 
-float colorBurn(float dest, float src)
-{
-    return src <= 0 ? 0 : 1 - (1 - dest) / src;
-}
-float4 colorBurn(float4 dest, float4 src)
-{
-    float4 color;
-    color.r = colorBurn(dest.r, src.r);
-    color.g = colorBurn(dest.g, src.g);
-    color.b = colorBurn(dest.b, src.b);
-    color.a = 1;
-    return color;
-}
-float colorDodge(float dest, float src)
-{
-    return src >= 1 ? 1 : dest / (1 - src);
-}
-float4 colorDodge(float4 dest, float4 src)
-{
-    float4 color;
-    color.r = colorDodge(dest.r, src.r);
-    color.g = colorDodge(dest.g, src.g);
-    color.b = colorDodge(dest.b, src.b);
-    color.a = 1;
-    return color;
-}
-float vividLight(float dest, float src)
-{
-    return src < 0.5 ? colorBurn(dest, 2 * src) : colorDodge(dest, 2 * (src - 0.5));
-}
-float4 vividLight(float4 dest, float4 src)
-{
-    float4 color;
-    color.r = vividLight(dest.r, src.r);
-    color.g = vividLight(dest.g, src.g);
-    color.b = vividLight(dest.b, src.b);
-    color.a = 1.0;
-    return color;
-}
 float hardLight(float dest, float src)
 {
     return src < 0.5 ? dest * src * 2.0: 1 - 2 * (1 - dest) * (1 - src);
