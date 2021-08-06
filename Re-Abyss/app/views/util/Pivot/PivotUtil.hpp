@@ -6,6 +6,13 @@ namespace abyss
     class PivotUtil
     {
     public:
+        /// <summary>
+        /// ■━━━━━┓
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromTl(const s3d::Vec2& pos)
         {
             return pos;
@@ -15,6 +22,13 @@ namespace abyss
             return FromTl(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━■
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromTr(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ Constants::AppResolution.x, 0.0 };
@@ -24,6 +38,13 @@ namespace abyss
             return FromTr(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ■━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromBl(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ 0.0, Constants::AppResolution.y };
@@ -33,6 +54,13 @@ namespace abyss
             return FromBl(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ┗━━━━━■
+        /// </summary>
         static constexpr s3d::Vec2 FromBr(const s3d::Vec2& pos)
         {
             return pos + Constants::AppResolution;
@@ -42,6 +70,13 @@ namespace abyss
             return FromBr(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ┃    ■    ┃
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromCenter(const s3d::Vec2& pos)
         {
             return pos + Constants::AppResolution / 2.0;
@@ -51,6 +86,13 @@ namespace abyss
             return FromCenter(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━■━━┓
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromTc(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ Constants::AppResolution.x / 2.0, 0.0 };
@@ -60,6 +102,13 @@ namespace abyss
             return FromTc(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ┃    　    ┃
+        /// ┃          ┃
+        /// ┗━━■━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromBc(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ Constants::AppResolution.x / 2.0, Constants::AppResolution.y };
@@ -69,6 +118,13 @@ namespace abyss
             return FromBc(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ■    　    ┃
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromCl(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ 0.0, Constants::AppResolution.y / 2.0 };
@@ -78,6 +134,13 @@ namespace abyss
             return FromCl(s3d::Vec2{ x, y });
         }
 
+        /// <summary>
+        /// ┏━━━━━┓
+        /// ┃          ┃
+        /// ┃    　    ■
+        /// ┃          ┃
+        /// ┗━━━━━┛
+        /// </summary>
         static constexpr s3d::Vec2 FromCr(const s3d::Vec2& pos)
         {
             return pos + s3d::Vec2{ Constants::AppResolution.x, Constants::AppResolution.y / 2.0};
