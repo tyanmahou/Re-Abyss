@@ -8,6 +8,7 @@
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <Siv3D.hpp>
@@ -44,7 +45,7 @@ namespace abyss::UI::Serif
         if (!m_serif || m_serif->isEnd()) {
             return;
         }
-        const Vec2 pos = { Constants::GameScreenSize.x / 2.0f, 150 };
+        const Vec2 pos = PivotUtil::FromTc(0, 150);
         m_boxView
             ->setIsLeft(m_serif->isLeft())
             .setPos(pos)
@@ -58,17 +59,17 @@ namespace abyss::UI::Serif
         }
         m_boxView->draw();
 
-        const double messagePosX = m_serif->isLeft() ? 300 : 140;
+        const double messagePosX = m_serif->isLeft() ? -180 : -340;
         m_messageView
             ->setStrIndex(m_serif->getStrIndex())
             .setCurrent(m_serif->getCurrent())
             .setPrev(m_serif->getPrev())
-            .setPos({ messagePosX, 125 })
+            .setPos(pos + s3d::Vec2{ messagePosX, -25 })
             .draw()
             ;
 
         if (m_serif->isAll()) {
-            m_cursorView->setPos({ messagePosX + 500, 200 }).draw();
+            m_cursorView->setPos(pos + s3d::Vec2{ messagePosX + 500, 50 }).draw();
         }
     }
 
