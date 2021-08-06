@@ -1,5 +1,7 @@
 #include "BossHPBarVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/params/UI/BossHPBar/Param.hpp>
+#include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <Siv3D/Math.hpp>
 
 namespace 
@@ -18,8 +20,8 @@ namespace
 namespace abyss::UI::BossHPBar
 {
     BossHPBarVM::BossHPBarVM():
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/common/boss_hp_bar/boss_hp_bar.json")),
-        m_pos(650, 495)
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/BossHPBar/boss_hp_bar.json")),
+        m_pos(PivotUtil::FromBr(Param::BrPos))
     {
     
     }

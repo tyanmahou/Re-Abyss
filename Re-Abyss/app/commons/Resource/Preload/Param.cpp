@@ -23,6 +23,7 @@
 
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
+#include <abyss/params/UI/BossHPBar/Param.hpp>
 
 
 // Cycle関連
@@ -122,5 +123,6 @@ namespace abyss::Resource::Preload
 	{
 		using namespace UI;
 		resource->loadToml<PlayerInfo::Param>(U"UI/PlayerInfo/param.toml");
+		resource->loadToml<BossHPBar::Param>(U"UI/BossHPBar/param.toml");
 	}
 }

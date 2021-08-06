@@ -2317,6 +2317,7 @@
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
+    <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

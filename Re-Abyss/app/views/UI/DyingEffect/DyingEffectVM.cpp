@@ -5,7 +5,7 @@
 namespace abyss::UI::DyingEffect
 {
     DyingEffectVM::DyingEffectVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"ui/common/dying_effect/dying_effect.png"))
+        m_texture(Resource::Assets::Main()->loadTexture(U"ui/DyingEffect/dying_effect.png"))
     {}
 
     void DyingEffectVM::draw() const

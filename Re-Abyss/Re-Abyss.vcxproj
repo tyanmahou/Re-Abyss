@@ -782,6 +782,7 @@
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
+    <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
