@@ -109,7 +109,7 @@ namespace abyss::UI::SaveSelect::Panel
             FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(PivotUtil::FromTc(0, 50), Color(255, 0, 0));
         }
 
-        auto msgPos = PivotUtil::FromCenter(Param::SelectFrame::BasePos) + Param::Confirm::BoardPos;
+        auto msgPos = PivotUtil::FromCc(Param::SelectFrame::BasePos) + Param::Confirm::BoardPos;
         if (m_selectId != -1) {
             if (m_users.contains(m_selectId)) {
                 m_userInfo->draw(m_users.at(m_selectId));

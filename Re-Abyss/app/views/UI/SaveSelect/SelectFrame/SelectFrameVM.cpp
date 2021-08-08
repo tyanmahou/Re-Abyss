@@ -15,7 +15,7 @@ namespace abyss::UI::SaveSelect::SelectFrame
     void SelectFrameVM::draw() const
     {
         const Vec2& size = Param::SelectFrame::Size;
-        const Vec2 framePos = PivotUtil::FromCenter(Param::SelectFrame::BasePos);
+        const Vec2 framePos = PivotUtil::FromCc(Param::SelectFrame::BasePos);
         const Vec2& tl = framePos - size / 2.0;
         const Vec2& selectSize = Param::SelectFrame::SelectSize;
         const Vec2& trashSize = Param::SelectFrame::TrashSize;

@@ -51,7 +51,7 @@ namespace abyss::UI::SaveSelect
 
             inline static s3d::RectF Board()
             {
-                return s3d::RectF{ PivotUtil::FromCenter(SelectFrame::BasePos) + BoardPos - BoardSize/2.0, BoardSize };
+                return s3d::RectF{ PivotUtil::FromCc(SelectFrame::BasePos) + BoardPos - BoardSize/2.0, BoardSize };
             }
         };
     };

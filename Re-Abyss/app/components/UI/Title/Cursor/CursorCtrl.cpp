@@ -32,7 +32,7 @@ namespace abyss::UI::Title::Cursor
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, false),
-        m_shot(std::make_unique<Shot>(PivotUtil::FromCenter(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
+        m_shot(std::make_unique<Shot>(PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }
     CursorCtrl::~CursorCtrl()
@@ -96,10 +96,10 @@ namespace abyss::UI::Title::Cursor
             CursorViewParam{U"Exit", 140.0},
         };
         size_t modeIndex = static_cast<size_t>(m_mode);
-        m_view->setPos(PivotUtil::FromCenter(-130, viewParams[modeIndex].posY)).draw();
+        m_view->setPos(PivotUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
 
         for (const auto& param : viewParams) {
-            FontAsset(FontName::SceneName)(param.name).drawAt(PivotUtil::FromCenter(0, param.posY));
+            FontAsset(FontName::SceneName)(param.name).drawAt(PivotUtil::FromCc(0, param.posY));
         }
         if (m_isGameStart) {
             m_shot->draw();

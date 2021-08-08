@@ -17,7 +17,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     }
     void UserInfoView::draw(const User::UserModel& user) const
     {
-        const Vec2 basePos = PivotUtil::FromCenter(Param::SelectFrame::BasePos) + UserInfoParam::Common::BasePos;
+        const Vec2 basePos = PivotUtil::FromCc(Param::SelectFrame::BasePos) + UserInfoParam::Common::BasePos;
 
         m_playerInfo
             ->setFace(U"default")

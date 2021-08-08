@@ -23,10 +23,10 @@ namespace abyss::UI::Title::BackGround
     }
     s3d::Vec2 BgCtrl::getPos() const
     {
-        return PivotUtil::FromCenter(EaseIn(Easing::Linear, { 0, 0 }, BgParam::BackGround::EndPos, this->time0_1()));
+        return PivotUtil::FromCc(EaseIn(Easing::Linear, { 0, 0 }, BgParam::BackGround::EndPos, this->time0_1()));
     }
     s3d::Vec2 BgCtrl::getAtlantisPos() const
     {
-        return PivotUtil::FromCenter(EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, {0, 0}, this->time0_1()));
+        return PivotUtil::FromCc(EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, {0, 0}, this->time0_1()));
     }
 }
