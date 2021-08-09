@@ -65,12 +65,6 @@ namespace abyss
 		bool isQuake() const;
 
 		/// <summary>
-		/// 現在の部屋設定
-		/// </summary>
-		/// <returns></returns>
-		void setRoom(const RoomModel& room) const;
-
-		/// <summary>
 		/// 現在の部屋取得
 		/// </summary>
 		/// <returns></returns>
@@ -109,12 +103,6 @@ namespace abyss
 		/// <param name="pos"></param>
 		/// <returns></returns>
 		s3d::Vec2 fixPos(const s3d::Vec2& pos) const;
-
-		template<class T>
-		bool inRoom(const T& shape)const
-		{
-			return m_camera->inRoom(shape);
-		}
 
 		template<class T>
 		bool inScreen(const T& shape)const

@@ -1558,6 +1558,9 @@
     <ClCompile Include="app\modules\Light\LightColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Room\RoomManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2310,6 +2313,7 @@
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
+    <ClInclude Include="app\modules\Room\RoomManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

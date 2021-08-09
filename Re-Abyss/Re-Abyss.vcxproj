@@ -445,6 +445,7 @@
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
+    <ClCompile Include="app\modules\Room\RoomManager.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
     <ClCompile Include="app\system\Main\Booter.cpp" />
     <ClCompile Include="app\system\SaveSelect\Booter.cpp" />
@@ -780,6 +781,7 @@
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
+    <ClInclude Include="app\modules\Room\RoomManager.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />

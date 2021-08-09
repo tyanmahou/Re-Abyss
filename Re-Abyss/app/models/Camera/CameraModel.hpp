@@ -16,19 +16,8 @@ namespace abyss
 		s3d::Vec2 m_targetPos;
 		double m_zoomScale = 1.0;
 
-		RoomModel m_currentRoom;
-		s3d::Optional<RoomModel> m_nextRoom;
-
 	public:
 		CameraModel();
-
-		bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
-
-		void setRoom(const RoomModel& room);
-		const RoomModel& currentRoom() const;
-
-		void setNextRoom(const s3d::Optional<RoomModel>& room);
-		const s3d::Optional<RoomModel>& nextRoom() const;
 
 		void setPos(const s3d::Vec2 pos);
 		const s3d::Vec2& getPos()const;
@@ -43,12 +32,6 @@ namespace abyss
 		double getZoomScale()const
 		{
 			return m_zoomScale;
-		}
-
-		template<class T>
-		bool inRoom(const T& shape)const
-		{
-			return m_currentRoom.getRegion().intersects(shape);
 		}
 	};
 }

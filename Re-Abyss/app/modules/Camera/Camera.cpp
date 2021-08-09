@@ -35,9 +35,10 @@ namespace abyss
 
 		// カメラ座標調整
 		{
-			Vec2 cameraPos = m_camera
-				->currentRoom()
-				.cameraBorderAdjusted(targetPos);
+			Vec2 cameraPos = targetPos;
+			//Vec2 cameraPos = m_camera
+			//	->currentRoom()
+			//	.cameraBorderAdjusted(targetPos);
 
 			// 地震適用
 			m_quake->update(dt);
@@ -73,55 +74,6 @@ namespace abyss
 	bool Camera::isQuake() const
 	{
 		return !m_quake->isEnd();
-	}
-
-	void Camera::setRoom(const RoomModel& room) const
-	{
-		m_camera->setRoom(room);
-	}
-	const RoomModel& Camera::getCurrentRoom() const
-	{
-		return m_camera->currentRoom();
-	}
-	void Camera::setNextRoom(const s3d::Optional<RoomModel>& nextRoom) const
-	{
-		m_camera->setNextRoom(nextRoom);
-	}
-    const s3d::Optional<RoomModel>& Camera::nextRoom() const
-    {
-		return m_camera->nextRoom();
-    }
-	bool Camera::canNextRoom(const s3d::Vec2& pos) const
-	{
-		if (m_camera->inRoom(pos)) {
-			return false;
-		}
-		if (m_camera->isOutOfRoomDeath(pos)) {
-			// 落下の場合は無視
-			return false;
-		}
-		return true;
-	}
-	bool Camera::applyNextRoom() const
-	{
-		if (auto nextRoom = m_camera->nextRoom()) {
-			m_camera->setRoom(*nextRoom);
-			m_camera->setNextRoom(s3d::none);
-			return true;
-		}
-		return false;
-	}
-
-	bool Camera::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
-	{
-		// todo 自動スクロール対応
-		return m_camera->isOutOfRoomDeath(pos, margin);
-	}
-	Vec2 Camera::fixPos(const s3d::Vec2& pos) const
-	{
-		// todo 自動スクロール中はカメラのスクリーン内に入るように
-
-		return m_camera->currentRoom().borderAdjusted(pos);
 	}
 
 	CameraView Camera::createView() const

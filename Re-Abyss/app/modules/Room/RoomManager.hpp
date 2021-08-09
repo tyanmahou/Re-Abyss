@@ -10,24 +10,65 @@ namespace abyss::Room
 
         bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
 
+        /// <summary>
+        /// 現在の部屋設定
+        /// </summary>
+        /// <returns></returns>
         void setRoom(const RoomModel& room)
         {
             m_currentRoom = room;
         }
+
+        /// <summary>
+        /// 現在の部屋取得
+        /// </summary>
+        /// <returns></returns>
         const RoomModel& currentRoom() const
         {
             return m_currentRoom;
         }
 
+        /// <summary>
+        /// 次の部屋設定
+        /// </summary>
+        /// <returns></returns>
         void setNextRoom(const s3d::Optional<RoomModel>& room)
         {
             m_nextRoom = room;
         }
+
+        /// <summary>
+        /// 次の部屋取得
+        /// </summary>
+        /// <returns></returns>
         const s3d::Optional<RoomModel>& nextRoom() const
         {
             return m_nextRoom;
         }
 
+        /// <summary>
+        /// 次の部屋に移動できるか
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        bool canNextRoom(const s3d::Vec2& pos) const;
+
+        /// <summary>
+        /// 次の部屋を現在の部屋に適用する
+        /// </summary>
+        /// <returns></returns>
+        bool applyNextRoom();
+
+        /// <summary>
+        /// ルーム壁補正
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        s3d::Vec2 fixPos(const s3d::Vec2& pos) const;
+
+        /// <summary>
+        /// ルームに入っているか
+        /// </summary>
         template<class T>
         bool isInRoom(const T& shape)const
         {
