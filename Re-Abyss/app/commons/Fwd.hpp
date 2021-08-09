@@ -110,6 +110,15 @@ namespace abyss
 	using Env::Environment;
 
 	/// <summary>
+	/// Modules/Room
+	/// </summary>
+	namespace Room
+	{
+		class RoomManager;
+	}
+	using Room::RoomManager;
+
+	/// <summary>
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
