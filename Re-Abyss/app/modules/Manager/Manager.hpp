@@ -28,6 +28,7 @@ namespace abyss
         Actor::Player::PlayerManager* m_pPlayer = nullptr;
         DrawManager* m_pDrawer = nullptr;
         CycleMaster* m_pCycleMaster = nullptr;
+        RoomManager* m_pRoom = nullptr;
     public:
 
         Manager& set(GlobalTime* pGlobalTime);
@@ -67,6 +68,8 @@ namespace abyss
         Manager& set(DrawManager* pDrawer);
 
         Manager& set(CycleMaster* pCycleMaster);
+
+        Manager& set(RoomManager* pRoom);
 
         template<class T>
         T* getModule() const;
