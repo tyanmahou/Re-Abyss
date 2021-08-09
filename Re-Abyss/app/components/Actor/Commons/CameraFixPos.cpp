@@ -1,6 +1,6 @@
 #include "CameraFixPos.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 
 namespace abyss::Actor
@@ -16,8 +16,8 @@ namespace abyss::Actor
 
     void CameraFixPos::onLastUpdate()
     {
-        auto camera = m_pActor->getModule<Camera>();
+        auto roomManager = m_pActor->getModule<RoomManager>();
         auto prevPos = m_body->getPos();
-        m_body->setPos(camera->fixPos(prevPos));
+        m_body->setPos(roomManager->fixPos(prevPos));
     }
 }

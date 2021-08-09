@@ -1,5 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Event/base/IEvent.hpp>
@@ -15,8 +16,8 @@ namespace abyss::Event::RoomMove::BasicMove
         {
             auto* player = pEvent->getModule<Actor::Player::PlayerManager>();
             const auto& pos = player->getPos();
+            const auto& current = pEvent->getModule<RoomManager>()->currentRoom();
             auto camera = pEvent->getModule<Camera>();
-            const auto& current = camera->getCurrentRoom();
             Vec2 cameraPos = camera->getPos();
 
             Vec2 from = current.cameraBorderAdjusted(cameraPos);

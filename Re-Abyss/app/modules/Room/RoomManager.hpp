@@ -74,6 +74,8 @@ namespace abyss::Room
         {
             return m_currentRoom.getRegion().intersects(shape);
         }
+
+        void drawDeathLine() const;
     private:
         RoomModel m_currentRoom;
         s3d::Optional<RoomModel> m_nextRoom;

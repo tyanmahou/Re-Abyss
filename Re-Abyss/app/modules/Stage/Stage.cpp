@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 
 #include <abyss/components/Actor/God/Builder.hpp>
 #include <abyss/components/Actor/Player/Builder.hpp>
@@ -134,12 +135,14 @@ namespace abyss
                 result = false;
             }
         }
+        auto roomManager = m_pManager->getModule<RoomManager>();
+        if (nextRoom) {
+            roomManager->setRoom(*nextRoom);
+        }
+
         // カメラの初期化
         auto camera = m_pManager->getModule<Camera>();
-        if (nextRoom) {
-            camera->setRoom(*nextRoom);
-            camera->update(0);
-        }
+        camera->update(0);
         // 背景の初期化
         auto backGround = m_pManager->getModule<BackGround>();
         {
@@ -191,13 +194,13 @@ namespace abyss
         // チェックアウト時にはルーム移動で消えるフラグを消す
         m_pManager->getModule<Temporary>()->clearFlag(TempLevel::Room);
 
-        auto camera = m_pManager->getModule<Camera>();
+        auto roomManager = m_pManager->getModule<RoomManager>();
         bool result = true;
         // World CheckOut
         {
             auto world = m_pManager->getModule<World>();
             world->onCheckOut();
-            if (const auto& nextRoom = camera->nextRoom()) {
+            if (const auto& nextRoom = roomManager->nextRoom()) {
                 result &= this->initRoom(*world, *nextRoom, BuildTiming::CheckOut);
             } else {
                 result = false;
@@ -209,7 +212,7 @@ namespace abyss
         {
             auto decor = m_pManager->getModule<Decors>();
             decor->onCheckOut();
-            if (const auto& nextRoom = camera->nextRoom()) {
+            if (const auto& nextRoom = roomManager->nextRoom()) {
                 result &= this->initDecor(*decor, *nextRoom);
             } else {
                 result = false;
@@ -217,7 +220,7 @@ namespace abyss
         }
         // サウンドが変わる場合は停止
         auto sound = m_pManager->getModule<Sound>();
-        if (auto bgm = ::NextBgm(*camera->nextRoom(), m_stageData->getGimmicks()); bgm && *bgm != sound->currentBgmPath()) {
+        if (auto bgm = ::NextBgm(*roomManager->nextRoom(), m_stageData->getGimmicks()); bgm && *bgm != sound->currentBgmPath()) {
             sound->stop();
         }
         return result;
@@ -234,8 +237,8 @@ namespace abyss
         auto world = m_pManager->getModule<World>();
         world->onCheckIn();
 
-        auto camera = m_pManager->getModule<Camera>();
-        const auto& room = camera->getCurrentRoom();
+        auto roomManager = m_pManager->getModule<RoomManager>();
+        const auto& room = roomManager->currentRoom();
 
         // Light
         m_pManager->getModule<Light>()->setNextColor(room.getLightColor());

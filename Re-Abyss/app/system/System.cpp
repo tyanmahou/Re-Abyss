@@ -162,7 +162,7 @@ namespace abyss::Sys
             drawer->draw(DrawLayer::DecorBack);
 
             if constexpr (config.isStage) {
-                cameraView.drawDeathLine();
+                mod<RoomManager>()->drawDeathLine();
             }
 
             // 中面

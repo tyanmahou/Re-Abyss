@@ -1,7 +1,7 @@
 #include "RoomMoveChecker.hpp"
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Event/Events.hpp>
 
@@ -31,8 +31,8 @@ namespace abyss::Actor::Player
         }
         auto* player = m_pActor->getModule<PlayerManager>();
         const s3d::Vec2& pos = player->getPos();
-        auto camera = m_pActor->getModule<Camera>();
-        if (camera->canNextRoom(pos)) {
+        auto roomManager = m_pActor->getModule<RoomManager>();
+        if (roomManager->canNextRoom(pos)) {
             if (auto nextRoom = m_pActor->getModule<Stage>()->findRoom(pos)) {
                 // 移動開始
                 m_pActor->getModule<Events>()

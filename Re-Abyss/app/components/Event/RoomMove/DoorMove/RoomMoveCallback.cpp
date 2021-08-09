@@ -1,7 +1,7 @@
 #include "RoomMoveCallback.hpp"
 #include <abyss/modules/Event/base/IEvent.hpp>
 #include <abyss/modules/Light/Light.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove
@@ -35,7 +35,7 @@ namespace abyss::Event::RoomMove::DoorMove
                 m_state = State::FadeIn;
 
                 // ドア移動の場合はライトを即切り替え
-                if(auto&& next = m_pEvent->getModule<Camera>()->nextRoom()) {
+                if(auto&& next = m_pEvent->getModule<RoomManager>()->nextRoom()) {
                     m_pEvent->getModule<Light>()->initColor(next->getLightColor());
                 }
                 if (this->m_fadeInCallback) {

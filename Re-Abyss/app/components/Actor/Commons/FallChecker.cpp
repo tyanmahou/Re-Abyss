@@ -1,6 +1,6 @@
 #include "FallChecker.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 \
@@ -22,7 +22,7 @@ namespace abyss::Actor
             return;
         }
 
-        if (!m_pActor->getModule<Camera>()->isOutOfRoomDeath(m_body->getPos(), m_body->getHeight() / 2.0)) {
+        if (!m_pActor->getModule<RoomManager>()->isOutOfRoomDeath(m_body->getPos(), m_body->getHeight() / 2.0)) {
             return;
         }
         // 落下死

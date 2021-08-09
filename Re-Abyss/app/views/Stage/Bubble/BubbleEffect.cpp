@@ -2,6 +2,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Light/Light.hpp>
 
 namespace abyss
@@ -51,7 +52,11 @@ namespace abyss
                 light->addCircle(pos, r, color.a);
             }
         }
-        return m_pManager->getModule<Camera>()->getCurrentRoom().getRegion().stretched(480, 520).intersects(pos);
+        if (auto roomManager = m_pManager->getModule<RoomManager>()) {
+            return roomManager->currentRoom().getRegion().stretched(480, 520).intersects(pos);
+        } else {
+            return m_pManager->getModule<Camera>()->inScreen(pos);
+        }
     }
 
 }

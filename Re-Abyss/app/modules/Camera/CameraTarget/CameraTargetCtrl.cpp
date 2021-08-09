@@ -1,11 +1,13 @@
 #include "CameraTargetCtrl.hpp"
+#include <abyss/commons/Constants.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
-#include <Siv3D.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
+#include <Siv3D.hpp>
 namespace  abyss
 {
-    CameraTargetCtrl::CameraTargetCtrl()
+    CameraTargetCtrl::CameraTargetCtrl() :
+        m_targetPos(Constants::AppResolutionF / 2.0)
     {
     }
 

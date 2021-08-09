@@ -64,46 +64,6 @@ namespace abyss
 		/// </summary>	
 		bool isQuake() const;
 
-		/// <summary>
-		/// 現在の部屋取得
-		/// </summary>
-		/// <returns></returns>
-		const RoomModel& getCurrentRoom() const;
-
-		/// <summary>
-		/// 次の部屋設定
-		/// </summary>
-		/// <returns></returns>
-		void setNextRoom(const s3d::Optional<RoomModel>& nextRoom) const;
-
-		/// <summary>
-		/// 次の部屋取得
-		/// </summary>
-		/// <returns></returns>
-		const s3d::Optional<RoomModel>& nextRoom()const;
-
-		/// <summary>
-		/// 次の部屋に移動できるか
-		/// </summary>
-		/// <param name="pos"></param>
-		/// <returns></returns>
-		bool canNextRoom(const s3d::Vec2& pos) const;
-
-		/// <summary>
-		/// 次の部屋を現在の部屋に適用する
-		/// </summary>
-		/// <returns></returns>
-		bool applyNextRoom()const;
-
-		bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
-
-		/// <summary>
-		/// 座標を調整する
-		/// </summary>
-		/// <param name="pos"></param>
-		/// <returns></returns>
-		s3d::Vec2 fixPos(const s3d::Vec2& pos) const;
-
 		template<class T>
 		bool inScreen(const T& shape)const
 		{

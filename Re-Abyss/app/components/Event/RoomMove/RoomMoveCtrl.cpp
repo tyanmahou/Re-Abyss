@@ -1,6 +1,7 @@
 #include "RoomMoveCtrl.hpp"
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
@@ -26,8 +27,8 @@ namespace abyss::Event::RoomMove
     }
     void RoomMoveCtrl::onStart()
     {
-        auto camera = m_pEvent->getModule<Camera>();
-        camera->setNextRoom(m_nextRoom);
+        auto roomManager = m_pEvent->getModule<RoomManager>();
+        roomManager->setNextRoom(m_nextRoom);
 
         m_callback->onMoveStart();
         m_pEvent->getModule<Stage>()->checkOut();
@@ -35,7 +36,7 @@ namespace abyss::Event::RoomMove
     void RoomMoveCtrl::onEnd()
     {
         m_callback->onMoveEnd();
-        m_pEvent->getModule<Camera>()->applyNextRoom();
+        m_pEvent->getModule<RoomManager>()->applyNextRoom();
         m_pEvent->getModule<Stage>()->checkIn();
     }
     Coro::Task<> RoomMoveCtrl::onExecute()

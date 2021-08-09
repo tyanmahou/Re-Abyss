@@ -1,4 +1,5 @@
 #include "RoomManager.hpp"
+#include <Siv3D.hpp>
 
 namespace abyss::Room
 {
@@ -37,5 +38,18 @@ namespace abyss::Room
 		// todo 自動スクロール中はカメラのスクリーン内に入るように
 
 		return m_currentRoom.borderAdjusted(pos);
+	}
+	void RoomManager::drawDeathLine() const
+	{
+		constexpr ColorF colors[4] = { ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1) };
+
+		if (!m_currentRoom.passable(Forward::Down)) {
+			auto region = m_currentRoom.getRegion();
+			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
+		}
+		if (m_nextRoom && !m_nextRoom->passable(Forward::Down)) {
+			auto region = m_nextRoom->getRegion();
+			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
+		}
 	}
 }

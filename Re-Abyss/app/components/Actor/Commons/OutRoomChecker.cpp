@@ -1,6 +1,6 @@
 #include "OutRoomChecker.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/base/ICollider.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
@@ -43,8 +43,8 @@ namespace abyss::Actor
 
         m_isOutRoom = false;
 
-        auto room = m_pActor->getModule<Camera>()->getCurrentRoom().getRegion();
-        m_isOutRoom = !ColisionUtil::Intersects(room, m_colliderFunc());
+        s3d::RectF roomRect = m_pActor->getModule<RoomManager>()->currentRoom().getRegion();
+        m_isOutRoom = !ColisionUtil::Intersects(roomRect, m_colliderFunc());
 
         if (m_isOutRoom && m_isAutoDestroy && m_deadChecker) {
             m_deadChecker->requestDead();

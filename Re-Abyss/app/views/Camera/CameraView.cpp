@@ -22,22 +22,6 @@ namespace abyss
 		return m_quakeOffset;
 	}
 
-	void CameraView::drawDeathLine() const
-	{
-		constexpr ColorF colors[4] = { ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1) };
-		const auto& currentRoom = m_pCamera->currentRoom();
-
-		if (!currentRoom.passable(Forward::Down)) {
-			auto region = currentRoom.getRegion();
-			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
-		}
-		const auto& nextRoom = m_pCamera->nextRoom();
-		if (nextRoom && !nextRoom->passable(Forward::Down)) {
-			auto region = nextRoom->getRegion();
-			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
-		}
-	}
-
 	s3d::Vec2 CameraView::tl() const
 	{
 		return m_pCamera->getPos() - Constants::GameScreenSize / 2;

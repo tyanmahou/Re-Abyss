@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Event/base/IEvent.hpp>
@@ -23,9 +23,8 @@ namespace abyss::Event::RoomMove::DoorMove
         // 移動制御
         {
             auto manager = pEvent->getManager();
-            auto camera = manager->getModule<Camera>();
 
-            const auto& current = camera->getCurrentRoom();
+            const auto& current = manager->getModule<RoomManager>()->currentRoom();
             Vec2 playerFrom = door.fixedVisiterPos();
             Vec2 playerTo = door.getTargetPos();
             Vec2 from = current.cameraBorderAdjusted(playerFrom);

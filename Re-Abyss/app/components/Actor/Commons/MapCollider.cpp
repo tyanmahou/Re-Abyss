@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
 
-#include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
@@ -154,7 +154,7 @@ namespace abyss::Actor
                 return;
             }
             // ルーム壁との衝突
-            auto col = m_body->fixPos(m_pActor->getModule<Camera>()->getCurrentRoom(), m_roomHitStrict);
+            auto col = m_body->fixPos(m_pActor->getModule<RoomManager>()->currentRoom(), m_roomHitStrict);
             m_result->add(col);
         }
     public:

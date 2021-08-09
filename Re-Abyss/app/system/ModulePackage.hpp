@@ -18,6 +18,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
@@ -46,6 +47,7 @@ namespace abyss::Sys
         GlobalTime,
         mod_if<config.isStage, Light>,
         mod_if<config.isStage, PhysicsManager>,
+        mod_if<config.isStage, RoomManager>,
         Sound,
         mod_if<config.isStage, Stage>,
         mod_if<config.isStage, Temporary>,
