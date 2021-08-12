@@ -1561,7 +1561,7 @@
     <ClCompile Include="app\modules\Room\RoomManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Camera\CameraLimit\CameraLimitCtrl.cpp">
+    <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2317,7 +2317,9 @@
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraLimit\CameraLimitCtrl.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

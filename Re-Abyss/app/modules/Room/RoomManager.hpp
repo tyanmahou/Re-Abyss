@@ -5,9 +5,16 @@ namespace abyss::Room
 {
     class RoomManager
     {
+        class CameraFix;
     public:
         RoomManager();
 
+        void init();
+
+        void setManager(Manager* pManager)
+        {
+            m_pManager = pManager;
+        }
         bool isOutOfRoomDeath(const s3d::Vec2& pos, double margin = 0.0) const;
 
         /// <summary>
@@ -77,7 +84,10 @@ namespace abyss::Room
 
         void drawDeathLine() const;
     private:
+        Manager* m_pManager;
         RoomModel m_currentRoom;
         s3d::Optional<RoomModel> m_nextRoom;
+
+        std::shared_ptr<CameraFix> m_cameraFix;
     };
 }

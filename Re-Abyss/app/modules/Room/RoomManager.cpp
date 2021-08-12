@@ -1,10 +1,38 @@
 #include "RoomManager.hpp"
+#include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/Camera/CameraFix/base/ICameraFix.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Room
 {
-	RoomManager::RoomManager()
+	class RoomManager::CameraFix final: public ICameraFix
+	{
+	public:
+		CameraFix(RoomManager* pRoomManager):
+			m_pRoomManager(pRoomManager)
+		{}
+
+		s3d::Vec2 apply(const s3d::Vec2& target) const override
+		{
+			// @todo 自動スクロール
+			return m_pRoomManager->m_currentRoom.cameraBorderAdjusted(target);
+		}
+
+		CameraFixPriority priority() const override
+		{
+			return CameraFixPriority::Normal;
+		}
+	private:
+		RoomManager* m_pRoomManager;
+	};
+	RoomManager::RoomManager():
+		m_cameraFix(std::make_shared<CameraFix>(this))
 	{}
+	void RoomManager::init()
+	{
+		m_pManager->getModule<Camera>()->addCameraFix(m_cameraFix);
+	}
 	bool RoomManager::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
     {
 		// @todo 自動スクロール

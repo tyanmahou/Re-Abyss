@@ -11,7 +11,8 @@ namespace abyss
 {
 	class ICameraTarget;
 	class CameraTargetCtrl;
-	class CameraLimitCtrl;
+	class ICameraFix;
+	class CameraFixCtrl;
 	class SnapshotView;
 
     class Camera
@@ -20,7 +21,7 @@ namespace abyss
 		Manager* m_pManager;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<CameraTargetCtrl> m_target;
-		std::unique_ptr<CameraLimitCtrl> m_limit;
+		std::unique_ptr<CameraFixCtrl> m_fixCtrl;
 		std::unique_ptr<Quake> m_quake;
 		std::unique_ptr<SnapshotView> m_snapshot;
 	public:
@@ -48,6 +49,18 @@ namespace abyss
 		/// </summary>
 		/// <param name="target"></param>
 		void addTarget(const std::shared_ptr<ICameraTarget>& target);
+
+		/// <summary>
+		/// カメラ補正追加
+		/// </summary>
+		/// <param name="target"></param>
+		void addCameraFix(const std::shared_ptr<ICameraFix>& fix);
+
+		/// <summary>
+		/// カメラ補正追加
+		/// </summary>
+		/// <param name="target"></param>
+		void removeCameraFix(const std::shared_ptr<ICameraFix>& fix);
 
 		/// <summary>
 		/// 地震開始

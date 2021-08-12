@@ -1,12 +1,11 @@
 #include "Camera.hpp"
 
-#include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
-#include <abyss/modules/Camera/CameraLimit/CameraLimitCtrl.hpp>
+#include <abyss/modules/Camera/CameraFix/CameraFixCtrl.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -18,7 +17,7 @@ namespace abyss
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
 		m_target(std::make_unique<CameraTargetCtrl>()),
-		m_limit(std::make_unique<CameraLimitCtrl>()),
+		m_fixCtrl(std::make_unique<CameraFixCtrl>()),
 		m_quake(std::make_unique<Quake>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}
@@ -38,10 +37,7 @@ namespace abyss
 		// カメラ座標調整
 		{
 			// カメラ座標を補正
-			Vec2 cameraPos = m_limit->apply(targetPos);
-			//Vec2 cameraPos = m_camera
-			//	->currentRoom()
-			//	.cameraBorderAdjusted(targetPos);
+			Vec2 cameraPos = m_fixCtrl->apply(targetPos);
 
 			// 地震適用
 			m_quake->update(dt);
@@ -62,6 +58,16 @@ namespace abyss
 	void Camera::addTarget(const std::shared_ptr<ICameraTarget>& target)
 	{
 		m_target->add(target);
+	}
+
+	void Camera::addCameraFix(const std::shared_ptr<ICameraFix>& fix)
+	{
+		m_fixCtrl->add(fix);
+	}
+
+	void Camera::removeCameraFix(const std::shared_ptr<ICameraFix>&fix)
+	{
+		m_fixCtrl->remove(fix);
 	}
 
 	Ref<QuakeModel> Camera::startQuake(double maxOffset, double timeSec)

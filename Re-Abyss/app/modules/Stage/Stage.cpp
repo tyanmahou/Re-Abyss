@@ -139,6 +139,7 @@ namespace abyss
         if (nextRoom) {
             roomManager->setRoom(*nextRoom);
         }
+        roomManager->init();
 
         // カメラの初期化
         auto camera = m_pManager->getModule<Camera>();
