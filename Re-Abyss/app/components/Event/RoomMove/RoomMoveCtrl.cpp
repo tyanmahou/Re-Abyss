@@ -1,6 +1,7 @@
 #include "RoomMoveCtrl.hpp"
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Camera/CameraFix/base/ICameraFix.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
@@ -9,6 +10,30 @@
 
 #include <abyss/utils/StopwatchEx/StopwatchEx.hpp>
 
+namespace
+{
+    using namespace abyss;
+
+    class CameraFix : public ICameraFix
+    {
+    public:
+        void setPos(const s3d::Vec2& pos)
+        {
+            m_pos = pos;
+        }
+        s3d::Vec2 apply([[maybe_unused]]const s3d::Vec2& target) const override
+        {
+            return m_pos;
+        }
+
+        CameraFixPriority priority() const override
+        {
+            return CameraFixPriority::RoomMove;
+        }
+    private:
+        s3d::Vec2 m_pos;
+    };
+}
 namespace abyss::Event::RoomMove
 {
     RoomMoveCtrl::RoomMoveCtrl(
@@ -43,12 +68,14 @@ namespace abyss::Event::RoomMove
     {
         StopwatchEx sw(true, m_pEvent->getModule<GlobalTime>()->clock());
 
+        auto cameraFix = std::make_shared<CameraFix>();
+        m_pEvent->getModule<Camera>()->addCameraFix(cameraFix);
         while (true) {
             auto elapsed = s3d::Min<double>(sw.ms(), m_animeMilliSec) / m_animeMilliSec;
             m_callback->onMoveUpdate(elapsed);
 
             // カメラの座標更新
-            m_pEvent->getModule<Camera>()->setPos(m_callback->calcCameraPos());
+            cameraFix->setPos(m_callback->calcCameraPos());
             // プレイヤーの座標更新
             m_pEvent->getModule<Actor::Player::PlayerManager>()->setPos(m_callback->calcPlayerPos());
 
@@ -57,6 +84,7 @@ namespace abyss::Event::RoomMove
             }
             co_yield{};
         }
+        m_pEvent->getModule<Camera>()->removeCameraFix(cameraFix);
         co_return;
     }
 }

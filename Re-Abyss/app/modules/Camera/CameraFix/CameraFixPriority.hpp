@@ -6,6 +6,6 @@ namespace abyss
     enum class CameraFixPriority : s3d::int32
     {
         Normal = 0,
-        MoveRoom = 1,
+        RoomMove = 1,
     };
 }

@@ -33,12 +33,6 @@ namespace abyss
 		void update(double dt);
 
 		/// <summary>
-		/// カメラ座標をセット
-		/// </summary>
-		/// <param name="cameraPos"></param>
-		void setPos(const s3d::Vec2& cameraPos) const;
-
-		/// <summary>
 		/// カメラ座標取得
 		/// </summary>
 		/// <returns></returns>
