@@ -6,6 +6,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
+#include <abyss/modules/Camera/CameraLimit/CameraLimitCtrl.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -17,6 +18,7 @@ namespace abyss
 	Camera::Camera():
 		m_camera(std::make_unique<CameraModel>()),
 		m_target(std::make_unique<CameraTargetCtrl>()),
+		m_limit(std::make_unique<CameraLimitCtrl>()),
 		m_quake(std::make_unique<Quake>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}
@@ -35,7 +37,8 @@ namespace abyss
 
 		// カメラ座標調整
 		{
-			Vec2 cameraPos = targetPos;
+			// カメラ座標を補正
+			Vec2 cameraPos = m_limit->apply(targetPos);
 			//Vec2 cameraPos = m_camera
 			//	->currentRoom()
 			//	.cameraBorderAdjusted(targetPos);
