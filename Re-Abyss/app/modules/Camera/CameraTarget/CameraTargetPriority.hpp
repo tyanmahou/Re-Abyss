@@ -3,13 +3,11 @@
 
 namespace abyss
 {
-    using CameraTargetPriorityType = s3d::int32;
-
-    namespace CameraTargetPriority
+    enum class CameraTargetPriority : s3d::int32
     {
-        inline constexpr CameraTargetPriorityType Lowest{ -999 };
-        inline constexpr CameraTargetPriorityType Normal{ 0 };
-        inline constexpr CameraTargetPriorityType Player{ 1 };
-        inline constexpr CameraTargetPriorityType Move{ 2 };
-    }
+        Lowest = -999,
+        Normal = 0,
+        Player = 1,
+        Move = 2,
+    };
 }

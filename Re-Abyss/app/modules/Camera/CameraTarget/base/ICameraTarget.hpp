@@ -9,7 +9,7 @@ namespace abyss
     public:
         virtual ~ICameraTarget() = default;
         virtual s3d::Vec2 targetPos() const = 0;
-        virtual CameraTargetPriorityType priority() const = 0;
+        virtual CameraTargetPriority priority() const = 0;
         virtual double interpRate() const = 0;
 
         virtual bool isActive() const = 0;

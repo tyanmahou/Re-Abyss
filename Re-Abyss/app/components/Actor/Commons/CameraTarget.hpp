@@ -12,7 +12,7 @@ namespace abyss::Actor
     {
         class Impl;
     public:
-        CameraTarget(ActorObj* pActor, CameraTargetPriorityType priority);
+        CameraTarget(ActorObj* pActor, CameraTargetPriority priority);
 
         void setup(Executer executer) override;
         void onStart() override;

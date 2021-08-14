@@ -7,13 +7,13 @@ namespace abyss
     {
     public:
         CameraTargetBase() = default;
-        CameraTargetBase(CameraTargetPriorityType priority):
+        CameraTargetBase(CameraTargetPriority priority):
             m_priority(priority)
         {}
 
         virtual s3d::Vec2 targetPos() const = 0;
 
-        CameraTargetPriorityType priority() const override
+        CameraTargetPriority priority() const override
         {
             return m_priority;
         }
@@ -42,7 +42,7 @@ namespace abyss
             return m_isEnd;
         }
     private:
-        CameraTargetPriorityType m_priority;
+        CameraTargetPriority m_priority;
         double m_interpRate = 1.0;
         bool m_isActive = true;
         bool m_isEnd = false;

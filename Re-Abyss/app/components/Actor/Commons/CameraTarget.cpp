@@ -8,7 +8,7 @@ namespace abyss::Actor
     class CameraTarget::Impl : public CameraTargetBase
     {
     public:
-        Impl(CameraTargetPriorityType priority):
+        Impl(CameraTargetPriority priority):
             CameraTargetBase(priority)
         {}
         s3d::Vec2 targetPos() const
@@ -22,7 +22,7 @@ namespace abyss::Actor
     private:
         Ref<ILocator> m_locator;
     };
-    CameraTarget::CameraTarget(ActorObj* pActor, CameraTargetPriorityType priority):
+    CameraTarget::CameraTarget(ActorObj* pActor, CameraTargetPriority priority):
         m_pActor(pActor),
         m_target(std::make_shared<Impl>(priority))
     {}
