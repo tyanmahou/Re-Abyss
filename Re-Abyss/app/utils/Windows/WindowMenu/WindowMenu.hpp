@@ -149,6 +149,11 @@ namespace abyss::Windows
         /// </summary>
         /// <returns></returns>
         explicit operator bool() const;
+
+        /// <summary>
+        /// リリース
+        /// </summary>
+        void release() const;
     private:
         std::shared_ptr<Impl> m_pImpl;
     };

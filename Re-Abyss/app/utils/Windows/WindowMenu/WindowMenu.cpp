@@ -192,6 +192,10 @@ namespace abyss::Windows
         {
             return Unicode::FromWString(m_name);
         }
+        void release() const
+        {
+            ::DeleteMenu(m_hParentMenu, m_wId, FALSE);
+        }
     private:
         std::shared_ptr<Impl> createItemRaw(const s3d::String& name)
         {
@@ -262,11 +266,7 @@ namespace abyss::Windows
         }
         ~Impl()
         {
-            for (auto wId : m_shareData.useWIds) {
-                g_status[wId] = MenuStatus{};
-            }
-            this->show(false);
-            ::DestroyMenu(m_hMenu);
+            this->release();
         }
         bool isShow() const
         {
@@ -283,6 +283,14 @@ namespace abyss::Windows
         MenuItem createItem(const s3d::String& name)
         {
             return MenuItem(std::make_shared<MenuItem::Impl>(name, &m_shareData, m_hMenu));
+        }
+        void release()
+        {
+            for (auto wId : m_shareData.useWIds) {
+                g_status[wId] = MenuStatus{};
+            }
+            this->show(false);
+            ::DestroyMenu(m_hMenu);
         }
     private:
         ShareData m_shareData;
@@ -373,5 +381,9 @@ namespace abyss::Windows
     MenuItem::operator bool() const
     {
         return static_cast<bool>(m_pImpl);
+    }
+    void MenuItem::release() const
+    {
+        return m_pImpl->release();
     }
 }

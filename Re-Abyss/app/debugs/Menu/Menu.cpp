@@ -2,8 +2,6 @@
 #include "Menu.hpp"
 #include <abyss/commons/Path.hpp>
 #include <Siv3D.hpp>
-
-#include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 namespace
 {
     using namespace abyss;
@@ -64,16 +62,16 @@ namespace abyss::Debug
         void init()
         {
             auto& mainMenu = Windows::WindowMenu::Main();
-            auto debugMenu = mainMenu.createItem(U"デバッグ(&D)");
+            m_debugRoot = mainMenu.createItem(U"デバッグ(&D)");
 
             JSONReader json(MenuPath);
             std::stack<String> flagNamePath;
 
             // パース
-            ::ParseList(debugMenu, json.objectView(), flagNamePath, m_debugFlag);
+            ::ParseList(m_debugRoot, json.objectView(), flagNamePath, m_debugFlag);
 
             {
-                auto menu = debugMenu.createItem(U"FPS");
+                auto menu = m_debugRoot.createItem(U"FPS");
                 auto list = menu.createRadioButton({U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120"}, [](size_t index) {
                     switch (index) {
                     case 0:
@@ -102,8 +100,13 @@ namespace abyss::Debug
         {
             return m_debugFlag[label];
         }
+        Windows::MenuItem debugRoot()
+        {
+            return m_debugRoot;
+        }
     private:
         s3d::HashTable<String, bool> m_debugFlag;
+        Windows::MenuItem m_debugRoot;
     };
     Menu::Menu():
         m_pImpl(std::make_unique<Impl>())
@@ -115,6 +118,10 @@ namespace abyss::Debug
     bool Menu::IsDebug(const String& label)
     {
         return Instance()->m_pImpl->isDebug(label);
+    }
+    Windows::MenuItem Menu::DebugRoot()
+    {
+        return Instance()->m_pImpl->debugRoot();
     }
 }
 #endif
