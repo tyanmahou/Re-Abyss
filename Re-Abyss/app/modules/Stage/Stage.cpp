@@ -260,8 +260,8 @@ namespace abyss
         }
 
         // Sound
+        auto sound = m_pManager->getModule<Sound>();
         {
-            auto sound = m_pManager->getModule<Sound>();
             if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
                 sound->play(*bgm);
             }
