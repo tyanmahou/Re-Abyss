@@ -40,5 +40,10 @@
 				"isChecked": true
 		    }
 	    }
+	},
+	"FPS" : {
+	    "label": "FPS",
+		"kind": "custom",
+	    "func": "ExecFPS"
 	}
 }

@@ -7,6 +7,44 @@ namespace
     using namespace abyss;
     using namespace abyss::Debug;
 
+    void ExecFPS(Windows::MenuItem& menu)
+    {
+        menu.createRadioButton({ U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120" }, [](size_t index) {
+            switch (index) {
+            case 0:
+                Graphics::SetTargetFrameRateHz(s3d::none);
+                break;
+            case 1:
+                Graphics::SetTargetFrameRateHz(10);
+                break;
+            case 2:
+                Graphics::SetTargetFrameRateHz(30);
+                break;
+            case 3:
+                Graphics::SetTargetFrameRateHz(60);
+                break;
+            case 4:
+                Graphics::SetTargetFrameRateHz(120);
+                break;
+            default:
+                break;
+            }
+        }, 0);
+    }
+
+    void ParseCustom(
+        Windows::MenuItem& menu,
+        const String& funcName
+    ) {
+        static const std::unordered_map<s3d::String, std::function<void(Windows::MenuItem&)>> funcMap
+        {
+            {U"ExecFPS", ExecFPS}
+        };
+        if (funcMap.find(funcName) == funcMap.end()) {
+            return;
+        }
+        funcMap.at(funcName)(menu);
+    }
     void ParseCheckButton(
         Windows::MenuItem& menu,
         const String& label,
@@ -44,6 +82,10 @@ namespace
                 auto label = obj[U"label"].getOr<String>(name);
                 auto nextMenu = menu.createItem(label);
                 ParseList(nextMenu, obj[U"list"].objectView(), flagNamePath, flags);
+            } else if (kind == U"custom") {
+                auto label = obj[U"label"].getOr<String>(name);
+                auto nextMenu = menu.createItem(label);
+                ParseCustom(nextMenu, obj[U"func"].getOr<String>(U""));
             }
             flagNamePath.pop();
         }
@@ -63,37 +105,13 @@ namespace abyss::Debug
         {
             auto& mainMenu = Windows::WindowMenu::Main();
             m_debugRoot = mainMenu.createItem(U"デバッグ(&D)");
-
+            
             JSONReader json(MenuPath);
             std::stack<String> flagNamePath;
 
             // パース
             ::ParseList(m_debugRoot, json.objectView(), flagNamePath, m_debugFlag);
 
-            {
-                auto menu = m_debugRoot.createItem(U"FPS");
-                auto list = menu.createRadioButton({U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120"}, [](size_t index) {
-                    switch (index) {
-                    case 0:
-                        Graphics::SetTargetFrameRateHz(s3d::none);
-                        break;
-                    case 1:
-                        Graphics::SetTargetFrameRateHz(10);
-                        break;
-                    case 2:
-                        Graphics::SetTargetFrameRateHz(30);
-                        break;
-                    case 3:
-                        Graphics::SetTargetFrameRateHz(60);
-                        break;
-                    case 4:
-                        Graphics::SetTargetFrameRateHz(120);
-                        break;
-                    default:
-                        break;
-                    }
-                }, 0);
-            }
             mainMenu.show(true);
         }
         bool isDebug(const String& label)
