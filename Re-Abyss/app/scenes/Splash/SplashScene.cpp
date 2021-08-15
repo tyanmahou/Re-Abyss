@@ -32,8 +32,16 @@ namespace abyss
         void loading()
         {
             // 最初にToml全部ロード
-            Resource::Preload::LoadTomlAll();
-            Resource::Assets::Main()->release();
+            if (auto* assets = Resource::Assets::Main()) {
+#if ABYSS_DEBUG
+                assets->setWarnMode(false);
+#endif
+                Resource::Preload::LoadTomlAll(assets);
+                assets->release();
+#if ABYSS_DEBUG
+                assets->setWarnMode(true);
+#endif
+            }
 
             Resource::Preload::Preloader preloader(U"@Cycle/Splash");
             preloader.preload();

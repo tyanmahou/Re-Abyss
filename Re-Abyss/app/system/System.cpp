@@ -32,11 +32,6 @@ namespace abyss::Sys
         }
 
         timer->update();
-        // バッファクリア
-        if constexpr(config.isStage) {
-            mod<Light>()->clear();
-            mod<Distortion>()->clear();
-        }
 
         // フラッシュ
         if constexpr (config.isStage) {
@@ -122,6 +117,10 @@ namespace abyss::Sys
 
         // バッファクリア
         drawer->clear();
+        if constexpr (config.isStage) {
+            mod<Light>()->clear();
+            mod<Distortion>()->clear();
+        }
 
         if constexpr (config.isStage) {
             // Actor Draw
