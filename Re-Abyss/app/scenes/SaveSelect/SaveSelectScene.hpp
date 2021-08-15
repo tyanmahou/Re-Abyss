@@ -1,5 +1,5 @@
 #pragma once
-#include "../base/ISceneBase.hpp"
+#include <abyss/scenes/base/ISceneBase.hpp>
 
 namespace abyss
 {

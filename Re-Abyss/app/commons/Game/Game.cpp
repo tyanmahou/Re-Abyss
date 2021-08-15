@@ -11,6 +11,7 @@
 
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace abyss
 {
@@ -46,6 +47,9 @@ namespace abyss
 			this->loadFont();
 
 			Resource::UserData::Migration::Update();
+#if ABYSS_DEBUG
+			Debug::Menu::BindScene(&m_scene);
+#endif
 		}
 
 		bool update()

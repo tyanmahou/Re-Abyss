@@ -3,6 +3,8 @@
 #if ABYSS_DEBUG
 #include <memory>
 #include <Siv3D/StringView.hpp>
+
+#include <abyss/scenes/base/ISceneBase.hpp>
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 #include "DebugFlag.hpp"
@@ -20,6 +22,8 @@ namespace abyss::Debug
     public:
         static void Init();
         static bool IsDebug(const s3d::String& label);
+
+        static void BindScene(AppScene* pScene);
 
         static Windows::MenuItem DebugRoot();
     };

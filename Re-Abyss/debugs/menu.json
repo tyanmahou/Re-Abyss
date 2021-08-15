@@ -1,4 +1,9 @@
 {
+	"Scene" : {
+	    "label": "シーン",
+		"kind": "custom",
+	    "func": "execScene"
+	},
 	"Log" : {
 	    "label": "ログ",
 		"kind": "popup",
@@ -44,6 +49,6 @@
 	"FPS" : {
 	    "label": "FPS",
 		"kind": "custom",
-	    "func": "ExecFPS"
+	    "func": "execFPS"
 	}
 }
