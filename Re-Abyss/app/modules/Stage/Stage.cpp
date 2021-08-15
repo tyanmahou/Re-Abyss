@@ -122,45 +122,48 @@ namespace abyss
     }
     bool Stage::init() const
     {
-        bool result = true;
-
         auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
         s3d::Optional<RoomModel> nextRoom = this->findRoom(playerManager->getPos());
         if (!nextRoom) {
             return false;
         }
+
+        // Room初期化
+        {
+            auto roomManager = m_pManager->getModule<RoomManager>();
+            roomManager->setRoom(*nextRoom);
+            roomManager->init();
+        }
+
         // World初期化
         {
             auto world = m_pManager->getModule<World>();
-            if (nextRoom) {
-                result &= this->initRoom(*world, *nextRoom, BuildTiming::All);
-            } else {
-                result = false;
+            if (!this->initWorld(*world, *nextRoom, BuildTiming::All)) {
+                return false;
             }
         }
-        auto roomManager = m_pManager->getModule<RoomManager>();
-        if (nextRoom) {
-            roomManager->setRoom(*nextRoom);
-        }
-        roomManager->init();
 
         // カメラの初期化
-        auto camera = m_pManager->getModule<Camera>();
-        camera->update(0);
-        // 背景の初期化
-        auto backGround = m_pManager->getModule<BackGround>();
         {
-            result &= this->initBackGround(*backGround);
-
+            auto camera = m_pManager->getModule<Camera>();
+            camera->update(0);
         }
+
+        // 背景の初期化
+        {
+            auto backGround = m_pManager->getModule<BackGround>();
+            if (!this->initBackGround(*backGround)) {
+                return false;
+            }
+        }
+
         // 装飾の初期化
         {
             auto decor = m_pManager->getModule<Decors>();
             decor->setGraphics(std::make_shared<DecorGraphics>(m_stageData->getDecorService()));
-            if (nextRoom) {
-                result &= this->initDecor(*decor, *nextRoom);
-            } else {
-                result = false;
+
+            if (!this->initDecor(*decor, *nextRoom)) {
+                return false;
             }
         }
 
@@ -173,24 +176,25 @@ namespace abyss
             light->initColor(nextRoom->getLightColor());
         }
 
-        auto temporary = m_pManager->getModule<Temporary>();
-        auto sound = m_pManager->getModule<Sound>();
         // サウンド初期化
-        if (nextRoom) {
-            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
+        {
+            auto temporary = m_pManager->getModule<Temporary>();
+            auto sound = m_pManager->getModule<Sound>();
+            if (auto&& bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
                 sound->play(*bgm);
             } else if (auto&& restartBgm = temporary->getRestartBgm()) {
                 sound->play(*restartBgm);
             }
+
+            // 初期情報をリスタート情報として残す
+            temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmPath());
         }
-        // 初期情報をリスタート情報として残す
-        temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmPath());
 
         // UI初期化
         {
             m_pManager->getModule<UIs>()->flush();
         }
-        return result;
+        return true;
     }
 
     bool Stage::checkOut() const
@@ -199,15 +203,17 @@ namespace abyss
         m_pManager->getModule<Temporary>()->clearFlag(TempLevel::Room);
 
         auto roomManager = m_pManager->getModule<RoomManager>();
-        bool result = true;
+        const auto& nextRoom = roomManager->nextRoom();
+        if (!nextRoom) {
+            return false;
+        }
+
         // World CheckOut
         {
             auto world = m_pManager->getModule<World>();
             world->onCheckOut();
-            if (const auto& nextRoom = roomManager->nextRoom()) {
-                result &= this->initRoom(*world, *nextRoom, BuildTiming::CheckOut);
-            } else {
-                result = false;
+            if (!this->initWorld(*world, *nextRoom, BuildTiming::CheckOut)) {
+                return false;
             }
         }
 
@@ -216,18 +222,19 @@ namespace abyss
         {
             auto decor = m_pManager->getModule<Decors>();
             decor->onCheckOut();
-            if (const auto& nextRoom = roomManager->nextRoom()) {
-                result &= this->initDecor(*decor, *nextRoom);
-            } else {
-                result = false;
+            if (!this->initDecor(*decor, *nextRoom)) {
+                return false;
             }
         }
+
         // サウンドが変わる場合は停止
-        auto sound = m_pManager->getModule<Sound>();
-        if (auto bgm = ::NextBgm(*roomManager->nextRoom(), m_stageData->getGimmicks()); bgm && *bgm != sound->currentBgmPath()) {
-            sound->stop();
+        {
+            auto sound = m_pManager->getModule<Sound>();
+            if (auto bgm = ::NextBgm(*roomManager->nextRoom(), m_stageData->getGimmicks());bgm && *bgm != sound->currentBgmPath()) {
+                sound->stop();
+            }
         }
-        return result;
+        return true;
     }
 
     bool Stage::checkIn() const
@@ -237,27 +244,38 @@ namespace abyss
             auto decor = m_pManager->getModule<Decors>();
             decor->onCheckIn();
         }
+
         // World CheckIn
         auto world = m_pManager->getModule<World>();
-        world->onCheckIn();
+        {
+            world->onCheckIn();
+        }
 
         auto roomManager = m_pManager->getModule<RoomManager>();
         const auto& room = roomManager->currentRoom();
 
         // Light
-        m_pManager->getModule<Light>()->setNextColor(room.getLightColor());
+        {
+            m_pManager->getModule<Light>()->setNextColor(room.getLightColor());
+        }
 
         // Sound
-        auto sound = m_pManager->getModule<Sound>();
-        if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
-            sound->play(*bgm);
+        {
+            auto sound = m_pManager->getModule<Sound>();
+            if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
+                sound->play(*bgm);
+            }
         }
+
         // セーブ予約があった場合はリスタート地点の保存をする
-        auto temporary = m_pManager->getModule<Temporary>();
-        if (auto reservedRestartId = temporary->popReservedRestartId()) {
-            temporary->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
+        {
+            auto temporary = m_pManager->getModule<Temporary>();
+            if (auto reservedRestartId = temporary->popReservedRestartId()) {
+                temporary->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
+            }
         }
-        return this->initRoom(*world, room, BuildTiming::CheckIn);
+
+        return this->initWorld(*world, room, BuildTiming::CheckIn);
     }
 
     bool Stage::initDecor(Decors& decor, const RoomModel& nextRoom) const
@@ -290,7 +308,7 @@ namespace abyss
         decor.flush();
         return true;
     }
-    bool Stage::initRoom(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const
+    bool Stage::initWorld(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const
     {
         if (!m_stageData) {
             return false;

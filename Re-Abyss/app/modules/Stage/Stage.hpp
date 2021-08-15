@@ -28,7 +28,7 @@ namespace abyss
 
 		bool initBackGround(BackGround& backGround) const;
 		bool initDecor(Decors& decor, const RoomModel& nextRoom) const;
-		bool initRoom(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const;
+		bool initWorld(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const;
 
 	public:
 		Stage();
