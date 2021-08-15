@@ -124,12 +124,15 @@ namespace abyss
     {
         bool result = true;
 
-        s3d::Optional<RoomModel> nextRoom;
+        auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
+        s3d::Optional<RoomModel> nextRoom = this->findRoom(playerManager->getPos());
+        if (!nextRoom) {
+            return false;
+        }
         // World初期化
         {
-            auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
             auto world = m_pManager->getModule<World>();
-            if (nextRoom = this->findRoom(playerManager->getPos())) {
+            if (nextRoom) {
                 result &= this->initRoom(*world, *nextRoom, BuildTiming::All);
             } else {
                 result = false;
