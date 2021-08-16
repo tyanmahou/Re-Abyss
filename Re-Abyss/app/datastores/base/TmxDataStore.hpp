@@ -9,12 +9,12 @@ namespace abyss
         s3dTiled::TiledMap m_tmx;
     public:
         INJECT_CTOR(TmxDataStore(const std::shared_ptr<s3dTiled::TiledMap>& mapData));
-        TmxDataStore(const s3d::String& mapName);
+        TmxDataStore(const s3d::String& mapPath);
     };
 
     struct TiledMapInstaller final : emaject::IInstaller
     {
-        TiledMapInstaller(const s3d::String& mapName);
+        TiledMapInstaller(const s3d::String& mapPath);
         void onBinding(emaject::Container* conatienr) const override;
 
     private:

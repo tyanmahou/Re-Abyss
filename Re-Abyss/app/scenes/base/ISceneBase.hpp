@@ -8,6 +8,7 @@
 namespace abyss
 {
     using SceneContext = std::variant<
+        s3d::None_t,
         MainSceneContext
     >;
 
@@ -16,7 +17,7 @@ namespace abyss
     /// </summary>
     struct GameData
     {
-        SceneContext context;
+        SceneContext context{s3d::none};
         String fromScene;
         String toScene;
     };

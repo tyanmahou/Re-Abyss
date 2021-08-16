@@ -22,7 +22,7 @@ namespace abyss
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
 
-		String mapName;
+		MainSceneContext m_context;
 
 		std::shared_ptr<Data_t> m_data;
 
@@ -31,7 +31,11 @@ namespace abyss
 			m_tempData(std::make_shared<TemporaryData>()),
 			m_data(init._s)
 		{
-			mapName = U"stage0";
+			if (std::holds_alternative<MainSceneContext>(m_data->context)) {
+				m_context = std::get<MainSceneContext>(m_data->context);
+			} else {
+				m_context.mapPath = Path::MapPath + U"stage0.tmx";
+			}
 		}
 
 		Coro::Generator<double> loading()
@@ -65,7 +69,7 @@ namespace abyss
 					.lock();
 			}
 			m_system = std::make_unique<System>();
-			auto injector = Factory::Main::Injector(mapName);
+			auto injector = Factory::Main::Injector(m_context.mapPath);
 			m_stageData = injector.resolve<StageData>();
 
 			auto booter = std::make_unique<Sys::Main::BooterNormal>(this);

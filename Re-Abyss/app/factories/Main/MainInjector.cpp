@@ -22,12 +22,12 @@
 
 namespace abyss::Factory::Main
 {
-    emaject::Injector Injector(const s3d::String& mapName)
+    emaject::Injector Injector(const s3d::String& mapPath)
     {
         emaject::Injector injector;
         injector
             // other
-            .install<TiledMapInstaller>(mapName)
+            .install<TiledMapInstaller>(mapPath)
             // datastore
             .install<Actor::Enemy::TmxEnemyDataStoreInataller>()
             .install<Actor::Gimmick::TmxGimmickDataStoreInataller>()
