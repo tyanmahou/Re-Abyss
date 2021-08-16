@@ -3,6 +3,7 @@
 #include <abyss/commons/Path.hpp>
 #include <Siv3D.hpp>
 
+#include <abyss/debugs/Log/Log.hpp>
 namespace abyss::Debug
 {
     class Menu::Impl
@@ -63,18 +64,49 @@ namespace abyss::Debug
                 }
             }, 0);
         }
+
+        void createSceneChangeButton(Windows::MenuItem& m, const s3d::String& key, std::function<void(GameData*)> callback = nullptr)
+        {
+            this->createSceneChangeButton(m, key, key, callback);
+        }
+
+        void createSceneChangeButton(Windows::MenuItem& m, const s3d::String& key, const s3d::String& label, std::function<void(GameData*)> callback = nullptr)
+        {
+            m.createButton(label, [this, key, callback] {
+                if (m_pScene) {
+                    if (callback) {
+                        callback(m_pScene->get().get());
+                    }
+                    m_pScene->changeScene(key, 1000, false);
+                }
+            });
+        }
         void execScene(Windows::MenuItem& menu)
         {
-            auto buildChangeScene = [&](const s3d::String& key){
-                menu.createButton(key, [this, key]{
-                    if (m_pScene) {
-                        m_pScene->changeScene(key, 1000, false);
+            createSceneChangeButton(menu, SceneName::Splash);
+            createSceneChangeButton(menu, SceneName::Title);
+            createSceneChangeButton(menu, SceneName::SaveSelect);
+            // マップロード
+            {
+                auto child = menu.createItem(SceneName::Main);
+                auto chaneMap = [&](const s3d::FilePath& basePath) {
+                    for (auto&& path : s3d::FileSystem::DirectoryContents(basePath)) {
+                        if (s3d::FileSystem::Extension(path) != U"tmx") {
+                            continue;
+                        }
+                        MainSceneContext context{
+                            .mapPath = s3d::FileSystem::RelativePath(path)
+                        };
+                        auto name = s3d::FileSystem::RelativePath(path, basePath);
+                        createSceneChangeButton(child, SceneName::Main, name, [context](GameData* data) {
+                            data->context = context;
+                        });
                     }
-                }); 
-            };
-            buildChangeScene(SceneName::Splash);
-            buildChangeScene(SceneName::Title);
-            buildChangeScene(SceneName::SaveSelect);
+                };
+                chaneMap(Path::MapPath);
+                child.createSeperator();
+                chaneMap(Path::TestMapPath);
+            }
         }
         void parseCustom(
             Windows::MenuItem& menu,

@@ -5,10 +5,18 @@
  <tileset firstgid="51" source="../../../../resources/maps/tileset/enemys.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
-  <objectgroup id="7" name="back"/>
+  <objectgroup id="7" name="back">
+   <properties>
+    <property name="layer" value="decor_front"/>
+   </properties>
+  </objectgroup>
  </group>
  <objectgroup id="10" name="room">
-  <object id="1" type="room" x="0" y="0" width="1120" height="640"/>
+  <object id="1" type="room" x="0" y="0" width="1120" height="640">
+   <properties>
+    <property name="light_color" type="color" value=""/>
+   </properties>
+  </object>
  </objectgroup>
  <layer id="2" name="map" width="100" height="100">
   <data encoding="csv">
