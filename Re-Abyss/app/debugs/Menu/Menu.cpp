@@ -82,8 +82,8 @@ namespace abyss::Debug
         ) {
             static const std::unordered_map<s3d::String, decltype(&Impl::execFPS)> funcMap
             {
-                {U"execFPS", &Impl::execFPS},
-                { U"execScene",& Impl::execScene }
+                { U"execFPS", &Impl::execFPS},
+                { U"execScene", &Impl::execScene },
             };
             if (funcMap.find(funcName) == funcMap.end()) {
                 return;
