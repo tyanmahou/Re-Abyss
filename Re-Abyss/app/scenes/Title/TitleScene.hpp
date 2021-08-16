@@ -14,7 +14,5 @@ namespace abyss
 		TitleScene(const InitData& init);
 		void onSceneUpdate() override;
 		void onSceneDraw() const override;
-
-		void finally() override;
 	};
 }

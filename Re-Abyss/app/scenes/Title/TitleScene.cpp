@@ -103,7 +103,4 @@ namespace abyss
     {
         m_pImpl->draw();
     }
-    void TitleScene::finally()
-    {
-    }
 }

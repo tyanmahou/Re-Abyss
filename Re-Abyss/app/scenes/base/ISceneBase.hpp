@@ -3,15 +3,22 @@
 #include <abyss/debugs/HotReload/HotReload.hpp>
 #include <abyss/commons/Loading/Loading.hpp>
 
+#include <abyss/scenes/Main/MainSceneContext.hpp>
+
 namespace abyss
 {
+    using SceneContext = std::variant<
+        MainSceneContext
+    >;
+
     /// <summary>
     /// game shared data
     /// </summary>
     struct GameData
     {
-        String m_fromScene;
-        String m_toScene;
+        SceneContext context;
+        String fromScene;
+        String toScene;
     };
 
     using AppScene = SceneManager<String, GameData>;
@@ -22,13 +29,10 @@ namespace abyss
         virtual void onSceneUpdate() = 0;
         virtual void onSceneDraw()const = 0;
 
-        virtual void finally() {}
-
         void changeScene(const String& state, int transitionTimeMillisec = 1000, bool crossFade = false)
         {
-            this->getData().m_fromScene = std::move(this->getData().m_toScene);
-            this->getData().m_toScene = state;
-            this->finally();
+            this->getData().fromScene = this->getState();
+            this->getData().toScene = state;
             this->AppScene::Scene::changeScene(state, transitionTimeMillisec, crossFade);
         }
     public:
