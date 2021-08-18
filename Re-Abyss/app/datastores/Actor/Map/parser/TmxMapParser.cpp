@@ -1,6 +1,5 @@
 #include "TmxMapParser.hpp"
 #include <Siv3D.hpp>
-#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::Actor::Map
 {
@@ -123,17 +122,6 @@ namespace abyss::Actor::Map
             }
             return;
         }
-
-        int lc = 0;
-        for (auto&& [y, row] : m_entityGrid) {
-            for (auto&& [x, entity] : row) {
-                if (!entity) {
-                    continue;
-                }
-                ++lc;
-            }
-        }
-        Debug::Log::PrintCache << lc;
         // マージされたマップ
         s3d::Array<MergeParam> mergedMapsX;
         // マージしていいか
@@ -199,8 +187,6 @@ namespace abyss::Actor::Map
                 }
             }
         }
-        Debug::Log::PrintCache << mergedMapsX.size();
-
         // 縦にマージ
         s3d::Array<MergeParam> mergedMapsY;
         {
@@ -240,8 +226,6 @@ namespace abyss::Actor::Map
                 }
             }
         }
-        Debug::Log::PrintCache << mergedMapsY.size();
-
         for (auto&& map : mergedMapsY) {
             callback(map.entity);
         }
