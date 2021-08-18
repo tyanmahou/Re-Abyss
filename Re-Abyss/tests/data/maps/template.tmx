@@ -7,12 +7,7 @@
   <objectgroup id="7" name="back"/>
  </group>
  <objectgroup id="10" name="room">
-  <object id="1" type="room" x="0" y="0" width="1120" height="640">
-   <properties>
-    <property name="down" type="bool" value="false"/>
-    <property name="light_color" type="color" value=""/>
-   </properties>
-  </object>
+  <object id="1" type="room" x="0" y="0" width="1120" height="640"/>
  </objectgroup>
  <layer id="2" name="map" width="100" height="100">
   <data encoding="csv">

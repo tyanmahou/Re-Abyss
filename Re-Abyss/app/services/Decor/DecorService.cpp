@@ -25,7 +25,7 @@ namespace abyss::Decor
                 for (int32 y = chunk.indexBegin(); y < chunk.indexEnd(); ++y) {
                     const auto& row = chunk[y];
                     for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
-                        auto gId = chunk[y][x];
+                        auto gId = row[x];
                         if (gId == 0) {
                             continue;
                         }
@@ -67,8 +67,8 @@ namespace abyss::Decor
             yStart = static_cast<int32>(Max(yStart, static_cast<int32>(screen.y / tileSize.y)));
 
             auto [xEnd, yEnd] = tileMap.endIndex();
-            xEnd = Min<int32>(xEnd, xStart + static_cast<uint32>(screen.w / tileSize.x));
-            yEnd = Min<int32>(yEnd, yStart + static_cast<uint32>(screen.h / tileSize.y));
+            xEnd = Min<int32>(xEnd, xStart + static_cast<int32>(screen.w / tileSize.x));
+            yEnd = Min<int32>(yEnd, yStart + static_cast<int32>(screen.h / tileSize.y));
 
             Map::TileMapModel model;
             model
@@ -77,9 +77,9 @@ namespace abyss::Decor
                 .setTileSize(tileSize)
                 .setFirstGId(tileMap.getFirstGId());
 
-            for (uint32 y = yStart; y <= yEnd; ++y) {
-                for (uint32 x = xStart; x <= xEnd; ++x) {
-                    uint32 gId = tileMap[y][x];
+            for (int32 y = yStart; y <= yEnd; ++y) {
+                for (int32 x = xStart; x <= xEnd; ++x) {
+                    int32 gId = tileMap[y][x];
                     model[y][x] = gId;
                 }
             }

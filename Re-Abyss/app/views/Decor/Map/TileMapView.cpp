@@ -3,7 +3,6 @@
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
-
 namespace abyss::Decor::Map
 {
     TileMapView::TileMapView(const TileMapModel& tileMap):
@@ -18,7 +17,7 @@ namespace abyss::Decor::Map
         bool isFind = false;
         for (int32 y = grid.indexBegin(); y < grid.indexEnd(); ++y) {
             const auto& row = grid[y];
-            for (int32 x = row.indexBegin(); x < grid.indexEnd(); ++x) {
+            for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
                 auto gId = row[x];
                 if (gId == 0) {
                     isFind = false;
@@ -38,6 +37,7 @@ namespace abyss::Decor::Map
             // 描画するものがない
             return;
         }
+
         Image image(m_tileMap.size());
         image.fill(ColorF(0, 0));
         const auto& grid = m_tileMap.gIds();
@@ -54,10 +54,10 @@ namespace abyss::Decor::Map
                         return;
                     }
                     if (firstGId <= gId) {
-                        image[y - startIndex.y][x - startIndex.x] = Color(decor.getAnimGId(gId, time) - firstGId, 0, 0);
+                        image[static_cast<size_t>(y - startIndex.y)][static_cast<size_t>(x - startIndex.x)] = Color(decor.getAnimGId(gId, time) - firstGId, 0, 0);
                     }
                 }
-                x = 0;
+                x = startIndex.x;
             }
         };
         for (auto& indexPoint : m_indexPoints) {

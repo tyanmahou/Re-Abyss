@@ -48,7 +48,7 @@ namespace abyss::Actor::Map
 				for (auto&& [yBase, grid] : column) {
 					for (int32 y = 0; y < grid.height(); ++y) {
 						for (int32 x = 0; x < grid.width(); ++x) {
-							a[yBase * chunkSize.y + y][xBase * chunkSize.x] = grid[y][x];
+							a[yBase * chunkSize.y + y][xBase * chunkSize.x + x] = grid[y][x];
 						}
 					}
 				}

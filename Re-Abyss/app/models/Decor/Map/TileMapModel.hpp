@@ -59,18 +59,23 @@ namespace abyss::Decor::Map
         void calcSize()
         {
             m_startIndex = m_endIndex = s3d::Size{ 0, 0 };
+            bool isFirst = true;
+
             for (auto&& [y, row] : m_gIds) {
                 for (auto&& [x, id] : row) {
-                    if (x < m_startIndex.x) {
+                    if (isFirst || x < m_startIndex.x) {
                         m_startIndex.x = x;
-                    } else if (x > m_endIndex.x) {
-                        m_endIndex.x = x;
                     }
-                    if (y < m_startIndex.y) {
+                    if (isFirst || x + 1 > m_endIndex.x) {
+                        m_endIndex.x = x + 1;
+                    }
+                    if (isFirst || y < m_startIndex.y) {
                         m_startIndex.y = y;
-                    } else if (y> m_endIndex.y) {
-                        m_endIndex.y = y;
                     }
+                    if (isFirst || y + 1 > m_endIndex.y) {
+                        m_endIndex.y = y + 1;
+                    }
+                    isFirst = false;
                 }
             }
         }
