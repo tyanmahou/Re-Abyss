@@ -271,11 +271,11 @@ namespace abyss::Actor::Player
             this->drawStateLadderAtk();
             return;
         }
-        m_texture(U"ladder")({ 40 * (static_cast<int32>(m_pos.y / 16) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder")({ 40 * (static_cast<int32>(s3d::Abs(s3d::Floor(m_pos.y / 16))) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderAtk() const
     {
-        auto page = static_cast<int32>(m_pos.y / 16) % 2;
+        auto page = static_cast<int32>(s3d::Abs(s3d::Floor(m_pos.y / 16))) % 2;
         bool isRight = m_forward == Forward::Right;
         auto drawer = [this, page, isRight]() {
             
