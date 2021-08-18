@@ -22,7 +22,7 @@ namespace abyss::Env
         Graphics2D::SetTexture(1, m_texture2);
         ScopedRenderStates2D blend(BlendState::Additive, SamplerState::MirrorNearest);
         auto shader = m_skyShader.start();
-        auto offset = Vec2{ 0, -pos.y / 20.0 };
+        auto offset = Vec2{ 0, s3d::Min(0.0, -pos.y / 20.0) };
         m_texture.draw(pos + offset, Arg::top(ColorF(1, 1)), Arg::bottom(ColorF(1, 0)));
     }
 
