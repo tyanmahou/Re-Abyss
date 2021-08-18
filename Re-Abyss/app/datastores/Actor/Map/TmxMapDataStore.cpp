@@ -17,7 +17,7 @@ namespace abyss::Actor::Map
 		}
 
 		TmxParseUtil::ParseForGroup(*layer, [&](const TileLayer& layer) {
-			TmxMapParser parser(m_tmx, layer.getGrid(), isMerge);
+			TmxMapParser parser(m_tmx, layer.getChunk(), isMerge);
 			parser.forEach([&](const MapEntity& info) {
 				ret.push_back(std::make_shared<MapEntity>(info));
 			});
@@ -31,16 +31,29 @@ namespace abyss::Actor::Map
 		return s3d::Vec2(m_tmx.getTileSize());
 	}
 
-	s3d::Array<s3d::Grid<s3d::uint32>> TmxMapDataStore::selectRawGrid() const
+	s3d::Array<ChunkGrid<s3d::uint32>> TmxMapDataStore::selectRawGrid() const
 	{
-		s3d::Array<s3d::Grid<s3d::uint32>> ret;
+		s3d::Array<ChunkGrid<s3d::uint32>> ret;
 		auto layer = m_tmx.getLayer(U"map");
 		if (!layer) {
 			return ret;
 		}
-
 		TmxParseUtil::ParseForGroup(*layer, [&](const TileLayer& layer) {
-			ret.push_back(layer.getGrid());
+			ChunkGrid<s3d::uint32> a;
+
+			const auto& chunk = layer.getChunk();
+			const auto& chunkSize = chunk.chunkSize();
+
+			for (auto&& [xBase, column] : chunk) {
+				for (auto&& [yBase, grid] : column) {
+					for (int32 y = 0; y < grid.height(); ++y) {
+						for (int32 x = 0; x < grid.width(); ++x) {
+							a[yBase * chunkSize.y + y][xBase * chunkSize.x] = grid[y][x];
+						}
+					}
+				}
+			}
+			ret.push_back(std::move(a));
 		});
 
 		return ret;

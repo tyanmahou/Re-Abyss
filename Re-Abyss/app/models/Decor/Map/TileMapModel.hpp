@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Grid.hpp>
+#include <abyss/utils/Chunk/Chunk.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -44,30 +44,52 @@ namespace abyss::Decor::Map
         {
             return m_firstGId;
         }
-        void resize(size_t x, size_t y)
+        const s3d::Size& startIndex() const
         {
-            m_gIds.resize(x, y);
+            return m_startIndex;
+        }
+        const s3d::Size& endIndex() const
+        {
+            return m_endIndex;
         }
         s3d::Size size() const
         {
-            return m_gIds.size();
+            return m_endIndex - m_startIndex;
+        }
+        void calcSize()
+        {
+            m_startIndex = m_endIndex = s3d::Size{ 0, 0 };
+            for (auto&& [y, row] : m_gIds) {
+                for (auto&& [x, id] : row) {
+                    if (x < m_startIndex.x) {
+                        m_startIndex.x = x;
+                    } else if (x > m_endIndex.x) {
+                        m_endIndex.x = x;
+                    }
+                    if (y < m_startIndex.y) {
+                        m_startIndex.y = y;
+                    } else if (y> m_endIndex.y) {
+                        m_endIndex.y = y;
+                    }
+                }
+            }
         }
         bool isEmpty() const
         {
             return m_gIds.isEmpty();
         }
 
-        decltype(auto) operator[](size_t y)
+        decltype(auto) operator[](s3d::int32 y)
         {
             return m_gIds[y];
         }
 
-        decltype(auto) operator[](size_t y) const
+        decltype(auto) operator[](s3d::int32 y) const
         {
             return m_gIds[y];
         }
 
-        const s3d::Grid<s3d::uint32>& gIds()const
+        const ChunkGrid<s3d::uint32>& gIds()const
         {
             return m_gIds;
         }
@@ -76,6 +98,8 @@ namespace abyss::Decor::Map
         s3d::String m_filePath;
         s3d::Vec2 m_tileSize;
         s3d::uint32 m_firstGId;
-        s3d::Grid<s3d::uint32> m_gIds;
+        ChunkGrid<s3d::uint32> m_gIds;
+        s3d::Size m_startIndex;
+        s3d::Size m_endIndex;
     };
 }

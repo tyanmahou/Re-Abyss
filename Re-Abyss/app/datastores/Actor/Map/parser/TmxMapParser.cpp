@@ -23,15 +23,8 @@ namespace abyss::Actor::Map
         return m_fieldTypeMap[gId] = MapType::Floor;
     }
     MapType TmxMapParser::getFieldType(s3d::int32 x, s3d::int32 y)
-
     {
-        if (x < 0 || x >= m_grid.width()) {
-            return MapType::None;
-        }
-        if (y < 0 || y >= m_grid.height()) {
-            return MapType::None;
-        }
-        return getFieldType(m_grid[y][x]);
+        return getFieldType(m_chunk(y, x));
     };
     ColDirection TmxMapParser::calcColDirectrion(s3d::int32 x, s3d::int32 y)
     {
@@ -71,7 +64,7 @@ namespace abyss::Actor::Map
     }
     s3d::Optional<MapEntity> TmxMapParser::tryToMapInfoModel(s3d::int32 x, s3d::int32 y)
     {
-        GId gId = m_grid[y][x];
+        GId gId = m_chunk(y, x);
         if (gId <= 0) {
             return s3d::none;
         }
@@ -81,7 +74,7 @@ namespace abyss::Actor::Map
         ret.pos = Vec2{ size.x * x, size.y * y } + static_cast<Vec2>(size) / 2;
         ret.size = size;
         ret.aroundFloor = calcAroundFloor(x, y);
-        ret.id = x + static_cast<s3d::int32>(m_grid.width()) * y;
+        ret.id = x + static_cast<s3d::int32>(m_chunk.width()) * y;
         ret.gId = gId;
         switch (ret.type) {
         case MapType::Floor:
@@ -101,29 +94,46 @@ namespace abyss::Actor::Map
         }
         return s3d::none;
     }
-    TmxMapParser::TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool isMerge) :
+    TmxMapParser::TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3dTiled::Chunk<GId>& chunk, bool isMerge) :
         m_tiledMap(tiledMap),
-        m_grid(grid),
-        m_isMerge(isMerge),
-        m_entityGrid(grid.size())
+        m_chunk(chunk),
+        m_isMerge(isMerge)
     {}
     void TmxMapParser::forEach(std::function<void(const MapEntity&)> callback)
     {
-        for (uint32 y = 0; y < m_grid.height(); ++y) {
-            for (uint32 x = 0; x < m_grid.width(); ++x) {
-                m_entityGrid[y][x] = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y));
+        {
+            auto&& [xBegin, yBegin] = m_chunk.startIndex();
+            auto&& [xEnd, yEnd] = m_chunk.endIndex();
+            for (int32 y = yBegin; y < yEnd; ++y) {
+                for (int32 x = xBegin; x < xEnd; ++x) {
+                    if (auto&& entity = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y)); entity && entity->type != MapType::None) {
+                        m_entityGrid[y][x] = std::move(entity);
+                    }
+                }
             }
         }
         if (!m_isMerge) {
-            for (auto&& entity : m_entityGrid) {
-                if (!entity) {
-                    continue;
+            for (auto&& [y, row] : m_entityGrid) {
+                for (auto&& [x, entity] : row) {
+                    if (!entity) {
+                        continue;
+                    }
+                    callback(*entity);
                 }
-                callback(*entity);
             }
             return;
         }
 
+        int lc = 0;
+        for (auto&& [y, row] : m_entityGrid) {
+            for (auto&& [x, entity] : row) {
+                if (!entity) {
+                    continue;
+                }
+                ++lc;
+            }
+        }
+        Debug::Log::PrintCache << lc;
         // マージされたマップ
         s3d::Array<MergeParam> mergedMapsX;
         // マージしていいか
@@ -131,19 +141,27 @@ namespace abyss::Actor::Map
             if (a.type != b.type) {
                 return false;
             }
-            if (horizontal || a.type == MapType::Ladder && a.col != b.col) {
-                return false;
-            }
-            if (!horizontal || a.type == MapType::Penetrate && a.canDown != b.canDown) {
-                return false;
+            if (horizontal) {
+                if (a.type == MapType::Ladder) {
+                    // 梯子は横にマージできない
+                    return false;
+                } else if (a.type == MapType::Penetrate && a.canDown != b.canDown) {
+                    // すり抜け床は降りれるかどうかが違うならマージできない
+                    return false;
+                }
+            } else {
+                if (a.type == MapType::Ladder && a.col != b.col) {
+                    // 梯子はコリジョンが違うならマージできない
+                    return false;
+                } else if (a.type == MapType::Penetrate) {
+                    // すり抜け床は縦マージできない
+                    return false;
+                }
             }
             return true;
         };
         {
-            Grid<s3d::int32> mergeIndexX(m_entityGrid.size());
-            for (auto&& index : mergeIndexX) {
-                index = -1;
-            }
+            ChunkGrid<s3d::int32> mergeIndexX;
 
             // 横にマージ
             auto mergeX = [](const MapEntity& a, const MapEntity& b) {
@@ -156,14 +174,15 @@ namespace abyss::Actor::Map
                 return ret;
             };
 
-            for (int32 y = 0; y < m_entityGrid.height(); ++y) {
-                for (int32 x = 0; x < m_entityGrid.width(); ++x) {
-                    const auto& entity = m_entityGrid[y][x];
+            for (int32 y = m_entityGrid.indexBegin(); y < m_entityGrid.indexEnd(); ++y) {
+                const auto& row = m_entityGrid[y];
+                for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
+                    const auto& entity = row[x];
                     if (!entity) {
                         continue;
                     }
-                    if (x != 0) {
-                        const auto& prevEntity = m_entityGrid[y][x - 1];
+                    {
+                        const auto& prevEntity = row[x - 1];
                         if (prevEntity && equal(*entity, *prevEntity, true)) {
                             // マージできる
                             auto paramIndex = mergeIndexX[y][x - 1];
@@ -180,6 +199,8 @@ namespace abyss::Actor::Map
                 }
             }
         }
+        Debug::Log::PrintCache << mergedMapsX.size();
+
         // 縦にマージ
         s3d::Array<MergeParam> mergedMapsY;
         {
@@ -219,6 +240,8 @@ namespace abyss::Actor::Map
                 }
             }
         }
+        Debug::Log::PrintCache << mergedMapsY.size();
+
         for (auto&& map : mergedMapsY) {
             callback(map.entity);
         }

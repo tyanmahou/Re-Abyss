@@ -16,9 +16,10 @@ namespace abyss::Decor::Map
 
         const auto& grid = m_tileMap.gIds();
         bool isFind = false;
-        for (uint32 y = 0; y < grid.height(); ++y) {
-            for (uint32 x = 0; x < grid.width(); ++x) {
-                auto gId = grid[y][x];
+        for (int32 y = grid.indexBegin(); y < grid.indexEnd(); ++y) {
+            const auto& row = grid[y];
+            for (int32 x = row.indexBegin(); x < grid.indexEnd(); ++x) {
+                auto gId = row[x];
                 if (gId == 0) {
                     isFind = false;
                     continue;
@@ -41,18 +42,19 @@ namespace abyss::Decor::Map
         image.fill(ColorF(0, 0));
         const auto& grid = m_tileMap.gIds();
         auto firstGId = m_tileMap.getFirstGId();
-
+        const auto& startIndex = m_tileMap.startIndex();
         auto imageAnim = [&](const Size& indexPoint) {
-            uint32 y = indexPoint.y;
-            uint32 x = indexPoint.x;
-            for (; y < grid.height(); ++y) {
-                for (; x < grid.width(); ++x) {
-                    auto gId = grid[y][x];
+            int32 y = indexPoint.y;
+            int32 x = indexPoint.x;
+            for (; y < grid.indexEnd(); ++y) {
+                const auto& row = grid[y];
+                for (; x < row.indexEnd(); ++x) {
+                    auto gId = row[x];
                     if (gId == 0) {
                         return;
                     }
                     if (firstGId <= gId) {
-                        image[y][x] = Color(decor.getAnimGId(gId, time) - firstGId, 0, 0);
+                        image[y - startIndex.y][x - startIndex.x] = Color(decor.getAnimGId(gId, time) - firstGId, 0, 0);
                     }
                 }
                 x = 0;

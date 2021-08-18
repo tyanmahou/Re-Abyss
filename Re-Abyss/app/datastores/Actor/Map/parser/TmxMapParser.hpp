@@ -3,6 +3,7 @@
 #include <memory>
 #include <S3DTiled.hpp>
 #include <abyss/entities/Actor/Map/MapEntity.hpp>
+#include <abyss/utils/Chunk/Chunk.hpp>
 
 namespace abyss::Actor::Map
 {
@@ -21,10 +22,10 @@ namespace abyss::Actor::Map
 	private:
 		std::unordered_map<GId, MapType> m_fieldTypeMap;
 		s3dTiled::TiledMap m_tiledMap;
-		const s3d::Grid<GId>& m_grid;
+		const s3dTiled::Chunk<GId>& m_chunk;
 		bool m_isMerge;
 
-		s3d::Grid<s3d::Optional<MapEntity>> m_entityGrid;
+		ChunkGrid<s3d::Optional<MapEntity>> m_entityGrid;
 
 		MapType getFieldType(GId gId);
 
@@ -35,7 +36,7 @@ namespace abyss::Actor::Map
 
 		s3d::Optional<MapEntity> tryToMapInfoModel(s3d::int32 x, s3d::int32 y);
 	public:
-		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3d::Grid<GId>& grid, bool isMerge = true);
+		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3dTiled::Chunk<GId>& chunk, bool isMerge = true);
 
 		void forEach(std::function<void(const MapEntity&)> callback);
 	};

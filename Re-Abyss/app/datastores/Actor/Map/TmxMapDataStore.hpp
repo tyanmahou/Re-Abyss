@@ -16,7 +16,7 @@ namespace abyss::Actor::Map
         s3d::Array<std::shared_ptr<MapEntity>> select(bool isMerge = true)const override;
 
        s3d::Vec2 getTileSize() const override;
-       s3d::Array<s3d::Grid<s3d::uint32>> selectRawGrid() const override;
+       s3d::Array<ChunkGrid<s3d::uint32>> selectRawGrid() const override;
     };
 
     struct TmxMapDataStoreInataller final : emaject::IInstaller

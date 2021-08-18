@@ -13,10 +13,10 @@ namespace abyss::Decor::Map
     public:
         TileMapShader();
 
-        TileMapShader& setTextureSize(const Vec2& size);
+        TileMapShader& setTextureSize(const s3d::Vec2& size);
 
-        TileMapShader& setMapChip(const Texture& mapChip, const Vec2& tileSize);
+        TileMapShader& setMapChip(const s3d::Texture& mapChip, const s3d::Vec2& tileSize);
 
-        s3d::ScopedCustomShader2D start(Image&& image) const;
+        s3d::ScopedCustomShader2D start(s3d::Image&& image) const;
     };
 }

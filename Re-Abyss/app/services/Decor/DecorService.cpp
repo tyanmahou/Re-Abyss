@@ -21,10 +21,11 @@ namespace abyss::Decor
         m_animation = animation->selectWithKey();
 
         {
-            for (auto&& grid : map->selectRawGrid()) {
-                for (uint32 y = 0; y < grid.height(); ++y) {
-                    for (uint32 x = 0; x < grid.width(); ++x) {
-                        auto gId = grid[y][x];
+            for (const auto& chunk : map->selectRawGrid()) {
+                for (int32 y = chunk.indexBegin(); y < chunk.indexEnd(); ++y) {
+                    const auto& row = chunk[y];
+                    for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
+                        auto gId = chunk[y][x];
                         if (gId == 0) {
                             continue;
                         }
@@ -39,11 +40,13 @@ namespace abyss::Decor
                                 .setTileSize(map->getTileSize())
                                 .setFirstGId(graphic.firstGId)
                                 ;
-                            model.resize(grid.width(), grid.height());
                         }
                         model[y][x] = gId;
                     }
                 }
+            }
+            for (auto&& [key, elm] : m_tileMap) {
+                m_tileMap[key].calcSize();
             }
         }
     }
@@ -58,26 +61,29 @@ namespace abyss::Decor
         s3d::Array<Map::TileMapModel> ret;
         for (auto&& [path, tileMap] : m_tileMap) {
             const Vec2& tileSize = tileMap.getTileSize();
-            const Size& mapSize = tileMap.size();
-            uint32 xStart = Max<uint32>(0, static_cast<uint32>(screen.x / tileSize.x));
-            uint32 yStart = Max<uint32>(0, static_cast<uint32>(screen.y / tileSize.y));
 
-            uint32 xEnd = Min<uint32>(mapSize.x, xStart + static_cast<uint32>(screen.w / tileSize.x));
-            uint32 yEnd = Min<uint32>(mapSize.y, yStart + static_cast<uint32>(screen.h / tileSize.y));
+            auto [xStart, yStart] = tileMap.startIndex();
+            xStart = static_cast<int32>(Max(xStart, static_cast<int32>(screen.x / tileSize.x)));
+            yStart = static_cast<int32>(Max(yStart, static_cast<int32>(screen.y / tileSize.y)));
+
+            auto [xEnd, yEnd] = tileMap.endIndex();
+            xEnd = Min<int32>(xEnd, xStart + static_cast<uint32>(screen.w / tileSize.x));
+            yEnd = Min<int32>(yEnd, yStart + static_cast<uint32>(screen.h / tileSize.y));
 
             Map::TileMapModel model;
             model
                 .setPos(Vec2{ xStart * tileSize.x, yStart * tileSize.y })
                 .setFilePath(path)
                 .setTileSize(tileSize)
-                .setFirstGId(tileMap.getFirstGId())
-                .resize(xEnd - xStart + 1, yEnd - yStart + 1);
+                .setFirstGId(tileMap.getFirstGId());
+
             for (uint32 y = yStart; y <= yEnd; ++y) {
                 for (uint32 x = xStart; x <= xEnd; ++x) {
                     uint32 gId = tileMap[y][x];
-                    model[y - yStart][x - xStart] = gId;
+                    model[y][x] = gId;
                 }
             }
+            model.calcSize();
             ret.push_back(std::move(model));
         }
         return ret;
