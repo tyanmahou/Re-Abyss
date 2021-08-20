@@ -8,6 +8,7 @@ namespace abyss::Actor::Gimmick
 		None,
 		StartPos,
 		Door,
+		Bulletin,
 		EventTrigger,
 		BgmChanger,
 	};

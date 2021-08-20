@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Gimmick::Bulletin
 {
-    void Builder::Build(ActorObj* pActor, const s3d::FilePath& path)
+    void Builder::Build(ActorObj* pActor, const BulletinEntity& entity)
     {
     }
 }

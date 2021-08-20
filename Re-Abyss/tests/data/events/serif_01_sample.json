@@ -1,0 +1,12 @@
+{
+  "events": [
+      {
+        "serif": {
+          "messages": [
+              {"default": "会話テスト" },
+          ]
+        }
+      }
+  ],
+  "actors": []
+}

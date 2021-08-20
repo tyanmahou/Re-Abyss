@@ -1564,6 +1564,9 @@
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2322,6 +2325,8 @@
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
