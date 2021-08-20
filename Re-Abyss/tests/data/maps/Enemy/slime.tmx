@@ -17,7 +17,7 @@
  <objectgroup id="10" name="room">
   <object id="1" type="room" x="0" y="0" width="1120" height="640">
    <properties>
-    <property name="left" type="bool" value="true"/>
+    <property name="right" type="bool" value="true"/>
    </properties>
   </object>
   <object id="7" type="room" x="1120" y="0" width="1120" height="640">
