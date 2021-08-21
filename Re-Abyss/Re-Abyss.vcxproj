@@ -312,6 +312,7 @@
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
@@ -779,6 +780,7 @@
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />

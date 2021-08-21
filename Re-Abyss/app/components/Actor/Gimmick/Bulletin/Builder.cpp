@@ -1,8 +1,8 @@
 #include "Builder.hpp"
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/views/Actor/Gimmick/Bulletin/BulletinVM.hpp>
-
 namespace
 {
 	class Drawer;
@@ -16,6 +16,11 @@ namespace abyss::Actor::Gimmick::Bulletin
 		{
 			pActor->attach<Locator>()
 				->setPos(entity.pos);
+		}
+
+		// 会話制御
+		{
+			pActor->attach<Talkable>(pActor);
 		}
 
 		// 描画

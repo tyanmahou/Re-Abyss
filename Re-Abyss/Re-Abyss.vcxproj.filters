@@ -1576,6 +1576,9 @@
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2341,6 +2344,7 @@
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

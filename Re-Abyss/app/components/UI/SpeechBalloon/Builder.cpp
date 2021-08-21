@@ -3,6 +3,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 
 #include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/components/UI/Common/CustomDraw.hpp>
 
 #include <abyss/views/UI/SpeechBalloon/SpeechBalloonVM.hpp>
@@ -43,11 +44,12 @@ namespace
 		void onStart() override
 		{
 			m_locator = m_pActor->find<ILocator>();
+			m_talkable = m_pActor->find<Gimmick::Bulletin::Talkable>();
 		}
 		void onDraw() const override
 		{
 			m_view
-				->setPos(m_locator->getCenterPos())
+				->setPos(m_locator->getCenterPos() + s3d::Vec2{0, m_talkable->getOffsetY()})
 				.setTime(m_pActor->getDrawTimeSec())
 				.draw();
 		}
@@ -56,6 +58,7 @@ namespace
 		ActorObj* m_pActor;
 
 		Ref<ILocator> m_locator;
+		Ref<Gimmick::Bulletin::Talkable> m_talkable;
 		std::unique_ptr<SpeechBalloonVM> m_view;
 	};
 }
