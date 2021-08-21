@@ -10,7 +10,7 @@ namespace abyss::Actor::Gimmick::Bulletin
         public Player::IGimmickReactor
     {
     public:
-        Talkable(ActorObj* pActor);
+        Talkable(ActorObj* pActor, const s3d::String& eventPath);
 
         void onStart() override;
         void onEnd() override;
@@ -27,6 +27,10 @@ namespace abyss::Actor::Gimmick::Bulletin
     private:
         ActorObj* m_pActor;
         Ref<UI::UIObj> m_balloon;
+        Ref<Event::IEvent> m_event;
+        Ref<ICollider> m_collider;
+
+        s3d::String m_eventPath;
         double m_offsetY = -65.0;
     };
 }

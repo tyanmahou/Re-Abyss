@@ -19,7 +19,8 @@ namespace abyss::UI::SpeechBalloon
         // 描画制御
         {
 			pUi->attach<CustomDraw>()
-				->setDrawer<Drawer>(pUi, actor);
+				->setDrawer<Drawer>(pUi, actor)
+				.setLayer(DrawLayer::DecorMiddle);
         }
     }
 }
