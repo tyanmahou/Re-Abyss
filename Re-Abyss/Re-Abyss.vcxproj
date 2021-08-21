@@ -408,6 +408,7 @@
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp" />
+    <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\BgCtrl.cpp" />
@@ -565,6 +566,7 @@
     <ClCompile Include="app\views\UI\SaveSelect\UserInfo\OopartsListView.cpp" />
     <ClCompile Include="app\views\UI\SaveSelect\UserInfo\PlayerView.cpp" />
     <ClCompile Include="app\views\UI\SaveSelect\UserInfo\UserInfoView.cpp" />
+    <ClCompile Include="app\views\UI\SpeechBalloon\SpeechBalloonVM.cpp" />
     <ClCompile Include="app\views\UI\Splash\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\UI\Title\BackGround\AtlantisVM.cpp" />
     <ClCompile Include="app\views\UI\Title\BackGround\BackGroundVM.cpp" />
@@ -777,6 +779,9 @@
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
+    <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
+    <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
+    <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
@@ -796,6 +801,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
+    <ClInclude Include="app\views\UI\SpeechBalloon\SpeechBalloonVM.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />

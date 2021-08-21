@@ -13,5 +13,5 @@ namespace abyss::UI::DyingEffect
         {
             pUi->attach<Main>(pUi, pActor);
         }
-    };
+    }
 }
