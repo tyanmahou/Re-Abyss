@@ -81,6 +81,30 @@ namespace abyss::Debug
                 }
             });
         }
+        void createMainSceneChangeButtons(Windows::MenuItem& m, const s3d::FilePath& basePath)
+        {
+            for (auto&& path : s3d::FileSystem::DirectoryContents(basePath, false)) {
+                if (s3d::FileSystem::IsDirectory(path)) {
+                    if (s3d::FileSystem::DirectoryContents(path).any([](const s3d::FilePath& p) {
+                        return s3d::FileSystem::Extension(p) == U"tmx";
+                    })) {
+                        auto child = m.createItem(s3d::FileSystem::BaseName(path));
+                        createMainSceneChangeButtons(child, path);
+                    }
+                    continue;
+                }
+                if (s3d::FileSystem::Extension(path) != U"tmx") {
+                    continue;
+                }
+                MainSceneContext context{
+                    .mapPath = s3d::FileSystem::RelativePath(path)
+                };
+                auto name = s3d::FileSystem::RelativePath(path, basePath);
+                createSceneChangeButton(m, SceneName::Main, name, [context](GameData* data) {
+                    data->context = context;
+                });
+            }
+        }
         void execScene(Windows::MenuItem& menu)
         {
             createSceneChangeButton(menu, SceneName::Splash);
@@ -89,23 +113,9 @@ namespace abyss::Debug
             // マップロード
             {
                 auto child = menu.createItem(SceneName::Main);
-                auto chaneMap = [&](const s3d::FilePath& basePath) {
-                    for (auto&& path : s3d::FileSystem::DirectoryContents(basePath)) {
-                        if (s3d::FileSystem::Extension(path) != U"tmx") {
-                            continue;
-                        }
-                        MainSceneContext context{
-                            .mapPath = s3d::FileSystem::RelativePath(path)
-                        };
-                        auto name = s3d::FileSystem::RelativePath(path, basePath);
-                        createSceneChangeButton(child, SceneName::Main, name, [context](GameData* data) {
-                            data->context = context;
-                        });
-                    }
-                };
-                chaneMap(Path::MapPath);
+                createMainSceneChangeButtons(child, Path::MapPath);
                 child.createSeperator();
-                chaneMap(Path::TestMapPath);
+                createMainSceneChangeButtons(child, Path::TestMapPath);
             }
         }
         void parseCustom(
