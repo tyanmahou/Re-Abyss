@@ -1567,6 +1567,9 @@
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2327,6 +2330,7 @@
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
+    <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
