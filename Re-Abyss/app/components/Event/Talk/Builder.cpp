@@ -21,6 +21,9 @@ namespace abyss::Event::Talk
 {
     void Builder::Build(IEvent* pEvent, const s3d::String& path)
     {
+        // 世界停止はしない
+        pEvent->setIsWorldStop(false);
+
         // todo リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);
         JSONReader json(fixPath);

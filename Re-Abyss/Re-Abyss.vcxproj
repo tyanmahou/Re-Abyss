@@ -350,6 +350,7 @@
     <ClCompile Include="app\components\Actor\Player\Shot\EffectCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\StateChecker.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInState.cpp" />
+    <ClCompile Include="app\components\Actor\Player\State\TalkState.cpp" />
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actor\utils\BehaviorUtil.cpp" />
     <ClCompile Include="app\components\base\Executer.cpp" />
@@ -781,6 +782,7 @@
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
+    <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />

@@ -36,6 +36,15 @@ namespace abyss::Actor
 			obj->updateDeltaTime(dt);
 		}
 	}
+	void ActorsHolder::preUpdate()
+	{
+		for (auto& obj : m_actors) {
+			if (!obj->isActive()) {
+				continue;
+			}
+			obj->preUpdate();
+		}
+	}
 	void ActorsHolder::update()
 	{
 		for (auto& obj : m_actors) {

@@ -53,6 +53,11 @@ namespace abyss::Actor
         }
     }
 
+    void StateCtrl::onPreUpdate()
+    {
+        this->stateUpdate();
+    }
+
     void StateCtrl::onPostUpdate()
     {
         this->stateUpdate();

@@ -1,5 +1,6 @@
 #include "ActorObj.hpp"
 #include <abyss/components/Common/ClockCtrl.hpp>
+#include <abyss/components/Actor/base/IPreUpdate.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/base/IMove.hpp>
@@ -22,9 +23,15 @@ namespace abyss::Actor
 	{
 		m_clock->updateDeltaTime(worldDt);
 	}
-	void ActorObj::update()
+	void ActorObj::preUpdate()
 	{
 		m_clock->updateUpdateTime();
+		for (auto&& com : this->finds<IPreUpdate>()) {
+			com->onPreUpdate();
+		}
+	}
+	void ActorObj::update()
+	{
 		for (auto&& com : this->finds<IUpdate>()) {
 			com->onUpdate();
 		}

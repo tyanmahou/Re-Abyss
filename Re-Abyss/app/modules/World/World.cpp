@@ -29,7 +29,7 @@ namespace abyss
     }
     void World::update()
     {
-        // preUpdate();
+        m_actorsHolder.preUpdate();
         m_actorsHolder.update();
         m_actorsHolder.postUpdate();
     }

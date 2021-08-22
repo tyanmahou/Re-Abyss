@@ -44,6 +44,7 @@ namespace abyss::Actor
 
 		void updateDeltaTime(double worldDt) const;
 
+		void preUpdate();
 		void update();
 		void postUpdate();
 

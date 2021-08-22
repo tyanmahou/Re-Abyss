@@ -6,6 +6,7 @@
 # include <abyss/modules/Actor/base/ActorObj.hpp>
 # include <abyss/components/base/IComponent.hpp>
 # include <abyss/components/Actor/base/IPostCollision.hpp>
+# include <abyss/components/Actor/base/IPreUpdate.hpp>
 # include <abyss/components/Actor/base/IPostUpdate.hpp>
 # include <abyss/components/Actor/base/ILastUpdate.hpp>
 # include <abyss/components/Actor/base/IDraw.hpp>
@@ -49,6 +50,7 @@ namespace abyss::Actor
 
     class StateCtrl :
         public IComponent,
+        public IPreUpdate,
         public IPostUpdate,
         public ILastUpdate,
         public IDraw,
@@ -68,6 +70,8 @@ namespace abyss::Actor
         void setup(Executer executer)override;
         void onStart() override;
         void onEnd() override;
+
+        void onPreUpdate() override;
         void onPostUpdate() override;
 
         void onLastUpdate() override;
@@ -123,6 +127,7 @@ namespace abyss
     struct ComponentTree<Actor::StateCtrl>
     {
         using Base = MultiComponents<
+            Actor::IPreUpdate,
             Actor::IPostUpdate,
             Actor::ILastUpdate,
             Actor::IDraw,

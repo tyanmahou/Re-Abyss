@@ -20,6 +20,8 @@ namespace abyss::Actor
 		void flush();
 		void pushActor(const std::shared_ptr<ActorObj>& obj);
 		void updateDeltaTime(double dt);
+
+		void preUpdate();
 		void update();
 		void postUpdate();
 
