@@ -25,10 +25,10 @@ struct PSInput
 
 bool isLine(int x, int y, int outLineMap)
 {
-    return y == 0                && (outLineInfo & 1) != 0
-        || y == g_tileSize.y - 1 && (outLineInfo & 2) != 0
-        || x == 0                && (outLineInfo & 4) != 0
-        || x == g_tileSize.x - 1 && (outLineInfo & 8) != 0
+    return y == 0                && (outLineMap & 1) != 0
+        || y == g_tileSize.y - 1 && (outLineMap & 2) != 0
+        || x == 0                && (outLineMap & 4) != 0
+        || x == g_tileSize.x - 1 && (outLineMap & 8) != 0
         ;
 }
 float4 LineColor(int x, int y, int outLineMap)
