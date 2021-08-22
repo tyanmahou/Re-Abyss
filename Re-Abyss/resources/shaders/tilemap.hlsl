@@ -23,13 +23,18 @@ struct PSInput
     float2 uv       : TEXCOORD0;
 };
 
-bool isLine(int x, int y, int outLineInfo)
+bool isLine(int x, int y, int outLineMap)
 {
-    return x == 0                && (outLineInfo & 4) != 0
-        || x == g_tileSize.x - 1 && (outLineInfo & 8) != 0
-        || y == 0                && (outLineInfo & 1) != 0
+    return y == 0                && (outLineInfo & 1) != 0
         || y == g_tileSize.y - 1 && (outLineInfo & 2) != 0
+        || x == 0                && (outLineInfo & 4) != 0
+        || x == g_tileSize.x - 1 && (outLineInfo & 8) != 0
         ;
+}
+float4 LineColor(int x, int y, int outLineMap)
+{
+    return isLine(x, y, outLineMap) ? 
+        float4(0, 0, 0, 1) : float4(1, 1, 1, 1);
 }
 float4 PS(PSInput input) : SV_TARGET
 {
@@ -48,15 +53,18 @@ float4 PS(PSInput input) : SV_TARGET
 
     // ライン
     float outLineMap = gIdMapColor.g * 255.0;
-    if (isLine((int)ajustPixel.x, (int)ajustPixel.y, (int)outLineMap)) {
-        return (float4(0, 0, 0, 1) * input.color) + g_colorAdd;
-    }
+    float4 lineColor = LineColor(
+        (int)ajustPixel.x,
+        (int)ajustPixel.y,
+        (int)outLineMap
+    );
+    
     // タイル番号からマップチップテクスチャのuvを計算
     float x = gId % g_mapChipGIdSize.x;
     float y = floor(gId / g_mapChipGIdSize.x);
     float2 mapChipUv = (float2(x, y) * g_tileSize + ajustPixel) / g_mapChipSize;
 
-    float4 result = g_mapChip.Sample(g_sampler0, mapChipUv);
+    float4 result = g_mapChip.Sample(g_sampler0, mapChipUv) * lineColor;
 
     return (result * input.color) + g_colorAdd;
 }
