@@ -22,9 +22,15 @@ namespace abyss::Actor
         };
     private:
         std::shared_ptr<IImpl> m_pImpl;
+        bool m_isActive = true;
     public:
         void setup(Executer executer)override;
         void onStart()override;
+
+        void setActive(bool isActive)
+        {
+            m_isActive = isActive;
+        }
         CustomCollider& setImpl(const std::shared_ptr<IImpl>& impl);
 
         template<class Impl, class... Args>

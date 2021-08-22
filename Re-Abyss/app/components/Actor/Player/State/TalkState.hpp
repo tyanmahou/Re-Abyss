@@ -21,6 +21,7 @@ namespace abyss::Actor::Player
         void onLanding()override;
 
         void start()override;
+        void end()override;
         void update()override;
         void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;

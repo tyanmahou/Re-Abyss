@@ -49,6 +49,9 @@ namespace abyss::Actor
         if (!m_pImpl) {
             return s3d::none;
         }
+        if (!m_isActive) {
+            return s3d::none;
+        }
         return m_pImpl->getCollider();
     }
 
