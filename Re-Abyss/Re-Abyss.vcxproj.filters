@@ -212,9 +212,6 @@
     <ClCompile Include="app\utils\EffectEx\EffectEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Stage\Bubble\BubbleEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\IntervalTimer\IntervalTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1604,9 +1601,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app\views\Stage\Bubble\BubbleEffect.hpp">
-      <Filter>Source Files\ActionSystem\Stage\Bubble</Filter>
-    </ClInclude>
     <ClInclude Include="app\models\Camera\CameraModel.hpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClInclude>

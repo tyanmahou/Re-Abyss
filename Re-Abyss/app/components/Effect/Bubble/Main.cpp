@@ -78,6 +78,5 @@ namespace abyss::Effect::Bubble
                 .stretched(Constants::GameScreenSize / 2.0)
                 .intersects(pos);
         }
-        return false;
     }
 }

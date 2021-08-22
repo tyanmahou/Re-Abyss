@@ -3,7 +3,8 @@
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDraw.hpp>
 #include <abyss/components/Effect/Bubble/BubbleKind.hpp>
-#include <Siv3D.hpp>
+#include <Siv3D/Vector2D.hpp>
+#include <Siv3D/Color.hpp>
 
 namespace abyss::Effect::Bubble
 {
@@ -12,6 +13,17 @@ namespace abyss::Effect::Bubble
         public IUpdate,
         public IDraw
     {
+        struct Param
+        {
+            BubbleKind kind;
+            double maxRadius;
+
+            s3d::Vec2 basePos;
+            s3d::Vec2 velocity;
+            double deflection;
+            s3d::Vec2 parallax;
+            s3d::ColorF color;
+        };
     public:
         Main(EffectObj* pObj);
 
@@ -24,6 +36,18 @@ namespace abyss::Effect::Bubble
         }
 
         bool checkEnd();
+
+        Main& setParam(const Param& param)
+        {
+            m_kind = param.kind;
+            m_maxRadius = param.maxRadius;
+            m_basePos = param.basePos;
+            m_velocity = param.velocity;
+            m_deflection = param.deflection;
+            m_parallax = param.parallax;
+            m_color = param.color;
+            return *this;
+        }
     private:
         s3d::Vec2 parallaxPos() const;
         s3d::Circle drawCircle(double time) const;
@@ -33,14 +57,14 @@ namespace abyss::Effect::Bubble
         bool m_isEnd = false;
 
         BubbleKind m_kind;
-        double m_maxRadius;
+        double m_maxRadius = 1.0;
 
         s3d::Vec2 m_basePos{0, 0};
         s3d::Vec2 m_pos{ 0, 0 };
         s3d::Vec2 m_velocity{0, 0};
         double m_deflection = 0;
         s3d::Vec2 m_parallax{ 1.0, 1.0 };
-        ColorF m_color;
+        s3d::ColorF m_color;
     };
 }
 
