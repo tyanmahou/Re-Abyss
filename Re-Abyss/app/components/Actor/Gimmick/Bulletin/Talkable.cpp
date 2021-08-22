@@ -42,6 +42,9 @@ namespace abyss::Actor::Gimmick::Bulletin
             if (m_event) {
                 return false;
             }
+            if (!m_pActor->getModule<Events>()->isEmpty()) {
+                return false;
+            }
             if (!m_collider) {
                 return false;
             }
