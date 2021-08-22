@@ -23,6 +23,7 @@ namespace abyss::Actor::Player
     }
     void TalkState::update()
     {
+        m_motion = Motion::Float;
         if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {
             m_motion = Motion::Dive;
         }
