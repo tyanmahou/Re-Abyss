@@ -790,6 +790,7 @@
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />

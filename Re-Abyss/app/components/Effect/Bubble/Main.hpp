@@ -13,6 +13,7 @@ namespace abyss::Effect::Bubble
         public IUpdate,
         public IDraw
     {
+    public:
         struct Param
         {
             BubbleKind kind;

@@ -2365,6 +2365,7 @@
     <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

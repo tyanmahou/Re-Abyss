@@ -14,6 +14,7 @@ namespace abyss::Cron::BubbleGenerator
 		Coro::Task<> onExecute() override;
 	private:
 		Manager* m_pManager;
+		bool m_isBackBig = false;
 	};
 }
 

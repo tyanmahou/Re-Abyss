@@ -28,7 +28,7 @@ namespace abyss::Sys::Title
 
 
         // 泡
-        pManager->getModule<Crons>()->create<Cron::BubbleGenerator::BuildIntervalTime>(3s);
+        pManager->getModule<Crons>()->create<Cron::BubbleGenerator::BuildIntervalTime>();
 
         // Env初期化
         pManager->getModule<Environment>()->init(Env::EnvDesc{
