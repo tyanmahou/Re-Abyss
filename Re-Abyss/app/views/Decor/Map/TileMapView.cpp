@@ -13,12 +13,12 @@ namespace abyss::Decor::Map
             .setTextureSize(m_texture.size())
             .setMapChip(Resource::Assets::Main()->loadTexture(tileMap.getFilePath(), Path::Root), tileMap.getTileSize());
 
-        const auto& grid = m_tileMap.gIds();
+        const auto& grid = m_tileMap.tiles();
         bool isFind = false;
         for (int32 y = grid.indexBegin(); y < grid.indexEnd(); ++y) {
             const auto& row = grid[y];
             for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
-                auto gId = row[x];
+                auto gId = row[x].gId;
                 if (gId == 0) {
                     isFind = false;
                     continue;
@@ -40,7 +40,7 @@ namespace abyss::Decor::Map
 
         Image image(m_tileMap.size());
         image.fill(ColorF(0, 0));
-        const auto& grid = m_tileMap.gIds();
+        const auto& grid = m_tileMap.tiles();
         auto firstGId = m_tileMap.getFirstGId();
         const auto& startIndex = m_tileMap.startIndex();
         auto imageAnim = [&](const Size& indexPoint) {
@@ -49,12 +49,17 @@ namespace abyss::Decor::Map
             for (; y < grid.indexEnd(); ++y) {
                 const auto& row = grid[y];
                 for (; x < row.indexEnd(); ++x) {
-                    auto gId = row[x];
+                    auto&& tile = row[x];
+                    auto gId = tile.gId;
                     if (gId == 0) {
                         return;
                     }
                     if (firstGId <= gId) {
-                        image[static_cast<size_t>(y - startIndex.y)][static_cast<size_t>(x - startIndex.x)] = Color(decor.getAnimGId(gId, time) - firstGId, 0, 0);
+                        image[static_cast<size_t>(y - startIndex.y)][static_cast<size_t>(x - startIndex.x)] = Color(
+                            decor.getAnimGId(gId, time) - firstGId,
+                            tile.col,
+                            0
+                        );
                     }
                 }
                 x = startIndex.x;

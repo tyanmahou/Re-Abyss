@@ -2361,6 +2361,7 @@
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
+    <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

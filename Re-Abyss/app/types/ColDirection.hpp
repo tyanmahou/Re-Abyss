@@ -27,7 +27,10 @@ namespace abyss
         {
             return m_value;
         }
-
+        explicit constexpr operator s3d::uint32() const
+        {
+            return static_cast<uint32>(m_value);
+        }
         ColDirection& operator =(const ColDirection& other)
         {
             m_value = other.m_value;

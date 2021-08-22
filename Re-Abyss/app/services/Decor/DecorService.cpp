@@ -21,11 +21,12 @@ namespace abyss::Decor
         m_animation = animation->selectWithKey();
 
         {
-            for (const auto& chunk : map->selectRawGrid()) {
+            for (const auto& chunk : map->selectGrid()) {
                 for (int32 y = chunk.indexBegin(); y < chunk.indexEnd(); ++y) {
                     const auto& row = chunk[y];
                     for (int32 x = row.indexBegin(); x < row.indexEnd(); ++x) {
-                        auto gId = row[x];
+                        auto&& entity = row[x];
+                        auto gId = entity.gId;
                         if (gId == 0) {
                             continue;
                         }
@@ -41,7 +42,10 @@ namespace abyss::Decor
                                 .setFirstGId(graphic.firstGId)
                                 ;
                         }
-                        model[y][x] = gId;
+                        model[y][x] = Map::TileModel{
+                            .gId = entity.gId,
+                            .col = static_cast<uint32>(entity.col)
+                        };
                     }
                 }
             }
@@ -79,8 +83,8 @@ namespace abyss::Decor
 
             for (int32 y = yStart; y <= yEnd; ++y) {
                 for (int32 x = xStart; x <= xEnd; ++x) {
-                    int32 gId = tileMap[y][x];
-                    model[y][x] = gId;
+                    auto&& tile = tileMap[y][x];
+                    model[y][x] = tile;
                 }
             }
             model.calcSize();

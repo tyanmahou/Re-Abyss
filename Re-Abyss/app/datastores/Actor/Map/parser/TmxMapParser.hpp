@@ -38,6 +38,7 @@ namespace abyss::Actor::Map
 	public:
 		TmxMapParser(const s3dTiled::TiledMap& tiledMap, const s3dTiled::Chunk<GId>& chunk, bool isMerge = true);
 
+		const ChunkGrid<s3d::Optional<MapEntity>>& selectGrid();
 		void forEach(std::function<void(const MapEntity&)> callback);
 	};
 }

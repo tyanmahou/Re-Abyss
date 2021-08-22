@@ -98,19 +98,23 @@ namespace abyss::Actor::Map
         m_chunk(chunk),
         m_isMerge(isMerge)
     {}
-    void TmxMapParser::forEach(std::function<void(const MapEntity&)> callback)
+    const ChunkGrid<s3d::Optional<MapEntity>>& TmxMapParser::selectGrid()
     {
-        {
-            auto&& [xBegin, yBegin] = m_chunk.startIndex();
-            auto&& [xEnd, yEnd] = m_chunk.endIndex();
-            for (int32 y = yBegin; y < yEnd; ++y) {
-                for (int32 x = xBegin; x < xEnd; ++x) {
-                    if (auto&& entity = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y)); entity && entity->type != MapType::None) {
-                        m_entityGrid[y][x] = std::move(entity);
-                    }
+        auto&& [xBegin, yBegin] = m_chunk.startIndex();
+        auto&& [xEnd, yEnd] = m_chunk.endIndex();
+        for (int32 y = yBegin; y < yEnd; ++y) {
+            for (int32 x = xBegin; x < xEnd; ++x) {
+                if (auto&& entity = this->tryToMapInfoModel(static_cast<s3d::int32>(x), static_cast<s3d::int32>(y)); entity && entity->type != MapType::None) {
+                    m_entityGrid[y][x] = std::move(entity);
                 }
             }
         }
+        return m_entityGrid;
+    }
+    void TmxMapParser::forEach(std::function<void(const MapEntity&)> callback)
+    {
+        this->selectGrid();
+
         if (!m_isMerge) {
             for (auto&& [y, row] : m_entityGrid) {
                 for (auto&& [x, entity] : row) {

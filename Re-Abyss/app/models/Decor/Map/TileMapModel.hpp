@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/models/Decor/Map/TileModel.hpp>
 #include <abyss/utils/Chunk/Chunk.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
@@ -61,8 +62,8 @@ namespace abyss::Decor::Map
             m_startIndex = m_endIndex = s3d::Size{ 0, 0 };
             bool isFirst = true;
 
-            for (auto&& [y, row] : m_gIds) {
-                for (auto&& [x, id] : row) {
+            for (auto&& [y, row] : m_tiles) {
+                for (auto&& [x, _] : row) {
                     if (isFirst || x < m_startIndex.x) {
                         m_startIndex.x = x;
                     }
@@ -81,29 +82,29 @@ namespace abyss::Decor::Map
         }
         bool isEmpty() const
         {
-            return m_gIds.isEmpty();
+            return m_tiles.isEmpty();
         }
 
         decltype(auto) operator[](s3d::int32 y)
         {
-            return m_gIds[y];
+            return m_tiles[y];
         }
 
         decltype(auto) operator[](s3d::int32 y) const
         {
-            return m_gIds[y];
+            return m_tiles[y];
         }
 
-        const ChunkGrid<s3d::uint32>& gIds()const
+        const ChunkGrid<TileModel>& tiles()const
         {
-            return m_gIds;
+            return m_tiles;
         }
     private:
         s3d::Vec2 m_pos;
         s3d::String m_filePath;
         s3d::Vec2 m_tileSize;
         s3d::uint32 m_firstGId;
-        ChunkGrid<s3d::uint32> m_gIds;
+        ChunkGrid<TileModel> m_tiles;
         s3d::Size m_startIndex;
         s3d::Size m_endIndex;
     };

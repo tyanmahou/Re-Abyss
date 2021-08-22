@@ -23,6 +23,14 @@ struct PSInput
     float2 uv       : TEXCOORD0;
 };
 
+bool isLine(int x, int y, int outLineInfo)
+{
+    return x == 0                && (outLineInfo & 4) != 0
+        || x == g_tileSize.x - 1 && (outLineInfo & 8) != 0
+        || y == 0                && (outLineInfo & 1) != 0
+        || y == g_tileSize.y - 1 && (outLineInfo & 2) != 0
+        ;
+}
 float4 PS(PSInput input) : SV_TARGET
 {
     float2 uv = input.uv;
@@ -38,6 +46,11 @@ float4 PS(PSInput input) : SV_TARGET
     float2 pixel = uv * g_textureSize;
     float2 ajustPixel = pixel % g_tileSize;
 
+    // ライン
+    float outLineMap = gIdMapColor.g * 255.0;
+    if (isLine((int)ajustPixel.x, (int)ajustPixel.y, (int)outLineMap)) {
+        return (float4(0, 0, 0, 1) * input.color) + g_colorAdd;
+    }
     // タイル番号からマップチップテクスチャのuvを計算
     float x = gId % g_mapChipGIdSize.x;
     float y = floor(gId / g_mapChipGIdSize.x);
