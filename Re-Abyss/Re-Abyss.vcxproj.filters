@@ -1582,6 +1582,15 @@
     <ClCompile Include="app\components\Actor\Player\State\TalkState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2349,6 +2358,9 @@
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
+    <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
+    <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

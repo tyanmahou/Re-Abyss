@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Commons/Foot.hpp>
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
+#include <abyss/components/Actor/Commons/DamageCtrl.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/StateChecker.hpp>
 #include <abyss/components/Common/ViewCtrl.hpp>
@@ -23,6 +24,7 @@ namespace abyss::Actor::Player
         CollisionCtrl* m_colCtrl;
         ViewCtrl<PlayerVM>* m_view;
         StateChecker* m_stateChecker;
+        DamageCtrl* m_damageCtrl;
 
         virtual void onLanding(){}
         virtual void onDraw(const PlayerVM& view)const = 0;

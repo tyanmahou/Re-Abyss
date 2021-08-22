@@ -57,7 +57,7 @@ namespace abyss::Actor::Player
         }
 
         // ダメージ受けない
-        m_pActor->find<DamageCtrl>()->setActive(false);
+        m_damageCtrl->setActive(false);
 
         // アニメ用タイマー開始
         m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::AnimeTimeSec, true);

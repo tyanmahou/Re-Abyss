@@ -375,6 +375,7 @@
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
+    <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\StreamHandler.cpp" />
     <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp" />
@@ -400,6 +401,8 @@
     <ClCompile Include="app\components\Event\Talk\Common\Serif\FaceTable.cpp" />
     <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp" />
+    <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
+    <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp" />
     <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
     <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
     <ClCompile Include="app\components\Event\Title\Builder.cpp" />
@@ -784,6 +787,9 @@
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
+    <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
+    <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
+    <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />

@@ -16,10 +16,12 @@ namespace abyss::Actor::Player
         m_view       = m_pActor->find<ViewCtrl<PlayerVM>>().get();
         m_colCtrl    = m_pActor->find<CollisionCtrl>().get();
         m_stateChecker = m_pActor->find<StateChecker>().get();
+        m_damageCtrl = m_pActor->find<DamageCtrl>().get();
     }
     void BaseState::start()
     {
         (*m_body)
+            .setAccelX(0)
             .setAccelY(Body::DefaultGravity)
             .setVelocity({0, 0})
             .setMaxVelocityY(Body::DefaultMaxVelocityY)

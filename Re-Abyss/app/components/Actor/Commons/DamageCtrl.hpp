@@ -3,13 +3,15 @@
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
+#include <abyss/components/Actor/base/IStateCallback.hpp>
 #include <abyss/components/Actor/base/IDamageCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {
     class DamageCtrl : 
         public IComponent,
-        public IPostCollision
+        public IPostCollision,
+        public IStateCallback
     {
     protected:
         Ref<HP> m_hp;
@@ -24,6 +26,10 @@ namespace abyss::Actor
         void onStart() override;
         void onPostCollision()override;
 
+        void onStateStart() override
+        {
+            m_isActive = true;
+        }
         void setActive(bool isActive)
         {
             m_isActive = isActive;
@@ -41,6 +47,9 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::DamageCtrl>
     {
-        using Base = Actor::IPostCollision;
+        using Base = MultiComponents<
+            Actor::IPostCollision,
+            Actor::IStateCallback
+        >;
     };
 }
