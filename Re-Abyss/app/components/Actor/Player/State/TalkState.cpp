@@ -4,8 +4,10 @@
 
 namespace abyss::Actor::Player
 {
-    TalkState::TalkState()
-    {}
+    TalkState::TalkState(const Ref<ILocator>& pTargetLocator):
+        m_pTargetLocator(pTargetLocator)
+    {
+    }
 
     void TalkState::onLanding()
     {
@@ -18,7 +20,10 @@ namespace abyss::Actor::Player
 
     void TalkState::start()
     {
+        Vec2 vecPrev = m_body->getVelocity();
         BaseState::start();
+        m_body->setVelocity(Vec2{vecPrev.x / 2, vecPrev.y});
+
         // ダメージ受けない
         m_damageCtrl->setActive(false);
         m_pActor->find<CustomCollider>()->setActive(false);
@@ -29,6 +34,14 @@ namespace abyss::Actor::Player
     }
     void TalkState::update()
     {
+        if (m_pTargetLocator) {
+            auto toTarget = m_pTargetLocator->getCenterPos() - m_body->getCenterPos();
+            if (toTarget.x >= 0) {
+                m_body->setForward(Forward::Right);
+            } else {
+                m_body->setForward(Forward::Left);
+            }
+        }
         m_motion = Motion::Float;
         if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {
             m_motion = Motion::Dive;

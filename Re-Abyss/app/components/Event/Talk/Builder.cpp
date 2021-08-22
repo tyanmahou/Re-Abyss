@@ -8,15 +8,18 @@
 
 namespace abyss::Event::Talk
 {
-    void Builder::Build(IEvent* pEvent, const s3d::String& path)
-    {
+    void Builder::Build(
+        IEvent* pEvent,
+        const s3d::String& path,
+        const Ref<Actor::ILocator>& pTargetLocator
+    ) {
         // 世界停止はしない
         pEvent->setIsWorldStop(false);
 
         // PlayerState制御
         {
             pEvent->attach<PlayerStateCtrl>(pEvent)
-                ->setChanger<PlayerStateChanger>();
+                ->setChanger<PlayerStateChanger>(pTargetLocator);
         }
 
         // 会話制御

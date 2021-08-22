@@ -29,14 +29,18 @@ namespace abyss::Actor::Player
             // 死んでたらやらない
             return;
         }
+        auto* pEvent = m_pActor->getModule<Events>();
+        if (!pEvent->isEmpty()) {
+            // 他のイベント中
+            return;
+        }
         auto* player = m_pActor->getModule<PlayerManager>();
         const s3d::Vec2& pos = player->getPos();
         auto roomManager = m_pActor->getModule<RoomManager>();
         if (roomManager->canNextRoom(pos)) {
             if (auto nextRoom = m_pActor->getModule<Stage>()->findRoom(pos)) {
                 // 移動開始
-                m_pActor->getModule<Events>()
-                    ->create<Event::RoomMove::BasicMove::Builder>(*nextRoom);
+                pEvent->create<Event::RoomMove::BasicMove::Builder>(*nextRoom);
             }
         }
     }

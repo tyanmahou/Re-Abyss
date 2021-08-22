@@ -7,7 +7,9 @@ namespace abyss::Event::Talk
 {
     void PlayerStateChanger::onEventStart(Actor::ActorObj* player)
     {
-        player->find<Actor::StateCtrl>()->changeState<Actor::Player::TalkState>();
+        player->find<Actor::StateCtrl>()->changeState<Actor::Player::TalkState>(
+            m_pTargetLocator
+            );
     }
     void PlayerStateChanger::onEventEnd(Actor::ActorObj * player)
     {

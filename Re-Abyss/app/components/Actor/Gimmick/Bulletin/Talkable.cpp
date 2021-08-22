@@ -7,6 +7,7 @@
 
 #include <abyss/components/UI/SpeechBalloon/Builder.hpp>
 #include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Event/Talk/Builder.hpp>
 
 #include <abyss/utils/Collision/CollisionUtil.hpp>
@@ -61,7 +62,7 @@ namespace abyss::Actor::Gimmick::Bulletin
 
         if (InputManager::Up.down()) {
             m_event = m_pActor->getModule<Events>()
-                ->create<Event::Talk::Builder>(m_eventPath);
+                ->create<Event::Talk::Builder>(m_eventPath, m_pActor->find<ILocator>());
             m_balloon->setActive(false);
         }
     }

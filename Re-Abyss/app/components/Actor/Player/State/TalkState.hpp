@@ -16,7 +16,7 @@ namespace abyss::Actor::Player
             Ladder,
         };
     public:
-        TalkState();
+        TalkState(const Ref<ILocator>& pTargetLocator = nullptr);
     private:
         void onLanding()override;
 
@@ -26,6 +26,7 @@ namespace abyss::Actor::Player
         void lastUpdate()override;
         void onDraw(const PlayerVM& view)const override;
     private:
+        Ref<ILocator> m_pTargetLocator;
         Motion m_motion = Motion::Stay;
     };
 }
