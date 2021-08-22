@@ -13,6 +13,18 @@ namespace abyss::Effect
     {
         m_clock->updateDeltaTime(dt);
     }
+    double EffectObj::deltaTime() const
+    {
+        return m_clock->getDeltaTime();
+    }
+    double EffectObj::updateTimeSec() const
+    {
+        return m_clock->getUpdateTimeSec();
+    }
+    double EffectObj::drawTimeSec() const
+    {
+        return m_clock->getDrawTimeSec();
+    }
     void EffectObj::update()
     {
         m_clock->updateUpdateTime();

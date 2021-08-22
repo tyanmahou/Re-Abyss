@@ -12,6 +12,10 @@ namespace abyss::Effect
         auto registing = std::move(m_reserves);
         m_reserves.clear();
         for (auto& obj : registing) {
+            if (obj->isDestroyed()) {
+                // 最初から死んでる
+                continue;
+            }
             obj->setup();
             obj->start();
             if (obj->isDestroyed()) {

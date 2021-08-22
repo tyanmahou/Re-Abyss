@@ -1591,6 +1591,12 @@
     <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Bubble\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Bubble\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2362,6 +2368,9 @@
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

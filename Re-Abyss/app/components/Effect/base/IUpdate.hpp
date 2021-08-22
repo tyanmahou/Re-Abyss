@@ -8,7 +8,5 @@ namespace abyss::Effect
         virtual ~IUpdate() = default;
 
         virtual void onUpdate() = 0;
-
-        virtual bool isEnd() = 0;
     };
 }

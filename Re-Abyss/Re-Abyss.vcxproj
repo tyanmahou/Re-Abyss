@@ -372,6 +372,8 @@
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Bubble\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Bubble\Main.cpp" />
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
@@ -787,6 +789,9 @@
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />

@@ -10,6 +10,9 @@ namespace abyss::Effect
         EffectObj();
 
         void updateDeltaTime(double dt) const;
+        double deltaTime() const;
+        double updateTimeSec() const;
+        double drawTimeSec() const;
 
         void update();
         void draw();
