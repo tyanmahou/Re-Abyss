@@ -7,8 +7,11 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::Effect::Bubble
+namespace
 {
+    using namespace abyss;
+    using namespace abyss::Effect;
+
     RectF BaseRect(EffectObj* pObj)
     {
         if (auto room = pObj->getModule<RoomManager>()) {
@@ -18,9 +21,35 @@ namespace abyss::Effect::Bubble
     }
     RectF ParallaxedRect(EffectObj* pObj, const Vec2& parallax)
     {
-        auto base = BaseRect(pObj);
+        auto base = ::BaseRect(pObj);
+        auto [l, t] = base.tl();
+        auto [r, b] = base.br();
 
+        /*
+          l < x < r              …① カメラの移動距離  (厳密にはScreenSize.x / 2.0小さいけど広めに計算)
+          l < (p +(1 - c)x) < r  …② スクリーンないに入るか
+          の不等式を整理
+        */
+        double cX = 1.0 - parallax.x;
+        double newL = cX >= 0 ? l - cX * r : l - cX * l;
+        double newR = cX >= 0 ? r - cX * l : r - cX * r;
+
+        double cY = 1.0 - parallax.y;
+        double newT = cY >= 0 ? t - cY * b : t - cY * t;
+        double newB = cY >= 0 ? b - cY * t : b - cY * b;
+        return RectF(newL, newT, newR - newL, newB - newT);
     }
+
+    RectF ChoicedRect(EffectObj* pObj, const Vec2& parallax)
+    {
+        auto base = ::ParallaxedRect(pObj, parallax);
+        constexpr Vec2 offset{ 0, 150 };
+        constexpr double sizeY = 240.0;
+        return RectF(base.bl() + offset, Vec2{ base.size.x, sizeY });
+    }
+}
+namespace abyss::Effect::Bubble
+{
     void Builder::Build(EffectObj* pObj, BubbleKind kind, LayerKind layer)
     {
         double rand0_1 = Random();
@@ -52,11 +81,8 @@ namespace abyss::Effect::Bubble
             param.maxRadius = Random(60.0, 120.0);
         }
 
-        // TODO 座標計算
-        const auto& offset = pObj->getModule<Camera>()->getPos();
-        static constexpr Vec2 CreateRangeOffset{ -120 - 480, 260 };
-        static constexpr Vec2 CreateRangeSize{ 1080,240 };
-        param.basePos = s3d::RandomVec2(RectF{ offset + CreateRangeOffset, CreateRangeSize });
+        // 座標計算
+        param.basePos = s3d::RandomVec2(::ChoicedRect(pObj, param.parallax));
         
         // メイン制御
         {
