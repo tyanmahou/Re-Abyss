@@ -2370,6 +2370,7 @@
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LifeTime.hpp" />
+    <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

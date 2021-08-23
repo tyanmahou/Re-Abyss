@@ -80,4 +80,28 @@ namespace abyss::Room
 			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
 		}
 	}
+	void RoomManager::addCallback(std::shared_ptr<IRoomMoveCallback> callback)
+	{
+		m_callbacks.push_back(callback);
+	}
+	void RoomManager::onCheckOut()
+	{
+		s3d::Erase_if(m_callbacks, [](const Ref<IRoomMoveCallback>& c) {
+			if (c) {
+				c->onCheckOut();
+				return false;
+			}
+			return true;
+		});
+	}
+	void RoomManager::onCheckIn()
+	{
+		s3d::Erase_if(m_callbacks, [](const Ref<IRoomMoveCallback>& c) {
+			if (c) {
+				c->onCheckIn();
+				return false;
+			}
+			return true;
+		});
+	}
 }

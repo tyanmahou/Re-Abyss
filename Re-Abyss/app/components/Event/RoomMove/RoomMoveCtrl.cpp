@@ -56,12 +56,15 @@ namespace abyss::Event::RoomMove
         roomManager->setNextRoom(m_nextRoom);
 
         m_callback->onMoveStart();
+        roomManager->onCheckOut();
         m_pEvent->getModule<Stage>()->checkOut();
     }
     void RoomMoveCtrl::onEnd()
     {
         m_callback->onMoveEnd();
-        m_pEvent->getModule<RoomManager>()->applyNextRoom();
+        auto roomManager = m_pEvent->getModule<RoomManager>();
+        roomManager->applyNextRoom();
+        roomManager->onCheckIn();
         m_pEvent->getModule<Stage>()->checkIn();
     }
     Coro::Task<> RoomMoveCtrl::onExecute()

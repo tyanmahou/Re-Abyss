@@ -1,5 +1,7 @@
 #pragma once
 #include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/modules/Room/IRoomMoveCallback.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Room
 {
@@ -83,11 +85,17 @@ namespace abyss::Room
         }
 
         void drawDeathLine() const;
+
+        void addCallback(std::shared_ptr<IRoomMoveCallback> callback);
+        void onCheckOut();
+        void onCheckIn();
     private:
         Manager* m_pManager;
         RoomModel m_currentRoom;
         s3d::Optional<RoomModel> m_nextRoom;
 
         std::shared_ptr<CameraFix> m_cameraFix;
+
+        s3d::Array<Ref<IRoomMoveCallback>> m_callbacks;
     };
 }
