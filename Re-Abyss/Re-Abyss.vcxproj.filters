@@ -1594,6 +1594,9 @@
     <ClCompile Include="app\components\Effect\Bubble\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Bubble\LifeTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2366,6 +2369,7 @@
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\LifeTime.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

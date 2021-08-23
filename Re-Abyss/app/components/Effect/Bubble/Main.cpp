@@ -5,7 +5,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Light/Light.hpp>
-
+#include <abyss/components/Effect/Bubble/LifeTime.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Effect::Bubble
@@ -13,10 +13,16 @@ namespace abyss::Effect::Bubble
     Main::Main(EffectObj* pObj):
         m_pObj(pObj)
     {}
+    void Main::onStart()
+    {
+        m_lifeTime = m_pObj->find<LifeTime>();
+    }
     void Main::onUpdate()
     {
+        auto time = m_pObj->updateTimeSec();
         m_basePos += m_velocity * m_pObj->deltaTime();
-        m_pos = m_basePos + Vec2{ m_deflection * Sin(m_pObj->updateTimeSec()), 0.0 };
+        m_pos = m_basePos + Vec2{ m_deflection * Sin(time), 0.0 };
+        m_radius = Min(m_maxRadius, EaseOut(Easing::Cubic, 0.0, m_maxRadius, time));
 
         if (this->checkEnd()) {
             m_pObj->destroy();
@@ -24,14 +30,17 @@ namespace abyss::Effect::Bubble
     }
     void Main::onDraw(double time)
     {
+        const Circle circle = this->drawCircle();
+        if (!m_pObj->getModule<Camera>()->inScreen(circle)) {
+            return;
+        }
         ScopedRenderStates2D state(BlendState::Additive);
 
         // Color
         ColorF color = m_kind == BubbleKind::Big ?
             m_color :
             m_color * Periodic::Sine0_1(Math::TwoPi, time);
-
-        const Circle circle = this->drawCircle(time);
+        color.a *= m_lifeTime->destroyRate();
         circle.draw(color);
 
         // Light
@@ -46,18 +55,24 @@ namespace abyss::Effect::Bubble
     {
         return m_isEnd = !this->isInValidRange(parallaxPos());
     }
+    bool Main::isInArea(const s3d::RectF& area) const
+    {
+        return area.intersects(this->drawCircle());
+    }
     s3d::Vec2 Main::parallaxPos() const
     {
         const auto& cameraPos = m_pObj->getModule<Camera>()->getPos();
         return m_pos + cameraPos - cameraPos * m_parallax;
     }
-    s3d::Circle Main::drawCircle(double time) const
+    s3d::Circle Main::drawCircle() const
     {
-        const double r = Min(m_maxRadius, EaseOut(Easing::Cubic, 0.0, m_maxRadius, time));
-        return s3d::Circle(this->parallaxPos(), r);
+        return s3d::Circle(this->parallaxPos(), m_radius);
     }
     bool Main::isInValidRange(const s3d::Vec2& pos) const
     {
+        if (m_area.intersects(pos)) {
+            return true;
+        }
         if (auto roomManager = m_pObj->getModule<RoomManager>()) {
             if (roomManager->currentRoom()
                 .getRegion()

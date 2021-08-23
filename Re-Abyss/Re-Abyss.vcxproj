@@ -373,6 +373,7 @@
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Bubble\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Bubble\LifeTime.cpp" />
     <ClCompile Include="app\components\Effect\Bubble\Main.cpp" />
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
@@ -791,6 +792,7 @@
     <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
+    <ClInclude Include="app\components\Effect\Bubble\LifeTime.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />

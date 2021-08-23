@@ -11,6 +11,6 @@ namespace abyss::Cron::BubbleGenerator
 
 	struct BuildIntervalTime
 	{
-		static void Build(Batch* batch, const s3d::Duration& duration = 1.0s);
+		static void Build(Batch* batch, const s3d::Duration& duration = 0.5s);
 	};
 }

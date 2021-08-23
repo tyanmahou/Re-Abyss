@@ -4,6 +4,7 @@
 #include <abyss/modules/Room/RoomManager.hpp>
 
 #include <abyss/components/Effect/Bubble/Main.hpp>
+#include <abyss/components/Effect/Bubble/LifeTime.hpp>
 
 #include <Siv3D.hpp>
 
@@ -68,6 +69,7 @@ namespace abyss::Effect::Bubble
             param.deflection = 0;
             param.color = ColorF(0.2, s3d::Math::Lerp(0.05, 0.1, rand0_1));
         } else {
+            param.parallax.x = param.parallax.y = 1.0;
             param.velocity.x = 0;
             param.velocity.y = Random(-72.0, -36.0);
             param.deflection = Random(0.0, 400.0);
@@ -82,12 +84,20 @@ namespace abyss::Effect::Bubble
         }
 
         // 座標計算
-        param.basePos = s3d::RandomVec2(::ChoicedRect(pObj, param.parallax));
+        auto area = ::ChoicedRect(pObj, param.parallax);
+        param.basePos = s3d::RandomVec2(area);
         
         // メイン制御
         {
             auto main = pObj->attach<Main>(pObj);
-            main->setParam(param);
+            main->setParam(param)
+                .setArea(area.stretched(0, 150))
+                ;
+        }
+
+        // 寿命
+        {
+            pObj->attach<LifeTime>(pObj);
         }
     }
 }

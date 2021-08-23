@@ -4,17 +4,20 @@
 
 namespace abyss::Cron::BubbleGenerator
 {
-	class Generator : 
+	class Generator final: 
 		public IComponent,
 		public IJob
 	{
 	public:
 		Generator(Manager* pManager);
 
+		void onStart() override;
 		Coro::Task<> onExecute() override;
 	private:
+		Ref<Effect::EffectObj> buildEffect();
+	private:
 		Manager* m_pManager;
-		bool m_isBackBig = false;
+		s3d::int32 m_count = 0;
 	};
 }
 
