@@ -133,6 +133,9 @@ namespace abyss::Actor::Map
             if (a.type != b.type) {
                 return false;
             }
+            if (a.col != b.col) {
+                return false;
+            }
             if (horizontal) {
                 if (a.type == MapType::Ladder) {
                     // 梯子は横にマージできない
