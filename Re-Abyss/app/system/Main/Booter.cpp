@@ -99,7 +99,7 @@ namespace abyss::Sys::Main
             auto* cron = pManager->getModule<Crons>();
 
             // バブルエフェクト
-            cron->create<Cron::BubbleGenerator::BuildIntervalTime>();
+            cron->create<Cron::BubbleGenerator::BuildOnce>();
         }
 
         // Env初期化

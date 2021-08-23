@@ -21,18 +21,21 @@ namespace abyss::Cron::BubbleGenerator
 	void Generator::onStart()
 	{
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (int sec = 0; sec <= 30; sec += 1) {
-			if (auto effect = this->buildEffect()) {
-				objs << effect;
-			}
+		for (double sec = 0; sec <= 20; sec += 0.2) {
+			objs << this->buildEffect();
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
+		auto* pRoomManager = m_pManager->getModule<RoomManager>();
 		for (size_t index = 0; index < objs.size(); ++index) {
-			double sec = static_cast<double>(index) + 5.0;
 			auto& obj = objs[index];
+			if (!obj) {
+				continue;
+			}
+			double sec = static_cast<double>(index) * 0.2 + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
-			if (!obj->find<Effect::Bubble::Main>()->isInArea(pCamera->screenRegion())) {
+			auto area = pRoomManager ? pRoomManager->currentRoom().getRegion() : pCamera->screenRegion();
+			if (!obj->find<Effect::Bubble::Main>()->isInArea(area)) {
 				// スクリーン内じゃなければ消す
 				obj->destroy();
 			}
@@ -43,11 +46,14 @@ namespace abyss::Cron::BubbleGenerator
 		auto time = m_pManager->getModule<GlobalTime>();
 		auto clock = [time] {return time->timeMicroSec(); };
 
-		this->buildEffect();
-		co_yield Coro::WaitForSecondsEx(0.1s, clock);
-		this->buildEffect();
-		co_yield Coro::WaitForSecondsEx(0.1s, clock);
-		this->buildEffect();
+		while (true) {
+			this->buildEffect();
+			co_yield Coro::WaitForSecondsEx(0.2s, clock);
+			this->buildEffect();
+			co_yield Coro::WaitForSecondsEx(0.2s, clock);
+			this->buildEffect();
+			co_yield Coro::WaitForSecondsEx(0.2s, clock);
+		}
 		co_return;
     }
 	void Generator::onCheckOut()
@@ -57,16 +63,16 @@ namespace abyss::Cron::BubbleGenerator
 			return;
 		}
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (int sec = 0; sec <= 30; sec += 1) {
-			if (auto effect = this->buildEffect(next->getRegion())) {
-				objs << effect;
-			}
+		for (double sec = 0; sec <= 20; sec += 0.2) {
+			objs << this->buildEffect(next->getRegion());
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
 		for (size_t index = 0; index < objs.size(); ++index) {
-			double sec = static_cast<double>(index) + 5.0;
-
 			auto& obj = objs[index];
+			if (!obj) {
+				continue;
+			}
+			double sec = static_cast<double>(index) * 0.2 + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto main = obj->find<Effect::Bubble::Main>();
@@ -89,14 +95,23 @@ namespace abyss::Cron::BubbleGenerator
 
 		using Effect::Bubble::BubbleKind;
 		using Effect::Bubble::LayerKind;
-		m_count = ++m_count % 6;
-		switch (m_count) {
-		case 0: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Front, area);
-		case 1: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
-		case 2: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Back, area);
-		case 3: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Front, area);
-		case 4: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
-		case 5: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Back, area);
+		m_count = ++m_count % 36;
+		if (s3d::int32 layer = m_count % 3; layer == 0) {
+			if (m_count % 6 == 0) {
+				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Front, area);
+			} else {
+				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Front, area);
+			}
+		} else if (layer == 1) {
+			if (m_count % 9 == 1) {
+				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
+			}
+		} else {
+			if (m_count % 12 == 2) {
+				return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Back, area);
+			} else if (m_count % 12 == 8) {
+				return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Back, area);
+			}
 		}
 		return nullptr;
 	}

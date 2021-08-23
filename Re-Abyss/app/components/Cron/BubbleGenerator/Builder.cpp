@@ -2,7 +2,7 @@
 #include <abyss/modules/Cron/base/Batch.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Generator.hpp>
-#include <abyss/components/Cron/Commons/IntervalTimeScheduler.hpp>
+#include <abyss/components/Cron/Commons/OnceScheduler.hpp>
 #include <abyss/components/Cron/Commons/RoomMoveCallbackCtrl.hpp>
 
 namespace abyss::Cron::BubbleGenerator
@@ -16,10 +16,10 @@ namespace abyss::Cron::BubbleGenerator
         }
     }
 
-    void BuildIntervalTime::Build(Batch* batch, const s3d::Duration& duration)
+    void BuildOnce::Build(Batch* batch)
     {
         Builder::Build(batch);
 
-        batch->attach<IntervalTimeScheduler>(batch->getManager(), duration);
+        batch->attach<OnceScheduler>();
     }
 }
