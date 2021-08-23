@@ -8,6 +8,6 @@ namespace abyss::Effect::Bubble
 {
 	struct Builder
 	{
-		static void Build(EffectObj* pObj, BubbleKind kind, LayerKind layer);
+		static void Build(EffectObj* pObj, BubbleKind kind, LayerKind layer, const s3d::Optional<s3d::RectF>& area);
 	};
 }

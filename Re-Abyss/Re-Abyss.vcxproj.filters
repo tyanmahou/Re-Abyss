@@ -1597,6 +1597,9 @@
     <ClCompile Include="app\components\Effect\Bubble\LifeTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2371,6 +2374,7 @@
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LifeTime.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
+    <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

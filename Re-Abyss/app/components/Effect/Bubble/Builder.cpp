@@ -20,9 +20,9 @@ namespace
         }
         return pObj->getModule<Camera>()->screenRegion();
     }
-    RectF ParallaxedRect(EffectObj* pObj, const Vec2& parallax)
+    RectF ParallaxedRect(EffectObj* pObj, const Vec2& parallax, const s3d::Optional<s3d::RectF>& area)
     {
-        auto base = ::BaseRect(pObj);
+        auto base = area ? *area : ::BaseRect(pObj);
         auto [l, t] = base.tl();
         auto [r, b] = base.br();
 
@@ -41,9 +41,9 @@ namespace
         return RectF(newL, newT, newR - newL, newB - newT);
     }
 
-    RectF ChoicedRect(EffectObj* pObj, const Vec2& parallax)
+    RectF ChoicedRect(EffectObj* pObj, const Vec2& parallax, const s3d::Optional<s3d::RectF>& area)
     {
-        auto base = ::ParallaxedRect(pObj, parallax);
+        auto base = ::ParallaxedRect(pObj, parallax, area);
         constexpr Vec2 offset{ 0, 150 };
         constexpr double sizeY = 240.0;
         return RectF(base.bl() + offset, Vec2{ base.size.x, sizeY });
@@ -51,7 +51,7 @@ namespace
 }
 namespace abyss::Effect::Bubble
 {
-    void Builder::Build(EffectObj* pObj, BubbleKind kind, LayerKind layer)
+    void Builder::Build(EffectObj* pObj, BubbleKind kind, LayerKind layer, const s3d::Optional<s3d::RectF>& area)
     {
         double rand0_1 = Random();
         Main::Param param{};
@@ -84,14 +84,14 @@ namespace abyss::Effect::Bubble
         }
 
         // 座標計算
-        auto area = ::ChoicedRect(pObj, param.parallax);
-        param.basePos = s3d::RandomVec2(area);
+        auto randArea = ::ChoicedRect(pObj, param.parallax, area);
+        param.basePos = s3d::RandomVec2(randArea);
         
         // メイン制御
         {
             auto main = pObj->attach<Main>(pObj);
             main->setParam(param)
-                .setArea(area.stretched(0, 150))
+                .setArea(randArea.stretched(0, 150))
                 ;
         }
 

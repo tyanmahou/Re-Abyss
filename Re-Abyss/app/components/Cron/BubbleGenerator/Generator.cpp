@@ -1,9 +1,12 @@
 #include "Generator.hpp"
+
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
+#include <abyss/modules/Room/RoomManager.hpp>
+
 #include <abyss/components/Effect/Bubble/Builder.hpp>
 #include <abyss/components/Effect/Bubble/Main.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
@@ -26,11 +29,12 @@ namespace abyss::Cron::BubbleGenerator
 		auto* pCamera = m_pManager->getModule<Camera>();
 		for (size_t index = 0; index < objs.size(); ++index) {
 			double sec = static_cast<double>(index) + 5.0;
-			objs[index]->updateDeltaTime(sec);
-			objs[index]->update();
-			if (!objs[index]->find<Effect::Bubble::Main>()->isInArea(pCamera->screenRegion())) {
+			auto& obj = objs[index];
+			obj->updateDeltaTime(sec);
+			obj->update();
+			if (!obj->find<Effect::Bubble::Main>()->isInArea(pCamera->screenRegion())) {
 				// スクリーン内じゃなければ消す
-				objs[index]->destroy();
+				obj->destroy();
 			}
 		}
 	}
@@ -46,7 +50,40 @@ namespace abyss::Cron::BubbleGenerator
 		this->buildEffect();
 		co_return;
     }
-	Ref<Effect::EffectObj> Generator::buildEffect()
+	void Generator::onCheckOut()
+	{
+		const auto& next = m_pManager->getModule<RoomManager>()->nextRoom();
+		if (!next) {
+			return;
+		}
+		s3d::Array<Ref<Effect::EffectObj>> objs;
+		for (int sec = 0; sec <= 30; sec += 1) {
+			if (auto effect = this->buildEffect(next->getRegion())) {
+				objs << effect;
+			}
+		}
+		auto* pCamera = m_pManager->getModule<Camera>();
+		for (size_t index = 0; index < objs.size(); ++index) {
+			double sec = static_cast<double>(index) + 5.0;
+
+			auto& obj = objs[index];
+			obj->updateDeltaTime(sec);
+			obj->update();
+			auto main = obj->find<Effect::Bubble::Main>();
+			if (main->isInArea(pCamera->screenRegion())) {
+				// 現在のスクリーン内ならば消す
+				obj->destroy();
+			} else if (!main->isInArea(next->getRegion())) {
+				// 次の部屋に入ってないなら消す
+				obj->destroy();
+			}
+		}
+	}
+	void Generator::onCheckIn()
+	{
+	
+	}
+	Ref<Effect::EffectObj> Generator::buildEffect(const s3d::Optional<s3d::RectF>& area)
 	{
 		auto effects = m_pManager->getModule<Effects>();
 
@@ -54,12 +91,12 @@ namespace abyss::Cron::BubbleGenerator
 		using Effect::Bubble::LayerKind;
 		m_count = ++m_count % 6;
 		switch (m_count) {
-		case 0: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Front);
-		case 1: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle);
-		case 2: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Back);
-		case 3: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Front);
-		case 4: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle);
-		case 5: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Back);
+		case 0: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Front, area);
+		case 1: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
+		case 2: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Back, area);
+		case 3: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Front, area);
+		case 4: return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
+		case 5: return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Back, area);
 		}
 		return nullptr;
 	}
