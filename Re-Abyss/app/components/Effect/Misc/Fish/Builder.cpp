@@ -64,16 +64,16 @@ namespace abyss::Effect::Misc::Fish
         double alpha = 1.0;
         if (layer == LayerKind::Back) {
             parallax.x = parallax.y = Math::Lerp(0.6, 0.95, rand0_1);
-            scale = s3d::Math::Lerp(0.4, 0.9, rand0_1);
-            alpha = s3d::Math::Lerp(0.02, 0.2, rand0_1);
+            scale = s3d::Math::Lerp(0.4, 1.0, rand0_1);
+            alpha = s3d::Math::Lerp(0.02, 0.1, rand0_1);
         } else {
             parallax.x = parallax.y = Math::Lerp(1.05, 1.4, rand0_1);
-            scale = s3d::Math::Lerp(0.9, 1.4, rand0_1);
-            alpha = s3d::Math::Lerp(0.2, 0.4, rand0_1);
+            scale = s3d::Math::Lerp(1.0, 1.6, rand0_1);
+            alpha = s3d::Math::Lerp(0.1, 0.3, rand0_1);
         }
         main->setParallax(parallax);        
         main->setScale(scale);
-        main->setColor(ColorF(0.5, alpha));
+        main->setColor(ColorF(0.7, alpha));
         // 座標計算
         Vec2 basePos{};
         auto randArea = ::ChoicedRect(pObj, parallax, area);
