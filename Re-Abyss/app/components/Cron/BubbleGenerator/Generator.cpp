@@ -49,10 +49,6 @@ namespace abyss::Cron::BubbleGenerator
 		while (true) {
 			this->buildEffect();
 			co_yield Coro::WaitForSecondsEx(0.2s, clock);
-			this->buildEffect();
-			co_yield Coro::WaitForSecondsEx(0.2s, clock);
-			this->buildEffect();
-			co_yield Coro::WaitForSecondsEx(0.2s, clock);
 		}
 		co_return;
     }
