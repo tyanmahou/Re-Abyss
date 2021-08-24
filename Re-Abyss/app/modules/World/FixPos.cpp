@@ -5,7 +5,7 @@ namespace
 {
 	bool IntersectLoose(const Line& a, const Quad& b) noexcept
 	{
-		return s3d::Geometry2D::Intersect(a, b);
+		return s3d::Geometry2D::Intersect(a.stretched(-0.001), b);
 	}
 }
 namespace abyss
