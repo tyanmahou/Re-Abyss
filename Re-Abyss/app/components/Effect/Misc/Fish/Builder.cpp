@@ -65,11 +65,11 @@ namespace abyss::Effect::Misc::Fish
         if (layer == LayerKind::Back) {
             parallax.x = parallax.y = Math::Lerp(0.6, 0.95, rand0_1);
             scale = s3d::Math::Lerp(0.4, 1.0, rand0_1);
-            alpha = s3d::Math::Lerp(0.02, 0.06, rand0_1);
+            alpha = s3d::Math::Lerp(0.02, 0.11, rand0_1);
         } else {
             parallax.x = parallax.y = Math::Lerp(1.05, 1.4, rand0_1);
             scale = s3d::Math::Lerp(1.0, 1.6, rand0_1);
-            alpha = s3d::Math::Lerp(0.06, 0.1, rand0_1);
+            alpha = s3d::Math::Lerp(0.11, 0.2, rand0_1);
         }
         main->setParallax(parallax);        
         main->setScale(scale);
