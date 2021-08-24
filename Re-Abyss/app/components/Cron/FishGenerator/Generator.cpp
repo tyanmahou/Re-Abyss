@@ -21,7 +21,7 @@ namespace abyss::Cron::FishGenerator
 	void Generator::onStart()
 	{
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (double sec = 0; sec <= 20; sec += 1.0) {
+		for (double sec = 0; sec <= 20; sec += 2.0) {
 			objs << this->buildFish();
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
@@ -31,7 +31,7 @@ namespace abyss::Cron::FishGenerator
 			if (!obj) {
 				continue;
 			}
-			double sec = static_cast<double>(index) * 1.0 + 5.0;
+			double sec = static_cast<double>(index) * 2.0 + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto area = pRoomManager ? pRoomManager->currentRoom().getRegion() : pCamera->screenRegion();
@@ -48,7 +48,7 @@ namespace abyss::Cron::FishGenerator
 
 		while (true) {
 			this->buildFish();
-			co_yield Coro::WaitForSecondsEx(1.0s, clock);
+			co_yield Coro::WaitForSecondsEx(2.0s, clock);
 		}
 		co_return;
     }
@@ -59,7 +59,7 @@ namespace abyss::Cron::FishGenerator
 			return;
 		}
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (double sec = 0; sec <= 20; sec += 1.0) {
+		for (double sec = 0; sec <= 20; sec += 2.0) {
 			objs << this->buildFish(next->getRegion());
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
@@ -68,7 +68,7 @@ namespace abyss::Cron::FishGenerator
 			if (!obj) {
 				continue;
 			}
-			double sec = static_cast<double>(index) * 1.0 + 5.0;
+			double sec = static_cast<double>(index) * 2.0 + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto main = obj->find<Effect::Misc::Fish::Main>();

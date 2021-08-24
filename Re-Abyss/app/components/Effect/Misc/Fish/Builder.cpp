@@ -58,18 +58,22 @@ namespace abyss::Effect::Misc::Fish
         double rand0_1 = Random();
         // パララックス係数
         // スケール
+        // カラー
         Vec2 parallax{ 1.0, 1.0 };
         double scale = 1.0;
+        double alpha = 1.0;
         if (layer == LayerKind::Back) {
-            parallax.x = parallax.y = Math::Lerp(0.7, 0.95, rand0_1);
-            scale = s3d::Math::Lerp(0.4, 0.7, rand0_1);
+            parallax.x = parallax.y = Math::Lerp(0.6, 0.95, rand0_1);
+            scale = s3d::Math::Lerp(0.4, 0.9, rand0_1);
+            alpha = s3d::Math::Lerp(0.02, 0.2, rand0_1);
         } else {
-            parallax.x = parallax.y = Math::Lerp(1.05, 1.3, rand0_1);
-            scale = s3d::Math::Lerp(0.7, 1.0, rand0_1);
+            parallax.x = parallax.y = Math::Lerp(1.05, 1.4, rand0_1);
+            scale = s3d::Math::Lerp(0.9, 1.4, rand0_1);
+            alpha = s3d::Math::Lerp(0.2, 0.4, rand0_1);
         }
         main->setParallax(parallax);        
         main->setScale(scale);
-
+        main->setColor(ColorF(0.5, alpha));
         // 座標計算
         Vec2 basePos{};
         auto randArea = ::ChoicedRect(pObj, parallax, area);
@@ -81,7 +85,7 @@ namespace abyss::Effect::Misc::Fish
 
         {
             Vec2 velocity{};
-            velocity.x = Random(100.0, 80.0) * (screen.center().x - basePos.x > 0 ? 1.0 : -1.0);
+            velocity.x = Random(100.0, 50.0) * (screen.center().x - basePos.x > 0 ? 1.0 : -1.0);
             velocity.y = Random(-30.0, 30.0);
             main->setVelocity(velocity);
         }

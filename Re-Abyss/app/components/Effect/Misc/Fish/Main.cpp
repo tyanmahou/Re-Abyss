@@ -37,7 +37,7 @@ namespace abyss::Effect::Misc::Fish
 
         m_view
             ->setPos(viewRect.center())
-            .draw(ColorF(1.0, 0.2));
+            .draw(m_color);
     }
     Main& Main::setVelocity(const s3d::Vec2& velocity)
     {

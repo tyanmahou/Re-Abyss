@@ -35,6 +35,12 @@ namespace abyss::Effect::Misc::Fish
         }
         Main& setVelocity(const s3d::Vec2& velocity);
         Main& setScale(double scale);
+
+        Main& setColor(const s3d::ColorF& color)
+        {
+            m_color = color;
+            return *this;
+        }
         bool isEnd() const override
         {
             return m_isEnd;
@@ -53,7 +59,7 @@ namespace abyss::Effect::Misc::Fish
         s3d::Vec2 m_basePos{0, 0};
         s3d::Vec2 m_parallax{ 1.0, 1.0 };
         s3d::Vec2 m_velocity{0, 0};
-
+        s3d::ColorF m_color{};
         std::unique_ptr<FishVM> m_view;
     };
 }
