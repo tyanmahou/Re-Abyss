@@ -15,9 +15,10 @@ namespace abyss::Effect::Misc::Fish
     }
     void FishVM::draw(const s3d::ColorF& color) const
     {
+        auto scaleOffset = s3d::Periodic::Triangle0_1(2s, m_time) * 0.1;
         m_texture
             .mirrored(m_forward == Forward::Right)
-            .scaled(m_scale)
+            .scaled(m_scale + scaleOffset)
             .drawAt(m_pos, color);
     }
 }

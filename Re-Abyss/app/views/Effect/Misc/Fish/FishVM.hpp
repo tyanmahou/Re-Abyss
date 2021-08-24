@@ -21,7 +21,11 @@ namespace abyss::Effect::Misc::Fish
             m_forward = forward;
             return *this;
         }
-
+        FishVM& setTime(double time)
+        {
+            m_time = time;
+            return *this;
+        }
         s3d::Vec2 size() const
         {
             return m_texture.size() * m_scale;
@@ -32,5 +36,6 @@ namespace abyss::Effect::Misc::Fish
         s3d::Vec2 m_pos{0, 0};
         double m_scale = 1.0;
         Forward m_forward{};
+        double m_time = 0;
     };
 }

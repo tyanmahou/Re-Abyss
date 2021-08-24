@@ -26,7 +26,7 @@ namespace abyss::Effect::Misc::Fish
             m_pObj->destroy();
         }
     }
-    void Main::onDraw([[maybe_unused]]double time)
+    void Main::onDraw(double time)
     {
         auto viewRect = this->viewRect();
         if (!m_pObj->getModule<Camera>()->inScreen(viewRect)) {
@@ -37,6 +37,7 @@ namespace abyss::Effect::Misc::Fish
 
         m_view
             ->setPos(viewRect.center())
+            .setTime(time)
             .draw(m_color);
     }
     Main& Main::setVelocity(const s3d::Vec2& velocity)

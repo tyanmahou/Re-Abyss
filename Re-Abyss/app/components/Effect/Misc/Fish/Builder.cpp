@@ -73,7 +73,7 @@ namespace abyss::Effect::Misc::Fish
         }
         main->setParallax(parallax);        
         main->setScale(scale);
-        main->setColor(ColorF(0.7, alpha));
+        main->setColor(ColorF(0.4, alpha));
         // 座標計算
         Vec2 basePos{};
         auto randArea = ::ChoicedRect(pObj, parallax, area);
