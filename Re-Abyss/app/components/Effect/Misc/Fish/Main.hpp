@@ -3,6 +3,7 @@
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/components/Effect/Common/LifeTime.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Rectangle.hpp>
 
@@ -61,6 +62,7 @@ namespace abyss::Effect::Misc::Fish
         s3d::Vec2 m_velocity{0, 0};
         s3d::ColorF m_color{};
         std::unique_ptr<FishVM> m_view;
+        Ref<LifeTime> m_lifeTime;
     };
 }
 

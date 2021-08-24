@@ -15,7 +15,7 @@ namespace abyss::Effect::Misc::Fish
 
     void Main::onStart()
     {
-
+        m_lifeTime = m_pObj->find<LifeTime>();
     }
     void Main::onUpdate()
     {
@@ -35,10 +35,12 @@ namespace abyss::Effect::Misc::Fish
         // 減算
         ScopedRenderStates2D state(BlendState::Subtractive);
 
+        auto color = m_color;
+        color.a *= m_lifeTime->destroyRate();
         m_view
             ->setPos(viewRect.center())
             .setTime(time)
-            .draw(m_color);
+            .draw(color);
     }
     Main& Main::setVelocity(const s3d::Vec2& velocity)
     {
