@@ -2,7 +2,7 @@
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Effect::Bubble
+namespace abyss::Effect
 {
     LifeTime::LifeTime(EffectObj* pObj):
         m_pObj(pObj)
@@ -22,6 +22,9 @@ namespace abyss::Effect::Bubble
     }
     double LifeTime::destroyRate() const
     {
+        if (m_destroyMax <= 0) {
+            return m_lifeTime <= 0 ? 0.0 : 1.0;
+        }
         return s3d::Saturate(m_destroyTime / m_destroyMax);
     }
 }

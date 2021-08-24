@@ -2,8 +2,11 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
 
-namespace abyss::Effect::Bubble
+namespace abyss::Effect
 {
+    /// <summary>
+    /// 寿命
+    /// </summary>
     class LifeTime :
         public IComponent,
         public IUpdate
@@ -13,19 +16,26 @@ namespace abyss::Effect::Bubble
 
         void onUpdate() override;
 
+        LifeTime& setTime(double lifeTime, double destroyTime = 0.0)
+        {
+            m_lifeTime = lifeTime;
+            m_destroyTime = destroyTime;
+            m_destroyMax = destroyTime;
+            return *this;
+        }
         double destroyRate() const;
     private:
         EffectObj* m_pObj;
-        double m_lifeTime = 58.0;
-        double m_destroyTime = 2.0;
-        double m_destroyMax = 2.0;
+        double m_lifeTime = 10.0;
+        double m_destroyTime = 0.0;
+        double m_destroyMax = 0.0;
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<Effect::Bubble::LifeTime>
+    struct ComponentTree<Effect::LifeTime>
     {
         using Base = MultiComponents<
             Effect::IUpdate

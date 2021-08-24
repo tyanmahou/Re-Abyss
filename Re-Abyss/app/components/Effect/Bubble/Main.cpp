@@ -5,7 +5,6 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Light/Light.hpp>
-#include <abyss/components/Effect/Bubble/LifeTime.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Effect::Bubble

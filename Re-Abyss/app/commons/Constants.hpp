@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/Rectangle.hpp>
 #include <Siv3D/Types.hpp>
 
 /// <summary>

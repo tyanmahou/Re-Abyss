@@ -1594,10 +1594,25 @@
     <ClCompile Include="app\components\Effect\Bubble\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Effect\Bubble\LifeTime.cpp">
+    <ClCompile Include="app\components\Effect\Common\LifeTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cron\FishGenerator\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Cron\FishGenerator\Generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Effect\Misc\Fish\FishVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Misc\Fish\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Misc\Fish\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2372,9 +2387,15 @@
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\LifeTime.hpp" />
+    <ClInclude Include="app\components\Effect\Common\LifeTime.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
+    <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
+    <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
+    <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Fish\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Fish\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Fish\LayerKind.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

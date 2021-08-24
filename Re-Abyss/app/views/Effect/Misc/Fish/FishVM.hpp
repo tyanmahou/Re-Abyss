@@ -21,6 +21,11 @@ namespace abyss::Effect::Misc::Fish
             m_forward = forward;
             return *this;
         }
+
+        s3d::Vec2 size() const
+        {
+            return m_texture.size() * m_scale;
+        }
         void draw(const s3d::ColorF& color = s3d::Palette::White) const;
     private:
         s3d::Texture m_texture;

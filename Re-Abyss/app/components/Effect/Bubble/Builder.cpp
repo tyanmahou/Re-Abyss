@@ -4,7 +4,7 @@
 #include <abyss/modules/Room/RoomManager.hpp>
 
 #include <abyss/components/Effect/Bubble/Main.hpp>
-#include <abyss/components/Effect/Bubble/LifeTime.hpp>
+#include <abyss/components/Effect/Common/LifeTime.hpp>
 
 #include <Siv3D.hpp>
 
@@ -97,7 +97,8 @@ namespace abyss::Effect::Bubble
 
         // 寿命
         {
-            pObj->attach<LifeTime>(pObj);
+            pObj->attach<LifeTime>(pObj)
+                ->setTime(58.0, 2.0);
         }
     }
 }
