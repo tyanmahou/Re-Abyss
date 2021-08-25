@@ -14,6 +14,8 @@ namespace abyss::Actor::Gimmick::Bulletin
 {
     void Builder::Build(ActorObj* pActor, const BulletinEntity& entity)
     {
+		pActor->setDestoryTiming(DestoryTiming::CheckIn);
+
 		// 座標
 		{
 			pActor->attach<Locator>()
