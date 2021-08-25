@@ -2,9 +2,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 
-#include <abyss/components/Actor/base/ILocator.hpp>
+#include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Item/Recovery/Builder.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
+#include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <Siv3D.hpp>
 #include <ranges>
 namespace
@@ -45,8 +46,8 @@ namespace abyss::Actor::Enemy
     {}
     Ref<ActorObj> ItemDropCtrl::drop() const
     {
-        auto locator = m_pActor->find<ILocator>();
-        if (!locator) {
+        auto body = m_pActor->find<Body>();
+        if (!body) {
             return nullptr;
         }
         auto table = ::FindTable(m_tableKind);
@@ -60,18 +61,21 @@ namespace abyss::Actor::Enemy
         auto choicedIndex = dist(GetDefaultRNG());
         auto dropKind = table[choicedIndex].first;
 
+        Vec2 basePos = body->region().bottomCenter();
+
         auto world = m_pActor->getModule<World>();
         using abyss::Actor::Item::RecoveryKind;
+        using abyss::Actor::Item::Recovery::Param;
 
         switch (dropKind) {
         case DropItemKind::None:
             return nullptr;
         case DropItemKind::RecoverySmall:
-            return world->create<Item::Recovery::Builder>(locator->getCenterPos(), RecoveryKind::Small);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Small.size.y / 2.0 }, RecoveryKind::Small);
         case DropItemKind::RecoveryMiddle:
-            return world->create<Item::Recovery::Builder>(locator->getCenterPos(), RecoveryKind::Middle);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Middle.size.y / 2.0 }, RecoveryKind::Middle);
         case DropItemKind::RecoveryBig:
-            return world->create<Item::Recovery::Builder>(locator->getCenterPos(), RecoveryKind::Big);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Big.size.y / 2.0 }, RecoveryKind::Big);
         default:
             break;
         }
