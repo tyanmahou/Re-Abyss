@@ -37,7 +37,7 @@ namespace abyss::Actor::Gimmick::Bulletin
 		{
 			pActor->attach<CustomDraw>()
 				->setDrawer<Drawer>(pActor)
-				.setLayer(DrawLayer::DecorMiddle);
+				.setLayer(DrawLayer::WorldBack);
 		}
     }
 }

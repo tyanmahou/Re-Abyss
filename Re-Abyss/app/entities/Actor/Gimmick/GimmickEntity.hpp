@@ -9,6 +9,7 @@ namespace abyss::Actor::Gimmick
 		StartPos,
 		Door,
 		Bulletin,
+		Bush,
 		EventTrigger,
 		BgmChanger,
 	};

@@ -167,7 +167,6 @@ namespace abyss::Sys
             // 中面
             drawer->draw(DrawLayer::DecorMiddle);
             drawer->draw(DrawLayer::World);
-
             // 全面
             drawer->draw(DrawLayer::DecorFront);
             if (auto ws = env->getWaterSurface()) {

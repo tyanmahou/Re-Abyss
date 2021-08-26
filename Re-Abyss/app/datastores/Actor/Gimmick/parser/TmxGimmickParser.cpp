@@ -2,6 +2,7 @@
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BulletinEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
 
@@ -18,6 +19,7 @@ namespace
 			{U"start_pos", GimmickType::StartPos},
 			{U"door", GimmickType::Door},
 			{U"bulletin", GimmickType::Bulletin},
+			{U"bush", GimmickType::Bush},
 			{U"event_trigger", GimmickType::EventTrigger},
 			{U"bgm_changer", GimmickType::BgmChanger},
 		};
@@ -65,6 +67,9 @@ namespace
 			});
 			PARSE_GIMMICK(Bulletin, {
 				it->event = obj.getProperty(U"event").value_or(U"");
+			});
+			PARSE_GIMMICK(Bush, {
+				it->kind = Enum::Parse<BushKind>(obj.getProperty(U"kind").value_or(U""));
 			});
 			PARSE_GIMMICK(EventTrigger, {
 				it->event = obj.getProperty(U"event").value_or(U"");

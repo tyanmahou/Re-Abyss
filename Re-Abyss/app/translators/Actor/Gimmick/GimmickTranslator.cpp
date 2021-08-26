@@ -1,10 +1,12 @@
 #include "GimmickTranslator.hpp"
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BulletinEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
 
 #include <abyss/components/Actor/Gimmick/Door/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Builder.hpp>
+#include <abyss/components/Actor/Gimmick/Bush/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
@@ -43,6 +45,10 @@ namespace abyss::Actor::Gimmick
         case GimmickType::Bulletin:
         {
             return world.create<Bulletin::Builder>(static_cast<const BulletinEntity&>(entity));
+        }
+        case GimmickType::Bush:
+        {
+            return world.create<Bush::Builder>(static_cast<const BushEntity&>(entity));
         }
         case GimmickType::EventTrigger:
         {

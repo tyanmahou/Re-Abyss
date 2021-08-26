@@ -8,11 +8,7 @@ namespace abyss::Actor::Gimmick::Bulletin
     public:
         BulletinVM();
 
-        BulletinVM& setPos(const s3d::Vec2& pos)
-        {
-            m_pos = pos;
-            return *this;
-        }
+        BulletinVM& setPos(const s3d::Vec2& pos);
 
         void draw() const;
     private:

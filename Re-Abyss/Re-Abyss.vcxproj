@@ -313,6 +313,7 @@
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Bush\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
@@ -555,6 +556,7 @@
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp" />
+    <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
@@ -793,6 +795,7 @@
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bush\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
@@ -814,6 +817,7 @@
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
@@ -830,8 +834,10 @@
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
+    <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
+    <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
     <ClInclude Include="app\views\UI\SpeechBalloon\SpeechBalloonVM.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
