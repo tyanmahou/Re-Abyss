@@ -18,7 +18,7 @@ namespace abyss::Actor::Gimmick::Bush
         auto callback = [this](const Body& data) {
             double speed = s3d::Abs(data.getVelocity().x);
             if (speed >= 10.0) {
-                m_scale = s3d::Math::Lerp(1.0, 7.0, s3d::Saturate((speed - 10) / 60.0));
+                m_scale = s3d::Math::Lerp(1.0, Param::HitTimeScale, s3d::Saturate((speed - 10) / 60.0));
                 return true;
             }
             return false;
