@@ -8,7 +8,8 @@
 namespace abyss::Actor::Gimmick::Bush
 {
     ColReactor::ColReactor(ActorObj* pActor):
-        m_pActor(pActor)
+        m_pActor(pActor),
+        m_timeScale(Param::BaseTimeScale)
     {}
     void ColReactor::onStart()
     {
