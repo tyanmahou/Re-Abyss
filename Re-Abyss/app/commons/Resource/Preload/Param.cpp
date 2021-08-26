@@ -19,6 +19,8 @@
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
+#include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
+
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 
 // UI
@@ -113,6 +115,13 @@ namespace abyss::Resource::Preload
 			resource->loadToml<CodeZero::ShotParam>(U"Actors/Enemy/CodeZero/shot_param.toml");
 		}
 
+		// Gimmick
+		{
+			using namespace Actor::Gimmick;
+			resource->loadToml<Bush::Param>(U"Actors/Gimmick/Bush/param.toml");
+		}
+
+		// Item
 		{
 			using namespace Actor::Item;
 			resource->loadToml<Recovery::Param>(U"Actors/Item/Recovery/param.toml");

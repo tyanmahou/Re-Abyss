@@ -1,5 +1,7 @@
 #include "BushVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
+
 #include <Siv3D.hpp>
 namespace abyss::Actor::Gimmick::Bush
 {
@@ -21,7 +23,7 @@ namespace abyss::Actor::Gimmick::Bush
         } else if (m_kind == BushKind::Right) {
             xy.x = 80.0;
         }
-        auto rate = Periodic::Triangle0_1(2.0s, m_time);
+        auto rate = Periodic::Triangle0_1(Param::AnimTimeSec, m_time);
         xy.y = static_cast<int32>(rate * 3) % 3 * 40.0;
         m_texture(xy, Vec2{ 40.0, 40.0 }).drawAt(m_pos);
     }

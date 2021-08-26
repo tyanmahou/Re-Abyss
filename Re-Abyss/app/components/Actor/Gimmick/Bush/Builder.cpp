@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/views/Actor/Gimmick/Bush/BushVM.hpp>
 #include <Siv3D.hpp>
 namespace
@@ -43,7 +44,7 @@ namespace
 			m_view(std::make_unique<BushVM>())
 		{
 			m_view->setKind(entity.kind);
-			m_timeOffset = s3d::Math::Fmod(-entity.pos.x / 40.0 / 10.0, 2.0) + 2.0;
+			m_timeOffset = s3d::Math::Fmod(-entity.pos.x / 40.0 / Param::TimeOffsetFactor, Param::AnimTimeSec) + Param::AnimTimeSec;
 		}
 
 		void onStart() override
