@@ -21,7 +21,7 @@ namespace abyss::Actor::Gimmick::Bush
         m_timeScale = Param::BaseTimeScale;
 
         for (auto* pHitActor : m_cols->getHitActors()) {
-            if (!pHitActor->getTag().anyOf<Tag::Enemy, Tag::Player>()) {
+            if (!pHitActor->getTag().anyOf<Tag::Enemy, Tag::Hero>()) {
                 continue;
             }
             auto body = pHitActor->find<Body>();
@@ -34,7 +34,11 @@ namespace abyss::Actor::Gimmick::Bush
                 m_resizeRate = s3d::Max(m_resizeRate, s3d::Saturate((s - 10) / 60.0));
             }
             if (speed.x >= 10.0) {
-                m_timeScale = s3d::Max(m_timeScale, s3d::Math::Lerp(Param::BaseTimeScale, Param::HitTimeScale, s3d::Saturate((speed.x - 10) / 60.0)));
+                m_timeScale = s3d::Max(m_timeScale, s3d::Math::Lerp(
+                    Param::BaseTimeScale,
+                    Param::HitTimeScale,
+                    s3d::Saturate((speed.x - 10) / Param::MaxTimeScaleSpeed)
+                ));
             }
         }
     }

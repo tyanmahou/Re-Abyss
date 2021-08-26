@@ -18,6 +18,9 @@ namespace abyss::Actor::Gimmick::Bush
         [[TOML_BIND(HitTimeScale, "hitTimeScale")]]
         inline static double HitTimeScale = 2.0;
 
+        [[TOML_BIND(MaxTimeScaleSpeed, "maxTimeScaleSpeed")]]
+        inline static double MaxTimeScaleSpeed = 120.0;
+
         [[TOML_BIND(ColliderSize, "colliderSize")]]
         inline static s3d::Vec2 ColliderSize{};
 
