@@ -25,6 +25,8 @@ namespace abyss::Actor::Gimmick::Bush
         }
         auto rate = Periodic::Triangle0_1(Param::AnimTimeSec, m_time);
         xy.y = static_cast<int32>(rate * 3) % 3 * 40.0;
-        m_texture(xy, Vec2{ 40.0, 40.0 }).drawAt(m_pos);
+        m_texture(xy, Vec2{ 40.0, 40.0 })
+            .resized({ 40.0, 40 - m_resizeRate * Param::ResizeOffset })
+            .draw(Arg::bottomCenter = m_pos + Vec2{0, 20});
     }
 }

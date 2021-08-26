@@ -20,11 +20,17 @@ namespace abyss::Actor::Gimmick::Bush
             m_time = time;
             return *this;
         }
+        BushVM& setResizeRate(double rate)
+        {
+            m_resizeRate = rate;
+            return *this;
+        }
         void draw() const;
     private:
         s3d::Texture m_texture;
         BushKind m_kind;
         s3d::Vec2 m_pos;
         double m_time;
+        double m_resizeRate = 0;
     };
 }

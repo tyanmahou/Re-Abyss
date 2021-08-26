@@ -315,7 +315,7 @@
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bush\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Bush\ColReactor.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
@@ -800,7 +800,7 @@
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bush\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bush\ColReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />

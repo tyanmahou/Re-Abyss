@@ -20,5 +20,8 @@ namespace abyss::Actor::Gimmick::Bush
 
         [[TOML_BIND(ColliderOffset, "colliderOffset")]]
         inline static s3d::Vec2 ColliderOffset{};
+
+        [[TOML_BIND(ResizeOffset, "resizeOffset")]]
+        inline static double ResizeOffset = 5.0;
     };
 }

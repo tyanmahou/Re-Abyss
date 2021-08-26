@@ -7,29 +7,29 @@
 
 namespace abyss::Actor::Gimmick::Bush
 {
-    class TimeScaleCtrl :
+    class ColReactor :
         public IComponent,
         public IPostCollision,
         public ITimeScale
     {
     public:
-        TimeScaleCtrl(ActorObj* pActor);
+        ColReactor(ActorObj* pActor);
         void onStart() override;
         void onPostCollision()override;
-
+        double getResizeRate() const;
         double timeScale() override;
     private:
         ActorObj* m_pActor;
         Ref<CollisionCtrl> m_cols;
-        bool m_isCollided = false;
-        double m_scale = 0;
+        double m_resizeRate = 0;
+        double m_timeScale = 1.0;
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Gimmick::Bush::TimeScaleCtrl>
+    struct ComponentTree<Actor::Gimmick::Bush::ColReactor>
     {
         using Base = MultiComponents<
             Actor::IPostCollision,

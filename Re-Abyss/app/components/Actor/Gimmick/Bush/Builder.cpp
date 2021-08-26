@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/Commons/Locator.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Commons/Colliders/RectCollider.hpp>
-#include <abyss/components/Actor/Gimmick/Bush/TimeScaleCtrl.hpp>
+#include <abyss/components/Actor/Gimmick/Bush/ColReactor.hpp>
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/views/Actor/Gimmick/Bush/BushVM.hpp>
@@ -34,11 +34,9 @@ namespace abyss::Actor::Gimmick::Bush
 				->attach<RectCollider>(pActor)
 				->setSize(Param::ColliderSize)
 				.setOffset(Param::ColliderOffset);
-		}
 
-		// タイムスケール制御
-		{
-			pActor->attach<TimeScaleCtrl>(pActor);
+			// 衝突反応
+			pActor->attach<ColReactor>(pActor);
 		}
 
         // 描画
@@ -71,18 +69,21 @@ namespace
 		void onStart() override
 		{
 			m_locator = m_pActor->find<ILocator>();
+			m_colReactor = m_pActor->find<ColReactor>();
 		}
 		void onDraw() const override
 		{
 			m_view
 				->setPos(m_locator->getCenterPos())
 				.setTime(m_pActor->getDrawTimeSec() + m_timeOffset)
+				.setResizeRate(m_colReactor->getResizeRate())
 				.draw();
 		}
 	private:
 		ActorObj* m_pActor;
 
 		Ref<ILocator> m_locator;
+		Ref<ColReactor> m_colReactor;
 		double m_timeOffset = 0;
 		std::unique_ptr<BushVM> m_view;
 	};

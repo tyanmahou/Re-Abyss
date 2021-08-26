@@ -1624,7 +1624,7 @@
     <ClCompile Include="app\components\Actor\Commons\Colliders\RectCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.cpp">
+    <ClCompile Include="app\components\Actor\Gimmick\Bush\ColReactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2414,7 +2414,7 @@
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bush\ColReactor.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
   </ItemGroup>
   <ItemGroup>
