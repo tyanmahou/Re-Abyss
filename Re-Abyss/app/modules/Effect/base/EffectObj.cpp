@@ -7,7 +7,7 @@ namespace abyss::Effect
 {
     EffectObj::EffectObj()
     {
-        m_clock = this->attach<ClockCtrl>();
+        m_clock = this->attach<ClockCtrl>(this);
     }
     void EffectObj::updateDeltaTime(double dt) const
     {

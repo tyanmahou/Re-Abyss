@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Actor::Gimmick::Bush
 {
@@ -13,5 +14,11 @@ namespace abyss::Actor::Gimmick::Bush
 
         [[TOML_BIND(HitTimeScale, "hitTimeScale")]]
         inline static double HitTimeScale = 2.0;
+
+        [[TOML_BIND(ColliderSize, "colliderSize")]]
+        inline static s3d::Vec2 ColliderSize{};
+
+        [[TOML_BIND(ColliderOffset, "colliderOffset")]]
+        inline static s3d::Vec2 ColliderOffset{};
     };
 }

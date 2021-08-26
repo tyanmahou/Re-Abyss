@@ -255,6 +255,7 @@
     <ClCompile Include="app\components\Actor\Commons\CameraTarget.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\CircleCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Colliders\PointCollider.cpp" />
+    <ClCompile Include="app\components\Actor\Commons\Colliders\RectCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CollisionCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CustomCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CustomDraw.cpp" />
@@ -314,6 +315,7 @@
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bush\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
@@ -793,9 +795,12 @@
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
+    <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bush\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
@@ -830,6 +835,7 @@
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
+    <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />

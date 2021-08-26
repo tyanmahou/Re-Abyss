@@ -2,6 +2,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/CustomDraw.hpp>
 #include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Commons/Colliders/RectCollider.hpp>
+#include <abyss/components/Actor/Gimmick/Bush/TimeScaleCtrl.hpp>
+
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/views/Actor/Gimmick/Bush/BushVM.hpp>
 #include <Siv3D.hpp>
@@ -19,6 +23,23 @@ namespace abyss::Actor::Gimmick::Bush
             pActor->attach<Locator>()
                 ->setPos(entity.pos);
         }
+
+		// 衝突
+		{
+			pActor->attach<CollisionCtrl>(pActor)
+				->setLayer(LayerGroup::Gimmick)
+				.setToLayer(LayerGroup::Player | LayerGroup::Enemy);
+
+			pActor
+				->attach<RectCollider>(pActor)
+				->setSize(Param::ColliderSize)
+				.setOffset(Param::ColliderOffset);
+		}
+
+		// タイムスケール制御
+		{
+			pActor->attach<TimeScaleCtrl>(pActor);
+		}
 
         // 描画
         {

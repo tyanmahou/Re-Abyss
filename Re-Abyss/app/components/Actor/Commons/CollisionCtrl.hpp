@@ -41,6 +41,23 @@ namespace abyss::Actor
         s3d::Array<ActorObj*> getHitActors()const;
 
         /// <summary>
+        /// 特定のタグに衝突したか
+        /// </summary>
+        template<TaggedOf<Tag::ActorTagKind> T>
+        bool isHitBy() const
+        {
+            for (const auto& col : this->getResults()) {
+                if (!col) {
+                    continue;
+                }
+                if (col->getActor()->getTag().is<T>()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// 衝突したいずれかに対して処理を行う
         /// </summary>
         template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>

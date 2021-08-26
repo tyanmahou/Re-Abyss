@@ -1,9 +1,23 @@
 #include "ClockCtrl.hpp"
+#include "ITimeScale.hpp"
 
 namespace abyss
 {
+    ClockCtrl::ClockCtrl(GameObject* pObj):
+        m_pObj(pObj)
+    {}
+    void ClockCtrl::onStart()
+    {
+        m_timeScaleComps = m_pObj->finds<ITimeScale>();
+    }
     void ClockCtrl::updateDeltaTime(double dt)
-    {        
+    {
+        m_timeScale = 1.0;
+        for (const auto& comp : m_timeScaleComps) {
+            if (comp) {
+                m_timeScale *= comp->timeScale();
+            }
+        }
         m_deltaTime = dt * m_timeScale;
     }
     void ClockCtrl::updateUpdateTime()
@@ -13,10 +27,6 @@ namespace abyss
     void ClockCtrl::updateDrawTime()
     {
         m_drawTimeSec += m_deltaTime;
-    }
-    void ClockCtrl::setTimeScale(double timeScale)
-    {
-        m_timeScale = timeScale;
     }
     s3d::Microseconds ClockCtrl::getUpdateTime() const
     {

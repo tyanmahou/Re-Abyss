@@ -17,7 +17,7 @@ namespace abyss::Actor
 {
 	ActorObj::ActorObj()
 	{
-		m_clock = this->attach<ClockCtrl>();
+		m_clock = this->attach<ClockCtrl>(this);
 	}
 	void ActorObj::updateDeltaTime(double worldDt) const
 	{

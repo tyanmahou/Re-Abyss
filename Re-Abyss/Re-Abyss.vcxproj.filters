@@ -1621,6 +1621,12 @@
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Commons\Colliders\RectCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2406,6 +2412,10 @@
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
+    <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Bush\TimeScaleCtrl.hpp" />
+    <ClInclude Include="app\components\Common\ITimeScale.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
