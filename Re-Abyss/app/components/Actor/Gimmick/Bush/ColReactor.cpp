@@ -17,7 +17,7 @@ namespace abyss::Actor::Gimmick::Bush
     void ColReactor::onPostCollision()
     {
         m_resizeRate = 0.0;
-        m_timeScale = 1.0;
+        m_timeScale = Param::BaseTimeScale;
 
         for (auto* pHitActor : m_cols->getHitActors()) {
             if (!pHitActor->getTag().anyOf<Tag::Enemy, Tag::Player>()) {
@@ -33,7 +33,7 @@ namespace abyss::Actor::Gimmick::Bush
                 m_resizeRate = s3d::Max(m_resizeRate, s3d::Saturate((s - 10) / 60.0));
             }
             if (speed.x >= 10.0) {
-                m_timeScale = s3d::Max(m_timeScale, s3d::Math::Lerp(1.0, Param::HitTimeScale, s3d::Saturate((speed.x - 10) / 60.0)));
+                m_timeScale = s3d::Max(m_timeScale, s3d::Math::Lerp(Param::BaseTimeScale, Param::HitTimeScale, s3d::Saturate((speed.x - 10) / 60.0)));
             }
         }
     }

@@ -12,6 +12,9 @@ namespace abyss::Actor::Gimmick::Bush
         [[TOML_BIND(AnimTimeSec, "animTimeSec")]]
         inline static double AnimTimeSec = 2.0;
 
+        [[TOML_BIND(BaseTimeScale, "baseTimeScale")]]
+        inline static double BaseTimeScale = 1.0;
+
         [[TOML_BIND(HitTimeScale, "hitTimeScale")]]
         inline static double HitTimeScale = 2.0;
 
@@ -22,6 +25,6 @@ namespace abyss::Actor::Gimmick::Bush
         inline static s3d::Vec2 ColliderOffset{};
 
         [[TOML_BIND(ResizeOffset, "resizeOffset")]]
-        inline static double ResizeOffset = 5.0;
+        inline static double ResizeOffset = 3.0;
     };
 }
