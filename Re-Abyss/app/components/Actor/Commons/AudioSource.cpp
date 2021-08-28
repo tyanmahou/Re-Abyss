@@ -84,7 +84,7 @@ namespace abyss::Actor
 
     void AudioSource::load(const s3d::FilePath& path)
     {
-        m_audioSettingGroup = Resource::Assets::Main()->loadAudioSettingGroup(U"se/Actors/" + path);
+        m_audioSettingGroup = Resource::Assets::Main()->load(U"se/Actors/" + path);
     }
 
     void AudioSource::onUpdate()
@@ -105,7 +105,7 @@ namespace abyss::Actor
     void AudioSource::play(const s3d::String& key)
     {
         auto as = m_audioSettingGroup(key);
-        if (auto baseAudio = Resource::Assets::Main()->loadAudio(as.path, Path::Root)) {
+        if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
             as.apply(audio);
             this->playDirect(audio);
@@ -121,7 +121,7 @@ namespace abyss::Actor
     void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
         auto as = m_audioSettingGroup(key);
-        if (auto baseAudio = Resource::Assets::Main()->loadAudio(as.path, Path::Root)) {
+        if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
             Audio audio(baseAudio.getWave());
             as.apply(audio);
             this->playAtDirect(audio, pos);
@@ -129,7 +129,7 @@ namespace abyss::Actor
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {
-        if (auto baseAudio = Resource::Assets::Main()->loadAudio(U"se/Actors/" + path)) {
+        if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
             if (auto loop = baseAudio.getLoop()) {
                 audio.setLoop(loop->beginPos, loop->endPos);
@@ -154,7 +154,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
-        if (auto baseAudio = Resource::Assets::Main()->loadAudio(U"se/Actors/" + path)) {
+        if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
             Audio audio(baseAudio.getWave());
             if (auto loop = baseAudio.getLoop()) {
                 audio.setLoop(loop->beginPos, loop->endPos);

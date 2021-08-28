@@ -26,7 +26,7 @@ namespace abyss::Event::CreateBossHPBar
             m_pEvent->getModule<Sound>()->stop(0s);
         }
         m_se = Resource::Assets::Main()
-            ->loadAudio(U"se/commons/charge_boss_hp.ogg");
+            ->load(U"se/commons/charge_boss_hp.ogg");
     }
 
     Coro::Task<> MainStream::onExecute()

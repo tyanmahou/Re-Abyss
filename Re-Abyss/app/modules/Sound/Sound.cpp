@@ -11,7 +11,7 @@ namespace abyss
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
         m_currentPath = path;
-        auto next = Resource::Assets::Main()->loadAudio(path, U"");
+        Audio next = Resource::Assets::Main()->load(path, U"");
         if (m_currentId == next.id()) {
             if (!m_current.isPlaying()) {
                 m_current.play(sec);
