@@ -25,7 +25,7 @@ namespace abyss::Env
     public:
         Impl() :
             m_rt(static_cast<uint32>(Constants::GameScreenSize.x), static_cast<uint32>(Constants::GameScreenSize.y)),
-            m_ps(Resource::Assets::Main()->loadPs(U"wave.hlsl"))
+            m_ps(Resource::Assets::Main()->load(U"wave.hlsl"))
         {}
 
         void setTimer(double timer)

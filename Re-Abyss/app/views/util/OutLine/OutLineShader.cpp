@@ -25,7 +25,7 @@ namespace abyss
         s3d::ColorF m_outlineColor;
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->loadPs(U"outline.hlsl"))
+            m_ps(Resource::Assets::Main()->load(U"outline.hlsl"))
         {}
 
         void setTextureSize(const s3d::Vec2& size)

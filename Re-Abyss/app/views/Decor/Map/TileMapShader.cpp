@@ -21,7 +21,7 @@ namespace abyss::Decor::Map
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->loadPs(U"tilemap.hlsl"))
+            m_ps(Resource::Assets::Main()->load(U"tilemap.hlsl"))
         {}
 
         void setTextureSize(const Vec2& size)

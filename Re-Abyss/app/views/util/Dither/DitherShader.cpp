@@ -28,7 +28,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->loadPs(U"dither.hlsl")),
+            m_ps(Resource::Assets::Main()->load(U"dither.hlsl")),
             m_dither(g_ditherImage)
         {}
         ScopedCustomShader2D start() const
