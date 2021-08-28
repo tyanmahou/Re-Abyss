@@ -18,6 +18,7 @@ namespace abyss
 }
 namespace abyss::Resource
 {
+    class AssetLoadProxy;
 
     class Assets : s3d::Uncopyable
     {
@@ -29,13 +30,15 @@ namespace abyss::Resource
     public:
         ~Assets();
 
-        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
-        s3d::Texture loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
-        TexturePacker loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
-        s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
-        AudioSettingGroup loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        AssetLoadProxy load(const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix = s3d::none) const;
 
-        s3d::PixelShader loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
+        const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
+        const s3d::Texture& loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
+        const TexturePacker& loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
+        const s3d::Audio& loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+
+        const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
 
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const;
 
@@ -66,5 +69,26 @@ namespace abyss::Resource
         /// </summary>
         /// <returns></returns>
         static Assets* Norelease();
+    };
+
+    /// <summary>
+    /// アセットロードプロキシ
+    /// </summary>
+    class AssetLoadProxy
+    {
+    public:
+        AssetLoadProxy(const Assets& asset, const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix);
+
+        operator const s3dTiled::TiledMap& () const;
+        operator const s3d::Texture& () const;
+        operator const TexturePacker& () const;
+        operator const s3d::Audio& () const;
+        operator const AudioSettingGroup& () const;
+        operator const s3d::PixelShader& () const;
+        operator const s3d::TOMLValue& () const;
+    private:
+        const Assets& m_asset;
+        s3d::FilePath m_path;
+        s3d::Optional<s3d::FilePath> m_prefix;
     };
 }

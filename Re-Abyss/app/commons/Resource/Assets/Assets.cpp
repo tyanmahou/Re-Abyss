@@ -76,30 +76,30 @@ namespace abyss::Resource
             return cache[fixPath] = rc;
         }
 
-        s3dTiled::TiledMap loadTmx(const s3d::FilePath& path)
+        const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path)
         {
             return this->load(m_tmxCache, path);
         }
 
-        s3d::Texture loadTexture(const s3d::FilePath& path)
+        const s3d::Texture& loadTexture(const s3d::FilePath& path)
         {
             return this->load(m_textureCache, path);
         }
-        TexturePacker loadTexturePacker(const s3d::FilePath& path)
+        const TexturePacker& loadTexturePacker(const s3d::FilePath& path)
         {
             return this->load(m_texturePackerCache, path);
         }
-        Audio loadAudio(const s3d::FilePath& path)
+        const Audio& loadAudio(const s3d::FilePath& path)
         {
             return this->load(m_audioCache, path, [this](const s3d::FilePath& callbackPath) {
                 return this->loadAudio(callbackPath);
             });
         }
-        AudioSettingGroup loadAudioSettingGroup(const s3d::FilePath& path)
+        const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path)
         {
             return this->load<AudioSettingGroup>(m_audioGroupCache, path);
         }
-        PixelShader loadPs(const s3d::FilePath& path)
+        const PixelShader& loadPs(const s3d::FilePath& path)
         {
             return this->load<PixelShader>(m_psCache, path, Array<ConstantBufferBinding>{ { U"PSConstants2D", 0 } });
         }
@@ -138,31 +138,35 @@ namespace abyss::Resource
     Assets::~Assets()
     {
     }
-    s3dTiled::TiledMap Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    AssetLoadProxy Assets::load(const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix) const
+    {
+        return AssetLoadProxy(*this, path, prefix);
+    }
+    const s3dTiled::TiledMap& Assets::loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTmx(prefix + path);
     }
-    s3d::Texture Assets::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const s3d::Texture& Assets::loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexture(prefix + path);
     }
 
-    TexturePacker Assets::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const TexturePacker& Assets::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexturePacker(prefix + path);
     }
 
-    s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const s3d::Audio& Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudio(prefix + path);
     }
 
-    AudioSettingGroup Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const AudioSettingGroup& Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudioSettingGroup(prefix + path);
     }
 
-    s3d::PixelShader Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    const s3d::PixelShader& Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadPs(prefix + path);
     }
@@ -197,5 +201,59 @@ namespace abyss::Resource
     {
         static Assets instance;
         return &instance;
+    }
+    AssetLoadProxy::AssetLoadProxy(const Assets& asset, const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix) :
+        m_asset(asset),
+        m_path(path),
+        m_prefix(prefix)
+    {}
+    AssetLoadProxy::operator const s3dTiled::TiledMap& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadTmx(m_path, *m_prefix);
+        }
+        return m_asset.loadTmx(m_path);
+    }
+    AssetLoadProxy::operator const s3d::Texture& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadTexture(m_path, *m_prefix);
+        }
+        return m_asset.loadTexture(m_path);
+    }
+    AssetLoadProxy::operator const TexturePacker& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadTexturePacker(m_path, *m_prefix);
+        }
+        return m_asset.loadTexturePacker(m_path);
+    }
+    AssetLoadProxy::operator const s3d::Audio& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadAudio(m_path, *m_prefix);
+        }
+        return m_asset.loadAudio(m_path);
+    }
+    AssetLoadProxy::operator const AudioSettingGroup& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadAudioSettingGroup(m_path, *m_prefix);
+        }
+        return m_asset.loadAudioSettingGroup(m_path);
+    }
+    AssetLoadProxy::operator const s3d::PixelShader& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadPs(m_path, *m_prefix);
+        }
+        return m_asset.loadPs(m_path);
+    }
+    AssetLoadProxy::operator const s3d::TOMLValue& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadToml(m_path, *m_prefix);
+        }
+        return m_asset.loadToml(m_path);
     }
 }
