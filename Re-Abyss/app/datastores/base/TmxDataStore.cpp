@@ -7,11 +7,11 @@ namespace abyss
         m_tmx(*mapData)
     {}
     TmxDataStore::TmxDataStore(const s3d::String& mapPath) :
-        m_tmx(Resource::Assets::Main()->loadTmx(mapPath))
+        m_tmx(Resource::Assets::Main()->load(mapPath, U""))
     {}
 
     TiledMapInstaller::TiledMapInstaller(const s3d::String& mapPath):
-        m_tmx(std::make_shared<s3dTiled::TiledMap>(Resource::Assets::Main()->loadTmx(mapPath, U"")))
+        m_tmx(std::make_shared<s3dTiled::TiledMap>(Resource::Assets::Main()->load(mapPath, U"")))
     {}
 
     void TiledMapInstaller::onBinding(emaject::Container * conatienr) const

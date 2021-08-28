@@ -5,8 +5,8 @@
 namespace abyss::Env
 {
     SkyView::SkyView() :
-        m_texture(Resource::Assets::Main()->loadTexture(U"env/sky.png")),
-        m_texture2(Resource::Assets::Main()->loadTexture(U"env/surface.png"))
+        m_texture(Resource::Assets::Main()->load(U"env/sky.png")),
+        m_texture2(Resource::Assets::Main()->load(U"env/surface.png"))
     {
 
     }

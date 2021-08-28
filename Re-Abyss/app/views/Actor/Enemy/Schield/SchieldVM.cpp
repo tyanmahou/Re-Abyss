@@ -8,7 +8,7 @@
 namespace abyss::Actor::Enemy::Schield
 {
     SchieldVM::SchieldVM():
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/Schield/schield.json"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/Schield/schield.json"))
     {}
     SchieldVM& SchieldVM::setTime(double time)
     {

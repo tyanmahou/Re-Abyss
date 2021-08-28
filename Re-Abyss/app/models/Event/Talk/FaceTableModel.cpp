@@ -6,7 +6,7 @@ namespace abyss::Event::Talk
 {
     void FaceTableModel::add(const s3d::String& actor, const s3d::FilePath& jsonPath)
     {
-        m_actors[actor] = Resource::Assets::Main()->loadTexturePacker(jsonPath);
+        m_actors[actor] = Resource::Assets::Main()->load(jsonPath);
     }
     bool FaceTableModel::isContain(const s3d::String& actor, const s3d::String& kind) const
     {

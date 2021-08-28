@@ -11,7 +11,7 @@ namespace abyss::Decor::Map
     {
         m_shader
             .setTextureSize(m_texture.size())
-            .setMapChip(Resource::Assets::Main()->loadTexture(tileMap.getFilePath(), Path::Root), tileMap.getTileSize());
+            .setMapChip(Resource::Assets::Main()->load(tileMap.getFilePath(), Path::Root), tileMap.getTileSize());
 
         const auto& grid = m_tileMap.tiles();
         bool isFind = false;

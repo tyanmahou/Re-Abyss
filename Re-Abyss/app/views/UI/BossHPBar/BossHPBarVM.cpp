@@ -20,7 +20,7 @@ namespace
 namespace abyss::UI::BossHPBar
 {
     BossHPBarVM::BossHPBarVM():
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/BossHPBar/boss_hp_bar.json")),
+        m_texture(Resource::Assets::Main()->load(U"ui/BossHPBar/boss_hp_bar.json")),
         m_pos(PivotUtil::FromBr(Param::BrPos))
     {
     

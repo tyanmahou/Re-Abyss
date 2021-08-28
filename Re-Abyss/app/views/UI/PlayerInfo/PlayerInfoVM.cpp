@@ -7,7 +7,7 @@
 namespace abyss::UI::PlayerInfo
 {
     PlayerInfoVM::PlayerInfoVM() :
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"ui/PlayerInfo/player_info.json"))
+        m_texture(Resource::Assets::Main()->load(U"ui/PlayerInfo/player_info.json"))
     {}
 
     void PlayerInfoVM::draw()const

@@ -80,7 +80,7 @@ namespace abyss
             return m_textures.at(gId).resized(size);
         }
         auto info = m_infos[gId];
-        s3d::Texture tex(Resource::Assets::Main()->loadTexture(info.filePath, Path::Root));
+        s3d::Texture tex(Resource::Assets::Main()->load(info.filePath, Path::Root));
         return m_textures[gId] = tex(info.offset, info.size);
     }
 }

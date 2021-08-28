@@ -5,7 +5,7 @@
 namespace abyss::UI::Serif
 {
     MessageBoxVM::MessageBoxVM() :
-        m_boxTexture(Resource::Assets::Main()->loadTexture(U"ui/common/message_box.png"))
+        m_boxTexture(Resource::Assets::Main()->load(U"ui/common/message_box.png"))
     {}
     MessageBoxVM& MessageBoxVM::setPos(const s3d::Vec2& pos)
     {

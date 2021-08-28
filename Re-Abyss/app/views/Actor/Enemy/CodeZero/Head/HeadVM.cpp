@@ -7,7 +7,7 @@
 namespace abyss::Actor::Enemy::CodeZero::Head
 {
     HeadVM::HeadVM() :
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/CodeZero/code_zero.json"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/CodeZero/code_zero.json"))
     {}
 
     HeadVM& HeadVM::setTime(double time)

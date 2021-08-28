@@ -6,7 +6,7 @@
 namespace abyss::Actor::Enemy::LaunShark
 {
     LaunSharkVM::LaunSharkVM():
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Enemy/LaunShark/laun_shark.json"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/LaunShark/laun_shark.json"))
     {}
     LaunSharkVM& LaunSharkVM::setTime(double time)
     {

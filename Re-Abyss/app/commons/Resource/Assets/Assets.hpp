@@ -30,7 +30,8 @@ namespace abyss::Resource
     public:
         ~Assets();
 
-        AssetLoadProxy load(const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix = s3d::none) const;
+        AssetLoadProxy load(const s3d::FilePath& path) const;
+        AssetLoadProxy load(const s3d::FilePath& path, const s3d::String& prefix) const;
 
         const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
         const s3d::Texture& loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;

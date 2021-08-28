@@ -5,7 +5,7 @@
 namespace abyss::UI::Title::Cursor
 {
     ShotVM::ShotVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"actors/Player/player_shot.png"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Player/player_shot.png"))
     {}
 
     ShotVM& ShotVM::setTime(double time)

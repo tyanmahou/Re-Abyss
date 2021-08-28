@@ -12,7 +12,7 @@ namespace abyss
 		const s3d::Vector2D<bool>& fix,
 		const s3d::Vector2D<s3d::Optional<double>>& rate
 	):
-		m_texture(Resource::Assets::Main()->loadTexture(path, Path::Root)),
+		m_texture(Resource::Assets::Main()->load(path, Path::Root)),
 		m_offset(offset),
 		m_fix(fix),
 		m_rate(rate.x, rate.y)

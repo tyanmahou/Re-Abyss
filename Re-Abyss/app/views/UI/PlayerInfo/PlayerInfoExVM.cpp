@@ -5,7 +5,7 @@
 namespace abyss::UI::PlayerInfo
 {
     PlayerInfoExVM::PlayerInfoExVM():
-        m_face(Resource::Assets::Main()->loadTexturePacker(U"actors/Player/face.json"))
+        m_face(Resource::Assets::Main()->load(U"actors/Player/face.json"))
     {
 
     }

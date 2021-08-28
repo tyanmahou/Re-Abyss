@@ -5,7 +5,7 @@
 namespace abyss::UI::SpeechBalloon
 {
     SpeechBalloonVM::SpeechBalloonVM():
-        m_texture(Resource::Assets::Main()->loadTexture(U"ui/SpeechBalloon/speech_balloon.png"))
+        m_texture(Resource::Assets::Main()->load(U"ui/SpeechBalloon/speech_balloon.png"))
     {}
 
     void SpeechBalloonVM::draw() const

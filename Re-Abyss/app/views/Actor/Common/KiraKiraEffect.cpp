@@ -6,7 +6,7 @@ namespace abyss
     KiraKiraEffect::KiraKiraEffect(const s3d::Vec2& pos, Type type) :
         m_type(type),
         m_pos(pos),
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/common_effects.json"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Common/common_effects.json"))
     {}
 
     bool KiraKiraEffect::update(double time)

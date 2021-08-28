@@ -138,7 +138,11 @@ namespace abyss::Resource
     Assets::~Assets()
     {
     }
-    AssetLoadProxy Assets::load(const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix) const
+    AssetLoadProxy Assets::load(const s3d::FilePath& path) const
+    {
+        return AssetLoadProxy(*this, path, s3d::none);
+    }
+    AssetLoadProxy Assets::load(const s3d::FilePath& path, const s3d::String& prefix) const
     {
         return AssetLoadProxy(*this, path, prefix);
     }
@@ -202,6 +206,9 @@ namespace abyss::Resource
         static Assets instance;
         return &instance;
     }
+
+    // -------------------------------------------------
+
     AssetLoadProxy::AssetLoadProxy(const Assets& asset, const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix) :
         m_asset(asset),
         m_path(path),
