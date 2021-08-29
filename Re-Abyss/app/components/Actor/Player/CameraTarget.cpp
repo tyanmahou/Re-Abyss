@@ -69,6 +69,9 @@ namespace abyss::Actor::Player
                     s3d::Saturate((-velocity.y - startSpeed.y) / (Param::Swim::MaxSpeedX - startSpeed.y))
                 );
             }
+            if (Math::IsZeroLoose(velocity)) {
+                return;
+            }
             m_localPos = s3d::Math::Lerp(m_localPos, targetLocalPos, InterpUtil::DampRatio(CameraParam::ErpRate, dt));
         }
     private:
