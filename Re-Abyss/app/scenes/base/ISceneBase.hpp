@@ -43,7 +43,7 @@ namespace abyss
         void draw() const final;
     protected:
         Loading m_loading;
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_NO_BUILD_RESOURCE && ABYSS_DEBUG
         Debug::HotReload m_reloader;
 #endif
     };
