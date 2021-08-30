@@ -10,6 +10,7 @@
 
 #include <abyss/system/System.hpp>
 #include <abyss/system/Main/Booter.hpp>
+#include <abyss/debugs/Util/DebugUtil.hpp>
 
 namespace abyss
 {
@@ -83,6 +84,11 @@ namespace abyss
 		void update()
 		{
 			m_system->update();
+#if ABYSS_DEBUG
+			if ((KeyControl + KeyO).down()) {
+				Debug::DebugUtil::FileEdit(m_context.mapPath);
+			}
+#endif
 		}
 
 		void draw() const
