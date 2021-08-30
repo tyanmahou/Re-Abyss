@@ -56,7 +56,7 @@ namespace abyss
 		{
 			InputManager::Update();
 #if ABYSS_DEBUG
-			Debug::Log::ClearAndPrintCached();
+			Debug::LogUpdater::Update();
 			Debug::DebugManager::Update();
 #endif
 			return m_scene.update();

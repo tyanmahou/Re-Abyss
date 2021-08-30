@@ -821,6 +821,8 @@
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
+    <ClInclude Include="app\debugs\Debug.hpp" />
+    <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
@@ -1220,7 +1222,6 @@
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
-    <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BgmChangerEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />

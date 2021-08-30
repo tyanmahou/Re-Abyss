@@ -1780,7 +1780,6 @@
     <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
     <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
     <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
-    <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />
@@ -2416,6 +2415,8 @@
     <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bush\ColReactor.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
+    <ClInclude Include="app\debugs\Debug.hpp" />
+    <ClInclude Include="app\debugs\Log\Log.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

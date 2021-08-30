@@ -51,7 +51,7 @@ namespace abyss::FileUtil
 			if (::IsResourcePath(resourcePath)) {
 				return resourcePath;
 			}
-			Debug::Log::PrintCache << U"Not Found Resoure: " << path;
+			Debug::LogLoad << U"Not Found Resoure: " << path;
 #else
 			return resourcePath;
 #endif

@@ -60,7 +60,7 @@ namespace abyss::Event::Talk
                     builder(talkObj.get());
                 } else {
 #if ABYSS_DEBUG
-                    Debug::Log::PrintCache << U"Not found trigger:{}"_fmt(*trigger);
+                    Debug::LogWarn << U"Not found trigger:{}"_fmt(*trigger);
 #endif
                 }
             } else if (const auto& serif = event[U"serif"]; serif.isObject()) {

@@ -81,7 +81,7 @@ namespace abyss::Resource::Preload
                     }
 #if ABYSS_DEBUG
                     if (m_prelaodInfos.contains(name)) {
-                        Debug::Log::PrintCache << U"Duplicated Load Preload Name: {}"_fmt(name);
+                        Debug::LogWarn << U"Duplicated Load Preload Name: {}"_fmt(name);
                     }
 #endif
                     m_prelaodInfos.emplace(name, FromJson(value.objectView()));

@@ -38,7 +38,7 @@ namespace abyss::Debug
     bool HotReload::detection() const
     {
         if ((s3d::KeyControl + s3d::KeyF5).down()) {
-            Debug::Log::PrintCache << U"Super Reload: " << m_message;
+            Debug::Log << U"Super Reload: " << m_message;
 
             if (m_superCallback) {
                 m_superCallback();
@@ -49,7 +49,7 @@ namespace abyss::Debug
         if (!this->onModify()) {
             return false;
         }
-        Debug::Log::PrintCache << U"Reload: " << m_message;
+        Debug::Log << U"Reload: " << m_message;
 
         if (m_callback) {
             m_callback();

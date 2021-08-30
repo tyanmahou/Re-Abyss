@@ -29,7 +29,7 @@ namespace abyss::Debug
                 m_showFps ^= true;
             }
             if (m_showFps) {
-                Log::Print << Profiler::FPS();
+                Debug::Log.Update << Profiler::FPS();
             }
         }
 
@@ -39,7 +39,7 @@ namespace abyss::Debug
                 return;
             }
             auto colliders = world.finds<Actor::ICollider>();
-            Log::Print << U"Colliders: " << colliders.size();
+            Debug::Log.Update << U"Colliders: " << colliders.size();
 
             constexpr ColorF color = ColorF(1, 0, 0, 0.4);
 
@@ -56,7 +56,7 @@ namespace abyss::Debug
             constexpr ColorF color = ColorF(0, 0, 1, 0.4);
             {
                 const auto& colliders = physics.getContacters();
-                Log::Print << U"Map Colliders: " << colliders.size();
+                Debug::Log.Update << U"Map Colliders: " << colliders.size();
 
                 for (auto&& col : colliders) {
                     if (!col->isActive()) {
@@ -67,7 +67,7 @@ namespace abyss::Debug
             }
             {
                 const auto& terrains = physics.getTerrains();
-                Log::Print << U"Map Terrain: " << terrains.size();
+                Debug::Log.Update << U"Map Terrain: " << terrains.size();
 
                 for (auto&& terrain : terrains) {
                     if (!terrain->isActive()) {
@@ -119,16 +119,16 @@ namespace abyss::Debug
         if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogEffectCount)) {
             return;
         }
-        Log::Print << U"---LogEffectNum---";
-        Log::Print << U"Effect: "  << effects.size();
+        Debug::Log.Update << U"---LogEffectNum---";
+        Debug::Log.Update << U"Effect: "  << effects.size();
     }
     void DebugManager::DrawDebug(const Decors& decor)
     {
         if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogDecorCount)) {
             return;
         }
-        Log::Print << U"---LogDecorNum---";
-        Log::Print << U"Decor: " << decor.size();
+        Debug::Log.Update << U"---LogDecorNum---";
+        Debug::Log.Update << U"Decor: " << decor.size();
     }
 }
 
