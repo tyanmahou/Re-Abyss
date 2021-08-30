@@ -54,6 +54,8 @@ namespace abyss::Actor::Player
                     -maxOffset.x,
                     s3d::Saturate((-velocity.x - startSpeed.x) / (Param::Swim::MaxSpeedX - startSpeed.x))
                 );
+            } else {
+                targetLocalPos.x = m_localPos.x;
             }
 
             if (velocity.y > startSpeed.y) {
@@ -68,9 +70,8 @@ namespace abyss::Actor::Player
                     -maxOffset.y,
                     s3d::Saturate((-velocity.y - startSpeed.y) / (Param::Swim::MaxSpeedX - startSpeed.y))
                 );
-            }
-            if (Math::IsZeroLoose(velocity)) {
-                return;
+            } else {
+                targetLocalPos.y = m_localPos.y;
             }
             m_localPos = s3d::Math::Lerp(m_localPos, targetLocalPos, InterpUtil::DampRatio(CameraParam::ErpRate, dt));
         }
