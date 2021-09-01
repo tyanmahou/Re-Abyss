@@ -50,5 +50,16 @@
 	    "label": "FPS",
 		"kind": "custom",
 	    "func": "execFPS"
-	}
+	},
+	"Sound" : {
+	    "label": "サウンド",
+		"kind": "popup",
+		"list": {
+	        "Mute": {
+			    "label": "ミュート",
+				"kind": "custom",
+				"func": "execSoundMute"
+		    }
+	    }
+	},
 }

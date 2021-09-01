@@ -118,6 +118,12 @@ namespace abyss::Debug
                 createMainSceneChangeButtons(child, Path::TestMapPath);
             }
         }
+        void execSoundMute(Windows::MenuItem& menu)
+        {
+            menu.setCheckButton([](bool isChecked) {
+                // マスターボリューム設定
+            });
+        }
         void parseCustom(
             Windows::MenuItem& menu,
             const String& funcName
@@ -126,6 +132,7 @@ namespace abyss::Debug
             {
                 { U"execFPS", &Impl::execFPS},
                 { U"execScene", &Impl::execScene },
+                { U"execSoundMute", &Impl::execSoundMute },
             };
             if (funcMap.find(funcName) == funcMap.end()) {
                 return;
