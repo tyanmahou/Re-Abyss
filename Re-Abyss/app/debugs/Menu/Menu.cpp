@@ -120,8 +120,9 @@ namespace abyss::Debug
         }
         void execSoundMute(Windows::MenuItem& menu)
         {
-            menu.setCheckButton([](bool isChecked) {
+            menu.setCheckButton([]([[maybe_unused]] bool isChecked) {
                 // マスターボリューム設定
+                // TODO ミュート
             });
         }
         void parseCustom(
