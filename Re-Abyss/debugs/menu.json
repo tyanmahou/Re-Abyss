@@ -8,9 +8,30 @@
 	    "label": "ログ",
 		"kind": "popup",
 		"list": {
+		    "IsVisible" :{
+			    "label": "表示",
+				"isChecked": true,
+				"seperator": true,
+			},
+		    "Normal" :{
+			    "label": "一般",
+				"isChecked": true,
+			},
+		    "Warn" :{
+			    "label": "警告",
+				"isChecked": true,
+			},
+		    "Error" :{
+			    "label": "エラー",
+				"isChecked": true,
+			},
+		    "Load" :{
+			    "label": "ロード",
+				"isChecked": true,
+			},
 	        "EffectCount": {
 			    "label": "エフェクト数",
-				"isChecked": false
+				"isChecked": false,
 		    },
 	        "DecorCount": {
 			    "label": "装飾数",

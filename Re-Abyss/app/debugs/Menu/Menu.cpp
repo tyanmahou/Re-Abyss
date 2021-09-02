@@ -180,6 +180,9 @@ namespace abyss::Debug
                     auto nextMenu = menu.createItem(label);
                     parseCustom(nextMenu, obj[U"func"].getOr<String>(U""));
                 }
+                if(obj[U"seperator"].getOr<bool>(false)) {
+                    menu.createSeperator();
+                }
                 flagNamePath.pop();
             }
         }
