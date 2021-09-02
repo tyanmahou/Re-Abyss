@@ -5,21 +5,21 @@
 
 namespace abyss::Debug
 {
+    enum class LogKind
+    {
+        Normal,
+        Warn,
+        Error,
+        Load,
+    };
     namespace detail
     {
-        namespace Tag
-        {
-            struct Normal;
-            struct Warn;
-            struct Error;
-            struct Load;
-        }
         enum class LogMethod
         {
             Normal,
             Update,
         };
-        template<class Tag, LogMethod Method = LogMethod::Normal>
+        template<LogKind Kind, LogMethod Method = LogMethod::Normal>
         struct LogBuffer
         {
             std::unique_ptr<s3d::FormatData> formatData;
@@ -36,16 +36,16 @@ namespace abyss::Debug
             }
         };
 
-        template<class Tag>
+        template<LogKind Kind>
         struct LogWriter
         {
             template<LogMethod Method>
             struct Helper
             {
                 template<class Type>
-                LogBuffer<Tag, Method> operator << (const Type& value)const
+                LogBuffer<Kind, Method> operator << (const Type& value)const
                 {
-                    LogBuffer<Tag, Method> buf;
+                    LogBuffer<Kind, Method> buf;
                     s3d::Formatter(*buf.formatData, value);
                     return buf;
                 }
@@ -57,9 +57,9 @@ namespace abyss::Debug
             void writeUpdate(const s3d::String& log) const;
 
             template<class Type>
-            LogBuffer<Tag> operator << (const Type& value)const
+            LogBuffer<Kind> operator << (const Type& value)const
             {
-                LogBuffer<Tag> buf;
+                LogBuffer<Kind> buf;
                 s3d::Formatter(*buf.formatData, value);
                 return buf;
             }
@@ -73,8 +73,8 @@ namespace abyss::Debug
         static void Update();
         static void Clear();
 
-        static void Print(const s3d::String& log);
-        static void PrintUpdate(const s3d::String& log);
+        static void Print(LogKind kind, const s3d::String& log);
+        static void PrintUpdate(LogKind kind, const s3d::String& log);
 
     private:
         class Impl;
@@ -82,9 +82,9 @@ namespace abyss::Debug
         std::unique_ptr<Impl> m_pImpl;
     };
 
-    inline constexpr auto Log = detail::LogWriter<detail::Tag::Normal>{};
-    inline constexpr auto LogWarn = detail::LogWriter<detail::Tag::Warn>{};
-    inline constexpr auto LogError = detail::LogWriter<detail::Tag::Error>{};
-    inline constexpr auto LogLoad = detail::LogWriter<detail::Tag::Load>{};
+    inline constexpr auto Log = detail::LogWriter<LogKind::Normal>{};
+    inline constexpr auto LogWarn = detail::LogWriter<LogKind::Warn>{};
+    inline constexpr auto LogError = detail::LogWriter<LogKind::Error>{};
+    inline constexpr auto LogLoad = detail::LogWriter<LogKind::Load>{};
 }
 #endif

@@ -2,32 +2,58 @@
 
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>
+#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace abyss::Debug
 {
     // -------------------------------------------------
     class LogUpdater::Impl
     {
-        struct Cache
+        struct LogInfo
         {
-            s3d::Stopwatch sw;
+            LogKind kind;
             s3d::String log;
 
-            Cache() = default;
-            Cache(const s3d::String& _log):
-                sw(true),
-                log(_log)
-            {}
+            bool isVisble() const
+            {
+                if (!Menu::IsDebug(DebugFlag::LogIsVisible)) {
+                    return false;
+                }
+                switch (kind) {
+                case LogKind::Normal:
+                    return Menu::IsDebug(DebugFlag::LogNormal);
+                case LogKind::Warn:
+                    return Menu::IsDebug(DebugFlag::LogWarn);
+                case LogKind::Error:
+                    return Menu::IsDebug(DebugFlag::LogError);
+                case LogKind::Load:
+                    return Menu::IsDebug(DebugFlag::LogLoad);
+                default:
+                    break;
+                }
+                return true;
+            }
+            void print() const
+            {
+                if (!isVisble()) {
+                    return;
+                }
+                s3d::Print << log;
+            }
+        };
+        struct Cache : LogInfo
+        {
+            s3d::Stopwatch sw{true};
         };
         s3d::Array<Cache> m_printCache;
     public:
-        void print(const s3d::String& log)
+        void print(LogKind kind, const s3d::String& log)
         {
-            m_printCache.emplace_back(log);
+            m_printCache.push_back(Cache{ kind, log });
         }
-        void printUpdate(const s3d::String& log)const
+        void printUpdate(LogKind kind, const s3d::String& log)const
         {
-            s3d::Print << log;
+            LogInfo{ kind, log }.print();
         }
         void update()
         {
@@ -35,7 +61,7 @@ namespace abyss::Debug
             for (const auto& cache : m_printCache.remove_if([](const Cache& cache) {
                 return cache.sw.ms() >= 10000.0;
             })) {
-                s3d::Print << cache.log;
+                cache.print();
             }
         }
         void clear()
@@ -58,69 +84,69 @@ namespace abyss::Debug
         Instance()->m_pImpl->clear();
     }
 
-    void LogUpdater::Print(const s3d::String& log)
+    void LogUpdater::Print(LogKind kind, const s3d::String& log)
     {
-        Instance()->m_pImpl->print(log);
+        Instance()->m_pImpl->print(kind, log);
     }
 
-    void LogUpdater::PrintUpdate(const s3d::String & log)
+    void LogUpdater::PrintUpdate(LogKind kind, const s3d::String & log)
     {
-        Instance()->m_pImpl->printUpdate(log);
+        Instance()->m_pImpl->printUpdate(kind, log);
     }
 
     namespace detail
     {
         // -------------------------------------------------
-        template<class Tag, LogMethod Method>
-        LogBuffer<Tag, Method>::LogBuffer() :
+        template<LogKind Kind, LogMethod Method>
+        LogBuffer<Kind, Method>::LogBuffer() :
             formatData(std::make_unique<s3d::FormatData>())
         {}
 
-        template<class Tag, LogMethod Method>
-        LogBuffer<Tag, Method>::LogBuffer(LogBuffer&& other) noexcept :
+        template<LogKind Kind, LogMethod Method>
+        LogBuffer<Kind, Method>::LogBuffer(LogBuffer&& other) noexcept :
             formatData(std::move(other.formatData))
         {}
 
-        template<class Tag, LogMethod Method>
-        LogBuffer<Tag, Method>::~LogBuffer()
+        template<LogKind Kind, LogMethod Method>
+        LogBuffer<Kind, Method>::~LogBuffer()
         {
             if (formatData) {
                 if constexpr (Method == LogMethod::Update) {
-                    LogWriter<Tag>{}.writeUpdate(formatData->string);
+                    LogWriter<Kind>{}.writeUpdate(formatData->string);
                 } else {
-                    LogWriter<Tag>{}.write(formatData->string);
+                    LogWriter<Kind>{}.write(formatData->string);
                 }
             }
         }
 
         // -------------------------------------------------
 
-        template<class Tag>
-        void LogWriter<Tag>::write(const s3d::String& log) const
+        template<LogKind Kind>
+        void LogWriter<Kind>::write(const s3d::String& log) const
         {
-            LogUpdater::Print(log);
+            LogUpdater::Print(Kind, log);
         }
-        template<class Tag>
-        void LogWriter<Tag>::writeUpdate(const s3d::String& log) const
+        template<LogKind Kind>
+        void LogWriter<Kind>::writeUpdate(const s3d::String& log) const
         {
-            LogUpdater::PrintUpdate(log);
+            LogUpdater::PrintUpdate(Kind, log);
         }
 
-        template struct LogWriter<Tag::Normal>;
-        template struct LogBuffer<Tag::Normal, LogMethod::Normal>;
-        template struct LogBuffer<Tag::Normal, LogMethod::Update>;
+        template struct LogWriter<LogKind::Normal>;
+        template struct LogBuffer<LogKind::Normal, LogMethod::Normal>;
+        template struct LogBuffer<LogKind::Normal, LogMethod::Update>;
 
-        template struct LogWriter<Tag::Warn>;
-        template struct LogBuffer<Tag::Warn, LogMethod::Normal>;
-        template struct LogBuffer<Tag::Warn, LogMethod::Update>;
+        template struct LogWriter<LogKind::Warn>;
+        template struct LogBuffer<LogKind::Warn, LogMethod::Normal>;
+        template struct LogBuffer<LogKind::Warn, LogMethod::Update>;
 
-        template struct LogWriter<Tag::Error>;
-        template struct LogBuffer<Tag::Error, LogMethod::Normal>;
-        template struct LogBuffer<Tag::Error, LogMethod::Update>;
+        template struct LogWriter<LogKind::Error>;
+        template struct LogBuffer<LogKind::Error, LogMethod::Normal>;
+        template struct LogBuffer<LogKind::Error, LogMethod::Update>;
 
-        template struct LogWriter<Tag::Load>;
-        template struct LogBuffer<Tag::Load, LogMethod::Normal>;
-        template struct LogBuffer<Tag::Load, LogMethod::Update>;
+        template struct LogWriter<LogKind::Load>;
+        template struct LogBuffer<LogKind::Load, LogMethod::Normal>;
+        template struct LogBuffer<LogKind::Load, LogMethod::Update>;
 
     }
 }
