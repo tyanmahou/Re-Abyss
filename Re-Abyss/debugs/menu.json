@@ -29,6 +29,12 @@
 			    "label": "ロード",
 				"isChecked": true,
 			},
+	    }
+	},
+	"Alert": {
+	    "label": "デバッグアラート",
+		"kind": "popup",
+	    "list": {
 	        "EffectCount": {
 			    "label": "エフェクト数",
 				"isChecked": false,
@@ -50,7 +56,7 @@
 	        "MapCollider": {
 			    "label": "地形コライダー",
 				"isChecked": false
-		    }
+		    },
 	    }
 	},
 	"PostEffect" : {

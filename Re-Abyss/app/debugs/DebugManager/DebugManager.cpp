@@ -116,7 +116,7 @@ namespace abyss::Debug
     }
     void DebugManager::DrawDebug(const Effects& effects)
     {
-        if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogEffectCount)) {
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertEffectCount)) {
             return;
         }
         Debug::Log.Update << U"---LogEffectNum---";
@@ -124,7 +124,7 @@ namespace abyss::Debug
     }
     void DebugManager::DrawDebug(const Decors& decor)
     {
-        if (!Debug::Menu::IsDebug(Debug::DebugFlag::LogDecorCount)) {
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertDecorCount)) {
             return;
         }
         Debug::Log.Update << U"---LogDecorNum---";
