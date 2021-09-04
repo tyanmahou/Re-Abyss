@@ -37,11 +37,11 @@ namespace abyss::Debug
             {
                 switch (kind) {
                 case LogKind::Warn:
-                    return U"";
+                    return U"⚠";
                 case LogKind::Error:
-                    return U"";
+                    return U"❌";
                 case LogKind::Load:
-                    return U"";
+                    return U"⬆";
                 default:
                     break;
                 }
