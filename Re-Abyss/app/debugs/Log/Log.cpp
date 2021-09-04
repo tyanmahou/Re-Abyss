@@ -33,12 +33,26 @@ namespace abyss::Debug
                 }
                 return true;
             }
+            s3d::String mark() const
+            {
+                switch (kind) {
+                case LogKind::Warn:
+                    return U"";
+                case LogKind::Error:
+                    return U"";
+                case LogKind::Load:
+                    return U"";
+                default:
+                    break;
+                }
+                return U"";
+            }
             void print() const
             {
                 if (!isVisble()) {
                     return;
                 }
-                s3d::Print << log;
+                s3d::Print << mark() + log;
             }
         };
         struct Cache : LogInfo
