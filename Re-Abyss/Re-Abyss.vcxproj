@@ -312,6 +312,7 @@
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\Warrus\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bush\Builder.cpp" />
@@ -796,6 +797,7 @@
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
@@ -823,6 +825,7 @@
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\debugs\Debug.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\WarrusEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />

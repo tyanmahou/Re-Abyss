@@ -16,6 +16,7 @@
 #include <abyss/components/Actor/Enemy/RollingTako/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
+#include <abyss/components/Actor/Enemy/Warrus/Builder.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Builder.hpp>
 
@@ -34,6 +35,7 @@ namespace abyss::Actor::Enemy
             CASE_ENEMY(RollingTako);
             CASE_ENEMY(Schield);
             CASE_ENEMY(Slime);
+            CASE_ENEMY(Warrus);
 
             CASE_ENEMY(CodeZero);
         default:
