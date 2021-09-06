@@ -9,6 +9,7 @@ namespace abyss::Actor
     {
         m_manager = manager;
         m_pActor = manager->getActor();
+        this->onCache();
         this->setup();
     }
 

@@ -37,6 +37,7 @@ namespace abyss::Actor
 
         void init(StateCtrl* manager);
 
+        virtual void onCache() {}
         virtual void setup() {}
 
         virtual void start() {}

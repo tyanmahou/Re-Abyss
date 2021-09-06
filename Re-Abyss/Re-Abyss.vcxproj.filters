@@ -2416,6 +2416,11 @@
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\WarrusEntity.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
+    <ClInclude Include="app\components\Common\VModelBase.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\VModel.hpp" />
+    <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

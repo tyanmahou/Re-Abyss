@@ -4,18 +4,16 @@
 
 namespace abyss::Actor::Enemy::Slime
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
-        m_body = this->m_pActor->find<Body>().get();
-        m_mapCol = this->m_pActor->find<MapCollider>().get();
-        m_view = m_pActor->find<ViewCtrl<SlimeVM>>().get();
+        ComponentCache::onCache(m_pActor);
     }
-    void BaseState::update()
+    void BaseState::updateMove()
     {
         m_body->setAccelX(m_body->getForward() * Param::Walk::AccelX);
     }
 
-    void BaseState::lastUpdate()
+    void BaseState::checkWallHit()
     {
         if (m_mapCol->isHitForwardWall()) {
             m_body->reversed();

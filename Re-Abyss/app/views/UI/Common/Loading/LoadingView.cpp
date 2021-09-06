@@ -38,9 +38,12 @@ namespace abyss::UI
             if (t <= jumpSec) {
                 m_slime
                     ->setVelocity(t <= jumpSec / 2.0 ? Vec2{ 0, -1 } : Vec2{0, 1})
-                    .drawJump();
+                    .setMotion(Actor::Enemy::Slime::Motion::Jump)
+                    .draw();
             } else {
-                m_slime->drawWalk();
+                m_slime
+                    ->setMotion(Actor::Enemy::Slime::Motion::Walk)
+                    .draw();
             }
         }
 

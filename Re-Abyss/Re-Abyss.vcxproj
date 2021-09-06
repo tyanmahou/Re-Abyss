@@ -795,6 +795,8 @@
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\VModel.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
@@ -803,6 +805,8 @@
     <ClInclude Include="app\components\Actor\Gimmick\Bush\ColReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
+    <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
+    <ClInclude Include="app\components\Common\VModelBase.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
@@ -845,6 +849,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />

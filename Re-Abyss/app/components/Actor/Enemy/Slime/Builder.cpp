@@ -5,7 +5,8 @@
 
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
+#include <abyss/components/Common/MotionCtrl.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/Slime/SenserCtrl.hpp>
@@ -51,8 +52,11 @@ namespace abyss::Actor::Enemy::Slime
 
 		// 描画制御
 		{
-			pActor->attach<ViewCtrl<SlimeVM>>()
-				->createBinder<ViewBinder>(pActor);
+			pActor->attach<MotionCtrl>();
+
+
+			pActor->attach<VModel>()
+				->setBinder<ViewBinder>(pActor);
 		}
 	}
 }
@@ -64,12 +68,12 @@ namespace
 	using namespace abyss::Actor;
 	using namespace abyss::Actor::Enemy::Slime;
 
-	class ViewBinder : public ViewCtrl<SlimeVM>::IBinder
+	class ViewBinder : public IVModelBinder<SlimeVM>
 	{
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
 		Ref<HP> m_hp;
-
+		Ref<MotionCtrl> m_motion;
 		std::unique_ptr<SlimeVM> m_view;
 	private:
 		SlimeVM* bind() const final
@@ -79,12 +83,14 @@ namespace
 				.setPos(m_body->getPos())
 				.setVelocity(m_body->getVelocity())
 				.setIsDamaging(m_hp->isInInvincibleTime())
+				.setMotion(m_motion->get<Motion>())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
 			m_hp = m_pActor->find<HP>();
+			m_motion = m_pActor->find<MotionCtrl>();
 		}
 	public:
 		ViewBinder(ActorObj* pActor) :

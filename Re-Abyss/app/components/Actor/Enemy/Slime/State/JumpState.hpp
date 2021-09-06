@@ -9,8 +9,7 @@ namespace abyss::Actor::Enemy::Slime
     {
     public:
         void start() override;
+        void update() override;
         void lastUpdate() override;
-
-        void draw()const override;
     };
 }

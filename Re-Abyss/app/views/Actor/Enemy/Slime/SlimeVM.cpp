@@ -35,6 +35,19 @@ namespace abyss::Actor::Enemy::Slime
         return *this;
     }
 
+    void SlimeVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Walk:
+            this->drawWalk();
+            break;
+        case Motion::Jump:
+            this->drawJump();
+        default:
+            break;
+        }
+    }
+
     void SlimeVM::drawWalk() const
     {
         bool isLeft = m_forward == Forward::Left;

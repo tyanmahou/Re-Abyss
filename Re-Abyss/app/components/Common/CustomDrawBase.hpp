@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 #include <functional>
-#include <Siv3D/String.hpp>
 #include <abyss/components/base/IComponent.hpp>
 
 namespace abyss

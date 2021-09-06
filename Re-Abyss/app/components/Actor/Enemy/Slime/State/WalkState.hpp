@@ -11,7 +11,6 @@ namespace abyss::Actor::Enemy::Slime
         void start() override;
 
         void update() override;
-
-        void draw()const override;
+        void lastUpdate() override;
     };
 }
