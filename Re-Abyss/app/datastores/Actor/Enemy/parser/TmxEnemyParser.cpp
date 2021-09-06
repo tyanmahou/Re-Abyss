@@ -7,6 +7,7 @@
 #include <abyss/entities/Actor/Enemy/IkalienEntity.hpp>
 #include <abyss/entities/Actor/Enemy/LaunSharkEntity.hpp>
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
+#include <abyss/entities/Actor/Enemy/WarrusEntity.hpp>
 
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 
@@ -26,6 +27,7 @@ namespace
 			{U"ikalien", EnemyType::Ikalien},
 			{U"laun_shark", EnemyType::LaunShark},
 			{U"schield", EnemyType::Schield},
+			{U"warrus", EnemyType::Warrus},
 
 			{U"code_zero", EnemyType::CodeZero},
 		};
@@ -64,6 +66,7 @@ namespace
 			PARSE_ENEMY(Ikalien);
 			PARSE_ENEMY(LaunShark);
 			PARSE_ENEMY(Schield);
+			PARSE_ENEMY(Warrus);
 			PARSE_ENEMY(CodeZero);
 		default:
 			break;

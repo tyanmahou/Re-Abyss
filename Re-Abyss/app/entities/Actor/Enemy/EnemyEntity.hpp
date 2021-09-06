@@ -12,6 +12,7 @@ namespace abyss::Actor::Enemy
 		Ikalien,
 		LaunShark,
 		Schield,
+		Warrus,
 
 		// Boss
 		CodeZero,
