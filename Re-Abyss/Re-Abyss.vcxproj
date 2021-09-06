@@ -795,6 +795,8 @@
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\RectCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\VModel.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
@@ -848,6 +850,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />

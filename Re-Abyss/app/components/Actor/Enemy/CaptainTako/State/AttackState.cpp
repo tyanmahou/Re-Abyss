@@ -13,8 +13,14 @@ namespace abyss::Actor::Enemy::CaptainTako
     AttackState::AttackState():
         m_attackCount(Param::Attack::AttackCount)
     {}
+    void AttackState::start()
+    {
+        m_motion->set(Motion::Charge);
+        m_charge->setRate(1);
+    }
     Task<> AttackState::task()
     {
+
         while (true) {
             // ショット
             constexpr s3d::Vec2 offset{ -9, 4 };
@@ -35,11 +41,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     }
     void AttackState::update()
     {
-    }
-
-    void AttackState::draw() const
-    {
         const double chargeTime = static_cast<double>(m_attackCount - m_currentAttackCount) / static_cast<double>(m_attackCount);
-        (*m_view)->drawCharge(chargeTime);
+        m_charge->setRate(chargeTime);
     }
 }

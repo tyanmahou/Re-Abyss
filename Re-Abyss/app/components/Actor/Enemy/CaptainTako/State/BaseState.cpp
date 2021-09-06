@@ -2,9 +2,8 @@
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
-        m_body = m_pActor->find<Body>().get();
-        m_view = m_pActor->find<ViewCtrl<CaptainTakoVM>>().get();
+        ComponentCache::onCache(m_pActor);
     }
 }

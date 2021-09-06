@@ -11,6 +11,5 @@ namespace abyss::Actor::Enemy::CaptainTako
         WaitState();
         void start() override;
         void update() override;
-        void draw() const override;
     };
 }

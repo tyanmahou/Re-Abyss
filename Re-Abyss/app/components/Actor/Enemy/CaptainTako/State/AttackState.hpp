@@ -9,9 +9,8 @@ namespace abyss::Actor::Enemy::CaptainTako
         s3d::int32 m_attackCount = 3;
     public:
         AttackState();
+        void start() override;
         Task<> task() override;
         void update() override;
-
-        void draw() const override;
     };
 }

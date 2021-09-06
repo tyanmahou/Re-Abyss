@@ -2417,6 +2417,9 @@
     <ClInclude Include="app\components\Actor\Commons\VModel.hpp" />
     <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\ComponentCache.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
