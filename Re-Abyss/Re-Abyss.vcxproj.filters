@@ -617,9 +617,6 @@
     <ClCompile Include="app\components\Actor\Commons\DeadOnHItReceiver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Commons\CustomDraw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Commons\CameraFixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1193,9 +1190,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Gimmick\Door\DoorVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Clock\Clock.cpp">

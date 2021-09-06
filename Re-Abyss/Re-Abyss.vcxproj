@@ -258,7 +258,6 @@
     <ClCompile Include="app\components\Actor\Commons\Colliders\RectCollider.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CollisionCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Commons\CustomCollider.cpp" />
-    <ClCompile Include="app\components\Actor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Actor\Commons\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actor\Commons\FallChecker.cpp" />
     <ClCompile Include="app\components\Actor\Commons\Foot.cpp" />
@@ -375,7 +374,6 @@
     <ClCompile Include="app\components\Decor\City\StreetLight\LightCtrl.cpp" />
     <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp" />
-    <ClCompile Include="app\components\Decor\Commons\CustomDraw.cpp" />
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
