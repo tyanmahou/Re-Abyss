@@ -1,7 +1,7 @@
 #include "CommonBuilder.hpp"
 #include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
-#include <abyss/components/Actor/Ooparts/Draw.hpp>
 #include "..\Enemy\CommonBuilder.hpp"
 
 namespace abyss::Actor::Ooparts
@@ -23,8 +23,7 @@ namespace abyss::Actor::Ooparts
         }
         // 描画
         {
-            pActor->attach<ViewCtrl<OopartsView>>();
-            pActor->attach<Draw>(pActor);
+            pActor->attach<VModel>();
         }
     }
 }

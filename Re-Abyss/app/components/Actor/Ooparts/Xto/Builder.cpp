@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Ooparts/CommonBuilder.hpp>
 
 
@@ -22,8 +22,8 @@ namespace abyss::Actor::Ooparts::Xto
         // 描画制御
         {
             pActor
-                ->find<ViewCtrl<OopartsView>>()
-                ->createBinder<ViewBinder>(pActor);
+                ->find<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
     };
 }
@@ -35,7 +35,7 @@ namespace
     using namespace abyss::Actor::Ooparts;
     using namespace abyss::Actor::Ooparts::Xto;
 
-    class ViewBinder : public ViewCtrl<OopartsView>::IBinder
+    class ViewBinder : public IVModelBinder<OopartsView>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;

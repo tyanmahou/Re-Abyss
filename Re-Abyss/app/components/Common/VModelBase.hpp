@@ -22,7 +22,9 @@ namespace abyss
 
         void onDraw() const override
         {
-            this->bind()->draw();
+            if (auto* view = this->bind()) {
+                view->draw();
+            }
         }
     };
 

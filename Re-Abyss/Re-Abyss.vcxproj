@@ -335,7 +335,6 @@
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp" />
     <ClCompile Include="app\components\Actor\Commons\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\CommonBuilder.cpp" />
-    <ClCompile Include="app\components\Actor\Ooparts\Draw.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Nyan\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\PursuitCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Xto\Builder.cpp" />
@@ -1187,7 +1186,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\components\Actor\Ooparts\Draw.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\AttackCtrl.hpp" />
     <ClInclude Include="app\components\Actor\utils\ActorUtils.hpp" />
