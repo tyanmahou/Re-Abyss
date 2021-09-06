@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/CustomDraw.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Commons/Locator.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Commons/Colliders/RectCollider.hpp>
@@ -11,7 +11,7 @@
 #include <Siv3D.hpp>
 namespace
 {
-    class Drawer;
+	class ViewBinder;
 }
 namespace abyss::Actor::Gimmick::Bush
 {
@@ -41,8 +41,8 @@ namespace abyss::Actor::Gimmick::Bush
 
         // 描画
         {
-            pActor->attach<CustomDraw>()
-                ->setDrawer<Drawer>(pActor, entity)
+			pActor->attach<VModel>()
+				->setBinder<ViewBinder>(pActor, entity)
                 .setLayer(DrawLayer::WorldFront);
         }
     }
@@ -55,10 +55,10 @@ namespace
 	using namespace abyss::Actor::Gimmick;
 	using namespace abyss::Actor::Gimmick::Bush;
 
-	class Drawer : public CustomDraw::IImpl
+	class ViewBinder : public IVModelBinder<BushVM>
 	{
 	public:
-		Drawer(ActorObj* pActor, const BushEntity& entity) :
+		ViewBinder(ActorObj* pActor, const BushEntity& entity) :
 			m_pActor(pActor),
 			m_view(std::make_unique<BushVM>())
 		{
@@ -71,13 +71,12 @@ namespace
 			m_locator = m_pActor->find<ILocator>();
 			m_colReactor = m_pActor->find<ColReactor>();
 		}
-		void onDraw() const override
+		BushVM* bind() const override
 		{
-			m_view
+			return &m_view
 				->setPos(m_locator->getCenterPos())
 				.setTime(m_pActor->getDrawTimeSec() + m_timeOffset)
-				.setResizeRate(m_colReactor->getResizeRate())
-				.draw();
+				.setResizeRate(m_colReactor->getResizeRate());
 		}
 	private:
 		ActorObj* m_pActor;

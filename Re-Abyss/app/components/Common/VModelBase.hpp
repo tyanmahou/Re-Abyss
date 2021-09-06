@@ -20,7 +20,7 @@ namespace abyss
     public:
         virtual Type* bind() const = 0;
 
-        void onDraw() const override
+        void onDraw() const final
         {
             if (auto* view = this->bind()) {
                 view->draw();
@@ -56,13 +56,14 @@ namespace abyss
         }
 
         template<class BinderType, class...Args>
-        void setBinder(Args&&... args)
+        VModelBase& setBinder(Args&&... args)
         {
-            m_binder = std::make_unique<BinderType>(std::forward<Args>(args)...);
+            return setBinder(std::make_unique<BinderType>(std::forward<Args>(args)...));
         }
-        void setBinder(std::unique_ptr<IVModelBinderBase>&& binder)
+        VModelBase& setBinder(std::unique_ptr<IVModelBinderBase>&& binder)
         {
             m_binder = std::move(binder);
+            return *this;
         }
     private:
         std::unique_ptr<IVModelBinderBase> m_binder;

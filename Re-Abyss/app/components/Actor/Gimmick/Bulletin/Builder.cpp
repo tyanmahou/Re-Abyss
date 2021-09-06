@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/components/Actor/Commons/CustomDraw.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Commons/Locator.hpp>
 #include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
@@ -7,7 +7,7 @@
 
 namespace
 {
-	class Drawer;
+	class ViewBinder;
 }
 
 namespace abyss::Actor::Gimmick::Bulletin
@@ -35,8 +35,8 @@ namespace abyss::Actor::Gimmick::Bulletin
 
 		// 描画
 		{
-			pActor->attach<CustomDraw>()
-				->setDrawer<Drawer>(pActor)
+			pActor->attach<VModel>()
+				->setBinder<ViewBinder>(pActor)
 				.setLayer(DrawLayer::WorldBack);
 		}
     }
@@ -48,10 +48,10 @@ namespace
 	using namespace abyss::Actor;
 	using namespace abyss::Actor::Gimmick::Bulletin;
 
-	class Drawer : public CustomDraw::IImpl
+	class ViewBinder : public IVModelBinder<BulletinVM>
 	{
 	public:
-		Drawer(ActorObj* pActor) :
+		ViewBinder(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<BulletinVM>())
 		{}
@@ -60,11 +60,10 @@ namespace
 		{
 			m_locator = m_pActor->find<ILocator>();
 		}
-		void onDraw() const override
+		BulletinVM* bind() const override
 		{
-			m_view
-				->setPos(m_locator->getCenterPos())
-				.draw();
+			return &m_view
+				->setPos(m_locator->getCenterPos());
 		}
 	private:
 		ActorObj* m_pActor;

@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/CustomDraw.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
@@ -9,7 +9,7 @@
 
 namespace
 {
-	class Drawer;
+	class ViewBinder;
 }
 
 namespace abyss::Actor::Gimmick::Door
@@ -34,8 +34,8 @@ namespace abyss::Actor::Gimmick::Door
 
 		// 描画制御
 		{
-			pActor->attach<CustomDraw>()
-				->setDrawer<Drawer>(pActor)
+			pActor->attach<VModel>()
+				->setBinder<ViewBinder>(pActor)
 				.setLayer(DrawLayer::WorldBack);
 		}
     }
@@ -47,10 +47,10 @@ namespace
 	using namespace abyss::Actor;
 	using namespace abyss::Actor::Gimmick::Door;
 
-	class Drawer : public CustomDraw::IImpl
+	class ViewBinder : public IVModelBinder<DoorVM>
 	{
 	public:
-		Drawer(ActorObj* pActor) :
+		ViewBinder(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<DoorVM>())
 		{}
@@ -59,13 +59,12 @@ namespace
 		{
 			m_door = m_pActor->find<DoorProxy>();
 		}
-		void onDraw() const override
+		DoorVM* bind() const override
 		{
-			m_view
+			return &m_view
 				->setPos(m_door->getPos())
 				.setKind(m_door->getKind())
-				.setTime(m_pActor->getDrawTimeSec())
-				.draw();
+				.setTime(m_pActor->getDrawTimeSec());
 		}
 	private:
 		ActorObj* m_pActor;
