@@ -8,16 +8,12 @@ namespace abyss::Actor::Enemy::Ikalien
     {
         m_body->setVelocity(m_rotate->getDir() * Param::Swim::Speed);
         m_body->setAccel(-m_rotate->getDir() * Param::Swim::Decel);
+        m_motion->set(Motion::Swim);
     }
     void SwimState::update()
     {
         if (m_body->getVelocity().length() <= 30) {
             this->changeState<PursuitState>();
         }
-    }
-
-    void SwimState::draw() const
-    {
-        (*m_view)->drawSwim();
     }
 }

@@ -8,6 +8,5 @@ namespace abyss::Actor::Enemy::Ikalien
     public:
         void start()override;
         void update() override;
-        void draw() const override;
     };
 }

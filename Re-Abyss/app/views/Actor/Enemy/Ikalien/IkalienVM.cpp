@@ -38,6 +38,23 @@ namespace abyss::Actor::Enemy::Ikalien
         return *this;
     }
 
+    void IkalienVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Wait:
+            this->drawWait();
+            break;
+        case Motion::Swim:
+            this->drawSwim();
+            break;
+        case Motion::Pursuit:
+            this->drawPursuit();
+            break;
+        default:
+            break;
+        }
+    }
+
     void IkalienVM::drawWait() const
     {
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::WaitAnimeTimeSec, m_time) * 4.0);

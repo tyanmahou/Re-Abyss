@@ -7,9 +7,11 @@
 #include <abyss/types/CShape.hpp>
 
 #include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
 
+#include <abyss/views/Actor/Enemy/Ikalien/IkalienVM.hpp>
 
 namespace
 {
@@ -43,8 +45,10 @@ namespace abyss::Actor::Enemy::Ikalien
         }
         // 描画
         {
-            pActor->attach<ViewCtrl<IkalienVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<MotionCtrl>();
+
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -75,12 +79,13 @@ namespace
         Ref<Body> m_body;
     };
 
-    class ViewBinder : public ViewCtrl<IkalienVM>::IBinder
+    class ViewBinder : public IVModelBinder<IkalienVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<IkalienVM> m_view;
     private:
@@ -90,13 +95,16 @@ namespace
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setRotate(m_rotate->getRotate())
-                .setIsDamaging(m_hp->isInInvincibleTime());
+                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
+                ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :

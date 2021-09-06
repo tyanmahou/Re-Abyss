@@ -1,19 +1,14 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/RotateCtrl.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
-#include <abyss/views/Actor/Enemy/Ikalien/IkalienVM.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/State/ComponentCache.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien
 {
-    class BaseState : public IState
+    class BaseState : 
+        public IState,
+        public ComponentCache
     {
-    protected:
-        Body* m_body;
-        RotateCtrl* m_rotate;
-        ViewCtrl<IkalienVM>* m_view;
     public:
-        void setup()override;
+        void onCache()override;
     };
 }

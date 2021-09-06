@@ -4,6 +4,7 @@
 #include <Siv3D/Texture.hpp>
 
 #include <abyss/types/Forward.hpp>
+#include <abyss/views/Actor/Enemy/Ikalien/Motion.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien
 {
@@ -17,6 +18,7 @@ namespace abyss::Actor::Enemy::Ikalien
 
         bool m_isDamaging = false;
         double m_time = 0;
+        Motion m_motion;
     public:
         IkalienVM();
         IkalienVM& setTime(double time);
@@ -25,7 +27,13 @@ namespace abyss::Actor::Enemy::Ikalien
         IkalienVM& setRotate(double rotate);
 
         IkalienVM& setIsDamaging(bool isDamaging);
-
+        IkalienVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
+        void draw() const;
+    private:
         void drawWait() const;
         void drawPursuit() const;
         void drawSwim() const;
