@@ -13,8 +13,10 @@
 #include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/Shot/State/BaseState.hpp>
 
+#include <abyss/views/Actor/Enemy/CaptainTako/Shot/ShotVM.hpp>
 namespace
 {
     class ViewBinder;
@@ -68,8 +70,8 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         }
         // 描画制御
         {
-            pActor->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
         // 状態
         {
@@ -91,7 +93,7 @@ namespace
     using namespace abyss::Actor::Enemy::CaptainTako;
     using namespace abyss::Actor::Enemy::CaptainTako::Shot;
 
-    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
+    class ViewBinder : public IVModelBinder<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
