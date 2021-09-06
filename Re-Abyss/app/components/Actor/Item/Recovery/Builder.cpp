@@ -7,8 +7,7 @@
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
 #include <abyss/components/Actor/Item/LifeSpan.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
-#include <abyss/components/Actor/Commons/CustomDraw.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/ShakeCtrl.hpp>
 
@@ -19,7 +18,6 @@
 namespace
 {
     class ViewBinder;
-    class Drawer;
 }
 namespace
 {
@@ -74,11 +72,8 @@ namespace abyss::Actor::Item::Recovery
         }
         // View
         {
-            pActor->attach<ViewCtrl<RecoveryVM>>()
-                ->createBinder<ViewBinder>(pActor, kind, setting);
-
-            pActor->attach<CustomDraw>()
-                ->setDrawer<Drawer>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor, kind, setting);
         }
     }
 }
@@ -89,7 +84,7 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Item::Recovery;
 
-    class ViewBinder : public ViewCtrl<RecoveryVM>::IBinder
+    class ViewBinder : public IVModelBinder<RecoveryVM>
     {
     private:
         RecoveryVM* bind() const final
@@ -128,25 +123,5 @@ namespace
         Ref<LifeSpan> m_lifeSpan;
 
         std::unique_ptr<RecoveryVM> m_view;
-    };
-
-    class Drawer : public CustomDraw::IImpl
-    {
-    public:
-        Drawer(ActorObj* pActor):
-            m_pActor(pActor)
-        {}
-        void onStart()
-        {
-            m_view = m_pActor->find<ViewCtrl<RecoveryVM>>();
-        }
-        void onDraw()const
-        {
-            (*m_view)->draw();
-        }
-    private:
-
-        ActorObj* m_pActor = nullptr;
-        Ref<ViewCtrl<RecoveryVM>> m_view;
     };
 }
