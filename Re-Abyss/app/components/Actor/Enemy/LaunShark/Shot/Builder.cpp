@@ -39,9 +39,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         // Body
         {
             pActor->attach<Body>(pActor)
-                ->setPos(pos)
+                ->initPos(pos)
                 .noneResistanced()
-                .setSize(ShotParam::Base::Size);
+                .initSize(ShotParam::Base::Size);
             pActor->attach<BodyUpdater>(pActor);
         }
         // 回転

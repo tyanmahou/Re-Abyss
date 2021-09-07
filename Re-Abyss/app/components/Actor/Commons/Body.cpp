@@ -13,6 +13,12 @@ namespace abyss::Actor
 
     void Body::update(double dt)
     {
+        m_sizePrev = m_size;
+        m_size = m_sizeNext;
+
+        m_pivotPrev = m_pivot;
+        m_pivot = m_pivotNext;
+
         m_prevPos = m_pos;
         // 速度更新
         m_velocity += m_accel * dt;
@@ -175,9 +181,16 @@ namespace abyss::Actor
         m_pos.y += deltaY;
         return *this;
     }
+    Body& Body::initSize(const s3d::Vec2& size)
+    {
+        m_sizePrev = size;
+        m_size = size;
+        m_sizeNext = size;
+        return *this;
+    }
     Body& Body::setSize(const s3d::Vec2& size)
     {
-        m_size = size;
+        m_sizeNext = size;
         return *this;
     }
     const s3d::Vec2& Body::getSize() const
@@ -192,9 +205,16 @@ namespace abyss::Actor
     {
         return m_size.y;
     }
+    Body& Body::initPivot(const s3d::Vec2& pivot)
+    {
+        m_pivotPrev = pivot;
+        m_pivot = pivot;
+        m_pivotNext = pivot;
+        return *this;
+    }
     Body& Body::setPivot(const s3d::Vec2& pivot)
     {
-        m_pivot = pivot;
+        m_pivotNext = pivot;
         return *this;
     }
     const s3d::Vec2& Body::getPivot() const
@@ -258,7 +278,7 @@ namespace abyss::Actor
         auto selfRegion = this->region();
         s3d::Vec2 before = selfRegion.center();
         
-        auto [after, colDir] = FixPos::ByPrevPos(terrain.region, selfRegion, m_prevPos, c);
+        auto [after, colDir] = FixPos::ByPrevPos(terrain.region, selfRegion, this->prevRegion(), c);
 
         this->addPos(after - before);
 
@@ -288,5 +308,9 @@ namespace abyss::Actor
     s3d::RectF Body::region() const
     {
         return { m_pos + m_pivot - m_size / 2, m_size };
+    }
+    s3d::RectF Body::prevRegion() const
+    {
+        return { m_prevPos + m_pivotPrev - m_sizePrev / 2, m_sizePrev };
     }
 }

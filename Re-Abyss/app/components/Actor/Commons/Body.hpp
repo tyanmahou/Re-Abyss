@@ -18,7 +18,10 @@ namespace abyss::Actor
     private:
         s3d::Vec2 m_prevPos{ 0, 0 };
         s3d::Vec2 m_pos{0, 0};
+
         s3d::Vec2 m_pivot{ 0, 0 };
+        s3d::Vec2 m_pivotPrev{ 0, 0 };
+        s3d::Vec2 m_pivotNext{ 0, 0 };
 
         s3d::Vec2 m_velocity{0, 0};
 
@@ -31,6 +34,8 @@ namespace abyss::Actor
         Forward m_forward{Forward::None};
 
         s3d::Vec2 m_size{ 0, 0 };
+        s3d::Vec2 m_sizePrev{ 0, 0 };
+        s3d::Vec2 m_sizeNext{ 0, 0 };
 
         ActorObj* m_pActor;
     public:
@@ -76,16 +81,19 @@ namespace abyss::Actor
 
         Forward getForward() const;
 
+        Body& initSize(const s3d::Vec2& size);
         Body& setSize(const s3d::Vec2& size);
         const s3d::Vec2& getSize() const;
         double getWidth() const;
         double getHeight() const;
 
+        Body& initPivot(const s3d::Vec2& pivot);
         Body& setPivot(const s3d::Vec2& pivot);
         const s3d::Vec2& getPivot() const;
         s3d::Vec2 getPivotPos() const;
 
         s3d::RectF region() const;
+        s3d::RectF prevRegion() const;
 
         void jump(double speed);
         void jumpToHeight(double height);

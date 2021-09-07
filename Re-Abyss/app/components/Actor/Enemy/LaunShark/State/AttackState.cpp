@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::LaunShark
     {
         double coefficient = Math::TwoPi / Param::Attack::MovePeriodSec;
         m_body->setVelocityY(Param::Attack::MoveRangeY * coefficient * s3d::Cos(m_timeCounter->getTotalTime() * coefficient));
-
+        m_body->setVelocityY(20.0);
         this->BaseState::update();
 
         if (m_attackTimer.reachedZero()) {

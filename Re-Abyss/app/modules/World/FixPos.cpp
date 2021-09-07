@@ -45,12 +45,12 @@ namespace abyss
 		return { comePos, retCol };
     }
 
-    FixPos::Result FixPos::ByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::Vec2& prevPos, ColDirection col)
+    FixPos::Result FixPos::ByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::RectF& prevCome, ColDirection col)
     {
 		const Vec2 prevComePos = come.center();
 		Vec2 comePos = prevComePos;
 		Vec2 comeSize = come.size;
-		Vec2 moveVec = comePos - prevPos;
+		Vec2 moveVec = comePos - prevCome.center();
 		uint8 retCol = ColDirection::None;
 
 		Vec2 fromPos = from.center();
@@ -61,23 +61,23 @@ namespace abyss
 		bool left = (col & ColDirection::Left) && moveVec.x > 0;
 		bool right = (col & ColDirection::Right) && moveVec.x < 0;
 
-		static auto toQuad = [](const Line& line, const Vec2& v) {
-			return Quad(line.begin - v, line.end - v, line.end, line.begin);
+		static auto toQuad = [](const Line& line, const Line& prev) {
+			return Quad(prev.begin, prev.end, line.end, line.begin);
 		};
 
-		if (up && ::IntersectLoose(from.top(), toQuad(come.bottom(), moveVec))) {
+		if (up && ::IntersectLoose(from.top(), toQuad(come.bottom(), prevCome.bottom()))) {
 			// ブロックの上端
 			retCol = retCol | ColDirection::Up;
 			comePos.y = fromPos.y - (comeSize.y + fromSize.y) / 2;
-		} else if (down && ::IntersectLoose(from.bottom(), toQuad(come.top(), moveVec))) {
+		} else if (down && ::IntersectLoose(from.bottom(), toQuad(come.top(), prevCome.top()))) {
 			// ブロックの下端
 			retCol = retCol | ColDirection::Down;
 			comePos.y = fromPos.y + (comeSize.y + fromSize.y) / 2;
-		} else if (left && ::IntersectLoose(from.left(), toQuad(come.right(), moveVec))) {
+		} else if (left && ::IntersectLoose(from.left(), toQuad(come.right(), prevCome.right()))) {
 			//ブロックの左端
 			retCol = retCol | ColDirection::Left;
 			comePos.x = fromPos.x - (comeSize.x + fromSize.x) / 2;
-		} else if (right && ::IntersectLoose(from.right(), toQuad(come.left(), moveVec))) {
+		} else if (right && ::IntersectLoose(from.right(), toQuad(come.left(), prevCome.left()))) {
 			//ブロックの右端
 			retCol = retCol | ColDirection::Right;
 			comePos.x = fromPos.x + (comeSize.x + fromSize.x) / 2;

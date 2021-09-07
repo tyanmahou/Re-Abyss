@@ -31,7 +31,7 @@ namespace abyss::Actor::Player::Shot
 		// Body
 		{
 			pActor->attach<Body>(pActor)
-				->setPos(pos)
+				->initPos(pos)
 				.setForward(forward)
 				.noneResistanced()
 				.setVelocityX(forward * ShotParam::Base::Speed)

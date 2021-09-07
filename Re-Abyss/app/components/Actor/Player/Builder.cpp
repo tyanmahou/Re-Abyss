@@ -50,7 +50,7 @@ namespace abyss::Actor::Player
 		// Body
 		{
 			pActor->attach<Body>(pActor)
-				->setSize(Param::Base::Size)
+				->initSize(Param::Base::Size)
                 .initPos(startPos.getPos())
 				.setForward(startPos.getForward())
 				;

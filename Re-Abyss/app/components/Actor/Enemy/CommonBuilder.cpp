@@ -30,8 +30,8 @@ namespace abyss::Actor::Enemy
 			pActor->attach<Body>(pActor)
 				->initPos(opt.pos)
 				.setForward(opt.forward)
-				.setSize(opt.bodySize)
-				.setPivot(opt.bodyPivot)
+				.initSize(opt.bodySize)
+				.initPivot(opt.bodyPivot)
 				;
 
 			pActor->attach<BodyUpdater>(pActor);

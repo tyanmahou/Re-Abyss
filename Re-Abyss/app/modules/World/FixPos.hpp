@@ -15,7 +15,7 @@ namespace abyss
         FixPos() = default;
     public:
         static Result ByLatestPos(const s3d::RectF& from, const s3d::RectF& come, ColDirection col);
-        static Result ByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::Vec2& prevPos, ColDirection col);
+        static Result ByPrevPos(const s3d::RectF& from, const s3d::RectF& come, const s3d::RectF& prevCome, ColDirection col);
 
         static Result InnerByLatestPos(const s3d::RectF& from, const s3d::Vec2& come, ColDirection col);
     };
