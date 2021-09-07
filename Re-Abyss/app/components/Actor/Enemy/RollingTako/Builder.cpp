@@ -30,6 +30,7 @@ namespace abyss::Actor::Enemy::RollingTako
             .setInitHp(Param::Base::Hp)
             .setIsEnableRoomHit(true)
             .setAudioSettingGroupPath(U"Enemy/RollingTako/rolling_tako.aase")
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // 初期状態
@@ -52,10 +53,8 @@ namespace abyss::Actor::Enemy::RollingTako
         }
         // 描画
         {
-            pActor->attach<MotionCtrl>()
+            pActor->find<MotionCtrl>()
                 ->set(entity.wait ? Motion::Wait : Motion::Run);
-            pActor->attach <VModel> ()
-                ->setBinder<ViewBinder>(pActor);
         }
     }
 }

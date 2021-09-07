@@ -58,15 +58,15 @@ namespace abyss
         template<class BinderType, class...Args>
         VModelBase& setBinder(Args&&... args)
         {
-            return setBinder(std::make_unique<BinderType>(std::forward<Args>(args)...));
+            return setBinder(std::make_shared<BinderType>(std::forward<Args>(args)...));
         }
-        VModelBase& setBinder(std::unique_ptr<IVModelBinderBase>&& binder)
+        VModelBase& setBinder(const std::shared_ptr<IVModelBinderBase>& binder)
         {
-            m_binder = std::move(binder);
+            m_binder = binder;
             return *this;
         }
     private:
-        std::unique_ptr<IVModelBinderBase> m_binder;
+        std::shared_ptr<IVModelBinderBase> m_binder;
     };
 }
 

@@ -31,6 +31,7 @@ namespace abyss::Actor::Enemy::Slime
 			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
 			.setIsEnableDeadCallback(false)
 			.setInitState<WalkState>()
+			.setVModelBinder<ViewBinder>(pActor)
 		);
 
 		// Body調整
@@ -48,15 +49,6 @@ namespace abyss::Actor::Enemy::Slime
 		// センサー制御
 		{
 			pActor->attach<SenserCtrl>(pActor);
-		}
-
-		// 描画制御
-		{
-			pActor->attach<MotionCtrl>();
-
-
-			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor);
 		}
 	}
 }

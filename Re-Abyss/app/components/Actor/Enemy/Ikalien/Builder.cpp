@@ -33,6 +33,7 @@ namespace abyss::Actor::Enemy::Ikalien
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
             .setInitState<WaitState>()
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // Body調整
@@ -42,13 +43,6 @@ namespace abyss::Actor::Enemy::Ikalien
         // 回転制御
         {
             pActor->attach<RotateCtrl>();
-        }
-        // 描画
-        {
-            pActor->attach<MotionCtrl>();
-
-            pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
         }
     }
 }

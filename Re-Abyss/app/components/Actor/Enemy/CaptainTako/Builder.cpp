@@ -27,19 +27,12 @@ namespace abyss::Actor::Enemy::CaptainTako
             .setInitHp(Param::Base::Hp)
             .setAudioSettingGroupPath(U"Enemy/CaptainTako/captain_tako.aase")
             .setInitState<WaitState>()
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // チャージ
         {
             pActor->attach<ChargeCtrl>();
-        }
-
-        // 描画
-        {
-            pActor->attach<MotionCtrl>();
-
-            pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
         }
     }
 }

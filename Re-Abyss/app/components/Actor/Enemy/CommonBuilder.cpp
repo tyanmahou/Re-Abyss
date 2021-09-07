@@ -1,5 +1,7 @@
 #include "CommonBuilder.hpp"
 
+#include <abyss/components/Common/MotionCtrl.hpp>
+
 #include <abyss/components/Actor/Commons/AttackerData.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
@@ -105,6 +107,15 @@ namespace abyss::Actor::Enemy
 			auto state = pActor->attach<StateCtrl>(pActor);
 			if (opt.initState) {
 				state->changeState(opt.initState);
+			}
+		}
+
+		// View
+		{
+			pActor->attach<MotionCtrl>();
+			auto vModel = pActor->attach<VModel>();
+			if (opt.vModelBinder) {
+				vModel->setBinder(opt.vModelBinder);
 			}
 		}
     }

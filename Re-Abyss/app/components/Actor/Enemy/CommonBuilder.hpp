@@ -8,6 +8,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomCollider.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy
@@ -56,6 +57,10 @@ namespace abyss::Actor::Enemy
         bool isAutoDestroy = true;
 
         std::shared_ptr<IState> initState = nullptr;
+
+        // view
+        std::shared_ptr<IVModelBinderBase> vModelBinder = nullptr;
+
     public:
         BuildOption();
 
@@ -159,6 +164,18 @@ namespace abyss::Actor::Enemy
         BuildOption& setInitState(Args&&... args)
         {
             return setInitState(std::make_shared<State>(std::forward<Args>(args)...));
+        }
+
+        BuildOption& setVModelBinder(const std::shared_ptr<IVModelBinderBase>& _vModelBinder)
+        {
+            this->vModelBinder = _vModelBinder;
+            return *this;
+        }
+
+        template<class Binder, class... Args>
+        BuildOption& setVModelBinder(Args&&... args)
+        {
+            return setVModelBinder(std::make_shared<Binder>(std::forward<Args>(args)...));
         }
     };
 

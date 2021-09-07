@@ -28,6 +28,7 @@ namespace abyss::Actor::Enemy::LaunShark
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::All))
 			.setAudioSettingGroupPath(U"Enemy/LaunShark/laun_shark.aase")
 			.setInitState<SwimState>()
+			.setVModelBinder<ViewBinder>(pActor)
 		);
 
 		// Body調整
@@ -37,12 +38,6 @@ namespace abyss::Actor::Enemy::LaunShark
 		// カウンター制御
 		{
 			pActor->attach<TimeCounter>();
-		}
-		// 描画制御
-		{
-			pActor->attach<MotionCtrl>();
-			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor);
 		}
 	}
 }
