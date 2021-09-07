@@ -9,12 +9,14 @@
 #include <abyss/components/Actor/Commons/MapCollider.hpp>
 #include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
 #include <abyss/components/Actor/Player/Shot/Collider.hpp>
 #include <abyss/components/Actor/Player/Shot/EffectCtrl.hpp>
 #include <abyss/components/Actor/Player/Shot/State/BaseState.hpp>
 
 #include <abyss/params/Actor/Player/ShotParam.hpp>
+#include <abyss/views/Actor/Player/Shot/ShotVM.hpp>
 
 namespace
 {
@@ -62,8 +64,8 @@ namespace abyss::Actor::Player::Shot
 
 		// View
 		{
-			pActor->attach<ViewCtrl<ShotVM>>()
-				->createBinder<ViewBinder>(pActor, *shot, forward);
+			pActor->attach<VModel>()
+				->setBinder<ViewBinder>(pActor, shot->getType(), forward);
 
 			pActor->attach<EffectCtrl>(pActor);
 		}
@@ -90,7 +92,7 @@ namespace
 	using namespace abyss::Actor::Player;
 	using namespace abyss::Actor::Player::Shot;
 
-	class ViewBinder : public ViewCtrl<ShotVM>::IBinder
+	class ViewBinder : public IVModelBinder<ShotVM>
 	{
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
@@ -108,9 +110,9 @@ namespace
 			m_body = m_pActor->find<Body>();
 		}
 	public:
-		ViewBinder(ActorObj* pActor, const PlayerShot& shot, Forward forward) :
+		ViewBinder(ActorObj* pActor, PlayerShotType type, Forward forward) :
 			m_pActor(pActor),
-			m_view(std::make_unique<ShotVM>(shot, forward))
+			m_view(std::make_unique<ShotVM>(type, forward))
 		{}
 	};
 }

@@ -4,9 +4,9 @@
 
 namespace abyss::Actor::Player::Shot
 {
-    ShotVM::ShotVM(const PlayerShot& shot, Forward forward):
+    ShotVM::ShotVM(PlayerShotType type, Forward forward):
         m_texture(Resource::Assets::Main()->load(U"actors/Player/player_shot.png")),
-        m_shot(shot),
+        m_type(type),
         m_forward(forward)
     {}
 
@@ -25,14 +25,14 @@ namespace abyss::Actor::Player::Shot
         double x = 0, y = 0;
         double size = 0;
         double timer = Periodic::Sawtooth0_1(0.3s, m_time);
-        if (m_shot.isNormal()) {
+        if (m_type == PlayerShotType::Normal) {
             y = 10 * static_cast<int>(timer * 2);
             size = 10;
-        } else if (m_shot.isSmall()) {
+        } else if (m_type == PlayerShotType::Small) {
             x = 10;
             y = 20 * static_cast<int>(timer * 2);
             size = 20;
-        } else if (m_shot.isMedium()) {
+        } else if (m_type == PlayerShotType::Medium) {
             x = 30 + 40 * static_cast<int>(timer * 4);
             size = 40;
         } else {

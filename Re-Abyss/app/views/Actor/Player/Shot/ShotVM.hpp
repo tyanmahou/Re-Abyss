@@ -9,13 +9,13 @@ namespace abyss::Actor::Player::Shot
     class ShotVM
     {
 		s3d::Texture m_texture;
-		PlayerShot m_shot;
+		PlayerShotType m_type;
 		s3d::Vec2 m_pos;
 		Forward m_forward;
 
 		double m_time = 0;
 	public:
-		ShotVM(const PlayerShot& shot, Forward forward);
+		ShotVM(PlayerShotType type, Forward forward);
 		ShotVM& setTime(double time);
 		ShotVM& setPos(const s3d::Vec2& pos);
 

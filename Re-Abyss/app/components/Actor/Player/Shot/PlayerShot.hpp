@@ -32,6 +32,9 @@ namespace abyss::Actor::Player::Shot
 		bool isSmall()const;
 		bool isMedium()const;
 		bool isBig()const;
-
+		PlayerShotType getType() const
+		{
+			return m_type;
+		}
 	};
 }
