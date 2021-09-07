@@ -23,7 +23,6 @@ namespace abyss::Actor::Enemy::LaunShark
         double coefficient = Math::TwoPi / Param::Swim::MovePeriodSec;
         m_body->setVelocityY(Param::Swim::MoveRangeY * coefficient *
             s3d::Cos(m_timeCounter->getTotalTime() *  coefficient));
-        m_body->setVelocityY(20.0);
         this->BaseState::update();
 
         if (m_waitTimer.reachedZero()) {
@@ -34,7 +33,7 @@ namespace abyss::Actor::Enemy::LaunShark
                 if (distance <= Param::Swim::AttackRange) {
                     this->changeState<AttackState>();
                 }else if (distance <= Param::Swim::LauncherRange) {
-                    this->changeState<AttackState>();
+                    this->changeState<LauncherState>();
                 } 
             }
         }
