@@ -801,6 +801,7 @@
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Schield\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
@@ -859,6 +860,7 @@
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\Schield\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />

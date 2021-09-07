@@ -2428,6 +2428,8 @@
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\ComponentCache.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\Schield\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Schield\State\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

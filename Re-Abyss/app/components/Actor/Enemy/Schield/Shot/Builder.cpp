@@ -13,6 +13,7 @@
 #include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 
 #include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
 #include <abyss/views/Actor/Enemy/Schield/Shot/ShotVM.hpp>
@@ -72,8 +73,8 @@ namespace abyss::Actor::Enemy::Schield::Shot
         }
         // 描画制御
         {
-            pActor->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -85,7 +86,7 @@ namespace
     using namespace abyss::Actor::Enemy::Schield;
     using namespace abyss::Actor::Enemy::Schield::Shot;
 
-    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
+    class ViewBinder : public IVModelBinder<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;

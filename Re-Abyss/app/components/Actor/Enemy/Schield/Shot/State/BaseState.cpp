@@ -2,17 +2,11 @@
 
 namespace abyss::Actor::Enemy::Schield::Shot
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
-        m_view = m_pActor->find<ViewCtrl<ShotVM>>().get();
     }
 
     void BaseState::start()
     {
-    }
-
-    void BaseState::draw() const
-    {
-        (*m_view)->draw();
     }
 }

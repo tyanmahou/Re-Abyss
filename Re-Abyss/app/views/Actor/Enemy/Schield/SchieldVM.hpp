@@ -4,6 +4,7 @@
 
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/types/Forward.hpp>
+#include <abyss/views/Actor/Enemy/Schield/Motion.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
@@ -16,6 +17,9 @@ namespace abyss::Actor::Enemy::Schield
 
         bool m_isDamaging = false;
         double m_time = 0;
+
+        Motion m_motion;
+        double m_animeTime = 0;
     public:
         SchieldVM();
         SchieldVM& setTime(double time);
@@ -24,6 +28,18 @@ namespace abyss::Actor::Enemy::Schield
 
         SchieldVM& setIsDamaging(bool isDamaging);
 
+        SchieldVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
+        SchieldVM& setAnimeTime(double time)
+        {
+            m_animeTime = time;
+            return *this;
+        }
+        void draw() const;
+    private:
         void drawWait() const;
         void drawToWait(double t)const;
         void drawAttackPlus() const;

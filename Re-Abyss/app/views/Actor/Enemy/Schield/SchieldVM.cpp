@@ -30,6 +30,27 @@ namespace abyss::Actor::Enemy::Schield
         m_isDamaging = isDamaging;
         return *this;
     }
+
+    void SchieldVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Wait:
+            return this->drawWait();
+        case Motion::ToWait:
+            return this->drawToWait(m_animeTime);
+        case Motion::AttackPlus:
+            return this->drawAttackPlus();
+        case Motion::ToAttackPlus:
+            return this->drawToAttackPlus(m_animeTime);
+        case Motion::AttackCross:
+            return this->drawAttackCross();
+        case Motion::ToAttackCross:
+            return this->drawToAttackCross(m_animeTime);
+        default:
+            break;
+        }
+    }
+
     void SchieldVM::drawWait() const
     {
         auto&& tex = m_texture(U"wait");

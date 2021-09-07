@@ -13,6 +13,8 @@ namespace abyss::Actor::Enemy::Schield
     {}
     void WaitState::start()
     {
+        m_motion->set(Motion::Wait);
+
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
         m_pActor->find<ClockCtrl>()->resetDrawTime();
 
@@ -27,9 +29,5 @@ namespace abyss::Actor::Enemy::Schield
     void WaitState::end()
     {
         m_face->off();
-    }
-    void WaitState::draw() const
-    {
-        (*m_view)->drawWait();
     }
 }

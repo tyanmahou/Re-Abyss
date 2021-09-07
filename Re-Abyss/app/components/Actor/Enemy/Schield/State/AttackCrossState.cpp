@@ -13,6 +13,7 @@ namespace abyss::Actor::Enemy::Schield
     {}
     void AttackCrossState::start()
     {
+        m_motion->set(Motion::AttackCross);
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::TimeSec, true);
 
         m_transitionToWait = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, false);
@@ -31,14 +32,11 @@ namespace abyss::Actor::Enemy::Schield
             m_pActor->getModule<World>()->create<Shot::Builder>(pos + s3d::Vec2{ -34, -25 }, s3d::Vec2{ -1, -1 });
             m_pActor->getModule<World>()->create<Shot::Builder>(pos + s3d::Vec2{ 34, -25 }, s3d::Vec2{ 1, -1 });
         }
-    }
 
-    void AttackCrossState::draw() const
-    {
         if (m_transitionToWait.isStarted()) {
-            (*m_view)->drawToWait(m_transitionToWait.progress0_1());
+            m_motion->set(Motion::ToWait).setAnimeTime(m_transitionToWait.progress0_1());
         } else {
-            (*m_view)->drawAttackCross();
+            m_motion->set(Motion::AttackCross);
         }
     }
 }

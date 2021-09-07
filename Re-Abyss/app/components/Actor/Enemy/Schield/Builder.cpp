@@ -11,6 +11,8 @@
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
 #include <abyss/components/Actor/Enemy/Schield/ShellCtrl.hpp>
 
+#include <abyss/views/Actor/Enemy/Schield/SchieldVM.hpp>
+
 namespace
 {
     class Collider;
@@ -29,16 +31,12 @@ namespace abyss::Actor::Enemy::Schield
             .setColliderImpl<Collider>(pActor)
             .setAudioSettingGroupPath(U"Enemy/Schield/schield.aase")
             .setInitState<WaitState>()
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // 顔制御
         {
             pActor->attach<FaceCtrl>(pActor);
-        }
-        // 描画制御
-        {
-            pActor->attach<ViewCtrl<SchieldVM>>()
-                ->createBinder<ViewBinder>(pActor);
         }
         // 甲羅
         {
@@ -82,11 +80,12 @@ namespace
     /// <summary>
     /// 描画
     /// </summary>
-    class ViewBinder : public ViewCtrl<SchieldVM>::IBinder
+    class ViewBinder : public IVModelBinder<SchieldVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<SchieldVM> m_view;
     private:
@@ -96,12 +95,15 @@ namespace
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
+                .setAnimeTime(m_motion->animeTime())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :

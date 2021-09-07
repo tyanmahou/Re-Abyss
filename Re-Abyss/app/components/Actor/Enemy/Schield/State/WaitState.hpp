@@ -12,7 +12,5 @@ namespace abyss::Actor::Enemy::Schield
         void start() override;
         void update() override;
         void end() override;
-
-        void draw() const override;
     };
 }

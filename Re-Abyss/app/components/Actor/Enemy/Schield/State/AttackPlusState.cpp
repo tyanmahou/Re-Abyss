@@ -13,6 +13,8 @@ namespace abyss::Actor::Enemy::Schield
     {}
     void AttackPlusState::start()
     {
+        m_motion->set(Motion::ToAttackPlus).setAnimeTime(0.0);
+
         m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::TimeSec, false);
 
         m_transitionToAttackPlus = ActorUtils::CreateTimer(*m_pActor, Param::View::TransitionTimeSec, true);
@@ -37,14 +39,11 @@ namespace abyss::Actor::Enemy::Schield
             m_pActor->getModule<World>()->create<Shot::Builder>(pos + s3d::Vec2{ 55, 10 }, s3d::Vec2{ 1, 0 });
             m_pActor->getModule<World>()->create<Shot::Builder>(pos + s3d::Vec2{ 0, -27 }, s3d::Vec2{ 0, -1 });
         }
-    }
 
-    void AttackPlusState::draw() const
-    {
         if (m_transitionToAttackCross.isRunning()) {
-            (*m_view)->drawToAttackCross(m_transitionToAttackCross.progress0_1());
+            m_motion->set(Motion::ToAttackCross).setAnimeTime(m_transitionToAttackCross.progress0_1());
         } else {
-            (*m_view)->drawToAttackPlus(m_transitionToAttackPlus.progress0_1());
+            m_motion->set(Motion::ToAttackPlus).setAnimeTime(m_transitionToAttackPlus.progress0_1());
         }
     }
 }
