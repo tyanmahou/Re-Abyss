@@ -1,15 +1,11 @@
 #include "BaseState.hpp"
-#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
-        m_body = m_pActor->find<Body>().get();
-        m_mapCol = m_pActor->find<MapCollider>().get();
-        m_timeCounter = m_pActor->find<TimeCounter>().get();
-        m_view = m_pActor->find<ViewCtrl<LaunSharkVM>>().get();
+        ComponentCache::onCache(m_pActor);
     }
     void BaseState::update()
     {

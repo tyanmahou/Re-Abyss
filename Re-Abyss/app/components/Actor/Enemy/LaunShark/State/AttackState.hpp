@@ -10,7 +10,5 @@ namespace abyss::Actor::Enemy::LaunShark
         AttackState();
         void start();
         void update() override;
-
-        void draw() const override;
     };
 }

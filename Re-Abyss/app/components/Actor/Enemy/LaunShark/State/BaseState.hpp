@@ -1,24 +1,17 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/TimeCounter.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
-#include <abyss/views/Actor/Enemy/LaunShark/LaunSharkVM.hpp>
+#include "ComponentCache.hpp"
 
 namespace abyss::Actor::Enemy::LaunShark
 {
-    class BaseState : public IState
+    class BaseState : 
+        public IState,
+        public ComponentCache
     {
-    protected:
-        Body* m_body;
-        MapCollider* m_mapCol;
-        TimeCounter* m_timeCounter;
-        ViewCtrl<LaunSharkVM>* m_view;
     public:
+        void onCache()override;
         void update() override;
-        void setup()override;
 
         void lastUpdate() override;
     };

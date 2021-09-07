@@ -28,7 +28,18 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         m_isDamaging = isDamaging;
         return *this;
     }
-    void ShotVM::draw(double t) const
+    void ShotVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Wait:
+            return this->drawWait();
+        case Motion::Firinged:
+            return this->drawFiringed();
+        default:
+            break;
+        }
+    }
+    void ShotVM::drawBase(double t) const
     {
         int32 page = static_cast<int32>(Periodic::Sawtooth0_1(ShotParam::View::AnimeTimeSec, t) * 4);
         m_texture(U"shark_shot")({ 0, 12 * page }, { 32, 12 })
@@ -37,11 +48,11 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     }
     void ShotVM::drawWait() const
     {
-        this->draw(0.0);
+        this->drawBase(0.0);
     }
 
     void ShotVM::drawFiringed() const
     {
-        this->draw(m_time);
+        this->drawBase(m_time);
     }
 }

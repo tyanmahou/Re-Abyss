@@ -14,6 +14,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
     void PursuitState::start()
     {
+        m_motion->set(Motion::Firinged);
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
     }
     void PursuitState::update()
@@ -33,10 +34,5 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         if (m_timer.reachedZero()) {
             this->changeState<FiringedState>();
         }
-    }
-
-    void PursuitState::draw()const
-    {
-        (*m_view)->drawFiringed();
     }
 }

@@ -11,7 +11,5 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
         void start() override;
         void update() override;
-
-        void draw()const override;
     };
 }

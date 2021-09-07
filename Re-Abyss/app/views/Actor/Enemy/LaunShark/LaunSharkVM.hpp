@@ -2,6 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/views/Actor/Enemy/LaunShark/Motion.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark
 {
@@ -14,6 +15,8 @@ namespace abyss::Actor::Enemy::LaunShark
 
         bool m_isDamaging = false;
         double m_time = 0;
+        Motion m_motion = Motion::Attack;
+        double m_animeTime = 0;
     public:
         LaunSharkVM();
         LaunSharkVM& setTime(double time);
@@ -22,6 +25,19 @@ namespace abyss::Actor::Enemy::LaunShark
 
         LaunSharkVM& setIsDamaging(bool isDamaging);
 
+        LaunSharkVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
+
+        LaunSharkVM& setAnimeTime(double time)
+        {
+            m_animeTime = time;
+            return *this;
+        }
+        void draw() const;
+    private:
         void drawSwim() const;
         void drawAttack() const;
         void drawLauncher(double launcherTime = 1.0) const;

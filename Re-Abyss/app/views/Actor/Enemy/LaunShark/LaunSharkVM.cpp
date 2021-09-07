@@ -28,6 +28,19 @@ namespace abyss::Actor::Enemy::LaunShark
         m_isDamaging = isDamaging;
         return *this;
     }
+    void LaunSharkVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Swim:
+            return this->drawSwim();
+        case Motion::Attack:
+            return this->drawAttack();
+        case Motion::Launcher:
+            return this->drawLauncher(m_animeTime);
+        default:
+            break;
+        }
+    }
     void LaunSharkVM::drawSwim() const
     {
         bool isRight = m_forward == Forward::Right;

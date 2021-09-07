@@ -12,6 +12,8 @@ namespace abyss::Actor::Enemy::LaunShark
 
     void AttackState::start()
     {
+        m_motion->set(Motion::Attack);
+
         m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Attack::AttackTimeSec);
         m_body->setSize(Param::Attack::Size);
     }
@@ -26,10 +28,5 @@ namespace abyss::Actor::Enemy::LaunShark
         if (m_attackTimer.reachedZero()) {
             this->changeState<SwimState>();
         }
-    }
-
-    void AttackState::draw() const
-    {
-        (*m_view)->drawAttack();
     }
 }

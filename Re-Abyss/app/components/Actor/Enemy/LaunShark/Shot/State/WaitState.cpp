@@ -10,6 +10,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {}
     void WaitState::start()
     {
+        m_motion->set(Motion::Wait);
         m_body->noneResistanced();
         m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Wait::Time);
     }
@@ -19,10 +20,5 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         if (m_timer.reachedZero()) {
             this->changeState<PursuitState>();
         }
-    }
-
-    void WaitState::draw() const
-    {
-        (*m_view)->drawWait();
     }
 }

@@ -2424,6 +2424,10 @@
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\State\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\ComponentCache.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\Motion.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
@@ -20,6 +21,8 @@
 
 #include <Siv3D/MathConstants.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/ShotParam.hpp>
+
+#include <abyss/views/Actor/Enemy/LaunShark/Shot/ShotVM.hpp>
 
 namespace
 {
@@ -109,8 +112,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // 描画制御
         {
-            pActor->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<MotionCtrl>();
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -122,12 +126,13 @@ namespace
     using namespace abyss::Actor::Enemy::LaunShark;
     using namespace abyss::Actor::Enemy::LaunShark::Shot;
 
-    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
+    class ViewBinder : public IVModelBinder<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<ShotVM> m_view;
     private:
@@ -137,6 +142,7 @@ namespace
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 .setIsDamaging(m_hp->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
@@ -144,6 +150,7 @@ namespace
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
             m_rotate = m_pActor->find<RotateCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :

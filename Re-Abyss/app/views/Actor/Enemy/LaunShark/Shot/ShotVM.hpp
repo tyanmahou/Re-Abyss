@@ -2,6 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/views/Actor/Enemy/LaunShark/Shot/Motion.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
@@ -14,6 +15,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
         bool m_isDamaging = false;
         double m_time = 0;
+        Motion m_motion = Motion::Wait;
     public:
         ShotVM();
         ShotVM& setTime(double m_time);
@@ -23,7 +25,14 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
         ShotVM& setIsDamaging(bool isDamaging);
 
-        void draw(double t) const;
+        ShotVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
+        void draw() const;
+    private:
+        void drawBase(double t) const;
         void drawWait() const;
         void drawFiringed() const;
     };

@@ -14,6 +14,9 @@ namespace abyss::Actor::Enemy::LaunShark
     {}
     void LauncherState::start()
     {
+        m_motion->set(Motion::Launcher)
+            .setAnimeTime(0.0);
+
         m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::AttackTimeSec);
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::WaitTimeSec, false);
         m_body->setAccelX(0);
@@ -40,15 +43,11 @@ namespace abyss::Actor::Enemy::LaunShark
                 this->changeState<SwimState>();
             }
         }
+        m_motion
+            ->setAnimeTime(m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1());
     }
     void LauncherState::end()
     {
         m_pActor->find<BodyUpdater>()->setActive(true);
-    }
-
-    void LauncherState::draw()const
-    {
-        double launcherTime = m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1();
-        (*m_view)->drawLauncher(launcherTime);
     }
 }

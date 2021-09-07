@@ -7,7 +7,5 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {
     public:
         void start();
-
-        void draw() const override;
     };
 }

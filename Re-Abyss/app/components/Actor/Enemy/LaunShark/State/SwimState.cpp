@@ -12,6 +12,7 @@ namespace abyss::Actor::Enemy::LaunShark
     {}
     void SwimState::start()
     {
+        m_motion->set(Motion::Swim);
         m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Swim::WaitTimeSec);
         m_body
             ->setMaxSpeedX(Param::Swim::MaxSpeedX)
@@ -45,10 +46,5 @@ namespace abyss::Actor::Enemy::LaunShark
         if (m_mapCol->isHitWall() && m_waitTimer.sF() <= time) {
             m_waitTimer.set(Duration(time));
         }
-    }
-
-    void SwimState::draw() const
-    {
-        (*m_view)->drawSwim();
     }
 }
