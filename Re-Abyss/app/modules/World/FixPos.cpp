@@ -50,16 +50,15 @@ namespace abyss
 		const Vec2 prevComePos = come.center();
 		Vec2 comePos = prevComePos;
 		Vec2 comeSize = come.size;
-		Vec2 moveVec = comePos - prevCome.center();
 		uint8 retCol = ColDirection::None;
 
 		Vec2 fromPos = from.center();
 		Vec2 fromSize = from.size;
 
-		bool up = (col & ColDirection::Up) && moveVec.y > 0;
-		bool down = (col & ColDirection::Down) && moveVec.y < 0;
-		bool left = (col & ColDirection::Left) && moveVec.x > 0;
-		bool right = (col & ColDirection::Right) && moveVec.x < 0;
+		bool up = (col & ColDirection::Up) && (come.y + come.h) > (prevCome.y + prevCome.h);
+		bool down = (col & ColDirection::Down) && come.y < prevCome.y;
+		bool left = (col & ColDirection::Left) && (come.x + come.w) > (prevCome.x + prevCome.w);
+		bool right = (col & ColDirection::Right) && come.x < prevCome.x;
 
 		static auto toQuad = [](const Line& line, const Line& prev) {
 			return Quad(prev.begin, prev.end, line.end, line.begin);
