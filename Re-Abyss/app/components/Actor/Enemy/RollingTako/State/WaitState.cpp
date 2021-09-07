@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::RollingTako
 {
     void WaitState::start()
     {
+        m_motion->set(Motion::Wait);
     }
 
     void WaitState::update()
@@ -17,10 +18,5 @@ namespace abyss::Actor::Enemy::RollingTako
         if (f * d.x > 0 && d.length() <= Param::Wait::SearchRange) {
             this->changeState<RunState>();
         }
-    }
-
-    void WaitState::draw()const
-    {
-        (*m_view)->drawWait();
     }
 }

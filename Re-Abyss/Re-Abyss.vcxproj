@@ -798,6 +798,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
@@ -853,6 +854,7 @@
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />

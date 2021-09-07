@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::Ikalien
 
         bool m_isDamaging = false;
         double m_time = 0;
-        Motion m_motion;
+        Motion m_motion = Motion::Wait;
     public:
         IkalienVM();
         IkalienVM& setTime(double time);

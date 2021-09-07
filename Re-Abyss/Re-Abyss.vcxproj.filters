@@ -2422,6 +2422,8 @@
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\State\ComponentCache.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

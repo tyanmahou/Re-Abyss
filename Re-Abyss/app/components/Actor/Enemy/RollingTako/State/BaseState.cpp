@@ -1,14 +1,10 @@
 #include "BaseState.hpp"
-#include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::RollingTako
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
-        m_body = this->m_pActor->find<Body>().get();
-        m_mapCol = this->m_pActor->find<MapCollider>().get();
-        m_view = this->m_pActor->find<ViewCtrl<RollingTakoVM>>().get();
+        ComponentCache::onCache(m_pActor);
     }
 
     void BaseState::lastUpdate()

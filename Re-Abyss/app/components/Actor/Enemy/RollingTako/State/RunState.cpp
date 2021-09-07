@@ -4,6 +4,7 @@ namespace abyss::Actor::Enemy::RollingTako
 {
     void RunState::start()
     {
+        m_motion->set(Motion::Run);
     }
     void RunState::update()
     {
@@ -12,10 +13,5 @@ namespace abyss::Actor::Enemy::RollingTako
         } else if (m_body->isForward(Forward::Right)) {
             m_body->setAccelX(Param::Run::AccelX);
         }
-    }
-
-    void RunState::draw() const
-    {
-        (*m_view)->drawRun();
     }
 }

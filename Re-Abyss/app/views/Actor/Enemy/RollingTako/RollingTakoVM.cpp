@@ -28,6 +28,19 @@ namespace abyss::Actor::Enemy::RollingTako
         m_isDamaging = isDamaging;
         return *this;
     }
+    void RollingTakoVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Wait:
+            this->drawWait();
+            break;
+        case Motion::Run:
+            this->drawRun();
+            break;
+        default:
+            break;
+        }
+    }
     void RollingTakoVM::drawWait() const
     {
         bool isRight = m_forward == Forward::Right;

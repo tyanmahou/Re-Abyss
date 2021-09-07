@@ -5,10 +5,13 @@
 
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/RunState.hpp>
 
+
+#include <abyss/views/Actor/Enemy/RollingTako/RollingTakoVM.hpp>
 
 namespace
 {
@@ -49,8 +52,10 @@ namespace abyss::Actor::Enemy::RollingTako
         }
         // 描画
         {
-            pActor->attach<ViewCtrl<RollingTakoVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<MotionCtrl>()
+                ->set(entity.wait ? Motion::Wait : Motion::Run);
+            pActor->attach <VModel> ()
+                ->setBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -61,11 +66,12 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::RollingTako;
 
-    class ViewBinder : public ViewCtrl<RollingTakoVM>::IBinder
+    class ViewBinder : public IVModelBinder<RollingTakoVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<RollingTakoVM> m_view;
     private:
@@ -75,12 +81,14 @@ namespace
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :
