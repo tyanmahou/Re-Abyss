@@ -4,7 +4,7 @@
 
 namespace abyss::Actor::Player::Shot
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
         m_shot = this->m_pActor->find<PlayerShot>().get();
         m_collider = this->m_pActor->find<Collider>().get();

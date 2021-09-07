@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 
         ViewCtrl<HeadVM>* m_view;
     public:
-        void setup()override;
+        void onCache()override;
 
         void update() override;
 

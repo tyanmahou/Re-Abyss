@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         ScaleCtrl* m_scale;
         ViewCtrl<ShotVM>* m_view;
     public:
-        void setup() override;
+        void onCache() override;
 
         void lastUpdate() override;
 

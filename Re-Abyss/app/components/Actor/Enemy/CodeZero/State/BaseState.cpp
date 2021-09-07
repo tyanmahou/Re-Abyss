@@ -5,7 +5,7 @@ namespace abyss::Actor::Enemy::CodeZero
 {
     BaseState::BaseState()
     {}
-    void BaseState::setup()
+    void BaseState::onCache()
     {
         m_hp = m_pActor->find<HP>().get();
         m_behavior = m_pActor->find<BehaviorCtrl>().get();

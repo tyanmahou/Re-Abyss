@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         KindCtrl* m_kind;
         ViewCtrl<HandVM>* m_view;
     public:
-        void setup()override;
+        void onCache()override;
         void update() override;
         void draw() const override;
     };

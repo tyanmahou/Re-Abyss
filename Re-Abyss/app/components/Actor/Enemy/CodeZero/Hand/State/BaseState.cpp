@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
         m_parent = m_pActor->find<ParentCtrl>().get();
         m_body = m_pActor->find<Body>().get();

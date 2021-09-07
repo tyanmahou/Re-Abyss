@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::CodeZero
         ViewCtrl<Body::BodyVM>* m_view;
     public:
         BaseState();
-        void setup()override;
+        void onCache()override;
 
         void update() override;
 

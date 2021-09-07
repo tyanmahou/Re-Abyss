@@ -30,7 +30,7 @@ namespace abyss::Actor::Player
         virtual void onDraw(const PlayerVM& view)const = 0;
 
     public:
-        void setup()override;
+        void onCache()override;
 
         void start() override;
 

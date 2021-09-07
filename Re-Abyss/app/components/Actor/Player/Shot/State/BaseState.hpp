@@ -11,7 +11,7 @@ namespace abyss::Actor::Player::Shot
         PlayerShot* m_shot;
         Collider* m_collider;
     public:
-        void setup()override;
+        void onCache()override;
 
         void start() override;
 

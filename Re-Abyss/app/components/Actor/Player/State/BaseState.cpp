@@ -7,7 +7,7 @@
 
 namespace abyss::Actor::Player
 {
-    void BaseState::setup()
+    void BaseState::onCache()
     {
         m_body       = m_pActor->find<Body>().get();
         m_foot       = m_pActor->find<Foot>().get();
