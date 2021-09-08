@@ -25,9 +25,9 @@ namespace
     s3d::Array<KindWeight> FindTable(ItemDropTableKind kind)
     {
         s3d::Array<KindWeight> ret;
-        ret.reserve(4);
         switch (kind) {
         case ItemDropTableKind::Normal:
+            ret.reserve(4);
             ret.emplace_back(DropItemKind::None, 70.0);
             ret.emplace_back(DropItemKind::RecoverySmall, 30.0);
             ret.emplace_back(DropItemKind::RecoveryMiddle, 10.0);
@@ -71,11 +71,11 @@ namespace abyss::Actor::Enemy
         case DropItemKind::None:
             return nullptr;
         case DropItemKind::RecoverySmall:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Small.size.y / 2.0 }, RecoveryKind::Small);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Small);
         case DropItemKind::RecoveryMiddle:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Middle.size.y / 2.0 }, RecoveryKind::Middle);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0}, RecoveryKind::Middle);
         case DropItemKind::RecoveryBig:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, Param::Big.size.y / 2.0 }, RecoveryKind::Big);
+            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Big);
         default:
             break;
         }
