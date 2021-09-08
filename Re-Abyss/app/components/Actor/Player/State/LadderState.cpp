@@ -14,6 +14,8 @@ namespace abyss::Actor::Player
 
     void LadderState::start()
     {
+        m_motion->set(Motion::Ladder);
+
         m_body->noneResistanced();
         // 攻撃可能
         m_attackCtrl->setActive(true);
@@ -55,20 +57,17 @@ namespace abyss::Actor::Player
         if (m_isTop && InputManager::Up.pressed()) {
             m_ladderTopTimer += 60 * dt;
         }
+        if (this->isLadderTop()) {
+            m_motion->set(Motion::LadderTop);
+        } else {
+            m_motion->set(Motion::Ladder);
+        }
     }
     void LadderState::lastUpdate()
     {
         BaseState::lastUpdate();
         if (!m_foot->isLadder()) {
             this->changeState<SwimState>();
-        }
-    }
-    void LadderState::onDraw(const PlayerVM& view) const
-    {
-        if (this->isLadderTop()) {
-            view.drawStateLadderTop();
-        } else {
-            view.drawStateLadder();
         }
     }
     bool LadderState::isLadderTop() const

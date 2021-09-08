@@ -9,14 +9,7 @@ namespace abyss::Actor::Player
 {
     void BaseState::onCache()
     {
-        m_body       = m_pActor->find<Body>().get();
-        m_foot       = m_pActor->find<Foot>().get();
-        m_attackCtrl = m_pActor->find<AttackCtrl>().get();
-        m_mapCol     = m_pActor->find<MapCollider>().get();
-        m_view       = m_pActor->find<ViewCtrl<PlayerVM>>().get();
-        m_colCtrl    = m_pActor->find<CollisionCtrl>().get();
-        m_stateChecker = m_pActor->find<StateChecker>().get();
-        m_damageCtrl = m_pActor->find<DamageCtrl>().get();
+        ComponentCache::onCache(m_pActor);
     }
     void BaseState::start()
     {
@@ -40,16 +33,5 @@ namespace abyss::Actor::Player
             }
             this->onLanding();
         }
-    }
-    void BaseState::draw() const
-    {
-        auto view = m_view->getBindedView();
-        if (!view) {
-            return;
-        }
-
-        this->onDraw(*view);
-
-        view->drawCharge();
     }
 }

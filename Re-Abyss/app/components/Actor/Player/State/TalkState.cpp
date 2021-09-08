@@ -11,15 +11,17 @@ namespace abyss::Actor::Player
 
     void TalkState::onLanding()
     {
-        if (m_motion == Motion::Float && m_body->getVelocity().x == 0) {
-            m_motion = Motion::Stay;
-        } else if (m_motion == Motion::Swim && Abs(m_body->getVelocity().x) > 90) {
-            m_motion = Motion::Run;
+        if (m_motion->is(Motion::Float) && m_body->getVelocity().x == 0) {
+            m_motion->set(Motion::Stay);
+        } else if (m_motion->is(Motion::Swim) && Abs(m_body->getVelocity().x) > 90) {
+            m_motion->set(Motion::Run);
         }
     }
 
     void TalkState::start()
     {
+        m_motion->set(Motion::Stay);
+
         Vec2 vecPrev = m_body->getVelocity();
         BaseState::start();
         m_body->setVelocity(Vec2{vecPrev.x / 2, vecPrev.y});
@@ -42,26 +44,13 @@ namespace abyss::Actor::Player
                 m_body->setForward(Forward::Left);
             }
         }
-        m_motion = Motion::Float;
+        m_motion->set(Motion::Float);
         if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {
-            m_motion = Motion::Dive;
+            m_motion->set(Motion::Dive);
         }
     }
     void TalkState::lastUpdate()
     {
         BaseState::lastUpdate();
-    }
-    void TalkState::onDraw(const PlayerVM & view) const
-    {
-        switch (m_motion) {
-        case Motion::Stay: return view.drawStateStay();
-        case Motion::Swim: return view.drawStateSwim();
-        case Motion::Run: return view.drawStateRun();
-        case Motion::Float: return view.drawStateFloat();
-        case Motion::Dive: return view.drawStateDive();
-        case Motion::Ladder: return view.drawStateLadder();
-        default:
-            break;
-        }
     }
 }

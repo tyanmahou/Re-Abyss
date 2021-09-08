@@ -1,23 +1,32 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
+#include <concepts>
 
 namespace abyss
 {
+    template<class T>
+    concept MotionKindType = std::integral<T> || std::is_enum_v<T>;
+
     class MotionCtrl : public IComponent
     {
     public:
-        template<class T>
+        template<MotionKindType T>
         MotionCtrl& set(T motion)
         {
             m_motion = static_cast<s3d::int32>(motion);
             return *this;
         }
-        template<class T>
+        template<MotionKindType T>
         T get() const
         {
             return static_cast<T>(m_motion);
         }
 
+        template<MotionKindType T>
+        bool is(T motion)
+        {
+            return m_motion == static_cast<s3d::int32>(motion);
+        }
         MotionCtrl& setAnimeTime(double animeTime)
         {
             m_animeTime = animeTime;

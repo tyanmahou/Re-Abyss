@@ -11,7 +11,6 @@ namespace abyss::Actor::Player
     private:
         void start() override;
         void update()override;
-        void onDraw(const PlayerVM& view)const override;
     private:
         Ref<Gimmick::Door::DoorProxy> m_door;
     };

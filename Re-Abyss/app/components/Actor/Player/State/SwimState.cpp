@@ -11,15 +11,17 @@ namespace abyss::Actor::Player
 {
     void SwimState::onLanding()
     {
-        if (m_motion == Motion::Float && m_body->getVelocity().x == 0) {
-            m_motion = Motion::Stay;
-        } else if (m_motion == Motion::Swim && Abs(m_body->getVelocity().x) > 90) {
-            m_motion = Motion::Run;
+        if (m_motion->is(Motion::Float) && m_body->getVelocity().x == 0) {
+            m_motion->set(Motion::Stay);
+        } else if (m_motion->is(Motion::Swim) && Abs(m_body->getVelocity().x) > 90) {
+            m_motion->set(Motion::Run);
         }
     }
 
     void SwimState::start()
     {
+        m_motion->set(Motion::Stay);
+
         BaseState::start();
         // ドアに入れる
         m_stateChecker->setCanDoorState(true);
@@ -34,12 +36,12 @@ namespace abyss::Actor::Player
     {
         BaseState::update();
 
-        m_motion = Motion::Float;
+        m_motion->set(Motion::Float);
         if (InputManager::Left.pressed() ^ InputManager::Right.pressed()) {
-            m_motion = Motion::Swim;
+            m_motion->set(Motion::Swim);
         }
         if (m_body->getVelocity().y > Body::DefaultMaxVelocityY) {
-            m_motion = Motion::Dive;
+            m_motion->set(Motion::Dive);
         }
     }
     void SwimState::lastUpdate()
@@ -54,21 +56,8 @@ namespace abyss::Actor::Player
                 m_body->setPosX(m_foot->getLadderInfo()->pos.x);
                 m_body->addPosY(-2 * (canUp - canDown));
                 this->changeState<LadderState>();
-                m_motion = Motion::Ladder;
+                m_motion->set(Motion::Ladder);
             }
-        }
-    }
-    void SwimState::onDraw(const PlayerVM& view) const
-    {
-        switch (m_motion) {
-        case Motion::Stay: return view.drawStateStay();
-        case Motion::Swim: return view.drawStateSwim();
-        case Motion::Run: return view.drawStateRun();
-        case Motion::Float: return view.drawStateFloat();
-        case Motion::Dive: return view.drawStateDive();
-        case Motion::Ladder: return view.drawStateLadder();
-        default:
-            break;
         }
     }
 }

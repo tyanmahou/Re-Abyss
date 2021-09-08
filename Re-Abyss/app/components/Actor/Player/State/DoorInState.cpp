@@ -17,10 +17,12 @@ namespace abyss::Actor::Player
     {
         if (!m_door) {
             this->changeState<SwimState>();
+            return;
         }
+        m_motion->set(Motion::Door);
 
         // SE
-        m_pActor->find<AudioSource>()->play(U"DoorMove");
+        m_audio->play(U"DoorMove");
 
         // 攻撃タイマーリセット
         m_attackCtrl->reset();
@@ -48,9 +50,5 @@ namespace abyss::Actor::Player
     }
     void DoorInState::update()
     {
-    }
-    void DoorInState::onDraw(const PlayerVM & view) const
-    {
-        view.drawStateDoor();
     }
 }

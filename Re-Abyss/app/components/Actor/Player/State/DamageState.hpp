@@ -8,7 +8,6 @@ namespace abyss::Actor::Player
         void start()override;
         Task<> task()override;
         void update()override;
-        void onDraw(const PlayerVM& view)const override;
     public:
         DamageState(const s3d::Vec2& velocity);
 

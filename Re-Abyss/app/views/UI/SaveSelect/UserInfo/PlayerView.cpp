@@ -52,6 +52,7 @@ namespace abyss::UI::SaveSelect::UserInfo
             ->setPos(m_pos)
             .setForward(Forward::Left)
             .setTime(m_time)
-            .drawStateStay();
+            .setMotion(Actor::Player::Motion::Stay)
+            .draw();
     }
 }

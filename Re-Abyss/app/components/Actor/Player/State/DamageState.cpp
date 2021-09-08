@@ -12,8 +12,10 @@ namespace abyss::Actor::Player
     {}
     void DamageState::start()
     {
+        m_motion->set(Motion::Damage);
+
         BaseState::start();
-        m_pActor->find<AudioSource>()->play(U"Damage");
+        m_audio->play(U"Damage");
 
         auto nextForward = m_body->getForward();
         if (m_velocity.x > 0) {
@@ -45,9 +47,5 @@ namespace abyss::Actor::Player
     }
     void DamageState::update()
     {
-    }
-    void DamageState::onDraw(const PlayerVM& view) const
-    {
-        view.drawStateDamage();
     }
 }

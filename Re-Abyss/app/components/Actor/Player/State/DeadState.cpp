@@ -15,6 +15,9 @@ namespace abyss::Actor::Player
 {
     void DeadState::start()
     {
+        m_motion->set(Motion::Dead)
+            .setAnimeTime(0.0);
+
         BaseState::start();
 
         // 無敵時間をなしに
@@ -26,7 +29,7 @@ namespace abyss::Actor::Player
         // 地震
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);
 
-        m_pActor->find<AudioSource>()->play(U"Dead");
+        m_audio->play(U"Dead");
 
         m_stateChecker->setIsDeadState(true);
         m_body
@@ -65,13 +68,8 @@ namespace abyss::Actor::Player
 
     void DeadState::update()
     {
+        m_motion->setAnimeTime(m_deadTimer.progress0_1());
     }
-
-    void DeadState::onDraw(const PlayerVM& view) const
-    {
-        view.drawStateDead(s3d::Saturate(m_deadTimer.progress0_1()));
-    }
-
     DeadState::DeadState()
     {}
 

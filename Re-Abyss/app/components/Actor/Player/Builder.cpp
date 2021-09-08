@@ -3,6 +3,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 
+#include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actor/Commons/BreathingCtrl.hpp>
@@ -14,6 +15,7 @@
 #include <abyss/components/Actor/Commons/CameraFixPos.hpp>
 #include <abyss/components/Actor/Commons/LightCtrl.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/OopartsCtrl.hpp>
@@ -150,8 +152,9 @@ namespace abyss::Actor::Player
         }
         // View
         {
-            pActor->attach<ViewCtrl<PlayerVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<MotionCtrl>();
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
         // Light
         {
@@ -196,13 +199,14 @@ namespace
         Ref<Body> m_body;
     };
 
-    class ViewBinder : public ViewCtrl<PlayerVM>::IBinder
+    class ViewBinder : public IVModelBinder<PlayerVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
         Ref<ChargeCtrl> m_charge;
         Ref<AttackCtrl> m_attackCtrl;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<PlayerVM> m_view;
     private:
@@ -215,6 +219,8 @@ namespace
                 .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
                 .setIsDamaging(m_hp->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
+                .setAnimeTime(m_motion->animeTime())
                 ;
         }
         void onStart() final
@@ -223,6 +229,7 @@ namespace
             m_hp = m_pActor->find<HP>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
 
             auto oopartsView = std::make_unique<Ooparts::OopartsView>();
             oopartsView->setCallback(std::make_shared<Ooparts::ActDrawCallbackView>(m_pActor->getManager()));

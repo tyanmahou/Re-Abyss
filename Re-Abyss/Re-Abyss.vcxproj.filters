@@ -2427,6 +2427,7 @@
     <ClInclude Include="app\views\Actor\Enemy\Schield\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

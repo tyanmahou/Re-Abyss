@@ -24,7 +24,6 @@ namespace abyss::Actor::Player
         double m_time = 0;
         Motion m_motion;
         double m_animeTime = 0;
-        s3d::ColorF calcColor() const;
 
         std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
         std::shared_ptr<XtoAtkVM> m_xto;
@@ -42,8 +41,20 @@ namespace abyss::Actor::Player
         PlayerVM& setIsAttacking(bool isAttacking);
         PlayerVM& setIsDamaging(bool isDamaging);
 
-        void draw() const;
+        PlayerVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
 
+        PlayerVM& setAnimeTime(double animeTime)
+        {
+            m_animeTime = animeTime;
+            return *this;
+        }
+
+        void draw() const;
+    private:
         void drawStateStay() const;
         void drawStateStayAtk() const;
         void drawStateFloat() const;
@@ -63,5 +74,6 @@ namespace abyss::Actor::Player
         void drawStateDoor() const;
 
         void drawCharge()const;
+        s3d::ColorF calcColor() const;
     };
 }
