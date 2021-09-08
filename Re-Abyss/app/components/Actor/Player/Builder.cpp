@@ -15,7 +15,6 @@
 #include <abyss/components/Actor/Commons/LightCtrl.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
 
-#include <abyss/components/Actor/Player/PlayerProxy.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/OopartsCtrl.hpp>
 #include <abyss/components/Actor/Player/RestartCtrl.hpp>
@@ -162,10 +161,6 @@ namespace abyss::Actor::Player
         // UI制御
         {
             pActor->attach<UICtrl>(pActor);
-        }
-        // プロキシ
-        {
-            pActor->attach<PlayerProxy>(pActor);
         }
 #if ABYSS_DEBUG
         // デバッグ制御

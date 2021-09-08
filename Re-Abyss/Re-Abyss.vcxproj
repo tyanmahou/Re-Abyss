@@ -346,7 +346,6 @@
     <ClCompile Include="app\components\Actor\Player\ForwardCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\GimmickReactCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\MoveSwim.cpp" />
-    <ClCompile Include="app\components\Actor\Player\PlayerProxy.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerUtil.cpp" />
     <ClCompile Include="app\components\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Player\Shot\EffectCtrl.cpp" />
@@ -946,7 +945,6 @@
     <ClInclude Include="app\components\Actor\Player\GimmickReactCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\MoveSwim.hpp" />
-    <ClInclude Include="app\components\Actor\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\EffectCtrl.hpp" />

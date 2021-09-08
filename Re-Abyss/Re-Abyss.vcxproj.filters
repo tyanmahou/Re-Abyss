@@ -826,9 +826,6 @@
     <ClCompile Include="app\components\Actor\Player\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Player\PlayerProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\World\World.cpp">
       <Filter>Source Files\ActionSystem\World</Filter>
     </ClCompile>
@@ -2024,7 +2021,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Player\PlayerProxy.hpp" />
     <ClInclude Include="app\modules\World\World.hpp">
       <Filter>Source Files\ActionSystem\World</Filter>
     </ClInclude>
