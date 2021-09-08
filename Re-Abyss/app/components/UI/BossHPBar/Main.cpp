@@ -1,8 +1,6 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
 
-#include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
-
 namespace abyss::UI::BossHPBar
 {
     Main::Main(UIObj* pUi):
@@ -16,7 +14,6 @@ namespace abyss::UI::BossHPBar
     void Main::onStart()
     {
         m_hpGauge = m_pUi->find<HPGaugeCtrl>();
-        m_view = m_pUi->find<ViewCtrl<BossHPBarVM>>();
     }
 
     void Main::onUpdate()
@@ -26,10 +23,5 @@ namespace abyss::UI::BossHPBar
             m_pUi->destroy();
             return;
         }
-    }
-
-    void Main::onDraw() const
-    {
-        (*m_view)->draw();
     }
 }

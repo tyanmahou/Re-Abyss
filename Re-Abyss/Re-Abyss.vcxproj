@@ -832,6 +832,7 @@
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
+    <ClInclude Include="app\components\UI\Common\VModel.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
@@ -1250,7 +1251,6 @@
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\components\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BreathingCtrl.hpp" />

@@ -1,5 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/components/UI/Common/VModel.hpp>
 #include <abyss/components/UI/BossHPBar/Main.hpp>
 
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
@@ -21,8 +22,8 @@ namespace abyss::UI::BossHPBar
         }
         // ビュー制御
         {
-            pUi->attach<ViewCtrl<BossHPBarVM>>()
-                ->createBinder<ViewBinder>(pUi);
+            pUi->attach<VModel>()
+                ->setBinder<ViewBinder>(pUi);
         }
     };
 }
@@ -33,7 +34,7 @@ namespace
     using namespace abyss::UI;
     using namespace abyss::UI::BossHPBar;
 
-    class ViewBinder final : public ViewCtrl<BossHPBarVM>::IBinder
+    class ViewBinder final : public IVModelBinder<BossHPBarVM>
     {
     public:
         ViewBinder(UIObj* pUi) :

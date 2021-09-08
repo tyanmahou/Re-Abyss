@@ -1932,7 +1932,6 @@
     <ClInclude Include="app\components\Actor\Commons\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actor\Commons\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\BreathingCtrl.hpp" />
-    <ClInclude Include="app\components\Common\ViewCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\RotateCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Commons\HP.hpp" />
     <ClInclude Include="app\components\Actor\Commons\StateCtrl.hpp" />
@@ -2433,6 +2432,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ComponentCache.hpp" />
+    <ClInclude Include="app\components\UI\Common\VModel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
