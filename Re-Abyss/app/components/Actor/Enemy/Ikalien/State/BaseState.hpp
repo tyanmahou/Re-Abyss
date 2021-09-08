@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Enemy/Ikalien/State/ComponentCache.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/ComponentCache.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien
 {

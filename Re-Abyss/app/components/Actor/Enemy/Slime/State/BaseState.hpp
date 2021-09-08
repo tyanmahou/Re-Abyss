@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Enemy/Slime/State/ComponentCache.hpp>
+#include <abyss/components/Actor/Enemy/Slime/ComponentCache.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
-#include "ComponentCache.hpp"
+#include "../ComponentCache.hpp"
 
 namespace abyss::Actor::Enemy::Schield
 {

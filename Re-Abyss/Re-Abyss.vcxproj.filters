@@ -2412,20 +2412,20 @@
     <ClInclude Include="app\components\Common\VModelBase.hpp" />
     <ClInclude Include="app\components\Actor\Commons\VModel.hpp" />
     <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\State\ComponentCache.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Ikalien\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Ikalien\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\RollingTako\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\State\ComponentCache.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\LaunShark\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Schield\Motion.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Schield\State\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Schield\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
   </ItemGroup>
