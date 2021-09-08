@@ -33,6 +33,7 @@ namespace abyss::Actor::Enemy::CodeZero
             .setIsEnableItemDrop(false)
             .setIsAutoDestroy(false)
             .setInitState<Phase1State>()
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // Body調整
@@ -46,11 +47,6 @@ namespace abyss::Actor::Enemy::CodeZero
         // 行動パターン
         {
             pActor->attach<BehaviorCtrl>(pActor);
-        }
-        // view
-        {
-            pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
         }
         // プロキシ
         {
