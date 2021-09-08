@@ -4,8 +4,8 @@
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
-
-#include <abyss/views/Actor/Enemy/CodeZero/Hand/HandVM.hpp>
+#include <abyss/components/Common/MotionCtrl.hpp>
+#include <abyss/views/Actor/Enemy/CodeZero/Hand/Motion.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -21,10 +21,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         RotateCtrl* m_rotate;
         HandCtrl* m_hand;
         KindCtrl* m_kind;
-        ViewCtrl<HandVM>* m_view;
+        MotionCtrl* m_motion;
     public:
         void onCache()override;
         void update() override;
-        void draw() const override;
     };
 }

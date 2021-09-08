@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Commons/RotateCtrl.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.h>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandCtrl.hpp>
@@ -69,8 +70,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         // 描画制御
         {
-            pActor->attach<ViewCtrl<HandVM>>()
-                ->createBinder<ViewBinder>(pActor, forward);
+            pActor->attach<MotionCtrl>();
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor, forward);
         }
         // プロキシ
         {
@@ -86,11 +88,13 @@ namespace
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Hand;
 
-    class ViewBinder : public ViewCtrl<HandVM>::IBinder
+    class ViewBinder : public IVModelBinder<HandVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
+
         std::unique_ptr<HandVM> m_view;
     private:
         HandVM* bind() const final
@@ -98,12 +102,14 @@ namespace
             return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
+                .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_rotate = m_pActor->find<RotateCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor, Forward forward) :

@@ -5,7 +5,7 @@
 
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Head/HeadCtrl.hpp>
@@ -51,8 +51,8 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         }
         // 描画
         {
-            pActor->attach<ViewCtrl<HeadVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
         {
             pActor->attach<ReceiverData>();
@@ -67,7 +67,7 @@ namespace
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Head;
 
-    class ViewBinder : public ViewCtrl<HeadVM>::IBinder
+    class ViewBinder : public IVModelBinder<HeadVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;

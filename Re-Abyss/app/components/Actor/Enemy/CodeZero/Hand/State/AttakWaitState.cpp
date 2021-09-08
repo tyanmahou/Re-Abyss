@@ -8,6 +8,16 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     AttackWaitState::AttackWaitState()
     {}
 
+    void AttackWaitState::start()
+    {
+        m_motion->set(Motion::AttackWait);
+    }
+
+    void AttackWaitState::end()
+    {
+        m_motion->set(Motion::Wait);
+    }
+
     Task<> AttackWaitState::task()
     {
         m_hand->startForAttackWait(*m_body);
@@ -23,10 +33,4 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     void AttackWaitState::update()
     {
     }
-
-    void AttackWaitState::draw() const
-    {
-        (*m_view)->drawAttackWait();
-    }
-
 }

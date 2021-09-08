@@ -37,13 +37,5 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->changeState<PursuitState>();
         }
     }
-
-    void WaitState::draw() const
-    {
-        if (auto view = m_view->getBindedView()) {
-            view->drawCharge();
-            view->draw();
-        }
-    }
 }
 

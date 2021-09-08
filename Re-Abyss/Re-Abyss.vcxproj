@@ -856,6 +856,7 @@
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\Motion.hpp" />

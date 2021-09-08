@@ -3,7 +3,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
 #include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Common/ViewCtrl.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
@@ -49,8 +49,8 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         // view
         {
-            pActor->attach<ViewCtrl<Body::BodyVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
         // プロキシ
         {
@@ -64,7 +64,7 @@ namespace
     using namespace abyss;
     using namespace abyss::Actor::Enemy::CodeZero;
 
-    class ViewBinder : public ViewCtrl<Body::BodyVM>::IBinder
+    class ViewBinder : public IVModelBinder<Body::BodyVM>
     {
         Actor::ActorObj* m_pActor = nullptr;
         Ref<Actor::Body> m_body;

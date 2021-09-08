@@ -11,9 +11,11 @@
 #include <abyss/components/Actor/Commons/ScaleCtrl.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Commons/CustomCollider.hpp>
+#include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
+#include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotVM.hpp>
 
 namespace
 {
@@ -67,8 +69,8 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         }
         // 描画設定
         {
-            pActor->attach<ViewCtrl<ShotVM>>()
-                ->createBinder<ViewBinder>(pActor);
+            pActor->attach<VModel>()
+                ->setBinder<ViewBinder>(pActor);
         }
     }
 }
@@ -79,7 +81,7 @@ namespace
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Shot;
 
-    class ViewBinder : public ViewCtrl<ShotVM>::IBinder
+    class ViewBinder : public IVModelBinder<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -90,7 +92,9 @@ namespace
         {
             return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
-                .setScale(m_scale->get());
+                .setScale(m_scale->get())
+                .setIsCharge(m_scale->get() < 1.0)
+                ;
         }
         void onStart() final
         {

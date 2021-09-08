@@ -9,14 +9,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_rotate = m_pActor->find<RotateCtrl>().get();
         m_hand = m_pActor->find<HandCtrl>().get();
         m_kind = m_pActor->find<KindCtrl>().get();
-
-        m_view = m_pActor->find<ViewCtrl<HandVM>>().get();
+        m_motion = m_pActor->find<MotionCtrl>().get();
     }
     void BaseState::update()
     {
-    }
-    void BaseState::draw() const
-    {
-        (*m_view)->draw();
     }
 }

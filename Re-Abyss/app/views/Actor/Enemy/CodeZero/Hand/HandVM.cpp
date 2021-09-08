@@ -24,7 +24,16 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_rotate = rotate;
         return *this;
     }
-    void HandVM::draw(const s3d::Color & color) const
+    void HandVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Wait:
+            return this->drawBase();
+        case Motion::AttackWait:
+            return this->drawAttackWait();
+        }
+    }
+    void HandVM::drawBase(const s3d::Color & color) const
     {
         m_texture(U"hand")
             .mirrored(m_forward == Forward::Right)
@@ -35,6 +44,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         double t = Periodic::Sawtooth0_1(0.2s, m_time);
         HSV hsv(360 * t, 0.5, 1.0);
-        this->draw(hsv.toColor());
+        this->drawBase(hsv.toColor());
     }
 }

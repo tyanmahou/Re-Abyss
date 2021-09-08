@@ -7,8 +7,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     {
         m_parent = m_pActor->find<ParentCtrl>().get();
         m_head = m_pActor->find<HeadCtrl>().get();
-
-        m_view = m_pActor->find<ViewCtrl<HeadVM>>().get();
     }
     void BaseState::update()
     {
@@ -24,9 +22,5 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         } else {
             m_head->setForward(Forward::None);
         }
-    }
-    void BaseState::draw() const
-    {
-        (*m_view)->draw();
     }
 }

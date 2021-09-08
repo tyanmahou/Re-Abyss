@@ -7,8 +7,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
     public:
         AttackWaitState();
+        void start() override;
+        void end() override;
         Task<> task()override;
         void update()override;
-        void draw() const override;
     };
 }
