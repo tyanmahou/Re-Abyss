@@ -83,6 +83,43 @@ namespace abyss::Actor::Player
         return *this;
     }
 
+    void PlayerVM::draw() const
+    {
+        switch (m_motion) {
+        case Motion::Stay:
+            this->drawStateStay();
+            break;
+        case Motion::Float:
+            this->drawStateFloat();
+            break;
+        case Motion::Run:
+            this->drawStateRun();
+            break;
+        case Motion::Swim:
+            this->drawStateSwim();
+            break;
+        case Motion::Dive:
+            this->drawStateDive();
+            break;
+        case Motion::Damage:
+            this->drawStateDamage();
+            break;
+        case Motion::Dead:
+            this->drawStateDead(m_animeTime);
+            break;
+        case Motion::Ladder:
+            this->drawStateLadder();
+            break;
+        case Motion::LadderTop:
+            this->drawStateLadderTop();
+            break;
+        case Motion::Door:
+            this->drawStateDoor();
+            break;
+        }
+        this->drawCharge();
+    }
+
     void PlayerVM::drawStateStay() const
     {
         if (m_isAttacking) {

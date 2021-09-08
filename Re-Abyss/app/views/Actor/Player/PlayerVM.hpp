@@ -6,6 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actor/Player/Xto/XtoAtkVM.hpp>
+#include <abyss/views/Actor/Player/Motion.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -21,7 +22,8 @@ namespace abyss::Actor::Player
         bool m_isAttacking = false;
         bool m_isDamaging = false;
         double m_time = 0;
-
+        Motion m_motion;
+        double m_animeTime = 0;
         s3d::ColorF calcColor() const;
 
         std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
@@ -39,8 +41,8 @@ namespace abyss::Actor::Player
 
         PlayerVM& setIsAttacking(bool isAttacking);
         PlayerVM& setIsDamaging(bool isDamaging);
-        PlayerVM& setManager(Manager* pManager);
 
+        void draw() const;
 
         void drawStateStay() const;
         void drawStateStayAtk() const;

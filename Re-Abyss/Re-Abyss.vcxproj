@@ -863,6 +863,7 @@
     <ClInclude Include="app\views\Actor\Enemy\Slime\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
+    <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
     <ClInclude Include="app\views\UI\SpeechBalloon\SpeechBalloonVM.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
