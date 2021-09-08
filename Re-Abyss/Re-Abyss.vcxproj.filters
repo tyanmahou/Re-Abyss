@@ -2429,6 +2429,10 @@
     <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ComponentCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

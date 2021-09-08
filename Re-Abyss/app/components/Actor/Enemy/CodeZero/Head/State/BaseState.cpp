@@ -5,8 +5,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 {
     void BaseState::onCache()
     {
-        m_parent = m_pActor->find<ParentCtrl>().get();
-        m_head = m_pActor->find<HeadCtrl>().get();
+        ComponentCache::onCache(m_pActor);
     }
     void BaseState::update()
     {

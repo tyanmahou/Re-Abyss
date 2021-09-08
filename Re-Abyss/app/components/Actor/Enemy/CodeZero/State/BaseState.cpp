@@ -1,5 +1,4 @@
 #include "BaseState.hpp"
-#include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -7,9 +6,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {}
     void BaseState::onCache()
     {
-        m_hp = m_pActor->find<HP>().get();
-        m_behavior = m_pActor->find<BehaviorCtrl>().get();
-        m_parts = m_pActor->find<PartsCtrl>().get();
+        ComponentCache::onCache(m_pActor);
     }
     void BaseState::update()
     {
