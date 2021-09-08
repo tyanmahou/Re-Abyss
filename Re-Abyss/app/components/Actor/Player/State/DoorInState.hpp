@@ -10,6 +10,7 @@ namespace abyss::Actor::Player
         DoorInState(const Ref<Gimmick::Door::DoorProxy>& door);
     private:
         void start() override;
+        void end() override;
         void update()override;
     private:
         Ref<Gimmick::Door::DoorProxy> m_door;

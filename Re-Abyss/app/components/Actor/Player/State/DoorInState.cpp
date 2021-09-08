@@ -48,6 +48,10 @@ namespace abyss::Actor::Player
             m_pActor->getModule<Temporary>()->reserveRestartId(m_door->getStartId());
         }
     }
+    void DoorInState::end()
+    {
+        m_motion->set(Motion::Stay);
+    }
     void DoorInState::update()
     {
     }

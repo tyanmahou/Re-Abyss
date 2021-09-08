@@ -9,7 +9,6 @@
 # include <abyss/components/Actor/base/IPreUpdate.hpp>
 # include <abyss/components/Actor/base/IPostUpdate.hpp>
 # include <abyss/components/Actor/base/ILastUpdate.hpp>
-# include <abyss/components/Actor/base/IDraw.hpp>
 # include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::Actor
@@ -44,8 +43,6 @@ namespace abyss::Actor
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
-
-        virtual void draw() const {}
     };
 
     class StateCtrl :
@@ -53,7 +50,6 @@ namespace abyss::Actor
         public IPreUpdate,
         public IPostUpdate,
         public ILastUpdate,
-        public IDraw,
         public IPostCollision
     {
     private:
@@ -75,8 +71,6 @@ namespace abyss::Actor
         void onPostUpdate() override;
 
         void onLastUpdate() override;
-
-        void onDraw() const override;
 
         void onPostCollision() override;
 
@@ -130,7 +124,6 @@ namespace abyss
             Actor::IPreUpdate,
             Actor::IPostUpdate,
             Actor::ILastUpdate,
-            Actor::IDraw,
             Actor::IPostCollision
         >;
     };

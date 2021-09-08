@@ -79,13 +79,6 @@ namespace abyss::Actor
         }
     }
 
-    void StateCtrl::onDraw() const
-    {
-        if (m_current) {
-            m_current->draw();
-        }
-    }
-
     void StateCtrl::onPostCollision()
     {
         if (m_collisionReact) {
