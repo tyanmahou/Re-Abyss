@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase2State.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase3State.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.h>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {

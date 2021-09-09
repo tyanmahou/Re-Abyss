@@ -910,7 +910,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.h" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CommonBuilder.hpp" />

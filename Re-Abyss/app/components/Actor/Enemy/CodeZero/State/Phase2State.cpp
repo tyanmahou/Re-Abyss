@@ -1,7 +1,7 @@
 #include "Phase2State.hpp"
 #include "Phase3State.hpp"
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.h>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

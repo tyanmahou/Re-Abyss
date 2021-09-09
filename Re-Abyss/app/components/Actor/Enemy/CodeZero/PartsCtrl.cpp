@@ -2,7 +2,7 @@
 
 #include <abyss/components/Actor/Enemy/CodeZero/Head/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/Builder.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.h>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/modules/World/World.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
