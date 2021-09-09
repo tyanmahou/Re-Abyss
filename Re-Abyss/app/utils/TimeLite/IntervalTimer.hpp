@@ -17,7 +17,7 @@ namespace abyss::TimeLite
         IntervalTimer(s3d::Duration duration, s3d::int32 maxCount = -1) :
             IntervalTimer(duration.count(), maxCount)
         {}
-        Coro::Generator<s3d::int32> update(double dt)
+        Coro::Generator<double> update(double dt)
         {
             if (isMaxCount()) {
                 co_return;
@@ -31,7 +31,7 @@ namespace abyss::TimeLite
                 } else {
                     ++m_count;
                 }
-                co_yield m_count;
+                co_yield m_current;
             }
             co_return;
         }

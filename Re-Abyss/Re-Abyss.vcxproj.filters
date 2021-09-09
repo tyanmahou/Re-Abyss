@@ -1782,7 +1782,6 @@
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\HandVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Head\HeadVM.hpp" />
-    <ClInclude Include="app\views\Actor\Enemy\CodeZero\Shot\ShotChargeEffect.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\ShotVM.hpp" />
