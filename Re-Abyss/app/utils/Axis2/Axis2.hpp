@@ -9,125 +9,130 @@ namespace abyss
     struct Axis2
     {
     private:
-        s3d::Vec2 m_a{1, 0};
-        s3d::Vec2 m_b{0, 1};
+        s3d::Vec2 m_right{1, 0};
+        s3d::Vec2 m_down{0, 1};
 
-    public:
-        Axis2() = default;
-
-        /// <summary>
-        /// 一つの軸と、その軸と直行する軸を生成
-        /// </summary>
-        /// <param name="a">正規化済みベクトル</param>
-        constexpr Axis2(const s3d::Vec2& a) :
-            m_a(a),
-            m_b(-a.y, a.x)
+        constexpr Axis2(const s3d::Vec2& right, const s3d::Vec2& down):
+            m_right(right),
+            m_down(down)
         {}
+    public:
+        constexpr Axis2() = default;
 
-        /// <summary>
-        /// 主軸aを返す
-        /// </summary>
-        /// <returns></returns>
-        const s3d::Vec2& a() const
+        static constexpr Axis2 FromRight(const s3d::Vec2& right)
         {
-            return m_a;
+            return Axis2(right, s3d::Vec2{ -right.y, right.x });
+        }
+
+        static constexpr Axis2 FromDown(const s3d::Vec2& down)
+        {
+            return Axis2(s3d::Vec2{ down.y, -down.x }, down);
         }
 
         /// <summary>
-        /// 軸bを返す
+        /// 軸rightを返す
         /// </summary>
         /// <returns></returns>
-        const s3d::Vec2& b() const
+        const s3d::Vec2& right() const
         {
-            return m_b;
+            return m_right;
         }
 
         /// <summary>
-        /// xy座標をst座標に変換する
+        /// 軸downを返す
+        /// </summary>
+        /// <returns></returns>
+        const s3d::Vec2& down() const
+        {
+            return m_down;
+        }
+
+        /// <summary>
+        /// 絶対座標を相対座標に変換する
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 st(const s3d::Vec2& xy) const
+        s3d::Vec2 relative(const s3d::Vec2& global) const
         {
             return {
-                xy.dot(m_a),
-                xy.dot(m_b),
+                global.dot(m_right),
+                global.dot(m_down),
             };
         }
 
         /// <summary>
-        /// xy座標からs座標に変換する
+        /// 絶対座標から相対座標Xに変換する
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        double s(const s3d::Vec2& xy) const
+        double relativeX(const s3d::Vec2& global) const
         {
-            return xy.dot(m_a);
+            return global.dot(m_right);
         }
 
         /// <summary>
-        /// xy座標からt座標に変換する
+        /// 絶対座標から相対座標Yに変換する
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        double t(const s3d::Vec2& xy) const
+        double relativeY(const s3d::Vec2& global) const
         {
-            return xy.dot(m_b);
+            return global.dot(m_down);
         }
 
         /// <summary>
-        /// xy座標からsaベクトルに変換する
+        /// 絶対座標をright軸に写像
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 sa(const s3d::Vec2& xy) const
+        s3d::Vec2 projectRight(const s3d::Vec2& global) const
         {
-            return xy.projection(m_a);
+            return global.projection(m_right);
         }
 
         /// <summary>
-        /// s座標からsaベクトルに変換する
+        /// 相対座標Xからright軸に写像
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 sa(double s) const
+        s3d::Vec2 projectRight(double relativeX) const
         {
-            return m_a * s;
+            return m_right * relativeX;
         }
 
         /// <summary>
-        /// t座標からtbベクトルに変換する
+        ///  絶対座標をdown軸に写像
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 tb(double t) const
+        s3d::Vec2 projectDown(const s3d::Vec2& global) const
         {
-            return m_b * t;
+            return global.projection(m_down);
         }
 
         /// <summary>
-        /// xy座標からtbベクトルに変換する
+        /// 相対座標Yからdown軸に写像
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 tb(const s3d::Vec2& xy) const
+        s3d::Vec2 projectDown(double relativeY) const
         {
-            return xy.projection(m_b);
+            return m_down * relativeY;
         }
 
         /// <summary>
-        /// st座標からxy座標に変換する
+        /// 相対座標から絶対座標に変換する
         /// </summary>
         /// <param name="xy"></param>
         /// <returns></returns>
-        s3d::Vec2 xy(const s3d::Vec2& st) const
+        s3d::Vec2 global(const s3d::Vec2& relative) const
         {
-            return m_a * st.x + m_b * st.y;
+            return m_right * relative.x + m_down * relative.y;
         }
 
-        s3d::Vec2 operator *(const s3d::Vec2& st) const
+        s3d::Vec2 operator *(const s3d::Vec2& relative) const
         {
-            return xy(st);
+            return global(relative);
         }
     };
 
