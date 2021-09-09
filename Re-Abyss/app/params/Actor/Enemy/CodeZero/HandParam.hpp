@@ -7,9 +7,13 @@ namespace abyss::Actor::Enemy::CodeZero
     struct HandParam
     {
         [[TOML_BIND(Base::ColRadius, "Base.colRadius")]]
+        [[TOML_BIND(Base::HorizontalDist, "Base.horizontalDist")]]
+        [[TOML_BIND(Base::VerticalDist, "Base.verticalDist")]]
         struct Base
         {
             inline static double ColRadius{ 35.0 };
+            inline static double HorizontalDist{ 400.0 };
+            inline static double VerticalDist{ 250.0 };
         };
 
         [[TOML_BIND(Setup::Speed, "Setup.speed")]]

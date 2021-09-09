@@ -11,7 +11,7 @@
 #include <abyss/components/Actor/Commons/BodyUpdater.hpp>
 #include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.h>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>

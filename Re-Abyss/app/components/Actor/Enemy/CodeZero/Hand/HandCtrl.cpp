@@ -96,22 +96,22 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
     HandCtrl HandCtrl::CreateLeftPhase1()
     {
-        return HandCtrl(s3d::Vec2{-400, 0 }, Math::ToRadians(40));
+        return HandCtrl(s3d::Vec2{-HandParam::Base::HorizontalDist, 0 }, Math::ToRadians(40));
     }
 
     HandCtrl HandCtrl::CreateRightPhase1()
     {
-        return HandCtrl(s3d::Vec2{ 0, 250 }, Math::ToRadians(50));
+        return HandCtrl(s3d::Vec2{ 0, HandParam::Base::VerticalDist }, Math::ToRadians(50));
     }
 
     HandCtrl HandCtrl::CreateLeftPhase2()
     {
-        return HandCtrl(s3d::Vec2{ 0, 250 }, Math::ToRadians(-50));
+        return HandCtrl(s3d::Vec2{ 0, HandParam::Base::VerticalDist }, Math::ToRadians(-50));
     }
 
     HandCtrl HandCtrl::CreateRightPhase2()
     {
-        return HandCtrl(s3d::Vec2{ 400, 0 }, Math::ToRadians(-40));
+        return HandCtrl(s3d::Vec2{ HandParam::Base::HorizontalDist, 0 }, Math::ToRadians(-40));
     }
 
 }
