@@ -16,6 +16,7 @@ namespace abyss
         double m_updateTimeSec = 0.0;
         double m_drawTimeSec = 0.0;
         double m_timeScale = 1.0;
+        double m_timeScaleBase = 1.0;
 
         s3d::Array<Ref<ITimeScale>> m_timeScaleComps;
     public:
@@ -24,6 +25,7 @@ namespace abyss
 
         void onStart() override;
         void updateDeltaTime(double dt);
+        void setTimeScale(double timeScale);
 
         void updateUpdateTime();
         void updateDrawTime();

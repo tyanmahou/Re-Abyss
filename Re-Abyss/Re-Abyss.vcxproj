@@ -375,6 +375,8 @@
     <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp" />
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp" />
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp" />
     <ClCompile Include="app\components\Effect\Bubble\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
     <ClCompile Include="app\components\Effect\Bubble\Main.cpp" />
@@ -820,6 +822,8 @@
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
@@ -860,6 +864,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />

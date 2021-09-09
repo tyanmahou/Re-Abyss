@@ -12,13 +12,17 @@ namespace abyss
     }
     void ClockCtrl::updateDeltaTime(double dt)
     {
-        m_timeScale = 1.0;
+        m_timeScale = m_timeScaleBase;
         for (const auto& comp : m_timeScaleComps) {
             if (comp) {
                 m_timeScale *= comp->timeScale();
             }
         }
         m_deltaTime = dt * m_timeScale;
+    }
+    void ClockCtrl::setTimeScale(double timeScale)
+    {
+        m_timeScaleBase = timeScale;
     }
     void ClockCtrl::updateUpdateTime()
     {

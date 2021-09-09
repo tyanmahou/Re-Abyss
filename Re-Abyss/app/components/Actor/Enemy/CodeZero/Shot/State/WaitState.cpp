@@ -2,19 +2,22 @@
 #include "PursuitState.hpp"
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotChargeEffect.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/models/Camera/QuakeModel.hpp>
+
+#include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Builder.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     void WaitState::start()
     {
+        using namespace Effect::Actor::Enemy::CodeZero;
+
         m_scale->setTo(1.0, ShotParam::Wait::ScaleTime);
         m_pActor
             ->getModule<Effects>()
-            ->createWorldFront<ShotChargeEffect>(m_pActor->getModule<GlobalTime>(), m_body->getPos());
+            ->createWorldFront<ShotCharge::Builder>(m_body->getPos());
 
         m_quake = m_pActor
             ->getModule<Camera>()

@@ -25,6 +25,10 @@ namespace abyss::Effect
     {
         return m_clock->getDrawTimeSec();
     }
+    void EffectObj::setTimeScale(double scale)
+    {
+        m_clock->setTimeScale(scale);
+    }
     void EffectObj::update()
     {
         m_clock->updateUpdateTime();

@@ -14,6 +14,8 @@ namespace abyss::Effect
         double updateTimeSec() const;
         double drawTimeSec() const;
 
+        void setTimeScale(double scale);
+
         void update();
         void draw();
 

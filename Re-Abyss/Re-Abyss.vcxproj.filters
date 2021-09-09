@@ -1618,6 +1618,12 @@
     <ClCompile Include="app\components\Actor\Enemy\Warrus\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2433,6 +2439,9 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ComponentCache.hpp" />
     <ClInclude Include="app\components\UI\Common\VModel.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
+    <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
