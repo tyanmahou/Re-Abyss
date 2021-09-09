@@ -19,12 +19,12 @@ namespace abyss::TimeLite
         {}
         Coro::Generator<s3d::int32> update(double dt)
         {
-            if (m_maxCount >= 0 && m_count < m_maxCount) {
+            if (isMaxCount()) {
                 co_return;
             }
 
             m_current += dt;
-            while (m_current >= m_total || (m_maxCount >= 0 && m_count < m_maxCount)) {
+            while (m_current >= m_total && !isMaxCount()) {
                 m_current -= m_total;
                 if (m_count == std::numeric_limits<s3d::int32>::max()) {
                     m_count = 0;
@@ -34,6 +34,10 @@ namespace abyss::TimeLite
                 co_yield m_count;
             }
             co_return;
+        }
+        bool isMaxCount() const
+        {
+            return m_maxCount >= 0 && m_count >= m_maxCount;
         }
     private:
         double m_current = 0;

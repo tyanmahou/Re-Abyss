@@ -6,7 +6,6 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::ShotCharge
 {
     void Builder::Build(EffectObj* pObj, const s3d::Vec2& pos)
     {
-        pObj->setTimeScale(0.333);
         pObj->attach<Main>(pObj, pos);
     }
 }

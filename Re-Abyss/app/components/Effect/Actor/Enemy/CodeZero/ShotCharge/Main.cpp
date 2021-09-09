@@ -13,7 +13,7 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::ShotCharge
     void Main::onUpdate()
     {
         double dt = m_pObj->deltaTime();
-        for (auto _ : m_particleTimer.update(dt)) {
+        for ([[maybe_unused]]auto _ : m_particleTimer.update(dt)) {
             const Vec2 v = Circular(Random(50.0, 160.0), Random(Math::TwoPi));
             const auto color = RandomBool() ? Palette::Red : Palette::Black;
             m_particles.emplace_back(m_pos + v, color);
@@ -31,15 +31,15 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::ShotCharge
 
     void Main::onDraw(double time)
     {
-        time = s3d::Saturate(time);
+        time = s3d::Saturate(time / 3.0);
 
         for (const auto& particle : m_particles) {
-            Circle(particle.pos, 1.5).draw(ColorF(particle.color).setA(1.0 - time));
+            Circle(particle.pos, 2.0).draw(ColorF(particle.color).setA(1.0 - time));
         }
     }
 
     bool Main::isEnd() const
     {
-        return m_pObj->updateTimeSec() >= 1.0;
+        return m_pObj->updateTimeSec() >= 3.0;
     }
 }
