@@ -10,18 +10,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void AttackState::start()
     {
-        m_hand->startForAttack(*m_body);
+        m_handMove->startForAttack();
     }
     void AttackState::update()
     {
-        auto dt = m_pActor->deltaTime();
-
-        if (!m_hand->updateForAttack(
-            m_isReturn,
-            m_parent->getPos(),
-            *m_body,
-            dt
-        )){
+        if (!m_handMove->updateForAttack()){
             this->changeState<PursuitState>();
         }
     }

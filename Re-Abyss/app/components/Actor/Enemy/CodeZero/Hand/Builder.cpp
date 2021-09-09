@@ -12,7 +12,7 @@
 #include <abyss/components/Actor/Commons/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 
@@ -51,7 +51,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         // ハンド制御
         {
-            pActor->attach<HandCtrl>();
+            pActor->attach<HandMove>(pActor);
             pActor->attach<KindCtrl>(kind);
         }
         // 親監視

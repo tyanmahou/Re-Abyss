@@ -575,9 +575,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1627,6 +1624,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandRecipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1921,7 +1921,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase1State.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase2State.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\PartsCtrl.hpp" />
@@ -2445,6 +2444,7 @@
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandRecipe.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

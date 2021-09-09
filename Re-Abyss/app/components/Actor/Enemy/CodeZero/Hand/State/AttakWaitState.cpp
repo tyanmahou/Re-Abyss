@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
     Task<> AttackWaitState::task()
     {
-        m_hand->startForAttackWait(*m_body);
+        m_handMove->startForAttackWait();
 
         // 一定時間追従
         co_yield BehaviorUtils::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
