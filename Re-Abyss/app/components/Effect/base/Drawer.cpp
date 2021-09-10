@@ -11,10 +11,10 @@ namespace abyss::Effect
     void Drawer::onStart()
     {
         auto draws = m_pObj->finds<IDraw>();
-        auto* drawManager = m_pObj->getModule<DrawManager>();
         m_drawTasks.reserve(draws.size());
         for (auto&& com : draws) {
-            m_drawTasks.push_back([](EffectObj* pObj, DrawManager* drawManager, Ref<IDraw> com)->Coro::Task<> {
+            m_drawTasks.push_back([](EffectObj* pObj, Ref<IDraw> com)->Coro::Task<> {
+                auto* drawManager = pObj->getModule<DrawManager>();
                 bool isEnd = false;
                 while (!isEnd) {
                     if (!com) {
@@ -28,7 +28,7 @@ namespace abyss::Effect
                     co_yield{};
                 }
                 co_return;
-            }(m_pObj, drawManager, std::move(com)));
+            }(m_pObj, std::move(com)));
         }
     }
     void Drawer::draw() const
