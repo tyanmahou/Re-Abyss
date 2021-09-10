@@ -56,6 +56,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         /// </summary>
         /// <returns></returns>
         bool isMoveEnd() const;
+
+        const Axis2& getAxis() const;
     private:
         Coro::Task<> movePursuit();
         Coro::Task<> moveAttackWait();

@@ -7,6 +7,8 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
+    class HandMove;
+
     class ShockWaveCtrl final:
         public IComponent,
         public IPostCollision,
@@ -30,6 +32,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool m_isActive = false;
 
         Ref<Body> m_body;
+        Ref<HandMove> m_handMove;
     };
 }
 

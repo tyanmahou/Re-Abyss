@@ -59,6 +59,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         return m_task->isDone();
     }
+    const Axis2& HandMove::getAxis() const
+    {
+        return m_param.axis;
+    }
     Coro::Task<> HandMove::movePursuit()
     {
         const Vec2& target = ActorUtils::PlayerPos(*m_pActor);
