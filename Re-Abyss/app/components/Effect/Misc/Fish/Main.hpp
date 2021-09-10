@@ -21,7 +21,7 @@ namespace abyss::Effect::Misc::Fish
 
         void onStart() override;
         void onUpdate() override;
-        void onDraw(double time) override;
+        bool onDraw(double time) override;
 
         Main& setBasePos(const s3d::Vec2& pos)
         {
@@ -41,10 +41,6 @@ namespace abyss::Effect::Misc::Fish
         {
             m_color = color;
             return *this;
-        }
-        bool isEnd() const override
-        {
-            return m_isEnd;
         }
 
         bool checkEnd();

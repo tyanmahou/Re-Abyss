@@ -26,11 +26,11 @@ namespace abyss::Effect::Misc::Fish
             m_pObj->destroy();
         }
     }
-    void Main::onDraw(double time)
+    bool Main::onDraw(double time)
     {
         auto viewRect = this->viewRect();
         if (!m_pObj->getModule<Camera>()->inScreen(viewRect)) {
-            return;
+            return !m_isEnd;
         }
         // 減算
         ScopedRenderStates2D state(BlendState::Subtractive);
@@ -41,6 +41,7 @@ namespace abyss::Effect::Misc::Fish
             ->setPos(viewRect.center())
             .setTime(time)
             .draw(color);
+        return !m_isEnd;
     }
     Main& Main::setVelocity(const s3d::Vec2& velocity)
     {

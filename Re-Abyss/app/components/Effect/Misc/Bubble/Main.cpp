@@ -27,11 +27,11 @@ namespace abyss::Effect::Misc::Bubble
             m_pObj->destroy();
         }
     }
-    void Main::onDraw(double time)
+   bool Main::onDraw(double time)
     {
         const Circle circle = this->drawCircle();
         if (!m_pObj->getModule<Camera>()->inScreen(circle)) {
-            return;
+            return !m_isEnd;
         }
         ScopedRenderStates2D state(BlendState::Additive);
 
@@ -48,6 +48,7 @@ namespace abyss::Effect::Misc::Bubble
                 light->addCircle(circle.center, circle.r, color.a);
             }
         }
+        return !m_isEnd;
     }
 
     bool Main::checkEnd()

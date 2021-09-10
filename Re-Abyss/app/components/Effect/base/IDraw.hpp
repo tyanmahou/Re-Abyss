@@ -7,8 +7,6 @@ namespace abyss::Effect
     public:
         virtual ~IDraw() = default;
 
-        virtual void onDraw(double time) = 0;
-
-        virtual bool isEnd() const = 0;
+        virtual bool onDraw(double time) = 0;
     };
 }

@@ -32,12 +32,7 @@ namespace abyss::Effect::Misc::Bubble
 
         void onStart() override;
         void onUpdate() override;
-        void onDraw(double time) override;
-
-        bool isEnd() const override
-        {
-            return m_isEnd;
-        }
+        bool onDraw(double time) override;
 
         bool checkEnd();
 

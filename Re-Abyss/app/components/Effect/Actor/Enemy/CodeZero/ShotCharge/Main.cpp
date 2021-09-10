@@ -29,17 +29,13 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::ShotCharge
         }
     }
 
-    void Main::onDraw(double time)
+    bool Main::onDraw(double time)
     {
-        time = s3d::Saturate(time / 3.0);
+        auto rate = s3d::Saturate(time / 3.0);
 
         for (const auto& particle : m_particles) {
-            Circle(particle.pos, 2.0).draw(ColorF(particle.color).setA(1.0 - time));
+            Circle(particle.pos, 2.0).draw(ColorF(particle.color).setA(1.0 - rate));
         }
-    }
-
-    bool Main::isEnd() const
-    {
-        return m_pObj->updateTimeSec() >= 3.0;
+        return time <= 3.0;
     }
 }

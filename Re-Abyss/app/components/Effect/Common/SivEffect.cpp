@@ -6,8 +6,8 @@ namespace abyss::Effect
         m_effect(std::move(effect))
     {}
 
-    void SivEffect::onDraw(double time)
+    bool SivEffect::onDraw(double time)
     {
-        m_isEnd = !m_effect->update(time);
+       return m_effect->update(time);
     }
 }

@@ -4,6 +4,8 @@
 
 namespace abyss::Effect
 {
+    class Drawer;
+
     class EffectObj final : public GameObject
     {
     public:
@@ -30,6 +32,7 @@ namespace abyss::Effect
 
     private:
         Ref<ClockCtrl> m_clock;
+        Ref<Drawer> m_drawer;
         DrawLayer m_layer = EffectLayer::WorldFront;
     };
 }

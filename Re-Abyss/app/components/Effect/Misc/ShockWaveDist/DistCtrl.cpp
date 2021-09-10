@@ -12,11 +12,7 @@ namespace abyss::Effect::Misc::ShockWaveDist
         m_radius(radius),
         m_power(power)
     {}
-    bool DistCtrl::isEnd() const
-    {
-        return m_pObj->updateTimeSec() > 1.0;
-    }
-    void DistCtrl::onDraw(double time)
+    bool DistCtrl::onDraw(double time)
     {
         double rate = EaseOut(Easing::Quint, time);
         auto distortion = m_pObj->getModule<Distortion>();
@@ -28,5 +24,6 @@ namespace abyss::Effect::Misc::ShockWaveDist
             0,
             s3d::Math::Lerp(0.0, m_power, s3d::Periodic::Triangle0_1(1s, rate))
         );
+        return time <= 1.0;
     }
 }

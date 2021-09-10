@@ -1,13 +1,14 @@
 #include "EffectObj.hpp"
 #include <abyss/components/Common/ClockCtrl.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
-#include <abyss/modules/DrawManager/DrawManager.hpp>
+#include <abyss/components/Effect/base/Drawer.hpp>
+
 namespace abyss::Effect
 {
     EffectObj::EffectObj()
     {
         m_clock = this->attach<ClockCtrl>(this);
+        m_drawer = this->attach<Drawer>(this);
     }
     void EffectObj::updateDeltaTime(double dt) const
     {
@@ -39,21 +40,6 @@ namespace abyss::Effect
     void EffectObj::draw()
     {
         m_clock->updateDrawTime();
-        auto drawer = this->getModule<DrawManager>();
-        auto time = m_clock->getDrawTimeSec();
-        bool isActiveAny = false;
-        for (auto&& com : this->finds<IDraw>()) {
-            bool isActiveCom = !com->isEnd();
-            isActiveAny |= isActiveCom;
-            if (isActiveCom) {
-                drawer->add(m_layer, [com, time] {
-                    com->onDraw(time);
-                });
-            }
-        }
-        if (!isActiveAny) {
-            // 一つも描画しないなら自動破棄
-            this->destroy();
-        }
+        m_drawer->draw();
     }
 }

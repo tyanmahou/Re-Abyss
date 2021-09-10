@@ -378,6 +378,7 @@
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp" />
+    <ClCompile Include="app\components\Effect\base\Drawer.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Bubble\Main.cpp" />
@@ -828,6 +829,7 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
+    <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\LayerKind.hpp" />
@@ -870,6 +872,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
