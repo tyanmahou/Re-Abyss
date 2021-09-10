@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
@@ -136,6 +137,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
 
         // 攻撃
+        m_pActor->find<ShockWaveCtrl>()->setActive(true);
         while (true) {
             const auto targetVec = parentPos - pos;
             if (auto distance = m_param.axis.relativeX(targetVec); distance <= -m_param.distance - 40) {
@@ -146,6 +148,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 co_yield{};
             }
         }
+        m_pActor->find<ShockWaveCtrl>()->setActive(false);
         co_yield{};
 
         // 戻り

@@ -1633,6 +1633,9 @@
     <ClCompile Include="app\components\Effect\base\Drawer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2454,6 +2457,7 @@
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
     <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

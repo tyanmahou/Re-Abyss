@@ -14,6 +14,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Hand/HandVM.hpp>
@@ -67,6 +68,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         // AttackerData
         {
             pActor->attach<AttackerData>(pActor, 1);
+        }
+
+        // 衝撃波
+        {
+            pActor->attach<ShockWaveCtrl>(pActor);
         }
         // 描画制御
         {
