@@ -1,6 +1,5 @@
 #include "AttackState.hpp"
 #include "PursuitState.hpp"
-#include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -14,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void AttackState::update()
     {
-        if (!m_handMove->updateForAttack()){
+        if (m_handMove->isMoveEnd()){
             this->changeState<PursuitState>();
         }
     }

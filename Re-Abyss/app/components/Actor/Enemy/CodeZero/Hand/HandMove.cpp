@@ -4,7 +4,10 @@
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/RotateCtrl.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
+#include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
@@ -24,92 +27,163 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void HandMove::onMove()
     {
-    
+        if (m_task) {
+            m_task->moveNext();
+        }
     }
     void HandMove::onStateStart()
     {
-    
+        m_task = nullptr;
     }
-    void HandMove::updateRotate() const
+    void HandMove::startForPursuit()
     {
-        double dt = m_pActor->deltaTime();
-
-        bool isPlus = m_param.rotateLimit >= 0;
-        double value = m_rotate->addRotate(isPlus ? dt : -dt).getRotate();
-        if (isPlus && value >= m_param.rotateLimit || !isPlus && value <= m_param.rotateLimit) {
-            m_rotate->setRotate(m_param.rotateLimit);
-        }
+        m_task = std::make_unique<Coro::Task<>>(this->movePursuit());
     }
-    void HandMove::startForPursuit() const
+    void HandMove::startForAttackWait()
     {
-        auto velocity = m_param.axis * Vec2{ -HandParam::Setup::Speed, HandParam::Pursuit::Speed };
-        m_body->setVelocity(velocity);
-    }
-    void HandMove::updateForPursuit() const
-    {
-        double dt = m_pActor->deltaTime();
-
-        const auto& target = ActorUtils::PlayerPos(*m_pActor);
-        const Vec2 parentPos = m_parent->getPos();
-        const auto& pos = m_body->getPos();
-        Vec2 velocity{ 0,0 };
-
-        {
-            // 前方向の動き
-            // 目的地に向かって進む
-            Vec2 targetPos = parentPos - m_param.axis.projectRight(m_param.distance);
-            targetPos += m_param.axis.projectDown(parentPos - pos);
-            auto vec = (targetPos - pos);
-            auto vecNormal = vec.normalized();
-            double speed = HandParam::Setup::Speed;
-            if (auto len = Abs(m_param.axis.relativeX(vec)); dt != 0.0 && len < speed * dt) {
-                speed = len / dt;
-            }
-            velocity += m_param.axis.projectRight(vecNormal) * speed;
-        }
-        {
-            // 横方向の動き
-            const auto targetVec = target - pos;
-            if (auto distance = m_param.axis.relativeY(targetVec); distance >= 60) {
-                velocity += m_param.axis.projectDown(HandParam::Pursuit::Speed);
-                m_body->setVelocity(velocity);
-            } else if (distance <= -60) {
-                velocity -= m_param.axis.projectDown(HandParam::Pursuit::Speed);
-                m_body->setVelocity(velocity);
-            } else {
-                velocity += m_param.axis.projectDown(m_body->getVelocity());
-                m_body->setVelocity(velocity);
-            }
-        }
-    }
-    void HandMove::startForAttackWait() const
-    {
-        auto velocity = m_param.axis.projectRight(-50);
-        m_body->setVelocity(velocity);
+        m_task = std::make_unique<Coro::Task<>>(this->moveAttackWait());
     }
     void HandMove::startForAttack()
     {
-        auto velocity = m_param.axis.projectRight(HandParam::Attack::Speed);
-        m_body->setVelocity(velocity);
-        m_isReturn = false;
+        m_task = std::make_unique<Coro::Task<>>(this->moveAttack());
     }
-    bool HandMove::updateForAttack()
+    void HandMove::startForShotCharge()
     {
-        const auto& pos = m_body->getPos();
-        const Vec2 parentPos = m_parent->getPos();
-        const auto targetVec = parentPos - pos;
-        bool ret = true;
-        double dt = m_pActor->deltaTime();
-        auto deltaVelocity = m_param.axis.relativeX(m_body->getVelocity()) * dt;
-        if (auto distance = m_param.axis.relativeX(targetVec); !m_isReturn && distance <= -m_param.distance - 40) {
-            m_isReturn = true;
-            auto velocity = m_param.axis.projectRight(-HandParam::Attack::Speed);
-            m_body->setVelocity(velocity);
-        } else if (m_isReturn && distance + deltaVelocity >= m_param.distance) {
-            auto velocity = m_param.axis.projectRight(m_param.distance - distance);
-            m_body->setVelocity(velocity);
-            ret = false;
+        m_task = std::make_unique<Coro::Task<>>(this->moveShotCharge());
+    }
+    bool HandMove::isMoveEnd() const
+    {
+        if (!m_task) {
+            return true;
         }
-        return ret;
+        return m_task->isDone();
+    }
+    Coro::Task<> HandMove::movePursuit()
+    {
+        const Vec2& target = ActorUtils::PlayerPos(*m_pActor);
+        const Vec2& parentPos = m_parent->getPos();
+        const Vec2& pos = m_body->getPos();
+
+        {
+            auto velocity = m_param.axis * Vec2{ -HandParam::Setup::Speed, HandParam::Pursuit::Speed };
+            m_body->setVelocity(velocity);
+        }
+
+        while (true) {
+            double dt = m_pActor->deltaTime();
+
+            // 回転
+            {
+                bool isPlus = m_param.rotateLimit >= 0;
+                double value = m_rotate->addRotate(isPlus ? dt : -dt).getRotate();
+                if (isPlus && value >= m_param.rotateLimit || !isPlus && value <= m_param.rotateLimit) {
+                    m_rotate->setRotate(m_param.rotateLimit);
+                }
+            }
+
+            // 速度更新
+            Vec2 velocity{ 0,0 };
+            {
+                // 前方向の動き
+                // 目的地に向かって進む
+                Vec2 targetPos = parentPos - m_param.axis.projectRight(m_param.distance);
+                targetPos += m_param.axis.projectDown(parentPos - pos);
+                auto vec = (targetPos - pos);
+                auto vecNormal = vec.normalized();
+                double speed = HandParam::Setup::Speed;
+                if (auto len = Abs(m_param.axis.relativeX(vec)); dt != 0.0 && len < speed * dt) {
+                    speed = len / dt;
+                }
+                velocity += m_param.axis.projectRight(vecNormal) * speed;
+            }
+            {
+                // 横方向の動き
+                const auto targetVec = target - pos;
+                if (auto distance = m_param.axis.relativeY(targetVec); distance >= 60) {
+                    velocity += m_param.axis.projectDown(HandParam::Pursuit::Speed);
+                    m_body->setVelocity(velocity);
+                } else if (distance <= -60) {
+                    velocity -= m_param.axis.projectDown(HandParam::Pursuit::Speed);
+                    m_body->setVelocity(velocity);
+                } else {
+                    velocity += m_param.axis.projectDown(m_body->getVelocity());
+                    m_body->setVelocity(velocity);
+                }
+            }
+            co_yield{};
+        }
+        co_return;
+    }
+    Coro::Task<> HandMove::moveAttackWait()
+    {
+        auto velocity = m_param.axis.projectRight(-50);
+        m_body->setVelocity(velocity);
+
+        // 一定時間追従
+        co_yield BehaviorUtils::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
+
+        co_return;
+    }
+    Coro::Task<> HandMove::moveAttack()
+    {
+        const Vec2& pos = m_body->getPos();
+        const Vec2& parentPos = m_parent->getPos();
+
+        // 初速
+        {
+            auto velocity = m_param.axis.projectRight(HandParam::Attack::Speed);
+            m_body->setVelocity(velocity);
+        }
+
+        // 攻撃
+        while (true) {
+            const auto targetVec = parentPos - pos;
+            if (auto distance = m_param.axis.relativeX(targetVec); distance <= -m_param.distance - 40) {
+                auto velocity = m_param.axis.projectRight(-HandParam::Attack::Speed);
+                m_body->setVelocity(velocity);
+                break;
+            } else {
+                co_yield{};
+            }
+        }
+        co_yield{};
+
+        // 戻り
+        while (true) {
+            const auto targetVec = parentPos - pos;
+            double dt = m_pActor->deltaTime();
+            auto deltaVelocity = m_param.axis.relativeX(m_body->getVelocity()) * dt;
+            if (auto distance = m_param.axis.relativeX(targetVec); distance + deltaVelocity >= m_param.distance) {
+                auto velocity = m_param.axis.projectRight(m_param.distance - distance);
+                m_body->setVelocity(velocity);
+                break;
+            } else {
+                co_yield{};
+            }
+        }
+        co_return;
+    }
+    Coro::Task<> HandMove::moveShotCharge()
+    {
+        m_body->noneResistanced()
+            .setVelocity(s3d::Vec2::Zero());
+
+        bool isLeft = m_pActor->find<KindCtrl>()->isLeftHand();
+        const Vec2& parentPos = m_parent->getPos();
+        while (true) {
+            auto dt = m_pActor->deltaTime();
+
+            const s3d::Vec2 target = isLeft ?
+                parentPos + s3d::Vec2{ 110, 0 } :
+                parentPos + s3d::Vec2{ -110, 0 };
+            auto dampRatio = InterpUtil::DampRatio(0.02, dt);
+            m_body->setPos(m_body->getPos().lerp(target, dampRatio));
+
+            const double rotateEnd = isLeft ? Math::ToRadians(40) : Math::ToRadians(-40);
+            m_rotate->setRotate(s3d::EaseIn(s3d::Easing::Linear, m_rotate->getRotate(), rotateEnd, dampRatio));
+
+            co_yield{};
+        }
+        co_return;
     }
 }

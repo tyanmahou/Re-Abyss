@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandRecipe.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -31,24 +32,14 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
 
         /// <summary>
-        /// 向き更新
-        /// </summary>
-        void updateRotate() const;
-
-        /// <summary>
         /// 追従開始
         /// </summary>
-        void startForPursuit() const;
-
-        /// <summary>
-        /// 追従更新
-        /// </summary>
-        void updateForPursuit() const;
+        void startForPursuit();
 
         /// <summary>
         /// 攻撃待機開始
         /// </summary>
-        void startForAttackWait() const;
+        void startForAttackWait();
 
         /// <summary>
         /// 攻撃開始
@@ -56,11 +47,20 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void startForAttack();
 
         /// <summary>
-        /// 攻撃更新
+        /// チャージ開始
         /// </summary>
-        /// <returns>終わればfalse</returns>
-        bool updateForAttack();
+        void startForShotCharge();
 
+        /// <summary>
+        /// 移動終了
+        /// </summary>
+        /// <returns></returns>
+        bool isMoveEnd() const;
+    private:
+        Coro::Task<> movePursuit();
+        Coro::Task<> moveAttackWait();
+        Coro::Task<> moveAttack();
+        Coro::Task<> moveShotCharge();
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -68,7 +68,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Ref<ParentCtrl> m_parent;
 
         HandRecipe m_param;
-        bool m_isReturn = false;
+        std::unique_ptr<Coro::Task<>> m_task;
     };
 }
 

@@ -1,6 +1,4 @@
 #include "PursuitState.hpp"
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
-#include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -25,8 +23,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
     void PursuitState::update()
     {
-        m_handMove->updateRotate();
-        m_handMove->updateForPursuit();
     }
 
     void PursuitState::lastUpdate()
