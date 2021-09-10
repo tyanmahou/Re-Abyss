@@ -384,6 +384,8 @@
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Fish\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Fish\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp" />
@@ -564,7 +566,6 @@
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\views\Actor\Common\BreathEffect.cpp" />
-    <ClCompile Include="app\views\Actor\Common\ShockWaveDist.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Door\DoorVM.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\ActDrawCallbackView.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\IconView.cpp" />
@@ -835,6 +836,8 @@
     <ClInclude Include="app\components\Effect\Misc\Fish\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Fish\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Fish\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
@@ -1465,7 +1468,6 @@
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actor\Common\BreathEffect.hpp" />
     <ClInclude Include="app\views\Actor\Common\KiraKiraEffect.hpp" />
-    <ClInclude Include="app\views\Actor\Common\ShockWaveDist.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />

@@ -1,13 +1,16 @@
 #include "EffectCtrl.hpp"
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
+#include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
-#include <abyss/views/Actor/Common/ShockWaveDist.hpp>
+#include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
+    using namespace abyss::Effect::Misc;
+
     EffectCtrl::EffectCtrl(ActorObj* pActor):
         m_pActor(pActor),
         m_effectTimer(0.033, true, pActor->getDrawClock())
@@ -30,8 +33,7 @@ namespace abyss::Actor::Player::Shot
                 m_shot->toColorF()
                 );
             if (!m_shot->isSmall()) {
-                m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist>(
-                    m_pActor->getManager(),
+                m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
                     pos,
                     r * r / 2.0
                     );
@@ -48,13 +50,11 @@ namespace abyss::Actor::Player::Shot
         // effect
         if (m_effectTimer.update() && *m_shot >= PlayerShotType::Medium) {
             m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
-            m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist>(
-                m_pActor->getManager(),
+            m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
                 pos,
                 radius * std::sqrt(radius) / 2.0,
-                10,
-                2.0
-                );
+                10
+                )->setTimeScale(2.0);
         }
         pLight->addCircle(pos, radius * 2.5);
     }

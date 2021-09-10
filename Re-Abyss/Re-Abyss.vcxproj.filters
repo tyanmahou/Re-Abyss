@@ -1276,9 +1276,6 @@
     <ClCompile Include="app\views\Distortion\DistortionView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Common\ShockWaveDist.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1625,6 +1622,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2242,7 +2245,6 @@
     <ClInclude Include="app\views\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Distortion\DistortionView.hpp" />
-    <ClInclude Include="app\views\Actor\Common\ShockWaveDist.hpp" />
     <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
     <ClInclude Include="app\datastores\Actor\Item\base\IItemDataStore.hpp" />
@@ -2445,6 +2447,8 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandRecipe.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
