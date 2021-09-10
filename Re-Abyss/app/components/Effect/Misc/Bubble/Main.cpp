@@ -7,7 +7,7 @@
 #include <abyss/modules/Light/Light.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Effect::Bubble
+namespace abyss::Effect::Misc::Bubble
 {
     Main::Main(EffectObj* pObj):
         m_pObj(pObj)

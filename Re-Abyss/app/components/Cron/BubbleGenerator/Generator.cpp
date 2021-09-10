@@ -7,8 +7,8 @@
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 
-#include <abyss/components/Effect/Bubble/Builder.hpp>
-#include <abyss/components/Effect/Bubble/Main.hpp>
+#include <abyss/components/Effect/Misc/Bubble/Builder.hpp>
+#include <abyss/components/Effect/Misc/Bubble/Main.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D/Array.hpp>
@@ -35,7 +35,7 @@ namespace abyss::Cron::BubbleGenerator
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto area = pRoomManager ? pRoomManager->currentRoom().getRegion() : pCamera->screenRegion();
-			if (!obj->find<Effect::Bubble::Main>()->isInArea(area)) {
+			if (!obj->find<Effect::Misc::Bubble::Main>()->isInArea(area)) {
 				// スクリーン内じゃなければ消す
 				obj->destroy();
 			}
@@ -71,7 +71,7 @@ namespace abyss::Cron::BubbleGenerator
 			double sec = static_cast<double>(index) * 0.2 + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
-			auto main = obj->find<Effect::Bubble::Main>();
+			auto main = obj->find<Effect::Misc::Bubble::Main>();
 			if (main->isInArea(pCamera->screenRegion())) {
 				// 現在のスクリーン内ならば消す
 				obj->destroy();
@@ -89,24 +89,25 @@ namespace abyss::Cron::BubbleGenerator
 	{
 		auto effects = m_pManager->getModule<Effects>();
 
-		using Effect::Bubble::BubbleKind;
-		using Effect::Bubble::LayerKind;
+		using namespace Effect::Misc;
+		using Bubble::BubbleKind;
+		using Bubble::LayerKind;
 		m_count = ++m_count % 36;
 		if (s3d::int32 layer = m_count % 3; layer == 0) {
 			if (m_count % 6 == 0) {
-				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Front, area);
+				return effects->createDecorFront<Bubble::Builder>(BubbleKind::Middle, LayerKind::Front, area);
 			} else {
-				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Front, area);
+				return effects->createDecorFront<Bubble::Builder>(BubbleKind::Big, LayerKind::Front, area);
 			}
 		} else if (layer == 1) {
 			if (m_count % 9 == 1) {
-				return effects->createDecorFront<Effect::Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
+				return effects->createDecorFront<Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
 			}
 		} else {
 			if (m_count % 12 == 2) {
-				return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Big, LayerKind::Back, area);
+				return effects->createDecorBack<Bubble::Builder>(BubbleKind::Big, LayerKind::Back, area);
 			} else if (m_count % 12 == 8) {
-				return effects->createDecorBack<Effect::Bubble::Builder>(BubbleKind::Middle, LayerKind::Back, area);
+				return effects->createDecorBack<Bubble::Builder>(BubbleKind::Middle, LayerKind::Back, area);
 			}
 		}
 		return nullptr;

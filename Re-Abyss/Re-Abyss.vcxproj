@@ -378,9 +378,9 @@
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp" />
-    <ClCompile Include="app\components\Effect\Bubble\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
-    <ClCompile Include="app\components\Effect\Bubble\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Misc\Bubble\Main.cpp" />
     <ClCompile Include="app\components\Effect\Common\SivEffect.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Fish\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Fish\Main.cpp" />
@@ -828,11 +828,11 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Common\LifeTime.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\Main.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Fish\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Fish\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Fish\Main.hpp" />

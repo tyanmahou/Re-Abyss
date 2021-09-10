@@ -3,12 +3,12 @@
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDraw.hpp>
 #include <abyss/components/Effect/Common/LifeTime.hpp>
-#include <abyss/components/Effect/Bubble/BubbleKind.hpp>
+#include <abyss/components/Effect/Misc/Bubble/BubbleKind.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Color.hpp>
 
-namespace abyss::Effect::Bubble
+namespace abyss::Effect::Misc::Bubble
 {
     class Main :
         public IComponent,
@@ -85,7 +85,7 @@ namespace abyss::Effect::Bubble
 namespace abyss
 {
     template<>
-    struct ComponentTree<Effect::Bubble::Main>
+    struct ComponentTree<Effect::Misc::Bubble::Main>
     {
         using Base = MultiComponents<
             Effect::IUpdate,

@@ -3,7 +3,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 
-#include <abyss/components/Effect/Bubble/Main.hpp>
+#include <abyss/components/Effect/Misc/Bubble/Main.hpp>
 #include <abyss/components/Effect/Common/LifeTime.hpp>
 
 #include <Siv3D.hpp>
@@ -49,7 +49,7 @@ namespace
         return RectF(base.bl() + offset, Vec2{ base.size.x, sizeY });
     }
 }
-namespace abyss::Effect::Bubble
+namespace abyss::Effect::Misc::Bubble
 {
     void Builder::Build(EffectObj* pObj, BubbleKind kind, LayerKind layer, const s3d::Optional<s3d::RectF>& area)
     {

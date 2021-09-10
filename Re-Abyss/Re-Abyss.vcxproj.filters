@@ -1570,10 +1570,10 @@
     <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Effect\Bubble\Builder.cpp">
+    <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Effect\Bubble\Main.cpp">
+    <ClCompile Include="app\components\Effect\Misc\Bubble\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp">
@@ -2391,10 +2391,10 @@
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\BubbleKind.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\Main.hpp" />
-    <ClInclude Include="app\components\Effect\Bubble\LayerKind.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Misc\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Common\LifeTime.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
