@@ -6,7 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 
 namespace abyss::Actor
 {
@@ -15,7 +15,7 @@ namespace abyss::Actor
         public IUpdate
     {
         ActorObj* m_pActor = nullptr;
-        std::unique_ptr<Coro::Task<>> m_task = nullptr;
+        Coro::TaskHolder<> m_task;
 
         bool m_isActive = true;
     public:

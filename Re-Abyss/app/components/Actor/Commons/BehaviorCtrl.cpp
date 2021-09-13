@@ -8,15 +8,13 @@ namespace abyss::Actor
     {}
     void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
     {
-        m_task = std::make_unique<Coro::Task<>>(behavior(m_pActor));
+        m_task.reset(std::bind(behavior, m_pActor));
     }
     void BehaviorCtrl::onUpdate()
     {
         if (!m_isActive) {
             return;
         }
-        if (m_task) {
-            m_task->moveNext();
-        }
+        m_task.moveNext();
     }
 }
