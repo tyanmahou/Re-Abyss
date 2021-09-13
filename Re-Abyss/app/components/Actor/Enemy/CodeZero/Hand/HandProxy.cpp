@@ -2,9 +2,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttakWaitState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/RollingAttackState.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -40,6 +41,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             return false;
         }
         m_state->changeState<ShotChargeState>();
+        return true;
+    }
+
+    bool HandProxy::tryRollingAttack()
+    {
+        m_state->changeState<RollingAttackState>();
         return true;
     }
 

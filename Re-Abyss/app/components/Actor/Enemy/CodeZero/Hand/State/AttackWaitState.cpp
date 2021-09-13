@@ -1,4 +1,4 @@
-#include "AttakWaitState.hpp"
+#include "AttackWaitState.hpp"
 #include "AttackState.hpp"
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 namespace abyss::Actor::Enemy::CodeZero::Hand

@@ -536,7 +536,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttakWaitState.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.cpp">
@@ -1636,6 +1636,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1917,7 +1920,7 @@
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\FaceCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\PursuitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\ShotChargeState.hpp" />
@@ -2459,6 +2462,7 @@
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

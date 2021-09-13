@@ -52,6 +52,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveShotCharge, this));
     }
+    void HandMove::startForRollingAttack()
+    {
+        m_task.reset(std::bind(&HandMove::moveRollingAttack, this));
+    }
     bool HandMove::isMoveEnd() const
     {
         return m_task.isDone();
@@ -202,6 +206,36 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             const double rotateEnd = isLeft ? Math::ToRadians(40) : Math::ToRadians(-40);
             m_rotate->setRotate(s3d::EaseIn(s3d::Easing::Linear, m_rotate->getRotate(), rotateEnd, dampRatio));
 
+            co_yield{};
+        }
+        co_return;
+    }
+    Coro::Task<> HandMove::moveRollingAttack()
+    {
+        m_body->noneResistanced()
+            .setVelocity(s3d::Vec2::Zero());
+
+        TimeLite::Timer moveTimer(3.0);
+        const Vec2& parentPos = m_parent->getPos();
+        const auto toHand = m_body->getPos() - parentPos;
+        const auto dist = toHand.length();
+        const auto initRotate = m_rotate->getRotate();
+        while (!moveTimer.isEnd()) {
+            moveTimer.update(m_pActor->deltaTime());
+            auto rate = s3d::EaseInOutCubic(moveTimer.rate());
+
+            auto rotate = s3d::ToRadians(360 + 180 + 30) * rate;
+            auto newToHand = toHand.rotated(rotate);
+            if (!newToHand.isZero()) {
+                newToHand.normalize();
+            }
+            m_param.axis = Axis2::FromRight(-newToHand);
+
+            auto newDist = s3d::Math::Lerp(dist, 500.0, rate);
+            m_param.distance = newDist;
+
+            m_body->setPos(parentPos + newDist * newToHand);
+            m_rotate->setRotate(initRotate + rotate);
             co_yield{};
         }
         co_return;

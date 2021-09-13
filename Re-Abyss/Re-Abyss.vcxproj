@@ -284,6 +284,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandDesc.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Head\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Head\DamageCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Head\HeadCtrl.cpp" />
@@ -626,7 +627,7 @@
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttakWaitState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\ShotChargeState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Head\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.cpp" />
@@ -806,6 +807,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandDesc.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
@@ -1330,7 +1332,7 @@
     <ClInclude Include="app\modules\Actor\base\ActorObj.ipp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttakWaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\ShotChargeState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Head\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.hpp" />

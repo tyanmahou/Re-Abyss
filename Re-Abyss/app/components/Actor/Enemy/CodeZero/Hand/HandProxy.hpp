@@ -15,6 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool tryAttack();
         bool tryPursuit(const HandDesc& desc, bool slowStart = false);
         bool tryShotCharge();
+        bool tryRollingAttack();
 
         bool isShotCharge()const;
         bool isPursuit() const;
