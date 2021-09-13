@@ -876,6 +876,7 @@
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
+    <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />

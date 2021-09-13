@@ -2458,6 +2458,7 @@
     <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
+    <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

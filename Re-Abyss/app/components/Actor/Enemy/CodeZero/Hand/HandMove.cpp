@@ -9,6 +9,8 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
@@ -36,9 +38,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task = nullptr;
     }
-    void HandMove::startForPursuit()
+    void HandMove::startForPursuit(bool slowStart)
     {
-        m_task = std::make_unique<Coro::Task<>>(this->movePursuit());
+        m_task = std::make_unique<Coro::Task<>>(this->movePursuit(slowStart));
     }
     void HandMove::startForAttackWait()
     {
@@ -63,7 +65,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         return m_param.axis;
     }
-    Coro::Task<> HandMove::movePursuit()
+    Coro::Task<> HandMove::movePursuit(bool slowStart)
     {
         const Vec2& target = ActorUtils::PlayerPos(*m_pActor);
         const Vec2& parentPos = m_parent->getPos();
@@ -74,13 +76,25 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_body->setVelocity(velocity);
         }
 
+        TimeLite::Timer slowTimer(2.0);
+        if (!slowStart) {
+            slowTimer.toEnd();
+        }
         while (true) {
             double dt = m_pActor->deltaTime();
+
+            // スロウスタート
+            double timeScale = 1.0;
+            slowTimer.update(dt);
+            if (!slowTimer.isEnd()) {
+                auto timeRate = slowTimer.rate();
+                timeScale *= (timeRate * timeRate);
+            }
 
             // 回転
             {
                 bool isPlus = m_param.rotateLimit >= 0;
-                double value = m_rotate->addRotate(isPlus ? dt : -dt).getRotate();
+                double value = m_rotate->addRotate((isPlus ? dt : -dt) * timeScale).getRotate();
                 if (isPlus && value >= m_param.rotateLimit || !isPlus && value <= m_param.rotateLimit) {
                     m_rotate->setRotate(m_param.rotateLimit);
                 }
@@ -95,7 +109,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 targetPos += m_param.axis.projectDown(parentPos - pos);
                 auto vec = (targetPos - pos);
                 auto vecNormal = vec.normalized();
-                double speed = HandParam::Setup::Speed;
+                double speed = HandParam::Setup::Speed * timeScale;
                 if (auto len = Abs(m_param.axis.relativeX(vec)); dt != 0.0 && len < speed * dt) {
                     speed = len / dt;
                 }
@@ -104,11 +118,13 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             {
                 // 横方向の動き
                 const auto targetVec = target - pos;
+                auto speed = HandParam::Pursuit::Speed * timeScale;
+
                 if (auto distance = m_param.axis.relativeY(targetVec); distance >= 60) {
-                    velocity += m_param.axis.projectDown(HandParam::Pursuit::Speed);
+                    velocity += m_param.axis.projectDown(speed);
                     m_body->setVelocity(velocity);
                 } else if (distance <= -60) {
-                    velocity -= m_param.axis.projectDown(HandParam::Pursuit::Speed);
+                    velocity -= m_param.axis.projectDown(speed);
                     m_body->setVelocity(velocity);
                 } else {
                     velocity += m_param.axis.projectDown(m_body->getVelocity());

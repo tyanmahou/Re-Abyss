@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void onStart()override;
 
         bool tryAttack();
-        bool tryPursuit();
+        bool tryPursuit(bool slowStart = false);
         bool tryShotCharge();
 
         bool isShotCharge()const;

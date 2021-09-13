@@ -18,8 +18,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             }
         }
 
-        m_handMove->startForPursuit();
+        m_handMove->startForPursuit(m_slowStart);
     }
+
+    PursuitState::PursuitState(bool slowStart):
+        m_slowStart(slowStart)
+    {}
 
     void PursuitState::update()
     {

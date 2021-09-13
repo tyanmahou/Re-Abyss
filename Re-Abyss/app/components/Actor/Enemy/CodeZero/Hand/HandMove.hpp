@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         /// <summary>
         /// 追従開始
         /// </summary>
-        void startForPursuit();
+        void startForPursuit(bool slowStart = false);
 
         /// <summary>
         /// 攻撃待機開始
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         const Axis2& getAxis() const;
     private:
-        Coro::Task<> movePursuit();
+        Coro::Task<> movePursuit(bool slowStart = false);
         Coro::Task<> moveAttackWait();
         Coro::Task<> moveAttack();
         Coro::Task<> moveShotCharge();

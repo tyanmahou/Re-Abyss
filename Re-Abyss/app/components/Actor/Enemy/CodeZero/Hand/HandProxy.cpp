@@ -25,12 +25,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         return false;
     }
 
-    bool HandProxy::tryPursuit()
+    bool HandProxy::tryPursuit(bool slowStart)
     {
         if (m_state->isState<AttackState>() || m_state->isState<AttackWaitState>()) {
             return false;
         }
-        m_state->changeState<PursuitState>();
+        m_state->changeState<PursuitState>(slowStart);
         return true;
     }
 
