@@ -30,36 +30,31 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void HandMove::onMove()
     {
-        if (m_task) {
-            m_task->moveNext();
-        }
+        m_task.moveNext();
     }
     void HandMove::onStateStart()
     {
-        m_task = nullptr;
+        m_task.clear();
     }
     void HandMove::startForPursuit(bool slowStart)
     {
-        m_task = std::make_unique<Coro::Task<>>(this->movePursuit(slowStart));
+        m_task.reset(std::bind(&HandMove::movePursuit, this, slowStart));
     }
     void HandMove::startForAttackWait()
     {
-        m_task = std::make_unique<Coro::Task<>>(this->moveAttackWait());
+        m_task.reset(std::bind(&HandMove::moveAttackWait, this));
     }
     void HandMove::startForAttack()
     {
-        m_task = std::make_unique<Coro::Task<>>(this->moveAttack());
+        m_task.reset(std::bind(&HandMove::moveAttack, this));
     }
     void HandMove::startForShotCharge()
     {
-        m_task = std::make_unique<Coro::Task<>>(this->moveShotCharge());
+        m_task.reset(std::bind(&HandMove::moveShotCharge, this));
     }
     bool HandMove::isMoveEnd() const
     {
-        if (!m_task) {
-            return true;
-        }
-        return m_task->isDone();
+        return m_task.isDone();
     }
     const Axis2& HandMove::getAxis() const
     {
