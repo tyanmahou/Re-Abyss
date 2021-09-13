@@ -4,24 +4,14 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     void PursuitState::start()
     {
-        if (m_kind->isLeftHand()) {
-            if (m_parent->isPhase1() || m_parent->isPhase3()) {
-                m_handMove->setParam(HandRecipe::CreateLeftPhase1());
-            } else {
-                m_handMove->setParam(HandRecipe::CreateLeftPhase2());
-            }
-        } else {
-            if (m_parent->isPhase1() || m_parent->isPhase3()) {
-                m_handMove->setParam(HandRecipe::CreateRightPhase1());
-            } else {
-                m_handMove->setParam(HandRecipe::CreateRightPhase2());
-            }
+        if (m_desc) {
+            m_handMove->setParam(*m_desc);
         }
-
         m_handMove->startForPursuit(m_slowStart);
     }
 
-    PursuitState::PursuitState(bool slowStart):
+    PursuitState::PursuitState(const s3d::Optional<HandDesc>& desc, bool slowStart):
+        m_desc(desc),
         m_slowStart(slowStart)
     {}
 

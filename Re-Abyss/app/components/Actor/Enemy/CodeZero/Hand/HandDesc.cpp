@@ -1,36 +1,36 @@
-#include "HandRecipe.hpp"
+#include "HandDesc.hpp"
 #include <Siv3D.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    HandRecipe HandRecipe::CreateLeftPhase1()
+    HandDesc HandDesc::CreateLeftPhase1()
     {
-        return HandRecipe{
+        return HandDesc{
             .axis = Axis2::FromRight(s3d::Vec2{-1, 0 }),
             .distance = HandParam::Base::HorizontalDist,
             .rotateLimit = Math::ToRadians(40)
         };
     }
-    HandRecipe HandRecipe::CreateRightPhase1()
+    HandDesc HandDesc::CreateRightPhase1()
     {
-        return HandRecipe{
+        return HandDesc{
             .axis = Axis2::FromRight(s3d::Vec2{0, 1 }),
             .distance = HandParam::Base::VerticalDist,
             .rotateLimit = Math::ToRadians(50)
         };
     }
-    HandRecipe HandRecipe::CreateLeftPhase2()
+    HandDesc HandDesc::CreateLeftPhase2()
     {
-        return HandRecipe{
+        return HandDesc{
             .axis = Axis2::FromRight(s3d::Vec2{0, 1 }),
             .distance = HandParam::Base::VerticalDist,
             .rotateLimit = Math::ToRadians(-50)
         };
     }
-    HandRecipe HandRecipe::CreateRightPhase2()
+    HandDesc HandDesc::CreateRightPhase2()
     {
-        return HandRecipe{
+        return HandDesc{
             .axis = Axis2::FromRight(s3d::Vec2{1, 0 }),
             .distance = HandParam::Base::HorizontalDist,
             .rotateLimit = Math::ToRadians(-40)

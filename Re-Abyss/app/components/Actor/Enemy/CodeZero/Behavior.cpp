@@ -44,8 +44,8 @@ namespace abyss::Actor::Enemy::CodeZero
         auto parts = pActor->find<PartsCtrl>().get();
 
         // 追従開始
-        parts->getLeftHand()->tryPursuit();
-        parts->getRightHand()->tryPursuit();
+        parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase2());
+        parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase2());
 
         // 待機
         co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitInit);
@@ -97,8 +97,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
             // 追従開始
             constexpr bool slowStart = true;
-            parts->getLeftHand()->tryPursuit(slowStart);
-            parts->getRightHand()->tryPursuit(slowStart);
+            parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase1(), slowStart);
+            parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase1(), slowStart);
 
             // 待機
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);

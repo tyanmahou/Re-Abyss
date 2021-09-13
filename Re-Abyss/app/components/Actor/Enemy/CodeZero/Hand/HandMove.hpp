@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/base/IMove.hpp>
 #include <abyss/components/Actor/base/IStateCallback.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandRecipe.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         void onStateStart() override;
 
-        void setParam(const HandRecipe& recipe)
+        void setParam(const HandDesc& recipe)
         {
             m_param = recipe;
         }
@@ -58,6 +58,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool isMoveEnd() const;
 
         const Axis2& getAxis() const;
+        const HandDesc& getDesc() const
+        {
+            return m_param;
+        }
     private:
         Coro::Task<> movePursuit(bool slowStart = false);
         Coro::Task<> moveAttackWait();
@@ -69,7 +73,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Ref<RotateCtrl> m_rotate;
         Ref<ParentCtrl> m_parent;
 
-        HandRecipe m_param;
+        HandDesc m_param;
         std::unique_ptr<Coro::Task<>> m_task;
     };
 }

@@ -62,8 +62,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         // 状態
         {
             constexpr bool slowStart = true;
+            auto desc = kind == HandKind::Left ? HandDesc::CreateLeftPhase1() :
+                HandDesc::CreateRightPhase1();
+
             pActor->attach<StateCtrl>(pActor)
-                ->changeState<PursuitState>(slowStart);
+                ->changeState<PursuitState>(desc, slowStart);
         }
 
         // AttackerData

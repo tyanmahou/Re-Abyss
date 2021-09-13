@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -12,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void onStart()override;
 
         bool tryAttack();
-        bool tryPursuit(bool slowStart = false);
+        bool tryPursuit(const HandDesc& desc, bool slowStart = false);
         bool tryShotCharge();
 
         bool isShotCharge()const;

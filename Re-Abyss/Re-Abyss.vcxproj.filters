@@ -1618,7 +1618,7 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandRecipe.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandDesc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.cpp">
@@ -2451,7 +2451,7 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandRecipe.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandDesc.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.hpp" />
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
