@@ -2,11 +2,12 @@
 #include "AttackWaitState.hpp"
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
-    RollingAttackState::RollingAttackState()
+    RollingAttackState::RollingAttackState(bool isReverse):
+        m_isReverse(isReverse)
     {}
     void RollingAttackState::start()
     {
-        m_handMove->startForRollingAttack();
+        m_handMove->startForRollingAttack(m_isReverse);
     }
     void RollingAttackState::update()
     {

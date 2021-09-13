@@ -85,7 +85,6 @@ namespace abyss::Actor::Enemy::CodeZero
             // チャージ開始
             parts->getRightHand()->tryShotCharge();
             parts->getLeftHand()->tryShotCharge();
-            isReverse = !isReverse;
 
             // 待機
             co_yield BehaviorUtils::WaitForSeconds(pActor, waitShotSec);
@@ -98,8 +97,10 @@ namespace abyss::Actor::Enemy::CodeZero
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
 
             // 追従開始
-            parts->getLeftHand()->tryRollingAttack();
-            parts->getRightHand()->tryRollingAttack();
+            parts->getLeftHand()->tryRollingAttack(isReverse);
+            parts->getRightHand()->tryRollingAttack(isReverse);
+
+            isReverse = !isReverse;
 
             while (!(parts->getLeftHand()->isPursuit() && parts->getRightHand()->isPursuit())) {
                 co_yield{};

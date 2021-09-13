@@ -52,9 +52,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveShotCharge, this));
     }
-    void HandMove::startForRollingAttack()
+    void HandMove::startForRollingAttack(bool isReverse)
     {
-        m_task.reset(std::bind(&HandMove::moveRollingAttack, this));
+        m_task.reset(std::bind(&HandMove::moveRollingAttack, this, isReverse));
     }
     bool HandMove::isMoveEnd() const
     {
@@ -210,7 +210,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         co_return;
     }
-    Coro::Task<> HandMove::moveRollingAttack()
+    Coro::Task<> HandMove::moveRollingAttack(bool isReverse)
     {
         m_body->noneResistanced()
             .setVelocity(s3d::Vec2::Zero());
@@ -224,7 +224,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             moveTimer.update(m_pActor->deltaTime());
             auto rate = s3d::EaseInOutCubic(moveTimer.rate());
 
-            auto rotate = s3d::ToRadians(s3d::Fmod(730 * rate, 360));
+            auto rotate = s3d::ToRadians(s3d::Fmod(730 * rate * (isReverse ? -1.0 : 1.0), 360));
             auto newToHand = toHand.rotated(rotate);
             if (!newToHand.isZero()) {
                 newToHand.normalize();

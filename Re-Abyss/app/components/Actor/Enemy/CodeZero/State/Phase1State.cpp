@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     void Phase1State::start()
     {
-        m_behavior->setBehavior(Behavior::Petern3);
+        m_behavior->setBehavior(Behavior::Petern1);
     }
     void Phase1State::update()
     {

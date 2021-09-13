@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         /// <summary>
         /// 回転攻撃開始
         /// </summary>
-        void startForRollingAttack();
+        void startForRollingAttack(bool isReverse = false);
 
         /// <summary>
         /// 移動終了
@@ -72,7 +72,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Coro::Task<> moveAttackWait();
         Coro::Task<> moveAttack();
         Coro::Task<> moveShotCharge();
-        Coro::Task<> moveRollingAttack();
+        Coro::Task<> moveRollingAttack(bool isReverse = false);
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;

@@ -44,9 +44,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         return true;
     }
 
-    bool HandProxy::tryRollingAttack()
+    bool HandProxy::tryRollingAttack(bool isReverse)
     {
-        m_state->changeState<RollingAttackState>();
+        m_state->changeState<RollingAttackState>(isReverse);
         return true;
     }
 
