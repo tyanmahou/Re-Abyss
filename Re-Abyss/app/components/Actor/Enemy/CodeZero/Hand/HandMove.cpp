@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
@@ -222,20 +223,29 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         const auto initRotate = m_rotate->getRotate();
         while (!moveTimer.isEnd()) {
             moveTimer.update(m_pActor->deltaTime());
-            auto rate = s3d::EaseInOutCubic(moveTimer.rate());
+            const auto rate = moveTimer.rate();
+            const auto rate2 = s3d::EaseInOutQuad(rate);
 
-            auto rotate = s3d::ToRadians(s3d::Fmod(730 * rate * (isReverse ? -1.0 : 1.0), 360));
+            auto rotate = s3d::ToRadians(s3d::Fmod((360 * 2 + 30) * rate2 * (isReverse ? -1.0 : 1.0), 360));
             auto newToHand = toHand.rotated(rotate);
             if (!newToHand.isZero()) {
                 newToHand.normalize();
             }
-            m_param.axis = Axis2::FromRight(-newToHand);
 
-            auto newDist = s3d::Math::Lerp(dist, 500.0, rate);
+            auto rotate2 = s3d::ToRadians(s3d::Fmod((360 * 2 + 15) * rate2 * (isReverse ? -1.0 : 1.0), 360));
+            auto newAxis = toHand.rotated(rotate2);
+            if (!newAxis.isZero()) {
+                newAxis.normalize();
+            }
+
+            m_param.axis = Axis2::FromRight(-newAxis);
+
+            auto newDist = s3d::Math::Lerp(dist, 500.0, rate2);
             m_param.distance = newDist;
-            m_param.rotateLimit = rotate;
-            m_body->setPos(parentPos + newDist * newToHand);
-            m_rotate->setRotate(initRotate + rotate);
+            m_param.rotateLimit = rotate2;
+            auto offset = Param::Head::Offset * rate;
+            m_body->setPos(parentPos + offset + newDist * newToHand);
+            m_rotate->setRotate(initRotate + rotate2);
             co_yield{};
         }
         co_return;
