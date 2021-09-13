@@ -76,7 +76,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_body->setVelocity(velocity);
         }
 
-        TimeLite::Timer slowTimer(2.0);
+        TimeLite::Timer slowTimer(1.5);
         if (!slowStart) {
             slowTimer.toEnd();
         }
@@ -127,7 +127,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                     velocity -= m_param.axis.projectDown(speed);
                     m_body->setVelocity(velocity);
                 } else {
-                    velocity += m_param.axis.projectDown(m_body->getVelocity());
+                    auto base = m_param.axis.projectDown(m_body->getVelocity());
+                    base.setLength(speed);
+                    velocity += base;
                     m_body->setVelocity(velocity);
                 }
             }

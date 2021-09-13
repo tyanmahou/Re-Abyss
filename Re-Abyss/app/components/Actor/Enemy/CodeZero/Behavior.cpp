@@ -96,8 +96,9 @@ namespace abyss::Actor::Enemy::CodeZero
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
 
             // 追従開始
-            parts->getLeftHand()->tryPursuit();
-            parts->getRightHand()->tryPursuit();
+            constexpr bool slowStart = true;
+            parts->getLeftHand()->tryPursuit(slowStart);
+            parts->getRightHand()->tryPursuit(slowStart);
 
             // 待機
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);

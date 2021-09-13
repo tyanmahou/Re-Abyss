@@ -61,8 +61,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         // 状態
         {
+            constexpr bool slowStart = true;
             pActor->attach<StateCtrl>(pActor)
-                ->changeState<PursuitState>();
+                ->changeState<PursuitState>(slowStart);
         }
 
         // AttackerData
