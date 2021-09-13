@@ -215,7 +215,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_body->noneResistanced()
             .setVelocity(s3d::Vec2::Zero());
 
-        TimeLite::Timer moveTimer(3.0);
+        TimeLite::Timer moveTimer(3.5);
         const Vec2& parentPos = m_parent->getPos();
         const auto toHand = m_body->getPos() - parentPos;
         const auto dist = toHand.length();
@@ -224,7 +224,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             moveTimer.update(m_pActor->deltaTime());
             auto rate = s3d::EaseInOutCubic(moveTimer.rate());
 
-            auto rotate = s3d::ToRadians(360 + 180 + 30) * rate;
+            auto rotate = s3d::ToRadians(s3d::Fmod(730 * rate, 360));
             auto newToHand = toHand.rotated(rotate);
             if (!newToHand.isZero()) {
                 newToHand.normalize();
@@ -233,7 +233,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
             auto newDist = s3d::Math::Lerp(dist, 500.0, rate);
             m_param.distance = newDist;
-
+            m_param.rotateLimit = rotate;
             m_body->setPos(parentPos + newDist * newToHand);
             m_rotate->setRotate(initRotate + rotate);
             co_yield{};

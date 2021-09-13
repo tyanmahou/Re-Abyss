@@ -105,8 +105,13 @@ namespace abyss::Actor::Enemy::CodeZero
                 co_yield{};
             }
             constexpr bool slowStart = true;
-            parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase1(), slowStart);
-            parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase1(), slowStart);
+            if (isReverse) {
+                parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase1(), slowStart);
+                parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase1(), slowStart);
+            } else {
+                parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase2(), slowStart);
+                parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase2(), slowStart);
+            }
 
             // 待機
             co_yield BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);
