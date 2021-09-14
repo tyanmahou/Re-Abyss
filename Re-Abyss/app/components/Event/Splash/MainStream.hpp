@@ -10,7 +10,7 @@ namespace abyss::Event::Splash
         public IStream
     {
     public:
-        MainStream(IEvent* pEvent);
+        MainStream(EventObj* pEvent);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -18,7 +18,7 @@ namespace abyss::Event::Splash
 
         Coro::Task<> onExecute() override;
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         Ref<UI::UIObj> m_pLogo;
     };
 }

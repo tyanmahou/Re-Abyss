@@ -1,12 +1,12 @@
 #include "MainStream.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Event::GamePause
 {
-    MainStream::MainStream(IEvent* pEvent):
+    MainStream::MainStream(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void MainStream::setup(Executer executer)

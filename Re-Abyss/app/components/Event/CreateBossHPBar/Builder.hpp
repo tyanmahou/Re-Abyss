@@ -6,6 +6,6 @@ namespace abyss::Event::CreateBossHPBar
 {
     struct Builder
     {
-        static void Build(IEvent* pEvent, const Ref<UI::UIObj>& hpBar);
+        static void Build(EventObj* pEvent, const Ref<UI::UIObj>& hpBar);
     };
 }

@@ -18,7 +18,7 @@ namespace abyss::Event
         public IComponent
     {
     public:
-        PlayerStateCtrl(IEvent* pEvent);
+        PlayerStateCtrl(EventObj* pEvent);
 
         void onStart() override;
         void onEnd() override;
@@ -31,7 +31,7 @@ namespace abyss::Event
 
         PlayerStateCtrl& setChanger(const std::shared_ptr<IPlayerStateChanger>& changer);
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         std::shared_ptr<IPlayerStateChanger> m_changer;
     };
 }

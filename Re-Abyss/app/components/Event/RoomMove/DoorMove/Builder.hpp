@@ -7,7 +7,7 @@ namespace abyss::Event::RoomMove::DoorMove
     struct Builder
     {
         static void Build(
-            IEvent* pEvent,
+            EventObj* pEvent,
             const RoomModel& nextRoom,
             const Actor::Gimmick::Door::DoorModel& door,
             const s3d::Vec2& playerPos,

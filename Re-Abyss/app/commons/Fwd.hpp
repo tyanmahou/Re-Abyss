@@ -73,7 +73,7 @@ namespace abyss
 	/// </summary>
 	namespace Event
 	{
-		class IEvent;
+		class EventObj;
 
 		namespace Talk
 		{

@@ -1,10 +1,10 @@
 #include "MainStream.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 namespace abyss::Event::SaveSelect
 {
-    MainStream::MainStream(IEvent* pEvent):
+    MainStream::MainStream(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void MainStream::setup(Executer executer)

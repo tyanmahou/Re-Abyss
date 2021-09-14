@@ -8,16 +8,16 @@ namespace abyss::Event::Talk
     class TalkObj : public GameObject
     {
     public:
-        TalkObj(IEvent* pEvent);
+        TalkObj(EventObj* pEvent);
 
         bool update();
 
-        IEvent* getEvent() const
+        EventObj* getEvent() const
         {
             return m_pEvent;
         }
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         Ref<TalkHandler> m_talk;
     };
 }

@@ -1,5 +1,5 @@
 #include "RoomMoveCallback.hpp"
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <Siv3D.hpp>
@@ -7,7 +7,7 @@
 namespace abyss::Event::RoomMove::DoorMove
 {
     RoomMoveCallback::RoomMoveCallback(
-        IEvent* pEvent,
+        EventObj* pEvent,
         const std::pair<s3d::Vec2, s3d::Vec2>& cameraMove,
         const std::pair<s3d::Vec2, s3d::Vec2>& playerMove,
         const s3d::Vec2& origin,

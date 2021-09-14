@@ -9,7 +9,7 @@ namespace abyss::Event
     class StreamHandler : public IComponent
     {
     public:
-        StreamHandler(IEvent* m_pEvent);
+        StreamHandler(EventObj* m_pEvent);
 
         void setup(Executer executer) override;
 
@@ -17,7 +17,7 @@ namespace abyss::Event
 
         bool update();
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         std::unique_ptr<Coro::Task<>> m_stream;
     };
 }

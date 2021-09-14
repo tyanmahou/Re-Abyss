@@ -1,6 +1,6 @@
 #include "MainStream.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 
@@ -14,7 +14,7 @@ namespace abyss::Event::Splash
 {
     using namespace UI::Splash;
 
-    MainStream::MainStream(IEvent* pEvent):
+    MainStream::MainStream(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void MainStream::setup(Executer executer)

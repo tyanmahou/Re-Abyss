@@ -9,7 +9,7 @@ namespace abyss::Event::Talk
 	struct Builder
 	{
 		static void Build(
-			IEvent* pEvent,
+			EventObj* pEvent,
 			const s3d::String& path,
 			const Ref<Actor::ILocator>& pTargetLocator = nullptr
 		);

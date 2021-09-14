@@ -3,7 +3,7 @@
 
 namespace abyss::Event::Talk
 {
-    TalkObj::TalkObj(IEvent* pEvent):
+    TalkObj::TalkObj(EventObj* pEvent):
         m_pEvent(pEvent)
     {
         m_talk = this->attach<TalkHandler>(this);

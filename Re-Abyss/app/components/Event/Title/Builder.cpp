@@ -1,12 +1,12 @@
 #include "Builder.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/components/Event/Title/MainStream.hpp>
 #include <abyss/components/Event/Title/BgmCtrl.hpp>
 
 namespace abyss::Event::Title
 {
-    void Builder::Build(IEvent* pEvent)
+    void Builder::Build(EventObj* pEvent)
     {
         // メイン
         {

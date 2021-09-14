@@ -3,7 +3,7 @@
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 #include <abyss/components/Event/RoomMove/RoomMoveCtrl.hpp>
 #include <abyss/components/Event/RoomMove/BasicMove/RoomMoveCallback.hpp>
@@ -11,7 +11,7 @@
 
 namespace abyss::Event::RoomMove::BasicMove
 {
-    void Builder::Build(IEvent* pEvent, const RoomModel& nextRoom, double milliSec)
+    void Builder::Build(EventObj* pEvent, const RoomModel& nextRoom, double milliSec)
     {
         {
             auto* player = pEvent->getModule<Actor::Player::PlayerManager>();

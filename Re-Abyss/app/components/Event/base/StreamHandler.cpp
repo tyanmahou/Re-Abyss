@@ -1,12 +1,12 @@
 #include "StreamHandler.hpp"
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 namespace
 {
     using namespace abyss;
     using namespace abyss::Event;
 
-    Coro::Task<> ExecuteStrems(IEvent* pEvent)
+    Coro::Task<> ExecuteStrems(EventObj* pEvent)
     {
         s3d::Array<Coro::Task<>> tasks;
         for (auto&& stream : pEvent->finds<IStream>()) {
@@ -27,7 +27,7 @@ namespace
 }
 namespace abyss::Event
 {
-    StreamHandler::StreamHandler(IEvent* pEvent):
+    StreamHandler::StreamHandler(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void StreamHandler::setup(Executer executer)

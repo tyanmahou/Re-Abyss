@@ -6,7 +6,7 @@
 
 namespace abyss::Event::Title
 {
-    BgmCtrl::BgmCtrl(IEvent* pEvent):
+    BgmCtrl::BgmCtrl(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void BgmCtrl::onStart()

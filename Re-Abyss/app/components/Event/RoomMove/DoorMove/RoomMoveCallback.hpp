@@ -14,7 +14,7 @@ namespace abyss::Event::RoomMove::DoorMove
         };
     public:
         RoomMoveCallback(
-            IEvent* pEvent,
+            EventObj* pEvent,
             const std::pair<s3d::Vec2, s3d::Vec2>& cameraMove,
             const std::pair<s3d::Vec2, s3d::Vec2>& playerMove,
             const s3d::Vec2& origin,
@@ -29,7 +29,7 @@ namespace abyss::Event::RoomMove::DoorMove
         s3d::Vec2 calcPlayerPos() const override;
 
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         double m_elapsed = 0.0;
         std::pair<s3d::Vec2, s3d::Vec2> m_cameraMove;
         std::pair<s3d::Vec2, s3d::Vec2> m_playerMove;

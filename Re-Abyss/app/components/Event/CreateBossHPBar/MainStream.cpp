@@ -12,7 +12,7 @@
 
 namespace abyss::Event::CreateBossHPBar
 {
-    MainStream::MainStream(IEvent* pEvent, const Ref<UI::UIObj>& hpBar) :
+    MainStream::MainStream(EventObj* pEvent, const Ref<UI::UIObj>& hpBar) :
         m_pEvent(pEvent),
         m_hpBar(hpBar)
     {}

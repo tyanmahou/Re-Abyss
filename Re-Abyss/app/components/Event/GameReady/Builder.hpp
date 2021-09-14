@@ -4,6 +4,6 @@ namespace abyss::Event::GameReady
 {
     struct Builder
     {
-        static void Build(IEvent* pEvent);
+        static void Build(EventObj* pEvent);
     };
 }

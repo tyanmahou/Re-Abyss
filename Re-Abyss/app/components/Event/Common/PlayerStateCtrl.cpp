@@ -1,10 +1,10 @@
 #include "PlayerStateCtrl.hpp"
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 namespace abyss::Event
 {
-    PlayerStateCtrl::PlayerStateCtrl(IEvent* pEvent):
+    PlayerStateCtrl::PlayerStateCtrl(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void PlayerStateCtrl::onStart()

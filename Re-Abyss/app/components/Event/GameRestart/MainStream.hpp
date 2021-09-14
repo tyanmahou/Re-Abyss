@@ -11,7 +11,7 @@ namespace abyss::Event::GameRestart
         public IGlobalTimeScale
     {
     public:
-        MainStream(IEvent* pEvent);
+        MainStream(EventObj* pEvent);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -21,7 +21,7 @@ namespace abyss::Event::GameRestart
 
         double getGlobalTimeScale() const override;
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         double m_globalTimeScale = 1.0;
     };
 }

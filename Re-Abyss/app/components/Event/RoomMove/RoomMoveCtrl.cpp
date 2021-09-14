@@ -6,7 +6,7 @@
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 #include <abyss/utils/StopwatchEx/StopwatchEx.hpp>
 
@@ -37,7 +37,7 @@ namespace
 namespace abyss::Event::RoomMove
 {
     RoomMoveCtrl::RoomMoveCtrl(
-        IEvent* pEvent,
+        EventObj* pEvent,
         std::unique_ptr<IRoomMoveCallback> callback,
         const RoomModel& nextRoom,
         double animeMilliSec

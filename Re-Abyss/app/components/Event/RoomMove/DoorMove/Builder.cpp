@@ -2,7 +2,7 @@
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 #include <abyss/components/Event/RoomMove/RoomMoveCtrl.hpp>
 #include <abyss/components/Event/RoomMove/DoorMove/RoomMoveCallback.hpp>
@@ -11,7 +11,7 @@
 namespace abyss::Event::RoomMove::DoorMove
 {
     void Builder::Build(
-        IEvent* pEvent,
+        EventObj* pEvent,
         const RoomModel& nextRoom,
         const Actor::Gimmick::Door::DoorModel& door,
         const s3d::Vec2& playerPos,

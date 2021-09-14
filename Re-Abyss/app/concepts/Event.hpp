@@ -5,7 +5,7 @@
 namespace abyss
 {
     template<class Type, class... Args>
-    concept EventBuildy = requires(Event::IEvent * pEvent, Args&&... args)
+    concept EventBuildy = requires(Event::EventObj * pEvent, Args&&... args)
     {
         Type::Build(pEvent, std::forward<Args>(args)...);
     };

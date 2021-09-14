@@ -6,6 +6,6 @@ namespace abyss::Event::Talk
 {
 	struct TalkBuilder
 	{
-		static void Build(IEvent* pEvent, const s3d::String& path);
+		static void Build(EventObj* pEvent, const s3d::String& path);
 	};
 }

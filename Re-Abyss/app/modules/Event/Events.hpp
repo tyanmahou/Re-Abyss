@@ -1,7 +1,7 @@
 #pragma once
 #include <queue>
 #include <memory>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/concepts/Event.hpp>
 
@@ -10,7 +10,7 @@ namespace abyss
     class Events
     {
     private:
-        std::queue<std::shared_ptr<Event::IEvent>> m_events;
+        std::queue<std::shared_ptr<Event::EventObj>> m_events;
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
     public:
@@ -33,13 +33,13 @@ namespace abyss
         /// イベントの生成
         /// </summary>
         /// <returns></returns>
-        Ref<Event::IEvent> create();
+        Ref<Event::EventObj> create();
 
         /// <summary>
         /// ビルダーからイベントの生成
         /// </summary>
         template<class BuilerType, class... Args>
-        Ref<Event::IEvent> create(Args&& ... args)
+        Ref<Event::EventObj> create(Args&& ... args)
             requires EventBuildy<BuilerType, Args...>
         {
             auto event = this->create();
@@ -52,6 +52,6 @@ namespace abyss
         /// </summary>
         /// <param name="event"></param>
         /// <returns></returns>
-        Ref<Event::IEvent> regist(const std::shared_ptr<Event::IEvent>& event);
+        Ref<Event::EventObj> regist(const std::shared_ptr<Event::EventObj>& event);
     };
 }

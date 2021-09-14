@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 
 #include <abyss/components/Event/Talk/TalkBuilder.hpp>
 #include <abyss/components/Event/Talk/PlayerStateChanger.hpp>
@@ -9,7 +9,7 @@
 namespace abyss::Event::Talk
 {
     void Builder::Build(
-        IEvent* pEvent,
+        EventObj* pEvent,
         const s3d::String& path,
         const Ref<Actor::ILocator>& pTargetLocator
     ) {

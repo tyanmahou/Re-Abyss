@@ -940,7 +940,7 @@
     <ClCompile Include="app\components\Event\base\StreamHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Event\base\IEvent.cpp">
+    <ClCompile Include="app\modules\Event\base\EventObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\GameReady\MainStream.cpp">
@@ -2062,7 +2062,7 @@
     <ClInclude Include="app\components\UI\Title\Cursor\CursorCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
-    <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
+    <ClInclude Include="app\modules\Event\base\EventObj.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />

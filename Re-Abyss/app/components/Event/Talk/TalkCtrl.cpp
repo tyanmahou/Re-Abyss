@@ -1,12 +1,12 @@
 #include "TalkCtrl.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 
 namespace abyss::Event::Talk
 {
-    TalkCtrl::TalkCtrl(IEvent* pEvent):
+    TalkCtrl::TalkCtrl(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
 

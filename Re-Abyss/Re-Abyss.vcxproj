@@ -508,7 +508,7 @@
     <ClCompile Include="app\modules\Cron\Crons.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\CursorCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\Shot.cpp" />
-    <ClCompile Include="app\modules\Event\base\IEvent.cpp" />
+    <ClCompile Include="app\modules\Event\base\EventObj.cpp" />
     <ClCompile Include="app\modules\Temporary\Temporary.cpp" />
     <ClCompile Include="app\modules\Temporary\TemporaryData.cpp" />
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
@@ -1360,7 +1360,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\WaitState.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
-    <ClInclude Include="app\modules\Event\base\IEvent.hpp" />
+    <ClInclude Include="app\modules\Event\base\EventObj.hpp" />
     <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\base\IEnemyDataStore.hpp" />

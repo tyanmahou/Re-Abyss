@@ -4,6 +4,6 @@ namespace abyss::Event::RoomMove::BasicMove
 {
     struct Builder
     {
-        static void Build(IEvent* pEvent, const RoomModel& nextRoom, double milliSec = 2000.0);
+        static void Build(EventObj* pEvent, const RoomModel& nextRoom, double milliSec = 2000.0);
     };
 }

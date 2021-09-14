@@ -14,7 +14,7 @@ namespace abyss::Event::RoomMove
     {
     public:
         RoomMoveCtrl(
-            IEvent* pEvent, 
+            EventObj* pEvent, 
             std::unique_ptr<IRoomMoveCallback> callback,
             const RoomModel& nextRoom,
             double animeMilliSec
@@ -27,7 +27,7 @@ namespace abyss::Event::RoomMove
         Coro::Task<> onExecute() override;
 
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         std::unique_ptr<IRoomMoveCallback> m_callback;
         RoomModel m_nextRoom;
         double m_animeMilliSec = 0;

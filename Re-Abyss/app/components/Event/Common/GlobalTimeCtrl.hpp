@@ -10,12 +10,12 @@ namespace abyss::Event
         public ILastUpdate
     {
     public:
-        GlobalTimeCtrl(IEvent* pEvent);
+        GlobalTimeCtrl(EventObj* pEvent);
 
         void onStart() override;
         void onLastUpdate() override;
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
         std::shared_ptr<GlobalTimeScaleModel> m_timeScaleModel;
     };
 }

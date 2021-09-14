@@ -6,13 +6,13 @@ namespace abyss::Event
 {
     class StreamHandler;
 
-    class IEvent final : public GameObject
+    class EventObj final : public GameObject
     {
     private:
         Ref<StreamHandler> m_stream;
         bool m_isWorldStop = true;
     public:
-        IEvent();
+        EventObj();
 
         /// <summary>
         /// イベントの更新

@@ -7,11 +7,11 @@ namespace abyss::Event::Title
         public IComponent
     {
     public:
-        BgmCtrl(IEvent* pEvent);
+        BgmCtrl(EventObj* pEvent);
 
         void onStart() override;
         void onEnd() override;
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
     };
 }

@@ -1,6 +1,6 @@
 #include "MainStream.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 
@@ -11,7 +11,7 @@
 
 namespace abyss::Event::GameReady
 {
-    MainStream::MainStream(IEvent* pEvent):
+    MainStream::MainStream(EventObj* pEvent):
         m_pEvent(pEvent)
     {}
     void MainStream::setup(Executer executer)

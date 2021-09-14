@@ -54,10 +54,10 @@ namespace abyss::Sys::Main
 
         // Events初期化
         {
-            std::shared_ptr<Event::IEvent> initEvent = m_initEvent;
+            std::shared_ptr<Event::EventObj> initEvent = m_initEvent;
             if (!initEvent) {
                 // 指定がなければReadyイベント生成
-                initEvent = std::make_shared<Event::IEvent>();
+                initEvent = std::make_shared<Event::EventObj>();
                 Event::GameReady::Builder::Build(initEvent.get());
             }
             auto events = pManager->getModule<Events>();

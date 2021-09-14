@@ -9,7 +9,7 @@ namespace abyss::Event::Title
         public IStream
     {
     public:
-        MainStream(IEvent* pEvent);
+        MainStream(EventObj* pEvent);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -17,7 +17,7 @@ namespace abyss::Event::Title
 
         Coro::Task<> onExecute() override;
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
     };
 }
 

@@ -1,5 +1,5 @@
 #include "TalkBuilder.hpp"
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Event/Talk/TalkObj.hpp>
 
 #include <abyss/components/Event/Talk/TalkCtrl.hpp>
@@ -19,7 +19,7 @@
 
 namespace abyss::Event::Talk
 {
-    void TalkBuilder::Build(IEvent* pEvent, const s3d::String& path)
+    void TalkBuilder::Build(EventObj* pEvent, const s3d::String& path)
     {
         // todo リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);

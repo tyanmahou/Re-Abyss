@@ -24,7 +24,7 @@ namespace abyss::Sys::Main
             m_initPlayer = player;
             return *this;
         }
-        Booter& setInitEvent(std::shared_ptr<Event::IEvent> event)
+        Booter& setInitEvent(std::shared_ptr<Event::EventObj> event)
         {
             m_initEvent = event;
             return *this;
@@ -44,7 +44,7 @@ namespace abyss::Sys::Main
         Cycle::Main::IMasterObserver* m_pObserver;
 
         std::shared_ptr<Actor::ActorObj> m_initPlayer;
-        std::shared_ptr<Event::IEvent> m_initEvent;
+        std::shared_ptr<Event::EventObj> m_initEvent;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
     };

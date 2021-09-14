@@ -45,12 +45,12 @@ namespace abyss
     {
         return !m_events.empty() && m_events.front()->isWorldStop();
     }
-    Ref<Event::IEvent> Events::create()
+    Ref<Event::EventObj> Events::create()
     {
-        return this->regist(std::make_shared<Event::IEvent>());
+        return this->regist(std::make_shared<Event::EventObj>());
     }
 
-    Ref<Event::IEvent> Events::regist(const std::shared_ptr<Event::IEvent>& event)
+    Ref<Event::EventObj> Events::regist(const std::shared_ptr<Event::EventObj>& event)
     {
         event->setManager(m_pManager);
         m_events.push(event);

@@ -21,7 +21,7 @@ namespace abyss::Event::Talk
         public IStream
     {
     public:
-        TalkCtrl(IEvent* pEvent);
+        TalkCtrl(EventObj* pEvent);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -54,7 +54,7 @@ namespace abyss::Event::Talk
         /// <returns></returns>
         Ref<TalkObj> regist(const std::shared_ptr<TalkObj>& talk);
     private:
-        IEvent* m_pEvent;
+        EventObj* m_pEvent;
 
         std::queue<std::shared_ptr<TalkObj>> m_talks;
         bool m_doneCurrentInit = false;

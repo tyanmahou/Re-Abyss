@@ -1,6 +1,6 @@
 #include "FadeIrisOut.hpp"
 
-#include <abyss/modules/Event/base/IEvent.hpp>
+#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/UI/Fade/IrisOut/Builder.hpp>
@@ -8,7 +8,7 @@
 
 namespace abyss::Event
 {
-    FadeIrisOut::FadeIrisOut(IEvent* pEvent, bool createOnStart):
+    FadeIrisOut::FadeIrisOut(EventObj* pEvent, bool createOnStart):
         m_pEvent(pEvent),
         m_createOnStart(createOnStart)
     {}
