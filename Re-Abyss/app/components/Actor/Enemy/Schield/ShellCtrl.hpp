@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/Commons/IDeadCallback.hpp>
+#include <abyss/components/Actor/Common/IDeadCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::Schield

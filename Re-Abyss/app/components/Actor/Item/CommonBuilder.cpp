@@ -1,9 +1,9 @@
 #include "CommonBuilder.hpp"
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Item/ItemCollision.hpp>
 
 namespace abyss::Actor::Item

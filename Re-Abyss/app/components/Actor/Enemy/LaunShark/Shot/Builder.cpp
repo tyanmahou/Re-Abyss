@@ -1,19 +1,19 @@
 #include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/DamageCtrl.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
-#include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
-#include <abyss/components/Actor/Commons/DeadCheacker.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actor/Enemy/DeadCallback.hpp>

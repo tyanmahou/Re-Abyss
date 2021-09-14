@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/RotateCtrl.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/views/Actor/Enemy/LaunShark/Shot/Motion.hpp>
 

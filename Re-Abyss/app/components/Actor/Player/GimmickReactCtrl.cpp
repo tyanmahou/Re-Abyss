@@ -4,7 +4,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/PlayerUtil.hpp>
 
 namespace abyss::Actor::Player

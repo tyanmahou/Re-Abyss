@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {

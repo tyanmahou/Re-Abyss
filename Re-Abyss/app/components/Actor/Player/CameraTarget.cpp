@@ -1,7 +1,7 @@
 #include "CameraTarget.hpp"
 
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

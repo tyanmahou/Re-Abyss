@@ -3,7 +3,7 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>

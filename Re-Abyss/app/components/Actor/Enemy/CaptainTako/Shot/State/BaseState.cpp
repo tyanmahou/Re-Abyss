@@ -1,6 +1,6 @@
 #include "BaseState.hpp"
 
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {

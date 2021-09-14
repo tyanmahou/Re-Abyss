@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Event/Common/PlayerStateCtrl.hpp>
-#include <abyss/components/Actor/Commons/ILocator.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Event::Talk

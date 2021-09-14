@@ -1,6 +1,6 @@
 #include "ParentCtrl.hpp"
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sensor

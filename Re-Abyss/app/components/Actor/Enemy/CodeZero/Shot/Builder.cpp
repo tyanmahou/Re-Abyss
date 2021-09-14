@@ -3,15 +3,15 @@
 
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/ScaleCtrl.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/ScaleCtrl.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/State/WaitState.hpp>
 

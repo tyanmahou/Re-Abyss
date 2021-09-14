@@ -6,8 +6,8 @@
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
 #include <abyss/types/CShape.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
 

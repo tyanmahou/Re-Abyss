@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Ooparts/CommonBuilder.hpp>
 
 

@@ -2,7 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 
-#include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/components/UI/Common/CustomDraw.hpp>
 

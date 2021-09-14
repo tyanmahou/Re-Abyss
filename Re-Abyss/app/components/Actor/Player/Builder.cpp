@@ -4,18 +4,18 @@
 #include <abyss/params/Actor/Player/Param.hpp>
 
 #include <abyss/components/Common/MotionCtrl.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/BreathingCtrl.hpp>
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/DamageCtrl.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/FallChecker.hpp>
-#include <abyss/components/Actor/Commons/DeadCheacker.hpp>
-#include <abyss/components/Actor/Commons/CameraFixPos.hpp>
-#include <abyss/components/Actor/Commons/LightCtrl.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/BreathingCtrl.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/FallChecker.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Common/CameraFixPos.hpp>
+#include <abyss/components/Actor/Common/LightCtrl.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/OopartsCtrl.hpp>

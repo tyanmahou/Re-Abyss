@@ -1,8 +1,8 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/TimeCounter.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/TimeCounter.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/views/Actor/Enemy/LaunShark/Motion.hpp>
 

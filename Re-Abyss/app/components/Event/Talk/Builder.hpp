@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Actor/Commons/ILocator.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Fwd.hpp>
 

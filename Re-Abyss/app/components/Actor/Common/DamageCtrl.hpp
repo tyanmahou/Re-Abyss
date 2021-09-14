@@ -1,10 +1,10 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/IStateCallback.hpp>
-#include <abyss/components/Actor/Commons/IDamageCallback.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
+#include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {

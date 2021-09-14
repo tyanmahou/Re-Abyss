@@ -2,10 +2,10 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/Foot.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/Foot.hpp>
 #include <abyss/components/Actor/Player/ForwardCtrl.hpp>
 
 #include <abyss/params/Actor/Player/Param.hpp>

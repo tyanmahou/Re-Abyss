@@ -1,7 +1,7 @@
 #include "LightCtrl.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Light/Light.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 
 namespace abyss::Actor
 {

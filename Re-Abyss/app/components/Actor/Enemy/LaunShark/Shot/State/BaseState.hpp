@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>
 #include "../ComponentCache.hpp"
 

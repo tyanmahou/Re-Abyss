@@ -4,7 +4,7 @@
 #include <Siv3D.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
 
 #include <abyss/components/Actor/Enemy/LaunShark/Shot/Builder.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>

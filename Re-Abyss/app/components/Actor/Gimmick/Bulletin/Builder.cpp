@@ -1,7 +1,7 @@
 #include "Builder.hpp"
-#include <abyss/components/Actor/Commons/VModel.hpp>
-#include <abyss/components/Actor/Commons/Locator.hpp>
-#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/Locator.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/views/Actor/Gimmick/Bulletin/BulletinVM.hpp>
 

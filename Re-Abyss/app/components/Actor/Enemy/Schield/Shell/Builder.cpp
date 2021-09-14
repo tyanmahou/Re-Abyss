@@ -1,10 +1,10 @@
 #include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
 
 namespace abyss::Actor::Enemy::Schield::Shell
 {

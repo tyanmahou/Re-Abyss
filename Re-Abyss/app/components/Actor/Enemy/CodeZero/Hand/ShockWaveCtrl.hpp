@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
-#include <abyss/components/Actor/Commons/IStateCallback.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

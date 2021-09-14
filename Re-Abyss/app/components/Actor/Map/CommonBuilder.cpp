@@ -1,6 +1,6 @@
 #include "CommonBuilder.hpp"
 
-#include <abyss/components/Actor/Commons/TerrainProxy.hpp>
+#include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Map/MapProxy.hpp>
 #include <abyss/types/CShape.hpp>
 

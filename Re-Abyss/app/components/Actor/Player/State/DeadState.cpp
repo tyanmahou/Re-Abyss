@@ -1,8 +1,8 @@
 #include "DeadState.hpp"
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/FallChecker.hpp>
-#include <abyss/components/Actor/Commons/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/FallChecker.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 

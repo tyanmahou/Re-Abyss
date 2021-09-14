@@ -1,8 +1,8 @@
 #include "FallChecker.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/components/Actor/Commons/DeadCheacker.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 \
 namespace abyss::Actor
 {

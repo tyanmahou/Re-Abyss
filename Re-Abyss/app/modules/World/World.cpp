@@ -2,7 +2,7 @@
 
 #include <abyss/modules/World/Collision/Collision.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/components/Actor/Commons/ICollision.hpp>
+#include <abyss/components/Actor/Common/ICollision.hpp>
 
 namespace abyss
 {

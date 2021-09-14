@@ -1,9 +1,9 @@
 #include "DamageCtrl.hpp"
 
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/components/Actor/Commons/IDamageCallback.hpp>
-#include <abyss/components/Actor/Commons/ICollider.hpp>
+#include <abyss/components/Actor/Common/IDamageCallback.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {

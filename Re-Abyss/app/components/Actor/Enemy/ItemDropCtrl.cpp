@@ -2,7 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Item/Recovery/Builder.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>

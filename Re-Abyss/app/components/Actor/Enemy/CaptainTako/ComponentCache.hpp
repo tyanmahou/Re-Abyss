@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/ChargeCtrl.hpp>
 
 #include <abyss/components/Common/MotionCtrl.hpp>

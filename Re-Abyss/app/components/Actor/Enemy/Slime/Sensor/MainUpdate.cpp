@@ -1,7 +1,7 @@
 #include "MainUpdate.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/Slime/Sensor/ParentCtrl.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
 
 namespace abyss::Actor::Enemy::Slime::Sensor
 {

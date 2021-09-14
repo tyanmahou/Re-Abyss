@@ -4,7 +4,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 
 namespace abyss::Actor::Item
 {

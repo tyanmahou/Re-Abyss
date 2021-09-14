@@ -8,7 +8,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/components/Event/RoomMove/BasicMove/Builder.hpp>
 
-#include <abyss/components/Actor/Commons/CameraFixPos.hpp>
+#include <abyss/components/Actor/Common/CameraFixPos.hpp>
 
 namespace abyss::Actor::Player
 {

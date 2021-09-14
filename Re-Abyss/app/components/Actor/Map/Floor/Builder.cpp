@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Map/CommonBuilder.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
 
 namespace abyss::Actor::Map::Floor
 {

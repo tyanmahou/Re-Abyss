@@ -1,9 +1,9 @@
 #include "DeadOnHItReceiver.hpp"
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/DeadCheacker.hpp>
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/ICollider.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
 #include <abyss/modules/Physics/base/Tag.hpp>
 
 namespace abyss::Actor

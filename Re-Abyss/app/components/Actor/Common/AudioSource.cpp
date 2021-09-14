@@ -3,7 +3,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/base/IUpdate.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>

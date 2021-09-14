@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
-#include <abyss/components/Actor/Commons/IStateCallback.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Player/ChargeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimerEx/TimerEx.hpp>

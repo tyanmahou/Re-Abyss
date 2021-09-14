@@ -1,9 +1,9 @@
 #include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
-#include <abyss/components/Actor/Commons/Locator.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/Colliders/RectCollider.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/Locator.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/Colliders/RectCollider.hpp>
 #include <abyss/components/Actor/Gimmick/Bush/ColReactor.hpp>
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>

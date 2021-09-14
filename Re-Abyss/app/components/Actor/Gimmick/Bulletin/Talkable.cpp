@@ -6,8 +6,8 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/UI/SpeechBalloon/Builder.hpp>
-#include <abyss/components/Actor/Commons/ICollider.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Event/Talk/Builder.hpp>
 
 #include <abyss/utils/Collision/CollisionUtil.hpp>

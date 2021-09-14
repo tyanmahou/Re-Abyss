@@ -3,17 +3,17 @@
 
 #include <abyss/components/Actor/Enemy/Schield/Shot/State/BaseState.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
-#include <abyss/components/Actor/Commons/DeadOnHItReceiver.hpp>
-#include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
-#include <abyss/components/Actor/Commons/DeadCheacker.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 
 #include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
 #include <abyss/views/Actor/Enemy/Schield/Shot/ShotVM.hpp>

@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 

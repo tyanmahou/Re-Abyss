@@ -1,7 +1,7 @@
 #include "ParentCtrl.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase1State.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase2State.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase3State.hpp>

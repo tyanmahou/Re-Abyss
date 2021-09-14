@@ -3,7 +3,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IMove.hpp>
-#include <abyss/components/Actor/Commons/IStateCallback.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 
 namespace abyss::Actor::Player
 {

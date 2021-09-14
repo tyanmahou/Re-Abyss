@@ -2,7 +2,7 @@
 #include<Siv3D/Effect.hpp>
 #include<Siv3D/Vector2D.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/components/Actor/Commons/ILocator.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 
 namespace abyss::Actor::Item::Recovery
 {

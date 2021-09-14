@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 
 namespace abyss::Actor::Enemy::Schield

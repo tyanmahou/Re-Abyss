@@ -3,7 +3,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
-#include <abyss/components/Actor/Commons/ShakeCtrl.hpp>
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

@@ -6,9 +6,9 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/types/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy

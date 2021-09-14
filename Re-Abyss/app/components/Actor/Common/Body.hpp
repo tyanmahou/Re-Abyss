@@ -6,7 +6,7 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/Commons/ILocator.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Actor

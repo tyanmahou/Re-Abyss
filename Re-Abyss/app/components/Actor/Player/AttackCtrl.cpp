@@ -3,7 +3,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Player/Shot/Builder.hpp>
 
 namespace abyss::Actor::Player

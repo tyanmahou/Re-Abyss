@@ -7,9 +7,9 @@
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
 #include <abyss/components/Actor/Item/LifeSpan.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/ShakeCtrl.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>

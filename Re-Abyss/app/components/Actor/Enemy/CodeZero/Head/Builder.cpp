@@ -3,10 +3,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
-#include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
-#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Head/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Head/DamageCtrl.hpp>

@@ -1,8 +1,8 @@
 #include "ColReactor.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Gimmick::Bush

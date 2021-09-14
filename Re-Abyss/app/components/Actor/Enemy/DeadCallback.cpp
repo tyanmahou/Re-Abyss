@@ -3,8 +3,8 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 
 #include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>

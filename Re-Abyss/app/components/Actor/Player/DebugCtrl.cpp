@@ -2,7 +2,7 @@
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 namespace abyss::Actor::Player
 {
     DebugCtrl::DebugCtrl(ActorObj* pActor):

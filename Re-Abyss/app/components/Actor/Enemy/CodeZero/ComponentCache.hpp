@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/BehaviorCtrl.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

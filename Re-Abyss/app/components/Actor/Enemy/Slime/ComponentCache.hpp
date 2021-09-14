@@ -1,8 +1,8 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/AudioSource.hpp>
-#include <abyss/components/Actor/Commons/MapCollider.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/views/Actor/Enemy/Slime/Motion.hpp>
 

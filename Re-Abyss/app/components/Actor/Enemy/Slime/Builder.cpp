@@ -3,10 +3,10 @@
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/Slime/SenserCtrl.hpp>

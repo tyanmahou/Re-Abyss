@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/Commons/ICollider.hpp>
-#include <abyss/components/Actor/Commons/ILocator.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 
 namespace abyss::Actor
 {

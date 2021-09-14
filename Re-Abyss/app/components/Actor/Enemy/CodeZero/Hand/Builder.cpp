@@ -2,14 +2,14 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 
-#include <abyss/components/Actor/Commons/AttackerData.hpp>
-#include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Commons/Colliders/CircleCollider.hpp>
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/RotateCtrl.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/RotateCtrl.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>

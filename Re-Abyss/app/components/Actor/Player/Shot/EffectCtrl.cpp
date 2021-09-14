@@ -3,7 +3,7 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 

@@ -1,9 +1,9 @@
 #include "MapCollider.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Commons/ICollider.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/Foot.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/Foot.hpp>
 #include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
 

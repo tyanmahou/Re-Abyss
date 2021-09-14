@@ -3,7 +3,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/commons/Constants.hpp>
 
-#include <abyss/components/Actor/Commons/CustomDraw.hpp>
+#include <abyss/components/Actor/Common/CustomDraw.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>

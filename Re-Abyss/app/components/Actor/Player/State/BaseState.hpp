@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/ComponentCache.hpp>
 
 namespace abyss::Actor::Player

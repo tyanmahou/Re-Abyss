@@ -1,5 +1,5 @@
 #include "TalkState.hpp"
-#include <abyss/components/Actor/Commons/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/CustomCollider.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player

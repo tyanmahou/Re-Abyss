@@ -4,8 +4,8 @@
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 #include <abyss/types/CShape.hpp>
 
-#include <abyss/components/Actor/Commons/StateCtrl.hpp>
-#include <abyss/components/Actor/Commons/HP.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>

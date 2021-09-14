@@ -4,8 +4,8 @@
 #include <abyss/entities/Actor/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
 #include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>

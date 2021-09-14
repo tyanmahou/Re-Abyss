@@ -3,9 +3,9 @@
 #include <abyss/entities/Actor/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/TimeCounter.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/TimeCounter.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/LaunShark/State/SwimState.hpp>
 

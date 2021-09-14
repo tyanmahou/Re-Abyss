@@ -4,7 +4,7 @@
 
 #include <abyss/components/Actor/Ooparts/Xto/Builder.hpp>
 
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
 

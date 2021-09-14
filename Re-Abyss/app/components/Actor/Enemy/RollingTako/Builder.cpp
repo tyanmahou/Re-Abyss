@@ -3,9 +3,9 @@
 #include <abyss/entities/Actor/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>
 
-#include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/Commons/OutRoomChecker.hpp>
-#include <abyss/components/Actor/Commons/VModel.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/RunState.hpp>

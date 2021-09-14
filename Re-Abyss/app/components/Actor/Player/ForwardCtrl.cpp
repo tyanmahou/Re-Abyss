@@ -2,8 +2,8 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
-#include <abyss/components/Actor/Commons/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
 
 namespace abyss::Actor::Player
 {

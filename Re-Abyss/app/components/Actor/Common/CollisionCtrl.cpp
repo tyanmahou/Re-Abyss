@@ -1,5 +1,5 @@
 #include "CollisionCtrl.hpp"
-#include <abyss/components/Actor/Commons/ICollider.hpp>
+#include <abyss/components/Actor/Common/ICollider.hpp>
 
 namespace abyss::Actor
 {

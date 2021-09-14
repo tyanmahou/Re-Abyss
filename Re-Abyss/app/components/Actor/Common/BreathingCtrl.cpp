@@ -1,6 +1,6 @@
 #include "BreathingCtrl.hpp"
 #include <Siv3D.hpp>
-#include <abyss/components/Actor/Commons/Body.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Effect/Effects.hpp>

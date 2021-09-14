@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
-#include <abyss/components/Actor/Commons/Locator.hpp>
+#include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
