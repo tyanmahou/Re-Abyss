@@ -1,5 +1,5 @@
 #include "BasicDraw.hpp"
-#include <abyss/components/Decor/Commons/DecorInfo.hpp>
+#include <abyss/components/Decor/Common/DecorInfo.hpp>
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Decor/Decors.hpp>

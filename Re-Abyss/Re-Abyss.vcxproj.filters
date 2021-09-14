@@ -901,10 +901,10 @@
     <ClCompile Include="app\components\Cron\BubbleGenerator\Generator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Cron\Commons\IntervalTimeScheduler.cpp">
+    <ClCompile Include="app\components\Cron\Common\IntervalTimeScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Cron\Commons\OnceScheduler.cpp">
+    <ClCompile Include="app\components\Cron\Common\OnceScheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\UI\base\UIObj.cpp">
@@ -1222,13 +1222,13 @@
     <ClCompile Include="app\components\Decor\General\Common\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\DecorInfo.cpp">
+    <ClCompile Include="app\components\Decor\Common\DecorInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\CommonBuilder.cpp">
+    <ClCompile Include="app\components\Decor\Common\CommonBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Decor\Commons\BasicDraw.cpp">
+    <ClCompile Include="app\components\Decor\Common\BasicDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp">
@@ -1579,7 +1579,7 @@
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.cpp">
+    <ClCompile Include="app\components\Cron\Common\RoomMoveCallbackCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Cron\FishGenerator\Builder.cpp">
@@ -2083,8 +2083,8 @@
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Generator.hpp" />
     <ClInclude Include="app\modules\GameObject\GameObject.ipp" />
-    <ClInclude Include="app\components\Cron\Commons\IntervalTimeScheduler.hpp" />
-    <ClInclude Include="app\components\Cron\Commons\OnceScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\Common\IntervalTimeScheduler.hpp" />
+    <ClInclude Include="app\components\Cron\Common\OnceScheduler.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
@@ -2207,7 +2207,7 @@
     <ClInclude Include="app\views\Actor\Gimmick\Door\DoorVM.hpp" />
     <ClInclude Include="app\components\Decor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Decor\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\CustomDraw.hpp" />
+    <ClInclude Include="app\components\Decor\Common\CustomDraw.hpp" />
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
     <ClInclude Include="app\components\Common\ClockCtrl.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
@@ -2231,9 +2231,9 @@
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\DecorInfo.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\CommonBuilder.hpp" />
-    <ClInclude Include="app\components\Decor\Commons\BasicDraw.hpp" />
+    <ClInclude Include="app\components\Decor\Common\DecorInfo.hpp" />
+    <ClInclude Include="app\components\Decor\Common\CommonBuilder.hpp" />
+    <ClInclude Include="app\components\Decor\Common\BasicDraw.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\datastores\Actor\Map\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
@@ -2406,7 +2406,7 @@
     <ClInclude Include="app\components\Effect\Misc\Bubble\LayerKind.hpp" />
     <ClInclude Include="app\components\Effect\Common\LifeTime.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
-    <ClInclude Include="app\components\Cron\Commons\RoomMoveCallbackCtrl.hpp" />
+    <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />

@@ -1,6 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
-#include <abyss/components/Decor/Commons/CommonBuilder.hpp>
+#include <abyss/components/Decor/Common/CommonBuilder.hpp>
 
 namespace abyss::Decor::General::Common
 {

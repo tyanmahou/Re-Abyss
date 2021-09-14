@@ -1,6 +1,6 @@
 #include "DecorHolder.hpp"
 #include <abyss/modules/Decor/base/DecorObj.hpp>
-#include <abyss/components/Decor/Commons/DecorInfo.hpp>
+#include <abyss/components/Decor/Common/DecorInfo.hpp>
 
 namespace abyss::Decor
 {

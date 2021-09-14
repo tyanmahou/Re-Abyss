@@ -1,5 +1,5 @@
 #include "Builder.hpp"
-#include <abyss/components/Decor/Commons/CustomDraw.hpp>
+#include <abyss/components/Decor/Common/CustomDraw.hpp>
 
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>

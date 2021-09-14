@@ -2,8 +2,8 @@
 #include <abyss/modules/Cron/base/Batch.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Generator.hpp>
-#include <abyss/components/Cron/Commons/OnceScheduler.hpp>
-#include <abyss/components/Cron/Commons/RoomMoveCallbackCtrl.hpp>
+#include <abyss/components/Cron/Common/OnceScheduler.hpp>
+#include <abyss/components/Cron/Common/RoomMoveCallbackCtrl.hpp>
 
 namespace abyss::Cron::BubbleGenerator
 {

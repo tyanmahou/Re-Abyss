@@ -1,7 +1,7 @@
 #include "CommonBuilder.hpp"
 #include <abyss/modules/Decor/base/DecorObj.hpp>
-#include <abyss/components/Decor/Commons/DecorInfo.hpp>
-#include <abyss/components/Decor/Commons/BasicDraw.hpp>
+#include <abyss/components/Decor/Common/DecorInfo.hpp>
+#include <abyss/components/Decor/Common/BasicDraw.hpp>
 
 namespace abyss::Decor
 {
