@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Event/base/IStream.hpp>
-#include <abyss/components/Event/base/IGlobalTimeScale.hpp>
+#include <abyss/components/Event/Common/IGlobalTimeScale.hpp>
 
 namespace abyss::Event::GameRestart
 {

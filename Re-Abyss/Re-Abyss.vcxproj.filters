@@ -937,7 +937,7 @@
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Common\StreamHandler.cpp">
+    <ClCompile Include="app\components\Event\base\StreamHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Event\base\IEvent.cpp">
@@ -2097,7 +2097,7 @@
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
-    <ClInclude Include="app\components\Event\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Event\base\StreamHandler.hpp" />
     <ClInclude Include="app\components\Event\base\IStream.hpp" />
     <ClInclude Include="app\components\Event\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp" />
@@ -2108,7 +2108,7 @@
     <ClInclude Include="app\components\Event\GameRestart\Builder.hpp" />
     <ClInclude Include="app\components\Event\GameRestart\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp" />
-    <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
+    <ClInclude Include="app\components\Event\Common\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />

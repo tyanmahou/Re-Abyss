@@ -392,7 +392,7 @@
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp" />
-    <ClCompile Include="app\components\Event\Common\StreamHandler.cpp" />
+    <ClCompile Include="app\components\Event\base\StreamHandler.cpp" />
     <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp" />
     <ClCompile Include="app\components\Event\GamePause\Builder.cpp" />
@@ -1002,13 +1002,13 @@
     <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
     <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
-    <ClInclude Include="app\components\Event\base\IGlobalTimeScale.hpp" />
+    <ClInclude Include="app\components\Event\Common\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Event\base\IStream.hpp" />
     <ClInclude Include="app\components\Event\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp" />
-    <ClInclude Include="app\components\Event\Common\StreamHandler.hpp" />
+    <ClInclude Include="app\components\Event\base\StreamHandler.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Event\GamePause\Builder.hpp" />

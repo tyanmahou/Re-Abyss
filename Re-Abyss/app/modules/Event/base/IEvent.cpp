@@ -1,5 +1,5 @@
 #include "IEvent.hpp"
-#include <abyss/components/Event/Common/StreamHandler.hpp>
+#include <abyss/components/Event/base/StreamHandler.hpp>
 #include <abyss/components/Event/base/IUpdate.hpp>
 #include <abyss/components/Event/base/ILastUpdate.hpp>
 

@@ -2,7 +2,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Event/base/IEvent.hpp>
 
-#include <abyss/components/Event/base/IGlobalTimeScale.hpp>
+#include <abyss/components/Event/Common/IGlobalTimeScale.hpp>
 
 namespace abyss::Event
 {
