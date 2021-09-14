@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/IStateCallback.hpp>
+#include <abyss/components/Actor/Commons/IStateCallback.hpp>
 
 namespace abyss::Actor::Player
 {

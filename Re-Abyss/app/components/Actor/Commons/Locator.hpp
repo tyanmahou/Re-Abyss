@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 
-#include <abyss/components/Actor/base/ILocator.hpp>
+#include <abyss/components/Actor/Commons/ILocator.hpp>
 namespace abyss::Actor
 {
     class Locator : 

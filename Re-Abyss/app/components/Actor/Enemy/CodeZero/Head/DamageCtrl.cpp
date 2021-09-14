@@ -2,8 +2,8 @@
 
 #include <abyss/components/Actor/Commons/AttackerData.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
-#include <abyss/components/Actor/base/IDamageCallback.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/IDamageCallback.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {

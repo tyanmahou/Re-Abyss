@@ -3,7 +3,7 @@
 #include <abyss/concepts/Component.hpp>
 #include <abyss/modules/Actor/base/Tag.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/ICollision.hpp>
+#include <abyss/components/Actor/Commons/ICollision.hpp>
 #include <abyss/components/Actor/base/IPreCollision.hpp>
 #include <abyss/modules/World/LayerGroup.hpp>
 

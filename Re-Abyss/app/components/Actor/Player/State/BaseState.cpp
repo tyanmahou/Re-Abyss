@@ -3,7 +3,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 
 namespace abyss::Actor::Player
 {

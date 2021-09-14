@@ -9,8 +9,8 @@
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
-#include <abyss/components/Actor/base/ICollision.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollision.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>

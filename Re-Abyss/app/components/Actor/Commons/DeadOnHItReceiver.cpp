@@ -3,7 +3,7 @@
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/ReceiverData.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 #include <abyss/modules/Physics/base/Tag.hpp>
 
 namespace abyss::Actor

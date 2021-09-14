@@ -1,7 +1,7 @@
 #include "OutRoomChecker.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 #include <abyss/components/Actor/Commons/DeadCheacker.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>

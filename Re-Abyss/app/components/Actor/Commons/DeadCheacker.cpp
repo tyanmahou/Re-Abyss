@@ -2,7 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Commons/HP.hpp>
-#include <abyss/components/Actor/base/IDeadCallback.hpp>
+#include <abyss/components/Actor/Commons/IDeadCallback.hpp>
 
 #include <Siv3D.hpp>
 

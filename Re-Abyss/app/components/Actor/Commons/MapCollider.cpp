@@ -1,7 +1,7 @@
 #include "MapCollider.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 #include <abyss/components/Actor/Commons/Body.hpp>
 #include <abyss/components/Actor/Commons/Foot.hpp>
 #include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>

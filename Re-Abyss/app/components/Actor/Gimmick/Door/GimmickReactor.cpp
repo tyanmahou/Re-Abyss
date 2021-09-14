@@ -2,7 +2,7 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Commons/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>

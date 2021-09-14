@@ -703,7 +703,7 @@
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\base\ICollision.cpp">
+    <ClCompile Include="app\components\Actor\Commons\ICollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Commons\CollisionCtrl.cpp">
@@ -1961,12 +1961,12 @@
     <ClInclude Include="app\components\Actor\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\components\Actor\base\ICollider.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
-    <ClInclude Include="app\components\Actor\base\IDeadCallback.hpp" />
-    <ClInclude Include="app\components\Actor\base\IDamageCallback.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\IDeadCallback.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\IDamageCallback.hpp" />
     <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\components\Actor\Commons\LightCtrl.hpp" />
     <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />
@@ -1997,7 +1997,7 @@
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
-    <ClInclude Include="app\components\Actor\base\ICollision.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\ICollision.hpp" />
     <ClInclude Include="app\components\Actor\Commons\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreCollision.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\Builder.hpp" />
@@ -2021,7 +2021,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Colliders\CircleCollider.hpp" />
-    <ClInclude Include="app\components\Actor\base\ILocator.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\ILocator.hpp" />
     <ClInclude Include="app\components\Actor\Commons\Locator.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shell\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\ShellCtrl.hpp" />
@@ -2143,7 +2143,7 @@
     <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInState.hpp" />
-    <ClInclude Include="app\components\Actor\base\IStateCallback.hpp" />
+    <ClInclude Include="app\components\Actor\Commons\IStateCallback.hpp" />
     <ClInclude Include="app\components\Actor\Player\StateChecker.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Actor\Player\DamageCallback.hpp" />

@@ -1,6 +1,6 @@
 #include "CameraTarget.hpp"
 
-#include <abyss/components/Actor/base/ILocator.hpp>
+#include <abyss/components/Actor/Commons/ILocator.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 namespace abyss::Actor

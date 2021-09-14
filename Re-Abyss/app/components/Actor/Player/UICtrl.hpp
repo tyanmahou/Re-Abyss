@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/IDeadCallback.hpp>
+#include <abyss/components/Actor/Commons/IDeadCallback.hpp>
 
 namespace abyss::Actor::Player
 {

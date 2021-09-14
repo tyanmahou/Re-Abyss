@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/IDeadCallback.hpp>
+#include <abyss/components/Actor/Commons/IDeadCallback.hpp>
 
 namespace abyss::Actor::Enemy
 {

@@ -1,6 +1,6 @@
 #include "DamageCtrl.hpp"
-#include <abyss/components/Actor/base/IDamageCallback.hpp>
-#include <abyss/components/Actor/base/ICollider.hpp>
+#include <abyss/components/Actor/Commons/IDamageCallback.hpp>
+#include <abyss/components/Actor/Commons/ICollider.hpp>
 #include <abyss/components/Actor/Commons/AttackerData.hpp>
 
 namespace abyss::Actor

@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IMove.hpp>
-#include <abyss/components/Actor/base/IStateCallback.hpp>
+#include <abyss/components/Actor/Commons/IStateCallback.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

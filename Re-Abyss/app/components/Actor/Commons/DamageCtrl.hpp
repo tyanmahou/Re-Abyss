@@ -3,8 +3,8 @@
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/CollisionCtrl.hpp>
-#include <abyss/components/Actor/base/IStateCallback.hpp>
-#include <abyss/components/Actor/base/IDamageCallback.hpp>
+#include <abyss/components/Actor/Commons/IStateCallback.hpp>
+#include <abyss/components/Actor/Commons/IDamageCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss::Actor
 {

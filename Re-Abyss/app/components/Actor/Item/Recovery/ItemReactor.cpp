@@ -1,6 +1,6 @@
 #include "ItemReactor.hpp"
 
-#include <abyss/components/Actor/base/ILocator.hpp>
+#include <abyss/components/Actor/Commons/ILocator.hpp>
 #include <abyss/components/Actor/Commons/HP.hpp>
 #include <abyss/components/Actor/Commons/AudioSource.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
