@@ -5,7 +5,7 @@
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
-
+#include <abyss/utils/Math/Math.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         auto erpRate = InterpUtil::DampRatio(Param::Eye::ErpRate, m_pActor->deltaTime());
 
-        auto moveEye = [&](Vec2& eyePos, const Vec2& offset) {
+        auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
             Vec2 targetPos{0, 0};
             if (m_hp->isDead() || m_hp->isInInvincibleTime()) {
@@ -40,12 +40,18 @@ namespace abyss::Actor::Enemy::KingDux
                 const double dist = s3d::Min(toPlayerPos.length() * Param::Eye::DistRate, 65.0);
 
                 targetPos = toPlayerUnit * dist;
+
+                const auto linearFunc = Math::LinearFunc(limitBegin, limitEnd);
+
+                if (auto limitY = linearFunc(targetPos.x);  targetPos.y < limitY) {
+                    targetPos.y = limitY;
+                }
             }
             eyePos = s3d::Math::Lerp(eyePos, targetPos, erpRate);
         };
 
         // 眼を動かす
-        moveEye(m_eyePosL, Param::Base::EyeL);
-        moveEye(m_eyePosR, Param::Base::EyeR);
+        moveEye(m_eyePosL, Param::Base::EyeL, Param::Eye::LimitBeginL, Param::Eye::LimitEndL);
+        moveEye(m_eyePosR, Param::Base::EyeR, Param::Eye::LimitBeginR, Param::Eye::LimitEndR);
     }
 }
