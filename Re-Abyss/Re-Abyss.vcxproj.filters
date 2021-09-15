@@ -2463,6 +2463,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\KingDuxEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

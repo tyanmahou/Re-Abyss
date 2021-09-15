@@ -9,6 +9,8 @@
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
 #include <abyss/entities/Actor/Enemy/WarrusEntity.hpp>
 
+#include <abyss/entities/Actor/Enemy/KingDuxEntity.hpp>
+
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 
 using namespace s3d;
@@ -29,6 +31,10 @@ namespace
 			{U"schield", EnemyType::Schield},
 			{U"warrus", EnemyType::Warrus},
 
+			// MidBoss
+			{U"king_dux", EnemyType::KingDux},
+
+			// Boss
 			{U"code_zero", EnemyType::CodeZero},
 		};
 		if (toTypeMap.find(type) != toTypeMap.end()) {
@@ -67,6 +73,7 @@ namespace
 			PARSE_ENEMY(LaunShark);
 			PARSE_ENEMY(Schield);
 			PARSE_ENEMY(Warrus);
+			PARSE_ENEMY(KingDux);
 			PARSE_ENEMY(CodeZero);
 		default:
 			break;

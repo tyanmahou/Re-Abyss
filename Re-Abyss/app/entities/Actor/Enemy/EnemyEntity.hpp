@@ -14,6 +14,9 @@ namespace abyss::Actor::Enemy
 		Schield,
 		Warrus,
 
+		// MidBoss
+		KingDux,
+
 		// Boss
 		CodeZero,
 	};
