@@ -15,6 +15,8 @@
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 #include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
 
+#include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
+
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
@@ -108,6 +110,9 @@ namespace abyss::Resource::Preload
 
 			resource->loadToml<Schield::Param>(U"Actors/Enemy/Schield/param.toml");
 			resource->loadToml<Schield::ShotParam>(U"Actors/Enemy/Schield/shot_param.toml");
+
+			// MidBoss
+			resource->loadToml<KingDux::Param>(U"Actors/Enemy/KingDux/param.toml");
 
 			// Boss
 			resource->loadToml<CodeZero::Param>(U"Actors/Enemy/CodeZero/param.toml");

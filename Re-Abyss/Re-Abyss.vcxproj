@@ -563,6 +563,7 @@
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
+    <ClCompile Include="app\views\Actor\Enemy\KingDux\KingDuxVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
@@ -872,6 +873,7 @@
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />
@@ -885,6 +887,7 @@
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\KingDuxVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\RollingTako\Motion.hpp" />
