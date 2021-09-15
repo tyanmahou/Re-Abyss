@@ -10,12 +10,17 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Base::EyeL, "Base.eyeL")]]
         [[TOML_BIND(Base::EyeR, "Base.eyeR")]]
         [[TOML_BIND(Base::MouthPos, "Base.mouthPos")]]
+        [[TOML_BIND(Base::ColSize, "Base.colSize")]]
+        [[TOML_BIND(Base::Pivot, "Base.pivot")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 100 };
             inline static s3d::Vec2 EyeL{ 108, 155 };
             inline static s3d::Vec2 EyeR{ -117, 153 };
             inline static s3d::Vec2 MouthPos{ -20, 280 };
+
+            inline static s3d::Vec2 ColSize{ 80, 80 };
+            inline static s3d::Vec2 Pivot{ 0, 0 };
         };
 
         [[TOML_BIND(Eye::DistRate, "Eye.distRate")]]

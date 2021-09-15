@@ -24,6 +24,8 @@ namespace abyss::Actor::Enemy::KingDux
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
+            .setBodySize(Param::Base::ColSize)
+            .setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             //.setColliderImpl<Collider>(pActor)
