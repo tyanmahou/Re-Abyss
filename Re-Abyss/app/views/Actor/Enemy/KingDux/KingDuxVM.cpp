@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
             auto posBase = m_pos + offset;
-            Circle(posBase, 70).draw();
+            Circle(posBase, 80).draw();
             double r = 24;
             if (m_isDamaging) {
                 double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
@@ -51,7 +51,9 @@ namespace abyss::Actor::Enemy::KingDux
 
         // 体
         {
-            m_texture(U"base").drawAt(m_pos, color);
+            auto rate = s3d::Periodic::Sine0_1(5.0, m_time);
+            auto offsetX = s3d::Math::Lerp(-0.01, 0.01, rate);
+            m_texture(U"base").scaled(1.0 + offsetX, 1.0).drawAt(m_pos, color);
         }
         // 口
         {
