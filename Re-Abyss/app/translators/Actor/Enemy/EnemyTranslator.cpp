@@ -7,6 +7,9 @@
 #include <abyss/entities/Actor/Enemy/IkalienEntity.hpp>
 #include <abyss/entities/Actor/Enemy/LaunSharkEntity.hpp>
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
+#include <abyss/entities/Actor/Enemy/WarrusEntity.hpp>
+
+#include <abyss/entities/Actor/Enemy/KingDuxEntity.hpp>
 
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 
@@ -17,6 +20,8 @@
 #include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Warrus/Builder.hpp>
+
+#include <abyss/components/Actor/Enemy/KingDux/Builder.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Builder.hpp>
 
@@ -36,6 +41,8 @@ namespace abyss::Actor::Enemy
             CASE_ENEMY(Schield);
             CASE_ENEMY(Slime);
             CASE_ENEMY(Warrus);
+
+            CASE_ENEMY(KingDux);
 
             CASE_ENEMY(CodeZero);
         default:
