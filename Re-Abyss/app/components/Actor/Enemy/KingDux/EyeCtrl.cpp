@@ -51,7 +51,11 @@ namespace abyss::Actor::Enemy::KingDux
         };
 
         // 眼を動かす
-        moveEye(m_eyePosL, Param::Base::EyeL, Param::Eye::LimitBeginL, Param::Eye::LimitEndL);
-        moveEye(m_eyePosR, Param::Base::EyeR, Param::Eye::LimitBeginR, Param::Eye::LimitEndR);
+#define MOVE_EYE(Kind) moveEye(m_eyePos##Kind, Param::Base::Eye##Kind, Param::Eye::LimitBegin##Kind, Param::Eye::LimitEnd##Kind)
+
+        MOVE_EYE(L);
+        MOVE_EYE(R);
+
+#undef MOVE_EYE
     }
 }
