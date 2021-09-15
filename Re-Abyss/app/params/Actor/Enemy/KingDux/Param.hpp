@@ -17,5 +17,13 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Vec2 EyeR{ -117, 153 };
             inline static s3d::Vec2 MouthPos{ -20, 280 };
         };
+
+        [[TOML_BIND(Eye::DistRate, "Eye.distRate")]]
+        [[TOML_BIND(Eye::ErpRate, "Eye.erpRate")]]
+        struct Eye
+        {
+            inline static double DistRate{ 0.005 };
+            inline static double ErpRate{ 0.3 };
+        };
     };
 }

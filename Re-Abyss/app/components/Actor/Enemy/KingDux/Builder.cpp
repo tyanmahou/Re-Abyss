@@ -6,6 +6,9 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
+
+
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
 
@@ -34,7 +37,10 @@ namespace abyss::Actor::Enemy::KingDux
         {
             pActor->find<Body>()->noneResistanced();
         }
-
+        // 目制御
+        {
+            pActor->attach<EyeCtrl>(pActor);
+        }
         {
             pActor->find<VModel>()
                 ->setLayer(DrawLayer::WorldBack);
@@ -53,6 +59,7 @@ namespace
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
+        Ref<EyeCtrl> m_eye;
 
         std::unique_ptr<KingDuxVM> m_view;
     private:
@@ -60,6 +67,7 @@ namespace
         {
             return &m_view->setTime(m_pActor->getDrawTimeSec())
                 .setPos(m_body->getPos())
+                .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_hp->isInInvincibleTime())
                 ;
         }
@@ -67,6 +75,7 @@ namespace
         {
             m_body = m_pActor->find<Body>();
             m_hp = m_pActor->find<HP>();
+            m_eye = m_pActor->find<EyeCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :
