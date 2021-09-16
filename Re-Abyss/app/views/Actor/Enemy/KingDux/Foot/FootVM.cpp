@@ -1,6 +1,7 @@
 #include "FootVM.hpp"
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Foot
@@ -15,7 +16,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     }
     FootVM& FootVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = s3d::Round(pos);
+        m_pos = pos;
         return *this;
     }
     FootVM& FootVM::setIsDamaging(bool isDamaging)
@@ -25,12 +26,16 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     }
     void FootVM::draw() const
     {
-        auto color = ColorDef::OnDamage(m_isDamaging, m_time);
+        const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
 
         // 足
-        const auto page = static_cast<s3d::int32>(s3d::Periodic::Triangle0_1(1.0, m_time) * 6) % 6;
-        auto rate = s3d::Periodic::Sine0_1(5.0, m_time);
-        auto offset = s3d::Math::Lerp(-0.01, 0.01, rate);
-        m_texture(U"foot")(page % 2 * 300, page / 2 * 180, 300, 180).scaled(1.0 + offset).drawAt(m_pos, color);
+        const auto page = static_cast<s3d::int32>(s3d::Periodic::Triangle0_1(Param::Foot::AnimTimeSec, m_time) * 6) % 6;
+        auto rate = s3d::Periodic::Triangle0_1(2.0, m_time);
+        auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.1, rate);
+        constexpr auto size = s3d::Vec2{ 300, 180 };
+        const auto scaledSize = size * scale;
+        m_texture(U"foot")(page % 2 * 300, page / 2 * 180, size)
+            .resized(scaledSize)
+            .draw(s3d::Round(m_pos - scaledSize / 2.0), color);
     }
 }

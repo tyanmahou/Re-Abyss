@@ -39,5 +39,16 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Vec2 LimitBeginR{ 108, 155 };
             inline static s3d::Vec2 LimitEndR{ 108, 155 };
         };
+
+        [[TOML_BIND(Foot::PosL, "Foot.posL")]]
+        [[TOML_BIND(Foot::PosR, "Foot.posR")]]
+        [[TOML_BIND(Foot::AnimTimeSec, "Foot.animTimeSec")]]
+        struct Foot
+        {
+            inline static s3d::Vec2 PosL{ 100, 310 };
+            inline static s3d::Vec2 PosR{ -500, 310 };
+
+            inline static double AnimTimeSec{ 1.0 };
+        };
     };
 }

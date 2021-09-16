@@ -50,11 +50,11 @@ namespace abyss::Actor::Enemy::KingDux
                 ->setLayer(DrawLayer::WorldBack);
 
             pActor->attach<VModelSub<1>>()
-                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{ -500, 400 - 90 })
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::PosR)
                 .setLayer(DrawLayer::BackGround);
 
             pActor->attach<VModelSub<2>>()
-                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{100, 400 - 90}, 0.5)
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::PosL, Param::Foot::AnimTimeSec / 4.0)
                 .setLayer(DrawLayer::WorldFront);
         }
     }
