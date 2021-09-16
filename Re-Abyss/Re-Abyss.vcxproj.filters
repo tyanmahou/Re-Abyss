@@ -1648,6 +1648,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\EyeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2477,6 +2480,7 @@
     <ClInclude Include="app\views\Actor\Enemy\KingDux\KingDuxVM.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\EyeCtrl.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

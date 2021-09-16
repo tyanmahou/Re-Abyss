@@ -28,9 +28,9 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         auto color = ColorDef::OnDamage(m_isDamaging, m_time);
 
         // 足
-        auto page = static_cast<s3d::int32>(s3d::Periodic::Sine0_1(5.0, m_time) * 6) % 6;
+        const auto page = static_cast<s3d::int32>(s3d::Periodic::Triangle0_1(1.0, m_time) * 6) % 6;
         auto rate = s3d::Periodic::Sine0_1(5.0, m_time);
         auto offset = s3d::Math::Lerp(-0.01, 0.01, rate);
-        m_texture(U"foot")(page % 2 * 300, page / 2 * 180).scaled(1.0 + offset).drawAt(m_pos, color);
+        m_texture(U"foot")(page % 2 * 300, page / 2 * 180, 300, 180).scaled(1.0 + offset).drawAt(m_pos, color);
     }
 }
