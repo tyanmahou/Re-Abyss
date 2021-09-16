@@ -29,12 +29,21 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
 
         // 足
-        const auto page = static_cast<s3d::int32>(s3d::Periodic::Triangle0_1(Param::Foot::AnimTimeSec, m_time) * 6) % 6;
-        auto rate = s3d::Periodic::Triangle0_1(2.0, m_time);
-        auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.1, rate);
+        const auto& pageMap = Param::Foot::AnimFrameMap;
+        const s3d::uint32 pageSize = static_cast<s3d::uint32>(pageMap.size());
+        auto pageRate = s3d::Periodic::Triangle0_1(Param::Foot::AnimTimeSec, m_time);
+        if (pageRate >= 0.5) {
+            pageRate = 2.0 / 3.0 * (pageRate * pageRate) + (1.0 / 3.0);
+        }
+        const auto pageIndex = static_cast<s3d::uint32>(pageRate * pageSize) % pageSize;
+
+        const auto page = pageMap[pageIndex];
+
+        auto scaleRate = s3d::Periodic::Triangle0_1(2.0, m_time);
+        auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.1, scaleRate);
         constexpr auto size = s3d::Vec2{ 300, 180 };
         const auto scaledSize = size * scale;
-        m_texture(U"foot")(page % 2 * 300, page / 2 * 180, size)
+        m_texture(U"foot")(page % 3 * 300, page / 3 * 180, size)
             .resized(scaledSize)
             .draw(s3d::Round(m_pos - scaledSize / 2.0), color);
     }
