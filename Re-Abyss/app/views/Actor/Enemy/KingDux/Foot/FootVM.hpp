@@ -11,6 +11,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
 
         s3d::Vec2 m_pos;
         bool m_isDamaging = false;
+        bool m_isFlip = false;
         double m_time = 0;
     public:
         FootVM();
@@ -18,6 +19,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         FootVM& setPos(const s3d::Vec2& pos);
 
         FootVM& setIsDamaging(bool isDamaging);
+        FootVM& setIsFlip(bool isFlip);
         void draw() const;
     };
 }

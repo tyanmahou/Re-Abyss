@@ -56,6 +56,14 @@ namespace abyss::Actor::Enemy::KingDux
             pActor->attach<VModelSub<2>>()
                 ->setBinder<ViewBinderFoot>(pActor, Param::Foot::PosL, Param::Foot::AnimTimeSec / 2.0)
                 .setLayer(DrawLayer::WorldFront);
+
+            pActor->attach<VModelSub<3>>()
+                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{250, 0}, Param::Foot::AnimTimeSec / 3.0)
+                .setLayer(DrawLayer::DecorMiddle);
+
+            pActor->attach<VModelSub<4>>()
+                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{ -200, -100 }, Param::Foot::AnimTimeSec / 4.0, true)
+                .setLayer(DrawLayer::BackGround);
         }
     }
 }
@@ -101,18 +109,24 @@ namespace
     class ViewBinderFoot : public IVModelBinder<FootVM>
     {
     public:
-        ViewBinderFoot(ActorObj* pActor, const s3d::Vec2& offset, double timeOffset = 0) :
+        ViewBinderFoot(ActorObj* pActor, const s3d::Vec2& offset, double timeOffset = 0, bool isFlip = false) :
             m_pActor(pActor),
             m_view(std::make_unique<FootVM>()),
             m_offset(offset),
-            m_timeOffset(timeOffset)
+            m_timeOffset(timeOffset),
+            m_isFlip(isFlip)
         {}
     private:
+        void setup(Executer executer) final
+        {
+            executer.on<IDraw>().addAfter<VModel>();
+        }
         FootVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getDrawTimeSec() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
                 .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsFlip(m_isFlip)
                 ;
         }
         void onStart() final
@@ -128,5 +142,6 @@ namespace
         std::unique_ptr<FootVM> m_view;
         s3d::Vec2 m_offset;
         double m_timeOffset = 0;
+        bool m_isFlip = false;
     };
 }

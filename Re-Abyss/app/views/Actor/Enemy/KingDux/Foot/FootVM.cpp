@@ -24,6 +24,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_isDamaging = isDamaging;
         return *this;
     }
+    FootVM& FootVM::setIsFlip(bool isFlip)
+    {
+        m_isFlip = isFlip;
+        return *this;
+    }
     void FootVM::draw() const
     {
         const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
@@ -45,6 +50,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         const auto scaledSize = size * scale;
         m_texture(U"foot")(page % 3 * 300, page / 3 * 180, size)
             .resized(scaledSize)
+            .flipped(m_isFlip)
             .draw(s3d::Round(m_pos - scaledSize / 2.0), color);
     }
 }
