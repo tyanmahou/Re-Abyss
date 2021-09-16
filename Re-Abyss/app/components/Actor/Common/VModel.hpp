@@ -8,4 +8,7 @@ namespace abyss::Actor
     /// ViewModel Bind
     /// </summary>
     using VModel = VModelBase<IDraw>;
+
+    template<s3d::uint16 Slot> requires (Slot > 0)
+    using VModelSub = VModelBase<IDraw, Slot>;
 }

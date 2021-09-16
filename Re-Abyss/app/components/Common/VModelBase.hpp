@@ -28,7 +28,7 @@ namespace abyss
         }
     };
 
-    template<class IDrawType>
+    template<class IDrawType, s3d::uint16 Slot = 0>
     class VModelBase:
         public IComponent,
         public IDrawType
@@ -72,8 +72,8 @@ namespace abyss
 
 namespace abyss
 {
-    template<class IDrawType>
-    struct ComponentTree<VModelBase<IDrawType>>
+    template<class IDrawType, s3d::uint16 Slot>
+    struct ComponentTree<VModelBase<IDrawType, Slot>>
     {
         using Base = IDrawType;
     };
