@@ -48,6 +48,19 @@ float4 screen(float4 dest, float4 src)
     color.a = 1.0;
     return color;
 }
+float squareInv(float src)
+{
+    return 1 - (1 - src) * (1 - src);
+}
+float4 squareInv(float4 src)
+{
+    float4 color;
+    color.r = squareInv(src.r);
+    color.g = squareInv(src.g);
+    color.b = squareInv(src.b);
+    color.a = src.a;
+    return color;
+}
 float4 PS(PSInput input) : SV_TARGET
 {
     const float2 uv = input.uv;
@@ -62,5 +75,5 @@ float4 PS(PSInput input) : SV_TARGET
 
     float4 src = screen(light * input.color + g_colorAdd, g_bgColor);
     float4 outColor = hardLight(dest, src);
-    return outColor * (dest * 1.5);
+    return squareInv(outColor) * dest;
 }
