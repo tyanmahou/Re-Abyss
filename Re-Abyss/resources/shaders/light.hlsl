@@ -50,7 +50,7 @@ float4 screen(float4 dest, float4 src)
 }
 float squareInv(float src)
 {
-    return 1 - (1 - src) * (1 - src);
+    return sqrt(src);
 }
 float4 squareInv(float4 src)
 {
