@@ -2,6 +2,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D/Shader.hpp>
 #include <Siv3D/TextureRegion.hpp>
+#include <Siv3D/ScopedCustomShader2D.hpp>
 
 namespace abyss
 {
