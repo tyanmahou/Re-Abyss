@@ -25,6 +25,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         [[TOML_BIND(Eye::DistRate, "Eye.distRate")]]
         [[TOML_BIND(Eye::ErpRate, "Eye.erpRate")]]
+        [[TOML_BIND(Eye::DamageErpRate, "Eye.damageErpRate")]]
         [[TOML_BIND(Eye::LimitBeginL, "Eye.limitBeginL")]]
         [[TOML_BIND(Eye::LimitEndL, "Eye.limitEndL")]]
         [[TOML_BIND(Eye::LimitBeginR, "Eye.limitBeginR")]]
@@ -32,7 +33,8 @@ namespace abyss::Actor::Enemy::KingDux
         struct Eye
         {
             inline static double DistRate{ 0.005 };
-            inline static double ErpRate{ 0.3 };
+            inline static double ErpRate{ 0.02 };
+            inline static double DamageErpRate{ 0.5 };
 
             inline static s3d::Vec2 LimitBeginL{ 108, 155 };
             inline static s3d::Vec2 LimitEndL{ 108, 155 };

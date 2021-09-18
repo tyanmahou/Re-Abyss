@@ -30,7 +30,7 @@ namespace abyss::Actor::Enemy::KingDux
             Vec2 targetPos{0, 0};
             if (m_hp->isDead() || m_hp->isInInvincibleTime()) {
                 targetPos = Vec2{ 0, 20 };
-                erpRate = 0.5;
+                erpRate = InterpUtil::DampRatio(Param::Eye::DamageErpRate, m_pActor->deltaTime());
             } else {
                 const auto toPlayerPos = playerPos - (pos + offset + Vec2{ 0, 10 });
                 auto toPlayerUnit = s3d::Vec2::Zero();
