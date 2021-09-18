@@ -6,7 +6,7 @@ namespace
     using namespace abyss;
     using namespace abyss::Event::Talk;
 
-    Coro::Task<> ExecuteStrems(TalkObj* pTalk)
+    Coro::Task<> ExecuteStreams(TalkObj* pTalk)
     {
         s3d::Array<Coro::Task<>> tasks;
         for (auto&& talker : pTalk->finds<ITalker>()) {
@@ -36,7 +36,7 @@ namespace abyss::Event::Talk
     }
     void TalkHandler::onStart()
     {
-        m_stream = std::make_unique<Coro::Task<>>(ExecuteStrems(m_pTalk));
+        m_stream = std::make_unique<Coro::Task<>>(ExecuteStreams(m_pTalk));
     }
     bool TalkHandler::update()
     {
