@@ -586,6 +586,7 @@
     <ClCompile Include="app\views\Distortion\DistortionShader.cpp" />
     <ClCompile Include="app\views\Distortion\DistortionView.cpp" />
     <ClCompile Include="app\views\Camera\SnapshotView.cpp" />
+    <ClCompile Include="app\views\Shader\Scanline\ScanlineShader.cpp" />
     <ClCompile Include="app\views\UI\Common\Loading\LoadingView.cpp" />
     <ClCompile Include="app\views\UI\SaveSelect\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\UI\SaveSelect\SelectFrame\SelectFrameVM.cpp" />
@@ -901,6 +902,7 @@
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
+    <ClInclude Include="app\views\Shader\Scanline\ScanlineShader.hpp" />
     <ClInclude Include="app\views\UI\SpeechBalloon\SpeechBalloonVM.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
