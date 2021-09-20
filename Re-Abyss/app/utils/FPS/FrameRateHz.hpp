@@ -1,9 +1,8 @@
 #pragma once
 #include <abyss/utils/Singleton/Singleton.hpp>
-#include <Siv3D/Optional.hpp>
-#include <Siv3D/System.hpp>
-#include <Siv3D/Monitor.hpp>
-#include <abyss/debugs/Log/Log.hpp>
+#define NO_S3D_USING
+#include <Siv3D.hpp>
+
 namespace abyss
 {
     class FrameRateHz : protected Singleton<FrameRateHz>
@@ -22,21 +21,8 @@ namespace abyss
     private:
         FrameRateHz() = default;
 
-        void set(const s3d::Optional<double>& value)
-        {
-            auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate;
-            if (value && refreshRate && *refreshRate > *value && *value > 0) {
-                m_sleepTime = s3d::Duration(1.0 / (*value));
-            } else {
-                m_sleepTime = s3d::none;
-            }
-        }
-        void sleep() const
-        {
-            if (m_sleepTime) {
-                s3d::System::Sleep(*m_sleepTime);
-            }
-        }
+        void set(const s3d::Optional<double>& value);
+        void sleep() const;
 
         s3d::Optional<s3d::Duration> m_sleepTime;
     };

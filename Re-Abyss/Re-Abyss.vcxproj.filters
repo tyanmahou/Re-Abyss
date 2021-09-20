@@ -1654,6 +1654,9 @@
     <ClCompile Include="app\views\Shader\Scanline\ScanlineShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\abyss\include\abyss\utils\FPS\FrameRateHz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
