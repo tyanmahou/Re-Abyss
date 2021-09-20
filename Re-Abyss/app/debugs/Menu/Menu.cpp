@@ -24,7 +24,6 @@ namespace abyss::Debug
 
             // パース
             this->parseList(m_debugRoot, json, flagNamePath);
-
             mainMenu.show(true);
         }
         bool isDebug(const String& label)
@@ -144,7 +143,7 @@ namespace abyss::Debug
         void parseCheckButton(
             Windows::MenuItem& menu,
             const String& label,
-            const JSON& json,
+            JSON json,
             std::stack<String>& flagNamePath
         ) {
             bool isChecked = json[U"isChecked"].getOr<bool>(false);
@@ -156,9 +155,10 @@ namespace abyss::Debug
         }
         void parseList(
             Windows::MenuItem& menu,
-            const JSON& json,
+            JSON json,
             std::stack<String>& flagNamePath
         ) {
+            volatile auto a = json.getType();
             for (auto&& [name, obj] : json) {
                 if (flagNamePath.empty()) {
                     flagNamePath.push(name);

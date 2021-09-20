@@ -231,7 +231,7 @@ namespace abyss::Windows
         Impl()
         {
             // TODO 後で確認
-            m_shareData.hWnd = ::GetActiveWindow();// static_cast<HWND>(s3d::Platform::Windows::Window::GetHWND());
+            m_shareData.hWnd = ::GetForegroundWindow();
             m_hMenu = ::CreateMenu();
 
             m_winProc.setCallback([](HWND , UINT message, WPARAM wParam, LPARAM )->s3d::Optional<LRESULT> {
