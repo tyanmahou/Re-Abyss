@@ -59,7 +59,6 @@ namespace abyss::Debug
             template<s3d::Concept::Formattable Type>
             LogBuffer<Kind> operator << (const Type& value)const
             {
-                Print << value;
                 LogBuffer<Kind> buf;
                 Formatter(*buf.formatData, value);
                 return buf;
