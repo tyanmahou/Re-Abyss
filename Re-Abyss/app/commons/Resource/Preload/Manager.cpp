@@ -78,7 +78,7 @@ namespace abyss::Resource::Preload
         Impl()
         {
             for (const auto& path : GetPreloadFile()) {
-                JSON json(FileUtil::FixPath(path));
+                JSON json = JSON::Load(FileUtil::FixPath(path));
                 if (!json) {
                     continue;
                 }

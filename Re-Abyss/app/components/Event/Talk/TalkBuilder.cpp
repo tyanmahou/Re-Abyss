@@ -23,7 +23,7 @@ namespace abyss::Event::Talk
     {
         // todo リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);
-        JSON json(fixPath);
+        JSON json = JSON::Load(fixPath);
         if (!json) {
             return;
         }

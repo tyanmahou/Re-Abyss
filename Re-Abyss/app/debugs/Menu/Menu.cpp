@@ -19,7 +19,7 @@ namespace abyss::Debug
             auto& mainMenu = Windows::WindowMenu::Main();
             m_debugRoot = mainMenu.createItem(U"デバッグ(&D)");
             
-            JSON json(MenuPath);
+            JSON json = JSON::Load(MenuPath);
             std::stack<String> flagNamePath;
 
             // パース

@@ -33,7 +33,7 @@ namespace abyss
 
 		void load(const s3d::FilePath& json)
 		{
-			JSON reader(json);
+			JSON reader = JSON::Load(json);
 			if (!reader) {
 				return;
 			}
