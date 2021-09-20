@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/utils/Singleton/Singleton.hpp>
-#define NO_S3D_USING
 #include <Siv3D.hpp>
 
 namespace abyss
