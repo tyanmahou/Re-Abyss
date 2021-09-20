@@ -75,7 +75,7 @@ namespace abyss
 
 #if ABYSS_DEBUG
             Windows::WindowMenu::Main().show(true);
-            newClientSize += Size(0, 20);
+            newClientSize += Size(0, 40);
 #endif
             Window::Resize(newClientSize);
         }
