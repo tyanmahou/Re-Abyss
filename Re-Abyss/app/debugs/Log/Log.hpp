@@ -1,6 +1,6 @@
 #pragma once
 #if ABYSS_DEBUG
-#include <Siv3D/Format.hpp>
+#include <Siv3D/Print.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss::Debug
@@ -28,11 +28,10 @@ namespace abyss::Debug
             LogBuffer(LogBuffer&& other) noexcept;
             ~LogBuffer();
 
-            template<class Type>
+            template<s3d::Concept::Formattable Type>
             LogBuffer& operator << (const Type& value)
             {
-                // TODO 後で確認
-                //s3d::Formatter(*formatData, value);
+                Formatter(*formatData, value);
                 return *this;
             }
         };
@@ -43,11 +42,11 @@ namespace abyss::Debug
             template<LogMethod Method>
             struct Helper
             {
-                template<class Type>
+                template<s3d::Concept::Formattable Type>
                 LogBuffer<Kind, Method> operator << (const Type& value)const
                 {
                     LogBuffer<Kind, Method> buf;
-                    s3d::Formatter(*buf.formatData, value);
+                    Formatter(*buf.formatData, value);
                     return buf;
                 }
             };
@@ -57,12 +56,12 @@ namespace abyss::Debug
             void write(const s3d::String& log) const;
             void writeUpdate(const s3d::String& log) const;
 
-            template<class Type>
+            template<s3d::Concept::Formattable Type>
             LogBuffer<Kind> operator << (const Type& value)const
             {
+                Print << value;
                 LogBuffer<Kind> buf;
-                // TODO 後で確認
-                //s3d::Formatter(*buf.formatData, value);
+                Formatter(*buf.formatData, value);
                 return buf;
             }
         };
