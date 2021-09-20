@@ -6,8 +6,8 @@ namespace abyss
 {
 	enum class WindowSizeKind
 	{
-		ThreeSecond,
-		FiveFourth,
+		//ThreeSecond,
+		//FiveFourth,
 		SixFifth,
 		Default,
 		FourFifth,
