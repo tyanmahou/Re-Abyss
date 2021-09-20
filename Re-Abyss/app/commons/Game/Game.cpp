@@ -9,6 +9,7 @@
 #include <abyss/scenes/SaveSelect/SaveSelectScene.hpp>
 #include <abyss/scenes/Main/MainScene.hpp>
 
+#include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -54,11 +55,14 @@ namespace abyss
 
 		bool update()
 		{
-			InputManager::Update();
 #if ABYSS_DEBUG
+			FrameRateHz::Sleep();
 			Debug::LogUpdater::Update();
 			Debug::DebugManager::Update();
 #endif
+
+			InputManager::Update();
+
 			return m_scene.update();
 		}
 	};

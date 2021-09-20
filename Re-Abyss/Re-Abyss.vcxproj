@@ -925,6 +925,7 @@
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
+    <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />

@@ -4,6 +4,8 @@
 #include <Siv3D.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
+#include <abyss/utils/FPS/FrameRateHz.hpp>
+
 namespace abyss::Debug
 {
     class Menu::Impl
@@ -41,23 +43,22 @@ namespace abyss::Debug
     private:
         void execFPS(Windows::MenuItem& menu)
         {
-            // TODO 固定フレームレートはなくなったので、なんか個別に対処する
             menu.createRadioButton({ U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120" }, [](size_t index) {
                 switch (index) {
                 case 0:
-                    //Graphics::SetTargetFrameRateHz(s3d::none);
+                    FrameRateHz::Set(s3d::none);
                     break;
                 case 1:
-                    //Graphics::SetTargetFrameRateHz(10);
+                    FrameRateHz::Set(10.0);
                     break;
                 case 2:
-                    //Graphics::SetTargetFrameRateHz(30);
+                    FrameRateHz::Set(30.0);
                     break;
                 case 3:
-                    //Graphics::SetTargetFrameRateHz(60);
+                    FrameRateHz::Set(60.0);
                     break;
                 case 4:
-                    //Graphics::SetTargetFrameRateHz(120);
+                    FrameRateHz::Set(120.0);
                     break;
                 default:
                     break;
@@ -158,7 +159,6 @@ namespace abyss::Debug
             JSON json,
             std::stack<String>& flagNamePath
         ) {
-            volatile auto a = json.getType();
             for (auto&& [name, obj] : json) {
                 if (flagNamePath.empty()) {
                     flagNamePath.push(name);
