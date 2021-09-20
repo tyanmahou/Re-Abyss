@@ -31,7 +31,8 @@ namespace abyss::Debug
             template<class Type>
             LogBuffer& operator << (const Type& value)
             {
-                s3d::Formatter(*formatData, value);
+                // TODO 後で確認
+                //s3d::Formatter(*formatData, value);
                 return *this;
             }
         };
@@ -60,7 +61,8 @@ namespace abyss::Debug
             LogBuffer<Kind> operator << (const Type& value)const
             {
                 LogBuffer<Kind> buf;
-                s3d::Formatter(*buf.formatData, value);
+                // TODO 後で確認
+                //s3d::Formatter(*buf.formatData, value);
                 return buf;
             }
         };

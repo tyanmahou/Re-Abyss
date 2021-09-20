@@ -4,6 +4,38 @@
 namespace abyss
 {
     template<class Type>
+    struct TOMLValueTraits
+    {
+        Type operator()(const s3d::TOMLValue& value) const
+        {
+            return value.get<Type>();
+        }
+    };
+
+    template<class Type>
+    Type GetValue(const s3d::TOMLValue& value)
+    {
+        return TOMLValueTraits<Type>{}(value);
+    }
+    template<class Type>
+    s3d::Optional<Type> GetOpt(const s3d::TOMLValue& value)
+    {
+        if (value.isEmpty()) {
+            return s3d::none;
+        }
+        return TOMLValueTraits<Type>{}(value);
+    }
+
+    template<class Type>
+    struct TOMLValueTraits<s3d::Optional<Type>>
+    {
+        s3d::Optional<Type> operator()(const s3d::TOMLValue& value) const
+        {
+            return GetOpt<Type>(value);
+        }
+    };
+
+    template<class Type>
     struct TOMLBind
     {
         // Type operator()(const s3d::TOMLValue& toml);
@@ -110,7 +142,7 @@ namespace abyss
             if constexpr (IsTOMLBindable<Value>) {
                 return TOMLBind<Value>{}(toml);
             } else {
-                return toml.get<Value>();
+                return GetValue<Value>(toml);
             }
         }
 

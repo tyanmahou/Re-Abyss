@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <functional>
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 #include <abyss/types/ColDirection.hpp>
 #include "ITerrainExtData.hpp"
 #include "Tag.hpp"

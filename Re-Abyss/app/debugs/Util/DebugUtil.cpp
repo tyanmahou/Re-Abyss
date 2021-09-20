@@ -3,8 +3,9 @@
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
+#define NO_S3D_USING
 #include <Siv3D.hpp>
-#include <Siv3D/Windows.hpp>
+#include <Siv3D/Windows/Windows.hpp>
 
 namespace abyss::Debug::DebugUtil
 {
@@ -14,15 +15,15 @@ namespace abyss::Debug::DebugUtil
             [&color](const auto& c) {
                 c.draw(color);
             },
-            [&color](const Vec2& c) {
-                Shape2D::Cross(5, 2, c).draw(color);
+            [&color](const s3d::Vec2& c) {
+                s3d::Shape2D::Cross(5, 2, c).draw(color);
             },
-            [&color](const Array<CShape>& c) {
+            [&color](const s3d::Array<CShape>& c) {
                 for (const auto& shape : c) {
                     DrawShape(shape, color);
                 }
             },
-            []([[maybe_unused]] const None_t&) {}
+            []([[maybe_unused]] const s3d::None_t&) {}
         }, shape);
     }
     bool FileEdit(const s3d::FilePath& path)

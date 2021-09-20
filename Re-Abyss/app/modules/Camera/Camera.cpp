@@ -92,7 +92,7 @@ namespace abyss
 	}
 	s3d::Vec2 Camera::transform(const s3d::Vec2& pos) const
 	{
-		return this->createView().getMat().transform(pos);
+		return this->createView().getMat().transformPoint(pos);
 	}
 	SnapshotView* Camera::getSnapshot() const
 	{

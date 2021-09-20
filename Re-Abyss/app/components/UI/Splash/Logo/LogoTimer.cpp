@@ -5,7 +5,7 @@
 namespace abyss::UI::Splash::Logo
 {
     LogoTimer::LogoTimer():
-        m_timer(Param::Common::FadeTime, true)
+        m_timer(Param::Common::FadeTime, StartImmediately::Yes)
     {}
 
     double LogoTimer::time0_1() const

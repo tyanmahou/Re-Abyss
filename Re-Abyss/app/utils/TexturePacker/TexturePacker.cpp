@@ -1,6 +1,6 @@
 #include "TexturePacker.hpp"
 #include <Siv3D.hpp>
-#include <Siv3D/JSONReader.hpp>
+#include <Siv3D/JSON.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/FileSystem.hpp>
 #include <Siv3D/Texture.hpp>
@@ -33,7 +33,7 @@ namespace abyss
 
 		void load(const s3d::FilePath& json)
 		{
-			JSONReader reader(json);
+			JSON reader(json);
 			if (!reader) {
 				return;
 			}

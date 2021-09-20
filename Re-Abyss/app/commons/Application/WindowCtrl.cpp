@@ -9,7 +9,9 @@ namespace
 
     bool SetFullScreen(bool isFullScreen)
     {
-        return Window::SetFullscreen(isFullScreen, unspecified, WindowResizeOption::KeepSceneSize);
+        // TODO 問題ないか確認
+        Window::SetFullscreen(isFullScreen);
+        return true;
     }
 
     std::pair<int32, int32> ToRational(WindowSizeKind kind)
@@ -74,7 +76,8 @@ namespace abyss
             Windows::WindowMenu::Main().show(true);
             newClientSize += Size(0, 20);
 #endif
-            Window::Resize(newClientSize, WindowResizeOption::KeepSceneSize);
+            // TODO 問題ないか確認
+            Window::Resize(newClientSize);
         }
         break;
         }

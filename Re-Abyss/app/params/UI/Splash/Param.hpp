@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::UI::Splash
@@ -9,7 +9,7 @@ namespace abyss::UI::Splash
         [[TOML_BIND(Common::FadeTime, "Common.fadeTime")]]
         struct Common
         {
-            inline static double FadeTime{ 3.0 };
+            inline static s3d::Duration FadeTime{ 3.0 };
         };
     };
 }

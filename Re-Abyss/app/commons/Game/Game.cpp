@@ -66,7 +66,9 @@ namespace abyss
 	Game::Game() :
 		m_pImpl(std::make_unique<Impl>())
 	{
-		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
+		// 初期設定
+		Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
+		Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 0, SamplerState::ClampNearest);
 	}
 
 	Game::~Game()

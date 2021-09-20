@@ -19,11 +19,11 @@ namespace abyss::Debug
             auto& mainMenu = Windows::WindowMenu::Main();
             m_debugRoot = mainMenu.createItem(U"デバッグ(&D)");
             
-            JSONReader json(MenuPath);
+            JSON json(MenuPath);
             std::stack<String> flagNamePath;
 
             // パース
-            this->parseList(m_debugRoot, json.objectView(), flagNamePath);
+            this->parseList(m_debugRoot, json, flagNamePath);
 
             mainMenu.show(true);
         }
@@ -42,22 +42,23 @@ namespace abyss::Debug
     private:
         void execFPS(Windows::MenuItem& menu)
         {
+            // TODO 固定フレームレートはなくなったので、なんか個別に対処する
             menu.createRadioButton({ U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120" }, [](size_t index) {
                 switch (index) {
                 case 0:
-                    Graphics::SetTargetFrameRateHz(s3d::none);
+                    //Graphics::SetTargetFrameRateHz(s3d::none);
                     break;
                 case 1:
-                    Graphics::SetTargetFrameRateHz(10);
+                    //Graphics::SetTargetFrameRateHz(10);
                     break;
                 case 2:
-                    Graphics::SetTargetFrameRateHz(30);
+                    //Graphics::SetTargetFrameRateHz(30);
                     break;
                 case 3:
-                    Graphics::SetTargetFrameRateHz(60);
+                    //Graphics::SetTargetFrameRateHz(60);
                     break;
                 case 4:
-                    Graphics::SetTargetFrameRateHz(120);
+                    //Graphics::SetTargetFrameRateHz(120);
                     break;
                 default:
                     break;
@@ -77,13 +78,13 @@ namespace abyss::Debug
                     if (callback) {
                         callback(m_pScene->get().get());
                     }
-                    m_pScene->changeScene(key, 1000, false);
+                    m_pScene->changeScene(key, 1000, CrossFade::No);
                 }
             });
         }
         void createMainSceneChangeButtons(Windows::MenuItem& m, const s3d::FilePath& basePath)
         {
-            for (auto&& path : s3d::FileSystem::DirectoryContents(basePath, false)) {
+            for (auto&& path : s3d::FileSystem::DirectoryContents(basePath, Recursive::No)) {
                 if (s3d::FileSystem::IsDirectory(path)) {
                     if (s3d::FileSystem::DirectoryContents(path).any([](const s3d::FilePath& p) {
                         return s3d::FileSystem::Extension(p) == U"tmx";
@@ -143,7 +144,7 @@ namespace abyss::Debug
         void parseCheckButton(
             Windows::MenuItem& menu,
             const String& label,
-            JSONValue& json,
+            const JSON& json,
             std::stack<String>& flagNamePath
         ) {
             bool isChecked = json[U"isChecked"].getOr<bool>(false);
@@ -155,7 +156,7 @@ namespace abyss::Debug
         }
         void parseList(
             Windows::MenuItem& menu,
-            JSONObjectView json,
+            const JSON& json,
             std::stack<String>& flagNamePath
         ) {
             for (auto&& [name, obj] : json) {
@@ -174,7 +175,7 @@ namespace abyss::Debug
                 } else if (kind == U"popup") {
                     auto label = obj[U"label"].getOr<String>(name);
                     auto nextMenu = menu.createItem(label);
-                    parseList(nextMenu, obj[U"list"].objectView(), flagNamePath);
+                    parseList(nextMenu, obj[U"list"], flagNamePath);
                 } else if (kind == U"custom") {
                     auto label = obj[U"label"].getOr<String>(name);
                     auto nextMenu = menu.createItem(label);

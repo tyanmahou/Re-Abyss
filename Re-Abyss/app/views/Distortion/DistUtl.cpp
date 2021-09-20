@@ -91,63 +91,64 @@ namespace
         const IndexType quality = detail::CalculateCircleQuality(absR * scale);
         const IndexType vertexSize = quality + 1, indexSize = quality * 3;
 
-        Sprite sprite(vertexSize, indexSize);
-        Vertex2D* pVertex = sprite.vertices.data();
-        IndexType* pIndex = sprite.indices.data();
+        // TODO 後で確認
+        //Sprite sprite(vertexSize, indexSize);
+        //Vertex2D* pVertex = sprite.vertices.data();
+        //IndexType* pIndex = sprite.indices.data();
 
-        // 中心
-        const float centerX = center.x;
-        const float centerY = center.y;
-        pVertex[0].pos.set(centerX, centerY);
+        //// 中心
+        //const float centerX = center.x;
+        //const float centerY = center.y;
+        //pVertex[0].pos.set(centerX, centerY);
 
-        // 周
-        if (quality <= detail::MaxSinCosTableQuality) {
-            const Float2* pCS = detail::GetSinCosTableStartPtr(quality);
-            Vertex2D* pDst = &pVertex[1];
+        //// 周
+        //if (quality <= detail::MaxSinCosTableQuality) {
+        //    const Float2* pCS = detail::GetSinCosTableStartPtr(quality);
+        //    Vertex2D* pDst = &pVertex[1];
 
-            for (IndexType i = 0; i < quality; ++i) {
-                Float2 dir = (Float2{ pCS->x, pCS->y }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
-                (pDst)->pos.set(r * pCS->x + centerX, r * pCS->y + centerY);
-                (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
-                ++pCS;
-            }
-        } else {
-            const float radDelta = s3d::Math::TwoPiF / quality;
-            Vertex2D* pDst = &pVertex[1];
+        //    for (IndexType i = 0; i < quality; ++i) {
+        //        Float2 dir = (Float2{ pCS->x, pCS->y }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+        //        (pDst)->pos.set(r * pCS->x + centerX, r * pCS->y + centerY);
+        //        (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
+        //        ++pCS;
+        //    }
+        //} else {
+        //    const float radDelta = s3d::Math::TwoPiF / quality;
+        //    Vertex2D* pDst = &pVertex[1];
 
-            for (IndexType i = 0; i < quality; ++i) {
-                const float rad = radDelta * i;
-                const float c = std::cos(rad);
-                const float s = std::sin(rad);
+        //    for (IndexType i = 0; i < quality; ++i) {
+        //        const float rad = radDelta * i;
+        //        const float c = std::cos(rad);
+        //        const float s = std::sin(rad);
 
-                Float2 dir = (Float2{ c, -s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+        //        Float2 dir = (Float2{ c, -s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
 
-                (pDst)->pos.set(centerX + r * c, centerY - r * s);
-                (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
-            }
-        }
+        //        (pDst)->pos.set(centerX + r * c, centerY - r * s);
+        //        (pDst++)->color.set(dir.x, dir.y, 0, 0.5f);
+        //    }
+        //}
 
-        {
-            (pVertex++)->color = Float4(0.5f, 0.5f, innerPower / 128.0f, 0.5f);
+        //{
+        //    (pVertex++)->color = Float4(0.5f, 0.5f, innerPower / 128.0f, 0.5f);
 
-            for (size_t i = 1; i < vertexSize; ++i) {
-                (pVertex++)->color.z = outerPower / 128.0f;
-            }
-        }
+        //    for (size_t i = 1; i < vertexSize; ++i) {
+        //        (pVertex++)->color.z = outerPower / 128.0f;
+        //    }
+        //}
 
-        {
-            for (IndexType i = 0; i < quality - 1; ++i) {
-                *pIndex++ = (i + 1);
-                *pIndex++ = 0;
-                *pIndex++ = (i + 2);
-            }
+        //{
+        //    for (IndexType i = 0; i < quality - 1; ++i) {
+        //        *pIndex++ = (i + 1);
+        //        *pIndex++ = 0;
+        //        *pIndex++ = (i + 2);
+        //    }
 
-            *pIndex++ = quality;
-            *pIndex++ = 0;
-            *pIndex++ = 1;
-        }
+        //    *pIndex++ = quality;
+        //    *pIndex++ = 0;
+        //    *pIndex++ = 1;
+        //}
 
-        sprite.draw();
+        //sprite.draw();
     }
 
     void DrawCircleFrame(const Float2& center, const float rInner, const float thickness, const float innerPower, const float outerPower, const float scale)
@@ -156,55 +157,56 @@ namespace
         const IndexType quality = detail::CalculateCircleFrameQuality(rOuter * scale);
         const IndexType vertexSize = quality * 2, indexSize = quality * 6;
 
-        Sprite sprite(vertexSize, indexSize);
-        Vertex2D* pVertex = sprite.vertices.data();
-        IndexType* pIndex = sprite.indices.data();
+        // TODO 後で確認
+        //Sprite sprite(vertexSize, indexSize);
+        //Vertex2D* pVertex = sprite.vertices.data();
+        //IndexType* pIndex = sprite.indices.data();
 
-        const float centerX = center.x;
-        const float centerY = center.y;
+        //const float centerX = center.x;
+        //const float centerY = center.y;
 
-        if (quality <= detail::MaxSinCosTableQuality) {
-            const Float2* pCS = detail::GetSinCosTableStartPtr(quality);
-            Vertex2D* pDst = pVertex;
+        //if (quality <= detail::MaxSinCosTableQuality) {
+        //    const Float2* pCS = detail::GetSinCosTableStartPtr(quality);
+        //    Vertex2D* pDst = pVertex;
 
-            for (IndexType i = 0; i < quality; ++i) {
-                Float2 dir = (Float2{ pCS->x, pCS->y }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+        //    for (IndexType i = 0; i < quality; ++i) {
+        //        Float2 dir = (Float2{ pCS->x, pCS->y }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
 
-                (pDst)->pos.set(rOuter * pCS->x + centerX, rOuter * pCS->y + centerY);
-                (pDst++)->color.set(dir.x, dir.y, outerPower / 128.0f, 0.5f);
+        //        (pDst)->pos.set(rOuter * pCS->x + centerX, rOuter * pCS->y + centerY);
+        //        (pDst++)->color.set(dir.x, dir.y, outerPower / 128.0f, 0.5f);
 
-                (pDst)->pos.set(rInner * pCS->x + centerX, rInner * pCS->y + centerY);
-                (pDst++)->color.set(dir.x, dir.y, innerPower / 128.0f, 0.5f);
+        //        (pDst)->pos.set(rInner * pCS->x + centerX, rInner * pCS->y + centerY);
+        //        (pDst++)->color.set(dir.x, dir.y, innerPower / 128.0f, 0.5f);
 
-                ++pCS;
-            }
-        } else {
-            const float radDelta = s3d::Math::TwoPiF / quality;
-            Vertex2D* pDst = pVertex;
+        //        ++pCS;
+        //    }
+        //} else {
+        //    const float radDelta = s3d::Math::TwoPiF / quality;
+        //    Vertex2D* pDst = pVertex;
 
-            for (IndexType i = 0; i < quality; ++i) {
-                const float rad = radDelta * i;
-                const float c = std::cos(rad);
-                const float s = std::sin(rad);
+        //    for (IndexType i = 0; i < quality; ++i) {
+        //        const float rad = radDelta * i;
+        //        const float c = std::cos(rad);
+        //        const float s = std::sin(rad);
 
-                Float2 dir = (Float2{ c, -s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+        //        Float2 dir = (Float2{ c, -s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
 
-                (pDst)->pos.set(centerX + rOuter * c, centerY - rOuter * s);
-                (pDst++)->color.set(dir.x, dir.y, outerPower / 128.0f, 0.5f);
+        //        (pDst)->pos.set(centerX + rOuter * c, centerY - rOuter * s);
+        //        (pDst++)->color.set(dir.x, dir.y, outerPower / 128.0f, 0.5f);
 
-                (pDst)->pos.set(centerX + rInner * c, centerY - rInner * s);
-                (pDst++)->color.set(dir.x, dir.y, innerPower / 128.0f, 0.5f);
+        //        (pDst)->pos.set(centerX + rInner * c, centerY - rInner * s);
+        //        (pDst++)->color.set(dir.x, dir.y, innerPower / 128.0f, 0.5f);
 
-            }
-        }
+        //    }
+        //}
 
-        for (IndexType i = 0; i < quality; ++i) {
-            for (IndexType k = 0; k < 6; ++k) {
-                *pIndex++ = (i * 2 + detail::RectIndexTable[k]) % (quality * 2);
-            }
-        }
+        //for (IndexType i = 0; i < quality; ++i) {
+        //    for (IndexType k = 0; k < 6; ++k) {
+        //        *pIndex++ = (i * 2 + detail::RectIndexTable[k]) % (quality * 2);
+        //    }
+        //}
 
-        sprite.draw();
+        //sprite.draw();
     }
 }
 

@@ -21,6 +21,15 @@ namespace
     };
 
     template<>
+    struct AssetLoadTraits<s3d::PixelShader>
+    {
+        s3d::PixelShader load(const s3d::FilePath& path) const
+        {
+            return HLSL{ path, U"PS" };
+        }
+    };
+
+    template<>
     struct AssetLoadTraits<s3d::Audio>
     {
         template<class Callback>
@@ -101,7 +110,7 @@ namespace abyss::Resource
         }
         const PixelShader& loadPs(const s3d::FilePath& path)
         {
-            return this->load<PixelShader>(m_psCache, path, Array<ConstantBufferBinding>{ { U"PSConstants2D", 0 } });
+            return this->load<PixelShader>(m_psCache, path);
         }
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path)
         {

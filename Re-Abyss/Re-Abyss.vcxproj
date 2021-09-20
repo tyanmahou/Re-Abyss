@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
     <TargetName>$(ProjectName)(debug)</TargetName>
@@ -82,8 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -92,8 +92,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -102,8 +102,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_4_3)\include;$(SIV3D_0_4_3)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_4_3)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -122,7 +122,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MinimalRebuild>false</MinimalRebuild>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -154,7 +154,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -185,7 +185,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -216,7 +216,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.hpp</ForcedIncludeFiles>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
@@ -454,7 +454,20 @@
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
-    <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
+    <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
@@ -562,8 +575,34 @@
     <ClCompile Include="app\utils\IdGenerator\IdGenerator.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
-    <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
-    <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
+    <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\KingDux\KingDuxVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp" />
@@ -888,6 +927,7 @@
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
+    <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />

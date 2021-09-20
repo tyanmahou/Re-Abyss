@@ -23,7 +23,7 @@ namespace abyss::Event::Talk
     {
         // todo リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);
-        JSONReader json(fixPath);
+        JSON json(fixPath);
         if (!json) {
             return;
         }
@@ -73,7 +73,7 @@ namespace abyss::Event::Talk
                 model.setSide(side == U"left" ? SerifModel::Side::Left : SerifModel::Side::Right);
 
                 for (const auto& message : serif[U"messages"].arrayView()) {
-                    for (const auto& [kind, m] : message.objectView()) {
+                    for (const auto& [kind, m] : message) {
                         model.addMessage(SerifModel::Message{ kind,  m.get<String>() });
                     }
                 }

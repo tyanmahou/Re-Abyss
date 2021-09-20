@@ -1,5 +1,6 @@
 #include "WindowMenu.hpp"
 #include "../CustomWindowProc/CustomWindowProc.hpp"
+#define NO_S3D_USING
 #include <Siv3D.hpp>
 #include <variant>
 
@@ -172,7 +173,7 @@ namespace abyss::Windows
             {
                 this->setItemInfo(MIIM_STRING | MIIM_SUBMENU);
             }
-            Array<MenuItem> items;
+            s3d::Array<MenuItem> items;
             for (auto&& elm : name) {
                 items.emplace_back(this->createItemRaw(elm));
             }
@@ -188,9 +189,9 @@ namespace abyss::Windows
             }
             return items;
         }
-        String name() const
+        s3d::String name() const
         {
-            return Unicode::FromWString(m_name);
+            return s3d::Unicode::FromWstring(m_name);
         }
         void release() const
         {
@@ -229,7 +230,8 @@ namespace abyss::Windows
     public:
         Impl()
         {
-            m_shareData.hWnd = static_cast<HWND>(s3d::Platform::Windows::Window::GetHWND());
+            // TODO 後で確認
+            m_shareData.hWnd = ::GetActiveWindow();// static_cast<HWND>(s3d::Platform::Windows::Window::GetHWND());
             m_hMenu = ::CreateMenu();
 
             m_winProc.setCallback([](HWND , UINT message, WPARAM wParam, LPARAM )->s3d::Optional<LRESULT> {

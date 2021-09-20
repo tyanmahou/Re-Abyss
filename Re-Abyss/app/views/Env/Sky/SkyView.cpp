@@ -19,7 +19,7 @@ namespace abyss::Env
 
     void SkyView::draw(const s3d::Vec2& pos) const
     {
-        Graphics2D::SetTexture(1, m_texture2);
+        Graphics2D::SetPSTexture(1, m_texture2);
         ScopedRenderStates2D blend(BlendState::Additive, SamplerState::MirrorNearest);
         auto shader = m_skyShader.start();
         auto offset = Vec2{ 0, s3d::Min(0.0, -pos.y / 20.0) };

@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 #include <abyss/types/ColDirection.hpp>
 
 namespace abyss

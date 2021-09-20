@@ -5,7 +5,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Effect/Common/LifeTime.hpp>
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 
 namespace abyss::Effect::Misc::Fish
 {

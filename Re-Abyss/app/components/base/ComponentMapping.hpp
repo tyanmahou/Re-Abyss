@@ -34,6 +34,6 @@ namespace abyss
     {
         s3d::Array<std::type_index> result;
         detail::ComponentMapping<Type>{}.mapping(result);
-        return result.unique();
+        return result.sort_and_unique();
     }
 }

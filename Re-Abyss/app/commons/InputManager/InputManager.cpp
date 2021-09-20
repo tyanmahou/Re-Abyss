@@ -23,7 +23,7 @@ namespace abyss
             }
             // JoyCon
             for (const auto& info : System::EnumerateGamepads()) {
-                auto&& pad = Gamepad(info.index);
+                auto&& pad = Gamepad(info.playerIndex);
                 if (JoyCon::IsJoyConR(pad)) {
                     auto joyConR = JoyCon(pad);
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::UI::Title
@@ -12,7 +12,7 @@ namespace abyss::UI::Title
         [[TOML_BIND(Step::MoveDiff, "Step.moveDiff")]]
         struct Step
         {
-            inline static double TimeSec{ 0.166 };
+            inline static s3d::Duration TimeSec{ 0.166 };
             inline static s3d::Vec2 BasePos{ 480, 270 };
             inline static s3d::Vec2 MoveOffset{ 200, 200 };
             inline static s3d::Vec2 MoveDiff{ 100, 100 };

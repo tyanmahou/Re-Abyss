@@ -33,7 +33,7 @@ namespace abyss
         {}
         ScopedCustomShader2D start() const
         {
-            s3d::Graphics2D::SetTexture(3, m_dither);
+            s3d::Graphics2D::SetPSTexture(3, m_dither);
             return ScopedCustomShader2D(m_ps);
         }
     private:

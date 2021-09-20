@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Texture.hpp>
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 
 namespace abyss
 {

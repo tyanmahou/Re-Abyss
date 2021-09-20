@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 #include <Siv3D/Optional.hpp>
 
 #include <abyss/types/Forward.hpp>

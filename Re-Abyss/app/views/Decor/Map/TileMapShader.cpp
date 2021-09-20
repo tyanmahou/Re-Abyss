@@ -39,8 +39,8 @@ namespace abyss::Decor::Map
         s3d::ScopedCustomShader2D start(Image&& image)
         {
             m_gId.fill(std::move(image));
-            s3d::Graphics2D::SetTexture(1, m_mapChip);
-            s3d::Graphics2D::SetTexture(2, m_gId);
+            s3d::Graphics2D::SetPSTexture(1, m_mapChip);
+            s3d::Graphics2D::SetPSTexture(2, m_gId);
             s3d::Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
             return s3d::ScopedCustomShader2D(m_ps);
         }

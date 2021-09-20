@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 #include <Siv3D/Color.hpp>
 #include <Siv3D/Optional.hpp>
 

@@ -1,12 +1,18 @@
 #pragma once
 #include <variant>
 
-#include <Siv3D/Rectangle.hpp>
-#include <Siv3D/Circle.hpp>
-#include <Siv3D/Quad.hpp>
-#include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Array.hpp>
+//#include <Siv3D/RectF.hpp>
+//#include <Siv3D/Circle.hpp>
+//#include <Siv3D/Quad.hpp>
+//#include <Siv3D/Vector2D.hpp>
+//#include <Siv3D/Line.hpp>
+//#include <Siv3D/Triangle.hpp>
+//#include <Siv3D/Array.hpp>
+//#include <Siv3D/None.hpp>
 
+// TODO 後で確認
+#define NO_S3D_USING
+#include <Siv3D.hpp>
 
 namespace abyss
 {

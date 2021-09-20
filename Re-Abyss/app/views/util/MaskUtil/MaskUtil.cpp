@@ -25,7 +25,7 @@ namespace abyss
 		Impl(uint32 width, uint32 height) :
 			m_rt(width, height),
 			m_rt2(width, height),
-			m_maskPs(U"resources/shaders/mask.hlsl", { { U"PSConstants2D", 0 } })
+			m_maskPs(HLSL{U"resources/shaders/mask.hlsl"})
 		{}
 
 		void draw(MaskFunc func, const std::function<void()> mask)
@@ -44,7 +44,7 @@ namespace abyss
 				ScopedRenderTarget2D target(m_rt);
 				mask();
 			}
-			Graphics2D::SetTexture(1, m_rt);
+			Graphics2D::SetPSTexture(1, m_rt);
 
 			m_cb->isEqual = func == MaskFunc::Equal ? 1 : 0;
 			Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
