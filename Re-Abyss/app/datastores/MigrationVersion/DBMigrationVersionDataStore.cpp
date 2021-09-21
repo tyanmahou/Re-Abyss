@@ -1,5 +1,5 @@
 #include "DBMigrationVersionDataStore.hpp"
-
+#include <abyss/utils/DB/DBUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::User
@@ -29,8 +29,6 @@ namespace abyss::User
             return false;
 
         }
-        s3dsql::DBValueArray params;
-
         String sql = U""
             "INSERT OR IGNORE INTO"
             "    migration_versions(version_id)"
@@ -38,22 +36,9 @@ namespace abyss::User
             "    {}"
             ";"
         ;
-
-        // TODO Util化
-        String ph;
-        bool isFirst = true;
-        for (auto versionId : versions) {
-            if (!isFirst) {
-                ph += U",";
-            } else {
-                isFirst = false;
-            }
-            ph += U"(?)";
-
-            params << versionId;
-        }
-
-        return m_db.exec(s3d::Fmt(sql)(ph), params) != 0;
+        return DBUtil::ExecPlaceHolder<1>(m_db, sql, versions, [](auto& params, s3d::int64 value) {
+            params << value;
+        }) != 0;
     }
     bool DBMigrationVersionDataStore::erase(s3d::int64 versionId) const
     {
