@@ -13,7 +13,7 @@
 #include <abyss/models/Event/Talk/FaceTableModel.hpp>
 
 #include <Siv3D.hpp>
-//todo消す
+// TODO 消す
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
@@ -21,7 +21,7 @@ namespace abyss::Event::Talk
 {
     void TalkBuilder::Build(EventObj* pEvent, const s3d::String& path)
     {
-        // todo リソースロード経由にする
+        // TODO リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);
         JSON json = JSON::Load(fixPath);
         if (!json) {

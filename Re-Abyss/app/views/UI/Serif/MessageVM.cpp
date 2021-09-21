@@ -31,7 +31,6 @@ namespace abyss::UI::Serif
             const auto offset = EaseIn(Easing::Linear, static_cast<double>(m_strIndex) / 2.0) * 2;
             const auto alpha  = static_cast<uint32>(Max(0.0, 255.0 - offset * 50.0));
 
-            // TODO 後で確認
             // 一つ前の描画
             Vec2 pos = m_pos;
             Color color = Palette::White;
