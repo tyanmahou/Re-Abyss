@@ -1,6 +1,4 @@
 #include "CustomWindowProc.hpp"
-
-#define NO_S3D_USING
 #include <Siv3D.hpp>
 
 namespace
@@ -33,8 +31,7 @@ namespace abyss::Windows
 		Impl()
 		{
 			if (g_callbacks.empty() && !g_baseProc) {
-				// TODO 後で確認
-				g_hWnd = ::GetForegroundWindow();
+				g_hWnd = static_cast<HWND>(s3d::Platform::Windows::Window::GetHWND());
 				g_baseProc = ::SetWindowLongPtr(g_hWnd, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(::CustomWindowProcImpl));
 			}
 			g_callbacks[this] = nullptr;

@@ -57,7 +57,7 @@ namespace abyss::UI::Serif
                     pos.y += font.height() + 4;
                     continue;
                 }
-                const double t = static_cast<double>(m_strIndex - index);
+                const double t = static_cast<double>(m_strIndex - static_cast<int32>(index));
                 auto drawPos = pos + glyph.getOffset();
                 drawPos.y -= EaseIn(Easing::Quad, s3d::Saturate(1 - t / 4.0f)) * 20;
 

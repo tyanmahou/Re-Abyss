@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_1)\include;$(SIV3D_0_6_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_1)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
     <TargetName>$(ProjectName)(debug)</TargetName>
@@ -82,8 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_1)\include;$(SIV3D_0_6_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_1)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -92,8 +92,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_1)\include;$(SIV3D_0_6_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_1)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -102,8 +102,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_0)\include;$(SIV3D_0_6_0)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_0)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\S3DTiled\include;$(SIV3D_0_6_1)\include;$(SIV3D_0_6_1)\include\ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(ProjectDir)\vendor\S3DTiled\lib;$(SIV3D_0_6_1)\lib\Windows;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
@@ -455,18 +455,14 @@
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
-      </ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Use</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">stdafx.hpp</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
@@ -576,32 +572,24 @@
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
-      </ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Use</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">stdafx.hpp</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
-      </ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Use</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">stdafx.hpp</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\KingDux\KingDuxVM.cpp" />

@@ -3,7 +3,6 @@
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
-#define NO_S3D_USING
 #include <Siv3D.hpp>
 #include <Siv3D/Windows/Windows.hpp>
 

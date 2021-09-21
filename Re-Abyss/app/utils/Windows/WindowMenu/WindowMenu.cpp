@@ -1,6 +1,5 @@
 #include "WindowMenu.hpp"
 #include "../CustomWindowProc/CustomWindowProc.hpp"
-#define NO_S3D_USING
 #include <Siv3D.hpp>
 #include <variant>
 
@@ -230,8 +229,7 @@ namespace abyss::Windows
     public:
         Impl()
         {
-            // TODO 後で確認
-            m_shareData.hWnd = ::GetForegroundWindow();
+            m_shareData.hWnd = static_cast<HWND>(s3d::Platform::Windows::Window::GetHWND());
             m_hMenu = ::CreateMenu();
 
             m_winProc.setCallback([](HWND , UINT message, WPARAM wParam, LPARAM )->s3d::Optional<LRESULT> {

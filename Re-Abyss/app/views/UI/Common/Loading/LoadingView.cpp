@@ -59,12 +59,12 @@ namespace abyss::UI
             const auto rotateIndex = rotateTime * Text::RotateIndexCoef;
 
             Vec2 basePos = PivotUtil::FromBr(LoadingParam::Text::BasePos);
-            // TODO 後で確認
+
             for (auto&& [index, glyph] : Indexed(FontAsset(FontName::Loading).getGlyphs(U"NOW LOADING..."))) {
                 auto pos = basePos;
                 pos.y -= Text::JumpHeight * Periodic::Jump0_1(1s, Saturate((jumpIndex - index) * Text::JumpTimeRate));
                 const auto rotate = Saturate((rotateIndex - index) * Text::RotateTimeRate) * Math::TwoPi;
-                auto tex = glyph.texture;
+                TextureRegion tex = glyph.texture;
                 auto baseSize = tex.size;
                 tex = tex.scaled(Cos(rotate), 1.0);
                 pos.x += (baseSize.x - tex.size.x) / 2.0;
