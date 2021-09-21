@@ -52,7 +52,7 @@ namespace abyss::DBUtil
     private:
         static consteval auto impl()
         {
-            std::array<char32_t, Num * 2 + 2> ret{};
+            std::array<char32_t, Num * 2 + 1> ret{};
             ret[0] = U'(';
             for (size_t count = 0; count < Num; ++count) {
                 if (count != 0) {
@@ -61,7 +61,6 @@ namespace abyss::DBUtil
                 ret[count * 2 + 1] = U'?';
             }
             ret[Num * 2] = U')';
-            ret[Num * 2 + 1] = U'\0';
             return ret;
         }
         static constexpr auto raw = impl();

@@ -27,7 +27,6 @@ namespace abyss::User
     {
         if (versions.empty()) {
             return false;
-
         }
         String sql = U""
             "INSERT OR IGNORE INTO"

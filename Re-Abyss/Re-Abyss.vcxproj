@@ -453,6 +453,7 @@
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />
+    <ClCompile Include="app\datastores\Migration\Migrations\2021092201_Test.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>

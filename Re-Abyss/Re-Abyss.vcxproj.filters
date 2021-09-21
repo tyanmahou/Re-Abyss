@@ -1657,6 +1657,9 @@
     <ClCompile Include="vendor\abyss\include\abyss\utils\FPS\FrameRateHz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Migration\Migrations\2021092201_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
