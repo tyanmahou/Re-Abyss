@@ -24,8 +24,6 @@ namespace abyss::Debug
         static bool IsDebug(const s3d::String& label);
 
         static void BindScene(AppScene* pScene);
-
-        static Windows::MenuItem DebugRoot();
     };
 }
 

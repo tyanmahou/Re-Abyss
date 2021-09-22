@@ -10,7 +10,7 @@ namespace abyss::Debug
 {
     class Menu::Impl
     {
-        inline static const String MenuPath = Path::DebugPath + U"menu.json";
+        inline static const String MenuPath = Path::DebugPath + U"menu.xml";
     public:
         Impl()
         {
@@ -18,23 +18,21 @@ namespace abyss::Debug
 
         void init()
         {
-            auto& mainMenu = Windows::WindowMenu::Main();
-            m_debugRoot = mainMenu.createItem(U"デバッグ(&D)");
-            
-            JSON json = JSON::Load(MenuPath);
+            const FilePathView path = MenuPath;
+            const XMLReader xml(path);
             std::stack<String> flagNamePath;
 
-            // パース
-            this->parseList(m_debugRoot, json, flagNamePath);
+            auto& mainMenu = Windows::WindowMenu::Main();
+
+            if (xml) {
+                // パース
+                this->parseList(mainMenu, xml, flagNamePath);
+            }
             mainMenu.show(true);
         }
         bool isDebug(const String& label)
         {
             return m_debugFlag[label];
-        }
-        Windows::MenuItem debugRoot()
-        {
-            return m_debugRoot;
         }
         void bindScene(AppScene* pScene)
         {
@@ -143,53 +141,56 @@ namespace abyss::Debug
         }
         void parseCheckButton(
             Windows::MenuItem& menu,
-            const String& label,
-            JSON json,
+            const XMLElement& xml,
             std::stack<String>& flagNamePath
         ) {
-            bool isChecked = json[U"isChecked"].getOr<bool>(false);
+            bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(U"false");
             auto callback = [this, key = flagNamePath.top()](bool isChecked) {
                 m_debugFlag[key] = isChecked;
             };
             callback(isChecked);
-            menu.createCheckButton(label, callback, isChecked);
+            menu.setCheckButton(callback, isChecked);
         }
+        template<class MenuType>
         void parseList(
-            Windows::MenuItem& menu,
-            JSON json,
+            MenuType& menu,
+            const XMLElement& xml,
             std::stack<String>& flagNamePath
         ) {
-            for (auto&& [name, obj] : json) {
+            for (auto e = xml.firstChild(); e; e = e.nextSibling()) {
+                auto name = e.name();
+                if (name == U"hr") {
+                    if constexpr (!std::is_same_v<MenuType, Windows::WindowMenu>) {
+                        menu.createSeperator();
+                    }
+                    continue;
+                }
                 if (flagNamePath.empty()) {
                     flagNamePath.push(name);
                 } else {
                     flagNamePath.push(flagNamePath.top() + U"/" + name);
                 }
-
-                auto kind = obj[U"kind"].getOr<String>(U"checkButton");
-                if (kind == U"checkButton") {
-                    auto label = obj[U"label"].getOr<String>(name);
-                    parseCheckButton(menu, label, obj, flagNamePath);
-                } else if (kind == U"radioButton") {
-
-                } else if (kind == U"popup") {
-                    auto label = obj[U"label"].getOr<String>(name);
+                auto label = e.attribute(U"label").value_or(name);
+                if (e.attribute(U"select")) {
+                    // radioButton
+                } else if (e.firstChild()) {
+                    // popup
                     auto nextMenu = menu.createItem(label);
-                    parseList(nextMenu, obj[U"list"], flagNamePath);
-                } else if (kind == U"custom") {
-                    auto label = obj[U"label"].getOr<String>(name);
+                    parseList(nextMenu, e, flagNamePath);
+                } else if (auto custom = e.attribute(U"custom")) {
+                    // custom
                     auto nextMenu = menu.createItem(label);
-                    parseCustom(nextMenu, obj[U"func"].getOr<String>(U""));
-                }
-                if(obj[U"seperator"].getOr<bool>(false)) {
-                    menu.createSeperator();
+                    parseCustom(nextMenu, *custom);
+                } else {
+                    // check
+                    auto nextMenu = menu.createItem(label);
+                    parseCheckButton(nextMenu, e, flagNamePath);
                 }
                 flagNamePath.pop();
             }
         }
     private:
         s3d::HashTable<String, bool> m_debugFlag;
-        Windows::MenuItem m_debugRoot;
         AppScene* m_pScene = nullptr;
     };
     Menu::Menu():
@@ -206,10 +207,6 @@ namespace abyss::Debug
     void Menu::BindScene(AppScene* pScene)
     {
         return Instance()->m_pImpl->bindScene(pScene);
-    }
-    Windows::MenuItem Menu::DebugRoot()
-    {
-        return Instance()->m_pImpl->debugRoot();
     }
 }
 #endif

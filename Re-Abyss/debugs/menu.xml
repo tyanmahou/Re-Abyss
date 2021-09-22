@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Debug label="デバッグ(&D)">
-  <Scene label="シーン" custom="execScene"/>
-  <Log label ="ログ">
-    <IsVisible label="表示" isChecked="true"/>
-    <hr/>
-    <Normal label="一般" isChecked="true"/>
-    <Warn label="警告" isChecked="true"/>
-    <Error label="エラー" isChecked="true"/>
-    <Load label="ロード" isChecked="true"/>
-  </Log>
-  <Alert label ="アラート">
-    <EffectCount label="エフェクト数" isChecked="false"/>
-    <DecorCount label="装飾数" isChecked="false"/>
-  </Alert>
-  <Draw label ="デバッグ描画">
-    <Collider label="コライダー" isChecked="false"/>
-    <MapCollider label="地形コライダー" isChecked="false"/>
-  </Draw>
-  <PostEffect label ="ポストエフェクト設定">
-    <Light label="ライト" isChecked="true"/>
-    <Distortion label="歪み" isChecked="true"/>
-  </PostEffect>
-  <FPS custom="execFPS"/>
-  <Sound label ="サウンド">
-    <Mute custom="execSoundMute"/>
-  </Sound>
-</Debug>
+<Root>
+  <Debug label="デバッグ(&D)">
+    <Scene label="シーン" custom="execScene"/>
+    <Log label ="ログ">
+      <IsVisible label="表示" isChecked="true"/>
+      <hr/>
+      <Normal label="一般" isChecked="true"/>
+      <Warn label="警告" isChecked="true"/>
+      <Error label="エラー" isChecked="true"/>
+      <Load label="ロード" isChecked="true"/>
+    </Log>
+    <Alert label ="アラート">
+      <EffectCount label="エフェクト数" isChecked="false"/>
+      <DecorCount label="装飾数" isChecked="false"/>
+    </Alert>
+    <Draw label ="デバッグ描画">
+      <Collider label="コライダー" isChecked="false"/>
+      <MapCollider label="地形コライダー" isChecked="false"/>
+    </Draw>
+    <PostEffect label ="ポストエフェクト設定">
+      <Light label="ライト" isChecked="true"/>
+      <Distortion label="歪み" isChecked="true"/>
+    </PostEffect>
+    <FPS custom="execFPS"/>
+    <Sound label ="サウンド">
+      <Mute custom="execSoundMute"/>
+    </Sound>
+  </Debug>
+</Root>
