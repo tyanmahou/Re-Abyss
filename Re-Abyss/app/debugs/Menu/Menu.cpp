@@ -13,8 +13,7 @@ namespace abyss::Debug
         inline static const String MenuPath = Path::DebugPath + U"menu.xml";
     public:
         Impl()
-        {
-        }
+        {}
 
         void init()
         {
@@ -43,31 +42,117 @@ namespace abyss::Debug
             m_pScene = pScene;
         }
     private:
-        void execFPS(Windows::MenuItem& menu)
-        {
-            menu.createRadioButton({ U"FPS：可変", U"FPS: 10", U"FPS: 30", U"FPS: 60", U"FPS: 120" }, [](size_t index) {
-                switch (index) {
-                case 0:
-                    FrameRateHz::Set(s3d::none);
-                    break;
-                case 1:
-                    FrameRateHz::Set(10.0);
-                    break;
-                case 2:
-                    FrameRateHz::Set(30.0);
-                    break;
-                case 3:
-                    FrameRateHz::Set(60.0);
-                    break;
-                case 4:
-                    FrameRateHz::Set(120.0);
-                    break;
-                default:
-                    break;
-                }
-            }, 0);
-        }
 
+#pragma region Button コールバック
+
+#pragma endregion
+
+#pragma region CheckButton パース
+        void parseCheckButton(
+            Windows::MenuItem& menu,
+            const XMLElement& xml,
+            std::stack<String>& flagNamePath
+        )
+        {
+            bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(false);
+
+            auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
+                return this->findCheckButtonCallback(funcName);
+            }).value_or(nullptr);
+
+            auto callback = [this, key = flagNamePath.top(), customCallback](bool isChecked) {
+                m_debugFlag[key] = isChecked;
+                if (customCallback) {
+                    (this->*customCallback)(isChecked);
+                }
+            };
+            callback(isChecked);
+            menu.setCheckButton(callback, isChecked);
+        }
+        auto findCheckButtonCallback(const String& funcName)->void (Impl::*)(bool)
+        {
+            static const std::unordered_map<s3d::String, decltype(&Impl::execSoundMute)> funcMap
+            {
+                { U"execSoundMute", &Impl::execSoundMute },
+            };
+            auto it = funcMap.find(funcName);
+            if (it == funcMap.end()) {
+                return nullptr;
+            }
+            return it->second;
+        }
+        void execSoundMute(bool isChecked)
+        {
+            // マスターボリューム設定
+            // TODO ミュート
+            Debug::Log << U"Mute: " << isChecked;
+        }
+#pragma endregion
+
+#pragma region RadioButton パース
+        void parseRadioButton(
+            Windows::MenuItem& menu,
+            const XMLElement& xml,
+            std::stack<String>& flagNamePath
+        )
+        {
+            size_t selectIndex = xml.attribute(U"select").map(Parse<size_t>).value_or(0);
+
+            auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
+                return this->findRadioButtonCallback(funcName);
+            }).value_or(nullptr);
+
+            s3d::Array<s3d::String> items;
+            s3d::Array<s3d::Optional<String>> values;
+            for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
+                items.push_back(item.attribute(U"label").value_or(item.name()));
+                values.push_back(item.attribute(U"value"));
+            }
+
+            auto callback = [this, key = flagNamePath.top(), values = std::move(values), customCallback](size_t selectIndex) {
+                m_debugSelect[key] = selectIndex;
+                if (customCallback) {
+                    (this->*customCallback)(selectIndex, values[selectIndex]);
+                }
+            };
+            callback(selectIndex);
+            menu.createRadioButton(std::move(items), callback, selectIndex);
+        }
+        auto findRadioButtonCallback(const String& funcName)->void (Impl::*)(size_t, const s3d::Optional<String>&)
+        {
+            static const std::unordered_map<s3d::String, decltype(&Impl::execFPS)> funcMap
+            {
+                { U"execFPS", &Impl::execFPS },
+            };
+            auto it = funcMap.find(funcName);
+            if (it == funcMap.end()) {
+                return nullptr;
+            }
+            return it->second;
+        }
+        void execFPS([[maybe_unused]]size_t index, const s3d::Optional<String>& value)
+        {
+            FrameRateHz::Set(value.map(Parse<double>));
+        }
+#pragma endregion
+
+#pragma region Custom パース
+        void parseCustom(
+            Windows::MenuItem& menu,
+            const String& funcName
+        )
+        {
+            static const std::unordered_map<s3d::String, decltype(&Impl::buildSceneMenu)> funcMap
+            {
+                { U"buildSceneMenu", &Impl::buildSceneMenu },
+            };
+
+            auto it = funcMap.find(funcName);
+            if (it == funcMap.end()) {
+                return;
+            }
+            (this->*it->second)(menu);
+        }
         void createSceneChangeButton(Windows::MenuItem& m, const s3d::String& key, std::function<void(GameData*)> callback = nullptr)
         {
             this->createSceneChangeButton(m, key, key, callback);
@@ -108,7 +193,7 @@ namespace abyss::Debug
                 });
             }
         }
-        void execScene(Windows::MenuItem& menu)
+        void buildSceneMenu(Windows::MenuItem& menu)
         {
             createSceneChangeButton(menu, SceneName::Splash);
             createSceneChangeButton(menu, SceneName::Title);
@@ -121,65 +206,16 @@ namespace abyss::Debug
                 createMainSceneChangeButtons(child, Path::TestMapPath);
             }
         }
-        void execSoundMute(Windows::MenuItem& menu)
-        {
-            menu.setCheckButton([]([[maybe_unused]] bool isChecked) {
-                // マスターボリューム設定
-                // TODO ミュート
-            });
-        }
-        void parseCustom(
-            Windows::MenuItem& menu,
-            const String& funcName
-        ) {
-            static const std::unordered_map<s3d::String, decltype(&Impl::execFPS)> funcMap
-            {
-                { U"execFPS", &Impl::execFPS},
-                { U"execScene", &Impl::execScene },
-                { U"execSoundMute", &Impl::execSoundMute },
-            };
-            if (funcMap.find(funcName) == funcMap.end()) {
-                return;
-            }
-            (this->*funcMap.at(funcName))(menu);
-        }
-        void parseCheckButton(
-            Windows::MenuItem& menu,
-            const XMLElement& xml,
-            std::stack<String>& flagNamePath
-        ) {
-            bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(false);
-            auto callback = [this, key = flagNamePath.top()](bool isChecked) {
-                m_debugFlag[key] = isChecked;
-            };
-            callback(isChecked);
-            menu.setCheckButton(callback, isChecked);
-        }
+#pragma endregion
 
-        void parseRadioButton(
-            Windows::MenuItem& menu,
-            const XMLElement& xml,
-            std::stack<String>& flagNamePath
-        )
-        {
-            size_t selectIndex = xml.attribute(U"select").map(Parse<size_t>).value_or(0);
-            auto callback = [this, key = flagNamePath.top()](size_t selectIndex) {
-                m_debugSelect[key] = selectIndex;
-            };
-            callback(selectIndex);
-            s3d::Array<s3d::String> items;
-            for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
-                items.push_back(item.attribute(U"label").value_or(item.name()));
-            }
-            menu.createRadioButton(std::move(items), callback, selectIndex);
-        }
-
+#pragma region Popup パース
         template<class MenuType>
         void parseList(
             MenuType& menu,
             const XMLElement& xml,
             std::stack<String>& flagNamePath
-        ) {
+        )
+        {
             for (auto e = xml.firstChild(); e; e = e.nextSibling()) {
                 auto name = e.name();
                 if (name == U"hr") {
@@ -214,12 +250,14 @@ namespace abyss::Debug
                 flagNamePath.pop();
             }
         }
+#pragma endregion
+
     private:
         s3d::HashTable<String, bool> m_debugFlag;
         s3d::HashTable<String, size_t> m_debugSelect;
         AppScene* m_pScene = nullptr;
     };
-    Menu::Menu():
+    Menu::Menu() :
         m_pImpl(std::make_unique<Impl>())
     {}
     void Menu::Init()

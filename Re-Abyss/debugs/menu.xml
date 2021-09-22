@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Root>
   <Debug label="デバッグ(&D)">
-    <Scene label="シーン" custom="execScene"/>
+    <Scene label="シーン" custom="buildSceneMenu"/>
     <Log label ="ログ">
       <IsVisible label="表示" isChecked="true"/>
       <hr/>
@@ -22,14 +22,15 @@
       <Light label="ライト" isChecked="true"/>
       <Distortion label="歪み" isChecked="true"/>
     </PostEffect>
-    <FPS custom="execFPS"/>
+    <FPS select="0" callback="execFPS">
+      <Item label="FPS：可変"/>
+      <Item label="FPS：10" value="10"/>
+      <Item label="FPS：30" value="30"/>
+      <Item label="FPS：60" value="60"/>
+      <Item label="FPS：120" value="120"/>
+    </FPS>
     <Sound label ="サウンド">
-      <Mute label ="ミュート" custom="execSoundMute"/>
+      <Mute label ="ミュート" isChecked="false" callback="execSoundMute"/>
     </Sound>
-    <Popup select="1">
-      <Item label="要素1"/>
-      <Item label="要素2"/>
-      <Item label="要素3"/>
-    </Popup>
   </Debug>
 </Root>
