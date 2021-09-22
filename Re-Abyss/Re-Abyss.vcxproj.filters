@@ -2490,6 +2490,7 @@
     <ClInclude Include="app\views\Shader\Scanline\ScanlineShader.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
+    <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

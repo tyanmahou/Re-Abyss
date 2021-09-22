@@ -5,6 +5,7 @@
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
+#include <abyss/utils/Reflection/Reflection.hpp>
 
 namespace abyss::Debug
 {
@@ -49,8 +50,10 @@ namespace abyss::Debug
             const XMLElement& xml
         )
         {
+            using ButtonCallback = void (Impl::*)();
+
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return this->findButtonCallback(funcName);
+                return Reflection<ButtonCallback>::Find(funcName);
             }).value_or(nullptr);
 
             auto callback = [this, customCallback]() {
@@ -60,18 +63,7 @@ namespace abyss::Debug
             };
             menu.setButton(callback);
         }
-        auto findButtonCallback(const String& funcName)->void (Impl::*)()
-        {
-            static const std::unordered_map<s3d::String, decltype(&Impl::execClearLog)> funcMap
-            {
-                { U"execClearLog", &Impl::execClearLog },
-            };
-            auto it = funcMap.find(funcName);
-            if (it == funcMap.end()) {
-                return nullptr;
-            }
-            return it->second;
-        }
+        [[REFLECTION(execClearLog)]]
         void execClearLog()
         {
             Debug::LogUpdater::Clear();
@@ -85,10 +77,12 @@ namespace abyss::Debug
             std::stack<String>& flagNamePath
         )
         {
+            using CheckButtonCallback = void (Impl::*)(bool);
+
             bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(false);
 
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return this->findCheckButtonCallback(funcName);
+                return Reflection<CheckButtonCallback>::Find(funcName);
             }).value_or(nullptr);
 
             auto callback = [this, key = flagNamePath.top(), customCallback](bool isChecked) {
@@ -100,18 +94,8 @@ namespace abyss::Debug
             callback(isChecked);
             menu.setCheckButton(callback, isChecked);
         }
-        auto findCheckButtonCallback(const String& funcName)->void (Impl::*)(bool)
-        {
-            static const std::unordered_map<s3d::String, decltype(&Impl::execSoundMute)> funcMap
-            {
-                { U"execSoundMute", &Impl::execSoundMute },
-            };
-            auto it = funcMap.find(funcName);
-            if (it == funcMap.end()) {
-                return nullptr;
-            }
-            return it->second;
-        }
+
+        [[REFLECTION(execSoundMute)]]
         void execSoundMute(bool isChecked)
         {
             // マスターボリューム設定
@@ -127,10 +111,12 @@ namespace abyss::Debug
             std::stack<String>& flagNamePath
         )
         {
+            using RadioButtonCallback = void (Impl::*)(size_t, const s3d::Optional<String>&);
+
             size_t selectIndex = xml.attribute(U"select").map(Parse<size_t>).value_or(0);
 
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return this->findRadioButtonCallback(funcName);
+                return Reflection<RadioButtonCallback>::Find(funcName);
             }).value_or(nullptr);
 
             s3d::Array<s3d::String> items;
@@ -149,18 +135,8 @@ namespace abyss::Debug
             callback(selectIndex);
             menu.createRadioButton(std::move(items), callback, selectIndex);
         }
-        auto findRadioButtonCallback(const String& funcName)->void (Impl::*)(size_t, const s3d::Optional<String>&)
-        {
-            static const std::unordered_map<s3d::String, decltype(&Impl::execFPS)> funcMap
-            {
-                { U"execFPS", &Impl::execFPS },
-            };
-            auto it = funcMap.find(funcName);
-            if (it == funcMap.end()) {
-                return nullptr;
-            }
-            return it->second;
-        }
+
+        [[REFLECTION(execFPS)]]
         void execFPS([[maybe_unused]]size_t index, const s3d::Optional<String>& value)
         {
             FrameRateHz::Set(value.map(Parse<double>));
@@ -173,16 +149,10 @@ namespace abyss::Debug
             const String& funcName
         )
         {
-            static const std::unordered_map<s3d::String, decltype(&Impl::buildSceneMenu)> funcMap
-            {
-                { U"buildSceneMenu", &Impl::buildSceneMenu },
-            };
-
-            auto it = funcMap.find(funcName);
-            if (it == funcMap.end()) {
-                return;
+            using CustomFunc = void (Impl::*)(Windows::MenuItem&);
+            if (auto func = Reflection<CustomFunc>::Find(funcName)) {
+                (this->*func)(menu);
             }
-            (this->*it->second)(menu);
         }
         void createSceneChangeButton(Windows::MenuItem& m, const s3d::String& key, std::function<void(GameData*)> callback = nullptr)
         {
@@ -224,6 +194,7 @@ namespace abyss::Debug
                 });
             }
         }
+        [[REFLECTION(buildSceneMenu)]]
         void buildSceneMenu(Windows::MenuItem& menu)
         {
             createSceneChangeButton(menu, SceneName::Splash);
