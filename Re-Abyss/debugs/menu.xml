@@ -26,7 +26,7 @@
     <Sound label ="サウンド">
       <Mute label ="ミュート" custom="execSoundMute"/>
     </Sound>
-    <Popup select="0">
+    <Popup select="1">
       <Item label="要素1"/>
       <Item label="要素2"/>
       <Item label="要素3"/>
