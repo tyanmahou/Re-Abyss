@@ -24,7 +24,12 @@
     </PostEffect>
     <FPS custom="execFPS"/>
     <Sound label ="サウンド">
-      <Mute custom="execSoundMute"/>
+      <Mute label ="ミュート" custom="execSoundMute"/>
     </Sound>
+    <Popup select="0">
+      <Item label="要素1"/>
+      <Item label="要素2"/>
+      <Item label="要素3"/>
+    </Popup>
   </Debug>
 </Root>

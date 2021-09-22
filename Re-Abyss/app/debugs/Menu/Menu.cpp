@@ -144,13 +144,32 @@ namespace abyss::Debug
             const XMLElement& xml,
             std::stack<String>& flagNamePath
         ) {
-            bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(U"false");
+            bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(false);
             auto callback = [this, key = flagNamePath.top()](bool isChecked) {
                 m_debugFlag[key] = isChecked;
             };
             callback(isChecked);
             menu.setCheckButton(callback, isChecked);
         }
+
+        void parseRadioButton(
+            Windows::MenuItem& menu,
+            const XMLElement& xml,
+            std::stack<String>& flagNamePath
+        )
+        {
+            size_t selectIndex = xml.attribute(U"select").map(Parse<size_t>).value_or(0);
+            auto callback = [this, key = flagNamePath.top()](size_t selectIndex) {
+                m_debugSelect[key] = selectIndex;
+            };
+            callback(selectIndex);
+            s3d::Array<s3d::String> items;
+            for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
+                items.push_back(item.attribute(U"label").value_or(item.name()));
+            }
+            menu.createRadioButton(std::move(items), callback, selectIndex);
+        }
+
         template<class MenuType>
         void parseList(
             MenuType& menu,
@@ -173,6 +192,8 @@ namespace abyss::Debug
                 auto label = e.attribute(U"label").value_or(name);
                 if (e.attribute(U"select")) {
                     // radioButton
+                    auto nextMenu = menu.createItem(label);
+                    parseRadioButton(nextMenu, e, flagNamePath);
                 } else if (e.firstChild()) {
                     // popup
                     auto nextMenu = menu.createItem(label);
@@ -191,6 +212,7 @@ namespace abyss::Debug
         }
     private:
         s3d::HashTable<String, bool> m_debugFlag;
+        s3d::HashTable<String, size_t> m_debugSelect;
         AppScene* m_pScene = nullptr;
     };
     Menu::Menu():
