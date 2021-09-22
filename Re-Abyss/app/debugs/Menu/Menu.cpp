@@ -34,6 +34,10 @@ namespace abyss::Debug
         {
             return m_debugFlag[label];
         }
+        size_t debugSelect(const s3d::String& label)
+        {
+            return m_debugSelect[label];
+        }
         void bindScene(AppScene* pScene)
         {
             m_pScene = pScene;
@@ -225,6 +229,10 @@ namespace abyss::Debug
     bool Menu::IsDebug(const String& label)
     {
         return Instance()->m_pImpl->isDebug(label);
+    }
+    size_t Menu::DebugSelect(const s3d::String& label)
+    {
+        return Instance()->m_pImpl->debugSelect(label);
     }
     void Menu::BindScene(AppScene* pScene)
     {
