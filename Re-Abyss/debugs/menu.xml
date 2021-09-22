@@ -9,6 +9,8 @@
       <Warn label="警告" isChecked="true"/>
       <Error label="エラー" isChecked="true"/>
       <Load label="ロード" isChecked="true"/>
+      <hr/>
+      <Clear label="ログのクリア" callback ="execClearLog"/>
     </Log>
     <Alert label ="アラート">
       <EffectCount label="エフェクト数" isChecked="false"/>

@@ -44,7 +44,38 @@ namespace abyss::Debug
     private:
 
 #pragma region Button コールバック
+        void parseButton(
+            Windows::MenuItem& menu,
+            const XMLElement& xml
+        )
+        {
+            auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
+                return this->findButtonCallback(funcName);
+            }).value_or(nullptr);
 
+            auto callback = [this, customCallback]() {
+                if (customCallback) {
+                    (this->*customCallback)();
+                }
+            };
+            menu.setButton(callback);
+        }
+        auto findButtonCallback(const String& funcName)->void (Impl::*)()
+        {
+            static const std::unordered_map<s3d::String, decltype(&Impl::execClearLog)> funcMap
+            {
+                { U"execClearLog", &Impl::execClearLog },
+            };
+            auto it = funcMap.find(funcName);
+            if (it == funcMap.end()) {
+                return nullptr;
+            }
+            return it->second;
+        }
+        void execClearLog()
+        {
+            Debug::LogUpdater::Clear();
+        }
 #pragma endregion
 
 #pragma region CheckButton パース
@@ -230,7 +261,11 @@ namespace abyss::Debug
                     flagNamePath.push(flagNamePath.top() + U"/" + name);
                 }
                 auto label = e.attribute(U"label").value_or(name);
-                if (e.attribute(U"select")) {
+                if (e.attribute(U"isChecked")) {
+                    // check
+                    auto nextMenu = menu.createItem(label);
+                    parseCheckButton(nextMenu, e, flagNamePath);
+                } else if (e.attribute(U"select")) {
                     // radioButton
                     auto nextMenu = menu.createItem(label);
                     parseRadioButton(nextMenu, e, flagNamePath);
@@ -243,9 +278,9 @@ namespace abyss::Debug
                     auto nextMenu = menu.createItem(label);
                     parseCustom(nextMenu, *custom);
                 } else {
-                    // check
+                    // button
                     auto nextMenu = menu.createItem(label);
-                    parseCheckButton(nextMenu, e, flagNamePath);
+                    parseButton(nextMenu, e);
                 }
                 flagNamePath.pop();
             }
