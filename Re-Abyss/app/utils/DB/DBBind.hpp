@@ -58,59 +58,70 @@ namespace abyss
 	//----------------------------------------
 	namespace detail
 	{
-		inline constexpr int AUTO_DB_BIND_MAX_LINES = 500;
+		inline constexpr size_t AUTO_DB_BIND_MAX_LINES = 500;
 
-		template<int Line>
+		template<size_t Line>
 		struct AutoDBBindLine
 		{
 			s3dsql::DBRow& row;
 		};
 
-		template<class Type, int LineNum>
+		template<class Type, size_t LineNum>
 		concept AutoDBBindCallable = requires(Type t, AutoDBBindLine<LineNum> l)
 		{
 			t | l;
 		};
 
-		template <class Type, int LineNum>
-		consteval int NextAutoDBBindLine()
+		namespace DBBind
 		{
-			if constexpr (LineNum == AUTO_DB_BIND_MAX_LINES) {
-				return AUTO_DB_BIND_MAX_LINES;
-			} else if constexpr (AutoDBBindCallable<Type, LineNum + 1>) {
-				return LineNum + 1;
-			} else {
-				return NextAutoDBBindLine<Type, LineNum + 1>();
+			template <size_t... As, size_t... Bs>
+			constexpr std::index_sequence<As..., Bs...> operator+(std::index_sequence<As...>, std::index_sequence<Bs...>)
+			{
+				return {};
 			}
-		}
-		template<class Type>
-		concept AutoDBBindable = (NextAutoDBBindLine<Type, 1>() != AUTO_DB_BIND_MAX_LINES);
-
-		template <class Type, int LineNum = NextAutoDBBindLine<Type, 1>()>
-		struct AutoDBBinder {};
-
-		template <AutoDBBindable Type, int LineNum>
-		struct AutoDBBinder<Type, LineNum>
-		{
-			void operator()([[maybe_unused]] Type& ret, s3dsql::DBRow& row)
+			template <class Type, size_t LineNum>
+			constexpr auto filter_seq()
 			{
 				if constexpr (AutoDBBindCallable<Type, LineNum>) {
-					ret | AutoDBBindLine<LineNum>{row};
-				}
-				[[maybe_unused]] constexpr int nextId = NextAutoDBBindLine<Type, LineNum>();
-				if constexpr (nextId != AUTO_DB_BIND_MAX_LINES) {
-					AutoDBBinder<Type, nextId>{}(ret, row);
+					return std::index_sequence<LineNum>{};
+				} else {
+					return std::index_sequence<>{};
 				}
 			}
-		};
+			template <class Type, size_t ...Seq>
+			constexpr auto make_sequence_impl(std::index_sequence<Seq...>)
+			{
+				return (filter_seq<Type, Seq>() + ...);
+			}
+
+			template <class Type>
+			constexpr auto make_sequence()
+			{
+				return make_sequence_impl<Type>(std::make_index_sequence<AUTO_DB_BIND_MAX_LINES>());
+			}
+		}
+
+		template<class Type>
+		concept AutoDBBindable = decltype(DBBind::make_sequence<Type>())::size() > 0;
+
+		template<AutoDBBindable Type, size_t LineNum>
+		void auto_inject([[maybe_unused]] Type& ret, s3dsql::DBRow& row)
+		{
+			ret | AutoDBBindLine<LineNum>{row};
+		}
+		template<AutoDBBindable Type, size_t ...Seq>
+		void auto_inject_all([[maybe_unused]] Type& ret, s3dsql::DBRow& row, std::index_sequence<Seq...>)
+		{
+			(auto_inject<Type, Seq>(ret, row), ...);
+		}
 	}
 	template<detail::AutoDBBindable Type>
 	struct DBBind<Type>
 	{
 		Type operator()(s3dsql::DBRow& row) const
 		{
-			Type ret;
-			detail::AutoDBBinder<Type>{}(ret, row);
+			Type ret{};
+			detail::auto_inject_all(ret, row, detail::DBBind::make_sequence<Type>());
 			return ret;
 		}
 	};
