@@ -53,7 +53,7 @@ namespace abyss::Debug
             using ButtonCallback = void (Impl::*)();
 
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return Reflection<Impl>::Find<ButtonCallback>(funcName);
+                return Reflect<Impl>::find<ButtonCallback>(funcName.c_str());
             }).value_or(nullptr);
 
             auto callback = [this, customCallback]() {
@@ -82,7 +82,7 @@ namespace abyss::Debug
             bool isChecked = xml.attribute(U"isChecked").map(Parse<bool>).value_or(false);
 
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return Reflection<Impl>::Find<CheckButtonCallback>(funcName);
+                return Reflect<Impl>::find<CheckButtonCallback>(funcName.c_str());
             }).value_or(nullptr);
 
             auto callback = [this, key = flagNamePath.top(), customCallback](bool isChecked) {
@@ -116,7 +116,7 @@ namespace abyss::Debug
             size_t selectIndex = xml.attribute(U"select").map(Parse<size_t>).value_or(0);
 
             auto customCallback = xml.attribute(U"callback").map([this](const String& funcName) {
-                return Reflection<Impl>::Find<RadioButtonCallback>(funcName);
+                return Reflect<Impl>::find<RadioButtonCallback>(funcName.c_str());
             }).value_or(nullptr);
 
             s3d::Array<s3d::String> items;
@@ -150,7 +150,7 @@ namespace abyss::Debug
         )
         {
             using CustomFunc = void (Impl::*)(Windows::MenuItem&);
-            if (auto func = Reflection<Impl>::Find<CustomFunc>(funcName)) {
+            if (auto func = Reflect<Impl>::find<CustomFunc>(funcName.c_str())) {
                 (this->*func)(menu);
             }
         }
