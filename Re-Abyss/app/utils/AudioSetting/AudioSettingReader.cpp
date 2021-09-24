@@ -12,8 +12,10 @@ namespace abyss
         }
         if (auto loop = toml[U"loop"].getOpt<bool>()) {
             ret.loop = *loop;
-        } else if (auto loopVec2 = toml[U"loop"].getOpt<Vec2>()) {
-            ret.loop = *loopVec2;
+        } else if (auto loopBegin = toml[U"loop"].getOpt<double>()) {
+            ret.loop = s3d::Duration(*loopBegin);
+        } if (auto loopBeginEnd = toml[U"loop"].getOpt<Vec2>()) {
+            ret.loop = s3d::Vector2D<s3d::Duration>{ loopBeginEnd->x, loopBeginEnd->y };
         } else {
             ret.loop = false;
         }
