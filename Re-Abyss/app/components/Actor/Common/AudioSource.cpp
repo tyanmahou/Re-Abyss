@@ -21,12 +21,13 @@ namespace
         const Vec3 listenerPos(listener, 333);
         const double volume = Pow(1 / Vec3(pos, 0).distanceFrom(listenerPos) * 300, 2);
 
+        // TODO パンの計算
         // 左右で音量を変える
         auto xDiff = pos.x - listener.x;
         auto rate = 1 - Min(1.0, Abs(xDiff) / (Constants::GameScreenSize.x * 0.9));
         return {
-            volume * (xDiff > 0 ? rate : 1.0),
-            volume * (xDiff < 0 ? rate : 1.0)
+            volume,
+            0.0
         };
     }
 
@@ -54,9 +55,9 @@ namespace
             const auto& pos = m_body->getPos();
             const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
-            auto volume = ::CalcVolume(pos, listener);
-            // TODO 後で確認
-            //m_audio.setVolumeLR(volume.first, volume.second);
+            auto [volume, pan] = ::CalcVolume(pos, listener);
+            m_audio.setVolume(volume);
+            m_audio.setPan(pan);
         }
     private:
         Ref<Body> m_body;
@@ -97,9 +98,9 @@ namespace abyss::Actor
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
         for (auto&& audio : m_audios) {
-            auto volume = ::CalcVolume(pos, listener);
-            // TODO 後で確認
-            // audio.setVolumeLR(volume.first, volume.second);
+            auto [volume, pan] = ::CalcVolume(pos, listener);
+            audio.setVolume(volume);
+            audio.setPan(pan);
         }
 
     }
@@ -147,9 +148,9 @@ namespace abyss::Actor
         const auto& pos = m_body->getPos();
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
-        auto volume = ::CalcVolume(pos, listener);
-        // TODO 後で確認
-        // audio.setVolumeLR(volume.first, volume.second);
+        auto [volume, pan] = ::CalcVolume(pos, listener);
+        audio.setVolume(volume);
+        audio.setPan(pan);
         audio.play();
         m_audios.push_back(audio);
     }
