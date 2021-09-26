@@ -1,6 +1,8 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Fwd.hpp>
+#include <Siv3D/Audio.hpp>
+#include <Siv3D/PixelShader.hpp>
 #include <Siv3D/String.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
