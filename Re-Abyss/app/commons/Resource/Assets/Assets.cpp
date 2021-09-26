@@ -28,24 +28,6 @@ namespace
             return HLSL{ path, U"PS" };
         }
     };
-
-    template<>
-    struct AssetLoadTraits<s3d::Audio>
-    {
-        template<class Callback>
-        s3d::Audio load(const s3d::FilePath& path, const Callback& callback) const
-        {
-            if (FileUtil::Extension(path) == U"aas") {
-                AudioSettingReader reader;
-                auto as = reader.load(path);
-                Audio ret = callback(as.path);
-                as.apply(ret);
-                return ret;
-            } else {
-                return s3d::Audio(path);
-            }
-        }
-    };
 }
 namespace abyss::Resource
 {
@@ -54,7 +36,7 @@ namespace abyss::Resource
         s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
-        s3d::HashTable<String, Audio> m_audioCache;
+        s3d::HashTable<String, Wave> m_audioCache;
         s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
@@ -98,11 +80,20 @@ namespace abyss::Resource
         {
             return this->load(m_texturePackerCache, path);
         }
-        const Audio& loadAudio(const s3d::FilePath& path)
+        const Wave& loadWave(const s3d::FilePath& path)
         {
-            return this->load(m_audioCache, path, [this](const s3d::FilePath& callbackPath) {
-                return this->loadAudio(callbackPath);
-            });
+            return this->load(m_audioCache, path);
+        }
+        s3d::Audio loadAudio(const s3d::FilePath& path)
+        {
+            if (FileUtil::Extension(path) == U"aas") {
+                AudioSettingReader reader;
+                auto as = reader.load(path);
+                const Wave& wave = this->loadWave(as.path);
+                return as.apply(wave);
+            } else {
+                return s3d::Audio(this->loadWave(path));
+            }
         }
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path)
         {
@@ -169,7 +160,7 @@ namespace abyss::Resource
         return m_pImpl->loadTexturePacker(prefix + path);
     }
 
-    const s3d::Audio& Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudio(prefix + path);
     }
@@ -244,7 +235,7 @@ namespace abyss::Resource
         }
         return m_asset.loadTexturePacker(m_path);
     }
-    AssetLoadProxy::operator const s3d::Audio& () const
+    AssetLoadProxy::operator s3d::Audio () const
     {
         if (m_prefix) {
             return m_asset.loadAudio(m_path, *m_prefix);

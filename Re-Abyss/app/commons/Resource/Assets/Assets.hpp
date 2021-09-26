@@ -36,7 +36,7 @@ namespace abyss::Resource
         const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
         const s3d::Texture& loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         const TexturePacker& loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
-        const s3d::Audio& loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
         const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
@@ -83,7 +83,7 @@ namespace abyss::Resource
         operator const s3dTiled::TiledMap& () const;
         operator const s3d::Texture& () const;
         operator const TexturePacker& () const;
-        operator const s3d::Audio& () const;
+        operator s3d::Audio () const;
         operator const AudioSettingGroup& () const;
         operator const s3d::PixelShader& () const;
         operator const s3d::TOMLValue& () const;
