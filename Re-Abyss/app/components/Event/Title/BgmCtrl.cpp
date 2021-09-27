@@ -16,7 +16,7 @@ namespace abyss::Event::Title
     }
     void BgmCtrl::onEnd()
     {
-        m_pEvent->getModule<Sound>()
-            ->stop(0.2s);
+        //m_pEvent->getModule<Sound>()
+        //    ->stop(0.2s);
     }
 }
