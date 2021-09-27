@@ -2495,6 +2495,7 @@
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
+    <ClInclude Include="app\modules\Sound\MixBus.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

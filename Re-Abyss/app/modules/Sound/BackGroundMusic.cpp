@@ -3,6 +3,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
+#include <abyss/modules/Sound/MixBus.hpp>
 
 namespace abyss
 {
@@ -11,7 +12,7 @@ namespace abyss
         const auto fixPath = FileUtil::FixRelativePath(path);
         if (m_currentPath == fixPath) {
             if (!m_current.isPlaying()) {
-                m_current.play(sec);
+                m_current.play(MixBusKind::Bgm, sec);
             }
             return;
         }
@@ -24,7 +25,7 @@ namespace abyss
             m_prev.stop(sec);
         }
         m_current.setVolume(0.6);
-        m_current.play(sec);
+        m_current.play(MixBusKind::Bgm, sec);
     }
     void BackGroundMusic::stop(const s3d::Duration & sec)
     {
