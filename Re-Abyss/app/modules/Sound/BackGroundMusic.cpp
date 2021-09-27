@@ -19,7 +19,7 @@ namespace abyss
         m_currentPath = fixPath;
         m_prev = m_current;
 
-        m_current = Resource::Assets::Main()->load(fixPath, U"");
+        m_current = Resource::Assets::Main()->load(fixPath, Path::Root);
 
         if (m_prev.isPlaying()) {
             m_prev.stop(sec);
