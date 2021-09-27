@@ -481,6 +481,7 @@
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\modules\Room\RoomManager.cpp" />
+    <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
     <ClCompile Include="app\system\Main\Booter.cpp" />
     <ClCompile Include="app\system\SaveSelect\Booter.cpp" />
@@ -905,6 +906,7 @@
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
+    <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />

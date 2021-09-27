@@ -1657,6 +1657,9 @@
     <ClCompile Include="vendor\abyss\include\abyss\utils\FPS\FrameRateHz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2491,6 +2494,7 @@
     <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
+    <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
