@@ -84,13 +84,17 @@ namespace abyss::Resource
         {
             return this->load(m_audioCache, path);
         }
+        s3d::Audio loadAudio(const AudioSetting& as)
+        {
+            const Wave& wave = this->loadWave(as.path);
+            return as.apply(wave);
+        }
         s3d::Audio loadAudio(const s3d::FilePath& path)
         {
             if (FileUtil::Extension(path) == U"aas") {
                 AudioSettingReader reader;
                 auto as = reader.load(path);
-                const Wave& wave = this->loadWave(as.path);
-                return as.apply(wave);
+                return this->loadAudio(as);
             } else {
                 return s3d::Audio(this->loadWave(path));
             }
@@ -158,6 +162,11 @@ namespace abyss::Resource
     const TexturePacker& Assets::loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadTexturePacker(prefix + path);
+    }
+
+    s3d::Audio Assets::loadAudio(const AudioSetting& as) const
+    {
+        return m_pImpl->loadAudio(as);
     }
 
     s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const

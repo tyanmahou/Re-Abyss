@@ -107,13 +107,10 @@ namespace abyss::Actor
 
     void AudioSource::play(const s3d::String& key)
     {
-        // TODO 後で確認
-        //auto as = m_audioSettingGroup(key);
-        //if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
-        //    Audio audio(baseAudio.getWave());
-        //    as.apply(audio);
-        //    this->playDirect(audio);
-        //}
+        auto as = m_audioSettingGroup(key);
+        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
+            this->playDirect(audio);
+        }
     }
 
     void AudioSource::playAt(const s3d::String& key) const
@@ -124,24 +121,16 @@ namespace abyss::Actor
 
     void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
-        // TODO 後で確認
-        //auto as = m_audioSettingGroup(key);
-        //if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
-        //    Audio audio(baseAudio.getWave());
-        //    as.apply(audio);
-        //    this->playAtDirect(audio, pos);
-        //}
+        auto as = m_audioSettingGroup(key);
+        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
+            this->playAtDirect(audio, pos);
+        }
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {
-        // TODO 後で確認
-        //if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
-        //    Audio audio(baseAudio.getWave());
-        //    if (auto loop = baseAudio.getLoop()) {
-        //        audio.setLoop(loop->beginPos, loop->endPos);
-        //    }
-        //    this->playDirect(audio);
-        //}
+        if (Audio audio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
+            this->playDirect(audio);
+        }
     }
     void AudioSource::playDirect(const s3d::Audio& audio)
     {
@@ -161,14 +150,9 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
-        // TODO 後で確認
-        //if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
-        //    Audio audio(baseAudio.getWave());
-        //    if (auto loop = baseAudio.getLoop()) {
-        //        audio.setLoop(loop->beginPos, loop->endPos);
-        //    }
-        //    this->playAtDirect(audio, pos);
-        //}
+        if (Audio audio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
+            this->playAtDirect(audio, pos);
+        }
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio) const
     {

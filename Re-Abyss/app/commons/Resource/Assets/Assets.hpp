@@ -6,6 +6,7 @@
 #include <Siv3D/String.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
@@ -38,6 +39,7 @@ namespace abyss::Resource
         const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
         const s3d::Texture& loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         const TexturePacker& loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
+        s3d::Audio loadAudio(const AudioSetting& as) const;
         s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 

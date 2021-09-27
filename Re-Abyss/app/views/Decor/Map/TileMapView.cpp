@@ -56,9 +56,9 @@ namespace abyss::Decor::Map
                     }
                     if (firstGId <= gId) {
                         image[static_cast<size_t>(y - startIndex.y)][static_cast<size_t>(x - startIndex.x)] = Color(
-                            decor.getAnimGId(gId, time) - firstGId,
-                            tile.col,
-                            0
+                            static_cast<s3d::uint8>(decor.getAnimGId(gId, time) - firstGId),
+                            static_cast<s3d::uint8>(tile.col),
+                            0u
                         );
                     }
                 }
