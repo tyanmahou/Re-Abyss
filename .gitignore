@@ -389,6 +389,7 @@ siv3d.a
 Screenshot/
 AS_DEBUG/
 [Ee]ngine/
+[Dd]ll/
 
 ## include/
 lib/
