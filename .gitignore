@@ -388,6 +388,7 @@ siv3d.a
 *.jppmdl
 Screenshot/
 AS_DEBUG/
+[Ee]ngine/
 
 ## include/
 lib/
