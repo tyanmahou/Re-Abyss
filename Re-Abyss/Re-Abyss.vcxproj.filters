@@ -1654,6 +1654,12 @@
     <ClCompile Include="app\views\Shader\Scanline\ScanlineShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\abyss\include\abyss\utils\FPS\FrameRateHz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2485,6 +2491,11 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\EyeCtrl.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.hpp" />
     <ClInclude Include="app\views\Shader\Scanline\ScanlineShader.hpp" />
+    <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
+    <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
+    <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
+    <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
+    <ClInclude Include="app\modules\Sound\MixBus.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

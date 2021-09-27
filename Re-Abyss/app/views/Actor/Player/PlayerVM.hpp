@@ -17,7 +17,7 @@ namespace abyss::Actor::Player
         s3d::Vec2 m_pos;
         s3d::Vec2 m_velocity;
         Forward m_forward;
-        double m_charge;
+        double m_charge = 0;
 
         bool m_isAttacking = false;
         bool m_isDamaging = false;

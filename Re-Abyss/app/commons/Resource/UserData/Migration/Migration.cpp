@@ -6,6 +6,7 @@
 #include <abyss/debugs/Log/Log.hpp>
 
 #include <Siv3D.hpp>
+#include <Siv3D/EngineLog.hpp>
 #include <Siv3DSQL.hpp>
 
 namespace abyss::Resource::UserData

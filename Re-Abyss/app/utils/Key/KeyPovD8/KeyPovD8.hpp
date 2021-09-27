@@ -41,7 +41,7 @@ namespace abyss
     {
         friend class Singleton<KeyPovD8Updater>;
 
-        std::array<s3d::InputState, s3d::Gamepad.MaxUserCount * 4> m_state;
+        std::array<s3d::InputState, s3d::Gamepad.MaxPlayerCount * 4> m_state;
     public:
         void update();
 

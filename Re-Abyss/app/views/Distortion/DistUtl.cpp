@@ -89,11 +89,11 @@ namespace
     {
         const float absR = Math::Abs(r);
         const IndexType quality = detail::CalculateCircleQuality(absR * scale);
-        const IndexType vertexSize = quality + 1, indexSize = quality * 3;
+        const IndexType vertexSize = quality + 1, indexSize = quality;
 
-        Sprite sprite(vertexSize, indexSize);
+        Buffer2D sprite(vertexSize, indexSize);
         Vertex2D* pVertex = sprite.vertices.data();
-        IndexType* pIndex = sprite.indices.data();
+        TriangleIndex* pIndex = sprite.indices.data();
 
         // 中心
         const float centerX = center.x;
@@ -137,14 +137,15 @@ namespace
 
         {
             for (IndexType i = 0; i < quality - 1; ++i) {
-                *pIndex++ = (i + 1);
-                *pIndex++ = 0;
-                *pIndex++ = (i + 2);
+                pIndex->i0 = (i + 1);
+                pIndex->i1 = 0;
+                pIndex->i2 = (i + 2);
+                ++pIndex;
             }
 
-            *pIndex++ = quality;
-            *pIndex++ = 0;
-            *pIndex++ = 1;
+            pIndex->i0 = quality;
+            pIndex->i1 = 0;
+            pIndex->i2 = 1;
         }
 
         sprite.draw();
@@ -154,11 +155,11 @@ namespace
     {
         const float rOuter = rInner + thickness;
         const IndexType quality = detail::CalculateCircleFrameQuality(rOuter * scale);
-        const IndexType vertexSize = quality * 2, indexSize = quality * 6;
+        const IndexType vertexSize = quality * 2, indexSize = quality * 2;
 
-        Sprite sprite(vertexSize, indexSize);
+        Buffer2D sprite(vertexSize, indexSize);
         Vertex2D* pVertex = sprite.vertices.data();
-        IndexType* pIndex = sprite.indices.data();
+        IndexType* pIndex = &sprite.indices.data()->i0;
 
         const float centerX = center.x;
         const float centerY = center.y;

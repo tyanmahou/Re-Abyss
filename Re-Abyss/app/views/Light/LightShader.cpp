@@ -45,8 +45,8 @@ namespace abyss
         }
         ScopedCustomShader2D start() const
         {
-            s3d::Graphics2D::SetTexture(1, m_dither);
-            s3d::Graphics2D::SetTexture(2, m_lights);
+            s3d::Graphics2D::SetPSTexture(1, m_dither);
+            s3d::Graphics2D::SetPSTexture(2, m_lights);
             s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
             return ScopedCustomShader2D(m_ps);
         }

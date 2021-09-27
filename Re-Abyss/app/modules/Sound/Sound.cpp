@@ -1,7 +1,5 @@
 #include "Sound.hpp"
 #include <Siv3D.hpp>
-#include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss
 {
@@ -10,40 +8,18 @@ namespace abyss
     }
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
-        m_currentPath = path;
-        Audio next = Resource::Assets::Main()->load(path, U"");
-        if (m_currentId == next.id()) {
-            if (!m_current.isPlaying()) {
-                m_current.play(sec);
-            }
-            return;
-        }
-        m_prev = m_current;
-
-        m_currentId = next.id();
-        m_current = Audio(next.getWave());
-        if (auto loop = next.getLoop()) {
-            m_current.setLoop(loop->beginPos, loop->endPos);
-        }
-
-        if (m_prev.isPlaying()) {
-            m_prev.stop(sec);
-        }
-        m_current.setVolume(0.6);
-        m_current.play(sec);
+        m_bgm.play(path, sec);
     }
     void Sound::stop(const Duration& sec)
     {
-        m_currentPath = s3d::none;
-        m_currentId = Audio::IDType();
-
-        if (m_current.isPlaying()) {
-            m_current.stop(sec);
-        }
+        m_bgm.stop(sec);
     }
     void Sound::release()
     {
-        m_current.release();
-        m_prev.release();
+        m_bgm.release();
+    }
+    const s3d::Optional<s3d::String>& Sound::currentBgmPath() const
+    {
+        return m_bgm.getCurrentPath();
     }
 }

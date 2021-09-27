@@ -30,7 +30,7 @@ namespace abyss
         virtual void onSceneUpdate() = 0;
         virtual void onSceneDraw()const = 0;
 
-        void changeScene(const String& state, int transitionTimeMillisec = 1000, bool crossFade = false)
+        void changeScene(const String& state, int transitionTimeMillisec = 1000, const CrossFade crossFade = CrossFade::No)
         {
             this->getData().fromScene = this->getState();
             this->getData().toScene = state;

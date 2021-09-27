@@ -11,7 +11,6 @@
 #include <abyss/commons/Constants.hpp>
 
 #include <Siv3D.hpp>
-
 namespace
 {
     using namespace abyss;
@@ -23,10 +22,11 @@ namespace
 
         // 左右で音量を変える
         auto xDiff = pos.x - listener.x;
-        auto rate = 1 - Min(1.0, Abs(xDiff) / (Constants::GameScreenSize.x * 0.9));
+        auto panRate = Min(1.0, Abs(xDiff) / (Constants::GameScreenSize.x * 0.9));
+        panRate *= s3d::Math::Sign(xDiff);
         return {
-            volume * (xDiff > 0 ? rate : 1.0),
-            volume * (xDiff < 0 ? rate : 1.0)
+            volume,
+            panRate
         };
     }
 
@@ -54,8 +54,9 @@ namespace
             const auto& pos = m_body->getPos();
             const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
-            auto volume = ::CalcVolume(pos, listener);
-            m_audio.setVolumeLR(volume.first, volume.second);
+            auto [volume, pan] = ::CalcVolume(pos, listener);
+            m_audio.setVolume(volume);
+            m_audio.setPan(pan);
         }
     private:
         Ref<Body> m_body;
@@ -96,8 +97,9 @@ namespace abyss::Actor
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
         for (auto&& audio : m_audios) {
-            auto volume = ::CalcVolume(pos, listener);
-            audio.setVolumeLR(volume.first, volume.second);
+            auto [volume, pan] = ::CalcVolume(pos, listener);
+            audio.setVolume(volume);
+            audio.setPan(pan);
         }
 
     }
@@ -105,9 +107,7 @@ namespace abyss::Actor
     void AudioSource::play(const s3d::String& key)
     {
         auto as = m_audioSettingGroup(key);
-        if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
-            Audio audio(baseAudio.getWave());
-            as.apply(audio);
+        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
             this->playDirect(audio);
         }
     }
@@ -121,19 +121,13 @@ namespace abyss::Actor
     void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
         auto as = m_audioSettingGroup(key);
-        if (Audio baseAudio = Resource::Assets::Main()->load(as.path, Path::Root)) {
-            Audio audio(baseAudio.getWave());
-            as.apply(audio);
+        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
             this->playAtDirect(audio, pos);
         }
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {
-        if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
-            Audio audio(baseAudio.getWave());
-            if (auto loop = baseAudio.getLoop()) {
-                audio.setLoop(loop->beginPos, loop->endPos);
-            }
+        if (Audio audio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
             this->playDirect(audio);
         }
     }
@@ -142,8 +136,9 @@ namespace abyss::Actor
         const auto& pos = m_body->getPos();
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
-        auto volume = ::CalcVolume(pos, listener);
-        audio.setVolumeLR(volume.first, volume.second);
+        auto [volume, pan] = ::CalcVolume(pos, listener);
+        audio.setVolume(volume);
+        audio.setPan(pan);
         audio.play();
         m_audios.push_back(audio);
     }
@@ -154,11 +149,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
-        if (Audio baseAudio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
-            Audio audio(baseAudio.getWave());
-            if (auto loop = baseAudio.getLoop()) {
-                audio.setLoop(loop->beginPos, loop->endPos);
-            }
+        if (Audio audio = Resource::Assets::Main()->load(U"se/Actors/" + path)) {
             this->playAtDirect(audio, pos);
         }
     }

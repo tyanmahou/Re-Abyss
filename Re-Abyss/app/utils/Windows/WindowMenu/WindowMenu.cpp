@@ -167,12 +167,12 @@ namespace abyss::Windows
             g_status[m_wId].kind = MenuKind::Popup;
             return MenuItem(this->createItemRaw(name));
         }
-        s3d::Array<MenuItem> createRadioButton(const std::initializer_list<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex)
+        s3d::Array<MenuItem> createRadioButton(const s3d::Array<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex)
         {
             {
                 this->setItemInfo(MIIM_STRING | MIIM_SUBMENU);
             }
-            Array<MenuItem> items;
+            s3d::Array<MenuItem> items;
             for (auto&& elm : name) {
                 items.emplace_back(this->createItemRaw(elm));
             }
@@ -188,9 +188,9 @@ namespace abyss::Windows
             }
             return items;
         }
-        String name() const
+        s3d::String name() const
         {
-            return Unicode::FromWString(m_name);
+            return s3d::Unicode::FromWstring(m_name);
         }
         void release() const
         {
@@ -350,7 +350,7 @@ namespace abyss::Windows
     {
         return this->createItem(name).setCheckButton(callback, isChecked);
     }
-    s3d::Array<MenuItem::SubMenu> MenuItem::createRadioButton(const std::initializer_list<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex)
+    s3d::Array<MenuItem::SubMenu> MenuItem::createRadioButton(const s3d::Array<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex)
     {
         return m_pImpl->createRadioButton(name, callback, checkIndex);
     }

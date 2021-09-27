@@ -2,7 +2,7 @@
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 
 namespace abyss::UI::SaveSelect
 {

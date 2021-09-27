@@ -5,36 +5,46 @@
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
-namespace 
+namespace
 {
     using namespace abyss::Resource::Preload;
 
+    Array<String> GetPreloadFilePaths(const s3d::JSON& json)
+    {
+        Array<String> result;
+
+        for (const auto& element : json.arrayView()) {
+            result << element.get<String>();
+        }
+
+        return result;
+    }
     struct PreloadInfoEx : PreloadInfo
     {
         s3d::Array<s3d::String> preload;
     };
-    PreloadInfoEx FromJson(const s3d::JSONObjectView& json)
+    PreloadInfoEx FromJson(const s3d::JSON& json)
     {
         PreloadInfoEx ret;
         for (const auto& [name, value] : json) {
             if (name == U"Preload") {
-                ret.preload = value.getArray<s3d::String>();
+                ret.preload = ::GetPreloadFilePaths(value);
             } else if (name == U"Texture") {
-                ret.texture = value.getArray<s3d::String>();
+                ret.texture = ::GetPreloadFilePaths(value);
             } else if (name == U"TexturePacker") {
-                ret.texturePacker = value.getArray<s3d::String>();
+                ret.texturePacker = ::GetPreloadFilePaths(value);
             } else if (name == U"Tmx") {
-                ret.tmx = value.getArray<s3d::String>();
+                ret.tmx = ::GetPreloadFilePaths(value);
             } else if (name == U"PixelShader") {
-                ret.pixelShader = value.getArray<s3d::String>();
+                ret.pixelShader = ::GetPreloadFilePaths(value);
             } else if (name == U"Audio") {
-                ret.audio = value.getArray<s3d::String>();
+                ret.audio = ::GetPreloadFilePaths(value);
             } else if (name == U"AudioSetting") {
-                ret.audioSetting = value.getArray<s3d::String>();
+                ret.audioSetting = ::GetPreloadFilePaths(value);
             } else if (name == U"Audio") {
-                ret.audio = value.getArray<s3d::String>();
+                ret.audio = ::GetPreloadFilePaths(value);
             } else if (name == U"Toml") {
-                ret.toml = value.getArray<s3d::String>();
+                ret.toml = ::GetPreloadFilePaths(value);
             }
         }
         return ret;
@@ -68,14 +78,14 @@ namespace abyss::Resource::Preload
         Impl()
         {
             for (const auto& path : GetPreloadFile()) {
-                JSONReader json(FileUtil::FixPath(path));
+                JSON json = JSON::Load(FileUtil::FixPath(path));
                 if (!json) {
                     continue;
                 }
                 if (!json.isObject()) {
                     continue;
                 }
-                for (const auto& [name, value] : json.objectView()) {
+                for (const auto& [name, value] : json) {
                     if (!value.isObject()) {
                         continue;
                     }
@@ -84,7 +94,7 @@ namespace abyss::Resource::Preload
                         Debug::LogWarn << U"Duplicated Load Preload Name: {}"_fmt(name);
                     }
 #endif
-                    m_prelaodInfos.emplace(name, FromJson(value.objectView()));
+                    m_prelaodInfos.emplace(name, FromJson(value));
                 }
             }
         }
@@ -113,7 +123,7 @@ namespace abyss::Resource::Preload
     {
         return Instance()->m_pImpl->getInfo(preloadName);
     }
-    Manager::Manager():
+    Manager::Manager() :
         m_pImpl(std::make_unique<Impl>())
     {}
 }

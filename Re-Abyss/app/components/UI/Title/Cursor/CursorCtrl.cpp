@@ -31,7 +31,7 @@ namespace abyss::UI::Title::Cursor
     CursorCtrl::CursorCtrl(UIObj* pUi) :
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
-        m_gameStartTimer(1s, false),
+        m_gameStartTimer(1s, StartImmediately::No),
         m_shot(std::make_unique<Shot>(PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }

@@ -1,53 +1,30 @@
 #pragma once
-// https://github.com/Siv3D/OpenSiv3D/blob/master/Siv3D/src/Siv3D/Key/InputState.hpp
+// https://github.com/Siv3D/OpenSiv3D/blob/main/Siv3D/src/Siv3D/Input/InputState.hpp
 
-#include <Siv3D/Duration.hpp>
-#include <Siv3D/Stopwatch.hpp>
+# pragma once
+# include <Siv3D/Common.hpp>
+# include <Siv3D/Stopwatch.hpp>
 
 namespace s3d
 {
-    struct InputState
-    {
-        Duration _pressedDuration{ 0 };
+	struct InputState
+	{
+		static constexpr size_t KeyCount = 256;
 
-        Stopwatch stopwatch = Stopwatch{ true };
+		static constexpr size_t MouseButtonCount = 8;
 
-        bool up = false;
+		Duration pressedDuration{ 0 };
 
-        bool pressed = false;
+		Stopwatch stopwatch;
 
-        bool down = false;
+		bool up = false;
 
-        void update(bool currentPressed)
-        {
-            const bool previousPressed = pressed;
+		bool pressed = false;
 
-            pressed = currentPressed;
+		bool down = false;
 
-            down = !previousPressed && pressed;
+		void update(bool currentPressed);
 
-            up = previousPressed && !pressed;
-
-            if (down) {
-                stopwatch.restart();
-            } else if (up) {
-                _pressedDuration = stopwatch.elapsed();
-
-                stopwatch.reset();
-            } else if (pressed) {
-                _pressedDuration = stopwatch.elapsed();
-            } else {
-                _pressedDuration = Duration(0);
-            }
-        }
-
-        void clear()
-        {
-            _pressedDuration = Duration(0);
-
-            stopwatch.restart();
-
-            up = pressed = down = false;
-        }
-    };
+		void clear();
+	};
 }

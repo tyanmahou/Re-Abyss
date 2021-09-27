@@ -11,11 +11,13 @@ namespace abyss
             ret.path = FileUtil::ParentPath(basePath) + *audioPath;
         }
         if (auto loop = toml[U"loop"].getOpt<bool>()) {
-            ret.loop = *loop;
-        } else if (auto loopVec2 = toml[U"loop"].getOpt<Vec2>()) {
-            ret.loop = *loopVec2;
+            ret.loop = s3d::Loop{ *loop };
+        } else if (auto loopBegin = toml[U"loop"].getOpt<double>()) {
+            ret.loop = s3d::Duration(*loopBegin);
+        } else if (auto loopBeginEnd = toml[U"loop"].getOpt<Vec2>()) {
+            ret.loop = s3d::Vector2D<s3d::Duration>{ loopBeginEnd->x, loopBeginEnd->y };
         } else {
-            ret.loop = false;
+            ret.loop = s3d::Loop::No;
         }
         return ret;
     }

@@ -58,7 +58,7 @@ namespace
 				it->startId = obj.getProperty(U"start_id").value_or(0);
 				it->size = obj.toRectF().size;
 
-				auto kind = obj.getProperty(U"kind").value_or(U"common");
+				String kind = obj.getProperty(U"kind").value_or(U"common");
 				if (kind == U"boss") {
 					it->kind = DoorKind::Boss;
 				} else {

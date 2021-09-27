@@ -7,13 +7,20 @@ namespace abyss
     struct AudioSetting
     {
         s3d::String path;
-        std::variant<bool, s3d::Vec2> loop = false;
+        std::variant<s3d::Loop, s3d::Duration, s3d::Vector2D<s3d::Duration>> loop = s3d::Loop::No;
 
         /// <summary>
-        /// 設定を適用する
+        /// ロード
         /// </summary>
-        /// <param name="audio"></param>
-        void apply(s3d::Audio& audio);
+        /// <returns></returns>
+        s3d::Audio load() const;
+
+        /// <summary>
+        /// Waveに設定を適用する
+        /// </summary>
+        /// <param name="wave"></param>
+        /// <returns></returns>
+        s3d::Audio apply(const s3d::Wave& wave) const;
     };
 
 }

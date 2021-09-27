@@ -109,7 +109,7 @@ namespace abyss::Windows
         /// <param name="callback"></param>
         /// <param name="checkIndex"></param>
         /// <returns></returns>
-        s3d::Array<SubMenu> createRadioButton(const std::initializer_list<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex = 0);
+        s3d::Array<SubMenu> createRadioButton(const s3d::Array<s3d::String>& name, std::function<void(size_t)> callback, size_t checkIndex = 0);
 
         /// <summary>
         /// ポップアップメニューを追加

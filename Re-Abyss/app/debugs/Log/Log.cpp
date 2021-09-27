@@ -57,7 +57,7 @@ namespace abyss::Debug
         };
         struct Cache : LogInfo
         {
-            s3d::Stopwatch sw{true};
+            s3d::Stopwatch sw{ StartImmediately::Yes };
         };
         s3d::Array<Cache> m_printCache;
     public:

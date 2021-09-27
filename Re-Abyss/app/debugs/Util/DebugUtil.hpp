@@ -1,7 +1,8 @@
 #pragma once
 
 #if ABYSS_DEBUG
-#include <Siv3D/Fwd.hpp>
+#include <Siv3D/ColorF.hpp>
+#include <Siv3D/String.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss::Debug::DebugUtil

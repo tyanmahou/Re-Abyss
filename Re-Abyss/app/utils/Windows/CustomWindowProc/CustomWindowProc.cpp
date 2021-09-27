@@ -1,5 +1,4 @@
 #include "CustomWindowProc.hpp"
-
 #include <Siv3D.hpp>
 
 namespace

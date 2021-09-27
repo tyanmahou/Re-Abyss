@@ -9,15 +9,16 @@ namespace
 
     bool SetFullScreen(bool isFullScreen)
     {
-        return Window::SetFullscreen(isFullScreen, unspecified, WindowResizeOption::KeepSceneSize);
+        Window::SetFullscreen(isFullScreen);
+        return true;
     }
 
     std::pair<int32, int32> ToRational(WindowSizeKind kind)
     {
         switch (kind) {
-        case WindowSizeKind::ThreeSecond:
-            return { 3,2 };
-        case WindowSizeKind::FiveFourth:
+        //case WindowSizeKind::ThreeSecond:
+        //    return { 3,2 };
+        //case WindowSizeKind::FiveFourth:
             return { 5,4 };
         case WindowSizeKind::SixFifth:
             return { 6,5 };
@@ -43,6 +44,8 @@ namespace abyss
     {
         Window::SetTitle(appName);
         Window::Resize(windowSize);
+        // 画面サイズはキープ
+        Scene::SetResizeMode(ResizeMode::Keep);
 
 #if ABYSS_DEBUG
         Debug::Menu::Init();
@@ -72,9 +75,9 @@ namespace abyss
 
 #if ABYSS_DEBUG
             Windows::WindowMenu::Main().show(true);
-            newClientSize += Size(0, 20);
+            newClientSize += Size(0, 40);
 #endif
-            Window::Resize(newClientSize, WindowResizeOption::KeepSceneSize);
+            Window::Resize(newClientSize);
         }
         break;
         }

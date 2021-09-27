@@ -5,7 +5,7 @@ namespace abyss::Resource::Preload
     PreloadInfo& PreloadInfo::unique()
     {
         for (auto&& memP : PrelaodInfoMemPtrs) {
-            (this->*memP).unique();
+            (this->*memP).sort_and_unique();
         }
         return *this;
     }

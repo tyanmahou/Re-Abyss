@@ -9,6 +9,7 @@
 #include <abyss/scenes/SaveSelect/SaveSelectScene.hpp>
 #include <abyss/scenes/Main/MainScene.hpp>
 
+#include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -54,11 +55,14 @@ namespace abyss
 
 		bool update()
 		{
-			InputManager::Update();
 #if ABYSS_DEBUG
+			FrameRateHz::Sleep();
 			Debug::LogUpdater::Update();
 			Debug::DebugManager::Update();
 #endif
+
+			InputManager::Update();
+
 			return m_scene.update();
 		}
 	};
@@ -66,7 +70,9 @@ namespace abyss
 	Game::Game() :
 		m_pImpl(std::make_unique<Impl>())
 	{
-		Graphics2D::SetSamplerState(0, SamplerState::ClampNearest);
+		// 初期設定
+		Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
+		Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 0, SamplerState::ClampNearest);
 	}
 
 	Game::~Game()

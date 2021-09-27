@@ -22,10 +22,9 @@ namespace abyss::Debug
     public:
         static void Init();
         static bool IsDebug(const s3d::String& label);
+        static size_t DebugSelect(const s3d::String& label);
 
         static void BindScene(AppScene* pScene);
-
-        static Windows::MenuItem DebugRoot();
     };
 }
 

@@ -1,9 +1,12 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Fwd.hpp>
+#include <Siv3D/Audio.hpp>
+#include <Siv3D/PixelShader.hpp>
 #include <Siv3D/String.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
 
@@ -36,7 +39,8 @@ namespace abyss::Resource
         const s3dTiled::TiledMap& loadTmx(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::MapPath) const;
         const s3d::Texture& loadTexture(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         const TexturePacker& loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
-        const s3d::Audio& loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+        s3d::Audio loadAudio(const AudioSetting& as) const;
+        s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
         const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
@@ -83,7 +87,7 @@ namespace abyss::Resource
         operator const s3dTiled::TiledMap& () const;
         operator const s3d::Texture& () const;
         operator const TexturePacker& () const;
-        operator const s3d::Audio& () const;
+        operator s3d::Audio () const;
         operator const AudioSettingGroup& () const;
         operator const s3d::PixelShader& () const;
         operator const s3d::TOMLValue& () const;

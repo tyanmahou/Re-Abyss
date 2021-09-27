@@ -3,7 +3,7 @@
 
 #include <Siv3D/FileSystem.hpp>
 #include <Siv3D/Keyboard.hpp>
-#include <Siv3D/KeyConjunction.hpp>
+#include <Siv3D/Input.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::Debug

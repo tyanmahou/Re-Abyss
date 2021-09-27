@@ -13,7 +13,7 @@
 #include <abyss/models/Event/Talk/FaceTableModel.hpp>
 
 #include <Siv3D.hpp>
-//todo消す
+// TODO 消す
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
@@ -21,9 +21,9 @@ namespace abyss::Event::Talk
 {
     void TalkBuilder::Build(EventObj* pEvent, const s3d::String& path)
     {
-        // todo リソースロード経由にする
+        // TODO リソースロード経由にする
         auto fixPath = FileUtil::FixRelativePath(path);
-        JSONReader json(fixPath);
+        JSON json = JSON::Load(fixPath);
         if (!json) {
             return;
         }
@@ -52,8 +52,8 @@ namespace abyss::Event::Talk
         // 会話制御
         auto talkCtrl = pEvent->attach<TalkCtrl>(pEvent);
 
-        for (const auto& event : json[U"events"].arrayView()) {
-            if (const auto& trigger = event[U"trigger"].getOpt<String>(); trigger) {
+        for (auto&& event : json[U"events"].arrayView()) {
+            if (auto&& trigger = event[U"trigger"].getOpt<String>(); trigger) {
                 // トリガーイベント
                 auto talkObj = talkCtrl->create();
                 if (auto&& builder = triggerFactory[*trigger]) {
@@ -63,7 +63,7 @@ namespace abyss::Event::Talk
                     Debug::LogWarn << U"Not found trigger:{}"_fmt(*trigger);
 #endif
                 }
-            } else if (const auto& serif = event[U"serif"]; serif.isObject()) {
+            } else if (auto&& serif = event[U"serif"]; serif.isObject()) {
                 // セリフ
                 SerifModel model;
                 serif[U"actor"].getOpt<String>().then([&model](const String& actor) {
@@ -72,8 +72,8 @@ namespace abyss::Event::Talk
                 String side = serif[U"side"].getOr<String>(U"left");
                 model.setSide(side == U"left" ? SerifModel::Side::Left : SerifModel::Side::Right);
 
-                for (const auto& message : serif[U"messages"].arrayView()) {
-                    for (const auto& [kind, m] : message.objectView()) {
+                for (auto&& message : serif[U"messages"].arrayView()) {
+                    for (auto&& [kind, m] : message) {
                         model.addMessage(SerifModel::Message{ kind,  m.get<String>() });
                     }
                 }

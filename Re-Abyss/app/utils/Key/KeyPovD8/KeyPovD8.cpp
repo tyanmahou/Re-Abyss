@@ -15,7 +15,7 @@ namespace
 namespace abyss
 {
     KeyPovD8::KeyPovD8(const s3d::detail::Gamepad_impl& gamepad, Code code) noexcept :
-        KeyPovD8(static_cast<uint8>(gamepad.userIndex), code)
+        KeyPovD8(static_cast<uint8>(gamepad.playerIndex), code)
     {}
     bool KeyPovD8::down() const
     {
@@ -53,7 +53,7 @@ namespace abyss
 
     void KeyPovD8Updater::update()
     {
-        for (uint8 userIndex = 0; userIndex < Gamepad.MaxUserCount; ++userIndex) {
+        for (uint8 userIndex = 0; userIndex < Gamepad.MaxPlayerCount; ++userIndex) {
             auto&& gamepad = Gamepad(userIndex);
             if (gamepad) {
                 auto&& pov = gamepad.povD8();
@@ -81,6 +81,6 @@ namespace abyss
     }
     s3d::Duration KeyPovD8Updater::pressedDuration(s3d::int8 userIndex, KeyPovD8::Code code) const
     {
-        return m_state[userIndex * 4 + code]._pressedDuration;
+        return m_state[userIndex * 4 + code].pressedDuration;
     }
 }

@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::Ikalien
         }
         m_rotate->setRotate(rotate);
 
-        Vec2 nextPivot = Mat3x2::Rotate(rotate).transform(Param::Base::Pivot);
+        Vec2 nextPivot = Mat3x2::Rotate(rotate).transformPoint(Param::Base::Pivot);
         m_body->setPivot(nextPivot);
 
         m_body->setVelocity(m_rotate->getDir() * Param::Pursuit::Speed);

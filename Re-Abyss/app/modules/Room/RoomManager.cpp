@@ -15,7 +15,7 @@ namespace abyss::Room
 
 		s3d::Vec2 apply(const s3d::Vec2& target) const override
 		{
-			// @todo 自動スクロール
+			// TODO 自動スクロール
 			return m_pRoomManager->m_currentRoom.cameraBorderAdjusted(target);
 		}
 
@@ -35,7 +35,7 @@ namespace abyss::Room
 	}
 	bool RoomManager::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
     {
-		// @todo 自動スクロール
+		// TODO 自動スクロール
 		if (!m_currentRoom.passable(Forward::Down) && pos.y > m_currentRoom.borders().down + margin) {
 			return true;
 		}
@@ -63,7 +63,7 @@ namespace abyss::Room
 	}
 	s3d::Vec2 RoomManager::fixPos(const s3d::Vec2& pos) const
 	{
-		// todo 自動スクロール中はカメラのスクリーン内に入るように
+		// TODO 自動スクロール中はカメラのスクリーン内に入るように
 
 		return m_currentRoom.borderAdjusted(pos);
 	}

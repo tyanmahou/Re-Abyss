@@ -34,13 +34,13 @@ namespace abyss::UI::Serif
             // 一つ前の描画
             Vec2 pos = m_pos;
             Color color = Palette::White;
-            for (const auto& glyph : font(m_prevMessage)) {
+            for (const auto& [index, glyph] : Indexed(font.getGlyphs(m_prevMessage))) {
                 if (glyph.codePoint == U'\n') {
                     pos.x = m_pos.x;
                     pos.y += font.height() + 4;
                     continue;
                 }
-                auto drawPos = pos + glyph.offset;
+                auto drawPos = pos + glyph.getOffset();
                 drawPos.y -= offset;
                 glyph.texture.draw(drawPos, color.setA(alpha));
                 pos.x += glyph.xAdvance;
@@ -50,14 +50,14 @@ namespace abyss::UI::Serif
             // 現在のテキスト描画
             Vec2 pos = m_pos;
             Color color = Palette::White;
-            for (const auto& glyph : font(m_currentMessage)) {
+            for (const auto& [index, glyph] : Indexed(font.getGlyphs(m_currentMessage))) {
                 if (glyph.codePoint == U'\n') {
                     pos.x = m_pos.x;
                     pos.y += font.height() + 4;
                     continue;
                 }
-                const double t = static_cast<double>(m_strIndex - glyph.index);
-                auto drawPos = pos + glyph.offset;
+                const double t = static_cast<double>(m_strIndex - static_cast<int32>(index));
+                auto drawPos = pos + glyph.getOffset();
                 drawPos.y -= EaseIn(Easing::Quad, s3d::Saturate(1 - t / 4.0f)) * 20;
 
                 auto alpha = static_cast<int32>(Saturate(t / 6.0) * 255.0);

@@ -1,5 +1,5 @@
 #include "RectCollider.hpp"
-#include <Siv3D/Rectangle.hpp>
+#include <Siv3D/RectF.hpp>
 
 namespace abyss::Actor
 {

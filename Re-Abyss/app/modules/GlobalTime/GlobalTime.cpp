@@ -9,7 +9,7 @@ namespace abyss
     class GlobalTime::Impl
     {
     private:
-        Stopwatch m_stopwatch{ true };
+        Stopwatch m_stopwatch{ StartImmediately::Yes };
         double m_timeScale = 1.0;
         s3d::Array<std::weak_ptr<GlobalTimeScaleModel>> m_timeScaleModels;
         double m_totalTimeSec = 0.0;

@@ -29,7 +29,7 @@ namespace abyss::Actor::Gimmick::Bush
                 continue;
             }
 
-            Vec2 speed = s3d::Abs(body->getVelocity());
+            Vec2 speed = s3d::Math::Abs(body->getVelocity());
             if (auto s = s3d::Max(speed.x, speed.y); s >= 10) {
                 m_resizeRate = s3d::Max(m_resizeRate, s3d::Saturate((s - 10) / 60.0));
             }

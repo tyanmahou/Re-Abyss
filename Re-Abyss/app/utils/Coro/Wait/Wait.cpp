@@ -9,7 +9,7 @@ namespace abyss::Coro
 {
     Task<> WaitForSeconds(const s3d::Duration& duration)
     {
-        Timer timer(duration, true);
+        Timer timer(duration, StartImmediately::Yes);
         while (!timer.reachedZero()) {
             co_yield{};
         }

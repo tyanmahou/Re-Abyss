@@ -10,6 +10,9 @@ namespace abyss
     public:
         ScanlineShader();
 
+        const ScanlineShader& setTime(double time) const;
+        const ScanlineShader& setTexturSize(const s3d::Vec2& size) const;
+
         s3d::ScopedCustomShader2D start() const;
 
     private:
