@@ -30,8 +30,6 @@ namespace abyss
 		void loadFont()
 		{
 			// フォントはデバッグモードでもリソースに入れてます
-			FontAsset::Register(U"serif", 20, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
-			FontAsset::Register(U"serifName", 18, U"/resources/fonts/PixelMplus12-Bold.ttf", FontStyle::Bitmap);
 
 			// タイトル
 			FontAsset::Register(U"pm12r-20", 20, U"/resources/fonts/PixelMplus12-Regular.ttf", FontStyle::Bitmap);
