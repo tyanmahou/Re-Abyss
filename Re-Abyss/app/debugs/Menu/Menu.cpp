@@ -99,8 +99,11 @@ namespace abyss::Debug
         void execSoundMute(bool isChecked)
         {
             // マスターボリューム設定
-            // TODO ミュート
-            Debug::Log << U"Mute: " << isChecked;
+            if (isChecked) {
+                GlobalAudio::SetVolume(0.0);
+            } else {
+                GlobalAudio::SetVolume(1.0);
+            }
         }
 #pragma endregion
 
