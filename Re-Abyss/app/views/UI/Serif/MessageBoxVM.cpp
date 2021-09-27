@@ -1,5 +1,6 @@
 #include "MessageBoxVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Serif
@@ -39,7 +40,7 @@ namespace abyss::UI::Serif
 
         if (m_name) {
             double nameOffset = m_isLeft ? -140 : 140;
-            FontAsset(U"serifName")(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 });
+            FontAsset(FontName::SerifName)(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 });
         }
     }
 }

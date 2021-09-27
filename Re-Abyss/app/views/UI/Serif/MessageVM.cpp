@@ -1,6 +1,7 @@
 #include "MessageVM.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/commons/FontName.hpp>
 
 namespace abyss::UI::Serif
 {
@@ -26,7 +27,7 @@ namespace abyss::UI::Serif
     }
     void MessageVM::draw() const
     {
-        auto&& font = FontAsset(U"serif");
+        auto&& font = FontAsset(FontName::Serif);
         if (!m_prevMessage.isEmpty()) {
             const auto offset = EaseIn(Easing::Linear, static_cast<double>(m_strIndex) / 2.0) * 2;
             const auto alpha  = static_cast<uint32>(Max(0.0, 255.0 - offset * 50.0));

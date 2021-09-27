@@ -9,4 +9,6 @@ namespace abyss::FontName
     inline const s3d::String PlayerInfoOopartsName = U"pm12b-12";
     inline const s3d::String Tips = U"pm12r-20";
     inline const s3d::String Loading = U"pm12r-25";
+    inline const s3d::String Serif = U"pm12r-20";
+    inline const s3d::String SerifName = U"pm12b-18";
 }
