@@ -11,7 +11,6 @@
 #include <abyss/commons/Constants.hpp>
 
 #include <Siv3D.hpp>
-
 namespace
 {
     using namespace abyss;
@@ -21,13 +20,13 @@ namespace
         const Vec3 listenerPos(listener, 333);
         const double volume = Pow(1 / Vec3(pos, 0).distanceFrom(listenerPos) * 300, 2);
 
-        // TODO パンの計算
         // 左右で音量を変える
         auto xDiff = pos.x - listener.x;
-        auto rate = 1 - Min(1.0, Abs(xDiff) / (Constants::GameScreenSize.x * 0.9));
+        auto panRate = Min(1.0, Abs(xDiff) / (Constants::GameScreenSize.x * 0.9));
+        panRate *= s3d::Math::Sign(xDiff);
         return {
             volume,
-            0.0
+            panRate
         };
     }
 
