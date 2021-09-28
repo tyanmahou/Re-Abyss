@@ -1,5 +1,6 @@
 #if ABYSS_DEBUG
 #include "Profiler.hpp"
+#include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -20,7 +21,7 @@ namespace abyss::Debug
             m_profiler.print();
         }
     private:
-        TimeProfiler m_profiler;
+        TimeProfiler m_profiler{U"Profiler"};
     };
     Profiler::Profiler():
         m_pImpl(std::make_unique<Impl>())
@@ -35,7 +36,9 @@ namespace abyss::Debug
     }
     void Profiler::Print()
     {
-        Instance()->m_pImpl->print();
+        if (Menu::IsDebug(DebugFlag::AlertProfiler)) {
+            Instance()->m_pImpl->print();
+        }
     }
 }
 

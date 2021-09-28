@@ -10,6 +10,7 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* LogError = U"Debug/Log/Error";
     inline constexpr auto* LogLoad = U"Debug/Log/Load";
 
+    inline constexpr auto* AlertProfiler = U"Debug/Alert/Profiler";
     inline constexpr auto* AlertEffectCount = U"Debug/Alert/EffectCount";
     inline constexpr auto* AlertDecorCount = U"Debug/Alert/DecorCount";
 

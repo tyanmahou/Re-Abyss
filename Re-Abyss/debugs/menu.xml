@@ -13,6 +13,7 @@
       <Clear label="ログのクリア" callback ="execClearLog"/>
     </Log>
     <Alert label ="アラート">
+      <Profiler label="処理負荷" isChecked="false"/>
       <EffectCount label="エフェクト数" isChecked="false"/>
       <DecorCount label="装飾数" isChecked="false"/>
     </Alert>

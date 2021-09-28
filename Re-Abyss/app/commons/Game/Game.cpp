@@ -13,6 +13,7 @@
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Profiler/Profiler.hpp>
 
 namespace abyss
 {
@@ -56,6 +57,7 @@ namespace abyss
 #if ABYSS_DEBUG
 			FrameRateHz::Sleep();
 			Debug::LogUpdater::Update();
+			Debug::Profiler::Print();
 			Debug::DebugManager::Update();
 #endif
 
