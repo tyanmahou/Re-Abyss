@@ -1660,6 +1660,9 @@
     <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\Profiler\Profiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2496,6 +2499,7 @@
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
+    <ClInclude Include="app\debugs\Profiler\Profiler.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
