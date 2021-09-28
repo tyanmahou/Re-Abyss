@@ -23,6 +23,7 @@ namespace abyss
         void set(const s3d::Optional<double>& value);
         void sleep() const;
 
+        s3d::Optional<double> m_value;
         s3d::Optional<s3d::Duration> m_sleepTime;
     };
 }

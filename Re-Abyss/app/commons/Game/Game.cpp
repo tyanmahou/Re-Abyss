@@ -43,6 +43,10 @@ namespace abyss
 	public:
 		Impl()
 		{
+			// 初期設定
+			Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
+			Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 0, SamplerState::ClampNearest);
+
 			this->registerScene();
 			this->loadFont();
 
@@ -55,8 +59,8 @@ namespace abyss
 		bool update()
 		{
 #if ABYSS_DEBUG
-			FrameRateHz::Sleep();
 			Debug::LogUpdater::Update();
+			FrameRateHz::Sleep();
 			Debug::Profiler::Print();
 			Debug::DebugManager::Update();
 #endif
@@ -70,9 +74,6 @@ namespace abyss
 	Game::Game() :
 		m_pImpl(std::make_unique<Impl>())
 	{
-		// 初期設定
-		Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
-		Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 0, SamplerState::ClampNearest);
 	}
 
 	Game::~Game()

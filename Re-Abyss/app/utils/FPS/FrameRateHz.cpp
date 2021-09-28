@@ -4,8 +4,9 @@ namespace abyss
 {
     void FrameRateHz::set(const s3d::Optional<double>& value)
     {
+        m_value = value;
         auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate;
-        if (value && refreshRate && *refreshRate > *value && *value > 0) {
+        if (value && refreshRate && *refreshRate >= *value && *value > 0) {
             m_sleepTime = s3d::Duration(1.0 / (*value));
             s3d::Graphics::SetVSyncEnabled(false);
         } else {
@@ -16,6 +17,9 @@ namespace abyss
     void FrameRateHz::sleep() const
     {
         if (m_sleepTime) {
+#if ABYSS_DEBUG
+            Print << U"Fix FPS: " << *m_value;
+#endif
             s3d::System::Sleep(*m_sleepTime);
         }
     }
