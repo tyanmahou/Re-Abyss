@@ -24,6 +24,12 @@ namespace abyss::Debug
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
     };
+
+    namespace Prof
+    {
+        inline static constexpr s3d::StringView UpdateAll = U"Update All";
+        inline static constexpr s3d::StringView DrawAll = U"Draw All";
+    }
 }
 
 #endif
