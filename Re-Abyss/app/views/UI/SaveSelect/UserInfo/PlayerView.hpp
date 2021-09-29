@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
-#include <abyss/views/Actor/Ooparts/base/SimpleDrawCallbackView.hpp>
 #include <abyss/types/OopartsType.hpp>
 
 namespace abyss::UI::SaveSelect::UserInfo
@@ -10,7 +9,6 @@ namespace abyss::UI::SaveSelect::UserInfo
     {
         std::shared_ptr<Actor::Player::PlayerVM> m_player;
         std::shared_ptr<Actor::Ooparts::OopartsView> m_ooparts;
-        std::shared_ptr<Actor::Ooparts::SimpleDrawCallbackView> m_oopartsCallback;
 
         s3d::Vec2 m_pos;
 

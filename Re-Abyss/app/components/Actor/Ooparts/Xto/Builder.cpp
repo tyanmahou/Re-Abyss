@@ -7,7 +7,6 @@
 
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 #include <abyss/views/Actor/Ooparts/Xto/XtoVM.hpp>
-#include <abyss/views/Actor/Ooparts/base/ActDrawCallbackView.hpp>
 
 namespace
 {
@@ -53,7 +52,6 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_view->setCallback(std::make_shared<ActDrawCallbackView>(m_pActor->getManager()));
             m_view->setCharacter(std::make_shared<XtoVM>());
         }
     public:

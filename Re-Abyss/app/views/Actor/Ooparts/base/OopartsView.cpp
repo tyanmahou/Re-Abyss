@@ -1,12 +1,10 @@
 #include "OopartsView.hpp"
 #include <Siv3D.hpp>
-#include <abyss/views/Actor/Common/KiraKiraEffect.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Ooparts
 {
-    OopartsView::OopartsView():
-        m_effectTimer(0.05, true, [this] {return Clock::FromSec(this->getTime()); })
+    OopartsView::OopartsView()
     {
     }
     void OopartsView::draw() const
@@ -14,17 +12,7 @@ namespace abyss::Actor::Ooparts
         const auto& pos = m_pos;
         double alpha = 0.4 * Periodic::Triangle0_1(0.1s, m_time);
         constexpr double period = 0.8;
-        {
-            if (m_drawCallback) {
-                if (m_effectTimer.update()) {
-                    if (RandomBool(0.7)) {
-                        m_drawCallback->onAddEffect<KiraKiraEffect>(pos + RandomVec2({ -15, 15 }, { 0, 20 }));
-                    } else {
-                        m_drawCallback->onAddEffect<KiraKiraEffect>(pos + RandomVec2(17), KiraKiraEffect::Type2);
-                    }
-                }
-            }
-        }
+
         {
             ScopedRenderStates2D t2d(BlendState::Additive);
 

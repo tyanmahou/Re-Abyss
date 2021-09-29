@@ -1,5 +1,4 @@
 #pragma once
-#include <abyss/utils/EffectEx/EffectEx.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 namespace abyss

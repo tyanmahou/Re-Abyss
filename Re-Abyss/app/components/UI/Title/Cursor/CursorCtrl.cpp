@@ -70,7 +70,8 @@ namespace abyss::UI::Title::Cursor
         // 決定
         if (InputManager::A.down() || InputManager::Start.down()) {
             if (m_mode == Mode::GameStart) {
-                m_shot->addShotFiringEffect();
+                // shot effect
+                // m_shot->addShotFiringEffect();
                 m_gameStartTimer.start();
                 m_isGameStart = true;
             } else {

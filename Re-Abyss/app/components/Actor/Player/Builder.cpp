@@ -32,7 +32,6 @@
 
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
-#include <abyss/views/Actor/Ooparts/base/ActDrawCallbackView.hpp>
 
 namespace
 {
@@ -232,7 +231,6 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
 
             auto oopartsView = std::make_unique<Ooparts::OopartsView>();
-            oopartsView->setCallback(std::make_shared<Ooparts::ActDrawCallbackView>(m_pActor->getManager()));
             m_view->setOopartsView(std::move(oopartsView));
             m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
         }
