@@ -12,8 +12,7 @@ namespace abyss::Actor::Player::Shot
     using namespace abyss::Effect::Misc;
 
     EffectCtrl::EffectCtrl(ActorObj* pActor):
-        m_pActor(pActor),
-        m_effectTimer(0.033, true, pActor->getDrawClock())
+        m_pActor(pActor)
     {}
 
     void EffectCtrl::setup([[maybe_unused]]Executer executer)
@@ -41,21 +40,32 @@ namespace abyss::Actor::Player::Shot
         }
     }
 
+    void EffectCtrl::onPreDraw()
+    {
+        if (*m_shot >= PlayerShotType::Medium) {
+
+            s3d::Vec2 pos = m_body->getPos();
+            double radius = m_shot->toRadius();
+            auto* pLight = m_pActor->getModule<Light>();
+
+            // Effect
+            for ([[maybe_unused]] double carryOver : m_effectTimer.update(m_pActor->deltaTime())) {
+                m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
+                m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
+                    pos,
+                    radius * std::sqrt(radius) / 2.0,
+                    10
+                    )->setTimeScale(2.0);
+            }
+        }
+    }
+
     void EffectCtrl::onDraw() const
     {
         s3d::Vec2 pos = m_body->getPos();
         double radius = m_shot->toRadius();
 
         auto* pLight = m_pActor->getModule<Light>();
-        // effect
-        if (m_effectTimer.update() && *m_shot >= PlayerShotType::Medium) {
-            m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
-            m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
-                pos,
-                radius * std::sqrt(radius) / 2.0,
-                10
-                )->setTimeScale(2.0);
-        }
         pLight->addCircle(pos, radius * 2.5);
     }
 }
