@@ -32,7 +32,7 @@ namespace abyss::UI::Title::Cursor
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, StartImmediately::No),
-        m_shot(std::make_unique<Shot>(PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
+        m_shot(std::make_unique<Shot>(pUi, PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }
     CursorCtrl::~CursorCtrl()
@@ -71,7 +71,7 @@ namespace abyss::UI::Title::Cursor
         if (InputManager::A.down() || InputManager::Start.down()) {
             if (m_mode == Mode::GameStart) {
                 // shot effect
-                // m_shot->addShotFiringEffect();
+                 m_shot->addShotFiringEffect();
                 m_gameStartTimer.start();
                 m_isGameStart = true;
             } else {

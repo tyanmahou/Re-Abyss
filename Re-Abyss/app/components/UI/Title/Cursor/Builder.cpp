@@ -9,7 +9,7 @@ namespace abyss::UI::Title::Cursor
         pUi->setOrder(3);
         // メイン追加
         {
-            pUi->attach<CursorCtrl>(pUi);
+            pUi->attach<CursorCtrl>(pUi)->setLayer(DrawLayer::World);
         }
     };
 }

@@ -2,13 +2,16 @@
 #include <Siv3D.hpp>
 
 #include <abyss/commons/ColorDef.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
 #include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
 #include <abyss/views/UI/Title/Cursor/Shot/ShotVM.hpp>
 
 namespace abyss::UI::Title::Cursor
 {
-    Shot::Shot(const s3d::Vec2& pos):
+    Shot::Shot(UIObj* pUi, const s3d::Vec2& pos):
+        m_pUi(pUi),
         m_pos(pos),
         m_view(std::make_unique<ShotVM>())
     {}
@@ -18,7 +21,16 @@ namespace abyss::UI::Title::Cursor
 
     void Shot::update()
     {
-        m_pos.x += 840 * Scene::DeltaTime();
+        double dt = m_pUi->deltaTime();
+        m_pos.x += 840 * dt;
+
+        for ([[maybe_unused]]double carryOver : m_effectTimer.update(dt)) {
+            m_pUi->getModule<Effects>()->createWorldFront<Actor::Player::Shot::ShotEffect>(
+                m_pos,
+                Actor::Player::ShotParam::Big::Radius,
+                ColorDef::Shot::BigCharge
+                );
+        }
     }
 
     void Shot::draw() const
@@ -27,6 +39,17 @@ namespace abyss::UI::Title::Cursor
             ->setPos(m_pos)
             .setTime(Scene::Time())
             .draw();
+    }
+
+    void Shot::addShotFiringEffect() const
+    {
+        // effect
+        m_pUi->getModule<Effects>()->createWorldFront<Actor::Player::Shot::ShotFiringEffect>(
+            m_pos,
+            Actor::Player::ShotParam::Big::Radius,
+            ColorDef::Shot::BigCharge
+            );
+
     }
 }
 
