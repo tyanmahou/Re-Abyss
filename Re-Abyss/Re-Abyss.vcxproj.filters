@@ -1779,7 +1779,6 @@
     </ClInclude>
     <ClInclude Include="app\views\Env\Wave\WaveShader.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
-    <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
     <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
@@ -1975,7 +1974,6 @@
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
     <ClInclude Include="app\components\Actor\Common\IDeadCallback.hpp" />
     <ClInclude Include="app\components\Actor\Common\IDamageCallback.hpp" />
-    <ClInclude Include="app\utils\CatmullRomSpline\CatmullRomSpline.hpp" />
     <ClInclude Include="app\components\Actor\Common\LightCtrl.hpp" />
     <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
