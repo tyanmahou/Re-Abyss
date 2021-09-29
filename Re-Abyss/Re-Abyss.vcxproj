@@ -743,7 +743,6 @@
     <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Actor\Map\MapTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
-    <ClCompile Include="app\utils\IntervalTimer\IntervalTimer.cpp" />
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
@@ -1506,7 +1505,6 @@
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
-    <ClInclude Include="app\utils\IntervalTimer\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\LoopQueue\LoopQueue.hpp" />
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />

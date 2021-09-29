@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/Components.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
-#include <abyss/utils/IntervalTimer/IntervalTimer.hpp>
+#include <abyss/utils/TimeLite/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor
@@ -23,7 +23,7 @@ namespace abyss::Actor
         }
     private:
         ActorObj* m_pActor;
-        IntervalTimer m_timer;
+        TimeLite::IntervalTimer m_timer;
         s3d::Vec2 m_offset;
         double m_timeOffsetSec = 0;
         Ref<Body> m_body;
