@@ -39,8 +39,7 @@ namespace abyss::Actor::Enemy
 		// HP
 		{
 			pActor->attach<HP>(pActor)
-				->initHp(opt.initHp)
-				.setInvincibleTime(0.2);
+				->initHp(opt.initHp);
 
 		}
 		// AttackerData
@@ -74,7 +73,8 @@ namespace abyss::Actor::Enemy
 		}
 		// ダメージのコンポーネント
 		if (opt.isEnableDamage) {
-			pActor->attach<DamageCtrl>(pActor);
+			pActor->attach<DamageCtrl>(pActor)
+				->setInvincibleTime(0.2);
 		}
 		// ダメージコールバック
 		{

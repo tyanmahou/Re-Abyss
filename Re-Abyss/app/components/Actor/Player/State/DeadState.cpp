@@ -20,7 +20,7 @@ namespace abyss::Actor::Player
         BaseState::start();
 
         // 無敵時間をなしに
-        m_pActor->find<HP>()->setInvincibleTime(0);
+        m_damageCtrl->setInvincibleTime(0);
 
         // サウンド停止
         m_pActor->getModule<Sound>()->stop(0.5s);

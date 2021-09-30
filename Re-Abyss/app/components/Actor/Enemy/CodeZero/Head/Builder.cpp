@@ -71,7 +71,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         std::unique_ptr<HeadVM> m_view;
     private:
         HeadVM* bind() const final
@@ -79,7 +79,7 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setForward(m_head->getForward())
-                .setIsDamaging(m_hp->isInInvincibleTime());
+                .setIsDamaging(m_damage->isInInvincibleTime());
         }
         void setup(Executer executer) final
         {
@@ -88,7 +88,7 @@ namespace
         void onStart() final
         {
             m_head = m_pActor->find<HeadCtrl>();
-            m_hp = m_pActor->find<ParentCtrl>()->getHp();
+            m_damage = m_pActor->find<DamageCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :

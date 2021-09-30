@@ -6,7 +6,7 @@
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
 #include <abyss/types/CShape.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
@@ -77,7 +77,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<RotateCtrl> m_rotate;
         Ref<MotionCtrl> m_motion;
 
@@ -89,14 +89,14 @@ namespace
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setRotate(m_rotate->getRotate())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }

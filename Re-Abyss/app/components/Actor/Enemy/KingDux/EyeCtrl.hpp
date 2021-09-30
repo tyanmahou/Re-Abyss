@@ -2,6 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -30,6 +31,7 @@ namespace abyss::Actor::Enemy::KingDux
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
 
         s3d::Vec2 m_eyePosL{0, 0};
 

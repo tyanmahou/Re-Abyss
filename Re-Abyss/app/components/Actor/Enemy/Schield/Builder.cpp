@@ -5,7 +5,7 @@
 #include <abyss/types/CShape.hpp>
 
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
@@ -84,7 +84,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<SchieldVM> m_view;
@@ -94,7 +94,7 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
                 ;
@@ -102,7 +102,7 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:

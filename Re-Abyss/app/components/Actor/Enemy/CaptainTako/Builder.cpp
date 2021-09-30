@@ -4,7 +4,7 @@
 #include <abyss/entities/Actor/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
@@ -47,7 +47,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<ChargeCtrl> m_charge;
         Ref<MotionCtrl> m_motion;
 
@@ -59,7 +59,7 @@ namespace
                 ->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setChargeRate(m_charge->getRate())
                 .setMotion(m_motion->get<Motion>())
                 ;
@@ -67,7 +67,7 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }

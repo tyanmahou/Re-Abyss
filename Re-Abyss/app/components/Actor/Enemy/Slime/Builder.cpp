@@ -3,7 +3,7 @@
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
@@ -64,7 +64,7 @@ namespace
 	{
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
-		Ref<HP> m_hp;
+		Ref<DamageCtrl> m_damage;
 		Ref<MotionCtrl> m_motion;
 		std::unique_ptr<SlimeVM> m_view;
 	private:
@@ -74,14 +74,14 @@ namespace
 				.setForward(m_body->getForward())
 				.setPos(m_body->getPos())
 				.setVelocity(m_body->getVelocity())
-				.setIsDamaging(m_hp->isInInvincibleTime())
+				.setIsDamaging(m_damage->isInInvincibleTime())
 				.setMotion(m_motion->get<Motion>())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
-			m_hp = m_pActor->find<HP>();
+			m_damage = m_pActor->find<DamageCtrl>();
 			m_motion = m_pActor->find<MotionCtrl>();
 		}
 	public:

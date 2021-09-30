@@ -67,8 +67,7 @@ namespace abyss::Actor::Player
 		// HP
 		{
 			pActor->attach<HP>(pActor)
-				->initHp(Param::Base::Hp)
-				.setInvincibleTime(Param::Base::InvincibleTime);
+				->initHp(Param::Base::Hp);
 		}
 		// 衝突
 		{
@@ -97,7 +96,8 @@ namespace abyss::Actor::Player
         }
         // ダメージ制御
         {
-            pActor->attach<DamageCtrl>(pActor);
+            pActor->attach<DamageCtrl>(pActor)
+                ->setInvincibleTime(Param::Base::InvincibleTime);
             pActor->attach<DamageCallback>(pActor);
         }
         // 部屋移動の検知
@@ -202,7 +202,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<ChargeCtrl> m_charge;
         Ref<AttackCtrl> m_attackCtrl;
         Ref<MotionCtrl> m_motion;
@@ -217,7 +217,7 @@ namespace
                 .setForward(m_body->getForward())
                 .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
                 ;
@@ -225,7 +225,7 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();

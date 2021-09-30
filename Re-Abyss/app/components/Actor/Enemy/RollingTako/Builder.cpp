@@ -3,7 +3,7 @@
 #include <abyss/entities/Actor/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
@@ -69,7 +69,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<RollingTakoVM> m_view;
@@ -79,14 +79,14 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:

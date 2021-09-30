@@ -11,13 +11,9 @@ namespace abyss::Actor
     private:
         s3d::int32 m_hp;
         s3d::int32 m_maxHp;
-
-        s3d::Timer m_invincibleTime;
         ActorObj* m_pActor;
     public:
         HP(ActorObj* m_pActor);
-
-        void setup();
 
         /// <summary>
         /// HP/最大HPをセット
@@ -27,7 +23,6 @@ namespace abyss::Actor
         HP& initHp(s3d::int32 hp);
 
         HP& setHp(s3d::int32 hp);
-        HP& setInvincibleTime(double invincibleTimeSec);
 
         s3d::int32 value() const;
 
@@ -41,8 +36,6 @@ namespace abyss::Actor
 
         bool isFull() const;
         bool isDead() const;
-
-        bool isInInvincibleTime() const;
 
         s3d::int32 getHp() const;
         s3d::int32 getMaxHp() const;

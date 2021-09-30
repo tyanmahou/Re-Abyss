@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/CollisionCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -19,8 +20,13 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         Ref<CollisionCtrl> m_col;
         Ref<ParentCtrl> m_parent;
         ActorObj* m_pActor;
+
+        TimeLite::Timer m_invincibleTime;
     public:
         DamageCtrl(ActorObj* pActor);
+
+        DamageCtrl& setInvincibleTime(double invincibleTimeSec);
+        bool isInInvincibleTime() const;
 
         void onStart() override;
         void onPostCollision()override;

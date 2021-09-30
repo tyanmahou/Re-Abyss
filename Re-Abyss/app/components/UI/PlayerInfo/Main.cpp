@@ -15,7 +15,8 @@ namespace abyss::UI::PlayerInfo
 
     void Main::onStart()
     {
-        m_hpModel = m_pActor->find<Actor::HP>();
+        m_hp = m_pActor->find<Actor::HP>();
+        m_damage = m_pActor->find<Actor::DamageCtrl>();
     }
 
     void Main::onUpdate()
@@ -25,10 +26,10 @@ namespace abyss::UI::PlayerInfo
     void Main::onDraw() const
     {
         m_view
-            ->setFace((m_hpModel->isInInvincibleTime() || m_hpModel->isDead()) ? U"damage" : U"default")
+            ->setFace((m_damage->isInInvincibleTime() || m_hp->isDead()) ? U"damage" : U"default")
             .setOoparts(OopartsType::Xto)
-            .setHp(m_hpModel->getHp())
-            .setMaxHp(m_hpModel->getMaxHp())
+            .setHp(m_hp->getHp())
+            .setMaxHp(m_hp->getMaxHp())
             .setPos(Param::Main::DrawPos)
             .draw()
             ;

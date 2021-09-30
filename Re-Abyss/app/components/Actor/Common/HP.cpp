@@ -6,13 +6,9 @@ namespace abyss::Actor
 {
     HP::HP(ActorObj* pActor):
         m_hp(0),
-        m_invincibleTime(1.0s, s3d::StartImmediately::No, pActor->getClock()),
         m_pActor(pActor)
     {}
 
-    void HP::setup()
-    {
-    }
     HP& HP::initHp(s3d::int32 hp)
     {
         m_hp = hp;
@@ -23,17 +19,6 @@ namespace abyss::Actor
     {
         m_hp = hp;
         return *this;
-    }
-
-    HP& HP::setInvincibleTime(double invincibleTimeSec)
-    {
-        m_invincibleTime = s3d::Timer(s3d::Duration(invincibleTimeSec), s3d::StartImmediately::No, m_pActor->getClock());
-        return *this;
-    }
-
-    bool HP::isInInvincibleTime() const
-    {
-        return !m_invincibleTime.reachedZero() && m_invincibleTime.isRunning();
     }
 
     s3d::int32 HP::getHp() const
@@ -60,12 +45,11 @@ namespace abyss::Actor
     }
     bool HP::damage(s3d::int32 damagePoint)
     {
-        if (!this->isInInvincibleTime()) {
-            m_hp -= damagePoint;
-            m_invincibleTime.restart();
-            return true;
+        m_hp -= damagePoint;
+        if (m_hp < 0) {
+            m_hp = 0;
         }
-        return false;
+        return true;
     }
 
     void HP::reset()

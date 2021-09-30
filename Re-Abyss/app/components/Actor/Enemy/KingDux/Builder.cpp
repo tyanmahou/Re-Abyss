@@ -1,7 +1,7 @@
 #include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 
@@ -88,19 +88,19 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_eye = m_pActor->find<EyeCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<EyeCtrl> m_eye;
 
         std::unique_ptr<KingDuxVM> m_view;
@@ -125,19 +125,19 @@ namespace
         {
             return &m_view->setTime(m_pActor->getTimeSec() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setIsFlip(m_isFlip)
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
 
         std::unique_ptr<FootVM> m_view;
         s3d::Vec2 m_offset;

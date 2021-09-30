@@ -6,6 +6,8 @@
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
+
 namespace abyss::Actor
 {
     class DamageCtrl : 
@@ -13,15 +15,11 @@ namespace abyss::Actor
         public IPostCollision,
         public IStateCallback
     {
-    protected:
-        Ref<HP> m_hp;
-        Ref<CollisionCtrl> m_colCtrl;
-        ActorObj* m_pActor;
-
-        bool m_isActive = true;
-        s3d::Optional<DamageData> m_damageData;
     public:
         DamageCtrl(ActorObj* pActor);
+
+        DamageCtrl& setInvincibleTime(double invincibleTimeSec);
+        bool isInInvincibleTime() const;
 
         void onStart() override;
         void onPostCollision()override;
@@ -39,6 +37,15 @@ namespace abyss::Actor
         {
             return m_damageData;
         }
+    protected:
+        Ref<HP> m_hp;
+        Ref<CollisionCtrl> m_colCtrl;
+        ActorObj* m_pActor;
+
+        TimeLite::Timer m_invincibleTime;
+
+        bool m_isActive = true;
+        s3d::Optional<DamageData> m_damageData;
     };
 }
 

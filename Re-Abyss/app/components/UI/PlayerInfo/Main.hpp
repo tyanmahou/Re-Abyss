@@ -3,6 +3,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::UI::PlayerInfo
@@ -27,7 +28,8 @@ namespace abyss::UI::PlayerInfo
         UIObj* m_pUi;
 
         Actor::ActorObj* m_pActor;
-        Ref<Actor::HP> m_hpModel;
+        Ref<Actor::HP> m_hp;
+        Ref<Actor::DamageCtrl> m_damage;
 
         std::unique_ptr<PlayerInfoExVM> m_view;
     };

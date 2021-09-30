@@ -54,8 +54,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         // HP
         {
             pActor->attach<HP>(pActor)
-                ->initHp(ShotParam::Base::Hp)
-                .setInvincibleTime(0.2);
+                ->initHp(ShotParam::Base::Hp);
         }
         // 音源
         {
@@ -89,7 +88,8 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // ダメージ
         {
-            pActor->attach<DamageCtrl>(pActor);
+            pActor->attach<DamageCtrl>(pActor)
+                ->setInvincibleTime(0.2);
             pActor->attach<Enemy::DeadCallback>(pActor);
             pActor->attach<Enemy::DamageCallback>(pActor);
         }
@@ -130,7 +130,7 @@ namespace
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damage;
         Ref<RotateCtrl> m_rotate;
         Ref<MotionCtrl> m_motion;
 
@@ -141,14 +141,14 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
-                .setIsDamaging(m_hp->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_hp = m_pActor->find<HP>();
+            m_damage = m_pActor->find<DamageCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
