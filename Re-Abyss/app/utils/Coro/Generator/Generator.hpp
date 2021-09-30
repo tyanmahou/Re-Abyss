@@ -43,9 +43,17 @@ namespace abyss::Coro
                 return (!owner || !owner->coro.done());
             }
         };
-
+    public:
         iterator begin()const { return { this }; }
         iterator end()const { return { nullptr }; }
+
+        template<class Func>
+        void each(Func func) requires std::is_invocable_v<Func, Type>
+        {
+            for (auto&& elm : *this) {
+                func(elm);
+            }
+        }
     public:
         explicit Generator(handle h)
             : coro(h)

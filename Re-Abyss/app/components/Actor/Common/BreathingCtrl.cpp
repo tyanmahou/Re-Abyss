@@ -25,7 +25,7 @@ namespace abyss::Actor
     {
         double dt = m_pActor->deltaTime();
 
-        m_timer.update(dt, [&]{
+        m_timer.update(dt).each([&](double){
             if (RandomBool(0.7)) {
                 m_pActor->getModule<Effects>()->createDecorFront<BreathEffect>(m_body->getPos() + m_offset);
             }

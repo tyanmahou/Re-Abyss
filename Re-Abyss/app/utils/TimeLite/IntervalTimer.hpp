@@ -45,18 +45,6 @@ namespace abyss::TimeLite
             }
             co_return;
         }
-        void update(double dt, std::function<void()> callback)
-        {
-            for ([[maybe_unused]] double carryOver : this->update(dt)) {
-                callback();
-            }
-        }
-        void update(double dt, std::function<void(double)> callback)
-        {
-            for (double carryOver : this->update(dt)) {
-                callback(carryOver);
-            }
-        }
         bool isMaxCount() const
         {
             return m_maxCount >= 0 && m_count >= m_maxCount;
