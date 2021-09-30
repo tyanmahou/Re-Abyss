@@ -13,18 +13,17 @@ namespace abyss::Effect
     void EffectObj::updateDeltaTime(double dt) const
     {
         m_clock->updateDeltaTime(dt);
+        if (this->isActive()) {
+            m_clock->updateUpdateTime();
+        }
     }
     double EffectObj::deltaTime() const
     {
         return m_clock->getDeltaTime();
     }
-    double EffectObj::updateTimeSec() const
+    double EffectObj::timeSec() const
     {
         return m_clock->getUpdateTimeSec();
-    }
-    double EffectObj::drawTimeSec() const
-    {
-        return m_clock->getDrawTimeSec();
     }
     void EffectObj::setTimeScale(double scale)
     {
@@ -32,14 +31,12 @@ namespace abyss::Effect
     }
     void EffectObj::update()
     {
-        m_clock->updateUpdateTime();
         for (auto&& com : this->finds<IUpdate>()) {
             com->onUpdate();
         }
     }
     void EffectObj::draw()
     {
-        m_clock->updateDrawTime();
         m_drawer->draw();
     }
 }

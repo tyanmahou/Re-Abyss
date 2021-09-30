@@ -18,7 +18,7 @@ namespace abyss::Effect::Misc::Bubble
     }
     void Main::onUpdate()
     {
-        auto time = m_pObj->updateTimeSec();
+        auto time = m_pObj->timeSec();
         m_basePos += m_velocity * m_pObj->deltaTime();
         m_pos = m_basePos + Vec2{ m_deflection * Sin(time), 0.0 };
         m_radius = Min(m_maxRadius, EaseOut(Easing::Cubic, 0.0, m_maxRadius, time));

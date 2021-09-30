@@ -21,7 +21,7 @@ namespace abyss::Effect
                         break;
                     }
                     drawManager->add(pObj->getLayer(), [=, &isEnd] {
-                        if (!com->onDraw(pObj->drawTimeSec())) {
+                        if (!com->onDraw(pObj->timeSec())) {
                             isEnd = true;
                         }
                     });

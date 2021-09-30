@@ -13,8 +13,7 @@ namespace abyss::Effect
 
         void updateDeltaTime(double dt) const;
         double deltaTime() const;
-        double updateTimeSec() const;
-        double drawTimeSec() const;
+        double timeSec() const;
 
         void setTimeScale(double scale);
 
