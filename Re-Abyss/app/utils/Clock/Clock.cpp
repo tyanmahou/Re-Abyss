@@ -1,16 +1,22 @@
 #include "Clock.hpp"
-#include <Siv3D/Time.hpp>
+#include "ClockUtil.hpp"
+#include <Siv3D.hpp>
 
 namespace abyss::Clock
 {
-    s3d::Microseconds GetNow()
+    CustomClock::CustomClock(const std::function<s3d::uint64()>& func):
+        m_func(func)
+    {}
+    s3d::uint64 CustomClock::getMicrosec()
     {
-        return s3d::Microseconds(s3d::Time::GetMicrosec());
+        return m_func();
     }
 
-    s3d::Microseconds FromSec(double sec)
+    CustomClockF::CustomClockF(const std::function<double()>& func):
+        m_func(func)
+    {}
+    s3d::uint64 CustomClockF::getMicrosec()
     {
-        return s3d::DurationCast<s3d::Microseconds>(s3d::Duration(sec));
+        return ClockUtil::FromSec(m_func()).count();
     }
-
 }

@@ -1645,6 +1645,9 @@
     <ClCompile Include="app\debugs\Profiler\Profiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Clock\ClockUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2473,6 +2476,7 @@
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\debugs\Profiler\Profiler.hpp" />
+    <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

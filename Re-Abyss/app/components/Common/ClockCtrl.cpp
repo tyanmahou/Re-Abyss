@@ -1,6 +1,6 @@
 #include "ClockCtrl.hpp"
 #include "ITimeScale.hpp"
-
+#include <abyss/utils/Clock/ClockUtil.hpp>
 namespace abyss
 {
     ClockCtrl::ClockCtrl(GameObject* pObj):
@@ -36,7 +36,7 @@ namespace abyss
     }
     s3d::Microseconds ClockCtrl::getUpdateTime() const
     {
-        return Clock::FromSec(m_updateTimeSec);
+        return ClockUtil::FromSec(m_updateTimeSec);
     }
     double ClockCtrl::getUpdateTimeSec() const
     {
@@ -48,7 +48,7 @@ namespace abyss
     }
     s3d::Microseconds ClockCtrl::getDrawTime() const
     {
-        return Clock::FromSec(m_drawTimeSec);
+        return ClockUtil::FromSec(m_drawTimeSec);
     }
     double ClockCtrl::getDrawTimeSec() const
     {

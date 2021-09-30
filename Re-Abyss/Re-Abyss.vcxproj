@@ -489,6 +489,7 @@
     <ClCompile Include="app\system\Splash\Booter.cpp" />
     <ClCompile Include="app\system\System.cpp" />
     <ClCompile Include="app\system\Title\Booter.cpp" />
+    <ClCompile Include="app\utils\Clock\ClockUtil.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -912,6 +913,7 @@
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
