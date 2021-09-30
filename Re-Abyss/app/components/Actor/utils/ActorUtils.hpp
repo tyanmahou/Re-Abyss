@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Fwd.hpp>
-#include <Siv3D/Timer.hpp>
 
 namespace abyss::Actor::ActorUtils
 {

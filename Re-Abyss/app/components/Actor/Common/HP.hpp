@@ -1,6 +1,5 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
-#include <Siv3D/Timer.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/commons/Fwd.hpp>
 

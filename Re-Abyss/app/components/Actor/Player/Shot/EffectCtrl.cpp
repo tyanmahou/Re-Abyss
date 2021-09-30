@@ -49,14 +49,14 @@ namespace abyss::Actor::Player::Shot
             auto* pLight = m_pActor->getModule<Light>();
 
             // Effect
-            for ([[maybe_unused]] double carryOver : m_effectTimer.update(m_pActor->deltaTime())) {
+            m_effectTimer.update(m_pActor->deltaTime()).each([&](double) {
                 m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
                 m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
                     pos,
                     radius * std::sqrt(radius) / 2.0,
                     10
                     )->setTimeScale(2.0);
-            }
+            });
         }
     }
 

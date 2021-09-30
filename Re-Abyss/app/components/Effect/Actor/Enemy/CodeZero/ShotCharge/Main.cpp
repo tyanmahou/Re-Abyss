@@ -13,11 +13,11 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::ShotCharge
     void Main::onUpdate()
     {
         double dt = m_pObj->deltaTime();
-        for ([[maybe_unused]]auto carryOver : m_particleTimer.update(dt)) {
+        m_particleTimer.update(dt).each([&](double) {
             const Vec2 v = Circular(Random(50.0, 160.0), Random(Math::TwoPi));
             const auto color = RandomBool() ? Palette::Red : Palette::Black;
             m_particles.emplace_back(m_pos + v, color);
-        }
+        });
 
         // パーティクル移動
         for (auto& particle : m_particles) {
