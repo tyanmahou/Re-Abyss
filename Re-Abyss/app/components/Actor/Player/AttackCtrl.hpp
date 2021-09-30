@@ -5,7 +5,7 @@
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Player/ChargeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <Siv3D/Timer.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -32,7 +32,7 @@ namespace abyss::Actor::Player
         void startAttack();
     private:
         ActorObj* m_pActor = nullptr;
-        s3d::Timer m_timer;
+        TimeLite::Timer m_timer;
 
         Ref<Body> m_body;
         Ref<ChargeCtrl> m_charge;

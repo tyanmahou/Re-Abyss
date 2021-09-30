@@ -9,19 +9,20 @@
 namespace abyss::Actor::Player
 {
     AttackCtrl::AttackCtrl(ActorObj* pActor):
-        m_timer(0.4s, s3d::StartImmediately::No, pActor->getClock()),
-        m_pActor(pActor)
-    {}
+        m_pActor(pActor),
+        m_timer(0.4)
+    {
+        m_timer.toEnd();
+    }
 
     void AttackCtrl::reset()
     {
-        m_timer.restart();
-        m_timer.pause();
+        m_timer.toEnd();
     }
 
     bool AttackCtrl::isAttacking() const
     {
-        return !m_timer.reachedZero() && m_timer.isRunning();
+        return !m_timer.isEnd();
     }
 
     void AttackCtrl::onStart()
@@ -32,10 +33,11 @@ namespace abyss::Actor::Player
 
     void AttackCtrl::onLastUpdate()
     {
-        if (!m_isActive || (m_timer.progress0_1() <= 0.5 && m_timer.isRunning())) {
+        auto dt = m_pActor->deltaTime();
+        m_timer.update(dt);
+        if (!m_isActive || (m_timer.rate() <= 0.5)) {
             return;
         }
-        auto dt = m_pActor->deltaTime();
 
         // 攻撃
         if (m_charge->update(dt)) {
@@ -50,7 +52,7 @@ namespace abyss::Actor::Player
 
     void AttackCtrl::startAttack()
     {
-        m_timer.restart();
+        m_timer.reset();
 
         double charge = m_charge->pop();
         m_pActor->getModule<World>()->create<Shot::Builder>(
