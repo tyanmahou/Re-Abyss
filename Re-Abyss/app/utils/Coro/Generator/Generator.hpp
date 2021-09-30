@@ -48,7 +48,7 @@ namespace abyss::Coro
         iterator end()const { return { nullptr }; }
 
         template<class Func>
-        void each(Func func) requires std::is_invocable_v<Func, Type>
+        void each(Func func) const requires std::is_invocable_v<Func, Type>
         {
             for (auto&& elm : *this) {
                 func(elm);
