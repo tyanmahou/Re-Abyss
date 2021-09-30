@@ -1,11 +1,12 @@
 #pragma once
 #include "BaseState.hpp"
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     class WaitState final : public BaseState
     {
-        TimerEx m_timer;
+        TimeLite::Timer m_timer;
     public:
         WaitState();
         void start() override;

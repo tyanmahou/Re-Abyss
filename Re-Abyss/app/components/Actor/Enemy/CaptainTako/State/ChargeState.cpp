@@ -1,12 +1,12 @@
 #include "ChargeState.hpp"
 #include "AttackState.hpp"
 
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {
-    ChargeState::ChargeState()
+    ChargeState::ChargeState():
+        m_chargeTimer(Param::Charge::TimeSec)
     {}
     void ChargeState::start()
     {
@@ -15,10 +15,9 @@ namespace abyss::Actor::Enemy::CaptainTako
     }
     Task<> ChargeState::task()
     {
-        m_chargeTimer = ActorUtils::CreateTimer(*m_pActor, Param::Charge::TimeSec);
         m_audio->play(U"Charge");
 
-        while (!m_chargeTimer.reachedZero()) {
+        while (!m_chargeTimer.isEnd()) {
             co_yield{};
         }
         this->changeState<AttackState>();
@@ -26,6 +25,8 @@ namespace abyss::Actor::Enemy::CaptainTako
     }
     void ChargeState::update()
     {
-        m_charge->setRate(m_chargeTimer.progress0_1());
+        m_chargeTimer.update(m_pActor->deltaTime());
+
+        m_charge->setRate(m_chargeTimer.rate());
     }
 }

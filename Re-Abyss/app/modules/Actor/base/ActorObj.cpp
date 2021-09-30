@@ -101,9 +101,9 @@ namespace abyss::Actor
 	{
 		return m_clock->getUpdateTimeSec();
 	}
-    std::function<s3d::Microseconds()> ActorObj::getUpdateClock() const
+	s3d::ISteadyClock* ActorObj::getUpdateClock() const
     {
-		return [this] {return this->getUpdateTime(); };
+		return m_clock->getUpdateClock();
     }
 	s3d::Microseconds ActorObj::getDrawTime() const
 	{
@@ -113,9 +113,9 @@ namespace abyss::Actor
 	{
 		return m_clock->getDrawTimeSec();
 	}
-	std::function<s3d::Microseconds()> ActorObj::getDrawClock() const
+	s3d::ISteadyClock* ActorObj::getDrawClock() const
 	{
-		return [this] {return this->getDrawTime(); };
+		return m_clock->getDrawClock();
 	}
 	double ActorObj::deltaTime() const
 	{

@@ -9,7 +9,7 @@
 namespace abyss::Actor::Player
 {
     AttackCtrl::AttackCtrl(ActorObj* pActor):
-        m_timer(0.4s, false, pActor->getUpdateClock()),
+        m_timer(0.4s, s3d::StartImmediately::No, pActor->getUpdateClock()),
         m_pActor(pActor)
     {}
 

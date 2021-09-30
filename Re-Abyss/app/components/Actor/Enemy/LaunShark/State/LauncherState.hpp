@@ -1,13 +1,13 @@
 #pragma once
 #include "BaseState.hpp"
-#include <abyss/utils/TimerEx/TimerEx.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark
 {
     class LauncherState : public BaseState
     {
-        TimerEx m_attackTimer;
-        TimerEx m_waitTimer;
+        TimeLite::Timer m_attackTimer;
+        TimeLite::Timer m_waitTimer;
         bool m_out = false;
     public:
         LauncherState();

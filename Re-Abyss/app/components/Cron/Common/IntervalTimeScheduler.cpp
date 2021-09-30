@@ -15,9 +15,8 @@ namespace abyss::Cron
     Coro::Task<> IntervalTimeScheduler::execute(std::function<Coro::Task<>()> task)
     {
         auto time = m_pManager->getModule<GlobalTime>();
-        auto timeFunc = [time] {return time->timeMicroSec(); };
         while (true) {
-            co_yield Coro::WaitForSecondsEx(m_duration, timeFunc);
+            co_yield Coro::WaitForSeconds(m_duration, time);
             co_yield task();
         }
     }

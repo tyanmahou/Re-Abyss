@@ -1,14 +1,16 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Duration.hpp>
+#include <Siv3D/ISteadyClock.hpp>
 #include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
 
 using namespace std::literals;
 
 namespace abyss
 {
-    class GlobalTime
+    class GlobalTime : public s3d::ISteadyClock
     {
+        s3d::uint64 getMicrosec() override;
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;

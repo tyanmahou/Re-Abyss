@@ -3,7 +3,6 @@
 #include <Siv3D.hpp>
 
 #include <abyss/utils/Coro/Task/Task.hpp>
-#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss::Coro
 {
@@ -15,9 +14,9 @@ namespace abyss::Coro
         }
     }
 
-    Task<> WaitForSecondsEx(const s3d::Duration& duration, Clock_t timeGetter)
+    Task<> WaitForSeconds(const s3d::Duration& duration, s3d::ISteadyClock* clock)
     {
-        TimerEx timer(duration, true, timeGetter);
+        s3d::Timer timer(duration, StartImmediately::Yes, clock);
         while (!timer.reachedZero()) {
             co_yield{};
         }

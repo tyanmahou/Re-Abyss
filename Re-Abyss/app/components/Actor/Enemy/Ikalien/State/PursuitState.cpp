@@ -6,11 +6,11 @@
 #include <Siv3D.hpp>
 namespace abyss::Actor::Enemy::Ikalien
 {
-    PursuitState::PursuitState()
+    PursuitState::PursuitState():
+        m_timer(2.0)
     {}
     void PursuitState::start()
     {
-        m_timer = ActorUtils::CreateTimer(*m_pActor, 2.0);
         m_body->noneResistanced();
         m_motion->set(Motion::Pursuit);
     }
@@ -32,7 +32,8 @@ namespace abyss::Actor::Enemy::Ikalien
         m_body->setPivot(nextPivot);
 
         m_body->setVelocity(m_rotate->getDir() * Param::Pursuit::Speed);
-        if (m_timer.reachedZero()) {
+        m_timer.update(dt);
+        if (m_timer.isEnd()) {
             this->changeState<SwimState>();
         }
     }

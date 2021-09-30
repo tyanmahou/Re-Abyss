@@ -2,7 +2,6 @@
 #include <memory>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss
 {

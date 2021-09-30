@@ -1,12 +1,12 @@
 #pragma once
 #include "BaseState.hpp"
-#include <abyss/utils/TimerEx/TimerEx.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     class PursuitState : public BaseState
     {
-        TimerEx m_timer;
+        TimeLite::Timer m_timer;
     public:
         PursuitState();
         void start();

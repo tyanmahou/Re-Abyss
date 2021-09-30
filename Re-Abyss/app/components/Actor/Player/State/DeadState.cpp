@@ -8,7 +8,6 @@
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
@@ -61,16 +60,15 @@ namespace abyss::Actor::Player
 
         // ダメージ受けない
         m_damageCtrl->setActive(false);
-
-        // アニメ用タイマー開始
-        m_deadTimer = ActorUtils::CreateTimer(*m_pActor, Param::Dead::AnimeTimeSec, true);
     }
 
     void DeadState::update()
     {
-        m_motion->setAnimeTime(m_deadTimer.progress0_1());
+        m_deadTimer.update(m_pActor->deltaTime());
+        m_motion->setAnimeTime(m_deadTimer.rate());
     }
-    DeadState::DeadState()
+    DeadState::DeadState():
+        m_deadTimer(Param::Dead::AnimeTimeSec)
     {}
 
 }

@@ -5,16 +5,17 @@
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    PursuitState::PursuitState()
+    PursuitState::PursuitState():
+        m_timer(ShotParam::Pursuit::TimeSec)
     {
     }
     void PursuitState::start()
     {
-        m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::TimeSec);
     }
     void PursuitState::update()
     {
-        if (m_timer.reachedZero()) {
+        m_timer.update(m_pActor->deltaTime());
+        if (m_timer.isEnd()) {
             this->changeState<PursuitEndState>();
             return;
         }

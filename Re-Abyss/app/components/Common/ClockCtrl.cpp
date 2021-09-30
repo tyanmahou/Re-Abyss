@@ -4,7 +4,9 @@
 namespace abyss
 {
     ClockCtrl::ClockCtrl(GameObject* pObj):
-        m_pObj(pObj)
+        m_pObj(pObj),
+        m_updateClock(this),
+        m_drawClock(this)
     {}
     void ClockCtrl::onStart()
     {
@@ -40,6 +42,10 @@ namespace abyss
     {
         return m_updateTimeSec;
     }
+    s3d::ISteadyClock* ClockCtrl::getUpdateClock()
+    {
+        return &m_updateClock;
+    }
     s3d::Microseconds ClockCtrl::getDrawTime() const
     {
         return Clock::FromSec(m_drawTimeSec);
@@ -47,6 +53,11 @@ namespace abyss
     double ClockCtrl::getDrawTimeSec() const
     {
         return m_drawTimeSec;
+    }
+
+    s3d::ISteadyClock* ClockCtrl::getDrawClock()
+    {
+        return &m_drawClock;
     }
 
     double ClockCtrl::getDeltaTime() const

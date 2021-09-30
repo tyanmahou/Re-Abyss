@@ -1,19 +1,19 @@
 #include "PursuitEndState.hpp"
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    PursuitEndState::PursuitEndState()
+    PursuitEndState::PursuitEndState():
+        m_timer(ShotParam::Pursuit::EndToDeadTimeSec)
     {}
 
     void PursuitEndState::start()
     {
-        m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::EndToDeadTimeSec);
     }
     void PursuitEndState::update()
     {
-        if (m_timer.reachedZero()) {
+        m_timer.update(m_pActor->deltaTime());
+        if (m_timer.isEnd()) {
             m_pActor->destroy();
         }
     }

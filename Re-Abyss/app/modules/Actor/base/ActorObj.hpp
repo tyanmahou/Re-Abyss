@@ -2,6 +2,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/components/base/Components.hpp>
 #include <Siv3D/Duration.hpp>
+#include <Siv3D/ISteadyClock.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 #include <abyss/modules/Actor/base/Tag.hpp>
 #include <abyss/modules/Actor/base/BufferLayer.hpp>
@@ -61,11 +62,11 @@ namespace abyss::Actor
 
 		s3d::Microseconds getUpdateTime() const;
 		double getUpdateTimeSec() const;
-		std::function<s3d::Microseconds()> getUpdateClock() const;
+		s3d::ISteadyClock* getUpdateClock() const;
 
 		s3d::Microseconds getDrawTime() const;
 		double getDrawTimeSec() const;
-		std::function<s3d::Microseconds()> getDrawClock() const;
+		s3d::ISteadyClock* getDrawClock() const;
 
 		double deltaTime() const;
 

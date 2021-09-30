@@ -44,11 +44,10 @@ namespace abyss::Cron::FishGenerator
 	Coro::Task<> Generator::onExecute()
     {
 		auto time = m_pManager->getModule<GlobalTime>();
-		auto clock = [time] {return time->timeMicroSec(); };
 
 		while (true) {
 			this->buildFish();
-			co_yield Coro::WaitForSecondsEx(2.0s, clock);
+			co_yield Coro::WaitForSeconds(2.0s, time);
 		}
 		co_return;
     }

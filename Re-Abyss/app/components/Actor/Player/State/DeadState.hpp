@@ -1,6 +1,6 @@
 #pragma once
 #include"BaseState.hpp"
-
+#include <abyss/utils/TimeLite/Timer.hpp>
 namespace abyss::Actor::Player
 {
     class DeadState final : public BaseState
@@ -10,6 +10,6 @@ namespace abyss::Actor::Player
     public:
         DeadState();
     private:
-        TimerEx m_deadTimer;
+        TimeLite::Timer m_deadTimer;
     };
 }

@@ -13,9 +13,9 @@ namespace abyss::Coro
     [[nodiscard]] Task<> WaitForSeconds(const s3d::Duration& duration);
 
     /// <summary>
-    /// 指定病待つ 時計指定版
+    /// 指定秒待つ 時計指定版
     /// </summary>
-    [[nodiscard]] Task<> WaitForSecondsEx(const s3d::Duration& duration, Clock_t timeGetter = Clock::GetNow);
+    [[nodiscard]] Task<> WaitForSeconds(const s3d::Duration& duration, s3d::ISteadyClock* clock);
 
     /// <summary>
     /// 指定フレーム待つ

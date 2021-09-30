@@ -32,9 +32,37 @@ namespace abyss::TimeLite
             }
             return m_current / m_total;
         }
+        double invRate() const
+        {
+            return 1.0 - rate();
+        }
         void toEnd()
         {
             m_current = m_total;
+        }
+
+        double current() const
+        {
+            return m_current;
+        }
+
+        double rest() const
+        {
+            return m_total - m_current;
+        }
+
+        void reset()
+        {
+            m_current = 0;
+        }
+        void reset(double total)
+        {
+            m_current = 0;
+            m_total = total;
+        }
+        bool isRunning() const
+        {
+            return m_current > 0;
         }
     private:
         double m_current = 0;

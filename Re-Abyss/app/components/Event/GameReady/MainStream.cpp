@@ -7,7 +7,7 @@
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 
 
-#include <abyss/utils/TimerEx/TimerEx.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Event::GameReady
 {
@@ -31,7 +31,7 @@ namespace abyss::Event::GameReady
             auto globalTime = m_pEvent->getModule<GlobalTime>();
             auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
 
-            TimerEx timer(1s, true, globalTime->clock());
+            s3d::Timer timer(1s, s3d::StartImmediately::Yes, globalTime);
 
             while (!timer.reachedZero()) {
                 fade->setPos(playerManager->getPos())

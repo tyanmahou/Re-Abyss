@@ -77,6 +77,10 @@ namespace abyss
     {}
     GlobalTime::~GlobalTime()
     {}
+    s3d::uint64 GlobalTime::getMicrosec()
+    {
+        return m_pImpl->timeMicroSec().count();
+    }
     void GlobalTime::update() const
     {
         return m_pImpl->update();

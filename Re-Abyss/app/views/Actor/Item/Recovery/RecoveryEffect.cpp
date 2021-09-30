@@ -134,10 +134,22 @@ namespace abyss::Actor::Item::Recovery
             };
             Coro::Task<void> task()
             {
-                auto clock = [this] {return Clock::FromSec(m_time); };
+                std::function<uint64()> func = [this] {return Clock::FromSec(m_time).count(); };
+                struct Clock : ISteadyClock
+                {
+                    Clock(std::function<uint64()> f):
+                        func(f)
+                    {}
+                    uint64 getMicrosec()
+                    {
+                        return func();
+                    }
+                    std::function<uint64()> func;
+                }clock{func};
+
                 for ([[maybe_unused]]auto count : step(1, 10)) {
                     m_flashs.emplace_back();
-                    co_yield Coro::WaitForSecondsEx(0.1s, clock);
+                    co_yield Coro::WaitForSeconds(0.1s, &clock);
                 }
             }
         public:

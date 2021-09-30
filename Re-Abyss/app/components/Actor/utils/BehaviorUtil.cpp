@@ -11,7 +11,7 @@ namespace abyss::Actor::BehaviorUtils
 
     Coro::Task<> WaitForSeconds(ActorObj* pActor, s3d::Duration duration)
     {
-        co_yield Coro::WaitForSecondsEx(duration, pActor->getUpdateClock());
+        co_yield Coro::WaitForSeconds(duration, pActor->getUpdateClock());
     }
 
 }

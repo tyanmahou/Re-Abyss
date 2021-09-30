@@ -9,13 +9,13 @@
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
-    PursuitState::PursuitState()
+    PursuitState::PursuitState():
+        m_timer(ShotParam::Pursuit::Time)
     {}
 
     void PursuitState::start()
     {
         m_motion->set(Motion::Firinged);
-        m_timer = ActorUtils::CreateTimer(*m_pActor, ShotParam::Pursuit::Time);
     }
     void PursuitState::update()
     {
@@ -31,7 +31,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         m_rotate->setRotate(rotate);
         m_body->setVelocity(m_rotate->getDir9() * ShotParam::Pursuit::Speed);
-        if (m_timer.reachedZero()) {
+
+        m_timer.update(dt);
+        if (m_timer.isEnd()) {
             this->changeState<FiringedState>();
         }
     }

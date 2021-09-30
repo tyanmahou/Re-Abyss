@@ -10,15 +10,15 @@
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {
-    LauncherState::LauncherState()
+    LauncherState::LauncherState():
+        m_attackTimer(Param::Launcher::AttackTimeSec),
+        m_waitTimer(Param::Launcher::WaitTimeSec)
     {}
     void LauncherState::start()
     {
         m_motion->set(Motion::Launcher)
             .setAnimeTime(0.0);
 
-        m_attackTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::AttackTimeSec);
-        m_waitTimer = ActorUtils::CreateTimer(*m_pActor, Param::Launcher::WaitTimeSec, false);
         m_body->setAccelX(0);
         m_body->setVelocityY(0);
 
@@ -26,17 +26,18 @@ namespace abyss::Actor::Enemy::LaunShark
     }
     void LauncherState::update()
     {
-        if (m_attackTimer.reachedZero()) {
+        double dt = m_pActor->deltaTime();
+        m_attackTimer.update(dt);
+        if (m_attackTimer.isEnd()) {
             if (!m_out) {
-                if (!m_waitTimer.isRunning()) {
-                    m_waitTimer.start();
+                if (!(m_waitTimer.current() > 0)) {
                     int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getDrawTimeSec()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
                     m_pActor->getModule<World>()->create<Shot::Builder>(shotPos, m_body->getForward());
                 }
-                if (m_waitTimer.reachedZero()) {
-                    m_attackTimer.restart();
+                if (m_waitTimer.isEnd()) {
+                    m_attackTimer.reset();
                     m_out = true;
                 }
             } else {
@@ -44,7 +45,7 @@ namespace abyss::Actor::Enemy::LaunShark
             }
         }
         m_motion
-            ->setAnimeTime(m_out ? m_attackTimer.progress1_0() : m_attackTimer.progress0_1());
+            ->setAnimeTime(m_out ? m_attackTimer.invRate() : m_attackTimer.rate());
     }
     void LauncherState::end()
     {

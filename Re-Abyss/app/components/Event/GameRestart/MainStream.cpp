@@ -8,7 +8,7 @@
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 
-#include <abyss/utils/TimerEx/TimerEx.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Event::GameRestart
 {
@@ -33,7 +33,7 @@ namespace abyss::Event::GameRestart
     {
         // スローモーション
         {
-            TimerEx timer(2.5s, true);
+            Timer timer(2.5s, StartImmediately::Yes);
             while (!timer.reachedZero()) {
                 m_globalTimeScale = timer.progress0_1();
                 co_yield{};
@@ -47,7 +47,7 @@ namespace abyss::Event::GameRestart
             fade->create();
             auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
 
-            TimerEx timer(1s, true);
+            Timer timer(1s, StartImmediately::Yes);
 
             while (!timer.reachedZero()) {
                 fade->setPos(playerManager->getPos())

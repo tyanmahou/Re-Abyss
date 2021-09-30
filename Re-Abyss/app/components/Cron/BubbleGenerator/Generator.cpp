@@ -44,11 +44,9 @@ namespace abyss::Cron::BubbleGenerator
 	Coro::Task<> Generator::onExecute()
     {
 		auto time = m_pManager->getModule<GlobalTime>();
-		auto clock = [time] {return time->timeMicroSec(); };
-
 		while (true) {
 			this->buildEffect();
-			co_yield Coro::WaitForSecondsEx(0.2s, clock);
+			co_yield Coro::WaitForSeconds(0.2s, time);
 		}
 		co_return;
     }

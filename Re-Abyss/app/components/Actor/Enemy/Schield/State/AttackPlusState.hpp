@@ -1,13 +1,14 @@
 #pragma once
 #include "BaseState.hpp"
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
     class AttackPlusState final : public BaseState
     {
-        TimerEx m_timer;
-        TimerEx m_transitionToAttackPlus;
-        TimerEx m_transitionToAttackCross;
+        TimeLite::Timer m_timer;
+        TimeLite::Timer m_transitionToAttackPlus;
+        TimeLite::Timer m_transitionToAttackCross;
         bool m_isAttack = false;
     public:
         AttackPlusState();

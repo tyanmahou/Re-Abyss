@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/utils/TimerEx/TimerEx.hpp>
 #include "../ComponentCache.hpp"
 
 namespace abyss::Actor::Enemy::LaunShark::Shot

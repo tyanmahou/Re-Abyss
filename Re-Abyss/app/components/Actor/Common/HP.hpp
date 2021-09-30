@@ -1,8 +1,8 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
+#include <Siv3D/Timer.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/TimerEx/TimerEx.hpp>
 
 namespace abyss::Actor
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor
         s3d::int32 m_hp;
         s3d::int32 m_maxHp;
 
-        TimerEx m_invincibleTime;
+        s3d::Timer m_invincibleTime;
         ActorObj* m_pActor;
     public:
         HP(ActorObj* m_pActor);

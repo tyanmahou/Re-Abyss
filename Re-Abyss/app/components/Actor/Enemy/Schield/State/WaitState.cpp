@@ -2,27 +2,27 @@
 #include "AttackPlusState.hpp"
 
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Common/ClockCtrl.hpp>
 
 namespace abyss::Actor::Enemy::Schield
 {
-    WaitState::WaitState()
+    WaitState::WaitState():
+        m_timer(Param::Wait::TimeSec)
     {}
     void WaitState::start()
     {
         m_motion->set(Motion::Wait);
 
-        m_timer = ActorUtils::CreateTimer(*m_pActor, Param::Wait::TimeSec);
         m_pActor->find<ClockCtrl>()->resetDrawTime();
 
         m_face->on();
     }
     void WaitState::update()
     {
-        if (m_timer.reachedZero() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
+        m_timer.update(m_pActor->deltaTime());
+        if (m_timer.isEnd() && m_pActor->getModule<Camera>()->inScreen(m_body->getPos())) {
             this->changeState<AttackPlusState>();
         }
     }

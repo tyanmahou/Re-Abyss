@@ -745,7 +745,6 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\StopwatchEx\StopwatchEx.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
-    <ClCompile Include="app\utils\TimerEx\TimerEx.cpp" />
     <ClCompile Include="app\utils\Clock\Clock.cpp" />
     <ClCompile Include="app\views\Actor\Common\KiraKiraEffect.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.cpp" />
@@ -1511,7 +1510,6 @@
     <ClInclude Include="app\utils\StopwatchEx\StopwatchEx.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
-    <ClInclude Include="app\utils\TimerEx\TimerEx.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actor\Common\BreathEffect.hpp" />
