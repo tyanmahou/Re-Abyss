@@ -8,7 +8,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
 
-#include <abyss/utils/StopwatchEx/StopwatchEx.hpp>
+#include <Siv3D/Stopwatch.hpp>
 
 namespace
 {
@@ -69,7 +69,7 @@ namespace abyss::Event::RoomMove
     }
     Coro::Task<> RoomMoveCtrl::onExecute()
     {
-        StopwatchEx sw(true, m_pEvent->getModule<GlobalTime>()->clock());
+        s3d::Stopwatch sw(s3d::StartImmediately::Yes, m_pEvent->getModule<GlobalTime>());
 
         auto cameraFix = std::make_shared<CameraFix>();
         m_pEvent->getModule<Camera>()->addCameraFix(cameraFix);
