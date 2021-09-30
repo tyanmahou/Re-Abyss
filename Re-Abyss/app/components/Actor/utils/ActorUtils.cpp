@@ -20,8 +20,4 @@ namespace abyss::Actor::ActorUtils
         double f = body.isForward(Forward::Right) ? 1.0 : -1.0;
         return f * d.x > 0 && d.length() <= range;
     }
-    s3d::Timer CreateTimer(const ActorObj& actor, double sec, bool start)
-    {
-        return s3d::Timer(s3d::Duration(sec), s3d::StartImmediately{ start }, actor.getUpdateClock());
-    }
 }

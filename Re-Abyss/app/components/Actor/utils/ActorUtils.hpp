@@ -9,6 +9,4 @@ namespace abyss::Actor::ActorUtils
 
     s3d::Vec2 PlayerDiffVec(const ActorObj& actor, const Body& body);
     bool IsPlayerFrontByDistance(const ActorObj& actor, const Body& body, double range);
-
-    s3d::Timer CreateTimer(const ActorObj& actor, double sec, bool start = true);
 }
