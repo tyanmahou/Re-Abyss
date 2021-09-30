@@ -101,7 +101,7 @@ namespace
 		ShotVM* bind() const final
 		{
 			return &m_view
-				->setTime(m_pActor->getDrawTimeSec())
+				->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
 				;
 		}

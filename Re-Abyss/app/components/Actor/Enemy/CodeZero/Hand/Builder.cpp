@@ -109,7 +109,7 @@ namespace
     private:
         HandVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 .setMotion(m_motion->get<Motion>())

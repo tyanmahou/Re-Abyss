@@ -4,9 +4,7 @@
 namespace abyss
 {
     ClockCtrl::ClockCtrl(GameObject* pObj):
-        m_pObj(pObj),
-        m_updateClock(this),
-        m_drawClock(this)
+        m_pObj(pObj)
     {}
     void ClockCtrl::onStart()
     {
@@ -22,50 +20,36 @@ namespace abyss
         }
         m_deltaTime = dt * m_timeScale;
     }
-    void ClockCtrl::setTimeScale(double timeScale)
-    {
-        m_timeScaleBase = timeScale;
-    }
-    void ClockCtrl::updateUpdateTime()
-    {
-        m_updateTimeSec += m_deltaTime;
-    }
-    void ClockCtrl::updateDrawTime()
-    {
-        m_drawTimeSec += m_deltaTime;
-    }
-    s3d::Microseconds ClockCtrl::getUpdateTime() const
-    {
-        return ClockUtil::FromSec(m_updateTimeSec);
-    }
-    double ClockCtrl::getUpdateTimeSec() const
-    {
-        return m_updateTimeSec;
-    }
-    s3d::ISteadyClock* ClockCtrl::getUpdateClock()
-    {
-        return &m_updateClock;
-    }
-    s3d::Microseconds ClockCtrl::getDrawTime() const
-    {
-        return ClockUtil::FromSec(m_drawTimeSec);
-    }
-    double ClockCtrl::getDrawTimeSec() const
-    {
-        return m_drawTimeSec;
-    }
-
-    s3d::ISteadyClock* ClockCtrl::getDrawClock()
-    {
-        return &m_drawClock;
-    }
-
     double ClockCtrl::getDeltaTime() const
     {
         return m_deltaTime;
     }
-    void ClockCtrl::resetDrawTime()
+    void ClockCtrl::setTimeScale(double timeScale)
     {
-        m_drawTimeSec = 0.0;
+        m_timeScaleBase = timeScale;
+    }
+    void ClockCtrl::updateTime()
+    {
+        m_timeSec += m_deltaTime;
+    }
+    s3d::Microseconds ClockCtrl::getTime() const
+    {
+        return ClockUtil::FromSec(m_timeSec);
+    }
+    double ClockCtrl::getTimeSec() const
+    {
+        return m_timeSec;
+    }
+    s3d::ISteadyClock* ClockCtrl::getClock()
+    {
+        return this;
+    }
+    void ClockCtrl::resetTime()
+    {
+        m_timeSec = 0.0;
+    }
+    s3d::uint64 ClockCtrl::getMicrosec()
+    {
+        return this->getTime().count();
     }
 }

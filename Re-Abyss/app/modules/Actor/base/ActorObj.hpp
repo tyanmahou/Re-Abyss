@@ -60,13 +60,9 @@ namespace abyss::Actor
 		void lastUpdate();
 		void draw()const;
 
-		s3d::Microseconds getUpdateTime() const;
-		double getUpdateTimeSec() const;
-		s3d::ISteadyClock* getUpdateClock() const;
-
-		s3d::Microseconds getDrawTime() const;
-		double getDrawTimeSec() const;
-		s3d::ISteadyClock* getDrawClock() const;
+		s3d::Microseconds getTime() const;
+		double getTimeSec() const;
+		s3d::ISteadyClock* getClock() const;
 
 		double deltaTime() const;
 

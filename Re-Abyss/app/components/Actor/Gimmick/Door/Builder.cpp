@@ -64,7 +64,7 @@ namespace
 			return &m_view
 				->setPos(m_door->getPos())
 				.setKind(m_door->getKind())
-				.setTime(m_pActor->getDrawTimeSec());
+				.setTime(m_pActor->getTimeSec());
 		}
 	private:
 		ActorObj* m_pActor;

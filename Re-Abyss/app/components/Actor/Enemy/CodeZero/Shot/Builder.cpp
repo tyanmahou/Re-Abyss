@@ -90,7 +90,7 @@ namespace
     private:
         ShotVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setScale(m_scale->get())
                 .setIsCharge(m_scale->get() < 1.0)

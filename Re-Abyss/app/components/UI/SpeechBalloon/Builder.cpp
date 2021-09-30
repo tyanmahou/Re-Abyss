@@ -51,7 +51,7 @@ namespace
 		{
 			m_view
 				->setPos(m_locator->getCenterPos() + s3d::Vec2{0, m_talkable->getOffsetY()})
-				.setTime(m_pActor->getDrawTimeSec())
+				.setTime(m_pActor->getTimeSec())
 				.draw();
 		}
 	private:

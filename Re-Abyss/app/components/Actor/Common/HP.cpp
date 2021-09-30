@@ -6,7 +6,7 @@ namespace abyss::Actor
 {
     HP::HP(ActorObj* pActor):
         m_hp(0),
-        m_invincibleTime(1.0s, s3d::StartImmediately::No, pActor->getUpdateClock()),
+        m_invincibleTime(1.0s, s3d::StartImmediately::No, pActor->getClock()),
         m_pActor(pActor)
     {}
 
@@ -27,7 +27,7 @@ namespace abyss::Actor
 
     HP& HP::setInvincibleTime(double invincibleTimeSec)
     {
-        m_invincibleTime = s3d::Timer(s3d::Duration(invincibleTimeSec), s3d::StartImmediately::No, m_pActor->getUpdateClock());
+        m_invincibleTime = s3d::Timer(s3d::Duration(invincibleTimeSec), s3d::StartImmediately::No, m_pActor->getClock());
         return *this;
     }
 

@@ -1,6 +1,6 @@
 #include "BehaviorUtil.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::BehaviorUtils
 {
@@ -11,7 +11,14 @@ namespace abyss::Actor::BehaviorUtils
 
     Coro::Task<> WaitForSeconds(ActorObj* pActor, s3d::Duration duration)
     {
-        co_yield Coro::WaitForSeconds(duration, pActor->getUpdateClock());
+        TimeLite::Timer timer(duration.count());
+        while (true) {
+            timer.update(pActor->deltaTime());
+            if (timer.isEnd()) {
+                break;
+            }
+            co_yield{};
+        }
     }
 
 }

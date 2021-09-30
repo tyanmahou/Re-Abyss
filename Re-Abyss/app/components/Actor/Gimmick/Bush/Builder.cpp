@@ -75,7 +75,7 @@ namespace
 		{
 			return &m_view
 				->setPos(m_locator->getCenterPos())
-				.setTime(m_pActor->getDrawTimeSec() + m_timeOffset)
+				.setTime(m_pActor->getTimeSec() + m_timeOffset)
 				.setResizeRate(m_colReactor->getResizeRate());
 		}
 	private:

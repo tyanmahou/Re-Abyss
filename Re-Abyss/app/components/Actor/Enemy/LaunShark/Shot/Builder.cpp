@@ -138,7 +138,7 @@ namespace
     private:
         ShotVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 .setIsDamaging(m_hp->isInInvincibleTime())

@@ -58,7 +58,7 @@ namespace
 	private:
 		LaunSharkVM* bind() const final
 		{
-			return &m_view->setTime(m_pActor->getDrawTimeSec())
+			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
 				.setForward(m_body->getForward())
 				.setIsDamaging(m_hp->isInInvincibleTime())

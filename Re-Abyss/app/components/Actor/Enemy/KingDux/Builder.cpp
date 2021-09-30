@@ -85,7 +85,7 @@ namespace
     private:
         KingDuxVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_hp->isInInvincibleTime())
@@ -123,7 +123,7 @@ namespace
         }
         FootVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec() + m_timeOffset)
+            return &m_view->setTime(m_pActor->getTimeSec() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
                 .setIsDamaging(m_hp->isInInvincibleTime())
                 .setIsFlip(m_isFlip)

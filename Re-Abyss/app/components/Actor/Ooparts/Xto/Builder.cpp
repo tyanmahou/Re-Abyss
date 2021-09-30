@@ -44,7 +44,7 @@ namespace
         OopartsView* bind() const final
         {
             return  &m_view
-                ->setTime(m_pActor->getDrawTimeSec())
+                ->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
                 ;

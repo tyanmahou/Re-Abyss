@@ -68,7 +68,7 @@ namespace
                 });
 
                 m_bodyVM->setPos(pos).draw();
-                double time = m_pActor->getDrawTimeSec();
+                double time = m_pActor->getTimeSec();
                 m_headVM->setTime(time).setPos(pos + Param::Head::Offset).draw();
                 m_leftHandVM->setTime(time).setPos(pos + s3d::Vec2{ 110, 90 }).draw();
                 m_rightHandVM->setTime(time).setPos(pos + s3d::Vec2{ -110, 90 }).draw();

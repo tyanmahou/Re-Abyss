@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::LaunShark
         if (m_attackTimer.isEnd()) {
             if (!m_out) {
                 if (!m_waitTimer.isRunning()) {
-                    int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getDrawTimeSec()));
+                    int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getTimeSec()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
                     m_pActor->getModule<World>()->create<Shot::Builder>(shotPos, m_body->getForward());

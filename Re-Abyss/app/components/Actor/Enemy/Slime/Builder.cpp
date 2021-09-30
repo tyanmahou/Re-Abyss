@@ -70,7 +70,7 @@ namespace
 	private:
 		SlimeVM* bind() const final
 		{
-			return &m_view->setTime(m_pActor->getDrawTimeSec())
+			return &m_view->setTime(m_pActor->getTimeSec())
 				.setForward(m_body->getForward())
 				.setPos(m_body->getPos())
 				.setVelocity(m_body->getVelocity())

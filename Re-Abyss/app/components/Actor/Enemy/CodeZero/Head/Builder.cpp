@@ -76,7 +76,7 @@ namespace
     private:
         HeadVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getDrawTimeSec())
+            return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setForward(m_head->getForward())
                 .setIsDamaging(m_hp->isInInvincibleTime());

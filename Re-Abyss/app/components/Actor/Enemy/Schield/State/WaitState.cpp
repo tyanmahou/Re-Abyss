@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::Schield
     {
         m_motion->set(Motion::Wait);
 
-        m_pActor->find<ClockCtrl>()->resetDrawTime();
+        m_pActor->find<ClockCtrl>()->resetTime();
 
         m_face->on();
     }

@@ -24,7 +24,7 @@ namespace abyss::Actor::Ooparts
         }
         if (m_isPursuit) {
             auto dt = m_pActor->deltaTime();
-            double time = m_pActor->getDrawTimeSec();
+            double time = m_pActor->getTimeSec();
 
             auto localTarget = Vec2{ m_pParent->getForward() * -20 , -40 };
             localTarget += Vec2{

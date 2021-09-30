@@ -89,7 +89,7 @@ namespace
     private:
         RecoveryVM* bind() const final
         {
-            auto time = m_pActor->getDrawTimeSec();
+            auto time = m_pActor->getTimeSec();
             double alpha = 1.0;
             if (m_lifeSpan && m_lifeSpan->isWarn()) {
                 auto rest = m_lifeSpan->restTimeSec();

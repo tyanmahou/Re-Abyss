@@ -22,10 +22,12 @@ namespace abyss::Actor
 	void ActorObj::updateDeltaTime(double worldDt) const
 	{
 		m_clock->updateDeltaTime(worldDt);
+		if (this->isActive()) {
+			m_clock->updateTime();
+		}
 	}
 	void ActorObj::preUpdate()
 	{
-		m_clock->updateUpdateTime();
 		for (auto&& com : this->finds<IPreUpdate>()) {
 			com->onPreUpdate();
 		}
@@ -82,7 +84,6 @@ namespace abyss::Actor
 	}
 	void ActorObj::draw() const
 	{
-		m_clock->updateDrawTime();
 		for (auto&& com : this->finds<IPreDraw>()) {
 			com->onPreDraw();
 		}
@@ -93,30 +94,18 @@ namespace abyss::Actor
 			});
 		}
 	}
-	s3d::Microseconds ActorObj::getUpdateTime() const
+	s3d::Microseconds ActorObj::getTime() const
 	{
-		return m_clock->getUpdateTime();
+		return m_clock->getTime();
 	}
-	double ActorObj::getUpdateTimeSec() const
+	double ActorObj::getTimeSec() const
 	{
-		return m_clock->getUpdateTimeSec();
+		return m_clock->getTimeSec();
 	}
-	s3d::ISteadyClock* ActorObj::getUpdateClock() const
+	s3d::ISteadyClock* ActorObj::getClock() const
     {
-		return m_clock->getUpdateClock();
+		return m_clock->getClock();
     }
-	s3d::Microseconds ActorObj::getDrawTime() const
-	{
-		return m_clock->getDrawTime();
-	}
-	double ActorObj::getDrawTimeSec() const
-	{
-		return m_clock->getDrawTimeSec();
-	}
-	s3d::ISteadyClock* ActorObj::getDrawClock() const
-	{
-		return m_clock->getDrawClock();
-	}
 	double ActorObj::deltaTime() const
 	{
 		return m_clock->getDeltaTime();
