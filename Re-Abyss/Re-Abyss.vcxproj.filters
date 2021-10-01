@@ -287,9 +287,6 @@
     <ClCompile Include="app\views\Actor\Ooparts\Xto\XtoVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Common\KiraKiraEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\Axis2\Axis2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1648,6 +1645,15 @@
     <ClCompile Include="app\utils\Clock\ClockUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1834,7 +1840,6 @@
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Xto\XtoVM.hpp" />
     <ClInclude Include="app\models\Actors\Ooparts\DrawModel.hpp" />
-    <ClInclude Include="app\views\Actor\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Nyan\NyanVM.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BgmChangerEntity.hpp" />
@@ -2477,6 +2482,10 @@
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\debugs\Profiler\Profiler.hpp" />
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
+    <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

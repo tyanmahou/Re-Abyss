@@ -382,6 +382,8 @@
     <ClCompile Include="app\components\Decor\Map\TileMap\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.cpp" />
     <ClCompile Include="app\components\Effect\base\Drawer.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
@@ -600,6 +602,7 @@
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
+    <ClCompile Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\views\Actor\Common\BreathEffect.cpp" />
@@ -746,7 +749,6 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\Clock\Clock.cpp" />
-    <ClCompile Include="app\views\Actor\Common\KiraKiraEffect.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.cpp" />
@@ -865,6 +867,9 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
     <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
@@ -920,6 +925,7 @@
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
+    <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
@@ -1513,7 +1519,6 @@
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\views\Actor\Common\BreathEffect.hpp" />
-    <ClInclude Include="app\views\Actor\Common\KiraKiraEffect.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />
