@@ -1654,6 +1654,9 @@
     <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Ooparts\KiraKiraCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2486,6 +2489,7 @@
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
+    <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

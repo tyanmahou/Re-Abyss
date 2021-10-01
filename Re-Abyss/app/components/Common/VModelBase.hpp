@@ -50,11 +50,19 @@ namespace abyss
 
         void onDraw() const override
         {
+            if (!m_isVisible) {
+                return;
+            }
             if (m_binder) {
                 m_binder->onDraw();
             }
         }
 
+        VModelBase& setVisible(bool isVisible)
+        {
+            m_isVisible = isVisible;
+            return *this;
+        }
         template<class BinderType, class...Args>
         VModelBase& setBinder(Args&&... args)
         {
@@ -67,6 +75,7 @@ namespace abyss
         }
     private:
         std::shared_ptr<IVModelBinderBase> m_binder;
+        bool m_isVisible = true;
     };
 }
 

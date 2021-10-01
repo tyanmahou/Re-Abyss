@@ -340,6 +340,7 @@
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp" />
     <ClCompile Include="app\components\Actor\Common\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\CommonBuilder.cpp" />
+    <ClCompile Include="app\components\Actor\Ooparts\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Nyan\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\PursuitCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Xto\Builder.cpp" />
@@ -852,6 +853,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />

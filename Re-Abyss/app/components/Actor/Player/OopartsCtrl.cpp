@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Ooparts/Xto/Builder.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
 
@@ -35,12 +36,19 @@ namespace abyss::Actor::Player
             return;
         }
         if (m_attackCtrl->isAttacking()) {
-            m_mainOoparts->setActive(false);
+
+            // 非表示
+            m_mainOoparts->find<VModel>()->setVisible(false);
+
+            // 手元に移動
             m_mainOoparts->find<Ooparts::PursuitCtrl>()
                 ->setLocalPos(s3d::Vec2{ 30 * m_body->getForward(), -1 })
                 .setIsPursuit(false);
+
+
         } else {
-            m_mainOoparts->setActive(true);
+            // 表示
+            m_mainOoparts->find<VModel>()->setVisible(true);
             m_mainOoparts->find<Ooparts::PursuitCtrl>()
                 ->setIsPursuit(true);
         }

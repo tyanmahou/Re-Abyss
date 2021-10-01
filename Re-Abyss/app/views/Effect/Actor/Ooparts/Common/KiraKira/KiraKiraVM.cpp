@@ -20,7 +20,7 @@ namespace abyss::Effect::Actor::Ooparts::KiraKira
             auto color = static_cast<s3d::int32>(m_time * 10.0) % 2 ? s3d::ColorF(1.0, 0.5) : s3d::ColorF(0.9);
             m_texture(0, 0, 13, 13)
                 .scaled(s3d::Periodic::Triangle0_1(0.5s, m_time) * (1 - m_time), (1 - m_time))
-                .drawAt(m_pos, color);
+                .drawAt(pos, color);
         }
         break;
         case Type::Type2:
