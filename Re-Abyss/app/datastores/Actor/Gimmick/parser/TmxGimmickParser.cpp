@@ -13,22 +13,6 @@ using namespace abyss::Actor::Gimmick;
 
 namespace
 {
-	GimmickType ToType(const String& type)
-	{
-		static const std::unordered_map<String, GimmickType> toTypeMap{
-			{U"start_pos", GimmickType::StartPos},
-			{U"door", GimmickType::Door},
-			{U"bulletin", GimmickType::Bulletin},
-			{U"bush", GimmickType::Bush},
-			{U"event_trigger", GimmickType::EventTrigger},
-			{U"bgm_changer", GimmickType::BgmChanger},
-		};
-		if (toTypeMap.find(type) != toTypeMap.end()) {
-			return toTypeMap.at(type);
-		}
-		return GimmickType::None;
-	};
-
 	std::shared_ptr<GimmickEntity> ParseCommon(const std::shared_ptr<GimmickEntity>& entity, const s3dTiled::Object& obj)
 	{
 		if (entity) {
@@ -58,12 +42,7 @@ namespace
 				it->startId = obj.getProperty(U"start_id").value_or(0);
 				it->size = obj.toRectF().size;
 
-				String kind = obj.getProperty(U"kind").value_or(U"common");
-				if (kind == U"boss") {
-					it->kind = DoorKind::Boss;
-				} else {
-					it->kind = DoorKind::Common;
-				}
+				it->kind = Enum::Parse<DoorKind>(obj.getProperty(U"kind").value_or(U"Common"));
 			});
 			PARSE_GIMMICK(Bulletin, {
 				it->event = obj.getProperty(U"event").value_or(U"");
@@ -91,8 +70,7 @@ namespace abyss::Actor::Gimmick
 	{}
 	std::shared_ptr<GimmickEntity> TmxGimmickParser::parse() const
 	{
-		auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"none"));
-		auto type = ToType(typeStr);
+		auto type = Enum::Parse<GimmickType>(m_obj.getProperty(U"type").value_or(U"None"));
 
 		return Parse(type, m_obj);
 	}
