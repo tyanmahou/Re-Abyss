@@ -923,6 +923,7 @@
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
+    <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />

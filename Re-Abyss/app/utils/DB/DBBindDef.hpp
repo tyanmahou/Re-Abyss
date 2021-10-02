@@ -47,7 +47,7 @@ namespace abyss
 	/// <summary>
 	/// Enum
 	/// </summary>
-	template<Enum::Parsable Type>
+	template<Enum::EnumType Type>
 	struct DBValueTraits<Type>
 	{
 		Type operator()(const s3dsql::DBValue& value) const

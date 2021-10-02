@@ -1,5 +1,6 @@
 #include "PlayerInfoExVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/utils/Enum/EnumTraits.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::PlayerInfo

@@ -5,7 +5,7 @@
 #include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
-
+#include <abyss/utils/Enum/EnumTraits.hpp>
 using namespace s3d;
 using namespace s3dTiled;
 using namespace abyss;
