@@ -13,6 +13,8 @@
 
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 
+#include <abyss/utils/Enum/EnumTraits.hpp>
+
 using namespace s3d;
 using namespace s3dTiled;
 using namespace abyss;
@@ -20,29 +22,6 @@ using namespace abyss::Actor::Enemy;
 
 namespace
 {
-	EnemyType ToType(const String& type)
-	{
-		static const std::unordered_map<String, EnemyType> toTypeMap{
-			{U"slime", EnemyType::Slime},
-			{U"rolling_tako", EnemyType::RollingTako},
-			{U"captain_tako", EnemyType::CaptainTako},
-			{U"ikalien", EnemyType::Ikalien},
-			{U"laun_shark", EnemyType::LaunShark},
-			{U"schield", EnemyType::Schield},
-			{U"warrus", EnemyType::Warrus},
-
-			// MidBoss
-			{U"king_dux", EnemyType::KingDux},
-
-			// Boss
-			{U"code_zero", EnemyType::CodeZero},
-		};
-		if (toTypeMap.find(type) != toTypeMap.end()) {
-			return toTypeMap.at(type);
-		}
-		return EnemyType::None;
-	};
-
 	std::shared_ptr<EnemyEntity> ParseCommon(const std::shared_ptr<EnemyEntity>& entity, const s3dTiled::Object& obj)
 	{
 		if (entity) {
@@ -89,8 +68,7 @@ namespace abyss::Actor::Enemy
     {}
     std::shared_ptr<EnemyEntity> TmxEnemyParser::parse() const
     {
-        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"none"));
-        auto type = ToType(typeStr);
+        auto type = Enum::Parse<EnemyType>(m_obj.getProperty(U"type").value_or(s3d::String(U"None")));
 
         return Parse(type, m_obj);
     }
