@@ -5,22 +5,16 @@ namespace NameOf
 {
 	namespace detail
 	{
-#define NAMEOF_TO_U32_2(str) U##str
-#define NAMEOF_TO_U32(str) NAMEOF_TO_U32_2(str)
-#define NAMEOF_FUNCSIG NAMEOF_TO_U32(__FUNCSIG__)
 		template<class Type>
 		consteval s3d::StringView Signature()
 		{
-			return NAMEOF_FUNCSIG;
+			return U"" __FUNCSIG__;
 		}
 		template<auto V>
 		consteval s3d::StringView Signature()
 		{
-			return NAMEOF_FUNCSIG;
+			return U"" __FUNCSIG__;
 		}
-#undef NAMEOF_FUNCSIG
-#undef NAMEOF_TO_U32
-#undef NAMEOF_TO_U32_2
 
 		template<class Type>
 		consteval s3d::StringView NameOfImplWithNamespace()

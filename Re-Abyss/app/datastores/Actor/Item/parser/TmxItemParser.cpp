@@ -2,7 +2,7 @@
 
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
-
+#include <abyss/utils/Enum/EnumTraits.hpp>
 
 namespace
 {
@@ -10,31 +10,6 @@ namespace
 	using namespace s3dTiled;
 	using namespace abyss;
 	using namespace abyss::Actor::Item;
-
-
-	ItemType ToType(const String& type)
-	{
-		static const std::unordered_map<String, ItemType> toTypeMap{
-			{U"recovery", ItemType::Recovery},
-		};
-		if (toTypeMap.find(type) != toTypeMap.end()) {
-			return toTypeMap.at(type);
-		}
-		return ItemType::None;
-	};
-
-	RecoveryKind ToRecoveyKind(const String& type)
-	{
-		static const std::unordered_map<String, RecoveryKind> toTypeMap{
-			{U"small", RecoveryKind::Small},
-			{U"middle", RecoveryKind::Middle},
-			{U"big", RecoveryKind::Big},
-		};
-		if (toTypeMap.find(type) != toTypeMap.end()) {
-			return toTypeMap.at(type);
-		}
-		return RecoveryKind::Small;
-	};
 
 	std::shared_ptr<ItemEntity> ParseCommon(const std::shared_ptr<ItemEntity>& entity, const s3dTiled::Object& obj)
 	{
@@ -59,7 +34,7 @@ namespace
 	{
 		switch (type) {
 			PARSE_ITEM(Recovery, {
-				it->kind = ToRecoveyKind(obj.getProperty(U"kind").value_or(U"small"));
+				it->kind = Enum::Parse<RecoveryKind>(obj.getProperty(U"kind").value_or(U"Small"));
 			});
 		default:
 			break;
@@ -77,8 +52,7 @@ namespace abyss::Actor::Item
 
     std::shared_ptr<ItemEntity> TmxItemParser::parse() const
     {
-        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"none"));
-        auto type = ToType(typeStr);
+        auto type = Enum::Parse<ItemType>(m_obj.getProperty(U"type").value_or(s3d::String(U"None")));
 
         return Parse(type, m_obj);
     }
