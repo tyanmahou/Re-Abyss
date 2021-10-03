@@ -46,7 +46,7 @@ namespace
 			PARSE_ENEMY(Slime);
 			PARSE_ENEMY(RollingTako, {
 				it->wait = obj.getProperty(U"wait").value_or(true);
-				});
+			});
 			PARSE_ENEMY(CaptainTako);
 			PARSE_ENEMY(Ikalien);
 			PARSE_ENEMY(LaunShark);
