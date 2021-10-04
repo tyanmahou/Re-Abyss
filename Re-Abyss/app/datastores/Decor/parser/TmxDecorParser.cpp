@@ -11,25 +11,17 @@ namespace
 {
     using namespace abyss::Decor;
 
-    DecorType ToType(const String& category, const String& type)
+    DecorType ToType(DecorType::Motif motif, const String& type)
     {
-        if (category == U"general") {
-            static const std::unordered_map<String, DecorType> toTypeMap{
-                {U"none", DecorType::General::None},
-                {U"common", DecorType::General::Common},
-            };
-            if (toTypeMap.find(type) != toTypeMap.end()) {
-                return toTypeMap.at(type);
+        return DecorType::Visit([&] <class MotifType>()->DecorType
+        {
+            if constexpr (!std::is_void_v<MotifType>) {
+                if (auto kind = Enum::Parse<MotifType>(type); kind != MotifType::None) {
+                    return kind;
+                }
             }
-        } else if (category == U"city") {
-            static const std::unordered_map<String, DecorType> toTypeMap{
-                {U"street_light", DecorType::City::StreetLight},
-            };
-            if (toTypeMap.find(type) != toTypeMap.end()) {
-                return toTypeMap.at(type);
-            }
-        }
-        return DecorType::General::None;
+            return DecorType::General::None;
+        }, motif);
     };
 
     std::shared_ptr<DecorEntity> ParseCommon(const std::shared_ptr<DecorEntity>& entity, const s3dTiled::Object& obj)
@@ -49,9 +41,9 @@ namespace
         return entity;
     }
 
-#define PARSE_CAREGORY(category, ...) [&](DecorType::##category c) -> std::shared_ptr<DecorEntity> {\
-            using enum DecorType::##category;\
-            using namespace abyss::Decor::##category;\
+#define PARSE_MOTIF(motif, ...) [&](DecorType::##motif c) -> std::shared_ptr<DecorEntity> {\
+            using enum DecorType::##motif;\
+            using namespace abyss::Decor::##motif;\
             switch(c){\
             __VA_ARGS__ \
             default: \
@@ -69,11 +61,11 @@ namespace
 
     std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::Object& obj)
     {
-        auto general = PARSE_CAREGORY(General,
+        auto general = PARSE_MOTIF(General,
             PARSE_TYPE(Common);
         );
 
-        auto city = PARSE_CAREGORY(City,
+        auto city = PARSE_MOTIF(City,
             PARSE_TYPE(StreetLight);
         );
 
@@ -87,7 +79,7 @@ namespace
         return type.visit(visiter);
     }
 #undef PARSE_TYPE
-#undef PARSE_CATEGORY
+#undef PARSE_MOTIF
 }
 namespace abyss::Decor
 {
@@ -97,9 +89,9 @@ namespace abyss::Decor
 
     std::shared_ptr<DecorEntity> TmxDecorParser::parse() const
     {
-        auto categoryStr = m_obj.getProperty(U"category").value_or(s3d::String(U"general"));
-        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"common"));
-        auto type = ToType(categoryStr, typeStr);
+        auto motif = Enum::Parse<DecorType::Motif>(m_obj.getProperty(U"motif").value_or(s3d::String(U"General")));
+        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"None"));
+        auto type = ToType(motif, typeStr);
 
         return Parse(type, m_obj);
     }

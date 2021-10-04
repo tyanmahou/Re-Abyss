@@ -28,6 +28,20 @@ namespace abyss::Decor
 			};
 		public:
 			using value_type = std::variant<General, City>;
+		public:
+			template<class T>
+			static decltype(auto) Visit(T func, Motif motif)
+			{
+				switch (motif) {
+				case Motif::General:
+					return func.operator()<General>();
+				case Motif::City:
+					return func.operator()<City>();
+				default:
+					break;
+				}
+				return func.operator()<void>();
+			}
 		};
 	}
 
