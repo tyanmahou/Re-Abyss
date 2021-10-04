@@ -9,7 +9,7 @@
 
 namespace abyss::Decor
 {
-    using DecorIdTable = s3d::HashTable<s3d::uint32, s3d::HashTable<s3d::uint32, Ref<DecorObj>>>;
+    using DecorIdTable = s3d::HashTable<s3d::uint32, Ref<DecorObj>>;
 
     class DecorHolder
     {

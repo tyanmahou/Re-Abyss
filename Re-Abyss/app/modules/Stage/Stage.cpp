@@ -293,9 +293,9 @@ namespace abyss
             if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
                 continue;
             }
-            if (idTable[entity->type.categoryId()].contains(entity->id)) {
+            if (idTable.contains(entity->id)) {
                 // すでに生成済みなら引継ぎする
-                idTable[entity->type.categoryId()][entity->id]->setBufferLayer(decor.getBufferLayer());
+                idTable[entity->id]->setBufferLayer(decor.getBufferLayer());
             } else {
                 m_translator.build(decor, *entity);
             }

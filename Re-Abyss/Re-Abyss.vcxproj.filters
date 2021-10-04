@@ -2491,6 +2491,7 @@
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumGroup.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

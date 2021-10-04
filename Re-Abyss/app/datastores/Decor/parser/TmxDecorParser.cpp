@@ -28,13 +28,6 @@ namespace
             if (toTypeMap.find(type) != toTypeMap.end()) {
                 return toTypeMap.at(type);
             }
-        } else if (category == U"gimmick") {
-            static const std::unordered_map<String, DecorType> toTypeMap{
-                {U"door", DecorType::Gimmick::Door},
-            };
-            if (toTypeMap.find(type) != toTypeMap.end()) {
-                return toTypeMap.at(type);
-            }
         }
         return DecorType::General::None;
     };
@@ -83,14 +76,10 @@ namespace
         auto city = PARSE_CAREGORY(City,
             PARSE_TYPE(StreetLight);
         );
-        auto gimmick = PARSE_CAREGORY(Gimmick,
-            PARSE_TYPE(Door);
-        );
 
         auto visiter = abyss::overloaded{
             general,
             city,
-            gimmick,
             [](auto) -> std::shared_ptr<DecorEntity>{
                 return nullptr;
             }
