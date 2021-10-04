@@ -924,6 +924,7 @@
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumGroup.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
+    <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
