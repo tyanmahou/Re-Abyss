@@ -10,7 +10,7 @@ namespace Enum
 	template<class T>
 	struct IsEnumVariant : std::false_type {};
 	template<EnumType... E> requires (sizeof...(E) > 0)
-		struct IsEnumVariant<std::variant<E...>> : std::true_type {};
+	struct IsEnumVariant<std::variant<E...>> : std::true_type {};
 
 	template<class T>
 	concept EnumVariantType = IsEnumVariant<T>::value;
@@ -24,7 +24,7 @@ namespace Enum
 	template<class T, class VariantType>
 	struct IsVariantElm : std::false_type {};
 	template<class T, class... Us > requires (std::same_as<T, Us> || ... || false)
-		struct IsVariantElm<T, std::variant<Us...>> : std::true_type {};
+	struct IsVariantElm<T, std::variant<Us...>> : std::true_type {};
 
 	template<class T, class U>
 	concept IsEnumGroupElm = EnumType<T> && EnumGroupDefType<U> && IsVariantElm<T, typename U::value_type>::value;
@@ -91,7 +91,29 @@ namespace Enum
 				}
 			}, m_value);
 		}
+
+		template<class Func>
+		constexpr static decltype(auto) IndexVisit(const Func& func, size_t index)
+		{
+			return IndexVisit(func, index, std::make_index_sequence<std::variant_size_v<typename T::value_type>>());
+		}
 	private:
+
+		template<class Func, size_t... Seq>
+		constexpr static decltype(auto) IndexVisit(const Func& func, size_t index, std::index_sequence<Seq...>)
+		{
+			using return_type = decltype(func.operator()<void>());
+			if constexpr (std::is_void_v<return_type>) {
+				bool find = false;
+				find = ((index == Seq ? (func.operator()<std::variant_alternative_t<Seq, typename T::value_type>>(), true) : false) || ...);
+			} else {
+				return_type ret{};
+				bool find = false;
+				find = ((index == Seq ? (ret = func.operator()<std::variant_alternative_t<Seq, typename T::value_type>>(), true) : false) || ...);
+				return ret;
+			}
+		}
+
 		T::value_type m_value;
 	};
 }

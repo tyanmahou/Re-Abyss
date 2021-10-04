@@ -13,7 +13,7 @@ namespace
 
     DecorType ToType(DecorType::Motif motif, const String& type)
     {
-        return DecorType::Visit([&] <class MotifType>()->DecorType
+        return DecorType::IndexVisit([&] <class MotifType>()->DecorType
         {
             if constexpr (!std::is_void_v<MotifType>) {
                 if (auto kind = Enum::Parse<MotifType>(type); kind != MotifType::None) {
@@ -21,7 +21,7 @@ namespace
                 }
             }
             return DecorType::General::None;
-        }, motif);
+        }, static_cast<size_t>(motif));
     };
 
     std::shared_ptr<DecorEntity> ParseCommon(const std::shared_ptr<DecorEntity>& entity, const s3dTiled::Object& obj)
