@@ -1,6 +1,7 @@
 #pragma once
 #include <concepts>
 #include <abyss/utils/NameOf/NameOf.hpp>
+#include <Siv3D/String.hpp>
 
 namespace Enum
 {
