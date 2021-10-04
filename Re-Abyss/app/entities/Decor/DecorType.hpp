@@ -42,7 +42,7 @@ namespace abyss::Decor
 			return *this;
 		}
 
-		Motif getMotif() const
+		Motif toMotif() const
 		{
 			return static_cast<Motif>(this->index());
 		}
