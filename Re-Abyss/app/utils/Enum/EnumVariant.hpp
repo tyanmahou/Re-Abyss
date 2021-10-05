@@ -17,7 +17,7 @@ namespace Enum
 	concept EnumVariantType = IsEnumVariant<T>::value;
 
 	template<class T>
-	concept EnumGroupDefType = requires
+	concept EnumVariantDefType = requires
 	{
 		requires EnumVariantType<typename T::value_type>;
 	};
@@ -28,29 +28,29 @@ namespace Enum
 	struct IsVariantElm<T, std::variant<Us...>> : std::true_type {};
 
 	template<class T, class U>
-	concept IsEnumGroupElm = EnumType<T> && EnumGroupDefType<U> && IsVariantElm<T, typename U::value_type>::value;
+	concept IsEnumVariantElm = EnumType<T> && EnumVariantDefType<U> && IsVariantElm<T, typename U::value_type>::value;
 
 	//-----------------------------------
-	// EnumGroup
+	// EnumVariant
 
-	template<EnumGroupDefType T>
-	struct EnumGroup : T
+	template<EnumVariantDefType T>
+	struct EnumVariant : T
 	{
 	public:
-		constexpr EnumGroup() = default;
+		constexpr EnumVariant() = default;
 
-		template<IsEnumGroupElm<T> Type>
-		constexpr EnumGroup(const Type& value) :
+		template<IsEnumVariantElm<T> Type>
+		constexpr EnumVariant(const Type& value) :
 			m_value(value)
 		{}
 
-		template<IsEnumGroupElm<T> Type>
-		EnumGroup& operator =(const Type& value)
+		template<IsEnumVariantElm<T> Type>
+		EnumVariant& operator =(const Type& value)
 		{
 			this->m_value = value;
 			return *this;
 		}
-		template<IsEnumGroupElm<T> Type>
+		template<IsEnumVariantElm<T> Type>
 		constexpr bool operator ==(const Type& value) const
 		{
 			return std::visit([value]<class U>(const U & v)
@@ -63,7 +63,7 @@ namespace Enum
 			}, m_value);
 		}
 
-		template<IsEnumGroupElm<T> Type>
+		template<IsEnumVariantElm<T> Type>
 		constexpr bool operator !=(const Type& value) const
 		{
 			return !(*this == value);
@@ -80,7 +80,7 @@ namespace Enum
 			return m_value.index();
 		}
 
-		template<IsEnumGroupElm<T> Type>
+		template<IsEnumVariantElm<T> Type>
 		constexpr Type as()
 		{
 			return std::visit([]<class U>(const U & v)

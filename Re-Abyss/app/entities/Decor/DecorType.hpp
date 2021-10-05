@@ -1,6 +1,6 @@
 #pragma once
 
-#include <abyss/utils/Enum/EnumGroup.hpp>
+#include <abyss/utils/Enum/EnumVariant.hpp>
 
 namespace abyss::Decor
 {
@@ -31,14 +31,14 @@ namespace abyss::Decor
 		};
 	}
 
-	class DecorType : public Enum::EnumGroup<detail::DecorTypeDef>
+	class DecorType : public Enum::EnumVariant<detail::DecorTypeDef>
 	{
 	public:
-		using EnumGroup::EnumGroup;
+		using EnumVariant::EnumVariant;
 
-		DecorType& operator=(Enum::IsEnumGroupElm<DecorTypeDef> auto v)
+		DecorType& operator=(Enum::IsEnumVariantElm<DecorTypeDef> auto v)
 		{
-			EnumGroup::operator=(v);
+			EnumVariant::operator=(v);
 			return *this;
 		}
 
@@ -47,6 +47,6 @@ namespace abyss::Decor
 			return static_cast<Motif>(this->index());
 		}
 	private:
-		using EnumGroup::index;
+		using EnumVariant::index;
 	};
 }

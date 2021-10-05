@@ -2491,7 +2491,7 @@
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
-    <ClInclude Include="app\utils\Enum\EnumGroup.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
   </ItemGroup>
   <ItemGroup>
