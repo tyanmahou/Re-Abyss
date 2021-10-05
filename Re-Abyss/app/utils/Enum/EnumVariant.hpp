@@ -81,7 +81,13 @@ namespace Enum
 		}
 
 		template<IsEnumVariantElm<T> Type>
-		constexpr Type as()
+		constexpr bool is() const
+		{
+			return std::holds_alternative<Type>(m_value);
+		}
+
+		template<IsEnumVariantElm<T> Type>
+		constexpr Type as() const
 		{
 			return std::visit([]<class U>(const U & v)
 			{
