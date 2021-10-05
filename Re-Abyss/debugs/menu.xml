@@ -16,6 +16,7 @@
       <Profiler label="処理負荷" isChecked="false"/>
       <EffectCount label="エフェクト数" isChecked="false"/>
       <DecorCount label="装飾数" isChecked="false"/>
+      <DrawerCount label="描画リクエスト数" isChecked="false"/>
     </Alert>
     <Draw label ="デバッグ描画">
       <Collider label="コライダー" isChecked="false"/>

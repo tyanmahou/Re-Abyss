@@ -7,6 +7,20 @@
 namespace abyss
 {
     /// <summary>
+    /// 描画単位
+    /// </summary>
+    struct DrawEntry
+    {
+        double order = 1.0;
+        std::function<void()> drawer;
+
+        auto operator <=> (const DrawEntry& other) const
+        {
+            return order <=> other.order;
+        }
+    };
+
+    /// <summary>
     /// 描画マネージャー
     /// 描画順の制御用
     /// </summary>
@@ -23,14 +37,22 @@ namespace abyss
         /// </summary>
         /// <param name="layer"></param>
         /// <param name="drawer"></param>
-        void add(DrawLayer layer, std::function<void()> drawer);
+        /// <param name="order"></param>
+        void add(DrawLayer layer, std::function<void()> drawer, double order = 1.0);
 
         /// <summary>
         /// 描画
         /// </summary>
         /// <param name="layer"></param>
-        void draw(DrawLayer layer) const;
+        void draw(DrawLayer layer);
+
+        /// <summary>
+        /// ターゲットの数を取得
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
+        size_t size(DrawLayer layer)const;
     private:
-        std::array<s3d::Array<std::function<void()>>, DrawLayerSize> m_drawers;
+        std::array<s3d::Array<DrawEntry>, DrawLayerSize> m_drawers;
     };
 }

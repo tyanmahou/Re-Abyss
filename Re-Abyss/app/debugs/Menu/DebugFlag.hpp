@@ -13,6 +13,7 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* AlertProfiler = U"Debug/Alert/Profiler";
     inline constexpr auto* AlertEffectCount = U"Debug/Alert/EffectCount";
     inline constexpr auto* AlertDecorCount = U"Debug/Alert/DecorCount";
+    inline constexpr auto* AlertDrawerCount = U"Debug/Alert/DrawerCount";
 
     inline constexpr auto* DrawCollider = U"Debug/Draw/Collider";
     inline constexpr auto* DrawMapCollider = U"Debug/Draw/MapCollider";

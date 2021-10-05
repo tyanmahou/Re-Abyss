@@ -23,4 +23,9 @@ namespace abyss
     };
 
     inline constexpr size_t DrawLayerSize = static_cast<size_t>(DrawLayer::Size);
+
+    inline DrawLayer& operator++(DrawLayer& layer)
+    {
+        return layer = static_cast<DrawLayer>(static_cast<s3d::int32>(layer) + 1);
+    }
 }

@@ -9,6 +9,7 @@
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/components/Actor/Common/ICollision.hpp>
 #include <abyss/components/Actor/Common/ICollider.hpp>
 
@@ -119,7 +120,7 @@ namespace abyss::Debug
         if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertEffectCount)) {
             return;
         }
-        Debug::Log.Update << U"---LogEffectNum---";
+        Debug::Log.Update << U"---LogEffectCount---";
         Debug::Log.Update << U"Effect: "  << effects.size();
     }
     void DebugManager::DrawDebug(const Decors& decor)
@@ -127,8 +128,21 @@ namespace abyss::Debug
         if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertDecorCount)) {
             return;
         }
-        Debug::Log.Update << U"---LogDecorNum---";
+        Debug::Log.Update << U"---LogDecorCount---";
         Debug::Log.Update << U"Decor: " << decor.size();
+    }
+    void DebugManager::AlertDrawerCount(const DrawManager* drawManager)
+    {
+        if (!drawManager) {
+            return;
+        }
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertDrawerCount)) {
+            return;
+        }
+        Debug::Log.Update << U"---LogDrawerCount---";
+        for (DrawLayer layer = DrawLayer::BackGround;  layer < DrawLayer::Size; ++layer) {
+            Debug::Log.Update << U"{}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer));
+        }
     }
 }
 

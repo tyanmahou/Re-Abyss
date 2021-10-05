@@ -102,12 +102,12 @@ namespace abyss::Sys
         // 上位命令聴講
         mod<CycleMaster>()->listen();
 
-        if constexpr (config.isStage) {
 #if ABYSS_DEBUG
+        if constexpr (config.isStage) {
             Debug::DebugManager::DrawDebug(*decors);
-            Debug::DebugManager::DrawDebug(*mod<Effects>());
-#endif
         }
+        Debug::DebugManager::DrawDebug(*mod<Effects>());
+#endif
     }
 
     template<Config config>
@@ -133,6 +133,9 @@ namespace abyss::Sys
         // Effect Draw
         mod<Effects>()->draw();
 
+#if ABYSS_DEBUG
+        Debug::DebugManager::AlertDrawerCount(drawer);
+#endif
         auto* camera = mod<Camera>();
         auto cameraView = camera->createView();
         auto* snapshot = camera->getSnapshot();

@@ -8,14 +8,18 @@ namespace abyss
             drawers.clear();
         }
     }
-    void DrawManager::add(DrawLayer layer, std::function<void()> drawer)
+    void DrawManager::add(DrawLayer layer, std::function<void()> drawer, double order)
     {
-        m_drawers[static_cast<size_t>(layer)].push_back(drawer);
+        m_drawers[static_cast<size_t>(layer)].emplace_back(order, std::move(drawer));
     }
-    void DrawManager::draw(DrawLayer layer) const
+    void DrawManager::draw(DrawLayer layer)
     {
-        for (auto& drawer : m_drawers[static_cast<size_t>(layer)]) {
-            drawer();
+        for (auto&& entry : m_drawers[static_cast<size_t>(layer)].sort()) {
+            entry.drawer();
         }
+    }
+    size_t DrawManager::size(DrawLayer layer) const
+    {
+        return m_drawers[static_cast<size_t>(layer)].size();
     }
 }
