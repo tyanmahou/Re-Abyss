@@ -38,6 +38,7 @@ namespace abyss
     {
         m_lights.push_back([d = std::move(shadowDraw)](double time) {
             ScopedRenderStates2D state(BlendState::Multiplicative);
+            ScopedColorMul2D colurMul(Palette::Black);
             d(time);
         });
     }
