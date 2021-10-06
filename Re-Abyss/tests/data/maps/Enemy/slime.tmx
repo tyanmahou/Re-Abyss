@@ -5,12 +5,12 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/tileset/stage0_mapchip.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/tileset/gimmicks.tsx"/>
- <tileset firstgid="51" source="../../../../resources/maps/tileset/enemys.tsx"/>
+ <tileset firstgid="55" source="../../../../resources/maps/tileset/enemys.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
    <properties>
-    <property name="layer" value="decor_front"/>
+    <property name="layer" value="DecorFront"/>
    </properties>
   </objectgroup>
  </group>
@@ -69,11 +69,11 @@
  </layer>
  <objectgroup id="9" name="item"/>
  <objectgroup id="4" name="enemy">
-  <object id="3" gid="51" x="640" y="560" width="40" height="40"/>
-  <object id="4" gid="51" x="960" y="560" width="40" height="40"/>
-  <object id="8" gid="51" x="1600" y="560" width="40" height="40"/>
-  <object id="9" gid="51" x="1760" y="560" width="40" height="40"/>
-  <object id="10" gid="51" x="1920" y="560" width="40" height="40"/>
+  <object id="3" gid="55" x="640" y="560" width="40" height="40"/>
+  <object id="4" gid="55" x="960" y="560" width="40" height="40"/>
+  <object id="8" gid="55" x="1600" y="560" width="40" height="40"/>
+  <object id="9" gid="55" x="1760" y="560" width="40" height="40"/>
+  <object id="10" gid="55" x="1920" y="560" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>

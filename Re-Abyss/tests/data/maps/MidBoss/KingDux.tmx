@@ -10,7 +10,7 @@
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
    <properties>
-    <property name="layer" value="decor_front"/>
+    <property name="layer" value="DecorFront"/>
    </properties>
   </objectgroup>
  </group>

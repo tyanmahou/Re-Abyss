@@ -21,7 +21,7 @@ namespace abyss::Decor
         for (auto&& com : this->finds<IDraw>()) {
             drawer->add(com->getLayer(), [com] {
                 com->onDraw();
-            });
+            }, com->getOrder());
         }
     }
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/GameObject.hpp>
-#include <abyss/modules/Effect/base/EffectLayer.hpp>
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Effect
 {
@@ -20,18 +20,13 @@ namespace abyss::Effect
         void update();
         void draw();
 
-        DrawLayer getLayer() const
-        {
-            return m_layer;
-        }
-        void setLayer(DrawLayer layer)
-        {
-            m_layer = layer;
-        }
+        DrawLayer getLayer() const;
+        EffectObj& setLayer(DrawLayer layer);
 
+        double getOrder() const;
+        EffectObj& setOrder(double order);
     private:
         Ref<ClockCtrl> m_clock;
         Ref<Drawer> m_drawer;
-        DrawLayer m_layer = EffectLayer::WorldFront;
     };
 }

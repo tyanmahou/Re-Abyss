@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/concepts/Effect.hpp>
 #include <abyss/modules/Effect/base/EffectsHolder.hpp>
-#include <abyss/modules/Effect/base/EffectLayer.hpp>
 #include <abyss/modules/DrawManager/DrawLayer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Effect.hpp>
@@ -72,7 +71,7 @@ namespace abyss::Effect
 #define MAKE_LAYER_CREATE(layer) template<class Type, class... Args> \
         Ref<EffectObj> create##layer(Args&& ... args) \
         {\
-            return this->create<Type, EffectLayer::layer, Args...>(std::forward<Args>(args)...);\
+            return this->create<Type, DrawLayer::layer, Args...>(std::forward<Args>(args)...);\
         }
 
         MAKE_LAYER_CREATE(DecorBack)

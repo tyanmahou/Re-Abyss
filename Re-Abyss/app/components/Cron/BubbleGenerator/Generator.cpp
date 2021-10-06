@@ -99,7 +99,7 @@ namespace abyss::Cron::BubbleGenerator
 			}
 		} else if (layer == 1) {
 			if (m_count % 9 == 1) {
-				return effects->createDecorFront<Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
+				return effects->createWorldFront<Bubble::Builder>(BubbleKind::Small, LayerKind::Middle, area);
 			}
 		} else {
 			if (m_count % 12 == 2) {

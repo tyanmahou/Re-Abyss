@@ -20,7 +20,8 @@ namespace abyss::UI::SpeechBalloon
         {
 			pUi->attach<CustomDraw>()
 				->setDrawer<Drawer>(pUi, actor)
-				.setLayer(DrawLayer::DecorMiddle);
+				.setLayer(DrawLayer::WorldBack)
+				.setOrder(DrawOrder::WorldBack::UI);
         }
     }
 }

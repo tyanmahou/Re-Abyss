@@ -39,4 +39,23 @@ namespace abyss::Effect
     {
         m_drawer->draw();
     }
+    DrawLayer EffectObj::getLayer() const
+    {
+        return m_drawer->getLayer();
+    }
+    EffectObj& EffectObj::setLayer(DrawLayer layer)
+    {
+        m_drawer->setLayer(layer);
+        return *this;
+    }
+
+    double EffectObj::getOrder() const
+    {
+        return m_drawer->getOrder();
+    }
+    EffectObj& EffectObj::setOrder(double order)
+    {
+        m_drawer->setOrder(order);
+        return *this;
+    }
 }

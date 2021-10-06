@@ -34,6 +34,13 @@ namespace abyss
             LightUtil::DrawArcLight(pos, radius, innerAntiRadius, startAngle, angle, brightness, time);
         });
     }
+    void LightView::addShadow(std::function<void(double)> shadowDraw)
+    {
+        m_lights.push_back([d = std::move(shadowDraw)](double time) {
+            ScopedRenderStates2D state(BlendState::Multiplicative);
+            d(time);
+        });
+    }
     void LightView::render(double time) const
     {
         ScopedRenderTarget2D target(m_rt);

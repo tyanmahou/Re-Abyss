@@ -24,6 +24,7 @@ namespace abyss::Decor::City::StreetLight
     void LightCtrl::onStart()
     {
         m_info = m_pObj->find<DecorInfo>();
+        this->setOrder(m_pObj->find<BasicDraw>()->getOrder());
     }
     void LightCtrl::onDraw() const
     {

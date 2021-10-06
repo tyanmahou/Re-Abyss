@@ -90,7 +90,7 @@ namespace abyss::Decor
     std::shared_ptr<DecorEntity> TmxDecorParser::parse() const
     {
         auto motif = Enum::Parse<DecorType::Motif>(m_obj.getProperty(U"motif").value_or(s3d::String(U"General")));
-        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"None"));
+        auto typeStr = m_obj.getProperty(U"type").value_or(s3d::String(U"Common"));
         auto type = ToType(motif, typeStr);
 
         return Parse(type, m_obj);

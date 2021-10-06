@@ -1142,7 +1142,6 @@
     <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
-    <ClInclude Include="app\modules\Effect\base\EffectLayer.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
     <ClInclude Include="app\modules\Effect\Effects.hpp" />

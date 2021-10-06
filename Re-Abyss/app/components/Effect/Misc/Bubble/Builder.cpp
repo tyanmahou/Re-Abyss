@@ -100,5 +100,7 @@ namespace abyss::Effect::Misc::Bubble
             pObj->attach<LifeTime>(pObj)
                 ->setTime(58.0, 2.0);
         }
+
+        pObj->setOrder(param.parallax.x);
     }
 }

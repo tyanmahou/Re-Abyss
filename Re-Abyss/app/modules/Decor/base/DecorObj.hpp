@@ -23,6 +23,6 @@ namespace abyss::Decor
             return m_bufferLayer;
         }
     private:
-        BufferLayer m_bufferLayer;
+        BufferLayer m_bufferLayer{};
     };
 }

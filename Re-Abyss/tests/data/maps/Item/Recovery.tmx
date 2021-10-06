@@ -12,7 +12,7 @@
  <group id="3" name="decor">
   <objectgroup id="12" name="front" parallaxx="1.2">
    <properties>
-    <property name="layer" value="decor_front"/>
+    <property name="layer" value="DecorFront"/>
    </properties>
   </objectgroup>
  </group>

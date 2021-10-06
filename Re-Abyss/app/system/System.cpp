@@ -168,8 +168,11 @@ namespace abyss::Sys
             }
 
             // 中面
-            drawer->draw(DrawLayer::DecorMiddle);
+            drawer->draw(DrawLayer::Land);
+            drawer->draw(DrawLayer::WorldBack);
             drawer->draw(DrawLayer::World);
+            drawer->draw(DrawLayer::WorldFront);
+
             // 全面
             drawer->draw(DrawLayer::DecorFront);
             if (auto ws = env->getWaterSurface()) {

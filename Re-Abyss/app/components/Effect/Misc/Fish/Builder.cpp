@@ -95,5 +95,7 @@ namespace abyss::Effect::Misc::Fish
             pObj->attach<LifeTime>(pObj)
                 ->setTime(58.0, 2.0);
         }
+
+        pObj->setOrder(parallax.x);
     }
 }

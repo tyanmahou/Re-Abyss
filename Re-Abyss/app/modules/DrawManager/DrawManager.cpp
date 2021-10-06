@@ -14,7 +14,7 @@ namespace abyss
     }
     void DrawManager::draw(DrawLayer layer)
     {
-        for (auto&& target : m_drawers[static_cast<size_t>(layer)].sort()) {
+        for (auto&& target : m_drawers[static_cast<size_t>(layer)].stable_sort()) {
             target.drawer();
         }
     }

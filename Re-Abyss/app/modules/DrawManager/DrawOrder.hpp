@@ -4,6 +4,12 @@ namespace abyss
     // 描画順
     struct DrawOrder
     {
+        // WorldBack
+        struct WorldBack
+        {
+            static constexpr double Default = 1.0;
+            static constexpr double UI = 99999.0;
+        };
         // World
         struct World
         {
@@ -17,7 +23,7 @@ namespace abyss
         {
             static constexpr double MostBack = -9999.0;
             static constexpr double Default = 1.0;
-            static constexpr double Fade = 99999;
+            static constexpr double Fade = 99999.0;
         };
     };
 }

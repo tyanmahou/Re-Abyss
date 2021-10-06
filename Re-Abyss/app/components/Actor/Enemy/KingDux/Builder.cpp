@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::KingDux
 
             pActor->attach<VModelSub<3>>()
                 ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{250, 0}, Param::Foot::AnimTimeSec / 3.0)
-                .setLayer(DrawLayer::DecorMiddle);
+                .setLayer(DrawLayer::Land);
 
             pActor->attach<VModelSub<4>>()
                 ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{ -200, -100 }, Param::Foot::AnimTimeSec / 4.0, true)

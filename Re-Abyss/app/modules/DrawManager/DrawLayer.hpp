@@ -8,18 +8,29 @@ namespace abyss
     /// </summary>
     enum class DrawLayer
     {
+        // 背景
         BackGround,
+
+        // 装飾後方
         DecorBack,
-        DecorMiddle,
+
+        // 地形
+        Land,
+
+        // ワールド後方
+        WorldBack,
+        // ワールド
         World,
+        // ワールド前方
+        WorldFront,
+
+        // 装飾前方
         DecorFront,
+
+        // UI
         UI,
 
         Size,
-        Land = DecorMiddle,
-
-        WorldBack = DecorMiddle,
-        WorldFront = DecorFront,
     };
 
     inline constexpr size_t DrawLayerSize = static_cast<size_t>(DrawLayer::Size);
