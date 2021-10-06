@@ -11,5 +11,13 @@ namespace abyss
             static constexpr double Default = 1.0;
             static constexpr double Player = 10.0;
         };
+
+        // UI
+        struct UI
+        {
+            static constexpr double MostBack = -9999.0;
+            static constexpr double Default = 1.0;
+            static constexpr double Fade = 99999;
+        };
     };
 }

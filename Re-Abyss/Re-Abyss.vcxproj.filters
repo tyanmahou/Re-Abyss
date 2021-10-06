@@ -2073,7 +2073,6 @@
     <ClInclude Include="app\modules\UI\base\UIObj.hpp" />
     <ClInclude Include="app\modules\UI\base\UIHolder.hpp" />
     <ClInclude Include="app\modules\UI\UIs.hpp" />
-    <ClInclude Include="app\modules\UI\UIOrder.hpp" />
     <ClInclude Include="app\components\Cron\base\IJob.hpp" />
     <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
@@ -2482,6 +2481,7 @@
     <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
+    <ClInclude Include="app\components\base\ComponentTree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

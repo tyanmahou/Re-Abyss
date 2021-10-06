@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/components/base/Executer.hpp>
+#include <abyss/components/base/ComponentTree.hpp>
 
 namespace abyss
 {
@@ -13,16 +14,5 @@ namespace abyss
 
         virtual void onStart() {}
         virtual void onEnd() {}
-    };
-
-    template <class ... Args>
-    struct MultiComponents{};
-
-    template <class T>
-    struct ComponentTree
-    {
-        // using Base = A;
-        // or
-        // using Base = MultiComponents<A, B, C>;
     };
 }

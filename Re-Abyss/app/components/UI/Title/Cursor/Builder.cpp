@@ -6,10 +6,9 @@ namespace abyss::UI::Title::Cursor
 {
     void Builder::Build(UIObj* pUi)
     {
-        pUi->setOrder(3);
         // メイン追加
         {
-            pUi->attach<CursorCtrl>(pUi)->setLayer(DrawLayer::World);
+            pUi->attach<CursorCtrl>(pUi)->setLayer(DrawLayer::World).setOrder(3);
         }
     };
 }

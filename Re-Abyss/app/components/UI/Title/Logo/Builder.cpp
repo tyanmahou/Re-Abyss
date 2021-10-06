@@ -7,15 +7,13 @@ namespace abyss::UI::Title::Logo
 {
     void Builder::Build(UIObj* pUi)
     {
-        pUi->setOrder(2);
-
         // メイン追加
         {
             pUi->attach<LogoCtrl>(pUi);
         }
         // View
         {
-            pUi->attach<ViewCtrl>(pUi);
+            pUi->attach<ViewCtrl>(pUi)->setOrder(2);
         }
     };
 }

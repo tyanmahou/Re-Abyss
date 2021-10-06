@@ -18,9 +18,6 @@ namespace abyss::UI
                 m_uis.push_back(std::move(obj));
             }
         }
-        m_uis.sort_by([](const std::shared_ptr<UIObj>& a, const std::shared_ptr<UIObj>& b) {
-            return a->getOrder() < b->getOrder();
-        });
     }
 
     void UIHolder::push(const std::shared_ptr<UIObj> & ui)

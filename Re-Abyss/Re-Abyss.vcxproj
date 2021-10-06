@@ -852,6 +852,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
+    <ClInclude Include="app\components\base\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
@@ -1311,7 +1312,6 @@
     <ClInclude Include="app\components\UI\BossHPBar\Main.hpp" />
     <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\modules\UI\UIs.hpp" />
-    <ClInclude Include="app\modules\UI\UIOrder.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
