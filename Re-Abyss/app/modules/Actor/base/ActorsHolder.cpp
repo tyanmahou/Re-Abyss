@@ -20,9 +20,6 @@ namespace abyss::Actor
 					m_actors.push_back(std::move(obj));
 				}
 			}
-			m_actors.sort_by([](const std::shared_ptr<ActorObj>& a, const std::shared_ptr<ActorObj>& b) {
-				return a->getOrder() < b->getOrder();
-			});
 		}
 	}
     void ActorsHolder::pushActor(const std::shared_ptr<ActorObj>& obj)

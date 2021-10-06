@@ -15,7 +15,6 @@ namespace abyss::Actor
 	private:
 		Ref<ClockCtrl> m_clock;
 		s3d::uint64 m_id;
-		s3d::int32 m_order = 0;
 		DestoryTiming m_destoryTiming = DestoryTiming::Default;
 
 		TagType m_tag;
@@ -32,9 +31,6 @@ namespace abyss::Actor
 		bool isDestoryCheckIn() const;
 		bool isDestoryCheckOut() const;
 		bool isDestoryNever() const;
-
-		void setOrder(s3d::int32 order);
-		s3d::int32 getOrder() const;
 
 		void setTag(const TagType& tag);
 		const TagType& getTag() const;

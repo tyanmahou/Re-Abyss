@@ -9,7 +9,6 @@ namespace abyss::Actor::Ooparts
     void CommonBuilder::Build(ActorObj* pActor, ActorObj* parent)
     {
         pActor->setDestoryTiming(DestoryTiming::Never);
-        pActor->setOrder(parent->getOrder() - 1);
 
         // ボディと追従
         {
@@ -27,7 +26,15 @@ namespace abyss::Actor::Ooparts
         }
         // 描画
         {
-            pActor->attach<VModel>();
+            auto parentLayer = DrawLayer::World;
+            auto parentOrder = DrawOrder::World::Default;
+            if (auto parentVModel = parent->find<VModel>()) {
+                parentLayer = parentVModel->getLayer();
+                parentOrder = parentVModel->getOrder();
+            }
+            pActor->attach<VModel>()
+                ->setLayer(parentLayer)
+                .setOrder(parentOrder - 0.1);
         }
     }
 }

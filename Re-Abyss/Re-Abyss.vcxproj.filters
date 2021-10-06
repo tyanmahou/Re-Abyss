@@ -2493,6 +2493,8 @@
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
+    <ClInclude Include="app\utils\NoConstruct.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

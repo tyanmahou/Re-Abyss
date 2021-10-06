@@ -19,8 +19,6 @@ namespace abyss::Actor::Enemy::CodeZero
 {
     void Builder::Build(ActorObj* pActor, const CodeZeroEntity& entity)
     {
-        pActor->setOrder(-99);
-
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
             .setForward(entity.forward)
@@ -51,6 +49,9 @@ namespace abyss::Actor::Enemy::CodeZero
         // プロキシ
         {
             pActor->attach<CodeZeroProxy>(pActor);
+        }
+        {
+            pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
         }
     }
 }

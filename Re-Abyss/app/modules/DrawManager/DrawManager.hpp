@@ -9,12 +9,12 @@ namespace abyss
     /// <summary>
     /// 描画単位
     /// </summary>
-    struct DrawEntry
+    struct DrawTarget
     {
         double order = 1.0;
         std::function<void()> drawer;
 
-        auto operator <=> (const DrawEntry& other) const
+        auto operator <=> (const DrawTarget& other) const
         {
             return order <=> other.order;
         }
@@ -53,6 +53,6 @@ namespace abyss
         /// <returns></returns>
         size_t size(DrawLayer layer)const;
     private:
-        std::array<s3d::Array<DrawEntry>, DrawLayerSize> m_drawers;
+        std::array<s3d::Array<DrawTarget>, DrawLayerSize> m_drawers;
     };
 }

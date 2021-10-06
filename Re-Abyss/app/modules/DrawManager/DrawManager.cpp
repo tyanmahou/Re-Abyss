@@ -14,8 +14,8 @@ namespace abyss
     }
     void DrawManager::draw(DrawLayer layer)
     {
-        for (auto&& entry : m_drawers[static_cast<size_t>(layer)].sort()) {
-            entry.drawer();
+        for (auto&& target : m_drawers[static_cast<size_t>(layer)].sort()) {
+            target.drawer();
         }
     }
     size_t DrawManager::size(DrawLayer layer) const

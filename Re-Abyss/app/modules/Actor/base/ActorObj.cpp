@@ -91,7 +91,7 @@ namespace abyss::Actor
 		for (auto&& com : this->finds<IDraw>()) {
 			drawer->add(com->getLayer(), [com] {
 				com->onDraw();
-			});
+			}, com->getOrder());
 		}
 	}
 	s3d::Microseconds ActorObj::getTime() const

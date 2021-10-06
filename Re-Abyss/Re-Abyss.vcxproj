@@ -902,6 +902,7 @@
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
+    <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Environment.hpp" />
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
@@ -926,6 +927,7 @@
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
+    <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />

@@ -45,7 +45,6 @@ namespace abyss::Actor::Player
 		// 基本設定
         pActor->setDestoryTiming(DestoryTiming::Never);
 		pActor->setTag(Tag::Player{});
-        pActor->setOrder(10);
 
 		// Body
 		{

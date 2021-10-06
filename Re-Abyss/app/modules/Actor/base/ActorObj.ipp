@@ -31,15 +31,6 @@ namespace abyss::Actor
 	{
 		return m_destoryTiming == DestoryTiming::Never;
 	}
-	inline void ActorObj::setOrder(s3d::int32 order)
-	{
-		m_order = order;
-	}
-
-	inline s3d::int32 ActorObj::getOrder() const
-	{
-		return m_order;
-	}
 
 	inline void ActorObj::setTag(const TagType& tag)
 	{
