@@ -152,7 +152,8 @@ namespace abyss::Actor::Player
         {
             pActor->attach<MotionCtrl>();
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
+                ->setBinder<ViewBinder>(pActor)
+                .setOrder(DrawOrder::World::Player);
         }
         // Light
         {
