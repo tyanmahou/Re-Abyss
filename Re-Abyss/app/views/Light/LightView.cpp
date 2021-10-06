@@ -37,7 +37,7 @@ namespace abyss
     void LightView::addShadow(std::function<void(double)> shadowDraw)
     {
         m_lights.push_back([d = std::move(shadowDraw)](double time) {
-            ScopedRenderStates2D state(BlendState::Multiplicative);
+            ScopedRenderStates2D state(BlendState::Default2D);
             ScopedColorMul2D colurMul(Palette::Black);
             d(time);
         });

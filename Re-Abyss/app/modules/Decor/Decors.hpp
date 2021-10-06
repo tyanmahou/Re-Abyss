@@ -24,7 +24,10 @@ namespace abyss
             m_pManager = pManager;
             return *this;
         }
-
+        Manager* getManager() const
+        {
+            return m_pManager;
+        }
         void flush();
 
         void update();

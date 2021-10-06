@@ -4,6 +4,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/Light/Light.hpp>
 
 #include <Siv3D.hpp>
 
@@ -30,5 +31,9 @@ namespace abyss::Decor
             .mirrored(m_info->isMirrored())
             .flipped(m_info->isFlipped());
         quad(tex).draw();
+        
+        m_pObj->getModule<Light>()->addShadow([quad, tex](double){
+            quad(tex).draw();
+        });
     }
 }
