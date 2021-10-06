@@ -1,6 +1,7 @@
 #include "TileMapView.hpp"
 
 #include <abyss/modules/Decor/Decors.hpp>
+#include <abyss/modules/Light/Light.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Decor::Map
@@ -72,6 +73,10 @@ namespace abyss::Decor::Map
         {
             auto scoped = m_shader.start(std::move(image));
             m_texture.draw(m_tileMap.getPos());
+
+            decor.getManager()->getModule<Light>()->addShadow([this](double){
+                m_texture.draw(m_tileMap.getPos());
+            });
         }
     }
 

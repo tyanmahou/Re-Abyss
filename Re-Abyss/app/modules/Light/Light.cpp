@@ -29,12 +29,8 @@ namespace abyss
     void Light::update(double dt)
     {
         m_time += dt;
+        m_view.setTime(m_time);
         m_color.update(dt);
-    }
-
-    void Light::render() const
-    {
-        m_view.render(m_time);
     }
 
     const s3d::ColorF& Light::getColor() const

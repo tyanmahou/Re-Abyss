@@ -4,6 +4,33 @@
 #include <abyss/views/Light/LightShader.hpp>
 #include <abyss/views/Light/LightUtil.hpp>
 
+namespace
+{
+    struct ScopedLight
+    {
+    public:
+        ScopedLight(const Optional<RenderTexture>& rt):
+            target(rt),
+            state(BlendState::Additive)
+        {}
+    private:
+        ScopedRenderTarget2D target;
+        ScopedRenderStates2D state;
+    };
+    struct ScopedShadow
+    {
+    public:
+        ScopedShadow(const Optional<RenderTexture>& rt) :
+            target(rt),
+            state(BlendState::Default2D),
+            colurMul(Palette::Black)
+        {}
+    private:
+        ScopedRenderTarget2D target;
+        ScopedRenderStates2D state;
+        ScopedColorMul2D colurMul;
+    };
+}
 namespace abyss
 {
     LightView::LightView():
@@ -15,41 +42,27 @@ namespace abyss
     void LightView::clear()
     {
         m_lights.clear();
+        m_rt.clear(ColorF(0, 1));
     }
     void LightView::addCircle(const s3d::Vec2& pos, double radius, double brightness)
     {
-        m_lights.push_back([=](double time){
-            LightUtil::DrawCircleLight(pos, radius, brightness, time);
-        });
+        ScopedLight light(m_rt);
+        LightUtil::DrawCircleLight(pos, radius, brightness, m_time);
     }
     void LightView::addPie(const s3d::Vec2& pos, double radius, double startAngle, double angle, double brightness)
     {
-        m_lights.push_back([=](double time) {
-            LightUtil::DrawPieLight(pos, radius, startAngle, angle, brightness, time);
-        });
+        ScopedLight light(m_rt);
+        LightUtil::DrawPieLight(pos, radius, startAngle, angle, brightness, m_time);
     }
     void LightView::addArc(const s3d::Vec2& pos, double radius, double innerAntiRadius, double startAngle, double angle, double brightness)
     {
-        m_lights.push_back([=](double time) {
-            LightUtil::DrawArcLight(pos, radius, innerAntiRadius, startAngle, angle, brightness, time);
-        });
+        ScopedLight light(m_rt);
+        LightUtil::DrawArcLight(pos, radius, innerAntiRadius, startAngle, angle, brightness, m_time);
     }
     void LightView::addShadow(std::function<void(double)> shadowDraw)
     {
-        m_lights.push_back([d = std::move(shadowDraw)](double time) {
-            ScopedRenderStates2D state(BlendState::Default2D);
-            ScopedColorMul2D colurMul(Palette::Black);
-            d(time);
-        });
-    }
-    void LightView::render(double time) const
-    {
-        ScopedRenderTarget2D target(m_rt);
-        ScopedRenderStates2D state(BlendState::Additive);
-        m_rt.clear(ColorF(0, 1));
-        for (const auto& light : m_lights) {
-            light(time);
-        }
+        ScopedShadow shadow(m_rt);
+        shadowDraw(m_time);
     }
     s3d::ScopedCustomShader2D LightView::start(const s3d::ColorF & color) const
     {

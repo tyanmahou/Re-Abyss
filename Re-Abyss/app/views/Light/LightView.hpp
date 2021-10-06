@@ -14,6 +14,10 @@ namespace abyss
     public:
         LightView();
 
+        void setTime(double time)
+        {
+            m_time = time;
+        }
         void clear();
 
         void addCircle(const s3d::Vec2& pos, double radius, double brightness = 1.0);
@@ -21,11 +25,11 @@ namespace abyss
         void addArc(const s3d::Vec2& pos, double radius, double innerAntiRadius, double startAngle, double angle, double brightness = 1.0);
         void addShadow(std::function<void(double)> shadowDraw);
 
-        void render(double time) const;
         s3d::ScopedCustomShader2D start(const s3d::ColorF& color) const;
     private:
         s3d::RenderTexture m_rt;
         std::shared_ptr<LightShader> m_shader;
         s3d::Array<std::function<void(double)>> m_lights;
+        double m_time = 0;
     };
 }

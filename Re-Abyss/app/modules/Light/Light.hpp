@@ -18,7 +18,6 @@ namespace abyss
         void addShadow(std::function<void(double)> shadowDraw);
 
         void update(double dt);
-        void render() const;
 
         Light& initColor(const s3d::Optional<s3d::ColorF>& color)
         {

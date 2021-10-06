@@ -179,8 +179,6 @@ namespace abyss::Sys
                 ws->drawFront(cameraView.getCameraPos());
             }
             if constexpr (config.isStage) {
-                // Light Map更新
-                mod<Light>()->render();
                 // Distortion Map更新
                 mod<Distortion>()->render();
             }
