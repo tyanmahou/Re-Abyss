@@ -4,41 +4,45 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
+#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class ParentCtrl;
-}
-namespace abyss::Actor::Enemy::CodeZero::Head
-{
     class HeadCtrl : 
         public IComponent,
-        public ILocator
+        public ILocator,
+        public ILastUpdate
     {
         Forward m_forward;
 
         ActorObj* m_pActor;
-        Ref<ParentCtrl> m_parentCtrl;
+        Ref<Body> m_body;
+        Ref<PartsCtrl> m_parts;
     public:
         HeadCtrl(ActorObj* pActor);
         void onStart() override;
 
         s3d::Vec2 getPos() const;
 
-        void setForward(Forward forward);
         Forward getForward() const;
 
         s3d::Vec2 getCenterPos() const override;
+
+        void onLastUpdate() override;
     };
 }
 
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::CodeZero::Head::HeadCtrl>
+    struct ComponentTree<Actor::Enemy::CodeZero::HeadCtrl>
     {
-        using Base = Actor::ILocator;
+        using Base = MultiComponents<
+            Actor::ILocator,
+            Actor::ILastUpdate
+        >;
     };
 }

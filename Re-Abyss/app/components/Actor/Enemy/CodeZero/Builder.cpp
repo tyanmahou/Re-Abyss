@@ -4,16 +4,21 @@
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/Phase1State.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
+#include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
 
 namespace
 {
     class ViewBinder;
+    class ViewBinderHead;
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -25,7 +30,6 @@ namespace abyss::Actor::Enemy::CodeZero
             .setInitHp(Param::Base::Hp)
             .setIsEnableCollider(false)
             .setIsEnableMapCollider(false)
-            .setIsEnableDamage(false)
             .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
             .setIsEnableItemDrop(false)
@@ -39,8 +43,16 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->find<Actor::Body>()->noneResistanced();
         }
         // パーツ制御
+        Ref<ILocator> headLocator;
         {
+            auto head = pActor->attach<HeadCtrl>(pActor);
+            headLocator = RefCast<ILocator>(head);
             pActor->attach<PartsCtrl>(pActor);
+        }
+        // 衝突
+        {
+            pActor->attach<CircleCollider>(pActor, headLocator)
+                ->setRadius(Param::Head::ColRadius);
         }
         // 行動パターン
         {
@@ -50,8 +62,12 @@ namespace abyss::Actor::Enemy::CodeZero
         {
             pActor->attach<CodeZeroProxy>(pActor);
         }
+        // 描画制御
         {
             pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
+
+            pActor->attach<VModelSub<1>>()
+                ->setBinder<ViewBinderHead>(pActor);
         }
     }
 }
@@ -59,15 +75,18 @@ namespace abyss::Actor::Enemy::CodeZero
 namespace
 {
     using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::CodeZero;
 
-    class ViewBinder : public IVModelBinder<Body::BodyVM>
+    using abyss::Actor::Enemy::CodeZero::Body::BodyVM;
+
+    class ViewBinder : public IVModelBinder<BodyVM>
     {
-        Actor::ActorObj* m_pActor = nullptr;
+        ActorObj* m_pActor = nullptr;
         Ref<Actor::Body> m_body;
-        std::unique_ptr<Body::BodyVM> m_view;
+        std::unique_ptr<BodyVM> m_view;
     private:
-        Body::BodyVM* bind() const final
+        BodyVM* bind() const final
         {
             return &m_view->setPos(m_body->getPos());
         }
@@ -78,7 +97,36 @@ namespace
     public:
         ViewBinder(Actor::ActorObj* pActor) :
             m_pActor(pActor),
-            m_view(std::make_unique<Body::BodyVM>())
+            m_view(std::make_unique<BodyVM>())
+        {}
+    };
+
+    class ViewBinderHead : public IVModelBinder<Head::HeadVM>
+    {
+        ActorObj* m_pActor = nullptr;
+        Ref<HeadCtrl> m_head;
+        Ref<DamageCtrl> m_damage;
+        std::unique_ptr<Head::HeadVM> m_view;
+    private:
+        Head::HeadVM* bind() const final
+        {
+            return &m_view->setTime(m_pActor->getTimeSec())
+                .setPos(m_head->getPos())
+                .setForward(m_head->getForward())
+                .setIsDamaging(m_damage->isInInvincibleTime());
+        }
+        void setup(Executer executer) final
+        {
+        }
+        void onStart() final
+        {
+            m_head = m_pActor->find<HeadCtrl>();
+            m_damage = m_pActor->find<DamageCtrl>();
+        }
+    public:
+        ViewBinderHead(ActorObj* pActor) :
+            m_pActor(pActor),
+            m_view(std::make_unique<Head::HeadVM>())
         {}
     };
 }

@@ -3,12 +3,15 @@
 
 namespace abyss::Actor
 {
-    CircleCollider::CircleCollider(ActorObj* pActor):
-        m_pActor(pActor)
+    CircleCollider::CircleCollider(ActorObj* pActor, Ref<ILocator> locator) :
+        m_pActor(pActor),
+        m_locator(locator)
     {}
     void CircleCollider::onStart()
     {
-        m_locator = m_pActor->find<ILocator>();
+        if (!m_locator) {
+            m_locator = m_pActor->find<ILocator>();
+        }
     }
     CShape CircleCollider::getCollider() const
     {

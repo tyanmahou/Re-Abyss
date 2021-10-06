@@ -51,10 +51,10 @@ namespace abyss::Actor::Enemy
 			pActor->attach<ReceiverData>();
 		}
 		// Collider
-		if (opt.isEnableCollider) {
-			pActor->attach<CollisionCtrl>(pActor)
-				->setLayer(LayerGroup::Enemy);
+		pActor->attach<CollisionCtrl>(pActor)
+			->setLayer(LayerGroup::Enemy);
 
+		if (opt.isEnableCollider) {
 			auto collider = pActor->attach<CustomCollider>();
 			if (opt.colliderImpl) {
 				collider->setImpl(opt.colliderImpl);

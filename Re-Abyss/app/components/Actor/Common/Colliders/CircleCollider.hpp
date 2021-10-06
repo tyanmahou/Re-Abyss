@@ -16,7 +16,7 @@ namespace abyss::Actor
         Ref<ILocator> m_locator;
         double m_radius;
     public:
-        CircleCollider(ActorObj* pActor);
+        CircleCollider(ActorObj* pActor, Ref<ILocator> locator = nullptr);
 
         void onStart() override;
 

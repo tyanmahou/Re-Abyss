@@ -45,8 +45,6 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     bool ParentCtrl::isShotCharge() const
     {
-        auto left = m_parts->getLeftHand();
-        auto right = m_parts->getRightHand();
-        return left->isShotCharge() || right->isShotCharge();
+        return m_parts->isShotCharge();
     }
 }
