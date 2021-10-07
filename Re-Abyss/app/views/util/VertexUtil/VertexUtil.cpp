@@ -91,14 +91,158 @@ namespace detail
 
 namespace
 {
+	void DrawCircle(
+		const Float2& center,
+		float r,
+		const std::function<void(Vertex2D*, float c, float s)>& callback,
+		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
+	) {
+		const float absR = Abs(r);
+
+		constexpr float scale = 1.0f;
+		const Vertex2D::IndexType quality = ::detail::CalculateCircleQuality(absR * scale);
+		const Vertex2D::IndexType vertexSize = (quality + 1), indexSize = (quality * 3);
+
+		Buffer2D buffer(vertexSize, indexSize);
+		Vertex2D* pVertex = buffer.vertices.data();
+		Vertex2D::IndexType* pIndex = &buffer.indices.data()->i0;
+
+		if (not pVertex) {
+			return;
+		}
+
+		// 中心
+		const float centerX = center.x;
+		const float centerY = center.y;
+		pVertex[0].pos.set(centerX, centerY);
+
+		// 周
+		if (quality <= ::detail::MaxSinCosTableQuality) {
+			const Float2* pCS = ::detail::GetSinCosTableStartPtr(quality);
+			Vertex2D* pDst = &pVertex[1];
+
+			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+				(pDst)->pos.set(r * pCS->x + centerX, r * pCS->y + centerY);
+				if (callback) {
+					callback(pDst, pCS->x, pCS->y);
+				}
+				pDst++;
+				++pCS;
+			}
+		} else {
+			const float radDelta = Math::TwoPiF / quality;
+			Vertex2D* pDst = &pVertex[1];
+
+			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+				const float rad = (radDelta * i);
+				const auto [s, c] = FastMath::SinCos(rad);
+				(pDst)->pos.set(centerX + r * c, centerY - r * s);
+				if (callback) {
+					callback(pDst, c, -s);
+				}
+				pDst++;
+			}
+		}
+
+		{
+			if (fixCallback) {
+				fixCallback(pVertex, vertexSize);
+			}
+		}
+
+		{
+			for (Vertex2D::IndexType i = 0; i < (quality - 1); ++i) {
+				*pIndex++ = (i + 1);
+				*pIndex++ = 0;
+				*pIndex++ = (i + 2);
+			}
+
+			*pIndex++ = quality;
+			*pIndex++ = 0;
+			*pIndex++ = 1;
+		}
+
+		buffer.draw();
+	}
+
+	void DrawCircleFrame(
+		const Float2& center,
+		const float rInner,
+		const float thickness,
+		const std::function<void(Vertex2D* outer, Vertex2D* inner, float c, float s)>& callback,
+		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
+	) {
+		const float rOuter = (rInner + thickness);
+
+		constexpr float scale = 1.0f;
+		const Vertex2D::IndexType quality = ::detail::CalculateCircleFrameQuality(rOuter * scale);
+		const Vertex2D::IndexType vertexSize = (quality * 2), indexSize = (quality * 6);
+
+		Buffer2D buffer(vertexSize, indexSize);
+		Vertex2D* pVertex = buffer.vertices.data();
+		Vertex2D::IndexType* pIndex = &buffer.indices.data()->i0;
+
+		if (not pVertex) {
+			return;
+		}
+
+		const float centerX = center.x;
+		const float centerY = center.y;
+
+		if (quality <= ::detail::MaxSinCosTableQuality) {
+			const Float2* pCS = ::detail::GetSinCosTableStartPtr(quality);
+			Vertex2D* pDst = pVertex;
+
+			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+				(pDst)->pos.set(centerX + rOuter * pCS->x, centerY + rOuter * pCS->y);
+				auto outerVertex = pDst++;
+				(pDst)->pos.set(centerX + rInner * pCS->x, centerY + rInner * pCS->y);
+				auto innerVertex = pDst++;
+				if (callback) {
+					callback(outerVertex, innerVertex, pCS->x, pCS->y);
+				}
+
+				++pCS;
+			}
+		} else {
+			const float radDelta = Math::TwoPiF / quality;
+			Vertex2D* pDst = pVertex;
+
+			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+				const float rad = (radDelta * i);
+				const auto [s, c] = FastMath::SinCos(rad);
+
+				(pDst)->pos.set(centerX + rOuter * c, centerY - rOuter * s);
+				auto outerVertex = pDst++;
+				(pDst)->pos.set(centerX + rInner * c, centerY - rInner * s);
+				auto innerVertex = pDst++;
+				if (callback) {
+					callback(outerVertex, innerVertex, c, -s);
+				}
+			}
+		}
+
+		if (fixCallback) {
+			fixCallback(pVertex, vertexSize);
+		}
+
+		for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+			for (Vertex2D::IndexType k = 0; k < 6; ++k) {
+				*pIndex++ = ((i * 2 + ::detail::RectIndexTable[k]) % (quality * 2));
+			}
+		}
+
+		buffer.draw();
+	}
+
 	void DrawCircleArc(
 		const Float2& center,
 		const float rInner,
 		const float startAngle,
 		const float _angle,
 		const float thickness,
-		std::function<void(Vertex2D* outer, Vertex2D* inner, float c, float s)> callback,
-		std::function<void(Vertex2D*, Vertex2D::IndexType)> fixCallback
+		const std::function<void(Vertex2D* outer, Vertex2D* inner, float c, float s)>& callback,
+		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
 	)
 	{
 		if (_angle == 0.0f) {
@@ -154,17 +298,45 @@ namespace
 }
 namespace abyss
 {
-
-	void VertexUtil::DrawCircleArc(const s3d::Circle& circle, double startAngle, double angle, double innerThickness, double outerThickness, std::function<void(s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s)> callback, std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)> fixCallback)
+	void VertexUtil::DrawCircle(
+		const s3d::Circle& circle,
+		const std::function<void(s3d::Vertex2D*, float c, float s)>& callback,
+		const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback
+	) {
+		::DrawCircle(
+			circle.center,
+			circle.r,
+			callback,
+			fixCallback
+		);
+	}
+	void VertexUtil::DrawCircleFrame(const s3d::Circle& circle, double innerThickness, double outerThickness, const std::function<void(s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s)>& callback, const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback)
 	{
+		::DrawCircleFrame(
+			circle.center,
+			static_cast<float>(circle.r - innerThickness),
+			static_cast<float>(innerThickness + outerThickness),
+			callback,
+			fixCallback
+		);
+	}
+	void VertexUtil::DrawCircleArc(
+		const s3d::Circle& circle,
+		double startAngle,
+		double angle,
+		double innerThickness, 
+		double outerThickness,
+		const std::function<void(s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s)>& callback,
+		const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback
+	) {
 		::DrawCircleArc(
 			circle.center,
 			static_cast<float>(circle.r - innerThickness),
 			static_cast<float>(startAngle),
 			static_cast<float>(angle),
 			static_cast<float>(innerThickness + outerThickness),
-			std::move(callback),
-			std::move(fixCallback)
+			callback,
+			fixCallback
 		);
 	}
 }
