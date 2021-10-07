@@ -12,6 +12,7 @@
   <objectgroup id="16" name="aa" locked="1">
    <properties>
     <property name="layer" value="DecorBack"/>
+    <property name="use_shadow" type="bool" value="true"/>
    </properties>
    <object id="113" gid="73" x="80" y="560" width="960" height="520"/>
    <object id="114" gid="73" x="1040" y="560" width="960" height="520"/>
@@ -19,7 +20,7 @@
    <object id="116" gid="73" x="-880" y="560" width="960" height="520"/>
    <object id="117" gid="73" x="-1840" y="560" width="960" height="520"/>
   </objectgroup>
-  <objectgroup id="17" name="bb">
+  <objectgroup id="17" name="bb" offsetx="0" offsety="1.33333">
    <properties>
     <property name="layer" value="DecorFront"/>
    </properties>

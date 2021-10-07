@@ -32,8 +32,10 @@ namespace abyss::Decor
             .flipped(m_info->isFlipped());
         quad(tex).draw();
         
-        m_pObj->getModule<Light>()->addShadow([quad, tex](double){
-            quad(tex).draw();
-        });
+        if (m_info->useShadow()) {
+            m_pObj->getModule<Light>()->addShadow([quad, tex](double) {
+                quad(tex).draw();
+            });
+        }
     }
 }

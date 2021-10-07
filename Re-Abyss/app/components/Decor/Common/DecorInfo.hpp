@@ -18,6 +18,7 @@ namespace abyss::Decor
 		bool isMirrored() const { return m_entity.isMirrored; }
 		double isFlipped() const { return m_entity.isFlipped; }
 		s3d::Vec2 getParallax() const { return m_entity.parallax; }
+		double useShadow() const { return m_entity.useShadow; }
 
 		bool isInScreen(const s3d::RectF& screen) const;
 
@@ -26,7 +27,7 @@ namespace abyss::Decor
 		s3d::Quad toQuad() const;
 		s3d::Quad toParallaxQuad() const;
 
-		DecorEntity getRaw() const
+		const DecorEntity& getRaw() const
 		{
 			return m_entity;
 		}

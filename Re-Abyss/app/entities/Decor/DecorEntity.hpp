@@ -19,5 +19,6 @@ namespace abyss::Decor
 
 		DrawLayer layer;
 		s3d::Vec2 parallax;
+		bool useShadow = false;
 	};
 }

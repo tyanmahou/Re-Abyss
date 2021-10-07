@@ -16,11 +16,13 @@ namespace abyss::Decor
         }
         auto parseAll = [&](const ObjectGroup& layer) {
             auto drawLayer = Enum::Parse<DrawLayer>(layer.getProperty(U"layer").value_or(U"Land"));
+            bool useShadow = layer.getProperty(U"use_shadow").value_or(false);
             for (const auto& obj : layer.getObjects()) {
                 TmxDecorParser parser(obj);
                 if (auto entity = parser.parse(); entity && entity->type != DecorType::General::None) {
                     entity->layer = drawLayer;
                     entity->parallax = layer.getParallax();
+                    entity->useShadow = useShadow;
                     ret.push_back(entity);
                 }
             }
