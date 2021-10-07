@@ -41,8 +41,8 @@ namespace abyss::Decor::City::StreetLight
             pos + Vec2{ 10, -10 },
             radius * 6.0,
             40.0f,
-            Math::ToRadians(185.0),
-            Math::ToRadians(30.0),
+            185.0_deg,
+            30.0_deg,
             0.5
         );
     }
