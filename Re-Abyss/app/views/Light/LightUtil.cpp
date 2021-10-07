@@ -1,4 +1,5 @@
 #include "LightUtil.hpp"
+#include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::LightUtil
@@ -40,13 +41,24 @@ namespace abyss::LightUtil
         const double fixedStart = startAngle - offsetRad;
         const double fixedAngle = angle + offsetRad * 2.0;
         const auto offs = -Vec2{ 0, -1 }.rotate(fixedStart + fixedAngle / 2.0) * innerAntiRadius;
-        Circle(pos + offs, r).drawArc(
+
+        auto colorMap = [=](s3d::Vertex2D* pVertex, s3d::Vertex2D::IndexType size) {
+            auto outerColor = ColorF(1.0, 0.0).toFloat4();
+            auto innerColor = ColorF(1.0, alpha).toFloat4();
+            for (size_t i = 0; i < size / 2; ++i) {
+                (pVertex++)->color = outerColor;
+                auto tri = Periodic::Jump0_1(static_cast<double>(size), static_cast<double>(i * 2 + 1));
+                (pVertex++)->color = innerColor * static_cast<float>(tri);
+            }
+        };
+        VertexUtil::DrawCircleArc(
+            Circle(pos + offs, r),
             fixedStart,
             fixedAngle,
             r - innerAntiRadius,
             0,
-            ColorF(1.0, alpha),
-            ColorF(1.0, 0.0)
+            nullptr,
+            std::move(colorMap)
         );
     }
 }

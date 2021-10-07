@@ -777,6 +777,7 @@
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
     <ClCompile Include="app\views\util\OutLine\OutLineShader.cpp" />
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
+    <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">NotUsing</PrecompiledHeader>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
@@ -1585,6 +1586,7 @@
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
     <ClInclude Include="app\views\util\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
+    <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

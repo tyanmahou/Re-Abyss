@@ -1648,6 +1648,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2481,6 +2484,7 @@
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
     <ClInclude Include="app\components\base\ComponentTree.hpp" />
+    <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
