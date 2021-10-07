@@ -2,8 +2,10 @@
 #include <Siv3D.hpp>
 #include "VertexUtil.hpp"
 
-namespace detail
+namespace
 {
+	using namespace abyss;
+
 	// 以下のコード移植
 	// https://github.com/Siv3D/OpenSiv3D/blob/main/Siv3D/src/Siv3D/Renderer2D/Vertex2DBuilder.cpp
 
@@ -87,20 +89,17 @@ namespace detail
 			: r <= 12.0f ? 8
 			: static_cast<Vertex2D::IndexType>(Min(64.0f, r * 0.2f + 6));
 	}
-}
 
-namespace
-{
 	void DrawCircle(
 		const Float2& center,
 		float r,
-		const std::function<void(Vertex2D*, float c, float s)>& callback,
-		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
+		const VertexUtil::CircleBuildCallback& callback,
+		const VertexUtil::VertexCallback& fixCallback
 	) {
 		const float absR = Abs(r);
 
 		constexpr float scale = 1.0f;
-		const Vertex2D::IndexType quality = ::detail::CalculateCircleQuality(absR * scale);
+		const Vertex2D::IndexType quality = ::CalculateCircleQuality(absR * scale);
 		const Vertex2D::IndexType vertexSize = (quality + 1), indexSize = (quality * 3);
 
 		Buffer2D buffer(vertexSize, indexSize);
@@ -117,8 +116,8 @@ namespace
 		pVertex[0].pos.set(centerX, centerY);
 
 		// 周
-		if (quality <= ::detail::MaxSinCosTableQuality) {
-			const Float2* pCS = ::detail::GetSinCosTableStartPtr(quality);
+		if (quality <= ::MaxSinCosTableQuality) {
+			const Float2* pCS = ::GetSinCosTableStartPtr(quality);
 			Vertex2D* pDst = &pVertex[1];
 
 			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
@@ -169,13 +168,13 @@ namespace
 		const Float2& center,
 		const float rInner,
 		const float thickness,
-		const std::function<void(Vertex2D* outer, Vertex2D* inner, float c, float s)>& callback,
-		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
+		const VertexUtil::CircleFrameBuildCallback& callback,
+		const VertexUtil::VertexCallback& fixCallback
 	) {
 		const float rOuter = (rInner + thickness);
 
 		constexpr float scale = 1.0f;
-		const Vertex2D::IndexType quality = ::detail::CalculateCircleFrameQuality(rOuter * scale);
+		const Vertex2D::IndexType quality = ::CalculateCircleFrameQuality(rOuter * scale);
 		const Vertex2D::IndexType vertexSize = (quality * 2), indexSize = (quality * 6);
 
 		Buffer2D buffer(vertexSize, indexSize);
@@ -189,8 +188,8 @@ namespace
 		const float centerX = center.x;
 		const float centerY = center.y;
 
-		if (quality <= ::detail::MaxSinCosTableQuality) {
-			const Float2* pCS = ::detail::GetSinCosTableStartPtr(quality);
+		if (quality <= ::MaxSinCosTableQuality) {
+			const Float2* pCS = ::GetSinCosTableStartPtr(quality);
 			Vertex2D* pDst = pVertex;
 
 			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
@@ -228,7 +227,7 @@ namespace
 
 		for (Vertex2D::IndexType i = 0; i < quality; ++i) {
 			for (Vertex2D::IndexType k = 0; k < 6; ++k) {
-				*pIndex++ = ((i * 2 + ::detail::RectIndexTable[k]) % (quality * 2));
+				*pIndex++ = ((i * 2 + ::RectIndexTable[k]) % (quality * 2));
 			}
 		}
 
@@ -241,8 +240,8 @@ namespace
 		const float startAngle,
 		const float _angle,
 		const float thickness,
-		const std::function<void(Vertex2D* outer, Vertex2D* inner, float c, float s)>& callback,
-		const std::function<void(Vertex2D*, Vertex2D::IndexType)>& fixCallback
+		const VertexUtil::CircleFrameBuildCallback& callback,
+		const VertexUtil::VertexCallback& fixCallback
 	)
 	{
 		if (_angle == 0.0f) {
@@ -252,7 +251,7 @@ namespace
 		const float angle = Clamp(_angle, -Math::TwoPiF, Math::TwoPiF);
 		const float rOuter = rInner + thickness;
 		constexpr float scale = 3.0f;
-		const Vertex2D::IndexType quality = ::detail::CalculateCirclePieQuality(rOuter * scale, angle);
+		const Vertex2D::IndexType quality = ::CalculateCirclePieQuality(rOuter * scale, angle);
 		const Vertex2D::IndexType vertexSize = (quality * 2), indexSize = ((quality - 1) * 6);
 
 		Buffer2D buffer(vertexSize, indexSize);
@@ -290,7 +289,7 @@ namespace
 
 		for (Vertex2D::IndexType i = 0; i < (quality - 1); ++i) {
 			for (Vertex2D::IndexType k = 0; k < 6; ++k) {
-				*pIndex++ = (i * 2 + ::detail::RectIndexTable[k]);
+				*pIndex++ = (i * 2 + ::RectIndexTable[k]);
 			}
 		}
 		buffer.draw();
@@ -300,18 +299,23 @@ namespace abyss
 {
 	void VertexUtil::DrawCircle(
 		const s3d::Circle& circle,
-		const std::function<void(s3d::Vertex2D*, float c, float s)>& callback,
-		const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback
+		const CircleBuildCallback& callback,
+		const VertexCallback& fixCallback
 	) {
 		::DrawCircle(
 			circle.center,
-			circle.r,
+			static_cast<float>(circle.r),
 			callback,
 			fixCallback
 		);
 	}
-	void VertexUtil::DrawCircleFrame(const s3d::Circle& circle, double innerThickness, double outerThickness, const std::function<void(s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s)>& callback, const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback)
-	{
+	void VertexUtil::DrawCircleFrame(
+		const s3d::Circle& circle,
+		double innerThickness,
+		double outerThickness,
+		const CircleFrameBuildCallback& callback,
+		const VertexCallback& fixCallback
+	) {
 		::DrawCircleFrame(
 			circle.center,
 			static_cast<float>(circle.r - innerThickness),
@@ -326,8 +330,8 @@ namespace abyss
 		double angle,
 		double innerThickness, 
 		double outerThickness,
-		const std::function<void(s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s)>& callback,
-		const std::function<void(s3d::Vertex2D*, s3d::Vertex2D::IndexType)>& fixCallback
+		const CircleFrameBuildCallback& callback,
+		const VertexCallback& fixCallback
 	) {
 		::DrawCircleArc(
 			circle.center,
