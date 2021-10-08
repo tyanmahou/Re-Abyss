@@ -10,24 +10,26 @@ namespace abyss
     class IdGenerator
     {
     public:
+        using value_type = s3d::uint64;
+    public:
         /// <summary>
         /// Idの生成
         /// </summary>
         /// <returns></returns>
-        s3d::uint64 createId();
+        value_type createId();
 
         /// <summary>
         /// Idの開放
         /// </summary>
         /// <param name="id"></param>
-        void releaseId(s3d::uint64 id);
+        void releaseId(value_type id);
 
         /// <summary>
         /// リセット
         /// </summary>
         void reset();
     private:
-        s3d::uint64 m_nextId = 0;
-        std::queue<s3d::uint64> m_freeId;
+        value_type m_nextId = 0;
+        std::queue<value_type> m_freeIds;
     };
 }
