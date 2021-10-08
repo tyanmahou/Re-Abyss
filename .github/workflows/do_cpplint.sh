@@ -14,6 +14,7 @@ filters=(
     "-build/namespaces"
     "-readability/todo"
     "-readability/namespace"
+    "-readability/braces"
 )
 
 command="cpplint "
