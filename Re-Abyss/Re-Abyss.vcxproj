@@ -655,8 +655,6 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\Axis2\Axis2.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
-    <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp" />
-    <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\modules\Manager\Manager.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
@@ -1369,9 +1367,6 @@
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
-    <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
-    <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
-    <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\modules\World\LayerGroup.hpp" />
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />

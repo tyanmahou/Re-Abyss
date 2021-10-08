@@ -1,13 +1,17 @@
 #include "InputManager.hpp"
 #include <Siv3D.hpp>
-#include <abyss/utils/Key/KeyGroupEx/KeyGroupEx.hpp>
-#include <abyss/utils/Key/KeyPovD8/KeyPovD8.hpp>
 
 namespace abyss
 {
+    InputGroup& operator |=(InputGroup& a, const Input& b)
+    {
+        a = a | b;
+        return a;
+    }
+
     class InputManager::Impl
     {
-        std::array<KeyGroupEx, AbyssKey::MAX> m_keys;
+        std::array<s3d::InputGroup, AbyssKey::MAX> m_keys;
     public:
         Impl()
         {
@@ -40,10 +44,10 @@ namespace abyss
                     m_keys[AbyssKey::Left] |= joyConL.button0;
 
                     // povD8
-                    m_keys[AbyssKey::Up] |= KeyPovD8(pad, KeyPovD8::Left);
-                    m_keys[AbyssKey::Right] |= KeyPovD8(pad, KeyPovD8::Up);
-                    m_keys[AbyssKey::Down] |= KeyPovD8(pad, KeyPovD8::Right);
-                    m_keys[AbyssKey::Left] |= KeyPovD8(pad, KeyPovD8::Down);
+                    m_keys[AbyssKey::Up] |= pad.povLeft;
+                    m_keys[AbyssKey::Right] |= pad.povUp;
+                    m_keys[AbyssKey::Down] |= pad.povRight;
+                    m_keys[AbyssKey::Left] |= pad.povDown;
                 }
             }
         }
@@ -78,7 +82,6 @@ namespace abyss
 
     void InputManager::Update()
     {
-        KeyPovD8Updater::Instance()->update();
     }
     bool AbyssKey::up() const
     {

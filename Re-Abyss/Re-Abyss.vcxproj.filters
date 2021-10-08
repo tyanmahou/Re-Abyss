@@ -218,12 +218,6 @@
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Key\KeyGroupEx\KeyGroupEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\utils\Key\KeyPovD8\KeyPovD8.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1796,9 +1790,6 @@
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\concepts\Common.hpp" />
-    <ClInclude Include="app\utils\Key\InputState\InputState.hpp" />
-    <ClInclude Include="app\utils\Key\KeyGroupEx\KeyGroupEx.hpp" />
-    <ClInclude Include="app\utils\Key\KeyPovD8\KeyPovD8.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />
