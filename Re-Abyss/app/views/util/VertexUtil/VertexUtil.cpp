@@ -106,7 +106,7 @@ namespace
 		Vertex2D* pVertex = buffer.vertices.data();
 		Vertex2D::IndexType* pIndex = &buffer.indices.data()->i0;
 
-		if (not pVertex) {
+		if (!pVertex) {
 			return;
 		}
 
