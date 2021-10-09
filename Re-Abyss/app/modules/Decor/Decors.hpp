@@ -5,16 +5,16 @@
 #include <abyss/concepts/Decor.hpp>
 #include <abyss/modules/Decor/base/DecorHolder.hpp>
 
-namespace abyss
+namespace abyss::Decor
 {
     class DecorGraphics;
 
     class Decors
     {
-        Decor::DecorHolder m_decors;
+        DecorHolder m_decors;
         std::shared_ptr<DecorGraphics> m_graphics;
 
-        Decor::BufferLayer m_bufferLayer = Decor::BufferLayer::Front;
+        BufferLayer m_bufferLayer = Decor::BufferLayer::Front;
         Manager* m_pManager = nullptr;
     public:
         Decors();
@@ -47,13 +47,13 @@ namespace abyss
         /// 装飾の生成
         /// </summary>
         /// <returns></returns>
-        Ref<Decor::DecorObj> create();
+        Ref<DecorObj> create();
 
         /// <summary>
         /// ビルダーから装飾の生成
         /// </summary>
         template<class BuilerType, class... Args>
-        Ref<Decor::DecorObj> create(Args&& ... args)
+        Ref<DecorObj> create(Args&& ... args)
             requires DecorBuildy<BuilerType, Args...>
         {
             auto decor = this->create();
@@ -64,7 +64,7 @@ namespace abyss
         /// <summary>
         /// 装飾を登録
         /// </summary>
-        Ref<Decor::DecorObj> regist(const std::shared_ptr<Decor::DecorObj>& decor);
+        Ref<DecorObj> regist(const std::shared_ptr<DecorObj>& decor);
 
         Decors& setGraphics(const std::shared_ptr<DecorGraphics>& graphics)
         {
@@ -88,10 +88,10 @@ namespace abyss
         /// <returns></returns>
         size_t size() const;
 
-        Decor::BufferLayer getBufferLayer() const
+        BufferLayer getBufferLayer() const
         {
             return m_bufferLayer;
         }
-        Decor::DecorIdTable getIdTable() const;
+        DeployIds getDeployIds() const;
     };
 }

@@ -9,7 +9,7 @@
 
 namespace abyss::Decor
 {
-    using DecorIdTable = s3d::HashTable<s3d::uint32, Ref<DecorObj>>;
+    using DeployIds = s3d::HashTable<s3d::uint32, Ref<DecorObj>>;
 
     class DecorHolder
     {
@@ -26,7 +26,7 @@ namespace abyss::Decor
 
         size_t size() const;
 
-        DecorIdTable getIdTable() const;
+        DeployIds getDeployIds() const;
     private:
         s3d::Array<std::shared_ptr<DecorObj>> m_reserves;
         s3d::Array<std::shared_ptr<DecorObj>> m_decors;

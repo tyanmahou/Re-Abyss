@@ -4,12 +4,9 @@
 #include <Siv3D/HashTable.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Decor
 {
-    namespace Decor
-    {
-        class IDecorService;
-    }
+    class IDecorService;
 
     class DecorGraphics
     {
@@ -36,7 +33,7 @@ namespace abyss
         };
     public:
         DecorGraphics() = default;
-        DecorGraphics(Decor::IDecorService* service);
+        DecorGraphics(IDecorService* service);
 
         s3d::uint32 getAnimGId(s3d::uint32 gId, double time);
         s3d::TextureRegion getTexture(s3d::uint32 gId, double time);

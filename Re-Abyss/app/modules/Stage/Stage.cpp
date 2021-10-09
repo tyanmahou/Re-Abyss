@@ -160,7 +160,7 @@ namespace abyss
         // 装飾の初期化
         {
             auto decor = m_pManager->getModule<Decors>();
-            decor->setGraphics(std::make_shared<DecorGraphics>(m_stageData->getDecorService()));
+            decor->setGraphics(std::make_shared<Decor::DecorGraphics>(m_stageData->getDecorService()));
 
             if (!this->initDecor(*decor, *nextRoom)) {
                 return false;
@@ -284,7 +284,7 @@ namespace abyss
             return false;
         }
         Decor::DecorTranslator m_translator;
-        auto idTable = decor.getIdTable();
+        auto&& deloyIds = decor.getDeployIds();
 
         for (const auto& entity : decorService->getDecors()) {
             if (!entity) {
@@ -293,11 +293,13 @@ namespace abyss
             if (!DecorBuildUtil::IsInScreen(*entity, nextRoom.getRegion())) {
                 continue;
             }
-            if (idTable.contains(entity->id)) {
+            if (deloyIds.contains(entity->id)) {
                 // すでに生成済みなら引継ぎする
-                idTable[entity->id]->setBufferLayer(decor.getBufferLayer());
+                deloyIds[entity->id]->setBufferLayer(decor.getBufferLayer());
             } else {
-                m_translator.build(decor, *entity);
+                if(auto&& obj = m_translator.build(decor, *entity)){
+                    obj->setDeployId(entity->id);
+                }
             }
         }
 

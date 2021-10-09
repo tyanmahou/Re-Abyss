@@ -4,7 +4,7 @@
 #include <abyss/entities/Decor/AnimationEntity.hpp>
 #include <abyss/entities/Decor/GraphicsEntity.hpp>
 
-namespace abyss
+namespace abyss::Decor
 {
     void DecorGraphics::Anime::add(s3d::uint32 gId, double duration)
     {
@@ -30,7 +30,7 @@ namespace abyss
     {
         return m_frames.isEmpty();
     }
-    DecorGraphics::DecorGraphics(Decor::IDecorService* service)
+    DecorGraphics::DecorGraphics(IDecorService* service)
     {
         for (const auto& [gId, graphics] : service->getGraphics()) {
             Info info{

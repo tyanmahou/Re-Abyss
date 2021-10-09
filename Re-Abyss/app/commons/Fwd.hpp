@@ -32,7 +32,6 @@ namespace abyss
 	class Stage;
 	class StageData;
 	class Light;
-	class Decors;
 	class BackGround;
 	class Sound;
 	class UIs;
@@ -92,8 +91,10 @@ namespace abyss
 
 	namespace Decor
 	{
+		class Decors;
 		class DecorObj;
 	}
+	using Decor::Decors;
 
 	/// Modules/Cycle
 	namespace Cycle

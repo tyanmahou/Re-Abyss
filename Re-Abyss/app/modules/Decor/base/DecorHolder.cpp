@@ -89,17 +89,17 @@ namespace abyss::Decor
     {
         return m_decors.size();
     }
-    DecorIdTable DecorHolder::getIdTable() const
+    DeployIds DecorHolder::getDeployIds() const
     {
-        DecorIdTable ret;
+        DeployIds ret;
         for (auto&& obj : m_reserves) {
-            if (auto info = obj->find<DecorInfo>()) {
-                ret[info->getId()] = obj;
+            if (auto&& deployId = obj->getDeployId()) {
+                ret[*deployId] = obj;
             }
         }
         for (auto&& obj : m_decors) {
-            if (auto info = obj->find<DecorInfo>()) {
-                ret[info->getId()] = obj;
+            if (auto&& deployId = obj->getDeployId()) {
+                ret[*deployId] = obj;
             }
         }
         return ret;

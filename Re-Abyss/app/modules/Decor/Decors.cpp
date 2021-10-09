@@ -1,7 +1,7 @@
 #include "Decors.hpp"
 #include "DecorGraphics.hpp"
 
-namespace abyss
+namespace abyss::Decor
 {
     Decors::Decors()
     {}
@@ -21,20 +21,20 @@ namespace abyss
 
     void Decors::onCheckOut()
     {
-        m_bufferLayer = Decor::FlipBuffer(m_bufferLayer);
+        m_bufferLayer = FlipBuffer(m_bufferLayer);
     }
 
     void Decors::onCheckIn()
     {
-        m_decors.clear(Decor::FlipBuffer(m_bufferLayer));
+        m_decors.clear(FlipBuffer(m_bufferLayer));
     }
 
-    Ref<Decor::DecorObj> Decors::create()
+    Ref<DecorObj> Decors::create()
     {
         return this->regist(std::make_shared<Decor::DecorObj>());
     }
 
-    Ref<Decor::DecorObj> Decors::regist(const std::shared_ptr<Decor::DecorObj>& decor)
+    Ref<DecorObj> Decors::regist(const std::shared_ptr<DecorObj>& decor)
     {
         decor->setManager(m_pManager);
         decor->setBufferLayer(m_bufferLayer);
@@ -56,8 +56,8 @@ namespace abyss
         return m_decors.size();
     }
 
-    Decor::DecorIdTable Decors::getIdTable() const
+    DeployIds Decors::getDeployIds() const
     {
-        return m_decors.getIdTable();
+        return m_decors.getDeployIds();
     }
 }
