@@ -47,6 +47,7 @@ namespace abyss
         {
             if (m_next) {
                 m_next->init(this);
+                m_next->start();
                 m_list.push_back(m_next);
                 m_next = nullptr;
             }

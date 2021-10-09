@@ -2,12 +2,24 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/Common/HierarchyCtrl.hpp>
 #include <abyss/components/UI/Common/FooterTips.hpp>
+#include <abyss/components/UI/SaveSelect/Panel/ModeCtrl.hpp>
+#include <abyss/components/UI/SaveSelect/Panel/KiraKiraCtrl.hpp>
+#include <abyss/components/UI/SaveSelect/Panel/BgCtrl.hpp>
 #include <abyss/components/UI/SaveSelect/Panel/Hierarchy/UserSelect.hpp>
 
 namespace abyss::UI::SaveSelect::Panel
 {
     void Builder::Build(UIObj* pUi)
     {
+        // モード制御
+        pUi->attach<ModeCtrl>(pUi);
+
+        // エフェクト制御
+        pUi->attach<KiraKiraCtrl>(pUi);
+
+        // Bg
+        pUi->attach<BgCtrl>(pUi)->setOrder(DrawOrder::UI::Default - 2);
+
         pUi->attach<HierarchyCtrl>(pUi)
             ->setupCallback([](Executer executer){
                 executer.on<IDraw>().addBefore<FooterTips>();

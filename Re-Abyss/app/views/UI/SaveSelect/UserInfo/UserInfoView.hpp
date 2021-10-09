@@ -19,6 +19,10 @@ namespace abyss::UI::SaveSelect::UserInfo
     public:
         UserInfoView();
 
+        PlayerView* getPlayerView() const
+        {
+            return m_player.get();
+        }
         void draw(const User::UserModel& user) const;
     };
 }

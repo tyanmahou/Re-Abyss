@@ -21,6 +21,8 @@ namespace abyss::UI::SaveSelect::UserInfo
         PlayerView& setTime(double time);
         PlayerView& setOoparts(OopartsType ooparts);
 
+        s3d::Vec2 getOopartsPos() const;
+
         void draw() const;
     };
 }

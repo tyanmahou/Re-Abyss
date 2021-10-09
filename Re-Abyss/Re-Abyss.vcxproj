@@ -338,6 +338,7 @@
     <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp" />
     <ClCompile Include="app\components\Actor\Common\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\CommonBuilder.cpp" />
+    <ClCompile Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\Nyan\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Ooparts\PursuitCtrl.cpp" />
@@ -428,10 +429,13 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp" />
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\BgCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\ModeCtrl.cpp" />
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
@@ -849,6 +853,7 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
     <ClInclude Include="app\components\base\ComponentTree.hpp" />
@@ -885,6 +890,10 @@
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\Common\VModel.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />

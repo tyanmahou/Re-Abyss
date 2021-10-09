@@ -1645,6 +1645,18 @@
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\BgCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\ModeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2476,6 +2488,11 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
     <ClInclude Include="app\components\base\ComponentTree.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

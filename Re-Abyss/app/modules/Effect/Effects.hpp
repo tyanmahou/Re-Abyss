@@ -81,7 +81,7 @@ namespace abyss::Effect
 
 #undef MAKE_LAYER_CREATE
 
-        ///         /// <summary>
+        /// <summary>
         /// エフェクトを登録
         /// </summary>
         Ref<EffectObj> regist(const std::shared_ptr<EffectObj>& effect);

@@ -12,6 +12,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/SaveSelect/Master.hpp>
+#include <abyss/components/UI/SaveSelect/Panel/KiraKiraCtrl.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 
@@ -21,15 +22,15 @@ namespace abyss::UI::SaveSelect::Panel
 
     UserSelect::UserSelect(UIObj* pUi) :
         m_pUi(pUi),
-        m_bg(std::make_unique<BackGround::BackGroundVM>()),
         m_selectFrame(std::make_unique<SelectFrame::SelectFrameVM>()),
         m_userInfo(std::make_unique<UserInfo::UserInfoView>()),
         m_users(Storage::Get<User::IUserService>()->getUsers())
     {}
     void UserSelect::start()
-    {}
+    {
+        m_mode = m_pUi->find<ModeCtrl>();
+    }
     bool UserSelect::update()
-
     {
         // selectId更新
         if (InputManager::Left.down()) {
@@ -47,14 +48,14 @@ namespace abyss::UI::SaveSelect::Panel
         if (InputManager::A.down()) {
             if (m_selectId == -1) {
                 // モード切替
-                if (m_mode == Mode::GameStart) {
-                    m_mode = Mode::Delete;
+                if (m_mode->is(Mode::GameStart)) {
+                    m_mode->set(Mode::Delete);
                 } else {
-                    m_mode = Mode::GameStart;
+                    m_mode->set(Mode::GameStart);
                 }
             } else {
                 // データ選択
-                if (m_mode == Mode::GameStart) {
+                if (m_mode->is(Mode::GameStart)) {
                     if (!m_users.contains(m_selectId)) {
                         this->push<CreateUserConfirm>([this](UserPlayMode playMode) {
                             // ユーザー生成
@@ -63,6 +64,7 @@ namespace abyss::UI::SaveSelect::Panel
                                 ->find<Cycle::SaveSelect::Master>()
                                 ->newGame();
                         });
+                        return true;
                     } else {
                         m_users[m_selectId] = Resource::SaveUtil::Login(m_users[m_selectId]);
                         // 選択
@@ -78,32 +80,39 @@ namespace abyss::UI::SaveSelect::Panel
                             Resource::SaveUtil::EraseUser(m_selectId);
                             m_users.erase(m_selectId);
                         });
+                        return true;
                     }
                 }
             }
         }
 
         if (InputManager::B.down()) {
-            if (m_mode == Mode::Delete) {
+            if (m_mode->is(Mode::Delete)) {
                 // 削除キャンセル
-                m_mode = Mode::GameStart;
-            } else if (m_mode == Mode::GameStart) {
+                m_mode->set(Mode::GameStart);
+            } else if (m_mode->is(Mode::GameStart)) {
                 // 戻る
                 m_pUi->getModule<CycleMaster>()
                     ->find<Cycle::SaveSelect::Master>()
                     ->back();
             }
         }
+        if (m_selectId != -1 && m_users.contains(m_selectId)) {
+            m_pUi->find<KiraKiraCtrl>()->setPos(
+                m_userInfo->getPlayerView()->getOopartsPos()
+            ).setActive(true);
+        } else {
+            m_pUi->find<KiraKiraCtrl>()->setActive(false);
+        }
         return true;
     }
     void UserSelect::draw() const
     {
-        m_bg->draw(m_mode == Mode::Delete ? Palette::Red : Color(93, 93, 255));
         m_selectFrame
             ->setSelectUserId(m_selectId)
             .draw();
 
-        if (m_mode == Mode::GameStart) {
+        if (m_mode->is(Mode::GameStart)) {
             FontAsset(FontName::SceneName)(U"- データ選択 -").drawAt(PivotUtil::FromTc(0, 50), Color(0, 255, 255));
         } else {
             FontAsset(FontName::SceneName)(U"- データ削除 -").drawAt(PivotUtil::FromTc(0, 50), Color(255, 0, 0));

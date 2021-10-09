@@ -28,16 +28,20 @@ namespace abyss::UI::SaveSelect::UserInfo
         }
         return *this;
     }
+    s3d::Vec2 PlayerView::getOopartsPos() const
+    {
+        auto localTarget = s3d::Vec2{ Forward::Left * -20 , -40 };
+        localTarget += s3d::Vec2{
+            15 * s3d::Sin(m_time * 2.0),
+            10 * s3d::Sin(m_time * 4.0)
+        };
+        return m_pos + localTarget;
+    }
     void PlayerView::draw() const
     {
         if (m_oopartsType != OopartsType::Invalid) {
-            auto localTarget = s3d::Vec2{ Forward::Left * -20 , -40 };
-            localTarget += s3d::Vec2{
-                15 * s3d::Sin(m_time * 2.0),
-                10 * s3d::Sin(m_time * 4.0)
-            };
             m_ooparts
-                ->setPos(m_pos + localTarget)
+                ->setPos(getOopartsPos())
                 .setForward(Forward::Left)
                 .setTime(m_time)
                 .draw();

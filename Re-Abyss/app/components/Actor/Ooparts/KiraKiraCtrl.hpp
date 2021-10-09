@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/TimeLite/IntervalTimer.hpp>
+#include <abyss/components/Actor/Ooparts/KiraKiraAlgorithm.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss::Actor::Ooparts
@@ -21,7 +21,7 @@ namespace abyss::Actor::Ooparts
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
 
-        TimeLite::IntervalTimer m_intervalTimer;
+        KiraKiraAlgorithm m_algo;
     };
 }
 
