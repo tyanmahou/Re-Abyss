@@ -370,6 +370,7 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Users.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
@@ -442,6 +443,9 @@
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\ModeCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\UserInfo\Builder.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.cpp" />
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
@@ -876,6 +880,7 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Users.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
@@ -907,6 +912,9 @@
     <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\UserInfo\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />

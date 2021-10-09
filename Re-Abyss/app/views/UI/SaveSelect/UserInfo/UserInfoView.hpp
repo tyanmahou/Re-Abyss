@@ -23,9 +23,10 @@ namespace abyss::UI::SaveSelect::UserInfo
         {
             return m_player.get();
         }
-        void setTime(double time)
+        UserInfoView& setTime(double time)
         {
             m_time = time;
+            return *this;
         }
         void draw(const User::UserModel& user) const;
     };
