@@ -121,6 +121,7 @@ namespace abyss::UI::SaveSelect::Panel
         auto msgPos = PivotUtil::FromCc(Param::SelectFrame::BasePos) + Param::Confirm::BoardPos;
         if (m_selectId != -1) {
             if (m_users.contains(m_selectId)) {
+                m_userInfo->setTime(Scene::Time());
                 m_userInfo->draw(m_users.at(m_selectId));
             } else {
                 FontAsset(FontName::SceneName)(U"はじめから").drawAt(msgPos);

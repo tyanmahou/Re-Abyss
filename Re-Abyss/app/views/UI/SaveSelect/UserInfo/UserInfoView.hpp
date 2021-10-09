@@ -15,13 +15,17 @@ namespace abyss::UI::SaveSelect::UserInfo
         std::unique_ptr<UI::PlayerInfo::PlayerInfoExVM> m_playerInfo;
         std::unique_ptr<PlayerView> m_player;
         std::unique_ptr<OopartsListView> m_oopartsList;
-
+        double m_time = 0;
     public:
         UserInfoView();
 
         PlayerView* getPlayerView() const
         {
             return m_player.get();
+        }
+        void setTime(double time)
+        {
+            m_time = time;
         }
         void draw(const User::UserModel& user) const;
     };
