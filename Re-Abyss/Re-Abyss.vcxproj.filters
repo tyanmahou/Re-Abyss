@@ -1660,6 +1660,21 @@
     <ClCompile Include="app\components\Effect\Common\ReleaseTrigger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\BackGround\BgCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\BackGround\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Users.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\ModeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2497,6 +2512,12 @@
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\BackGround\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\BackGround\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Users.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\ModeCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Mode.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

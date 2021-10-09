@@ -13,7 +13,8 @@ namespace abyss::UI::Title::BackGround
         }
         // View
         {
-            pUi->attach<ViewCtrl>(pUi)->setOrder(1);
+            pUi->attach<ViewCtrl>(pUi)
+                ->setLayer(DrawLayer::BackGround);
         }
     };
 }

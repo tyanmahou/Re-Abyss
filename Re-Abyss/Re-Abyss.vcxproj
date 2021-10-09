@@ -369,6 +369,8 @@
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Users.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Title\Builder.cpp" />
@@ -430,6 +432,9 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp" />
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\BackGround\BgCtrl.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\BackGround\Builder.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\ModeCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\BgCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp" />
@@ -870,6 +875,8 @@
     <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Users.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.hpp" />
@@ -892,6 +899,10 @@
     <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\Common\VModel.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\BackGround\BgCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\BackGround\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Mode.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\ModeCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\BgCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />

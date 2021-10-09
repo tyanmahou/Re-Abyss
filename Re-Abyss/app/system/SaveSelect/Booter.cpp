@@ -6,7 +6,7 @@
 
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
 #include <abyss/components/Event/SaveSelect/Builder.hpp>
-#include <abyss/components/UI/SaveSelect/Panel/Builder.hpp>
+#include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
 namespace abyss::Sys::SaveSelect
 {
@@ -24,7 +24,7 @@ namespace abyss::Sys::SaveSelect
         pManager->getModule<Events>()->init();
 
         // UI初期化
-        pManager->getModule<UIs>()->create<UI::SaveSelect::Panel::Builder>();
+        pManager->getModule<UIs>()->create<UI::SaveSelect::Main::Builder>();
         pManager->getModule<UIs>()->flush();
 
         return true;
