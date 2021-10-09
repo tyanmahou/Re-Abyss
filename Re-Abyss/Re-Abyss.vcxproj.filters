@@ -1657,6 +1657,9 @@
     <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Common\ReleaseTrigger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2493,6 +2496,7 @@
     <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
+    <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

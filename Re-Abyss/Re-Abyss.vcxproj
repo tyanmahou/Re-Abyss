@@ -385,6 +385,7 @@
     <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.cpp" />
     <ClCompile Include="app\components\Effect\base\Drawer.cpp" />
+    <ClCompile Include="app\components\Effect\Common\ReleaseTrigger.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
     <ClCompile Include="app\components\Effect\Misc\Bubble\Main.cpp" />
@@ -875,6 +876,7 @@
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Ooparts\Common\KiraKira\Type.hpp" />
     <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
+    <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\LayerKind.hpp" />
