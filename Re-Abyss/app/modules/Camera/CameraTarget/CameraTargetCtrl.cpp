@@ -7,7 +7,7 @@
 namespace  abyss
 {
     CameraTargetCtrl::CameraTargetCtrl() :
-        m_targetPos(Constants::AppResolutionF / 2.0)
+        m_targetPos(Constants::GameScreen.center())
     {
     }
 
