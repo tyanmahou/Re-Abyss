@@ -12,11 +12,7 @@ namespace abyss::Coro
 
         void reset()
         {
-            if (m_taskFunc) {
-                m_task = std::make_unique<Task<Type>>(m_taskFunc());
-            } else {
-                m_task = nullptr;
-            }
+            m_isReserve = true;
         }
         void reset(const std::function<Task<Type>()>& task)
         {
@@ -26,10 +22,20 @@ namespace abyss::Coro
         void clear()
         {
             m_taskFunc = nullptr;
-            m_task = nullptr;
+            this->reset();
         }
-        bool moveNext() const
+        bool moveNext()
         {
+            if (m_isReserve) {
+                // タスクを切り替え
+                if (m_taskFunc) {
+                    m_task = std::make_unique<Task<Type>>(m_taskFunc());
+                } else {
+                    m_task = nullptr;
+                }
+                m_isReserve = false;
+            }
+
             if (m_task) {
                 return m_task->moveNext();
             }
@@ -46,5 +52,6 @@ namespace abyss::Coro
     private:
         std::function<Task<Type>()> m_taskFunc;
         std::unique_ptr<Task<Type>> m_task;
+        bool m_isReserve = false;
     };
 }
