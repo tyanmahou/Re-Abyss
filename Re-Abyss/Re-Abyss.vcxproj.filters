@@ -1666,16 +1666,13 @@
     <ClCompile Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\UI\SaveSelect\Main\UserSelector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.cpp">
+    <ClCompile Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.cpp">
+    <ClCompile Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2517,10 +2514,13 @@
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\UserSelector.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.hpp" />
+    <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Result.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\EraseUserConfirm\Result.hpp" />
+    <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

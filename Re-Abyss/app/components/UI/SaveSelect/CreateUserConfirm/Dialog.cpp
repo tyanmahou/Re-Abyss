@@ -9,7 +9,8 @@ namespace abyss::UI::SaveSelect::CreateUserConfirm
 {
     void Dialog::Build(UIObj* pUi)
     {
-        pUi->attach<Dialog>(pUi);
+        pUi->attach<Dialog>(pUi)
+            ->setOrder(DrawOrder::UI::Dialog);
     }
 
     Dialog::Dialog(UIObj* pUi):

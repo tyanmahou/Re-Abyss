@@ -40,9 +40,9 @@ namespace abyss::Coro
 
         struct PromiseValue
         {
-            void return_value(const T& value)
+            void return_value(const T& _value)
             {
-                this->value = value;
+                this->value = _value;
             }
 
             const T& getValue() const

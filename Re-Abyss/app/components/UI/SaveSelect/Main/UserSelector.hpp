@@ -1,23 +1,25 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/UI/base/IUpdate.hpp>
+#include <abyss/components/UI/SaveSelect/Main/ModeCtrl.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Users.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss::UI::SaveSelect::Main
 {
-    class UserSelector : public IComponent
+    class UserSelector : 
+        public IComponent,
+        public IUpdate
     {
     public:
         UserSelector(UIObj* pUi);
 
+        void setup(Executer executer)  override;
         void onStart() override;
 
-        /// <summary>
-        /// 選択の更新
-        /// </summary>
-        /// <returns>最新の選択中</returns>
-        s3d::int32 onUpdate();
+        void onUpdate() override;
 
         void setSelectId(s3d::int32 id)
         {
@@ -45,8 +47,26 @@ namespace abyss::UI::SaveSelect::Main
         /// <returns></returns>
         s3d::Optional<User::UserModel> getSelectUser() const;
     private:
+        Coro::Task<> stateSelect();
+        Coro::Task<> stateCreateUserConfirm();
+        Coro::Task<> stateEraseUserConfirm();
+    private:
         UIObj* m_pUi;
+        Ref<ModeCtrl> m_mode;
         Ref<Users> m_users;
         s3d::int32 m_selectId = 0;
+
+        Coro::TaskHolder<> m_state;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<UI::SaveSelect::Main::UserSelector>
+    {
+        using Base = MultiComponents<
+            UI::IUpdate
+        >;
     };
 }

@@ -1,6 +1,8 @@
 #include "ViewCtrl.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
 
+#include <abyss/components/UI/SaveSelect/Main/UserSelector.hpp>
+
 namespace abyss::UI::SaveSelect::UserInfo
 {
     ViewCtrl::ViewCtrl(UIObj* pUi):

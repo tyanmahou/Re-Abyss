@@ -13,7 +13,7 @@ namespace abyss::UI::Dialog
         DialogResult()
         {}
 
-        void set(const Type& result) const
+        void set(const Type& result)
         {
             m_result = result;
         }

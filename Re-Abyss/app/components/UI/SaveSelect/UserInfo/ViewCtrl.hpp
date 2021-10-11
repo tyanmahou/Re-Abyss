@@ -2,11 +2,14 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
-#include <abyss/components/UI/SaveSelect/Main/UserSelector.hpp>
 #include <abyss/components/UI/SaveSelect/UserInfo/KiraKiraCtrl.hpp>
 #include <abyss/views/UI/SaveSelect/UserInfo/UserInfoView.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
+namespace abyss::UI::SaveSelect::Main
+{
+    class UserSelector;
+}
 namespace abyss::UI::SaveSelect::UserInfo
 {
     class ViewCtrl :

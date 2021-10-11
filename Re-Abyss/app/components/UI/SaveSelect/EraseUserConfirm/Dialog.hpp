@@ -2,11 +2,11 @@
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
-#include <abyss/components/UI/SaveSelect/CreateUserConfirm/Result.hpp>
+#include <abyss/components/UI/SaveSelect/EraseUserConfirm/Result.hpp>
 
 #include <abyss/views/UI/Serif/CursorVM.hpp>
 
-namespace abyss::UI::SaveSelect::CreateUserConfirm
+namespace abyss::UI::SaveSelect::EraseUserConfirm
 {
     struct Dialog :
         public UI::Dialog::DialogResult<Result>,
@@ -22,7 +22,7 @@ namespace abyss::UI::SaveSelect::CreateUserConfirm
         void onDraw() const override;
     private:
         UIObj* m_pUi;
-        UserPlayMode m_playMode = UserPlayMode::Normal;
+        bool m_yes = false;
         std::unique_ptr<UI::Serif::CursorVM> m_cursor;
     };
 }
@@ -30,12 +30,12 @@ namespace abyss::UI::SaveSelect::CreateUserConfirm
 namespace abyss
 {
     template<>
-    struct ComponentTree<UI::SaveSelect::CreateUserConfirm::Dialog>
+    struct ComponentTree<UI::SaveSelect::EraseUserConfirm::Dialog>
     {
         using Base = MultiComponents<
             UI::IUpdate,
             UI::IDraw,
-            UI::Dialog::DialogResult<UI::SaveSelect::CreateUserConfirm::Result>
+            UI::Dialog::DialogResult<UI::SaveSelect::EraseUserConfirm::Result>
         >;
     };
 }

@@ -1,15 +1,23 @@
-#include "EraseUserConfirm.hpp"
+#include "Dialog.hpp"
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
+#include <Siv3D.hpp>
 
-namespace abyss::UI::SaveSelect::Main
+namespace abyss::UI::SaveSelect::EraseUserConfirm
 {
-    EraseUserConfirm::EraseUserConfirm(std::function<void()> callback) :
-        m_callback(callback),
+    void Dialog::Build(UIObj* pUi)
+    {
+        pUi->attach<Dialog>(pUi)
+            ->setOrder(DrawOrder::UI::Dialog);
+    }
+
+    Dialog::Dialog(UIObj* pUi):
+        m_pUi(pUi),
         m_cursor(std::make_unique<UI::Serif::CursorVM>())
     {}
-    bool EraseUserConfirm::update()
+    void Dialog::onUpdate()
     {
         if (InputManager::Up.down()) {
             m_yes = true;
@@ -18,14 +26,17 @@ namespace abyss::UI::SaveSelect::Main
             m_yes = false;
         }
         if (InputManager::A.down()) {
-            if (m_yes) {
-                m_callback();
-            }
-            return false;
+            DialogResult::set(Result{
+                .yes = true
+            });
+            return;
+        } else if (InputManager::B.down()) {
+            DialogResult::set(Result{
+                .yes = false
+            });
         }
-        return !InputManager::B.down();
     }
-    void EraseUserConfirm::draw() const
+    void Dialog::onDraw() const
     {
         const auto board = Param::Confirm::Board();
         board.draw(Palette::Black);
