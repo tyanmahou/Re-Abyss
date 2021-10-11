@@ -23,6 +23,11 @@ namespace abyss::UI::SaveSelect::Main
         /// 作成
         /// </summary>
         void create(s3d::int32 userId, UserPlayMode playMode);
+
+        /// <summary>
+        /// 削除
+        /// </summary>
+        void erase(s3d::int32 userId);
     private:
         UIObj* m_pUi;
         s3d::HashTable<s3d::int32, User::UserModel> m_users;

@@ -3,7 +3,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 
-namespace abyss::UI::SaveSelect::Panel
+namespace abyss::UI::SaveSelect::Main
 {
     EraseUserConfirm::EraseUserConfirm(std::function<void()> callback) :
         m_callback(callback),

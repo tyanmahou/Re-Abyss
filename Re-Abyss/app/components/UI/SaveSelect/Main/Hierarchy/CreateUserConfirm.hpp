@@ -3,7 +3,7 @@
 #include <abyss/models/User/UserModel.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
 
-namespace abyss::UI::SaveSelect::Panel
+namespace abyss::UI::SaveSelect::Main
 {
     class CreateUserConfirm : public IHierarchy
     {

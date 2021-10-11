@@ -2,7 +2,6 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
-#include "..\..\UI\SaveSelect\Panel\KiraKiraCtrl.hpp"
 
 namespace abyss::Actor::Ooparts
 {

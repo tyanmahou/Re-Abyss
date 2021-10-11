@@ -370,6 +370,8 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.cpp" />
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Users.cpp" />
@@ -438,13 +440,6 @@
     <ClCompile Include="app\components\UI\SaveSelect\BackGround\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\ModeCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\UserSelector.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\BgCtrl.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp" />
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\ModeCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.cpp" />
@@ -882,6 +877,8 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Builder.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Users.hpp" />
@@ -912,10 +909,6 @@
     <ClInclude Include="app\components\UI\SaveSelect\Main\Mode.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\ModeCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\UserSelector.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\BgCtrl.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.hpp" />
@@ -1130,10 +1123,6 @@
     <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
     <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Builder.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />

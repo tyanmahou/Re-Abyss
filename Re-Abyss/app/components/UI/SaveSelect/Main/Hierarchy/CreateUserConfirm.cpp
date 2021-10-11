@@ -6,7 +6,7 @@
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::UI::SaveSelect::Panel
+namespace abyss::UI::SaveSelect::Main
 {
     CreateUserConfirm::CreateUserConfirm(std::function<void(UserPlayMode)> callback) :
         m_callback(callback),

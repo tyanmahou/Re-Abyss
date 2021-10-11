@@ -31,4 +31,10 @@ namespace abyss::UI::SaveSelect::Main
     {
         m_users[userId] = Resource::SaveUtil::CreateUser(userId, playMode);
     }
+
+    void Users::erase(s3d::int32 userId)
+    {
+        Resource::SaveUtil::EraseUser(userId);
+        m_users.erase(userId);
+    }
 }

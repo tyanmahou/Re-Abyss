@@ -2,7 +2,7 @@
 #include <abyss/components/UI/Common/HierarchyCtrl.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
 
-namespace abyss::UI::SaveSelect::Panel
+namespace abyss::UI::SaveSelect::Main
 {
     class EraseUserConfirm : public IHierarchy
     {

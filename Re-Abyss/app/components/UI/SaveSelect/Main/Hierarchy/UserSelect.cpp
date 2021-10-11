@@ -1,6 +1,6 @@
 #include "UserSelect.hpp"
-//#include "CreateUserConfirm.hpp"
-//#include "EraseUserConfirm.hpp"
+#include "CreateUserConfirm.hpp"
+#include "EraseUserConfirm.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 
@@ -26,51 +26,51 @@ namespace abyss::UI::SaveSelect::Main
     {
         // selectId更新
         auto prevSelectId = m_selector->getSelectId();
-        if (auto selectId = m_selector->onUpdate(); selectId != prevSelectId) {
+        auto selectId = m_selector->onUpdate();
+        if (selectId != prevSelectId) {
             // 変わっていたら時間リセット
             m_pUi->find<UserInfo::ViewCtrl>()->resetTime();
             m_pUi->find<UserInfo::KiraKiraCtrl>()->releaseOneShot();
         }
 
         if (InputManager::A.down()) {
-            //if (m_users->isDeleteSelect()) {
-            //    // モード切替
-            //    if (m_mode->is(Mode::GameStart)) {
-            //        m_mode->set(Mode::Delete);
-            //    } else {
-            //        m_mode->set(Mode::GameStart);
-            //    }
-            //} else {
-            //    // データ選択
-            //    if (m_mode->is(Mode::GameStart)) {
-            //        if (!m_users.contains(m_selectId)) {
-            //            this->push<CreateUserConfirm>([this](UserPlayMode playMode) {
-            //                // ユーザー生成
-            //                m_users[m_selectId] = Resource::SaveUtil::CreateUser(m_selectId, playMode);
-            //                m_pUi->getModule<CycleMaster>()
-            //                    ->find<Cycle::SaveSelect::Master>()
-            //                    ->newGame();
-            //            });
-            //            return true;
-            //        } else {
-            //            m_users[m_selectId] = Resource::SaveUtil::Login(m_users[m_selectId]);
-            //            // 選択
-            //            m_pUi->getModule<CycleMaster>()
-            //                ->find<Cycle::SaveSelect::Master>()
-            //                ->loadGame();
-            //            return true;
-            //        }
-            //    } else {
-            //        // 削除確認
-            //        if (m_users.contains(m_selectId)) {
-            //            this->push<EraseUserConfirm>([this]() {
-            //                Resource::SaveUtil::EraseUser(m_selectId);
-            //                m_users.erase(m_selectId);
-            //            });
-            //            return true;
-            //        }
-            //    }
-            //}
+            if (m_selector->isDeleteSelect()) {
+                // モード切替
+                if (m_mode->is(Mode::GameStart)) {
+                    m_mode->set(Mode::Delete);
+                } else {
+                    m_mode->set(Mode::GameStart);
+                }
+            } else {
+                // データ選択
+                if (m_mode->is(Mode::GameStart)) {
+                    if (!m_users->isContains(selectId)) {
+                        this->push<CreateUserConfirm>([this, selectId](UserPlayMode playMode) {
+                            // ユーザー生成
+                            m_users->create(selectId, playMode);
+                            m_pUi->getModule<CycleMaster>()
+                                ->find<Cycle::SaveSelect::Master>()
+                                ->newGame();
+                        });
+                        return true;
+                    } else {
+                        m_users->login(selectId);
+                        // 選択
+                        m_pUi->getModule<CycleMaster>()
+                            ->find<Cycle::SaveSelect::Master>()
+                            ->loadGame();
+                        return true;
+                    }
+                } else {
+                    // 削除確認
+                    if (m_users->isContains(selectId)) {
+                        this->push<EraseUserConfirm>([this, selectId]() {
+                            m_users->erase(selectId);
+                        });
+                        return true;
+                    }
+                }
+            }
         }
 
         if (InputManager::B.down()) {

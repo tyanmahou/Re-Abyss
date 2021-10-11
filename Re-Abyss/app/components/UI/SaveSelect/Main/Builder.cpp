@@ -18,8 +18,11 @@ namespace abyss::UI::SaveSelect::Main
     void Builder::Build(UIObj* pUi)
     {
         // 階層制御
-        pUi->attach<HierarchyCtrl>(pUi)
-            ->push<UserSelect>(pUi);
+        {
+            auto hierarchy = pUi->attach<HierarchyCtrl>(pUi);
+            hierarchy->push<UserSelect>(pUi);
+            hierarchy->setOrder(DrawOrder::UI::Dialog);
+        }
 
         // ユーザー制御
         pUi->attach<Users>(pUi);

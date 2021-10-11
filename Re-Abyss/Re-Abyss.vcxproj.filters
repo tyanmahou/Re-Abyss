@@ -1444,18 +1444,6 @@
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1645,16 +1633,7 @@
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\BgCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\ModeCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Effect\Common\ReleaseTrigger.cpp">
@@ -1691,6 +1670,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\SaveSelect\Main\UserSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2393,10 +2378,6 @@
     <ClInclude Include="app\system\SaveSelect\Booter.hpp" />
     <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IPostUpdate.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Builder.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\UserSelect.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\CreateUserConfirm.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Hierarchy\EraseUserConfirm.hpp" />
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
     <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
@@ -2524,11 +2505,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
     <ClInclude Include="app\components\base\ComponentTree.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\BgCtrl.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\Mode.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\ModeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
-    <ClInclude Include="app\components\UI\SaveSelect\Panel\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\BackGround\BgCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\BackGround\Builder.hpp" />
@@ -2542,6 +2519,8 @@
     <ClInclude Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\UserSelector.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\CreateUserConfirm.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\EraseUserConfirm.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
