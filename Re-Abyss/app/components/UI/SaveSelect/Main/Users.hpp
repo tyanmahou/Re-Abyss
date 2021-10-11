@@ -10,18 +10,19 @@ namespace abyss::UI::SaveSelect::Main
     public:
         Users(UIObj* pUi);
 
-        void setSelectId(s3d::int32 id)
-        {
-            m_selectId = id;
-        }
-        s3d::int32 getSelectId() const
-        {
-            return m_selectId;
-        }
+        s3d::Optional<User::UserModel> getUser(s3d::int32 userId) const;
 
-        bool isValidUser() const;
+        bool isContains(s3d::int32 userId) const;
 
-        s3d::Optional<User::UserModel> getSelectUser() const;
+        /// <summary>
+        /// ログイン
+        /// </summary>
+        void login(s3d::int32 userId);
+
+        /// <summary>
+        /// 作成
+        /// </summary>
+        void create(s3d::int32 userId, UserPlayMode playMode);
     private:
         UIObj* m_pUi;
         s3d::HashTable<s3d::int32, User::UserModel> m_users;

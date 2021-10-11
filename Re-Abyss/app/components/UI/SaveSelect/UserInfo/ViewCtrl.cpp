@@ -8,9 +8,13 @@ namespace abyss::UI::SaveSelect::UserInfo
         m_view(std::make_unique<UserInfo::UserInfoView>())
     {}
 
+    void ViewCtrl::setup(Executer executer)
+    {
+        executer.on<IComponent>().addAfter<Main::UserSelector>();
+    }
     void ViewCtrl::onStart()
     {
-        m_users = m_pUi->find<Main::Users>();
+        m_selector = m_pUi->find<Main::UserSelector>();
         m_kiraKira = m_pUi->find<KiraKiraCtrl>();
     }
 
@@ -21,12 +25,12 @@ namespace abyss::UI::SaveSelect::UserInfo
 
         m_kiraKira
             ->setPos(m_view->getPlayerView()->getOopartsPos())
-            .setActive(m_users->isValidUser());
+            .setActive(m_selector->isValidUser());
     }
 
     void ViewCtrl::onDraw() const
     {
-        if (auto&& user = m_users->getSelectUser()) {
+        if (auto&& user = m_selector->getSelectUser()) {
             m_view->draw(*user);
         }
     }

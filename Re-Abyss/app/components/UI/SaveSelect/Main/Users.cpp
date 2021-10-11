@@ -12,15 +12,23 @@ namespace abyss::UI::SaveSelect::Main
         m_users(Storage::Get<User::IUserService>()->getUsers())
     {}
 
-    bool Users::isValidUser() const
+    bool Users::isContains(s3d::int32 userId) const
     {
-        return m_selectId != -1 && m_users.contains(m_selectId);
+        return m_users.contains(userId);
     }
-    s3d::Optional<User::UserModel> Users::getSelectUser() const
+    s3d::Optional<User::UserModel> Users::getUser(s3d::int32 userId) const
     {
-        if (this->isValidUser()) {
-            return m_users.at(m_selectId);
+        if (this->isContains(userId)) {
+            return m_users.at(userId);
         }
         return s3d::none;
+    }
+    void Users::login(s3d::int32 userId)
+    {
+        m_users[userId] = Resource::SaveUtil::Login(m_users[userId]);
+    }
+    void Users::create(s3d::int32 userId, UserPlayMode playMode)
+    {
+        m_users[userId] = Resource::SaveUtil::CreateUser(userId, playMode);
     }
 }

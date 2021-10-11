@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
-#include <abyss/components/UI/SaveSelect/Main/Users.hpp>
+#include <abyss/components/UI/SaveSelect/Main/UserSelector.hpp>
 #include <abyss/views/UI/SaveSelect/SelectFrame/SelectFrameVM.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -14,11 +14,12 @@ namespace abyss::UI::SaveSelect::Main
     public:
         SelectFrameCtrl(UIObj* pUi);
 
+        void setup(Executer executer) override;
         void onStart() override;
         void onDraw() const override;
     private:
         UIObj* m_pUi;
-        Ref<Main::Users> m_users;
+        Ref<UserSelector> m_selector;
         std::unique_ptr<SelectFrame::SelectFrameVM> m_view;
     };
 }

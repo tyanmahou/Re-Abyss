@@ -15,6 +15,13 @@ namespace abyss::UI::SaveSelect::UserInfo
 
     }
 
+    void KiraKiraCtrl::onUpdate()
+    {
+        if (m_releaseOneShot) {
+            m_releaseOneShot = false;
+        }
+    }
+
     void KiraKiraCtrl::onPostUpdate()
     {
         if (!m_isActive) {
@@ -24,7 +31,7 @@ namespace abyss::UI::SaveSelect::UserInfo
             pObj->setOrder(DrawOrder::UI::Default - 1.0);
             auto thisPtr = m_pUi->find<KiraKiraCtrl>();
             pObj->attach<Effect::ReleaseTrigger>(pObj)->setTrigger([thisPtr] {
-                return thisPtr && !thisPtr->m_isActive;
+                return thisPtr && (!thisPtr->m_isActive || thisPtr->m_releaseOneShot);
             });
         });
     }

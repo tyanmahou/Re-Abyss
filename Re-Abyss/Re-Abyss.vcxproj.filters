@@ -1687,6 +1687,12 @@
     <ClCompile Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\SaveSelect\Main\UserSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2534,6 +2540,8 @@
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\Main\SelectFrameCtrl.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\Hierarchy\UserSelect.hpp" />
+    <ClInclude Include="app\components\UI\SaveSelect\Main\UserSelector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

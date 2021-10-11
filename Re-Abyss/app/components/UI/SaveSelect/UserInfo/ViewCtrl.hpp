@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
-#include <abyss/components/UI/SaveSelect/Main/Users.hpp>
+#include <abyss/components/UI/SaveSelect/Main/UserSelector.hpp>
 #include <abyss/components/UI/SaveSelect/UserInfo/KiraKiraCtrl.hpp>
 #include <abyss/views/UI/SaveSelect/UserInfo/UserInfoView.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -17,6 +17,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     public:
         ViewCtrl(UIObj* pUi);
 
+        void setup(Executer executer) override;
         void onStart() override;
         void onUpdate() override;
         void onDraw() const override;
@@ -27,7 +28,7 @@ namespace abyss::UI::SaveSelect::UserInfo
         }
     private:
         UIObj* m_pUi;
-        Ref<Main::Users> m_users;
+        Ref<Main::UserSelector> m_selector;
         Ref<KiraKiraCtrl> m_kiraKira;
 
         double m_time = 0.0;
