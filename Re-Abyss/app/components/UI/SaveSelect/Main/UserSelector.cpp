@@ -123,7 +123,24 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateCreateUserConfirm()
     {
-        auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
+        // コンパイラがぶっこわれとるので関数使わない
+        auto dialog = m_pUi->getModule<UIs>()->create<CreateUserConfirm::Dialog>();
+        auto result = CreateUserConfirm::Result{};
+        auto dialogResult = dialog->find<Dialog::DialogResult<CreateUserConfirm::Result>>();
+        while (dialogResult) {
+            if (const auto& ret = dialogResult->get()) {
+                if (dialog) {
+                    dialog->destroy();
+                }
+                result = *ret;
+                break;
+            }
+            co_yield{};
+        }
+        if (dialog) {
+            dialog->destroy();
+        }
+        //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
         if (!result.isBack) {
             // ユーザー生成
             m_users->create(m_selectId, result.playMode);
@@ -138,9 +155,27 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateEraseUserConfirm()
     {
+        // コンパイラがぶっこわれとるので関数使わない
+        auto dialog = m_pUi->getModule<UIs>()->create<EraseUserConfirm::Dialog>();
+        auto yes = false;
+        auto dialogResult = dialog->find<Dialog::DialogResult<EraseUserConfirm::Result>>();
+        while (dialogResult) {
+            if (const auto& ret = dialogResult->get()) {
+                if (dialog) {
+                    dialog->destroy();
+                }
+                yes = ret->yes;
+                break;
+            }
+            co_yield{};
+        }
+        if (dialog) {
+            dialog->destroy();
+        }
+
         // ユーザー削除
-        auto result = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
-        if (result.yes) {
+        //auto [yes] = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
+        if (yes) {
             m_users->erase(m_selectId);
         }
         m_state.reset(std::bind(&UserSelector::stateSelect, this));

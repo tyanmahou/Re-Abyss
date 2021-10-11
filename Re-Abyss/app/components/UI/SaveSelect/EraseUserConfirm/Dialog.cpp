@@ -27,7 +27,7 @@ namespace abyss::UI::SaveSelect::EraseUserConfirm
         }
         if (InputManager::A.down()) {
             DialogResult::set(Result{
-                .yes = true
+                .yes = m_yes
             });
             return;
         } else if (InputManager::B.down()) {
