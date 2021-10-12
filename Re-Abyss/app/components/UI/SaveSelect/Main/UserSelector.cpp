@@ -127,6 +127,7 @@ namespace abyss::UI::SaveSelect::Main
         auto dialogTask = DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
         while (!dialogTask.isDone()) {
             dialogTask.moveNext();
+            co_yield{};
         }
         const auto& result = dialogTask.get();
         //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
@@ -148,6 +149,7 @@ namespace abyss::UI::SaveSelect::Main
         auto dialogTask = DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         while (!dialogTask.isDone()) {
             dialogTask.moveNext();
+            co_yield{};
         }
         bool yes = dialogTask.get().yes;
         // ユーザー削除
