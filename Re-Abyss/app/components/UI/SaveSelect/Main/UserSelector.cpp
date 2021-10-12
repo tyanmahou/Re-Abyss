@@ -124,22 +124,11 @@ namespace abyss::UI::SaveSelect::Main
     Coro::Task<> UserSelector::stateCreateUserConfirm()
     {
         // コンパイラがぶっこわれとるので関数使わない
-        auto dialog = m_pUi->getModule<UIs>()->create<CreateUserConfirm::Dialog>();
-        auto result = CreateUserConfirm::Result{};
-        auto dialogResult = dialog->find<Dialog::DialogResult<CreateUserConfirm::Result>>();
-        while (dialogResult) {
-            if (const auto& ret = dialogResult->get()) {
-                if (dialog) {
-                    dialog->destroy();
-                }
-                result = *ret;
-                break;
-            }
-            co_yield{};
+        auto dialogTask = DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
+        while (!dialogTask.isDone()) {
+            dialogTask.moveNext();
         }
-        if (dialog) {
-            dialog->destroy();
-        }
+        const auto& result = dialogTask.get();
         //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
         if (!result.isBack) {
             // ユーザー生成
@@ -156,23 +145,11 @@ namespace abyss::UI::SaveSelect::Main
     Coro::Task<> UserSelector::stateEraseUserConfirm()
     {
         // コンパイラがぶっこわれとるので関数使わない
-        auto dialog = m_pUi->getModule<UIs>()->create<EraseUserConfirm::Dialog>();
-        auto yes = false;
-        auto dialogResult = dialog->find<Dialog::DialogResult<EraseUserConfirm::Result>>();
-        while (dialogResult) {
-            if (const auto& ret = dialogResult->get()) {
-                if (dialog) {
-                    dialog->destroy();
-                }
-                yes = ret->yes;
-                break;
-            }
-            co_yield{};
+        auto dialogTask = DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
+        while (!dialogTask.isDone()) {
+            dialogTask.moveNext();
         }
-        if (dialog) {
-            dialog->destroy();
-        }
-
+        bool yes = dialogTask.get().yes;
         // ユーザー削除
         //auto [yes] = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         if (yes) {
