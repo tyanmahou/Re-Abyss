@@ -123,14 +123,15 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateCreateUserConfirm()
     {
-        // コンパイラがぶっこわれとるので関数使わない
+        // コンパイラがぶっこわれとるのでco_yieldで受け取れない
+        //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
+
         auto dialogTask = DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
         while (!dialogTask.isDone()) {
             dialogTask.moveNext();
             co_yield{};
         }
         const auto& result = dialogTask.get();
-        //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
         if (!result.isBack) {
             // ユーザー生成
             m_users->create(m_selectId, result.playMode);
@@ -145,7 +146,9 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateEraseUserConfirm()
     {
-        // コンパイラがぶっこわれとるので関数使わない
+        // コンパイラがぶっこわれとるのでco_yieldで受け取れない
+        //auto [yes] = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
+
         auto dialogTask = DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         while (!dialogTask.isDone()) {
             dialogTask.moveNext();
@@ -153,7 +156,6 @@ namespace abyss::UI::SaveSelect::Main
         }
         bool yes = dialogTask.get().yes;
         // ユーザー削除
-        //auto [yes] = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         if (yes) {
             m_users->erase(m_selectId);
         }
