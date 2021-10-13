@@ -43,6 +43,9 @@ namespace abyss::Coro
         }
         bool isDone() const
         {
+            if (m_isReserve) {
+                return false;
+            }
             if (m_task) {
                 return m_task->isDone();
             }

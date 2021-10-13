@@ -247,7 +247,7 @@ namespace abyss::Coro
 		[[nodiscard]] bool isDone()const
 		{
 			if (!coro) {
-				return false;
+				return true;
 			}
 			return coro.done();
 		}
