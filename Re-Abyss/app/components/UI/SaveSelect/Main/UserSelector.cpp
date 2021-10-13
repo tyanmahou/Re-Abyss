@@ -123,6 +123,7 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateCreateUserConfirm()
     {
+        // ユーザー生成ダイアログ待ち
         if (auto result = co_await DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi); !result.isBack) {
             // ユーザー生成
             m_users->create(m_selectId, result.playMode);
@@ -137,6 +138,7 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateEraseUserConfirm()
     {
+        // ユーザー削除ダイアログ待ち
         auto [yes] = co_await DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         // ユーザー削除
         if (yes) {
