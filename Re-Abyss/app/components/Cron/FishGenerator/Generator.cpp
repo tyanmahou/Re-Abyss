@@ -47,7 +47,7 @@ namespace abyss::Cron::FishGenerator
 
 		while (true) {
 			this->buildFish();
-			co_yield Coro::WaitForSeconds(2.0s, time);
+			co_await Coro::WaitForSeconds(2.0s, time);
 		}
 		co_return;
     }

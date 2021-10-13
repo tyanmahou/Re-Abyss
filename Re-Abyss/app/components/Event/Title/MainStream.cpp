@@ -34,7 +34,7 @@ namespace abyss::Event::Title
         // ロゴ演出
         auto logoCtrl = uis->create<Logo::Builder>()
             ->find<Logo::LogoCtrl>();
-        co_yield Coro::WaitUntil([&logoCtrl]() {
+        co_await Coro::WaitUntil([&logoCtrl]() {
             return !logoCtrl || logoCtrl->isEnd();
         });
 
@@ -46,7 +46,7 @@ namespace abyss::Event::Title
         uis->create<UI::Title::BackGround::Builder>();
 
         // 停止
-        co_yield Coro::WaitUntil([&cursor]() {
+        co_await Coro::WaitUntil([&cursor]() {
             return !cursor || cursor->isDone();
         });
     }

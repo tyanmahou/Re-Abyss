@@ -35,7 +35,7 @@ namespace abyss::Event::Splash
         auto logoCtrl = m_pLogo->find<Logo::LogoCtrl>();
 
         // ロゴ演出待機
-        co_yield Coro::WaitUntil([&logoCtrl]() {
+        co_await Coro::WaitUntil([&logoCtrl]() {
             return !logoCtrl || logoCtrl->isEnd();
         });
 

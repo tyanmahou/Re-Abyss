@@ -16,8 +16,8 @@ namespace abyss::Cron
     {
         auto time = m_pManager->getModule<GlobalTime>();
         while (true) {
-            co_yield Coro::WaitForSeconds(m_duration, time);
-            co_yield task();
+            co_await Coro::WaitForSeconds(m_duration, time);
+            co_await task();
         }
     }
 }

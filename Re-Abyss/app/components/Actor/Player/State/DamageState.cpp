@@ -40,7 +40,7 @@ namespace abyss::Actor::Player
     Task<> DamageState::task()
     {
         // 一定時間待機
-        co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
+        co_await BehaviorUtils::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
 
         // 泳ぎに戻る
         this->changeState<SwimState>();

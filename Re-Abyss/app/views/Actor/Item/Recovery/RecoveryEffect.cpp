@@ -137,7 +137,7 @@ namespace abyss::Actor::Item::Recovery
                 Clock::CustomClockF clock([this] {return m_time; });
                 for ([[maybe_unused]]auto count : step(1, 10)) {
                     m_flashs.emplace_back();
-                    co_yield Coro::WaitForSeconds(0.1s, &clock);
+                    co_await Coro::WaitForSeconds(0.1s, &clock);
                 }
             }
         public:

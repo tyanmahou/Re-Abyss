@@ -4,6 +4,6 @@ namespace abyss::Cron
 {
     Coro::Task<> OnceScheduler::execute(std::function<Coro::Task<>()> task)
     {
-        co_yield task();
+        co_await task();
     }
 }

@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             if (++m_currentAttackCount >= m_attackCount) {
                 break;
             }
-            co_yield BehaviorUtils::WaitForSeconds(m_pActor, Param::Attack::IntervalTimeSec);
+            co_await BehaviorUtils::WaitForSeconds(m_pActor, Param::Attack::IntervalTimeSec);
         }
         this->changeState<WaitState>();
         co_return;

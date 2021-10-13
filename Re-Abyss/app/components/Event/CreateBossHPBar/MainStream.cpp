@@ -34,7 +34,7 @@ namespace abyss::Event::CreateBossHPBar
         auto hpGauge = m_hpBar->find<UI::BossHPBar::HPGaugeCtrl>();
         while (hpGauge && !hpGauge->isFull()) {
             m_se.playOneShot(0.4);
-            co_yield Coro::WaitForSeconds(0.05s);
+            co_await Coro::WaitForSeconds(0.05s);
         }
         co_return;
     }

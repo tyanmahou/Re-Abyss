@@ -4,200 +4,272 @@
 
 namespace abyss::Coro
 {
-    namespace detail
-    {
-        struct Yield
-        {
-            constexpr Yield():
-                count(1)
-            {}
+	template<class T>
+	struct Task;
 
-            constexpr Yield(std::uint32_t _count) :
-                count(_count)
-            {}
+	namespace detail
+	{
+		/// <summary>
+		/// Yield
+		/// </summary>
+		/// <returns></returns>
+		struct Yield
+		{
+			constexpr Yield() :
+				count(1)
+			{}
 
-            std::uint32_t count;
-        };
+			constexpr Yield(std::uint32_t _count) :
+				count(_count)
+			{}
 
-        /// <summary>
-        /// タスク用インターフェース
-        /// </summary>
-        struct ITask
-        {
-            virtual ~ITask() = default;
-            virtual bool moveNext() const = 0;
-        };
-    }
+			std::uint32_t count;
+		};
 
-    /// <summary>
-    /// タスク
-    /// </summary>
-    template <class T = void>
-    struct Task : detail::ITask
-    {
-        struct promise_type; // coroutine_traitsを特殊化してないのでスネイクケース
-        using Handle = std::coroutine_handle<promise_type>;
+		/// <summary>
+		/// NextTaskHandler
+		/// </summary>
+		struct NextTaskHandler
+		{
+		public:
+			NextTaskHandler() = default;
+			template<class T>
+			NextTaskHandler(const Task<T>& task) :
+				m_holder(std::make_unique<Holder<T>>(task))
+			{}
 
-        struct PromiseValue
-        {
-            void return_value(const T& _value)
-            {
-                this->value = _value;
-            }
+			bool moveNext() const
+			{
+				return m_holder->moveNext();
+			}
+			void clear()
+			{
+				m_holder = nullptr;
+			}
+			explicit operator bool() const
+			{
+				return static_cast<bool>(m_holder);
+			}
+		private:
+			struct IHolder
+			{
+				virtual ~IHolder() = default;
+				virtual bool moveNext() const = 0;
+			};
+			template<class T>
+			struct Holder final : IHolder
+			{
+				Holder(const Task<T>& task) :
+					m_task(task)
+				{}
+				bool moveNext() const override
+				{
+					return m_task.moveNext();
+				}
+			private:
+				const Task<T>& m_task;
+			};
+			std::unique_ptr<IHolder> m_holder;
+		};
 
-            const T& getValue() const
-            {
-                return value;
-            }
-            T value;
-        };
+		/// <summary>
+		/// Promise
+		/// </summary>
+		template<class T>
+		struct PromiseValue
+		{
+			void return_value(const T& _value)
+			{
+				this->value = _value;
+			}
 
+			const T& getValue() const
+			{
+				return value;
+			}
+			T value;
+		};
 
-        struct promise_type : PromiseValue
-        {
-            static Task get_return_object_on_allocation_failure()
-            {
-                return Task{ nullptr };
-            }
-            auto get_return_object() { return Task{ Task::Handle::from_promise(*this) }; }
-            auto initial_suspend() { return std::suspend_always{}; }
-            auto final_suspend() noexcept { return std::suspend_always{}; }
-            void unhandled_exception() { std::terminate(); }
+		// void特殊化
+		template<>
+		struct PromiseValue<void>
+		{
+			void return_void() {}
 
-            auto yield_value(const detail::Yield& _yield)
-            {
-                struct Awaiter
-                {
-                    bool await_ready() const noexcept
-                    {
-                        return ready;
-                    }
+			void getValue() const
+			{}
+		};
 
-                    void await_suspend(std::coroutine_handle<>){}
-                    void await_resume(){}
+		template<class T>
+		struct PromiseType : PromiseValue<T>
+		{
+			using Task = Task<T>;
 
-                    bool ready = false;
-                };
-                if (_yield.count == 0) {
-                    return Awaiter{true};
-                }
-                --(this->yield = _yield).count;
-                return Awaiter{false};
-            }
-            template<class U>
-            auto yield_value(Task<U> other)
-            {
-                auto nextTask = std::make_shared<Task<U>>(std::move(other));
-                auto ready = !nextTask->moveNext();
-                next = nextTask;
-                struct Awaiter
-                {
-                    bool ready = false;
-                    std::shared_ptr<Task<U>> pTask;
+			static Task get_return_object_on_allocation_failure()
+			{
+				return Task{ nullptr };
+			}
+			auto get_return_object() { return Task{ Task::Handle::from_promise(*this) }; }
+			auto initial_suspend() { return std::suspend_always{}; }
+			auto final_suspend() noexcept { return std::suspend_always{}; }
+			void unhandled_exception() { std::terminate(); }
 
-                    bool await_ready() const { return ready; }
-                    decltype(auto) await_resume()
-                    {
-                        return pTask->get();
-                    }
-                    void await_suspend(std::coroutine_handle<>)
-                    {}
-                };
-                return Awaiter{ ready, nextTask };
-            }
-            detail::Yield yield{0};
-            std::shared_ptr<detail::ITask> next;
-        };
+			auto yield_value(const detail::Yield& _yield)
+			{
+				struct Awaiter
+				{
+					bool await_ready() const noexcept
+					{
+						return ready;
+					}
 
-        Task(Handle h) :
-            coro(h)
-        {}
+					void await_suspend(std::coroutine_handle<>) {}
+					void await_resume() {}
 
-        Task(Task const&) = delete;
+					bool ready = false;
+				};
+				if (_yield.count == 0) {
+					return Awaiter{ true };
+				}
+				--(this->yield = _yield).count;
+				return Awaiter{ false };
+			}
+			detail::Yield yield{ 0 };
+			NextTaskHandler next;
+		};
 
-        Task(Task&& rhs) noexcept
-            : coro(std::move(rhs.coro))
-        {
-            rhs.coro = nullptr;
-        }
+		template<class T>
+		struct IsTaskPromise :std::false_type {};
+		template<class U>
+		struct IsTaskPromise<detail::PromiseType<U>> : std::true_type {};
 
-        ~Task()
-        {
-            if (coro) {
-                coro.destroy();
-            }
-        }
+		template<class T>
+		concept TaskPromiseType = IsTaskPromise<T>::value;
 
-        /// <summary>
-        /// 再開
-        /// </summary>
-        /// <returns></returns>
-        bool moveNext() const override
-        {
-            if (!coro) {
-                return false;
-            }
-            if (coro.done()) {
-                return false;
-            }
-            // Yield
-            {
-                auto& yield = coro.promise().yield;
-                if (yield.count > 0 && yield.count-- > 0) {
-                    // カウンタが残ってるなら
-                    return true;
-                }
-            }
-            // 割り込み別タスク
-            {
-                auto& next = coro.promise().next;
-                if (next) {
+		template<class T>
+		concept TaskHandleType = requires(T handle)
+		{
+			requires TaskPromiseType<std::decay_t<decltype(handle.promise())>>;
+		};
 
-                    if (!next->moveNext()) {
-                        next = nullptr;
-                    } else {
-                        return true;
-                    }
-                }
-            }
-            coro.resume();
-            return !coro.done();
-        }
+		/// <summary>
+		/// Awaiter
+		/// </summary>
+		template<class T>
+		struct TaskAwaiter
+		{
+			Task<T> task;
 
-        /// <summary>
-        /// 完了したか
-        /// </summary>
-        /// <returns></returns>
-        [[nodiscard]] bool isDone()const
-        {
-            if (!coro) {
-                return false;
-            }
-            return coro.done();
-        }
+			bool await_ready() const
+			{
+				return !task.moveNext();
+			}
+			decltype(auto) await_resume() const
+			{
+				return task.get();
+			}
+			template<TaskHandleType U>
+			void await_suspend(U handle) const
+			{
+				handle.promise().next = task;
+			}
+		};
+	}
 
-        /// <summary>
-        /// 取得
-        /// </summary>
-        /// <returns></returns>
-        [[nodiscard]] decltype(auto) get() const
-        {
-            return coro.promise().getValue();
-        }
+	/// <summary>
+	/// タスク
+	/// </summary>
+	template <class T = void>
+	struct Task
+	{
+		using promise_type = detail::PromiseType<T>;
+		using Handle = std::coroutine_handle<promise_type>;
 
-    private:
-        Handle coro;
-    };
+		Task(Handle h) :
+			coro(h)
+		{}
 
-    // void特殊化
-    template<>
-    struct Task<void>::PromiseValue
-    {
-        void return_void() {}
+		Task(Task const&) = delete;
 
-        void getValue() const
-        {}
-    };
+		Task(Task&& rhs) noexcept
+			: coro(std::move(rhs.coro))
+		{
+			rhs.coro = nullptr;
+		}
+
+		~Task()
+		{
+			if (coro) {
+				coro.destroy();
+			}
+		}
+
+		/// <summary>
+		/// 再開
+		/// </summary>
+		/// <returns></returns>
+		bool moveNext() const
+		{
+			if (!coro) {
+				return false;
+			}
+			if (coro.done()) {
+				return false;
+			}
+			// Yield
+			{
+				auto& yield = coro.promise().yield;
+				if (yield.count > 0 && yield.count-- > 0) {
+					// カウンタが残ってるなら
+					return true;
+				}
+			}
+			// 割り込み別タスク
+			{
+				auto& next = coro.promise().next;
+				if (next) {
+
+					if (!next.moveNext()) {
+						next.clear();
+					} else {
+						return true;
+					}
+				}
+			}
+			coro.resume();
+			return !coro.done();
+		}
+
+		/// <summary>
+		/// 完了したか
+		/// </summary>
+		/// <returns></returns>
+		[[nodiscard]] bool isDone()const
+		{
+			if (!coro) {
+				return false;
+			}
+			return coro.done();
+		}
+
+		/// <summary>
+		/// 取得
+		/// </summary>
+		/// <returns></returns>
+		[[nodiscard]] decltype(auto) get() const
+		{
+			return coro.promise().getValue();
+		}
+
+	private:
+		Handle coro;
+	};
+
+	template<class T>
+	auto operator co_await(Task<T> other)
+	{
+		return detail::TaskAwaiter{ std::move(other) };
+	}
 
     template<class T, class U>
     [[nodiscard]] Task<void> operator & (Task<T> a, Task<U> b)

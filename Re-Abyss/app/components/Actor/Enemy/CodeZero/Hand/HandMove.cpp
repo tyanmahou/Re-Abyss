@@ -143,7 +143,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_body->setVelocity(velocity);
 
         // 一定時間追従
-        co_yield BehaviorUtils::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
+        co_await BehaviorUtils::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
 
         co_return;
     }

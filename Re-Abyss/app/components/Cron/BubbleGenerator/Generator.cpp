@@ -46,7 +46,7 @@ namespace abyss::Cron::BubbleGenerator
 		auto time = m_pManager->getModule<GlobalTime>();
 		while (true) {
 			this->buildEffect();
-			co_yield Coro::WaitForSeconds(0.2s, time);
+			co_await Coro::WaitForSeconds(0.2s, time);
 		}
 		co_return;
     }

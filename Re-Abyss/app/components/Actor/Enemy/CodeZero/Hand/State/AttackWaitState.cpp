@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_handMove->startForAttackWait();
 
         // 一定時間追従
-        co_yield Coro::WaitUntil([this] {
+        co_await Coro::WaitUntil([this] {
             return m_handMove->isMoveEnd();
         });
 

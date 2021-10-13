@@ -123,16 +123,7 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateCreateUserConfirm()
     {
-        // コンパイラがぶっこわれとるのでco_yieldで受け取れない
-        //auto result = co_yield DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
-
-        auto dialogTask = DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi);
-        while (!dialogTask.isDone()) {
-            dialogTask.moveNext();
-            co_yield{};
-        }
-        const auto& result = dialogTask.get();
-        if (!result.isBack) {
+        if (auto result = co_await DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi); !result.isBack) {
             // ユーザー生成
             m_users->create(m_selectId, result.playMode);
             m_pUi->getModule<CycleMaster>()
@@ -146,15 +137,7 @@ namespace abyss::UI::SaveSelect::Main
     }
     Coro::Task<> UserSelector::stateEraseUserConfirm()
     {
-        // コンパイラがぶっこわれとるのでco_yieldで受け取れない
-        //auto [yes] = co_yield DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
-
-        auto dialogTask = DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
-        while (!dialogTask.isDone()) {
-            dialogTask.moveNext();
-            co_yield{};
-        }
-        bool yes = dialogTask.get().yes;
+        auto [yes] = co_await DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);
         // ユーザー削除
         if (yes) {
             m_users->erase(m_selectId);
