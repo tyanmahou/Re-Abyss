@@ -930,6 +930,7 @@
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
     <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
+    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />

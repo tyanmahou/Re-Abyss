@@ -2527,6 +2527,7 @@
     <ClInclude Include="app\types\Novel\TagString.hpp" />
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />
+    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
