@@ -369,6 +369,7 @@
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
+    <ClCompile Include="app\components\Novel\base\TalkHandler.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
@@ -420,16 +421,15 @@
     <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp" />
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Build.cpp" />
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.cpp" />
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp" />
-    <ClCompile Include="app\components\Event\Talk\Common\Serif\FaceTable.cpp" />
-    <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp" />
-    <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Serif\FaceTable.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
-    <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp" />
-    <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp" />
+    <ClCompile Include="app\components\Novel\TalkBuilder.cpp" />
+    <ClCompile Include="app\components\Novel\TriggerFactory.cpp" />
     <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
     <ClCompile Include="app\components\Event\Title\Builder.cpp" />
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
@@ -478,6 +478,8 @@
     </ClCompile>
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\models\Novel\FaceTableModel.cpp" />
+    <ClCompile Include="app\models\Novel\SerifModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
@@ -490,6 +492,7 @@
     <ClCompile Include="app\modules\Env\WaterSurface\WaterSurface.cpp" />
     <ClCompile Include="app\modules\Env\Wave\Wave.cpp" />
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
+    <ClCompile Include="app\modules\Novel\base\TalkObj.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\modules\Room\RoomManager.cpp" />
@@ -502,7 +505,6 @@
     <ClCompile Include="app\system\Title\Booter.cpp" />
     <ClCompile Include="app\utils\Clock\ClockUtil.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
-    <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\modules\Distortion\Distortion.cpp" />
     <ClCompile Include="app\commons\Loading\Loading.cpp" />
@@ -511,9 +513,8 @@
     <ClCompile Include="app\modules\Decor\DecorBuildUtil.cpp" />
     <ClCompile Include="app\modules\Decor\DecorGraphics.cpp" />
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp" />
-    <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp" />
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
-    <ClCompile Include="app\components\Event\Talk\TalkCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\TalkCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
@@ -737,7 +738,6 @@
     <ClCompile Include="app\modules\World\Collision\Collision.cpp" />
     <ClCompile Include="app\utils\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\modules\World\FixPos.cpp" />
-    <ClCompile Include="app\models\Event\Talk\SerifModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
     <ClCompile Include="app\modules\World\World.cpp" />
     <ClCompile Include="app\scenes\Main\MainScene.cpp" />
@@ -875,6 +875,8 @@
     <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Novel\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />
@@ -903,7 +905,7 @@
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
+    <ClInclude Include="app\components\Novel\TalkBuilder.hpp" />
     <ClInclude Include="app\components\UI\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\UI\Common\VModel.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\BackGround\BgCtrl.hpp" />
@@ -925,6 +927,8 @@
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
+    <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
+    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
@@ -935,6 +939,7 @@
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
+    <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
@@ -1109,15 +1114,13 @@
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
-    <ClInclude Include="app\components\Event\Talk\base\ITalker.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\Serif\SerifCtrl.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\Serif\FaceTable.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\TalkHandler.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\FaceTable.hpp" />
+    <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
     <ClInclude Include="app\components\Event\Title\Builder.hpp" />
@@ -1253,10 +1256,8 @@
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
     <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
-    <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\TalkCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />
@@ -1485,7 +1486,6 @@
     <ClInclude Include="app\components\Actor\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp" />
-    <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CodeZero\HandParam.hpp" />

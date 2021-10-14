@@ -41,8 +41,8 @@ namespace abyss::Event::CreateBossHPBar
 
     void MainStream::onEnd()
     {
-        if (auto path = m_bossBgmPath) {
-            m_pEvent->getModule<Sound>()->play(Path::SoundPath + *path, 0s);
+        if (m_bossBgmPath) {
+            m_pEvent->getModule<Sound>()->play(Path::SoundPath + *m_bossBgmPath, 0s);
         }
         m_pEvent->getModule<UIs>()->setActiveAll(true);
     }

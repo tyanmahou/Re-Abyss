@@ -200,9 +200,6 @@
     <ClCompile Include="app\views\Env\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Event\Talk\SerifModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -955,28 +952,19 @@
     <ClCompile Include="app\components\Event\Talk\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\TalkCtrl.cpp">
+    <ClCompile Include="app\components\Novel\TalkCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Event\Talk\TalkObj.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Build.cpp">
+    <ClCompile Include="app\components\Novel\TriggerFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\TriggerFactory.cpp">
+    <ClCompile Include="app\components\Novel\Common\Serif\FaceTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Event\Talk\FaceTableModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\Common\Serif\FaceTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\Common\TalkHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\Common\Serif\SerifCtrl.cpp">
+    <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp">
@@ -985,13 +973,13 @@
     <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\base\Executer.cpp">
@@ -1516,7 +1504,7 @@
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Talk\TalkBuilder.cpp">
+    <ClCompile Include="app\components\Novel\TalkBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Effect\Misc\Bubble\Builder.cpp">
@@ -1675,6 +1663,18 @@
     <ClCompile Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Novel\base\TalkObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\base\TalkHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Novel\FaceTableModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\models\Novel\SerifModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -1803,7 +1803,6 @@
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
-    <ClInclude Include="app\models\Event\Talk\SerifModel.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
     <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
@@ -2139,20 +2138,16 @@
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TalkCtrl.hpp" />
-    <ClInclude Include="app\modules\Event\Talk\TalkObj.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TriggerFactory.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\Serif\SerifCtrl.hpp" />
-    <ClInclude Include="app\models\Event\Talk\FaceTableModel.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\Serif\FaceTable.hpp" />
-    <ClInclude Include="app\components\Event\Talk\base\ITalker.hpp" />
-    <ClInclude Include="app\components\Event\Talk\Common\TalkHandler.hpp" />
+    <ClInclude Include="app\components\Novel\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\FaceTable.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Event\Talk\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />
@@ -2411,7 +2406,7 @@
     <ClInclude Include="app\components\Actor\Player\State\TalkState.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
-    <ClInclude Include="app\components\Event\Talk\TalkBuilder.hpp" />
+    <ClInclude Include="app\components\Novel\TalkBuilder.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\BubbleKind.hpp" />
     <ClInclude Include="app\components\Effect\Misc\Bubble\Builder.hpp" />
@@ -2521,6 +2516,11 @@
     <ClInclude Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\EraseUserConfirm\Result.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
+    <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
+    <ClInclude Include="app\components\Novel\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
+    <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
+    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

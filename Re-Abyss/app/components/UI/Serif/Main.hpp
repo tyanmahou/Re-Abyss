@@ -6,7 +6,7 @@
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Event::Talk
+namespace abyss::Novel
 {
     class SerifCtrl;
     class FaceTable;
@@ -27,8 +27,8 @@ namespace abyss::UI::Serif
     public:
         Main(
             UIObj* pUi, 
-            const Ref<Event::Talk::SerifCtrl>& serif,
-            const Ref<Event::Talk::FaceTable>& faceTable
+            const Ref<Novel::SerifCtrl>& serif,
+            const Ref<Novel::FaceTable>& faceTable
         );
 
         void onStart() override;
@@ -39,8 +39,8 @@ namespace abyss::UI::Serif
     private:
         UIObj* m_pUi;
 
-        Ref<Event::Talk::SerifCtrl> m_serif;
-        Ref<Event::Talk::FaceTable> m_faceTable;
+        Ref<Novel::SerifCtrl> m_serif;
+        Ref<Novel::FaceTable> m_faceTable;
 
         std::unique_ptr<MessageVM> m_messageView;
         std::unique_ptr<MessageBoxVM> m_boxView;

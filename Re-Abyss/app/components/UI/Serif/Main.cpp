@@ -1,9 +1,9 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/modules/Event/Talk/TalkObj.hpp>
+#include <abyss/modules/Novel/base/TalkObj.hpp>
 
-#include <abyss/components/Event/Talk/Common/Serif/SerifCtrl.hpp>
-#include <abyss/components/Event/Talk/Common/Serif/FaceTable.hpp>
+#include <abyss/components/Novel/Common/Serif/SerifCtrl.hpp>
+#include <abyss/components/Novel/Common/Serif/FaceTable.hpp>
 
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
@@ -17,8 +17,8 @@ namespace abyss::UI::Serif
 {
     Main::Main(
         UIObj* pUi,
-        const Ref<Event::Talk::SerifCtrl>& serif,
-        const Ref<Event::Talk::FaceTable>& faceTable
+        const Ref<Novel::SerifCtrl>& serif,
+        const Ref<Novel::FaceTable>& faceTable
     ) :
         m_pUi(pUi),
         m_serif(serif),

@@ -73,15 +73,14 @@ namespace abyss
 	namespace Event
 	{
 		class EventObj;
+	}
 
-		namespace Talk
-		{
-			class TalkObj;
-
-			class SerifCtrl;
-			class FaceTable;
-			class TriggerFactory;
-		}
+	/// <summary>
+	/// Modules/Novel
+	/// </summary>
+	namespace Novel
+	{
+		class TalkObj;
 	}
 
 	namespace UI

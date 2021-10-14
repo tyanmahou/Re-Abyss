@@ -6,8 +6,8 @@ namespace abyss::UI::Serif
 {
     void Builder::Build(
         UIObj* pUi,
-        const Ref<Event::Talk::SerifCtrl>& serif,
-        const Ref<Event::Talk::FaceTable>& faceTable
+        const Ref<Novel::SerifCtrl>& serif,
+        const Ref<Novel::FaceTable>& faceTable
     ) {
         // メイン追加
         {

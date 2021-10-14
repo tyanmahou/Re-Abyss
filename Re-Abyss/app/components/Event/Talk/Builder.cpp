@@ -1,7 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/modules/Event/base/EventObj.hpp>
 
-#include <abyss/components/Event/Talk/TalkBuilder.hpp>
 #include <abyss/components/Event/Talk/PlayerStateChanger.hpp>
 
 #include <Siv3D.hpp>
@@ -23,6 +22,6 @@ namespace abyss::Event::Talk
         }
 
         // 会話制御
-        TalkBuilder::Build(pEvent, path);
+        // TalkBuilder::Build(pEvent, path);
     }
 }
