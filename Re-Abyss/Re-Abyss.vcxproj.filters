@@ -1672,7 +1672,7 @@
     <ClCompile Include="app\models\Novel\FaceTableModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Novel\SerifModel.cpp">
+    <ClCompile Include="app\models\Novel\OldSerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2520,7 +2520,13 @@
     <ClInclude Include="app\components\Novel\base\ITalker.hpp" />
     <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
     <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
-    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
+    <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
+    <ClInclude Include="app\types\Novel\Side.hpp" />
+    <ClInclude Include="app\types\Novel\ActorKind.hpp" />
+    <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
+    <ClInclude Include="app\types\Novel\TagString.hpp" />
+    <ClInclude Include="app\types\Novel\Face.hpp" />
+    <ClInclude Include="app\types\Novel\Name.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

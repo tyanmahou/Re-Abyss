@@ -6,7 +6,7 @@
 #include <Siv3D/Stopwatch.hpp>
 namespace abyss::Novel
 {
-    class SerifModel
+    class OldSerifModel
     {
     public:
         enum class Side : bool
@@ -27,11 +27,11 @@ namespace abyss::Novel
         bool m_isAll = false;
     public:
 
-        SerifModel();
+        OldSerifModel();
 
         bool update();
 
-        SerifModel& setActorName(const s3d::String& actorName)
+        OldSerifModel& setActorName(const s3d::String& actorName)
         {
             m_actorName = actorName;
             return *this;
@@ -41,7 +41,7 @@ namespace abyss::Novel
             return m_actorName;
         }
 
-        SerifModel& setSide(Side side)
+        OldSerifModel& setSide(Side side)
         {
             m_side = side;
             return *this;
@@ -50,7 +50,7 @@ namespace abyss::Novel
         {
             return m_side;
         }
-        SerifModel& addMessage(const Message& message)
+        OldSerifModel& addMessage(const Message& message)
         {
             m_messages.push_back(message);
             return *this;

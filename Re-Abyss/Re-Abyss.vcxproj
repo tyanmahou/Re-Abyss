@@ -479,7 +479,7 @@
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\models\Novel\FaceTableModel.cpp" />
-    <ClCompile Include="app\models\Novel\SerifModel.cpp" />
+    <ClCompile Include="app\models\Novel\OldSerifModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
@@ -926,9 +926,10 @@
     <ClInclude Include="app\entities\Actor\Enemy\WarrusEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
+    <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
-    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
+    <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
@@ -951,6 +952,11 @@
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
+    <ClInclude Include="app\types\Novel\ActorKind.hpp" />
+    <ClInclude Include="app\types\Novel\Face.hpp" />
+    <ClInclude Include="app\types\Novel\Name.hpp" />
+    <ClInclude Include="app\types\Novel\Side.hpp" />
+    <ClInclude Include="app\types\Novel\TagString.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />

@@ -9,7 +9,7 @@
 //
 //#include <abyss/components/Event/Talk/BossTalk0_0/Build.hpp>
 //
-//#include <abyss/models/Event/Talk/SerifModel.hpp>
+//#include <abyss/models/Event/Talk/OldSerifModel.hpp>
 //#include <abyss/models/Event/Talk/FaceTableModel.hpp>
 //
 //#include <Siv3D.hpp>
@@ -65,16 +65,16 @@
 //                }
 //            } else if (auto&& serif = event[U"serif"]; serif.isObject()) {
 //                // セリフ
-//                SerifModel model;
+//                OldSerifModel model;
 //                serif[U"actor"].getOpt<String>().then([&model](const String& actor) {
 //                    model.setActorName(actor);
 //                });
 //                String side = serif[U"side"].getOr<String>(U"left");
-//                model.setSide(side == U"left" ? SerifModel::Side::Left : SerifModel::Side::Right);
+//                model.setSide(side == U"left" ? OldSerifModel::Side::Left : OldSerifModel::Side::Right);
 //
 //                for (auto&& message : serif[U"messages"].arrayView()) {
 //                    for (auto&& [kind, m] : message) {
-//                        model.addMessage(SerifModel::Message{ kind,  m.get<String>() });
+//                        model.addMessage(OldSerifModel::Message{ kind,  m.get<String>() });
 //                    }
 //                }
 //                auto talkObj = talkCtrl->create();

@@ -1,16 +1,16 @@
-#include "SerifModel.hpp"
+#include "OldSerifModel.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Novel
 {
-    SerifModel::SerifModel()
+    OldSerifModel::OldSerifModel()
     {
         m_onInput = []() {
             return InputManager::A.down() || InputManager::B.down();
         };
     }
-    bool SerifModel::update()
+    bool OldSerifModel::update()
     {
         if (m_messageIndex >= m_messages.size()) {
             return false;
@@ -36,19 +36,19 @@ namespace abyss::Novel
         }
         return true;
     }
-    s3d::String SerifModel::getPrev() const
+    s3d::String OldSerifModel::getPrev() const
     {
         return m_messageIndex > 0 ? m_messages[m_messageIndex -1].second : U"";
     }
-    const s3d::String& SerifModel::getCurrent() const
+    const s3d::String& OldSerifModel::getCurrent() const
     {
         return m_messages[m_messageIndex].second;
     }
-    const s3d::String& SerifModel::getCurrentKind() const
+    const s3d::String& OldSerifModel::getCurrentKind() const
     {
         return m_messages[m_messageIndex].first;
     }
-    bool SerifModel::isEnd() const
+    bool OldSerifModel::isEnd() const
     {
         return m_messageIndex >= m_messages.size();
     }

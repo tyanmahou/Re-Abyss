@@ -7,7 +7,7 @@
 
 namespace abyss::Novel
 {
-    SerifCtrl::SerifCtrl(TalkObj* pTalk, const SerifModel& serif):
+    SerifCtrl::SerifCtrl(TalkObj* pTalk, const OldSerifModel& serif):
         m_pTalk(pTalk),
         m_serif(serif)
     {}
@@ -28,11 +28,11 @@ namespace abyss::Novel
     {
         return m_serif.getActorName();
     }
-    SerifModel::Side SerifCtrl::getSide() const
+    OldSerifModel::Side SerifCtrl::getSide() const
     {
         return m_serif.getSide();
     }
-    const s3d::Array<SerifModel::Message>& SerifCtrl::getMessages() const
+    const s3d::Array<OldSerifModel::Message>& SerifCtrl::getMessages() const
     {
         return m_serif.getMessages();
     }

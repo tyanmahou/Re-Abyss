@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Novel/base/ITalker.hpp>
-#include <abyss/models/Novel/SerifModel.hpp>
+#include <abyss/models/Novel/OldSerifModel.hpp>
 
 namespace abyss::Novel
 {
@@ -10,7 +10,7 @@ namespace abyss::Novel
         public ITalker
     {
     public:
-        SerifCtrl(TalkObj* pTalk, const SerifModel& serif);
+        SerifCtrl(TalkObj* pTalk, const OldSerifModel& serif);
 
         void onStart() override;
         void onEnd() override;
@@ -20,9 +20,9 @@ namespace abyss::Novel
 
         const s3d::Optional<s3d::String>& getActorName()const;
 
-        SerifModel::Side getSide() const;
+        OldSerifModel::Side getSide() const;
 
-        const s3d::Array<SerifModel::Message>& getMessages()const;
+        const s3d::Array<OldSerifModel::Message>& getMessages()const;
 
         const s3d::String& getMessage(size_t index)const;
 
@@ -39,7 +39,7 @@ namespace abyss::Novel
         bool isEnd() const;
     private:
         TalkObj* m_pTalk;
-        SerifModel m_serif;
+        OldSerifModel m_serif;
     };
 }
 
