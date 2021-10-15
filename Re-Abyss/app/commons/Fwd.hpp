@@ -80,8 +80,10 @@ namespace abyss
 	/// </summary>
 	namespace Novel
 	{
+		class Novels;
 		class TalkObj;
 	}
+	using Novel::Novels;
 
 	namespace UI
 	{

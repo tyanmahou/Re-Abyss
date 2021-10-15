@@ -1,12 +1,12 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/commons/Fwd.hpp>
+
 #include <abyss/components/Novel/base/ITalker.hpp>
 #include <abyss/models/Novel/OldSerifModel.hpp>
 
 namespace abyss::Novel
 {
     class SerifCtrl : 
-        public IComponent,
         public ITalker
     {
     public:
@@ -40,16 +40,5 @@ namespace abyss::Novel
     private:
         TalkObj* m_pTalk;
         OldSerifModel m_serif;
-    };
-}
-
-namespace abyss
-{
-    template<>
-    struct ComponentTree<Novel::SerifCtrl>
-    {
-        using Base = MultiComponents<
-            Novel::ITalker
-        >;
     };
 }

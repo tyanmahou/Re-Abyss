@@ -8,6 +8,8 @@ namespace abyss::Novel
     public:
         virtual ~ITalker() = default;
 
+        virtual void onStart() {}
+        virtual void onEnd() {}
         virtual Coro::Task<> onTalk() = 0;
     };
 }

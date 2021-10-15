@@ -1,11 +1,10 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Novel/base/ITalker.hpp>
 
 namespace abyss::Novel::BossTalk0_0
 {
     class Setup : 
-        public IComponent,
         public ITalker
     {
     public:
@@ -17,16 +16,5 @@ namespace abyss::Novel::BossTalk0_0
 
     private:
         TalkObj* m_pTalk;
-    };
-}
-
-namespace abyss
-{
-    template<>
-    struct ComponentTree<Novel::BossTalk0_0::Setup>
-    {
-        using Base = MultiComponents<
-            Novel::ITalker
-        >;
     };
 }

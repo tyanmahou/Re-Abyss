@@ -1,6 +1,6 @@
 #pragma once
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Novel/base/ITalker.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -11,7 +11,6 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
 namespace abyss::Novel::BossTalk0_0
 {
     class BossMove :
-        public IComponent,
         public ITalker
     {
     public:
@@ -29,16 +28,5 @@ namespace abyss::Novel::BossTalk0_0
 
         Ref<QuakeModel> m_quake;
         Ref<QuakeModel> m_lastQuake;
-    };
-}
-
-namespace abyss
-{
-    template<>
-    struct ComponentTree<Novel::BossTalk0_0::BossMove>
-    {
-        using Base = MultiComponents<
-            Novel::ITalker
-        >;
     };
 }

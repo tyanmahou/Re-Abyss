@@ -1,45 +1,52 @@
 #include "TalkHandler.hpp"
 #include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/commons/InputManager/InputManager.hpp>
 
-namespace
-{
-    using namespace abyss;
-    using namespace abyss::Novel;
-
-    Coro::Task<> ExecuteStreams(TalkObj* pTalk)
-    {
-        s3d::Array<Coro::Task<>> tasks;
-        for (auto&& talker : pTalk->finds<ITalker>()) {
-            tasks.push_back(talker->onTalk());
-        }
-        while (true) {
-            for (auto& task : tasks) {
-                task.moveNext();
-            }
-
-            if (tasks.all([](const Coro::Task<>& t) {return t.isDone(); })) {
-                co_return;
-            }
-
-            co_yield{};
-        }
-    }
-}
 namespace abyss::Novel
 {
-    TalkHandler::TalkHandler(TalkObj* pTalk):
+    TalkHandler::TalkHandler(TalkObj* pTalk) :
         m_pTalk(pTalk)
     {}
     void TalkHandler::setup(Executer executer)
-    {
-        executer.on<IComponent>().addAfter<ITalker>();
-    }
+    {}
     void TalkHandler::onStart()
     {
-        m_stream.reset(std::bind(::ExecuteStreams, m_pTalk));
+        auto task = [this]()->Coro::Task<> {
+            while (!m_talks.empty()) {
+                auto& front = m_talks.front();
+                front->onStart();
+                m_doneCurrentInit = true;
+
+                co_await front->onTalk();
+
+                front->onEnd();
+                m_talks.pop();
+                m_doneCurrentInit = false;
+            }
+            co_return;
+        };
+        m_stream.reset(task);
+    }
+    void TalkHandler::onEnd()
+    {
+        // 残りのイベントを処理する
+        while (!m_talks.empty()) {
+            auto& front = m_talks.front();
+            if (!m_doneCurrentInit) {
+                front->onStart();
+                m_doneCurrentInit = true;
+            }
+            front->onEnd();
+            m_talks.pop();
+            m_doneCurrentInit = false;
+        }
     }
     bool TalkHandler::update()
     {
+        if (InputManager::Start.down()) {
+            // skip
+            return false;
+        }
         return m_stream.moveNext();
     }
 }

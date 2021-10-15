@@ -493,6 +493,7 @@
     <ClCompile Include="app\modules\Env\Wave\Wave.cpp" />
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
     <ClCompile Include="app\modules\Novel\base\TalkObj.cpp" />
+    <ClCompile Include="app\modules\Novel\Novels.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
     <ClCompile Include="app\modules\Room\RoomManager.cpp" />
@@ -514,7 +515,6 @@
     <ClCompile Include="app\modules\Decor\DecorGraphics.cpp" />
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp" />
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
-    <ClCompile Include="app\components\Novel\TalkCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
@@ -917,6 +917,7 @@
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
+    <ClInclude Include="app\concepts\Novel.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\debugs\Debug.hpp" />
@@ -942,6 +943,7 @@
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
+    <ClInclude Include="app\modules\Novel\Novels.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
@@ -1264,7 +1266,6 @@
     <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
     <ClInclude Include="app\models\Collision\CollisionLayerMatrix.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Novel\TalkCtrl.hpp" />
     <ClInclude Include="app\components\UI\base\IDraw.hpp" />
     <ClInclude Include="app\components\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />

@@ -952,9 +952,6 @@
     <ClCompile Include="app\components\Event\Talk\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\TalkCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1675,6 +1672,9 @@
     <ClCompile Include="app\models\Novel\OldSerifModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Novel\Novels.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2138,7 +2138,6 @@
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Novel\TalkCtrl.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
     <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
@@ -2528,6 +2527,8 @@
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />
     <ClInclude Include="app\models\Novel\SerifModel.hpp" />
+    <ClInclude Include="app\modules\Novel\Novels.hpp" />
+    <ClInclude Include="app\concepts\Novel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
