@@ -13,8 +13,7 @@ namespace abyss::UI::Serif
     {
         static void Build(
             UIObj* pUi,
-            const Ref<Novel::SerifCtrl>& serif,
-            const Ref<Novel::FaceTable>& faceTable
+            const Ref<Novel::SerifCtrl>& serif
         );
     };
 }

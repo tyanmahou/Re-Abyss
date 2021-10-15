@@ -3,7 +3,6 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/UI/Serif/Builder.hpp>
-#include <abyss/components/Novel/Common/Serif/FaceTable.hpp>
 
 namespace abyss::Novel
 {
@@ -14,7 +13,7 @@ namespace abyss::Novel
     void SerifCtrl::onStart()
     {
         m_pTalk->getModule<UIs>()
-            ->create<UI::Serif::Builder>(m_pTalk->find<SerifCtrl>(), m_pTalk->find<FaceTable>());
+            ->create<UI::Serif::Builder>(m_pTalk->find<SerifCtrl>());
     }
     void SerifCtrl::onEnd()
     {}

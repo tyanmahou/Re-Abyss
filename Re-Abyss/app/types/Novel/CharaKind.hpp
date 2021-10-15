@@ -3,9 +3,9 @@
 namespace abyss::Novel
 {
     /// <summary>
-    /// アクター種類
+    /// キャラ種類
     /// </summary>
-    enum class ActorKind
+    enum class CharaKind
     {
         None,
         Player,

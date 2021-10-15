@@ -425,7 +425,6 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp" />
-    <ClCompile Include="app\components\Novel\Common\Serif\FaceTable.cpp" />
     <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
     <ClCompile Include="app\components\Novel\TalkBuilder.cpp" />
@@ -478,7 +477,7 @@
     </ClCompile>
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
-    <ClCompile Include="app\models\Novel\FaceTableModel.cpp" />
+    <ClCompile Include="app\models\Novel\CharaModel.cpp" />
     <ClCompile Include="app\models\Novel\OldSerifModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
@@ -493,6 +492,7 @@
     <ClCompile Include="app\modules\Env\Wave\Wave.cpp" />
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
     <ClCompile Include="app\modules\Novel\base\TalkObj.cpp" />
+    <ClCompile Include="app\modules\Novel\CharaTable.cpp" />
     <ClCompile Include="app\modules\Novel\Novels.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
@@ -927,9 +927,10 @@
     <ClInclude Include="app\entities\Actor\Enemy\WarrusEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
+    <ClInclude Include="app\entities\Novel\CharaEntity.hpp" />
     <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
-    <ClInclude Include="app\models\Novel\FaceTableModel.hpp" />
+    <ClInclude Include="app\models\Novel\CharaModel.hpp" />
     <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
     <ClInclude Include="app\models\Novel\SerifModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
@@ -943,6 +944,7 @@
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
+    <ClInclude Include="app\modules\Novel\CharaTable.hpp" />
     <ClInclude Include="app\modules\Novel\Novels.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
@@ -955,7 +957,7 @@
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
-    <ClInclude Include="app\types\Novel\ActorKind.hpp" />
+    <ClInclude Include="app\types\Novel\CharaKind.hpp" />
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />
     <ClInclude Include="app\types\Novel\Side.hpp" />
@@ -1128,7 +1130,6 @@
     <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
-    <ClInclude Include="app\components\Novel\Common\Serif\FaceTable.hpp" />
     <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />

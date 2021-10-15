@@ -80,6 +80,12 @@ namespace abyss::Sys
         }
         // イベント更新
         events->update();
+
+        // ノベル更新
+        if constexpr (config.isStage) {
+            mod<Novels>()->update();
+        }
+
         // ui更新
         ui->update();
 

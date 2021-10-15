@@ -11,6 +11,9 @@ namespace abyss::Novel
         Name(const s3d::Optional<s3d::String>& name):
             m_name(name)
         {}
+        Name(const s3d::String::value_type* name) :
+            m_name(name)
+        {}
         Name(const s3d::String& name) :
             m_name(name)
         {}

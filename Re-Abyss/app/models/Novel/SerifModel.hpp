@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/types/Novel/ActorKind.hpp>
+#include <abyss/types/Novel/CharaKind.hpp>
 #include <abyss/types/Novel/Side.hpp>
 #include <abyss/types/Novel/Name.hpp>
 #include <abyss/types/Novel/Face.hpp>
@@ -13,12 +13,12 @@ namespace abyss::Novel
     class SerifModel
     {
     public:
-        SerifModel& setKind(ActorKind kind)
+        SerifModel& setKind(CharaKind kind)
         {
             m_kind = kind;
             return *this;
         }
-        ActorKind getKind() const
+        CharaKind getKind() const
         {
             return m_kind;
         }
@@ -72,7 +72,7 @@ namespace abyss::Novel
             return m_message;
         }
     private:
-        ActorKind m_kind{};
+        CharaKind m_kind{};
         Side m_side{};
         Face m_face;
         Name m_name;

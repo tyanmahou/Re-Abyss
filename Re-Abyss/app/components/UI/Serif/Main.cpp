@@ -3,7 +3,6 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 
 #include <abyss/components/Novel/Common/Serif/SerifCtrl.hpp>
-#include <abyss/components/Novel/Common/Serif/FaceTable.hpp>
 
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
@@ -17,12 +16,10 @@ namespace abyss::UI::Serif
 {
     Main::Main(
         UIObj* pUi,
-        const Ref<Novel::SerifCtrl>& serif,
-        const Ref<Novel::FaceTable>& faceTable
+        const Ref<Novel::SerifCtrl>& serif
     ) :
         m_pUi(pUi),
         m_serif(serif),
-        m_faceTable(faceTable),
         m_messageView(std::make_unique<MessageVM>()),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>())
@@ -51,12 +48,12 @@ namespace abyss::UI::Serif
             .setPos(pos)
             .setName(m_serif->getActorName());
 
-        if (const auto& actorName = m_serif->getActorName(); m_faceTable && actorName) {
-            const auto& faceKind = m_serif->getCurrentKind();
-            if (m_faceTable->isContain(*actorName, faceKind)) {
-                m_boxView->setFaceIcon(m_faceTable->getFace(*actorName, faceKind));
-            }
-        }
+        //if (const auto& actorName = m_serif->getActorName(); m_faceTable && actorName) {
+        //    const auto& faceKind = m_serif->getCurrentKind();
+        //    if (m_faceTable->isContain(*actorName, faceKind)) {
+        //        m_boxView->setFaceIcon(m_faceTable->getFace(*actorName, faceKind));
+        //    }
+        //}
         m_boxView->draw();
 
         const double messagePosX = m_serif->isLeft() ? -180 : -340;
