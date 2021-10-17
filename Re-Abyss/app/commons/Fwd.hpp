@@ -81,6 +81,7 @@ namespace abyss
 	namespace Novel
 	{
 		class Novels;
+		class CharaTable;
 		class TalkObj;
 	}
 	using Novel::Novels;

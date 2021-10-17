@@ -61,5 +61,7 @@ namespace abyss::Novel
         std::queue<std::shared_ptr<TalkObj>> m_talks;
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
+
+        std::shared_ptr<CharaTable> m_charaTable;
     };
 }
