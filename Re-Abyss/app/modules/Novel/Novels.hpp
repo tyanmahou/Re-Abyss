@@ -21,6 +21,12 @@ namespace abyss::Novel
             return *this;
         }
 
+        Novels& setCharaTable(std::shared_ptr<CharaTable> charaTable)
+        {
+            m_charaTable = charaTable;
+            return *this;
+        }
+
         /// <summary>
         /// 更新
         /// </summary>
