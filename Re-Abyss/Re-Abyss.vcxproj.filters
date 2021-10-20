@@ -1675,6 +1675,15 @@
     <ClCompile Include="app\components\Novel\base\MessageBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\MessageStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\WaitTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\WaitInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2530,6 +2539,9 @@
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
     <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
     <ClInclude Include="app\components\Novel\base\MessageBuffer.hpp" />
+    <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
+    <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
+    <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

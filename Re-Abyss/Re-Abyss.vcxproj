@@ -371,7 +371,10 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Novel\base\MessageBuffer.cpp" />
     <ClCompile Include="app\components\Novel\base\TalkHandler.cpp" />
+    <ClCompile Include="app\components\Novel\Common\MessageStream.cpp" />
     <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\Common\WaitInput.cpp" />
+    <ClCompile Include="app\components\Novel\Common\WaitTime.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
@@ -878,7 +881,10 @@
     <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\MessageBuffer.hpp" />
     <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
+    <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
+    <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />

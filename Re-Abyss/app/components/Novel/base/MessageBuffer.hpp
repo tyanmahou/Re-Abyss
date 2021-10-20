@@ -20,11 +20,21 @@ namespace abyss::Novel
         {
             return m_message;
         }
+        bool isInputWait() const
+        {
+            return m_isInputWait;
+        }
+        void setIsInputWait(bool isInputWait)
+        {
+            m_isInputWait = isInputWait;
+        }
     private:
         TalkObj* m_pTalk;
 
         TagString m_message;
 
         s3d::ColorF m_color;
+
+        bool m_isInputWait = false;
     };
 }
