@@ -12,6 +12,9 @@
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 
+#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Novel/CharaTable.hpp>
+
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Actor/God/Builder.hpp>
 #include <abyss/components/Event/GameReady/Builder.hpp>
@@ -49,6 +52,16 @@ namespace abyss::Sys::Main
             if constexpr (kind == BootKind::Restart) {
                 // リスタートでリセットのフラグをリセット
                 temporary->clearFlag(TempLevel::Restart);
+            }
+        }
+
+        // Novel初期化
+        {
+            auto* novel = pManager->getModule<Novels>();
+            if (m_charaTable) {
+                novel->setCharaTable(m_charaTable);
+            } else {
+                novel->setCharaTable(std::make_shared<Novel::CharaTable>());
             }
         }
 

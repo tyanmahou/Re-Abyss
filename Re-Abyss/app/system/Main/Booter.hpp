@@ -40,6 +40,11 @@ namespace abyss::Sys::Main
             m_tempData = tempData;
             return *this;
         }
+        Booter& setCharaTable(std::shared_ptr<Novel::CharaTable> charaTable)
+        {
+            m_charaTable = charaTable;
+            return *this;
+        }
     private:
         Cycle::Main::IMasterObserver* m_pObserver;
 
@@ -47,6 +52,7 @@ namespace abyss::Sys::Main
         std::shared_ptr<Event::EventObj> m_initEvent;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
+        std::shared_ptr<Novel::CharaTable> m_charaTable;
     };
 
     using BooterNormal = Booter<BootKind::Normal>;
