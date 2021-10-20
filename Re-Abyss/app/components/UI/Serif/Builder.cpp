@@ -6,7 +6,7 @@ namespace abyss::UI::Serif
 {
     void Builder::Build(
         UIObj* pUi,
-        const Ref<Novel::SerifCtrl>& serif
+        const Ref<Novel::OldSerifCtrl>& serif
     ) {
         // メイン追加
         {

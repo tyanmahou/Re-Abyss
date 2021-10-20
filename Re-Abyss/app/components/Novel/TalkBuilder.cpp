@@ -3,7 +3,7 @@
 //#include <abyss/modules/Event/Talk/TalkObj.hpp>
 //
 //#include <abyss/components/Event/Talk/TalkCtrl.hpp>
-//#include <abyss/components/Event/Talk/Common/Serif/SerifCtrl.hpp>
+//#include <abyss/components/Event/Talk/Common/Serif/OldSerifCtrl.hpp>
 //#include <abyss/components/Event/Talk/Common/Serif/FaceTable.hpp>
 //#include <abyss/components/Event/Talk/TriggerFactory.hpp>
 //
@@ -78,7 +78,7 @@
 //                    }
 //                }
 //                auto talkObj = talkCtrl->create();
-//                talkObj->attach<SerifCtrl>(talkObj.get(), model);
+//                talkObj->attach<OldSerifCtrl>(talkObj.get(), model);
 //                talkObj->attach<FaceTable>(faceTableModel);
 //            }
 //        }

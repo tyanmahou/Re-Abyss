@@ -8,7 +8,7 @@
 
 namespace abyss::Novel
 {
-    class SerifCtrl;
+    class OldSerifCtrl;
 }
 
 namespace abyss::UI::Serif
@@ -26,7 +26,7 @@ namespace abyss::UI::Serif
     public:
         Main(
             UIObj* pUi, 
-            const Ref<Novel::SerifCtrl>& serif
+            const Ref<Novel::OldSerifCtrl>& serif
         );
 
         void onStart() override;
@@ -37,7 +37,7 @@ namespace abyss::UI::Serif
     private:
         UIObj* m_pUi;
 
-        Ref<Novel::SerifCtrl> m_serif;
+        Ref<Novel::OldSerifCtrl> m_serif;
 
         std::unique_ptr<MessageVM> m_messageView;
         std::unique_ptr<MessageBoxVM> m_boxView;

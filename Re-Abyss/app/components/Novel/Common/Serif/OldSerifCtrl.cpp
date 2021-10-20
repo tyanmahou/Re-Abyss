@@ -1,4 +1,4 @@
-#include "SerifCtrl.hpp"
+#include "OldSerifCtrl.hpp"
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
@@ -6,68 +6,68 @@
 
 namespace abyss::Novel
 {
-    SerifCtrl::SerifCtrl(TalkObj* pTalk, const OldSerifModel& serif):
+    OldSerifCtrl::OldSerifCtrl(TalkObj* pTalk, const OldSerifModel& serif):
         m_pTalk(pTalk),
         m_serif(serif)
     {}
-    void SerifCtrl::onStart()
+    void OldSerifCtrl::onStart()
     {
         m_pTalk->getModule<UIs>()
-            ->create<UI::Serif::Builder>(m_pTalk->find<SerifCtrl>());
+            ->create<UI::Serif::Builder>(m_pTalk->find<OldSerifCtrl>());
     }
-    void SerifCtrl::onEnd()
+    void OldSerifCtrl::onEnd()
     {}
-    Coro::Task<> SerifCtrl::onTalk()
+    Coro::Task<> OldSerifCtrl::onTalk()
     {
         while (m_serif.update()) {
             co_yield{};
         }
     }
-    const s3d::Optional<s3d::String>& SerifCtrl::getActorName() const
+    const s3d::Optional<s3d::String>& OldSerifCtrl::getActorName() const
     {
         return m_serif.getActorName();
     }
-    OldSerifModel::Side SerifCtrl::getSide() const
+    OldSerifModel::Side OldSerifCtrl::getSide() const
     {
         return m_serif.getSide();
     }
-    const s3d::Array<OldSerifModel::Message>& SerifCtrl::getMessages() const
+    const s3d::Array<OldSerifModel::Message>& OldSerifCtrl::getMessages() const
     {
         return m_serif.getMessages();
     }
-    const s3d::String& SerifCtrl::getMessage(size_t index) const
+    const s3d::String& OldSerifCtrl::getMessage(size_t index) const
     {
         return m_serif.getMessage(index);
     }
-    s3d::int32 SerifCtrl::getStrIndex() const
+    s3d::int32 OldSerifCtrl::getStrIndex() const
     {
         return m_serif.getStrIndex();
     }
-    bool SerifCtrl::isEnd() const
+    bool OldSerifCtrl::isEnd() const
     {
         return m_serif.isEnd();
     }
-    bool SerifCtrl::isAll() const
+    bool OldSerifCtrl::isAll() const
     {
         return m_serif.isAll();
     }
-    bool SerifCtrl::isLeft() const
+    bool OldSerifCtrl::isLeft() const
     {
         return m_serif.isLeft();
     }
-    bool SerifCtrl::isRight() const
+    bool OldSerifCtrl::isRight() const
     {
         return m_serif.isRight();
     }
-    s3d::String SerifCtrl::getPrev() const
+    s3d::String OldSerifCtrl::getPrev() const
     {
         return m_serif.getPrev();
     }
-    const s3d::String& SerifCtrl::getCurrent() const
+    const s3d::String& OldSerifCtrl::getCurrent() const
     {
         return m_serif.getCurrent();
     }
-    const s3d::String& SerifCtrl::getCurrentKind() const
+    const s3d::String& OldSerifCtrl::getCurrentKind() const
     {
         return m_serif.getCurrentKind();
     }

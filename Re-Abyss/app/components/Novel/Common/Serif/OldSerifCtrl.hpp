@@ -6,11 +6,11 @@
 
 namespace abyss::Novel
 {
-    class SerifCtrl : 
+    class OldSerifCtrl : 
         public ITalker
     {
     public:
-        SerifCtrl(TalkObj* pTalk, const OldSerifModel& serif);
+        OldSerifCtrl(TalkObj* pTalk, const OldSerifModel& serif);
 
         void onStart() override;
         void onEnd() override;
