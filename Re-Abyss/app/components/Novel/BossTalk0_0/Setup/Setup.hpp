@@ -1,18 +1,18 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Novel/base/ITalker.hpp>
+#include <abyss/components/Novel/base/ICommand.hpp>
 
 namespace abyss::Novel::BossTalk0_0
 {
     class Setup : 
-        public ITalker
+        public ICommand
     {
     public:
         Setup(TalkObj* pTalk);
 
         void onStart() override;
 
-        Coro::Task<> onTalk() override;
+        Coro::Task<> onCommand() override;
 
     private:
         TalkObj* m_pTalk;

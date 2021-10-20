@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/components/Novel/base/ITalker.hpp>
+#include <abyss/components/Novel/base/ICommand.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Demo
@@ -11,13 +11,13 @@ namespace abyss::Actor::Enemy::CodeZero::Demo
 namespace abyss::Novel::BossTalk0_0
 {
     class BossMove :
-        public ITalker
+        public ICommand
     {
     public:
         BossMove(TalkObj* pTalk);
 
         void onStart()override;
-        Coro::Task<> onTalk() override;
+        Coro::Task<> onCommand() override;
         void onEnd() override;
     private:
         TalkObj* m_pTalk;

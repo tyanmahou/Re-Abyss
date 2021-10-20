@@ -3,13 +3,13 @@
 
 namespace abyss::Novel
 {
-    class ITalker
+    class ICommand
     {
     public:
-        virtual ~ITalker() = default;
+        virtual ~ICommand() = default;
 
         virtual void onStart() {}
         virtual void onEnd() {}
-        virtual Coro::Task<> onTalk() = 0;
+        virtual Coro::Task<> onCommand() = 0;
     };
 }

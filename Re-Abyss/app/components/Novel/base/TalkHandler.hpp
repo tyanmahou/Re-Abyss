@@ -3,7 +3,7 @@
 #include <queue>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Novel/base/ITalker.hpp>
+#include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 
 namespace abyss::Novel
@@ -22,7 +22,7 @@ namespace abyss::Novel
     private:
         TalkObj* m_pTalk;
         Coro::TaskHolder<> m_stream;
-        std::queue<std::shared_ptr<ITalker>> m_talks;
+        std::queue<std::shared_ptr<ICommand>> m_commands;
         bool m_doneCurrentInit = false;
     };
 }

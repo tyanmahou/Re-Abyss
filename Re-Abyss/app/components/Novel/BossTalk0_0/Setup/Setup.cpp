@@ -26,7 +26,7 @@ namespace abyss::Novel::BossTalk0_0
         world->flush();
     }
 
-    Coro::Task<> Setup::onTalk()
+    Coro::Task<> Setup::onCommand()
     {
         co_return;
     }

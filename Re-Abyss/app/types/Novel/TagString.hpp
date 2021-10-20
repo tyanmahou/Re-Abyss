@@ -11,9 +11,14 @@ namespace abyss::Novel
     public:
         TagString() = default;
         TagString(const s3d::String& str) :
-            m_str(str)
+            m_message(str)
         {}
+    public:
+        size_t length() const
+        {
+            return m_message.length();
+        }
     private:
-        s3d::String m_str;
+        s3d::String m_message;
     };
 }

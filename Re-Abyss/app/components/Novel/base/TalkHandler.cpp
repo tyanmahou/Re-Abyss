@@ -12,15 +12,15 @@ namespace abyss::Novel
     void TalkHandler::onStart()
     {
         auto task = [this]()->Coro::Task<> {
-            while (!m_talks.empty()) {
-                auto& front = m_talks.front();
+            while (!m_commands.empty()) {
+                auto& front = m_commands.front();
                 front->onStart();
                 m_doneCurrentInit = true;
 
-                co_await front->onTalk();
+                co_await front->onCommand();
 
                 front->onEnd();
-                m_talks.pop();
+                m_commands.pop();
                 m_doneCurrentInit = false;
             }
             co_return;
@@ -29,15 +29,15 @@ namespace abyss::Novel
     }
     void TalkHandler::onEnd()
     {
-        // 残りのイベントを処理する
-        while (!m_talks.empty()) {
-            auto& front = m_talks.front();
+        // 残りのコマンドを処理する
+        while (!m_commands.empty()) {
+            auto& front = m_commands.front();
             if (!m_doneCurrentInit) {
                 front->onStart();
                 m_doneCurrentInit = true;
             }
             front->onEnd();
-            m_talks.pop();
+            m_commands.pop();
             m_doneCurrentInit = false;
         }
     }

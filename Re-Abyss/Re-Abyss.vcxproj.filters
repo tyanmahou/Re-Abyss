@@ -946,7 +946,7 @@
     <ClCompile Include="app\components\UI\Serif\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Serif\Main.cpp">
+    <ClCompile Include="app\components\UI\Serif\OldMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\Talk\Builder.cpp">
@@ -956,9 +956,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\TriggerFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Serif\OldSerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp">
@@ -1663,9 +1660,6 @@
     <ClCompile Include="app\components\Novel\base\TalkHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Novel\OldSerifModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Novel\Novels.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1673,6 +1667,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Novel\CharaModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2136,11 +2133,10 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\Builder.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\UI\Serif\OldMain.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
     <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
-    <ClInclude Include="app\components\Novel\Common\Serif\OldSerifCtrl.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
@@ -2515,9 +2511,8 @@
     <ClInclude Include="app\components\UI\SaveSelect\EraseUserConfirm\Result.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
-    <ClInclude Include="app\components\Novel\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
-    <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
     <ClInclude Include="app\types\Novel\Side.hpp" />
     <ClInclude Include="app\types\Novel\CharaKind.hpp" />
     <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
@@ -2530,6 +2525,7 @@
     <ClInclude Include="app\modules\Novel\CharaTable.hpp" />
     <ClInclude Include="app\entities\Novel\CharaEntity.hpp" />
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -24,7 +24,7 @@ namespace abyss::Novel::BossTalk0_0
         m_quake = m_pTalk->getModule<Camera>()->startQuake(2.0);
     }
 
-    Coro::Task<> BossMove::onTalk()
+    Coro::Task<> BossMove::onCommand()
     {
         if (!m_codeZeroDemo) {
             co_return;

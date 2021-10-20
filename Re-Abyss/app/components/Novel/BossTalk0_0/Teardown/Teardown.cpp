@@ -34,7 +34,7 @@ namespace abyss::Novel::BossTalk0_0
         }
     }
 
-    Coro::Task<> Teardown::onTalk()
+    Coro::Task<> Teardown::onCommand()
     {
         co_return;
     }

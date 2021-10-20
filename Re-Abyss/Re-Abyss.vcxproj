@@ -370,6 +370,7 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Novel\base\TalkHandler.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Serif\SerifCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\EraseUserConfirm\Dialog.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\Main\Builder.cpp" />
@@ -425,7 +426,6 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp" />
-    <ClCompile Include="app\components\Novel\Common\Serif\OldSerifCtrl.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
     <ClCompile Include="app\components\Novel\TalkBuilder.cpp" />
     <ClCompile Include="app\components\Novel\TriggerFactory.cpp" />
@@ -478,7 +478,6 @@
     <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\models\Novel\CharaModel.cpp" />
-    <ClCompile Include="app\models\Novel\OldSerifModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
@@ -523,7 +522,7 @@
     <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Main.cpp" />
     <ClCompile Include="app\components\UI\Serif\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Serif\Main.cpp" />
+    <ClCompile Include="app\components\UI\Serif\OldMain.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\modules\Cron\base\Batch.cpp" />
@@ -875,8 +874,9 @@
     <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
-    <ClInclude Include="app\components\Novel\base\ITalker.hpp" />
+    <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\TalkHandler.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Serif\SerifCtrl.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />
@@ -931,7 +931,6 @@
     <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
-    <ClInclude Include="app\models\Novel\OldSerifModel.hpp" />
     <ClInclude Include="app\models\Novel\SerifModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
@@ -1129,7 +1128,6 @@
     <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Novel\Common\Serif\OldSerifCtrl.hpp" />
     <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
@@ -1277,7 +1275,7 @@
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\UI\Serif\OldMain.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\concepts\Event.hpp" />
     <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
