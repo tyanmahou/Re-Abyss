@@ -1,11 +1,13 @@
 #pragma once
 #include <memory>
+#include <stack>
 #include <queue>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 #include <abyss/types/Novel/TagString.hpp>
+#include <Siv3D/Optional.hpp>
 
 namespace abyss::Novel
 {
@@ -21,11 +23,8 @@ namespace abyss::Novel
     public:
         void append(const char32_t ch);
 
-        Engine& setColor(const s3d::ColorF& color)
-        {
-            m_color = color;
-            return *this;
-        }
+        Engine& setColor(const s3d::Optional<s3d::ColorF>& color);
+
         const TagString& getMessage() const
         {
             return m_message;
@@ -43,7 +42,7 @@ namespace abyss::Novel
 
         TagString m_message;
 
-        s3d::ColorF m_color;
+        std::stack<s3d::ColorF> m_color;
 
         bool m_isInputWait = false;
 

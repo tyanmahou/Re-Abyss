@@ -1,11 +1,14 @@
 #include "Engine.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Novel
 {
     Engine::Engine(TalkObj* pTalk):
         m_pTalk(pTalk)
-    {}
+    {
+        this->setColor(s3d::Palette::White);
+    }
     void Engine::onStart()
     {
         auto task = [this]()->Coro::Task<> {
@@ -50,7 +53,16 @@ namespace abyss::Novel
     {
         m_message.append(TagChar{
             .ch = ch,
-            .color = m_color
+            .color = m_color.top()
         });
+    }
+    Engine& Engine::setColor(const s3d::Optional<s3d::ColorF>& color)
+    {
+        if (color) {
+            m_color.push(*color);
+        } else if (!m_color.empty()) {
+            m_color.pop();
+        }
+        return *this;
     }
 }
