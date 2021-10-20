@@ -4,6 +4,7 @@
 
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
+#include <abyss/modules/Novel/CharaTable.hpp>
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
@@ -22,6 +23,7 @@ namespace abyss
 		std::unique_ptr<System> m_system;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
+		std::shared_ptr<Novel::CharaTable> m_charaTable;
 
 		MainSceneContext m_context;
 
@@ -30,6 +32,7 @@ namespace abyss
 	public:
 		Impl([[maybe_unused]] const MainScene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
+			m_charaTable(std::make_shared<Novel::CharaTable>()),
 			m_data(init._s)
 		{
 			if (std::holds_alternative<MainSceneContext>(m_data->context)) {
@@ -46,16 +49,20 @@ namespace abyss
 			co_yield 1.0;
 		}
 #if ABYSS_NO_BUILD_RESOURCE
-		void reload()
+		void resourceReload()
 		{
 			Resource::Assets::Main()->release();
 			Resource::Preload::LoadActorToml();
 			Resource::Preload::LoadUIToml();
-
+		}
+		void reload()
+		{
+			this->resourceReload();
 			this->init(true);
 		}
 		void superReload()
 		{
+			this->resourceReload();
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			this->init();
 		}
@@ -76,7 +83,9 @@ namespace abyss
 			auto booter = std::make_unique<Sys::Main::BooterNormal>(this);
 			booter->setInitPlayer(player)
 				.setStageData(m_stageData)
-				.setTempData(m_tempData);
+				.setTempData(m_tempData)
+				.setCharaTable(m_charaTable)
+				;
 
 			m_system->boot(booter.get());
 		}
@@ -108,8 +117,9 @@ namespace abyss
 
 			auto booter = std::make_unique<Sys::Main::BooterRestart>(this);
 			booter->setStageData(m_stageData)
-				.setTempData(m_tempData);
-
+				.setTempData(m_tempData)
+				.setCharaTable(m_charaTable)
+				;
 			m_system->boot(booter.get());
 			return true;
 		}
