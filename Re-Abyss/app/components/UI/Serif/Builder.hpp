@@ -4,8 +4,7 @@
 
 namespace abyss::Novel
 {
-    class SerifCtrl;
-    class FaceTable;
+    class Engine;
 }
 namespace abyss::UI::Serif
 {
@@ -13,7 +12,7 @@ namespace abyss::UI::Serif
     {
         static void Build(
             UIObj* pUi,
-            const Ref<Novel::SerifCtrl>& serif
+            const Ref<Novel::Engine>& engine
         );
     };
 }

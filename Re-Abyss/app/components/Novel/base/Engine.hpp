@@ -1,17 +1,27 @@
 #pragma once
+#include <memory>
+#include <queue>
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/Novel/base/ICommand.hpp>
+#include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 #include <abyss/types/Novel/TagString.hpp>
 
 namespace abyss::Novel
 {
-    class MessageBuffer : public IComponent
+    class Engine : public IComponent
     {
     public:
-        MessageBuffer(TalkObj* pTalk);
+        Engine(TalkObj* pTalk);
 
+        void onStart() override;
+        void onEnd() override;
+
+        bool update();
+    public:
         void append(const char32_t ch);
 
-        MessageBuffer& setColor(const s3d::ColorF& color)
+        Engine& setColor(const s3d::ColorF& color)
         {
             m_color = color;
             return *this;
@@ -36,5 +46,10 @@ namespace abyss::Novel
         s3d::ColorF m_color;
 
         bool m_isInputWait = false;
+
+        // コマンド
+        Coro::TaskHolder<> m_stream;
+        std::queue<std::shared_ptr<ICommand>> m_commands;
+        bool m_doneCurrentInit = false;
     };
 }

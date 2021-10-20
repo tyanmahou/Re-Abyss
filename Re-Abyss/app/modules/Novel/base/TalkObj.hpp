@@ -4,7 +4,7 @@
 
 namespace abyss::Novel
 {
-    class TalkHandler;
+    class Engine;
 
     class TalkObj : public GameObject
     {
@@ -12,7 +12,12 @@ namespace abyss::Novel
         TalkObj();
 
         bool update();
+
+        const Ref<Engine>& engine() const
+        {
+            return m_engine;
+        }
     private:
-        Ref<TalkHandler> m_talk;
+        Ref<Engine> m_engine;
     };
 }

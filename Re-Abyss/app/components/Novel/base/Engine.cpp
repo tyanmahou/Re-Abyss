@@ -1,15 +1,12 @@
-#include "TalkHandler.hpp"
-#include <abyss/modules/Novel/base/TalkObj.hpp>
+#include "Engine.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Novel
 {
-    TalkHandler::TalkHandler(TalkObj* pTalk) :
+    Engine::Engine(TalkObj* pTalk):
         m_pTalk(pTalk)
     {}
-    void TalkHandler::setup(Executer executer)
-    {}
-    void TalkHandler::onStart()
+    void Engine::onStart()
     {
         auto task = [this]()->Coro::Task<> {
             while (!m_commands.empty()) {
@@ -27,7 +24,7 @@ namespace abyss::Novel
         };
         m_stream.reset(task);
     }
-    void TalkHandler::onEnd()
+    void Engine::onEnd()
     {
         // 残りのコマンドを処理する
         while (!m_commands.empty()) {
@@ -41,12 +38,19 @@ namespace abyss::Novel
             m_doneCurrentInit = false;
         }
     }
-    bool TalkHandler::update()
+    bool Engine::update()
     {
         if (InputManager::Start.down()) {
             // skip
             return false;
         }
         return m_stream.moveNext();
+    }
+    void Engine::append(const char32_t ch)
+    {
+        m_message.append(TagChar{
+            .ch = ch,
+            .color = m_color
+        });
     }
 }

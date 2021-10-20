@@ -1,6 +1,6 @@
 #include "WaitInput.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/components/Novel/base/MessageBuffer.hpp>
+#include <abyss/components/Novel/base/Engine.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 
 namespace abyss::Novel
@@ -10,11 +10,11 @@ namespace abyss::Novel
     {}
     void WaitInput::onStart()
     {
-        m_pTalk->find<MessageBuffer>()->setIsInputWait(true);
+        m_pTalk->engine()->setIsInputWait(true);
     }
     void WaitInput::onEnd()
     {
-        m_pTalk->find<MessageBuffer>()->setIsInputWait(false);
+        m_pTalk->engine()->setIsInputWait(false);
     }
     Coro::Task<> WaitInput::onCommand()
     {

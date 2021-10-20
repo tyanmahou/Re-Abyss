@@ -1,16 +1,14 @@
 #include "TalkObj.hpp"
-#include <abyss/components/Novel/base/TalkHandler.hpp>
-#include <abyss/components/Novel/base/MessageBuffer.hpp>
+#include <abyss/components/Novel/base/Engine.hpp>
 
 namespace abyss::Novel
 {
     TalkObj::TalkObj()
     {
-        this->attach<MessageBuffer>(this);
-        m_talk = this->attach<TalkHandler>(this);
+        m_engine = this->attach<Engine>(this);
     }
     bool TalkObj::update()
     {
-        return m_talk->update();
+        return m_engine->update();
     }
 }
