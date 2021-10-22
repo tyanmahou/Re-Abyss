@@ -6,6 +6,10 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
+#include <abyss/types/Novel/CharaKind.hpp>
+#include <abyss/types/Novel/Face.hpp>
+#include <abyss/types/Novel/Side.hpp>
+#include <abyss/types/Novel/Name.hpp>
 #include <abyss/types/Novel/TagString.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -39,6 +43,11 @@ namespace abyss::Novel
         }
     private:
         TalkObj* m_pTalk;
+
+        CharaKind m_charaKind;
+        Side m_side;
+        Face m_face;
+        Name m_name;
 
         TagString m_message;
 

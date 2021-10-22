@@ -370,6 +370,7 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Novel\base\Engine.cpp" />
+    <ClCompile Include="app\components\Novel\Common\ColorTag.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageStream.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitInput.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitTime.cpp" />
@@ -878,6 +879,7 @@
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\Engine.hpp" />
+    <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
