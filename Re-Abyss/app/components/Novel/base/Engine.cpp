@@ -1,5 +1,7 @@
 #include "Engine.hpp"
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Novel
@@ -43,6 +45,7 @@ namespace abyss::Novel
     }
     bool Engine::update()
     {
+        m_time += m_pTalk->getModule<GlobalTime>()->deltaTime();
         if (InputManager::Start.down()) {
             // skip
             return false;
@@ -51,10 +54,7 @@ namespace abyss::Novel
     }
     void Engine::append(const char32_t ch)
     {
-        m_message.append(TagChar{
-            .ch = ch,
-            .color = m_color.top()
-        });
+        m_serif.getMessage().append(ch, m_time);
     }
     Engine& Engine::setColor(const s3d::Optional<s3d::ColorF>& color)
     {
@@ -63,6 +63,9 @@ namespace abyss::Novel
         } else if (!m_color.empty()) {
             m_color.pop();
         }
+        m_serif.getMessage().append(
+            Tag::Color{ m_color.top()}
+        );
         return *this;
     }
 }

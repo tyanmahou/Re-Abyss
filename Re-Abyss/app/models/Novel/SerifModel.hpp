@@ -61,11 +61,15 @@ namespace abyss::Novel
         {
             return m_name;
         }
-
+        
         SerifModel& setMessage(const TagString& message)
         {
             m_message = message;
             return *this;
+        }
+        TagString& getMessage()
+        {
+            return m_message;
         }
         const TagString& getMessage()const
         {

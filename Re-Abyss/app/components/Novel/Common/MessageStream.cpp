@@ -1,6 +1,7 @@
 #include "MessageStream.hpp"
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
 #include <Siv3D.hpp>
@@ -24,11 +25,12 @@ namespace abyss::Novel
     Coro::Task<> MessageStream::onCommand()
     {
         const auto& engine = m_pTalk->engine();
+        auto* globalTime = m_pTalk->getModule<GlobalTime>();
         size_t index = 0;
         for (char32_t ch : m_message) {
             m_done = index;
             engine->append(ch);
-            co_await Coro::WaitForSeconds(0.02s);
+            co_await Coro::WaitForSeconds(0.02s, globalTime);
             ++index;
         }
         co_return;

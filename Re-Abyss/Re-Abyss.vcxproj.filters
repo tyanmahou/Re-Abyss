@@ -1678,6 +1678,12 @@
     <ClCompile Include="app\components\Novel\Common\WaitInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\ColorTag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\types\Novel\TagString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2534,6 +2540,7 @@
     <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
+    <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
