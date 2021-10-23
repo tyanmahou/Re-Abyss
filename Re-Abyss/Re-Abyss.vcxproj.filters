@@ -1684,6 +1684,9 @@
     <ClCompile Include="app\types\Novel\TagString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\Talk\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2542,6 +2545,7 @@
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
+    <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

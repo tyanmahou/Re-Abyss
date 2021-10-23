@@ -52,6 +52,10 @@ namespace abyss::Novel
         }
         return m_stream.moveNext();
     }
+    void Engine::addCommand(std::shared_ptr<ICommand> command)
+    {
+        m_commands.push(command);
+    }
     void Engine::append(const char32_t ch)
     {
         m_serif.getMessage().append(ch, m_time);

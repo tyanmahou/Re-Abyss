@@ -1,22 +1,13 @@
-//#include "TalkBuilder.hpp"
-//#include <abyss/modules/Event/base/EventObj.hpp>
-//#include <abyss/modules/Event/Talk/TalkObj.hpp>
-//
-//#include <abyss/components/Event/Talk/TalkCtrl.hpp>
-//#include <abyss/components/Event/Talk/Common/Serif/OldSerifCtrl.hpp>
-//#include <abyss/components/Event/Talk/Common/Serif/FaceTable.hpp>
-//#include <abyss/components/Event/Talk/TriggerFactory.hpp>
-//
-//#include <abyss/components/Event/Talk/BossTalk0_0/Build.hpp>
-//
-//#include <abyss/models/Event/Talk/OldSerifModel.hpp>
-//#include <abyss/models/Event/Talk/FaceTableModel.hpp>
-//
-//#include <Siv3D.hpp>
-//// TODO 消す
-//#include <abyss/utils/FileUtil/FileUtil.hpp>
-//#include <abyss/debugs/Log/Log.hpp>
-//
+#include "TalkBuilder.hpp"
+#include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/components/Novel/base/Engine.hpp>
+
+#include <abyss/components/Novel/Common/ColorTag.hpp>
+#include <abyss/components/Novel/Common/MessageStream.hpp>
+#include <abyss/components/Novel/Common/WaitInput.hpp>
+#include <abyss/components/Novel/Common/WaitTime.hpp>
+#include <Siv3D.hpp>
+
 //namespace abyss::Event::Talk
 //{
 //    void TalkBuilder::Build(EventObj* pEvent, const s3d::String& path)
@@ -84,3 +75,17 @@
 //        }
 //    }
 //}
+
+namespace abyss::Novel
+{
+    void TalkBuilder::Build(TalkObj* pTalk, const s3d::String& path)
+    {
+        const auto& engine = pTalk->engine();
+
+        engine->addCommand<MessageStream>(U"ああああ");
+        engine->addCommand<WaitTime>(2s);
+        engine->addCommand<ColorTag>(s3d::Palette::Red);
+        engine->addCommand<MessageStream>(U"いいいい\n");
+        engine->addCommand<WaitInput>();
+    }
+}

@@ -20,6 +20,13 @@ namespace abyss::Novel
         void onEnd() override;
 
         bool update();
+
+        template<class T, class ... Args>
+        void addCommand(Args&&... args)
+        {
+            addCommand(std::make_shared<T>(m_pTalk, std::forward<Args>(args)...));
+        }
+        void addCommand(std::shared_ptr<ICommand> command);
     public:
         void append(const char32_t ch);
 

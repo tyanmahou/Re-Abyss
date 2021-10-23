@@ -1,7 +1,10 @@
 #include "Builder.hpp"
 #include <abyss/modules/Event/base/EventObj.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 
+#include <abyss/components/Event/Talk/MainStream.hpp>
 #include <abyss/components/Event/Talk/PlayerStateChanger.hpp>
+#include <abyss/components/Novel/TalkBuilder.hpp>
 
 #include <Siv3D.hpp>
 
@@ -22,6 +25,9 @@ namespace abyss::Event::Talk
         }
 
         // 会話制御
-        // TalkBuilder::Build(pEvent, path);
+        {
+            auto novel = pEvent->getModule<Novels>()->create<Novel::TalkBuilder>(path);
+            pEvent->attach<MainStream>(pEvent, novel);
+        }
     }
 }
