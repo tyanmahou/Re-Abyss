@@ -72,4 +72,11 @@ namespace abyss::Novel
         );
         return *this;
     }
+    Engine& Engine::setIsShake(bool isShake)
+    {
+        m_serif.getMessage().append(
+            Tag::Shake{ isShake }
+        );
+        return *this;
+    }
 }

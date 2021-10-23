@@ -6,6 +6,8 @@
 #include <abyss/components/Novel/Common/MessageStream.hpp>
 #include <abyss/components/Novel/Common/WaitInput.hpp>
 #include <abyss/components/Novel/Common/WaitTime.hpp>
+#include <abyss/components/Novel/Common/ShakeTag.hpp>
+
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <Siv3D.hpp>
 
@@ -83,7 +85,8 @@ namespace abyss::Novel
     {
         const auto& engine = pTalk->engine();
 
-        engine->addCommand<MessageStream>(U"ああああああ");
+        engine->addCommand<ShakeTag>(true);
+        engine->addCommand<MessageStream>(U"ぎゃああああああ");
         engine->addCommand<WaitTime>(1.0s);
         engine->addCommand<MessageStream>(U".");
         engine->addCommand<WaitTime>(1.0s);
@@ -91,6 +94,7 @@ namespace abyss::Novel
         engine->addCommand<WaitTime>(1.0s);
         engine->addCommand<MessageStream>(U".");
         engine->addCommand<WaitTime>(1.0s);
+        engine->addCommand<ShakeTag>(false);
         engine->addCommand<ColorTag>(s3d::Palette::Red);
         engine->addCommand<MessageStream>(U"いいいうふぃふぃふぃｙふぃふぃふぃ\n");
         engine->addCommand<WaitInput>();

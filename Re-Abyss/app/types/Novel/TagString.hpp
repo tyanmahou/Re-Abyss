@@ -14,9 +14,14 @@ namespace abyss::Novel
         {
             s3d::ColorF color;
         };
+        struct Shake
+        {
+            bool isShake;
+        };
     };
-    using TagValue = std::variant<
-        Tag::Color
+    using TagValue = std::variant <
+        Tag::Color,
+        Tag::Shake
     >;
     template<class T>
     concept TagType = std::constructible_from<TagValue, T>;
@@ -25,6 +30,7 @@ namespace abyss::Novel
     {
         char32_t ch;
         s3d::ColorF color;
+        bool isShake;
         double time;
     };
     /// <summary>

@@ -374,6 +374,7 @@
     <ClCompile Include="app\components\Novel\Common\ColorTag.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageBox.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageStream.cpp" />
+    <ClCompile Include="app\components\Novel\Common\ShakeTag.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitInput.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitTime.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.cpp" />
@@ -887,6 +888,7 @@
     <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
+    <ClInclude Include="app\components\Novel\Common\ShakeTag.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />

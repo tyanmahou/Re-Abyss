@@ -40,7 +40,7 @@ namespace abyss::Novel
         void append(const char32_t ch);
 
         Engine& setColor(const s3d::Optional<s3d::ColorF>& color);
-
+        Engine& setIsShake(bool isShake);
         bool isInputWait() const
         {
             return m_isInputWait;

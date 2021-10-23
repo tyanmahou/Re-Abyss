@@ -12,8 +12,10 @@ namespace abyss::Novel
     Coro::Iterator<TagChar> TagString::begin() const
     {
         s3d::ColorF color{};
+        bool isShake = false;
         auto tagVisitor = overloaded{
-            [&](const Tag::Color& tag) {color = tag.color;}
+            [&](const Tag::Color& tag) {color = tag.color;},
+            [&](const Tag::Shake& tag) {isShake = tag.isShake; },
         };
 
         size_t tagIndex = 0;
@@ -28,6 +30,7 @@ namespace abyss::Novel
             co_yield TagChar{
                 .ch = m_str[index],
                 .color = color,
+                .isShake = isShake,
                 .time = m_times[index],
             };
         }
