@@ -2541,6 +2541,7 @@
     <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
+    <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

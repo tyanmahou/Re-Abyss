@@ -9,7 +9,7 @@ namespace abyss::Novel
         m_times << time;
         return *this;
     }
-    Coro::Generator<TagChar>::iterator TagString::begin() const
+    Coro::Iterator<TagChar> TagString::begin() const
     {
         s3d::ColorF color{};
         auto tagVisitor = overloaded{
@@ -33,7 +33,7 @@ namespace abyss::Novel
         }
         co_return;
     }
-    Coro::Generator<TagChar>::iterator_end TagString::end() const
+    Coro::IteratorEnd TagString::end() const
     {
         return {};
     }

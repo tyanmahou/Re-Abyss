@@ -3,7 +3,7 @@
 #include <concepts>
 #include <Siv3D/String.hpp>
 #include <Siv3D/ColorF.hpp>
-#include <abyss/utils/Coro/Generator/Generator.hpp>
+#include <abyss/utils/Coro/Iterator/Iterator.hpp>
 
 namespace abyss::Novel
 {
@@ -59,8 +59,8 @@ namespace abyss::Novel
         }
 
 
-        Coro::Generator<TagChar>::iterator begin() const;
-        Coro::Generator<TagChar>::iterator_end end() const;
+        Coro::Iterator<TagChar> begin() const;
+        Coro::IteratorEnd end() const;
 
     private:
         s3d::String m_str;

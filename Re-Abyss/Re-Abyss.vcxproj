@@ -970,6 +970,7 @@
     <ClInclude Include="app\types\Novel\TagString.hpp" />
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
+    <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
     <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
