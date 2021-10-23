@@ -20,6 +20,11 @@ namespace abyss::Novel
         Name(s3d::None_t) :
             m_name(s3d::none)
         {}
+
+        operator const s3d::Optional<s3d::String>& () const
+        {
+            return m_name;
+        }
     private:
         s3d::Optional<s3d::String> m_name;
     };

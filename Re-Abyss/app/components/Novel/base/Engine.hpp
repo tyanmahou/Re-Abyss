@@ -27,15 +27,17 @@ namespace abyss::Novel
             addCommand(std::make_shared<T>(m_pTalk, std::forward<Args>(args)...));
         }
         void addCommand(std::shared_ptr<ICommand> command);
+
+        const SerifModel& getSerif() const
+        {
+            return m_serif;
+        }
+
     public:
         void append(const char32_t ch);
 
         Engine& setColor(const s3d::Optional<s3d::ColorF>& color);
 
-        const TagString& getMessage() const
-        {
-            return m_serif.getMessage();
-        }
         bool isInputWait() const
         {
             return m_isInputWait;

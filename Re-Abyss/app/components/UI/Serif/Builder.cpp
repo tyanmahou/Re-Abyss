@@ -1,5 +1,6 @@
 #include "Builder.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/components/UI/Serif/Main.hpp>
 
 namespace abyss::UI::Serif
 {
@@ -10,7 +11,7 @@ namespace abyss::UI::Serif
     {
         // メイン追加
         {
-            //pUi->attach<Main>(pUi, serif);
+            pUi->attach<Main>(pUi, engine);
         }
     }
 }

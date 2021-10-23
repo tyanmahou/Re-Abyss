@@ -372,6 +372,7 @@
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\base\Engine.cpp" />
     <ClCompile Include="app\components\Novel\Common\ColorTag.cpp" />
+    <ClCompile Include="app\components\Novel\Common\MessageBox.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageStream.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitInput.cpp" />
     <ClCompile Include="app\components\Novel\Common\WaitTime.cpp" />
@@ -445,6 +446,7 @@
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Serif\Main.cpp" />
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
@@ -527,7 +529,6 @@
     <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Main.cpp" />
     <ClCompile Include="app\components\UI\Serif\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Serif\OldMain.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\modules\Cron\base\Batch.cpp" />
@@ -883,10 +884,12 @@
     <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\Engine.hpp" />
     <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
+    <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
+    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Result.hpp" />
@@ -1285,7 +1288,6 @@
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Serif\OldMain.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\concepts\Event.hpp" />
     <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
