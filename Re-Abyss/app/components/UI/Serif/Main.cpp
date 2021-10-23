@@ -6,9 +6,10 @@
 #include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
+#include <abyss/views/Novel/TagString/TagStringView.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <abyss/commons/Constants.hpp>
-
+#include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Serif
@@ -56,7 +57,14 @@ namespace abyss::UI::Serif
         //}
         m_boxView->draw();
 
+        auto&& font = FontAsset(FontName::Serif);
         const double messagePosX = serif.isLeft() ? -180 : -340;
+        Novel::TagStringView::Draw(
+            font,
+            serif.getMessage(),
+            pos + s3d::Vec2{ messagePosX, -25 },
+            m_engine->getTime()
+        );
         //m_messageView
         //    ->setStrIndex(m_serif->getStrIndex())
         //    .setCurrent(m_serif->getCurrent())

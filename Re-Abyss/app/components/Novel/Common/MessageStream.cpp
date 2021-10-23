@@ -30,7 +30,7 @@ namespace abyss::Novel
         for (char32_t ch : m_message) {
             m_done = index;
             engine->append(ch);
-            co_await Coro::WaitForSeconds(0.02s, globalTime);
+            co_await Coro::WaitForSeconds(60ms, globalTime);
             ++index;
         }
         co_return;

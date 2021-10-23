@@ -32,7 +32,10 @@ namespace abyss::Novel
         {
             return m_serif;
         }
-
+        double getTime() const
+        {
+            return m_time;
+        }
     public:
         void append(const char32_t ch);
 

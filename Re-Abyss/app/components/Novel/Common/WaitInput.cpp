@@ -22,6 +22,7 @@ namespace abyss::Novel
             if (InputManager::A.down() || InputManager::B.down()) {
                 break;
             }
+            co_yield{};
         }
         co_return;
     }

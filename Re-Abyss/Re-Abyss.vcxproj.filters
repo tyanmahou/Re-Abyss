@@ -1690,6 +1690,9 @@
     <ClCompile Include="app\components\Novel\Common\MessageBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2550,6 +2553,7 @@
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
+    <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
