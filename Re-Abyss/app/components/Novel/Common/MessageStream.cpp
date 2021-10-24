@@ -3,7 +3,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
-
+#include <abyss/commons/InputManager/InputManager.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Novel
@@ -24,6 +24,10 @@ namespace abyss::Novel
 
     Coro::Task<> MessageStream::onCommand()
     {
+        return skip() | stream();
+    }
+    Coro::Task<> MessageStream::stream()
+    {
         const auto& engine = m_pTalk->engine();
         auto* globalTime = m_pTalk->getModule<GlobalTime>();
         size_t index = 0;
@@ -34,5 +38,14 @@ namespace abyss::Novel
             ++index;
         }
         co_return;
+    }
+    Coro::Task<> MessageStream::skip()
+    {
+        while (true) {
+            if (InputManager::A.down()) {
+                co_return;
+            }
+            co_yield{};
+        }
     }
 }

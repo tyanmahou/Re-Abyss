@@ -16,8 +16,11 @@ namespace abyss::Novel
 
         Coro::Task<> onCommand() override;
     private:
+        Coro::Task<> stream();
+        Coro::Task<> skip();
+    private:
         TalkObj* m_pTalk = nullptr;
         s3d::String m_message;
-        size_t m_done;
+        size_t m_done = s3d::String::npos;
     };
 }
