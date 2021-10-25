@@ -59,6 +59,14 @@ namespace abyss::UI::Serif
 
         auto&& font = FontAsset(FontName::Serif);
         const double messagePosX = serif.isLeft() ? -180 : -340;
+
+        Novel::TagStringView::DrawPrev(
+            font,
+            m_engine->getPrevMessage(),
+            pos + s3d::Vec2{ messagePosX, -25 },
+            m_engine->getTime()
+        );
+
         Novel::TagStringView::Draw(
             font,
             serif.getMessage(),

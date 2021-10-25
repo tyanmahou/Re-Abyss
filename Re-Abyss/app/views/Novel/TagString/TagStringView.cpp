@@ -25,8 +25,7 @@ namespace abyss::Novel
         const TagString& text,
         const s3d::Vec2& basePos,
         double time
-    )
-    {
+    ) {
         Vec2 pos = basePos;
         for (auto&& elm : text) {
             auto glyph = font.getGlyph(elm.ch);
@@ -46,6 +45,40 @@ namespace abyss::Novel
             }
             // アルファ調整
             auto alpha = Saturate(t / 60.0 * 1000.0 / 6.0);
+
+            // 揺らす
+            if (elm.isShake) {
+                drawPos += ::Shake(t);
+            }
+
+            glyph.texture.draw(drawPos, elm.color.setA(alpha));
+            pos.x += glyph.xAdvance;
+        }
+    }
+    void TagStringView::DrawPrev(
+        const s3d::Font& font,
+        const TagString& text,
+        const s3d::Vec2& basePos,
+        double time
+    ) {
+        Vec2 pos = basePos;
+        for (auto&& elm : text) {
+            auto glyph = font.getGlyph(elm.ch);
+            if (glyph.codePoint == U'\n') {
+                pos.x = basePos.x;
+                pos.y += font.height() + 4;
+                continue;
+            }
+            auto drawPos = pos + glyph.getOffset();
+
+            double t = time - elm.time;
+            // さっと位置を動かす
+            {
+                constexpr double factor = 1.0 / 60.0 * 1000.0;
+                drawPos.y -= time * factor;
+            }
+            // アルファ調整
+            auto alpha = Saturate(1.0 - (time / 60.0 * 1000.0) * 0.25);
 
             // 揺らす
             if (elm.isShake) {

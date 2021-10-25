@@ -82,13 +82,16 @@ namespace abyss::Novel
     }
     void Engine::clearMessage()
     {
-        m_serif.getMessage().clear();
+        auto& message = m_serif.getMessage();
+        m_prevMessage = std::move(message);
+
+        message.clear();
         m_time = 0;
 
-        m_serif.getMessage().append(
+        message.append(
             Tag::Color{ m_color.top() }
         );
-        m_serif.getMessage().append(
+        message.append(
             Tag::Shake{ m_isShake }
         );
     }

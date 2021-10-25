@@ -14,5 +14,11 @@ namespace abyss::Novel
             const s3d::Vec2& basePos,
             double time
         );
+        static void DrawPrev(
+            const s3d::Font& font,
+            const TagString& text,
+            const s3d::Vec2& basePos,
+            double time
+        );
     };
 }

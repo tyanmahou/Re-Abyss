@@ -32,6 +32,10 @@ namespace abyss::Novel
         {
             return m_serif;
         }
+        const TagString& getPrevMessage() const
+        {
+            return m_prevMessage;
+        }
         double getTime() const
         {
             return m_time;
@@ -55,7 +59,7 @@ namespace abyss::Novel
         TalkObj* m_pTalk;
 
         SerifModel m_serif;
-
+        TagString m_prevMessage;
         std::stack<s3d::ColorF> m_color;
         bool m_isShake = false;
         bool m_isInputWait = false;
