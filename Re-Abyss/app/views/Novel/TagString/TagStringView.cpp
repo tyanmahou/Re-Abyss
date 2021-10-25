@@ -3,6 +3,9 @@
 
 namespace
 {
+    using namespace abyss;
+    using namespace abyss::Novel;
+
     Vec2 Shake(double t)
     {
         // オフセット計算
@@ -17,10 +20,9 @@ namespace
 
         return Vec2::UnitX().rotated(noise * s3d::Math::TwoPi) * (2.0 * offsetFactor);
     }
-}
-namespace abyss::Novel
-{
-    void TagStringView::Draw(
+
+    template<bool isPrev>
+    void DrawBase(
         const s3d::Font& font,
         const TagString& text,
         const s3d::Vec2& basePos,
@@ -37,14 +39,26 @@ namespace abyss::Novel
             auto drawPos = pos + glyph.getOffset();
 
             double t = time - elm.time;
-            // さっと位置を動かす
-            {
-                constexpr double moveOffs = 20.0;
-                constexpr double factor = 1.0 / 60.0 * 1000.0 / 4.0;
-                drawPos.y -= EaseIn(Easing::Quad, s3d::Saturate(1 - t * factor)) * moveOffs;
+            double alpha = 1.0;
+            if constexpr (!isPrev) {
+                // さっと位置を動かす
+                {
+                    constexpr double moveOffs = 20.0;
+                    constexpr double factor = 1.0 / 60.0 * 1000.0 / 4.0;
+                    drawPos.y -= EaseIn(Easing::Quad, s3d::Saturate(1 - t * factor)) * moveOffs;
+                }
+                // アルファ調整
+                alpha = Saturate(t / 60.0 * 1000.0 / 6.0);
+            } else {
+                // Prev
+                // さっと位置を動かす
+                {
+                    constexpr double factor = 1.0 / 60.0 * 1000.0;
+                    drawPos.y -= time * factor;
+                }
+                // アルファ調整
+                alpha = Saturate(1.0 - (time / 60.0 * 1000.0) * 0.25);
             }
-            // アルファ調整
-            auto alpha = Saturate(t / 60.0 * 1000.0 / 6.0);
 
             // 揺らす
             if (elm.isShake) {
@@ -55,38 +69,23 @@ namespace abyss::Novel
             pos.x += glyph.xAdvance;
         }
     }
+}
+namespace abyss::Novel
+{
+    void TagStringView::Draw(
+        const s3d::Font& font,
+        const TagString& text,
+        const s3d::Vec2& basePos,
+        double time
+    ) {
+        ::DrawBase<false>(font, text, basePos, time);
+    }
     void TagStringView::DrawPrev(
         const s3d::Font& font,
         const TagString& text,
         const s3d::Vec2& basePos,
         double time
     ) {
-        Vec2 pos = basePos;
-        for (auto&& elm : text) {
-            auto glyph = font.getGlyph(elm.ch);
-            if (glyph.codePoint == U'\n') {
-                pos.x = basePos.x;
-                pos.y += font.height() + 4;
-                continue;
-            }
-            auto drawPos = pos + glyph.getOffset();
-
-            double t = time - elm.time;
-            // さっと位置を動かす
-            {
-                constexpr double factor = 1.0 / 60.0 * 1000.0;
-                drawPos.y -= time * factor;
-            }
-            // アルファ調整
-            auto alpha = Saturate(1.0 - (time / 60.0 * 1000.0) * 0.25);
-
-            // 揺らす
-            if (elm.isShake) {
-                drawPos += ::Shake(t);
-            }
-
-            glyph.texture.draw(drawPos, elm.color.setA(alpha));
-            pos.x += glyph.xAdvance;
-        }
+        ::DrawBase<true>(font, text, basePos, time);
     }
 }
