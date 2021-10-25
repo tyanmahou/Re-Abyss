@@ -55,6 +55,8 @@ namespace abyss::Novel
             return *this;
         }
 
+        void clear();
+
         size_t length() const
         {
             return size();

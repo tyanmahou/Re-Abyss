@@ -9,6 +9,12 @@ namespace abyss::Novel
         m_times << time;
         return *this;
     }
+    void TagString::clear()
+    {
+        m_str.clear();
+        m_times.clear();
+        m_tags.clear();
+    }
     Coro::Iterator<TagChar> TagString::begin() const
     {
         s3d::ColorF color{};

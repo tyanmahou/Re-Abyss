@@ -371,6 +371,7 @@
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\base\Engine.cpp" />
+    <ClCompile Include="app\components\Novel\Common\ClearMessage.cpp" />
     <ClCompile Include="app\components\Novel\Common\ColorTag.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageBox.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageStream.cpp" />
@@ -885,6 +886,7 @@
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\Engine.hpp" />
+    <ClInclude Include="app\components\Novel\Common\ClearMessage.hpp" />
     <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />

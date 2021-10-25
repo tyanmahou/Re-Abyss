@@ -2,11 +2,12 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
+#include <abyss/components/Novel/Common/ClearMessage.hpp>
 #include <abyss/components/Novel/Common/ColorTag.hpp>
 #include <abyss/components/Novel/Common/MessageStream.hpp>
+#include <abyss/components/Novel/Common/ShakeTag.hpp>
 #include <abyss/components/Novel/Common/WaitInput.hpp>
 #include <abyss/components/Novel/Common/WaitTime.hpp>
-#include <abyss/components/Novel/Common/ShakeTag.hpp>
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <Siv3D.hpp>
@@ -100,6 +101,9 @@ namespace abyss::Novel
         engine->addCommand<WaitInput>();
         engine->addCommand<ColorTag>(s3d::none);
         engine->addCommand<MessageStream>(U"うううううううううううう\nああああ");
+        engine->addCommand<WaitInput>();
+        engine->addCommand<ClearMessage>();
+        engine->addCommand<MessageStream>(U"おあおああおあおあおあおあおあおあおあ\nおあおあおあおあ");
         engine->addCommand<WaitInput>();
 
         pTalk->attach<MessageBox>(pTalk);

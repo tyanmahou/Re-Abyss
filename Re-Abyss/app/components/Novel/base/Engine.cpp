@@ -74,9 +74,22 @@ namespace abyss::Novel
     }
     Engine& Engine::setIsShake(bool isShake)
     {
+        m_isShake = isShake;
         m_serif.getMessage().append(
             Tag::Shake{ isShake }
         );
         return *this;
+    }
+    void Engine::clearMessage()
+    {
+        m_serif.getMessage().clear();
+        m_time = 0;
+
+        m_serif.getMessage().append(
+            Tag::Color{ m_color.top() }
+        );
+        m_serif.getMessage().append(
+            Tag::Shake{ m_isShake }
+        );
     }
 }

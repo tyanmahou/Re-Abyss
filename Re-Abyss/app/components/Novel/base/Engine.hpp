@@ -49,13 +49,15 @@ namespace abyss::Novel
         {
             m_isInputWait = isInputWait;
         }
+
+        void clearMessage();
     private:
         TalkObj* m_pTalk;
 
         SerifModel m_serif;
 
         std::stack<s3d::ColorF> m_color;
-
+        bool m_isShake = false;
         bool m_isInputWait = false;
 
         // コマンド
