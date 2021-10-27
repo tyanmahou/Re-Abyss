@@ -80,6 +80,21 @@
 //    }
 //}
 
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::Novel;
+
+    class Parser
+    {
+    public:
+        Parser(const String& path):
+            m_text(path)
+        {}
+
+        TextReader m_text;
+    };
+}
 namespace abyss::Novel
 {
     void TalkBuilder::Build(TalkObj* pTalk, const s3d::String& path)
