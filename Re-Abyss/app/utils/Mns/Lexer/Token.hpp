@@ -11,6 +11,12 @@ namespace Mns
         /// <summary>無効値</summary>
         Invalid,
 
+        /// <summary>/</summary>
+        Slash,
+
+        /// <summary>#</summary>
+        Sharp,
+
         /// <summary>括弧 [</summary>
         LSqBrace,
         /// <summary>括弧 ]</summary>

@@ -8,6 +8,10 @@ namespace Mns
     {
         this->load(mns);
     }
+	Lexer::Lexer(s3d::Arg::code_<s3d::String> code)
+	{
+		this->load(code);
+	}
 	bool Lexer::load(const FilePath& mns)
 	{
 		TextReader reader(mns);
@@ -27,6 +31,19 @@ namespace Mns
 
 		return true;
 	}
+	bool Lexer::load(s3d::Arg::code_<s3d::String> code)
+	{
+		for (auto&& line : code->split(U'\n')) {
+			if (line[0] == ';') {
+				// コメント
+				continue;
+			}
+
+			// パース
+			this->parseLine(line);
+		}
+		return true;
+	}
 	void Lexer::parseLine(const s3d::String& line)
 	{
 		size_t pos = 0;
@@ -40,11 +57,13 @@ namespace Mns
 			if (m_isTag && IsAlpha(line[pos])) {
 				// 識別子
 				const size_t start = pos;
+				++pos;
+
 				while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_')) {
 					++pos;
 				}
 				m_tokens.emplace_back(TokenType::Ident, line.substr(start, pos - start));
-			} else if (m_isTag && IsDigit(line[pos]) || line[pos] == U'-' && pos + 1 < length && IsDigit(line[pos + 1])) {
+			} else if (m_isTag && (IsDigit(line[pos]) || line[pos] == U'-' && pos + 1 < length && IsDigit(line[pos + 1]))) {
 				// 数
 				const size_t start = pos;
 				bool isFoundDot = false;
@@ -86,7 +105,12 @@ namespace Mns
 			} else if (line[pos] == U'=') {
 				m_tokens.emplace_back(TokenType::Assign, String(1, line[pos]));
 				++pos;
-				m_isTag = false;
+			} else if (line[pos] == U'#') {
+				m_tokens.emplace_back(TokenType::Sharp, String(1, line[pos]));
+				++pos;
+			} else if (m_isTag && line[pos] == U'/') {
+				m_tokens.emplace_back(TokenType::Slash, String(1, line[pos]));
+				++pos;
 			} else {
 				// 何もなければ文章
 				const size_t start = pos;
