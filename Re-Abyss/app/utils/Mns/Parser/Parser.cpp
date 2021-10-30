@@ -102,7 +102,7 @@ namespace Mns
         // #記号
         ++it;
 
-        if (it->type != TokenType::Text) {
+        if (it == m_tokens.end() || it->type != TokenType::Text) {
             m_errors.emplace_back(U"Not Found Name");
             return nullptr;
         }
