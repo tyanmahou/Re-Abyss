@@ -198,7 +198,7 @@
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="17" gid="49" x="80" y="80" width="40" height="40">
    <properties>
-    <property name="event" type="file" value="../../../../resources/events/stage0/boss.json"/>
+    <property name="event" type="file" value="../../../../resources/novel/stage0/pre_boss.mns"/>
    </properties>
   </object>
  </objectgroup>

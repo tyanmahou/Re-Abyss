@@ -10,78 +10,61 @@
 #include <abyss/components/Novel/Common/WaitTime.hpp>
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
+#include <abyss/utils/Mns/Script.hpp>
 #include <Siv3D.hpp>
 
-//namespace abyss::Event::Talk
-//{
-//    void TalkBuilder::Build(EventObj* pEvent, const s3d::String& path)
-//    {
-//        // TODO リソースロード経由にする
-//        auto fixPath = FileUtil::FixRelativePath(path);
-//        JSON json = JSON::Load(fixPath);
-//        if (!json) {
-//            return;
-//        }
-//
-//        // 顔グラフィック
-//        auto faceTableModel = std::make_shared<FaceTableModel>();
-//        {
-//            for (const auto& elm : json[U"actors"].arrayView()) {
-//                faceTableModel->add(
-//                    elm[U"name"].getString(),
-//                    elm[U"path"].getString()
-//                );
-//            }
-//        }
-//        // トリガー
-//        TriggerFactory triggerFactory;
-//        {
-//            json[U"build_id"].getOpt<String>().then([&](const String& name) {
-//                // イベントビルド
-//                if (name == U"BossTalk0-0") {
-//                    return BossTalk0_0::Build(triggerFactory);
-//                }
-//            });
-//        }
-//
-//        // 会話制御
-//        auto talkCtrl = pEvent->attach<TalkCtrl>(pEvent);
-//
-//        for (auto&& event : json[U"events"].arrayView()) {
-//            if (auto&& trigger = event[U"trigger"].getOpt<String>(); trigger) {
-//                // トリガーイベント
-//                auto talkObj = talkCtrl->create();
-//                if (auto&& builder = triggerFactory[*trigger]) {
-//                    builder(talkObj.get());
-//                } else {
-//#if ABYSS_DEBUG
-//                    Debug::LogWarn << U"Not found trigger:{}"_fmt(*trigger);
-//#endif
-//                }
-//            } else if (auto&& serif = event[U"serif"]; serif.isObject()) {
-//                // セリフ
-//                OldSerifModel model;
-//                serif[U"actor"].getOpt<String>().then([&model](const String& actor) {
-//                    model.setActorName(actor);
-//                });
-//                String side = serif[U"side"].getOr<String>(U"left");
-//                model.setSide(side == U"left" ? OldSerifModel::Side::Left : OldSerifModel::Side::Right);
-//
-//                for (auto&& message : serif[U"messages"].arrayView()) {
-//                    for (auto&& [kind, m] : message) {
-//                        model.addMessage(OldSerifModel::Message{ kind,  m.get<String>() });
-//                    }
-//                }
-//                auto talkObj = talkCtrl->create();
-//                talkObj->attach<OldSerifCtrl>(talkObj.get(), model);
-//                talkObj->attach<FaceTable>(faceTableModel);
-//            }
-//        }
-//    }
-//}
 namespace
 {
-
+    using namespace abyss::Novel;
+    using namespace Mns;
+    using namespace Mns::Ast;
+    class EvalImpl final : public IEvalImpl
+    {
+    public:
+        EvalImpl(Engine* pEngine):
+            m_pEngine(pEngine)
+        {}
+    public:
+        void eval(const TagStatement& statement) override
+        {
+            const auto& tag = statement.tag.first;
+            const auto& tagValue = statement.tag.second;
+            if (tag == U"cm") {
+                m_pEngine->addCommand<ClearMessage>();
+            } else if (tag == U"l") {
+                m_pEngine->addCommand<WaitInput>();
+            } else if (tag == U"r") {
+                m_pEngine->addCommand<MessageStream>(U"\n");
+            } else if (tag == U"color") {
+                if (tagValue) {
+                    m_pEngine->addCommand<ColorTag>(Color(*tagValue));
+                }
+            } else if (tag == U"/color") {
+                m_pEngine->addCommand<ColorTag>(s3d::none);
+            } else if (tag == U"shake") {
+                m_pEngine->addCommand<ShakeTag>(true);
+            } else if (tag == U"/shake") {
+                m_pEngine->addCommand<ShakeTag>(false);
+            } else if (tag == U"wait") {
+                Duration time{};
+                for (const auto& [key, value] : statement.childs) {
+                    if (key == U"time" && value) {
+                        time = Duration(s3d::Parse<double>(*value));
+                    }
+                }
+            }
+        }
+        void eval(const Ast::NameStatement& statement) override
+        {
+            //@todo
+        }
+        void eval(const Ast::TextStatement& statement) override
+        {
+            m_pEngine->addCommand<MessageStream>(statement.text);
+        }
+    private:
+        Engine* m_pEngine;
+    };
 }
 namespace abyss::Novel
 {
@@ -89,25 +72,12 @@ namespace abyss::Novel
     {
         const auto& engine = pTalk->engine();
 
-        engine->addCommand<ShakeTag>(true);
-        engine->addCommand<MessageStream>(U"ぎゃああああああ");
-        engine->addCommand<WaitTime>(1.0s);
-        engine->addCommand<MessageStream>(U".");
-        engine->addCommand<WaitTime>(1.0s);
-        engine->addCommand<MessageStream>(U".");
-        engine->addCommand<WaitTime>(1.0s);
-        engine->addCommand<MessageStream>(U".");
-        engine->addCommand<WaitTime>(1.0s);
-        engine->addCommand<ShakeTag>(false);
-        engine->addCommand<ColorTag>(s3d::Palette::Red);
-        engine->addCommand<MessageStream>(U"いいいうふぃふぃふぃｙふぃふぃふぃ\n");
-        engine->addCommand<WaitInput>();
-        engine->addCommand<ColorTag>(s3d::none);
-        engine->addCommand<MessageStream>(U"うううううううううううう\nああああ");
-        engine->addCommand<WaitInput>();
-        engine->addCommand<ClearMessage>();
-        engine->addCommand<MessageStream>(U"おあおああおあおあおあおあおあおあおあ\nおあおあおあおあ");
-        engine->addCommand<WaitInput>();
+        // スクリプトからロード
+        {
+            Mns::Script script(path);
+            EvalImpl eval(engine.get());
+            script.eval(&eval);
+        }
 
         pTalk->attach<MessageBox>(pTalk);
     }

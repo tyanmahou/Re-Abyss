@@ -76,12 +76,12 @@
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="15" gid="51" x="640" y="560" width="60" height="60">
    <properties>
-    <property name="event" type="file" value="../../events/serif_01_sample.json"/>
+    <property name="event" type="file" value="../../novels/novel_test_01.mns"/>
    </properties>
   </object>
   <object id="16" gid="51" x="960" y="560" width="60" height="60">
    <properties>
-    <property name="event" type="file" value="../../events/serif_01_sample.json"/>
+    <property name="event" type="file" value="../../novels/novel_test_01.mns"/>
    </properties>
   </object>
  </objectgroup>
