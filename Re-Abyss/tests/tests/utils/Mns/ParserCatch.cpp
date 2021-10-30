@@ -41,6 +41,18 @@ namespace abyss::tests
                 REQUIRE(statement->text == U"AAAaaaBBBbbbCCC ccc");
             }
         }
+        SECTION("test text invalid new line for file")
+        {
+            Mns::Lexer lexer(U"tests/data/novels/novel_test_02.mns");
+            Mns::Parser parser(lexer.getTokens());
+
+            auto statement = std::dynamic_pointer_cast<Mns::Ast::TextStatement>(parser.root()->statements[0]);
+            REQUIRE(statement != nullptr);
+
+            if (statement) {
+                REQUIRE(statement->text == U"AAA aaa \\n BBB bbb");
+            }
+        }
     }
 }
 #endif
