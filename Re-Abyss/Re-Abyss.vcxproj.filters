@@ -2570,6 +2570,12 @@
     <ClInclude Include="app\components\Novel\Common\ClearMessage.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\INode.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\IStatement.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\Root.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\Statement\TagStatement.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\Statement\TextStatement.hpp" />
+    <ClInclude Include="app\utils\Mns\Ast\Statement\NameStatement.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
