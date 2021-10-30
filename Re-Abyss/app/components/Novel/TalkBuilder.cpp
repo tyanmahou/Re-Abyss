@@ -52,6 +52,7 @@ namespace
                         time = Duration(s3d::Parse<double>(*value));
                     }
                 }
+                m_pEngine->addCommand<WaitTime>(time);
             }
         }
         void eval(const Ast::NameStatement& statement) override
