@@ -20,6 +20,10 @@ namespace Mns
         Parser(const s3d::Array<Token>& tokens);
 
         std::shared_ptr<Ast::Root> root();
+        const s3d::Array<Error> errors() const
+        {
+            return m_errors;
+        }
     private:
         std::shared_ptr<Ast::Root> parseRoot(AstItr& it);
         std::shared_ptr<Ast::IStatement> parseStatement(AstItr& it);

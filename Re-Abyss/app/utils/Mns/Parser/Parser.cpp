@@ -42,7 +42,60 @@ namespace Mns
     }
     std::shared_ptr<TagStatement> Parser::parseTagStatement(AstItr& it)
     {
-        return nullptr;
+        // [
+        ++it;
+
+        auto statement = std::make_shared<TagStatement>();
+
+        bool isFirst = true;
+        while (it != m_tokens.end()) {
+            TagKeyValue tag;
+
+            // Key設定
+            if (isFirst && it->type == TokenType::Slash) {
+                tag.first += U"/";
+
+                ++it;
+            }
+            if (it == m_tokens.end() || it->type != TokenType::Ident) {
+                m_errors.emplace_back(U"Tag is required ident key");
+                return nullptr;
+            }
+            tag.first += it->value;
+
+            ++it;
+            if (it != m_tokens.end() && it->type == TokenType::Assign) {
+                // Value設定 (opt)
+
+                // =
+                ++it;
+                if (it == m_tokens.end() || it->type != TokenType::Value) {
+                    m_errors.emplace_back(U"Not Found Tag Value");
+                    return nullptr;
+                }
+
+                tag.second = it->value;
+
+                // value
+                ++it;
+            }
+
+            if (isFirst) {
+                statement->tag = std::move(tag);
+            } else {
+                statement->childs << std::move(tag);
+            }
+            isFirst = false;
+
+            if (it == m_tokens.end() || it->type != TokenType::Ident) {
+                break;
+            }
+        }
+        if (it == m_tokens.end() || it->type != TokenType::RSqBrace) {
+            m_errors.emplace_back(U"Not Found Tag ]");
+            return nullptr;
+        }
+        return statement;
     }
     std::shared_ptr<NameStatement> Parser::parseNameStatement(AstItr& it)
     {
