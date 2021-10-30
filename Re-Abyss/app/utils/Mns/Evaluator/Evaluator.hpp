@@ -7,10 +7,10 @@ namespace Mns
     class Evaluator
     {
     public:
-        Evaluator(std::unique_ptr<IEvalImpl>&& pImpl);
+        Evaluator(IEvalImpl* pImpl);
 
         void eval(Ast::Root* root);
     private:
-        std::unique_ptr<IEvalImpl> m_pImpl;
+        IEvalImpl* m_pImpl;
     };
 }

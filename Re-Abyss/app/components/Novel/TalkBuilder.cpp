@@ -79,6 +79,10 @@
 //        }
 //    }
 //}
+namespace
+{
+
+}
 namespace abyss::Novel
 {
     void TalkBuilder::Build(TalkObj* pTalk, const s3d::String& path)

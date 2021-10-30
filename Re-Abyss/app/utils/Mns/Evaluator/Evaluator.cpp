@@ -2,12 +2,15 @@
 
 namespace Mns
 {
-    Evaluator::Evaluator(std::unique_ptr<IEvalImpl>&& pImpl):
-        m_pImpl(std::move(pImpl))
+    Evaluator::Evaluator(IEvalImpl* pImpl):
+        m_pImpl(pImpl)
     {}
     void Evaluator::eval(Ast::Root * root)
     {
         if (!root) {
+            return;
+        }
+        if (!m_pImpl) {
             return;
         }
         for (auto&& pStatement : root->statements) {
