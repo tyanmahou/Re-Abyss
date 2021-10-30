@@ -592,6 +592,7 @@
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\IdGenerator\IdGenerator.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
+    <ClCompile Include="app\utils\Mns\Evaluator\Evaluator.cpp" />
     <ClCompile Include="app\utils\Mns\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Mns\Parser\Parser.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
@@ -995,6 +996,8 @@
     <ClInclude Include="app\utils\Mns\Ast\Statement\NameStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\TagStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\TextStatement.hpp" />
+    <ClInclude Include="app\utils\Mns\Evaluator\Evaluator.hpp" />
+    <ClInclude Include="app\utils\Mns\Evaluator\IEvalImpl.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mns\Parser\Parser.hpp" />
