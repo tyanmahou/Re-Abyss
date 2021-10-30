@@ -1705,6 +1705,12 @@
     <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Mns\Parser\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2576,6 +2582,7 @@
     <ClInclude Include="app\utils\Mns\Ast\Statement\TagStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\TextStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\NameStatement.hpp" />
+    <ClInclude Include="app\utils\Mns\Parser\Parser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

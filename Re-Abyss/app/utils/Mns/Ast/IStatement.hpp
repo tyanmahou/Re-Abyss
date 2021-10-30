@@ -1,5 +1,5 @@
 #pragma once
-#include "INode.hpp"
+#include <abyss/utils/Mns/Ast/INode.hpp>
 
 namespace Mns::Ast
 {

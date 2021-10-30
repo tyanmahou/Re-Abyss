@@ -1,5 +1,5 @@
 #pragma once
-#include "../IStatement.hpp"
+#include <abyss/utils/Mns/Ast/IStatement.hpp>
 
 namespace Mns::Ast
 {
