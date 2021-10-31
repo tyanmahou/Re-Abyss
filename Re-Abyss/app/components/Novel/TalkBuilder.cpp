@@ -35,10 +35,8 @@ namespace
                 m_pEngine->addCommand<WaitInput>();
             } else if (tag == U"r") {
                 m_pEngine->addCommand<MessageStream>(U"\n");
-            } else if (tag == U"color") {
-                if (tagValue) {
-                    m_pEngine->addCommand<ColorTag>(Color(*tagValue));
-                }
+            } else if (tag == U"color" && tagValue) {
+                m_pEngine->addCommand<ColorTag>(Color(*tagValue));
             } else if (tag == U"/color") {
                 m_pEngine->addCommand<ColorTag>(s3d::none);
             } else if (tag == U"shake") {
