@@ -56,7 +56,7 @@ namespace
         }
         void eval(const Ast::NameStatement& statement) override
         {
-            m_pEngine->addCommand<MessageStream>(statement.name);
+            m_pEngine->addCommand<NameSetter>(statement.name);
         }
         void eval(const Ast::TextStatement& statement) override
         {
