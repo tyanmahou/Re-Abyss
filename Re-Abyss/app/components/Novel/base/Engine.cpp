@@ -56,6 +56,10 @@ namespace abyss::Novel
     {
         m_commands.push(command);
     }
+    void Engine::setName(const Name& name)
+    {
+        m_serif.setName(name);
+    }
     void Engine::append(const char32_t ch)
     {
         m_serif.getMessage().append(ch, m_time);

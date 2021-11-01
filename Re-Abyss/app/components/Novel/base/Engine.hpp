@@ -41,6 +41,7 @@ namespace abyss::Novel
             return m_time;
         }
     public:
+        void setName(const Name& name);
         void append(const char32_t ch);
 
         Engine& setColor(const s3d::Optional<s3d::ColorF>& color);

@@ -5,6 +5,7 @@
 #include <abyss/components/Novel/Common/ClearMessage.hpp>
 #include <abyss/components/Novel/Common/ColorTag.hpp>
 #include <abyss/components/Novel/Common/MessageStream.hpp>
+#include <abyss/components/Novel/Common/NameSetter.hpp>
 #include <abyss/components/Novel/Common/ShakeTag.hpp>
 #include <abyss/components/Novel/Common/WaitInput.hpp>
 #include <abyss/components/Novel/Common/WaitTime.hpp>
@@ -55,7 +56,7 @@ namespace
         }
         void eval(const Ast::NameStatement& statement) override
         {
-            //@todo
+            m_pEngine->addCommand<MessageStream>(statement.name);
         }
         void eval(const Ast::TextStatement& statement) override
         {
