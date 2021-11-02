@@ -2,6 +2,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
+#include <abyss/components/Novel/Common/CharaSetter.hpp>
 #include <abyss/components/Novel/Common/ClearMessage.hpp>
 #include <abyss/components/Novel/Common/ColorTag.hpp>
 #include <abyss/components/Novel/Common/MessageStream.hpp>
@@ -12,6 +13,7 @@
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <abyss/utils/Mns/Script.hpp>
+#include <abyss/utils/Enum/EnumTraits.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -52,6 +54,25 @@ namespace
                     }
                 }
                 m_pEngine->addCommand<WaitTime>(time);
+            } else if (tag == U"chara") {
+                s3d::Optional<CharaKind> kind;
+                if (tagValue) {
+                    kind = Enum::Parse<CharaKind>(*tagValue);
+                }
+                s3d::Optional<Side> side;
+                s3d::Optional<Face> face;
+                for (const auto& [key, value] : statement.childs) {
+                    if (key == U"side" && value) {
+                        if (*value == U"l") {
+                            side = Side::Left;
+                        } else if (*value == U"r") {
+                            side = Side::Right;
+                        }
+                    } else if (key == U"face" && value) {
+                        face = Face(*value);
+                    }
+                }
+                m_pEngine->addCommand<CharaSetter>(kind, side, face);
             }
         }
         void eval(const Ast::NameStatement& statement) override

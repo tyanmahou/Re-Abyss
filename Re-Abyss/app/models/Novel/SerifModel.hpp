@@ -42,7 +42,7 @@ namespace abyss::Novel
         {
             return m_side == Side::Right;
         }
-        SerifModel& setSide(const Face& face)
+        SerifModel& setFace(const Face& face)
         {
             m_face = face;
             return *this;

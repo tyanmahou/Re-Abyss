@@ -1720,6 +1720,9 @@
     <ClCompile Include="app\components\Novel\Common\NameSetter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\CharaSetter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2596,6 +2599,7 @@
     <ClInclude Include="app\utils\Mns\Evaluator\IEvalImpl.hpp" />
     <ClInclude Include="app\utils\Mns\Script.hpp" />
     <ClInclude Include="app\components\Novel\Common\NameSetter.hpp" />
+    <ClInclude Include="app\components\Novel\Common\CharaSetter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

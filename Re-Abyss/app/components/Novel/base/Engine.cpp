@@ -56,6 +56,27 @@ namespace abyss::Novel
     {
         m_commands.push(command);
     }
+    void Engine::setCharaKind(const CharaKind& kind)
+    {
+        bool isChangeKind = kind != m_serif.getKind();
+        m_serif.setKind(kind);
+        if (isChangeKind) {
+            // Kindが変わるなら強制でリセット
+            m_serif.setSide(Side::Left);
+            m_serif.setFace(Face{});
+            if (m_serif.getMessage().length() > 0) {
+                this->clearMessage();
+            }
+        }
+    }
+    void Engine::setSide(const Side & side)
+    {
+        m_serif.setSide(side);
+    }
+    void Engine::setFace(const Face & face)
+    {
+        m_serif.setFace(face);
+    }
     void Engine::setName(const Name& name)
     {
         m_serif.setName(name);

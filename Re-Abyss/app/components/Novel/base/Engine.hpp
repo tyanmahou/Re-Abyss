@@ -41,6 +41,10 @@ namespace abyss::Novel
             return m_time;
         }
     public:
+        void setCharaKind(const CharaKind& kind);
+        void setSide(const Side& side);
+        void setFace(const Face& face);
+
         void setName(const Name& name);
         void append(const char32_t ch);
 
