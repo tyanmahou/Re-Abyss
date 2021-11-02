@@ -17,14 +17,29 @@ namespace abyss::Novel
     {}
     void CharaSetter::onStart()
     {
+        auto* engine = m_pTalk->engine().get();
+        const auto& curtSerif = engine->getSerif();
+
+        // キャラか位置が変わったらバッファクリア
+        const bool isChangeChara = m_kind && *m_kind != curtSerif.getKind();
+        const bool isChangeSide = m_side && *m_side != curtSerif.getSide();
+        bool isClearBuffer = isChangeChara || isChangeSide;
+
         if (m_kind) {
-            m_pTalk->engine()->setCharaKind(*m_kind);
+            engine->setCharaKind(*m_kind);
         }
         if (m_side) {
-            m_pTalk->engine()->setSide(*m_side);
+            engine->setSide(*m_side);
+        } else if (isChangeChara) {
+            engine->setSide(Side::Left);
         }
         if (m_face) {
-            m_pTalk->engine()->setFace(*m_face);
+            engine->setFace(*m_face);
+        } else if (isChangeChara) {
+            engine->setFace(Face{});
+        }
+        if (isClearBuffer) {
+            engine->clearBuffer();
         }
     }
     Coro::Task<> CharaSetter::onCommand()

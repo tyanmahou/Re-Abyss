@@ -59,7 +59,15 @@ namespace abyss::Novel
             m_isInputWait = isInputWait;
         }
 
+        /// <summary>
+        /// メッセージをクリア
+        /// </summary>
         void clearMessage();
+
+        /// <summary>
+        /// メッセージを完全にクリア
+        /// </summary>
+        void clearBuffer();
     private:
         TalkObj* m_pTalk;
 

@@ -317,9 +317,6 @@
     <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\UI\Serif\MessageVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1922,7 +1919,6 @@
     <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
     <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
-    <ClInclude Include="app\views\UI\Serif\MessageVM.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />

@@ -1,9 +1,9 @@
 #include "Main.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Novel/base/Engine.hpp>
 
-#include <abyss/views/UI/Serif/MessageVM.hpp>
 #include <abyss/views/UI/Serif/MessageBoxVM.hpp>
 #include <abyss/views/UI/Serif/CursorVM.hpp>
 #include <abyss/views/Novel/TagString/TagStringView.hpp>
@@ -20,7 +20,6 @@ namespace abyss::UI::Serif
     ) :
         m_pUi(pUi),
         m_engine(engine),
-        m_messageView(std::make_unique<MessageVM>()),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>())
     {}
@@ -49,12 +48,16 @@ namespace abyss::UI::Serif
             .setPos(pos)
             .setName(serif.getName());
 
-        //if (const auto& actorName = m_serif->getActorName(); m_faceTable && actorName) {
-        //    const auto& faceKind = m_serif->getCurrentKind();
-        //    if (m_faceTable->isContain(*actorName, faceKind)) {
-        //        m_boxView->setFaceIcon(m_faceTable->getFace(*actorName, faceKind));
-        //    }
-        //}
+        auto* novels = m_pUi->getModule<Novels>();
+        if (auto chara = novels->findChara(serif.getKind())) {
+            if (auto face = chara->getFace(serif.getFace())) {
+                m_boxView->setFaceIcon(face);
+            } else {
+                m_boxView->setFaceIcon({});
+            }
+        } else {
+            m_boxView->setFaceIcon({});
+        }
         m_boxView->draw();
 
         auto&& font = FontAsset(FontName::Serif);
@@ -73,13 +76,6 @@ namespace abyss::UI::Serif
             pos + s3d::Vec2{ messagePosX, -25 },
             m_engine->getTime()
         );
-        //m_messageView
-        //    ->setStrIndex(m_serif->getStrIndex())
-        //    .setCurrent(m_serif->getCurrent())
-        //    .setPrev(m_serif->getPrev())
-        //    .setPos(pos + s3d::Vec2{ messagePosX, -25 })
-        //    .draw()
-        //    ;
 
         if (m_engine->isInputWait()) {
             m_cursorView->setPos(pos + s3d::Vec2{ messagePosX + 500, 50 }).draw();

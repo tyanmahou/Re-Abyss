@@ -58,16 +58,7 @@ namespace abyss::Novel
     }
     void Engine::setCharaKind(const CharaKind& kind)
     {
-        bool isChangeKind = kind != m_serif.getKind();
         m_serif.setKind(kind);
-        if (isChangeKind) {
-            // Kindが変わるなら強制でリセット
-            m_serif.setSide(Side::Left);
-            m_serif.setFace(Face{});
-            if (m_serif.getMessage().length() > 0) {
-                this->clearMessage();
-            }
-        }
     }
     void Engine::setSide(const Side & side)
     {
@@ -119,5 +110,14 @@ namespace abyss::Novel
         message.append(
             Tag::Shake{ m_isShake }
         );
+    }
+    void Engine::clearBuffer()
+    {
+        if (m_serif.getMessage().length() > 0) {
+            this->clearMessage();
+        }
+        if (m_prevMessage.length() > 0) {
+            m_prevMessage.clear();
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace abyss::Novel
 
 namespace abyss::UI::Serif
 {
-    class MessageVM;
     class MessageBoxVM;
     class CursorVM;
 
@@ -39,7 +38,6 @@ namespace abyss::UI::Serif
 
         Ref<Novel::Engine> m_engine;
 
-        std::unique_ptr<MessageVM> m_messageView;
         std::unique_ptr<MessageBoxVM> m_boxView;
         std::unique_ptr<CursorVM> m_cursorView;
     };

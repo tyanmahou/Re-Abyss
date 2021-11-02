@@ -27,7 +27,14 @@ namespace abyss::Novel
     {
         return m_table.contains(kind);
     }
-    const CharaModel& CharaTable::getChara(CharaKind kind) const
+    s3d::Optional<CharaModel> CharaTable::find(CharaKind kind) const
+    {
+        if (!isContain(kind)) {
+            return s3d::none;
+        }
+        return this->get(kind);
+    }
+    const CharaModel& CharaTable::get(CharaKind kind) const
     {
         return m_table.at(kind);
     }

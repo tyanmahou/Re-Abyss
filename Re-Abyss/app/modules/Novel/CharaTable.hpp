@@ -17,7 +17,9 @@ namespace abyss::Novel
         void add(const CharaModel& chara);
 
         [[nodiscard]] bool isContain(CharaKind kind) const;
-        [[nodiscard]] const CharaModel& getChara(CharaKind kind) const;
+        [[nodiscard]] const CharaModel& get(CharaKind kind) const;
+
+        [[nodiscard]] s3d::Optional<CharaModel> find(CharaKind kind) const;
 
     private:
         s3d::HashTable<CharaKind, CharaModel> m_table;

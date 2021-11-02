@@ -3,6 +3,7 @@
 #include <memory>
 #include <abyss/concepts/Novel.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/modules/Novel/CharaTable.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
@@ -63,6 +64,13 @@ namespace abyss::Novel
         /// <param name="event"></param>
         /// <returns></returns>
         Ref<TalkObj> regist(const std::shared_ptr<TalkObj>& talk);
+
+        /// <summary>
+        /// キャラの検索
+        /// </summary>
+        /// <param name="kind"></param>
+        /// <returns></returns>
+        s3d::Optional<CharaModel> findChara(CharaKind kind) const;
     private:
         std::queue<std::shared_ptr<TalkObj>> m_talks;
         bool m_doneCurrentInit = false;

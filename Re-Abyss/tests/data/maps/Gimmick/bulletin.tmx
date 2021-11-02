@@ -81,7 +81,7 @@
   </object>
   <object id="16" gid="51" x="960" y="560" width="60" height="60">
    <properties>
-    <property name="event" type="file" value="../../novels/novel_test_01.mns"/>
+    <property name="event" type="file" value="../../novels/novel_test_03.mns"/>
    </properties>
   </object>
  </objectgroup>
