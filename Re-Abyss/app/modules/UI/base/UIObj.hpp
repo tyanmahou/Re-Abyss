@@ -2,6 +2,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
+#include <abyss/modules/UI/base/Layer.hpp>
 
 namespace abyss::UI
 {
@@ -15,5 +16,14 @@ namespace abyss::UI
         void draw() const;
 
         double deltaTime() const;
+
+        bool isActive(const Layer& layer) const;
+
+        void setLayer(const Layer& layer)
+        {
+            m_layer = layer;
+        }
+    private:
+        Layer m_layer{};
     };
 }

@@ -34,7 +34,6 @@ namespace abyss
 	class Light;
 	class BackGround;
 	class Sound;
-	class UIs;
 	class Crons;
 	class Temporary;
 	class TemporaryData;
@@ -88,8 +87,10 @@ namespace abyss
 
 	namespace UI
 	{
+		class UIs;
 		class UIObj;
 	}
+	using UI::UIs;
 
 	namespace Decor
 	{

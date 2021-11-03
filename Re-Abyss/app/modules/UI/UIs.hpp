@@ -6,12 +6,12 @@
 #include <abyss/modules/UI/base/UIHolder.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss
+namespace abyss::UI
 {
     class UIs
     {
     private:
-        UI::UIHolder m_userInterfaces;
+        UIHolder m_userInterfaces;
 
         Manager* m_pManager = nullptr;
     public:
@@ -31,13 +31,13 @@ namespace abyss
         /// UIの生成
         /// </summary>
         /// <returns></returns>
-        Ref<UI::UIObj> create();
+        Ref<UIObj> create();
 
         /// <summary>
         /// ビルダーからUIの作成
         /// </summary>
         template<class BuilerType, class... Args>
-        Ref<UI::UIObj> create(Args&& ... args)
+        Ref<UIObj> create(Args&& ... args)
             requires UIBuildy<BuilerType, Args...>
         {
             auto ui = this->create();
@@ -49,8 +49,12 @@ namespace abyss
         /// UIを登録
         /// </summary>
         /// <param name="ui">ui</param>
-        Ref<UI::UIObj> regist(const std::shared_ptr<UI::UIObj>& ui);
+        Ref<UIObj> regist(const std::shared_ptr<UIObj>& ui);
 
-        void setActiveAll(bool isActive);
+        /// <summary>
+        /// レイヤーをセットする
+        /// </summary>
+        /// <param name="layer"></param>
+        void setLayer(const Layer& layer);
     };
 }

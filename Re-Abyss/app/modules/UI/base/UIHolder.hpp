@@ -13,6 +13,7 @@ namespace abyss::UI
         s3d::Array<std::shared_ptr<UIObj>> m_reserves;
         s3d::Array<std::shared_ptr<UIObj>> m_uis;
 
+        Layer m_layer{Layer::Always};
     public:
         void flush();
         void push(const std::shared_ptr<UIObj>& ui);
@@ -24,6 +25,9 @@ namespace abyss::UI
 
         void clear();
 
-        void setActiveAll(bool isActive);
+        void setLayer(const Layer& layer)
+        {
+            m_layer = layer;
+        }
     };
 }

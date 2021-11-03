@@ -34,4 +34,8 @@ namespace abyss::UI
     {
         return this->getModule<GlobalTime>()->deltaTime();
     }
+    bool UIObj::isActive(const Layer& layer) const
+    {
+        return GameObject::isActive() && m_layer.isActive(layer);
+    }
 }

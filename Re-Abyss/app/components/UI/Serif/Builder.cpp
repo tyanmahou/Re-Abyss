@@ -9,6 +9,8 @@ namespace abyss::UI::Serif
         const Ref<Novel::Engine>& engine
     )
     {
+        pUi->setLayer(Layer::Always);
+
         // メイン追加
         {
             pUi->attach<Main>(pUi, engine);

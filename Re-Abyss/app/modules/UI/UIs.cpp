@@ -1,6 +1,6 @@
 #include "UIs.hpp"
 
-namespace abyss
+namespace abyss::UI
 {
     void UIs::flush()
     {
@@ -28,9 +28,8 @@ namespace abyss
         return ui;
     }
 
-    void UIs::setActiveAll(bool isActive)
+    void UIs::setLayer(const Layer& layer)
     {
-        m_userInterfaces.setActiveAll(isActive);
+        m_userInterfaces.setLayer(layer);
     }
-
 }

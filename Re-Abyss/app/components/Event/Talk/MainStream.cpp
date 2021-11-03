@@ -1,5 +1,6 @@
 #include "MainStream.hpp"
-
+#include <abyss/modules/Event/base/EventObj.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 namespace abyss::Event::Talk
 {
     MainStream::MainStream(EventObj* pEvent, Ref<Novel::TalkObj> talk):
@@ -11,9 +12,11 @@ namespace abyss::Event::Talk
     }
     void MainStream::onStart()
     {
+        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Novel);
     }
     void MainStream::onEnd()
     {
+        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Always);
     }
     Coro::Task<> MainStream::onExecute()
     {

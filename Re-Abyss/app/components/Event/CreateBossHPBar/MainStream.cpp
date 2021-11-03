@@ -19,9 +19,8 @@ namespace abyss::Event::CreateBossHPBar
 
     void MainStream::onStart()
     {
-        // UI非表示
-        m_pEvent->getModule<UIs>()->setActiveAll(false);
-        m_hpBar->setActive(true);
+        // UIレイヤーを変更
+        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Event);
         if (m_bossBgmPath) {
             m_pEvent->getModule<Sound>()->stop(0s);
         }
@@ -44,7 +43,7 @@ namespace abyss::Event::CreateBossHPBar
         if (m_bossBgmPath) {
             m_pEvent->getModule<Sound>()->play(Path::SoundPath + *m_bossBgmPath, 0s);
         }
-        m_pEvent->getModule<UIs>()->setActiveAll(true);
+        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Always);
     }
 
 }

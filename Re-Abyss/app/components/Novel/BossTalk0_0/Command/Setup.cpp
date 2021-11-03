@@ -16,9 +16,6 @@ namespace abyss::Novel::BossTalk0_0
 
     void Setup::onStart()
     {
-        m_pTalk->getModule<UIs>()->setActiveAll(false);
-        m_pTalk->find<MessageBox>()->getUi()->setActive(true);
-
         auto world = m_pTalk->getModule<World>();
         
         if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {
