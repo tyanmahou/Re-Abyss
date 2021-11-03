@@ -2,14 +2,14 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
-#include <abyss/components/Novel/Common/CharaSetter.hpp>
-#include <abyss/components/Novel/Common/ClearMessage.hpp>
-#include <abyss/components/Novel/Common/ColorTag.hpp>
-#include <abyss/components/Novel/Common/MessageStream.hpp>
-#include <abyss/components/Novel/Common/NameSetter.hpp>
-#include <abyss/components/Novel/Common/ShakeTag.hpp>
-#include <abyss/components/Novel/Common/WaitInput.hpp>
-#include <abyss/components/Novel/Common/WaitTime.hpp>
+#include <abyss/components/Novel/Common/Command/CharaSetter.hpp>
+#include <abyss/components/Novel/Common/Command/ClearMessage.hpp>
+#include <abyss/components/Novel/Common/Command/ColorTag.hpp>
+#include <abyss/components/Novel/Common/Command/MessageStream.hpp>
+#include <abyss/components/Novel/Common/Command/NameSetter.hpp>
+#include <abyss/components/Novel/Common/Command/ShakeTag.hpp>
+#include <abyss/components/Novel/Common/Command/WaitInput.hpp>
+#include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <abyss/utils/Mns/Script.hpp>

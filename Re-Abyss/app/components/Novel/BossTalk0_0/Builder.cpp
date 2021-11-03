@@ -1,7 +1,7 @@
 #include "Builder.hpp"
-#include "Setup/Setup.hpp"
-#include "Teardown/Teardown.hpp"
-#include "BossMove/BossMove.hpp"
+#include "Command/Setup.hpp"
+#include "Command/Teardown.hpp"
+#include "Command/BossMove.hpp"
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>

@@ -955,13 +955,13 @@
     <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Setup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Teardown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\base\Executer.cpp">
@@ -1660,16 +1660,16 @@
     <ClCompile Include="app\components\Novel\base\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\MessageStream.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\MessageStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\WaitTime.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\WaitTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\WaitInput.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\WaitInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\ColorTag.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\ColorTag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\types\Novel\TagString.cpp">
@@ -1687,10 +1687,10 @@
     <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\ShakeTag.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\ShakeTag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\ClearMessage.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\ClearMessage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Mns\Lexer\Lexer.cpp">
@@ -1711,10 +1711,10 @@
     <ClCompile Include="app\utils\Mns\Script.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\NameSetter.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\NameSetter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\CharaSetter.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2181,9 +2181,9 @@
     <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Setup.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Teardown.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\BossMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />
@@ -2567,17 +2567,17 @@
     <ClInclude Include="app\entities\Novel\CharaEntity.hpp" />
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
     <ClInclude Include="app\components\Novel\base\Engine.hpp" />
-    <ClInclude Include="app\components\Novel\Common\MessageStream.hpp" />
-    <ClInclude Include="app\components\Novel\Common\WaitTime.hpp" />
-    <ClInclude Include="app\components\Novel\Common\WaitInput.hpp" />
-    <ClInclude Include="app\components\Novel\Common\ColorTag.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\MessageStream.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\WaitTime.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\WaitInput.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\ColorTag.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\UI\Serif\Main.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
-    <ClInclude Include="app\components\Novel\Common\ShakeTag.hpp" />
-    <ClInclude Include="app\components\Novel\Common\ClearMessage.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\ShakeTag.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\ClearMessage.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\INode.hpp" />
@@ -2590,8 +2590,8 @@
     <ClInclude Include="app\utils\Mns\Evaluator\Evaluator.hpp" />
     <ClInclude Include="app\utils\Mns\Evaluator\IEvalImpl.hpp" />
     <ClInclude Include="app\utils\Mns\Script.hpp" />
-    <ClInclude Include="app\components\Novel\Common\NameSetter.hpp" />
-    <ClInclude Include="app\components\Novel\Common\CharaSetter.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\NameSetter.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
