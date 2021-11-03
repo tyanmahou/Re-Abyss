@@ -12,11 +12,11 @@ namespace abyss::Event::Talk
     }
     void MainStream::onStart()
     {
-        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Novel);
+        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Novel);
     }
     void MainStream::onEnd()
     {
-        m_pEvent->getModule<UIs>()->setLayer(UI::Layer::Always);
+        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Always);
     }
     Coro::Task<> MainStream::onExecute()
     {

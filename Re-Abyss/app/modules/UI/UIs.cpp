@@ -28,8 +28,8 @@ namespace abyss::UI
         return ui;
     }
 
-    void UIs::setLayer(const Layer& layer)
+    void UIs::setFilter(const Filter& filter)
     {
-        m_userInterfaces.setLayer(layer);
+        m_userInterfaces.setFilter(filter);
     }
 }

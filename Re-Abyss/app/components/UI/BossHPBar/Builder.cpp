@@ -12,7 +12,7 @@ namespace abyss::UI::BossHPBar
 {
     void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
-        pUi->setLayer(Layer::Game | Layer::Event);
+        pUi->setFilter(Filter::Game | Filter::Event);
 
         // メイン制御
         {

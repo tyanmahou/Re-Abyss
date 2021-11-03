@@ -52,9 +52,9 @@ namespace abyss::UI
         Ref<UIObj> regist(const std::shared_ptr<UIObj>& ui);
 
         /// <summary>
-        /// レイヤーをセットする
+        /// フィルタをセットする
         /// </summary>
-        /// <param name="layer"></param>
-        void setLayer(const Layer& layer);
+        /// <param name="filter"></param>
+        void setFilter(const Filter& filter);
     };
 }

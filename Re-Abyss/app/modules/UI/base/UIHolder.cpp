@@ -28,7 +28,7 @@ namespace abyss::UI
     void UIHolder::update()
     {
         for (auto& obj : m_uis) {
-            if (!obj->isActive(m_layer)) {
+            if (!obj->isActive(m_filter)) {
                 continue;
             }
             obj->update();
@@ -38,7 +38,7 @@ namespace abyss::UI
     void UIHolder::postUpdate()
     {
         for (auto& obj : m_uis) {
-            if (!obj->isActive(m_layer)) {
+            if (!obj->isActive(m_filter)) {
                 continue;
             }
             obj->postUpdate();
@@ -48,7 +48,7 @@ namespace abyss::UI
     void UIHolder::draw() const
     {
         for (auto& obj : m_uis) {
-            if (!obj->isActive(m_layer)) {
+            if (!obj->isActive(m_filter)) {
                 continue;
             }
             obj->draw();

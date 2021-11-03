@@ -13,7 +13,7 @@ namespace abyss::UI
         s3d::Array<std::shared_ptr<UIObj>> m_reserves;
         s3d::Array<std::shared_ptr<UIObj>> m_uis;
 
-        Layer m_layer{Layer::Always};
+        Filter m_filter{};
     public:
         void flush();
         void push(const std::shared_ptr<UIObj>& ui);
@@ -25,9 +25,9 @@ namespace abyss::UI
 
         void clear();
 
-        void setLayer(const Layer& layer)
+        void setFilter(const Filter& filter)
         {
-            m_layer = layer;
+            m_filter = filter;
         }
     };
 }

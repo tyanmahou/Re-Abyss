@@ -2592,7 +2592,7 @@
     <ClInclude Include="app\utils\Mns\Script.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\NameSetter.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp" />
-    <ClInclude Include="app\modules\UI\base\Layer.hpp" />
+    <ClInclude Include="app\modules\UI\base\Filter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

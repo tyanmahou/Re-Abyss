@@ -2,7 +2,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
-#include <abyss/modules/UI/base/Layer.hpp>
+#include <abyss/modules/UI/base/Filter.hpp>
 
 namespace abyss::UI
 {
@@ -17,13 +17,13 @@ namespace abyss::UI
 
         double deltaTime() const;
 
-        bool isActive(const Layer& layer) const;
+        bool isActive(const Filter& filter) const;
 
-        void setLayer(const Layer& layer)
+        void setFilter(const Filter& filter)
         {
-            m_layer = layer;
+            m_filter = filter;
         }
     private:
-        Layer m_layer{};
+        Filter m_filter{ Filter::Game };
     };
 }

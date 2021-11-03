@@ -9,7 +9,7 @@ namespace abyss::UI::Serif
         const Ref<Novel::Engine>& engine
     )
     {
-        pUi->setLayer(Layer::Always);
+        pUi->setFilter(Filter::Always);
 
         // メイン追加
         {

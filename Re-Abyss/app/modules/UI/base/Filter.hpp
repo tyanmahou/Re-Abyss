@@ -3,7 +3,7 @@
 
 namespace abyss::UI
 {
-    class Layer
+    class Filter
     {
     public:
         inline static constexpr s3d::uint32 None = 0x00;
@@ -12,15 +12,15 @@ namespace abyss::UI
         inline static constexpr s3d::uint32 Novel = 0x4;
         inline static constexpr s3d::uint32 Always = ~None;
     public:
-        constexpr Layer():
-            m_value(Game)
+        constexpr Filter():
+            m_value(Always)
         {}
 
-        constexpr Layer(s3d::uint32 value):
+        constexpr Filter(s3d::uint32 value):
             m_value(value)
         {}
 
-        constexpr bool isActive(const Layer& other) const
+        constexpr bool isActive(const Filter& other) const
         {
             return (m_value & other.m_value) != 0;
         }
