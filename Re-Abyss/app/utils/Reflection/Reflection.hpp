@@ -1,9 +1,16 @@
 #pragma once
 #define MKANTA_CHARTYPE char32_t
 #include <mkanta.hpp>
-
+#include <Siv3D/String.hpp>
 namespace abyss
 {
-    template<class Type>
-    using Reflect = mkanta::reflect<Type>;
+    template<class Type = mkanta::gobal_scope>
+    struct Reflect
+    {
+        template<class PointerType>
+        static PointerType find(const s3d::String& name)
+        {
+            return mkanta::reflect<Type>::template find<PointerType>(name.c_str());
+        }
+    };
 }

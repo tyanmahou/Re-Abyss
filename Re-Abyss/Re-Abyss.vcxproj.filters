@@ -946,10 +946,7 @@
     <ClCompile Include="app\components\Event\Talk\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\TriggerFactory.cpp">
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp">
@@ -2181,8 +2178,7 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
-    <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />

@@ -14,19 +14,26 @@
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <abyss/utils/Mns/Script.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
+#include <abyss/utils/Reflection/Reflection.hpp>
 #include <Siv3D.hpp>
 
 namespace
 {
+    using namespace abyss;
     using namespace abyss::Novel;
     using namespace Mns;
     using namespace Mns::Ast;
     class EvalImpl final : public IEvalImpl
     {
     public:
-        EvalImpl(Engine* pEngine):
-            m_pEngine(pEngine)
+        EvalImpl(TalkObj* pTalk):
+            m_pTalk(pTalk),
+            m_pEngine(pTalk->engine().get())
         {}
+        ~EvalImpl()
+        {
+            this->buildTrigger(U"Teardown");
+        }
     public:
         void eval(const TagStatement& statement) override
         {
@@ -73,6 +80,17 @@ namespace
                     }
                 }
                 m_pEngine->addCommand<CharaSetter>(kind, side, face);
+            } else if (tag == U"build" && tagValue) {
+                this->buildTrigger(U"Teardown");
+                m_build = tagValue;
+                this->buildTrigger(U"Setup");
+            } else if (tag == U"trigger") {
+                for (const auto& [key, value] : statement.childs) {
+                    if (key == U"event" && value) {
+                        this->buildTrigger(*value);
+                        break;
+                    }
+                }
             }
         }
         void eval(const Ast::NameStatement& statement) override
@@ -84,19 +102,32 @@ namespace
             m_pEngine->addCommand<MessageStream>(statement.text);
         }
     private:
+        void buildTrigger(s3d::StringView eventName)
+        {
+            if (!m_build) {
+                return;
+            }
+            if (auto buildFunc = Reflect<>::find<void(*)(TalkObj*)>(
+                U"abyss::Novel::{}::Builder::{}"_fmt(*m_build, eventName)
+                )) {
+                (*buildFunc)(m_pTalk);
+            }
+        }
+    private:
+        TalkObj* m_pTalk;
         Engine* m_pEngine;
+
+        s3d::Optional<s3d::String> m_build;
     };
 }
 namespace abyss::Novel
 {
     void TalkBuilder::Build(TalkObj* pTalk, const s3d::String& path)
     {
-        const auto& engine = pTalk->engine();
-
         // スクリプトからロード
         {
             Mns::Script script(path);
-            EvalImpl eval(engine.get());
+            EvalImpl eval(pTalk);
             script.eval(&eval);
         }
 

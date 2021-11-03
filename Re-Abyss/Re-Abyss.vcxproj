@@ -432,12 +432,11 @@
     <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.cpp" />
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Build.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\Builder.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Setup\Setup.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
     <ClCompile Include="app\components\Novel\TalkBuilder.cpp" />
-    <ClCompile Include="app\components\Novel\TriggerFactory.cpp" />
     <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
     <ClCompile Include="app\components\Event\Title\Builder.cpp" />
     <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
@@ -1165,10 +1164,9 @@
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\BossMove\BossMove.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Build.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Setup\Setup.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Teardown\Teardown.hpp" />
-    <ClInclude Include="app\components\Novel\TriggerFactory.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
     <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
     <ClInclude Include="app\components\Event\Title\Builder.hpp" />
