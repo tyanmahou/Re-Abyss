@@ -12,6 +12,6 @@ namespace abyss::Novel
 
     void MessageBox::onStart()
     {
-        m_pTalk->getModule<UIs>()->create<UI::Serif::Builder>(m_pTalk->engine());
+        m_pUi = m_pTalk->getModule<UIs>()->create<UI::Serif::Builder>(m_pTalk->engine());
     }
 }

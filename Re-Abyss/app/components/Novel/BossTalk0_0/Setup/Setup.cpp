@@ -4,6 +4,7 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
+#include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Demo/Builder.hpp>
 
@@ -16,6 +17,8 @@ namespace abyss::Novel::BossTalk0_0
     void Setup::onStart()
     {
         m_pTalk->getModule<UIs>()->setActiveAll(false);
+        m_pTalk->find<MessageBox>()->getUi()->setActive(true);
+
         auto world = m_pTalk->getModule<World>();
         
         if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {
