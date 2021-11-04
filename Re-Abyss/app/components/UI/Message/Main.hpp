@@ -5,6 +5,7 @@
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Novel
 {
@@ -34,14 +35,9 @@ namespace abyss::UI::Message
 
         void onDraw() const override;
 
-        bool isVisible() const
-        {
-            return m_isVisible;
-        }
-        void setVisible(bool isVisible)
-        {
-            m_isVisible = isVisible;
-        }
+        bool isBusyAnim() const;
+        bool isVisible() const;
+        void setVisible(bool isVisible);
     private:
         UIObj* m_pUi;
 
@@ -51,6 +47,7 @@ namespace abyss::UI::Message
         std::unique_ptr<CursorVM> m_cursorView;
 
         bool m_isVisible = false;
+        TimeLite::Timer m_showHideTimer{ 0.3 };
     };
 }
 

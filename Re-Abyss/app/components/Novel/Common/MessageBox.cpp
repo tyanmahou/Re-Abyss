@@ -28,4 +28,11 @@ namespace abyss::Novel
             m_msgMain->setVisible(m_isVisible);
         }
     }
+    bool MessageBox::isBusyAnim() const
+    {
+        if (m_msgMain) {
+            return m_msgMain->isBusyAnim();
+        }
+        return false;
+    }
 }

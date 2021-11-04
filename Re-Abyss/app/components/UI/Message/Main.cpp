@@ -22,7 +22,9 @@ namespace abyss::UI::Message
         m_engine(engine),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>())
-    {}
+    {
+        m_showHideTimer.toEnd();
+    }
 
     void Main::onStart()
     {}
@@ -33,6 +35,7 @@ namespace abyss::UI::Message
             m_pUi->destroy();
             return;
         }
+        m_showHideTimer.update(m_pUi->deltaTime());
     }
 
     void Main::onDraw() const
@@ -40,12 +43,13 @@ namespace abyss::UI::Message
         if (!m_engine) {
             return;
         }
-        if (!m_isVisible) {
+        if (!isVisible()) {
             return;
         }
         const auto& serif = m_engine->getSerif();
 
-        const Vec2 pos = PivotUtil::FromTc(0, 150);
+        auto rate = m_isVisible ? m_showHideTimer.rate() : m_showHideTimer.invRate();
+        const Vec2 pos = PivotUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -150.0};
         m_boxView
             ->setIsLeft(serif.isLeft())
             .setPos(pos)
@@ -83,5 +87,21 @@ namespace abyss::UI::Message
         if (m_engine->isInputWait()) {
             m_cursorView->setPos(pos + s3d::Vec2{ messagePosX + 500, 50 }).draw();
         }
+    }
+    bool Main::isBusyAnim() const
+    {
+        return !m_showHideTimer.isEnd();
+    }
+    bool Main::isVisible() const
+    {
+        return m_isVisible || isBusyAnim();
+    }
+    void Main::setVisible(bool isVisible)
+    {
+        if (m_isVisible == isVisible) {
+            return;
+        }
+        m_isVisible = isVisible;
+        m_showHideTimer.reset();
     }
 }
