@@ -28,19 +28,24 @@ namespace abyss::UI::Message
         m_faceIcon = face;
         return *this;
     }
+    MessageBoxVM& MessageBoxVM::setAlpha(double alpha)
+    {
+        m_alpha = alpha;
+        return *this;
+    }
     void MessageBoxVM::draw()const
     {
 
         double iconOffset = m_isLeft ? -380 : 220;
-        RectF(m_pos + Vec2{ iconOffset, -80 }, Vec2{ 160, 160 }).draw(Color(0, 190));
+        RectF(m_pos + Vec2{ iconOffset, -80 }, Vec2{ 160, 160 }).draw(ColorF(0, m_alpha * 190.0 / 250.0));
         if (m_faceIcon) {
-            m_faceIcon.draw(m_pos + Vec2{ iconOffset, -80 });
+            m_faceIcon.draw(m_pos + Vec2{ iconOffset, -80 }, ColorF(1, m_alpha));
         }
-        m_boxTexture.mirrored(!m_isLeft).drawAt(m_pos);
+        m_boxTexture.mirrored(!m_isLeft).drawAt(m_pos, ColorF(1, m_alpha));
 
         if (m_name) {
             double nameOffset = m_isLeft ? -140 : 140;
-            FontAsset(FontName::SerifName)(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 });
+            FontAsset(FontName::SerifName)(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 }, ColorF(1, m_alpha));
         }
     }
 }

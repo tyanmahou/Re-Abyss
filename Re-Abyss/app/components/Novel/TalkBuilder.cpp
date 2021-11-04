@@ -33,6 +33,7 @@ namespace
         {}
         ~EvalImpl()
         {
+            this->showHideMessage(false);
             this->buildTrigger(U"Teardown");
         }
     public:
@@ -80,7 +81,22 @@ namespace
                         face = Face(*value);
                     }
                 }
+                // キャラか位置が変わったら切り替え
+                const bool isChangeChara = kind && kind != m_charaKind;
+                const bool isChangeSide = side && side != m_charaSide;
+                bool isHide = isChangeChara || isChangeSide;
+                if (isHide) {
+                    this->showHideMessage(false);
+                }
+                if (isChangeChara && !side) {
+                    side = Side::Left;
+                }
+                if (isChangeChara && !face) {
+                    face = Face{};
+                }
                 m_pEngine->addCommand<CharaSetter>(kind, side, face);
+                m_charaKind = std::move(kind);
+                m_charaSide = std::move(side);
             } else if (tag == U"build" && tagValue) {
                 this->buildTrigger(U"Teardown");
                 m_build = tagValue;
@@ -132,6 +148,8 @@ namespace
         Engine* m_pEngine;
 
         bool m_isVisibleMessage = false;
+        s3d::Optional<CharaKind> m_charaKind;
+        s3d::Optional<Side> m_charaSide;
         s3d::Optional<s3d::String> m_build;
     };
 }

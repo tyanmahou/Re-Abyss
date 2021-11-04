@@ -13,6 +13,7 @@ namespace abyss::Novel
         ShowHideMessage(TalkObj* pTalk, bool isShow);
 
         void onStart() override;
+        void onEnd() override;
         Coro::Task<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;

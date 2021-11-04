@@ -47,7 +47,7 @@ namespace abyss::UI::Message
         std::unique_ptr<CursorVM> m_cursorView;
 
         bool m_isVisible = false;
-        TimeLite::Timer m_showHideTimer{ 0.3 };
+        TimeLite::Timer m_showHideTimer;
     };
 }
 

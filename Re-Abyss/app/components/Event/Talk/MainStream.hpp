@@ -10,7 +10,7 @@ namespace abyss::Event::Talk
         public IStream
     {
     public:
-        MainStream(EventObj* pEvent, Ref<Novel::TalkObj> talk);
+        MainStream(EventObj* pEvent, const s3d::String& path);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -19,6 +19,7 @@ namespace abyss::Event::Talk
         Coro::Task<> onExecute() override;
     private:
         EventObj* m_pEvent;
+        s3d::String m_path;
         Ref<Novel::TalkObj> m_talk;
     };
 }

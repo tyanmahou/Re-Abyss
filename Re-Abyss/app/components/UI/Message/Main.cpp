@@ -21,7 +21,8 @@ namespace abyss::UI::Message
         m_pUi(pUi),
         m_engine(engine),
         m_boxView(std::make_unique<MessageBoxVM>()),
-        m_cursorView(std::make_unique<CursorVM>())
+        m_cursorView(std::make_unique<CursorVM>()),
+        m_showHideTimer(0.5)
     {
         m_showHideTimer.toEnd();
     }
@@ -48,12 +49,16 @@ namespace abyss::UI::Message
         }
         const auto& serif = m_engine->getSerif();
 
-        auto rate = m_isVisible ? m_showHideTimer.rate() : m_showHideTimer.invRate();
-        const Vec2 pos = PivotUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -150.0};
+        const auto rate = m_isVisible ?
+            s3d::EaseOutCubic(m_showHideTimer.rate()) :
+            s3d::EaseInCubic(m_showHideTimer.invRate());
+        const auto alpha = rate;
+        const Vec2 pos = PivotUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -40.0};
         m_boxView
             ->setIsLeft(serif.isLeft())
             .setPos(pos)
-            .setName(serif.getName());
+            .setName(serif.getName())
+            .setAlpha(alpha);
 
         auto* novels = m_pUi->getModule<Novels>();
         if (auto chara = novels->findChara(serif.getKind())) {
@@ -74,17 +79,19 @@ namespace abyss::UI::Message
             font,
             m_engine->getPrevMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
-            m_engine->getTime()
+            m_engine->getTime(),
+            alpha
         );
 
         Novel::TagStringView::Draw(
             font,
             serif.getMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
-            m_engine->getTime()
+            m_engine->getTime(),
+            alpha
         );
 
-        if (m_engine->isInputWait()) {
+        if (m_engine->isInputWait() && !isBusyAnim()) {
             m_cursorView->setPos(pos + s3d::Vec2{ messagePosX + 500, 50 }).draw();
         }
     }

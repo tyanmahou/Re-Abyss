@@ -26,7 +26,8 @@ namespace
         const s3d::Font& font,
         const TagString& text,
         const s3d::Vec2& basePos,
-        double time
+        double time,
+        double baseAlpha
     ) {
         Vec2 pos = basePos;
         for (auto&& elm : text) {
@@ -65,7 +66,7 @@ namespace
                 drawPos += ::Shake(t);
             }
 
-            glyph.texture.draw(drawPos, elm.color.setA(alpha));
+            glyph.texture.draw(drawPos, elm.color.setA(alpha * baseAlpha));
             pos.x += glyph.xAdvance;
         }
     }
@@ -76,16 +77,18 @@ namespace abyss::Novel
         const s3d::Font& font,
         const TagString& text,
         const s3d::Vec2& basePos,
-        double time
+        double time,
+        double alpha
     ) {
-        ::DrawBase<false>(font, text, basePos, time);
+        ::DrawBase<false>(font, text, basePos, time, alpha);
     }
     void TagStringView::DrawPrev(
         const s3d::Font& font,
         const TagString& text,
         const s3d::Vec2& basePos,
-        double time
+        double time,
+        double alpha
     ) {
-        ::DrawBase<true>(font, text, basePos, time);
+        ::DrawBase<true>(font, text, basePos, time, alpha);
     }
 }
