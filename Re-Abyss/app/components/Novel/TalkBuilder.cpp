@@ -8,6 +8,7 @@
 #include <abyss/components/Novel/Common/Command/MessageStream.hpp>
 #include <abyss/components/Novel/Common/Command/NameSetter.hpp>
 #include <abyss/components/Novel/Common/Command/ShakeTag.hpp>
+#include <abyss/components/Novel/Common/Command/ShowHideMessage.hpp>
 #include <abyss/components/Novel/Common/Command/WaitInput.hpp>
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
@@ -91,8 +92,10 @@ namespace
                         break;
                     }
                 }
+            } else if (tag == U"showmessage") {
+                this->showHideMessage(true);
             } else if (tag == U"hidemessage") {
-                m_isVisibleMessage = false;
+                this->showHideMessage(false);
             }
         }
         void eval(const Ast::NameStatement& statement) override
@@ -101,10 +104,18 @@ namespace
         }
         void eval(const Ast::TextStatement& statement) override
         {
-            m_isVisibleMessage = true;
+            this->showHideMessage(true);
             m_pEngine->addCommand<MessageStream>(statement.text);
         }
     private:
+        void showHideMessage(bool isShow)
+        {
+            if (m_isVisibleMessage == isShow) {
+                return;
+            }
+            m_isVisibleMessage = isShow;
+            m_pEngine->addCommand<ShowHideMessage>(isShow);
+        }
         void buildTrigger(s3d::StringView eventName)
         {
             if (!m_build) {

@@ -33,6 +33,15 @@ namespace abyss::UI::Message
         void onUpdate() override;
 
         void onDraw() const override;
+
+        bool isVisible() const
+        {
+            return m_isVisible;
+        }
+        void setVisible(bool isVisible)
+        {
+            m_isVisible = isVisible;
+        }
     private:
         UIObj* m_pUi;
 
@@ -40,6 +49,8 @@ namespace abyss::UI::Message
 
         std::unique_ptr<MessageBoxVM> m_boxView;
         std::unique_ptr<CursorVM> m_cursorView;
+
+        bool m_isVisible = false;
     };
 }
 

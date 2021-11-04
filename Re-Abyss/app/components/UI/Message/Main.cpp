@@ -40,6 +40,9 @@ namespace abyss::UI::Message
         if (!m_engine) {
             return;
         }
+        if (!m_isVisible) {
+            return;
+        }
         const auto& serif = m_engine->getSerif();
 
         const Vec2 pos = PivotUtil::FromTc(0, 150);

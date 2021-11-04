@@ -13,5 +13,19 @@ namespace abyss::Novel
     void MessageBox::onStart()
     {
         m_pUi = m_pTalk->getModule<UIs>()->create<UI::Message::Builder>(m_pTalk->engine());
+        m_msgMain = m_pUi->find<UI::Message::Main>();
+        if (m_msgMain) {
+            m_msgMain->setVisible(m_isVisible);
+        }
+    }
+    void MessageBox::setVisible(bool isVisible)
+    {
+        if (m_isVisible == isVisible) {
+            return;
+        }
+        m_isVisible = isVisible;
+        if (m_msgMain) {
+            m_msgMain->setVisible(m_isVisible);
+        }
     }
 }

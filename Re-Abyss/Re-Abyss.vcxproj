@@ -374,6 +374,7 @@
     <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\ClearMessage.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\ColorTag.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\ShowHideMessage.cpp" />
     <ClCompile Include="app\components\Novel\Common\MessageBox.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\MessageStream.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\NameSetter.cpp" />
@@ -895,6 +896,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\ClearMessage.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\ColorTag.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\ShowHideMessage.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\MessageStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\NameSetter.hpp" />
