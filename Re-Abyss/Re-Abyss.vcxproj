@@ -449,7 +449,7 @@
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.cpp" />
-    <ClCompile Include="app\components\UI\Serif\Main.cpp" />
+    <ClCompile Include="app\components\UI\Message\Main.cpp" />
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
@@ -531,7 +531,7 @@
     <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Main.cpp" />
-    <ClCompile Include="app\components\UI\Serif\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Message\Builder.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
     <ClCompile Include="app\modules\Cron\base\Batch.cpp" />
@@ -663,8 +663,8 @@
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoExVM.cpp" />
     <ClCompile Include="app\views\UI\PlayerInfo\PlayerInfoVM.cpp" />
-    <ClCompile Include="app\views\UI\Serif\CursorVM.cpp" />
-    <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp" />
+    <ClCompile Include="app\views\UI\Message\CursorVM.cpp" />
+    <ClCompile Include="app\views\UI\Message\MessageBoxVM.cpp" />
     <ClCompile Include="app\commons\Application\base\BaseApp.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
@@ -902,7 +902,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\WaitInput.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\WaitTime.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\UI\Message\Main.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Dialog.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\CreateUserConfirm\Result.hpp" />
@@ -1313,7 +1313,7 @@
     <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Main.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Message\Builder.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\concepts\Event.hpp" />
     <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
@@ -1641,8 +1641,8 @@
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
     <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoExVM.hpp" />
     <ClInclude Include="app\views\UI\PlayerInfo\PlayerInfoVM.hpp" />
-    <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
-    <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
+    <ClInclude Include="app\views\UI\Message\CursorVM.hpp" />
+    <ClInclude Include="app\views\UI\Message\MessageBoxVM.hpp" />
     <ClInclude Include="app\views\util\Dither\DitherShader.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\Env\Wave\WaveShader.hpp" />

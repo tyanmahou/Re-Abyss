@@ -15,7 +15,7 @@ namespace abyss::UI::SaveSelect::EraseUserConfirm
 
     Dialog::Dialog(UIObj* pUi):
         m_pUi(pUi),
-        m_cursor(std::make_unique<UI::Serif::CursorVM>())
+        m_cursor(std::make_unique<UI::Message::CursorVM>())
     {}
     void Dialog::onUpdate()
     {

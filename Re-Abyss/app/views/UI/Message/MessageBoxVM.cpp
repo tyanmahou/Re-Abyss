@@ -3,7 +3,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     MessageBoxVM::MessageBoxVM() :
         m_boxTexture(Resource::Assets::Main()->load(U"ui/common/message_box.png"))

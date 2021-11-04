@@ -4,15 +4,15 @@
 
 #include <abyss/components/Novel/base/Engine.hpp>
 
-#include <abyss/views/UI/Serif/MessageBoxVM.hpp>
-#include <abyss/views/UI/Serif/CursorVM.hpp>
+#include <abyss/views/UI/Message/MessageBoxVM.hpp>
+#include <abyss/views/UI/Message/CursorVM.hpp>
 #include <abyss/views/Novel/TagString/TagStringView.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     Main::Main(
         UIObj* pUi,

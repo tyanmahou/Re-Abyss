@@ -3,7 +3,7 @@
 #include <Siv3D/Optional.hpp>
 #include <Siv3D/String.hpp>
 
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     class MessageBoxVM
     {

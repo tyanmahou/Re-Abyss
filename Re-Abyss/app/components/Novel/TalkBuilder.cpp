@@ -91,6 +91,8 @@ namespace
                         break;
                     }
                 }
+            } else if (tag == U"hidemessage") {
+                m_isVisibleMessage = false;
             }
         }
         void eval(const Ast::NameStatement& statement) override
@@ -99,6 +101,7 @@ namespace
         }
         void eval(const Ast::TextStatement& statement) override
         {
+            m_isVisibleMessage = true;
             m_pEngine->addCommand<MessageStream>(statement.text);
         }
     private:
@@ -117,6 +120,7 @@ namespace
         TalkObj* m_pTalk;
         Engine* m_pEngine;
 
+        bool m_isVisibleMessage = false;
         s3d::Optional<s3d::String> m_build;
     };
 }

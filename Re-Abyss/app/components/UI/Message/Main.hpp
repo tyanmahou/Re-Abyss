@@ -11,7 +11,7 @@ namespace abyss::Novel
     class Engine;
 }
 
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     class MessageBoxVM;
     class CursorVM;
@@ -46,7 +46,7 @@ namespace abyss::UI::Serif
 namespace abyss
 {
     template<>
-    struct ComponentTree<UI::Serif::Main>
+    struct ComponentTree<UI::Message::Main>
     {
         using Base = MultiComponents<UI::IUpdate, UI::IDraw>;
     };

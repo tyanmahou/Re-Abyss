@@ -2,7 +2,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
-#include <abyss/components/UI/Serif/Builder.hpp>
+#include <abyss/components/UI/Message/Builder.hpp>
 
 namespace abyss::Novel
 {
@@ -12,6 +12,6 @@ namespace abyss::Novel
 
     void MessageBox::onStart()
     {
-        m_pUi = m_pTalk->getModule<UIs>()->create<UI::Serif::Builder>(m_pTalk->engine());
+        m_pUi = m_pTalk->getModule<UIs>()->create<UI::Message::Builder>(m_pTalk->engine());
     }
 }

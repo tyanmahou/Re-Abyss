@@ -311,10 +311,10 @@
     <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\UI\Serif\CursorVM.cpp">
+    <ClCompile Include="app\views\UI\Message\CursorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\UI\Serif\MessageBoxVM.cpp">
+    <ClCompile Include="app\views\UI\Message\MessageBoxVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Title\TitleScene.cpp">
@@ -940,7 +940,7 @@
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Serif\Builder.cpp">
+    <ClCompile Include="app\components\UI\Message\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\Talk\Builder.cpp">
@@ -1678,7 +1678,7 @@
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Serif\Main.cpp">
+    <ClCompile Include="app\components\UI\Message\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\Common\MessageBox.cpp">
@@ -1914,8 +1914,8 @@
     <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp" />
     <ClInclude Include="app\types\Temporary\TempLevel.hpp" />
     <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
-    <ClInclude Include="app\views\UI\Serif\CursorVM.hpp" />
-    <ClInclude Include="app\views\UI\Serif\MessageBoxVM.hpp" />
+    <ClInclude Include="app\views\UI\Message\CursorVM.hpp" />
+    <ClInclude Include="app\views\UI\Message\MessageBoxVM.hpp" />
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\scenes\Title\TitleScene.hpp" />
     <ClInclude Include="app\scenes\Splash\SplashScene.hpp" />
@@ -2176,7 +2176,7 @@
     <ClInclude Include="app\components\Event\RoomMove\BasicMove\Builder.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\Builder.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Message\Builder.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp" />
     <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp" />
@@ -2573,7 +2573,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\ColorTag.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
-    <ClInclude Include="app\components\UI\Serif\Main.hpp" />
+    <ClInclude Include="app\components\UI\Message\Main.hpp" />
     <ClInclude Include="app\components\Novel\Common\MessageBox.hpp" />
     <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\ShakeTag.hpp" />

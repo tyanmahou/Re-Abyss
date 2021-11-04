@@ -6,7 +6,7 @@ namespace abyss::Novel
 {
     class Engine;
 }
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     struct Builder
     {

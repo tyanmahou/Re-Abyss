@@ -1,7 +1,7 @@
 #include "CursorVM.hpp"
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     CursorVM::CursorVM():
         m_texture(Resource::Assets::Main()->load(U"ui/common/cursor.png"))

@@ -4,7 +4,7 @@
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
 #include <abyss/components/UI/SaveSelect/CreateUserConfirm/Result.hpp>
 
-#include <abyss/views/UI/Serif/CursorVM.hpp>
+#include <abyss/views/UI/Message/CursorVM.hpp>
 
 namespace abyss::UI::SaveSelect::CreateUserConfirm
 {
@@ -23,7 +23,7 @@ namespace abyss::UI::SaveSelect::CreateUserConfirm
     private:
         UIObj* m_pUi;
         UserPlayMode m_playMode = UserPlayMode::Normal;
-        std::unique_ptr<UI::Serif::CursorVM> m_cursor;
+        std::unique_ptr<UI::Message::CursorVM> m_cursor;
     };
 }
 

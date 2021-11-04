@@ -1,8 +1,8 @@
 #include "Builder.hpp"
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/components/UI/Serif/Main.hpp>
+#include <abyss/components/UI/Message/Main.hpp>
 
-namespace abyss::UI::Serif
+namespace abyss::UI::Message
 {
     void Builder::Build(
         UIObj* pUi,
