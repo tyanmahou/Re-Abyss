@@ -18,8 +18,7 @@ namespace
 	//微調整
 	bool FadeBase(const s3d::RectF& rect, double& t)
 	{
-		if (t > 0.75)
-		{
+		if (t > 0.75) {
 			rect.draw(g_fadeColor);
 			return false;
 		}
@@ -41,25 +40,24 @@ namespace abyss
 		//デフォルト
 		void Default(double t)
 		{
-			if (!::FadeBase(t))
+			if (!::FadeBase(t)) {
 				return;
+			}
 			Scene::Rect().draw(g_fadeColor);
 		}
 
 		//3次関数的に広がる円形マスク
 		void IrisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
 		{
-			if (!::FadeBase(rect, t))
-			{
+			if (!::FadeBase(rect, t)) {
 				return;
 			}
-			static auto func = [=](double t)
-			{
+			static auto easing = [](double t) {
 				return ((t - 0.3f) * (t - 0.3f) * (t - 0.3f) + 0.027) / 0.37f;
 			};
 			auto mask = MaskUtil::Instance().notEqual([&] {
 				auto alpha = EaseInOut(Easing::Linear, 1.0 - t);
-				Circle(pos, rect.w * func(1.0 - t)).draw(ColorF(0, alpha));
+				Circle(pos, rect.w * easing(1.0 - t)).draw(ColorF(0, alpha));
 			});
 			rect.draw(g_fadeColor);
 		}
