@@ -38,6 +38,6 @@ float4 PS(PSInput input) : SV_TARGET
 	outColor.rgb -= lerp(0, 0.05, scanline);
 
 	// noise
-	outColor.rgb -= rand(uv * g_timer) * 0.08;
+	//outColor.rgb -= rand(uv * g_timer) * 0.08;
     return outColor;
 }

@@ -46,21 +46,7 @@ namespace abyss
         callback(prev);
         return *this;
     }
-    SnapshotView& SnapshotView::apply(std::function<s3d::ScopedCustomShader2D()> callback)
-    {
-        const auto& prev = this->getPostTexture();
-        auto postRender = this->startPostRender();
-        auto scoped = callback();
-        prev.draw();
-        return *this;
-    }
-    SnapshotView& SnapshotView::apply(bool enable, std::function<s3d::ScopedCustomShader2D()> callback)
-    {
-        if (!enable) {
-            return *this;
-        }
-        return this->apply(callback);
-    }
+
     void SnapshotView::drawWorld(const s3d::Vec2& offset) const
     {
         if (offset.isZero()) {

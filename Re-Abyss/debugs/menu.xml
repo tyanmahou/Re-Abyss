@@ -25,6 +25,8 @@
     <PostEffect label ="ポストエフェクト設定">
       <Light label="ライト" isChecked="true"/>
       <Distortion label="歪み" isChecked="true"/>
+      <hr/>
+      <Scanline label="スキャンライン" isChecked="true"/>
     </PostEffect>
     <FPS select="0" callback="execFPS">
       <Item label="FPS：可変"/>

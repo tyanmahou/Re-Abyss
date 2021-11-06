@@ -23,8 +23,25 @@ namespace abyss
         SnapshotView& copyWorldToPost();
 
         SnapshotView& apply(std::function<void(const s3d::Texture&)> callback);
-        SnapshotView& apply(std::function<s3d::ScopedCustomShader2D()> callback);
-        SnapshotView& apply(bool enable, std::function<s3d::ScopedCustomShader2D()> callback);
+
+        template<class ScopedMaterialType>
+        SnapshotView& apply(ScopedMaterialType&& callback)
+        {
+            const auto& prev = this->getPostTexture();
+            auto postRender = this->startPostRender();
+            auto scoped = callback();
+            prev.draw();
+            return *this;
+        }
+
+        template<class ScopedMaterialType>
+        SnapshotView& apply(bool enable, ScopedMaterialType&& callback)
+        {
+            if (!enable) {
+                return *this;
+            }
+            return this->apply(std::forward<ScopedMaterialType>(callback));
+        }
 
         void drawWorld(const s3d::Vec2& offset = s3d::Vec2::Zero()) const;
         void drawScene() const;

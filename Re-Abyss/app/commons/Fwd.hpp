@@ -122,6 +122,12 @@ namespace abyss
 	}
 	using Room::RoomManager;
 
+	namespace Sfx
+	{
+		class PostEffects;
+	}
+	using Sfx::PostEffects;
+
 	/// <summary>
 	/// Entities
 	/// </summary>

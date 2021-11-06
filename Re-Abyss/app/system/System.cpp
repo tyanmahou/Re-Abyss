@@ -46,6 +46,9 @@ namespace abyss::Sys
         // 環境更新
         mod<Environment>()->update(dt);
 
+        // ポストエフェクト更新
+        mod<PostEffects>()->update(Scene::DeltaTime());
+
         if constexpr (config.isStage) {
             mod<Light>()->update(dt);
 
@@ -220,7 +223,7 @@ namespace abyss::Sys
             }
         }
         snapshot->copySceneToPost()
-            //.apply([=] { return mod<Distortion>()->start(); })
+            .applyEx(PostEffectScanline, [=] { return mod<PostEffects>()->getScanline()->start(); })
             .drawScene();
     }
 

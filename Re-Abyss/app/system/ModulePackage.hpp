@@ -20,6 +20,7 @@
 #include <abyss/modules/Novel/Novels.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
@@ -50,6 +51,7 @@ namespace abyss::Sys
         mod_if<config.isStage, Novels>,
         mod_if<config.isStage, PhysicsManager>,
         mod_if<config.isStage, RoomManager>,
+        PostEffects,
         Sound,
         mod_if<config.isStage, Stage>,
         mod_if<config.isStage, Temporary>,

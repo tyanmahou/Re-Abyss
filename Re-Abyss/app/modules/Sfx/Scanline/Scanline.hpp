@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/views/Shader/Scanline/ScanlineShader.hpp>
 
-namespace abyss::PostEffect
+namespace abyss::Sfx
 {
     class Scanline
     {

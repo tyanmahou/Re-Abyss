@@ -1,6 +1,6 @@
 #include "PostEffects.hpp"
 
-namespace abyss::PostEffect
+namespace abyss::Sfx
 {
     PostEffects::PostEffects():
         m_scanline(std::make_unique<Scanline>())

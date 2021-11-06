@@ -1,7 +1,7 @@
 #pragma once
-#include <abyss/modules/PostEffect/Scanline/Scanline.hpp>
+#include <abyss/modules/Sfx/Scanline/Scanline.hpp>
 
-namespace abyss::PostEffect
+namespace abyss::Sfx
 {
     /// <summary>
     /// ポストエフェクト

@@ -20,6 +20,7 @@ namespace abyss::Debug::DebugFlag
 
     inline constexpr auto* PostEffectLight = U"Debug/PostEffect/Light";
     inline constexpr auto* PostEffectDistortion = U"Debug/PostEffect/Distortion";
+    inline constexpr auto* PostEffectScanline = U"Debug/PostEffect/Scanline";
 }
 
 #endif

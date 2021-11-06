@@ -1723,6 +1723,12 @@
     <ClCompile Include="app\views\Shader\Mask\MaskShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Scanline\Scanline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\PostEffects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2601,6 +2607,8 @@
     <ClInclude Include="app\modules\UI\base\Filter.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\ShowHideMessage.hpp" />
     <ClInclude Include="app\views\Shader\Mask\MaskShader.hpp" />
+    <ClInclude Include="app\modules\Sfx\PostEffects.hpp" />
+    <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -1,6 +1,7 @@
 Texture2D		g_texture0 : register(t0);
 Texture2D		g_texture1 : register(t1);
 SamplerState	g_sampler0 : register(s0);
+SamplerState	g_sampler1 : register(s1);
 
 cbuffer PSConstants2D : register(b0)
 {
@@ -31,5 +32,5 @@ float4 PS(PSInput input) : SV_TARGET
     dir = (dir.x == 0.0f && dir.y == 0.0f) ? float2(0, 0) : normalize(dir);
     // 歪み
     float2 distTex = (dist.xy * 2.0f - 1.0f) * dist.z * 255.0f / g_textureSize;
-    return g_texture0.Sample(g_sampler0, input.uv + distTex);
+    return g_texture0.Sample(g_sampler1, input.uv + distTex);
 }

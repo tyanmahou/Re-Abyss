@@ -1,6 +1,6 @@
 #include "Scanline.hpp"
 
-namespace abyss::PostEffect
+namespace abyss::Sfx
 {
     void Scanline::update(double dt)
     {
