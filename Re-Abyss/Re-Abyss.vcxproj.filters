@@ -1729,6 +1729,9 @@
     <ClCompile Include="app\modules\Sfx\PostEffects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2609,6 +2612,8 @@
     <ClInclude Include="app\views\Shader\Mask\MaskShader.hpp" />
     <ClInclude Include="app\modules\Sfx\PostEffects.hpp" />
     <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

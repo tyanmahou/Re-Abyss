@@ -600,6 +600,7 @@
     <ClCompile Include="app\utils\Mns\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Mns\Parser\Parser.cpp" />
     <ClCompile Include="app\utils\Mns\Script.cpp" />
+    <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
@@ -1013,6 +1014,8 @@
     <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mns\Script.hpp" />
     <ClInclude Include="app\utils\Mns\Parser\Parser.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />

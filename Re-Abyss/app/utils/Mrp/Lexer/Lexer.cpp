@@ -1,7 +1,7 @@
 #include "Lexer.hpp"
 #include <Siv3D.hpp>
 
-namespace Mns
+namespace Mrp
 {
     Lexer::Lexer(const s3d::FilePath& mns)
     {
@@ -47,13 +47,13 @@ namespace Mns
 	{
 		size_t pos = 0;
 		const size_t length = line.length();
-		bool m_isTag = false;
+		bool m_isTitle = false;
 		while (pos < length) {
 			// 空白スキップ
 			while (IsSpace(line[pos])) {
 				++pos;
 			}
-			if (m_isTag && IsAlpha(line[pos])) {
+			if (!m_isTitle && (IsAlpha(line[pos]) || line[pos] == U'@')) {
 				// 識別子
 				const size_t start = pos;
 				++pos;
@@ -62,23 +62,6 @@ namespace Mns
 					++pos;
 				}
 				m_tokens.emplace_back(TokenType::Ident, line.substr(start, pos - start));
-			} else if (m_isTag && (IsDigit(line[pos]) || line[pos] == U'-' && pos + 1 < length && IsDigit(line[pos + 1]))) {
-				// 数
-				const size_t start = pos;
-				bool isFoundDot = false;
-
-				++pos;
-				while (pos < length) {
-					if (IsDigit(line[pos])) {
-						++pos;
-					} else if (!isFoundDot && line[pos] == U'.' && pos + 1 < length && IsDigit(line[pos + 1])) {
-						isFoundDot = true;
-						pos += 2;
-					} else {
-						break;
-					}
-				}
-				m_tokens.emplace_back(TokenType::Value, line.substr(start, pos - start));
 			} else if (line[pos] == L'"') {
 				// 文字列
 
@@ -91,27 +74,20 @@ namespace Mns
 					++pos;
 				}
 				String text = line.substr(start, pos - start).replace(U"\\\"", U"\"");
-				m_tokens.emplace_back(m_isTag ? TokenType::Value : TokenType::Text, std::move(text));
+				m_tokens.emplace_back(TokenType::Value, std::move(text));
+				++pos;
+			} else if (line[pos] == U'-') {
+				m_tokens.emplace_back(TokenType::Bar, String(1, line[pos]));
 				++pos;
 			} else if (line[pos] == U'[') {
 				m_tokens.emplace_back(TokenType::LSqBrace, String(1, line[pos]));
 				++pos;
-				m_isTag = true;
+				m_isTitle = true;
 			} else if (line[pos] == U']') {
 				m_tokens.emplace_back(TokenType::RSqBrace, String(1, line[pos]));
 				++pos;
-				m_isTag = false;
-			} else if (line[pos] == U'=') {
-				m_tokens.emplace_back(TokenType::Assign, String(1, line[pos]));
-				++pos;
-			} else if (line[pos] == U'#') {
-				m_tokens.emplace_back(TokenType::Sharp, String(1, line[pos]));
-				++pos;
-			} else if (m_isTag && line[pos] == U'/') {
-				m_tokens.emplace_back(TokenType::Slash, String(1, line[pos]));
-				++pos;
-			} else {
-				// 何もなければ文章
+				m_isTitle = false;
+			} else if(m_isTitle) {
 				const size_t start = pos;
 				while (pos < length) {
 					if (IsSpace(line[pos]) || line[pos] == U'[' || line[pos] == U']') {
@@ -119,7 +95,7 @@ namespace Mns
 					}
 					++pos;
 				}
-				m_tokens.emplace_back(m_isTag ? TokenType::Value : TokenType::Text, line.substr(start, pos - start));
+				m_tokens.emplace_back(TokenType::Value, line.substr(start, pos - start));
 			}
 		}
 	}
