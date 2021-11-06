@@ -199,19 +199,16 @@ namespace abyss::Sys
 #endif
                 }
             }
+#if ABYSS_DEBUG
+#define applyEx(flag, callback) apply(Debug::Menu::IsDebug(Debug::DebugFlag::flag), callback)
+#else
+#define applyEx(flag, callback) apply(callback)
+#endif
             // PostEffect適用
             if constexpr (config.isStage) {
                 snapshot->copyWorldToPost()
-#if ABYSS_DEBUG
-                    .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(); })
-#else
-                    .apply([=] { return mod<Light>()->start(); })
-#endif 
-#if ABYSS_DEBUG
-                    .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return mod<Distortion>()->start(); })
-#else
-                    .apply([=] { return mod<Distortion>()->start(); })
-#endif
+                    .applyEx(PostEffectLight, [=] { return mod<Light>()->start(); })
+                    .applyEx(PostEffectDistortion, [=] { return mod<Distortion>()->start(); })
                     .drawWorld(cameraView.getQuakeOffset());
             } else {
                 snapshot->copyWorldToPost()
