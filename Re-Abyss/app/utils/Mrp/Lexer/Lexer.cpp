@@ -3,7 +3,7 @@
 
 namespace Mrp
 {
-    Lexer::Lexer(const s3d::FilePath& mns)
+    Lexer::Lexer(s3d::FilePathView mns)
     {
         this->load(mns);
     }
@@ -11,7 +11,7 @@ namespace Mrp
 	{
 		this->load(code);
 	}
-	bool Lexer::load(const FilePath& mns)
+	bool Lexer::load(s3d::FilePathView mns)
 	{
 		TextReader reader(mns);
 		if (!reader) {
