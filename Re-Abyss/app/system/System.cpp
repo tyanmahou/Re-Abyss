@@ -145,79 +145,86 @@ namespace abyss::Sys
         auto* camera = mod<Camera>();
         auto cameraView = camera->createView();
         auto* snapshot = camera->getSnapshot();
-        // in camera
         {
             auto sceneRender = snapshot->startSceneRender();
-            auto t2d = cameraView.getTransformer();
 
-            auto* env = mod<Environment>();
-            // 背面
-            env->applyWave([&] {
-                if (auto bg = env->getBg()) {
-                    bg->draw(cameraView.screenRegion());
+            // in camera
+            {
+                auto worldRender = snapshot->startWorldRender();
+                auto t2d = cameraView.getTransformer();
+
+                auto* env = mod<Environment>();
+                // 背面
+                env->applyWave([&] {
+                    if (auto bg = env->getBg()) {
+                        bg->draw(cameraView.screenRegion());
+                    }
+                    if (auto sky = env->getSky()) {
+                        sky->draw(cameraView.tl());
+                    }
+                    if constexpr (config.isStage) {
+                        mod<BackGround>()->draw(cameraView);
+                    }
+                    drawer->draw(DrawLayer::BackGround);
+                });
+                if (auto ws = env->getWaterSurface()) {
+                    ws->drawBack(cameraView.getCameraPos());
                 }
-                if (auto sky = env->getSky()) {
-                    sky->draw(cameraView.tl());
+                drawer->draw(DrawLayer::DecorBack);
+
+                if constexpr (config.isStage) {
+                    mod<RoomManager>()->drawDeathLine();
+                }
+
+                // 中面
+                drawer->draw(DrawLayer::Land);
+                drawer->draw(DrawLayer::WorldBack);
+                drawer->draw(DrawLayer::World);
+                drawer->draw(DrawLayer::WorldFront);
+
+                // 全面
+                drawer->draw(DrawLayer::DecorFront);
+                if (auto ws = env->getWaterSurface()) {
+                    ws->drawFront(cameraView.getCameraPos());
                 }
                 if constexpr (config.isStage) {
-                    mod<BackGround>()->draw(cameraView);
+                    // Distortion Map更新
+                    mod<Distortion>()->render();
                 }
-                drawer->draw(DrawLayer::BackGround);
-            });
-            if (auto ws = env->getWaterSurface()) {
-                ws->drawBack(cameraView.getCameraPos());
-            }
-            drawer->draw(DrawLayer::DecorBack);
 
-            if constexpr (config.isStage) {
-                mod<RoomManager>()->drawDeathLine();
-            }
-
-            // 中面
-            drawer->draw(DrawLayer::Land);
-            drawer->draw(DrawLayer::WorldBack);
-            drawer->draw(DrawLayer::World);
-            drawer->draw(DrawLayer::WorldFront);
-
-            // 全面
-            drawer->draw(DrawLayer::DecorFront);
-            if (auto ws = env->getWaterSurface()) {
-                ws->drawFront(cameraView.getCameraPos());
-            }
-            if constexpr (config.isStage) {
-                // Distortion Map更新
-                mod<Distortion>()->render();
-            }
-
-            if constexpr (config.isStage) {
+                if constexpr (config.isStage) {
 #if ABYSS_DEBUG
-                Debug::DebugManager::DrawDebug(*mod<World>());
-                Debug::DebugManager::DrawDebug(*mod<PhysicsManager>());
+                    Debug::DebugManager::DrawDebug(*mod<World>());
+                    Debug::DebugManager::DrawDebug(*mod<PhysicsManager>());
 #endif
+                }
             }
-        }
-        // PostEffect適用
-        if constexpr (config.isStage) {
-            snapshot->copySceneToPost()
+            // PostEffect適用
+            if constexpr (config.isStage) {
+                snapshot->copyWorldToPost()
 #if ABYSS_DEBUG
-                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(); })
+                    .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight), [=] { return mod<Light>()->start(); })
 #else
-                .apply([=] { return mod<Light>()->start(); })
+                    .apply([=] { return mod<Light>()->start(); })
 #endif 
 #if ABYSS_DEBUG
-                .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return mod<Distortion>()->start(); })
+                    .apply(Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion), [=] { return mod<Distortion>()->start(); })
 #else
-                .apply([=] { return mod<Distortion>()->start(); })
+                    .apply([=] { return mod<Distortion>()->start(); })
 #endif
-                .draw(cameraView.getQuakeOffset());
-        } else {
-            snapshot->copySceneToPost()
-                .draw(cameraView.getQuakeOffset());
+                    .drawWorld(cameraView.getQuakeOffset());
+            } else {
+                snapshot->copyWorldToPost()
+                    .drawWorld(cameraView.getQuakeOffset());
+            }
+            // UI
+            {
+                drawer->draw(DrawLayer::UI);
+            }
         }
-        // UI
-        {
-            drawer->draw(DrawLayer::UI);
-        }
+        snapshot->copySceneToPost()
+            //.apply([=] { return mod<Distortion>()->start(); })
+            .drawScene();
     }
 
     template class System<Config::Splash()>;

@@ -8,6 +8,7 @@ namespace abyss
 {
     SnapshotView::SnapshotView():
         m_sceneTexture(Constants::GameScreenSize.asPoint()),
+        m_worldTexture(Constants::GameScreenSize.asPoint()),
         m_postTexture(Constants::GameScreenSize.asPoint()),
         m_postTexture2(Constants::GameScreenSize.asPoint())
     {}
@@ -15,6 +16,11 @@ namespace abyss
     {
         m_sceneTexture.clear(s3d::ColorF(0, 1));
         return s3d::ScopedRenderTarget2D(m_sceneTexture);
+    }
+    s3d::ScopedRenderTarget2D SnapshotView::startWorldRender() const
+    {
+        m_worldTexture.clear(s3d::ColorF(0, 1));
+        return s3d::ScopedRenderTarget2D(m_worldTexture);
     }
     s3d::ScopedRenderTarget2D SnapshotView::startPostRender()
     {
@@ -26,6 +32,11 @@ namespace abyss
     SnapshotView& SnapshotView::copySceneToPost()
     {
         s3d::Shader::Copy(m_sceneTexture, m_isSwapPostTexture ? m_postTexture2 : m_postTexture);
+        return *this;
+    }
+    SnapshotView& SnapshotView::copyWorldToPost()
+    {
+        s3d::Shader::Copy(m_worldTexture, m_isSwapPostTexture ? m_postTexture2 : m_postTexture);
         return *this;
     }
     SnapshotView& SnapshotView::apply(std::function<void(const s3d::Texture&)> callback)
@@ -50,13 +61,17 @@ namespace abyss
         }
         return this->apply(callback);
     }
-    void SnapshotView::draw(const s3d::Vec2& offset) const
+    void SnapshotView::drawWorld(const s3d::Vec2& offset) const
     {
         if (offset.isZero()) {
             this->getPostTexture().draw(Constants::GameScreenOffset);
         } else {
             this->getPostTexture()(offset, Constants::GameScreenSize).draw(Constants::GameScreenOffset);
         }
+    }
+    void SnapshotView::drawScene() const
+    {
+        this->getPostTexture().draw();
     }
     const s3d::RenderTexture& SnapshotView::getPostTexture() const
     {

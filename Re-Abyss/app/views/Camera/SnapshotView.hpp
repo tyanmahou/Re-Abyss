@@ -10,6 +10,8 @@ namespace abyss
         SnapshotView();
 
         s3d::ScopedRenderTarget2D startSceneRender() const;
+        s3d::ScopedRenderTarget2D startWorldRender() const;
+
         const s3d::Texture& getSceneTexture() const
         {
             return m_sceneTexture;
@@ -18,14 +20,17 @@ namespace abyss
         const s3d::RenderTexture& getPostTexture() const;
 
         SnapshotView& copySceneToPost();
+        SnapshotView& copyWorldToPost();
 
         SnapshotView& apply(std::function<void(const s3d::Texture&)> callback);
         SnapshotView& apply(std::function<s3d::ScopedCustomShader2D()> callback);
         SnapshotView& apply(bool enable, std::function<s3d::ScopedCustomShader2D()> callback);
 
-        void draw(const s3d::Vec2& offset = s3d::Vec2::Zero()) const;
+        void drawWorld(const s3d::Vec2& offset = s3d::Vec2::Zero()) const;
+        void drawScene() const;
     private:
         s3d::RenderTexture m_sceneTexture;
+        s3d::RenderTexture m_worldTexture;
 
         s3d::RenderTexture m_postTexture;
         s3d::RenderTexture m_postTexture2;
