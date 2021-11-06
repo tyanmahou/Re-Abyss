@@ -1,7 +1,7 @@
 #include "LightView.hpp"
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/Light/LightShader.hpp>
+#include <abyss/views/Shader/Light/LightShader.hpp>
 #include <abyss/views/Light/LightUtil.hpp>
 
 namespace

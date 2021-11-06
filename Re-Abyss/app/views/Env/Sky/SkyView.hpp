@@ -1,5 +1,5 @@
 #pragma once
-#include "SkyShader.hpp"
+#include <abyss/views/Shader/Sky/SkyShader.hpp>
 namespace abyss::Env
 {
     class SkyView

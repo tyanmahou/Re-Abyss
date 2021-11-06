@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 
-#include <abyss/views/Distortion/DistortionShader.hpp>
+#include <abyss/views/Shader/Distortion/DistortionShader.hpp>
 
 #include <Siv3D/Array.hpp>
 #include <Siv3D/RenderTexture.hpp>

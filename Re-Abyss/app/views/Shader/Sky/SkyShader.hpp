@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Fwd.hpp>
 
-namespace abyss::Env
+namespace abyss
 {
     class SkyShader
     {

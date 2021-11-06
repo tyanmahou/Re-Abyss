@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/models/Decor/Map/TileMapModel.hpp>
-#include <abyss/views/Decor/Map/TileMapShader.hpp>
+#include <abyss/views/Shader/TileMap/TileMapShader.hpp>
 
 #include <Siv3D/Texture.hpp>
 

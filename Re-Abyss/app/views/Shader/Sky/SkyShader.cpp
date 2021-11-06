@@ -11,7 +11,7 @@ namespace
         float _unused[2];
     };
 }
-namespace abyss::Env
+namespace abyss
 {
     class SkyShader::Impl
     {

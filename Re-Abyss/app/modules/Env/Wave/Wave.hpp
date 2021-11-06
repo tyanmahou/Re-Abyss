@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/views/Env/Wave/WaveShader.hpp>
+#include <abyss/views/Shader/Wave/WaveShader.hpp>
 
 namespace abyss::Env
 {
