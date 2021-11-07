@@ -32,7 +32,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->load(U"light.hlsl")),
+            m_ps(Resource::Assets::Norelease()->load(U"light.hlsl")),
             m_dither(::CreateDither())
         {}
         void setBgColor(const s3d::ColorF& color)

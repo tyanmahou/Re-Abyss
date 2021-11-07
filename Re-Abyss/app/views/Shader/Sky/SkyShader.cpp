@@ -21,7 +21,7 @@ namespace abyss
         double m_time = 0.0;
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->load(U"sky.hlsl"))
+            m_ps(Resource::Assets::Norelease()->load(U"sky.hlsl"))
         {}
 
         void setMultiply(double multiply)

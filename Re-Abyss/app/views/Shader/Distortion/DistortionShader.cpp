@@ -16,7 +16,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Main()->load(U"distortion.hlsl"))
+            m_ps(Resource::Assets::Norelease()->load(U"distortion.hlsl"))
         {}
         void setDistTexture(const s3d::Texture& dist)
         {

@@ -21,7 +21,7 @@ namespace abyss
 		Impl(uint32 width, uint32 height) :
 			m_rt(width, height),
 			m_rt2(width, height),
-			m_maskPs(Resource::Assets::Main()->load(U"mask.hlsl"))
+			m_maskPs(Resource::Assets::Norelease()->load(U"mask.hlsl"))
 		{}
 
 		void draw(MaskFunc func, const std::function<void()> mask)

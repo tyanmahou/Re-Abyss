@@ -43,8 +43,15 @@ namespace abyss
 #endif
             }
 
-            Resource::Preload::Preloader preloader(U"Scene/Splash");
-            preloader.preload();
+            {
+                Resource::Preload::Preloader norelease(U"Norelease");
+                norelease.preload(Resource::Assets::Norelease());
+            }
+
+            {
+                Resource::Preload::Preloader preloader(U"Scene/Splash");
+                preloader.preload();
+            }
 
             this->initSystem();
         }
