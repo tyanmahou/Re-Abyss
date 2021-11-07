@@ -1,0 +1,3 @@
+[Actor/Player]
+- img"actors/Player/player.json"
+- img"actors/Player/face.json"

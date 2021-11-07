@@ -1,1 +1,2 @@
 find resources -name "*" -type f | xargs -I {} echo Resource\({}\)
+find preloads -name "*" -type f | xargs -I {} echo Resource\({}\)

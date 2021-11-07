@@ -29,7 +29,7 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(tmx, Tmx);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        LOAD_ASSET(audioSetting, AudioSettingGroup);
+        LOAD_ASSET(audioSettingGroup, AudioSettingGroup);
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
@@ -57,7 +57,7 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(tmx, Tmx);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        LOAD_ASSET(audioSetting, AudioSettingGroup);
+        LOAD_ASSET(audioSettingGroup, AudioSettingGroup);
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET

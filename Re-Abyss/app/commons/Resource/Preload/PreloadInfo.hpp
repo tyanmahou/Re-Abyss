@@ -14,7 +14,7 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::FilePath> tmx;
         s3d::Array<s3d::FilePath> pixelShader;
         s3d::Array<s3d::FilePath> audio;
-        s3d::Array<s3d::FilePath> audioSetting;
+        s3d::Array<s3d::FilePath> audioSettingGroup;
         s3d::Array<s3d::FilePath> toml;
 
         PreloadInfo& unique();
@@ -30,7 +30,7 @@ namespace abyss::Resource::Preload
         &PreloadInfo::tmx,
         &PreloadInfo::pixelShader,
         &PreloadInfo::audio,
-        &PreloadInfo::audioSetting,
+        &PreloadInfo::audioSettingGroup,
         &PreloadInfo::toml
     };
 }

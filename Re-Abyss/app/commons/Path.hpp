@@ -5,7 +5,7 @@ namespace abyss::Path
 {
     inline static s3d::FilePath Root = U"";
     inline static s3d::FilePath ResourcePath = U"resources/";
-    inline static s3d::FilePath PreloadPath = ResourcePath + U"preloads/";
+    inline static s3d::FilePath PreloadPath = U"preloads/";
     inline static s3d::FilePath ImagePath = ResourcePath + U"images/";
     inline static s3d::FilePath MapPath = ResourcePath + U"maps/";
     inline static s3d::FilePath ParamPath = ResourcePath + U"params/";

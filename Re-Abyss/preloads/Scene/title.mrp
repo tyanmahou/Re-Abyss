@@ -1,0 +1,9 @@
+[Scene/Title]
+- @"Env/WaterSurface"
+- @"Env/Wave"
+
+- @"UI/Title/Logo"
+- @"UI/Title/Cursor"
+- @"UI/Title/BackGround"
+
+- snd"bgm/cycle/title/title.aas"

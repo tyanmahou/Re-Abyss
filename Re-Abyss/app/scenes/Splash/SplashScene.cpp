@@ -43,7 +43,7 @@ namespace abyss
 #endif
             }
 
-            Resource::Preload::Preloader preloader(U"@Cycle/Splash");
+            Resource::Preload::Preloader preloader(U"Scene/Splash");
             preloader.preload();
 
             this->initSystem();

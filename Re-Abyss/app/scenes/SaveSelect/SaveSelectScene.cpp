@@ -27,7 +27,7 @@ namespace abyss
         {
             Resource::Assets::Main()->release();
 
-            Resource::Preload::Preloader preloader(U"@Cycle/SaveSelect");
+            Resource::Preload::Preloader preloader(U"Scene/SaveSelect");
             preloader.preload();
 
             this->init();
