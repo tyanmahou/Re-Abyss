@@ -12,6 +12,7 @@ namespace Mrp
         class Impl;
     public:
         using container_type = s3d::HashTable<s3d::String, MrpGroup>;
+        using const_iterator = container_type::const_iterator;
     public:
         Mrp() = default;
 
@@ -19,8 +20,8 @@ namespace Mrp
 
         explicit operator bool() const;
 
-        container_type::const_iterator begin() const;
-        container_type::const_iterator end() const;
+        const_iterator begin() const;
+        const_iterator end() const;
     private:
         std::shared_ptr<Impl> m_pImpl;
     };

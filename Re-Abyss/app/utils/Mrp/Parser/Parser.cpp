@@ -37,7 +37,7 @@ namespace Mrp
             return false;
         }
         m_curtName = it->value;
-        ret.emplace(m_curtName);
+        ret[m_curtName] = {};
 
         ++it;
         if (it == m_tokens.end() || it->type != TokenType::RSqBrace) {

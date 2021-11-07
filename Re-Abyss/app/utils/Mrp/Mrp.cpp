@@ -1,4 +1,4 @@
-#include "Mrp.hpp"
+#include <abyss/utils/Mrp/Mrp.hpp>
 #include <abyss/utils/Mrp/Lexer/Lexer.hpp>
 #include <abyss/utils/Mrp/Parser/Parser.hpp>
 namespace Mrp
@@ -38,11 +38,11 @@ namespace Mrp
         }
         return true;
     }
-    Mrp::container_type::const_iterator Mrp::begin() const
+    Mrp::const_iterator Mrp::begin() const
     {
         return m_pImpl->getData()->begin();
     }
-    Mrp::container_type::const_iterator Mrp::end() const
+    Mrp::const_iterator Mrp::end() const
     {
         return m_pImpl->getData()->end();
     }
