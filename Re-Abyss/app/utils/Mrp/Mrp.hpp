@@ -20,6 +20,7 @@ namespace Mrp
 
         explicit operator bool() const;
 
+        const container_type& data() const;
         const_iterator begin() const;
         const_iterator end() const;
     private:

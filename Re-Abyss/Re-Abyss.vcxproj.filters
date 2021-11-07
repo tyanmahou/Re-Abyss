@@ -1732,6 +1732,15 @@
     <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Mrp\Mrp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Mrp\Parser\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2614,6 +2623,8 @@
     <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
     <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
+    <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
+    <ClInclude Include="app\utils\Mrp\Parser\Parser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

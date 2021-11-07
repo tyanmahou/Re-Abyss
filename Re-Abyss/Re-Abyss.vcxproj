@@ -842,6 +842,7 @@
     </ClCompile>
     <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TomlBind\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
     <ClCompile Include="vendor\abyss\include\abyss\utils\FPS\FrameRateHz.cpp" />

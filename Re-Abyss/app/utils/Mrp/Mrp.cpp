@@ -5,8 +5,6 @@ namespace Mrp
 {
     class Mrp::Impl
     {
-    private:
-        using Data = std::unique_ptr<s3d::HashTable<s3d::String, MrpGroup>>;
     public:
         Impl(s3d::FilePathView path) :
             m_lexer(path),
@@ -15,14 +13,14 @@ namespace Mrp
             m_data = m_parser.group();
         }
 
-        const Data& getData()
+        const std::unique_ptr<Mrp::container_type>& getData()
         {
             return m_data;
         }
     private:
         Lexer m_lexer;
         Parser m_parser;
-        Data m_data;
+        std::unique_ptr<Mrp::container_type> m_data;
     };
 
     Mrp::Mrp(s3d::FilePathView path):
@@ -38,12 +36,16 @@ namespace Mrp
         }
         return true;
     }
+    const Mrp::container_type& Mrp::data() const
+    {
+        return *m_pImpl->getData();
+    }
     Mrp::const_iterator Mrp::begin() const
     {
-        return m_pImpl->getData()->begin();
+        return data().begin();
     }
     Mrp::const_iterator Mrp::end() const
     {
-        return m_pImpl->getData()->end();
+        return data().end();
     }
 }
