@@ -60,7 +60,13 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(tmx, Tmx);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        LOAD_ASSET(audioSettingGroup, AudioSettingGroup);
+        for (const auto& path : m_info.audioSettingGroup) {
+            for (const auto& [key, as] : assets->loadAudioSettingGroup(path)) {
+                assets->loadAudio(as);
+            }
+            ++count;
+            co_yield static_cast<double>(count) / static_cast<double>(loadNum);
+        }
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
