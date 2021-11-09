@@ -1,7 +1,5 @@
 #include "SplashScene.hpp"
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
-#include <abyss/commons/Resource/Preload/Param.hpp>
-#include <abyss/debugs/Log/Log.hpp>
 
 #include <abyss/system/System.hpp>
 #include <abyss/system/Splash/Booter.hpp>
@@ -18,10 +16,9 @@ namespace abyss
 
         std::shared_ptr<Data_t> m_data;
     public:
-        Impl([[maybe_unused]]const InitData& init):
+        Impl([[maybe_unused]] const InitData& init) :
             m_data(init._s)
-        {
-        }
+        {}
 
         void initSystem()
         {
@@ -31,28 +28,10 @@ namespace abyss
         }
         void loading()
         {
-            // 最初にToml全部ロード
-            if (auto* assets = Resource::Assets::Main()) {
-#if ABYSS_DEBUG
-                assets->setWarnMode(false);
-#endif
-                Resource::Preload::LoadTomlAll(assets);
-                assets->release();
-#if ABYSS_DEBUG
-                assets->setWarnMode(true);
-#endif
-            }
-
-            {
-                Resource::Preload::Preloader norelease(U"Norelease");
-                norelease.preload(Resource::Assets::Norelease());
-            }
-
             {
                 Resource::Preload::Preloader preloader(U"Scene/Splash");
                 preloader.preload();
             }
-
             this->initSystem();
         }
         void update()
@@ -65,18 +44,18 @@ namespace abyss
             m_system->draw();
         }
 
-       bool chageOpDemoScene() final
-       {
-           m_changeOpDemoSceneFunc();
-           return true;
-       }
+        bool chageOpDemoScene() final
+        {
+            m_changeOpDemoSceneFunc();
+            return true;
+        }
 
-       void bindChangeOpDemoScene(const std::function<void()>& callback)
-       {
-           m_changeOpDemoSceneFunc = callback;
-       }
+        void bindChangeOpDemoScene(const std::function<void()>& callback)
+        {
+            m_changeOpDemoSceneFunc = callback;
+        }
     };
-    SplashScene::SplashScene(const InitData& init):
+    SplashScene::SplashScene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {

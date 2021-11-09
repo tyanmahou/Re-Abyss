@@ -4,6 +4,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/UserData/Migration/Migration.hpp>
 
+#include <abyss/scenes/Root/RootScene.hpp>
 #include <abyss/scenes/Splash/SplashScene.hpp>
 #include <abyss/scenes/Title/TitleScene.hpp>
 #include <abyss/scenes/SaveSelect/SaveSelectScene.hpp>
@@ -22,6 +23,7 @@ namespace abyss
 		AppScene m_scene;
 		void registerScene()
 		{
+			m_scene.add<RootScene>(SceneName::Root);
 			m_scene.add<SplashScene>(SceneName::Splash);
 			m_scene.add<TitleScene>(SceneName::Title);
 			m_scene.add<SaveSelectScene>(SceneName::SaveSelect);
