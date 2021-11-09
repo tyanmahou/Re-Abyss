@@ -51,6 +51,7 @@ namespace abyss
 #if ABYSS_NO_BUILD_RESOURCE
 		void resourceReload()
 		{
+			Resource::Assets::Norelease()->release();
 			Resource::Assets::Main()->release();
 			Resource::Preload::LoadActorToml();
 			Resource::Preload::LoadUIToml();

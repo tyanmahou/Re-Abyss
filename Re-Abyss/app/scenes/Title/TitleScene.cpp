@@ -31,6 +31,7 @@ namespace abyss
 #if ABYSS_NO_BUILD_RESOURCE
         void reload()
         {
+            Resource::Assets::Norelease()->release();
             Resource::Assets::Main()->release();
 
             Resource::Preload::LoadCycleCommon();
