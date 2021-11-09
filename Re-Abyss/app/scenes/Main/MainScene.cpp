@@ -46,6 +46,7 @@ namespace abyss
 		Coro::Generator<double> loading()
 		{
 			co_yield 0.0;
+			Resource::Assets::Main()->release();
 			auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
 			Resource::Preload::Preloader loader(U"Map/{}"_fmt(stageKey));
 			for (auto&& p : loader.preloadProgress()) {
