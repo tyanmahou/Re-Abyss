@@ -36,7 +36,7 @@ namespace abyss::Resource
         s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
         s3d::HashTable<String, Texture> m_textureCache;
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
-        s3d::HashTable<String, Wave> m_audioCache;
+        s3d::HashTable<String, Wave> m_waveCache;
         s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
@@ -82,7 +82,7 @@ namespace abyss::Resource
         }
         const Wave& loadWave(const s3d::FilePath& path)
         {
-            return this->load(m_audioCache, path);
+            return this->load(m_waveCache, path);
         }
         s3d::Audio loadAudio(const AudioSetting& as)
         {
@@ -119,7 +119,7 @@ namespace abyss::Resource
             m_texturePackerCache.clear();
             m_psCache.clear();
             m_tomlCache.clear();
-            m_audioCache.clear();
+            m_waveCache.clear();
             m_audioGroupCache.clear();
         }
 
