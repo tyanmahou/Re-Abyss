@@ -18,9 +18,10 @@ namespace abyss::Resource::Preload
 #if ABYSS_DEBUG
         assets->setWarnMode(false);
 #endif
-#define LOAD_ASSET(a, b)\
+#define LOAD_ASSET(a, b, ...)\
         for (const auto& path : m_info.##a) {\
-            assets->load##b(path);\
+            [[maybe_unused]]auto&& it =  assets->load##b(path);\
+            __VA_ARGS__\
         }
 
         LOAD_ASSET(texture, Texture);
@@ -28,11 +29,11 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(tmx, Tmx);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        for (const auto& path : m_info.audioSettingGroup) {
-            for (const auto&[key, as] : assets->loadAudioSettingGroup(path)) {
+        LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
+            for (const auto& [key, as] : it) {
                 assets->loadAudio(as);
             }
-        }
+        });
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
@@ -48,9 +49,10 @@ namespace abyss::Resource::Preload
 #endif
         size_t loadNum = m_info.size();
         size_t count = 0;
-#define LOAD_ASSET(a, b)\
+#define LOAD_ASSET(a, b, ...)\
         for (const auto& path : m_info.##a) {\
-            assets->load##b(path);\
+            [[maybe_unused]]auto&& it = assets->load##b(path);\
+            __VA_ARGS__\
             ++count;\
             co_yield static_cast<double>(count) / static_cast<double>(loadNum);\
         }
@@ -60,13 +62,11 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(tmx, Tmx);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        for (const auto& path : m_info.audioSettingGroup) {
-            for (const auto& [key, as] : assets->loadAudioSettingGroup(path)) {
+        LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
+            for (const auto& [key, as] : it) {
                 assets->loadAudio(as);
             }
-            ++count;
-            co_yield static_cast<double>(count) / static_cast<double>(loadNum);
-        }
+        });
         LOAD_ASSET(toml, Toml);
 
 #undef LOAD_ASSET
