@@ -8,6 +8,7 @@
 #include <abyss/factories/Main/MainInjector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
 
 #include <abyss/system/System.hpp>
 #include <abyss/system/Main/Booter.hpp>
@@ -45,6 +46,11 @@ namespace abyss
 		Coro::Generator<double> loading()
 		{
 			co_yield 0.0;
+			auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
+			Resource::Preload::Preloader loader(U"Map/{}"_fmt(stageKey));
+			for (auto&& p : loader.preloadProgress()) {
+				co_yield p;
+			}
 			this->init();
 			co_yield 1.0;
 		}

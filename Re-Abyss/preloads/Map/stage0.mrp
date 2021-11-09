@@ -1,0 +1,6 @@
+[Map/stage0]
+- @"Map/Common"
+- tmx"stage0.tmx"
+- snd"bgm/stage/common/boss_mae.aas"
+- snd"bgm/stage/stage0/stage0.aas"
+- snd"bgm/stage/stage0/stage0_boss.aas"

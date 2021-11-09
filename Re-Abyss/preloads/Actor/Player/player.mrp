@@ -1,3 +1,12 @@
 [Actor/Player]
+- @"Actor/Player/Common"
+- @"Actor/Player/Shot"
+
+[Actor/Player/Common]
 - img"actors/Player/player.json"
 - img"actors/Player/face.json"
+- snd"se/Actors/Player/player.aase"
+
+[Actor/Player/Shot]
+- img"actors/Player/player_shot.png"
+- snd"se/Actors/Player/Shot/player_shot.aase"
