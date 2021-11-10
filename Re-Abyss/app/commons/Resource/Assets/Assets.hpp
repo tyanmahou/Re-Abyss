@@ -41,6 +41,10 @@ namespace abyss::Resource
         const TexturePacker& loadTexturePacker(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ImagePath) const;
         s3d::Audio loadAudio(const AudioSetting& as) const;
         s3d::Audio loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+
+        s3d::Audio loadAudio(s3d::Audio::FileStreaming, const AudioSetting& as) const;
+        s3d::Audio loadAudio(s3d::Audio::FileStreaming, const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
+
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
         const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;

@@ -6,7 +6,35 @@ namespace abyss
 {
     s3d::Audio AudioSetting::load() const
     {
+        if (streaming) {
+            return this->loadStreamimg();
+        } else {
+            return this->loadWave();
+        }
+    }
+
+    s3d::Audio AudioSetting::loadWave() const
+    {
         return this->apply(s3d::Wave(path));
+    }
+
+    s3d::Audio AudioSetting::loadStreamimg() const
+    {
+        return this->loadStreamimg(path);
+    }
+    s3d::Audio AudioSetting::loadStreamimg(s3d::FilePathView otherPath) const
+    {
+        return std::visit(overloaded{
+            [&](Loop l) {
+                return s3d::Audio(Audio::Stream, otherPath, l);
+            },
+            [&](const s3d::Duration& begin) {
+                return s3d::Audio(Audio::Stream, otherPath, Arg::loopBegin = samplingRate * static_cast<uint64>(begin.count()));
+            },
+            [&](const s3d::Vector2D<s3d::Duration>& beginEnd) {
+                return s3d::Audio(Audio::Stream, otherPath, samplingRate * static_cast<uint64>(beginEnd.x.count()));
+            }
+        }, loop);
     }
     s3d::Audio AudioSetting::apply(const s3d::Wave& wave) const
     {

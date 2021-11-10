@@ -99,6 +99,34 @@ namespace abyss::Resource
                 return s3d::Audio(this->loadWave(path));
             }
         }
+        s3d::Audio loadAudio(Audio::FileStreaming, const AudioSetting& as)
+        {
+            const auto fixPath = FileUtil::FixPath(as.path, m_isBuilded);
+            Audio ret = as.loadStreamimg(fixPath);
+#if ABYSS_DEBUG
+            if (!ret) {
+                Debug::LogLoad << U"Failed Load:" << fixPath;
+            }
+#endif
+            return ret;
+        }
+        s3d::Audio loadAudio(Audio::FileStreaming streaming, const s3d::FilePath& path)
+        {
+            if (FileUtil::Extension(path) == U"aas") {
+                AudioSettingReader reader;
+                auto as = reader.load(path);
+                return this->loadAudio(Audio::Stream, as);
+            } else {
+                const auto fixPath = FileUtil::FixPath(path, m_isBuilded);
+                s3d::Audio ret = s3d::Audio(streaming, fixPath);
+#if ABYSS_DEBUG
+                if (!ret) {
+                    Debug::LogLoad << U"Failed Load:" << fixPath;
+                }
+#endif
+                return ret;
+            }
+        }
         const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path)
         {
             return this->load<AudioSettingGroup>(m_audioGroupCache, path);
@@ -172,6 +200,16 @@ namespace abyss::Resource
     s3d::Audio Assets::loadAudio(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudio(prefix + path);
+    }
+
+    s3d::Audio Assets::loadAudio(s3d::Audio::FileStreaming streaming, const AudioSetting& as) const
+    {
+        return m_pImpl->loadAudio(streaming, as);
+    }
+
+    s3d::Audio Assets::loadAudio(s3d::Audio::FileStreaming streaming, const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadAudio(streaming, prefix + path);
     }
 
     const AudioSettingGroup& Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const

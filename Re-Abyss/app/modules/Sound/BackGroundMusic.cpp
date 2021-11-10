@@ -19,7 +19,8 @@ namespace abyss
         m_currentPath = fixPath;
         m_prev = m_current;
 
-        m_current = Resource::Assets::Main()->load(fixPath, Path::Root);
+        // Bgm はストリーミング再生
+        m_current = Resource::Assets::Main()->loadAudio(s3d::Audio::Stream, fixPath, Path::Root);
 
         if (m_prev.isPlaying()) {
             m_prev.stop(sec);

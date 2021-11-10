@@ -19,6 +19,16 @@ namespace abyss
         } else {
             ret.loop = s3d::Loop::No;
         }
+        if (auto samplingRate = toml[U"samplingRate"].getOpt<s3d::uint64>()) {
+            ret.samplingRate = *samplingRate;
+        } else {
+            ret.samplingRate = 44100;
+        }
+        if (auto streaming = toml[U"streaming"].getOpt<bool>()) {
+            ret.streaming = *streaming;
+        } else {
+            ret.streaming = false;
+        }
         return ret;
     }
 
