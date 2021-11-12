@@ -1744,6 +1744,12 @@
     <ClCompile Include="app\scenes\Root\RootScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Decor\General\SchoolOfFish\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Decor\General\SchoolOfFish\Drawer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2629,6 +2635,8 @@
     <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
     <ClInclude Include="app\utils\Mrp\Parser\Parser.hpp" />
     <ClInclude Include="app\scenes\Root\RootScene.hpp" />
+    <ClInclude Include="app\components\Decor\General\SchoolOfFish\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\General\SchoolOfFish\Drawer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -369,6 +369,8 @@
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
+    <ClCompile Include="app\components\Decor\General\SchoolOfFish\Builder.cpp" />
+    <ClCompile Include="app\components\Decor\General\SchoolOfFish\Drawer.cpp" />
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\base\Engine.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp" />
@@ -898,6 +900,8 @@
     <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
+    <ClInclude Include="app\components\Decor\General\SchoolOfFish\Builder.hpp" />
+    <ClInclude Include="app\components\Decor\General\SchoolOfFish\Drawer.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\base\ICommand.hpp" />
     <ClInclude Include="app\components\Novel\base\Engine.hpp" />

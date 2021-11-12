@@ -28,6 +28,15 @@ namespace
             return HLSL{ path, U"PS" };
         }
     };
+
+    template<>
+    struct AssetLoadTraits<s3d::VertexShader>
+    {
+        s3d::VertexShader load(const s3d::FilePath& path) const
+        {
+            return HLSL{ path, U"VS" };
+        }
+    };
 }
 namespace abyss::Resource
 {
@@ -38,6 +47,7 @@ namespace abyss::Resource
         s3d::HashTable<String, TexturePacker> m_texturePackerCache;
         s3d::HashTable<String, Wave> m_waveCache;
         s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
+        s3d::HashTable<String, VertexShader> m_vsCache;
         s3d::HashTable<String, PixelShader> m_psCache;
         s3d::HashTable<String, TOMLValue> m_tomlCache;
 #if ABYSS_NO_BUILD_RESOURCE
@@ -131,6 +141,10 @@ namespace abyss::Resource
         {
             return this->load<AudioSettingGroup>(m_audioGroupCache, path);
         }
+        const VertexShader& loadVs(const s3d::FilePath& path)
+        {
+            return this->load<VertexShader>(m_vsCache, path);
+        }
         const PixelShader& loadPs(const s3d::FilePath& path)
         {
             return this->load<PixelShader>(m_psCache, path);
@@ -145,6 +159,7 @@ namespace abyss::Resource
             m_tmxCache.clear();
             m_textureCache.clear();
             m_texturePackerCache.clear();
+            m_vsCache.clear();
             m_psCache.clear();
             m_tomlCache.clear();
             m_waveCache.clear();
@@ -215,6 +230,11 @@ namespace abyss::Resource
     const AudioSettingGroup& Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadAudioSettingGroup(prefix + path);
+    }
+
+    const s3d::VertexShader& Assets::loadVs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadVs(prefix + path);
     }
 
     const s3d::PixelShader& Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
@@ -295,6 +315,13 @@ namespace abyss::Resource
             return m_asset.loadAudioSettingGroup(m_path, *m_prefix);
         }
         return m_asset.loadAudioSettingGroup(m_path);
+    }
+    AssetLoadProxy::operator const s3d::VertexShader& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadVs(m_path, *m_prefix);
+        }
+        return m_asset.loadVs(m_path);
     }
     AssetLoadProxy::operator const s3d::PixelShader& () const
     {
