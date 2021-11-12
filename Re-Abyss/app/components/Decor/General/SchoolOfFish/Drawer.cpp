@@ -1,5 +1,7 @@
 #include "Drawer.hpp"
 #include <Siv3D.hpp>
+#include <abyss/modules/Decor/base/DecorObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Decor::General::SchoolOfFish
@@ -19,7 +21,7 @@ namespace abyss::Decor::General::SchoolOfFish
             float t;
         };
         static s3d::ConstantBuffer<CBuffer> cb;
-        cb->t = static_cast<float>(s3d::Scene::Time());
+        cb->t = static_cast<float>(m_pObj->getModule<GlobalTime>()->time());
 
         ScopedRenderStates2D blend(s3d::BlendState::Subtractive);
         VertexShader vs = Resource::Assets::Norelease()->load(U"school_of_fish.hlsl");
