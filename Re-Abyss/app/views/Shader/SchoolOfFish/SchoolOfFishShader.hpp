@@ -2,16 +2,20 @@
 #include <memory>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/ScopedCustomShader2D.hpp>
+
 namespace abyss
 {
-    class ScanlineShader
+    /// <summary>
+    /// 魚の群れ
+    /// </summary>
+    class SchoolOfFishShader
     {
         class Impl;
     public:
-        ScanlineShader();
+        SchoolOfFishShader();
 
-        const ScanlineShader& setTime(double time) const;
-        const ScanlineShader& setTextureSize(const s3d::Vec2& size) const;
+        const SchoolOfFishShader& setTime(double time) const;
+        const SchoolOfFishShader& setTexture(const s3d::Texture& texture) const;
 
         s3d::ScopedCustomShader2D start() const;
 

@@ -163,7 +163,7 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	// 移動位置計算
 	float posRate = (xId + 4 * rate) % (float)column / column;
 	float2 moved = move(xId, yId, posRate, column, row);
-	pos += moved;
+	float2 offs = moved;
 
 	// 前回の位置
 	float posRatePrev = (xId - 1 + 4 * rate) % (float)column / column;
@@ -175,12 +175,13 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	// Quadに変換
 	float2 uv = toUV(mod6);
 	float2 quadOffs = toQuad(uv, posRate, xId, yId, moved - movedPrev);
-	pos += quadOffs;
+	offs += quadOffs;
 
 	// カラー計算
 	float4 color = toColor(posRate);
 
 	// リザルト格納
+	pos += offs * 1.0;
 	result.position = s3d::Transform2D(pos, g_transform);
 	result.uv = uv;
 	result.color = color * g_colorMul;

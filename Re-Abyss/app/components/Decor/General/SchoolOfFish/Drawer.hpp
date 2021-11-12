@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
+#include <abyss/views/Shader/SchoolOfFish/SchoolOfFishShader.hpp>
 
 namespace abyss::Decor::General::SchoolOfFish
 {
@@ -19,6 +20,7 @@ namespace abyss::Decor::General::SchoolOfFish
         void onDraw() const override;
     private:
         DecorObj* m_pObj;
+        SchoolOfFishShader m_shader;
     };
 }
 namespace abyss

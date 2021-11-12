@@ -24,7 +24,7 @@ namespace abyss
         {
             m_cb->timer = static_cast<float>(time);
         }
-        void setTexturSize(const s3d::Vec2& size)
+        void setTextureSize(const s3d::Vec2& size)
         {
             m_cb->textureSize = static_cast<Float2>(size);
         }
@@ -45,9 +45,9 @@ namespace abyss
         m_pImpl->setTime(time);
         return *this;
     }
-    const ScanlineShader& ScanlineShader::setTexturSize(const s3d::Vec2& size) const
+    const ScanlineShader& ScanlineShader::setTextureSize(const s3d::Vec2& size) const
     {
-        m_pImpl->setTexturSize(size);
+        m_pImpl->setTextureSize(size);
         return *this;
     }
     s3d::ScopedCustomShader2D ScanlineShader::start() const
