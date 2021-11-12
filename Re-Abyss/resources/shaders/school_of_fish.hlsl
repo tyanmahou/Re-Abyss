@@ -72,14 +72,27 @@ float TimeRate0_1(float rate)
 {
 	float factor = lerp(1.0, 1.5, rate);
 	float time = factor * g_t;
-	float period = 0.4;
+	float period = 1.6;
 	return (period + time % period) % period / period;
 }
-float2 Move(int offs, float rate, int column, int row)
+float2 Move(int xId, int yId, float rate, int column, int row)
 {
 	float2 moved = float2(0, 0);
+
+	// base offs
+	int mod = xId % 4.0;
+	if (mod == 0) {
+		moved.y += size.y;
+	} else 	if (mod == 1) {
+		moved.x -= halfSize.x;
+	} else 	if (mod == 2) {
+		moved.y -= halfSize.y;
+	} else 	if (mod == 3) {
+		moved.x += halfSize.x / 2;
+	}
+
 	// moveX
-	float distX = 2.0 * max(35.0 + offs * 2.5, halfSize.x);
+	float distX = 2.0 * max(35.0 + yId * 2.5 + mod * 2.5, halfSize.x);
 
 	moved.x -= distX / 2.0;
 	moved.x += distX * lerp(-column / 2, column / 2, rate);
@@ -87,26 +100,27 @@ float2 Move(int offs, float rate, int column, int row)
 	// moveY
 	float distY = 9.0;
 	float halfRow = row / 2.0;
-	if (offs >= halfRow) {
+	if (yId >= halfRow) {
 		moved.y -= halfRow * distY;
 	}
-	moved.y += distY * (offs - halfRow);
-	float hightOffs = 3.0 * (offs % 2.0 == 0 ? 1.0 : -1.0);
+	moved.y += distY * (yId - halfRow);
+	float hightOffs = 3.0 * (yId % 2.0 == 0 ? 1.0 : -1.0);
 	moved.y += hightOffs * lerp(-column / 2, column / 2, rate);
 	float sinHight = hightOffs * column;
 	sinHight = sign(sinHight) * pow(abs(sinHight), 0.7);
-	moved.y += sinHight * sin(offs * 45.0 + radians(rate * 360.0) + g_t);
+	moved.y += sinHight * sin(yId * 45.0 + radians(rate * 360.0 + mod * 20) + g_t);
 	moved.y += -2000.0 * rate;
 	moved.y += 1000;
 	return moved;
 }
 
-float2 ToQuad(float2 uv, float rate, int offs, float2 movedDiff)
+float2 ToQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 {
 	float2 ret = lerp(halfSize, -halfSize, uv); // 反転させておく
 	// スケール
 	{
-		ret *= 0.9 + 0.3 * (1.0 + sin(g_t + offs * 2.0 + (rate * 10) % 10)) * 0.5;
+		int modX = xId % 4.0;
+		ret *= 0.9 + 0.3 * (1.0 + sin(g_t + modX * 3.0 + yId * 2.0 + (rate * 10) % 10)) * 0.5;
 	}
 	// 回転
 	{
@@ -142,17 +156,20 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	float rate = TimeRate0_1(yId / (float)row);
 
 	// 移動位置計算
-	float posRate = (xId + rate) % (float)column / column;
-	float2 moved = Move(yId, posRate, column, row);
+	float posRate = (xId + 4 * rate) % (float)column / column;
+	float2 moved = Move(xId, yId, posRate, column, row);
 	pos += moved;
 
 	// 前回の位置
-	float posRatePrev = (xId - 1 + rate) % (float)column / column;
-	float2 movedPrev = Move(yId, posRatePrev, column, row);
+	float posRatePrev = (xId - 1 + 4 * rate) % (float)column / column;
+	if (posRatePrev > posRate) {
+		posRatePrev -= 1.0;
+	}
+	float2 movedPrev = Move(xId, yId, posRatePrev, column, row);
 
 	// Quadに変換
 	float2 uv = toUV(mod6);
-	float2 quadOffs = ToQuad(uv, posRate, yId, moved - movedPrev);
+	float2 quadOffs = ToQuad(uv, posRate, xId, yId, moved - movedPrev);
 	pos += quadOffs;
 
 	// カラー計算
