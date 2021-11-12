@@ -13,6 +13,11 @@
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D/Array.hpp>
 
+namespace
+{
+	constexpr double period = 0.4;
+}
+
 namespace abyss::Cron::BubbleGenerator
 {
 	Generator::Generator(Manager* pManager):
@@ -21,7 +26,7 @@ namespace abyss::Cron::BubbleGenerator
 	void Generator::onStart()
 	{
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (double sec = 0; sec <= 20; sec += 0.2) {
+		for (double sec = 0; sec <= 20; sec += period) {
 			objs << this->buildEffect();
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
@@ -31,7 +36,7 @@ namespace abyss::Cron::BubbleGenerator
 			if (!obj) {
 				continue;
 			}
-			double sec = static_cast<double>(index) * 0.2 + 5.0;
+			double sec = static_cast<double>(index) * period + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto area = pRoomManager ? pRoomManager->currentRoom().getRegion() : pCamera->screenRegion();
@@ -46,7 +51,7 @@ namespace abyss::Cron::BubbleGenerator
 		auto time = m_pManager->getModule<GlobalTime>();
 		while (true) {
 			this->buildEffect();
-			co_await Coro::WaitForSeconds(0.2s, time);
+			co_await Coro::WaitForSeconds(s3d::Duration(period), time);
 		}
 		co_return;
     }
@@ -57,7 +62,7 @@ namespace abyss::Cron::BubbleGenerator
 			return;
 		}
 		s3d::Array<Ref<Effect::EffectObj>> objs;
-		for (double sec = 0; sec <= 20; sec += 0.2) {
+		for (double sec = 0; sec <= 20; sec += period) {
 			objs << this->buildEffect(next->getRegion());
 		}
 		auto* pCamera = m_pManager->getModule<Camera>();
@@ -66,7 +71,7 @@ namespace abyss::Cron::BubbleGenerator
 			if (!obj) {
 				continue;
 			}
-			double sec = static_cast<double>(index) * 0.2 + 5.0;
+			double sec = static_cast<double>(index) * period + 5.0;
 			obj->updateDeltaTime(sec);
 			obj->update();
 			auto main = obj->find<Effect::Misc::Bubble::Main>();
