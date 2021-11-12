@@ -1,5 +1,5 @@
-Texture2D		g_texture0 : register(t0);
-SamplerState	g_sampler0 : register(s0);
+Texture2D       g_texture0 : register(t0);
+SamplerState    g_sampler0 : register(s0);
 namespace s3d
 {
 	//
@@ -68,14 +68,14 @@ float2 toUV(uint mod6)
 	}
 }
 
-float TimeRate0_1(float rate)
+float timeRate0_1(float rate)
 {
 	float factor = lerp(1.0, 1.5, rate);
 	float time = factor * g_t;
 	float period = 1.6;
 	return (period + time % period) % period / period;
 }
-float2 Move(int xId, int yId, float rate, int column, int row)
+float2 move(int xId, int yId, float rate, int column, int row)
 {
 	float2 moved = float2(0, 0);
 
@@ -114,7 +114,7 @@ float2 Move(int xId, int yId, float rate, int column, int row)
 	return moved;
 }
 
-float2 ToQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
+float2 toQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 {
 	float2 ret = lerp(halfSize, -halfSize, uv); // 反転させておく
 	// スケール
@@ -137,7 +137,7 @@ float2 ToQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 	}
 	return ret;
 }
-float4 Color(float rate)
+float4 toColor(float rate)
 {
 	// アルファ値計算
 	float alpha = sin(radians(rate * 180.0));
@@ -158,11 +158,11 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	const int yId = (int)(triId / column) % (float)row;
 
 	// 周期0～1レート
-	float rate = TimeRate0_1(yId / (float)row);
+	float rate = timeRate0_1(yId / (float)row);
 
 	// 移動位置計算
 	float posRate = (xId + 4 * rate) % (float)column / column;
-	float2 moved = Move(xId, yId, posRate, column, row);
+	float2 moved = move(xId, yId, posRate, column, row);
 	pos += moved;
 
 	// 前回の位置
@@ -170,15 +170,15 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	if (posRatePrev > posRate) {
 		posRatePrev -= 1.0;
 	}
-	float2 movedPrev = Move(xId, yId, posRatePrev, column, row);
+	float2 movedPrev = move(xId, yId, posRatePrev, column, row);
 
 	// Quadに変換
 	float2 uv = toUV(mod6);
-	float2 quadOffs = ToQuad(uv, posRate, xId, yId, moved - movedPrev);
+	float2 quadOffs = toQuad(uv, posRate, xId, yId, moved - movedPrev);
 	pos += quadOffs;
 
 	// カラー計算
-	float4 color = Color(posRate);
+	float4 color = toColor(posRate);
 
 	// リザルト格納
 	result.position = s3d::Transform2D(pos, g_transform);

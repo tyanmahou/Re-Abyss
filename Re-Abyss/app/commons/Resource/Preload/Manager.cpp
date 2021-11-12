@@ -28,6 +28,8 @@ namespace
                 }
             } else if (kind == U"tmx") {
                 ret.tmx << path;
+            } else if (kind == U"vs") {
+                ret.vertexShader << path;
             } else if (kind == U"ps") {
                 ret.pixelShader << path;
             } else if (kind == U"snd") {

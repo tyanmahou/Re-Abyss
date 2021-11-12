@@ -12,6 +12,7 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::FilePath> texture;
         s3d::Array<s3d::FilePath> texturePacker;
         s3d::Array<s3d::FilePath> tmx;
+        s3d::Array<s3d::FilePath> vertexShader;
         s3d::Array<s3d::FilePath> pixelShader;
         s3d::Array<s3d::FilePath> audio;
         s3d::Array<s3d::FilePath> audioSettingGroup;
@@ -28,6 +29,7 @@ namespace abyss::Resource::Preload
         &PreloadInfo::texture,
         &PreloadInfo::texturePacker,
         &PreloadInfo::tmx,
+        &PreloadInfo::vertexShader,
         &PreloadInfo::pixelShader,
         &PreloadInfo::audio,
         &PreloadInfo::audioSettingGroup,

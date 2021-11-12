@@ -27,6 +27,7 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(texture, Texture);
         LOAD_ASSET(texturePacker, TexturePacker);
         LOAD_ASSET(tmx, Tmx);
+        LOAD_ASSET(vertexShader, Vs);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
         LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
@@ -60,6 +61,7 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(texture, Texture);
         LOAD_ASSET(texturePacker, TexturePacker);
         LOAD_ASSET(tmx, Tmx);
+        LOAD_ASSET(vertexShader, Vs);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
         LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
