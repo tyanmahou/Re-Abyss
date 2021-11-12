@@ -43,13 +43,20 @@ cbuffer PSConstants2D : register(b0)
 	float4 g_internal;
 }
 
-cbuffer SoftShape : register(b1)
+cbuffer ShaderParam : register(b1)
 {
 	float g_t;
+	float g_column;
+	float g_row;
+	float g_scale;
+	float2 g_pos;
+	float2 g_velocity;
+	float2 g_size;
 }
-
-static float2 size = float2(40, 20);
-static float2 halfSize = size / 2;
+static float2 halfSize = g_size / 2;
+static float xDiffBase = max(70.0, g_size.x);
+static float period = xDiffBase / g_velocity.x * 4.0;
+static float yOffs = g_velocity.y * g_column * period;
 
 float2 toUV(uint mod6)
 {
@@ -72,17 +79,16 @@ float timeRate0_1(float rate)
 {
 	float factor = lerp(1.0, 1.5, rate);
 	float time = factor * g_t;
-	float period = 1.6;
 	return (period + time % period) % period / period;
 }
-float2 move(int xId, int yId, float rate, int column, int row)
+float2 move(int xId, int yId, float rate)
 {
 	float2 moved = float2(0, 0);
 
 	// base offs
 	int mod = xId % 4.0;
 	if (mod == 0) {
-		moved.y += size.y;
+		moved.y += g_size.y;
 	} else 	if (mod == 1) {
 		moved.x -= halfSize.x;
 	} else 	if (mod == 2) {
@@ -92,25 +98,25 @@ float2 move(int xId, int yId, float rate, int column, int row)
 	}
 
 	// moveX
-	float distX = 2.0 * max(35.0 + yId * 2.5 + mod * 2.5, halfSize.x);
+	float distX = max(70.0 + (yId + mod) * 5.0, g_size.x);
 
 	moved.x -= distX / 2.0;
-	moved.x += distX * lerp(-column / 2, column / 2, rate);
+	moved.x += distX * lerp(-g_column / 2, g_column / 2, rate);
 
 	// moveY
 	float distY = 9.0;
-	float halfRow = row / 2.0;
+	float halfRow = g_row / 2.0;
 	if (yId >= halfRow) {
 		moved.y -= halfRow * distY;
 	}
 	moved.y += distY * (yId - halfRow);
 	float hightOffs = 3.0 * (yId % 2.0 == 0 ? 1.0 : -1.0);
-	moved.y += hightOffs * lerp(-column / 2, column / 2, rate);
-	float sinHight = hightOffs * column;
+	moved.y += hightOffs * lerp(-g_column / 2, g_column / 2, rate);
+	float sinHight = hightOffs * g_column;
 	sinHight = sign(sinHight) * pow(abs(sinHight), 0.7);
 	moved.y += sinHight * sin(yId * 45.0 + radians(rate * 360.0 + mod * 20) + g_t);
-	moved.y += -2000.0 * rate;
-	moved.y += 1000;
+	moved.y += yOffs * rate;
+	moved.y += -yOffs / 2.0;
 	return moved;
 }
 
@@ -123,7 +129,7 @@ float2 toQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 		ret *= 0.9 + 0.3 * (1.0 + sin(g_t + modX * 3.0 + yId * 2.0 + (rate * 10) % 10)) * 0.5;
 
 		// ぷにぷに
-		float puni01 = (1.0 + sin(g_t * 10.0 + (xId % 4.0) + yId)) * 0.5;
+		float puni01 = (1.0 + sin(g_t * 10.0 + modX + yId)) * 0.5;
 		ret.x *= 1.0 + 0.05 * puni01;
 		ret.y *= 1.0 - 0.1 * puni01;
 	}
@@ -147,41 +153,39 @@ float4 toColor(float rate)
 s3d::PSInput VS(uint id: SV_VERTEXID)
 {
 	s3d::PSInput result;
-	float2 pos = float2(1120, 640) / 2.0 + halfSize;
+	float2 pos = g_pos;
 	const uint triId = id / 6;
 	const uint mod6 = id % 6;
 
 	// 整列
-	const int column = 64;
-	const int row = 8;
-	const int xId = (int)(triId % column);
-	const int yId = (int)(triId / column) % (float)row;
+	const int xId = (int)(triId % g_column);
+	const int yId = (int)(triId / g_column) % g_row;
 
 	// 周期0～1レート
-	float rate = timeRate0_1(yId / (float)row);
+	float rate = timeRate0_1(yId / g_row);
 
 	// 移動位置計算
-	float posRate = (xId + 4 * rate) % (float)column / column;
-	float2 moved = move(xId, yId, posRate, column, row);
+	float posRate = (xId + 4 * rate) % g_column / g_column;
+	float2 moved = move(xId, yId, posRate);
 	float2 offs = moved;
 
 	// 前回の位置
-	float posRatePrev = (xId - 1 + 4 * rate) % (float)column / column;
+	float posRatePrev = (xId - 1 + 4 * rate) % g_column / g_column;
 	if (posRatePrev > posRate) {
 		posRatePrev -= 1.0;
 	}
-	float2 movedPrev = move(xId, yId, posRatePrev, column, row);
+	float2 movedPrev = move(xId, yId, posRatePrev);
 
 	// Quadに変換
 	float2 uv = toUV(mod6);
-	float2 quadOffs = toQuad(uv, posRate, xId, yId, moved - movedPrev);
+	float2 quadOffs = toQuad(uv, posRate, xId, yId, (moved - movedPrev) * sign(g_velocity.x));
 	offs += quadOffs;
 
 	// カラー計算
 	float4 color = toColor(posRate);
 
 	// リザルト格納
-	pos += offs * 1.0;
+	pos += offs * g_scale;
 	result.position = s3d::Transform2D(pos, g_transform);
 	result.uv = uv;
 	result.color = color * g_colorMul;

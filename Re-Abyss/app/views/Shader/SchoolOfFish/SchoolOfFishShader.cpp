@@ -7,6 +7,11 @@ namespace
     struct ShaderParam
     {
         float timer;
+        float column;
+        float row;
+        float scale;
+        Float2 pos;
+        Float2 velocity;
         Float2 textureSize;
     };
 }
@@ -19,11 +24,25 @@ namespace abyss
             m_vs(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl")),
             m_ps(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl"))
         {
+            m_cb->scale = 1.0;
             this->setTexture(Resource::Assets::Main()->loadTexturePacker(U"effects/Misc/Fish/fish.json")(U"fish_1"));
+        }
+        void setPos(const s3d::Vec2& pos)
+        {
+            m_cb->pos = static_cast<Float2>(pos);
+        }
+        void setVelocity(const s3d::Vec2& velocity)
+        {
+            m_cb->velocity = static_cast<Float2>(velocity);
         }
         void setTime(double time)
         {
             m_cb->timer = static_cast<float>(time);
+        }
+        void setSize(s3d::int32 column, s3d::int32 row)
+        {
+            m_cb->column = static_cast<float>(column);
+            m_cb->row = static_cast<float>(row);
         }
         void setTexture(const s3d::Texture& texture)
         {
@@ -46,9 +65,24 @@ namespace abyss
     SchoolOfFishShader::SchoolOfFishShader() :
         m_pImpl(std::make_shared<Impl>())
     {}
+    const SchoolOfFishShader& SchoolOfFishShader::setPos(const s3d::Vec2& pos) const
+    {
+        m_pImpl->setPos(pos);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setVelocity(const s3d::Vec2& velocity) const
+    {
+        m_pImpl->setVelocity(velocity);
+        return *this;
+    }
     const SchoolOfFishShader& SchoolOfFishShader::setTime(double time) const
     {
         m_pImpl->setTime(time);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setSize(s3d::int32 column, s3d::int32 row) const
+    {
+        m_pImpl->setSize(column, row);
         return *this;
     }
     const SchoolOfFishShader& SchoolOfFishShader::setTexture(const s3d::Texture& texture) const

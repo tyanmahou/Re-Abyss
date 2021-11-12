@@ -15,10 +15,15 @@ namespace abyss::Decor::General::SchoolOfFish
     }
     void Drawer::onDraw() const
     {
+        constexpr s3d::int32 column = 64;
+        constexpr s3d::int32 row = 8;
         ScopedRenderStates2D blend(s3d::BlendState::Subtractive);
         auto scopedShader = m_shader
+            .setPos(s3d::Scene::CenterF())
+            .setVelocity(s3d::Vec2{175.0, -20.0})
             .setTime(m_pObj->getModule<GlobalTime>()->time())
+            .setSize(column, row)
             .start();
-        s3d::Graphics2D::DrawTriangles(64 * 8 * 2);
+        s3d::Graphics2D::DrawTriangles(column * row * 2);
     }
 }
