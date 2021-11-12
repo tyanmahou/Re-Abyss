@@ -121,6 +121,11 @@ float2 ToQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 	{
 		int modX = xId % 4.0;
 		ret *= 0.9 + 0.3 * (1.0 + sin(g_t + modX * 3.0 + yId * 2.0 + (rate * 10) % 10)) * 0.5;
+
+		// ぷにぷに
+		float puni01 = (1.0 + sin(g_t * 10.0 + (xId % 4.0) + yId)) * 0.5;
+		ret.x *= 1.0 + 0.05 * puni01;
+		ret.y *= 1.0 - 0.1 * puni01;
 	}
 	// 回転
 	{
