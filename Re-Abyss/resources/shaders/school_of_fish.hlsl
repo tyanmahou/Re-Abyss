@@ -98,7 +98,9 @@ float2 move(int xId, int yId, float rate)
 	}
 
 	// moveX
-	float distX = max(70.0 + (yId + mod) * 5.0, g_size.x);
+	int yEven = (int)(yId % 2.0) == 0;
+	int yFix = yId / 2.0 + (yEven ? g_row / 2.0 : 0);
+	float distX = max(70.0 + (yFix + mod) * 5.0, g_size.x);
 
 	moved.x -= distX / 2.0;
 	moved.x += distX * lerp(-g_column / 2, g_column / 2, rate);
@@ -106,9 +108,6 @@ float2 move(int xId, int yId, float rate)
 	// moveY
 	float distY = 9.0;
 	float halfRow = g_row / 2.0;
-	if (yId >= halfRow) {
-		moved.y -= halfRow * distY;
-	}
 	moved.y += distY * (yId - halfRow);
 	float hightOffs = 3.0 * (yId % 2.0 == 0 ? 1.0 : -1.0);
 	moved.y += hightOffs * lerp(-g_column / 2, g_column / 2, rate);
