@@ -20,7 +20,9 @@ namespace abyss::Decor::General::SchoolOfFish
         ScopedRenderStates2D blend(s3d::BlendState::Subtractive);
         auto scopedShader = m_shader
             .setPos(s3d::Scene::CenterF())
-            .setVelocity(s3d::Vec2{175.0, -20.0})
+            .setSpeed(175.0)
+            .setAngle(10_deg)
+            .setHightOffset(180.0)
             .setTime(m_pObj->getModule<GlobalTime>()->time())
             .setSize(column, row)
             .start();

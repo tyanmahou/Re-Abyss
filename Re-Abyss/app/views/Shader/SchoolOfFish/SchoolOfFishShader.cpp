@@ -10,9 +10,13 @@ namespace
         float column;
         float row;
         float scale;
+
         Float2 pos;
-        Float2 velocity;
+        float speed;
+        float angle;
         Float2 textureSize;
+
+        float hightOffset;
     };
 }
 namespace abyss
@@ -31,9 +35,17 @@ namespace abyss
         {
             m_cb->pos = static_cast<Float2>(pos);
         }
-        void setVelocity(const s3d::Vec2& velocity)
+        void setSpeed(double speed)
         {
-            m_cb->velocity = static_cast<Float2>(velocity);
+            m_cb->speed = static_cast<float>(speed);
+        }
+        void setAngle(double angle)
+        {
+            m_cb->angle = static_cast<float>(angle);
+        }
+        void setHightOffset(double hightOffset)
+        {
+            m_cb->hightOffset = static_cast<float>(hightOffset);
         }
         void setTime(double time)
         {
@@ -70,9 +82,19 @@ namespace abyss
         m_pImpl->setPos(pos);
         return *this;
     }
-    const SchoolOfFishShader& SchoolOfFishShader::setVelocity(const s3d::Vec2& velocity) const
+    const SchoolOfFishShader& SchoolOfFishShader::setSpeed(double speed) const
     {
-        m_pImpl->setVelocity(velocity);
+        m_pImpl->setSpeed(speed);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setAngle(double angle) const
+    {
+        m_pImpl->setAngle(angle);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setHightOffset(double hightOffset) const
+    {
+        m_pImpl->setHightOffset(hightOffset);
         return *this;
     }
     const SchoolOfFishShader& SchoolOfFishShader::setTime(double time) const
