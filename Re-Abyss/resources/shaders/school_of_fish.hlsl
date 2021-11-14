@@ -81,6 +81,10 @@ float timeRate0_1(float rate)
 	float time = factor * g_t;
 	return (period + time % period) % period / period;
 }
+float rand(float2 st)
+{
+	return frac(sin(dot(st.xy, float2(12.9898, 78.233))) * 43758.5453123);
+}
 float2 move(int xId, int yId, float rate)
 {
 	float2 moved = float2(0, 0);
@@ -98,9 +102,8 @@ float2 move(int xId, int yId, float rate)
 	}
 
 	// moveX
-	int yEven = (int)(yId % 2.0) == 0;
-	int yFix = yId / 2.0 + (yEven ? g_row / 2.0 : 0);
-	float distX = max(70.0 + (yFix + mod) * 5.0, g_size.x);
+	int randRow = rand(float2(mod, yId)) * g_row;
+	float distX = max(70.0 + (randRow + mod) * 5.0, g_size.x);
 
 	moved.x -= distX / 2.0;
 	moved.x += distX * lerp(-g_column / 2, g_column / 2, rate);
@@ -118,7 +121,12 @@ float2 move(int xId, int yId, float rate)
 	moved.y += -yOffs / 2.0;
 	return moved;
 }
-
+float2 rot(float2 xy, float theta)
+{
+	float cosTheta = cos(theta);
+	float sinTheta = sin(theta);
+	return mul(float2x2(cosTheta, -sinTheta, sinTheta, cosTheta), xy);
+}
 float2 toQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 {
 	float2 ret = lerp(halfSize, -halfSize, uv); // 反転させておく
@@ -136,9 +144,7 @@ float2 toQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 	{
 		// 移動差分から計算
 		float theta = atan2(movedDiff.y, movedDiff.x);
-		float cosTheta = cos(theta);
-		float sinTheta = sin(theta);
-		ret = mul(float2x2(cosTheta, -sinTheta, sinTheta, cosTheta), ret);
+		ret = rot(ret, theta);
 	}
 	return ret;
 }
