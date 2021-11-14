@@ -50,13 +50,16 @@ cbuffer ShaderParam : register(b1)
 	float g_row;
 	float g_scale;
 	float2 g_pos;
-	float2 g_velocity;
+	float g_speed;
+	float g_angle;
 	float2 g_size;
 }
+static const float g_hight = 180.0;
+
 static float2 halfSize = g_size / 2;
 static float xDiffBase = max(70.0, g_size.x);
-static float period = xDiffBase / g_velocity.x * 4.0;
-static float yOffs = g_velocity.y * g_column * period;
+static float period = xDiffBase / g_speed * 4.0;
+static float dt = min(1 / 60.0, period / 10.0);
 
 float2 toUV(uint mod6)
 {
@@ -75,17 +78,16 @@ float2 toUV(uint mod6)
 	}
 }
 
-float timeRate0_1(float rate)
+float timeRate0_1(float time, float rate)
 {
 	float factor = lerp(1.0, 1.5, rate);
-	float time = factor * g_t;
-	return (period + time % period) % period / period;
+	return (period + factor * time % period) % period / period;
 }
 float rand(float2 st)
 {
 	return frac(sin(dot(st.xy, float2(12.9898, 78.233))) * 43758.5453123);
 }
-float2 move(int xId, int yId, float rate)
+float2 move(float time, int xId, int yId, float rate)
 {
 	float2 moved = float2(0, 0);
 
@@ -102,23 +104,23 @@ float2 move(int xId, int yId, float rate)
 	}
 
 	// moveX
-	int randRow = rand(float2(mod, yId)) * g_row;
-	float distX = max(70.0 + (randRow + mod) * 5.0, g_size.x);
+	const float randValue = rand(float2(mod, yId));
+	const float distX = max(70.0 + (randValue + mod) * 5.0, g_size.x);
 
 	moved.x -= distX / 2.0;
 	moved.x += distX * lerp(-g_column / 2, g_column / 2, rate);
 
 	// moveY
-	float distY = 9.0;
-	float halfRow = g_row / 2.0;
+	const float distY = 9.0;
+	const float halfRow = g_row / 2.0;
 	moved.y += distY * (yId - halfRow);
-	float hightOffs = 3.0 * (yId % 2.0 == 0 ? 1.0 : -1.0);
-	moved.y += hightOffs * lerp(-g_column / 2, g_column / 2, rate);
-	float sinHight = hightOffs * g_column;
-	sinHight = sign(sinHight) * pow(abs(sinHight), 0.7);
-	moved.y += sinHight * sin(yId * 45.0 + radians(rate * 360.0 + mod * 20) + g_t);
-	moved.y += yOffs * rate;
-	moved.y += -yOffs / 2.0;
+
+	const float hightOffs = (randValue * g_row % 2.0 - 1.0);
+	moved.y += hightOffs * lerp(-g_hight / 2, g_hight / 2, rate);
+
+	const float sinHight = sign(hightOffs) * pow(g_hight, 0.7);
+	moved.y += sinHight * sin(radians(rate * 360.0 + mod * 20 + yId * 45.0) + time / period * 0.01);
+
 	return moved;
 }
 float2 rot(float2 xy, float theta)
@@ -167,30 +169,35 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	const int yId = (int)(triId / g_column) % g_row;
 
 	// 周期0～1レート
-	float rate = timeRate0_1(yId / g_row);
+	float rate = timeRate0_1(g_t, yId / g_row);
 
 	// 移動位置計算
 	float posRate = (xId + 4 * rate) % g_column / g_column;
-	float2 moved = move(xId, yId, posRate);
+	float2 moved = move(g_t, xId, yId, posRate);
 	float2 offs = moved;
 
 	// 前回の位置
-	float posRatePrev = (xId - 1 + 4 * rate) % g_column / g_column;
-	if (posRatePrev > posRate) {
-		posRatePrev -= 1.0;
+	float prevTime = g_t - dt;
+	float prevRate = timeRate0_1(prevTime, yId / g_row);
+	float prevPosRate = (xId + 4 * prevRate) % g_column / g_column;
+	int prevXId = xId;
+	if (prevPosRate > posRate) {
+		// 周期リセットした場合
+		prevXId = xId - 4;
+		prevPosRate = (prevXId + 4 * prevRate) % g_column / g_column;
 	}
-	float2 movedPrev = move(xId, yId, posRatePrev);
+	float2 movedPrev = move(g_t, prevXId, yId, prevPosRate);
 
 	// Quadに変換
 	float2 uv = toUV(mod6);
-	float2 quadOffs = toQuad(uv, posRate, xId, yId, (moved - movedPrev) * sign(g_velocity.x));
+	float2 quadOffs = toQuad(uv, posRate, xId, yId, moved - movedPrev);
 	offs += quadOffs;
 
 	// カラー計算
 	float4 color = toColor(posRate);
 
 	// リザルト格納
-	pos += offs * g_scale;
+	pos += rot(offs, g_angle) * g_scale;
 	result.position = s3d::Transform2D(pos, g_transform);
 	result.uv = uv;
 	result.color = color * g_colorMul;
