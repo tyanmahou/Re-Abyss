@@ -56,6 +56,7 @@ cbuffer ShaderParam : register(b1)
 	float2 g_size;
 
 	float g_hightOffset;
+	float g_amplitude;
 }
 
 static float2 halfSize = g_size / 2;
@@ -120,8 +121,7 @@ float2 move(float time, int xId, int yId, float rate)
 	const float hightOffs = (randValue * g_row % 2.0 - 1.0);
 	moved.y += hightOffs * lerp(-g_hightOffset / 2, g_hightOffset / 2, rate);
 
-	const float sinHight = sign(hightOffs) * (g_hightOffset / sqrt(sqrt(g_hightOffset)));
-	moved.y += sinHight * sin(radians(rate * 360.0 + mod * 20 + yId * 45.0) + time / period * 0.01);
+	moved.y += g_amplitude * sin(radians(rate * 360.0 + mod * 20 + yId * 45.0) + time / period * 0.01);
 
 	return moved;
 }

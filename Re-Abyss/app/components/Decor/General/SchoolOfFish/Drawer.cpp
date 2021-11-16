@@ -23,6 +23,7 @@ namespace abyss::Decor::General::SchoolOfFish
             .setSpeed(175.0)
             .setAngle(10_deg)
             .setHightOffset(180.0)
+            .setAmplitude(40)
             .setTime(m_pObj->getModule<GlobalTime>()->time())
             .setSize(column, row)
             .start();

@@ -6,17 +6,18 @@ namespace
 {
     struct ShaderParam
     {
-        float timer;
-        float column;
-        float row;
-        float scale;
+        float timer{};
+        float column{};
+        float row{};
+        float scale{1.0f};
 
-        Float2 pos;
-        float speed;
-        float angle;
-        Float2 textureSize;
+        Float2 pos{};
+        float speed{1.0f};
+        float angle{};
+        Float2 textureSize{};
 
-        float hightOffset;
+        float hightOffset{};
+        float amplitude{};
     };
 }
 namespace abyss
@@ -28,7 +29,6 @@ namespace abyss
             m_vs(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl")),
             m_ps(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl"))
         {
-            m_cb->scale = 1.0;
             this->setTexture(Resource::Assets::Main()->loadTexturePacker(U"effects/Misc/Fish/fish.json")(U"fish_1"));
         }
         void setPos(const s3d::Vec2& pos)
@@ -46,6 +46,10 @@ namespace abyss
         void setHightOffset(double hightOffset)
         {
             m_cb->hightOffset = static_cast<float>(hightOffset);
+        }
+        void setAmplitude(double amplitude)
+        {
+            m_cb->amplitude = static_cast<float>(amplitude);
         }
         void setTime(double time)
         {
@@ -95,6 +99,11 @@ namespace abyss
     const SchoolOfFishShader& SchoolOfFishShader::setHightOffset(double hightOffset) const
     {
         m_pImpl->setHightOffset(hightOffset);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setAmplitude(double amplitude) const
+    {
+        m_pImpl->setAmplitude(amplitude);
         return *this;
     }
     const SchoolOfFishShader& SchoolOfFishShader::setTime(double time) const
