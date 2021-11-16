@@ -45,7 +45,7 @@ cbuffer PSConstants2D : register(b0)
 
 cbuffer ShaderParam : register(b1)
 {
-	float g_t;
+	float g_time;
 	float g_column;
 	float g_row;
 	float g_scale;
@@ -137,10 +137,10 @@ float2 toQuad(float2 uv, float rate, int xId, int yId, float2 movedDiff)
 	// スケール
 	{
 		int modX = xId % 4.0;
-		ret *= 0.9 + 0.3 * (1.0 + sin(g_t + modX * 3.0 + yId * 2.0 + (rate * 10) % 10)) * 0.5;
+		ret *= 0.9 + 0.3 * (1.0 + sin(g_time + modX * 3.0 + yId * 2.0 + (rate * 10) % 10)) * 0.5;
 
 		// ぷにぷに
-		float puni01 = (1.0 + sin(g_t * 10.0 + modX + yId)) * 0.5;
+		float puni01 = (1.0 + sin(g_time * 10.0 + modX + yId)) * 0.5;
 		ret.x *= 1.0 + 0.05 * puni01;
 		ret.y *= 1.0 - 0.1 * puni01;
 	}
@@ -171,15 +171,15 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	const int yId = (int)(triId / g_column) % g_row;
 
 	// 周期0～1レート
-	float rate = timeRate0_1(g_t, yId / g_row);
+	float rate = timeRate0_1(g_time, yId / g_row);
 
 	// 移動位置計算
 	float posRate = (xId + 4 * rate) % g_column / g_column;
-	float2 moved = move(g_t, xId, yId, posRate);
+	float2 moved = move(g_time, xId, yId, posRate);
 	float2 offs = moved;
 
 	// 前回の位置
-	float prevTime = g_t - dt;
+	float prevTime = g_time - dt;
 	float prevRate = timeRate0_1(prevTime, yId / g_row);
 	float prevPosRate = (xId + 4 * prevRate) % g_column / g_column;
 	int prevXId = xId;
@@ -188,7 +188,7 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 		prevXId = xId - 4;
 		prevPosRate = (prevXId + 4 * prevRate) % g_column / g_column;
 	}
-	float2 movedPrev = move(g_t, prevXId, yId, prevPosRate);
+	float2 movedPrev = move(g_time, prevXId, yId, prevPosRate);
 
 	// Quadに変換
 	float2 uv = toUV(mod6);
