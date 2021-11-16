@@ -20,6 +20,7 @@ namespace abyss
         const SchoolOfFishShader& setAmplitude(double amplitude) const;
         const SchoolOfFishShader& setTime(double time) const;
         const SchoolOfFishShader& setSize(s3d::int32 column, s3d::int32 row) const;
+        const SchoolOfFishShader& setScale(double scale) const;
         const SchoolOfFishShader& setTexture(const s3d::Texture& texture) const;
 
         s3d::ScopedCustomShader2D start() const;

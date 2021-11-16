@@ -20,6 +20,8 @@ namespace abyss::Decor::General::SchoolOfFish
         const auto& cameraPos = m_pObj->getModule<Camera>()->getPos();
         Vec2 pos = m_entity.pos + cameraPos - cameraPos * m_entity.parallax;
 
+        // Bouding Box
+        // RectF(pos - m_entity.size / 2.0, m_entity.size).rotated(s3d::ToRadians(m_entity.rotation)).drawFrame(2.0);
         ScopedRenderStates2D blend(s3d::BlendState::Subtractive);
         auto scopedShader = m_shader
             .setPos(pos)
@@ -29,6 +31,7 @@ namespace abyss::Decor::General::SchoolOfFish
             .setAmplitude(m_entity.amplitude)
             .setTime(m_pObj->getModule<GlobalTime>()->time())
             .setSize(m_entity.matrixSize.x, m_entity.matrixSize.y)
+            .setScale(m_entity.scale)
             .start();
         s3d::Graphics2D::DrawTriangles(m_entity.matrixSize.x * m_entity.matrixSize.y * 2);
     }

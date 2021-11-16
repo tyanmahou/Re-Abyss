@@ -60,6 +60,10 @@ namespace abyss
             m_cb->column = static_cast<float>(column);
             m_cb->row = static_cast<float>(row);
         }
+        void setScale(double scale)
+        {
+            m_cb->scale = static_cast<float>(scale);
+        }
         void setTexture(const s3d::Texture& texture)
         {
             m_texture = texture;
@@ -114,6 +118,11 @@ namespace abyss
     const SchoolOfFishShader& SchoolOfFishShader::setSize(s3d::int32 column, s3d::int32 row) const
     {
         m_pImpl->setSize(column, row);
+        return *this;
+    }
+    const SchoolOfFishShader& SchoolOfFishShader::setScale(double scale) const
+    {
+        m_pImpl->setScale(scale);
         return *this;
     }
     const SchoolOfFishShader& SchoolOfFishShader::setTexture(const s3d::Texture& texture) const

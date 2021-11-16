@@ -73,8 +73,10 @@ namespace
                 it->speed = obj.getProperty(U"speed").value_or(175.0);
                 it->heightOffset = obj.getProperty(U"height_offset").value_or(180.0);
                 it->amplitude = obj.getProperty(U"amplitude").value_or(40.0);
-                it->size.x = 90.0 * it->matrixSize.x + 200.0;
-                it->size.y = 9.0 * it->matrixSize.y + it->heightOffset + it->amplitude + 200.0;
+                it->scale = obj.getProperty(U"scale").value_or(1.0);
+                it->size.x = 90.0 * it->matrixSize.x + 100.0;
+                it->size.y = 9.0 * it->matrixSize.y + it->heightOffset + it->amplitude * 2 + 100.0;
+                it->size *= it->scale;
             });
         );
 
