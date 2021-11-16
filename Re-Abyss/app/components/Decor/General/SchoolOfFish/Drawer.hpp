@@ -2,6 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
 #include <abyss/views/Shader/SchoolOfFish/SchoolOfFishShader.hpp>
+#include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>
 
 namespace abyss::Decor::General::SchoolOfFish
 {
@@ -13,7 +14,7 @@ namespace abyss::Decor::General::SchoolOfFish
         public IDraw
     {
     public:
-        Drawer(DecorObj* pObj);
+        Drawer(DecorObj* pObj, const SchoolOfFishEntity& entity);
 
         void onStart() override;
 
@@ -21,6 +22,7 @@ namespace abyss::Decor::General::SchoolOfFish
     private:
         DecorObj* m_pObj;
         SchoolOfFishShader m_shader;
+        SchoolOfFishEntity m_entity;
     };
 }
 namespace abyss

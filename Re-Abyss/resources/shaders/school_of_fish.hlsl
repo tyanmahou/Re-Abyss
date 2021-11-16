@@ -55,7 +55,7 @@ cbuffer ShaderParam : register(b1)
 	float g_angle;
 	float2 g_size;
 
-	float g_hightOffset;
+	float g_heightOffset;
 	float g_amplitude;
 }
 
@@ -110,7 +110,6 @@ float2 move(float time, int xId, int yId, float rate)
 	const float randValue = rand(float2(mod, yId));
 	const float distX = max(70.0 + (randValue + mod) * 5.0, g_size.x);
 
-	moved.x -= distX / 2.0;
 	moved.x += distX * lerp(-g_column / 2, g_column / 2, rate);
 
 	// moveY
@@ -118,8 +117,8 @@ float2 move(float time, int xId, int yId, float rate)
 	const float halfRow = g_row / 2.0;
 	moved.y += distY * (yId - halfRow);
 
-	const float hightOffs = (randValue * g_row % 2.0 - 1.0);
-	moved.y += hightOffs * lerp(-g_hightOffset / 2, g_hightOffset / 2, rate);
+	const float heightOffs = (randValue * g_row % 2.0 - 1.0);
+	moved.y += heightOffs * lerp(-g_heightOffset / 2, g_heightOffset / 2, rate);
 
 	moved.y += g_amplitude * sin(radians(rate * 360.0 + mod * 20 + yId * 45.0) + time / period * 0.01);
 

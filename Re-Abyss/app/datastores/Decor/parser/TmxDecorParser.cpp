@@ -1,6 +1,7 @@
 #include "TmxDecorParser.hpp"
 #include <abyss/entities/Decor/DecorEntity.hpp>
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
+#include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>
 #include <abyss/entities/Decor/City/StreetLightEntity.hpp>
 #include <abyss/entities/Decor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Decor/Map/CommonEntity.hpp>
@@ -54,15 +55,27 @@ namespace
 #define PARSE_TYPE(Name, ...) case Name :\
 {\
     auto it = std::make_shared<Name##Entity>();\
+    ParseCommon(it, obj);\
     it->type = type;\
     __VA_ARGS__\
-	return ParseCommon(it, obj);\
+	return it;\
 }
 
     std::shared_ptr<DecorEntity> Parse(const DecorType& type, const s3dTiled::Object& obj)
     {
         auto general = PARSE_MOTIF(General,
             PARSE_TYPE(Common);
+            PARSE_TYPE(SchoolOfFish, {
+                it->matrixSize = s3d::Size{
+                    obj.getProperty(U"column").value_or(64).toInt(),
+                    obj.getProperty(U"row").value_or(8).toInt()
+                };
+                it->speed = obj.getProperty(U"speed").value_or(175.0);
+                it->heightOffset = obj.getProperty(U"height_offset").value_or(180.0);
+                it->amplitude = obj.getProperty(U"amplitude").value_or(40.0);
+                it->size.x = 90.0 * it->matrixSize.x + 200.0;
+                it->size.y = 9.0 * it->matrixSize.y + it->heightOffset + it->amplitude + 200.0;
+            });
         );
 
         auto city = PARSE_MOTIF(City,

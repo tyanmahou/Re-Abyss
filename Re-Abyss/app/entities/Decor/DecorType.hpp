@@ -19,6 +19,7 @@ namespace abyss::Decor
 			{
 				None,
 				Common,
+				SchoolOfFish,
 			};
 
 			enum class City

@@ -3,7 +3,7 @@
 
 namespace abyss::Decor::General
 {
-    struct  CommonEntity;
+    struct CommonEntity;
 }
 
 namespace abyss::Decor::General::Common

@@ -16,7 +16,7 @@ namespace
         float angle{};
         Float2 textureSize{};
 
-        float hightOffset{};
+        float heightOffset{};
         float amplitude{};
     };
 }
@@ -43,9 +43,9 @@ namespace abyss
         {
             m_cb->angle = static_cast<float>(angle);
         }
-        void setHightOffset(double hightOffset)
+        void setHeightOffset(double heightOffset)
         {
-            m_cb->hightOffset = static_cast<float>(hightOffset);
+            m_cb->heightOffset = static_cast<float>(heightOffset);
         }
         void setAmplitude(double amplitude)
         {
@@ -96,9 +96,9 @@ namespace abyss
         m_pImpl->setAngle(angle);
         return *this;
     }
-    const SchoolOfFishShader& SchoolOfFishShader::setHightOffset(double hightOffset) const
+    const SchoolOfFishShader& SchoolOfFishShader::setHeightOffset(double heightOffset) const
     {
-        m_pImpl->setHightOffset(hightOffset);
+        m_pImpl->setHeightOffset(heightOffset);
         return *this;
     }
     const SchoolOfFishShader& SchoolOfFishShader::setAmplitude(double amplitude) const

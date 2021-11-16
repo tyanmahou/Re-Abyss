@@ -967,6 +967,7 @@
     <ClInclude Include="app\entities\Actor\Enemy\WarrusEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BulletinEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BushEntity.hpp" />
+    <ClInclude Include="app\entities\Decor\General\SchoolOfFishEntity.hpp" />
     <ClInclude Include="app\entities\Novel\CharaEntity.hpp" />
     <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />

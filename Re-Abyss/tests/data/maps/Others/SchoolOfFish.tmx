@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="12" nextobjectid="42">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="13" nextobjectid="47">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
@@ -7,12 +7,24 @@
  <tileset firstgid="46" source="../../../../resources/maps/tileset/gimmicks.tsx"/>
  <tileset firstgid="55" source="../../../../resources/maps/tileset/enemys.tsx"/>
  <tileset firstgid="65" source="../../../../resources/maps/tileset/stage0_decor.tsx"/>
+ <tileset firstgid="79" source="../../../../resources/maps/tileset/decor_common.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
-  <objectgroup id="7" name="back">
+  <objectgroup id="12" name="back2" parallaxx="0.8">
    <properties>
-    <property name="layer" value="DecorFront"/>
+    <property name="layer" value="DecorBack"/>
    </properties>
+   <object id="45" gid="79" x="-119.1" y="454" width="120" height="60" rotation="-20">
+    <properties>
+     <property name="column" type="int" value="64"/>
+    </properties>
+   </object>
+  </objectgroup>
+  <objectgroup id="7" name="back" parallaxx="0.9">
+   <properties>
+    <property name="layer" value="DecorBack"/>
+   </properties>
+   <object id="46" gid="79" x="936.9" y="236" width="120" height="60" rotation="220"/>
   </objectgroup>
  </group>
  <layer id="2" name="map" width="100" height="100">

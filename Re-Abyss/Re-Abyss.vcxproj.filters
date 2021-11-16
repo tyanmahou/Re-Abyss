@@ -2641,6 +2641,7 @@
     <ClInclude Include="app\components\Decor\General\SchoolOfFish\Builder.hpp" />
     <ClInclude Include="app\components\Decor\General\SchoolOfFish\Drawer.hpp" />
     <ClInclude Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.hpp" />
+    <ClInclude Include="app\entities\Decor\General\SchoolOfFishEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

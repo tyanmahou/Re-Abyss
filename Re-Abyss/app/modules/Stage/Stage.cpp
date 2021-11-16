@@ -45,8 +45,6 @@
 
 #include <abyss/services/BackGround/base/IBackGroundService.hpp>
 
-#include <abyss/components/Decor/General/SchoolOfFish/Builder.hpp>
-
 namespace
 {
     using namespace abyss;
@@ -308,7 +306,6 @@ namespace abyss
         for (const auto& tileMap : decorService->getTileMap(nextRoom.getRegion())) {
             m_translator.build(decor, tileMap);
         }
-        decor.create<Decor::General::SchoolOfFish::Builder>();
         decor.flush();
         return true;
     }
