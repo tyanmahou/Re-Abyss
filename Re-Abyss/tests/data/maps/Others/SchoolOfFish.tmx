@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="14" nextobjectid="49">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="14" nextobjectid="50">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
@@ -18,8 +18,10 @@
     <properties>
      <property name="amplitude" type="float" value="0"/>
      <property name="column" type="int" value="32"/>
-     <property name="height_offset" type="float" value="0"/>
-     <property name="row" type="int" value="4"/>
+     <property name="height_offset" type="float" value="200"/>
+     <property name="row" type="int" value="3"/>
+     <property name="scale" type="float" value="0.9"/>
+     <property name="speed" type="float" value="100"/>
     </properties>
    </object>
    <object id="47" gid="79" x="410.97" y="-288.364" width="120" height="60">
@@ -42,6 +44,15 @@
      <property name="height_offset" type="float" value="100"/>
      <property name="row" type="int" value="5"/>
      <property name="scale" type="float" value="0.7"/>
+     <property name="speed" type="float" value="100"/>
+    </properties>
+   </object>
+   <object id="49" gid="79" x="-910" y="306.364" width="120" height="60" rotation="200">
+    <properties>
+     <property name="column" type="int" value="28"/>
+     <property name="height_offset" type="float" value="50"/>
+     <property name="row" type="int" value="5"/>
+     <property name="scale" type="float" value="1"/>
      <property name="speed" type="float" value="100"/>
     </properties>
    </object>
