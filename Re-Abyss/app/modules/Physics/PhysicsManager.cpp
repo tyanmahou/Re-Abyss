@@ -27,14 +27,12 @@ namespace abyss::Physics
     {
         s3d::Erase_if(m_contacters, [this](const std::shared_ptr<IContacter>& c) {
             if (c->isDestroyed()) {
-                m_idCounter.releaseId(c->id());
                 return true;
             }
             return false;
         });
         s3d::Erase_if(m_terrains, [this](const std::shared_ptr<ITerrain>& t) {
             if (t->isDestroyed()) {
-                m_idCounter.releaseId(t->id());
                 return true;
             }
             return false;

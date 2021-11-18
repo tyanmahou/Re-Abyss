@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Array.hpp>
-#include <abyss/utils/IdGenerator/IdGenerator.hpp>
+#include <abyss/utils/IdGenerator/IdGen.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Physics
@@ -45,6 +45,6 @@ namespace abyss::Physics
         s3d::Array<std::shared_ptr<IContacter>> m_contacters;
         s3d::Array<std::shared_ptr<ITerrain>> m_terrains;
 
-        IdGenerator m_idCounter;
+        IdGenU64 m_idCounter;
     };
 }
