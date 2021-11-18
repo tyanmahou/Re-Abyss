@@ -491,6 +491,8 @@
     <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
     <ClCompile Include="app\models\Novel\CharaModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
+    <ClCompile Include="app\modules\Collision\CollisionManager.cpp" />
+    <ClCompile Include="app\modules\Collision\SimpleDetection.cpp" />
     <ClCompile Include="app\modules\Cycle\base\CycleObj.cpp" />
     <ClCompile Include="app\modules\Cycle\CycleMaster.cpp" />
     <ClCompile Include="app\modules\Effect\base\EffectObj.cpp" />
@@ -976,6 +978,11 @@
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
+    <ClInclude Include="app\modules\Collision\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\Collision\base\INode.hpp" />
+    <ClInclude Include="app\modules\Collision\CollisionManager.hpp" />
+    <ClInclude Include="app\modules\Collision\LayerGroup.hpp" />
+    <ClInclude Include="app\modules\Collision\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Environment.hpp" />

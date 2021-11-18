@@ -1753,6 +1753,12 @@
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Collision\SimpleDetection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Collision\CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2643,6 +2649,11 @@
     <ClInclude Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.hpp" />
     <ClInclude Include="app\entities\Decor\General\SchoolOfFishEntity.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
+    <ClInclude Include="app\modules\Collision\CollisionManager.hpp" />
+    <ClInclude Include="app\modules\Collision\base\INode.hpp" />
+    <ClInclude Include="app\modules\Collision\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\Collision\SimpleDetection.hpp" />
+    <ClInclude Include="app\modules\Collision\LayerGroup.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
