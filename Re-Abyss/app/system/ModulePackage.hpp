@@ -7,6 +7,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Collision/CollisionManager.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
@@ -38,6 +39,7 @@ namespace abyss::Sys
         mod_if<config.isStage, Actor::Player::PlayerManager>,
         mod_if<config.isStage, BackGround>,
         Camera,
+        mod_if<config.isStage, CollisionManager>,
         Crons,
         CycleMaster,
         mod_if<config.isStage, Decors>,

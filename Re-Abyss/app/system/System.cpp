@@ -24,10 +24,12 @@ namespace abyss::Sys
         auto* ui = mod<UIs>();
         [[maybe_unused]] World* world = nullptr;
         [[maybe_unused]] Decors* decors = nullptr;
+        [[maybe_unused]] CollisionManager* pCollision = nullptr;
         [[maybe_unused]] PhysicsManager* physics = nullptr;
         if constexpr (config.isStage) {
             world = mod<World>();
             decors = mod<Decors>();
+            pCollision = mod<CollisionManager>();
             physics = mod<PhysicsManager>();
         }
 
@@ -37,6 +39,7 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             world->flush();
             decors->flush();
+            pCollision->cleanUp();
             physics->cleanUp();
         }
 
@@ -78,6 +81,9 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             if (!isWorldStop) {
                 world->collision();
+
+                pCollision->onCollision();
+
                 world->lastUpdate();
             }
         }
