@@ -14,6 +14,8 @@ namespace abyss::Collision
 	public:
 		CollisionManager();
 
+		void onCollision();
+		void cleanUp();
 	private:
 		std::shared_ptr<IDetectionAlgorithm> m_detection;
 		s3d::Array<std::shared_ptr<INode>> m_nodes;

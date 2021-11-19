@@ -40,6 +40,11 @@ namespace abyss::Collision
 		// キャラvs地形の当たり
 		for (auto&& col1 : actColliders) {
 			for (auto&& col2 : mapColliders) {
+				if ((col1->layer() & col2->toLayer()) == 0 ||
+					(col1->toLayer() & col2->layer()) == 0
+					) {
+					continue;
+				}
 				check(col1, col2);
 			}
 		}
