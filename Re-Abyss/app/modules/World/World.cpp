@@ -1,13 +1,9 @@
 #include "World.hpp"
-
-#include <abyss/modules/World/Collision/Collision.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/components/Actor/Common/ICollision.hpp>
 
 namespace abyss
 {
-    World::World() :
-        m_collision(std::make_unique<SimpleCollision>())
+    World::World()
     {}
     World::~World()
     {}
@@ -50,11 +46,13 @@ namespace abyss
         m_actorsHolder.postPhysics();
     }
 
-    void World::collision()
+    void World::preCollision()
     {
-        // アクター衝突
         m_actorsHolder.preCollision();
-        m_collision->collisionAll(this->finds<Actor::ICollision>());
+    }
+
+    void World::postCollision()
+    {
         m_actorsHolder.postCollision();
     }
 
@@ -71,14 +69,12 @@ namespace abyss
     void World::onCheckIn()
     {
         m_actorsHolder.onCheckIn(Actor::FlipBuffer(m_bufferLayer));
-        m_collision->reset();
     }
 
     void World::onCheckOut()
     {
         m_bufferLayer = Actor::FlipBuffer(m_bufferLayer);
         m_actorsHolder.onCheckOut(Actor::FlipBuffer(m_bufferLayer));
-        m_collision->reset();
     }
 
     void World::draw() const

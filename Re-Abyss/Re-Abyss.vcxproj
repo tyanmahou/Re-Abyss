@@ -759,7 +759,6 @@
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
-    <ClCompile Include="app\modules\World\Collision\Collision.cpp" />
     <ClCompile Include="app\utils\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\modules\World\FixPos.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
@@ -1586,7 +1585,6 @@
     <ClInclude Include="app\components\Actor\Player\Shot\PlayerShot.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
     <ClInclude Include="app\models\Camera\CameraModel.hpp" />
-    <ClInclude Include="app\modules\World\Collision\Collision.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\modules\World\FixPos.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />

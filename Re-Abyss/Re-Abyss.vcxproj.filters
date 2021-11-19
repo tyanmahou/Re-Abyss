@@ -104,9 +104,6 @@
     <ClCompile Include="app\views\Camera\CameraView.cpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\Collision\Collision.cpp">
-      <Filter>Source Files\ActionSystem\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -1768,9 +1765,6 @@
     </ClInclude>
     <ClInclude Include="app\views\Camera\CameraView.hpp">
       <Filter>Source Files\ActionSystem\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\World\Collision\Collision.hpp">
-      <Filter>Source Files\ActionSystem\Collision</Filter>
     </ClInclude>
     <ClInclude Include="app\types\CShape.hpp">
       <Filter>Source Files\ActionSystem\Types</Filter>

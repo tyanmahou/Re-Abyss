@@ -80,9 +80,10 @@ namespace abyss::Sys
         // World衝突後更新
         if constexpr (config.isStage) {
             if (!isWorldStop) {
-                world->collision();
 
+                world->preCollision();
                 pCollision->onCollision();
+                world->postCollision();
 
                 world->lastUpdate();
             }
