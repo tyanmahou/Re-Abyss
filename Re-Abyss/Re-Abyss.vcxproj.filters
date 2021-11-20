@@ -1753,6 +1753,15 @@
     <ClCompile Include="app\modules\Collision\CollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collision\Collider\CircleCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collision\Collider\PointCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collision\Collider\RectCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2646,6 +2655,10 @@
     <ClInclude Include="app\modules\Collision\LayerGroup.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\ICollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\CircleCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\RectCollider.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
