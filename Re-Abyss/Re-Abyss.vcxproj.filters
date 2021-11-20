@@ -1762,6 +1762,9 @@
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\RectCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collision\Collider\BodyCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2659,6 +2662,7 @@
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\BodyCollider.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

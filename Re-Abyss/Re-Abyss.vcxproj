@@ -248,6 +248,7 @@
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp" />
     <ClCompile Include="app\commons\SingletonManager\SingletonManager.cpp" />
+    <ClCompile Include="app\components\Actor\Common\Collision\Collider\BodyCollider.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\CircleCollider.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\PointCollider.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\RectCollider.cpp" />
@@ -868,6 +869,7 @@
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\components\Actor\Common\Colliders\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Collider\BodyCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
