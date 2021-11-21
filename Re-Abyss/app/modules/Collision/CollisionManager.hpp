@@ -7,7 +7,7 @@
 namespace abyss::Collision
 {
 	class IDetectionAlgorithm;
-	class INode;
+	class Branch;
 
 	class CollisionManager
 	{
@@ -20,7 +20,7 @@ namespace abyss::Collision
 		void cleanUp();
 	private:
 		std::shared_ptr<IDetectionAlgorithm> m_detection;
-		s3d::Array<std::shared_ptr<INode>> m_nodes;
+		s3d::Array<std::shared_ptr<Branch>> m_branchs;
 		IdGenU64 m_idCounter;
 	};
 }

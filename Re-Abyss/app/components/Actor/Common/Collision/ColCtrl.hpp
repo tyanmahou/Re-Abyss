@@ -1,13 +1,12 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/base/IPreCollision.hpp>
-#include <abyss/components/Actor/Common/Collision/Node.hpp>
+#include <abyss/modules/Collision/Branch.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Collision
 {
 	class ColCtrl : 
-		public IComponent,
-		public IPreCollision
+		public IComponent
 	{
 	public:
 		ColCtrl(ActorObj* pActor);
@@ -16,22 +15,9 @@ namespace abyss::Actor::Collision
 
 		void onStart();
 		void onEnd();
-
-		void onPreCollision() override;
 	private:
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;
-		s3d::Array<std::shared_ptr<Node>> m_nodes;
-	};
-}
-
-namespace abyss
-{
-	template<>
-	struct ComponentTree<Actor::Collision::ColCtrl>
-	{
-		using Base = MultiComponents<
-			Actor::IPreCollision
-		>;
+		s3d::Array<Ref<abyss::Collision::Branch>> m_branch;
 	};
 }

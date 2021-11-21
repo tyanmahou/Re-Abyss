@@ -17,8 +17,10 @@ namespace abyss::Actor::Collision
 	}
 	void ColCtrl::onEnd()
 	{
-	}
-	void ColCtrl::onPreCollision()
-	{
+		for(auto&& branch : m_branch) {
+			if (branch) {
+				branch->destroy();
+			}
+		}
 	}
 }

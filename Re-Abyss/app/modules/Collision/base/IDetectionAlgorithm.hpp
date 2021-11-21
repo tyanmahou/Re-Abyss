@@ -4,7 +4,7 @@
 
 namespace abyss::Collision
 {
-    class INode;
+    class Branch;
 
     /// <summary>
     /// 当たりアルゴリズム
@@ -14,6 +14,6 @@ namespace abyss::Collision
     public:
         virtual ~IDetectionAlgorithm() = default;
 
-        virtual void collisionAll(const s3d::Array<std::shared_ptr<INode>>& nodes) = 0;
+        virtual void collisionAll(const s3d::Array<std::shared_ptr<Branch>>& branchs) = 0;
     };
 }

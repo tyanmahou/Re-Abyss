@@ -3,6 +3,10 @@
 
 namespace abyss::Collision
 {
+	Branch::Branch(s3d::uint64 id):
+		m_id(id)
+	{
+	}
 	void Branch::onPreCollision()
 	{
 		m_result.onReflesh();

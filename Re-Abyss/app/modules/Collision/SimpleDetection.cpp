@@ -1,64 +1,58 @@
 #include "SimpleDetection.hpp"
-#include <abyss/modules/Collision/base/INode.hpp>
+#include <abyss/modules/Collision/Branch.hpp>
 #include <abyss/modules/Collision/LayerGroup.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 
 namespace abyss::Collision
 {
-	void SimpleDetection::collisionAll(const s3d::Array<std::shared_ptr<INode>>& nodes)
+	void SimpleDetection::collisionAll(const s3d::Array<std::shared_ptr<Branch>>& branchs)
 	{
-		s3d::Array<std::shared_ptr<INode>> actColliders;
-		actColliders.reserve(nodes.size());
-		s3d::Array<std::shared_ptr<INode>> mapColliders;
-		mapColliders.reserve(nodes.size());
+		s3d::Array<std::shared_ptr<Branch>> actBranchs;
+		actBranchs.reserve(branchs.size());
+		s3d::Array<std::shared_ptr<Branch>> mapBranchs;
+		mapBranchs.reserve(branchs.size());
 
-		for (const auto& node : nodes) {
-			if (!node || !node->isActive()) {
+		for (const auto& branch : branchs) {
+			if (!branch || !branch->isActive()) {
 				continue;
 			}
-			if (node->layer() == LayerGroup::Map) {
-				mapColliders << node;
+			if (branch->layer() == LayerGroup::Map) {
+				mapBranchs << branch;
 			}
 			else {
-				actColliders << node;
+				actBranchs << branch;
 			}
 		}
 
-		auto check = [this](const std::shared_ptr<INode>& it1, const std::shared_ptr<INode>& it2) {
+		auto check = [this](const std::shared_ptr<Branch>& it1, const std::shared_ptr<Branch>& it2) {
 			if (it1->id() == it2->id()) {
 				// 同一アクターなら無視
 				return;
 			}
-			if (ColisionUtil::Intersects(it1->getShape(), it2->getShape())) {
+			if ((it1->layer() & it2->toLayer()) == 0 ||
+				(it1->toLayer() & it2->layer()) == 0
+				) {
+				return;
+			}
+			if (it1->isCollision(*it2)) {
 
 				// onCollision
-				it1->onCollision(it2);
-				it2->onCollision(it1);
+				it1->onCollision(*it2);
+				it2->onCollision(*it1);
 			}
 		};
 
 		// キャラvs地形の当たり
-		for (auto&& col1 : actColliders) {
-			for (auto&& col2 : mapColliders) {
-				if ((col1->layer() & col2->toLayer()) == 0 ||
-					(col1->toLayer() & col2->layer()) == 0
-					) {
-					continue;
-				}
+		for (auto&& col1 : actBranchs) {
+			for (auto&& col2 : mapBranchs) {
 				check(col1, col2);
 			}
 		}
 
 		// キャラ等の相互当たり
-		for (auto it1 = actColliders.begin(); it1 != actColliders.end(); ++it1) {
-			for (auto it2 = it1 + 1; it2 != actColliders.end(); ++it2) {
-
-				if (((*it1)->layer() & (*it2)->toLayer()) == 0 || 
-					((*it1)->toLayer() & (*it2)->layer()) == 0
-				) {
-					continue;
-				}
-				check((*it1), (*it2));
+		for (auto it1 = actBranchs.begin(); it1 != actBranchs.end(); ++it1) {
+			for (auto it2 = it1 + 1; it2 != actBranchs.end(); ++it2) {
+				check(*it1, *it2);
 			}
 		}
 	}

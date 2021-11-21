@@ -1,6 +1,6 @@
 #include "CollisionManager.hpp"
 #include "SimpleDetection.hpp"
-#include <abyss/modules/Collision/base/INode.hpp>
+#include <abyss/modules/Collision/Branch.hpp>
 
 namespace abyss::Collision
 {
@@ -14,12 +14,12 @@ namespace abyss::Collision
 	}
 	void CollisionManager::onCollision()
 	{
-		m_detection->collisionAll(m_nodes);
+		m_detection->collisionAll(m_branchs);
 	}
 	void CollisionManager::cleanUp()
 	{
-		s3d::Erase_if(m_nodes, [this](const std::shared_ptr<INode>& c) {
-			return c->isDestroyed();
+		s3d::Erase_if(m_branchs, [this](const std::shared_ptr<Branch>& b) {
+			return b->isDestroyed();
 		});
 	}
 }
