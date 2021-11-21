@@ -1,9 +1,9 @@
 #pragma once
-#include <Siv3D/Array.hpp>
-#include <Siv3D/HashTable.hpp>
-#include <any>
 #include <memory>
 #include <typeinfo>
+#include <abyss/modules/Collision/base/IExtension.hpp>
+#include <Siv3D/Array.hpp>
+#include <Siv3D/HashTable.hpp>
 
 namespace abyss::Collision
 {
@@ -12,7 +12,7 @@ namespace abyss::Collision
 	/// </summary>
 	struct HitData
 	{
-		s3d::HashTable<std::type_index, std::any> extData;
+		s3d::HashTable<std::type_index, ExtData> extData;
 	};
 
 	/// <summary>
