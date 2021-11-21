@@ -8,6 +8,10 @@ namespace abyss::Collision
 		m_detection(std::make_shared<SimpleDetection>())
 	{
 	}
+	s3d::uint64 CollisionManager::createId()
+	{
+		return m_idCounter.createId();
+	}
 	void CollisionManager::onCollision()
 	{
 		m_detection->collisionAll(m_nodes);

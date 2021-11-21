@@ -9,7 +9,6 @@ namespace abyss::Collision
     public:
         virtual ~INode() = default;
 
-        virtual void setId(s3d::uint64 id) = 0;
         virtual s3d::uint64 id() const = 0;
         virtual s3d::uint32 layer() const = 0;
         virtual s3d::uint32 toLayer() const = 0;

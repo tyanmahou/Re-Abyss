@@ -14,6 +14,8 @@ namespace abyss::Collision
 	public:
 		CollisionManager();
 
+		s3d::uint64 createId();
+
 		void onCollision();
 		void cleanUp();
 	private:
