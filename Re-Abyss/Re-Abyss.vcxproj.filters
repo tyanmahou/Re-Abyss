@@ -2675,6 +2675,7 @@
     <ClInclude Include="app\components\Actor\Common\Collision\ColCtrl.hpp" />
     <ClInclude Include="app\modules\Collision\Result.hpp" />
     <ClInclude Include="app\modules\Collision\Branch.hpp" />
+    <ClInclude Include="app\modules\Collision\base\IExtData.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

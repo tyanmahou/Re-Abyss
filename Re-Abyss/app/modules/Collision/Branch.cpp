@@ -14,7 +14,11 @@ namespace abyss::Collision
 
 	void Branch::onCollision(const Branch& other)
 	{
-		m_result.add(HitData{});
+		HitData data{};
+		for (const auto& [type, extData] : other.m_extData) {
+			data.extData.emplace(type, extData->data());
+		}
+		m_result.add(std::move(data));
 	}
 
 	bool Branch::isCollision(const Branch& other) const

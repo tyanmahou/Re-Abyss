@@ -1,6 +1,8 @@
 #pragma once
 #include <abyss/modules/Collision/base/INode.hpp>
+#include <abyss/modules/Collision/base/IExtData.hpp>
 #include <abyss/modules/Collision/Result.hpp>
+#include <Siv3D/HashTable.hpp>
 
 namespace abyss::Collision
 {
@@ -75,5 +77,6 @@ namespace abyss::Collision
 		bool m_isDestroyed = false;
 
 		Result m_result;
+		s3d::HashTable<std::type_index, std::unique_ptr<IExtData>> m_extData;
 	};
 }

@@ -990,6 +990,7 @@
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
     <ClInclude Include="app\modules\Collision\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\Collision\base\IExtData.hpp" />
     <ClInclude Include="app\modules\Collision\base\INode.hpp" />
     <ClInclude Include="app\modules\Collision\Branch.hpp" />
     <ClInclude Include="app\modules\Collision\CollisionManager.hpp" />
