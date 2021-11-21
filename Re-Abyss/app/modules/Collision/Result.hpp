@@ -17,14 +17,16 @@ namespace abyss::Collision
 	/// </summary>
 	class Result
 	{
+		friend class Branch;
 	public:
+		bool isHitAny() const;
+
+	private:
 		Result() = default;
 
-		void add(const HitData& hitData);
+		void add(const HitData & hitData);
 
 		void onReflesh();
-
-		bool isHitAny() const;
 	private:
 		s3d::Array<HitData> m_results;
 	};
