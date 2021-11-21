@@ -8,6 +8,6 @@ namespace abyss::Collision
     {
     public:
         virtual ~INode() = default;
-        virtual const CShape& getShape() const = 0;
+        virtual CShape getShape() const = 0;
     };
 }
