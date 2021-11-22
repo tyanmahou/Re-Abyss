@@ -20,6 +20,9 @@ namespace abyss::ColSys
 	}
 	void CollisionManager::onCollision()
 	{
+		for (auto&& branch : m_branchs) {
+			branch->onPreCollision();
+		}
 		m_detection->collisionAll(m_branchs);
 	}
 	void CollisionManager::cleanUp()
