@@ -32,5 +32,14 @@ namespace abyss::Collision
 		}
 		return false;
 	}
-
+	Branch& Branch::addNode(std::unique_ptr<INode>&& node)
+	{
+		m_nodes << std::move(node);
+		return *this;
+	}
+	Branch& Branch::attach(std::type_index type, std::unique_ptr<IExtension>&& extension)
+	{
+		m_extensions.emplace(type, std::move(extension));
+		return *this;
+	}
 }

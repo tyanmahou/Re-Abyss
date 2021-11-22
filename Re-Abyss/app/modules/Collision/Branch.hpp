@@ -69,6 +69,22 @@ namespace abyss::Collision
 		{
 			return m_result;
 		}
+		
+		template<class Node, class... Args>
+		Branch& addNode(Args&&... args)
+		{
+			return this->addNode(std::make_unique<Node>(std::forward<Args>(args)...));
+		}
+
+		Branch& addNode(std::unique_ptr<INode>&& node);
+
+		template<class Extension, class... Args>
+		Branch& attach(Args&&... args)
+		{
+			return this->attach(typeid(Extension), std::make_unique<Extension>(std::forward<Args>(args)...));
+		}
+	private:
+		Branch& attach(std::type_index type, std::unique_ptr<IExtension>&& extension);
 	public:
 		void onPreCollision();
 		void onCollision(const Branch& other);

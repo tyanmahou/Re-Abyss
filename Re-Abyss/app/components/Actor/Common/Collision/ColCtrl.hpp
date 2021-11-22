@@ -17,6 +17,19 @@ namespace abyss::Actor::Collision
 		void onEnd();
 
 	public:
+
+		/// <summary>
+		/// ブランチ追加
+		/// </summary>
+		/// <returns></returns>
+		Ref<abyss::Collision::Branch> addBranch();
+
+		/// <summary>
+		/// ブランチ取得
+		/// </summary>
+		/// <returns></returns>
+		Ref<abyss::Collision::Branch> branch(size_t index) const;
+
 		/// <summary>
 		/// 何かにヒットしたか
 		/// </summary>
@@ -39,7 +52,7 @@ namespace abyss::Actor::Collision
 		template<class Type>
 		bool anyThen(const std::function<bool(const typename Type::Data&)>& callback) const
 		{
-			for (const auto& b : m_branch) {
+			for (const auto& b : m_branchs) {
 				if (!b) {
 					continue;
 				}
@@ -57,7 +70,7 @@ namespace abyss::Actor::Collision
 		bool eachThen(const std::function<bool(const typename Type::Data&)>& callback) const
 		{
 			bool result = false;
-			for (const auto& b : m_branch) {
+			for (const auto& b : m_branchs) {
 				if (!b) {
 					continue;
 				}
@@ -68,6 +81,6 @@ namespace abyss::Actor::Collision
 	private:
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;
-		s3d::Array<Ref<abyss::Collision::Branch>> m_branch;
+		s3d::Array<Ref<abyss::Collision::Branch>> m_branchs;
 	};
 }
