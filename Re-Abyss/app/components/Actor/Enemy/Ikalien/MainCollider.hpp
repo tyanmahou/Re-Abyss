@@ -3,9 +3,9 @@
 #include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Enemy::CodeZero::Shot
+namespace abyss::Actor::Enemy::Ikalien
 {
-    class MainCollider final: public Col::ICollider
+    class MainCollider final : public Col::ICollider
     {
     private:
         void onStart() override;
@@ -15,6 +15,5 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
-        Ref<ScaleCtrl> m_scale;
     };
 }

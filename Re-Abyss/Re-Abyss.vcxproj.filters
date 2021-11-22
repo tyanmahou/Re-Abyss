@@ -1762,6 +1762,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\Ikalien\MainCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2660,6 +2663,7 @@
     <ClInclude Include="app\components\Actor\Common\Col\Extension\Attacker.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

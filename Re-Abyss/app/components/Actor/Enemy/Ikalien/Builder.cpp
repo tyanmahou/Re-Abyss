@@ -10,12 +10,12 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/MainCollider.hpp>
 
 #include <abyss/views/Actor/Enemy/Ikalien/IkalienVM.hpp>
 
 namespace
 {
-    class Collider;
     class ViewBinder;
 }
 
@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::Ikalien
             .setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
-            .setColliderImpl<Collider>(pActor)
+            .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
             .setInitState<WaitState>()
@@ -52,26 +52,6 @@ namespace
     using namespace abyss;
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::Ikalien;
-
-    class Collider final : public CustomCollider::IImpl
-    {
-    public:
-        Collider(ActorObj* pActor) :
-            m_pActor(pActor)
-        {}
-
-        void onStart() override
-        {
-            m_body = m_pActor->find<Body>();
-        }
-        CShape getCollider() const override
-        {
-            return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
-        }
-    private:
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-    };
 
     class ViewBinder : public IVModelBinder<IkalienVM>
     {
