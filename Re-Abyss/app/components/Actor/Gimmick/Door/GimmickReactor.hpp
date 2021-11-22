@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Player/IGimmickReactor.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -19,7 +20,7 @@ namespace abyss::Actor::Gimmick::Door
     private:
         ActorObj* m_pActor;
         Ref<DoorProxy> m_door;
-        Ref<ICollider> m_collider;
+        Ref<Col::ICollider> m_collider;
     };
 }
 

@@ -1,7 +1,8 @@
 #include "Builder.hpp"
 
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
@@ -23,8 +24,8 @@ namespace abyss::Actor::Gimmick::Door
 
 		// コライダー
 		{
-			pActor->attach<CustomCollider>()
-				->setColFunc([proxy] {return proxy->getCollider(); });
+			pActor->attach<Collider>()
+				->add([proxy] {return proxy->getCollider(); });
 		}
 
 		// ギミック反応
