@@ -2,7 +2,7 @@
 #include <abyss/components/base/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/Collision/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -39,7 +39,7 @@ namespace abyss::Actor
         }
     protected:
         Ref<HP> m_hp;
-        Ref<CollisionCtrl> m_colCtrl;
+        Ref<Collision::ColCtrl> m_colCtrl;
         ActorObj* m_pActor;
 
         TimeLite::Timer m_invincibleTime;

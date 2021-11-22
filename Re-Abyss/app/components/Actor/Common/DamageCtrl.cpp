@@ -1,7 +1,7 @@
 #include "DamageCtrl.hpp"
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
-#include <abyss/components/Actor/Common/ICollider.hpp>
-#include <abyss/components/Actor/Common/AttackerData.hpp>
+#include <abyss/components/Actor/Common/Collision/Extension/Attacker.hpp>
 
 namespace abyss::Actor
 {
@@ -22,7 +22,7 @@ namespace abyss::Actor
 	void DamageCtrl::onStart()
 	{
 		m_hp = m_pActor->find<HP>();
-		m_colCtrl = m_pActor->find<CollisionCtrl>();
+		m_colCtrl = m_pActor->find<Collision::ColCtrl>();
 	}
 	void DamageCtrl::onPostCollision()
 	{
@@ -41,14 +41,14 @@ namespace abyss::Actor
 		}
 
 		DamageData data;
-		const bool isDamaged = m_colCtrl->anyThen<Tag::Attacker, AttackerData>([this, &data](const AttackerData& attacker) {
-			bool ret = m_hp->damage(attacker.getPower());
-			if (ret) {
-				data.damage = attacker.getPower();
-				data.pos = attacker.getPos();
-				data.velocity = attacker.getVelocity();
+		const bool isDamaged = m_colCtrl->anyThen<Collision::Attacker>([this, &data](const Collision::Attacker::Data& attacker) {
+			if (m_hp->damage(attacker.power)) {
+				data.damage = attacker.power;
+				data.pos = attacker.pos;
+				data.velocity = attacker.velocity;
+				return true;
 			}
-			return ret;
+			return false;
 		});
 		if (isDamaged) {
 			m_damageData = data;

@@ -254,10 +254,10 @@
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\CircleCollider.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\PointCollider.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collision\Collider\RectCollider.cpp" />
-    <ClCompile Include="app\components\Actor\Common\AttackerData.cpp" />
     <ClCompile Include="app\components\Actor\Common\AudioSource.cpp" />
     <ClCompile Include="app\components\Actor\Common\BehaviorCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\CameraTarget.cpp" />
+    <ClCompile Include="app\components\Actor\Common\Collision\Extension\Attacker.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actor\Common\FallChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\Foot.cpp" />
@@ -873,6 +873,7 @@
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Attacker.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Extension\Receiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
@@ -1095,12 +1096,10 @@
     <ClInclude Include="app\components\Actor\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actor\Common\IStateCallback.hpp" />
     <ClInclude Include="app\components\Actor\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Actor\Common\AttackerData.hpp" />
     <ClInclude Include="app\components\Actor\Common\AudioSource.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\CameraTarget.hpp" />
     <ClInclude Include="app\components\Actor\Common\Locator.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ReceiverData.hpp" />
     <ClInclude Include="app\components\Actor\Common\ShakeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.hpp" />

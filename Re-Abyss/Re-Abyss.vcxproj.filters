@@ -964,9 +964,6 @@
     <ClCompile Include="app\components\Actor\Player\StateChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\AttackerData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Player\DamageCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1759,6 +1756,9 @@
     <ClCompile Include="app\components\Actor\Common\Collision\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collision\Extension\Attacker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2090,8 +2090,6 @@
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
     <ClInclude Include="app\components\base\ComponentMapping.hpp" />
-    <ClInclude Include="app\components\Actor\Common\AttackerData.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ReceiverData.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
@@ -2656,6 +2654,7 @@
     <ClInclude Include="app\modules\Collision\base\IExtension.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Extension\Receiver.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Attacker.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

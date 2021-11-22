@@ -43,7 +43,7 @@ namespace abyss::Actor::Collision
 				if (!b) {
 					continue;
 				}
-				if (b->result().anyThen(callback)) {
+				if (b->result().anyThen<Type>(callback)) {
 					return true;
 				}
 			}
@@ -61,7 +61,7 @@ namespace abyss::Actor::Collision
 				if (!b) {
 					continue;
 				}
-				result |= b->result().eachThen(callback);
+				result |= b->result().eachThen<Type>(callback);
 			}
 			return result;
 		}
