@@ -44,8 +44,6 @@ namespace abyss
 	class Temporary;
 	class TemporaryData;
 	class DrawManager;
-
-	class ICollision;
 	
 	/// Modules/Actors
 	namespace Actor
@@ -192,9 +190,6 @@ namespace abyss
 		class StateCtrl;
 		class Body;
 		class Foot;
-		class ICollider;
-		class ICollision;
-		class CollisionCtrl;
 	}
 
 	/// <summary>

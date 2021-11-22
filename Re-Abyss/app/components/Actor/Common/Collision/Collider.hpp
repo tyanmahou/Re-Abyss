@@ -18,11 +18,16 @@ namespace abyss::Actor::Collision
         template<class Type, class ... Args>
         Ref<ICollider> add(Args&&... args)
         {
-            return this->add(std::make_shared<Type>(std::forward<Args>(args)...);
+            return this->add(std::make_shared<Type>(std::forward<Args>(args)...));
         }
 
         Ref<ICollider> add(const std::shared_ptr<ICollider>& collider);
         Ref<ICollider> add(const std::function<CShape()>& func);
+
+        const s3d::Array<std::shared_ptr<ICollider>>& getColliders() const
+        {
+            return m_colliders;
+        }
     private:
         s3d::Array<std::shared_ptr<ICollider>> m_colliders;
     };
