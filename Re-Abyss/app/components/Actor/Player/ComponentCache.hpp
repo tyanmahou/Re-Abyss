@@ -5,7 +5,7 @@
 #include <abyss/components/Actor/Common/Foot.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
         Foot* m_foot;
         MapCollider* m_mapCol;
         DamageCtrl* m_damageCtrl;
-        CollisionCtrl* m_colCtrl;
+        ColCtrl* m_colCtrl;
         MotionCtrl* m_motion;
 
         AttackCtrl* m_attackCtrl;
@@ -36,7 +36,7 @@ namespace abyss::Actor::Player
             m_foot         = pActor->find<Foot>().get();
             m_mapCol       = pActor->find<MapCollider>().get();
             m_damageCtrl   = pActor->find<DamageCtrl>().get();
-            m_colCtrl      = pActor->find<CollisionCtrl>().get();
+            m_colCtrl      = pActor->find<ColCtrl>().get();
             m_motion       = pActor->find<MotionCtrl>().get();
 
             m_stateChecker = pActor->find<StateChecker>().get();
