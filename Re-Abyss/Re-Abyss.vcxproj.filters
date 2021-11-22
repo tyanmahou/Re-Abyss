@@ -2655,6 +2655,7 @@
     <ClInclude Include="app\modules\Collision\Branch.hpp" />
     <ClInclude Include="app\modules\Collision\base\IExtension.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Receiver.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

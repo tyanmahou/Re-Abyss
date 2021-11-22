@@ -16,4 +16,11 @@ namespace abyss::Collision
 	{
 		return !m_results.empty();
 	}
+
+	bool Result::isHitBy(std::type_index type) const
+	{
+		return m_results.any([type](const HitData& hit) {
+			return hit.extData.contains(type);
+		});
+	}
 }

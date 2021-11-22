@@ -873,6 +873,7 @@
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collision\Collider\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Receiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
