@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Player/IGimmickReactor.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

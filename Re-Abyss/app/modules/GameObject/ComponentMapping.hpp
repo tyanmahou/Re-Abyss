@@ -1,7 +1,7 @@
 #pragma once
 #include <typeindex>
 #include <Siv3D/Array.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/concepts/Component.hpp>
 
 namespace abyss

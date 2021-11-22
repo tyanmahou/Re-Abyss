@@ -1,6 +1,6 @@
 #pragma once
 #include <type_traits>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 namespace abyss
 {
     /// <summary>

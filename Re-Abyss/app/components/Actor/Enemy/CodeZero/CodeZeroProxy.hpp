@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 

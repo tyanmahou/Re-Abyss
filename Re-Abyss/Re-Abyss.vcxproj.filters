@@ -338,7 +338,7 @@
     <ClCompile Include="app\views\UI\Title\BackGround\AtlantisVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\Components.cpp">
+    <ClCompile Include="app\modules\GameObject\Components.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\God\PauseCtrl.cpp">
@@ -946,10 +946,10 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\Command\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\Executer.cpp">
+    <ClCompile Include="app\modules\GameObject\Executer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\ExecuteSorter.cpp">
+    <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\GimmickReactCtrl.cpp">
@@ -1977,8 +1977,8 @@
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\views\UI\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
-    <ClInclude Include="app\components\base\Components.hpp" />
-    <ClInclude Include="app\components\base\IComponent.hpp" />
+    <ClInclude Include="app\modules\GameObject\Components.hpp" />
+    <ClInclude Include="app\modules\GameObject\IComponent.hpp" />
     <ClInclude Include="app\components\Actor\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Main.hpp" />
@@ -2098,7 +2098,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Behavior.hpp" />
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
-    <ClInclude Include="app\components\base\ComponentMapping.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentMapping.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
@@ -2226,8 +2226,8 @@
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />
-    <ClInclude Include="app\components\base\Executer.hpp" />
-    <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
+    <ClInclude Include="app\modules\GameObject\Executer.hpp" />
+    <ClInclude Include="app\modules\GameObject\ExecuteSorter.hpp" />
     <ClInclude Include="app\components\Actor\Player\GimmickReactCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
@@ -2568,7 +2568,7 @@
     <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
-    <ClInclude Include="app\components\base\ComponentTree.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />

@@ -3,7 +3,7 @@
 #include <stack>
 #include <queue>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
 #include <abyss/models/Novel/SerifModel.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::Schield

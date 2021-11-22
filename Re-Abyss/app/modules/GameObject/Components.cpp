@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include <ranges>
 
-#include <abyss/components/base/ExecuteSorter.hpp>
+#include <abyss/modules/GameObject/ExecuteSorter.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 namespace abyss

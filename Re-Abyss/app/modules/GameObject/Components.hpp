@@ -4,8 +4,8 @@
 #include <concepts>
 #include <Siv3D/Array.hpp>
 
-#include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/base/ComponentMapping.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/modules/GameObject/ComponentMapping.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 namespace abyss

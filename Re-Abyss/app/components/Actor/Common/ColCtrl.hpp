@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/Col/Node.hpp>
 #include <abyss/modules/ColSys/Branch.hpp>
 #include <abyss/modules/ColSys/LayerGroup.hpp>

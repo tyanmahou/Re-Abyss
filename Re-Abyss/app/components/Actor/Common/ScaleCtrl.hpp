@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Optional.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 
 namespace abyss::Actor
 {

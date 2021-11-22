@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/base/IDraw.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>

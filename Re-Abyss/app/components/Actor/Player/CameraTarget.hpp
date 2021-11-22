@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/Components.hpp>
+#include <abyss/modules/GameObject/Components.hpp>
 #include <abyss/components/Actor/base/IPostPhysics.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/CameraTargetBase.hpp>
 

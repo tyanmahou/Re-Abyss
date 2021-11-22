@@ -362,8 +362,8 @@
     <ClCompile Include="app\components\Actor\Player\State\TalkState.cpp" />
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actor\utils\BehaviorUtil.cpp" />
-    <ClCompile Include="app\components\base\Executer.cpp" />
-    <ClCompile Include="app\components\base\ExecuteSorter.cpp" />
+    <ClCompile Include="app\modules\GameObject\Executer.cpp" />
+    <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Cron\Common\RoomMoveCallbackCtrl.cpp" />
     <ClCompile Include="app\components\Cron\FishGenerator\Builder.cpp" />
@@ -743,7 +743,7 @@
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
-    <ClCompile Include="app\components\base\Components.cpp" />
+    <ClCompile Include="app\modules\GameObject\Components.cpp" />
     <ClCompile Include="app\components\Common\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\Body.cpp" />
     <ClCompile Include="app\components\Actor\Common\DamageCtrl.cpp" />
@@ -905,7 +905,7 @@
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
-    <ClInclude Include="app\components\base\ComponentTree.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
@@ -1394,9 +1394,9 @@
     <ClInclude Include="app\components\Actor\Player\AttackCtrl.hpp" />
     <ClInclude Include="app\components\Actor\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actor\utils\BehaviorUtil.hpp" />
-    <ClInclude Include="app\components\base\ComponentMapping.hpp" />
-    <ClInclude Include="app\components\base\Executer.hpp" />
-    <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentMapping.hpp" />
+    <ClInclude Include="app\modules\GameObject\Executer.hpp" />
+    <ClInclude Include="app\modules\GameObject\ExecuteSorter.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
@@ -1552,13 +1552,13 @@
     <ClInclude Include="app\entities\Actor\Enemy\SlimeEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Map\MapEntity.hpp" />
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
-    <ClInclude Include="app\components\base\Components.hpp" />
+    <ClInclude Include="app\modules\GameObject\Components.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
     <ClInclude Include="app\components\Actor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Common\ClockCtrl.hpp" />
-    <ClInclude Include="app\components\base\IComponent.hpp" />
+    <ClInclude Include="app\modules\GameObject\IComponent.hpp" />
     <ClInclude Include="app\components\Actor\Common\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp" />

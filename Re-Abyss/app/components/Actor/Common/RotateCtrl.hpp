@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 namespace abyss::Actor
 {
     class RotateCtrl : public IComponent

@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/types/CShape.hpp>
-#include <abyss/components/base/Executer.hpp>
+#include <abyss/modules/GameObject/Executer.hpp>
 
 namespace abyss::Actor::Col
 {

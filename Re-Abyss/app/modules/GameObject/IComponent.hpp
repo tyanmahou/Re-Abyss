@@ -1,6 +1,6 @@
 #pragma once
-#include <abyss/components/base/Executer.hpp>
-#include <abyss/components/base/ComponentTree.hpp>
+#include <abyss/modules/GameObject/Executer.hpp>
+#include <abyss/modules/GameObject/ComponentTree.hpp>
 
 namespace abyss
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
 #include <abyss/types/CShape.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>

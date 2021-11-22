@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Cycle/base/IListener.hpp>
 #include <Siv3D/Fwd.hpp>
 
