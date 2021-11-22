@@ -269,6 +269,7 @@
     <ClCompile Include="app\components\Actor\Common\StateCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\State\BaseState.cpp" />
@@ -879,6 +880,7 @@
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.hpp" />
