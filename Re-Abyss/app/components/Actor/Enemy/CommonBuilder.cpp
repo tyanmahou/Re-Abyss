@@ -62,8 +62,8 @@ namespace abyss::Actor::Enemy
 				->addBranch();
 
 			mainBranch
-				->setLayer(ColSys::LayerGroup::Enemy)
-				.addNode<Col::Node>(collider->main())
+				->addNode<Col::Node>(collider->main())
+				.setLayer(ColSys::LayerGroup::Enemy)
 				.attach<Col::Attacker>(pActor, 1)
 				.attach<Col::Receiver>(pActor);
 		}

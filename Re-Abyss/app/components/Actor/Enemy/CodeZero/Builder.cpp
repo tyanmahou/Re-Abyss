@@ -5,7 +5,10 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
@@ -51,8 +54,15 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         // 衝突
         {
-            pActor->attach<CircleCollider>(pActor, headLocator)
+            auto collider = pActor->attach<Collider>();
+            collider->add<Col::CircleCollider>(pActor, headLocator)
                 ->setRadius(Param::Head::ColRadius);
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Receiver>(pActor);
         }
         // 行動パターン
         {
