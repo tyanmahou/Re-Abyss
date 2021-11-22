@@ -1362,7 +1362,6 @@
     <ClInclude Include="app\components\UI\Message\Builder.hpp" />
     <ClInclude Include="app\concepts\Cron.hpp" />
     <ClInclude Include="app\concepts\Event.hpp" />
-    <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
     <ClInclude Include="app\components\Actor\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actor\Common\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actor\Common\FallChecker.hpp" />

@@ -2149,7 +2149,6 @@
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Actor\base\ActorObj.ipp" />
-    <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
     <ClInclude Include="app\modules\Actor\Player\PlayerManager.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />

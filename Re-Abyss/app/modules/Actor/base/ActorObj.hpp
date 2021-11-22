@@ -4,7 +4,6 @@
 #include <Siv3D/Duration.hpp>
 #include <Siv3D/ISteadyClock.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
-#include <abyss/modules/Actor/base/Tag.hpp>
 #include <abyss/modules/Actor/base/BufferLayer.hpp>
 #include <abyss/modules/Actor/base/DestroyTiming.hpp>
 
@@ -17,7 +16,6 @@ namespace abyss::Actor
 		s3d::uint64 m_id;
 		DestoryTiming m_destoryTiming = DestoryTiming::Default;
 
-		TagType m_tag;
 		BufferLayer m_bufferLayer;
 	public:
 		ActorObj();
@@ -31,9 +29,6 @@ namespace abyss::Actor
 		bool isDestoryCheckIn() const;
 		bool isDestoryCheckOut() const;
 		bool isDestoryNever() const;
-
-		void setTag(const TagType& tag);
-		const TagType& getTag() const;
 
 		void setBufferLayer(BufferLayer layer);
 
@@ -61,15 +56,6 @@ namespace abyss::Actor
 		s3d::ISteadyClock* getClock() const;
 
 		double deltaTime() const;
-
-		template<TaggedOf<Tag::ActorTagKind> T>
-		bool isThen(std::function<bool(ActorObj*)> callback);
-
-		template<TaggedOf<Tag::ActorTagKind> T, IsComponent C>
-		bool isThen(std::function<bool(C&)> callback) const;
-
-		template<TaggedOf<Tag::ActorTagKind> T>
-		bool isNotThen(std::function<bool(ActorObj*)> callback);
 	};
 }
 #include "ActorObj.ipp"

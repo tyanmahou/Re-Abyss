@@ -34,9 +34,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
-
         // Body
         {
             pActor->attach<Body>(pActor)

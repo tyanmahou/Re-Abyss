@@ -29,9 +29,6 @@ namespace abyss::Actor::Player::Shot
 {
     void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward, double charge)
     {
-        // タグ
-        pActor->setTag(Tag::Hero{} | Tag::Attacker{});
-
 		// Body
 		{
 			pActor->attach<Body>(pActor)

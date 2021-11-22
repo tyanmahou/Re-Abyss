@@ -10,12 +10,8 @@
 
 namespace abyss::Actor::Enemy::Schield::Shell
 {
-    // TODO Main 統合
     void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
-
         // 衝突
         {
             auto collider = pActor->attach<Collider>();

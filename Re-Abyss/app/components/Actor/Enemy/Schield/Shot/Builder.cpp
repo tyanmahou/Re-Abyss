@@ -28,9 +28,6 @@ namespace abyss::Actor::Enemy::Schield::Shot
 {
     void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
-
         // Body
         {
             pActor->attach<Body>(pActor)

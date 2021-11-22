@@ -28,8 +28,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     void Builder::Build(ActorObj* pActor, ActorObj* parent)
     {
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
-
         // Body
         {
             pActor->attach<Body>(pActor)

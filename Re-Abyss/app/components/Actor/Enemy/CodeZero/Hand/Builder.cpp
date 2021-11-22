@@ -28,9 +28,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     void Builder::Build(ActorObj* pActor, ActorObj* parent, HandKind kind)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
-
         const auto forward = kind == HandKind::Left ? Forward::Left : Forward::Right;
 
         // Body

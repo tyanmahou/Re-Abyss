@@ -25,9 +25,6 @@ namespace abyss::Actor::Enemy
 {
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
-
 		// Body
 		{
 			pActor->attach<Body>(pActor)

@@ -26,9 +26,6 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
     void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, Forward forward)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
-
         // Body
         {
             pActor->attach<Body>(pActor)

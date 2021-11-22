@@ -1,17 +1,43 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/modules/Actor/base/Tag.hpp>
+#include <abyss/utils/Tag/Tag.hpp>
 
+namespace
+{
+    using namespace abyss;
+
+    namespace Tag
+    {
+        using TagBase = ITag<struct TestTagKind>;
+        struct Invalid : virtual TagBase {};
+        struct Attacker : virtual TagBase {};
+        struct Receiver : virtual TagBase {};
+        struct Player : virtual TagBase {};
+        struct Enemy : virtual TagBase {};
+
+        using TagPtr = fixed_ptr<
+            TagBase,
+
+            Invalid,
+
+            Attacker,
+            Receiver,
+
+            Player,
+            Enemy
+        >;
+    }
+    using TagType = abyss::TagType<Tag::TagPtr>;
+}
 namespace abyss::tests
 {
+    using TagType = ::TagType;
 
     TEST_CASE("Collision Tag")
     {
-        using namespace Actor;
-
         SECTION("tag is")
         {
-            Actor::TagType tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
+            TagType tag = Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.is<Tag::Attacker>());
             REQUIRE(tag.is<Tag::Receiver>());
@@ -21,7 +47,7 @@ namespace abyss::tests
 
         SECTION("tag any of")
         {
-            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.anyOf<Tag::Attacker, Tag::Player>());
             REQUIRE(!tag.anyOf<Tag::Invalid, Tag::Player>());
@@ -29,7 +55,7 @@ namespace abyss::tests
 
         SECTION("tag all of")
         {
-            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(tag.allOf<Tag::Attacker, Tag::Receiver>());
             REQUIRE(!tag.allOf<Tag::Attacker, Tag::Player>());
@@ -37,7 +63,7 @@ namespace abyss::tests
 
         SECTION("tag is not")
         {
-            Actor::TagType tag = Tag::Attacker{} | Tag::Receiver{};
+            TagType tag = Tag::Attacker{} | Tag::Receiver{};
 
             REQUIRE(!tag.isNot<Tag::Attacker>());
             REQUIRE(!tag.isNot<Tag::Receiver>());
