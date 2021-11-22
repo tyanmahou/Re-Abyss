@@ -7,7 +7,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Collision/CollisionManager.hpp>
+#include <abyss/modules/ColSys/CollisionManager.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Decor/Decors.hpp>

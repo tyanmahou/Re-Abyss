@@ -2,13 +2,14 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/ShotParam.hpp>
 
-#include <abyss/components/Actor/Common/AttackerData.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
@@ -41,10 +42,16 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
 
         // 衝突
         {
-            pActor->attach<CollisionCtrl>(pActor)
-                ->setLayer(LayerGroup::Enemy);
-            pActor->attach<CircleCollider>(pActor)
+            auto collider = pActor->attach<Collider>();
+            collider->add<Col::CircleCollider>(pActor)
                 ->setRadius(ShotParam::Base::ColRadius);
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Attacker>(pActor, 1);
+                
         }
 
         // 地形衝突
@@ -78,10 +85,6 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<BaseState>()
                 ;
-        }
-        // 攻撃データ
-        {
-            pActor->attach<AttackerData>(pActor, 1);
         }
     }
 }

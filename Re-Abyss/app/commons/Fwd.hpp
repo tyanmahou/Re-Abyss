@@ -22,11 +22,11 @@ namespace abyss
 	class Distortion;
 	class ICameraWork;
 	class World;
-	namespace Collision
+	namespace ColSys
 	{
 		class CollisionManager;
 	}
-	using Collision::CollisionManager;
+	using ColSys::CollisionManager;
 
 	namespace Physics
 	{

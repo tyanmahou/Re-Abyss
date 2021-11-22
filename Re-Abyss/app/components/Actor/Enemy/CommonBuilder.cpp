@@ -6,12 +6,11 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 
-#include <abyss/components/Actor/Common/Collision/ColCtrl.hpp>
-#include <abyss/components/Actor/Common/Collision/Collider.hpp>
-#include <abyss/components/Actor/Common/Collision/Collider/BodyCollider.hpp>
-#include <abyss/components/Actor/Common/Collision/Node.hpp>
-#include <abyss/components/Actor/Common/Collision/Extension/Attacker.hpp>
-#include <abyss/components/Actor/Common/Collision/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/BodyCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
@@ -21,8 +20,6 @@
 #include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actor/Enemy/DeadCallback.hpp>
-
-#include <abyss/modules/Collision/LayerGroup.hpp>
 
 namespace abyss::Actor::Enemy
 {
@@ -51,8 +48,6 @@ namespace abyss::Actor::Enemy
 
 		// 衝突
 		if (opt.isEnableCollider) {
-			using namespace abyss::Actor::Collision;
-
 			// Collider設定
 			auto collider = pActor->attach<Collider>();
 			if (opt.collider) {
@@ -60,17 +55,17 @@ namespace abyss::Actor::Enemy
 			} else if(opt.colliderFunc){
 				collider->add(opt.colliderFunc);
 			} else {
-				collider->add<BodyCollider>(pActor);
+				collider->add<Col::BodyCollider>(pActor);
 			}
 			// ColCtrl
-			auto mainBranch = pActor->attach<Collision::ColCtrl>(pActor)
+			auto mainBranch = pActor->attach<ColCtrl>(pActor)
 				->addBranch();
 
 			mainBranch
-				->setLayer(abyss::Collision::LayerGroup::Enemy)
-				.addNode<Node>(collider->main())
-				.attach<Attacker>(pActor, 1)
-				.attach<Receiver>(pActor);
+				->setLayer(ColSys::LayerGroup::Enemy)
+				.addNode<Col::Node>(collider->main())
+				.attach<Col::Attacker>(pActor, 1)
+				.attach<Col::Receiver>(pActor);
 		}
 		// 地形Collider
 		if (opt.isEnableMapCollider) {

@@ -7,7 +7,7 @@
 #include <abyss/types/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/components/Actor/Common/Collision/Collider/ICollider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -32,7 +32,7 @@ namespace abyss::Actor::Enemy
         // collder
         bool isEnableCollider = true;
         std::function<CShape()> colliderFunc;
-        std::shared_ptr<Collision::ICollider> collider;
+        std::shared_ptr<Col::ICollider> collider;
 
         // map collider
         bool isEnableMapCollider = true;
@@ -100,7 +100,7 @@ namespace abyss::Actor::Enemy
             this->collider = nullptr;
             return *this;
         }
-        BuildOption& setCollider(const std::shared_ptr<Collision::ICollider> col)
+        BuildOption& setCollider(const std::shared_ptr<Col::ICollider> col)
         {
             this->colliderFunc = nullptr;
             this->collider = col;

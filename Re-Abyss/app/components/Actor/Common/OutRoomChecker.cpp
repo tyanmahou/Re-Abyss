@@ -1,7 +1,7 @@
 #include "OutRoomChecker.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/components/Actor/Common/Collision/Collider.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
@@ -22,7 +22,7 @@ namespace abyss::Actor
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
         if (!m_colliderFunc) {
-            if (auto col = m_pActor->find<Collision::Collider>(); !col->empty()) {
+            if (auto col = m_pActor->find<Collider>(); !col->empty()) {
                 auto mainCol = col->main();
                 m_colliderFunc = [mainCol] {
                     return mainCol->getCollider();

@@ -1726,37 +1726,37 @@
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\SimpleDetection.cpp">
+    <ClCompile Include="app\modules\ColSys\SimpleDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\CollisionManager.cpp">
+    <ClCompile Include="app\modules\ColSys\CollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Collider\CircleCollider.cpp">
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\CircleCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Collider\PointCollider.cpp">
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\PointCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Collider\RectCollider.cpp">
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\RectCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Collider\BodyCollider.cpp">
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\BodyCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\ColCtrl.cpp">
+    <ClCompile Include="app\components\Actor\Common\ColCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\Result.cpp">
+    <ClCompile Include="app\modules\ColSys\Result.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\Branch.cpp">
+    <ClCompile Include="app\modules\ColSys\Branch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Collider.cpp">
+    <ClCompile Include="app\components\Actor\Common\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Collision\Extension\Attacker.cpp">
+    <ClCompile Include="app\components\Actor\Common\Col\Extension\Attacker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2636,26 +2636,26 @@
     <ClInclude Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.hpp" />
     <ClInclude Include="app\entities\Decor\General\SchoolOfFishEntity.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
-    <ClInclude Include="app\modules\Collision\CollisionManager.hpp" />
-    <ClInclude Include="app\modules\Collision\base\INode.hpp" />
-    <ClInclude Include="app\modules\Collision\base\IDetectionAlgorithm.hpp" />
-    <ClInclude Include="app\modules\Collision\SimpleDetection.hpp" />
-    <ClInclude Include="app\modules\Collision\LayerGroup.hpp" />
+    <ClInclude Include="app\modules\ColSys\CollisionManager.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\INode.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\ColSys\SimpleDetection.hpp" />
+    <ClInclude Include="app\modules\ColSys\LayerGroup.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider\ICollider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider\CircleCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider\PointCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider\RectCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider\BodyCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\ColCtrl.hpp" />
-    <ClInclude Include="app\modules\Collision\Result.hpp" />
-    <ClInclude Include="app\modules\Collision\Branch.hpp" />
-    <ClInclude Include="app\modules\Collision\base\IExtension.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Collider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Receiver.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Extension\Attacker.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Collision\Node.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\ICollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\CircleCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\PointCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\BodyCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
+    <ClInclude Include="app\modules\ColSys\Result.hpp" />
+    <ClInclude Include="app\modules\ColSys\Branch.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\IExtension.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Extension\Receiver.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Extension\Attacker.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
