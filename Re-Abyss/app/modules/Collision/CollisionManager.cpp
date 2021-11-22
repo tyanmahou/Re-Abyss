@@ -12,6 +12,12 @@ namespace abyss::Collision
 	{
 		return m_idCounter.createId();
 	}
+	Ref<Branch> CollisionManager::add(s3d::uint64 id)
+	{
+		auto branch = std::make_shared<Branch>(id);
+		m_branchs << branch;
+		return branch;
+	}
 	void CollisionManager::onCollision()
 	{
 		m_detection->collisionAll(m_branchs);

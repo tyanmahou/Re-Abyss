@@ -16,6 +16,8 @@ namespace abyss::Collision
 
 		s3d::uint64 createId();
 
+		Ref<Branch> add(s3d::uint64 id);
+
 		void onCollision();
 		void cleanUp();
 	private:

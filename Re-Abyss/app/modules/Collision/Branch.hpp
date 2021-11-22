@@ -52,7 +52,7 @@ namespace abyss::Collision
 
 		bool isActive() const
 		{
-			return m_isActive;
+			return m_isActive && !m_nodes.empty();
 		}
 
 		void destroy()
