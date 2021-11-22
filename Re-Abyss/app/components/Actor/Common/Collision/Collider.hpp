@@ -28,6 +28,27 @@ namespace abyss::Actor::Collision
         {
             return m_colliders;
         }
+
+        bool empty() const
+        {
+            return m_colliders.empty();
+        }
+        size_t size() const
+        {
+            return m_colliders.size();
+        }
+
+        Ref<ICollider> main() const
+        {
+            return this->get(0);
+        }
+        Ref<ICollider> get(size_t index) const
+        {
+            if (size() <= index) {
+                return nullptr;
+            }
+            return m_colliders[index];
+        }
     private:
         s3d::Array<std::shared_ptr<ICollider>> m_colliders;
     };

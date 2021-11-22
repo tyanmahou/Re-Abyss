@@ -1,7 +1,7 @@
 #include "MapCollider.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/Collision/Collider.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/Foot.hpp>
 #include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
@@ -82,7 +82,7 @@ namespace abyss::Actor
         void onStart()
         {
             m_body = m_pActor->find<Body>();
-            m_collider = m_pActor->find<ICollider>();
+            m_collider = m_pActor->find<Collision::Collider>()->main();
             m_foot = m_pActor->find<Foot>();
         }
 
@@ -239,7 +239,7 @@ namespace abyss::Actor
         std::unique_ptr<Result> m_result;
     private:
         Ref<Body> m_body;
-        Ref<ICollider> m_collider;
+        Ref<Collision::ICollider> m_collider;
         Ref<Foot> m_foot;
 
         bool m_isEnableRoomHit = false;
