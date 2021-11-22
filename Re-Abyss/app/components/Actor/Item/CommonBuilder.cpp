@@ -2,8 +2,9 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
 #include <abyss/components/Actor/Item/ItemCollision.hpp>
 
 namespace abyss::Actor::Item
@@ -16,9 +17,6 @@ namespace abyss::Actor::Item
 
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{});
-
         // Body
         {
             pActor->attach<Body>(pActor)
@@ -41,7 +39,8 @@ namespace abyss::Actor::Item
         {
             pActor->attach<ItemCollision>(pActor);
 
-            pActor->attach<CircleCollider>(pActor)
+            pActor->attach<Collider>()
+                ->add<Col::CircleCollider>(pActor)
                 ->setRadius(opt.m_colliderRadius.value_or((opt.bodySize.x + opt.bodySize.y) / 4.0))
                 ;
         }

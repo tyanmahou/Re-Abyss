@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Optional.hpp>
 #include <Siv3D/Vector2D.hpp>

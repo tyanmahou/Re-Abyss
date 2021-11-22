@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/Components.hpp>
+#include <abyss/modules/GameObject/Components.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

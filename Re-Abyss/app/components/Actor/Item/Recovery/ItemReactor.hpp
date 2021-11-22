@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Optional.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>

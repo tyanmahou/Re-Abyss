@@ -4,7 +4,7 @@
 #include <Siv3D/Audio.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>

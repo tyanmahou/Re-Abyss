@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <functional>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 
 namespace abyss
 {

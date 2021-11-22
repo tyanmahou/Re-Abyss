@@ -2,13 +2,16 @@
 
 #include <abyss/components/Common/MotionCtrl.hpp>
 
-#include <abyss/components/Actor/Common/AttackerData.hpp>
-#include <abyss/components/Actor/Common/ReceiverData.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
+
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/BodyCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
@@ -22,9 +25,6 @@ namespace abyss::Actor::Enemy
 {
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{} | Tag::Receiver{});
-
 		// Body
 		{
 			pActor->attach<Body>(pActor)
@@ -42,29 +42,27 @@ namespace abyss::Actor::Enemy
 				->initHp(opt.initHp);
 
 		}
-		// AttackerData
-		{
-			pActor->attach<AttackerData>(pActor, 1);
-		}
-		// ReceiverData
-		{
-			pActor->attach<ReceiverData>();
-		}
-		// Collider
-		pActor->attach<CollisionCtrl>(pActor)
-			->setLayer(LayerGroup::Enemy);
 
+		// 衝突
 		if (opt.isEnableCollider) {
-			auto collider = pActor->attach<CustomCollider>();
-			if (opt.colliderImpl) {
-				collider->setImpl(opt.colliderImpl);
+			// Collider設定
+			auto collider = pActor->attach<Collider>();
+			if (opt.collider) {
+				collider->add(opt.collider);
+			} else if(opt.colliderFunc){
+				collider->add(opt.colliderFunc);
 			} else {
-				auto colliderFunc = opt.colliderFunc ? opt.colliderFunc : [body = pActor->find<Body>()] ()->CShape{
-					return body->region();
-				};
-
-				collider->setColFunc(colliderFunc);
+				collider->add<Col::BodyCollider>(pActor);
 			}
+			// ColCtrl
+			auto mainBranch = pActor->attach<ColCtrl>(pActor)
+				->addBranch();
+
+			mainBranch
+				->addNode<Col::Node>(collider->main())
+				.setLayer(ColSys::LayerGroup::Enemy)
+				.attach<Col::Attacker>(pActor, 1)
+				.attach<Col::Receiver>(pActor);
 		}
 		// 地形Collider
 		if (opt.isEnableMapCollider) {

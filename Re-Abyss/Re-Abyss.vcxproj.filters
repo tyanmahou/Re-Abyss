@@ -338,7 +338,7 @@
     <ClCompile Include="app\views\UI\Title\BackGround\AtlantisVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\Components.cpp">
+    <ClCompile Include="app\modules\GameObject\Components.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\God\PauseCtrl.cpp">
@@ -413,7 +413,7 @@
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Player\Shot\Collider.cpp">
+    <ClCompile Include="app\components\Actor\Player\Shot\MainCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\Shot\PlayerShot.cpp">
@@ -572,9 +572,6 @@
     <ClCompile Include="app\components\Actor\Common\CameraFixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\CustomCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Common\DamageCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -661,12 +658,6 @@
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\ICollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\CollisionCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Player\Shot\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -722,12 +713,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\Schield\Shot\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Colliders\PointCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Colliders\CircleCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\Schield\Shell\Builder.cpp">
@@ -961,10 +946,10 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\Command\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\Executer.cpp">
+    <ClCompile Include="app\modules\GameObject\Executer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\base\ExecuteSorter.cpp">
+    <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\GimmickReactCtrl.cpp">
@@ -977,9 +962,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\StateChecker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\AttackerData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\DamageCallback.cpp">
@@ -1516,9 +1498,6 @@
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\Colliders\RectCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Gimmick\Bush\ColReactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1747,10 +1726,46 @@
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\SimpleDetection.cpp">
+    <ClCompile Include="app\modules\ColSys\SimpleDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Collision\CollisionManager.cpp">
+    <ClCompile Include="app\modules\ColSys\CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\CircleCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\PointCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\RectCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Col\Collider\BodyCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\ColCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\ColSys\Result.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\ColSys\Branch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\Col\Extension\Attacker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\Ikalien\MainCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\Schield\FaceCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1962,8 +1977,8 @@
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\views\UI\Title\BackGround\AtlantisVM.hpp" />
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
-    <ClInclude Include="app\components\base\Components.hpp" />
-    <ClInclude Include="app\components\base\IComponent.hpp" />
+    <ClInclude Include="app\modules\GameObject\Components.hpp" />
+    <ClInclude Include="app\modules\GameObject\IComponent.hpp" />
     <ClInclude Include="app\components\Actor\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\PursuitCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Main.hpp" />
@@ -1988,7 +2003,7 @@
     <ClInclude Include="app\components\Actor\Player\RestartCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\RoomMoveChecker.hpp" />
     <ClInclude Include="app\components\Actor\Player\UICtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Player\Shot\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Player\Shot\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\PlayerShot.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\AttackState.hpp" />
@@ -2043,7 +2058,6 @@
     <ClInclude Include="app\components\Actor\Common\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\Actor\Common\CameraFixPos.hpp" />
-    <ClInclude Include="app\components\Actor\Common\CustomCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\DamageCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\RotateCtrl.hpp" />
@@ -2056,7 +2070,6 @@
     <ClInclude Include="app\components\Actor\base\IPreUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ICollider.hpp" />
     <ClInclude Include="app\components\Actor\base\IDraw.hpp" />
     <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreDraw.hpp" />
@@ -2085,14 +2098,10 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Behavior.hpp" />
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\models\Collision\Tag.hpp" />
-    <ClInclude Include="app\components\base\ComponentMapping.hpp" />
-    <ClInclude Include="app\components\Actor\Common\AttackerData.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ReceiverData.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentMapping.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\factories\Main\MainInjector.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ICollision.hpp" />
-    <ClInclude Include="app\components\Actor\Common\CollisionCtrl.hpp" />
     <ClInclude Include="app\components\Actor\base\IPreCollision.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\God\Builder.hpp" />
@@ -2111,10 +2120,8 @@
     <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\MainUpdate.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\ParentCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Colliders\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shot\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Colliders\CircleCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\ILocator.hpp" />
     <ClInclude Include="app\components\Actor\Common\Locator.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shell\Builder.hpp" />
@@ -2142,7 +2149,6 @@
       <Filter>Source Files\ActionSystem\Actors</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Actor\base\ActorObj.ipp" />
-    <ClInclude Include="app\modules\Actor\base\Tag.hpp" />
     <ClInclude Include="app\modules\Actor\Player\PlayerManager.hpp" />
     <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />
@@ -2220,8 +2226,8 @@
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />
-    <ClInclude Include="app\components\base\Executer.hpp" />
-    <ClInclude Include="app\components\base\ExecuteSorter.hpp" />
+    <ClInclude Include="app\modules\GameObject\Executer.hpp" />
+    <ClInclude Include="app\modules\GameObject\ExecuteSorter.hpp" />
     <ClInclude Include="app\components\Actor\Player\GimmickReactCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
@@ -2494,7 +2500,6 @@
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
-    <ClInclude Include="app\components\Actor\Common\Colliders\RectCollider.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bush\ColReactor.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\debugs\Debug.hpp" />
@@ -2563,7 +2568,7 @@
     <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
-    <ClInclude Include="app\components\base\ComponentTree.hpp" />
+    <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Effect\Common\ReleaseTrigger.hpp" />
@@ -2639,13 +2644,29 @@
     <ClInclude Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.hpp" />
     <ClInclude Include="app\entities\Decor\General\SchoolOfFishEntity.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
-    <ClInclude Include="app\modules\Collision\CollisionManager.hpp" />
-    <ClInclude Include="app\modules\Collision\base\INode.hpp" />
-    <ClInclude Include="app\modules\Collision\base\IDetectionAlgorithm.hpp" />
-    <ClInclude Include="app\modules\Collision\SimpleDetection.hpp" />
-    <ClInclude Include="app\modules\Collision\LayerGroup.hpp" />
+    <ClInclude Include="app\modules\ColSys\CollisionManager.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\INode.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\IDetectionAlgorithm.hpp" />
+    <ClInclude Include="app\modules\ColSys\SimpleDetection.hpp" />
+    <ClInclude Include="app\modules\ColSys\LayerGroup.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\ICollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\CircleCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\PointCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\RectCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Collider\BodyCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
+    <ClInclude Include="app\modules\ColSys\Result.hpp" />
+    <ClInclude Include="app\modules\ColSys\Branch.hpp" />
+    <ClInclude Include="app\modules\ColSys\base\IExtension.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Extension\Receiver.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Extension\Attacker.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Schield\FaceCollider.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

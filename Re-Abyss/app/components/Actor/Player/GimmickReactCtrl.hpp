@@ -1,6 +1,6 @@
 #pragma once
 
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostUpdate.hpp>
 
 namespace abyss::Actor::Player

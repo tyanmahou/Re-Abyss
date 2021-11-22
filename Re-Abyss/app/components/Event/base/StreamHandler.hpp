@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Event/base/IStream.hpp>
 
 namespace abyss::Event

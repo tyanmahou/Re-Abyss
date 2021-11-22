@@ -7,15 +7,17 @@
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/FallChecker.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/CameraFixPos.hpp>
 #include <abyss/components/Actor/Common/LightCtrl.hpp>
-#include <abyss/components/Actor/Common/ReceiverData.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/BodyCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <abyss/components/Actor/Player/OopartsCtrl.hpp>
@@ -35,7 +37,6 @@
 
 namespace
 {
-	class Collider;
 	class ViewBinder;
 }
 namespace abyss::Actor::Player
@@ -44,8 +45,6 @@ namespace abyss::Actor::Player
 	{
 		// 基本設定
         pActor->setDestoryTiming(DestoryTiming::Never);
-		pActor->setTag(Tag::Player{});
-
 		// Body
 		{
 			pActor->attach<Body>(pActor)
@@ -70,15 +69,15 @@ namespace abyss::Actor::Player
 		}
 		// 衝突
 		{
-			pActor->attach<CollisionCtrl>(pActor)
-				->setLayer(LayerGroup::Player);
-			pActor->attach<CustomCollider>()
-				->setImpl<Collider>(pActor);
+            auto collider = pActor->attach<Collider>();
+            collider->add<Col::BodyCollider>(pActor);
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Player)
+                .attach<Col::Receiver>(pActor);
 		}
-        // ReceiverData
-        {
-            pActor->attach<ReceiverData>();
-        }
 		// 地形判定
 		{
             pActor->attach<MapCollider>(pActor)
@@ -178,25 +177,6 @@ namespace
     using namespace abyss;
     using namespace abyss::Actor;
     using namespace abyss::Actor::Player;
-    
-    class Collider final : public CustomCollider::IImpl
-    {
-    public:
-        Collider(ActorObj* pActor) :
-            m_pActor(pActor)
-        {}
-        void onStart() override
-        {
-            m_body = m_pActor->find<Body>();
-        }
-        CShape getCollider() const override
-        {
-            return m_body->region();
-        }
-    private:
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-    };
 
     class ViewBinder : public IVModelBinder<PlayerVM>
     {

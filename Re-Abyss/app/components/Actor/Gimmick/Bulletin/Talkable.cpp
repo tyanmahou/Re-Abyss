@@ -6,7 +6,6 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/UI/SpeechBalloon/Builder.hpp>
-#include <abyss/components/Actor/Common/ICollider.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Event/Talk/Builder.hpp>
 
@@ -26,7 +25,7 @@ namespace abyss::Actor::Gimmick::Bulletin
             ->create<UI::SpeechBalloon::Builder>(m_pActor);
         m_balloon->setActive(false);
 
-        m_collider = m_pActor->find<ICollider>();
+        m_collider = m_pActor->find<Collider>()->main();
     }
 
     void Talkable::onEnd()
@@ -48,7 +47,7 @@ namespace abyss::Actor::Gimmick::Bulletin
             if (!m_collider) {
                 return false;
             }
-            auto playerCollider = player->find<ICollider>();
+            auto playerCollider = player->find<Collider>()->main();
             if (!playerCollider) {
                 return false;
             }

@@ -1,5 +1,4 @@
 #include "TalkState.hpp"
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
@@ -28,11 +27,11 @@ namespace abyss::Actor::Player
 
         // ダメージ受けない
         m_damageCtrl->setActive(false);
-        m_pActor->find<CustomCollider>()->setActive(false);
+        m_colCtrl->setActive(false);
     }
     void TalkState::end()
     {
-        m_pActor->find<CustomCollider>()->setActive(true);
+        m_colCtrl->setActive(true);
     }
     void TalkState::update()
     {

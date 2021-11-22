@@ -1,7 +1,6 @@
 #include "ItemCollision.hpp"
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Common/ICollider.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor::Item
@@ -17,13 +16,13 @@ namespace abyss::Actor::Item
 
     void ItemCollision::onStart()
     {
-        m_collider = m_pActor->find<ICollider>();
+        m_collider = m_pActor->find<Collider>()->main();
         m_reactors = m_pActor->finds<IItemReactor>();
     }
 
     void ItemCollision::onGimmickReact(ActorObj* player)
     {
-        auto playerCollider = player->find<ICollider>();
+        auto playerCollider = player->find<Collider>()->main();
         if (!m_collider || !playerCollider) {
             return;
         }

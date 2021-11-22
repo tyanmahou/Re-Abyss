@@ -11,8 +11,6 @@ namespace abyss::Actor::Map
 
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
-        pActor->setTag(Tag::Map{});
-
         // マップ情報
         auto mapProxy = pActor->attach<MapProxy>(opt.col, opt.pos, opt.size);
 

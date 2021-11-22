@@ -22,11 +22,11 @@ namespace abyss
 	class Distortion;
 	class ICameraWork;
 	class World;
-	namespace Collision
+	namespace ColSys
 	{
 		class CollisionManager;
 	}
-	using Collision::CollisionManager;
+	using ColSys::CollisionManager;
 
 	namespace Physics
 	{
@@ -44,8 +44,6 @@ namespace abyss
 	class Temporary;
 	class TemporaryData;
 	class DrawManager;
-
-	class ICollision;
 	
 	/// Modules/Actors
 	namespace Actor
@@ -192,9 +190,6 @@ namespace abyss
 		class StateCtrl;
 		class Body;
 		class Foot;
-		class ICollider;
-		class ICollision;
-		class CollisionCtrl;
 	}
 
 	/// <summary>

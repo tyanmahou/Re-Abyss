@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/components/Actor/Player/Shot/Collider.hpp>
+#include <abyss/components/Actor/Player/Shot/MainCollider.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
 
 namespace abyss::Actor::Player::Shot
@@ -9,7 +9,7 @@ namespace abyss::Actor::Player::Shot
     {
     protected:
         PlayerShot* m_shot;
-        Collider* m_collider;
+        MainCollider* m_collider;
     public:
         void onCache()override;
 

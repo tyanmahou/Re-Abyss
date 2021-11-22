@@ -1,8 +1,9 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Common/ITimeScale.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Gimmick::Bush
@@ -20,7 +21,7 @@ namespace abyss::Actor::Gimmick::Bush
         double timeScale() override;
     private:
         ActorObj* m_pActor;
-        Ref<CollisionCtrl> m_cols;
+        Ref<ColCtrl> m_cols;
         double m_resizeRate = 0;
         double m_timeScale = 1.0;
     };

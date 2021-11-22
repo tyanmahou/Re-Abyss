@@ -7,7 +7,7 @@
 #include <abyss/types/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -32,7 +32,7 @@ namespace abyss::Actor::Enemy
         // collder
         bool isEnableCollider = true;
         std::function<CShape()> colliderFunc;
-        std::shared_ptr<CustomCollider::IImpl> colliderImpl;
+        std::shared_ptr<Col::ICollider> collider;
 
         // map collider
         bool isEnableMapCollider = true;
@@ -97,19 +97,19 @@ namespace abyss::Actor::Enemy
         BuildOption& setColliderFunc(const std::function<CShape()>& func)
         {
             this->colliderFunc = func;
-            this->colliderImpl = nullptr;
+            this->collider = nullptr;
             return *this;
         }
-        BuildOption& setColliderImpl(const std::shared_ptr<CustomCollider::IImpl> col)
+        BuildOption& setCollider(const std::shared_ptr<Col::ICollider> col)
         {
             this->colliderFunc = nullptr;
-            this->colliderImpl = col;
+            this->collider = col;
             return *this;
         }
         template<class Type, class... Args>
-        BuildOption& setColliderImpl(Args&& ... args)
+        BuildOption& setCollider(Args&& ... args)
         {
-            return setColliderImpl(std::make_shared<Type>(std::forward<Args>(args)...));
+            return setCollider(std::make_shared<Type>(std::forward<Args>(args)...));
         }
         BuildOption& setIsEnableMapCollider(bool enable)
         {

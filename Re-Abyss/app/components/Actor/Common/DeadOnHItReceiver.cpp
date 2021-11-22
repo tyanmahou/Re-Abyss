@@ -1,10 +1,9 @@
 #include "DeadOnHItReceiver.hpp"
 #include <abyss/components/Actor/Common/MapCollider.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
-#include <abyss/components/Actor/Common/ReceiverData.hpp>
-#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/modules/Physics/base/Tag.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
@@ -14,7 +13,7 @@ namespace abyss::Actor
     void DeadOnHItReceiver::onStart()
     {
         m_deadChecker = m_pActor->find<DeadChecker>();
-        m_cols = m_pActor->find<CollisionCtrl>();
+        m_cols = m_pActor->find<ColCtrl>();
         m_mapCol = m_pActor->find<MapCollider>();
     }
     void DeadOnHItReceiver::onPostCollision()
@@ -22,13 +21,9 @@ namespace abyss::Actor
         if (m_pActor->isDestroyed()) {
             return;
         }
-        auto callback = [this]([[maybe_unused]] const ReceiverData& receiver) {
+        if (m_cols && m_cols->isHitBy<Col::Receiver>()) {
             // 当たって消える
             m_deadChecker->requestDead();
-            return true;
-        };
-
-        if (m_cols && m_cols->anyThen<Tag::Receiver, ReceiverData>(callback)) {
             return;
         }
         if (m_mapCol && m_mapCol->isHitBy<Physics::Tag::Receiver>()) {

@@ -1,6 +1,6 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/components/base/Components.hpp>
+#include <abyss/modules/GameObject/Components.hpp>
 
 namespace
 {

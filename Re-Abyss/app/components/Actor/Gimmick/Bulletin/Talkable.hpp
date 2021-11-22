@@ -1,6 +1,7 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Player/IGimmickReactor.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Gimmick::Bulletin
@@ -28,7 +29,7 @@ namespace abyss::Actor::Gimmick::Bulletin
         ActorObj* m_pActor;
         Ref<UI::UIObj> m_balloon;
         Ref<Event::EventObj> m_event;
-        Ref<ICollider> m_collider;
+        Ref<Col::ICollider> m_collider;
 
         s3d::String m_eventPath;
         double m_offsetY = -65.0;

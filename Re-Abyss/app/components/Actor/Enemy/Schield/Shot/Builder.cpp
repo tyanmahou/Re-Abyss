@@ -4,16 +4,17 @@
 #include <abyss/components/Actor/Enemy/Schield/Shot/State/BaseState.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/components/Actor/Common/AttackerData.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 
 #include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
 #include <abyss/views/Actor/Enemy/Schield/Shot/ShotVM.hpp>
@@ -27,9 +28,6 @@ namespace abyss::Actor::Enemy::Schield::Shot
 {
     void Builder::Build(ActorObj* pActor, const s3d::Vec2& pos, const s3d::Vec2& dir)
     {
-        // タグ
-        pActor->setTag(Tag::Enemy{} | Tag::Attacker{});
-
         // Body
         {
             pActor->attach<Body>(pActor)
@@ -41,10 +39,15 @@ namespace abyss::Actor::Enemy::Schield::Shot
         }
         // 衝突
         {
-            pActor->attach<CollisionCtrl>(pActor)
-                ->setLayer(LayerGroup::Enemy);
-            pActor->attach<CircleCollider>(pActor)
+            auto collider = pActor->attach<Collider>();
+            collider->add<Col::CircleCollider>(pActor)
                 ->setRadius(ShotParam::Base::ColRadius);
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Attacker>(pActor, 1);
         }
         // 地形衝突
         {
@@ -66,10 +69,6 @@ namespace abyss::Actor::Enemy::Schield::Shot
         {
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<BaseState>();
-        }
-        // AttackerData
-        {
-            pActor->attach<AttackerData>(pActor, 1);
         }
         // 描画制御
         {

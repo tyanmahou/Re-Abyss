@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/Components.hpp>
+#include <abyss/modules/GameObject/Components.hpp>
 
 namespace abyss::Actor::Enemy
 {

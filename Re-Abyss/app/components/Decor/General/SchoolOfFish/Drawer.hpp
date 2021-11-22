@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Decor/base/IDraw.hpp>
 #include <abyss/views/Shader/SchoolOfFish/SchoolOfFishShader.hpp>
 #include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>

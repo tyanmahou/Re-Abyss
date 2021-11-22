@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/UI/base/IPostUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/utils/Hierarchy/Hierarchy.hpp>

@@ -2,8 +2,9 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Common/Colliders/RectCollider.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/RectCollider.hpp>
 #include <abyss/components/Actor/Gimmick/Bush/ColReactor.hpp>
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
@@ -26,14 +27,17 @@ namespace abyss::Actor::Gimmick::Bush
 
 		// 衝突
 		{
-			pActor->attach<CollisionCtrl>(pActor)
-				->setLayer(LayerGroup::Gimmick)
-				.setToLayer(LayerGroup::Player | LayerGroup::Enemy);
-
-			pActor
-				->attach<RectCollider>(pActor)
+			auto collider = pActor->attach<Collider>();
+			collider->add<Col::RectCollider>(pActor)
 				->setSize(Param::ColliderSize)
 				.setOffset(Param::ColliderOffset);
+
+			pActor->attach<ColCtrl>(pActor)
+				->addBranch()
+				->addNode<Col::Node>(collider->main())
+				.setLayer(ColSys::LayerGroup::Gimmick)
+				.setToLayer(ColSys::LayerGroup::Player | ColSys::LayerGroup::Enemy)
+				;
 
 			// 衝突反応
 			pActor->attach<ColReactor>(pActor);

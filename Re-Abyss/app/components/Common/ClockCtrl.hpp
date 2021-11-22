@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/components/base/IComponent.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

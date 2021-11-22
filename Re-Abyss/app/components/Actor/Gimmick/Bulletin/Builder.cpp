@@ -1,7 +1,8 @@
 #include "Builder.hpp"
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/views/Actor/Gimmick/Bulletin/BulletinVM.hpp>
 
@@ -24,7 +25,8 @@ namespace abyss::Actor::Gimmick::Bulletin
 
 		// コライダー
 		{
-			pActor->attach<CircleCollider>(pActor)
+			pActor->attach<Collider>()
+				->add<Col::CircleCollider>(pActor)
 				->setRadius(30.0);
 		}
 
