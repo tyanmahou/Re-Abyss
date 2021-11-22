@@ -302,6 +302,7 @@
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\State\RunState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Schield\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\Schield\FaceCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Schield\FaceCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Schield\ShellCtrl.cpp" />
@@ -898,6 +899,7 @@
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Schield\FaceCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />

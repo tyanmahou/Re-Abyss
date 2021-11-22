@@ -10,12 +10,12 @@
 #include <abyss/components/Actor/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
 #include <abyss/components/Actor/Enemy/Schield/ShellCtrl.hpp>
+#include <abyss/components/Actor/Enemy/Schield/FaceCollider.hpp>
 
 #include <abyss/views/Actor/Enemy/Schield/SchieldVM.hpp>
 
 namespace
 {
-    class Collider;
 	class ViewBinder;
 }
 namespace abyss::Actor::Enemy::Schield
@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::Schield
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
             .setInitHp(Param::Base::Hp)
-            .setColliderImpl<Collider>(pActor)
+            .setCollider<FaceCollider>(pActor)
             .setAudioSettingGroupPath(U"Enemy/Schield/schield.aase")
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
@@ -51,31 +51,6 @@ namespace
     using namespace abyss;
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::Schield;
-
-    /// <summary>
-    /// コライダー
-    /// </summary>
-    class Collider final : public CustomCollider::IImpl
-    {
-    public:
-        Collider(ActorObj* pActor):
-            m_pActor(pActor)
-        {}
-        void onStart() override
-        {
-            m_face = m_pActor->find<FaceCtrl>();
-        }
-        CShape getCollider() const override
-        {
-            if (m_face->isOnFace()) {
-                return m_face->getCollider();
-            }
-            return s3d::none;
-        }
-    private:
-        ActorObj* m_pActor;
-        Ref<FaceCtrl> m_face;
-    };
 
     /// <summary>
     /// 描画

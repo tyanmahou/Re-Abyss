@@ -2,18 +2,19 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/HP.hpp>
-#include <abyss/components/Actor/Common/AttackerData.hpp>
-#include <abyss/components/Actor/Common/ReceiverData.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
-#include <abyss/components/Actor/Common/CustomCollider.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
 #include <abyss/components/Actor/Enemy/DeadCallback.hpp>
@@ -64,15 +65,20 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
         // 衝突
         {
-            pActor->attach<CollisionCtrl>(pActor)
-                ->setLayer(LayerGroup::Enemy);
-
-            auto body = pActor->find<Body>();
-            auto rotate = pActor->find<RotateCtrl>();
-            pActor->attach<CustomCollider>()
-                ->setColFunc([body, rotate]()->CShape {
+            auto collider = pActor->attach<Collider>();
+            collider->add([
+                body = pActor->find<Body>(),
+                rotate = pActor->find<RotateCtrl>()
+            ]()->CShape {
                 return body->region().rotated(rotate->getRotate());
             });
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Attacker>(pActor, 1)
+                .attach<Col::Receiver>(pActor);
         }
         // 地形衝突
         {
@@ -101,14 +107,6 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         {
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<StartState>();
-        }
-        // AttackerData
-        {
-            pActor->attach<AttackerData>(pActor, 1);
-        }
-        // ReceiverData
-        {
-            pActor->attach<ReceiverData>();
         }
         // 描画制御
         {
