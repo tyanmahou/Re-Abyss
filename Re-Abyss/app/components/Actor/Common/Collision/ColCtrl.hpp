@@ -15,6 +15,56 @@ namespace abyss::Actor::Collision
 
 		void onStart();
 		void onEnd();
+
+	public:
+		/// <summary>
+		/// 何かにヒットしたか
+		/// </summary>
+		/// <returns></returns>
+		bool isHitAny() const;
+
+		/// <summary>
+		/// 特定の拡張データにヒットしたか
+		/// </summary>
+		template<class Type>
+		bool isHitBy() const
+		{
+			return isHitBy(typeid(Type));
+		}
+		bool isHitBy(std::type_index type) const;
+
+		/// <summary>
+		/// 衝突したいずれかに対して処理を行う
+		/// </summary>
+		template<class Type>
+		bool anyThen(const std::function<bool(const typename Type::Data&)>& callback) const
+		{
+			for (const auto& b : m_branch) {
+				if (!b) {
+					continue;
+				}
+				if (b->result().anyThen(callback)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// 衝突したすべてに対して処理を行う
+		/// </summary>
+		template<class Type>
+		bool eachThen(const std::function<bool(const typename Type::Data&)>& callback) const
+		{
+			bool result = false;
+			for (const auto& b : m_branch) {
+				if (!b) {
+					continue;
+				}
+				result |= b->result().eachThen(callback);
+			}
+			return result;
+		}
 	private:
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;

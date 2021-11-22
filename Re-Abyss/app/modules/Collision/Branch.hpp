@@ -64,6 +64,11 @@ namespace abyss::Collision
 		{
 			return m_isDestroyed;
 		}
+
+		const Result& result() const
+		{
+			return m_result;
+		}
 	public:
 		void onPreCollision();
 		void onCollision(const Branch& other);

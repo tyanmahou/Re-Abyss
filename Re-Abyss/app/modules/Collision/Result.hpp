@@ -32,7 +32,7 @@ namespace abyss::Collision
 		bool isHitBy(std::type_index type) const;
 
 		template<class Type>
-		bool anyThen(std::function<bool(const typename Type::Data&)> callback) const
+		bool anyThen(const std::function<bool(const typename Type::Data&)>& callback) const
 		{
 			for (const auto& hit : m_results) {
 				if (auto it = hit.extData.find(typeid(Type)); it != hit.extData.end()) {
@@ -45,7 +45,7 @@ namespace abyss::Collision
 		}
 
 		template<class Type>
-		bool eachThen(std::function<bool(const typename Type::Data&)> callback) const
+		bool eachThen(const std::function<bool(const typename Type::Data&)>& callback) const
 		{
 			bool result = false;
 			for (const auto& hit : m_results) {

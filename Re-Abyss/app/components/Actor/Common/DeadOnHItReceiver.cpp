@@ -1,7 +1,7 @@
 #include "DeadOnHItReceiver.hpp"
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
-#include <abyss/components/Actor/Common/ReceiverData.hpp>
+#include <abyss/components/Actor/Common/Collision/Extension/Receiver.hpp>
 #include <abyss/modules/Physics/base/Tag.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -21,13 +21,9 @@ namespace abyss::Actor
         if (m_pActor->isDestroyed()) {
             return;
         }
-        auto callback = [this]([[maybe_unused]] const ReceiverData& receiver) {
+        if (m_cols && m_cols->isHitBy<Collision::Receiver>()) {
             // 当たって消える
             m_deadChecker->requestDead();
-            return true;
-        };
-
-        if (m_cols && m_cols->anyThen<Tag::Receiver, ReceiverData>(callback)) {
             return;
         }
         if (m_mapCol && m_mapCol->isHitBy<Physics::Tag::Receiver>()) {

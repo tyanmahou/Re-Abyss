@@ -23,4 +23,18 @@ namespace abyss::Actor::Collision
 			}
 		}
 	}
+
+	bool ColCtrl::isHitAny() const
+	{
+		return m_branch.any([](const Ref<abyss::Collision::Branch>& b) {
+			return b && b->result().isHitAny();
+		});
+	}
+
+	bool ColCtrl::isHitBy(std::type_index type) const
+	{
+		return m_branch.any([type](const Ref<abyss::Collision::Branch>& b) {
+			return b && b->result().isHitBy(type);
+		});
+	}
 }
