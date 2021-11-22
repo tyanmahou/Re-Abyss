@@ -2,14 +2,16 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 
-#include <abyss/components/Actor/Common/AttackerData.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
-#include <abyss/components/Actor/Common/Colliders/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
@@ -40,11 +42,15 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         // 衝突
         {
-            pActor->attach<CollisionCtrl>(pActor)
-                ->setLayer(LayerGroup::Enemy);
-
-            pActor->attach<CircleCollider>(pActor)
+            auto collider = pActor->attach<Collider>();
+            collider->add<Col::CircleCollider>(pActor)
                 ->setRadius(HandParam::Base::ColRadius);
+
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Attacker>(pActor, 1);
         }
         // 回転制御
         {
@@ -67,11 +73,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
             pActor->attach<StateCtrl>(pActor)
                 ->changeState<PursuitState>(desc, slowStart);
-        }
-
-        // AttackerData
-        {
-            pActor->attach<AttackerData>(pActor, 1);
         }
 
         // 衝撃波

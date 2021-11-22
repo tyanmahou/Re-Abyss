@@ -51,7 +51,6 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
                 ->addNode<Col::Node>(collider->main())
                 .setLayer(ColSys::LayerGroup::Enemy)
                 .attach<Col::Attacker>(pActor, 1);
-                
         }
 
         // 地形衝突
