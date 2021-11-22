@@ -13,6 +13,9 @@ namespace abyss::Actor
         public IComponent
     {
     public:
+        using container_type = s3d::Array<std::shared_ptr<Col::ICollider>>;
+        using const_iterator = container_type::const_iterator;
+    public:
         void setup(Executer executer)override;
         void onStart()override;
 
@@ -27,20 +30,11 @@ namespace abyss::Actor
         Ref<Col::ICollider> add(const std::shared_ptr<Col::ICollider>& collider);
         Ref<Col::ICollider> add(const std::function<CShape()>& func);
 
-        const s3d::Array<std::shared_ptr<Col::ICollider>>& getColliders() const
+        template<class Type>
+        Ref<Type> main() const requires std::derived_from<Type, Col::ICollider>
         {
-            return m_colliders;
+            return RefCast<Type>(this->get(0));
         }
-
-        bool empty() const
-        {
-            return m_colliders.empty();
-        }
-        size_t size() const
-        {
-            return m_colliders.size();
-        }
-
         Ref<Col::ICollider> main() const
         {
             return this->get(0);
@@ -52,7 +46,25 @@ namespace abyss::Actor
             }
             return m_colliders[index];
         }
+
+        const_iterator begin() const
+        {
+            return m_colliders.begin();
+        }
+        const_iterator end() const
+        {
+            return m_colliders.end();
+        }
+        bool empty() const
+        {
+            return m_colliders.empty();
+        }
+        size_t size() const
+        {
+            return m_colliders.size();
+        }
+
     private:
-        s3d::Array<std::shared_ptr<Col::ICollider>> m_colliders;
+        container_type m_colliders;
     };
 }

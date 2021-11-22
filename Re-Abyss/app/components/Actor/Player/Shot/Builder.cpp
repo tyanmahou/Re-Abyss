@@ -1,17 +1,19 @@
 #include "Builder.hpp"
 
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/components/Actor/Common/AttackerData.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
-#include <abyss/components/Actor/Common/CollisionCtrl.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
-#include <abyss/components/Actor/Player/Shot/Collider.hpp>
+#include <abyss/components/Actor/Player/Shot/MainCollider.hpp>
 #include <abyss/components/Actor/Player/Shot/EffectCtrl.hpp>
 #include <abyss/components/Actor/Player/Shot/State/BaseState.hpp>
 
@@ -41,18 +43,7 @@ namespace abyss::Actor::Player::Shot
 
 			pActor->attach<BodyUpdater>(pActor);
 		}
-		// 衝突
-		{
-			pActor->attach<CollisionCtrl>(pActor)
-				->setLayer(LayerGroup::Player);
 
-			pActor->attach<Collider>(pActor);
-		}
-		// サウンド
-		{
-			pActor->attach<AudioSource>(pActor)
-				->load(U"Player/Shot/player_shot.aase");
-		}
 		// ショット
 		auto shot = pActor->attach<PlayerShot>(charge);
 		if (!shot->isBig()) {
@@ -60,6 +51,24 @@ namespace abyss::Actor::Player::Shot
 			pActor->attach<DeadOnHItReceiver>(pActor);
 			pActor->attach<DeadChecker>(pActor);
 			pActor->attach<MapCollider>(pActor, false);
+		}
+
+		// 衝突
+		{
+			auto collider = pActor->attach<Collider>();
+			collider->add<MainCollider>(pActor);
+
+			pActor->attach<ColCtrl>(pActor)
+				->addBranch()
+				->addNode<Col::Node>(collider->main())
+				.setLayer(ColSys::LayerGroup::Player)
+				.attach<Col::Attacker>(pActor, shot->toPower())
+				;
+		}
+		// サウンド
+		{
+			pActor->attach<AudioSource>(pActor)
+				->load(U"Player/Shot/player_shot.aase");
 		}
 
 		// View
@@ -75,11 +84,6 @@ namespace abyss::Actor::Player::Shot
 			pActor->attach<StateCtrl>(pActor)
 				->changeState<BaseState>()
 				;
-		}
-
-		// AttaerData
-		{
-			pActor->attach<AttackerData>(pActor, shot->toPower());
 		}
     }
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/base/IComponent.hpp>
-#include <abyss/components/Actor/Common/ICollider.hpp>
+#include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Player::Shot
@@ -10,29 +10,21 @@ namespace abyss::Actor::Player::Shot
     /// <summary>
     /// 当たり判定
     /// </summary>
-    class Collider :
+    class MainCollider :
         public IComponent,
-        public ICollider
+        public Col::ICollider
     {
-    private:
-        ActorObj* m_pActor;
-        Ref<Body> m_body;
-        Ref<PlayerShot> m_shot;
     public:
-        Collider(ActorObj* pActor);
+        MainCollider(ActorObj* pActor);
 
         void onStart() override;
 
         s3d::Circle getColliderCircle() const;
         CShape getCollider() const override;
-    };
-}
 
-namespace abyss
-{
-    template<>
-    struct ComponentTree<Actor::Player::Shot::Collider>
-    {
-        using Base = Actor::ICollider;
+    private:
+        ActorObj* m_pActor;
+        Ref<Body> m_body;
+        Ref<PlayerShot> m_shot;
     };
 }

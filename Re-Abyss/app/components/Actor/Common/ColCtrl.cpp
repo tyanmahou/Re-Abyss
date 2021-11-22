@@ -2,6 +2,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/ColSys/CollisionManager.hpp>
 
+namespace
+{
+	constexpr s3d::uint8 ActiveSlot = 1;
+}
 namespace abyss::Actor
 {
 	ColCtrl::ColCtrl(ActorObj* pActor):
@@ -23,10 +27,18 @@ namespace abyss::Actor
 			}
 		}
 	}
-
+	ColCtrl& ColCtrl::setActive(bool isActive)
+	{
+		m_isActive = isActive;
+		for (auto&& branch : m_branchs) {
+			branch->setActive(m_isActive, ::ActiveSlot);
+		}
+		return *this;
+	}
 	Ref<ColSys::Branch> ColCtrl::addBranch()
 	{
 		auto ret = m_pActor->getModule<CollisionManager>()->add(m_id);
+		ret->setActive(m_isActive, ::ActiveSlot);
 		m_branchs << ret;
 		return ret;
 	}

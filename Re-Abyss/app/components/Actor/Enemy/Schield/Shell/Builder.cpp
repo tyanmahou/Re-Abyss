@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::Schield::Shell
         {
             auto collider = pActor->attach<Collider>();
             collider->add([
-                body = pActor->find<Body>()
+                body = parent->find<Body>()
             ]()->CShape {
                if (!body) {
                    return s3d::none;

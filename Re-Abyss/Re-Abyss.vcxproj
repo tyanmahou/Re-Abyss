@@ -577,7 +577,7 @@
     <ClCompile Include="app\components\Actor\Player\DebugCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\RestartCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\RoomMoveChecker.cpp" />
-    <ClCompile Include="app\components\Actor\Player\Shot\Collider.cpp" />
+    <ClCompile Include="app\components\Actor\Player\Shot\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DeadState.cpp" />
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp" />
     <ClCompile Include="app\Lib.cpp" />
@@ -1453,7 +1453,7 @@
     <ClInclude Include="app\components\Actor\Player\RestartCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\OopartsCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\RoomMoveChecker.hpp" />
-    <ClInclude Include="app\components\Actor\Player\Shot\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Player\Shot\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Player\UICtrl.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />

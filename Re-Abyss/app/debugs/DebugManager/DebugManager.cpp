@@ -10,7 +10,7 @@
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
-#include <abyss/components/Actor/Common/Collision/Collider.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
@@ -38,12 +38,12 @@ namespace abyss::Debug
             if (!Menu::IsDebug(Debug::DebugFlag::DrawCollider)) {
                 return;
             }
-            auto coms = world.finds<Actor::Collision::Collider>();
+            auto coms = world.finds<Actor::Collider>();
 
             constexpr ColorF color = ColorF(1, 0, 0, 0.4);
             size_t size{};
             for (auto&& com : coms) {
-                for (const auto& c : com->getColliders()) {
+                for (const auto& c : *com) {
                     DebugUtil::DrawShape(c->getCollider(), color);
                     ++size;
                 }

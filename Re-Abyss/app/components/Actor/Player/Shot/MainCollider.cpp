@@ -1,4 +1,4 @@
-#include "Collider.hpp"
+#include "MainCollider.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
@@ -6,21 +6,21 @@
 
 namespace abyss::Actor::Player::Shot
 {
-    Collider::Collider(ActorObj* pActor):
+    MainCollider::MainCollider(ActorObj* pActor):
         m_pActor(pActor)
     {}
-    void Collider::onStart()
+    void MainCollider::onStart()
     {
         m_body = m_pActor->find<Body>();
         m_shot = m_pActor->find<PlayerShot>();
     }
 
-    s3d::Circle Collider::getColliderCircle() const
+    s3d::Circle MainCollider::getColliderCircle() const
     {
         return s3d::Circle(m_body->getPos(), m_shot->toRadius() * ShotParam::Base::ColliderRate);
     }
 
-    CShape Collider::getCollider()const
+    CShape MainCollider::getCollider()const
     {
         return this->getColliderCircle();
     }

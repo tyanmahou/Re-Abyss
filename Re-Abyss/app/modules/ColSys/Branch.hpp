@@ -12,6 +12,7 @@ namespace abyss::ColSys
 	/// </summary>
 	class Branch
 	{
+		static constexpr s3d::uint8 ActiveAll = static_cast<s3d::uint8>(~0);
 	public:
 		Branch(s3d::uint64 id);
 
@@ -45,15 +46,22 @@ namespace abyss::ColSys
 			return m_toLayer.value_or(~m_layer);
 		}
 
-		Branch& setActive(bool isActive)
+		Branch& setActive(bool isActive, s3d::uint8 slot = 0)
 		{
-			m_isActive = isActive;
+			if (isActive) {
+				m_isActiveBit |= (1 << slot);
+			} else {
+				m_isActiveBit &= ~(1 << slot);
+			}
 			return *this;
 		}
 
 		bool isActive() const
 		{
-			return m_isActive && !m_nodes.empty();
+			if (m_nodes.empty()) {
+				return false;
+			}
+			return (m_isActiveBit & ActiveAll) == ActiveAll;
 		}
 
 		void destroy()
@@ -95,7 +103,7 @@ namespace abyss::ColSys
 		s3d::uint32 m_layer{};
 		s3d::Optional<s3d::int32> m_toLayer;
 
-		bool m_isActive = true;
+		s3d::uint8 m_isActiveBit = ActiveAll;
 		bool m_isDestroyed = false;
 
 		Result m_result;

@@ -19,6 +19,7 @@ namespace abyss::Actor
 		void onEnd();
 
 	public:
+		ColCtrl& setActive(bool isActive);
 
 		/// <summary>
 		/// ブランチ追加
@@ -84,5 +85,6 @@ namespace abyss::Actor
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;
 		s3d::Array<Ref<ColSys::Branch>> m_branchs;
+		bool m_isActive = false;
 	};
 }
