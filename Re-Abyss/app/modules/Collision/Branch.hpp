@@ -1,4 +1,5 @@
 #pragma once
+#include <typeindex>
 #include <abyss/modules/Collision/base/INode.hpp>
 #include <abyss/modules/Collision/base/IExtension.hpp>
 #include <abyss/modules/Collision/Result.hpp>

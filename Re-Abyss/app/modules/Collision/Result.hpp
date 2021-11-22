@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <typeinfo>
+#include <typeindex>
 #include <abyss/modules/Collision/base/IExtension.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/HashTable.hpp>
