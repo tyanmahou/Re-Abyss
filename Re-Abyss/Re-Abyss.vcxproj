@@ -258,6 +258,7 @@
     <ClCompile Include="app\components\Actor\Common\BehaviorCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\CameraTarget.cpp" />
     <ClCompile Include="app\components\Actor\Common\Col\Extension\Attacker.cpp" />
+    <ClCompile Include="app\components\Actor\Common\Col\Extension\Mover.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actor\Common\FallChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\Foot.cpp" />
@@ -877,6 +878,7 @@
     <ClInclude Include="app\components\Actor\Common\Col\Collider\PointCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Collider\RectCollider.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Extension\Attacker.hpp" />
+    <ClInclude Include="app\components\Actor\Common\Col\Extension\Mover.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Extension\Receiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />

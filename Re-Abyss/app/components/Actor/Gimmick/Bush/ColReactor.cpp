@@ -2,7 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Gimmick::Bush
@@ -20,8 +20,8 @@ namespace abyss::Actor::Gimmick::Bush
         m_resizeRate = 0.0;
         m_timeScale = Param::BaseTimeScale;
 
-        m_cols->eachThen<Col::Attacker>([&](const Col::Attacker::Data& attacker) {
-            Vec2 speed = s3d::Math::Abs(attacker.velocity);
+        m_cols->eachThen<Col::Mover>([&](const Col::Mover::Data& mover) {
+            Vec2 speed = s3d::Math::Abs(mover.velocity);
             if (auto s = s3d::Max(speed.x, speed.y); s >= 10) {
                 m_resizeRate = s3d::Max(m_resizeRate, s3d::Saturate((s - 10) / 60.0));
             }

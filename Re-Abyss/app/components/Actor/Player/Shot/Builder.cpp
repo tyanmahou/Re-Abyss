@@ -10,6 +10,7 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
@@ -59,6 +60,7 @@ namespace abyss::Actor::Player::Shot
 				->addBranch()
 				->addNode<Col::Node>(collider->main())
 				.setLayer(ColSys::LayerGroup::Player)
+				.attach<Col::Mover>(pActor)
 				.attach<Col::Attacker>(pActor, shot->toPower())
 				;
 		}

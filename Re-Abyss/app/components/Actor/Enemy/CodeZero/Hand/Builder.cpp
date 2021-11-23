@@ -10,6 +10,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
@@ -47,7 +48,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
                 ->addBranch()
                 ->addNode<Col::Node>(collider->main())
                 .setLayer(ColSys::LayerGroup::Enemy)
-                .attach<Col::Attacker>(pActor, 1);
+                .attach<Col::Mover>(pActor)
+                .attach<Col::Attacker>(pActor, 1)
+                ;
         }
         // 回転制御
         {

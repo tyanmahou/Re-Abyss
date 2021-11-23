@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/BodyCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
 #include <abyss/components/Actor/Player/AttackCtrl.hpp>
@@ -76,7 +77,9 @@ namespace abyss::Actor::Player
                 ->addBranch()
                 ->addNode<Col::Node>(collider->main())
                 .setLayer(ColSys::LayerGroup::Player)
-                .attach<Col::Receiver>(pActor);
+                .attach<Col::Mover>(pActor)
+                .attach<Col::Receiver>(pActor)
+                ;
 		}
 		// 地形判定
 		{

@@ -11,6 +11,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
@@ -50,6 +51,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
                 ->addBranch()
                 ->addNode<Col::Node>(collider->main())
                 .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Mover>(pActor)
                 .attach<Col::Attacker>(pActor, 1)
                 .attach<Col::Receiver>(pActor);
         }
