@@ -95,6 +95,7 @@ namespace abyss::Sys::Main
                     return false;
                 }
                 player = std::make_shared<Actor::ActorObj>();
+                player->setManager(pManager);
                 Actor::Player::Builder::Build(player.get(), *initStartPos);
             }
             // PlayerManager初期化
