@@ -32,6 +32,25 @@ namespace abyss::ColSys
 		}
 		return false;
 	}
+
+	Branch& Branch::setActive(bool isActive, s3d::uint8 slot)
+	{
+		if (isActive) {
+			m_isActiveBit |= (1 << slot);
+		}
+		else {
+			m_isActiveBit &= ~(1 << slot);
+		}
+		return *this;
+	}
+
+	bool Branch::isActive() const
+	{
+		if (m_nodes.empty()) {
+			return false;
+		}
+		return (m_isActiveBit & ActiveAll) == ActiveAll;
+	}
 	Branch& Branch::addNode(std::unique_ptr<INode>&& node)
 	{
 		m_nodes << std::move(node);

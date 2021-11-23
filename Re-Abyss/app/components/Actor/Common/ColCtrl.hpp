@@ -85,6 +85,6 @@ namespace abyss::Actor
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;
 		s3d::Array<Ref<ColSys::Branch>> m_branchs;
-		bool m_isActive = false;
+		bool m_isActive = true;
 	};
 }

@@ -46,23 +46,9 @@ namespace abyss::ColSys
 			return m_toLayer.value_or(~m_layer);
 		}
 
-		Branch& setActive(bool isActive, s3d::uint8 slot = 0)
-		{
-			if (isActive) {
-				m_isActiveBit |= (1 << slot);
-			} else {
-				m_isActiveBit &= ~(1 << slot);
-			}
-			return *this;
-		}
+		Branch& setActive(bool isActive, s3d::uint8 slot = 0);
 
-		bool isActive() const
-		{
-			if (m_nodes.empty()) {
-				return false;
-			}
-			return (m_isActiveBit & ActiveAll) == ActiveAll;
-		}
+		bool isActive() const;
 
 		void destroy()
 		{
