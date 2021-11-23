@@ -28,12 +28,10 @@ namespace abyss::ColSys
 	void CollisionManager::cleanUp()
 	{
 		if (!m_reserves.empty()) {
-			// startでregistされてもいいようにここでmove
-			auto registing = std::move(m_reserves);
-			m_reserves.clear();
-			for (auto& branch : registing) {
+			for (auto& branch : m_reserves) {
 				m_branchs << branch;
 			}
+			m_reserves.clear();
 		}
 		s3d::Erase_if(m_branchs, [this](const std::shared_ptr<Branch>& b) {
 			return b->isDestroyed();
