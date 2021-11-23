@@ -15,7 +15,7 @@ namespace abyss::ColSys
 	Ref<Branch> CollisionManager::add(s3d::uint64 id)
 	{
 		auto branch = std::make_shared<Branch>(id);
-		m_branchs << branch;
+		m_reserves << branch;
 		return branch;
 	}
 	void CollisionManager::onCollision()
@@ -27,6 +27,14 @@ namespace abyss::ColSys
 	}
 	void CollisionManager::cleanUp()
 	{
+		if (!m_reserves.empty()) {
+			// startでregistされてもいいようにここでmove
+			auto registing = std::move(m_reserves);
+			m_reserves.clear();
+			for (auto& branch : registing) {
+				m_branchs << branch;
+			}
+		}
 		s3d::Erase_if(m_branchs, [this](const std::shared_ptr<Branch>& b) {
 			return b->isDestroyed();
 		});

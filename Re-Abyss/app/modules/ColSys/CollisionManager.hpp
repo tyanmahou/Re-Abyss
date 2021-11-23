@@ -22,6 +22,7 @@ namespace abyss::ColSys
 		void cleanUp();
 	private:
 		std::shared_ptr<IDetectionAlgorithm> m_detection;
+		s3d::Array<std::shared_ptr<Branch>> m_reserves;
 		s3d::Array<std::shared_ptr<Branch>> m_branchs;
 		IdGenU64 m_idCounter;
 	};
