@@ -18,6 +18,10 @@ namespace abyss::Actor
 	}
 	void ColCtrl::onStart()
 	{
+		// 実際に登録するのはonStartのタイミング
+		for (auto&& branch : m_branchs) {
+			m_pActor->getModule<CollisionManager>()->regist(branch);
+		}
 	}
 	void ColCtrl::onEnd()
 	{
@@ -37,7 +41,7 @@ namespace abyss::Actor
 	}
 	Ref<ColSys::Branch> ColCtrl::addBranch()
 	{
-		auto ret = m_pActor->getModule<CollisionManager>()->add(m_id);
+		auto ret = std::make_shared<ColSys::Branch>(m_id);
 		ret->setActive(m_isActive, ::ActiveSlot);
 		m_branchs << ret;
 		return ret;

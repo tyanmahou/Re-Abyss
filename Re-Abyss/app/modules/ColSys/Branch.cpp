@@ -49,6 +49,9 @@ namespace abyss::ColSys
 		if (m_nodes.empty()) {
 			return false;
 		}
+		if (m_isDestroyed) {
+			return false;
+		}
 		return (m_isActiveBit & ActiveAll) == ActiveAll;
 	}
 	Branch& Branch::addNode(std::unique_ptr<INode>&& node)

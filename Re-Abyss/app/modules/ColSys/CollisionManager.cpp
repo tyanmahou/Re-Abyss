@@ -14,7 +14,10 @@ namespace abyss::ColSys
 	}
 	Ref<Branch> CollisionManager::add(s3d::uint64 id)
 	{
-		auto branch = std::make_shared<Branch>(id);
+		return this->regist(std::make_shared<Branch>(id));
+	}
+	Ref<Branch> CollisionManager::regist(const std::shared_ptr<Branch>& branch)
+	{
 		m_reserves << branch;
 		return branch;
 	}

@@ -17,6 +17,7 @@ namespace abyss::ColSys
 		s3d::uint64 createId();
 
 		Ref<Branch> add(s3d::uint64 id);
+		Ref<Branch> regist(const std::shared_ptr<Branch>& branch);
 
 		void onCollision();
 		void cleanUp();

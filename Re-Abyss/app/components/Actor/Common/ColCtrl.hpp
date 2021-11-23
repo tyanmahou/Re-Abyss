@@ -84,7 +84,7 @@ namespace abyss::Actor
 	private:
 		ActorObj* m_pActor;
 		s3d::uint64 m_id;
-		s3d::Array<Ref<ColSys::Branch>> m_branchs;
+		s3d::Array<std::shared_ptr<ColSys::Branch>> m_branchs;
 		bool m_isActive = true;
 	};
 }
