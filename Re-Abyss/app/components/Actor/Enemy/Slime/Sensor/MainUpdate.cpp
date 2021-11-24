@@ -18,15 +18,6 @@ namespace abyss::Actor::Enemy::Slime::Sensor
         m_mapColl = m_pActor->find<MapCollider>();
         m_locator = m_pActor->find<Locator>();
     }
-    void MainUpdate::onUpdate()
-    {
-		if (m_pActor->isDestroyed()) {
-			return;
-		}
-		if (!m_mapColl->isHitAny() && m_parentCtrl->isWalk()) {
-			m_parentCtrl->reversed();
-		}
-    }
 	void MainUpdate::onPrePhysics()
 	{
 		auto isLeft = m_parentCtrl->getForward() == Forward::Left;
@@ -34,6 +25,15 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 			m_locator->setPos(m_parentCtrl->getPos() + s3d::Vec2{ -20, 20 });
 		} else {
 			m_locator->setPos(m_parentCtrl->getPos() + s3d::Vec2{ 20, 20 });
+		}
+	}
+	void MainUpdate::onPostPhysics()
+	{
+		if (m_pActor->isDestroyed()) {
+			return;
+		}
+		if (!m_mapColl->isHitAny() && m_parentCtrl->isWalk()) {
+			m_parentCtrl->reversed();
 		}
 	}
 }

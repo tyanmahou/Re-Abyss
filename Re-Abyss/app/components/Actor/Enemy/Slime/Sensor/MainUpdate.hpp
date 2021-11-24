@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
+#include <abyss/components/Actor/base/IPostPhysics.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -12,8 +12,8 @@ namespace abyss::Actor::Enemy::Slime::Sensor
 
     class MainUpdate : 
         public IComponent,
-        public IUpdate,
-        public IPrePhysics
+        public IPrePhysics,
+        public IPostPhysics
     {
         ActorObj* m_pActor;
         Ref<ParentCtrl> m_parentCtrl;
@@ -23,9 +23,9 @@ namespace abyss::Actor::Enemy::Slime::Sensor
         MainUpdate(ActorObj* pActor);
         void setup(Executer executer);
         void onStart() override;
-        void onUpdate() override;
 
         void onPrePhysics() override;
+        void onPostPhysics() override;
     };
 }
 namespace abyss
@@ -33,6 +33,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::Enemy::Slime::Sensor::MainUpdate>
     {
-        using Base = MultiComponents<Actor::IUpdate, Actor::IPrePhysics>;
+        using Base = MultiComponents<Actor::IPrePhysics, Actor::IPostPhysics>;
     };
 }
