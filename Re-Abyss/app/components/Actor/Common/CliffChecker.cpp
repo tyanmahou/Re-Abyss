@@ -91,6 +91,8 @@ namespace abyss::Actor
 		}
 		void onStart()
 		{
+			m_body = m_pActor->find<Body>();
+
 			m_pActor->getModule<PhysicsManager>()->regist(m_front);
 			m_pActor->getModule<PhysicsManager>()->regist(m_back);
 		}
@@ -119,6 +121,10 @@ namespace abyss::Actor
 		bool isCliff() const
 		{
 			return !m_front->isHitAny();
+		}
+		bool isCliffBack() const
+		{
+			return !m_back->isHitAny();
 		}
 		bool isCliffAround() const
 		{
@@ -164,6 +170,10 @@ namespace abyss::Actor
 	bool CliffChecker::isCliff() const
 	{
 		return m_pImpl->isCliff();
+	}
+	bool CliffChecker::isCliffBack() const
+	{
+		return m_pImpl->isCliffBack();
 	}
 	bool CliffChecker::isCliffAround() const
 	{

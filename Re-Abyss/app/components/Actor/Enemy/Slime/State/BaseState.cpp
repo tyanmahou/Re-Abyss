@@ -15,7 +15,13 @@ namespace abyss::Actor::Enemy::Slime
 
     void BaseState::checkWallHit()
     {
-        if (m_mapCol->isHitForwardWall()) {
+        bool isReverse = false;
+        if (m_mapCol->isHitGround()) {
+            isReverse = (m_mapCol->isHitForwardWall() || m_cliffChecker->isCliff()) && !m_cliffChecker->isCliffBack();
+        } else {
+            isReverse = m_mapCol->isHitForwardWall();
+        }
+        if (isReverse) {
             m_body->reversed();
         }
     }

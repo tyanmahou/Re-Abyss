@@ -28,6 +28,12 @@ namespace abyss::Actor
 		bool isCliff() const;
 
 		/// <summary>
+		/// 後ろが崖か
+		/// </summary>
+		/// <returns></returns>
+		bool isCliffBack() const;
+
+		/// <summary>
 		/// 周りが崖か
 		/// </summary>
 		/// <returns></returns>
@@ -40,5 +46,16 @@ namespace abyss::Actor
 		bool isCliffForwardOnly() const;
 	private:
 		std::unique_ptr<Impl> m_pImpl;
+	};
+}
+
+namespace abyss
+{
+	template<>
+	struct ComponentTree<Actor::CliffChecker>
+	{
+		using Base = MultiComponents<
+			Actor::IPrePhysics
+		>;
 	};
 }

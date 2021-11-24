@@ -39,6 +39,13 @@ namespace abyss::Actor::Enemy::Slime
 		{
 			pActor->attach<OutRoomChecker>(pActor);
 		}
+
+		// 崖チェック
+		{
+			pActor->attach<CliffChecker>(pActor)
+				->setFrontOffset(s3d::Vec2{ -15, 0 })
+				;
+		}
 	}
 }
 
