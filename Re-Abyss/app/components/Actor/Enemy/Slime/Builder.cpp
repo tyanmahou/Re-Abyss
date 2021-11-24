@@ -8,8 +8,6 @@
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
-#include <abyss/components/Actor/Enemy/Slime/DeadCallback.hpp>
-#include <abyss/components/Actor/Enemy/Slime/SenserCtrl.hpp>
 #include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
 
 #include <abyss/views/Actor/Enemy/Slime/SlimeVM.hpp>
@@ -29,7 +27,6 @@ namespace abyss::Actor::Enemy::Slime
 			.setInitHp(Param::Base::Hp)
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::Horizon))
 			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
-			.setIsEnableDeadCallback(false)
 			.setInitState<WalkState>()
 			.setVModelBinder<ViewBinder>(pActor)
 		);
@@ -41,14 +38,6 @@ namespace abyss::Actor::Enemy::Slime
 		// ルーム外死亡
 		{
 			pActor->attach<OutRoomChecker>(pActor);
-		}
-		// 死亡時コールバック
-		{
-			pActor->attach<DeadCallback>(pActor);
-		}
-		// センサー制御
-		{
-			pActor->attach<SenserCtrl>(pActor);
 		}
 	}
 }

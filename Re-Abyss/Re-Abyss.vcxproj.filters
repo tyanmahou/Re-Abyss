@@ -365,12 +365,6 @@
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\Slime\DeadCallback.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\Slime\SenserCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -698,15 +692,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\Slime\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\MainUpdate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\Schield\Builder.cpp">
@@ -1993,8 +1978,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\WalkState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\DeadCallback.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actor\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\BaseState.hpp" />
@@ -2123,9 +2106,6 @@
     <ClInclude Include="app\components\Actor\Map\PenetrateFloor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\MainUpdate.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Common\ILocator.hpp" />

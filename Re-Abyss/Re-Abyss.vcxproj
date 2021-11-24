@@ -311,11 +311,6 @@
     <ClCompile Include="app\components\Actor\Enemy\Schield\Shell\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Schield\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\Slime\DeadCallback.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\MainUpdate.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\Slime\Sensor\ParentCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\Slime\SenserCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\JumpState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Slime\State\WalkState.cpp" />
@@ -1131,7 +1126,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shell\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
@@ -1387,10 +1381,6 @@
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\RunState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\FaceCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\DeadCallback.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\MainUpdate.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\Sensor\ParentCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\SenserCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\WalkState.hpp" />
