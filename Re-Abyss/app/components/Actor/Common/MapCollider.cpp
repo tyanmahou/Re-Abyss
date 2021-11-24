@@ -167,7 +167,7 @@ namespace abyss::Actor
             return m_id;
         }
 
-        bool isActive() const
+        bool isActive() const override
         {
             return !m_isDestroyed && m_pActor->isActive();
         }
