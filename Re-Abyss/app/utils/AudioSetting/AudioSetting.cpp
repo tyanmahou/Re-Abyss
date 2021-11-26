@@ -29,10 +29,10 @@ namespace abyss
                 return s3d::Audio(Audio::Stream, otherPath, l);
             },
             [&](const s3d::Duration& begin) {
-                return s3d::Audio(Audio::Stream, otherPath, Arg::loopBegin = samplingRate * static_cast<uint64>(begin.count()));
+                return s3d::Audio(Audio::Stream, otherPath, Arg::loopBegin = static_cast<uint64>(samplingRate * begin.count()));
             },
             [&](const s3d::Vector2D<s3d::Duration>& beginEnd) {
-                return s3d::Audio(Audio::Stream, otherPath, samplingRate * static_cast<uint64>(beginEnd.x.count()));
+                return s3d::Audio(Audio::Stream, otherPath, static_cast<uint64>(samplingRate * beginEnd.x.count()));
             }
         }, loop);
     }
