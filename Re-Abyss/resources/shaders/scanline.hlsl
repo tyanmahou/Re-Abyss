@@ -35,7 +35,7 @@ float4 PS(PSInput input) : SV_TARGET
 
 	// scan line
 	float scanline = floor(input.position.y) % 2.0 / 2.0;
-	outColor.rgb -= lerp(0, 0.05, scanline);
+	outColor.rgb -= lerp(0, 0.075, scanline);
 
 	// noise
 	//outColor.rgb -= rand(uv * g_timer) * 0.08;

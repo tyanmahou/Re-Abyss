@@ -3,7 +3,7 @@
 
 namespace abyss::Actor::Enemy::Warrus
 {
-    void Builder::Build(ActorObj* pActor, const WarrusEntity& entity)
+    void Builder::Build([[maybe_unused]]ActorObj* pActor, [[maybe_unused]] const WarrusEntity& entity)
     {
 
     }
