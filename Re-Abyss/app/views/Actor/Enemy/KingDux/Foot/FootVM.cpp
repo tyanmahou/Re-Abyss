@@ -19,6 +19,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_pos = pos;
         return *this;
     }
+    FootVM& FootVM::setRotate(double rotate)
+    {
+        m_rotate = rotate;
+        return *this;
+    }
     FootVM& FootVM::setIsDamaging(bool isDamaging)
     {
         m_isDamaging = isDamaging;
@@ -51,6 +56,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_texture(U"foot")(page % 3 * 300, page / 3 * 180, size)
             .resized(scaledSize)
             .flipped(m_isFlip)
+            .rotated(m_rotate)
             .draw(s3d::Round(m_pos - scaledSize / 2.0), color);
     }
 }

@@ -10,6 +10,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
+        double m_rotate = 0;
         bool m_isDamaging = false;
         bool m_isFlip = false;
         double m_time = 0;
@@ -17,6 +18,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         FootVM();
         FootVM& setTime(double time);
         FootVM& setPos(const s3d::Vec2& pos);
+        FootVM& setRotate(double rotate);
 
         FootVM& setIsDamaging(bool isDamaging);
         FootVM& setIsFlip(bool isFlip);

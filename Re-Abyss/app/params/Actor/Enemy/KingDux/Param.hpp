@@ -4,6 +4,18 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
+    struct FootDesc
+    {
+        [[TOML_BIND(pos)]]
+        s3d::Vec2 pos{ 0, 0 };
+        [[TOML_BIND(animTimeOffset)]]
+        double animTimeOffset = 0;
+        [[TOML_BIND(rotateDeg)]]
+        double rotateDeg = 0;
+        [[TOML_BIND(isFlip)]]
+        bool isFlip = false;
+    };
+
     struct Param
     {
         [[TOML_BIND(Base::Hp, "Base.hp")]]
@@ -42,14 +54,18 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Vec2 LimitEndR{ 108, 155 };
         };
 
-        [[TOML_BIND(Foot::PosL, "Foot.posL")]]
-        [[TOML_BIND(Foot::PosR, "Foot.posR")]]
+        [[TOML_BIND(Foot::Foot1, "Foot.Foot1")]]
+        [[TOML_BIND(Foot::Foot2, "Foot.Foot2")]]
+        [[TOML_BIND(Foot::Foot3, "Foot.Foot3")]]
+        [[TOML_BIND(Foot::Foot4, "Foot.Foot4")]]
         [[TOML_BIND(Foot::AnimTimeSec, "Foot.animTimeSec")]]
         [[TOML_BIND(Foot::AnimFrameMap, "Foot.animFrameMap")]]
         struct Foot
         {
-            inline static s3d::Vec2 PosL{ 100, 310 };
-            inline static s3d::Vec2 PosR{ -500, 310 };
+            inline static FootDesc Foot1{};
+            inline static FootDesc Foot2{};
+            inline static FootDesc Foot3{};
+            inline static FootDesc Foot4{};
 
             inline static double AnimTimeSec{ 1.0 };
             inline static s3d::Array<s3d::int32> AnimFrameMap{};

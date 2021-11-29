@@ -13,6 +13,8 @@
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Foot/FootVM.hpp>
 
+#include <Siv3D.hpp>
+
 namespace
 {
     class ViewBinder;
@@ -50,19 +52,19 @@ namespace abyss::Actor::Enemy::KingDux
                 ->setLayer(DrawLayer::WorldBack);
 
             pActor->attach<VModelSub<1>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::PosR)
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot1)
                 .setLayer(DrawLayer::BackGround);
 
             pActor->attach<VModelSub<2>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::PosL, Param::Foot::AnimTimeSec / 2.0)
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot2)
                 .setLayer(DrawLayer::WorldFront);
 
             pActor->attach<VModelSub<3>>()
-                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{250, 0}, Param::Foot::AnimTimeSec / 3.0)
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot3)
                 .setLayer(DrawLayer::Land);
 
             pActor->attach<VModelSub<4>>()
-                ->setBinder<ViewBinderFoot>(pActor, s3d::Vec2{ -200, -100 }, Param::Foot::AnimTimeSec / 4.0, true)
+                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot4)
                 .setLayer(DrawLayer::BackGround);
         }
     }
@@ -109,12 +111,13 @@ namespace
     class ViewBinderFoot : public IVModelBinder<FootVM>
     {
     public:
-        ViewBinderFoot(ActorObj* pActor, const s3d::Vec2& offset, double timeOffset = 0, bool isFlip = false) :
+        ViewBinderFoot(ActorObj* pActor, const FootDesc& desc) :
             m_pActor(pActor),
             m_view(std::make_unique<FootVM>()),
-            m_offset(offset),
-            m_timeOffset(timeOffset),
-            m_isFlip(isFlip)
+            m_offset(desc.pos),
+            m_timeOffset(desc.animTimeOffset),
+            m_isFlip(desc.isFlip),
+            m_rotate(s3d::ToRadians(desc.rotateDeg))
         {}
     private:
         void setup(Executer executer) final
@@ -127,6 +130,7 @@ namespace
                 .setPos(m_body->getPos() + m_offset)
                 .setIsDamaging(m_damage->isInInvincibleTime())
                 .setIsFlip(m_isFlip)
+                .setRotate(m_rotate)
                 ;
         }
         void onStart() final
@@ -143,5 +147,6 @@ namespace
         s3d::Vec2 m_offset;
         double m_timeOffset = 0;
         bool m_isFlip = false;
+        double m_rotate = 0;
     };
 }
