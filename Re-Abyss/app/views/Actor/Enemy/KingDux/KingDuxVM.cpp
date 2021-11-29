@@ -41,6 +41,8 @@ namespace abyss::Actor::Enemy::KingDux
             if (m_isDamaging) {
                 double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
                 r = s3d::Math::Lerp(r, damageRadius, rate);
+                Shape2D::Cross(r, 15, posBase + eyePos).draw(Palette::Black);
+                return;
             }
             Circle(posBase + eyePos, r).draw(Palette::Black);
         };

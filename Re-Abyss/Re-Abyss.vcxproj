@@ -297,6 +297,7 @@
     <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\EyeCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\Builder.cpp" />
@@ -893,7 +894,9 @@
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\EyeCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\ComponentCache.hpp" />
