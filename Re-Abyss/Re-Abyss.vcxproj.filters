@@ -1762,6 +1762,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2660,6 +2663,7 @@
     <ClInclude Include="app\components\Actor\Common\CliffChecker.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
