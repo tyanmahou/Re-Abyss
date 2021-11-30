@@ -6,6 +6,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
     struct Builder
     {
-        static void Build(ActorObj* pActor);
+        static void Build(ActorObj* pActor, ActorObj* parent);
     };
 }
