@@ -7,7 +7,7 @@
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
-
+#include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::KingDux
             //.setColliderImpl<Collider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/king_dux.aase")
-            //.setInitState<WaitState>()
+            .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
 
@@ -43,10 +43,16 @@ namespace abyss::Actor::Enemy::KingDux
         {
             pActor->find<Body>()->noneResistanced();
         }
+        // Behavior
+        {
+            pActor->attach<BehaviorCtrl>(pActor);
+        }
+
         // 目制御
         {
             pActor->attach<EyeCtrl>(pActor);
         }
+        // 描画
         {
             pActor->find<VModel>()
                 ->setLayer(DrawLayer::WorldBack);

@@ -9,6 +9,6 @@ namespace abyss::Actor::Enemy::KingDux
         public ComponentCache
     {
     public:
-        void onCache()override;
+        void onCache() final;
     };
 }

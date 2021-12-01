@@ -16,6 +16,14 @@ namespace abyss::Actor::Enemy::KingDux
         bool isFlip = false;
     };
 
+    struct TentacleDesc
+    {
+        [[TOML_BIND(offset)]]
+        s3d::Vec2 offset{ 0, 0 };
+        [[TOML_BIND(rotateDeg)]]
+        double rotateDeg = 0;
+    };
+
     struct Param
     {
         [[TOML_BIND(Base::Hp, "Base.hp")]]
@@ -69,6 +77,14 @@ namespace abyss::Actor::Enemy::KingDux
 
             inline static double AnimTimeSec{ 1.0 };
             inline static s3d::Array<s3d::int32> AnimFrameMap{};
+        };
+
+        [[TOML_BIND(Stab::Tentacle1, "Stab.Tentacle1")]]
+        [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
+        struct Stab
+        {
+            inline static TentacleDesc Tentacle1{};
+            inline static TentacleDesc Tentacle2{};
         };
     };
 }
