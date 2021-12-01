@@ -7,6 +7,7 @@
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
@@ -45,7 +46,8 @@ namespace abyss::Actor::Enemy::KingDux
         }
         // Behavior
         {
-            pActor->attach<BehaviorCtrl>(pActor);
+            pActor->attach<BehaviorCtrl>(pActor)
+                ->setBehavior(Behavior::Petern);
         }
 
         // 目制御

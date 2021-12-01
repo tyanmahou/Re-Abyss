@@ -27,7 +27,8 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         }
         // 回転
         {
-            pActor->attach<RotateCtrl>();
+            pActor->attach<RotateCtrl>()
+                ->setRotate(desc.rotate);
         }
         // 描画制御
         {
