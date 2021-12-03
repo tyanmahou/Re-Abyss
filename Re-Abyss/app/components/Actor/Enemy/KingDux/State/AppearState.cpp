@@ -1,6 +1,7 @@
 #include "AppearState.hpp"
 #include "WaitState.hpp"
 #include <abyss/models/Camera/QuakeModel.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
@@ -9,6 +10,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void AppearState::start()
 	{
 		m_behavior->setActive(false);
+		KingDuxUtil::SetVisible(m_pActor, true);
 		m_quake = m_pActor->getModule<Camera>()->startQuake(5.0, 5.0);
 	}
 	void AppearState::end()

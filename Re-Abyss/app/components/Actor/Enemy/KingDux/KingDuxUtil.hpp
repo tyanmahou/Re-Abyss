@@ -5,9 +5,11 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
-	struct KindDuxUtil
+	struct KingDuxUtil
 	{
 	public:
 		static Ref<ActorObj> BuildTentacle(ActorObj* pActor, const TentacleDesc& desc);
+
+		static void SetVisible(ActorObj* pActor, bool isVisible);
 	};
 }
