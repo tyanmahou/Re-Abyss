@@ -6,6 +6,8 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>
+
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
 
 namespace
@@ -29,6 +31,12 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         {
             pActor->attach<RotateCtrl>()
                 ->setRotate(desc.rotate);
+        }
+        // 状態
+        {
+            pActor->attach<StateCtrl>(pActor)
+                ->changeState<AppearState>()
+                ;
         }
         // 描画制御
         {
