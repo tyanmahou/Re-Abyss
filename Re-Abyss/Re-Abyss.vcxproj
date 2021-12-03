@@ -299,6 +299,7 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\StabState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\WaitState.cpp" />
@@ -906,6 +907,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\StabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\WaitState.hpp" />
