@@ -34,31 +34,34 @@ namespace abyss::Actor::Enemy::KingDux
     {
         auto color = ColorDef::OnDamage(m_isDamaging, m_time);
 
-        auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
-            auto posBase = m_pos + offset;
-            Circle(posBase, 80).draw();
-            double r = 24;
-            if (m_isDamaging) {
-                double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
-                r = s3d::Math::Lerp(r, damageRadius, rate);
-                Shape2D::Cross(r, 15, posBase + eyePos).draw(Palette::Black);
-                return;
-            }
-            Circle(posBase + eyePos, r).draw(Palette::Black);
-        };
-        // 右目
-        eyeDraw(m_eyePosR, Param::Base::EyeR, 18.0);
-        // 左目
-        eyeDraw(m_eyePosL, Param::Base::EyeL, 36.0);
+        if (m_motion != Motion::Hide) {
+            auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
+                auto posBase = m_pos + offset;
+                Circle(posBase, 80).draw();
+                double r = 24;
+                if (m_isDamaging) {
+                    double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
+                    r = s3d::Math::Lerp(r, damageRadius, rate);
+                    Shape2D::Cross(r, 15, posBase + eyePos).draw(Palette::Black);
+                    return;
+                }
+                Circle(posBase + eyePos, r).draw(Palette::Black);
+            };
+            // 右目
+            eyeDraw(m_eyePosR, Param::Base::EyeR, 18.0);
+            // 左目
+            eyeDraw(m_eyePosL, Param::Base::EyeL, 36.0);
+        }
 
         // 体
         {
             auto rate = s3d::Periodic::Sine0_1(5.0, m_time);
             auto offsetX = s3d::Math::Lerp(-0.01, 0.01, rate);
-            m_texture(U"base").scaled(1.0 + offsetX, 1.0).drawAt(m_pos, color);
+            auto tex = m_motion != Motion::Hide ? m_texture(U"base") : m_texture(U"crown");
+            tex.scaled(1.0 + offsetX, 1.0).drawAt(m_pos, color);
         }
         // 口
-        {
+        if (m_motion != Motion::Hide) {
             auto rate = s3d::Periodic::Sine0_1(4.0, m_time);
             auto offsetX = 0.15 * (1 - rate);
             auto offsetY = s3d::Math::Lerp(-0.3, 0.2, rate);

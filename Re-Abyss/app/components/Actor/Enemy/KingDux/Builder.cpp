@@ -3,6 +3,7 @@
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
@@ -44,6 +45,10 @@ namespace abyss::Actor::Enemy::KingDux
         // Body調整
         {
             pActor->find<Body>()->noneResistanced();
+        }
+        // Shake
+        {
+            pActor->attach<ShakeCtrl>(pActor);
         }
         // Behavior
         {
@@ -102,23 +107,27 @@ namespace
         KingDuxVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_body->getPos())
+                .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInInvincibleTime())
+                .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_shake = m_pActor->find<ShakeCtrl>();
             m_damage = m_pActor->find<DamageCtrl>();
             m_eye = m_pActor->find<EyeCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
+        Ref<ShakeCtrl> m_shake;
         Ref<DamageCtrl> m_damage;
         Ref<EyeCtrl> m_eye;
-
+        Ref<MotionCtrl> m_motion;
         std::unique_ptr<KingDuxVM> m_view;
     };
 

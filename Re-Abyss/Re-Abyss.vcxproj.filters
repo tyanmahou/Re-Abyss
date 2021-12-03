@@ -2706,6 +2706,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\Flush.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\FlushFade.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

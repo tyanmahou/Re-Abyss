@@ -1088,6 +1088,7 @@
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.hpp" />
     <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
