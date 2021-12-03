@@ -51,6 +51,7 @@ namespace abyss::Sys
 
         // ポストエフェクト更新
         mod<PostEffects>()->update(Scene::DeltaTime());
+        mod<Flush>()->update(dt);
 
         if constexpr (config.isStage) {
             mod<Light>()->update(dt);
@@ -148,6 +149,8 @@ namespace abyss::Sys
         mod<UIs>()->draw();
         // Effect Draw
         mod<Effects>()->draw();
+        // Flush Draw
+        mod<Flush>()->draw();
 
 #if ABYSS_DEBUG
         Debug::DebugManager::AlertDrawerCount(drawer);

@@ -1789,6 +1789,12 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Flush\FlushFade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Flush\Flush.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2698,6 +2704,8 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
+    <ClInclude Include="app\modules\Sfx\Flush\Flush.hpp" />
+    <ClInclude Include="app\modules\Sfx\Flush\FlushFade.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

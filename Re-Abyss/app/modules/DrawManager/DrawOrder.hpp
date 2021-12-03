@@ -22,6 +22,7 @@ namespace abyss
         struct UI
         {
             static constexpr double MostBack = -9999.0;
+            static constexpr double Flush = -1.0;
             static constexpr double Default = 1.0;
             static constexpr double Dialog = 1000.0;
             static constexpr double Footer = 99998.0;

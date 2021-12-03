@@ -128,8 +128,10 @@ namespace abyss
 
 	namespace Sfx
 	{
+		class Flush;
 		class PostEffects;
 	}
+	using Sfx::Flush;
 	using Sfx::PostEffects;
 
 	/// <summary>

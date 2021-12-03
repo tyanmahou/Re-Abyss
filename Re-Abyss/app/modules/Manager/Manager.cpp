@@ -114,7 +114,11 @@ namespace abyss
         m_pNovels = pNovels;
         return *this;
     }
-
+    Manager& Manager::set(Flush* pFlush)
+    {
+        m_pFlush = pFlush;
+        return *this;
+    }
     template<class T>
     T* Manager::getModule() const
     {
@@ -162,6 +166,8 @@ namespace abyss
             return m_pRoom;
         } else if constexpr (std::is_same_v<Novels, T>) {
             return m_pNovels;
+        } else if constexpr (std::is_same_v<Flush, T>) {
+            return m_pFlush;
         }
     }
     template GlobalTime* Manager::getModule<GlobalTime>() const;
@@ -186,4 +192,5 @@ namespace abyss
     template CycleMaster* Manager::getModule<CycleMaster>() const;
     template RoomManager* Manager::getModule<RoomManager>() const;
     template Novels* Manager::getModule<Novels>() const;
+    template Flush* Manager::getModule<Flush>() const;
 }
