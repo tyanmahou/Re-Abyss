@@ -30,7 +30,7 @@ namespace abyss::Sfx
 		if (!m_fadeInTimer.isEnd()) {
 			m_fadeColor.a = m_fadeInTimer.rate();
 		} else if (!m_fadeOutTimer.isEnd()) {
-			m_fadeColor.a = m_fadeInTimer.invRate();
+			m_fadeColor.a = m_fadeOutTimer.invRate();
 		} else {
 			m_fadeColor.a = 0;
 		}
