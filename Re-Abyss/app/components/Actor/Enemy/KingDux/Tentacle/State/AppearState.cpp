@@ -1,4 +1,5 @@
-#include "AppearState.hpp"
+﻿#include "AppearState.hpp"
+#include "RotateState.hpp"
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -11,6 +12,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 			m_body
 				->noneResistanced()
 				.setVelocity(s3d::Vec2::Zero());
+			this->changeState<RotateState>();
 			return;
 		}
 		double dt = m_pActor->deltaTime();

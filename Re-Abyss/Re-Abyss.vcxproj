@@ -306,6 +306,7 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\RotateState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\Builder.cpp" />
@@ -918,6 +919,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\RotateState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\Shot\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\ComponentCache.hpp" />
