@@ -12,12 +12,17 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         auto dt = m_pActor->deltaTime();
 
         s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
-        const double speed = s3d::Math::ToRadians(60.0);
+        const double speed = s3d::Math::ToRadians(5.0);
         double rotate = m_rotate->getRotate();
-        if (m_rotate->getDir().cross(d) > 0) {
-            rotate += speed * dt;
+        const double angle = m_rotate->getDir9().getAngle(d);
+        
+        const double rotateDelta = speed * dt;
+        const double fixRotateDelta = s3d::Min(rotateDelta, s3d::Abs(angle));
+        if (m_rotate->getDir9().cross(d) > 0) {
+            rotate += fixRotateDelta;
         } else {
-            rotate -= speed * dt;
+            rotate -= fixRotateDelta;
         }
+        m_rotate->setRotate(rotate);
 	}
 }
