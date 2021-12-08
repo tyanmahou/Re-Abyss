@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+﻿#include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -6,9 +6,17 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
+
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>
 
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
+#include <Siv3D.hpp>
 
 namespace
 {
@@ -27,6 +35,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 
             pActor->attach<BodyUpdater>(pActor);
         }
+
         // 回転
         {
             pActor->attach<RotateCtrl>()
@@ -38,6 +47,31 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                 ->changeState<AppearState>()
                 ;
         }
+
+        // 衝突
+        {
+            auto colFunc = [
+                    body = pActor->find<Body>(),
+                    rotate = pActor->find<RotateCtrl>()
+                ]()->CShape {
+                    return s3d::Triangle(Vec2{ 10, 70 }, Vec2{ 900, 10 }, Vec2{ 900, 160 })
+                        .rotatedAt(Vec2{ 800, 65 }, rotate->getRotate())
+                        .moveBy(body->getPos() - Vec2{ 800, 65 })
+                        ;
+                };
+                auto collider = pActor->attach<Collider>();
+                collider->add(colFunc);
+
+                pActor->attach<ColCtrl>(pActor)
+                    ->addBranch()
+                    ->addNode<Col::Node>(collider->main())
+                    .setLayer(ColSys::LayerGroup::Enemy)
+                    .attach<Col::Mover>(pActor)
+                    .attach<Col::Attacker>(pActor, 1)
+                    .attach<Col::Receiver>(pActor)
+                    ;
+        }
+
         // 描画制御
         {
             pActor->attach<VModel>()
