@@ -38,9 +38,10 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
         auto scaleRate = s3d::Periodic::Triangle0_1(2.0, m_time);
         auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.01, scaleRate);
+        constexpr Vec2 pivot{ 800, 65 };
         m_texture(U"tentacle")
             .scaled(scale)
-            .rotated(m_rotate)
+            .rotatedAt(pivot * scale , m_rotate)
             .drawAt(m_pos, color);
     }
 }
