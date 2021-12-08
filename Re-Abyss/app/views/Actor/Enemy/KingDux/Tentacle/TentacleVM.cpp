@@ -1,4 +1,4 @@
-#include "TentacleVM.hpp"
+﻿#include "TentacleVM.hpp"
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>

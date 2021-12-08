@@ -1,4 +1,4 @@
-#include "Camera.hpp"
+﻿#include "Camera.hpp"
 
 #include <abyss/models/Camera/QuakeModel.hpp>
 
@@ -80,6 +80,15 @@ namespace abyss
 	bool Camera::isQuake() const
 	{
 		return !m_quake->isEnd();
+	}
+
+	double Camera::getZoomScale() const
+	{
+		return m_camera->getZoomScale();
+	}
+	void Camera::setZoomScale(double scale) const
+	{
+		m_camera->setZoomScale(scale);
 	}
 
 	CameraView Camera::createView() const

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <functional>
 
 #include <Siv3D/Fwd.hpp>
@@ -72,6 +72,18 @@ namespace abyss
 		/// 地震中か
 		/// </summary>	
 		bool isQuake() const;
+
+		/// <summary>
+		/// ズームスケール取得
+		/// </summary>
+		/// <returns></returns>
+		double getZoomScale() const;
+
+		/// <summary>
+		/// ズームスケールを設定
+		/// </summary>
+		/// <param name="scale"></param>
+		void setZoomScale(double scale) const;
 
 		template<class T>
 		bool inScreen(const T& shape)const
