@@ -13,7 +13,8 @@
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 
-#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
 
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
 #include <Siv3D.hpp>
@@ -44,7 +45,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         // 状態
         {
             pActor->attach<StateCtrl>(pActor)
-                ->changeState<AppearState>()
+                ->changeState<WaitState>()
                 ;
         }
 
@@ -72,6 +73,22 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                     ;
         }
 
+        // Shake
+        {
+            pActor->attach<ShakeCtrl>(pActor);
+        }
+        // Behavior
+        {
+            auto behavior = pActor->attach<BehaviorCtrl>(pActor);
+            switch (desc.kind)
+            {
+            case Kind::PursuitStab:
+                behavior->setBehavior(Behavior::PursuitStab);
+                break;
+            default:
+                break;
+            }
+        }
         // 描画制御
         {
             pActor->attach<VModel>()
@@ -103,7 +120,7 @@ namespace
                 isInvincibleTime = m_parentDamage->isInInvincibleTime();
             }
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_body->getPos())
+                .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setRotate(m_rotate->getRotate())
                 .setIsDamaging(isInvincibleTime)
                 ;
@@ -111,6 +128,7 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_shake = m_pActor->find<ShakeCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
         }
     private:
@@ -118,6 +136,7 @@ namespace
         Ref<DamageCtrl> m_parentDamage;
 
         Ref<Body> m_body;
+        Ref<ShakeCtrl> m_shake;
         Ref<RotateCtrl> m_rotate;
 
         std::unique_ptr<TentacleVM> m_view;

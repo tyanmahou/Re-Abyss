@@ -1,10 +1,11 @@
 ﻿#include "AppearState.hpp"
-#include "RotateState.hpp"
+#include "WaitState.hpp"
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void AppearState::start()
 	{
+		m_behavior->setActive(false);
 	}
 	void AppearState::update()
 	{
@@ -12,7 +13,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 			m_body
 				->noneResistanced()
 				.setVelocity(s3d::Vec2::Zero());
-			this->changeState<RotateState>();
+			this->changeState<WaitState>();
 			return;
 		}
 		double dt = m_pActor->deltaTime();

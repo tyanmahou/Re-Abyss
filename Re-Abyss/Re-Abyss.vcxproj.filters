@@ -1798,6 +1798,12 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\RotateState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Behavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2711,6 +2717,9 @@
     <ClInclude Include="app\modules\Sfx\Flush\FlushFade.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\RotateState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Kind.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Behavior.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\WaitState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

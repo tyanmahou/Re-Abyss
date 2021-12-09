@@ -1,7 +1,9 @@
-#pragma once
+﻿#pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -10,11 +12,15 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
     protected:
         Body* m_body;
         RotateCtrl* m_rotate;
+        ShakeCtrl* m_shake;
+        BehaviorCtrl* m_behavior;
     public:
         void onCache(ActorObj* pActor)
         {
             m_body = pActor->find<Body>().get();
             m_rotate = pActor->find<RotateCtrl>().get();
+            m_shake = pActor->find<ShakeCtrl>().get();
+            m_behavior = pActor->find<BehaviorCtrl>().get();
         }
     };
 }
