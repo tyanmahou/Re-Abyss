@@ -1804,6 +1804,12 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\WaitState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabPrevState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2720,6 +2726,8 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Kind.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Behavior.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Main.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabPrevState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

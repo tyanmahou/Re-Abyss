@@ -1,4 +1,4 @@
-﻿#include "Builder.hpp"
+#include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -13,8 +13,9 @@
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
 
-#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
 #include <Siv3D.hpp>
@@ -28,6 +29,10 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
     void Builder::Build(ActorObj* pActor, ActorObj* parent, const BuildDesc& desc)
     {
+        // Main
+        {
+            pActor->attach<Main>(pActor, desc);
+        }
         // Body
         {
             pActor->attach<Body>(pActor)
