@@ -10,7 +10,8 @@ namespace abyss::Actor::Enemy::KingDux
     {
         return pActor->getModule<World>()->create<Tentacle::Builder>(pActor, Tentacle::BuildDesc{
             .offset = desc.offset,
-            .rotate = s3d::ToRadians(desc.rotateDeg)
+            .rotate = s3d::ToRadians(desc.rotateDeg),
+            .waitTimeSec = desc.waitTimeSec
             });
     }
     void KingDuxUtil::SetVisible(ActorObj* pActor, bool isVisible)

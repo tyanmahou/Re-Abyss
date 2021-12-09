@@ -22,6 +22,8 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 offset{ 0, 0 };
         [[TOML_BIND(rotateDeg)]]
         double rotateDeg = 0;
+        [[TOML_BIND(waitTimeSec)]]
+        double waitTimeSec = 0;
     };
 
     struct Param
