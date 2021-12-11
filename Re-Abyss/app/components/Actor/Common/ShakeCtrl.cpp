@@ -1,4 +1,4 @@
-#include "ShakeCtrl.hpp"
+﻿#include "ShakeCtrl.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D.hpp>
 
@@ -45,5 +45,9 @@ namespace abyss::Actor
         m_shakeTime = timeSec;
         m_maxOffset = maxOffset;
         m_noiseOffset = s3d::Random();
+    }
+    bool ShakeCtrl::isShakeing() const
+    {
+        return m_time > 0;
     }
 }

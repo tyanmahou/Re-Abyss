@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
@@ -29,6 +29,8 @@ namespace abyss::Actor
         {
             return m_offset;
         }
+
+        bool isShakeing() const;
     private:
         ActorObj* m_pActor;
         double m_time = 0;
