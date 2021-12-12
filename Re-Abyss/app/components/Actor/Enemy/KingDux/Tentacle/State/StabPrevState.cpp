@@ -1,4 +1,5 @@
 ﻿#include "StabPrevState.hpp"
+#include "StabState.hpp"
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
@@ -18,6 +19,8 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 			return m_shake->isShakeing();
 		});
 
+		// 突く
+		this->changeState<StabState>();
 		co_return;
 	}
 }
