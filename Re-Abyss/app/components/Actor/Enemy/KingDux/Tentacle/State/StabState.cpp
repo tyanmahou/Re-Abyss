@@ -1,6 +1,7 @@
 ﻿#include "StabState.hpp"
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
+#include <abyss/utils/Math/Math.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -14,10 +15,16 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	Coro::Task<> StabState::task()
 	{
 		TimeLite::Timer moveTimer{ 1.5 };
+		Vec2 startPos = m_body->getPos();
+		Vec2 endPos = startPos + m_rotate->getDir9() * 600.0;
+
 		while (true) {
 			double dt = m_pActor->deltaTime();
 			moveTimer.update(dt);
-			m_body->setVelocity(m_rotate->getDir9() * 400.0);
+
+			auto targetPos = s3d::Math::Lerp(startPos, endPos, moveTimer.rate());
+			m_body->moveToPos(targetPos, dt);
+
 			if (moveTimer.isEnd()) {
 				break;
 			}

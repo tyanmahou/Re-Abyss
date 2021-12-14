@@ -1,7 +1,8 @@
-#include "Body.hpp"
+﻿#include "Body.hpp"
 #include <Siv3D/Math.hpp>
 #include <abyss/modules/World/FixPos.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/utils/Math/Math.hpp>
 
 namespace abyss::Actor
 {
@@ -250,6 +251,15 @@ namespace abyss::Actor
     {
         double v = s3d::Sqrt(2 * m_accel.y * height);
         this->jump(v);
+    }
+    void Body::moveToPos(const s3d::Vec2& pos, double dt)
+    {
+        if (abyss::Math::IsZeroLoose(dt)) {
+            this->setVelocity(s3d::Vec2::Zero())
+                .setPos(pos);
+            return;
+        }
+        this->setVelocity((pos - m_pos) / dt);
     }
     Body& Body::noneResistanced()
     {

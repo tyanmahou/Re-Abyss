@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Optional.hpp>
@@ -97,6 +97,8 @@ namespace abyss::Actor
 
         void jump(double speed);
         void jumpToHeight(double height);
+
+        void moveToPos(const s3d::Vec2& pos, double dt);
 
         Body& noneResistanced();
         Body& reversed();
