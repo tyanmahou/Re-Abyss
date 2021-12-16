@@ -1,4 +1,4 @@
-#include "TalkBuilder.hpp"
+﻿#include "TalkBuilder.hpp"
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
@@ -137,7 +137,7 @@ namespace
             if (!m_build) {
                 return;
             }
-            if (auto buildFunc = Reflect<>::find<void(*)(TalkObj*)>(
+            if (auto buildFunc = Reflect<>::find<void(TalkObj*)>(
                 U"abyss::Novel::{}::Builder::{}"_fmt(*m_build, eventName)
                 )) {
                 (*buildFunc)(m_pTalk);
