@@ -2,19 +2,21 @@
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Math/Math.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void StabState::start()
 	{
 		m_behavior->setActive(false);
+		m_pActor->getModule<Camera>()->startQuake(10, 0.3);
 	}
 	void StabState::end()
 	{
 	}
 	Coro::Task<> StabState::task()
 	{
-		TimeLite::Timer moveTimer{ 1.5 };
+		TimeLite::Timer moveTimer{ 0.2 };
 		Vec2 startPos = m_body->getPos();
 		Vec2 endPos = startPos + m_rotate->getDir9() * 600.0;
 

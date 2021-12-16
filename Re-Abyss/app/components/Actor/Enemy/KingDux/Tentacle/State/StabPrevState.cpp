@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	}
 	Coro::Task<> StabPrevState::task()
 	{
-		m_shake->request(3.0, 1.0);
+		m_shake->request(10.0, 1.0);
 
 		co_await Coro::WaitWhile([&] {
 			return m_shake->isShakeing();
