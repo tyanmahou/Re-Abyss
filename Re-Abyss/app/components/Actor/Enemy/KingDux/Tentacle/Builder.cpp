@@ -60,7 +60,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                     body = pActor->find<Body>(),
                     rotate = pActor->find<RotateCtrl>()
                 ]()->CShape {
-                    return s3d::Triangle(Vec2{ 15, 70 }, Vec2{ 1350, 10 }, Vec2{ 1350, 160 })
+                    return s3d::Triangle(Vec2{ 15, 70 }, Vec2{ 1350, 10 }, Vec2{ 1350, 170 })
                         .rotatedAt(Vec2{ 1200, 65 }, rotate->getRotate())
                         .moveBy(body->getPos() - Vec2{ 1200, 65 })
                         ;
