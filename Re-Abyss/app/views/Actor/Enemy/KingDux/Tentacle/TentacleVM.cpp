@@ -6,7 +6,7 @@
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
     TentacleVM::TentacleVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/KingDux/king_dux.json"))
+        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/KingDux/tentacle.png"))
     {}
 
     TentacleVM& TentacleVM::setTime(double time)
@@ -38,8 +38,8 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
         auto scaleRate = s3d::Periodic::Triangle0_1(2.0, m_time);
         auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.01, scaleRate);
-        constexpr Vec2 pivot{ 800, 65 };
-        m_texture(U"tentacle")
+        constexpr Vec2 pivot{ 1200, 65 };
+        m_texture
             .scaled(scale)
             .rotatedAt(pivot * scale , m_rotate)
             .drawAt(m_pos, color);

@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+﻿#include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -60,8 +60,8 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                     body = pActor->find<Body>(),
                     rotate = pActor->find<RotateCtrl>()
                 ]()->CShape {
-                    return s3d::Triangle(Vec2{ 10, 70 }, Vec2{ 900, 10 }, Vec2{ 900, 160 })
-                        .rotatedAt(Vec2{ 800, 65 }, rotate->getRotate())
+                    return s3d::Triangle(Vec2{ 15, 70 }, Vec2{ 1350, 10 }, Vec2{ 1350, 160 })
+                        .rotatedAt(Vec2{ 1200, 65 }, rotate->getRotate())
                         .moveBy(body->getPos() - Vec2{ 800, 65 })
                         ;
                 };
