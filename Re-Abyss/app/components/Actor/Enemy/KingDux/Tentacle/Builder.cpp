@@ -62,7 +62,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                 ]()->CShape {
                     return s3d::Triangle(Vec2{ 15, 70 }, Vec2{ 1350, 10 }, Vec2{ 1350, 160 })
                         .rotatedAt(Vec2{ 1200, 65 }, rotate->getRotate())
-                        .moveBy(body->getPos() - Vec2{ 800, 65 })
+                        .moveBy(body->getPos() - Vec2{ 1200, 65 })
                         ;
                 };
                 auto collider = pActor->attach<Collider>();
