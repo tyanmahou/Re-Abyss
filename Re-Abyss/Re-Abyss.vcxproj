@@ -1057,6 +1057,7 @@
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\modules\UI\base\Filter.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />

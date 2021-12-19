@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
 
+#include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
 #include <Siv3D.hpp>
 
@@ -60,9 +61,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                     body = pActor->find<Body>(),
                     rotate = pActor->find<RotateCtrl>()
                 ]()->CShape {
-                    return s3d::Triangle(Vec2{ 15, 70 }, Vec2{ 1350, 10 }, Vec2{ 1350, 170 })
-                        .rotatedAt(Vec2{ 1200, 65 }, rotate->getRotate())
-                        .moveBy(body->getPos() - Vec2{ 1200, 65 })
+                    return TentacleParam::Base::Collider
+                        .rotatedAt(TentacleParam::Base::RotPivot, rotate->getRotate())
+                        .moveBy(body->getPos() - TentacleParam::Base::RotPivot)
                         ;
                 };
                 auto collider = pActor->attach<Collider>();

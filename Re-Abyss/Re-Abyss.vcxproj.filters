@@ -2732,6 +2732,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Main.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabPrevState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabState.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
