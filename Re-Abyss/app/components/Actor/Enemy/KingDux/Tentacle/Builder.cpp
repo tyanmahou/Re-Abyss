@@ -16,6 +16,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
@@ -78,7 +79,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
                     .attach<Col::Receiver>(pActor)
                     ;
         }
-
+        {
+            pActor->attach<RetireCtrl>(pActor);
+        }
         // Shake
         {
             pActor->attach<ShakeCtrl>(pActor);

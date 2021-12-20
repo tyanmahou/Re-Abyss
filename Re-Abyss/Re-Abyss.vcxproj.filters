@@ -1813,6 +1813,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\RetireCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2733,6 +2736,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabPrevState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\StabState.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\RetireCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
