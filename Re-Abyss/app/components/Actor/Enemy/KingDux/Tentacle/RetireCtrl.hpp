@@ -3,7 +3,9 @@
 #include <abyss/components/Actor/base/IMove.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
@@ -27,8 +29,13 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		}
 	private:
 		ActorObj* m_pActor;
+		Ref<Body> m_body;
+		Ref<RotateCtrl> m_rotCtrl;
 		Ref<ColCtrl> m_colCtrl;
 		bool m_isActive = true;
+
+		double m_accel = 1440;
+		double m_speed = 0;
 	};
 }
 

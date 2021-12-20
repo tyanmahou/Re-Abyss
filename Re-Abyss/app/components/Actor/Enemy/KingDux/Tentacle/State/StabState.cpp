@@ -35,6 +35,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		m_body
 			->noneResistanced()
 			.setVelocity(s3d::Vec2::Zero());
+
+		// ひっこみ制御開始
+		m_retireCtrl->setActive(true);
 		co_return;
 	}
 }
