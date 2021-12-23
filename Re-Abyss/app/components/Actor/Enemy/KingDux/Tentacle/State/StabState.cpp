@@ -3,6 +3,7 @@
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/ReturnState.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -38,6 +39,13 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 
 		// ひっこみ制御開始
 		m_retireCtrl->setActive(true);
+
+		// リターンリクエストくるまで待機
+		co_await Coro::WaitUntil([&] {
+			return m_mainProxy->isRequestedReturn();
+		});
+		// リターン
+		this->changeState<ReturnState>();
 		co_return;
 	}
 }

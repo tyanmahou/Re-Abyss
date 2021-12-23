@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
@@ -16,6 +17,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         ShakeCtrl* m_shake;
         BehaviorCtrl* m_behavior;
         RetireCtrl* m_retireCtrl;
+        Main* m_mainProxy;
     public:
         void onCache(ActorObj* pActor)
         {
@@ -24,6 +26,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
             m_shake = pActor->find<ShakeCtrl>().get();
             m_behavior = pActor->find<BehaviorCtrl>().get();
             m_retireCtrl = pActor->find<RetireCtrl>().get();
+            m_mainProxy = pActor->find<Main>().get();
         }
     };
 }

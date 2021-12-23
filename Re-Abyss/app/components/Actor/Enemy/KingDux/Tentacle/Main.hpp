@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		{
 			m_isRequestedReturn = true;
 		}
-		bool isRequestedReturn()const
+		bool isRequestedReturn() const
 		{
 			return m_isRequestedReturn;
 		}
