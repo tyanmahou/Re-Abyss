@@ -27,6 +27,11 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		{
 			m_isActive = isActive;
 		}
+
+		bool isRetire() const
+		{
+			return m_isRetire;
+		}
 	private:
 		ActorObj* m_pActor;
 		Ref<Body> m_body;
@@ -36,6 +41,8 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 
 		double m_accel = 1440;
 		double m_speed = 0;
+
+		bool m_isRetire = false;
 	};
 }
 
