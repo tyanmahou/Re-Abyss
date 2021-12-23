@@ -1,4 +1,4 @@
-#include "Behavior.hpp"
+﻿#include "Behavior.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::KingDux
         pActor->find<StateCtrl>()->changeState<AppearState>();
         co_yield{};
 
-        co_await BehaviorUtils::WaitForSeconds(pActor, 0.5);
+        co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
 
         while (true) {
             // 突き

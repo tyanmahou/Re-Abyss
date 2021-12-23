@@ -1,4 +1,4 @@
-#include "Behavior.hpp"
+﻿#include "Behavior.hpp"
 
 #include <Siv3D.hpp>
 
@@ -21,20 +21,20 @@ namespace abyss::Actor::Enemy::CodeZero
         auto parts = pActor->find<PartsCtrl>().get();
 
         // 待機
-        co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase1::WaitRestart);
+        co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase1::WaitRestart);
 
         while (true) {
             // 左手攻撃
             parts->getLeftHand()->tryAttack();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase1::WaitAttack);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase1::WaitAttack);
 
             // 右手攻撃
             parts->getRightHand()->tryAttack();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitRestart);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase2::WaitRestart);
         }
         co_return;
     }
@@ -48,27 +48,27 @@ namespace abyss::Actor::Enemy::CodeZero
         parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase2());
 
         // 待機
-        co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitInit);
+        co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase2::WaitInit);
 
         while (true) {
             // 右手攻撃
             parts->getRightHand()->tryAttack();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitAttack);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase2::WaitAttack);
 
             // 左手攻撃
             parts->getLeftHand()->tryAttack();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitDualAttack);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase2::WaitDualAttack);
 
             // 両手攻撃
             parts->getRightHand()->tryAttack();
             parts->getLeftHand()->tryAttack();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase2::WaitRestart);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase2::WaitRestart);
         }
         co_return;
     }
@@ -87,14 +87,14 @@ namespace abyss::Actor::Enemy::CodeZero
             parts->getLeftHand()->tryShotCharge();
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, waitShotSec);
+            co_await BehaviorUtil::WaitForSeconds(pActor, waitShotSec);
             waitShotSec = Param::Phase3::WaitShot;
 
             // ショット生成
             pActor->getModule<World>()->create<Shot::Builder>(pActor);
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
 
             // 追従開始
             parts->getLeftHand()->tryRollingAttack(isReverse);
@@ -115,7 +115,7 @@ namespace abyss::Actor::Enemy::CodeZero
             }
 
             // 待機
-            co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);
+            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitInitAttack);
 
             // 二回手攻撃
             for ([[maybe_unused]]int32 count : step(2)) {
@@ -123,19 +123,19 @@ namespace abyss::Actor::Enemy::CodeZero
                 parts->getRightHand()->tryAttack();
 
                 // 待機
-                co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitAttack);
+                co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitAttack);
 
                 // 左手攻撃
                 parts->getLeftHand()->tryAttack();
 
                 // 待機
-                co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitAttack);
+                co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitAttack);
 
                 // 右手攻撃
                 parts->getRightHand()->tryAttack();
 
                 // 待機
-                co_await BehaviorUtils::WaitForSeconds(pActor, Param::Phase3::WaitRestart);
+                co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitRestart);
             }
         }
         co_return;

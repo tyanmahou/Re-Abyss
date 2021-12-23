@@ -1,4 +1,4 @@
-#include "Behavior.hpp"
+﻿#include "Behavior.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>
@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         pActor->find<StateCtrl>()->changeState<RotateState>();
         co_yield{};
 
-        co_await BehaviorUtils::WaitForSeconds(pActor, pActor->find<Main>()->getWaitTimeSec());
+        co_await BehaviorUtil::WaitForSeconds(pActor, pActor->find<Main>()->getWaitTimeSec());
 
         pActor->find<StateCtrl>()->changeState<StabPrevState>();
         co_yield{};

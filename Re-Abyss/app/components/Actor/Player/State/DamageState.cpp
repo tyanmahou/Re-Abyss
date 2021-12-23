@@ -1,4 +1,4 @@
-#include "DamageState.hpp"
+﻿#include "DamageState.hpp"
 #include "SwimState.hpp"
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
@@ -40,7 +40,7 @@ namespace abyss::Actor::Player
     Task<> DamageState::task()
     {
         // 一定時間待機
-        co_await BehaviorUtils::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
+        co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Damage::TimeSec);
 
         // 泳ぎに戻る
         this->changeState<SwimState>();

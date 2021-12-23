@@ -1,4 +1,4 @@
-#include "HandMove.hpp"
+﻿#include "HandMove.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -143,7 +143,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_body->setVelocity(velocity);
 
         // 一定時間追従
-        co_await BehaviorUtils::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
+        co_await BehaviorUtil::WaitForSeconds(m_parent->getParent(), HandParam::Attack::WaitTimeSec);
 
         co_return;
     }

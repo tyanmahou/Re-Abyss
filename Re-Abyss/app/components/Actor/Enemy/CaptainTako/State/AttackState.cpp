@@ -1,4 +1,4 @@
-#include "AttackState.hpp"
+﻿#include "AttackState.hpp"
 #include "WaitState.hpp"
 
 #include <abyss/modules/World/World.hpp>
@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             if (++m_currentAttackCount >= m_attackCount) {
                 break;
             }
-            co_await BehaviorUtils::WaitForSeconds(m_pActor, Param::Attack::IntervalTimeSec);
+            co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Attack::IntervalTimeSec);
         }
         this->changeState<WaitState>();
         co_return;
