@@ -376,6 +376,7 @@
     <ClCompile Include="app\components\Actor\Player\State\TalkState.cpp" />
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actor\utils\BehaviorUtil.cpp" />
+    <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
@@ -945,6 +946,7 @@
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
+    <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
