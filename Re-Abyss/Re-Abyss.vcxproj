@@ -261,6 +261,7 @@
     <ClCompile Include="app\components\Actor\Common\Col\Extension\Attacker.cpp" />
     <ClCompile Include="app\components\Actor\Common\Col\Extension\Mover.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeadCheacker.cpp" />
+    <ClCompile Include="app\components\Actor\Common\DebugInfo.cpp" />
     <ClCompile Include="app\components\Actor\Common\FallChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\Foot.cpp" />
     <ClCompile Include="app\components\Actor\Common\HP.cpp" />
@@ -899,6 +900,7 @@
     <ClInclude Include="app\components\Actor\Common\Col\Extension\Mover.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Extension\Receiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
+    <ClInclude Include="app\components\Actor\Common\DebugInfo.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />

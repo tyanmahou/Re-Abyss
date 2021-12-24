@@ -1,4 +1,4 @@
-#include "CommonBuilder.hpp"
+﻿#include "CommonBuilder.hpp"
 
 #include <abyss/components/Common/MotionCtrl.hpp>
 
@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Common/DebugInfo.hpp>
 
 #include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 #include <abyss/components/Actor/Enemy/DamageCallback.hpp>
@@ -118,6 +119,13 @@ namespace abyss::Actor::Enemy
 				vModel->setBinder(opt.vModelBinder);
 			}
 		}
+
+#if ABYSS_DEBUG
+		// デバッグ制御
+		{
+			pActor->attach<DebugInfo>(pActor);
+		}
+#endif
     }
 
     BuildOption::BuildOption():

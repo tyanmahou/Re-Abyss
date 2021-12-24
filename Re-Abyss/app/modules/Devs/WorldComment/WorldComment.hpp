@@ -27,7 +27,7 @@ namespace abyss::Devs
 			void comment(
 				const s3d::String& text,
 				const s3d::Vec2& pos,
-				const s3d::ColorF& color = s3d::ColorF(0.7, 0.3)
+				const s3d::ColorF& color = s3d::ColorF(0.8)
 			) const;
 		private:
 			Requestor(WorldComment* pWorldComment);
@@ -46,7 +46,7 @@ namespace abyss::Devs
 		/// <summary>
 		/// リクエスターを取得
 		/// </summary>
-		Requestor getRequestor();
+		std::unique_ptr<Requestor> getRequestor();
 
 		/// <summary>
 		/// フラッシュ
