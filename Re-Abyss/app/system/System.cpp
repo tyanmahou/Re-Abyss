@@ -232,8 +232,8 @@ namespace abyss::Sys
             }
             // UI
             {
-                auto t2d = cameraView.getTransformer();
 #if ABYSS_DEBUG
+                auto t2d = cameraView.getTransformer();
                 mod<WorldComment>()->draw();
 #endif
             }

@@ -1,4 +1,4 @@
-#include "CameraView.hpp"
+﻿#include "CameraView.hpp"
 
 #include <Siv3D.hpp>
 
@@ -69,6 +69,6 @@ namespace abyss
 	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
-		return Transformer2D(this->getMat(), Transformer2D::Target::SetLocal);
+		return Transformer2D(this->getMat(), TransformCursor::Yes, Transformer2D::Target::SetLocal);
 	}
 }
