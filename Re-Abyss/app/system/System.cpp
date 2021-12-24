@@ -1,4 +1,4 @@
-#include "System.hpp"
+﻿#include "System.hpp"
 #include <abyss/system/base/IBooter.hpp>
 
 #include <abyss/views/Camera/CameraView.hpp>
@@ -36,6 +36,9 @@ namespace abyss::Sys
         timer->update();
 
         // フラッシュ
+#if ABYSS_DEBUG
+        mod<WorldComment>()->flush();
+#endif
         if constexpr (config.isStage) {
             world->flush();
             decors->flush();
@@ -228,6 +231,12 @@ namespace abyss::Sys
                     .drawWorld(cameraView.getQuakeOffset());
             }
             // UI
+            {
+                auto t2d = cameraView.getTransformer();
+#if ABYSS_DEBUG
+                mod<WorldComment>()->draw();
+#endif
+            }
             {
                 drawer->draw(DrawLayer::UI);
             }

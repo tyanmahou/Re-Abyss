@@ -35,9 +35,28 @@ namespace abyss::Devs
 			std::shared_ptr<Handle> m_pHandle;
 		};
 	private:
-		struct Record;
+		struct Record
+		{
+			Ref<Requestor::Handle> handle;
+			s3d::String text;
+			s3d::Vec2 pos;
+			s3d::ColorF color;
+		};
 	public:
+		/// <summary>
+		/// リクエスターを取得
+		/// </summary>
+		Requestor getRequestor();
+
+		/// <summary>
+		/// フラッシュ
+		/// </summary>
+		/// <returns></returns>
 		void flush();
+
+		/// <summary>
+		/// 描画
+		/// </summary>
 		void draw();
 
 		s3d::uint64 selectId() const

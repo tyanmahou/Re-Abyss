@@ -4,13 +4,6 @@
 
 namespace abyss::Devs
 {
-	struct WorldComment::Record
-	{
-		Ref<Requestor::Handle> handle;
-		s3d::String text;
-		s3d::Vec2 pos;
-		s3d::ColorF color;
-	};
 	struct WorldComment::Requestor::Handle
 	{
 		Handle(WorldComment* _pWorldComment) :
@@ -34,6 +27,11 @@ namespace abyss::Devs
 	WorldComment::Requestor::Requestor(WorldComment* pWorldComment) :
 		m_pHandle(std::make_shared<Handle>(pWorldComment))
 	{}
+
+	WorldComment::Requestor WorldComment::getRequestor()
+	{
+		return Requestor(this);
+	}
 
 	void WorldComment::flush()
 	{

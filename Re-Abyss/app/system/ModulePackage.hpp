@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <abyss/system/base/Config.hpp>
 #include <abyss/system/base/Modules.hpp>
@@ -11,6 +11,7 @@
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
+#include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
 #include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
@@ -44,6 +45,9 @@ namespace abyss::Sys
         Crons,
         CycleMaster,
         mod_if<config.isStage, Decors>,
+#if ABYSS_DEBUG
+        WorldComment,
+#endif
         mod_if<config.isStage, Distortion>,
         DrawManager,
         Effects,

@@ -1,4 +1,4 @@
-#include "Manager.hpp"
+﻿#include "Manager.hpp"
 
 namespace abyss
 {
@@ -119,6 +119,12 @@ namespace abyss
         m_pFlush = pFlush;
         return *this;
     }
+
+    Manager& Manager::set(WorldComment* pWorldComment)
+    {
+        m_pWorldComment = pWorldComment;
+        return *this;
+    }
     template<class T>
     T* Manager::getModule() const
     {
@@ -168,6 +174,8 @@ namespace abyss
             return m_pNovels;
         } else if constexpr (std::is_same_v<Flush, T>) {
             return m_pFlush;
+        } else if constexpr (std::is_same_v<WorldComment, T>) {
+            return m_pWorldComment;
         }
     }
     template GlobalTime* Manager::getModule<GlobalTime>() const;
@@ -193,4 +201,5 @@ namespace abyss
     template RoomManager* Manager::getModule<RoomManager>() const;
     template Novels* Manager::getModule<Novels>() const;
     template Flush* Manager::getModule<Flush>() const;
+    template WorldComment* Manager::getModule<WorldComment>() const;
 }

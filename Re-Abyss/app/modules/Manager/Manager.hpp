@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss
@@ -32,6 +32,7 @@ namespace abyss
         RoomManager* m_pRoom = nullptr;
         Novels* m_pNovels = nullptr;
         Flush* m_pFlush = nullptr;
+        WorldComment* m_pWorldComment = nullptr;
     public:
 
         Manager& set(GlobalTime* pGlobalTime);
@@ -79,6 +80,8 @@ namespace abyss
         Manager& set(Novels* pNovels);
 
         Manager& set(Flush* pFlush);
+
+        Manager& set(WorldComment* pWorldComment);
 
         template<class T>
         T* getModule() const;

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 /// <summary>
 ///  前方宣言
@@ -133,6 +133,12 @@ namespace abyss
 	}
 	using Sfx::Flush;
 	using Sfx::PostEffects;
+
+	namespace Devs
+	{
+		class WorldComment;
+	}
+	using Devs::WorldComment;
 
 	/// <summary>
 	/// Entities
