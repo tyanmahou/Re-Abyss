@@ -41,7 +41,7 @@ namespace abyss::Devs
 	}
 	void WorldComment::draw()
 	{
-		auto&& font = FontAsset(FontName::Serif);
+		auto&& font = FontAsset(FontName::WorldComment);
 		bool alreadyGlabOther = false;
 		for (const auto& [handle, text, pos, color] : m_records) {
 			if (!handle) {

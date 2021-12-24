@@ -1,4 +1,4 @@
-#include "Game.hpp"
+﻿#include "Game.hpp"
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
@@ -35,12 +35,12 @@ namespace abyss
 			// フォントはデバッグモードでもリソースに入れてます
 
 			// タイトル
+			FontAsset::Register(U"pm12r-15", 15, U"/resources/fonts/PixelMplus12-Regular.ttf");
 			FontAsset::Register(U"pm12r-20", 20, U"/resources/fonts/PixelMplus12-Regular.ttf");
 			FontAsset::Register(U"pm12r-25", 25, U"/resources/fonts/PixelMplus12-Regular.ttf");
 
 			FontAsset::Register(U"pm12b-12", 12, U"/resources/fonts/PixelMplus12-Bold.ttf");
 			FontAsset::Register(U"pm12b-18", 18, U"/resources/fonts/PixelMplus12-Bold.ttf");
-			// 
 		}
 	public:
 		Impl()

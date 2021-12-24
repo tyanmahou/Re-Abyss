@@ -1,14 +1,15 @@
-#pragma once
-#include <Siv3D/String.hpp>
+﻿#pragma once
+#include <Siv3D/AssetInfo.hpp>
 
 namespace abyss::FontName
 {
-    inline const s3d::String SceneName = U"pm12r-25";
-    inline const s3d::String UserInfo = U"pm12r-20";
-    inline const s3d::String Chapter = U"pm12b-18";
-    inline const s3d::String PlayerInfoOopartsName = U"pm12b-12";
-    inline const s3d::String Tips = U"pm12r-20";
-    inline const s3d::String Loading = U"pm12r-25";
-    inline const s3d::String Serif = U"pm12r-20";
-    inline const s3d::String SerifName = U"pm12b-18";
+    inline constexpr s3d::AssetNameView SceneName = U"pm12r-25";
+    inline constexpr s3d::AssetNameView UserInfo = U"pm12r-20";
+    inline constexpr s3d::AssetNameView Chapter = U"pm12b-18";
+    inline constexpr s3d::AssetNameView PlayerInfoOopartsName = U"pm12b-12";
+    inline constexpr s3d::AssetNameView Tips = U"pm12r-20";
+    inline constexpr s3d::AssetNameView Loading = U"pm12r-25";
+    inline constexpr s3d::AssetNameView Serif = U"pm12r-20";
+    inline constexpr s3d::AssetNameView SerifName = U"pm12b-18";
+    inline constexpr s3d::AssetNameView WorldComment = U"pm12r-15";
 }
