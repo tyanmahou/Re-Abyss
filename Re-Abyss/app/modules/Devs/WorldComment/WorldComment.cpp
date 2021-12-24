@@ -74,7 +74,7 @@ namespace abyss::Devs
 				m_selectId = handle->id;
 				handle->isGrab = true;
 				alreadyGlabOther = true;
-			} else if (MouseL.up()) {
+			} else if (!MouseL.pressed()) {
 				handle->isGrab = false;
 			}
 			if (handle->isGrab) {
