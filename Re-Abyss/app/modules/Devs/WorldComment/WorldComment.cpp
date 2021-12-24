@@ -4,7 +4,7 @@
 
 namespace abyss::Devs
 {
-	struct WorldComment::Requestor::Handle
+	struct WorldComment::Handle
 	{
 		Handle(WorldComment* _pWorldComment) :
 			pWorldComment(_pWorldComment),
@@ -29,7 +29,10 @@ namespace abyss::Devs
 	WorldComment::Requestor::Requestor(WorldComment* pWorldComment) :
 		m_pHandle(std::make_shared<Handle>(pWorldComment))
 	{}
-
+	bool WorldComment::Requestor::isSelected() const
+	{
+		return m_pHandle->id = m_pHandle->pWorldComment->m_selectId;
+	}
 	std::unique_ptr<WorldComment::Requestor> WorldComment::getRequestor()
 	{
 		return std::unique_ptr<Requestor>(new Requestor(this));

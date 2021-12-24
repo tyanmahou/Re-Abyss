@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 
@@ -11,13 +11,13 @@ namespace abyss::Actor
 {
     class DebugInfo :
         public IComponent,
-        public IUpdate
+        public IPreDraw
     {
     public:
         DebugInfo(ActorObj* pActor);
 
         void onStart() override;
-        void onUpdate() override;
+        void onPreDraw() override;
 
     private:
         ActorObj* m_pActor;
@@ -32,7 +32,7 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::DebugInfo>
     {
-        using Base = Actor::IUpdate;
+        using Base = Actor::IPreDraw;
     };
 }
 

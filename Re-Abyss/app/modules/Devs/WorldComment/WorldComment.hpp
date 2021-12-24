@@ -14,6 +14,7 @@ namespace abyss::Devs
 	/// </summary>
 	class WorldComment
 	{
+		struct Handle;
 	public:
 		/// <summary>
 		/// リクエスター
@@ -22,13 +23,13 @@ namespace abyss::Devs
 		{
 			friend class WorldComment;
 		public:
-			struct Handle;
-		public:
 			void comment(
 				const s3d::String& text,
 				const s3d::Vec2& pos,
 				const s3d::ColorF& color = s3d::ColorF(0.8)
 			) const;
+
+			bool isSelected() const;
 		private:
 			Requestor(WorldComment* pWorldComment);
 		private:
@@ -37,7 +38,7 @@ namespace abyss::Devs
 	private:
 		struct Record
 		{
-			Ref<Requestor::Handle> handle;
+			Ref<Handle> handle;
 			s3d::String text;
 			s3d::Vec2 pos;
 			s3d::ColorF color;

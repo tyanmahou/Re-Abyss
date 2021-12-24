@@ -16,7 +16,7 @@ namespace abyss::Actor
 		m_hp = m_pActor->find<HP>();
 		m_body = m_pActor->find<Body>();
 	}
-	void DebugInfo::onUpdate()
+	void DebugInfo::onPreDraw()
 	{
 		if (!Debug::Menu::IsDebug(Debug::DebugFlag::DrawActorDebugInfo)) {
 			return;
