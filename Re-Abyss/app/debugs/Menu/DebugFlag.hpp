@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #if ABYSS_DEBUG
 
@@ -15,6 +15,7 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* AlertDecorCount = U"Debug/Alert/DecorCount";
     inline constexpr auto* AlertDrawerCount = U"Debug/Alert/DrawerCount";
 
+    inline constexpr auto* DrawActorDebugInfo = U"Debug/Draw/ActorDebugInfo";
     inline constexpr auto* DrawCollider = U"Debug/Draw/Collider";
     inline constexpr auto* DrawMapCollider = U"Debug/Draw/MapCollider";
 

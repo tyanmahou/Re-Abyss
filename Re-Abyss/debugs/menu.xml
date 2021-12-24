@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Root>
   <Debug label="デバッグ(&D)">
     <Scene label="シーン" custom="buildSceneMenu"/>
@@ -19,6 +19,7 @@
       <DrawerCount label="描画リクエスト数" isChecked="false"/>
     </Alert>
     <Draw label ="デバッグ描画">
+      <ActorDebugInfo label="アクターデバッグ情報" isChecked="false"/>
       <Collider label="コライダー" isChecked="false"/>
       <MapCollider label="地形コライダー" isChecked="false"/>
     </Draw>

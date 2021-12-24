@@ -1,6 +1,7 @@
 ﻿#include "DebugInfo.hpp"
 #if ABYSS_DEBUG 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -17,6 +18,9 @@ namespace abyss::Actor
 	}
 	void DebugInfo::onUpdate()
 	{
+		if (!Debug::Menu::IsDebug(Debug::DebugFlag::DrawActorDebugInfo)) {
+			return;
+		}
 		if (!m_body) {
 			return;
 		}
