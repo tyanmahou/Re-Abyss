@@ -22,4 +22,19 @@ namespace abyss::Actor::Enemy::KingDux
         }
         co_return;
     }
+    Coro::Task<> Behavior::Stab(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<StabState>();
+        co_yield{};
+    }
+    Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<StabState>();
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Convene(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<StabState>();
+        co_yield{};
+    }
 }
