@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>
 
@@ -29,7 +30,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
     {
-        pActor->find<StateCtrl>()->changeState<StabState>();
+        pActor->find<StateCtrl>()->changeState<PursuitStabState>();
         co_yield{};
     }
     Coro::Task<> Behavior::Convene(ActorObj* pActor)

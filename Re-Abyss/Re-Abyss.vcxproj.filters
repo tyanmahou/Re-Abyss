@@ -1825,6 +1825,9 @@
     <ClCompile Include="app\components\Actor\Common\DebugInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2749,6 +2752,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\ReturnState.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\components\Actor\Common\DebugInfo.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
