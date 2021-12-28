@@ -1,4 +1,4 @@
-#include "KingDuxUtil.hpp"
+﻿#include "KingDuxUtil.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
@@ -11,6 +11,7 @@ namespace abyss::Actor::Enemy::KingDux
         return pActor->getModule<World>()->create<Tentacle::Builder>(pActor, Tentacle::BuildDesc{
             .offset = desc.offset,
             .rotate = s3d::ToRadians(desc.rotateDeg),
+            .kind = desc.kind,
             .waitTimeSec = desc.waitTimeSec
             });
     }

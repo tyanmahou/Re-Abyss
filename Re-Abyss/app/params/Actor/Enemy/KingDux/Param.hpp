@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Kind.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
@@ -22,6 +23,8 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 offset{ 0, 0 };
         [[TOML_BIND(rotateDeg)]]
         double rotateDeg = 0;
+        [[TOML_BIND(kind)]]
+        Tentacle::Kind kind = Tentacle::Kind::PursuitStab;
         [[TOML_BIND(waitTimeSec)]]
         double waitTimeSec = 0;
     };
