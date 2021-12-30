@@ -1,7 +1,7 @@
-#pragma once
+﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {

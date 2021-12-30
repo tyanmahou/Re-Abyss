@@ -1,7 +1,5 @@
 ﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Kind.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
@@ -15,18 +13,6 @@ namespace abyss::Actor::Enemy::KingDux
         double rotateDeg = 0;
         [[TOML_BIND(isFlip)]]
         bool isFlip = false;
-    };
-
-    struct TentacleDesc
-    {
-        [[TOML_BIND(offset)]]
-        s3d::Vec2 offset{ 0, 0 };
-        [[TOML_BIND(rotateDeg)]]
-        double rotateDeg = 0;
-        [[TOML_BIND(kind)]]
-        Tentacle::Kind kind = Tentacle::Kind::PursuitStab;
-        [[TOML_BIND(waitTimeSec)]]
-        double waitTimeSec = 0;
     };
 
     struct Param
@@ -82,14 +68,6 @@ namespace abyss::Actor::Enemy::KingDux
 
             inline static double AnimTimeSec{ 1.0 };
             inline static s3d::Array<s3d::int32> AnimFrameMap{};
-        };
-
-        [[TOML_BIND(Stab::Tentacle1, "Stab.Tentacle1")]]
-        [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
-        struct Stab
-        {
-            inline static TentacleDesc Tentacle1{};
-            inline static TentacleDesc Tentacle2{};
         };
     };
 }
