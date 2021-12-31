@@ -7,6 +7,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	{
 		s3d::Vec2 offset{};
 		double rotate{};
+		double distOffset{};
 		Kind kind{};
 		double waitTimeSec{};
 	};

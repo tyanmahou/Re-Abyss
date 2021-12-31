@@ -37,8 +37,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         }
         // Body
         {
+            const Vec2 offset = desc.offset + s3d::Circular9(desc.distOffset, desc.rotate);
             pActor->attach<Body>(pActor)
-                ->initPos(parent->find<Body>()->getPos() + desc.offset)
+                ->initPos(parent->find<Body>()->getPos() + offset)
                 .noneResistanced();
 
             pActor->attach<BodyUpdater>(pActor);

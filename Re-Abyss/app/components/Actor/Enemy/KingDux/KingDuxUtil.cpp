@@ -11,6 +11,7 @@ namespace abyss::Actor::Enemy::KingDux
         return pActor->getModule<World>()->create<Tentacle::Builder>(pActor, Tentacle::BuildDesc{
             .offset = desc.offset,
             .rotate = s3d::ToRadians(desc.rotateDeg),
+            .distOffset = desc.distOffset,
             .kind = desc.kind,
             .waitTimeSec = desc.waitTimeSec
             });
