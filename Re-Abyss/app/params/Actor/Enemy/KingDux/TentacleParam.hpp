@@ -29,6 +29,14 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Triangle Collider{};
         };
 
+        [[TOML_BIND(Stab::Tentacle1, "Stab.Tentacle1")]]
+        [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
+        struct Stab
+        {
+            inline static TentacleDesc Tentacle1{};
+            inline static TentacleDesc Tentacle2{};
+        };
+
         [[TOML_BIND(PursuitStab::Tentacle1, "PursuitStab.Tentacle1")]]
         [[TOML_BIND(PursuitStab::Tentacle2, "PursuitStab.Tentacle2")]]
         struct PursuitStab
@@ -36,6 +44,5 @@ namespace abyss::Actor::Enemy::KingDux
             inline static TentacleDesc Tentacle1{};
             inline static TentacleDesc Tentacle2{};
         };
-
     };
 }
