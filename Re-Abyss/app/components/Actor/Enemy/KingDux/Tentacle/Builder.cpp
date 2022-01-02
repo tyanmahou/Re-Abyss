@@ -92,6 +92,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
             auto behavior = pActor->attach<BehaviorCtrl>(pActor);
             switch (desc.kind)
             {
+            case Kind::Stab:
+                behavior->setBehavior(Behavior::Stab);
+                break;
             case Kind::PursuitStab:
                 behavior->setBehavior(Behavior::PursuitStab);
                 break;

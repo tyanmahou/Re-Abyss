@@ -9,6 +9,16 @@
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
+    Coro::Task<> Behavior::Stab(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<AppearState>();
+        co_yield{};
+
+        co_await BehaviorUtil::WaitForSeconds(pActor, pActor->find<Main>()->getWaitTimeSec());
+
+        pActor->find<StateCtrl>()->changeState<StabPrevState>();
+        co_yield{};
+    }
     Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AppearState>();

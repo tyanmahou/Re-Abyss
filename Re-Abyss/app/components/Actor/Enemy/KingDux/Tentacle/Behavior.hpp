@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
     class Behavior
     {
     public:
+        static Coro::Task<> Stab(ActorObj* pActor);
         static Coro::Task<> PursuitStab(ActorObj* pActor);
     };
 }
