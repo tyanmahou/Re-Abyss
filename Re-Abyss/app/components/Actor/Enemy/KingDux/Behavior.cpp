@@ -20,6 +20,9 @@ namespace abyss::Actor::Enemy::KingDux
             // 突き
             pActor->find<StateCtrl>()->changeState<StabState>();
             co_yield{};
+
+            pActor->find<StateCtrl>()->changeState<PursuitStabState>();
+            co_yield{};
         }
         co_return;
     }

@@ -31,10 +31,12 @@ namespace abyss::Actor::Enemy::KingDux
 
         [[TOML_BIND(Stab::Tentacle1, "Stab.Tentacle1")]]
         [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
+        [[TOML_BIND(Stab::Tentacle3, "Stab.Tentacle3")]]
         struct Stab
         {
             inline static TentacleDesc Tentacle1{};
             inline static TentacleDesc Tentacle2{};
+            inline static TentacleDesc Tentacle3{};
         };
 
         [[TOML_BIND(PursuitStab::Tentacle1, "PursuitStab.Tentacle1")]]
