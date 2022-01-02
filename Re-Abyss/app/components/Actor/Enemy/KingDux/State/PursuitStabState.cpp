@@ -11,8 +11,9 @@ namespace abyss::Actor::Enemy::KingDux
 	void PursuitStabState::start()
 	{
 		m_behavior->setActive(false);
-		m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, TentacleParam::PursuitStab::Tentacle1);
-		m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, TentacleParam::PursuitStab::Tentacle2);
+		for (const auto& desc : TentacleParam::PursuitStab::Tentacle) {
+			m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, desc);
+		}
 	}
 	Task<void> PursuitStabState::task()
 	{
