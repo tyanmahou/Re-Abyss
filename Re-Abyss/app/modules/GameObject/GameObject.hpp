@@ -1,10 +1,11 @@
-#pragma once
+﻿#pragma once
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GameObject/Components.hpp>
+#include <Siv3D/Uncopyable.hpp>
 
 namespace abyss
 {
-	class GameObject
+	class GameObject : s3d::Uncopyable
 	{
 	private:
 		Components m_components;
