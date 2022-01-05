@@ -1053,6 +1053,7 @@
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
     <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
+    <ClInclude Include="app\modules\GameObject\WeakObject.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
     <ClInclude Include="app\modules\Novel\CharaTable.hpp" />

@@ -7,6 +7,8 @@ namespace abyss
 {
 	class GameObject : s3d::Uncopyable
 	{
+	public:
+		using Handle = Components::Impl;
 	private:
 		Components m_components;
 		bool m_isActive = true;
@@ -87,6 +89,12 @@ namespace abyss
 		/// <returns></returns>
 		template<class Component>
 		[[nodiscard]] s3d::Array<Ref<Component>> finds() const;
+
+		/// <summary>
+		/// ハンドル取得
+		/// </summary>
+		/// <returns></returns>
+		[[nodiscard]] Ref<Handle> getHandle() const;
 	};
 }
 #include "GameObject.ipp"

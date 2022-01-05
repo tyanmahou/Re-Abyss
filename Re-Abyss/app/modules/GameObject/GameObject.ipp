@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 namespace abyss
 {
@@ -69,4 +69,9 @@ namespace abyss
 	{
 		return m_components.finds<Component>();
 	}
+	inline Ref<GameObject::Handle> GameObject::getHandle() const
+	{
+		return m_components.getHandle();
+	}
+
 }

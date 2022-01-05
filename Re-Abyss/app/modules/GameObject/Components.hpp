@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <memory>
 #include <typeindex>
 #include <concepts>
@@ -12,10 +12,9 @@ namespace abyss
 {
     class Components
     {
-    private:
+    public:
         class Impl;
-        std::shared_ptr<Impl> m_pImpl;
-
+    private:
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component) const;
         bool remove(const std::type_index& key) const;
 
@@ -81,5 +80,12 @@ namespace abyss
             }
             return ret;
         }
+
+        Ref<Impl> getHandle() const
+        {
+            return m_pImpl;
+        }
+    private:
+        std::shared_ptr<Impl> m_pImpl;
     };
 }
