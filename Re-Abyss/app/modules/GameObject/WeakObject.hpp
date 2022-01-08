@@ -12,8 +12,7 @@ namespace abyss
 		WeakObject() = default;
 
 		WeakObject(GameObject* pGameObject):
-			m_pGameObject(pGameObject),
-			m_handle(pGameObject ? pGameObject->getHandle() : nullptr)
+			m_pGameObject(pGameObject ? pGameObject->getWeak() : nullptr)
 		{}
 
 		/// <summary>
@@ -32,7 +31,7 @@ namespace abyss
 		/// <returns></returns>
 		[[nodiscard]] bool isValid() const
 		{
-			return static_cast<bool>(m_handle);
+			return static_cast<bool>(m_pGameObject);
 		}
 
 		/// <summary>
@@ -49,7 +48,6 @@ namespace abyss
 			return m_pGameObject->find<Component>();
 		}
 	private:
-		GameObject* m_pGameObject = nullptr;
-		Ref<GameObject::Handle> m_handle;
+		Ref<const GameObject> m_pGameObject;
 	};
 }

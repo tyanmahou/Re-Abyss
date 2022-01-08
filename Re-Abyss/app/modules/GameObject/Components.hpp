@@ -12,7 +12,6 @@ namespace abyss
 {
     class Components
     {
-    public:
         class Impl;
     private:
         bool add(const std::type_index& key, const std::shared_ptr<IComponent>& component) const;
@@ -79,11 +78,6 @@ namespace abyss
                 ret.push_back(RefCast<Component>(c));
             }
             return ret;
-        }
-
-        Ref<Impl> getHandle() const
-        {
-            return m_pImpl;
         }
     private:
         std::shared_ptr<Impl> m_pImpl;

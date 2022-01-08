@@ -1,14 +1,14 @@
-﻿#pragma once
+#pragma once
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GameObject/Components.hpp>
 #include <Siv3D/Uncopyable.hpp>
 
 namespace abyss
 {
-	class GameObject : s3d::Uncopyable
+	class GameObject : 
+		public std::enable_shared_from_this<GameObject>,
+		s3d::Uncopyable
 	{
-	public:
-		using Handle = Components::Impl;
 	private:
 		Components m_components;
 		bool m_isActive = true;
@@ -91,10 +91,10 @@ namespace abyss
 		[[nodiscard]] s3d::Array<Ref<Component>> finds() const;
 
 		/// <summary>
-		/// ハンドル取得
+		/// 弱参照取得
 		/// </summary>
 		/// <returns></returns>
-		[[nodiscard]] Ref<Handle> getHandle() const;
+		[[nodiscard]] Ref<const GameObject> getWeak() const;
 	};
 }
 #include "GameObject.ipp"
