@@ -308,6 +308,7 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\Main.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\ParentObserver.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\RetireCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\State\BaseState.cpp" />
@@ -932,6 +933,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Kind.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Main.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\ParentObserver.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\RetireCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\BaseState.hpp" />

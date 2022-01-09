@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IMove.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>

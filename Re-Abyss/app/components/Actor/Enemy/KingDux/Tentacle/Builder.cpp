@@ -1,4 +1,4 @@
-﻿#include "Builder.hpp"
+#include "Builder.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/ParentObserver.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
@@ -101,6 +102,10 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
             default:
                 break;
             }
+        }
+        // 親監視
+        {
+            pActor->attach<ParentObserver>(pActor, parent);
         }
         // 描画制御
         {
