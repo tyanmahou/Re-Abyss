@@ -37,8 +37,7 @@ namespace abyss::ColSys
 	{
 		if (isActive) {
 			m_isActiveBit |= (1 << slot);
-		}
-		else {
+		} else {
 			m_isActiveBit &= ~(1 << slot);
 		}
 		return *this;
