@@ -1831,6 +1831,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Tentacle\ParentObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\ComboHistory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2758,6 +2761,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.hpp" />
     <ClInclude Include="app\modules\GameObject\WeakObject.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\ParentObserver.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ComboHistory.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
