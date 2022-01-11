@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Actor
 {
@@ -43,11 +44,19 @@ namespace abyss::Actor
 		}
 
 		DamageData data;
-		const bool isDamaged = m_colCtrl->anyThen<Col::Attacker>([this, &data](const Col::Attacker::Data& attacker) {
-			if (m_hp->damage(attacker.power)) {
-				data.damage = attacker.power;
+		const bool isDamaged = m_colCtrl->anyThen<Col::Attacker>([this, &data](s3d::uint64 id, const Col::Attacker::Data& attacker) {
+			const auto& record = m_comboHistory.find(id);
+			if (!record.canDamage()) {
+				return false;
+			}
+			s3d::int32 power = record.calcReductionPower(attacker.power, attacker.powerReductionRate);
+			if (m_hp->damage(power)) {
+				data.damage = power;
 				data.pos = attacker.pos;
 				data.velocity = attacker.velocity;
+
+				// コンボ更新
+				m_comboHistory.updateRecord(id, attacker.comboDuration, attacker.invincibleTime);
 				return true;
 			}
 			return false;

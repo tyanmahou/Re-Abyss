@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/HashTable.hpp>
+#include <Siv3D/Math.hpp>
 
 namespace abyss::Actor
 {
@@ -11,6 +12,17 @@ namespace abyss::Actor
         s3d::int32 comboCount{};
         double comboDuration{};
         double invincibleTime{};
+
+        bool canDamage() const
+        {
+            return invincibleTime <= 0;
+        }
+
+        s3d::int32 calcReductionPower(s3d::int32 power, double reductionRate) const
+        {
+            const double newPowerF = power * s3d::Pow(reductionRate, comboCount);
+            return static_cast<s3d::int32>(s3d::Floor(newPowerF));
+        }
     };
 
     /// <summary>
@@ -25,19 +37,7 @@ namespace abyss::Actor
         /// <param name="dt"></param>
         void update(double dt);
 
-        /// <summary>
-        /// ダメージを受けるか
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        bool isDamaged(s3d::uint64 id) const;
-
-        /// <summary>
-        /// コンボ数を取得
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        s3d::int32 getComboCount(s3d::uint64 id) const;
+        const ComboRecord& find(s3d::uint64 id);
 
         /// <summary>
         /// レコード

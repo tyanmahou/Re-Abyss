@@ -12,6 +12,7 @@ namespace abyss::ColSys
 	/// </summary>
 	struct HitData
 	{
+		s3d::uint64 id;
 		s3d::HashTable<std::type_index, ExtData> extData;
 	};
 
@@ -43,7 +44,18 @@ namespace abyss::ColSys
 			}
 			return false;
 		}
-
+		template<class Type>
+		bool anyThen(const std::function<bool(s3d::uint64, const typename Type::Data&)>& callback) const
+		{
+			for (const auto& hit : m_results) {
+				if (auto it = hit.extData.find(typeid(Type)); it != hit.extData.end()) {
+					if (callback(hit.id, it->second.get<typename Type::Data>())) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 		template<class Type>
 		bool eachThen(const std::function<bool(const typename Type::Data&)>& callback) const
 		{

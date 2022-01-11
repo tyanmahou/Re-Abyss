@@ -66,6 +66,20 @@ namespace abyss::Actor
 			return false;
 		}
 
+		template<class Type>
+		bool anyThen(const std::function<bool(s3d::uint64, const typename Type::Data&)>& callback) const
+		{
+			for (const auto& b : m_branchs) {
+				if (!b) {
+					continue;
+				}
+				if (b->result().anyThen<Type>(callback)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
 		/// <summary>
 		/// 衝突したすべてに対して処理を行う
 		/// </summary>

@@ -15,8 +15,9 @@ namespace abyss::ColSys
 	void Branch::onCollision(const Branch& other)
 	{
 		HitData data{};
-		for (const auto& [type, extensino] : other.m_extensions) {
-			data.extData.emplace(type, extensino->data());
+		data.id = other.m_id;
+		for (const auto& [type, extension] : other.m_extensions) {
+			data.extData.emplace(type, extension->data());
 		}
 		m_result.add(std::move(data));
 	}

@@ -14,21 +14,9 @@ namespace abyss::Actor
 			}
 		}
 	}
-	bool ComboHistory::isDamaged(s3d::uint64 id) const
+	const ComboRecord& ComboHistory::find(s3d::uint64 id)
 	{
-		auto it = m_records.find(id);
-		if (it == m_records.end()) {
-			return true;
-		}
-		return it->second.invincibleTime <= 0;
-	}
-	s3d::int32 ComboHistory::getComboCount(s3d::uint64 id) const
-	{
-		auto it = m_records.find(id);
-		if (it == m_records.end()) {
-			return 0;
-		}
-		return it->second.comboCount;
+		return m_records[id];
 	}
 	void ComboHistory::updateRecord(s3d::uint64 id, double comboDuration, double invincibleTime)
 	{
