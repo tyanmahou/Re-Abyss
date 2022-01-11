@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
+#include <abyss/components/Actor/Common/ComboHistory.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
@@ -46,6 +47,8 @@ namespace abyss::Actor
 
         bool m_isActive = true;
         s3d::Optional<DamageData> m_damageData;
+
+        ComboHistory m_comboHistory;
     };
 }
 

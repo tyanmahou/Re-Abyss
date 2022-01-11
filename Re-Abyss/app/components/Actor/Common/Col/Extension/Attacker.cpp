@@ -4,9 +4,18 @@
 
 namespace abyss::Actor::Col
 {
-	Attacker::Attacker(ActorObj* pActor, s3d::int32 power) :
+	Attacker::Attacker(
+        ActorObj* pActor,
+        s3d::int32 power,
+        double comboDuration,
+        double powerReductionRate,
+        double invincibleTime
+    ) :
         m_pActor(pActor),
-        m_power(power)
+        m_power(power),
+        m_comboDuration(comboDuration),
+        m_powerReductionRate(powerReductionRate),
+        m_invincibleTime(invincibleTime)
     {}
     ColSys::ExtData Attacker::data() const
     {
@@ -14,7 +23,10 @@ namespace abyss::Actor::Col
         return Data{
             .power = m_power,
             .pos = body ? body->getCenterPos() : s3d::Vec2::Zero(),
-            .velocity = body ? body->getVelocity() : s3d::Vec2::Zero()
+            .velocity = body ? body->getVelocity() : s3d::Vec2::Zero(),
+            .comboDuration = m_comboDuration,
+            .powerReductionRate = m_powerReductionRate,
+            .invincibleTime = m_invincibleTime
         };
     }
 }

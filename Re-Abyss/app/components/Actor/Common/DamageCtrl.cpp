@@ -26,7 +26,9 @@ namespace abyss::Actor
 	}
 	void DamageCtrl::onPostCollision()
 	{
-		m_invincibleTime.update(m_pActor->deltaTime());
+		double dt = m_pActor->deltaTime();
+		m_invincibleTime.update(dt);
+		m_comboHistory.update(dt);
 		m_damageData = s3d::none;
 
 		if (!m_isActive) {
