@@ -1,4 +1,4 @@
-﻿#include "StabState.hpp"
+#include "StabState.hpp"
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Math/Math.hpp>
@@ -42,7 +42,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 
 		// リターンリクエストくるまで待機
 		co_await Coro::WaitUntil([&] {
-			return m_mainProxy->isRequestedReturn();
+			return m_retireCtrl->isRetire();
 		});
 		// リターン
 		this->changeState<ReturnState>();

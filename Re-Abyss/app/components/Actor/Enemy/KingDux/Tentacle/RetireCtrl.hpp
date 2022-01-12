@@ -27,7 +27,10 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		{
 			m_isActive = isActive;
 		}
-
+		void requestReturn()
+		{
+			m_isRetire = true;
+		}
 		bool isRetire() const
 		{
 			return m_isRetire;

@@ -1,8 +1,8 @@
-﻿#include "PursuitStabState.hpp"
+#include "PursuitStabState.hpp"
 
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 
@@ -32,7 +32,7 @@ namespace abyss::Actor::Enemy::KingDux
 				continue;
 			}
 			// リターンリクエスト
-			obj->find<Tentacle::Main>()->requestReturn();
+			obj->find<Tentacle::RetireCtrl>()->requestReturn();
 		}
 		co_await BehaviorUtil::Freeze();
 	}
