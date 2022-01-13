@@ -1,8 +1,13 @@
-﻿#include "AppearState.hpp"
+#include "AppearState.hpp"
 #include "WaitState.hpp"
+#include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
+	AppearState::AppearState():
+		m_moveTimer(TentacleParam::Appear::MoveTimeSec)
+	{
+	}
 	void AppearState::start()
 	{
 		m_behavior->setActive(false);
@@ -18,6 +23,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		}
 		double dt = m_pActor->deltaTime();
 		m_moveTimer.update(dt);
-		m_body->setVelocity(m_rotate->getDir9() * 80.0);
+		m_body->setVelocity(m_rotate->getDir9() * TentacleParam::Appear::Speed);
 	}
 }

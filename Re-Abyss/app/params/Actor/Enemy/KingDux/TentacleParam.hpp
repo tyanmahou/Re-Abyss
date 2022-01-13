@@ -29,6 +29,14 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Triangle Collider{};
         };
 
+        [[TOML_BIND(Appear::Speed, "Appear.speed")]]
+        [[TOML_BIND(Appear::MoveTimeSec, "Appear.moveTimeSec")]]
+        struct Appear
+        {
+            inline static double Speed{ 80.0 };
+            inline static double MoveTimeSec{ 1.5 };
+        };
+
         [[TOML_BIND(Stab::Tentacle, "Stab.Tentacle")]]
         [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
         [[TOML_BIND(Stab::Tentacle3, "Stab.Tentacle3")]]

@@ -8,10 +8,13 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
+	StabState::StabState(const s3d::Array<TentacleDesc>& desc):
+		m_tentacleDesc(desc)
+	{}
 	void StabState::start()
 	{
 		m_behavior->setActive(false);
-		for (const auto& desc : TentacleParam::Stab::Tentacle) {
+		for (const auto& desc : m_tentacleDesc) {
 			m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, desc);
 		}
 	}

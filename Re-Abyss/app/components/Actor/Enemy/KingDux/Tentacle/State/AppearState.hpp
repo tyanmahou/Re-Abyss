@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         public BaseState
     {
     public:
+        AppearState();
         void start() override;
         void update() override;
     private:

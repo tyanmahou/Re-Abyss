@@ -1,4 +1,4 @@
-﻿#include "Behavior.hpp"
+#include "Behavior.hpp"
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
@@ -18,17 +18,29 @@ namespace abyss::Actor::Enemy::KingDux
 
         while (true) {
             // 突き
-            pActor->find<StateCtrl>()->changeState<StabState>();
-            co_yield{};
+            co_await Stab(pActor);
 
-            pActor->find<StateCtrl>()->changeState<PursuitStabState>();
-            co_yield{};
+            co_await Stab2(pActor);
+
+            co_await Stab3(pActor);
+
+            co_await PursuitStab(pActor);
         }
         co_return;
     }
     Coro::Task<> Behavior::Stab(ActorObj* pActor)
     {
-        pActor->find<StateCtrl>()->changeState<StabState>();
+        pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle);
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Stab2(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle2);
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Stab3(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle3);
         co_yield{};
     }
     Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
