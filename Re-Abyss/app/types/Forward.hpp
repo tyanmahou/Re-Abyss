@@ -1,4 +1,5 @@
 #pragma once
+#include <Siv3D/Vector2D.hpp>
 namespace abyss
 {
     /// <summary>
@@ -32,5 +33,22 @@ namespace abyss
     inline double operator * (double a, const Forward& b)
     {
         return b * a;
+    }
+
+    inline s3d::Vec2 ToVec2(Forward a)
+    {
+        if (a == Forward::Left) {
+            return -s3d::Vec2::UnitX();
+        }
+        if (a == Forward::Right) {
+            return s3d::Vec2::UnitX();
+        }
+        if (a == Forward::Up) {
+            return -s3d::Vec2::UnitY();
+        }
+        if (a == Forward::Down) {
+            return s3d::Vec2::UnitY();
+        }
+        return s3d::Vec2::Zero();
     }
 }

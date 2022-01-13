@@ -60,15 +60,28 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 			const auto shape = TentacleUtil::Shape(m_body->getPos(), m_rotCtrl->getRotate());
 
 			// 下向きか
-			const bool isDown = Vec2::UnitY().dot(dir) >= 0;
-			const auto pivot = isDown ? roomRegion.tl() : roomRegion.bl();
+			const Forward forward = [&] {
+				if (auto verticalCheck = Vec2::UnitY().dot(dir); Math::IsZeroLoose(verticalCheck)) {
+					// 左右向き
+					if (Vec2::UnitX().dot(dir) > 0) {
+						return Forward::Right;
+					} else {
+						return Forward::Left;
+					}
+				} else if (verticalCheck > 0) {
+					return Forward::Down;
+				} else {
+					return Forward::Up;
+				}
+			}();
+			const auto pivot = (forward == Forward::Down || forward == Forward::Right) ? roomRegion.tl() : roomRegion.br();
 			const auto pivotToTip = shape.p0 - pivot;
-			const auto normal = isDown ? Vec2::UnitY() : -Vec2::UnitY();
+			const auto normal = ToVec2(forward);
 
 			if (auto dist = normal.dot(pivotToTip); Math::IsZeroLoose(dist)) {
 				distFromRoom = 0;
 			} else {
-				if (!isDown && dist <= 80) {
+				if (forward == Forward::Up && dist <= 80) {
 					// 先端が地面より下になった
 					m_isRetire = true;
 				}
