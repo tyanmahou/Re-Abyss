@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Triangle.hpp>
 #include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Kind.hpp>
@@ -30,9 +30,13 @@ namespace abyss::Actor::Enemy::KingDux
         };
 
         [[TOML_BIND(Stab::Tentacle, "Stab.Tentacle")]]
+        [[TOML_BIND(Stab::Tentacle2, "Stab.Tentacle2")]]
+        [[TOML_BIND(Stab::Tentacle3, "Stab.Tentacle3")]]
         struct Stab
         {
             inline static s3d::Array<TentacleDesc> Tentacle{};
+            inline static s3d::Array<TentacleDesc> Tentacle2{};
+            inline static s3d::Array<TentacleDesc> Tentacle3{};
         };
 
         [[TOML_BIND(PursuitStab::Tentacle, "PursuitStab.Tentacle")]]
