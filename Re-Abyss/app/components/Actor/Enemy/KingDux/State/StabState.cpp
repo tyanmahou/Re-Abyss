@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
@@ -28,7 +29,16 @@ namespace abyss::Actor::Enemy::KingDux
 	Task<void> StabState::subTask()
 	{
 		// 数秒待つ
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 10.0);
+		co_await (BehaviorUtil::WaitForSeconds(m_pActor, 10.0) | Coro::WaitUntil([&] {
+
+			int32 retireCount = 0;
+			for (auto&& obj : m_tentacles) {
+				if (!obj || obj->find<Tentacle::RetireCtrl>()->isRetire()) {
+					++retireCount;
+				}
+			}
+			return retireCount >= 2;
+		}));
 
 		for (auto&& obj : m_tentacles) {
 			if (!obj) {
@@ -44,7 +54,7 @@ namespace abyss::Actor::Enemy::KingDux
 		co_await Coro::WaitUntil([&] {
 			return m_tentacles.all([](const Ref<ActorObj>& obj) {
 				return !obj;
-				});
+			});
 		});
 	}
 }
