@@ -34,13 +34,13 @@ namespace abyss::Actor
         } else if (m_worldComment->isSelected()) {
             if (m_isSelectable) {
                 // 停止中でも動かせるようにここで選択可能
-                if (InputManager::Left.down()) {
+                if (KeyComma.down()) {
                     if (m_select == 0) {
                         m_select = m_actions.size() - 1;
                     } else {
                         --m_select;
                     }
-                } else if (InputManager::Right.down()) {
+                } else if (KeyPeriod.down()) {
                     if (m_select == m_actions.size() - 1) {
                         m_select = 0;
                     } else {
