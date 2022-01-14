@@ -1,4 +1,4 @@
-﻿#include "WorldComment.hpp"
+#include "WorldComment.hpp"
 #include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
@@ -31,7 +31,7 @@ namespace abyss::Devs
 	{}
 	bool WorldComment::Requestor::isSelected() const
 	{
-		return m_pHandle->id = m_pHandle->pWorldComment->m_selectId;
+		return m_pHandle->id == m_pHandle->pWorldComment->m_selectId;
 	}
 	std::unique_ptr<WorldComment::Requestor> WorldComment::getRequestor()
 	{

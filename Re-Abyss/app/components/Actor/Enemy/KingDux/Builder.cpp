@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy::KingDux
         // Behavior
         {
             pActor->attach<BehaviorCtrl>(pActor)
-                ->setBehavior(Behavior::Petern);
+                ->setBehavior(Behavior::Test);
         }
 
         // 目制御

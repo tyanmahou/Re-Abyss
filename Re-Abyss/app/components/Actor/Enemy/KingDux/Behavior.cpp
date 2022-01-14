@@ -6,9 +6,62 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>
 
+#include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
+    Coro::Task<> Behavior::Test(ActorObj* pActor)
+    {
+        Array<std::pair<String, std::function<Coro::Task<>(ActorObj*)>>> commands;
+        commands.emplace_back(U"Stab", Stab);
+        commands.emplace_back(U"Stab2", Stab2);
+        commands.emplace_back(U"Stab3", Stab3);
+        commands.emplace_back(U"PursuitStab", PursuitStab);
+        commands.emplace_back(U"Convene", Convene);
+        size_t select = 0;
+        auto worldComment = pActor->getModule<WorldComment>()->getRequestor();
+        auto body = pActor->find<Body>();
+        pActor->find<StateCtrl>()->changeState<AppearState>();
+        co_yield{};
+
+        while (!commands.empty()) {
+            pActor->find<StateCtrl>()->changeState<WaitState>();
+            co_yield{};
+
+            // 技選択
+            while (true) {
+                if (worldComment->isSelected()) {
+                    String text = U"◀ {} ▶"_fmt(commands[select].first);
+                    worldComment->comment(text, body->region().topCenter(), ColorF(0.8, 1.0, 1.0, 0.8));
+
+                    if (InputManager::A.down()) {
+                        break;
+                    }
+                    if (InputManager::Left.down()) {
+                        if (select == 0) {
+                            select = commands.size() - 1;
+                        } else {
+                            --select;
+                        }
+                    } else if (InputManager::Right.down()) {
+                        if (select == commands.size() - 1) {
+                            select = 0;
+                        } else {
+                            ++select;
+                        }
+                    }
+                } else {
+                    worldComment->comment(U"...", body->region().topCenter(), ColorF(0.8, 1.0, 1.0, 0.8));
+                }
+                co_yield{};
+            }
+            co_await commands[select].second(pActor);
+        }
+        co_return;
+    }
     Coro::Task<> Behavior::Petern(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AppearState>();
