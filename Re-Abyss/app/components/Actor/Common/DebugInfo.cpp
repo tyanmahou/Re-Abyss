@@ -1,4 +1,4 @@
-﻿#include "DebugInfo.hpp"
+#include "DebugInfo.hpp"
 #if ABYSS_DEBUG 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/debugs/Debug.hpp>
@@ -18,7 +18,7 @@ namespace abyss::Actor
 	}
 	void DebugInfo::onPreDraw()
 	{
-		if (!Debug::Menu::IsDebug(Debug::DebugFlag::DrawActorDebugInfo)) {
+		if (!Debug::Menu::IsDebug(Debug::DebugFlag::ActorDebugInfo)) {
 			return;
 		}
 		if (!m_body) {

@@ -3,6 +3,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
+#include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -14,7 +15,9 @@ namespace abyss::Actor
     {
         m_worldComment = m_pActor->getModule<WorldComment>()->getRequestor();
         m_body = m_pActor->find<Body>();
-        m_pActor->find<BehaviorCtrl>()->setBehavior(std::bind_front(&BehaviorTest::doTest, this));
+        if (Debug::Menu::IsDebug(Debug::DebugFlag::ActorTestBehavior)) {
+            m_pActor->find<BehaviorCtrl>()->setBehavior(std::bind_front(&BehaviorTest::doTest, this));
+        }
     }
     void BehaviorTest::onPreDraw()
     {
@@ -24,6 +27,7 @@ namespace abyss::Actor
         String text = U"...";
         if (m_worldComment->isSelected()) {
             if (m_isSelectable) {
+                // 停止中でも動かせるようにここで選択可能
                 if (InputManager::Left.down()) {
                     if (m_select == 0) {
                         m_select = m_actions.size() - 1;

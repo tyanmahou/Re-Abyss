@@ -35,7 +35,7 @@ namespace abyss::Debug
 
         void drawCollider(const World& world)
         {
-            if (!Menu::IsDebug(Debug::DebugFlag::DrawCollider)) {
+            if (!Menu::IsDebug(Debug::DebugFlag::ActorCollider)) {
                 return;
             }
             auto coms = world.finds<Actor::Collider>();
@@ -52,7 +52,7 @@ namespace abyss::Debug
         }
         void drawMapCollider(const PhysicsManager& physics)
         {
-            if (!Menu::IsDebug(Debug::DebugFlag::DrawMapCollider)) {
+            if (!Menu::IsDebug(Debug::DebugFlag::ActorMapCollider)) {
                 return;
             }
 
