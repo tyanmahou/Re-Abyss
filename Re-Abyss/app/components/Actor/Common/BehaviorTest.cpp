@@ -22,14 +22,16 @@ namespace abyss::Actor
     }
     void BehaviorTest::onPreDraw()
     {
-        if (!m_isActive) {
+        if (!Debug::Menu::IsDebug(Debug::DebugFlag::ActorTestBehavior) && !m_isActive) {
             return;
         }
         if (m_actions.isEmpty()) {
             return;
         }
         String text = U"...";
-        if (m_worldComment->isSelected()) {
+        if (!m_isActive) {
+            text = U"Inactive";
+        } else if (m_worldComment->isSelected()) {
             if (m_isSelectable) {
                 // 停止中でも動かせるようにここで選択可能
                 if (InputManager::Left.down()) {
