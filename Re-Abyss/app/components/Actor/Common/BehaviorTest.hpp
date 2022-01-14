@@ -38,6 +38,7 @@ namespace abyss::Actor
         s3d::Array<std::pair<s3d::String, BehaviorFunc>> m_actions;
         size_t m_select = 0;
         bool m_isSelectable = false;
+        bool m_isActive = false;
     };
 }
 

@@ -16,11 +16,15 @@ namespace abyss::Actor
         m_worldComment = m_pActor->getModule<WorldComment>()->getRequestor();
         m_body = m_pActor->find<Body>();
         if (Debug::Menu::IsDebug(Debug::DebugFlag::ActorTestBehavior)) {
+            m_isActive = true;
             m_pActor->find<BehaviorCtrl>()->setBehavior(std::bind_front(&BehaviorTest::doTest, this));
         }
     }
     void BehaviorTest::onPreDraw()
     {
+        if (!m_isActive) {
+            return;
+        }
         if (m_actions.isEmpty()) {
             return;
         }
