@@ -248,6 +248,7 @@
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp" />
     <ClCompile Include="app\commons\SingletonManager\SingletonManager.cpp" />
+    <ClCompile Include="app\components\Actor\Common\BehaviorTest.cpp" />
     <ClCompile Include="app\components\Actor\Common\CliffChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\ColCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collider.cpp" />
@@ -892,6 +893,7 @@
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\components\Actor\Common\BehaviorTest.hpp" />
     <ClInclude Include="app\components\Actor\Common\CliffChecker.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collider.hpp" />

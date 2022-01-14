@@ -3,6 +3,7 @@
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 
@@ -53,7 +54,18 @@ namespace abyss::Actor::Enemy::KingDux
         // Behavior
         {
             pActor->attach<BehaviorCtrl>(pActor)
-                ->setBehavior(Behavior::Test);
+                ->setBehavior(Behavior::Petern);
+#if ABYSS_DEBUG
+            pActor->attach<BehaviorTest>(pActor)
+                ->setInitializer(Behavior::Appear)
+                .setWaitAction(Behavior::Wait)
+                .registAction(U"Stab", Behavior::Stab)
+                .registAction(U"Stab2", Behavior::Stab2)
+                .registAction(U"Stab3", Behavior::Stab3)
+                .registAction(U"PursuitStab", Behavior::PursuitStab)
+                .registAction(U"Convene", Behavior::Convene)
+                ;
+#endif
         }
 
         // 目制御

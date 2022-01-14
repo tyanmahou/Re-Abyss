@@ -1,0 +1,52 @@
+#pragma once
+#if ABYSS_DEBUG
+
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
+#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/utils/Coro/Task/Task.hpp>
+
+#include <Siv3D/Array.hpp>
+#include <Siv3D/String.hpp>
+namespace abyss::Actor
+{
+    class BehaviorTest :
+        public IComponent,
+        public IPreDraw
+    {
+        using BehaviorFunc = std::function<Coro::Task<>(ActorObj*)>;
+    public:
+        BehaviorTest(ActorObj* pActor);
+
+        void onStart() override;
+        void onPreDraw() override;
+
+        BehaviorTest& setInitializer(const BehaviorFunc& initializer);
+        BehaviorTest& setWaitAction(const BehaviorFunc& waitAction);
+        BehaviorTest& registAction(const s3d::String& key, const BehaviorFunc& behavior);
+    private:
+        Coro::Task<> doTest(ActorObj* pActor);
+    private:
+        ActorObj* m_pActor;
+        std::unique_ptr<WorldComment::Requestor> m_worldComment;
+        Ref<Body> m_body;
+
+        BehaviorFunc m_initializer;
+        BehaviorFunc m_waitAction;
+        s3d::Array<std::pair<s3d::String, BehaviorFunc>> m_actions;
+        size_t m_select = 0;
+        bool m_isSelectable = false;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Actor::BehaviorTest>
+    {
+        using Base = Actor::IPreDraw;
+    };
+}
+#endif
