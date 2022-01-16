@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>
 
@@ -59,7 +60,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Task<> Behavior::Convene(ActorObj* pActor)
     {
-        pActor->find<StateCtrl>()->changeState<StabState>();
+        pActor->find<StateCtrl>()->changeState<DanceState>();
         co_yield{};
     }
 }

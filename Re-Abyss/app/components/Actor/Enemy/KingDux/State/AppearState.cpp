@@ -3,6 +3,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
@@ -28,11 +29,11 @@ namespace abyss::Actor::Enemy::KingDux
 
 		// Shake
 		{
-			co_await Coro::WaitForSeconds(0.5s);
+			co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5s);
 			m_shake->request(10.0, 0.5);
-			co_await Coro::WaitForSeconds(1.5s);
+			co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.5s);
 			m_shake->request(10.0, 0.5);
-			co_await Coro::WaitForSeconds(1.0s);
+			co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0s);
 		}
 
 		// Flush
