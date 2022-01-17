@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/VModelUpdater.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
@@ -92,6 +93,8 @@ namespace abyss::Actor::Enemy::KingDux
             pActor->attach<VModelSub<4>>()
                 ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot4)
                 .setLayer(DrawLayer::BackGround);
+
+            pActor->attach<VModelUpdater>(pActor);
         }
 
         // 初期設定
@@ -118,7 +121,7 @@ namespace
     private:
         KingDuxVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getTimeSec())
+            return &m_view->setTime(m_modelUpdater->getTime())
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInInvincibleTime())
@@ -132,6 +135,7 @@ namespace
             m_damage = m_pActor->find<DamageCtrl>();
             m_eye = m_pActor->find<EyeCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
+            m_modelUpdater = m_pActor->find<VModelUpdater>();
         }
     private:
         ActorObj* m_pActor = nullptr;
@@ -140,6 +144,7 @@ namespace
         Ref<DamageCtrl> m_damage;
         Ref<EyeCtrl> m_eye;
         Ref<MotionCtrl> m_motion;
+        Ref<VModelUpdater> m_modelUpdater;
         std::unique_ptr<KingDuxVM> m_view;
     };
 
@@ -161,7 +166,7 @@ namespace
         }
         FootVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getTimeSec() + m_timeOffset)
+            return &m_view->setTime(m_modelUpdater->getTime() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
                 .setIsDamaging(m_damage->isInInvincibleTime())
                 .setIsFlip(m_isFlip)
@@ -172,11 +177,13 @@ namespace
         {
             m_body = m_pActor->find<Body>();
             m_damage = m_pActor->find<DamageCtrl>();
+            m_modelUpdater = m_pActor->find<VModelUpdater>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<DamageCtrl> m_damage;
+        Ref<VModelUpdater> m_modelUpdater;
 
         std::unique_ptr<FootVM> m_view;
         s3d::Vec2 m_offset;
