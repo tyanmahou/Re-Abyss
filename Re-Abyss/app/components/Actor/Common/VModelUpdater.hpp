@@ -32,3 +32,12 @@ namespace abyss::Actor
         double m_timeScale{ 1.0 };
     };
 }
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Actor::VModelUpdater>
+    {
+        using Base = Actor::IPreDraw;
+    };
+}

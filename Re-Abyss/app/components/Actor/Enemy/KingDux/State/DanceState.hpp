@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::KingDux
     {
     public:
         void start() override;
+        void end() override;
         Coro::Task<> task() override;
         void update() override;
     private:
