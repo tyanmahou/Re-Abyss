@@ -34,9 +34,14 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_isFlip = isFlip;
         return *this;
     }
+    FootVM& FootVM::setDamageTime(double damageTime)
+    {
+        m_damageTime = damageTime;
+        return *this;
+    }
     void FootVM::draw() const
     {
-        const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
+        const auto color = ColorDef::OnDamage(m_isDamaging, m_damageTime);
 
         // 足
         const auto& pageMap = Param::Foot::AnimFrameMap;

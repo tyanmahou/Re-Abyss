@@ -14,6 +14,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         bool m_isDamaging = false;
         bool m_isFlip = false;
         double m_time = 0;
+        double m_damageTime = 0;
     public:
         FootVM();
         FootVM& setTime(double time);
@@ -22,6 +23,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
 
         FootVM& setIsDamaging(bool isDamaging);
         FootVM& setIsFlip(bool isFlip);
+        FootVM& setDamageTime(double damageTime);
         void draw() const;
     };
 }

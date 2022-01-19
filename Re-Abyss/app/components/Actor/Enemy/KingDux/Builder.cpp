@@ -168,6 +168,7 @@ namespace
         {
             return &m_view->setTime(m_modelUpdater->getTime() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
+                .setDamageTime(m_pActor->getTimeSec())
                 .setIsDamaging(m_damage->isInInvincibleTime())
                 .setIsFlip(m_isFlip)
                 .setRotate(m_rotate)
