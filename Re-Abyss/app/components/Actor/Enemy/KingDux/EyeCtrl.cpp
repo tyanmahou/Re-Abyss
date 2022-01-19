@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::KingDux
         auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
             Vec2 targetPos{0, 0};
-            if (m_hp->isDead() || m_damage->isInInvincibleTime()) {
+            if (m_toCenterEye || m_hp->isDead() || m_damage->isInInvincibleTime()) {
                 targetPos = Vec2{ 0, 20 };
                 erpRate = InterpUtil::DampRatio(Param::Eye::DamageErpRate, m_pActor->deltaTime());
             } else {
@@ -58,5 +58,13 @@ namespace abyss::Actor::Enemy::KingDux
         MOVE_EYE(R);
 
 #undef MOVE_EYE
+    }
+    void EyeCtrl::onStateStart()
+    {
+        m_toCenterEye = false;
+    }
+    void EyeCtrl::requestToCenterEye()
+    {
+        m_toCenterEye = true;
     }
 }

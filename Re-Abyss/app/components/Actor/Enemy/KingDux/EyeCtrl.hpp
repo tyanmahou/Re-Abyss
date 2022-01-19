@@ -3,6 +3,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -10,7 +11,8 @@ namespace abyss::Actor::Enemy::KingDux
 {
     class EyeCtrl final:
         public IComponent,
-        public ILastUpdate
+        public ILastUpdate,
+        public IStateCallback
     {
     public:
         EyeCtrl(ActorObj* pActor);
@@ -27,6 +29,10 @@ namespace abyss::Actor::Enemy::KingDux
         {
             return m_eyePosR;
         }
+
+        void onStateStart() override;
+
+        void requestToCenterEye();
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -36,6 +42,8 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 m_eyePosL{0, 0};
 
         s3d::Vec2 m_eyePosR{0, 0};
+
+        bool m_toCenterEye = false;
     };
 }
 
@@ -45,7 +53,8 @@ namespace abyss
     struct ComponentTree<Actor::Enemy::KingDux::EyeCtrl>
     {
         using Base = MultiComponents<
-            Actor::ILastUpdate
+            Actor::ILastUpdate,
+            Actor::IStateCallback
         >;
     };
 }
