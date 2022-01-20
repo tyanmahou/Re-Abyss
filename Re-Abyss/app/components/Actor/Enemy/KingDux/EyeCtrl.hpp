@@ -15,6 +15,12 @@ namespace abyss::Actor::Enemy::KingDux
         public IStateCallback
     {
     public:
+        enum class Mode
+        {
+            Default,
+            Dance,
+        };
+    public:
         EyeCtrl(ActorObj* pActor);
 
         void onStart() override;
@@ -32,7 +38,10 @@ namespace abyss::Actor::Enemy::KingDux
 
         void onStateStart() override;
 
-        void requestToCenterEye();
+        void setDanceMode()
+        {
+            m_mode = Mode::Dance;
+        }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -40,10 +49,9 @@ namespace abyss::Actor::Enemy::KingDux
         Ref<DamageCtrl> m_damage;
 
         s3d::Vec2 m_eyePosL{0, 0};
-
         s3d::Vec2 m_eyePosR{0, 0};
 
-        bool m_toCenterEye = false;
+        Mode m_mode = Mode::Default;
     };
 }
 

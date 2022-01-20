@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		m_behavior->setActive(false);
 		m_modelUpdater->setTimeScale(4.0);
-		m_eyeCtrl->requestToCenterEye();
+		m_eyeCtrl->setDanceMode();
 	}
 
 	void DanceState::end()
