@@ -21,6 +21,18 @@ namespace abyss::Actor::Enemy::KingDux
     }
     void EyeCtrl::onLastUpdate()
     {
+        if (m_mode == Mode::Default) {
+            this->updateDefault();
+        } else if (m_mode == Mode::Dance) {
+            this->updateDance();
+        }
+    }
+    void EyeCtrl::onStateStart()
+    {
+        m_mode = Mode::Default;
+    }
+    void EyeCtrl::updateDefault()
+    {
         const auto& pos = m_body->getPos();
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
 
@@ -28,7 +40,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
-            Vec2 targetPos{0, 0};
+            Vec2 targetPos{ 0, 0 };
             if (m_hp->isDead() || m_damage->isInInvincibleTime()) {
                 targetPos = Vec2{ 0, 20 };
                 erpRate = InterpUtil::DampRatio(Param::Eye::DamageErpRate, m_pActor->deltaTime());
@@ -59,8 +71,7 @@ namespace abyss::Actor::Enemy::KingDux
 
 #undef MOVE_EYE
     }
-    void EyeCtrl::onStateStart()
+    void EyeCtrl::updateDance()
     {
-        m_mode = Mode::Default;
     }
 }

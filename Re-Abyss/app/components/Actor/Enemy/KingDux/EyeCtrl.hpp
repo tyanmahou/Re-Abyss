@@ -43,6 +43,9 @@ namespace abyss::Actor::Enemy::KingDux
             m_mode = Mode::Dance;
         }
     private:
+        void updateDefault();
+        void updateDance();
+    private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<HP> m_hp;
