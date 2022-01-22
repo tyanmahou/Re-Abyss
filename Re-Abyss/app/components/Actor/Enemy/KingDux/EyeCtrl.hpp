@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -38,10 +39,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         void onStateStart() override;
 
-        void setDanceMode()
-        {
-            m_mode = Mode::Dance;
-        }
+        void setDanceMode();
     private:
         void updateDefault();
         void updateDance();
@@ -55,6 +53,8 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 m_eyePosR{0, 0};
 
         Mode m_mode = Mode::Default;
+
+        TimeLite::Timer m_timer{2.0};
     };
 }
 

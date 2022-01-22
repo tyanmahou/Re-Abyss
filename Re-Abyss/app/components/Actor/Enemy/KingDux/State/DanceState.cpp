@@ -1,5 +1,5 @@
 #include "DanceState.hpp"
-#include "WaitState.hpp"
+#include "ConveneState.hpp"
 
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>
@@ -20,8 +20,8 @@ namespace abyss::Actor::Enemy::KingDux
 
 	Coro::Task<> DanceState::task()
 	{
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 2.0s);
-		this->changeState<WaitState>();
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 3.0s);
+		this->changeState<ConveneState>();
 		co_return;
 	}
 

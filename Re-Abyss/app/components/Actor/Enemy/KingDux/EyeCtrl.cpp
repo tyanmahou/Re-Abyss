@@ -31,6 +31,11 @@ namespace abyss::Actor::Enemy::KingDux
     {
         m_mode = Mode::Default;
     }
+    void EyeCtrl::setDanceMode()
+    {
+        m_mode = Mode::Dance;
+        m_timer.reset();
+    }
     void EyeCtrl::updateDefault()
     {
         const auto& pos = m_body->getPos();
@@ -73,5 +78,18 @@ namespace abyss::Actor::Enemy::KingDux
     }
     void EyeCtrl::updateDance()
     {
+        auto dt = m_pActor->deltaTime();
+        m_timer.update(dt);
+
+        constexpr double rotDeg = 360.0 * 1.5;
+        auto erpRate = InterpUtil::DampRatio(0.1, dt);
+        auto moveEye = [this, erpRate] (Vec2& eyePos, double rotDeg) {
+            Vec2 targetPos{ 0, 20 };
+            targetPos += s3d::Circular(50.0 * m_timer.invRate(), s3d::ToRadians(rotDeg * m_timer.rate()));
+            eyePos = s3d::Math::Lerp(eyePos, targetPos, erpRate);
+        };
+
+        moveEye(m_eyePosL, rotDeg);
+        moveEye(m_eyePosR, rotDeg);
     }
 }
