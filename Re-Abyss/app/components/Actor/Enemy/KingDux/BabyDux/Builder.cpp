@@ -15,15 +15,16 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	void Builder::Build(ActorObj* pActor, ActorObj* parent, const BuildDesc& desc)
 	{
         // 共通ビルド
-        auto pos = parent->find<Body>()->getPos() + desc.posOffset;
+        auto parentBody = parent->find<Body>();
+        auto pos = parentBody->getPos() + desc.posOffset;
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(pos)
             //.setBodyPivot(Param::Base::Pivot)
-            //.setForward(entity.forward)
+            .setForward(parentBody->getForward())
             //.setInitHp(Param::Base::Hp)
             //.setCollider<MainCollider>(pActor)
-            //.setIsEnableMapCollider(false)
-            //.setAudioSettingGroupPath(U"Enemy/KingDux/baby_dux.aase")
+            .setIsEnableMapCollider(false)
+            .setAudioSettingGroupPath(U"Enemy/KingDux/baby_dux.aase")
             //.setInitState<WaitState>()
             //.setVModelBinder<ViewBinder>(pActor)
         );
