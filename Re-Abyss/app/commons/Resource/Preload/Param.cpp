@@ -1,4 +1,4 @@
-﻿#include "Param.hpp"
+#include "Param.hpp"
 
 // Actors
 #include <abyss/params/Actor/Player/Param.hpp>
@@ -17,6 +17,7 @@
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
@@ -115,6 +116,7 @@ namespace abyss::Resource::Preload
 			// MidBoss
 			resource->loadToml<KingDux::Param>(U"Actors/Enemy/KingDux/param.toml");
 			resource->loadToml<KingDux::TentacleParam>(U"Actors/Enemy/KingDux/tentacle_param.toml");
+			resource->loadToml<KingDux::BabyDuxParam>(U"Actors/Enemy/KingDux/baby_dux_param.toml");
 
 			// Boss
 			resource->loadToml<CodeZero::Param>(U"Actors/Enemy/CodeZero/param.toml");

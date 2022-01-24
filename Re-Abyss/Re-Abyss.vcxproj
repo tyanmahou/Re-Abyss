@@ -299,12 +299,15 @@
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\ConveneState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\DanceState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\StabState.cpp" />
@@ -925,6 +928,9 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Behavior.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
@@ -932,6 +938,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\ConveneState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\StabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DanceState.hpp" />
@@ -1079,6 +1086,7 @@
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\modules\UI\base\Filter.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />

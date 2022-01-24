@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 
 namespace
 {
@@ -19,9 +20,9 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         auto pos = parentBody->getPos() + desc.posOffset;
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(pos)
-            //.setBodyPivot(Param::Base::Pivot)
+            .setBodyPivot(BabyDuxParam::Base::Pivot)
             .setForward(parentBody->getForward())
-            //.setInitHp(Param::Base::Hp)
+            .setInitHp(BabyDuxParam::Base::Hp)
             //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/baby_dux.aase")
