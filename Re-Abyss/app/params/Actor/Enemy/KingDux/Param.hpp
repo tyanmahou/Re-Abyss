@@ -24,6 +24,8 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Base::MouthPos, "Base.mouthPos")]]
         [[TOML_BIND(Base::ColSize, "Base.colSize")]]
         [[TOML_BIND(Base::Pivot, "Base.pivot")]]
+        [[TOML_BIND(Base::MainColliders, "Base.mainColliders")]]
+        [[TOML_BIND(Base::CrownColliders, "Base.crownColliders")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 100 };
@@ -33,6 +35,9 @@ namespace abyss::Actor::Enemy::KingDux
 
             inline static s3d::Vec2 ColSize{ 80, 80 };
             inline static s3d::Vec2 Pivot{ 0, 0 };
+
+            inline static s3d::Array<s3d::Triangle> MainColliders;
+            inline static s3d::Array<s3d::Triangle> CrownColliders;
         };
 
         [[TOML_BIND(Eye::DistRate, "Eye.distRate")]]

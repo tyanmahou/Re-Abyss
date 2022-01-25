@@ -1855,6 +1855,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\MainCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2792,6 +2795,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\MainCollider.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

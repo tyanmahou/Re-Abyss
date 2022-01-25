@@ -13,6 +13,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/MainCollider.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
@@ -37,7 +38,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
-            //.setColliderImpl<Collider>(pActor)
+            .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/king_dux.aase")
             .setInitState<WaitState>()
