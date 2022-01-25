@@ -7,6 +7,10 @@
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/VModelUpdater.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
@@ -14,6 +18,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/MainCollider.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/CrownCollider.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
@@ -73,6 +78,19 @@ namespace abyss::Actor::Enemy::KingDux
         // 目制御
         {
             pActor->attach<EyeCtrl>(pActor);
+        }
+
+        // 衝突
+        {
+            auto crownCollider = pActor->find<Collider>()
+                ->add<CrownCollider>(pActor);
+
+            pActor->find<ColCtrl>()
+                ->addBranch()
+                ->addNode<Col::Node>(RefCast<Col::ICollider>(crownCollider))
+                .setLayer(ColSys::LayerGroup::Enemy)
+                .attach<Col::Attacker>(pActor, 1)
+                .attach<Col::Receiver>(pActor);
         }
         // 描画
         {
