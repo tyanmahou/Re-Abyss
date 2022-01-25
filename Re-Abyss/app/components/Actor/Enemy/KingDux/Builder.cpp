@@ -59,13 +59,13 @@ namespace abyss::Actor::Enemy::KingDux
                 ->setBehavior(Behavior::Petern);
 #if ABYSS_DEBUG
             pActor->attach<BehaviorTest>(pActor)
-                ->setInitializer(Behavior::Appear)
-                .setWaitAction(Behavior::Wait)
+                ->setWaitAction(Behavior::Wait)
                 .registAction(U"Stab", Behavior::Stab)
                 .registAction(U"Stab2", Behavior::Stab2)
                 .registAction(U"Stab3", Behavior::Stab3)
                 .registAction(U"PursuitStab", Behavior::PursuitStab)
                 .registAction(U"Convene", Behavior::Convene)
+                .registAction(U"Appear", Behavior::Appear)
                 ;
 #endif
         }
