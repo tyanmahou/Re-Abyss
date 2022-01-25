@@ -44,7 +44,7 @@ namespace abyss::Actor
 		}
 
 		DamageData data;
-		const bool isDamaged = m_colCtrl->anyThen<Col::Attacker>([this, &data](s3d::uint64 id, const Col::Attacker::Data& attacker) {
+		const bool isDamaged = m_colCtrl->anyThen<Col::Attacker, 0>([this, &data](s3d::uint64 id, const Col::Attacker::Data& attacker) {
 			const auto& record = m_comboHistory.find(id);
 			if (!record.canDamage()) {
 				return false;
