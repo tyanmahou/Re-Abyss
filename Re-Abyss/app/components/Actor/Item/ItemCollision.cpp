@@ -1,4 +1,5 @@
-#include "ItemCollision.hpp"
+#include <abyss/components/Actor/Item/ItemCollision.hpp>
+
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>

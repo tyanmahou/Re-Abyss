@@ -1,4 +1,5 @@
-#include "LifeSpan.hpp"
+#include <abyss/components/Actor/Item/LifeSpan.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Item

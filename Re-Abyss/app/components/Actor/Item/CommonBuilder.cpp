@@ -1,4 +1,5 @@
-#include "CommonBuilder.hpp"
+#include <abyss/components/Actor/Item/CommonBuilder.hpp>
+
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>

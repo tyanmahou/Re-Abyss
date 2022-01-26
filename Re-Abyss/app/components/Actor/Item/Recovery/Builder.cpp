@@ -1,7 +1,6 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Item/Recovery/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>

@@ -1,4 +1,4 @@
-#include "ItemReactor.hpp"
+#include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
 
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
