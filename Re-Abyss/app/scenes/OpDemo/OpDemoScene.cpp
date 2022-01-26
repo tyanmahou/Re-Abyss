@@ -1,4 +1,4 @@
-#include "OpDemoScene.hpp"
+#include <abyss/scenes/OpDemo/OpDemoScene.hpp>
 
 namespace abyss
 {

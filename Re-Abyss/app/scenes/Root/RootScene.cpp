@@ -1,4 +1,5 @@
-#include "RootScene.hpp"
+#include <abyss/scenes/Root/RootScene.hpp>
+
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 namespace abyss

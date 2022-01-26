@@ -1,4 +1,4 @@
-#include "ISceneBase.hpp"
+#include <abyss/scenes/base/ISceneBase.hpp>
 
 namespace abyss
 {

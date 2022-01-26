@@ -1,4 +1,4 @@
-#include "MainScene.hpp"
+#include <abyss/scenes/Main/MainScene.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 

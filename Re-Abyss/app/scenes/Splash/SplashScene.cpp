@@ -1,4 +1,4 @@
-#include "SplashScene.hpp"
+#include <abyss/scenes/Splash/SplashScene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 
 #include <abyss/system/System.hpp>

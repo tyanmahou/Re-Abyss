@@ -1,7 +1,8 @@
-#include "CollisionUtil.hpp"
+#include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
-#include  <concepts>
+#include <concepts>
+
 namespace
 {
     using namespace abyss;
