@@ -1,7 +1,7 @@
 // Windowのサイズをスケーリング可能にするか
 // #define USE_SCALABLE_WINDOW
 
-#include "BaseApp.hpp"
+#include <abyss/commons/Application/base/BaseApp.hpp>
 
 #include <Siv3D.hpp>
 

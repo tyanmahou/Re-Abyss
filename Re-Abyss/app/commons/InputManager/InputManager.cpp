@@ -1,4 +1,4 @@
-#include "InputManager.hpp"
+#include <abyss/commons/InputManager/InputManager.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss

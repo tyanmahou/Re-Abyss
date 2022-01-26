@@ -1,4 +1,4 @@
-#include "MainApp.hpp"
+#include <abyss/commons/Application/MainApp.hpp>
 #include <abyss/commons/Constants.hpp>
 
 namespace abyss

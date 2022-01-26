@@ -1,4 +1,4 @@
-#include "Migration.hpp"
+#include <abyss/commons/Resource/UserData/Migration/Migration.hpp>
 
 #include <abyss/commons/Resource/SaveUtil.hpp>
 #include <abyss/services/Migration/base/IMigrationService.hpp>

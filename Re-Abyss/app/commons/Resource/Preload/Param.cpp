@@ -1,4 +1,4 @@
-#include "Param.hpp"
+#include <abyss/commons/Resource/Preload/Param.hpp>
 
 // Actors
 #include <abyss/params/Actor/Player/Param.hpp>

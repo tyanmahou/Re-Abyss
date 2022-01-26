@@ -1,4 +1,5 @@
-#include "WindowCtrl.hpp"
+#include <abyss/commons/Application/WindowCtrl.hpp>
+
 #include <Siv3D.hpp>
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>

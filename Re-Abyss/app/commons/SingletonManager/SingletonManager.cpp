@@ -1,4 +1,4 @@
-#include "SingletonManager.hpp"
+#include <abyss/commons/SingletonManager/SingletonManager.hpp>
 
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
