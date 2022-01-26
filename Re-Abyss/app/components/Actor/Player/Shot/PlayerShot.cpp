@@ -1,4 +1,4 @@
-#include "PlayerShot.hpp"
+#include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>

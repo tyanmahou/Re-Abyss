@@ -1,4 +1,5 @@
-#include "EffectCtrl.hpp"
+#include <abyss/components/Actor/Player/Shot/EffectCtrl.hpp>
+
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
