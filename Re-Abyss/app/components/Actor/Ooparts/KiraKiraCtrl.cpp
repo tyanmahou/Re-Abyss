@@ -1,4 +1,5 @@
-#include "KiraKiraCtrl.hpp"
+#include <abyss/components/Actor/Ooparts/KiraKiraCtrl.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>

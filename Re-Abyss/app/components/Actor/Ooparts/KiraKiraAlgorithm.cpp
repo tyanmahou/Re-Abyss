@@ -1,4 +1,6 @@
 #include "KiraKiraAlgorithm.hpp"
+#include <abyss/components/Actor/Ooparts/KiraKiraAlgorithm.hpp>
+
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/components/Effect/Actor/Ooparts/Common/KiraKira/Builder.hpp>
 #include <Siv3D.hpp>
