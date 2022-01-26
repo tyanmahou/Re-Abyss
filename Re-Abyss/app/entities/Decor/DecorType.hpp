@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/utils/Enum/EnumVariant.hpp>
 
 namespace abyss::Decor

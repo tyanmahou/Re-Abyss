@@ -1,5 +1,5 @@
 #pragma once
-#include "EnemyEntity.hpp"
+#include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 
 namespace abyss::Actor::Enemy
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "GimmickEntity.hpp"
+#include <abyss/entities/Actor/Gimmick/GimmickEntity.hpp>
 
 namespace abyss::Actor::Gimmick
 {
