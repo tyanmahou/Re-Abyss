@@ -1,4 +1,5 @@
-#include "DebugInfo.hpp"
+#include <abyss/components/Actor/Common/DebugInfo.hpp>
+
 #if ABYSS_DEBUG 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/debugs/Debug.hpp>

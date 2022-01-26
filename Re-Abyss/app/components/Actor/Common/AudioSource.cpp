@@ -1,4 +1,4 @@
-#include "AudioSource.hpp"
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 

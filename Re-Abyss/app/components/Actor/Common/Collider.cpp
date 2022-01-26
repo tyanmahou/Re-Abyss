@@ -1,4 +1,4 @@
-#include "Collider.hpp"
+#include <abyss/components/Actor/Common/Collider.hpp>
 
 namespace abyss::Actor
 {

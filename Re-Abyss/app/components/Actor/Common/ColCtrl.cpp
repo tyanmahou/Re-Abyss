@@ -1,4 +1,4 @@
-#include "ColCtrl.hpp"
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/ColSys/CollisionManager.hpp>
 

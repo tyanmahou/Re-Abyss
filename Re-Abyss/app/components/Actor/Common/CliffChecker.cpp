@@ -1,4 +1,4 @@
-#include "CliffChecker.hpp"
+#include <abyss/components/Actor/Common/CliffChecker.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Physics/base/IContacter.hpp>

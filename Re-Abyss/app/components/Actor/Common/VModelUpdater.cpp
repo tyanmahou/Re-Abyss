@@ -1,4 +1,4 @@
-#include "VModelUpdater.hpp"
+#include <abyss/components/Actor/Common/VModelUpdater.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor

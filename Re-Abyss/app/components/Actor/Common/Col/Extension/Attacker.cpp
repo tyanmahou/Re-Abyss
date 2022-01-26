@@ -1,4 +1,4 @@
-#include "Attacker.hpp"
+#include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 

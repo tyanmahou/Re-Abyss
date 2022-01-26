@@ -1,4 +1,4 @@
-#include "CameraFixPos.hpp"
+#include <abyss/components/Actor/Common/CameraFixPos.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>

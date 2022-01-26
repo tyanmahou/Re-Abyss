@@ -1,4 +1,4 @@
-#include "RectCollider.hpp"
+#include <abyss/components/Actor/Common/Col/Collider/RectCollider.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D/RectF.hpp>
 

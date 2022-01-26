@@ -1,4 +1,5 @@
-#include "TimeCounter.hpp"
+#include <abyss/components/Actor/Common/TimeCounter.hpp>
+
 namespace abyss::Actor
 {
     TimeCounter::TimeCounter(double offset):

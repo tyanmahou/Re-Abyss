@@ -1,4 +1,4 @@
-#include "BreathingCtrl.hpp"
+#include <abyss/components/Actor/Common/BreathingCtrl.hpp>
 #include <Siv3D.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

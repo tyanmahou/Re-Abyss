@@ -1,4 +1,4 @@
-#include "DeadCheacker.hpp"
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/HP.hpp>

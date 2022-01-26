@@ -1,4 +1,4 @@
-#include "HP.hpp"
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D.hpp>
 

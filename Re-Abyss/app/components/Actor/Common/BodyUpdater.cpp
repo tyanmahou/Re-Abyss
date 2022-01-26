@@ -1,5 +1,5 @@
-#include "BodyUpdater.hpp"
-#include "Body.hpp"
+#include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor

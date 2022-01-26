@@ -1,4 +1,4 @@
-#include "BehaviorCtrl.hpp"
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor

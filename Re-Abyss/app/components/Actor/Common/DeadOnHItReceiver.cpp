@@ -1,4 +1,4 @@
-#include "DeadOnHItReceiver.hpp"
+#include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>

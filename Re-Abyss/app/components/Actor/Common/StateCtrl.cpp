@@ -1,4 +1,4 @@
-#include "StateCtrl.hpp"
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>

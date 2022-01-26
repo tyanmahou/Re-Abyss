@@ -1,4 +1,4 @@
-#include "OutRoomChecker.hpp"
+#include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>

@@ -1,4 +1,4 @@
-#include "ComboHistory.hpp"
+#include <abyss/components/Actor/Common/ComboHistory.hpp>
 
 namespace abyss::Actor
 {

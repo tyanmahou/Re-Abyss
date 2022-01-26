@@ -1,4 +1,4 @@
-#include "Foot.hpp"
+#include <abyss/components/Actor/Common/Foot.hpp>
 
 namespace abyss::Actor
 {

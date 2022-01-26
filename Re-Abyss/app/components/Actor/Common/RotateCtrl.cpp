@@ -1,4 +1,4 @@
-#include "RotateCtrl.hpp"
+#include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor

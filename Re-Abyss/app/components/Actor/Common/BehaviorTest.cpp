@@ -1,4 +1,4 @@
-#include "BehaviorTest.hpp"
+#include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #if ABYSS_DEBUG
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

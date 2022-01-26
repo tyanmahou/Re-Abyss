@@ -1,4 +1,4 @@
-#include "PointCollider.hpp"
+#include <abyss/components/Actor/Common/Col/Collider/PointCollider.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Col

@@ -1,4 +1,5 @@
-﻿#include "ShakeCtrl.hpp"
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D.hpp>
 

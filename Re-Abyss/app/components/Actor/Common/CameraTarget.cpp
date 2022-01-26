@@ -1,4 +1,4 @@
-#include "CameraTarget.hpp"
+#include <abyss/components/Actor/Common/CameraTarget.hpp>
 
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

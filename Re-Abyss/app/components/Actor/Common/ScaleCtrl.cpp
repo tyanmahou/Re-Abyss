@@ -1,4 +1,4 @@
-#include "ScaleCtrl.hpp"
+#include <abyss/components/Actor/Common/ScaleCtrl.hpp>
 
 namespace abyss::Actor
 {

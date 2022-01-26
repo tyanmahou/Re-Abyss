@@ -1,4 +1,4 @@
-#include "TerrainProxy.hpp"
+#include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 

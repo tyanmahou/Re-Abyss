@@ -1,4 +1,4 @@
-#include "DamageCtrl.hpp"
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>

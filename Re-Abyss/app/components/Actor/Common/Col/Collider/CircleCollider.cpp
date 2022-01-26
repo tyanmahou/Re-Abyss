@@ -1,4 +1,5 @@
-#include "CircleCollider.hpp"
+#include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D/Circle.hpp>
 namespace abyss::Actor::Col
