@@ -1,4 +1,4 @@
-#include "AttackCtrl.hpp"
+#include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>

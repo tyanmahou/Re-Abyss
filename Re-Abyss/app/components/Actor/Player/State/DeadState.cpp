@@ -1,4 +1,4 @@
-#include "DeadState.hpp"
+#include <abyss/components/Actor/Player/State/DeadState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/FallChecker.hpp>

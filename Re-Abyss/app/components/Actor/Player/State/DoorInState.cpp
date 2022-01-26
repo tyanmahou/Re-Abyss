@@ -1,5 +1,5 @@
-#include "DoorInState.hpp"
-#include "SwimState.hpp"
+#include <abyss/components/Actor/Player/State/DoorInState.hpp>
+#include <abyss/components/Actor/Player/State/SwimState.hpp>
 
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Event/Events.hpp>

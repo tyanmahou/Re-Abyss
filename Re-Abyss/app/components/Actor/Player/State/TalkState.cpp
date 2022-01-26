@@ -1,4 +1,4 @@
-#include "TalkState.hpp"
+#include <abyss/components/Actor/Player/State/TalkState.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player

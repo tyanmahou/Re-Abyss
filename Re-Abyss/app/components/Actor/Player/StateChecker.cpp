@@ -1,4 +1,4 @@
-#include "StateChecker.hpp"
+#include <abyss/components/Actor/Player/StateChecker.hpp>
 
 namespace abyss::Actor::Player
 {

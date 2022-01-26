@@ -1,4 +1,5 @@
-#include "OopartsCtrl.hpp"
+#include <abyss/components/Actor/Player/OopartsCtrl.hpp>
+
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 

@@ -1,4 +1,3 @@
-#include "BaseState.hpp"
 #include <abyss/components/Actor/Player/Shot/State/BaseState.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>

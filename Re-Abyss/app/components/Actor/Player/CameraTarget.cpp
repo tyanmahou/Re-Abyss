@@ -1,4 +1,4 @@
-#include "CameraTarget.hpp"
+#include <abyss/components/Actor/Player/CameraTarget.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>

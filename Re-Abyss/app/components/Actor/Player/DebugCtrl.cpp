@@ -1,4 +1,4 @@
-﻿#include "DebugCtrl.hpp"
+#include <abyss/components/Actor/Player/DebugCtrl.hpp>
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

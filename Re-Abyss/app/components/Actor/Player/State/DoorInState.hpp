@@ -1,5 +1,5 @@
 #pragma once
-#include"BaseState.hpp"
+#include <abyss/components/Actor/Player/State/BaseState.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 
 namespace abyss::Actor::Player

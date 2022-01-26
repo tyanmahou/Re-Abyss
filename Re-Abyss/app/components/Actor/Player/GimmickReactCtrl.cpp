@@ -1,5 +1,5 @@
-#include "GimmickReactCtrl.hpp"
-#include "IGimmickReactor.hpp"
+#include <abyss/components/Actor/Player/GimmickReactCtrl.hpp>
+#include <abyss/components/Actor/Player/IGimmickReactor.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>

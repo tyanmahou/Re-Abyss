@@ -1,6 +1,6 @@
-#include "ForwardCtrl.hpp"
-#include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/components/Actor/Player/ForwardCtrl.hpp>
 
+#include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>

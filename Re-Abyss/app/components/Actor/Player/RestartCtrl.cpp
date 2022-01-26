@@ -1,4 +1,4 @@
-#include "RestartCtrl.hpp"
+#include <abyss/components/Actor/Player/RestartCtrl.hpp>
 #include <Siv3D.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Event/Events.hpp>

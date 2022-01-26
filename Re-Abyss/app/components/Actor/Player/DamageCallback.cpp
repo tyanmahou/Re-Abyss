@@ -1,4 +1,5 @@
-#include "DamageCallback.hpp"
+#include <abyss/components/Actor/Player/DamageCallback.hpp>
+
 #include <abyss/components/Actor/Player/State/DamageState.hpp>
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 

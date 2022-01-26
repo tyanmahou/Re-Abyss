@@ -1,4 +1,4 @@
-#include "RoomMoveChecker.hpp"
+#include <abyss/components/Actor/Player/RoomMoveChecker.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
