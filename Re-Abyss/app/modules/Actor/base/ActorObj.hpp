@@ -57,4 +57,4 @@ namespace abyss::Actor
 		double deltaTime() const;
 	};
 }
-#include "ActorObj.ipp"
+#include <abyss/modules/Actor/base/ActorObj.ipp>

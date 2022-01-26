@@ -97,4 +97,4 @@ namespace abyss
 		[[nodiscard]] Ref<const GameObject> getWeak() const;
 	};
 }
-#include "GameObject.ipp"
+#include <abyss/modules/GameObject/GameObject.ipp>
