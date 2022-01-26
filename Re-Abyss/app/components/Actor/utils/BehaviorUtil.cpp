@@ -1,4 +1,4 @@
-﻿#include "BehaviorUtil.hpp"
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
