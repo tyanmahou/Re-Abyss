@@ -1,4 +1,5 @@
-#include "UserService.hpp"
+#include <abyss/services/User/UserService.hpp>
+
 #include <abyss/models/User/UserModel.hpp>
 #include <abyss/datastores/User/base/IUserDataStore.hpp>
 

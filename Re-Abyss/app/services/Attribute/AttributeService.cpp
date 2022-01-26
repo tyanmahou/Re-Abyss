@@ -1,4 +1,5 @@
-#include "AttributeService.hpp"
+#include <abyss/services/Attribute/AttributeService.hpp>
+
 #include <abyss/datastores/Attribute/base/IAttributeDataStore.hpp>
 
 namespace abyss::Attribute

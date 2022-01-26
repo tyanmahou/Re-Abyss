@@ -1,4 +1,4 @@
-#include "DecorService.hpp"
+#include <abyss/services/Decor/DecorService.hpp>
 
 #include <abyss/datastores/Decor/base/IDecorDataStore.hpp>
 #include <abyss/datastores/Decor/base/IAnimationDataStore.hpp>

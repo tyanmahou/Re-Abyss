@@ -1,4 +1,4 @@
-#include "ItemService.hpp"
+#include <abyss/services/Actor/Item/ItemService.hpp>
 #include <abyss/datastores/Actor/Item/base/IItemDataStore.hpp>
 
 namespace abyss::Actor::Item

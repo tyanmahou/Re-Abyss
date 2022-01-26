@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/services/Actor/Map/base/IMapService.hpp>
 #include <Emaject.hpp>
 

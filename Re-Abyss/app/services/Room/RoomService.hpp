@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/services/Room/base/IRoomService.hpp>
 #include <Emaject.hpp>
 

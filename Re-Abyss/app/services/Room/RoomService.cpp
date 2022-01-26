@@ -1,4 +1,4 @@
-#include "RoomService.hpp"
+#include <abyss/services/Room/RoomService.hpp>
 #include <abyss/datastores/Room/base/IRoomDataStore.hpp>
 
 namespace abyss

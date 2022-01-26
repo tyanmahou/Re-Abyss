@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/services/Actor/Item/base/IItemService.hpp>
 #include <Emaject.hpp>
 

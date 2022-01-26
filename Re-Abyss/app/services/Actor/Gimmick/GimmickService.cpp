@@ -1,4 +1,4 @@
-#include "GimmickService.hpp"
+#include <abyss/services/Actor/Gimmick/GimmickService.hpp>
 #include <abyss/datastores/Actor/Gimmick/base/IGimmickDataStore.hpp>
 
 namespace abyss::Actor::Gimmick

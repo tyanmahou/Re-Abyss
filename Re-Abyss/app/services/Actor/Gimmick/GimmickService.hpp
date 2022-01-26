@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/services/Actor/Gimmick/base/IGimmickService.hpp>
 #include <Emaject.hpp>
 

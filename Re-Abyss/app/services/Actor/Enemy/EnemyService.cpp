@@ -1,4 +1,4 @@
-#include "EnemyService.hpp"
+#include <abyss/services/Actor/Enemy/EnemyService.hpp>
 #include <abyss/datastores/Actor/Enemy/base/IEnemyDataStore.hpp>
 
 namespace abyss::Actor::Enemy

@@ -1,4 +1,4 @@
-#include "MapService.hpp"
+#include <abyss/services/Actor/Map/MapService.hpp>
 #include <abyss/datastores/Actor/Map/base/IMapDataStore.hpp>
 
 namespace abyss::Actor::Map

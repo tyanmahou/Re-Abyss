@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/services/User/base/IUserService.hpp>
 #include <Emaject.hpp>
+
 namespace abyss::User
 {
     class IUserDataStore;

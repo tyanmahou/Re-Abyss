@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Color.hpp>
+
 namespace abyss::Attribute
 {
     class IAttributeService
