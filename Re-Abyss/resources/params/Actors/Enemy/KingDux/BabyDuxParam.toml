@@ -1,0 +1,4 @@
+[Base]
+hp = 6
+pivot = "(0, -15)"
+colRadius = 18

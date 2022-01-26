@@ -1,0 +1,126 @@
+[Base]
+rotPivot = "(1200, 65)"
+collider = "((15, 70), (1350, 10), (1350, 170))"
+
+[Appear]
+speed = 120.0
+moveTimeSec = 1.5
+
+[[Stab.Tentacle]]
+offset = "(0, 600)"
+rotateDeg = 30
+distOffset = -900
+kind = "Stab"
+waitTimeSec = 0.5
+
+[[Stab.Tentacle]]
+offset = "(-600, 0)"
+rotateDeg = 105
+distOffset = -1650
+kind = "Stab"
+waitTimeSec = 0.75
+
+[[Stab.Tentacle]]
+offset = "(0, 600)"
+rotateDeg = 220
+distOffset = -2350
+kind = "Stab"
+waitTimeSec = 1.0
+
+[[Stab.Tentacle]]
+offset = "(-300, 0)"
+rotateDeg = 285
+distOffset = -1550
+kind = "Stab"
+waitTimeSec = 1.25
+
+[[Stab.Tentacle]]
+offset = "(-2000, 150)"
+rotateDeg = 180
+distOffset = -150
+kind = "Stab"
+waitTimeSec = 1.5
+
+[[Stab.Tentacle2]]
+offset = "(-300, -1600)"
+rotateDeg = 270
+distOffset = 100
+kind = "Stab"
+waitTimeSec = 0.5
+
+[[Stab.Tentacle2]]
+offset = "(-2000, 250)"
+rotateDeg = 180
+distOffset = -150
+kind = "Stab"
+waitTimeSec = 0.75
+
+[[Stab.Tentacle2]]
+offset = "(-1400, -1300)"
+rotateDeg = 240
+distOffset = 50
+kind = "Stab"
+waitTimeSec = 1.0
+
+[[Stab.Tentacle2]]
+offset = "(-650, 1600)"
+rotateDeg = 90
+distOffset = 0
+kind = "Stab"
+waitTimeSec = 1.25
+
+[[Stab.Tentacle2]]
+offset = "(100, 800)"
+rotateDeg = 55
+distOffset = -700
+kind = "Stab"
+waitTimeSec = 1.5
+
+[[Stab.Tentacle3]]
+offset = "(-400, 0)"
+rotateDeg = 255
+distOffset = -1500
+kind = "Stab"
+waitTimeSec = 0.5
+
+[[Stab.Tentacle3]]
+offset = "(-1150, 700)"
+rotateDeg = 135
+distOffset = -800
+kind = "Stab"
+waitTimeSec = 0.75
+
+[[Stab.Tentacle3]]
+offset = "(-2000, -100)"
+rotateDeg = 180
+distOffset = -150
+kind = "Stab"
+waitTimeSec = 1.0
+
+[[Stab.Tentacle3]]
+offset = "(-600, 0)"
+rotateDeg = 60
+distOffset = -1700
+kind = "Stab"
+waitTimeSec = 1.25
+
+[[Stab.Tentacle3]]
+offset = "(-600, 1600)"
+rotateDeg = 90
+distOffset = 0
+kind = "Stab"
+waitTimeSec = 1.5
+
+[[PursuitStab.Tentacle]]
+offset = "(393, -1223)"
+rotateDeg = -54
+distOffset = -60
+kind = "PursuitStab"
+waitTimeSec = 2.0
+
+[[PursuitStab.Tentacle]]
+offset = "(662, 910)"
+rotateDeg = 25
+distOffset = -60
+kind = "PursuitStab"
+waitTimeSec = 3.0

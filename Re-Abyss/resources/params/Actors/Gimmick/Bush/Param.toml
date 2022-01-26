@@ -1,0 +1,12 @@
+
+timeOffsetFactor = 10.0
+animTimeSec = 2.0
+
+baseTimeScale = 0.0
+hitTimeScale = 6.0
+maxTimeScaleSpeed = 90.0 
+
+colliderSize = "(40, 30)"
+colliderOffset = "(0, 5)"
+
+resizeOffset = 3.0

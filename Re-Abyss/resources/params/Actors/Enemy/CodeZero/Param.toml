@@ -1,0 +1,23 @@
+[Base]
+hp = 240
+
+[Head]
+colRadius = 35.0
+offset = "(0, -50)"
+
+[Phase1]
+waitRestart = 3.0
+waitAttack = 1.2
+
+[Phase2]
+waitInit = 3.0
+waitAttack = 1.2
+waitDualAttack = 3.0
+waitRestart = 4.0
+
+[Phase3]
+waitShot = 1.0
+waitPursuit = 3.2
+waitInitAttack = 2.0
+waitAttack = 1.2
+waitRestart = 3.0

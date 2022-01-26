@@ -1,0 +1,13 @@
+[Face]
+basePos = "(80,20)"
+
+[HP]
+basePos = "(139, 1)"
+offset = 14
+
+[Ooparts]
+basePos = "(135, 20)"
+namePos = "(160, 26)"
+
+[Main]
+drawPos = "(10, 21)"

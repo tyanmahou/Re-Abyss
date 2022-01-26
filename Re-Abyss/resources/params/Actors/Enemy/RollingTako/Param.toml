@@ -1,0 +1,15 @@
+[Base]
+hp = 6
+size = "(45, 45)"
+pivot = "(0, 7.5)"
+
+[Wait]
+searchRange = 500.0
+
+[Run]
+accelX = 180.0
+maxSpeedX = 200.0
+
+[View]
+waitAnimeTimeSec = 1.0
+runAnimeTimeSec = 0.2

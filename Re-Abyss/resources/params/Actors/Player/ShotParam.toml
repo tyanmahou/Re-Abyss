@@ -1,0 +1,23 @@
+[Base]
+speed = 840
+colliderRate = 1.3
+
+[Normal]
+charge = 0
+radius = 5
+power = 2
+
+[Small]
+charge = 10
+radius = 8
+power = 3
+
+[Medium]
+charge = 60
+radius = 16
+power = 6
+
+[Big]
+charge = 120
+radius = 24
+power = 12

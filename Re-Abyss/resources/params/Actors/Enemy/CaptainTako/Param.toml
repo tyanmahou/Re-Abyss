@@ -1,0 +1,18 @@
+[Base]
+hp = 10
+size = "(32, 38)"
+pivot = "(0, 1)"
+
+[Wait]
+timeSec = 2.0
+
+[Charge]
+timeSec = 2.0
+
+[Attack]
+intervalTimeSec = 0.2
+attackCount = 4
+
+[View]
+animeTimeSec = 1.0
+chargingAddScale = 0.4

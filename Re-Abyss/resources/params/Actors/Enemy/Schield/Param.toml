@@ -1,0 +1,14 @@
+[Base]
+hp = 10
+size = "(80, 60)"
+
+[Wait]
+timeSec = 2.0
+faceColRadius = 22.0
+
+[Attack]
+timeSec = 0.2
+
+[View]
+animeTimeSec = 1.0
+transitionTimeSec = 0.8

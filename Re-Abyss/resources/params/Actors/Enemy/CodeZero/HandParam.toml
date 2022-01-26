@@ -1,0 +1,14 @@
+[Base]
+colRadius = 35.0
+horizontalDist = 470.0
+verticalDist = 350.0
+
+[Setup]
+speed = 270
+
+[Pursuit]
+speed = 200
+
+[Attack]
+speed = 1000
+waitTimeSec = 0.5

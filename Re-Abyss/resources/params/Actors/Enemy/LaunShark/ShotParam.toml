@@ -1,0 +1,23 @@
+[Base]
+hp = 4
+size = "(30, 10)"
+
+[Start]
+speed = 120
+decel = 360
+
+[Wait]
+time = 1.0
+speed = 20
+
+[Pursuit]
+time = 2.0
+rotateDeg = 60
+speed = 20
+
+[Firinged]
+accel = 120.0
+maxSpeed = 360.0
+
+[View]
+animeTimeSec = 0.25

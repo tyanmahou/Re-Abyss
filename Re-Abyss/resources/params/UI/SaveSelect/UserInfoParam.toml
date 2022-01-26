@@ -1,0 +1,28 @@
+[Common]
+basePos = "(-400, -120)"
+
+[HPBar]
+pos = "(40, 30)"
+
+[Chapter]
+labelPos = "(400, 35)"
+posAt = "(600, 40)"
+linePos = "(395, 55)"
+lineLength = 370
+
+[Player]
+pos = "(180, 180)"
+
+[PlayMode]
+pos = "(320, 85)"
+
+[PlayTime]
+labelPos = "(320, 135)"
+pos = "(480, 135)"
+
+[UpdatedAt]
+pos = "(580, 85)"
+
+[OopartsList]
+pos = "(320, 180)"
+offsetX = 47

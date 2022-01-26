@@ -1,0 +1,10 @@
+[Base]
+colRadius = 70
+
+[Wait]
+scaleTime = 3.0
+
+[Pursuit]
+speed = 90
+timeSec = 5.0
+endToDeadTimeSec = 3.5

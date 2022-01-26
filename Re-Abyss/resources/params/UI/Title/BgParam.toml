@@ -1,0 +1,8 @@
+[Common]
+timeSec = 10.0
+
+[BackGround]
+endPos = "(0, -100)"
+
+[Atlantis]
+startPos = "(-100, 450)"

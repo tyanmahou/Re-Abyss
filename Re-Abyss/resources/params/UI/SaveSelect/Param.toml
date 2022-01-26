@@ -1,0 +1,20 @@
+[Horizon]
+header = 75
+footer = -60
+
+[SelectFrame]
+basePos = "(0, 0)"
+size = "(800, 350)"
+selectSize = "(70, 56)"
+selectCornerRate = "(0.8, 0.3)"
+selectPosOffset = 10
+trashSize = "(60, 56)"
+
+[Confirm]
+boardPos ="(0, 35)"
+boardSize ="(500, 270)"
+messagePos ="(0, -100)"
+choiceBasePos ="(0, -30)"
+choiceOffset = 40
+cursorOffset = -100
+detailPos = "(0, 25)"

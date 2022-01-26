@@ -399,5 +399,6 @@ lib/
 !/Re-Abyss/app/debugs/Log/*
 /Re-Abyss/[Rr]esources/*
 !/Re-Abyss/resources/shaders/
+!/Re-Abyss/[Rr]esources/params/
 [Vv]endor/
 /Re-Abyss/[Uu]serdata/*

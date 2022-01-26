@@ -1,0 +1,16 @@
+[Base]
+hp = 6
+pivot = "(0, -15)"
+colRadius = 18
+
+[Pursuit]
+time = 2.0
+rotateDeg = 60
+speed = 30.0
+
+[Swim]
+speed = 360
+decel = 360
+
+[View]
+waitAnimeTimeSec = 1.5

@@ -1,0 +1,24 @@
+[Base]
+hp = 8
+invincibleTime = 2.0
+size = "(22, 80)"
+
+
+[Swim]
+accelX = 360
+decelX = 180
+maxSpeedX = 240
+diveSpeed = 150
+jumpHeight = 90
+
+[Ladder]
+speed = 120
+
+[Damage]
+timeSec = 0.5
+knockBackSpeed = "(210, 210)"
+
+[Dead]
+timeSec = 2.5
+animeTimeSec = 0.4
+knockBackSpeed = "(210, 210)"

@@ -1,0 +1,8 @@
+[Step]
+timeSec = 0.18
+basePos = "(0, 0)"
+moveOffset = "(200, 200)"
+moveDiff = "(200, 200)"
+
+[End]
+pos = "(0, -140)"

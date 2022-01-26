@@ -1,0 +1,27 @@
+[Base]
+hp = 10
+size = "(120, 40)"
+accelX = 360
+
+[Swim]
+maxSpeedX = 180
+moveRangeY = 20
+movePeriodSec = 6.0
+attackRange = 200
+launcherRange = 500
+waitTimeSec = 1.5
+onCollisionWaitTimeSec = 0.5
+
+[Attack]
+attackTimeSec = 4.0
+moveRangeY = 40
+movePeriodSec = 3.0
+size = "(120, 60)"
+
+[Launcher]
+attackTimeSec = 1.2
+waitTimeSec = 0.8
+
+[View]
+swimAnimeTimeSec = 1.0
+attackAnimeTimeSec = 0.8
