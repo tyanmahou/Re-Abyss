@@ -1,8 +1,8 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <Siv3D/Math.hpp>
-#include <abyss/modules/World/FixPos.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/utils/Math/Math.hpp>
+#include <abyss/utils/Collision/FixPos.hpp>
 
 namespace abyss::Actor
 {

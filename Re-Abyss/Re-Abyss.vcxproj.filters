@@ -143,7 +143,7 @@
     <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\FixPos.cpp">
+    <ClCompile Include="app\utils\Collision\FixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Collision\CollisionUtil.cpp">
@@ -1935,7 +1935,7 @@
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
-    <ClInclude Include="app\modules\World\FixPos.hpp" />
+    <ClInclude Include="app\utils\Collision\FixPos.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\models\Actors\Player\Shot\PlayerShotType.hpp" />
