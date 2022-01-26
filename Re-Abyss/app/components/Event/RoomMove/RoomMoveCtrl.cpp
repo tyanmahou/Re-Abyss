@@ -1,4 +1,4 @@
-#include "RoomMoveCtrl.hpp"
+#include <abyss/components/Event/RoomMove/RoomMoveCtrl.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Camera/CameraFix/base/ICameraFix.hpp>

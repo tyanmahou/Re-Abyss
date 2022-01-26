@@ -1,4 +1,4 @@
-#include "MainStream.hpp"
+#include <abyss/components/Event/Talk/MainStream.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Novel/Novels.hpp>

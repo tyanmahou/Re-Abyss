@@ -1,4 +1,4 @@
-#include "PlayerStateChanger.hpp"
+#include <abyss/components/Event/Talk/PlayerStateChanger.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Player/State/TalkState.hpp>
 #include <abyss/components/Actor/Player/State/SwimState.hpp>

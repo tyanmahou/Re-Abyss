@@ -1,4 +1,4 @@
-#include "BgmCtrl.hpp"
+#include <abyss/components/Event/Title/BgmCtrl.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Event/Events.hpp>

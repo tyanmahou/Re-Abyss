@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Event/Talk/Builder.hpp>
+
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/components/Event/Talk/MainStream.hpp>
 #include <abyss/components/Event/Talk/PlayerStateChanger.hpp>

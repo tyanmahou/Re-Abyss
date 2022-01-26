@@ -1,4 +1,4 @@
-#include "GlobalTimeCtrl.hpp"
+#include <abyss/components/Event/Common/GlobalTimeCtrl.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
 

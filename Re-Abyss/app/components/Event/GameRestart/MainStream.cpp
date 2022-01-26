@@ -1,4 +1,4 @@
-#include "MainStream.hpp"
+#include <abyss/components/Event/GameRestart/MainStream.hpp>
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>

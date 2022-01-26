@@ -1,4 +1,5 @@
-#include "PlayerStateCtrl.hpp"
+#include <abyss/components/Event/Common/PlayerStateCtrl.hpp>
+
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
 
