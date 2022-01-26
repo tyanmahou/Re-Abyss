@@ -1,4 +1,4 @@
-#include "DamageCallback.hpp"
+#include <abyss/components/Actor/Enemy/DamageCallback.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>

@@ -1,4 +1,4 @@
-﻿#include "CommonBuilder.hpp"
+#include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 
 #include <abyss/components/Common/MotionCtrl.hpp>
 

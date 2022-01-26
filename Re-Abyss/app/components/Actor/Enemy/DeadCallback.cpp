@@ -1,4 +1,4 @@
-#include "DeadCallback.hpp"
+#include <abyss/components/Actor/Enemy/DeadCallback.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

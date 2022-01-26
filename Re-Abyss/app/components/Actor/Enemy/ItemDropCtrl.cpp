@@ -1,4 +1,4 @@
-#include "ItemDropCtrl.hpp"
+#include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 
