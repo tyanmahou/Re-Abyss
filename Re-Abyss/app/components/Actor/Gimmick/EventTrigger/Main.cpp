@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/Actor/Gimmick/EventTrigger/Main.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Event/Talk/Builder.hpp>

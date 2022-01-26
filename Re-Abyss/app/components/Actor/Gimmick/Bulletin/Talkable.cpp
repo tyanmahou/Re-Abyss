@@ -1,4 +1,4 @@
-#include "Talkable.hpp"
+#include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/UI/UIs.hpp>

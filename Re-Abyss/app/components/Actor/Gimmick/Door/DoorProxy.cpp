@@ -1,4 +1,4 @@
-#include "DoorProxy.hpp"
+#include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {

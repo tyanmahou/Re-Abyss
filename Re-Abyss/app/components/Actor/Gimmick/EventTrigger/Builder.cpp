@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/EventTrigger/Main.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger

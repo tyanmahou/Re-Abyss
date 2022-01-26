@@ -1,4 +1,5 @@
-#include "ColReactor.hpp"
+#include <abyss/components/Actor/Gimmick/Bush/ColReactor.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>

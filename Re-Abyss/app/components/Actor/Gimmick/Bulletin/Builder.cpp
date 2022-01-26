@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Gimmick/Bulletin/Builder.hpp>
+
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>

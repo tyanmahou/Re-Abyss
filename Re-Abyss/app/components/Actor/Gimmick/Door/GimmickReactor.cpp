@@ -1,4 +1,4 @@
-#include "GimmickReactor.hpp"
+#include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

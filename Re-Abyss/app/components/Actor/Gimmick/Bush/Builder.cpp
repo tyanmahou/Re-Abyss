@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Gimmick/Bush/Builder.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>

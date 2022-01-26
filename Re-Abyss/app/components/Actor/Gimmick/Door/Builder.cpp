@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Gimmick/Door/Builder.hpp>
 
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
