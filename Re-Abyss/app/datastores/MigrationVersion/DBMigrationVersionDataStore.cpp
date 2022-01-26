@@ -1,4 +1,4 @@
-#include "DBMigrationVersionDataStore.hpp"
+#include <abyss/datastores/MigrationVersion/DBMigrationVersionDataStore.hpp>
 #include <abyss/utils/DB/DBUtil.hpp>
 #include <Siv3D.hpp>
 

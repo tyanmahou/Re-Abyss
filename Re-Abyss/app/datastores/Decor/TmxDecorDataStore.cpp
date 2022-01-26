@@ -1,5 +1,5 @@
-#include "TmxDecorDataStore.hpp"
-#include "parser/TmxDecorParser.hpp"
+#include <abyss/datastores/Decor/TmxDecorDataStore.hpp>
+#include <abyss/datastores/Decor/parser/TmxDecorParser.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 

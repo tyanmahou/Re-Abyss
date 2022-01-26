@@ -1,4 +1,4 @@
-#include "IGraphicsDataStore.hpp"
+#include <abyss/datastores/Decor/base/IGraphicsDataStore.hpp>
 
 namespace abyss::Decor
 {

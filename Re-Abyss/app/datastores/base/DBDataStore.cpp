@@ -1,4 +1,4 @@
-#include "DBDataStore.hpp"
+#include <abyss/datastores/base/DBDataStore.hpp>
 #include <abyss/commons/Resource/UserData/Manager/Manager.hpp>
 
 namespace abyss

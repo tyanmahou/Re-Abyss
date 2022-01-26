@@ -1,5 +1,5 @@
-#include "TmxGimmickDataStore.hpp"
-#include "parser/TmxGimmickParser.hpp"
+#include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>
+#include <abyss/datastores/Actor/Gimmick/parser/TmxGimmickParser.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Gimmick

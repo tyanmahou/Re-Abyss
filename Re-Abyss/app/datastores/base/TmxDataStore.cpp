@@ -1,4 +1,4 @@
-#include "TmxDataStore.hpp"
+#include <abyss/datastores/base/TmxDataStore.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss

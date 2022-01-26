@@ -1,5 +1,5 @@
-#include "TmxMapDataStore.hpp"
-#include "parser/TmxMapParser.hpp"
+#include <abyss/datastores/Actor/Map/TmxMapDataStore.hpp>
+#include <abyss/datastores/Actor/Map/parser/TmxMapParser.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Map

@@ -1,4 +1,5 @@
-#include "TmxDecorParser.hpp"
+#include <abyss/datastores/Decor/parser/TmxDecorParser.hpp>
+
 #include <abyss/entities/Decor/DecorEntity.hpp>
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
 #include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>

@@ -1,5 +1,5 @@
-#include "TmxItemDataStore.hpp"
-#include "parser/TmxItemParser.hpp"
+#include <abyss/datastores/Actor/Item/TmxItemDataStore.hpp>
+#include <abyss/datastores/Actor/Item/parser/TmxItemParser.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Item

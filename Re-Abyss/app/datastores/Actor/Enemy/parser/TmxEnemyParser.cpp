@@ -1,4 +1,4 @@
-#include "TmxEnemyParser.hpp"
+#include <abyss/datastores/Actor/Enemy/parser/TmxEnemyParser.hpp>
 
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>

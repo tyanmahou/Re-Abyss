@@ -1,4 +1,4 @@
-#include "TmxItemParser.hpp"
+#include <abyss/datastores/Actor/Item/parser/TmxItemParser.hpp>
 
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>

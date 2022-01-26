@@ -1,4 +1,4 @@
-#include "TmxAnimationDataStore.hpp"
+#include <abyss/datastores/Decor/TmxAnimationDataStore.hpp>
 
 namespace abyss::Decor
 {

@@ -1,4 +1,4 @@
-#include "TmxGraphicsDataStore.hpp"
+#include <abyss/datastores/Decor/TmxGraphicsDataStore.hpp>
 
 namespace abyss::Decor
 {

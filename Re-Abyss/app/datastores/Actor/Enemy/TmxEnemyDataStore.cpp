@@ -1,5 +1,5 @@
-#include "TmxEnemyDataStore.hpp"
-#include "parser/TmxEnemyParser.hpp"
+#include <abyss/datastores/Actor/Enemy/TmxEnemyDataStore.hpp>
+#include <abyss/datastores/Actor/Enemy/parser/TmxEnemyParser.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss::Actor::Enemy

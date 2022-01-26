@@ -1,4 +1,4 @@
-#include "DBUserDataStore.hpp"
+#include <abyss/datastores/User/DBUserDataStore.hpp>
 #include <abyss/utils/DB/DBUtil.hpp>
 
 namespace abyss::User

@@ -1,4 +1,5 @@
-#include "TmxGimmickParser.hpp"
+#include <abyss/datastores/Actor/Gimmick/parser/TmxGimmickParser.hpp>
+
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BulletinEntity.hpp>

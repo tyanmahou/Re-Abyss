@@ -1,4 +1,4 @@
-#include "IAnimationDataStore.hpp"
+#include <abyss/datastores/Decor/base/IAnimationDataStore.hpp>
 
 namespace abyss::Decor
 {
