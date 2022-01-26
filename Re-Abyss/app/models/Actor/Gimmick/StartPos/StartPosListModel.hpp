@@ -4,7 +4,7 @@
 #include<Siv3D/Fwd.hpp>
 #include<Siv3D/Optional.hpp>
 
-#include "StartPosModel.hpp"
+#include <abyss/models/Actor/Gimmick/StartPos/StartPosModel.hpp>
 
 namespace abyss
 {

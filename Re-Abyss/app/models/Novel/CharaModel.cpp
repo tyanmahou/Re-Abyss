@@ -1,4 +1,4 @@
-#include "CharaModel.hpp"
+#include <abyss/models/Novel/CharaModel.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace

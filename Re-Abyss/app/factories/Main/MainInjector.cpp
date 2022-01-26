@@ -1,4 +1,4 @@
-#include "MainInjector.hpp"
+#include <abyss/factories/Main/MainInjector.hpp>
 
 #include <abyss/datastores/Actor/Enemy/TmxEnemyDataStore.hpp>
 #include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>

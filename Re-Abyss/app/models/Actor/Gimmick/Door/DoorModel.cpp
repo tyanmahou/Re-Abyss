@@ -1,4 +1,4 @@
-#include "DoorModel.hpp"
+#include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {

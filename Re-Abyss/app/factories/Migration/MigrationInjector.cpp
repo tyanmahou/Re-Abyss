@@ -1,4 +1,5 @@
-#include "MigrationInjector.hpp"
+#include <abyss/factories/Migration/MigrationInjector.hpp>
+
 #include <abyss/datastores/Migration/MigrationDataStore.hpp>
 #include <abyss/datastores/MigrationVersion/DBMigrationVersionDataStore.hpp>
 

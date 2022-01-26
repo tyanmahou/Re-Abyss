@@ -1,4 +1,5 @@
-#include "StorageInjector.hpp"
+#include <abyss/factories/Storage/StorageInjector.hpp>
+
 #include <abyss/datastores/User/DBUserDataStore.hpp>
 #include <abyss/services/User/UserService.hpp>
 

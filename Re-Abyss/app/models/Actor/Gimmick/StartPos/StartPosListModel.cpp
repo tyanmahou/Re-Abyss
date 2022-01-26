@@ -1,4 +1,4 @@
-#include "StartPosListModel.hpp"
+#include <abyss/models/Actor/Gimmick/StartPos/StartPosListModel.hpp>
 
 namespace abyss
 {

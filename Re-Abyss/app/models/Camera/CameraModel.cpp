@@ -1,4 +1,4 @@
-#include "CameraModel.hpp"
+#include <abyss/models/Camera/CameraModel.hpp>
 #include <abyss/commons/Constants.hpp>
 using namespace s3d;
 

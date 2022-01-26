@@ -1,4 +1,4 @@
-#include "QuakeModel.hpp"
+#include <abyss/models/Camera/QuakeModel.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
 

@@ -1,4 +1,4 @@
-#include "RoomModel.hpp"
+#include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/types/ColDirection.hpp>
 
