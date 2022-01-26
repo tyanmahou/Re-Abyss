@@ -1,4 +1,4 @@
-#include "LadderUtil.hpp"
+#include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Map::Ladder

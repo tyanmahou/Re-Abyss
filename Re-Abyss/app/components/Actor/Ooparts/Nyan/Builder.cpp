@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Ooparts/Nyan/Builder.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>

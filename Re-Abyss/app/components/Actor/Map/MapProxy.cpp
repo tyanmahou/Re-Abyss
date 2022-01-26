@@ -1,4 +1,4 @@
-#include "MapProxy.hpp"
+#include <abyss/components/Actor/Map/MapProxy.hpp>
 #include <Siv3D.hpp>
 #include <abyss/types/MapColInfo.hpp>
 

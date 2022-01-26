@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Map/PenetrateFloor/Builder.hpp>
 
 #include <abyss/components/Actor/Map/CommonBuilder.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>

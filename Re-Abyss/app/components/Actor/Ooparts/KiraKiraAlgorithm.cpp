@@ -1,4 +1,3 @@
-#include "KiraKiraAlgorithm.hpp"
 #include <abyss/components/Actor/Ooparts/KiraKiraAlgorithm.hpp>
 
 #include <abyss/modules/Effect/Effects.hpp>

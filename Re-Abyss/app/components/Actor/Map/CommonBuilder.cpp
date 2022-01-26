@@ -1,4 +1,4 @@
-#include "CommonBuilder.hpp"
+#include <abyss/components/Actor/Map/CommonBuilder.hpp>
 
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Map/MapProxy.hpp>

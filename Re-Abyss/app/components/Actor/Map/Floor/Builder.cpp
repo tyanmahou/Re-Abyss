@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Map/Floor/Builder.hpp>
 
 #include <abyss/components/Actor/Map/CommonBuilder.hpp>
 

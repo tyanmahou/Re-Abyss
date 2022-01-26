@@ -1,4 +1,4 @@
-#include "PenetrateFloorExtension.hpp"
+#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
 
 namespace abyss::Actor::Map::PenetrateFloor
 {
