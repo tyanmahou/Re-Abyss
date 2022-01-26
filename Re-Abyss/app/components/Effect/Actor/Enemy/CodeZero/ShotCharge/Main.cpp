@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Main.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <Siv3D.hpp>
 

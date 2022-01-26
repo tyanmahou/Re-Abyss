@@ -1,4 +1,4 @@
-#include "SivEffect.hpp"
+#include <abyss/components/Effect/Common/SivEffect.hpp>
 
 namespace abyss::Effect
 {

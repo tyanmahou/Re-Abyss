@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Effect/Misc/Bubble/Builder.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>

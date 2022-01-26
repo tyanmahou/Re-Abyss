@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/Effect/Actor/Ooparts/Common/KiraKira/Main.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <Siv3D.hpp>
 

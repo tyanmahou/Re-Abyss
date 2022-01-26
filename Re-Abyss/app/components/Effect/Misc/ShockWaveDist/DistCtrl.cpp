@@ -1,4 +1,4 @@
-#include "DistCtrl.hpp"
+#include <abyss/components/Effect/Misc/ShockWaveDist/DistCtrl.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Distortion/Distortion.hpp>
 

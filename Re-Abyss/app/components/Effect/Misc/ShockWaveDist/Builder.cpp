@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/DistCtrl.hpp>

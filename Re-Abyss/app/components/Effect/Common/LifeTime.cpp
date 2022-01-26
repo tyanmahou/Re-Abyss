@@ -1,4 +1,4 @@
-#include "LifeTime.hpp"
+#include <abyss/components/Effect/Common/LifeTime.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <Siv3D.hpp>
 

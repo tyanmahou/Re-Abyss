@@ -1,5 +1,4 @@
-#pragma once
-#include "Main.hpp"
+#include <abyss/components/Effect/Misc/Bubble/Main.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

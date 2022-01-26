@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Effect/Actor/Ooparts/Common/KiraKira/Builder.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/components/Effect/Actor/Ooparts/Common/KiraKira/Main.hpp>
 
