@@ -1,5 +1,5 @@
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
-#include "ParentObserver.hpp"
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
