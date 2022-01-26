@@ -1,4 +1,4 @@
-#include "DecorTranslator.hpp"
+#include <abyss/translators/Decor/DecorTranslator.hpp>
 
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
 #include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>

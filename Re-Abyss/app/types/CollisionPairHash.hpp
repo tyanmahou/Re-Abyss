@@ -2,7 +2,6 @@
 #include <type_traits>
 #include <Siv3D/Fwd.hpp>
 
-
 namespace abyss 
 {
 	struct CollisionPairHash

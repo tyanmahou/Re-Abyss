@@ -1,4 +1,5 @@
-#include "MapTranslator.hpp"
+#include <abyss/translators/Actor/Map/MapTranslator.hpp>
+
 #include <abyss/entities/Actor/Map/MapEntity.hpp>
 #include <abyss/components/Actor/Map/Floor/Builder.hpp>
 #include <abyss/components/Actor/Map/PenetrateFloor/Builder.hpp>

@@ -1,4 +1,5 @@
-#include "GimmickTranslator.hpp"
+#include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
+
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BulletinEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BushEntity.hpp>

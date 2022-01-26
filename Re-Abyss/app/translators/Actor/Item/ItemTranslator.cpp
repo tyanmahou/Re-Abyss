@@ -1,4 +1,4 @@
-#include "ItemTranslator.hpp"
+#include <abyss/translators/Actor/Item/ItemTranslator.hpp>
 
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 

@@ -1,4 +1,4 @@
-#include "EnemyTranslator.hpp"
+#include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
 
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>

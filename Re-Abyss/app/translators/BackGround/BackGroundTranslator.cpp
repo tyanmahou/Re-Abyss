@@ -1,4 +1,5 @@
-#include "BackGroundTranslator.hpp"
+#include <abyss/translators/BackGround/BackGroundTranslator.hpp>
+
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/views/BackGround/BackGroundVM.hpp>
 
