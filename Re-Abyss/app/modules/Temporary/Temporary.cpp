@@ -1,5 +1,5 @@
-#include "Temporary.hpp"
-#include "TemporaryData.hpp"
+#include <abyss/modules/Temporary/Temporary.hpp>
+#include <abyss/modules/Temporary/TemporaryData.hpp>
 
 namespace abyss
 {

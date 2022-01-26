@@ -1,4 +1,5 @@
-#include "DecorGraphics.hpp"
+#include <abyss/modules/Decor/DecorGraphics.hpp>
+
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/entities/Decor/AnimationEntity.hpp>

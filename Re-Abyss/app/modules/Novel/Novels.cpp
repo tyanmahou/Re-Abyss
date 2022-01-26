@@ -1,4 +1,4 @@
-#include "Novels.hpp"
+#include <abyss/modules/Novel/Novels.hpp>
 
 namespace abyss::Novel
 {

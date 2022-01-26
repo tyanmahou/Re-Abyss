@@ -1,4 +1,4 @@
-#include "Effects.hpp"
+#include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/components/Effect/Common/SivEffect.hpp>
 

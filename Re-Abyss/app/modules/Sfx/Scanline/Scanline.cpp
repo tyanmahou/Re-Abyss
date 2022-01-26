@@ -1,4 +1,4 @@
-#include "Scanline.hpp"
+#include <abyss/modules/Sfx/Scanline/Scanline.hpp>
 
 namespace abyss::Sfx
 {

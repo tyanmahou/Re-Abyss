@@ -1,4 +1,4 @@
-#include "Stage.hpp"
+#include <abyss/modules/Stage/Stage.hpp>
 
 #include <Siv3D.hpp>
 

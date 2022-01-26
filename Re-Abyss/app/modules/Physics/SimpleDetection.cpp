@@ -1,4 +1,5 @@
-#include "SimpleDetection.hpp"
+#include <abyss/modules/Physics/SimpleDetection.hpp>
+
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>

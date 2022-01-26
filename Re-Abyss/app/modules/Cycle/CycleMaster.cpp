@@ -1,4 +1,4 @@
-#include "CycleMaster.hpp"
+#include <abyss/modules/Cycle/CycleMaster.hpp>
 
 namespace abyss::Cycle
 {

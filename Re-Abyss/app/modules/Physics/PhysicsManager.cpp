@@ -1,5 +1,5 @@
-#include "PhysicsManager.hpp"
-#include "SimpleDetection.hpp"
+#include <abyss/modules/Physics/PhysicsManager.hpp>
+#include <abyss/modules/Physics/SimpleDetection.hpp>
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <Siv3D.hpp>

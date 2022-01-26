@@ -1,4 +1,4 @@
-﻿#include "Camera.hpp"
+#include <abyss/modules/Camera/Camera.hpp>
 
 #include <abyss/models/Camera/QuakeModel.hpp>
 

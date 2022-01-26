@@ -1,4 +1,4 @@
-#include "Sound.hpp"
+#include <abyss/modules/Sound/Sound.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss

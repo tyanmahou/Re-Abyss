@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Color.hpp>
 #include <Siv3D/Optional.hpp>
+
 namespace abyss
 {
     /// <summary>

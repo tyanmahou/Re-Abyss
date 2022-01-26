@@ -1,5 +1,4 @@
 #pragma once
-
 #include <memory>
 #include <Siv3D/Optional.hpp>
 #include <Siv3D/Vector2D.hpp>

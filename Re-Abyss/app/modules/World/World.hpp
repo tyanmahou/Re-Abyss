@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/modules/Actor/base/ActorsHolder.hpp>
 
 namespace abyss

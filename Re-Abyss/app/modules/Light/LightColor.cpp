@@ -1,4 +1,4 @@
-#include "LightColor.hpp"
+#include <abyss/modules/Light/LightColor.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss

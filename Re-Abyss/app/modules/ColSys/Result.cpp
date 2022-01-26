@@ -1,4 +1,4 @@
-#include "Result.hpp"
+#include <abyss/modules/ColSys/Result.hpp>
 
 namespace abyss::ColSys
 {

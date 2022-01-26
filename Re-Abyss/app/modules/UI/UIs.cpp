@@ -1,4 +1,4 @@
-#include "UIs.hpp"
+#include <abyss/modules/UI/UIs.hpp>
 
 namespace abyss::UI
 {

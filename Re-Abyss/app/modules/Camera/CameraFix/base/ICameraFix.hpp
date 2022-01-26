@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/modules/Camera/CameraFix/CameraFixPriority.hpp>
+
 namespace abyss
 {
     class ICameraFix

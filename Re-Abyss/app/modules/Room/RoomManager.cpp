@@ -1,4 +1,5 @@
-#include "RoomManager.hpp"
+#include <abyss/modules/Room/RoomManager.hpp>
+
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/CameraFix/base/ICameraFix.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

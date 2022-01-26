@@ -1,4 +1,4 @@
-#include "PostEffects.hpp"
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 namespace abyss::Sfx
 {

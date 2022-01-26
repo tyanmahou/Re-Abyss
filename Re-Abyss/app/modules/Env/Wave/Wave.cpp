@@ -1,4 +1,4 @@
-#include "Wave.hpp"
+#include <abyss/modules/Env/Wave/Wave.hpp>
 
 namespace abyss::Env
 {

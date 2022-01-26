@@ -1,4 +1,4 @@
-#include "Sky.hpp"
+#include <abyss/modules/Env/Sky/Sky.hpp>
 
 namespace abyss::Env
 {

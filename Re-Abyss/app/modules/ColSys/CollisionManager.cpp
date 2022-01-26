@@ -1,5 +1,5 @@
-#include "CollisionManager.hpp"
-#include "SimpleDetection.hpp"
+#include <abyss/modules/ColSys/CollisionManager.hpp>
+#include <abyss/modules/ColSys/SimpleDetection.hpp>
 #include <abyss/modules/ColSys/Branch.hpp>
 
 namespace abyss::ColSys

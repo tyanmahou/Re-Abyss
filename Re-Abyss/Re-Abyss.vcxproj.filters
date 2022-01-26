@@ -2035,7 +2035,6 @@
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
-    <ClInclude Include="app\modules\World\LayerGroup.hpp" />
     <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Xto\XtoVM.hpp" />

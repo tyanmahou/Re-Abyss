@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <Siv3D/Fwd.hpp>
+#include <Siv3D/Optional.hpp>
 #include <abyss/types/Temporary/TempKey.hpp>
 #include <abyss/types/Temporary/TempLevel.hpp>
 

@@ -1,4 +1,4 @@
-#include "CameraFixCtrl.hpp"
+#include <abyss/modules/Camera/CameraFix/CameraFixCtrl.hpp>
 
 namespace abyss
 {

@@ -1,4 +1,5 @@
-#include "SimpleDetection.hpp"
+#include <abyss/modules/ColSys/SimpleDetection.hpp>
+
 #include <abyss/modules/ColSys/Branch.hpp>
 #include <abyss/modules/ColSys/LayerGroup.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>

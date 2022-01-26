@@ -1,4 +1,4 @@
-#include "DrawManager.hpp"
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss
 {

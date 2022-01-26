@@ -3,8 +3,8 @@
 #include <functional>
 #include <Siv3D/RectF.hpp>
 #include <abyss/types/ColDirection.hpp>
-#include "ITerrainExtData.hpp"
-#include "Tag.hpp"
+#include <abyss/modules/Physics/base/Tag.hpp>
+#include <abyss/modules/Physics/base/ITerrainExtData.hpp>
 
 namespace abyss::Physics
 {

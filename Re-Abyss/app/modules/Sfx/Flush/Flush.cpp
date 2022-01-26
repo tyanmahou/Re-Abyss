@@ -1,4 +1,5 @@
-#include "Flush.hpp"
+#include <abyss/modules/Sfx/Flush/Flush.hpp>
+
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/modules/DrawManager/DrawOrder.hpp>

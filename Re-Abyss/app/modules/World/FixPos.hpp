@@ -1,5 +1,4 @@
 #pragma once
-
 #include <tuple>
 #include <Siv3D/Fwd.hpp>
 

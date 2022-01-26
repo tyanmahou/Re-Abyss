@@ -1,5 +1,5 @@
-#include "Decors.hpp"
-#include "DecorGraphics.hpp"
+#include <abyss/modules/Decor/Decors.hpp>
+#include <abyss/modules/Decor/DecorGraphics.hpp>
 
 namespace abyss::Decor
 {

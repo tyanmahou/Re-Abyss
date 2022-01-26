@@ -1,4 +1,5 @@
-#include "ActorObj.hpp"
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+
 #include <abyss/components/Common/ClockCtrl.hpp>
 #include <abyss/components/Actor/base/IPreUpdate.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>

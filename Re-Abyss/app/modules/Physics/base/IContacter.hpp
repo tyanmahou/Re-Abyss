@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/types/CShape.hpp>
-#include "TerrainData.hpp"
+#include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Physics
 {

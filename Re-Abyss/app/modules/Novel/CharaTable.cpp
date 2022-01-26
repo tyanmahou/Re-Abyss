@@ -1,4 +1,4 @@
-#include "CharaTable.hpp"
+#include <abyss/modules/Novel/CharaTable.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Novel

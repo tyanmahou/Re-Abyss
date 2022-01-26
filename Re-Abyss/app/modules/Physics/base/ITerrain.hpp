@@ -1,5 +1,5 @@
 #pragma once
-#include "TerrainData.hpp"
+#include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Physics
 {

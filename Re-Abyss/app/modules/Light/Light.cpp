@@ -1,4 +1,5 @@
-#include "Light.hpp"
+#include <abyss/modules/Light/Light.hpp>
+
 namespace abyss
 {
     void Light::clear()

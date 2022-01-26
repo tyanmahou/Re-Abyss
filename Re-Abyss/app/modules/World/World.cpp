@@ -1,4 +1,4 @@
-#include "World.hpp"
+#include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss

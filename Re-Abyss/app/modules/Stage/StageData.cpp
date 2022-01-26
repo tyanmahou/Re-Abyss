@@ -1,4 +1,5 @@
-#include "StageData.hpp"
+#include <abyss/modules/Stage/StageData.hpp>
+
 namespace abyss
 {
     const s3d::Array<BackGroundEntity>& StageData::getBgs() const

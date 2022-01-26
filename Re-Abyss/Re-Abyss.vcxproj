@@ -1554,7 +1554,6 @@
     <ClInclude Include="app\utils\EnumTraits\EnumTraits.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
     <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
-    <ClInclude Include="app\modules\World\LayerGroup.hpp" />
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Common.hpp" />

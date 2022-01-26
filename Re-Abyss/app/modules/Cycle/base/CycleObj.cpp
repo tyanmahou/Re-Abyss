@@ -1,4 +1,4 @@
-#include "CycleObj.hpp"
+#include <abyss/modules/Cycle/base/CycleObj.hpp>
 #include <abyss/components/Cycle/base/IListener.hpp>
 
 namespace abyss::Cycle

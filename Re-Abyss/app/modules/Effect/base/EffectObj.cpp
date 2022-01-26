@@ -1,4 +1,5 @@
-#include "EffectObj.hpp"
+#include <abyss/modules/Effect/base/EffectObj.hpp>
+
 #include <abyss/components/Common/ClockCtrl.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/Drawer.hpp>

@@ -1,4 +1,5 @@
-#include "DecorHolder.hpp"
+#include <abyss/modules/Decor/base/DecorHolder.hpp>
+
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/components/Decor/Common/DecorInfo.hpp>
 

@@ -1,4 +1,4 @@
-﻿#include "Manager.hpp"
+#include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss
 {

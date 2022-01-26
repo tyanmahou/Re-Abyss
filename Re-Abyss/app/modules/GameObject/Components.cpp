@@ -1,4 +1,4 @@
-#include "Components.hpp"
+#include <abyss/modules/GameObject/Components.hpp>
 #include <unordered_map>
 #include <ranges>
 

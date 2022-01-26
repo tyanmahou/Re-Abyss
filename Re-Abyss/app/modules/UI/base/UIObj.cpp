@@ -1,4 +1,5 @@
-#include "UIObj.hpp"
+#include <abyss/modules/UI/base/UIObj.hpp>
+
 #include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IPostUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>

@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Sfx/Flush/FlushFade.hpp>
+
 namespace abyss::Sfx
 {
 	class Flush

@@ -1,4 +1,4 @@
-#include "BackGround.hpp"
+#include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
 namespace abyss

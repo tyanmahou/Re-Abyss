@@ -1,5 +1,5 @@
 #pragma once
-#include "ICameraTarget.hpp"
+#include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 
 namespace abyss
 {

@@ -1,4 +1,4 @@
-#include "GlobalTime.hpp"
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <Siv3D/Stopwatch.hpp>
 #include <Siv3D/Math.hpp>
 #include <Siv3D/Array.hpp>

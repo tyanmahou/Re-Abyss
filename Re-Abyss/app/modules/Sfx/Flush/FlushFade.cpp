@@ -1,4 +1,4 @@
-#include "FlushFade.hpp"
+#include <abyss/modules/Sfx/Flush/FlushFade.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Sfx

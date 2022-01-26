@@ -1,7 +1,7 @@
 #pragma once
-
 #include <abyss/views/BackGround/BackGroundView.hpp>
 #include <abyss/commons/Fwd.hpp>
+
 namespace abyss
 {
     class BackGround

@@ -1,4 +1,5 @@
-#include "DecorBuildUtil.hpp"
+#include <abyss/modules/Decor/DecorBuildUtil.hpp>
+
 #include <abyss/commons/Constants.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 #include <Siv3D.hpp>
