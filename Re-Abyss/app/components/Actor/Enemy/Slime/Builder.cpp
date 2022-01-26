@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
 
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>

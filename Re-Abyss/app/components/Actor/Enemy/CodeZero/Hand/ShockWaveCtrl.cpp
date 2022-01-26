@@ -1,4 +1,5 @@
-#include "ShockWaveCtrl.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>

@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Builder.hpp>
+
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 

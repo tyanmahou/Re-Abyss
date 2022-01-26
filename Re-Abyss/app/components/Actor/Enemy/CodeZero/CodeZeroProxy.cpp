@@ -1,4 +1,4 @@
-#include "CodeZeroProxy.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

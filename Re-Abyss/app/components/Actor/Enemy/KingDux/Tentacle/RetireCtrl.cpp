@@ -1,4 +1,5 @@
-#include "RetireCtrl.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>

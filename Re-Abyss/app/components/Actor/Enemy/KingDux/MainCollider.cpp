@@ -1,4 +1,4 @@
-#include "MainCollider.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/MainCollider.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>

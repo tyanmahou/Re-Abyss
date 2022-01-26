@@ -1,4 +1,4 @@
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/BaseState.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {

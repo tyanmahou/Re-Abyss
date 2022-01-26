@@ -1,4 +1,5 @@
-#include "Behavior.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>

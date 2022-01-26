@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -25,6 +26,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             .setInitHp(BabyDuxParam::Base::Hp)
             //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
+            .setIsEnableItemDrop(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/baby_dux.aase")
             //.setInitState<WaitState>()
             //.setVModelBinder<ViewBinder>(pActor)

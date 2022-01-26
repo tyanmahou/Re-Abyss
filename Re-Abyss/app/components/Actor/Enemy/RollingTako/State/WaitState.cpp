@@ -1,5 +1,5 @@
-#include "WaitState.hpp"
-#include "RunState.hpp"
+#include <abyss/components/Actor/Enemy/RollingTako/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/RollingTako/State/RunState.hpp>
 
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>

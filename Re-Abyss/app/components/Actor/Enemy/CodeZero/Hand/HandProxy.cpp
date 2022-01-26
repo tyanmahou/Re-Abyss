@@ -1,4 +1,4 @@
-#include "HandProxy.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>

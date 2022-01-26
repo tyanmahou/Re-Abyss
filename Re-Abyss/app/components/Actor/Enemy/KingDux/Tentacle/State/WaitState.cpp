@@ -1,5 +1,4 @@
-﻿#include "WaitState.hpp"
-
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {

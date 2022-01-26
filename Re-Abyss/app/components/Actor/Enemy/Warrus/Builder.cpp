@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/Warrus/Builder.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor::Enemy::Warrus

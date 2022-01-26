@@ -1,4 +1,5 @@
-#include "HandDesc.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
+
 #include <Siv3D.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 

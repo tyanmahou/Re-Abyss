@@ -1,4 +1,5 @@
-#include "HeadCtrl.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>

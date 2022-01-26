@@ -1,4 +1,4 @@
-#include "ParentObserver.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/ParentObserver.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {

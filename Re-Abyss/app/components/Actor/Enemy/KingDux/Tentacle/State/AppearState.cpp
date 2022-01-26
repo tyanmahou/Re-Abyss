@@ -1,5 +1,6 @@
-#include "AppearState.hpp"
-#include "WaitState.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/WaitState.hpp>
+
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle

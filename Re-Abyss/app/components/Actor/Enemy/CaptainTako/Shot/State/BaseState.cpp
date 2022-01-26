@@ -1,4 +1,4 @@
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/CaptainTako/Shot/State/BaseState.hpp>
 
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 

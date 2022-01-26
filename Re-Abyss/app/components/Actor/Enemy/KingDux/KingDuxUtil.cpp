@@ -1,4 +1,5 @@
-#include "KingDuxUtil.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/World/World.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>

@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/CaptainTako/Shot/Builder.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/ShotParam.hpp>
 

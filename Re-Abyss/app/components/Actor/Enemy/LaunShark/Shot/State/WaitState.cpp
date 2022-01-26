@@ -1,5 +1,5 @@
-#include "WaitState.hpp"
-#include "PursuitState.hpp"
+#include <abyss/components/Actor/Enemy/LaunShark/Shot/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/LaunShark/Shot/State/PursuitState.hpp>
 
 #include <abyss/params/Actor/Enemy/LaunShark/ShotParam.hpp>
 

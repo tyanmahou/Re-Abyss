@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Shot/State/BaseState.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot

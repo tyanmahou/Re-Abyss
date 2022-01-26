@@ -1,4 +1,5 @@
-#include "TentacleUtil.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/TentacleUtil.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>

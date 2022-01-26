@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Builder.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -46,6 +47,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/king_dux.aase")
+            .setIsEnableItemDrop(false)
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );

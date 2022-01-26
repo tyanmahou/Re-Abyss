@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/Enemy/RollingTako/Builder.hpp>
 
 #include <abyss/entities/Actor/Enemy/RollingTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>

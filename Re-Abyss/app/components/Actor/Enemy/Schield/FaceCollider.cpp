@@ -1,4 +1,4 @@
-#include "FaceCollider.hpp"
+#include <abyss/components/Actor/Enemy/Schield/FaceCollider.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
 

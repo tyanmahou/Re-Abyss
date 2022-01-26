@@ -1,4 +1,4 @@
-﻿#include "Behavior.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 
 #include <Siv3D.hpp>
 

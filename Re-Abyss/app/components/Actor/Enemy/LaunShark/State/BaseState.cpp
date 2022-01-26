@@ -1,4 +1,4 @@
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/LaunShark/State/BaseState.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark

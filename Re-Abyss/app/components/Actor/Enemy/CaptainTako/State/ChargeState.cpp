@@ -1,5 +1,5 @@
-#include "ChargeState.hpp"
-#include "AttackState.hpp"
+#include <abyss/components/Actor/Enemy/CaptainTako/State/ChargeState.hpp>
+#include <abyss/components/Actor/Enemy/CaptainTako/State/AttackState.hpp>
 
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 

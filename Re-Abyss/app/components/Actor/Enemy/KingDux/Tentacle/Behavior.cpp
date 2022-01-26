@@ -1,4 +1,5 @@
-﻿#include "Behavior.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/AppearState.hpp>

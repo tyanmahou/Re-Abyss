@@ -1,5 +1,6 @@
-#include "WaitState.hpp"
-#include "ChargeState.hpp"
+#include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/CaptainTako/State/ChargeState.hpp>
+
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 

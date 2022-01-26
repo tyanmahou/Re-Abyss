@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-
-#include "../ComponentCache.hpp"
+#include <abyss/components/Actor/Enemy/LaunShark/ComponentCache.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark
 {

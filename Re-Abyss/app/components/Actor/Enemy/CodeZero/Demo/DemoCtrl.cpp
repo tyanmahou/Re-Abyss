@@ -1,4 +1,4 @@
-#include "DemoCtrl.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Demo
 {

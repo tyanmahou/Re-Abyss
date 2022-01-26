@@ -1,4 +1,4 @@
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/Ikalien/State/BaseState.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien
 {

@@ -1,5 +1,6 @@
-#include "WaitState.hpp"
-#include "PursuitState.hpp"
+#include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/State/PursuitState.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 

@@ -1,5 +1,5 @@
-#include "ConveneState.hpp"
-#include "WaitState.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/State/ConveneState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {

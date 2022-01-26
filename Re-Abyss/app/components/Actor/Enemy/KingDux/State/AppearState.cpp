@@ -1,5 +1,6 @@
-#include "AppearState.hpp"
-#include "WaitState.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
+
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>

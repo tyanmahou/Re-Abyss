@@ -1,5 +1,6 @@
-#include "WalkState.hpp"
-#include "JumpState.hpp"
+#include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
+#include <abyss/components/Actor/Enemy/Slime/State/JumpState.hpp>
+
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 

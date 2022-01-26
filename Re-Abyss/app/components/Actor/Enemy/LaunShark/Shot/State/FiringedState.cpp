@@ -1,4 +1,4 @@
-#include "FiringedState.hpp"
+#include <abyss/components/Actor/Enemy/LaunShark/Shot/State/FiringedState.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/ShotParam.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark::Shot

@@ -1,5 +1,5 @@
-#include "DanceState.hpp"
-#include "ConveneState.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/ConveneState.hpp>
 
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>

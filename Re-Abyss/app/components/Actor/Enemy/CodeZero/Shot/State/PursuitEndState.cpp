@@ -1,4 +1,4 @@
-#include "PursuitEndState.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/Shot/State/PursuitEndState.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot

@@ -1,6 +1,5 @@
 #pragma once
-
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/Slime/State/BaseState.hpp>
 
 namespace abyss::Actor::Enemy::Slime
 {

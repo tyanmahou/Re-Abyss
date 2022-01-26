@@ -1,6 +1,7 @@
 #pragma once
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/Schield/State/BaseState.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
+
 namespace abyss::Actor::Enemy::Schield
 {
     class WaitState final : public BaseState

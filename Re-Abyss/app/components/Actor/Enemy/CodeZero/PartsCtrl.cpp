@@ -1,4 +1,4 @@
-#include "PartsCtrl.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>

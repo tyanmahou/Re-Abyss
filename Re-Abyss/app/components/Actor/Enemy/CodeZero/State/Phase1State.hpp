@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {

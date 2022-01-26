@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {

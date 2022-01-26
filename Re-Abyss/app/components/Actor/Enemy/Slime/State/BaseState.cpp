@@ -1,4 +1,5 @@
-#include "BaseState.hpp"
+#include <abyss/components/Actor/Enemy/Slime/State/BaseState.hpp>
+
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 

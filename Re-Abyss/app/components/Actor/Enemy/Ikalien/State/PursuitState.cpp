@@ -1,5 +1,5 @@
-#include "PursuitState.hpp"
-#include "SwimState.hpp"
+#include <abyss/components/Actor/Enemy/Ikalien/State/PursuitState.hpp>
+#include <abyss/components/Actor/Enemy/Ikalien/State/SwimState.hpp>
 
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>

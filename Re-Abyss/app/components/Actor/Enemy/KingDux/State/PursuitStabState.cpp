@@ -1,4 +1,4 @@
-#include "PursuitStabState.hpp"
+#include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>

@@ -1,5 +1,6 @@
-#include "Phase1State.hpp"
-#include "Phase2State.hpp"
+#include <abyss/components/Actor/Enemy/CodeZero/State/Phase1State.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/Phase2State.hpp>
+
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
