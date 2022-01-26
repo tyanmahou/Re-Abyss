@@ -1,4 +1,4 @@
-#include "LogoTimer.hpp"
+#include <abyss/components/UI/Splash/Logo/LogoTimer.hpp>
 #include <abyss/params/UI/Splash/Param.hpp>
 #include <Siv3D.hpp>
 

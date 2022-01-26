@@ -1,4 +1,4 @@
-#include "FadeCtrl.hpp"
+#include <abyss/components/UI/Fade/IrisOut/FadeCtrl.hpp>
 #include <abyss/views/UI/Fade/IrisOut/IrisOutVM.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>

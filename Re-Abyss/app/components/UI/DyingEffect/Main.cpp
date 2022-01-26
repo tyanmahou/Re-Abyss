@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/UI/DyingEffect/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>

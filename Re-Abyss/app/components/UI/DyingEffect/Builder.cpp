@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/UI/DyingEffect/Builder.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/DyingEffect/Main.hpp>
 

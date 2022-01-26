@@ -1,5 +1,6 @@
-#include "ViewCtrl.hpp"
-#include "BgCtrl.hpp"
+#include <abyss/components/UI/Title/BackGround/ViewCtrl.hpp>
+
+#include <abyss/components/UI/Title/BackGround/BgCtrl.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/views/UI/Title/BackGround/BackGroundVM.hpp>
 #include <abyss/views/UI/Title/BackGround/AtlantisVM.hpp>

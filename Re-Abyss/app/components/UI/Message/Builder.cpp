@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/UI/Message/Builder.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/Message/Main.hpp>
 

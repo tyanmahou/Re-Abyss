@@ -1,4 +1,4 @@
-#include "BgCtrl.hpp"
+#include <abyss/components/UI/Title/BackGround/BgCtrl.hpp>
 #include <Siv3D.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>

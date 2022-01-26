@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/UI/BossHPBar/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 
 namespace abyss::UI::BossHPBar

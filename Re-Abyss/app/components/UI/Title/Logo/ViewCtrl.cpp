@@ -1,5 +1,5 @@
-#include "ViewCtrl.hpp"
-#include "LogoCtrl.hpp"
+#include <abyss/components/UI/Title/Logo/ViewCtrl.hpp>
+#include <abyss/components/UI/Title/Logo/LogoCtrl.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/views/UI/Title/Logo/LogoVM.hpp>
 

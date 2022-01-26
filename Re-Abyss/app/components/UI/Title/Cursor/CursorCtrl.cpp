@@ -1,5 +1,5 @@
-#include "CursorCtrl.hpp"
-#include "Shot.hpp"
+#include <abyss/components/UI/Title/Cursor/CursorCtrl.hpp>
+#include <abyss/components/UI/Title/Cursor/Shot.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>

@@ -1,4 +1,4 @@
-#include "Main.hpp"
+#include <abyss/components/UI/Message/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
 

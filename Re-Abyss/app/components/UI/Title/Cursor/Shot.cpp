@@ -1,4 +1,5 @@
-#include "Shot.hpp"
+#include <abyss/components/UI/Title/Cursor/Shot.hpp>
+
 #include <Siv3D.hpp>
 
 #include <abyss/commons/ColorDef.hpp>

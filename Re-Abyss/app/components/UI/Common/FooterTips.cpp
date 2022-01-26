@@ -1,4 +1,4 @@
-#include "FooterTips.hpp"
+#include <abyss/components/UI/Common/FooterTips.hpp>
 #include <abyss/views/UI/Common/Tips/TipsView.hpp>
 
 namespace abyss::UI

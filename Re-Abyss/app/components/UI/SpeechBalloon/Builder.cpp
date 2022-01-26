@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/UI/SpeechBalloon/Builder.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 

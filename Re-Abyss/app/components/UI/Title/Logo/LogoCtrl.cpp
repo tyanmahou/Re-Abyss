@@ -1,4 +1,4 @@
-#include "LogoCtrl.hpp"
+#include <abyss/components/UI/Title/Logo/LogoCtrl.hpp>
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>

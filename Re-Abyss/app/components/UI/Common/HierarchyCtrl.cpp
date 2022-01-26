@@ -1,4 +1,4 @@
-#include "HierarchyCtrl.hpp"
+#include <abyss/components/UI/Common/HierarchyCtrl.hpp>
 
 namespace abyss::UI
 {

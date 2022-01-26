@@ -1,4 +1,4 @@
-#include "LogoCtrl.hpp"
+#include <abyss/components/UI/Splash/Logo/LogoCtrl.hpp>
 #include <abyss/views/UI/Splash/Logo/LogoVM.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>

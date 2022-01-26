@@ -1,4 +1,4 @@
-#include "HPGaugeCtrl.hpp"
+#include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
