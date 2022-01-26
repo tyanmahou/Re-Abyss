@@ -1,4 +1,4 @@
-#include "TexturePacker.hpp"
+#include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <Siv3D.hpp>
 #include <Siv3D/JSON.hpp>
 #include <Siv3D/String.hpp>

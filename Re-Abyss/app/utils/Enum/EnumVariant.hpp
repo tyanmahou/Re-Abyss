@@ -1,6 +1,6 @@
 #pragma once
-#include "EnumTraits.hpp"
 #include <variant>
+#include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/Meta/IndexSeqVisit.hpp>
 
 namespace Enum

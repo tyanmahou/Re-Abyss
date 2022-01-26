@@ -4,6 +4,7 @@
 #include <Siv3D/HashTable.hpp>
 
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
+
 namespace abyss
 {
     class AudioSettingGroup

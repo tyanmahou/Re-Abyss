@@ -2,6 +2,7 @@
 #include <variant>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
+
 namespace abyss
 {
     struct AudioSetting

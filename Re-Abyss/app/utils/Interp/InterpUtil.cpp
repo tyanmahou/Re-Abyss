@@ -1,4 +1,4 @@
-#include "InterpUtil.hpp"
+#include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::InterpUtil

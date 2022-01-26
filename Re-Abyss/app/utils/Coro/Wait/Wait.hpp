@@ -1,5 +1,4 @@
 #pragma once
-
 #include <Siv3D/Duration.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>

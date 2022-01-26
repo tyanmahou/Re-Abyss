@@ -1,4 +1,4 @@
-#include "Lexer.hpp"
+#include <abyss/utils/Mrp/Lexer/Lexer.hpp>
 #include <Siv3D.hpp>
 
 namespace Mrp

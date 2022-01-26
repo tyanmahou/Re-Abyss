@@ -1,5 +1,6 @@
 #pragma once
 #include <utility>
+
 namespace abyss::Meta
 {
 	template<class Func, size_t... Seq>

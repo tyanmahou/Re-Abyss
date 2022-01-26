@@ -7,6 +7,7 @@
 #include <abyss/utils/Mns/Ast/Statement/NameStatement.hpp>
 #include <abyss/utils/Mns/Ast/Statement/TextStatement.hpp>
 #include <Siv3D/Array.hpp>
+
 namespace Mns
 {
     struct Error

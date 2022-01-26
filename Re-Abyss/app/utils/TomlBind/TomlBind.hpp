@@ -1,6 +1,7 @@
-﻿#pragma once
+#pragma once
 #include <concepts>
 #include <Siv3D/TOMLReader.hpp>
+
 namespace abyss
 {
     template<class Type>

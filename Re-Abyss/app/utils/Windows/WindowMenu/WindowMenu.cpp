@@ -1,5 +1,5 @@
-#include "WindowMenu.hpp"
-#include "../CustomWindowProc/CustomWindowProc.hpp"
+#include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
+#include <abyss/utils/Windows/CustomWindowProc/CustomWindowProc.hpp>
 #include <Siv3D.hpp>
 #include <variant>
 

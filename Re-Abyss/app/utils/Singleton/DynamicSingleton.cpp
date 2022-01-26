@@ -1,4 +1,4 @@
-#include "DynamicSingleton.hpp"
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 #include <vector>
 #include <ranges>
 

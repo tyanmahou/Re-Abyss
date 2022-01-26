@@ -1,4 +1,5 @@
-#include "Script.hpp"
+#include <abyss/utils/Mns/Script.hpp>
+
 #include <abyss/utils/Mns/Lexer/Lexer.hpp>
 #include <abyss/utils/Mns/Parser/Parser.hpp>
 #include <abyss/utils/Mns/Evaluator/Evaluator.hpp>

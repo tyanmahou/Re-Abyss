@@ -1,7 +1,8 @@
-﻿#pragma once
+#pragma once
 #define MKANTA_CHARTYPE char32_t
 #include <mkanta.hpp>
 #include <Siv3D/String.hpp>
+
 namespace abyss
 {
     template<class Type = mkanta::gobal_scope>

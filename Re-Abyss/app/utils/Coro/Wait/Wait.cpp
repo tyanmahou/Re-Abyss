@@ -1,7 +1,5 @@
-#include "Wait.hpp"
-
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
-
 #include <abyss/utils/Coro/Task/Task.hpp>
 
 namespace abyss::Coro

@@ -1,4 +1,4 @@
-#include "FrameRateHz.hpp"
+#include <abyss/utils/FPS/FrameRateHz.hpp>
 
 namespace abyss
 {

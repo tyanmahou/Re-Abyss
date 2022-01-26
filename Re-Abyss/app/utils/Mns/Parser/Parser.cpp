@@ -1,4 +1,4 @@
-#include "Parser.hpp"
+#include <abyss/utils/Mns/Parser/Parser.hpp>
 
 namespace Mns
 {
