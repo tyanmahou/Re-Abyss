@@ -1,5 +1,5 @@
-#include "ClockCtrl.hpp"
-#include "ITimeScale.hpp"
+#include <abyss/components/Common/ClockCtrl.hpp>
+#include <abyss/components/Common/ITimeScale.hpp>
 #include <abyss/utils/Clock/ClockUtil.hpp>
 namespace abyss
 {

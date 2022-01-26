@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Cron/FishGenerator/Builder.hpp>
 #include <abyss/modules/Cron/base/Batch.hpp>
 
 #include <abyss/components/Cron/FishGenerator/Generator.hpp>

@@ -1,4 +1,4 @@
-#include "Generator.hpp"
+#include <abyss/components/Cron/FishGenerator/Generator.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

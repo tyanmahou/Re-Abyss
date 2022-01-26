@@ -1,4 +1,5 @@
-#include "RoomMoveCallbackCtrl.hpp"
+#include <abyss/components/Cron/Common/RoomMoveCallbackCtrl.hpp>
+
 #include <abyss/modules/Cron/base/Batch.hpp>
 #include <abyss/modules/Room/IRoomMoveCallback.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>

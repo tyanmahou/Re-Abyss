@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/modules/Cron/base/Batch.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Generator.hpp>
