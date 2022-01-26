@@ -69,7 +69,7 @@ namespace abyss::Resource
             ReadType rc = AssetLoadTraits<ReadType>{}.load(fixPath, std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
-                Debug::LogLoad << U"Failed Load:" << fixPath;
+                Debug::LogError << U"Failed Load:" << fixPath;
             } else if (m_isWarnMode) {
                 Debug::LogLoad << U"Load: " << fixPath;
             }
