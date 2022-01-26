@@ -1,4 +1,4 @@
-#include "BasicDraw.hpp"
+#include <abyss/components/Decor/Common/BasicDraw.hpp>
 #include <abyss/components/Decor/Common/DecorInfo.hpp>
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

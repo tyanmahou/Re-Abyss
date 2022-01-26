@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Decor/General/Common/Builder.hpp>
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
 #include <abyss/components/Decor/Common/CommonBuilder.hpp>
 

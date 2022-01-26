@@ -1,4 +1,5 @@
-#include "Builder.hpp"
+#include <abyss/components/Decor/City/StreetLight/Builder.hpp>
+
 #include <abyss/entities/Decor/City/StreetLightEntity.hpp>
 #include <abyss/components/Decor/Common/CommonBuilder.hpp>
 #include <abyss/components/Decor/City/StreetLight/LightCtrl.hpp>

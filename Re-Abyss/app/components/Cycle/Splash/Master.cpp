@@ -1,4 +1,4 @@
-#include "Master.hpp"
+#include <abyss/components/Cycle/Splash/Master.hpp>
 
 namespace abyss::Cycle::Splash
 {

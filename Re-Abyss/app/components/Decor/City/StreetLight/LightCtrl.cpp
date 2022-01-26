@@ -1,4 +1,4 @@
-#include "LightCtrl.hpp"
+#include <abyss/components/Decor/City/StreetLight/LightCtrl.hpp>
 
 #include <abyss/components/Decor/Common/DecorInfo.hpp>
 #include <abyss/components/Decor/Common/BasicDraw.hpp>

@@ -1,4 +1,5 @@
-#include "CommonBuilder.hpp"
+#include <abyss/components/Decor/Common/CommonBuilder.hpp>
+
 #include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/components/Decor/Common/DecorInfo.hpp>
 #include <abyss/components/Decor/Common/BasicDraw.hpp>
