@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Cycle/Title/Builder.hpp>
 #include <abyss/modules/Cycle/base/CycleObj.hpp>
 
 namespace abyss::Cycle::Title

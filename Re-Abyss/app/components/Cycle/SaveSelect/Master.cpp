@@ -1,4 +1,4 @@
-#include "Master.hpp"
+#include <abyss/components/Cycle/SaveSelect/Master.hpp>
 
 namespace abyss::Cycle::SaveSelect
 {

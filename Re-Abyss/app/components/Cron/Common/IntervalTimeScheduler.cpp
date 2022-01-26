@@ -1,4 +1,5 @@
 #include <abyss/components/Cron/Common/IntervalTimeScheduler.hpp>
+
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 

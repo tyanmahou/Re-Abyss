@@ -1,4 +1,4 @@
-#include "Master.hpp"
+#include <abyss/components/Cycle/Main/Master.hpp>
 
 namespace abyss::Cycle::Main
 {
