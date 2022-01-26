@@ -1,4 +1,4 @@
-#include "Setup.hpp"
+#include <abyss/components/Novel/BossTalk0_0/Command/Setup.hpp>
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/World/World.hpp>

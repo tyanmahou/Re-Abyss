@@ -1,4 +1,4 @@
-#include "WaitTime.hpp"
+#include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 

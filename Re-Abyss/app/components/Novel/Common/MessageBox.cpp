@@ -1,4 +1,5 @@
-#include "MessageBox.hpp"
+#include <abyss/components/Novel/Common/MessageBox.hpp>
+
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 

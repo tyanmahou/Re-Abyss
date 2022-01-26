@@ -1,4 +1,4 @@
-#include "MessageStream.hpp"
+#include <abyss/components/Novel/Common/Command/MessageStream.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>

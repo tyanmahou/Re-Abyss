@@ -1,4 +1,4 @@
-#include "BossMove.hpp"
+#include <abyss/components/Novel/BossTalk0_0/Command/BossMove.hpp>
 
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/World/World.hpp>

@@ -1,4 +1,4 @@
-#include "Teardown.hpp"
+#include <abyss/components/Novel/BossTalk0_0/Command/Teardown.hpp>
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/World/World.hpp>
