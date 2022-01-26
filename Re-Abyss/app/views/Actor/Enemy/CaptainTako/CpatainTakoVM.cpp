@@ -1,4 +1,5 @@
-#include "CpatainTakoVM.hpp"
+#include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>
+
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>

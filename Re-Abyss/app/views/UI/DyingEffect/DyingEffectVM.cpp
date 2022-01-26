@@ -1,7 +1,8 @@
-#include "DyingEffectVM.hpp"
+#include <abyss/views/UI/DyingEffect/DyingEffectVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss::UI::DyingEffect
 {
     DyingEffectVM::DyingEffectVM():

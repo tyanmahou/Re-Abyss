@@ -1,4 +1,4 @@
-#include "LightShader.hpp"
+#include <abyss/views/Shader/Light/LightShader.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 

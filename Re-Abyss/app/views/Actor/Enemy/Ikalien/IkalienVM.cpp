@@ -1,4 +1,4 @@
-#include "IkalienVM.hpp"
+#include <abyss/views/Actor/Enemy/Ikalien/IkalienVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>

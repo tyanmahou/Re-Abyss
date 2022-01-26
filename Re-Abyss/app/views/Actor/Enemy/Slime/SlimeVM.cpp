@@ -1,4 +1,4 @@
-#include "SlimeVM.hpp"
+#include <abyss/views/Actor/Enemy/Slime/SlimeVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>

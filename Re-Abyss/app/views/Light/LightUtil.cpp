@@ -1,4 +1,4 @@
-#include "LightUtil.hpp"
+#include <abyss/views/Light/LightUtil.hpp>
 #include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 #include <Siv3D.hpp>
 

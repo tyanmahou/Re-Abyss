@@ -1,7 +1,8 @@
-#include "BodyVM.hpp"
+#include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+
 namespace abyss::Actor::Enemy::CodeZero::Body
 {
     BodyVM::BodyVM():

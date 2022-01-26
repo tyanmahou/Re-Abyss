@@ -1,5 +1,4 @@
 #pragma once
-
 #include <functional>
 #include <Siv3D/Fwd.hpp>
 #include <abyss/concepts/Common.hpp>

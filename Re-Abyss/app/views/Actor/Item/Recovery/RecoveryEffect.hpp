@@ -1,6 +1,6 @@
 #pragma once
-#include<Siv3D/Effect.hpp>
-#include<Siv3D/Vector2D.hpp>
+#include <Siv3D/Effect.hpp>
+#include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
 

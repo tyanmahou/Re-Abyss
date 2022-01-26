@@ -1,9 +1,10 @@
-#include "PlayerInfoVM.hpp"
+#include <abyss/views/UI/PlayerInfo/PlayerInfoVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/util/MaskUtil/MaskUtil.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss::UI::PlayerInfo
 {
     PlayerInfoVM::PlayerInfoVM() :

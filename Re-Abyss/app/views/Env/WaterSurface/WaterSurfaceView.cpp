@@ -1,4 +1,4 @@
-#include "WaterSurfaceView.hpp"
+#include <abyss/views/Env/WaterSurface/WaterSurfaceView.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -30,7 +30,8 @@ namespace
 namespace abyss::Env
 {
     WaterSurfaceView::WaterSurfaceView():
-		m_texture(Resource::Assets::Main()->load(U"env/surface.png"))
+		m_texture(Resource::Assets::Main()->load(U"env/surface.png")),
+		m_time(0)
     {}
 
 	WaterSurfaceView& WaterSurfaceView::setTime(double time)

@@ -1,9 +1,9 @@
-#include "Fade.hpp"
-
+#include <abyss/views/util/Fade/Fade.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/views/util/MaskUtil/MaskUtil.hpp>
+
 namespace
 {
 	Color g_fadeColor(35, 50, 80);

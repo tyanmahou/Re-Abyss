@@ -1,4 +1,4 @@
-#include "ShotVM.hpp"
+#include <abyss/views/Actor/Enemy/CaptainTako/Shot/ShotVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 

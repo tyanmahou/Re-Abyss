@@ -1,8 +1,8 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-
 #include <abyss/types/Forward.hpp>
+
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
     class ShotVM

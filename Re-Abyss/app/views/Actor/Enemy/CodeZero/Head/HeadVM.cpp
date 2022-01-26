@@ -1,4 +1,4 @@
-#include "HeadVM.hpp"
+#include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>

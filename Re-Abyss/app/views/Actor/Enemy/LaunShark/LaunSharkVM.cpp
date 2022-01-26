@@ -1,8 +1,9 @@
-#include "LaunSharkVM.hpp"
+#include <abyss/views/Actor/Enemy/LaunShark/LaunSharkVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
+
 namespace abyss::Actor::Enemy::LaunShark
 {
     LaunSharkVM::LaunSharkVM():

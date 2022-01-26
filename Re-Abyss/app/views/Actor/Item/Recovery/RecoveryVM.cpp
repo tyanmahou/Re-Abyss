@@ -1,4 +1,4 @@
-#include "RecoveryVM.hpp"
+#include <abyss/views/Actor/Item/Recovery/RecoveryVM.hpp>
 
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 

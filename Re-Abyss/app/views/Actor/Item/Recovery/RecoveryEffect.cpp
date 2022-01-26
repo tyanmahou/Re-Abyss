@@ -1,4 +1,4 @@
-#include "RecoveryEffect.hpp"
+#include <abyss/views/Actor/Item/Recovery/RecoveryEffect.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>

@@ -1,8 +1,7 @@
 #pragma once
-
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include "BackGroundVM.hpp"
+#include <abyss/views/BackGround/BackGroundVM.hpp>
 
 namespace abyss
 {

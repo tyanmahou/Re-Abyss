@@ -2,6 +2,7 @@
 #include <memory>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/ScopedCustomShader2D.hpp>
+
 namespace abyss
 {
     class ScanlineShader

@@ -1,4 +1,4 @@
-#include "LogoVM.hpp"
+#include <abyss/views/UI/Splash/Logo/LogoVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 

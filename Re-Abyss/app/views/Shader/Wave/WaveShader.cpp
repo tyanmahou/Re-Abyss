@@ -1,4 +1,4 @@
-#include "WaveShader.hpp"
+#include <abyss/views/Shader/Wave/WaveShader.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>

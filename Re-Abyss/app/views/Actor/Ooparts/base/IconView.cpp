@@ -1,4 +1,4 @@
-#include "IconView.hpp"
+#include <abyss/views/Actor/Ooparts/base/IconView.hpp>
 
 #include <abyss/views/Actor/Ooparts/Nyan/NyanVM.hpp>
 #include <abyss/views/Actor/Ooparts/Xto/XtoVM.hpp>

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/models/User/UserModel.hpp>
 #include <abyss/views/UI/SaveSelect/UserInfo/PlayerView.hpp>
 #include <abyss/views/UI/SaveSelect/UserInfo/OopartsListView.hpp>

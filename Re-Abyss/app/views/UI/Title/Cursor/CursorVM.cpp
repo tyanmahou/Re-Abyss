@@ -1,4 +1,4 @@
-#include "CursorVM.hpp"
+#include <abyss/views/UI/Title/Cursor/CursorVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::UI::Title::Cursor

@@ -1,5 +1,4 @@
-﻿#pragma once
-
+#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 

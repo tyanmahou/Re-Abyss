@@ -2,6 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 #include <Siv3D/Optional.hpp>
+
 namespace abyss
 {
 	class BackGroundVM

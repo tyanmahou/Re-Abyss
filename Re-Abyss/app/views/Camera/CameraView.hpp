@@ -1,5 +1,4 @@
 #pragma once
-
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>

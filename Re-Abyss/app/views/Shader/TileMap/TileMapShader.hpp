@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <Siv3D/Fwd.hpp>
+
 namespace abyss
 {
     /// <summary>

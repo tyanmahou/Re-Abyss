@@ -1,8 +1,9 @@
-#include "BushVM.hpp"
+#include <abyss/views/Actor/Gimmick/Bush/BushVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 
 #include <Siv3D.hpp>
+
 namespace abyss::Actor::Gimmick::Bush
 {
     BushVM::BushVM():

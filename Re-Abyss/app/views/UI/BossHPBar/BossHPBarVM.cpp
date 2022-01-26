@@ -1,4 +1,4 @@
-#include "BossHPBarVM.hpp"
+#include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/UI/BossHPBar/Param.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>

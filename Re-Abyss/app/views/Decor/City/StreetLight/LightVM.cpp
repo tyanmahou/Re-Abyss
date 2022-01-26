@@ -1,4 +1,4 @@
-#include "LightVM.hpp"
+#include <abyss/views/Decor/City/StreetLight/LightVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 

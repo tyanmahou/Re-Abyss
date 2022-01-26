@@ -1,4 +1,4 @@
-#include "SpeechBalloonVM.hpp"
+#include <abyss/views/UI/SpeechBalloon/SpeechBalloonVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 

@@ -1,4 +1,4 @@
-#include "KiraKiraVM.hpp"
+#include <abyss/views/Effect/Actor/Ooparts/Common/KiraKira/KiraKiraVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 

@@ -1,6 +1,5 @@
-#include "VertexUtil.hpp"
+#include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 #include <Siv3D.hpp>
-#include "VertexUtil.hpp"
 
 namespace
 {

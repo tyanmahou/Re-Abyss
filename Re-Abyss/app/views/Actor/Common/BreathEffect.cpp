@@ -1,4 +1,5 @@
-#include "BreathEffect.hpp"
+#include <abyss/views/Actor/Common/BreathEffect.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss
 {

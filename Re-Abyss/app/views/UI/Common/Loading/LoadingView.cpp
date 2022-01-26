@@ -1,4 +1,5 @@
-#include "LoadingView.hpp"
+#include <abyss/views/UI/Common/Loading/LoadingView.hpp>
+
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/Common/LoadingParam.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>

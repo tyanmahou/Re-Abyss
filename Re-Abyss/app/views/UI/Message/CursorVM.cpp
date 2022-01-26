@@ -1,6 +1,7 @@
-#include "CursorVM.hpp"
+#include <abyss/views/UI/Message/CursorVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss::UI::Message
 {
     CursorVM::CursorVM():

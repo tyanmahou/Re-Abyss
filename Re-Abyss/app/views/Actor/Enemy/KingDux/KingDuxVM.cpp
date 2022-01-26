@@ -1,4 +1,4 @@
-#include "KingDuxVM.hpp"
+#include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>

@@ -1,4 +1,4 @@
-#include "SnapshotView.hpp"
+#include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <Siv3D/Shader.hpp>
 #include <Siv3D/TextureRegion.hpp>

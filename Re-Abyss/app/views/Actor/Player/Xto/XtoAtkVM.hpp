@@ -1,5 +1,4 @@
 #pragma once
-
 #include <abyss/views/Actor/Ooparts/base/BaseVM.hpp>
 
 namespace abyss::Actor::Player

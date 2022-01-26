@@ -1,6 +1,7 @@
-#include "EnemyDeadEffect.hpp"
+#include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
 
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss
 {

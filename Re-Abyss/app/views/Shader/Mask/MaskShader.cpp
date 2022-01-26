@@ -1,8 +1,9 @@
-#include "MaskShader.hpp"
+#include <abyss/views/Shader/Mask/MaskShader.hpp>
 
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss
 {
 	class MaskShader::Impl

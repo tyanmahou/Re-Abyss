@@ -1,4 +1,4 @@
-#include "NyanVM.hpp"
+#include <abyss/views/Actor/Ooparts/Nyan/NyanVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 

@@ -1,4 +1,4 @@
-#include "BulletinVM.hpp"
+#include <abyss/views/Actor/Gimmick/Bulletin/BulletinVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 

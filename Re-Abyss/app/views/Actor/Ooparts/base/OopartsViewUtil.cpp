@@ -1,4 +1,4 @@
-#include "OopartsViewUtil.hpp"
+#include <abyss/views/Actor/Ooparts/base/OopartsViewUtil.hpp>
 #include <abyss/views/Actor/Ooparts/Xto/XtoVM.hpp>
 #include <abyss/views/Actor/Ooparts/Nyan/NyanVM.hpp>
 
