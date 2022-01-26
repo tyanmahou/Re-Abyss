@@ -1,5 +1,5 @@
 #if ABYSS_DEBUG
-#include "Menu.hpp"
+#include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/commons/Path.hpp>
 #include <Siv3D.hpp>
 

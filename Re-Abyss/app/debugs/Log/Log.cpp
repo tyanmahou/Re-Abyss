@@ -1,4 +1,4 @@
-#include "Log.hpp"
+#include <abyss/debugs/Log/Log.hpp>
 
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>

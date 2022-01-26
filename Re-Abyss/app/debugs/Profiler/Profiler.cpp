@@ -1,5 +1,5 @@
 #if ABYSS_DEBUG
-#include "Profiler.hpp"
+#include <abyss/debugs/Profiler/Profiler.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <Siv3D.hpp>
 

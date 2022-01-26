@@ -1,5 +1,6 @@
 #if ABYSS_DEBUG
-#include "DebugManager.hpp"
+#include <abyss/debugs/DebugManager/DebugManager.hpp>
+
 #include <Siv3D.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Visitor.hpp>

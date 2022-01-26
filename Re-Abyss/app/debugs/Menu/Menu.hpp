@@ -7,7 +7,7 @@
 #include <abyss/scenes/base/ISceneBase.hpp>
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
-#include "DebugFlag.hpp"
+#include <abyss/debugs/Menu/DebugFlag.hpp>
 
 namespace abyss::Debug
 {

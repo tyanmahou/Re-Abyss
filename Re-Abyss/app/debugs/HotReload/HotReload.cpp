@@ -1,5 +1,5 @@
 #if ABYSS_DEBUG
-#include "HotReload.hpp"
+#include <abyss/debugs/HotReload/HotReload.hpp>
 
 #include <Siv3D/FileSystem.hpp>
 #include <Siv3D/Keyboard.hpp>

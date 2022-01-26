@@ -1,5 +1,5 @@
 #if ABYSS_DEBUG
-#include "DebugUtil.hpp"
+#include <abyss/debugs/Util/DebugUtil.hpp>
 #include <abyss/types/CShape.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
