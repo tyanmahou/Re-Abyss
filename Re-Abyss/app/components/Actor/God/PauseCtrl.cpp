@@ -1,4 +1,5 @@
-#include "PauseCtrl.hpp"
+#include <abyss/components/Actor/God/PauseCtrl.hpp>
+
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>

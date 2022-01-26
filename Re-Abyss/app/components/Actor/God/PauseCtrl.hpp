@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/commons/Fwd.hpp>

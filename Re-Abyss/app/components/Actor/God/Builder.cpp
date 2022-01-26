@@ -1,4 +1,4 @@
-#include "Builder.hpp"
+#include <abyss/components/Actor/God/Builder.hpp>
 #include <abyss/components/Actor/God/PauseCtrl.hpp>
 
 namespace abyss::Actor::God
