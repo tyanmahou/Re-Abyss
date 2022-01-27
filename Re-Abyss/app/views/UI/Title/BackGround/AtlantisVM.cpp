@@ -6,7 +6,7 @@
 namespace abyss::UI::Title::BackGround
 {
     AtlantisVM::AtlantisVM() :
-        m_texture(Resource::Assets::Main()->load(U"ui/Title/atlantis.png"))
+        m_texture(Resource::Assets::Main()->load(U"UI/Title/atlantis.png"))
     {}
 
     void AtlantisVM::draw() const

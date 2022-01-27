@@ -29,7 +29,7 @@ namespace abyss
             m_vs(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl")),
             m_ps(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl"))
         {
-            this->setTexture(Resource::Assets::Main()->loadTexturePacker(U"effects/Misc/Fish/fish.json")(U"fish_1"));
+            this->setTexture(Resource::Assets::Main()->loadTexturePacker(U"Effects/Misc/Fish/fish.json")(U"fish_1"));
         }
         void setPos(const s3d::Vec2& pos)
         {

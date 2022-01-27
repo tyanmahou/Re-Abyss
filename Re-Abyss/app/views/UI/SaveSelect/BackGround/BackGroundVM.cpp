@@ -9,9 +9,9 @@
 namespace abyss::UI::SaveSelect::BackGround
 {
     BackGroundVM::BackGroundVM():
-        m_texture(Resource::Assets::Main()->load(U"ui/SaveSelect/bg.png")),
-        m_fade(Resource::Assets::Main()->load(U"ui/SaveSelect/dot_fade.png")),
-        m_horizon(Resource::Assets::Main()->load(U"ui/SaveSelect/horizon.png")),
+        m_texture(Resource::Assets::Main()->load(U"UI/SaveSelect/bg.png")),
+        m_fade(Resource::Assets::Main()->load(U"UI/SaveSelect/dot_fade.png")),
+        m_horizon(Resource::Assets::Main()->load(U"UI/SaveSelect/horizon.png")),
         m_pos(PivotUtil::FromCc(0, 0))
     {}
 

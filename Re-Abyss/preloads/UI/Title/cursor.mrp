@@ -1,3 +1,3 @@
 [UI/Title/Cursor]
-- img"actors/Player/player.json"
-- img"actors/Player/player_shot.png"
+- img"Actor/Player/player.json"
+- img"Actor/Player/player_shot.png"

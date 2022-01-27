@@ -6,7 +6,7 @@ namespace abyss::Effect::Misc::Fish
 {
     FishVM::FishVM(s3d::int32 fishId):
         m_texture(Resource::Assets::Main()
-        ->loadTexturePacker(U"effects/Misc/Fish/fish.json")(U"fish_{}"_fmt(fishId)))
+        ->loadTexturePacker(U"Effects/Misc/Fish/fish.json")(U"fish_{}"_fmt(fishId)))
     {}
     FishVM& FishVM::setPos(const s3d::Vec2 & pos)
     {
