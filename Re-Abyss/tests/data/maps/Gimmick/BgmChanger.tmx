@@ -3,11 +3,8 @@
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
- <tileset firstgid="1" source="../../../../resources/maps/tileset/stage0_mapchip.tsx"/>
- <tileset firstgid="46" source="../../../../resources/maps/tileset/gimmicks.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/tileset/enemys.tsx"/>
- <tileset firstgid="65" source="../../../../resources/maps/tileset/stage0_decor.tsx"/>
- <tileset firstgid="79" source="../../../../resources/maps/tileset/item.tsx"/>
+ <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
+ <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="12" name="front" parallaxx="1.2">
@@ -225,17 +222,17 @@
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="55" gid="50" x="120" y="360" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/stage/stage0/stage0.aas"/>
+    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/Main/Stage0/stage0.aas"/>
    </properties>
   </object>
   <object id="56" gid="50" x="1520" y="360" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/stage/common/boss_mae.aas"/>
+    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/Main/Stage0/stage0_boss.aas"/>
    </properties>
   </object>
   <object id="58" gid="50" x="-200" y="320" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/stage/stage0/stage0.aas"/>
+    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/Main/Stage0/stage0.aas"/>
    </properties>
   </object>
  </objectgroup>

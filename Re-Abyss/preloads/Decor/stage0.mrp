@@ -1,4 +1,4 @@
 [Decor/Stage0]
-- img"mapchip/stage0_mapchip.png"
-- img"mapchip/decors/stage0/stage0_front1.png"
-- img"mapchip/decors/stage0/stage0_front2.png"
+- img"Mapchip/Tile/Stage0.png"
+- img"Mapchip/Decor/Stage0/stage0_front1.png"
+- img"Mapchip/Decor/Stage0/stage0_front2.png"

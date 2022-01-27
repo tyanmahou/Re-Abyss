@@ -3,18 +3,16 @@
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
- <tileset firstgid="1" source="../../../../resources/maps/tileset/stage0_mapchip.tsx"/>
- <tileset firstgid="46" source="../../../../resources/maps/tileset/gimmicks.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/tileset/enemys.tsx"/>
- <tileset firstgid="65" source="../../../../resources/maps/tileset/stage0_decor.tsx"/>
- <tileset firstgid="79" source="../../../../resources/maps/tileset/decor_common.tsx"/>
+ <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
+ <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
+ <tileset firstgid="55" source="../../../../resources/maps/tileset/DecorCommon.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="12" name="back2" parallaxx="0.8">
    <properties>
     <property name="layer" value="DecorBack"/>
    </properties>
-   <object id="45" gid="79" x="-119.1" y="454" width="120" height="60" rotation="-20">
+   <object id="45" gid="55" x="-119.1" y="454" width="120" height="60" rotation="-20">
     <properties>
      <property name="amplitude" type="float" value="0"/>
      <property name="column" type="int" value="32"/>
@@ -24,7 +22,7 @@
      <property name="speed" type="float" value="100"/>
     </properties>
    </object>
-   <object id="47" gid="79" x="410.97" y="-288.364" width="120" height="60">
+   <object id="47" gid="55" x="410.97" y="-288.364" width="120" height="60">
     <properties>
      <property name="amplitude" type="float" value="5"/>
      <property name="column" type="int" value="16"/>
@@ -38,7 +36,7 @@
    <properties>
     <property name="layer" value="DecorBack"/>
    </properties>
-   <object id="46" gid="79" x="936.9" y="236" width="120" height="60" rotation="220">
+   <object id="46" gid="55" x="936.9" y="236" width="120" height="60" rotation="220">
     <properties>
      <property name="column" type="int" value="32"/>
      <property name="height_offset" type="float" value="100"/>
@@ -47,7 +45,7 @@
      <property name="speed" type="float" value="100"/>
     </properties>
    </object>
-   <object id="49" gid="79" x="-910" y="306.364" width="120" height="60" rotation="200">
+   <object id="49" gid="55" x="-910" y="306.364" width="120" height="60" rotation="200">
     <properties>
      <property name="column" type="int" value="28"/>
      <property name="height_offset" type="float" value="50"/>
@@ -61,7 +59,7 @@
    <properties>
     <property name="layer" value="DecorFront"/>
    </properties>
-   <object id="48" gid="79" x="-105.524" y="439.03" width="120" height="60" rotation="-40">
+   <object id="48" gid="55" x="-105.524" y="439.03" width="120" height="60" rotation="-40">
     <properties>
      <property name="column" type="int" value="32"/>
      <property name="height_offset" type="float" value="0"/>

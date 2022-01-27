@@ -9,15 +9,15 @@ namespace abyss::Novel
         m_table[CharaKind::Player]
             .setKind(CharaKind::Player)
             .setName(U"Player")
-            .setFacePath(U"Actor/Player/face.json");
+            .setFacePath(U"Actor/Player/Face.json");
         m_table[CharaKind::CodeZero]
             .setKind(CharaKind::CodeZero)
             .setName(U"CodeZero")
-            .setFacePath(U"Actor/Enemy/CodeZero/face.json");
+            .setFacePath(U"Actor/Enemy/CodeZero/Face.json");
         m_table[CharaKind::DrQuery]
             .setKind(CharaKind::DrQuery)
             .setName(U"DrQuery")
-            .setFacePath(U"Actor/Enemy/DrQuery/face.json");
+            .setFacePath(U"Actor/Enemy/DrQuery/Face.json");
     }
     void CharaTable::add(const CharaModel& chara)
     {

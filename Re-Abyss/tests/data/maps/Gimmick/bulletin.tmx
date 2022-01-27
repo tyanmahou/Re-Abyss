@@ -3,9 +3,9 @@
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
- <tileset firstgid="1" source="../../../../resources/maps/tileset/stage0_mapchip.tsx"/>
- <tileset firstgid="46" source="../../../../resources/maps/tileset/gimmicks.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/tileset/enemys.tsx"/>
+ <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
+ <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
+ <tileset firstgid="55" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
