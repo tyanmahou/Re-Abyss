@@ -1,6 +1,6 @@
 [Map/Common]
 - @"Env/Sky"
-- @"Env/WaterSurface"
+- @"Env/Caustics"
 - @"Effect/Misc/Fish"
 - @"Actor/Player"
 - @"UI/DyingEffect"

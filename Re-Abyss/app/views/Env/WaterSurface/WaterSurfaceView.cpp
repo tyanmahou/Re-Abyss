@@ -30,7 +30,7 @@ namespace
 namespace abyss::Env
 {
     WaterSurfaceView::WaterSurfaceView():
-		m_texture(Resource::Assets::Main()->load(U"env/surface.png")),
+		m_texture(Resource::Assets::Main()->load(U"Env/caustics.png")),
 		m_time(0)
     {}
 

@@ -1,5 +1,5 @@
 [Scene/Title]
-- @"Env/WaterSurface"
+- @"Env/Caustics"
 - @"Env/Wave"
 
 - @"UI/Title/Logo"
