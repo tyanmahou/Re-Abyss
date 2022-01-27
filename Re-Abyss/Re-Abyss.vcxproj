@@ -239,6 +239,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
+    <ClCompile Include="app\commons\Resource\Preload\Message.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Param.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Preloader.cpp" />
@@ -556,6 +557,7 @@
     <ClCompile Include="app\system\System.cpp" />
     <ClCompile Include="app\system\Title\Booter.cpp" />
     <ClCompile Include="app\types\Novel\TagString.cpp" />
+    <ClCompile Include="app\types\UserPlayMode.cpp" />
     <ClCompile Include="app\utils\Clock\ClockUtil.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -899,6 +901,7 @@
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Message.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorTest.hpp" />
     <ClInclude Include="app\components\Actor\Common\CliffChecker.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
@@ -1089,6 +1092,7 @@
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\modules\UI\base\Filter.hpp" />
+    <ClInclude Include="app\commons\Msg\Common.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />

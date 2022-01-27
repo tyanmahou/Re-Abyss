@@ -2,6 +2,8 @@
 
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
+#include <abyss/commons/Resource/Preload/Message.hpp>
+
 namespace abyss
 {
     class RootScene::Impl
@@ -19,6 +21,7 @@ namespace abyss
                 assets->setWarnMode(false);
 #endif
                 Resource::Preload::LoadTomlAll(assets);
+                Resource::Preload::LoadMessage(U"ja", assets);
                 assets->release();
 #if ABYSS_DEBUG
                 assets->setWarnMode(true);
