@@ -47,8 +47,19 @@ namespace abyss
 		{
 			co_yield 0.0;
 			Resource::Assets::Main()->release();
+#if ABYSS_DEBUG
+			String path;
+			if (m_context.mapPath.includes(U"tests/data/maps")) {
+				path = U"Map/Test";
+			} else {
+				auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
+				path = U"Map/{}"_fmt(stageKey);
+			}
+			Resource::Preload::Preloader loader(path);
+#else
 			auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
 			Resource::Preload::Preloader loader(U"Map/{}"_fmt(stageKey));
+#endif
 			for (auto&& p : loader.preloadProgress()) {
 				co_yield p;
 			}
