@@ -398,7 +398,7 @@ lib/
 [Ww]ork/
 !/Re-Abyss/app/debugs/Log/*
 /Re-Abyss/[Rr]esources/*
-!/Re-Abyss/resources/shaders/
+!/Re-Abyss/[Rr]esources/shaders/
 !/Re-Abyss/[Rr]esources/params/
 [Vv]endor/
 /Re-Abyss/[Uu]serdata/*
