@@ -30,7 +30,7 @@ namespace abyss::Novel::BossTalk0_0
             // HPチャージ
             auto chargeHpBar = m_pTalk->getModule<Events>()->create<Event::CreateBossHPBar::Builder>(hpBar);
             chargeHpBar->find<Event::CreateBossHPBar::MainStream>()
-                ->setBossBgmPath(U"bgm/stage/stage0/stage0_boss.aas");
+                ->setBossBgmPath(U"bgm/Main/Stage0/stage0_boss.aas");
         }
     }
 

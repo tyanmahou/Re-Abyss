@@ -12,7 +12,7 @@ namespace abyss::Event::Title
     void BgmCtrl::onStart()
     {
         m_pEvent->getModule<Sound>()
-            ->play(Path::SoundPath + U"bgm/cycle/title/title.aas", 0.2s);
+            ->play(Path::SoundPath + U"bgm/Title/title.aas", 0.2s);
     }
     void BgmCtrl::onEnd()
     {
