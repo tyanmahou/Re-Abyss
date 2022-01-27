@@ -400,5 +400,6 @@ lib/
 /Re-Abyss/[Rr]esources/*
 !/Re-Abyss/[Rr]esources/shaders/
 !/Re-Abyss/[Rr]esources/params/
+!/Re-Abyss/[Rr]esources/msgs/
 [Vv]endor/
 /Re-Abyss/[Uu]serdata/*
