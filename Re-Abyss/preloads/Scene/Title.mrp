@@ -1,0 +1,9 @@
+[Scene/Title]
+- @"Env/Caustics"
+- @"Env/Wave"
+
+- @"UI/Title/Logo"
+- @"UI/Title/Cursor"
+- @"UI/Title/BackGround"
+
+- snd"bgm/Title/title.aas"
