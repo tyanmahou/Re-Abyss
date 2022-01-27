@@ -1,4 +1,4 @@
-#include <abyss/views/Env/WaterSurface/WaterSurfaceView.hpp>
+#include <abyss/views/Env/Caustics/CausticsView.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -29,23 +29,23 @@ namespace
 }
 namespace abyss::Env
 {
-    WaterSurfaceView::WaterSurfaceView():
+	CausticsView::CausticsView():
 		m_texture(Resource::Assets::Main()->load(U"Env/caustics.png")),
 		m_time(0)
     {}
 
-	WaterSurfaceView& WaterSurfaceView::setTime(double time)
+	CausticsView& CausticsView::setTime(double time)
 	{
 		m_time = time;
 		return *this;
 	}
 
-	void WaterSurfaceView::drawBack(const Vec2& pos) const
+	void CausticsView::drawBack(const Vec2& pos) const
 	{
 		auto time = m_time / 60.0;
 		::Draw(pos, m_texture, 8.0, Vec2{ 1.0, 1.0 }, 2.0, time);
 	}
-	void WaterSurfaceView::drawFront(const Vec2& pos) const
+	void CausticsView::drawFront(const Vec2& pos) const
 	{
 		auto time = m_time / 30.0;
 		::Draw(pos, m_texture, 2.0, Vec2{ -1.0, 1.0 }, 1.5, time);

@@ -8,8 +8,8 @@ namespace abyss::Env
         if (desc.useSky) {
             m_sky = std::make_unique<Sky>();
         }
-        if (desc.useWaterSurface) {
-            m_waterSurface = std::make_unique<WaterSurface>();
+        if (desc.useCaustics) {
+            m_caustics = std::make_unique<Caustics>();
         }
         if (desc.useWave) {
             m_wave = std::make_unique<Wave>();
@@ -20,8 +20,8 @@ namespace abyss::Env
         if (m_sky) {
             m_sky->update(dt);
         }
-        if (m_waterSurface) {
-            m_waterSurface->update(dt);
+        if (m_caustics) {
+            m_caustics->update(dt);
         }
         if (m_wave) {
             m_wave->update(dt);

@@ -124,7 +124,7 @@ namespace abyss::Sys::Main
         auto env = pManager->getModule<Environment>();
         env->init(Env::EnvDesc{
             .useSky = true,
-            .useWaterSurface = true,
+            .useCaustics = true,
             .useWave = true
         });
         // 背景色

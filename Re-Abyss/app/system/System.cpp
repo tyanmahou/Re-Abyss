@@ -183,8 +183,8 @@ namespace abyss::Sys
                     }
                     drawer->draw(DrawLayer::BackGround);
                 });
-                if (auto ws = env->getWaterSurface()) {
-                    ws->drawBack(cameraView.getCameraPos());
+                if (auto caustics = env->getCaustics()) {
+                    caustics->drawBack(cameraView.getCameraPos());
                 }
                 drawer->draw(DrawLayer::DecorBack);
 
@@ -200,8 +200,8 @@ namespace abyss::Sys
 
                 // 全面
                 drawer->draw(DrawLayer::DecorFront);
-                if (auto ws = env->getWaterSurface()) {
-                    ws->drawFront(cameraView.getCameraPos());
+                if (auto caustics = env->getCaustics()) {
+                    caustics->drawFront(cameraView.getCameraPos());
                 }
                 if constexpr (config.isStage) {
                     // Distortion Map更新

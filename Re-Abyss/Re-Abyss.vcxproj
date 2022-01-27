@@ -534,7 +534,7 @@
     <ClCompile Include="app\modules\Env\Bg\Bg.cpp" />
     <ClCompile Include="app\modules\Env\Environment.cpp" />
     <ClCompile Include="app\modules\Env\Sky\Sky.cpp" />
-    <ClCompile Include="app\modules\Env\WaterSurface\WaterSurface.cpp" />
+    <ClCompile Include="app\modules\Env\Caustics\Caustics.cpp" />
     <ClCompile Include="app\modules\Env\Wave\Wave.cpp" />
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
     <ClCompile Include="app\modules\Novel\base\TalkObj.cpp" />
@@ -684,7 +684,7 @@
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp" />
     <ClCompile Include="app\views\Shader\Sky\SkyShader.cpp" />
     <ClCompile Include="app\views\Env\Sky\SkyView.cpp" />
-    <ClCompile Include="app\views\Env\WaterSurface\WaterSurfaceView.cpp" />
+    <ClCompile Include="app\views\Env\Caustics\CausticsView.cpp" />
     <ClCompile Include="app\views\Shader\Distortion\DistortionShader.cpp" />
     <ClCompile Include="app\views\Distortion\DistortionView.cpp" />
     <ClCompile Include="app\views\Camera\SnapshotView.cpp" />
@@ -1073,7 +1073,7 @@
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Environment.hpp" />
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
-    <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
+    <ClInclude Include="app\modules\Env\Caustics\Caustics.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\GameObject\WeakObject.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
@@ -1722,7 +1722,7 @@
     <ClInclude Include="app\views\Actor\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\views\Shader\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\Env\Sky\SkyView.hpp" />
-    <ClInclude Include="app\views\Env\WaterSurface\WaterSurfaceView.hpp" />
+    <ClInclude Include="app\views\Env\Caustics\CausticsView.hpp" />
     <ClInclude Include="app\views\Shader\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Distortion\DistortionView.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />

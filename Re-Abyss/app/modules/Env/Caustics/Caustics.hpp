@@ -1,9 +1,9 @@
 #pragma once
-#include <abyss/views/Env/WaterSurface/WaterSurfaceView.hpp>
+#include <abyss/views/Env/Caustics/CausticsView.hpp>
 
 namespace abyss::Env
 {
-    class WaterSurface
+    class Caustics
     {
         enum ActiveState : s3d::uint8
         {
@@ -21,7 +21,7 @@ namespace abyss::Env
         void drawFront(const s3d::Vec2& pos) const;
     private:
         double m_time = 0.0;
-        WaterSurfaceView m_view;
+        CausticsView m_view;
         s3d::uint8 m_activeState = ActiveState::All;
     };
 }

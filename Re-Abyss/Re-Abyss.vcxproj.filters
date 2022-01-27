@@ -278,7 +278,7 @@
     <ClCompile Include="app\views\Actor\Ooparts\Nyan\NyanVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Env\WaterSurface\WaterSurfaceView.cpp">
+    <ClCompile Include="app\views\Env\Caustics\CausticsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Shader\Sky\SkyShader.cpp">
@@ -1402,7 +1402,7 @@
     <ClCompile Include="app\modules\Env\Sky\Sky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\WaterSurface\WaterSurface.cpp">
+    <ClCompile Include="app\modules\Env\Caustics\Caustics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Env\Environment.cpp">
@@ -2039,7 +2039,7 @@
     <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Nyan\NyanVM.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\BgmChangerEntity.hpp" />
-    <ClInclude Include="app\views\Env\WaterSurface\WaterSurfaceView.hpp" />
+    <ClInclude Include="app\views\Env\Caustics\CausticsView.hpp" />
     <ClInclude Include="app\views\Shader\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\Env\Sky\SkyView.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
@@ -2543,7 +2543,7 @@
     <ClInclude Include="app\modules\Env\Environment.hpp" />
     <ClInclude Include="app\modules\Env\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp" />
-    <ClInclude Include="app\modules\Env\WaterSurface\WaterSurface.hpp" />
+    <ClInclude Include="app\modules\Env\Caustics\Caustics.hpp" />
     <ClInclude Include="app\modules\Env\Wave\Wave.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />

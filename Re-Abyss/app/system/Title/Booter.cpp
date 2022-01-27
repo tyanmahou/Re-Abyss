@@ -32,7 +32,7 @@ namespace abyss::Sys::Title
 
         // Env初期化
         pManager->getModule<Environment>()->init(Env::EnvDesc{
-            .useWaterSurface = true,
+            .useCaustics = true,
             .useWave = true
         });
         return true;

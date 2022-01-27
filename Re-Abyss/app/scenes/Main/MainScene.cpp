@@ -39,7 +39,7 @@ namespace abyss
 			if (std::holds_alternative<MainSceneContext>(m_data->context)) {
 				m_context = std::get<MainSceneContext>(m_data->context);
 			} else {
-				m_context.mapPath = Path::MapPath + U"stage0.tmx";
+				m_context.mapPath = Path::MapPath + U"Stage0.tmx";
 			}
 		}
 
