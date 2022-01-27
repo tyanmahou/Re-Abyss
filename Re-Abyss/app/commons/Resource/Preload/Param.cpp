@@ -89,51 +89,51 @@ namespace abyss::Resource::Preload
 
 		// Player
 		{
-			resource->loadToml<Player::Param>(U"Actors/Player/Param.toml");
-			resource->loadToml<Player::ShotParam>(U"Actors/Player/ShotParam.toml");
-			resource->loadToml<Player::CameraParam>(U"Actors/Player/CameraParam.toml");
+			resource->loadToml<Player::Param>(U"Actor/Player/Param.toml");
+			resource->loadToml<Player::ShotParam>(U"Actor/Player/ShotParam.toml");
+			resource->loadToml<Player::CameraParam>(U"Actor/Player/CameraParam.toml");
 		}
 
 		// Enemy
 		{
 			using namespace Actor::Enemy;
 
-			resource->loadToml<CaptainTako::Param>(U"Actors/Enemy/CaptainTako/Param.toml");
-			resource->loadToml<CaptainTako::ShotParam>(U"Actors/Enemy/CaptainTako/ShotParam.toml");
+			resource->loadToml<CaptainTako::Param>(U"Actor/Enemy/CaptainTako/Param.toml");
+			resource->loadToml<CaptainTako::ShotParam>(U"Actor/Enemy/CaptainTako/ShotParam.toml");
 
-			resource->loadToml<Ikalien::Param>(U"Actors/Enemy/Ikalien/Param.toml");
+			resource->loadToml<Ikalien::Param>(U"Actor/Enemy/Ikalien/Param.toml");
 
-			resource->loadToml<LaunShark::Param>(U"Actors/Enemy/LaunShark/Param.toml");
-			resource->loadToml<LaunShark::ShotParam>(U"Actors/Enemy/LaunShark/ShotParam.toml");
+			resource->loadToml<LaunShark::Param>(U"Actor/Enemy/LaunShark/Param.toml");
+			resource->loadToml<LaunShark::ShotParam>(U"Actor/Enemy/LaunShark/ShotParam.toml");
 
-			resource->loadToml<RollingTako::Param>(U"Actors/Enemy/RollingTako/Param.toml");
+			resource->loadToml<RollingTako::Param>(U"Actor/Enemy/RollingTako/Param.toml");
 
-			resource->loadToml<Slime::Param>(U"Actors/Enemy/Slime/Param.toml");
+			resource->loadToml<Slime::Param>(U"Actor/Enemy/Slime/Param.toml");
 
-			resource->loadToml<Schield::Param>(U"Actors/Enemy/Schield/Param.toml");
-			resource->loadToml<Schield::ShotParam>(U"Actors/Enemy/Schield/ShotParam.toml");
+			resource->loadToml<Schield::Param>(U"Actor/Enemy/Schield/Param.toml");
+			resource->loadToml<Schield::ShotParam>(U"Actor/Enemy/Schield/ShotParam.toml");
 
 			// MidBoss
-			resource->loadToml<KingDux::Param>(U"Actors/Enemy/KingDux/Param.toml");
-			resource->loadToml<KingDux::TentacleParam>(U"Actors/Enemy/KingDux/TentacleParam.toml");
-			resource->loadToml<KingDux::BabyDuxParam>(U"Actors/Enemy/KingDux/BabyDuxParam.toml");
+			resource->loadToml<KingDux::Param>(U"Actor/Enemy/KingDux/Param.toml");
+			resource->loadToml<KingDux::TentacleParam>(U"Actor/Enemy/KingDux/TentacleParam.toml");
+			resource->loadToml<KingDux::BabyDuxParam>(U"Actor/Enemy/KingDux/BabyDuxParam.toml");
 
 			// Boss
-			resource->loadToml<CodeZero::Param>(U"Actors/Enemy/CodeZero/Param.toml");
-			resource->loadToml<CodeZero::HandParam>(U"Actors/Enemy/CodeZero/HandParam.toml");
-			resource->loadToml<CodeZero::ShotParam>(U"Actors/Enemy/CodeZero/ShotParam.toml");
+			resource->loadToml<CodeZero::Param>(U"Actor/Enemy/CodeZero/Param.toml");
+			resource->loadToml<CodeZero::HandParam>(U"Actor/Enemy/CodeZero/HandParam.toml");
+			resource->loadToml<CodeZero::ShotParam>(U"Actor/Enemy/CodeZero/ShotParam.toml");
 		}
 
 		// Gimmick
 		{
 			using namespace Actor::Gimmick;
-			resource->loadToml<Bush::Param>(U"Actors/Gimmick/Bush/Param.toml");
+			resource->loadToml<Bush::Param>(U"Actor/Gimmick/Bush/Param.toml");
 		}
 
 		// Item
 		{
 			using namespace Actor::Item;
-			resource->loadToml<Recovery::Param>(U"Actors/Item/Recovery/Param.toml");
+			resource->loadToml<Recovery::Param>(U"Actor/Item/Recovery/Param.toml");
 		}
     }
 
