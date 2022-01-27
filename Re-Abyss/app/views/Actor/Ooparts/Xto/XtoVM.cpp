@@ -7,7 +7,7 @@
 namespace abyss::Actor::Ooparts::Xto
 {
     XtoVM::XtoVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Ooparts/Xto/xto.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Ooparts/Xto/Xto.png"))
     {}
 
     void XtoVM::draw(const s3d::ColorF & color) const

@@ -7,7 +7,7 @@
 namespace abyss::Actor::Enemy::KingDux::Foot
 {
     FootVM::FootVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/KingDux/king_dux.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/KingDux.json"))
     {}
     FootVM& FootVM::setTime(double time)
     {

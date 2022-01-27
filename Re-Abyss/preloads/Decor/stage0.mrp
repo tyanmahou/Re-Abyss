@@ -1,8 +1,4 @@
 [Decor/Stage0]
-- img"bgs/stage0-1.png"
-- img"bgs/stage0-2.png"
-- img"bgs/stage0-3.png"
-- img"bgs/stage0-4.png"
 - img"mapchip/stage0_mapchip.png"
 - img"mapchip/decors/stage0/stage0_front1.png"
 - img"mapchip/decors/stage0/stage0_front2.png"

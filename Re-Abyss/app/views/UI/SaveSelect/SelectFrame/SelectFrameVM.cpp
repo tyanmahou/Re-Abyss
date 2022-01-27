@@ -9,7 +9,7 @@
 namespace abyss::UI::SaveSelect::SelectFrame
 {
     SelectFrameVM::SelectFrameVM():
-        m_trashIcon(Resource::Assets::Main()->load(U"UI/SaveSelect/erase_user.png"))
+        m_trashIcon(Resource::Assets::Main()->load(U"UI/SaveSelect/EraseUser.png"))
     {}
 
     void SelectFrameVM::draw() const

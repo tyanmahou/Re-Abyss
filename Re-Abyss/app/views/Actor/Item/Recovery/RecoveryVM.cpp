@@ -11,7 +11,7 @@ namespace abyss::Actor::Item::Recovery
     {}
 
     RecoveryVM::RecoveryVM(const Setting & setting):
-        m_texture(Resource::Assets::Main()->load(U"actors/Item/Recovery/recovery.json")),
+        m_texture(Resource::Assets::Main()->load(U"Actor/Item/Recovery/Recovery.json")),
         m_coreOffset(setting.coreOffset),
         m_coreAnimTimeSec(setting.coreAnimTimeSec),
         m_baseTopOffset(setting.baseTopOffset),

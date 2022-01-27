@@ -5,7 +5,7 @@
 namespace abyss::Actor::Player::Shot
 {
     ShotVM::ShotVM(PlayerShotType type, Forward forward):
-        m_texture(Resource::Assets::Main()->load(U"actors/Player/player_shot.png")),
+        m_texture(Resource::Assets::Main()->load(U"Actor/Player/PlayerShot.png")),
         m_type(type),
         m_forward(forward)
     {}

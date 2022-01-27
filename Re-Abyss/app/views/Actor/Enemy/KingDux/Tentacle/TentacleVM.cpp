@@ -7,7 +7,7 @@
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
     TentacleVM::TentacleVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/KingDux/tentacle.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/Tentacle.png"))
     {}
 
     TentacleVM& TentacleVM::setTime(double time)

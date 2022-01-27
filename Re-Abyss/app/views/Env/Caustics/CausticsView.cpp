@@ -30,7 +30,7 @@ namespace
 namespace abyss::Env
 {
 	CausticsView::CausticsView():
-		m_texture(Resource::Assets::Main()->load(U"Env/caustics.png")),
+		m_texture(Resource::Assets::Main()->load(U"Env/Caustics.png")),
 		m_time(0)
     {}
 

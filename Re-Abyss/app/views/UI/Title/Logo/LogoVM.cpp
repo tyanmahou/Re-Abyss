@@ -5,7 +5,7 @@
 namespace abyss::UI::Title::Logo
 {
     LogoVM::LogoVM():
-        m_texture(Resource::Assets::Main()->load(U"UI/Title/logo.png"))
+        m_texture(Resource::Assets::Main()->load(U"UI/Title/Logo.png"))
     {}
     void LogoVM::draw() const
     {

@@ -5,7 +5,7 @@
 namespace abyss::Effect::Actor::Ooparts::KiraKira
 {
     KiraKiraVM::KiraKiraVM(Type type):
-        m_texture(Resource::Assets::Main()->loadTexturePacker(U"actors/Common/common_effects.json")(U"kirakira")),
+        m_texture(Resource::Assets::Main()->loadTexturePacker(U"Effect/Actor/Common/CommonEffects.json")(U"kirakira")),
         m_type(type)
     {}
 

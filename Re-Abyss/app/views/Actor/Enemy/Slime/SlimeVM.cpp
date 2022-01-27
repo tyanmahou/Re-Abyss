@@ -6,7 +6,7 @@
 namespace abyss::Actor::Enemy::Slime
 {
     SlimeVM::SlimeVM(Resource::Assets* asset):
-        m_texture(asset->load(U"actors/Enemy/Slime/slime.png"))
+        m_texture(asset->load(U"Actor/Enemy/Slime/Slime.png"))
     {}
     SlimeVM& SlimeVM::setTime(double time)
     {

@@ -7,7 +7,7 @@
 namespace abyss::Actor::Gimmick::Bush
 {
     BushVM::BushVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Gimmick/Bush/bush.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Gimmick/Bush/Bush.png"))
     {}
     BushVM& BushVM::setPos(const s3d::Vec2 & pos)
     {

@@ -6,7 +6,7 @@
 namespace abyss::UI::Title::BackGround
 {
     BackGroundVM::BackGroundVM() :
-        m_texture(Resource::Assets::Main()->load(U"UI/Title/bg.png"))
+        m_texture(Resource::Assets::Main()->load(U"UI/Title/Bg.png"))
     {}
 
     void BackGroundVM::draw() const

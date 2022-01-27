@@ -34,7 +34,7 @@ namespace abyss::Actor::Player
         return ColorDef::OnDamage(m_isDamaging, m_time);
     }
     PlayerVM::PlayerVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Player/player.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Player/Player.json"))
     {}
     PlayerVM& PlayerVM::setOopartsView(std::unique_ptr<Ooparts::OopartsView> && ooparts)
     {

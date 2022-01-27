@@ -5,7 +5,7 @@
 namespace abyss::Actor::Gimmick::Bulletin
 {
     BulletinVM::BulletinVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Gimmick/Bulletin/bulletin.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Gimmick/Bulletin/Bulletin.png"))
     {}
     BulletinVM& BulletinVM::setPos(const s3d::Vec2& pos)
     {

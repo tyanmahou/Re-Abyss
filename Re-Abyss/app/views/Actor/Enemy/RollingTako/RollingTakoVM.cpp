@@ -7,7 +7,7 @@
 namespace abyss::Actor::Enemy::RollingTako
 {
     RollingTakoVM::RollingTakoVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/RollingTako/rolling_tako.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/RollingTako/RollingTako.png"))
     {}
     RollingTakoVM& RollingTakoVM::setTime(double time)
     {

@@ -8,7 +8,7 @@
 namespace abyss::Actor::Enemy::CaptainTako
 {
     CaptainTakoVM::CaptainTakoVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/CaptainTako/captain_tako.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/CaptainTako/CaptainTako.png"))
     {}
 
     CaptainTakoVM& CaptainTakoVM::setTime(double time)

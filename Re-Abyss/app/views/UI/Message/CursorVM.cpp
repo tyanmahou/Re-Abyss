@@ -5,7 +5,7 @@
 namespace abyss::UI::Message
 {
     CursorVM::CursorVM():
-        m_texture(Resource::Assets::Main()->load(U"UI/Common/cursor.png"))
+        m_texture(Resource::Assets::Main()->load(U"UI/Common/Cursor.png"))
     {}
 
     CursorVM& CursorVM::setPos(const s3d::Vec2 & pos)

@@ -7,7 +7,7 @@ namespace abyss
 {
 	EnemyDeadEffect::EnemyDeadEffect(const Vec2& pos) :
 		m_pos(pos),
-		m_texture(Resource::Assets::Main()->load(U"actors/Common/common_effects.json"))
+		m_texture(Resource::Assets::Main()->load(U"Effect/Actor/Common/CommonEffects.json"))
 	{}
 	bool EnemyDeadEffect::update(double t)
 	{

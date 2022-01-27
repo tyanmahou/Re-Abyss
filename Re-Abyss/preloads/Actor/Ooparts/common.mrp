@@ -1,2 +1,2 @@
 [Actor/Ooparts/Common]
-- img"actors/Common/common_effects.json"
+- @"Effect/Actor/Common"

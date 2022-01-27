@@ -7,7 +7,7 @@
 namespace abyss::Actor::Enemy::Ikalien
 {
     IkalienVM::IkalienVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/Ikalien/ikalien.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/Ikalien/Ikalien.png"))
     {}
     IkalienVM& IkalienVM::setTime(double time)
     {

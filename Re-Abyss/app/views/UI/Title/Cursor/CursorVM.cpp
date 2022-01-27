@@ -4,7 +4,7 @@
 namespace abyss::UI::Title::Cursor
 {
     CursorVM::CursorVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Player/player.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Player/Player.json"))
     {}
 
     void CursorVM::draw() const

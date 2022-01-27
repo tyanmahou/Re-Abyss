@@ -5,7 +5,7 @@
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     ShotVM::ShotVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/CodeZero/code_zero.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/CodeZero/CodeZero.json"))
     {}
     ShotVM& ShotVM::setTime(double time)
     {

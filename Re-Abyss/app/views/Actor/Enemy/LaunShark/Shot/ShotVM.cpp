@@ -8,7 +8,7 @@
 namespace abyss::Actor::Enemy::LaunShark::Shot
 {
     ShotVM::ShotVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Enemy/LaunShark/laun_shark.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/LaunShark/LaunShark.json"))
     {}
     ShotVM& ShotVM::setTime(double time)
     {

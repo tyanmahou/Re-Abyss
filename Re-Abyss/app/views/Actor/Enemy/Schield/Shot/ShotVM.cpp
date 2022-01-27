@@ -6,7 +6,7 @@
 namespace abyss::Actor::Enemy::Schield::Shot
 {
     ShotVM::ShotVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Common/enemy_shot.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Common/EnemyShot.json"))
     {}
     ShotVM& ShotVM::setTime(double time)
     {

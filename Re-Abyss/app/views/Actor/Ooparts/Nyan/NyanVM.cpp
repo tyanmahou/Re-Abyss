@@ -5,7 +5,7 @@
 namespace abyss::Actor::Ooparts::Nyan
 {
     NyanVM::NyanVM():
-        m_texture(Resource::Assets::Main()->load(U"actors/Ooparts/Nyan/nyan.png"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Ooparts/Nyan/Nyan.png"))
     {}
     void NyanVM::draw(const s3d::ColorF & color) const
     {

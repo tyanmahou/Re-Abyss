@@ -5,7 +5,7 @@
 namespace abyss::Actor::Gimmick::Door
 {
     DoorVM::DoorVM() :
-        m_texture(Resource::Assets::Main()->load(U"actors/Gimmick/Door/door.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Gimmick/Door/Door.json"))
     {}
     void DoorVM::drawCommon() const
     {
