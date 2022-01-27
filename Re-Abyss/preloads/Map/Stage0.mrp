@@ -1,0 +1,10 @@
+[Map/Stage0]
+- @"Map/Common"
+- @"Actor/Gimmick/Door"
+- @"Actor/Item/Recovery"
+- @"Actor/Ooparts/All"
+- @"Decor/Stage0"
+- tmx"Stage0.tmx"
+
+
+
