@@ -46,7 +46,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
-            .setAudioSettingGroupPath(U"Enemy/KingDux/king_dux.aase")
+            .setAudioSettingGroupPath(U"Enemy/KingDux/KingDux.aase")
             .setIsEnableItemDrop(false)
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)

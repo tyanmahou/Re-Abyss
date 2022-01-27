@@ -67,7 +67,7 @@ namespace abyss::Actor::Player::Shot
 		// サウンド
 		{
 			pActor->attach<AudioSource>(pActor)
-				->load(U"Player/Shot/player_shot.aase");
+				->load(U"Player/Shot/PlayerShot.aase");
 		}
 
 		// View

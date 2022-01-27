@@ -13,7 +13,7 @@ namespace abyss::Actor::Item
     BuildOption::BuildOption():
         pos(0, 0),
         bodySize(40, 40),
-        audioSettingGroupPath(U"Item/item.aase")
+        audioSettingGroupPath(U"Item/Item.aase")
     {}
 
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)

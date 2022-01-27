@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::Ikalien
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
-            .setAudioSettingGroupPath(U"Enemy/Ikalien/ikalien.aase")
+            .setAudioSettingGroupPath(U"Enemy/Ikalien/Ikalien.aase")
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );

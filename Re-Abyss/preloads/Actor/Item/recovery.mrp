@@ -1,3 +1,3 @@
 [Actor/Item/Recovery]
 - img"actors/Item/Recovery/recovery.json"
-- snd"se/Actors/Item/Recovery/recovery.aase"
+- snd"se/Actor/Item/Recovery/Recovery.aase"

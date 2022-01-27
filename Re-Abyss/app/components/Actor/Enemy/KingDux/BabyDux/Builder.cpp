@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setIsEnableItemDrop(false)
-            .setAudioSettingGroupPath(U"Enemy/KingDux/baby_dux.aase")
+            .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
             //.setInitState<WaitState>()
             //.setVModelBinder<ViewBinder>(pActor)
         );

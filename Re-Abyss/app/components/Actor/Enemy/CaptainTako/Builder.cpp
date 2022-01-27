@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             .setBodySize(Param::Base::Size)
             .setBodyPivot(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
-            .setAudioSettingGroupPath(U"Enemy/CaptainTako/captain_tako.aase")
+            .setAudioSettingGroupPath(U"Enemy/CaptainTako/CaptainTako.aase")
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );

@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::Slime
 			.setForward(entity.forward)
 			.setInitHp(Param::Base::Hp)
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::Horizon))
-			.setAudioSettingGroupPath(U"Enemy/Slime/slime.aase")
+			.setAudioSettingGroupPath(U"Enemy/Slime/Slime.aase")
 			.setInitState<WalkState>()
 			.setVModelBinder<ViewBinder>(pActor)
 		);

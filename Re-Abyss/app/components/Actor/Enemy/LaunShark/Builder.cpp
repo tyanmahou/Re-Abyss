@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::LaunShark
 			.setBodySize(Param::Base::Size)
 			.setInitHp(Param::Base::Hp)
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::All))
-			.setAudioSettingGroupPath(U"Enemy/LaunShark/laun_shark.aase")
+			.setAudioSettingGroupPath(U"Enemy/LaunShark/LaunShark.aase")
 			.setInitState<SwimState>()
 			.setVModelBinder<ViewBinder>(pActor)
 		);

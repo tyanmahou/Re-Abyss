@@ -120,7 +120,7 @@ namespace abyss::Actor::Player
         // AudioSource
         {
             pActor->attach<AudioSource>(pActor)
-                ->load(U"Player/player.aase");
+                ->load(U"Player/Player.aase");
         }
         // State
         {

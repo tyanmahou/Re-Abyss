@@ -134,6 +134,6 @@ namespace abyss::Actor::Enemy
         bodyPivot(0, 0),
         forward(Forward::Left),
         initHp(1),
-        audioSettingGroupPath(U"Enemy/enemy.aase")
+        audioSettingGroupPath(U"Enemy/Enemy.aase")
     {}
 }

@@ -74,7 +74,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         // サウンド
         {
             pActor->attach<AudioSource>(pActor)
-                ->load(U"Enemy/CaptainTako/captain_tako.aase");
+                ->load(U"Enemy/CaptainTako/CaptainTako.aase");
         }
         // 描画制御
         {
