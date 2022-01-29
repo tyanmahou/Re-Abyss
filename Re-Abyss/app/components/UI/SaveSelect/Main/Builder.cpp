@@ -1,5 +1,7 @@
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
+#include <abyss/commons/Msg/Common.hpp>
+
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/Common/HierarchyCtrl.hpp>
 #include <abyss/components/UI/Common/FooterTips.hpp>
@@ -26,7 +28,7 @@ namespace abyss::UI::SaveSelect::Main
 
         // フッター
         {
-            pUi->attach<FooterTips>(U"Z…決定 X…キャンセル");
+            pUi->attach<FooterTips>(U"Z…{} X…{}"_fmt(Msg::Common::Decide, Msg::Common::Cancel));
         }
 
         // 背景
