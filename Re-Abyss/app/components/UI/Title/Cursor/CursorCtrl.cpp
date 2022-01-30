@@ -3,6 +3,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/Msg/Title.hpp>
 #include <abyss/views/UI/Title/Cursor/CursorVM.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 
@@ -88,13 +89,13 @@ namespace abyss::UI::Title::Cursor
     {
         struct CursorViewParam
         {
-            String name;
+            String& name;
             double posY;
         };
         static const std::array<CursorViewParam, ModeTerm> viewParams
         {
-            CursorViewParam{U"GAME START", 90.0},
-            CursorViewParam{U"Exit", 140.0},
+            CursorViewParam{Msg::Title::GameStart, 90.0},
+            CursorViewParam{Msg::Title::Exit, 140.0},
         };
         size_t modeIndex = static_cast<size_t>(m_mode);
         m_view->setPos(PivotUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();

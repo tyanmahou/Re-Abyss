@@ -7,10 +7,10 @@ namespace abyss::Msg
 	struct Common
 	{
 		[[TOML_BIND(Decide)]]
-		inline static s3d::String  Decide;
+		inline static s3d::String Decide;
 
 		[[TOML_BIND(Cancel)]]
-		inline static s3d::String  Cancel;
+		inline static s3d::String Cancel;
 
 		[[TOML_BIND(UserPlayMode)]]
 		struct UserPlayMode
