@@ -2805,6 +2805,7 @@
     <ClInclude Include="app\commons\Msg\Common.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Message.hpp" />
     <ClInclude Include="app\commons\Msg\Title.hpp" />
+    <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

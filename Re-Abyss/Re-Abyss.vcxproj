@@ -900,6 +900,7 @@
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
+    <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
     <ClInclude Include="app\commons\Msg\Title.hpp" />
     <ClInclude Include="app\commons\Path.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Message.hpp" />
