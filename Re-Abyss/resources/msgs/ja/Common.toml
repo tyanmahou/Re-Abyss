@@ -1,5 +1,9 @@
 Decide = "決定"
 Cancel = "キャンセル"
+
+Yes = "はい"
+No = "いいえ"
+
 [UserPlayMode]
 Normal = "ノーマルモード"
 Hard = "ハードモード"

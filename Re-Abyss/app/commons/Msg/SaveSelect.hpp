@@ -15,7 +15,23 @@ namespace abyss::Msg
 			[[TOML_BIND(Delete)]]
 			inline static s3d::String Delete;
 		};
+
+		[[TOML_BIND(CreateUser)]]
+		struct CreateUser
+		{
+			[[TOML_BIND(Title)]]
+			inline static s3d::String Title;
+		};
+
+		[[TOML_BIND(EraseUser)]]
+		struct EraseUser
+		{
+			[[TOML_BIND(Title)]]
+			inline static s3d::String Title;
+		};
 	private:
 		[[no_unique_address]] Mode Mode;
+		[[no_unique_address]] CreateUser CreateUser;
+		[[no_unique_address]] EraseUser EraseUser;
 	};
 }

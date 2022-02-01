@@ -12,6 +12,12 @@ namespace abyss::Msg
 		[[TOML_BIND(Cancel)]]
 		inline static s3d::String Cancel;
 
+		[[TOML_BIND(Yes)]]
+		inline static s3d::String Yes;
+
+		[[TOML_BIND(No)]]
+		inline static s3d::String No;
+
 		[[TOML_BIND(UserPlayMode)]]
 		struct UserPlayMode
 		{
@@ -20,6 +26,7 @@ namespace abyss::Msg
 			[[TOML_BIND(Hard)]]
 			inline static s3d::String Hard{};
 		};
+
 	private:
 		[[no_unique_address]] UserPlayMode UserPlayMode;
 	};
