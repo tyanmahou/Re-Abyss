@@ -1864,6 +1864,9 @@
     <ClCompile Include="app\types\UserPlayMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2806,6 +2809,7 @@
     <ClInclude Include="app\commons\Resource\Preload\Message.hpp" />
     <ClInclude Include="app\commons\Msg\Title.hpp" />
     <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
