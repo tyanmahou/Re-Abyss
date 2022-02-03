@@ -3,9 +3,12 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
+#include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
+
 
 namespace
 {
@@ -29,7 +32,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             .setIsEnableItemDrop(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
             //.setInitState<WaitState>()
-            //.setVModelBinder<ViewBinder>(pActor)
+            .setVModelBinder<ViewBinder>(pActor)
         );
 
         // Body調整
@@ -41,4 +44,40 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 			pActor->attach<ParentObserver>(pActor, parent);
 		}
 	}
+}
+
+namespace
+{
+	using namespace abyss;
+	using namespace abyss::Actor;
+	using namespace abyss::Actor::Enemy::KingDux;
+	using namespace abyss::Actor::Enemy::KingDux::BabyDux;
+
+	class ViewBinder : public IVModelBinder<BabyDuxVM>
+	{
+	public:
+		ViewBinder(ActorObj* pActor) :
+			m_pActor(pActor),
+			m_view(std::make_unique<BabyDuxVM>())
+		{}
+	private:
+		BabyDuxVM* bind() const final
+		{
+			return &m_view->setTime(m_pActor->getTimeSec())
+				.setPos(m_body->getPos())
+				.setIsDamaging(m_damage->isInInvincibleTime())
+				;
+		}
+		void onStart() final
+		{
+			m_body = m_pActor->find<Body>();
+			m_damage = m_pActor->find<DamageCtrl>();
+		}
+	private:
+		ActorObj* m_pActor = nullptr;
+		Ref<Body> m_body;
+		Ref<DamageCtrl> m_damage;
+
+		std::unique_ptr<BabyDuxVM> m_view;
+	};
 }
