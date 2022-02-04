@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
 
@@ -31,7 +32,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             .setIsEnableMapCollider(false)
             .setIsEnableItemDrop(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
-            //.setInitState<WaitState>()
+            .setInitState<AppearState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
 

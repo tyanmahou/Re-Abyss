@@ -302,6 +302,8 @@
     <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\AppearState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\CrownCollider.cpp" />
@@ -937,7 +939,10 @@
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\AppearState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Behavior.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
