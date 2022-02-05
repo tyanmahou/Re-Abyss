@@ -2,4 +2,12 @@
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
+	void AppearState::start()
+	{
+
+	}
+	Task<> AppearState::task()
+	{
+		co_return;
+	}
 }

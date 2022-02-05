@@ -7,6 +7,8 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         public BaseState
     {
     public:
+        void start() override;
+        Task<> task() override;
     private:
     };
 }
