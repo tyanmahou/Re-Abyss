@@ -5,9 +5,11 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Builder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
+
 namespace abyss::Actor::Enemy::KingDux
 {
     Ref<ActorObj> KingDuxUtil::BuildTentacle(ActorObj* pActor, const TentacleDesc& desc)
@@ -18,6 +20,12 @@ namespace abyss::Actor::Enemy::KingDux
             .distOffset = desc.distOffset,
             .kind = desc.kind,
             .waitTimeSec = desc.waitTimeSec
+            });
+    }
+    Ref<ActorObj> KingDuxUtil::BuildBaby(ActorObj* pActor, const BabyDesc& desc)
+    {
+        return pActor->getModule<World>()->create<BabyDux::Builder>(pActor, BabyDux::BuildDesc{
+            .posOffset = desc.offset
             });
     }
     void KingDuxUtil::SetVisible(ActorObj* pActor, bool isVisible)

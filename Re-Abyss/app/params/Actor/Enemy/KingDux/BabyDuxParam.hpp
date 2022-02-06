@@ -4,6 +4,12 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
+    struct BabyDesc
+    {
+        [[TOML_BIND(offset)]]
+        s3d::Vec2 offset{ 0, 0 };
+    };
+
     struct BabyDuxParam
     {
         [[TOML_BIND(Base::Hp, "Base.hp")]]

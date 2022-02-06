@@ -2,6 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 namespace abyss::Actor::Enemy::KingDux
 {
@@ -9,6 +10,8 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 	public:
 		static Ref<ActorObj> BuildTentacle(ActorObj* pActor, const TentacleDesc& desc);
+
+		static Ref<ActorObj> BuildBaby(ActorObj* pActor, const BabyDesc& desc);
 
 		static void SetVisible(ActorObj* pActor, bool isVisible);
 
