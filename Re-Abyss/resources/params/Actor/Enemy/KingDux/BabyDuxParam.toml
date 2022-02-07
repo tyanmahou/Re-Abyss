@@ -2,3 +2,6 @@
 hp = 6
 pivot = "(0, -15)"
 colRadius = 18
+
+[Convene.Baby]
+offset = "(0, 0)"

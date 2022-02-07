@@ -21,5 +21,12 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Vec2 Pivot{ 0, -15 };
             inline static double ColRadius = 18;
         };
+
+
+        [[TOML_BIND(Convene::Baby, "Convene.Baby")]]
+        struct Convene
+        {
+            inline static BabyDesc Baby;
+        };
     };
 }
