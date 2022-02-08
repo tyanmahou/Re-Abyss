@@ -1840,9 +1840,6 @@
     <ClCompile Include="app\components\Actor\Common\VModelUpdater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\ConveneState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2804,7 +2801,6 @@
     <ClInclude Include="app\components\Actor\Common\BehaviorTest.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DanceState.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModelUpdater.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\ConveneState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.hpp" />

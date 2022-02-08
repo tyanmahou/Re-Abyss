@@ -312,7 +312,6 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\BaseState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\ConveneState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\DanceState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\StabState.cpp" />
@@ -952,7 +951,6 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\ConveneState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\StabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DanceState.hpp" />

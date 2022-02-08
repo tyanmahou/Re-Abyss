@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/State/ConveneState.hpp>
-
+#include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <Siv3D.hpp>
 
@@ -20,8 +20,15 @@ namespace abyss::Actor::Enemy::KingDux
 
 	Coro::Task<> DanceState::task()
 	{
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 3.0s);
-		this->changeState<ConveneState>();
+		// 少し待ってから
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.5s);
+
+		// BabyDuxを生成
+		KingDuxUtil::BuildBaby(m_pActor, BabyDuxParam::Convene::Baby);
+
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0s);
+
+		this->changeState<WaitState>();
 		co_return;
 	}
 

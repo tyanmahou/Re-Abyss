@@ -83,7 +83,7 @@ namespace abyss::Actor
             while (true) {
                 m_isSelectable = true;
                 if (m_worldComment->isSelected()) {
-                    if (InputManager::A.down()) {
+                    if (KeySlash.down()) {
                         break;
                     }
                 }
