@@ -5,11 +5,11 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
-
 
 namespace
 {
@@ -22,7 +22,8 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	{
         // 共通ビルド
         auto parentBody = parent->find<Body>();
-        auto pos = parentBody->getPos() + desc.posOffset;
+		const s3d::Vec2& parentPos = parentBody->getPos();
+        auto pos = parentPos + desc.posOffset;
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(pos)
             .setBodyPivot(BabyDuxParam::Base::Pivot)
@@ -36,6 +37,10 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             .setVModelBinder<ViewBinder>(pActor)
         );
 
+		// Main
+		{
+			pActor->attach<Main>(pActor, desc, parentPos);
+		}
         // Body調整
         {
             pActor->find<Body>()->noneResistanced();

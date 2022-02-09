@@ -1870,6 +1870,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2815,6 +2818,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
