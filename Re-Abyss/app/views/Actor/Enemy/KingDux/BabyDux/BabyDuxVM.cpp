@@ -6,7 +6,7 @@
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
 	BabyDuxVM::BabyDuxVM() :
-		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/Ikalien/Ikalien.png"))
+		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/BabyDux.png"))
 	{}
 	BabyDuxVM& BabyDuxVM::setTime(double time)
 	{
