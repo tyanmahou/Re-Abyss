@@ -8,6 +8,10 @@ namespace abyss::Actor::Enemy::KingDux
     {
         [[TOML_BIND(offset)]]
         s3d::Vec2 offset{ 0, 0 };
+        [[TOML_BIND(appearTime)]]
+        double appearTime{ 2.0 };
+        [[TOML_BIND(appearMove)]]
+        s3d::Vec2 appearMove{ 0, 0 };
     };
 
     struct BabyDuxParam

@@ -8,4 +8,12 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		m_parentPos(parentPos)
 	{
 	}
+	double Main::getAppearTime() const
+	{
+		return m_desc.appearTime;
+	}
+	const s3d::Vec2& Main::getAppearMove() const
+	{
+		return m_desc.appearMove;
+	}
 }

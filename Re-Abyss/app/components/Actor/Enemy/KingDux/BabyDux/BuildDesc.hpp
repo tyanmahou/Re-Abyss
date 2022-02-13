@@ -5,5 +5,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	struct BuildDesc
 	{
 		s3d::Vec2 posOffset{};
+		double appearTime{ 2.0 };
+		s3d::Vec2 appearMove{};
 	};
 }

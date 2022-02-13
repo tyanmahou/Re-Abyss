@@ -4,4 +4,7 @@ pivot = "(0, -15)"
 colRadius = 18
 
 [Convene.Baby]
-offset = "(0, 0)"
+offset = "(-200, -400)"
+appearTime = 3.0
+appearMove = "(0, 500)"
+

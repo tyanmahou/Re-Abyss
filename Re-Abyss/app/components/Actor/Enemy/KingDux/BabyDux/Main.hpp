@@ -14,6 +14,9 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		{
 			return m_parentPos;
 		}
+
+		double getAppearTime() const;
+		const s3d::Vec2& getAppearMove() const;
 	private:
 		ActorObj* m_pActor = nullptr;
 		BuildDesc m_desc;

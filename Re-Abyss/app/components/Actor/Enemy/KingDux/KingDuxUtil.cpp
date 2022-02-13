@@ -25,7 +25,9 @@ namespace abyss::Actor::Enemy::KingDux
     Ref<ActorObj> KingDuxUtil::BuildBaby(ActorObj* pActor, const BabyDesc& desc)
     {
         return pActor->getModule<World>()->create<BabyDux::Builder>(pActor, BabyDux::BuildDesc{
-            .posOffset = desc.offset
+            .posOffset = desc.offset,
+            .appearTime = desc.appearTime,
+            .appearMove = desc.appearMove
             });
     }
     void KingDuxUtil::SetVisible(ActorObj* pActor, bool isVisible)
