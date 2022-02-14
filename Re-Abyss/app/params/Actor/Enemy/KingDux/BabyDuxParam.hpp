@@ -28,6 +28,21 @@ namespace abyss::Actor::Enemy::KingDux
             inline static double ColRadius = 18;
         };
 
+        [[TOML_BIND(Move::Gravity, "Move.gravity")]]
+        [[TOML_BIND(Move::JumpHeight, "Move.jumpHeight")]]
+        [[TOML_BIND(Move::MaxSpeedY, "Move.maxSpeedY")]]
+        [[TOML_BIND(Move::DecelX, "Move.decelX")]]
+        [[TOML_BIND(Move::MoveX, "Move.moveX")]]
+        [[TOML_BIND(Move::FallLimitOffs, "Move.fallLimitOffs")]]
+        struct Move
+        {
+            inline static double Gravity{400};
+            inline static double JumpHeight{ 300 };
+            inline static double MaxSpeedY{ 78 };
+            inline static double DecelX{ 20 };
+            inline static double MoveX{ 200 };
+            inline static double FallLimitOffs{ 50 };
+        };
 
         [[TOML_BIND(Convene::Baby, "Convene.Baby")]]
         struct Convene

@@ -1,7 +1,15 @@
 [Base]
-hp = 6
+hp = 12
 pivot = "(0, -15)"
 colRadius = 18
+
+[Move]
+gravity = 400
+jumpHeight = 300
+maxSpeedY = 110
+decelX = 20
+moveX = 200
+fallLimitOffs = 50
 
 [[Convene.Baby]]
 waitTimeSec = 1.5
