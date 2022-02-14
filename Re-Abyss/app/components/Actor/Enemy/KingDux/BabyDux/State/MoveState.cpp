@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 				timer.update(m_pActor->deltaTime());
 
 				auto rate = timer.rate();
-				rate = s3d::EaseInOutQuad(rate);
+				rate = s3d::EaseOutQuad(rate);
 				double offsetY = s3d::Math::Lerp(0, BabyDuxParam::Move::ChargeOffs, rate);
 				auto targetPos = m_startPos;
 				targetPos.y += offsetY;

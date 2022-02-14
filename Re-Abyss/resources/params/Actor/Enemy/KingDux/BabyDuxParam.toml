@@ -9,8 +9,8 @@ jumpHeight = 300
 maxSpeedY = 95
 decelX = 30
 moveX = 200
-chargeTimeSec = 0.5
-chargeOffs = 50
+chargeTimeSec = 0.9
+chargeOffs = 60
 
 [[Convene.Baby]]
 waitTimeSec = 1.5
