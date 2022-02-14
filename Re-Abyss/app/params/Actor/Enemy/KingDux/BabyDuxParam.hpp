@@ -33,7 +33,8 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Move::MaxSpeedY, "Move.maxSpeedY")]]
         [[TOML_BIND(Move::DecelX, "Move.decelX")]]
         [[TOML_BIND(Move::MoveX, "Move.moveX")]]
-        [[TOML_BIND(Move::FallLimitOffs, "Move.fallLimitOffs")]]
+        [[TOML_BIND(Move::ChargeTimeSec, "Move.chargeTimeSec")]]
+        [[TOML_BIND(Move::ChargeOffs, "Move.chargeOffs")]]
         struct Move
         {
             inline static double Gravity{400};
@@ -41,7 +42,8 @@ namespace abyss::Actor::Enemy::KingDux
             inline static double MaxSpeedY{ 78 };
             inline static double DecelX{ 20 };
             inline static double MoveX{ 200 };
-            inline static double FallLimitOffs{ 50 };
+            inline static double ChargeTimeSec{ 0.5 };
+            inline static double ChargeOffs{ 50 };
         };
 
         [[TOML_BIND(Convene::Baby, "Convene.Baby")]]

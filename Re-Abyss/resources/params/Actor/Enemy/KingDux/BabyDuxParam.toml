@@ -7,9 +7,10 @@ colRadius = 18
 gravity = 400
 jumpHeight = 300
 maxSpeedY = 95
-decelX = 20
+decelX = 30
 moveX = 200
-fallLimitOffs = 50
+chargeTimeSec = 0.5
+chargeOffs = 50
 
 [[Convene.Baby]]
 waitTimeSec = 1.5
