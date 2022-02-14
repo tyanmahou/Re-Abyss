@@ -9,6 +9,11 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     public:
         void start() override;
         Task<> task() override;
+
+        void update() override;
     private:
+        void jump();
+    private:
+        s3d::Vec2 m_startPos;
     };
 }

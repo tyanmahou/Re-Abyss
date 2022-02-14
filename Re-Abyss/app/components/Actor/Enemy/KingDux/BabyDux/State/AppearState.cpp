@@ -30,6 +30,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 				co_yield{};
 			}
 		}
+
 		this->changeState<MoveState>();
 		co_return;
 	}
