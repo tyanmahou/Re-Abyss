@@ -6,6 +6,8 @@ namespace abyss::Actor::Enemy::KingDux
 {
     struct BabyDesc
     {
+        [[TOML_BIND(waitTimeSec)]]
+        double waitTimeSec{ 0 };
         [[TOML_BIND(offset)]]
         s3d::Vec2 offset{ 0, 0 };
         [[TOML_BIND(appearTime)]]
@@ -30,7 +32,7 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Convene::Baby, "Convene.Baby")]]
         struct Convene
         {
-            inline static BabyDesc Baby;
+            inline static s3d::Array<BabyDesc> Baby;
         };
     };
 }

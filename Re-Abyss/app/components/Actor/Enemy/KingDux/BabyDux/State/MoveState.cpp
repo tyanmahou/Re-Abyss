@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	void MoveState::update()
 	{
 		if (m_body->getVelocity().y > 0 && 
-			m_body->getPos().y >= m_startPos.y + 100.0) {
+			m_body->getPos().y >= m_startPos.y) {
 			this->jump();
 		}
 	}

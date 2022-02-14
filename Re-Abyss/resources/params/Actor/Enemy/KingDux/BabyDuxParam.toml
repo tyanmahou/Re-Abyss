@@ -3,8 +3,15 @@ hp = 6
 pivot = "(0, -15)"
 colRadius = 18
 
-[Convene.Baby]
+[[Convene.Baby]]
+waitTimeSec = 1.5
 offset = "(-200, -400)"
 appearTime = 3.0
-appearMove = "(0, 500)"
+appearMove = "(0, 450)"
+
+[[Convene.Baby]]
+waitTimeSec = 0.5
+offset = "(200, -400)"
+appearTime = 4.0
+appearMove = "(0, 600)"
 

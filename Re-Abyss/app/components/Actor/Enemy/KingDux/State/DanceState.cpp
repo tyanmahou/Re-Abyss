@@ -20,13 +20,15 @@ namespace abyss::Actor::Enemy::KingDux
 
 	Coro::Task<> DanceState::task()
 	{
-		// 少し待ってから
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.5s);
+		for (const auto& desc : BabyDuxParam::Convene::Baby) {
+			// 少し待ってから
+			co_await BehaviorUtil::WaitForSeconds(m_pActor, desc.waitTimeSec);
 
-		// BabyDuxを生成
-		KingDuxUtil::BuildBaby(m_pActor, BabyDuxParam::Convene::Baby);
+			// BabyDuxを生成
+			KingDuxUtil::BuildBaby(m_pActor, desc);
+		}
 
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0s);
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5s);
 
 		this->changeState<WaitState>();
 		co_return;
