@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	{
         auto dt = m_pActor->deltaTime();
 
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+        s3d::Vec2 d = ActorUtils::ToPlayer(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(5.0);
         double rotate = m_rotate->getRotate();
         const double angle = m_rotate->getDir9().getAngle(d);

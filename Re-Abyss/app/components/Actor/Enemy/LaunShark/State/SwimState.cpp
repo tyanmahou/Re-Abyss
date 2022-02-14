@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::LaunShark
         this->BaseState::update();
 
         if (m_waitTimer.isEnd()) {
-            s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+            s3d::Vec2 d = ActorUtils::ToPlayer(*m_pActor, *m_body);
             double f = m_body->isForward(Forward::Right) ? 1.0 : -1.0;
             if (f * d.x > 0) {
                 auto distance = d.length();

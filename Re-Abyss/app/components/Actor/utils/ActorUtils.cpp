@@ -10,13 +10,13 @@ namespace abyss::Actor::ActorUtils
     {
         return actor.getModule<Actor::Player::PlayerManager>()->getPos();
     }
-    s3d::Vec2 PlayerDiffVec(const ActorObj& actor, const Body& body)
+    s3d::Vec2 ToPlayer(const ActorObj& actor, const Body& body)
     {
         return PlayerPos(actor) - body.getPos();
     }
     bool IsPlayerFrontByDistance(const ActorObj& actor, const Body& body, double range)
     {
-        s3d::Vec2 d = PlayerDiffVec(actor, body);
+        s3d::Vec2 d = ToPlayer(actor, body);
         double f = body.isForward(Forward::Right) ? 1.0 : -1.0;
         return f * d.x > 0 && d.length() <= range;
     }

@@ -20,7 +20,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
     {
         auto dt = m_pActor->deltaTime();
 
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+        s3d::Vec2 d = ActorUtils::ToPlayer(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(ShotParam::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir9().cross(d) > 0) {

@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             this->changeState<PursuitEndState>();
             return;
         }
-        auto diff = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+        auto diff = ActorUtils::ToPlayer(*m_pActor, *m_body);
         m_body->setVelocity(diff.normalized() * ShotParam::Pursuit::Speed);
     }
 }

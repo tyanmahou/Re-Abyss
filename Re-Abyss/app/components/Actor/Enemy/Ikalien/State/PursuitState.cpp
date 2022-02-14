@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::Ikalien
     {
         auto dt = m_pActor->deltaTime();
 
-        s3d::Vec2 d = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+        s3d::Vec2 d = ActorUtils::ToPlayer(*m_pActor, *m_body);
         const double speed = s3d::Math::ToRadians(Param::Pursuit::RotateDeg);
         double rotate = m_rotate->getRotate();
         if (m_rotate->getDir().cross(d) > 0) {

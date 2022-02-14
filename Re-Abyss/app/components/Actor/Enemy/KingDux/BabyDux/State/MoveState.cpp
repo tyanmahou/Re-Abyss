@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	}
 	void MoveState::jump()
 	{
-		auto toPlayer = ActorUtils::PlayerDiffVec(*m_pActor, *m_body);
+		auto toPlayer = ActorUtils::ToPlayer(*m_pActor, *m_body);
 		auto sign = toPlayer.x <= 0 ? -1 : 1;
 		m_body->setVelocityX(sign * s3d::Math::Sqrt(2.0 * 200 * decel))
 			.jumpToHeight(300.0);
