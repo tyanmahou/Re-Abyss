@@ -1,4 +1,5 @@
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/MoveState.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
@@ -29,6 +30,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 				co_yield{};
 			}
 		}
+		this->changeState<MoveState>();
 		co_return;
 	}
 }
