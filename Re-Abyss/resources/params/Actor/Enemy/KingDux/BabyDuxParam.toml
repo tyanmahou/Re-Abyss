@@ -6,7 +6,7 @@ colRadius = 18
 [Move]
 gravity = 400
 jumpHeight = 300
-maxSpeedY = 110
+maxSpeedY = 95
 decelX = 20
 moveX = 200
 fallLimitOffs = 50
