@@ -6,7 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
-#include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
+#include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
 namespace abyss::Actor
 {

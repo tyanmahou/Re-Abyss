@@ -2641,7 +2641,7 @@
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
     <ClInclude Include="app\components\Effect\base\Drawer.hpp" />
-    <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
+    <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\RollingAttackState.hpp" />

@@ -1121,7 +1121,7 @@
     <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
-    <ClInclude Include="app\utils\Coro\TaskHolder\TaskHolder.hpp" />
+    <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />

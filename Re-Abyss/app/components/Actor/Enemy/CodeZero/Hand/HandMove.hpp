@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/Coro/TaskHolder/TaskHolder.hpp>
+#include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
