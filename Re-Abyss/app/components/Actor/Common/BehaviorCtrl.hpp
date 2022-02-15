@@ -14,13 +14,10 @@ namespace abyss::Actor
         public IComponent,
         public IUpdate
     {
-        ActorObj* m_pActor = nullptr;
-        Coro::TaskHolder<> m_task;
-
-        bool m_isActive = true;
     public:
         BehaviorCtrl(ActorObj* pActor);
 
+        void setSequence(std::function<Coro::Task<>(ActorObj*)> sequence);
         void setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior);
 
         void onUpdate() override;
@@ -30,6 +27,12 @@ namespace abyss::Actor
             m_isActive = isActive;
             return *this;
         }
+    private:
+        ActorObj* m_pActor = nullptr;
+        Coro::TaskHolder<> m_sequence;
+        Coro::TaskHolder<> m_task;
+
+        bool m_isActive = true;
     };
 }
 namespace abyss

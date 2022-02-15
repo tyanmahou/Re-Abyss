@@ -7,10 +7,24 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
+
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
+    Coro::Task<> BehaviorSequence::Root(ActorObj* pActor)
+    {
+        // 前半パターン
+        pActor->find<BehaviorCtrl>()->setBehavior(Behavior::Petern);
+        // HP 1/2まで
+        co_await Coro::WaitUntil([pActor] {
+            return pActor->find<HP>()->isUnderPercent(1.0 / 2.0);
+        });
+        // 後半パターン
+        pActor->find<BehaviorCtrl>()->setBehavior(Behavior::Petern2);
+    }
     Coro::Task<> Behavior::Petern(ActorObj* pActor)
     {
         co_await Appear(pActor);
@@ -24,10 +38,31 @@ namespace abyss::Actor::Enemy::KingDux
             co_await Stab2(pActor);
 
             co_await Stab3(pActor);
-
-            co_await PursuitStab(pActor);
         }
         co_return;
+    }
+    Coro::Task<> Behavior::Petern2(ActorObj* pActor)
+    {
+        while (true)
+        {
+            co_await Convene(pActor);
+            co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
+            co_await PursuitStab(pActor);
+
+            co_await Stab(pActor);
+
+            co_await Convene(pActor);
+            co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
+            co_await PursuitStab(pActor);
+
+            co_await Stab2(pActor);
+
+            co_await Convene(pActor);
+            co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
+            co_await PursuitStab(pActor);
+
+            co_await Stab3(pActor);
+        }
     }
     Coro::Task<> Behavior::Appear(ActorObj* pActor)
     {

@@ -39,5 +39,6 @@ namespace abyss::Actor
         s3d::int32 getHp() const;
         s3d::int32 getMaxHp() const;
 
+        bool isUnderPercent(double rate) const;
     };
 }

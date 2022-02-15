@@ -63,7 +63,7 @@ namespace abyss::Actor::Enemy::KingDux
         // Behavior
         {
             pActor->attach<BehaviorCtrl>(pActor)
-                ->setBehavior(Behavior::Petern);
+                ->setSequence(BehaviorSequence::Root);
 #if ABYSS_DEBUG
             pActor->attach<BehaviorTest>(pActor)
                 ->setWaitAction(Behavior::Wait)
