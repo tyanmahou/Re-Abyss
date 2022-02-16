@@ -8,11 +8,6 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void BehaviorCtrl::setup(Executer executer)
-    {
-        executer.on<IPostUpdate>().addBefore<StateCtrl>();
-    }
-    
     void BehaviorCtrl::setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence)
     {
         m_sequence.reset(std::bind(sequence, this));
@@ -21,6 +16,16 @@ namespace abyss::Actor
     {
         m_behavior.reset(std::bind(behavior, m_pActor));
     }
+
+    bool BehaviorCtrl::isDoneBehavior() const
+    {
+        return m_behavior.isDone();
+    }
+    void BehaviorCtrl::setup(Executer executer)
+    {
+        executer.on<IPostUpdate>().addBefore<StateCtrl>();
+    }
+
     void BehaviorCtrl::onPostUpdate()
     {
         if (m_isActiveSeq) {

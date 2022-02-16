@@ -2,8 +2,8 @@
 #if ABYSS_DEBUG
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/debugs/Debug.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -17,7 +17,7 @@ namespace abyss::Actor
         m_body = m_pActor->find<Body>();
         if (Debug::Menu::IsDebug(Debug::DebugFlag::ActorTestBehavior)) {
             m_isActive = true;
-            m_pActor->find<BehaviorCtrl>()->setBehavior(std::bind_front(&BehaviorTest::doTest, this));
+            m_pActor->find<BehaviorCtrl>()->setSequence(std::bind_front(&BehaviorTest::doTest, this));
         }
     }
     void BehaviorTest::onPreDraw()
@@ -69,14 +69,20 @@ namespace abyss::Actor
         m_actions.emplace_back(key, behavior);
         return *this;
     }
-    Coro::Task<> BehaviorTest::doTest(ActorObj* pActor)
+    Coro::Task<> BehaviorTest::doTest(BehaviorCtrl* behavior)
     {
         if (m_initializer) {
-            co_await m_initializer(pActor);
+            behavior->setBehavior(m_initializer);
+            co_await Coro::WaitUntil([behavior] {
+                return behavior->isDoneBehavior();
+            });
         }
         while (!m_actions.empty()) {
             if (m_waitAction) {
-                co_await m_waitAction(pActor);
+                behavior->setBehavior(m_waitAction);
+                co_await Coro::WaitUntil([behavior] {
+                    return behavior->isDoneBehavior();
+                });
             }
 
             // 技選択
@@ -90,7 +96,10 @@ namespace abyss::Actor
                 co_yield{};
             }
             m_isSelectable = false;
-            co_await m_actions[m_select].second(pActor);
+            behavior->setBehavior(m_actions[m_select].second);
+            co_await Coro::WaitUntil([behavior] {
+                return behavior->isDoneBehavior();
+            });
         }
         co_return;
     }

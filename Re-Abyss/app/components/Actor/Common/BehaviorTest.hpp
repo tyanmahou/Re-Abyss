@@ -6,6 +6,7 @@
 #include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 
 #include <Siv3D/Array.hpp>
@@ -27,7 +28,7 @@ namespace abyss::Actor
         BehaviorTest& setWaitAction(const BehaviorFunc& waitAction);
         BehaviorTest& registAction(const s3d::String& key, const BehaviorFunc& behavior);
     private:
-        Coro::Task<> doTest(ActorObj* pActor);
+        Coro::Task<> doTest(BehaviorCtrl* behavior);
     private:
         ActorObj* m_pActor;
         std::unique_ptr<WorldComment::Requestor> m_worldComment;
