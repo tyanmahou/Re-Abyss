@@ -11,10 +11,11 @@
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/State/Phase1State.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
@@ -38,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
             .setIsEnableBreathing(false)
             .setIsEnableItemDrop(false)
             .setIsAutoDestroy(false)
-            .setInitState<Phase1State>()
+            .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
 
@@ -67,7 +68,9 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         // 行動パターン
         {
-            pActor->attach<BehaviorCtrl>(pActor);
+            pActor->attach<BehaviorCtrl>(pActor)
+                ->setSequence(BehaviorSequence::Root)
+                ;
         }
         // プロキシ
         {

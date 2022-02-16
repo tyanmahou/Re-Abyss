@@ -2,10 +2,9 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/State/Phase1State.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/State/Phase2State.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/State/Phase3State.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 
@@ -30,19 +29,6 @@ namespace abyss::Actor::Enemy::CodeZero
     const s3d::Vec2& ParentCtrl::getPos() const
     {
         return m_body->getPos();
-    }
-
-    bool ParentCtrl::isPhase1()const
-    {
-        return m_state->isState<Phase1State>();
-    }
-    bool ParentCtrl::isPhase2()const
-    {
-        return m_state->isState<Phase2State>();
-    }
-    bool ParentCtrl::isPhase3()const
-    {
-        return m_state->isState<Phase3State>();
     }
     bool ParentCtrl::isShotCharge() const
     {

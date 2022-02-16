@@ -1,15 +1,20 @@
 #pragma once
-
-#include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
+    class BehaviorSequence
+    {
+    public:
+        [[nodiscard]] static Coro::Task<> Root(BehaviorCtrl* behavior);
+    };
     class Behavior
     {
     public:
-        static Coro::Task<> Petern1(ActorObj* pActor);
-        static Coro::Task<> Petern2(ActorObj* pActor);
-        static Coro::Task<> Petern3(ActorObj* pActor);
+        static Coro::Task<> Pettern1(ActorObj* pActor);
+        static Coro::Task<> Pettern2(ActorObj* pActor);
+        static Coro::Task<> Pettern3(ActorObj* pActor);
+    public:
+        static Coro::Task<> WaitPursuitHands(ActorObj* pActor);
     };
 }

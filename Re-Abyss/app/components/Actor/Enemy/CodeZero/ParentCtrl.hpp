@@ -29,10 +29,6 @@ namespace abyss::Actor::Enemy::CodeZero
 
         const s3d::Vec2& getPos() const;
 
-        bool isPhase1()const;
-        bool isPhase2()const;
-        bool isPhase3()const;
-
         bool isShotCharge()const;
     };
 }

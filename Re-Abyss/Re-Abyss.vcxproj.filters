@@ -521,15 +521,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase1State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase2State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1876,6 +1867,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\MoveState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2147,9 +2141,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase1State.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase2State.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\PartsCtrl.hpp" />
@@ -2823,6 +2814,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Main.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\MoveState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

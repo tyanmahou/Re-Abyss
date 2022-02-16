@@ -1,22 +1,43 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 
-#include <Siv3D.hpp>
-
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
-
-#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
+
+#include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    Coro::Task<> Behavior::Petern1(ActorObj* pActor)
+    Coro::Task<> BehaviorSequence::Root(BehaviorCtrl* behavior)
+    {
+        auto* pActor = behavior->getActor();
+
+        // 前半パターン
+        behavior->setBehavior(Behavior::Pettern1);
+
+        // HP 2/3まで
+        co_await BehaviorUtil::WaitLessThanHpRate(pActor, 2.0 / 3.0);
+        co_await Behavior::WaitPursuitHands(pActor);
+
+        // 中盤パターン
+        behavior->setBehavior(Behavior::Pettern2);
+
+        // HP 1/3まで
+        co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 3.0);
+        co_await Behavior::WaitPursuitHands(pActor);
+
+        // 後半パターン
+        behavior->setBehavior(Behavior::Pettern3);
+    }
+    Coro::Task<> Behavior::Pettern1(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -39,7 +60,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Petern2(ActorObj* pActor)
+    Coro::Task<> Behavior::Pettern2(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -73,7 +94,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Petern3(ActorObj* pActor)
+    Coro::Task<> Behavior::Pettern3(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -141,4 +162,12 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
+    Coro::Task<> Behavior::WaitPursuitHands(ActorObj* pActor)
+    {
+        auto parts = pActor->find<PartsCtrl>();
+        co_await Coro::WaitUntil([parts] {
+            return parts->getLeftHand()->isPursuit() &&
+                parts->getRightHand()->isPursuit();
+        });
+    }
 }

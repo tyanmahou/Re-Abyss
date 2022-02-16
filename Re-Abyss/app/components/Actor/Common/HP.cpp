@@ -67,7 +67,7 @@ namespace abyss::Actor
         return m_hp <= 0;
     }
 
-    bool HP::isUnderPercent(double rate) const
+    bool HP::isLessThanRate(double rate) const
     {
         return m_hp <= s3d::Math::Floor(m_maxHp * rate);
     }

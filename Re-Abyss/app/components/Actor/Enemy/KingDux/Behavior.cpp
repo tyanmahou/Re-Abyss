@@ -19,15 +19,14 @@ namespace abyss::Actor::Enemy::KingDux
         auto* pActor = behavior->getActor();
 
         // 前半パターン
-        behavior->setBehavior(Behavior::Petern);
+        behavior->setBehavior(Behavior::Pettern1);
         // HP 1/2まで
-        co_await Coro::WaitUntil([pActor] {
-            return pActor->find<HP>()->isUnderPercent(1.0 / 2.0);
-        });
+        co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 2.0);
+
         // 後半パターン
-        behavior->setBehavior(Behavior::Petern2);
+        behavior->setBehavior(Behavior::Pettern2);
     }
-    Coro::Task<> Behavior::Petern(ActorObj* pActor)
+    Coro::Task<> Behavior::Pettern1(ActorObj* pActor)
     {
         co_await Appear(pActor);
 
@@ -43,7 +42,7 @@ namespace abyss::Actor::Enemy::KingDux
         }
         co_return;
     }
-    Coro::Task<> Behavior::Petern2(ActorObj* pActor)
+    Coro::Task<> Behavior::Pettern2(ActorObj* pActor)
     {
         while (true)
         {

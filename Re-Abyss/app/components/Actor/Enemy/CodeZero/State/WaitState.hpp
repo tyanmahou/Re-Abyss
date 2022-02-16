@@ -3,11 +3,10 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    class Phase3State : public BaseState
+    class WaitState final :
+        public BaseState
     {
     public:
-        Phase3State();
         void start() override;
-        void update() override;
     };
 }

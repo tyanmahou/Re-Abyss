@@ -297,6 +297,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\PartsCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
@@ -746,9 +747,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\BaseState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase1State.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase2State.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\LauncherState.cpp" />
@@ -936,6 +934,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp" />
@@ -1586,9 +1585,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase1State.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase2State.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\Phase3State.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\BaseState.hpp" />

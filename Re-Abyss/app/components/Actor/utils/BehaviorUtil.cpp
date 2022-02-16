@@ -1,6 +1,8 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 
 namespace abyss::Actor
 {
@@ -26,6 +28,17 @@ namespace abyss::Actor
 		while (true) {
 			co_yield{};
 		}
+	}
+
+	Coro::Task<> BehaviorUtil::WaitLessThanHpRate(ActorObj* pActor, double rate)
+	{
+		auto hp = pActor->find<HP>();
+		if (!hp) {
+			co_return;
+		}
+		co_await Coro::WaitUntil([hp, rate] {
+			return hp->isLessThanRate(rate);
+		});
 	}
 
 }
