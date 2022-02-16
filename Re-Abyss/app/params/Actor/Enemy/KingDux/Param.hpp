@@ -26,6 +26,7 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Base::Pivot, "Base.pivot")]]
         [[TOML_BIND(Base::MainColliders, "Base.mainColliders")]]
         [[TOML_BIND(Base::CrownColliders, "Base.crownColliders")]]
+        [[TOML_BIND(Base::Terrain, "Base.terrain")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 100 };
@@ -38,6 +39,8 @@ namespace abyss::Actor::Enemy::KingDux
 
             inline static s3d::Array<s3d::Triangle> MainColliders;
             inline static s3d::Array<s3d::Triangle> CrownColliders;
+
+            inline static s3d::RectF Terrain{};
         };
 
         [[TOML_BIND(Eye::DistRate, "Eye.distRate")]]

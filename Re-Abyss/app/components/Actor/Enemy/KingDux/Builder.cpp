@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/TerrainProxy.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
@@ -93,6 +94,13 @@ namespace abyss::Actor::Enemy::KingDux
                 .setLayer(ColSys::LayerGroup::Enemy)
                 .attach<Col::Attacker>(pActor, 1)
                 .attach<Col::Receiver>(pActor);
+        }
+        // 地形扱い
+        {
+            pActor->attach<TerrainProxy>(pActor)
+                ->setColDirection(ColDirection::All)
+                .setRegion(Param::Base::Terrain.movedBy(entity.pos))
+                ;
         }
         // 描画
         {
