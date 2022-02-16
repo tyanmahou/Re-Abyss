@@ -5,7 +5,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/components/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
@@ -13,16 +13,18 @@ namespace abyss::Actor
 {
     class BehaviorCtrl final : 
         public IComponent,
-        public IUpdate,
+        public IPostUpdate,
         public IStateCallback
     {
     public:
         BehaviorCtrl(ActorObj* pActor);
 
+        void setup(Executer executer)override;
+
         void setSequence(std::function<Coro::Task<>(ActorObj*)> sequence);
         void setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior);
 
-        void onUpdate() override;
+        void onPostUpdate() override;
 
         BehaviorCtrl& setActiveSequence(bool isActive)
         {
@@ -51,7 +53,7 @@ namespace abyss
     struct ComponentTree<Actor::BehaviorCtrl>
     {
         using Base = MultiComponents<
-            Actor::IUpdate,
+            Actor::IPostUpdate,
             Actor::IStateCallback
         >;
     };

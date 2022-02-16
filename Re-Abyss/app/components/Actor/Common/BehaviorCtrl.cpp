@@ -1,11 +1,17 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 
 namespace abyss::Actor
 {
     BehaviorCtrl::BehaviorCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
+
+    void BehaviorCtrl::setup(Executer executer)
+    {
+        executer.on<IPostUpdate>().addBefore<StateCtrl>();
+    }
     
     void BehaviorCtrl::setSequence(std::function<Coro::Task<>(ActorObj*)> sequence)
     {
@@ -15,7 +21,7 @@ namespace abyss::Actor
     {
         m_behavior.reset(std::bind(behavior, m_pActor));
     }
-    void BehaviorCtrl::onUpdate()
+    void BehaviorCtrl::onPostUpdate()
     {
         if (m_isActiveSeq) {
             m_sequence.moveNext();
