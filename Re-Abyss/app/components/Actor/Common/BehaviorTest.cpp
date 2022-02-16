@@ -3,7 +3,6 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/debugs/Debug.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -72,17 +71,11 @@ namespace abyss::Actor
     Coro::Task<> BehaviorTest::doTest(BehaviorCtrl* behavior)
     {
         if (m_initializer) {
-            behavior->setBehavior(m_initializer);
-            co_await Coro::WaitUntil([behavior] {
-                return behavior->isDoneBehavior();
-            });
+            co_await behavior->setBehaviorAndWait(m_initializer);
         }
         while (!m_actions.empty()) {
             if (m_waitAction) {
-                behavior->setBehavior(m_waitAction);
-                co_await Coro::WaitUntil([behavior] {
-                    return behavior->isDoneBehavior();
-                });
+                co_await behavior->setBehaviorAndWait(m_waitAction);
             }
 
             // 技選択
@@ -96,10 +89,7 @@ namespace abyss::Actor
                 co_yield{};
             }
             m_isSelectable = false;
-            behavior->setBehavior(m_actions[m_select].second);
-            co_await Coro::WaitUntil([behavior] {
-                return behavior->isDoneBehavior();
-            });
+            co_await behavior->setBehaviorAndWait(m_actions[m_select].second);
         }
         co_return;
     }

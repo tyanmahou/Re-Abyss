@@ -24,6 +24,8 @@ namespace abyss::Actor
         void setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence);
         void setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior);
 
+        Coro::Task<> setBehaviorAndWait(std::function<Coro::Task<>(ActorObj*)> behavior);
+
         BehaviorCtrl& setActiveSequence(bool isActive)
         {
             m_isActiveSeq = isActive;

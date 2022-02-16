@@ -1,6 +1,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 
 namespace abyss::Actor
 {
@@ -15,6 +16,14 @@ namespace abyss::Actor
     void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
     {
         m_behavior.reset(std::bind(behavior, m_pActor));
+    }
+
+    Coro::Task<> BehaviorCtrl::setBehaviorAndWait(std::function<Coro::Task<>(ActorObj*)> behavior)
+    {
+        this->setBehavior(behavior);
+        co_await Coro::WaitUntil([this] {
+            return this->isDoneBehavior();
+        });
     }
 
     bool BehaviorCtrl::isDoneBehavior() const
