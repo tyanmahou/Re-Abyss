@@ -11,7 +11,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	}
 	void AppearState::start()
 	{
-		m_behavior->setActive(false);
 	}
 	void AppearState::update()
 	{

@@ -6,13 +6,15 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
 namespace abyss::Actor
 {
     class BehaviorCtrl final : 
         public IComponent,
-        public IUpdate
+        public IUpdate,
+        public IStateCallback
     {
     public:
         BehaviorCtrl(ActorObj* pActor);
@@ -22,17 +24,25 @@ namespace abyss::Actor
 
         void onUpdate() override;
 
-        BehaviorCtrl& setActive(bool isActive)
+        BehaviorCtrl& setActiveSequence(bool isActive)
         {
-            m_isActive = isActive;
+            m_isActiveSeq = isActive;
             return *this;
         }
+        BehaviorCtrl& setActiveBehavior(bool isActive)
+        {
+            m_isActiveBehavior = isActive;
+            return *this;
+        }
+
+        void onStateStart() override;
     private:
         ActorObj* m_pActor = nullptr;
         Coro::TaskHolder<> m_sequence;
-        Coro::TaskHolder<> m_task;
+        Coro::TaskHolder<> m_behavior;
 
-        bool m_isActive = true;
+        bool m_isActiveSeq = true;
+        bool m_isActiveBehavior = true;
     };
 }
 namespace abyss
@@ -40,6 +50,9 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::BehaviorCtrl>
     {
-        using Base = Actor::IUpdate;
+        using Base = MultiComponents<
+            Actor::IUpdate,
+            Actor::IStateCallback
+        >;
     };
 }

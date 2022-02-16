@@ -14,7 +14,6 @@ namespace abyss::Actor::Enemy::KingDux
 {
 	void AppearState::start()
 	{
-		m_behavior->setActive(false);
 		m_motion->set(Motion::Hide);
 		m_pActor->find<VModel>()->setVisible(true);
 	}

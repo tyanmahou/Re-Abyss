@@ -4,6 +4,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void WaitState::start()
 	{
-		m_behavior->setActive(true);
+		m_behavior->setActiveBehavior(true);
 	}
 }

@@ -7,6 +7,6 @@ namespace abyss::Actor::Enemy::KingDux
 	void WaitState::start()
 	{
 		KingDuxUtil::SetVisible(m_pActor, true);
-		m_behavior->setActive(true);
+		m_behavior->setActiveBehavior(true);
 	}
 }

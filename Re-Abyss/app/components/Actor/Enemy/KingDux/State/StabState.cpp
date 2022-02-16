@@ -11,7 +11,6 @@ namespace abyss::Actor::Enemy::KingDux
 	{}
 	void StabState::start()
 	{
-		m_behavior->setActive(false);
 		for (const auto& desc : m_tentacleDesc) {
 			m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, desc);
 		}

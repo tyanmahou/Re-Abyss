@@ -10,7 +10,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void StabState::start()
 	{
-		m_behavior->setActive(false);
 		m_pActor->getModule<Camera>()->startQuake(10, 0.3);
 	}
 	void StabState::end()

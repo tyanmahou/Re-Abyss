@@ -13,14 +13,22 @@ namespace abyss::Actor
     }
     void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
     {
-        m_task.reset(std::bind(behavior, m_pActor));
+        m_behavior.reset(std::bind(behavior, m_pActor));
     }
     void BehaviorCtrl::onUpdate()
     {
-        if (!m_isActive) {
-            return;
+        if (m_isActiveSeq) {
+            m_sequence.moveNext();
         }
-        m_sequence.moveNext();
-        m_task.moveNext();
+
+        if (m_isActiveBehavior) {
+            m_behavior.moveNext();
+        }
+    }
+
+    void BehaviorCtrl::onStateStart()
+    {
+        m_isActiveSeq = true;
+        m_isActiveBehavior = false;
     }
 }

@@ -7,7 +7,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void StabPrevState::start()
 	{
-		m_behavior->setActive(false);
 	}
 	void StabPrevState::end()
 	{

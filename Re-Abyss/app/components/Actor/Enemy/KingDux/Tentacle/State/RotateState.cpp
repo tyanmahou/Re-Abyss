@@ -6,6 +6,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	void RotateState::start()
 	{
+        m_behavior->setActiveBehavior(true);
 	}
 	void RotateState::update()
 	{

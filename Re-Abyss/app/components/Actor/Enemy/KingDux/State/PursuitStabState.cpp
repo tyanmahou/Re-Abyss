@@ -8,7 +8,6 @@ namespace abyss::Actor::Enemy::KingDux
 {
 	void PursuitStabState::start()
 	{
-		m_behavior->setActive(false);
 		for (const auto& desc : TentacleParam::PursuitStab::Tentacle) {
 			m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, desc);
 		}

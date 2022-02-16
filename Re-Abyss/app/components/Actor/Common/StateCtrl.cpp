@@ -46,10 +46,6 @@ namespace abyss::Actor
             m_next.first = 0;
             m_next.second = nullptr;
             m_doneOnStart = false;
-            // コールバックを呼ぶ
-            for (auto&& callback : m_pActor->finds<IStateCallback>()) {
-                callback->onStateStart();
-            }
         }
     }
 
@@ -62,6 +58,10 @@ namespace abyss::Actor
     {
         this->stateUpdate();
         if (!m_doneOnStart && m_current) {
+            // コールバックを呼ぶ
+            for (auto&& callback : m_pActor->finds<IStateCallback>()) {
+                callback->onStateStart();
+            }
             m_current->start();
             m_doneOnStart = true;
         }
