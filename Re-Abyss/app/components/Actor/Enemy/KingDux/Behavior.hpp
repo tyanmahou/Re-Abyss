@@ -1,16 +1,12 @@
 #pragma once
-
-#include <functional>
-#include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
-#include <abyss/utils/Coro/Generator/Generator.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {
     class BehaviorSequence
     {
     public:
-        [[nodiscard]] static Coro::Task<> Root(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Root(BehaviorCtrl* behavior);
     };
     class Behavior
     {

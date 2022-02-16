@@ -13,9 +13,9 @@ namespace abyss::Actor
         executer.on<IPostUpdate>().addBefore<StateCtrl>();
     }
     
-    void BehaviorCtrl::setSequence(std::function<Coro::Task<>(ActorObj*)> sequence)
+    void BehaviorCtrl::setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence)
     {
-        m_sequence.reset(std::bind(sequence, m_pActor));
+        m_sequence.reset(std::bind(sequence, this));
     }
     void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
     {

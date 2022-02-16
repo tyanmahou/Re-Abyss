@@ -11,6 +11,8 @@
 
 namespace abyss::Actor
 {
+    class BehaviorCtrl;
+
     class BehaviorCtrl final : 
         public IComponent,
         public IPostUpdate,
@@ -21,7 +23,7 @@ namespace abyss::Actor
 
         void setup(Executer executer)override;
 
-        void setSequence(std::function<Coro::Task<>(ActorObj*)> sequence);
+        void setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence);
         void setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior);
 
         void onPostUpdate() override;
@@ -36,7 +38,10 @@ namespace abyss::Actor
             m_isActiveBehavior = isActive;
             return *this;
         }
-
+        ActorObj* getActor() const
+        {
+            return m_pActor;
+        }
         void onStateStart() override;
     private:
         ActorObj* m_pActor = nullptr;

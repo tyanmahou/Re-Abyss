@@ -14,16 +14,18 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
-    Coro::Task<> BehaviorSequence::Root(ActorObj* pActor)
+    Coro::Task<> BehaviorSequence::Root(BehaviorCtrl* behavior)
     {
+        auto* pActor = behavior->getActor();
+
         // 前半パターン
-        pActor->find<BehaviorCtrl>()->setBehavior(Behavior::Petern);
+        behavior->setBehavior(Behavior::Petern);
         // HP 1/2まで
         co_await Coro::WaitUntil([pActor] {
             return pActor->find<HP>()->isUnderPercent(1.0 / 2.0);
         });
         // 後半パターン
-        pActor->find<BehaviorCtrl>()->setBehavior(Behavior::Petern2);
+        behavior->setBehavior(Behavior::Petern2);
     }
     Coro::Task<> Behavior::Petern(ActorObj* pActor)
     {
