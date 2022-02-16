@@ -16,7 +16,7 @@ waitDualAttack = 3.0
 waitRestart = 4.0
 
 [Phase3]
-waitShot = 1.0
+waitShot = 3.2
 waitPursuit = 3.2
 waitInitAttack = 2.0
 waitAttack = 1.2

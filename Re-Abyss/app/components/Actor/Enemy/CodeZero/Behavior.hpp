@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CodeZero
         static Coro::Task<> BothAttackAndWait(ActorObj* pActor, double waitSec);
 
         static Coro::Task<> RollingAttack(ActorObj* pActor, bool isReverse);
-        static Coro::Task<> ChargeShot(ActorObj* pActor, double waitShotSec);
+        static Coro::Task<> ChargeShot(ActorObj* pActor);
 
         static Coro::Task<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
         static Coro::Task<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);

@@ -4,6 +4,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -71,6 +72,21 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<BehaviorCtrl>(pActor)
                 ->setSequence(BehaviorSequence::Root)
                 ;
+
+#if ABYSS_DEBUG
+            using std::placeholders::_1;
+            pActor->attach<BehaviorTest>(pActor)
+                ->setWaitAction(Behavior::WaitPursuitHands)
+                .registAction(U"LeftAttack", Behavior::LeftAttack)
+                .registAction(U"RightAttack", Behavior::RightAttack)
+                .registAction(U"BothAttack", Behavior::BothAttack)
+                .registAction(U"ChangeHandsPhase1", std::bind(Behavior::ChangeHandsPhase1, _1, false))
+                .registAction(U"ChangeHandsPhase2", std::bind(Behavior::ChangeHandsPhase2, _1, false))
+                .registAction(U"ChargeShot", Behavior::ChargeShot)
+                .registAction(U"RollingAttack", std::bind(Behavior::RollingAttack, _1, false))
+                .registAction(U"RollingAttack-R", std::bind(Behavior::RollingAttack, _1, true))
+                ;
+#endif
         }
         // プロキシ
         {

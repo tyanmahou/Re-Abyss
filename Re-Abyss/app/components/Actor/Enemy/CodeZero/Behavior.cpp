@@ -75,14 +75,11 @@ namespace abyss::Actor::Enemy::CodeZero
     Coro::Task<> Behavior::Phase3(ActorObj* pActor)
     {
         // 1ループ目だけ長め
-        double waitShotSec = Param::Phase3::WaitPursuit;
         bool isReverse = false;
         while (true) {
 
             // ショット攻撃
-            co_await ChargeShot(pActor, waitShotSec);
-
-            waitShotSec = Param::Phase3::WaitShot;
+            co_await ChargeShot(pActor);
 
             // 待機
             co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
@@ -170,7 +167,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await WaitPursuitHands(pActor);
     }
 
-    Coro::Task<> Behavior::ChargeShot(ActorObj* pActor, double waitShotSec)
+    Coro::Task<> Behavior::ChargeShot(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -179,8 +176,7 @@ namespace abyss::Actor::Enemy::CodeZero
         parts->getLeftHand()->tryShotCharge();
 
         // 待機
-        co_await BehaviorUtil::WaitForSeconds(pActor, waitShotSec);
-        waitShotSec = Param::Phase3::WaitShot;
+        co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitShot);
 
         // ショット生成
         pActor->getModule<World>()->create<Shot::Builder>(pActor);
