@@ -74,7 +74,6 @@ namespace abyss::Actor::Enemy::CodeZero
 
     Coro::Task<> Behavior::Phase3(ActorObj* pActor)
     {
-        // 1ループ目だけ長め
         bool isReverse = false;
         while (true) {
 

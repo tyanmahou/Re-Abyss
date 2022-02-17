@@ -11,8 +11,8 @@ namespace abyss::Actor::Enemy::KingDux
     class Behavior
     {
     public:
-        [[nodiscard]] static Coro::Task<> Pettern1(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Pettern2(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Phase1(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Phase2(ActorObj* pActor);
     public:
         [[nodiscard]] static Coro::Task<> Appear(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Wait(ActorObj* pActor);
