@@ -6,11 +6,13 @@ namespace abyss::Actor::Enemy::CodeZero
 {
     struct HandParam
     {
+        [[TOML_BIND(Base::InitOffs, "Base.initOffs")]]
         [[TOML_BIND(Base::ColRadius, "Base.colRadius")]]
         [[TOML_BIND(Base::HorizontalDist, "Base.horizontalDist")]]
         [[TOML_BIND(Base::VerticalDist, "Base.verticalDist")]]
         struct Base
         {
+            inline static s3d::Vec2 InitOffs{};
             inline static double ColRadius{ 35.0 };
             inline static double HorizontalDist{ 400.0 };
             inline static double VerticalDist{ 250.0 };

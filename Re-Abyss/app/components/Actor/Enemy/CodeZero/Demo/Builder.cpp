@@ -2,6 +2,7 @@
 
 #include <abyss/types/Forward.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <abyss/components/Actor/Common/CustomDraw.hpp>
@@ -61,7 +62,7 @@ namespace
         {
             const auto& pos = m_demoCtrl->getPos();
             const auto& targetPos = m_demoCtrl->getTargetPos();
-            const s3d::RectF maskArea(targetPos.x - Constants::GameScreenSize.x / 2.0f, targetPos.y + 140, Constants::GameScreenSize.x, 120);
+            const s3d::RectF maskArea(targetPos.x - Constants::GameScreenSize.x / 2.0f, targetPos.y + 240, Constants::GameScreenSize.x, 120);
 
             {
                 auto mask = MaskUtil::Instance().notEqual([maskArea] {
@@ -71,8 +72,8 @@ namespace
                 m_bodyVM->setPos(pos).draw();
                 double time = m_pActor->getTimeSec();
                 m_headVM->setTime(time).setPos(pos + Param::Head::Offset).draw();
-                m_leftHandVM->setTime(time).setPos(pos + s3d::Vec2{ 110, 90 }).draw();
-                m_rightHandVM->setTime(time).setPos(pos + s3d::Vec2{ -110, 90 }).draw();
+                m_leftHandVM->setTime(time).setPos(pos + HandParam::Base::InitOffs * s3d::Vec2{-1.0, 1.0}).draw();
+                m_rightHandVM->setTime(time).setPos(pos + HandParam::Base::InitOffs).draw();
             }
         }
     private:

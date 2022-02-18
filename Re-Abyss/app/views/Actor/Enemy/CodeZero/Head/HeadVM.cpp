@@ -35,9 +35,9 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     {
         auto tex = [&]() {
             if (m_forward == Forward::None) {
-                return m_texture(U"head")(0, 0, 100, 100);
+                return m_texture(U"head")(0, 0, 170, 170);
             }
-            return m_texture(U"head")(100, 0, 100, 100).mirrored(m_forward == Forward::Right);
+            return m_texture(U"head")(170, 0, 170, 170).mirrored(m_forward == Forward::Right);
         }();
 
         tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));

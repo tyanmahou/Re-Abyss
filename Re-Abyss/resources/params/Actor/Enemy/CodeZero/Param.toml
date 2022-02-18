@@ -2,8 +2,8 @@
 hp = 240
 
 [Head]
-colRadius = 35.0
-offset = "(0, -50)"
+colRadius = 60.0
+offset = "(0, -86)"
 
 [Phase1]
 waitRestart = 3.0

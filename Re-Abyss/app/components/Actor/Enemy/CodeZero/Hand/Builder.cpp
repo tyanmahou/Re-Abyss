@@ -34,8 +34,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         // Body
         {
+            s3d::Vec2 offs = HandParam::Base::InitOffs;
+            offs.x = offs.x * forward;
             pActor->attach<Body>(pActor)
-                ->initPos(parent->find<Body>()->getPos() + s3d::Vec2{ forward * -110, 90 })
+                ->initPos(parent->find<Body>()->getPos() + offs)
                 .noneResistanced();
             pActor->attach<BodyUpdater>(pActor);
         }

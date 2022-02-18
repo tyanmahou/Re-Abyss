@@ -1,5 +1,6 @@
 [Base]
-colRadius = 35.0
+initOffs = "(-187, 153)"
+colRadius = 60.0
 horizontalDist = 470.0
 verticalDist = 350.0
 
