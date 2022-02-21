@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/types/Forward.hpp>
+#include <abyss/types/Look.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::CodeZero
         public ILocator,
         public ILastUpdate
     {
-        Forward m_forward;
+        Look m_look;
 
         ActorObj* m_pActor;
         Ref<Body> m_body;
@@ -27,8 +27,7 @@ namespace abyss::Actor::Enemy::CodeZero
 
         s3d::Vec2 getPos() const;
 
-        Forward getForward() const;
-
+        const Look& getLook() const;
         s3d::Vec2 getCenterPos() const override;
 
         void onLastUpdate() override;

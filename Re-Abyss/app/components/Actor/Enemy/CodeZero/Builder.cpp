@@ -144,7 +144,7 @@ namespace
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
-                .setForward(m_head->getForward())
+                .setLook(m_head->getLook())
                 .setIsDamaging(m_damage->isInInvincibleTime());
         }
         void setup(Executer executer) final

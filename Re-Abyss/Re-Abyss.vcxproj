@@ -1114,6 +1114,7 @@
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
+    <ClInclude Include="app\types\Look.hpp" />
     <ClInclude Include="app\types\Novel\CharaKind.hpp" />
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />

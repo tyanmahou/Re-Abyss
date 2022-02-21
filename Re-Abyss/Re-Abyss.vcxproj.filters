@@ -2819,6 +2819,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\MoveState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AngryState.hpp" />
+    <ClInclude Include="app\types\Look.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

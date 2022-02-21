@@ -21,9 +21,9 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         m_pos = s3d::Round(pos);
         return *this;
     }
-    HeadVM& HeadVM::setForward(Forward forward)
+    HeadVM& HeadVM::setLook(const Look& look)
     {
-        m_forward = forward;
+        m_look = look;
         return *this;
     }
     HeadVM& HeadVM::setIsDamaging(bool isDamaging)
@@ -34,15 +34,24 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     void HeadVM::draw() const
     {
         TextureRegion tex = [&]() {
-            if (m_forward == Forward::None) {
-                return m_texture(U"head")(0, 0, 170, 170);
+            if (m_look.isForward(Forward::Up)) {
+                if (auto f = m_look.horizonalForward(); f != Forward::None) {
+                    return m_texture(U"head")(0, 170, 170, 170).mirrored(f == Forward::Right);
+                } else {
+                    return m_texture(U"head")(0, 340, 170, 170);
+                }
+            } else if (m_look.isForward(Forward::Down)) {
+                if (auto f = m_look.horizonalForward(); f != Forward::None) {
+                    return m_texture(U"head")(170, 0, 170, 170).mirrored(f == Forward::Right);
+                } else {
+                    return m_texture(U"head")(170, 340, 170, 170);
+                }
+            } else {
+                if (auto f = m_look.horizonalForward(); f != Forward::None) {
+                    return m_texture(U"head")(170, 170, 170, 170).mirrored(f == Forward::Right);
+                }
             }
-            if (static_cast<int32>(m_forward) & static_cast<int32>(Forward::Up) != 0) {
-                return m_texture(U"head")(0, 170, 170, 170).mirrored(m_forward == Forward::Right);
-            } else if (static_cast<int32>(m_forward) & static_cast<int32>(Forward::Down) != 0) {
-                return m_texture(U"head")(170, 0, 170, 170).mirrored(m_forward == Forward::Right);
-            }
-            return m_texture(U"head")(170, 170, 170, 170).mirrored(m_forward == Forward::Right);
+            return m_texture(U"head")(0, 0, 170, 170);
         }();
 
         tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));

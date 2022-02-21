@@ -5,10 +5,11 @@
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
+#include <Siv3D.hpp>
+
 namespace abyss::Actor::Enemy::CodeZero
 {
     HeadCtrl::HeadCtrl(ActorObj* pActor):
-        m_forward(Forward::None),
         m_pActor(pActor)
     {}
     void HeadCtrl::onStart()
@@ -22,9 +23,9 @@ namespace abyss::Actor::Enemy::CodeZero
         return m_body->getPos() + Param::Head::Offset;
     }
 
-    Forward HeadCtrl::getForward() const
+    const Look& HeadCtrl::getLook() const
     {
-        return m_forward;
+        return m_look;
     }
 
     s3d::Vec2 HeadCtrl::getCenterPos() const
@@ -37,15 +38,22 @@ namespace abyss::Actor::Enemy::CodeZero
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
         auto pos = this->getCenterPos();
 
-        if (m_parts->isShotCharge()) {
-            m_forward = Forward::None;
-        } else if (playerPos.x > pos.x + 200) {
-            m_forward = Forward::Right;
-        } else if (playerPos.x < pos.x - 200) {
-            m_forward = Forward::Left;
-        } else {
-            m_forward = Forward::None;
+        Vec2 look{0 , 0};
+        if (!m_parts->isShotCharge()) {
+            if (playerPos.x > pos.x + 200) {
+                look += Vec2{ 1, 0 };
+            } else if (playerPos.x < pos.x - 200) {
+                look -= Vec2{ 1, 0 };
+            }
+
+            if (playerPos.y > pos.y + 200) {
+                look += Vec2{ 0, 1 };
+            } else if (playerPos.y < pos.y - 200) {
+                look -= Vec2{ 0, 1 };
+            }
         }
+
+        m_look = Look(look);
     }
 
 }
