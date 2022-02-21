@@ -34,24 +34,25 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     void HeadVM::draw() const
     {
         TextureRegion tex = [&]() {
+            constexpr Vec2 size{ 170, 170 };
             if (m_look.isForward(Forward::Up)) {
                 if (auto f = m_look.horizonalForward(); f != Forward::None) {
-                    return m_texture(U"head")(0, 170, 170, 170).mirrored(f == Forward::Right);
+                    return m_texture(U"head")(0, 170, size).mirrored(f == Forward::Right);
                 } else {
-                    return m_texture(U"head")(0, 340, 170, 170);
+                    return m_texture(U"head")(0, 340, size);
                 }
             } else if (m_look.isForward(Forward::Down)) {
                 if (auto f = m_look.horizonalForward(); f != Forward::None) {
-                    return m_texture(U"head")(170, 0, 170, 170).mirrored(f == Forward::Right);
+                    return m_texture(U"head")(170, 0, size).mirrored(f == Forward::Right);
                 } else {
-                    return m_texture(U"head")(170, 340, 170, 170);
+                    return m_texture(U"head")(170, 340, size);
                 }
             } else {
                 if (auto f = m_look.horizonalForward(); f != Forward::None) {
-                    return m_texture(U"head")(170, 170, 170, 170).mirrored(f == Forward::Right);
+                    return m_texture(U"head")(170, 170, size).mirrored(f == Forward::Right);
                 }
             }
-            return m_texture(U"head")(0, 0, 170, 170);
+            return m_texture(U"head")(0, 0, size);
         }();
 
         tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
