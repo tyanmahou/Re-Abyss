@@ -33,17 +33,16 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     }
     void HeadVM::draw() const
     {
-        auto tex = [&]() {
+        TextureRegion tex = [&]() {
             if (m_forward == Forward::None) {
                 return m_texture(U"head")(0, 0, 170, 170);
             }
-            if (m_forward == Forward::Up) {
+            if (static_cast<int32>(m_forward) & static_cast<int32>(Forward::Up) != 0) {
                 return m_texture(U"head")(0, 170, 170, 170).mirrored(m_forward == Forward::Right);
-            } else if (m_forward == Forward::Down) {
-                return m_texture(U"head")(170, 170, 170, 170).mirrored(m_forward == Forward::Right);
+            } else if (static_cast<int32>(m_forward) & static_cast<int32>(Forward::Down) != 0) {
+                return m_texture(U"head")(170, 0, 170, 170).mirrored(m_forward == Forward::Right);
             }
-
-            return m_texture(U"head")(170, 0, 170, 170).mirrored(m_forward == Forward::Right);
+            return m_texture(U"head")(170, 170, 170, 170).mirrored(m_forward == Forward::Right);
         }();
 
         tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
