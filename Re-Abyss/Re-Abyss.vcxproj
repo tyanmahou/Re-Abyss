@@ -561,6 +561,7 @@
     <ClCompile Include="app\system\Splash\Booter.cpp" />
     <ClCompile Include="app\system\System.cpp" />
     <ClCompile Include="app\system\Title\Booter.cpp" />
+    <ClCompile Include="app\types\Look.cpp" />
     <ClCompile Include="app\types\Novel\TagString.cpp" />
     <ClCompile Include="app\types\UserPlayMode.cpp" />
     <ClCompile Include="app\utils\Clock\ClockUtil.cpp" />

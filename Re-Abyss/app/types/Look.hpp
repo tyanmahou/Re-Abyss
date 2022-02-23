@@ -7,39 +7,14 @@ namespace abyss
     class Look
     {
     public:
-        Look():
-            m_value(0, 0)
-        {}
-        Look(double x, double y) :
-            m_value(x, y)
-        {}
-        Look(const s3d::Vec2& v):
-            m_value(v)
-        {}
+        Look();
+        Look(double x, double y);
+        Look(const s3d::Vec2& v);
 
-        bool isForward(Forward f) const
-        {
-            return m_value.dot(ToVec2(f)) > 0;
-        }
+        bool isForward(Forward f) const;
 
-        Forward verticalForward() const
-        {
-            if (m_value.y > 0) {
-                return Forward::Down;
-            } else if (m_value.y < 0) {
-                return Forward::Up;
-            }
-            return Forward::None;
-        }
-        Forward horizonalForward() const
-        {
-            if (m_value.x > 0) {
-                return Forward::Right;
-            } else if (m_value.x < 0) {
-                return Forward::Left;
-            }
-            return Forward::None;
-        }
+        Forward verticalForward() const;
+        Forward horizonalForward() const;
     private:
         s3d::Vec2 m_value;
     };
