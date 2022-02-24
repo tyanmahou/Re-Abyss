@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
@@ -22,9 +23,10 @@ namespace abyss::Actor::Enemy::KingDux
         behavior->setBehavior(Behavior::Phase1);
         // HP 1/2まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 2.0);
-
         // 後半パターン
         behavior->setBehavior(Behavior::Phase2);
+        // 強制遷移
+        behavior->setActiveBehavior(true);
     }
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {
@@ -44,6 +46,8 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Task<> Behavior::Phase2(ActorObj* pActor)
     {
+        co_await Angry(pActor);
+
         while (true)
         {
             co_await Convene(pActor);
@@ -68,6 +72,11 @@ namespace abyss::Actor::Enemy::KingDux
     Coro::Task<> Behavior::Appear(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AppearState>();
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Angry(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<AngryState>();
         co_yield{};
     }
     Coro::Task<> Behavior::Wait(ActorObj* pActor)
