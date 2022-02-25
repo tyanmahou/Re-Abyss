@@ -1,12 +1,18 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/ReturnState.hpp>
 
+#include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
+	void ReturnState::Change(ActorObj* pActor)
+	{
+		pActor->find<StateCtrl>()->changeState<ReturnState, StatePriority::Dead>();
+	}
 	void ReturnState::start()
 	{
+		m_retireCtrl->setIsReturnState(true);
 	}
 	Coro::Task<> ReturnState::task()
 	{

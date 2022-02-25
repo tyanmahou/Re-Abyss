@@ -1,5 +1,4 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabState.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/ReturnState.hpp>
 
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
@@ -39,13 +38,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 
 		// ひっこみ制御開始
 		m_retireCtrl->setActive(true);
-
-		// リターンリクエストくるまで待機
-		co_await Coro::WaitUntil([&] {
-			return m_retireCtrl->isRetire();
-		});
-		// リターン
-		this->changeState<ReturnState>();
 		co_return;
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/components/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/base/IMove.hpp>
 #include <abyss/components/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
@@ -12,6 +13,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
 	class RetireCtrl :
 		public IComponent,
+		public IPostUpdate,
 		public IMove,
 		public IPostCollision,
 		public IStateCallback
@@ -19,7 +21,9 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	public:
 		RetireCtrl(ActorObj* pActor);
 
+		void setup(Executer executer)override;
 		void onStart() override;
+		void onPostUpdate()override;
 		void onMove()override;
 		void onPostCollision()override;
 		void onStateStart() override;
@@ -35,6 +39,11 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		{
 			return m_isRetire;
 		}
+
+		void setIsReturnState(bool isReturnState)
+		{
+			m_isReturnState = isReturnState;
+		}
 	private:
 		ActorObj* m_pActor;
 		Ref<Body> m_body;
@@ -46,6 +55,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		double m_speed = 0;
 
 		bool m_isRetire = false;
+		bool m_isReturnState = false;
 	};
 }
 
@@ -55,6 +65,7 @@ namespace abyss
 	struct ComponentTree<Actor::Enemy::KingDux::Tentacle::RetireCtrl>
 	{
 		using Base = MultiComponents<
+			Actor::IPostUpdate,
 			Actor::IMove,
 			Actor::IPostCollision,
 			Actor::IStateCallback

@@ -3,7 +3,10 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
+#include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/TentacleUtil.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/ReturnState.hpp>
 #include <abyss/utils/Math/Math.hpp>
 
 #include <Siv3D.hpp>
@@ -14,11 +17,22 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		m_pActor(pActor)
 	{
 	}
+	void RetireCtrl::setup(Executer executer)
+	{
+		executer.on<IPostUpdate>().addAfter<BehaviorCtrl>();
+		executer.on<IPostUpdate>().addBefore<StateCtrl>();
+	}
 	void RetireCtrl::onStart()
 	{
 		m_body = m_pActor->find<Body>();
 		m_rotCtrl = m_pActor->find<RotateCtrl>();
 		m_colCtrl = m_pActor->find<ColCtrl>();
+	}
+	void RetireCtrl::onPostUpdate()
+	{
+		if (m_isRetire && !m_isReturnState) {
+			ReturnState::Change(m_pActor);
+		}
 	}
 	void RetireCtrl::onMove()
 	{
@@ -98,6 +112,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	}
 	void RetireCtrl::onStateStart()
 	{
+		m_isReturnState = false;
 		m_isActive = false;
 	}
 }
