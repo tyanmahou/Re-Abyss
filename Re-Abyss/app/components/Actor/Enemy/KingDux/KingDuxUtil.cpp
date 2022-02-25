@@ -61,13 +61,7 @@ namespace abyss::Actor::Enemy::KingDux
             WaitTillTentacleRetire(tentacles, count)
             );
 
-        for (auto&& obj : tentacles) {
-            if (!obj) {
-                continue;
-            }
-            // リターンリクエスト
-            obj->find<Tentacle::RetireCtrl>()->requestReturn();
-        }
+        RequestRetires(tentacles);
 
         co_await BehaviorUtil::Freeze();
     }
@@ -78,5 +72,16 @@ namespace abyss::Actor::Enemy::KingDux
                 return !obj;
             });
         });
+    }
+    void KingDuxUtil::RequestRetires(const s3d::Array<Ref<ActorObj>>& tentacles)
+    {
+        for (auto&& obj : tentacles) {
+            if (!obj) {
+                continue;
+            }
+            // リターンリクエスト
+            obj->find<Tentacle::RetireCtrl>()->requestReturn();
+        }
+
     }
 }

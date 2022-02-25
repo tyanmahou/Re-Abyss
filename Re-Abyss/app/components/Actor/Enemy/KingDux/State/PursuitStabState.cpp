@@ -12,6 +12,10 @@ namespace abyss::Actor::Enemy::KingDux
 			m_tentacles << KingDuxUtil::BuildTentacle(m_pActor, desc);
 		}
 	}
+	void PursuitStabState::end()
+	{
+		KingDuxUtil::RequestRetires(m_tentacles);
+	}
 	Task<void> PursuitStabState::task()
 	{
 		co_await KingDuxUtil::WaitTillStabAction(m_pActor, m_tentacles);

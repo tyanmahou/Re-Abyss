@@ -24,5 +24,6 @@ namespace abyss::Actor::Enemy::KingDux
 			s3d::int32 count = 2
 		);
 		static Coro::Task<void> WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles);
+		static void RequestRetires(const s3d::Array<Ref<ActorObj>>& tentacles);
 	};
 }

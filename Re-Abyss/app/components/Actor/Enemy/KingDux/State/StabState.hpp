@@ -11,6 +11,7 @@ namespace abyss::Actor::Enemy::KingDux
         StabState(const s3d::Array<TentacleDesc>& desc = TentacleParam::Stab::Tentacle);
 
         void start() override;
+        void end() override;
         Task<void> task() override;
     private:
         const s3d::Array<TentacleDesc>& m_tentacleDesc;
