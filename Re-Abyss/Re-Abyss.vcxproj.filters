@@ -1876,6 +1876,9 @@
     <ClCompile Include="app\types\Look.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2823,6 +2826,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AngryState.hpp" />
     <ClInclude Include="app\types\Look.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

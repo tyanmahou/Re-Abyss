@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 
@@ -34,13 +35,12 @@ namespace abyss::Actor::Enemy::KingDux
 
         co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
 
+        int32 stabId = Random(2);
         while (true) {
             // 突き
-            co_await Stab(pActor);
-
-            co_await Stab2(pActor);
-
-            co_await Stab3(pActor);
+            co_await StabBy(pActor, stabId);
+            co_await BehaviorUtil::WaitForSeconds(pActor, 1.0);
+            stabId = (stabId + 1) % 3;
         }
         co_return;
     }
@@ -48,25 +48,15 @@ namespace abyss::Actor::Enemy::KingDux
     {
         co_await Angry(pActor);
 
+        int32 stabId = Random(2);
         while (true)
         {
-            co_await Convene(pActor);
+            co_await ConveneWhenNotExistBaby(pActor);
             co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
             co_await PursuitStab(pActor);
 
-            co_await Stab(pActor);
-
-            co_await Convene(pActor);
-            co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
-            co_await PursuitStab(pActor);
-
-            co_await Stab2(pActor);
-
-            co_await Convene(pActor);
-            co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
-            co_await PursuitStab(pActor);
-
-            co_await Stab3(pActor);
+            co_await StabBy(pActor, stabId);
+            stabId = (stabId + 1) % 3;
         }
     }
     Coro::Task<> Behavior::Appear(ActorObj* pActor)
@@ -99,6 +89,19 @@ namespace abyss::Actor::Enemy::KingDux
         pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle3);
         co_yield{};
     }
+    Coro::Task<> Behavior::StabBy(ActorObj* pActor, int id)
+    {
+        switch (id)
+        {
+        case 0:
+            return Stab(pActor);
+        case 1:
+            return Stab2(pActor);
+        case 2:
+            return Stab3(pActor);
+        }
+        return Stab(pActor);
+    }
     Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<PursuitStabState>();
@@ -108,5 +111,12 @@ namespace abyss::Actor::Enemy::KingDux
     {
         pActor->find<StateCtrl>()->changeState<DanceState>();
         co_yield{};
+    }
+    Coro::Task<> Behavior::ConveneWhenNotExistBaby(ActorObj* pActor)
+    {
+        if (!pActor->find<BabyCtrl>()->isExistBaby()) {
+            co_await Convene(pActor);
+        }
+        co_return;
     }
 }

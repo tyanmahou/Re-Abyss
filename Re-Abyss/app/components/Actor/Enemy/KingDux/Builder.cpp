@@ -15,6 +15,7 @@
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
@@ -101,6 +102,11 @@ namespace abyss::Actor::Enemy::KingDux
                 ->setColDirection(ColDirection::All)
                 .setRegion(Param::Base::Terrain.movedBy(entity.pos))
                 ;
+        }
+
+        // Baby制御
+        {
+            pActor->attach<BabyCtrl>(pActor);
         }
         // 描画
         {

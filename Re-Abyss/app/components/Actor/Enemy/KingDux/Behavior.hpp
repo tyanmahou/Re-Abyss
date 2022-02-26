@@ -20,7 +20,10 @@ namespace abyss::Actor::Enemy::KingDux
         [[nodiscard]] static Coro::Task<> Stab(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Stab2(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Stab3(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> StabBy(ActorObj* pActor, int id);
         [[nodiscard]] static Coro::Task<> PursuitStab(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Convene(ActorObj* pActor);
+
+        [[nodiscard]] static Coro::Task<> ConveneWhenNotExistBaby(ActorObj* pActor);
     };
 }
