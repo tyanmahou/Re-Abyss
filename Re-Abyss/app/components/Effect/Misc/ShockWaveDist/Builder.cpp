@@ -5,8 +5,8 @@
 
 namespace abyss::Effect::Misc::ShockWaveDist
 {
-    void Builder::Build(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power)
+    void Builder::Build(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power, double time)
     {
-        pObj->attach<DistCtrl>(pObj, pos, radius, power);
+        pObj->attach<DistCtrl>(pObj, pos, radius, power, time);
     }
 }

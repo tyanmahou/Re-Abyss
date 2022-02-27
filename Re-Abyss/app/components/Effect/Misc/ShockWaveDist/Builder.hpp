@@ -6,6 +6,6 @@ namespace abyss::Effect::Misc::ShockWaveDist
 {
 	struct Builder
 	{
-		static void Build(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power = 30.0);
+		static void Build(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power = 30.0, double time = 1.0);
 	};
 }

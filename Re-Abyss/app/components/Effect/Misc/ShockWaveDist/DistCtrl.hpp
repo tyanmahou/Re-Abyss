@@ -10,7 +10,7 @@ namespace abyss::Effect::Misc::ShockWaveDist
         public IDraw
     {
     public:
-        DistCtrl(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power);
+        DistCtrl(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power, double time);
 
         bool onDraw(double time) override;
     private:
@@ -18,6 +18,7 @@ namespace abyss::Effect::Misc::ShockWaveDist
         s3d::Vec2 m_pos;
         double m_radius;
         double m_power;
+        double m_time;
     };
 }
 

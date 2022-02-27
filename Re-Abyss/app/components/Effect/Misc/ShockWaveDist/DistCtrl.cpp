@@ -6,15 +6,17 @@
 
 namespace abyss::Effect::Misc::ShockWaveDist
 {
-    DistCtrl::DistCtrl(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power):
+    DistCtrl::DistCtrl(EffectObj* pObj, const s3d::Vec2& pos, double radius, double power, double time):
         m_pObj(pObj),
         m_pos(pos),
         m_radius(radius),
-        m_power(power)
+        m_power(power),
+        m_time(time)
     {}
     bool DistCtrl::onDraw(double time)
     {
-        double rate = EaseOut(Easing::Quint, time);
+        auto timeRate = time / m_time;
+        double rate = EaseOut(Easing::Quint, timeRate);
         auto distortion = m_pObj->getModule<Distortion>();
 
         distortion->addCircleFrame(
@@ -24,6 +26,6 @@ namespace abyss::Effect::Misc::ShockWaveDist
             0,
             s3d::Math::Lerp(0.0, m_power, s3d::Periodic::Triangle0_1(1s, rate))
         );
-        return time <= 1.0;
+        return timeRate <= 1.0;
     }
 }
