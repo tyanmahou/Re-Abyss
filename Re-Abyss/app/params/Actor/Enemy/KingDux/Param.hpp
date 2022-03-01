@@ -84,6 +84,7 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Shout::Time, "Shout.time")]]
         [[TOML_BIND(Shout::Count, "Shout.count")]]
         [[TOML_BIND(Shout::WaitTime, "Shout.waitTime")]]
+        [[TOML_BIND(Shout::QuakeOffset, "Shout.quakeOffset")]]
         struct Shout
         {
             inline static double Radius{};
@@ -91,6 +92,8 @@ namespace abyss::Actor::Enemy::KingDux
             inline static double Time{};
             inline static s3d::int32 Count{};
             inline static double WaitTime{};
+
+            inline static double QuakeOffset{};
         };
     };
 }

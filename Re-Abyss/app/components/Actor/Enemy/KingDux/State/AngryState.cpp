@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 
-		m_quake = m_pActor->getModule<Camera>()->startQuake();
+		m_quake = m_pActor->getModule<Camera>()->startQuake(Param::Shout::QuakeOffset);
 
 		const double& timeSec = Param::Shout::Time;
 

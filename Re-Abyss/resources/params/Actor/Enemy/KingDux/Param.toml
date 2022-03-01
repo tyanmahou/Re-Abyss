@@ -85,3 +85,4 @@ power = 20
 time = 3.0
 count = 15
 waitTime = 0.1
+quakeOffset = 3.0
