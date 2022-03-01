@@ -78,5 +78,17 @@ namespace abyss::Actor::Enemy::KingDux
             inline static double AnimTimeSec{ 1.0 };
             inline static s3d::Array<s3d::int32> AnimFrameMap{};
         };
+
+        [[TOML_BIND(Shout::Radius, "Shout.radius")]]
+        [[TOML_BIND(Shout::Power, "Shout.power")]]
+        [[TOML_BIND(Shout::Time, "Shout.time")]]
+        [[TOML_BIND(Shout::Count, "Shout.count")]]
+        struct Shout
+        {
+            inline static double Radius{};
+            inline static double Power{};
+            inline static double Time{};
+            inline static s3d::int32 Count{};
+        };
     };
 }

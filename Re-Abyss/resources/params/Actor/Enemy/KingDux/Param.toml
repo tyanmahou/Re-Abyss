@@ -78,3 +78,9 @@ pos = "(-200, -100)"
 animTimeOffset = 1.25
 rotateDeg = 0
 isFlip = true
+
+[Shout]
+radius = 900
+power = 200
+time = 3.5
+count = 1
