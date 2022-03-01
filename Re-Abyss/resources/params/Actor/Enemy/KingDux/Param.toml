@@ -80,8 +80,8 @@ rotateDeg = 0
 isFlip = true
 
 [Shout]
-radius = 900
-power = 200
-time = 3.5
-count = 1
+radius = 600
+power = 20
+time = 3.0
+count = 15
 waitTime = 0.1
