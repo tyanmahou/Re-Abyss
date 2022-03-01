@@ -15,10 +15,15 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	void AngryState::end()
 	{
+		if (m_quake) {
+			m_quake->stop();
+		}
 	}
 	Coro::Task<> AngryState::task()
 	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
+
+		m_quake = m_pActor->getModule<Camera>()->startQuake();
 
 		const double& timeSec = Param::Shout::Time;
 
@@ -31,6 +36,9 @@ namespace abyss::Actor::Enemy::KingDux
 				);
 			co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Shout::WaitTime);
 		}
+
+		m_quake->stop();
+
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
 
 		this->changeState<WaitState>();
