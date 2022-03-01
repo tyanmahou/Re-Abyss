@@ -20,16 +20,18 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 
+		const double& timeSec = Param::Shout::Time;
+
 		for ([[maybe_unused]]int32 count : s3d::step(Param::Shout::Count)) {
-			const double& timeSec = Param::Shout::Time;
 			m_pActor->getModule<Effects>()->createWorldFront<Effect::Misc::ShockWaveDist::Builder>(
 				m_body->getPos(),
 				Param::Shout::Radius,
 				Param::Shout::Power,
 				timeSec
 				);
-			co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
+			co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Shout::WaitTime);
 		}
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
 
 		this->changeState<WaitState>();
 		co_return;

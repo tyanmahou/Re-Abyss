@@ -83,4 +83,5 @@ isFlip = true
 radius = 900
 power = 200
 time = 3.5
-count = 1
+count = 10
+waitTime = 0.1
