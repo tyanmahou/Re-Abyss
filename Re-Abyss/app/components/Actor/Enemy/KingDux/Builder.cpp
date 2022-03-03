@@ -75,6 +75,7 @@ namespace abyss::Actor::Enemy::KingDux
                 .registAction(U"PursuitStab", Behavior::PursuitStab)
                 .registAction(U"Convene", Behavior::Convene)
                 .registAction(U"Appear", Behavior::Appear)
+                .registAction(U"Angry", Behavior::Angry)
                 ;
 #endif
         }
