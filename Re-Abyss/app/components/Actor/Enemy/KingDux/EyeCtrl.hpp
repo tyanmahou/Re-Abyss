@@ -40,6 +40,9 @@ namespace abyss::Actor::Enemy::KingDux
         void onStateStart() override;
 
         void setDanceMode();
+
+        void setForceCenter();
+
     private:
         void updateDefault();
         void updateDance();
@@ -53,7 +56,7 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 m_eyePosR{0, 0};
 
         Mode m_mode = Mode::Default;
-
+        bool m_forceCenter = false;
         TimeLite::Timer m_timer{2.0};
     };
 }

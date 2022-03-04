@@ -12,6 +12,7 @@ namespace abyss::Actor::Enemy::KingDux
 {
 	void AngryState::start()
 	{
+		m_eyeCtrl->setForceCenter();
 	}
 	void AngryState::end()
 	{
