@@ -20,6 +20,7 @@ namespace abyss::Actor::Enemy::KingDux
         {
             Default,
             Dance,
+            Angry,
         };
     public:
         EyeCtrl(ActorObj* pActor);
@@ -40,12 +41,11 @@ namespace abyss::Actor::Enemy::KingDux
         void onStateStart() override;
 
         void setDanceMode();
-
-        void setForceCenter();
-
+        void setAngryMode();
     private:
         void updateDefault();
         void updateDance();
+        void updateAngry();
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -56,7 +56,6 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 m_eyePosR{0, 0};
 
         Mode m_mode = Mode::Default;
-        bool m_forceCenter = false;
         TimeLite::Timer m_timer{2.0};
     };
 }

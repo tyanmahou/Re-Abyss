@@ -26,12 +26,13 @@ namespace abyss::Actor::Enemy::KingDux
             this->updateDefault();
         } else if (m_mode == Mode::Dance) {
             this->updateDance();
+        } else if (m_mode == Mode::Angry) {
+            this->updateAngry();
         }
     }
     void EyeCtrl::onStateStart()
     {
         m_mode = Mode::Default;
-        m_forceCenter = false;
     }
     void EyeCtrl::setDanceMode()
     {
@@ -39,9 +40,9 @@ namespace abyss::Actor::Enemy::KingDux
         m_timer.reset();
     }
 
-    void EyeCtrl::setForceCenter()
+    void EyeCtrl::setAngryMode()
     {
-        m_forceCenter = true;
+        m_mode = Mode::Angry;
     }
     void EyeCtrl::updateDefault()
     {
@@ -53,7 +54,7 @@ namespace abyss::Actor::Enemy::KingDux
         auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
             Vec2 targetPos{ 0, 0 };
-            if (m_forceCenter || m_hp->isDead() || m_damage->isInInvincibleTime()) {
+            if (m_hp->isDead() || m_damage->isInInvincibleTime()) {
                 targetPos = Vec2{ 0, 20 };
                 erpRate = InterpUtil::DampRatio(Param::Eye::DamageErpRate, m_pActor->deltaTime());
             } else {
@@ -98,5 +99,18 @@ namespace abyss::Actor::Enemy::KingDux
 
         moveEye(m_eyePosL, rotDeg);
         moveEye(m_eyePosR, rotDeg);
+    }
+
+    void EyeCtrl::updateAngry()
+    {
+        auto erpRate = InterpUtil::DampRatio(Param::Eye::ErpRate, m_pActor->deltaTime());
+        auto moveEye = [&](Vec2& eyePos) {
+
+            Vec2 targetPos{ 0, 20 };
+            eyePos = s3d::Math::Lerp(eyePos, targetPos, erpRate);
+        };
+
+        moveEye(m_eyePosL);
+        moveEye(m_eyePosR);
     }
 }
