@@ -22,12 +22,18 @@ namespace abyss::Actor
         DamageCtrl& setInvincibleTime(double invincibleTimeSec);
         bool isInInvincibleTime() const;
 
+        void setInInvincibleState(bool isInvincible)
+        {
+            m_isInvincibleState = isInvincible;
+        }
+
         void onStart() override;
         void onPostCollision()override;
 
         void onStateStart() override
         {
             m_isActive = true;
+            m_isInvincibleState = false;
         }
         void setActive(bool isActive)
         {
@@ -44,6 +50,7 @@ namespace abyss::Actor
         ActorObj* m_pActor;
 
         TimeLite::Timer m_invincibleTime;
+        bool m_isInvincibleState = false;
 
         bool m_isActive = true;
         s3d::Optional<DamageData> m_damageData;
