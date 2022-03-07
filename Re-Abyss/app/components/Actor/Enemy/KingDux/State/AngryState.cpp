@@ -13,6 +13,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void AngryState::start()
 	{
 		m_eyeCtrl->setAngryMode();
+		m_damageCtrl->setInvincibleState(true);
 	}
 	void AngryState::end()
 	{

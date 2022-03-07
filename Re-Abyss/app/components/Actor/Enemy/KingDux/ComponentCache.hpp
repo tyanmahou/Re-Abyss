@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/VModelUpdater.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
@@ -19,6 +20,7 @@ namespace abyss::Actor::Enemy::KingDux
         MotionCtrl* m_motion;
         VModelUpdater* m_modelUpdater;
         EyeCtrl* m_eyeCtrl;
+        DamageCtrl* m_damageCtrl;
     public:
         void onCache(ActorObj* pActor)
         {
@@ -28,6 +30,7 @@ namespace abyss::Actor::Enemy::KingDux
             m_motion = pActor->find<MotionCtrl>().get();
             m_modelUpdater = pActor->find<VModelUpdater>().get();
             m_eyeCtrl = pActor->find<EyeCtrl>().get();
+            m_damageCtrl = pActor->find<DamageCtrl>().get();
         }
     };
 }

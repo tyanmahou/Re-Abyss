@@ -22,19 +22,11 @@ namespace abyss::Actor
         DamageCtrl& setInvincibleTime(double invincibleTimeSec);
         bool isInInvincibleTime() const;
 
-        void setInInvincibleState(bool isInvincible)
+        void setInvincibleState(bool isInvincible)
         {
             m_isInvincibleState = isInvincible;
         }
 
-        void onStart() override;
-        void onPostCollision()override;
-
-        void onStateStart() override
-        {
-            m_isActive = true;
-            m_isInvincibleState = false;
-        }
         void setActive(bool isActive)
         {
             m_isActive = isActive;
@@ -44,6 +36,11 @@ namespace abyss::Actor
         {
             return m_damageData;
         }
+
+        void onStart() override;
+        void onPostCollision()override;
+
+        void onStateStart() override;
     protected:
         Ref<HP> m_hp;
         Ref<ColCtrl> m_colCtrl;

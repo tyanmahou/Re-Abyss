@@ -69,4 +69,11 @@ namespace abyss::Actor
 			}
 		}
 	}
+
+	void DamageCtrl::onStateStart()
+	{
+		m_isActive = true;
+		m_isInvincibleState = false;
+	}
+
 }
