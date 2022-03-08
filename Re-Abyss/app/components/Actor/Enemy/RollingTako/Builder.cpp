@@ -79,7 +79,7 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_damage->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }

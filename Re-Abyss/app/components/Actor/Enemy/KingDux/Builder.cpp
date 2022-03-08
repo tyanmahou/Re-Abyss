@@ -160,7 +160,7 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
-                .setIsDamaging(m_damage->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
@@ -205,7 +205,7 @@ namespace
             return &m_view->setTime(m_modelUpdater->getTime() + m_timeOffset)
                 .setPos(m_body->getPos() + m_offset)
                 .setDamageTime(m_pActor->getTimeSec())
-                .setIsDamaging(m_damage->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInvincibleTime())
                 .setIsFlip(m_isFlip)
                 .setRotate(m_rotate)
                 ;

@@ -20,7 +20,7 @@ namespace abyss::Actor
         DamageCtrl(ActorObj* pActor);
 
         DamageCtrl& setInvincibleTime(double invincibleTimeSec);
-        bool isInInvincibleTime() const;
+        bool isInvincibleTime() const;
 
         void setInvincibleState(bool isInvincible)
         {

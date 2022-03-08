@@ -71,7 +71,7 @@ namespace
 		{
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
-				.setIsDamaging(m_damage->isInInvincibleTime())
+				.setIsDamaging(m_damage->isInvincibleTime())
 				;
 		}
 		void onStart() final

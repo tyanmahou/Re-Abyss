@@ -59,7 +59,7 @@ namespace
                 ->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_damage->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInvincibleTime())
                 .setChargeRate(m_charge->getRate())
                 .setMotion(m_motion->get<Motion>())
                 ;

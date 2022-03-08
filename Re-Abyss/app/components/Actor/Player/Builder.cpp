@@ -201,7 +201,7 @@ namespace
                 .setForward(m_body->getForward())
                 .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
-                .setIsDamaging(m_damage->isInInvincibleTime())
+                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
                 ;

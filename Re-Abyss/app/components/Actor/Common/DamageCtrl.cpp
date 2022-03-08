@@ -16,7 +16,7 @@ namespace abyss::Actor
 		m_invincibleTime.toEnd();
 		return *this;
 	}
-	bool DamageCtrl::isInInvincibleTime() const
+	bool DamageCtrl::isInvincibleTime() const
 	{
 		return !m_invincibleTime.isEnd();
 	}
@@ -38,7 +38,7 @@ namespace abyss::Actor
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
-		if (this->isInInvincibleTime()) {
+		if (this->isInvincibleTime()) {
 			// 無敵
 			return;
 		}

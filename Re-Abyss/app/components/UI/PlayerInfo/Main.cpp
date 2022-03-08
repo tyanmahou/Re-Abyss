@@ -26,7 +26,7 @@ namespace abyss::UI::PlayerInfo
     void Main::onDraw() const
     {
         m_view
-            ->setFace((m_damage->isInInvincibleTime() || m_hp->isDead()) ? U"damage" : U"default")
+            ->setFace((m_damage->isInvincibleTime() || m_hp->isDead()) ? U"damage" : U"default")
             .setOoparts(OopartsType::Xto)
             .setHp(m_hp->getHp())
             .setMaxHp(m_hp->getMaxHp())

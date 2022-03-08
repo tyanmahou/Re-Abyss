@@ -134,7 +134,7 @@ namespace
 		{
 			bool isInvincibleTime = false;
 			if (m_parentDamage) {
-				isInvincibleTime = m_parentDamage->isInInvincibleTime();
+				isInvincibleTime = m_parentDamage->isInvincibleTime();
 			}
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos() + m_shake->getShakeOffset())

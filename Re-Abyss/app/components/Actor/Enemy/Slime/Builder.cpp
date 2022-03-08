@@ -70,7 +70,7 @@ namespace
 				.setForward(m_body->getForward())
 				.setPos(m_body->getPos())
 				.setVelocity(m_body->getVelocity())
-				.setIsDamaging(m_damage->isInInvincibleTime())
+				.setIsDamaging(m_damage->isInvincibleTime())
 				.setMotion(m_motion->get<Motion>())
 				;
 		}
