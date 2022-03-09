@@ -76,7 +76,13 @@ namespace abyss::Actor::Enemy::KingDux
                 m_mouth(0, 0, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
             } else if(m_motion == Motion::Angry) {
                 auto page = static_cast<int32>(Periodic::Sawtooth0_1(1.0s, m_animTime) * 6);
-                m_mouth((page % 2) * 300, (page / 2) * 240, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
+                if (m_animTime >= 1) {
+                    page = 5;
+                } else if (m_animTime <= 0) {
+                    page = 0;
+                }
+                const Vec2 mouthOffs{ 0, -20 * m_animTime };
+                m_mouth((page % 2) * 300, (page / 2) * 240, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos + mouthOffs, color);
             }
         }
     }

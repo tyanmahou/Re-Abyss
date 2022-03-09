@@ -27,9 +27,11 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	Coro::Task<> AngryState::task()
 	{
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.3);
 		m_phase = Phase::Open;
-		m_animTimer.reset(1.0);
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
+		m_animTimer.reset(0.7);
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.7);
+
 		m_phase = Phase::Wait;
 		m_quake = m_pActor->getModule<Camera>()->startQuake(Param::Shout::QuakeOffset);
 
@@ -44,10 +46,10 @@ namespace abyss::Actor::Enemy::KingDux
 				);
 			co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Shout::WaitTime);
 		}
-		m_phase = Phase::Close;
-		m_animTimer.reset(timeSec);
 		m_quake->stop();
 
+		m_phase = Phase::Close;
+		m_animTimer.reset(0.5);
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
 
 		this->changeState<WaitState>();
@@ -59,11 +61,11 @@ namespace abyss::Actor::Enemy::KingDux
 		switch (m_phase) {
 		case Phase::Open:
 			m_animTimer.update(dt);
-			m_motion->setAnimeTime(m_animTimer.rate());
+			m_motion->setAnimeTime(s3d::EaseInQuint(m_animTimer.rate()));
 			break;
 		case Phase::Close:
 			m_animTimer.update(dt);
-			m_motion->setAnimeTime(m_animTimer.invRate());
+			m_motion->setAnimeTime(s3d::EaseInQuint(m_animTimer.invRate()));
 			break;
 		default:
 			break;

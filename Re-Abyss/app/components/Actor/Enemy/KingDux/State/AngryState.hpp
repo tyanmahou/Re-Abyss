@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::KingDux
         void update() override;
     private:
         Ref<QuakeModel> m_quake;
-        Phase m_phase = Phase::Open;
+        Phase m_phase = Phase::Wait;
         TimeLite::Timer m_animTimer{};
     };
 }
