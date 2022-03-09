@@ -7,11 +7,17 @@
 namespace abyss::Actor::Enemy::KingDux
 {
     KingDuxVM::KingDuxVM() :
-        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/KingDux.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/KingDux.json")),
+        m_mouth(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/Mouth.png"))
     {}
     KingDuxVM& KingDuxVM::setTime(double time)
     {
         m_time = time;
+        return *this;
+    }
+    KingDuxVM& KingDuxVM::setAnimTime(double time)
+    {
+        m_animTime = time;
         return *this;
     }
     KingDuxVM& KingDuxVM::setPos(const s3d::Vec2& pos)
@@ -64,9 +70,14 @@ namespace abyss::Actor::Enemy::KingDux
         if (m_motion != Motion::Hide) {
             auto rate = s3d::Periodic::Sine0_1(4.0, m_time);
             auto offsetX = 0.15 * (1 - rate);
-            auto offsetY = s3d::Math::Lerp(-0.3, 0.2, rate);
+            auto offsetY = s3d::Math::Lerp(-0.3, 0.2, rate) / 2.0;
 
-            m_texture(U"mouth").scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
+            if (m_motion == Motion::Wait) {
+                m_mouth(0, 0, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
+            } else if(m_motion == Motion::Angry) {
+                auto page = static_cast<int32>(Periodic::Sawtooth0_1(1.0s, m_animTime) * 6);
+                m_mouth((page % 2) * 300, (page / 2) * 240, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
+            }
         }
     }
 }

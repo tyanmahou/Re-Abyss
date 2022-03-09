@@ -14,17 +14,23 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		m_eyeCtrl->setAngryMode();
 		m_damageCtrl->setInvincibleState(true);
+		m_motion->set(Motion::Angry);
+		m_motion->setAnimeTime(0.0);
 	}
 	void AngryState::end()
 	{
 		if (m_quake) {
 			m_quake->stop();
 		}
+		m_motion->set(Motion::Wait);
+		m_motion->setAnimeTime(0.0);
 	}
 	Coro::Task<> AngryState::task()
 	{
+		m_phase = Phase::Open;
+		m_animTimer.reset(1.0);
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
-
+		m_phase = Phase::Wait;
 		m_quake = m_pActor->getModule<Camera>()->startQuake(Param::Shout::QuakeOffset);
 
 		const double& timeSec = Param::Shout::Time;
@@ -38,7 +44,8 @@ namespace abyss::Actor::Enemy::KingDux
 				);
 			co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Shout::WaitTime);
 		}
-
+		m_phase = Phase::Close;
+		m_animTimer.reset(timeSec);
 		m_quake->stop();
 
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
@@ -48,5 +55,18 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	void AngryState::update()
 	{
+		const auto dt = m_pActor->deltaTime();
+		switch (m_phase) {
+		case Phase::Open:
+			m_animTimer.update(dt);
+			m_motion->setAnimeTime(m_animTimer.rate());
+			break;
+		case Phase::Close:
+			m_animTimer.update(dt);
+			m_motion->setAnimeTime(m_animTimer.invRate());
+			break;
+		default:
+			break;
+		}
 	}
 }

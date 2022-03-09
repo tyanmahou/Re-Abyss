@@ -158,6 +158,7 @@ namespace
         KingDuxVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
+                .setAnimTime(m_motion->animeTime())
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInvincibleTime())

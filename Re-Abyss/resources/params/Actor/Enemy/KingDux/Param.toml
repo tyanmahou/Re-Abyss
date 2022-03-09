@@ -2,7 +2,7 @@
 hp = 160
 eyeL = "(108, 155)"
 eyeR = "(-117, 153)"
-mouthPos = "(-20, 280)"
+mouthPos = "(-20, 340)"
 pivot = "(0, 210)"
 colSize = "(360, 380)"
 mainColliders=[
