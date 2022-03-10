@@ -50,7 +50,7 @@ namespace abyss::Actor::Enemy::KingDux
 
 		m_phase = Phase::Close;
 		m_animTimer.reset(0.5);
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, timeSec);
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 
 		this->changeState<WaitState>();
 		co_return;
