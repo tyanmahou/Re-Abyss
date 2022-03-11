@@ -2,14 +2,15 @@
 #include <Siv3D/Color.hpp>
 #include <Siv3D/ColorF.hpp>
 #include <Siv3D/Palette.hpp>
+#include <Siv3D/ScopedColorAdd2D.hpp>
 
 namespace abyss::ColorDef
 {
     s3d::ColorF OnDamage(double time);
     s3d::ColorF OnDamage(bool isDamaging, double time, const s3d::ColorF& defaultColor = s3d::Palette::White);
 
-    s3d::ColorF Invincible(double time);
-    s3d::ColorF Invincible(bool isInvincible, double time, const s3d::ColorF& defaultColor = s3d::ColorF(0, 0));
+    s3d::ColorF Invincible(double time, double rate);
+    s3d::ColorF Invincible(bool isInvincible, double time, double rate, const s3d::ColorF& defaultColor = s3d::ColorF(0, 0));
 
     namespace Shot
     {

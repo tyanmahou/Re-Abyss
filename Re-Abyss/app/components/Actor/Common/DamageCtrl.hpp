@@ -22,14 +22,13 @@ namespace abyss::Actor
         DamageCtrl& setInvincibleTime(double invincibleTimeSec);
         bool isInvincibleTime() const;
 
-        void setInvincibleState(bool isInvincible)
-        {
-            m_isInvincibleState = isInvincible;
-        }
+        void setInvincibleState(bool isInvincible, double invincibleTimeSec = 2);
         bool isInvincibleState() const
         {
             return m_isInvincibleState;
         }
+        s3d::ColorF getInvincibleStateColor() const;
+
         void setActive(bool isActive)
         {
             m_isActive = isActive;
@@ -51,6 +50,7 @@ namespace abyss::Actor
 
         TimeLite::Timer m_invincibleTime;
         bool m_isInvincibleState = false;
+        TimeLite::Timer m_invincibleStateColorTime;
 
         bool m_isActive = true;
         s3d::Optional<DamageData> m_damageData;

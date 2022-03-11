@@ -6,14 +6,6 @@ namespace abyss::Actor::Enemy::KingDux::Foot
 {
     class FootVM
     {
-        TexturePacker m_texture;
-
-        s3d::Vec2 m_pos;
-        double m_rotate = 0;
-        bool m_isDamaging = false;
-        bool m_isFlip = false;
-        double m_time = 0;
-        double m_damageTime = 0;
     public:
         FootVM();
         FootVM& setTime(double time);
@@ -21,8 +13,20 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         FootVM& setRotate(double rotate);
 
         FootVM& setIsDamaging(bool isDamaging);
+        FootVM& setInvincibleColor(const s3d::ColorF color);
         FootVM& setIsFlip(bool isFlip);
         FootVM& setDamageTime(double damageTime);
         void draw() const;
+    private:
+
+        TexturePacker m_texture;
+
+        s3d::Vec2 m_pos;
+        double m_rotate = 0;
+        bool m_isDamaging = false;
+        s3d::ColorF m_invincibleColor;
+        bool m_isFlip = false;
+        double m_time = 0;
+        double m_damageTime = 0;
     };
 }

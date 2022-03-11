@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
+#include <abyss/commons/ColorDef.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -20,6 +21,15 @@ namespace abyss::Actor
 	{
 		return !m_invincibleTime.isEnd();
 	}
+	void DamageCtrl::setInvincibleState(bool isInvincible, double invincibleTimeSec)
+	{
+		m_isInvincibleState = isInvincible;
+		m_invincibleStateColorTime.reset(invincibleTimeSec);
+	}
+	s3d::ColorF DamageCtrl::getInvincibleStateColor() const
+	{
+		return ColorDef::Invincible(m_isInvincibleState, m_invincibleStateColorTime.current(), m_invincibleStateColorTime.rate());
+	}
 	void DamageCtrl::onStart()
 	{
 		m_hp = m_pActor->find<HP>();
@@ -29,6 +39,7 @@ namespace abyss::Actor
 	{
 		double dt = m_pActor->deltaTime();
 		m_invincibleTime.update(dt);
+		m_invincibleStateColorTime.update(dt);
 		m_comboHistory.update(dt);
 		m_damageData = s3d::none;
 
@@ -78,6 +89,7 @@ namespace abyss::Actor
 	{
 		m_isActive = true;
 		m_isInvincibleState = false;
+		m_invincibleStateColorTime.toEnd();
 	}
 
 }

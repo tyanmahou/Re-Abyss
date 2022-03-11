@@ -29,6 +29,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_isDamaging = isDamaging;
         return *this;
     }
+    FootVM& FootVM::setInvincibleColor(const s3d::ColorF color)
+    {
+        m_invincibleColor = color;
+        return *this;
+    }
     FootVM& FootVM::setIsFlip(bool isFlip)
     {
         m_isFlip = isFlip;
@@ -42,6 +47,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     void FootVM::draw() const
     {
         const auto color = ColorDef::OnDamage(m_isDamaging, m_damageTime);
+        s3d::ScopedColorAdd2D addColor(m_invincibleColor);
 
         // 足
         const auto& pageMap = Param::Foot::AnimFrameMap;

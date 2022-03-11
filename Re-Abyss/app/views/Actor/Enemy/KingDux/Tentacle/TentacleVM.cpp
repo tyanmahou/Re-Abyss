@@ -33,10 +33,16 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         m_isDamaging = isDamaging;
         return *this;
     }
-
+    TentacleVM& TentacleVM::setInvincibleColor(const s3d::ColorF color)
+    {
+        m_invincibleColor = color;
+        return *this;
+    }
     void TentacleVM::draw() const
     {
         const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
+        s3d::ScopedColorAdd2D addColor(m_invincibleColor);
+
         auto scaleRate = s3d::Periodic::Triangle0_1(2.0, m_time);
         auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.01, scaleRate);
 

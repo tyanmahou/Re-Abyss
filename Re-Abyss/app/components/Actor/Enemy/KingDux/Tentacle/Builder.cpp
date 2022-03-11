@@ -133,13 +133,16 @@ namespace
 		TentacleVM* bind() const final
 		{
 			bool isInvincibleTime = false;
+			s3d::ColorF invincibleColor(0, 0);
 			if (m_parentDamage) {
 				isInvincibleTime = m_parentDamage->isInvincibleTime();
+				invincibleColor = m_parentDamage->getInvincibleStateColor();
 			}
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos() + m_shake->getShakeOffset())
 				.setRotate(m_rotate->getRotate())
 				.setIsDamaging(isInvincibleTime)
+				.setInvincibleColor(invincibleColor)
 				;
 		}
 		void onStart() final

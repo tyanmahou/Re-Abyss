@@ -16,17 +16,18 @@ namespace abyss::ColorDef
         }
         return OnDamage(time);
     }
-    s3d::ColorF Invincible(double time)
+    s3d::ColorF Invincible(double time, double rate)
     {
-        double rate = s3d::Periodic::Triangle0_1(0.15, time);
-        double rgb = s3d::Math::Lerp(0.0, 0.2, rate);
+        double r = s3d::Periodic::Triangle0_1(0.125, time);
+        rate = s3d::EaseOutQuad(rate);
+        double rgb = s3d::Math::Lerp(s3d::Math::Lerp(0.4, 0.0, rate), 0, r);
         return s3d::ColorF(rgb, 0.0);
     }
-    s3d::ColorF Invincible(bool isInvincible, double time, const s3d::ColorF& defaultColor)
+    s3d::ColorF Invincible(bool isInvincible, double time, double rate, const s3d::ColorF& defaultColor)
     {
         if (!isInvincible) {
             return defaultColor;
         }
-        return Invincible(time);
+        return Invincible(time, rate);
     }
 }

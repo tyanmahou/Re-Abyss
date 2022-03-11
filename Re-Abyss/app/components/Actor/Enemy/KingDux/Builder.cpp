@@ -162,7 +162,7 @@ namespace
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInvincibleTime())
-                .setIsInvinsibleState(m_damage->isInvincibleState())
+                .setInvincibleColor(m_damage->getInvincibleStateColor())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
@@ -208,6 +208,7 @@ namespace
                 .setPos(m_body->getPos() + m_offset)
                 .setDamageTime(m_pActor->getTimeSec())
                 .setIsDamaging(m_damage->isInvincibleTime())
+                .setInvincibleColor(m_damage->getInvincibleStateColor())
                 .setIsFlip(m_isFlip)
                 .setRotate(m_rotate)
                 ;

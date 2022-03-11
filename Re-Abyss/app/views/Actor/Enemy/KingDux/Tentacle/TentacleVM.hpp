@@ -6,12 +6,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
     class TentacleVM
     {
-        s3d::Texture m_texture;
-
-        s3d::Vec2 m_pos;
-        double m_rotate = 0;
-        bool m_isDamaging = false;
-        double m_time = 0;
     public:
         TentacleVM();
 
@@ -19,6 +13,16 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         TentacleVM& setPos(const s3d::Vec2& pos);
         TentacleVM& setRotate(double rotate);
         TentacleVM& setIsDamaging(bool isDamaging);
+        TentacleVM& setInvincibleColor(const s3d::ColorF color);
         void draw() const;
+    private:
+
+        s3d::Texture m_texture;
+
+        s3d::Vec2 m_pos;
+        double m_rotate = 0;
+        bool m_isDamaging = false;
+        s3d::ColorF m_invincibleColor;
+        double m_time = 0;
     };
 }
