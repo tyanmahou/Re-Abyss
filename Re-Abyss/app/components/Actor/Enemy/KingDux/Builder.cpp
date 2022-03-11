@@ -162,6 +162,7 @@ namespace
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInvincibleTime())
+                .setIsInvinsibleState(m_damage->isInvincibleState())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }

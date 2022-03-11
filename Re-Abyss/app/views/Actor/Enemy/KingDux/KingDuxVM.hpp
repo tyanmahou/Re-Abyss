@@ -15,6 +15,7 @@ namespace abyss::Actor::Enemy::KingDux
         KingDuxVM& setEyePos(const s3d::Vec2& posL, const s3d::Vec2& posR);
 
         KingDuxVM& setIsDamaging(bool isDamaging);
+        KingDuxVM& setIsInvinsibleState(bool isInvinsible);
         KingDuxVM& setMotion(Motion motion)
         {
             m_motion = motion;
@@ -28,6 +29,7 @@ namespace abyss::Actor::Enemy::KingDux
         s3d::Vec2 m_eyePosL{ 0, 0 };
         s3d::Vec2 m_eyePosR{ 0, 0 };
         bool m_isDamaging = false;
+        bool m_isInvinsibleState = false;
         double m_time = 0;
         double m_animTime = 0;
         Motion m_motion = Motion::Wait;

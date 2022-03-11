@@ -1,22 +1,15 @@
 #pragma once
 #include <Siv3D/Color.hpp>
-#include <Siv3D/Periodic.hpp>
+#include <Siv3D/ColorF.hpp>
+#include <Siv3D/Palette.hpp>
 
 namespace abyss::ColorDef
 {
-    inline s3d::ColorF OnDamage(double time)
-    {
-        double rate = s3d::Periodic::Triangle0_1(0.3, time);
-        double gb = s3d::Math::Lerp(1.0, 0.5, rate);
-        return s3d::ColorF(1.0, gb, gb, 1.0);
-    }
-    inline s3d::ColorF OnDamage(bool isDamaging, double time, const s3d::ColorF& defaultColor = s3d::Palette::White)
-    {
-        if (!isDamaging) {
-            return defaultColor;
-        }
-        return OnDamage(time);
-    }
+    s3d::ColorF OnDamage(double time);
+    s3d::ColorF OnDamage(bool isDamaging, double time, const s3d::ColorF& defaultColor = s3d::Palette::White);
+
+    s3d::ColorF Invincible(double time);
+    s3d::ColorF Invincible(bool isInvincible, double time, const s3d::ColorF& defaultColor = s3d::ColorF(0, 0));
 
     namespace Shot
     {

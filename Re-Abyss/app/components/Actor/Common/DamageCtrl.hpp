@@ -26,7 +26,10 @@ namespace abyss::Actor
         {
             m_isInvincibleState = isInvincible;
         }
-
+        bool isInvincibleState() const
+        {
+            return m_isInvincibleState;
+        }
         void setActive(bool isActive)
         {
             m_isActive = isActive;

@@ -36,9 +36,15 @@ namespace abyss::Actor::Enemy::KingDux
         m_isDamaging = isDamaging;
         return *this;
     }
+    KingDuxVM& KingDuxVM::setIsInvinsibleState(bool isInvinsible)
+    {
+        m_isInvinsibleState = isInvinsible;
+        return *this;
+    }
     void KingDuxVM::draw() const
     {
         auto color = ColorDef::OnDamage(m_isDamaging, m_time);
+        s3d::ScopedColorAdd2D addColor(ColorDef::Invincible(m_isInvinsibleState, m_time));
 
         if (m_motion != Motion::Hide) {
             auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {

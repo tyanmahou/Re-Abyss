@@ -239,6 +239,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
+    <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Message.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Param.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />

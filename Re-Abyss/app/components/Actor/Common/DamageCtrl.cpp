@@ -38,6 +38,10 @@ namespace abyss::Actor
 		if (m_pActor->isDestroyed()) {
 			return;
 		}
+		if (m_isInvincibleState) {
+			// 無敵
+			return;
+		}
 		if (this->isInvincibleTime()) {
 			// 無敵
 			return;
