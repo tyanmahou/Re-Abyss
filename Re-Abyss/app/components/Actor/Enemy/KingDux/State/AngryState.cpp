@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::KingDux
 		m_motion->setAnimeTime(0.0);
 
 		// 画面フラッシュ
-		m_pActor->getModule<Flush>()->start(0, 1.0);
+		m_pActor->getModule<Flush>()->start(0, 0.5);
 	}
 	void AngryState::end()
 	{
@@ -43,7 +43,7 @@ namespace abyss::Actor::Enemy::KingDux
 
 		for ([[maybe_unused]]int32 count : s3d::step(Param::Shout::Count)) {
 			m_pActor->getModule<Effects>()->createWorldFront<Effect::Misc::ShockWaveDist::Builder>(
-				m_body->getPos(),
+				m_body->getPos() + Vec2{0, 200},
 				Param::Shout::Radius,
 				Param::Shout::Power,
 				timeSec
