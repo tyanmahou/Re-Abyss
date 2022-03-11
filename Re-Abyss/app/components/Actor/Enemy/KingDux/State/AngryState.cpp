@@ -2,6 +2,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 #include <abyss/modules/Effect/Effects.hpp>
+#include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
@@ -16,6 +17,9 @@ namespace abyss::Actor::Enemy::KingDux
 		m_damageCtrl->setInvincibleState(true);
 		m_motion->set(Motion::Angry);
 		m_motion->setAnimeTime(0.0);
+
+		// 画面フラッシュ
+		m_pActor->getModule<Flush>()->start(0, 1.0);
 	}
 	void AngryState::end()
 	{
