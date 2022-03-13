@@ -214,6 +214,7 @@ namespace
         FootVM* bind() const final
         {
             return &m_view->setTime(m_modelUpdater->getTime() + m_timeOffset)
+                .setAnimTime(m_motion->animeTime())
                 .setPos(m_body->getPos() + m_offset)
                 .setDamageTime(m_pActor->getTimeSec())
                 .setIsDamaging(m_damage->isInvincibleTime())

@@ -5,6 +5,8 @@
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
 
 #include <Siv3D.hpp>
@@ -22,6 +24,10 @@ namespace abyss::Actor::Enemy::KingDux
 
 		// 画面フラッシュ
 		m_pActor->getModule<Flush>()->start(0, 0.5);
+
+		// 当たりむこう
+		m_pActor->find<ColCtrl>()->setActive(false);
+		m_pActor->find<TerrainProxy>()->setActive(false);
 	}
 	void DeadState::end()
 	{

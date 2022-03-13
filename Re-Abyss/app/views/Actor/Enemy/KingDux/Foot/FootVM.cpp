@@ -14,6 +14,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_time = time;
         return *this;
     }
+    FootVM& FootVM::setAnimTime(double time)
+    {
+        m_animTime = time;
+        return *this;
+    }
     FootVM& FootVM::setPos(const s3d::Vec2& pos)
     {
         m_pos = pos;
@@ -46,9 +51,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     }
     void FootVM::draw() const
     {
-        const auto color = ColorDef::OnDamage(m_isDamaging, m_damageTime);
+        auto color = ColorDef::OnDamage(m_isDamaging, m_damageTime);
         s3d::ScopedColorAdd2D addColor(m_invincibleColor);
-
+        if (m_motion == Motion::Dead) {
+            color.a *= s3d::Saturate(1.0 - m_animTime);
+        }
         // 足
         const auto& pageMap = Param::Foot::AnimFrameMap;
         const s3d::uint32 pageSize = static_cast<s3d::uint32>(pageMap.size());

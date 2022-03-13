@@ -20,10 +20,13 @@ namespace abyss::Actor
         {
             return m_id;
         }
-
+        void setActive(bool isActive)
+        {
+            m_isActive = isActive;
+        }
         bool isActive() const
         {
-            return !m_isDestroyed && m_pActor->isActive();
+            return m_isActive && !m_isDestroyed && m_pActor->isActive();
         }
 
         void destroy()
@@ -47,6 +50,7 @@ namespace abyss::Actor
 
     private:
         ActorObj* m_pActor;
+        bool m_isActive = true;
         bool m_isDestroyed = false;
         Physics::TerrainData m_data;
         s3d::uint64 m_id;
@@ -85,6 +89,11 @@ namespace abyss::Actor
     TerrainProxy& TerrainProxy::setExtData(std::shared_ptr<Physics::ITerrainExtData> data)
     {
         m_terrain->getData().extData = data;
+        return *this;
+    }
+    TerrainProxy& TerrainProxy::setActive(bool isActive)
+    {
+        m_terrain->setActive(isActive);
         return *this;
     }
 }

@@ -10,6 +10,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     public:
         FootVM();
         FootVM& setTime(double time);
+        FootVM& setAnimTime(double time);
         FootVM& setPos(const s3d::Vec2& pos);
         FootVM& setRotate(double rotate);
 
@@ -33,6 +34,7 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         s3d::ColorF m_invincibleColor;
         bool m_isFlip = false;
         double m_time = 0;
+        double m_animTime = 0;
         double m_damageTime = 0;
         Motion m_motion = Motion::Wait;
     };

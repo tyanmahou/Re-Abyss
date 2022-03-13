@@ -72,6 +72,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Task<> Behavior::Dead(ActorObj* pActor)
     {
+        pActor->find<HP>()->setHp(0);
         DeadState::Change(pActor);
         co_yield{};
     }
