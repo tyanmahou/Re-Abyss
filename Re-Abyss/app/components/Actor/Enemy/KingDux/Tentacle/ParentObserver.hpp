@@ -2,7 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
-#include <abyss/modules/GameObject/WeakObject.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		void onLastUpdate() override;
 	private:
 		ActorObj* m_pActor;
-		WeakObject m_parent;
+		Ref<DeadChecker> m_parentDeadChecker;
 	};
 }
 

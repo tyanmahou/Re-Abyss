@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/modules/GameObject/WeakObject.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 
