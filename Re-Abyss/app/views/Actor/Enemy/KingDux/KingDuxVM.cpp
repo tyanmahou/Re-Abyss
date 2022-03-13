@@ -47,6 +47,9 @@ namespace abyss::Actor::Enemy::KingDux
         auto color = ColorDef::OnDamage(m_isDamaging, m_time);
         s3d::ScopedColorAdd2D addColor(m_invincibleColor);
 
+        if (m_motion == Motion::Dead) {
+            color.a *= s3d::Saturate(1.0 - m_animTime);
+        }
         if (m_motion != Motion::Hide) {
             auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
                 auto posBase = m_pos + offset;

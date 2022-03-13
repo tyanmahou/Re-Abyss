@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/State/DeadState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
@@ -67,6 +68,11 @@ namespace abyss::Actor::Enemy::KingDux
     Coro::Task<> Behavior::Angry(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AngryState>();
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Dead(ActorObj* pActor)
+    {
+        DeadState::Change(pActor);
         co_yield{};
     }
     Coro::Task<> Behavior::Wait(ActorObj* pActor)

@@ -312,6 +312,7 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\CrownCollider.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\DeadCallback.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\MainCollider.cpp" />
@@ -319,6 +320,7 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\DanceState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\DeadState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\StabState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\WaitState.cpp" />
@@ -954,12 +956,14 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\CrownCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\KingDuxUtil.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AngryState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\PursuitStabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\StabState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DanceState.hpp" />

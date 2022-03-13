@@ -27,7 +27,7 @@ namespace
         s3d::Array<KindWeight> ret;
         switch (kind) {
         case ItemDropTableKind::Normal:
-            ret.reserve(4);
+            ret.reserve(3);
             ret.emplace_back(DropItemKind::None, 70.0);
             ret.emplace_back(DropItemKind::RecoverySmall, 30.0);
             ret.emplace_back(DropItemKind::RecoveryMiddle, 10.0);

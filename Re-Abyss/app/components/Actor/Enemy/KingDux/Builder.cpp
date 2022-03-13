@@ -22,6 +22,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/MainCollider.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/CrownCollider.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/DeadCallback.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
@@ -50,6 +51,8 @@ namespace abyss::Actor::Enemy::KingDux
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/KingDux.aase")
             .setIsEnableItemDrop(false)
+            .setIsEnableDeadCallback(false)
+            .setIsAutoDestroy(false)
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
@@ -76,6 +79,7 @@ namespace abyss::Actor::Enemy::KingDux
                 .registAction(U"Convene", Behavior::Convene)
                 .registAction(U"Appear", Behavior::Appear)
                 .registAction(U"Angry", Behavior::Angry)
+                .registAction(U"Dead", Behavior::Dead)
                 ;
 #endif
         }
@@ -108,6 +112,11 @@ namespace abyss::Actor::Enemy::KingDux
         // Baby制御
         {
             pActor->attach<BabyCtrl>(pActor);
+        }
+
+        // 死亡時制御
+        {
+            pActor->attach<DeadCallback>(pActor);
         }
         // 描画
         {
@@ -211,6 +220,7 @@ namespace
                 .setInvincibleColor(m_damage->getInvincibleStateColor())
                 .setIsFlip(m_isFlip)
                 .setRotate(m_rotate)
+                .setMotion(m_motion->get<Motion>())
                 ;
         }
         void onStart() final
@@ -218,12 +228,14 @@ namespace
             m_body = m_pActor->find<Body>();
             m_damage = m_pActor->find<DamageCtrl>();
             m_modelUpdater = m_pActor->find<VModelUpdater>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<DamageCtrl> m_damage;
         Ref<VModelUpdater> m_modelUpdater;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<FootVM> m_view;
         s3d::Vec2 m_offset;

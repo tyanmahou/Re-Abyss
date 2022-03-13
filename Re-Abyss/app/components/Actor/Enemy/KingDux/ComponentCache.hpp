@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/VModelUpdater.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Motion.hpp>
@@ -21,6 +22,7 @@ namespace abyss::Actor::Enemy::KingDux
         VModelUpdater* m_modelUpdater;
         EyeCtrl* m_eyeCtrl;
         DamageCtrl* m_damageCtrl;
+        AudioSource* m_audioSource;
     public:
         void onCache(ActorObj* pActor)
         {
@@ -31,6 +33,7 @@ namespace abyss::Actor::Enemy::KingDux
             m_modelUpdater = pActor->find<VModelUpdater>().get();
             m_eyeCtrl = pActor->find<EyeCtrl>().get();
             m_damageCtrl = pActor->find<DamageCtrl>().get();
+            m_audioSource = pActor->find<AudioSource>().get();
         }
     };
 }

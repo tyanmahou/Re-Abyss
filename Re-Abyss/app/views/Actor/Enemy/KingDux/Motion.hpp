@@ -7,5 +7,6 @@ namespace abyss::Actor::Enemy::KingDux
 		Wait,
 		Hide,
 		Angry,
+		Dead,
 	};
 }

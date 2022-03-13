@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/views/Actor/Enemy/KingDux/Motion.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Foot
 {
@@ -16,6 +17,11 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         FootVM& setInvincibleColor(const s3d::ColorF color);
         FootVM& setIsFlip(bool isFlip);
         FootVM& setDamageTime(double damageTime);
+        FootVM& setMotion(Motion motion)
+        {
+            m_motion = motion;
+            return *this;
+        }
         void draw() const;
     private:
 
@@ -28,5 +34,6 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         bool m_isFlip = false;
         double m_time = 0;
         double m_damageTime = 0;
+        Motion m_motion = Motion::Wait;
     };
 }

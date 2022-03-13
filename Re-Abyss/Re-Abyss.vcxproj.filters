@@ -1882,6 +1882,12 @@
     <ClCompile Include="app\commons\ColorDef.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\State\DeadState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\DeadCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2830,6 +2836,8 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AngryState.hpp" />
     <ClInclude Include="app\types\Look.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DeadState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\DeadCallback.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
