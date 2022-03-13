@@ -10,16 +10,6 @@ namespace abyss::Actor::Enemy::CaptainTako
 {
     class CaptainTakoVM
     {
-        s3d::Texture m_texture;
-
-        Forward m_forward;
-        s3d::Vec2 m_pos;
-
-        bool m_isDamaging = false;
-
-        double m_time = 0;
-        double m_chargeRate = 0;
-        Motion m_motion = Motion::Wait;
     public:
         CaptainTakoVM();
         CaptainTakoVM& setTime(double time);
@@ -41,5 +31,16 @@ namespace abyss::Actor::Enemy::CaptainTako
     private:
         void drawWait() const;
         void drawCharge() const;
+    private:
+        s3d::Texture m_texture;
+
+        Forward m_forward{};
+        s3d::Vec2 m_pos;
+
+        bool m_isDamaging = false;
+
+        double m_time = 0;
+        double m_chargeRate = 0;
+        Motion m_motion = Motion::Wait;
     };
 }

@@ -13,6 +13,7 @@
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Mover.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Behavior.hpp>
@@ -126,23 +127,23 @@ namespace
 	public:
 		ViewBinder(ActorObj* pActor, ActorObj* parent) :
 			m_pActor(pActor),
-			m_parentDamage(parent->find<DamageCtrl>()),
+			m_parentColor(parent->find<ColorCtrl>()),
 			m_view(std::make_unique<TentacleVM>())
 		{}
 	private:
 		TentacleVM* bind() const final
 		{
-			bool isInvincibleTime = false;
-			s3d::ColorF invincibleColor(0, 0);
-			if (m_parentDamage) {
-				isInvincibleTime = m_parentDamage->isInvincibleTime();
-				invincibleColor = m_parentDamage->getInvincibleStateColor();
+			s3d::ColorF colorMul(1, 1);
+			s3d::ColorF colorAdd(0, 0);
+			if (m_parentColor) {
+				colorMul = m_parentColor->colorMul();
+				colorAdd = m_parentColor->colorAdd();
 			}
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos() + m_shake->getShakeOffset())
 				.setRotate(m_rotate->getRotate())
-				.setIsDamaging(isInvincibleTime)
-				.setInvincibleColor(invincibleColor)
+				.setColorMul(colorMul)
+				.setColorAdd(colorAdd)
 				;
 		}
 		void onStart() final
@@ -153,7 +154,7 @@ namespace
 		}
 	private:
 		ActorObj* m_pActor = nullptr;
-		Ref<DamageCtrl> m_parentDamage;
+		Ref<ColorCtrl> m_parentColor;
 
 		Ref<Body> m_body;
 		Ref<ShakeCtrl> m_shake;

@@ -1,5 +1,4 @@
 #include <abyss/views/Actor/Enemy/KingDux/Tentacle/TentacleVM.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 #include <Siv3D.hpp>
@@ -28,20 +27,20 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         return *this;
     }
 
-    TentacleVM& TentacleVM::setIsDamaging(bool isDamaging)
+    TentacleVM& TentacleVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
-    TentacleVM& TentacleVM::setInvincibleColor(const s3d::ColorF color)
+    TentacleVM& TentacleVM::setColorAdd(const s3d::ColorF color)
     {
-        m_invincibleColor = color;
+        m_colorAdd = color;
         return *this;
     }
     void TentacleVM::draw() const
     {
-        const auto color = ColorDef::OnDamage(m_isDamaging, m_time);
-        s3d::ScopedColorAdd2D addColor(m_invincibleColor);
+        const auto color = m_colorMul;
+        s3d::ScopedColorAdd2D addColor(m_colorAdd);
 
         auto scaleRate = s3d::Periodic::Triangle0_1(2.0, m_time);
         auto scale = 1.0 + s3d::Math::Lerp(0.0, 0.01, scaleRate);

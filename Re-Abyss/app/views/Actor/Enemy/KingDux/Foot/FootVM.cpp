@@ -1,5 +1,4 @@
 #include <abyss/views/Actor/Enemy/KingDux/Foot/FootVM.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <Siv3D.hpp>
@@ -29,30 +28,25 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         m_rotate = rotate;
         return *this;
     }
-    FootVM& FootVM::setIsDamaging(bool isDamaging)
-    {
-        m_isDamaging = isDamaging;
-        return *this;
-    }
-    FootVM& FootVM::setInvincibleColor(const s3d::ColorF color)
-    {
-        m_invincibleColor = color;
-        return *this;
-    }
     FootVM& FootVM::setIsFlip(bool isFlip)
     {
         m_isFlip = isFlip;
         return *this;
     }
-    FootVM& FootVM::setDamageTime(double damageTime)
+    FootVM& FootVM::setColorMul(const s3d::ColorF color)
     {
-        m_damageTime = damageTime;
+        m_colorMul = color;
+        return *this;
+    }
+    FootVM& FootVM::setColorAdd(const s3d::ColorF color)
+    {
+        m_colorAdd = color;
         return *this;
     }
     void FootVM::draw() const
     {
-        auto color = ColorDef::OnDamage(m_isDamaging, m_damageTime);
-        s3d::ScopedColorAdd2D addColor(m_invincibleColor);
+        auto color = m_colorMul;
+        s3d::ScopedColorAdd2D addColor(m_colorAdd);
         if (m_motion == Motion::Dead) {
             color.a *= s3d::Saturate(1.0 - m_animTime);
         }

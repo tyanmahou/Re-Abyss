@@ -14,15 +14,14 @@ namespace abyss::Actor::Enemy::KingDux::Foot
         FootVM& setPos(const s3d::Vec2& pos);
         FootVM& setRotate(double rotate);
 
-        FootVM& setIsDamaging(bool isDamaging);
-        FootVM& setInvincibleColor(const s3d::ColorF color);
         FootVM& setIsFlip(bool isFlip);
-        FootVM& setDamageTime(double damageTime);
         FootVM& setMotion(Motion motion)
         {
             m_motion = motion;
             return *this;
         }
+        FootVM& setColorMul(const s3d::ColorF color);
+        FootVM& setColorAdd(const s3d::ColorF color);
         void draw() const;
     private:
 
@@ -30,12 +29,12 @@ namespace abyss::Actor::Enemy::KingDux::Foot
 
         s3d::Vec2 m_pos;
         double m_rotate = 0;
-        bool m_isDamaging = false;
-        s3d::ColorF m_invincibleColor;
         bool m_isFlip = false;
         double m_time = 0;
         double m_animTime = 0;
-        double m_damageTime = 0;
         Motion m_motion = Motion::Wait;
+
+        s3d::ColorF m_colorMul;
+        s3d::ColorF m_colorAdd;
     };
 }

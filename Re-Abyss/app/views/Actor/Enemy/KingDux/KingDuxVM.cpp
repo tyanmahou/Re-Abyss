@@ -1,5 +1,4 @@
 #include <abyss/views/Actor/Enemy/KingDux/KingDuxVM.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <Siv3D.hpp>
@@ -8,8 +7,7 @@ namespace abyss::Actor::Enemy::KingDux
 {
     KingDuxVM::KingDuxVM() :
         m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/KingDux.json")),
-        m_mouth(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/Mouth.png")),
-        m_invincibleColor(0, 0)
+        m_mouth(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/Mouth.png"))
     {}
     KingDuxVM& KingDuxVM::setTime(double time)
     {
@@ -37,15 +35,20 @@ namespace abyss::Actor::Enemy::KingDux
         m_isDamaging = isDamaging;
         return *this;
     }
-    KingDuxVM& KingDuxVM::setInvincibleColor(const s3d::ColorF color)
+    KingDuxVM& KingDuxVM::setColorMul(const s3d::ColorF color)
     {
-        m_invincibleColor = color;
+        m_colorMul = color;
+        return *this;
+    }
+    KingDuxVM& KingDuxVM::setColorAdd(const s3d::ColorF color)
+    {
+        m_colorAdd = color;
         return *this;
     }
     void KingDuxVM::draw() const
     {
-        auto color = ColorDef::OnDamage(m_isDamaging, m_time);
-        s3d::ScopedColorAdd2D addColor(m_invincibleColor);
+        auto color = m_colorMul;
+        s3d::ScopedColorAdd2D addColor(m_colorAdd);
 
         auto deadAlpha = 1.0;
         if (m_motion == Motion::Dead) {

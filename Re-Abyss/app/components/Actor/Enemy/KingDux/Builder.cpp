@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
@@ -171,7 +172,8 @@ namespace
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
                 .setIsDamaging(m_damage->isInvincibleTime())
-                .setInvincibleColor(m_damage->getInvincibleStateColor())
+                .setColorMul(m_colorCtrl->colorMul())
+                .setColorAdd(m_colorCtrl->colorAdd())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
@@ -183,6 +185,7 @@ namespace
             m_eye = m_pActor->find<EyeCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
             m_modelUpdater = m_pActor->find<VModelUpdater>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
@@ -192,6 +195,7 @@ namespace
         Ref<EyeCtrl> m_eye;
         Ref<MotionCtrl> m_motion;
         Ref<VModelUpdater> m_modelUpdater;
+        Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<KingDuxVM> m_view;
     };
 
@@ -216,11 +220,10 @@ namespace
             return &m_view->setTime(m_modelUpdater->getTime() + m_timeOffset)
                 .setAnimTime(m_motion->animeTime())
                 .setPos(m_body->getPos() + m_offset)
-                .setDamageTime(m_pActor->getTimeSec())
-                .setIsDamaging(m_damage->isInvincibleTime())
-                .setInvincibleColor(m_damage->getInvincibleStateColor())
                 .setIsFlip(m_isFlip)
                 .setRotate(m_rotate)
+                .setColorMul(m_colorCtrl->colorMul())
+                .setColorAdd(m_colorCtrl->colorAdd())
                 .setMotion(m_motion->get<Motion>())
                 ;
         }
@@ -230,6 +233,7 @@ namespace
             m_damage = m_pActor->find<DamageCtrl>();
             m_modelUpdater = m_pActor->find<VModelUpdater>();
             m_motion = m_pActor->find<MotionCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     private:
         ActorObj* m_pActor = nullptr;
@@ -237,6 +241,7 @@ namespace
         Ref<DamageCtrl> m_damage;
         Ref<VModelUpdater> m_modelUpdater;
         Ref<MotionCtrl> m_motion;
+        Ref<ColorCtrl> m_colorCtrl;
 
         std::unique_ptr<FootVM> m_view;
         s3d::Vec2 m_offset;
