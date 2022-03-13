@@ -45,7 +45,7 @@ namespace abyss::Actor::Enemy::KingDux
 			auto region = m_body->region().stretched(100, 0);
 
 			for (int32 count : step(20)) {
-				if (count == 4 || count == 6 || count == 12 || count == 14 || count == 16) {
+				if (count == 4 || count == 5 || count == 11 || count == 12) {
 					// 画面フラッシュ
 					m_pActor->getModule<Flush>()->start(0.1);
 				}
