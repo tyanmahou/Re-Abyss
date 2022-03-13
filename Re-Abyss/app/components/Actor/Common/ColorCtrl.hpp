@@ -16,6 +16,9 @@ namespace abyss::Actor
 	public:
 		ColorCtrl(ActorObj* pActor);
 
+		void startAnim(double sec);
+		void endAnim();
+
 		const s3d::ColorF& colorMul() const;
 		const s3d::ColorF& colorAdd() const;
 	public:

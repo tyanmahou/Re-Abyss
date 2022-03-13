@@ -9,6 +9,24 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
+    void ColorCtrl::startAnim(double sec)
+    {
+        m_colorAnimTimer.reset(sec);
+    }
+    void ColorCtrl::endAnim()
+    {
+        m_colorAnimTimer.toEnd();
+    }
+    const s3d::ColorF& ColorCtrl::colorMul() const
+    {
+        return m_colorMul;
+    }
+
+    const s3d::ColorF& ColorCtrl::colorAdd() const
+    {
+        return m_colorAdd;
+    }
+
     void ColorCtrl::setup([[maybe_unused]]Executer executer)
     {
     }
@@ -31,14 +49,5 @@ namespace abyss::Actor
             m_colorMul *= ColorDef::OnDamage(m_damageCtrl->isInvincibleTime(), time);
             m_colorAdd += ColorDef::Invincible(m_damageCtrl->isInvincibleState(), m_colorAnimTimer.current(), m_colorAnimTimer.rate());
         }
-    }
-    const s3d::ColorF& ColorCtrl::colorMul() const
-    {
-        return m_colorMul;
-    }
-
-    const s3d::ColorF& ColorCtrl::colorAdd() const
-    {
-        return m_colorAdd;
     }
 }

@@ -4,6 +4,7 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 
@@ -15,6 +16,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		m_eyeCtrl->setAngryMode();
 		m_damageCtrl->setInvincibleState(true);
+		m_pActor->find<ColorCtrl>()->startAnim(2.0);
 		m_motion->set(Motion::Angry);
 		m_motion->setAnimeTime(0.0);
 
@@ -26,6 +28,8 @@ namespace abyss::Actor::Enemy::KingDux
 		if (m_quake) {
 			m_quake->stop();
 		}
+		m_pActor->find<ColorCtrl>()->endAnim();
+
 		m_motion->set(Motion::Wait);
 		m_motion->setAnimeTime(0.0);
 	}
