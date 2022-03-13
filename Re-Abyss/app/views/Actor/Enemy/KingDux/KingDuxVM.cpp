@@ -47,21 +47,23 @@ namespace abyss::Actor::Enemy::KingDux
         auto color = ColorDef::OnDamage(m_isDamaging, m_time);
         s3d::ScopedColorAdd2D addColor(m_invincibleColor);
 
+        auto deadAlpha = 1.0;
         if (m_motion == Motion::Dead) {
-            color.a *= s3d::Saturate(1.0 - m_animTime);
+            deadAlpha = s3d::Saturate(1.0 - m_animTime);
+            color.a *= deadAlpha;
         }
         if (m_motion != Motion::Hide) {
             auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
                 auto posBase = m_pos + offset;
-                Circle(posBase, 80).draw();
+                Circle(posBase, 80).draw(ColorF(1, deadAlpha));
                 double r = 24;
-                if (m_isDamaging) {
+                if (m_isDamaging || m_motion == Motion::Dead) {
                     double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
                     r = s3d::Math::Lerp(r, damageRadius, rate);
-                    Shape2D::Cross(r, 15, posBase + eyePos).draw(Palette::Black);
+                    Shape2D::Cross(r, 15, posBase + eyePos).draw(ColorF(0, deadAlpha));
                     return;
                 }
-                Circle(posBase + eyePos, r).draw(Palette::Black);
+                Circle(posBase + eyePos, r).draw(ColorF(0, deadAlpha));
             };
             // 右目
             eyeDraw(m_eyePosR, Param::Base::EyeR, 18.0);
@@ -82,7 +84,7 @@ namespace abyss::Actor::Enemy::KingDux
             auto offsetX = 0.15 * (1 - rate);
             auto offsetY = s3d::Math::Lerp(-0.3, 0.2, rate) / 2.0;
 
-            if (m_motion == Motion::Wait) {
+            if (m_motion == Motion::Wait || m_motion == Motion::Dead) {
                 m_mouth(0, 0, 300, 240).scaled(1.0 + offsetX, 1.0 + offsetY).drawAt(m_pos + Param::Base::MouthPos, color);
             } else if(m_motion == Motion::Angry) {
                 auto page = static_cast<int32>(Periodic::Sawtooth0_1(1.0s, m_animTime) * 6);

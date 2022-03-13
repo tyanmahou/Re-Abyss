@@ -28,6 +28,8 @@ namespace abyss::Actor::Enemy::KingDux
 		// 当たりむこう
 		m_pActor->find<ColCtrl>()->setActive(false);
 		m_pActor->find<TerrainProxy>()->setActive(false);
+
+		m_modelUpdater->setTimeScale(0);
 	}
 	void DeadState::end()
 	{
@@ -42,7 +44,11 @@ namespace abyss::Actor::Enemy::KingDux
 		{
 			auto region = m_body->region().stretched(100, 0);
 
-			for ([[maybe_unused]] int32 count : step(20)) {
+			for (int32 count : step(20)) {
+				if (count == 4 || count == 6 || count == 12 || count == 14 || count == 16) {
+					// 画面フラッシュ
+					m_pActor->getModule<Flush>()->start(0.1);
+				}
 				auto effectPos = s3d::RandomVec2(region);
 				m_pActor->getModule<Effects>()->createWorldFront<EnemyDeadEffect>(effectPos);
 				m_audioSource->playAt(U"Damage", effectPos);

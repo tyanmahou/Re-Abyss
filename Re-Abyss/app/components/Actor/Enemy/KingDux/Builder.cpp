@@ -166,7 +166,7 @@ namespace
     private:
         KingDuxVM* bind() const final
         {
-            return &m_view->setTime(m_pActor->getTimeSec())
+            return &m_view->setTime(m_modelUpdater->getTime())
                 .setAnimTime(m_motion->animeTime())
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setEyePos(m_eye->getEyePosL(), m_eye->getEyePosR())
