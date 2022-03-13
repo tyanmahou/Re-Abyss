@@ -5,7 +5,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
 	ParentObserver::ParentObserver(ActorObj* pActor, ActorObj* pParent):
 		m_pActor(pActor),
-		m_parent(pParent)
+		m_parentDeadChecker(pParent->find<DeadChecker>())
 	{}
 	void ParentObserver::onStart()
 	{
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	}
 	void ParentObserver::onLastUpdate()
 	{
-		if (!m_parent.isValid()) {
+		if (!m_parentDeadChecker || m_parentDeadChecker->isDead()) {
 			if (m_deadChecker) {
 				m_deadChecker->requestDead();
 			} else {

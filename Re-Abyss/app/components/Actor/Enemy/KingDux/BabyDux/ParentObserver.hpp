@@ -18,9 +18,9 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		void onLastUpdate() override;
 	private:
 		ActorObj* m_pActor;
-		WeakObject m_parent;
 
 		Ref<DeadChecker> m_deadChecker;
+		Ref<DeadChecker> m_parentDeadChecker;
 	};
 }
 
