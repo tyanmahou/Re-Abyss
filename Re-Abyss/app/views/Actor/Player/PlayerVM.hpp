@@ -11,21 +11,6 @@ namespace abyss::Actor::Player
 {
     class PlayerVM
     {
-    private:
-        TexturePacker m_texture;
-        s3d::Vec2 m_pos;
-        s3d::Vec2 m_velocity;
-        Forward m_forward;
-        double m_charge = 0;
-
-        bool m_isAttacking = false;
-        bool m_isDamaging = false;
-        double m_time = 0;
-        Motion m_motion;
-        double m_animeTime = 0;
-
-        std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
-        std::shared_ptr<XtoAtkVM> m_xto;
     public:
         PlayerVM();
         PlayerVM& setOopartsView(std::unique_ptr<Ooparts::OopartsView>&& ooparts);
@@ -38,7 +23,6 @@ namespace abyss::Actor::Player
         PlayerVM& setCharge(double charge);
 
         PlayerVM& setIsAttacking(bool isAttacking);
-        PlayerVM& setIsDamaging(bool isDamaging);
 
         PlayerVM& setMotion(Motion motion)
         {
@@ -51,7 +35,7 @@ namespace abyss::Actor::Player
             m_animeTime = animeTime;
             return *this;
         }
-
+        PlayerVM& setColorMul(const s3d::ColorF color);
         void draw() const;
     private:
         void drawStateStay() const;
@@ -74,5 +58,20 @@ namespace abyss::Actor::Player
 
         void drawCharge()const;
         s3d::ColorF calcColor() const;
+    private:
+        TexturePacker m_texture;
+        s3d::Vec2 m_pos;
+        s3d::Vec2 m_velocity;
+        Forward m_forward;
+        double m_charge = 0;
+
+        bool m_isAttacking = false;
+        double m_time = 0;
+        Motion m_motion;
+        double m_animeTime = 0;
+        s3d::ColorF m_colorMul;
+
+        std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
+        std::shared_ptr<XtoAtkVM> m_xto;
     };
 }

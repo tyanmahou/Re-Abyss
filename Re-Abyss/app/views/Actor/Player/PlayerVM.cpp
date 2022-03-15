@@ -2,7 +2,6 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
@@ -31,7 +30,7 @@ namespace abyss::Actor::Player
 {
     ColorF PlayerVM::calcColor() const
     {
-        return ColorDef::OnDamage(m_isDamaging, m_time);
+        return m_colorMul;
     }
     PlayerVM::PlayerVM():
         m_texture(Resource::Assets::Main()->load(U"Actor/Player/Player.json"))
@@ -78,9 +77,9 @@ namespace abyss::Actor::Player
         return *this;
     }
 
-    PlayerVM& PlayerVM::setIsDamaging(bool isDamaging)
+    PlayerVM& PlayerVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
 

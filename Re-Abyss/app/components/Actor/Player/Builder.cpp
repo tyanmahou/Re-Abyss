@@ -8,6 +8,7 @@
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/FallChecker.hpp>
@@ -101,6 +102,8 @@ namespace abyss::Actor::Player
             pActor->attach<DamageCtrl>(pActor)
                 ->setInvincibleTime(Param::Base::InvincibleTime);
             pActor->attach<DamageCallback>(pActor);
+
+            pActor->attach<ColorCtrl>(pActor);
         }
         // 部屋移動の検知
         {
@@ -184,14 +187,6 @@ namespace
 
     class ViewBinder : public IVModelBinder<PlayerVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<DamageCtrl> m_damage;
-        Ref<ChargeCtrl> m_charge;
-        Ref<AttackCtrl> m_attackCtrl;
-        Ref<MotionCtrl> m_motion;
-
-        std::unique_ptr<PlayerVM> m_view;
     private:
         PlayerVM* bind() const final
         {
@@ -201,15 +196,15 @@ namespace
                 .setForward(m_body->getForward())
                 .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
-                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_attackCtrl = m_pActor->find<AttackCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
@@ -223,5 +218,14 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<PlayerVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
+        Ref<ChargeCtrl> m_charge;
+        Ref<AttackCtrl> m_attackCtrl;
+        Ref<MotionCtrl> m_motion;
+
+        std::unique_ptr<PlayerVM> m_view;
     };
 }
