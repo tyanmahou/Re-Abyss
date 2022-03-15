@@ -5,7 +5,7 @@
 #include <abyss/types/CShape.hpp>
 
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
@@ -57,27 +57,21 @@ namespace
     /// </summary>
     class ViewBinder : public IVModelBinder<SchieldVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<DamageCtrl> m_damage;
-        Ref<MotionCtrl> m_motion;
-
-        std::unique_ptr<SchieldVM> m_view;
     private:
         SchieldVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
@@ -85,5 +79,12 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<SchieldVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
+        Ref<MotionCtrl> m_motion;
+
+        std::unique_ptr<SchieldVM> m_view;
     };
 }

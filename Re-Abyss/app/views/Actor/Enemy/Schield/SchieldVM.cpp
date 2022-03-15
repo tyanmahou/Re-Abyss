@@ -2,7 +2,6 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 
 namespace abyss::Actor::Enemy::Schield
@@ -25,9 +24,9 @@ namespace abyss::Actor::Enemy::Schield
         m_forward = forward;
         return *this;
     }
-    SchieldVM& SchieldVM::setIsDamaging(bool isDamaging)
+    SchieldVM& SchieldVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
 
@@ -56,7 +55,7 @@ namespace abyss::Actor::Enemy::Schield
         auto&& tex = m_texture(U"wait");
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
-        tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
 
     void SchieldVM::drawToWait(double t) const
@@ -66,7 +65,7 @@ namespace abyss::Actor::Enemy::Schield
         bool isRight = m_forward == Forward::Right;
         tex(150 * (page / 4) , 60 * (page % 4), 150, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+            .drawAt(m_pos, m_colorMul);
     }
 
     void SchieldVM::drawAttackPlus() const
@@ -81,7 +80,7 @@ namespace abyss::Actor::Enemy::Schield
         bool isRight = m_forward == Forward::Right;
         tex(150 * (page / 4), 60 * (page % 4), 150, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+            .drawAt(m_pos, m_colorMul);
     }
 
     void SchieldVM::drawAttackCross() const
@@ -95,6 +94,6 @@ namespace abyss::Actor::Enemy::Schield
         bool isRight = m_forward == Forward::Right;
         tex(120 * (page / 4), 60 * (page % 4), 120, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+            .drawAt(m_pos, m_colorMul);
     }
 }
