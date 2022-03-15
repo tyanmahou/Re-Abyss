@@ -1,6 +1,5 @@
 #include <abyss/views/Actor/Enemy/RollingTako/RollingTakoVM.hpp>
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
@@ -24,9 +23,9 @@ namespace abyss::Actor::Enemy::RollingTako
         m_pos = s3d::Round(pos);
         return *this;
     }
-    RollingTakoVM& RollingTakoVM::setIsDamaging(bool isDamaging)
+    RollingTakoVM& RollingTakoVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
     void RollingTakoVM::draw() const
@@ -47,13 +46,13 @@ namespace abyss::Actor::Enemy::RollingTako
         bool isRight = m_forward == Forward::Right;
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::WaitAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 0, 60, 60);
-        tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
     void RollingTakoVM::drawRun() const
     {
         bool isRight = m_forward == Forward::Right;
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::RunAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 60, 60, 60);
-        tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
 }
