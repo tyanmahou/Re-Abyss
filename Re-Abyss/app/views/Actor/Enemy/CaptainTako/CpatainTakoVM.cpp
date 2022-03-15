@@ -1,7 +1,6 @@
 #include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>
 
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
@@ -27,13 +26,11 @@ namespace abyss::Actor::Enemy::CaptainTako
         m_pos = s3d::Round(pos);
         return *this;
     }
-    CaptainTakoVM& CaptainTakoVM::setIsDamaging(bool isDamaging)
+    CaptainTakoVM& CaptainTakoVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
-
-
     void CaptainTakoVM::draw() const
     {
         switch (m_motion) {
@@ -53,11 +50,11 @@ namespace abyss::Actor::Enemy::CaptainTako
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
         auto tex = m_texture(40 * page, 0, 40, 40);
-        tex.mirrored(isRight).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
     void CaptainTakoVM::drawCharge() const
     {
-        ColorF color = ColorF(1, 1 - m_chargeRate, 1 - m_chargeRate);
+        ColorF color = ColorF(1, 1 - m_chargeRate, 1 - m_chargeRate) * m_colorMul;
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
 
@@ -66,6 +63,6 @@ namespace abyss::Actor::Enemy::CaptainTako
         const double scale = 1.0 + (m_chargeRate * Param::View::ChargingAddScale);
         const Vec2 size = s3d::Round(rawSize * scale);
         const Vec2 pos = s3d::Round(m_pos - size / 2.0 - Vec2{0, (size.y -rawSize.y) / 2.0});
-        tex.mirrored(isRight).resized(size).draw(pos, ColorDef::OnDamage(m_isDamaging, m_time, color));
+        tex.mirrored(isRight).resized(size).draw(pos, color);
     }
 }

@@ -16,7 +16,6 @@ namespace abyss::Actor::Enemy::CaptainTako
         CaptainTakoVM& setForward(const Forward& forward);
         CaptainTakoVM& setPos(const s3d::Vec2& pos);
 
-        CaptainTakoVM& setIsDamaging(bool isDamaging);
         CaptainTakoVM& setMotion(Motion motion)
         {
             m_motion = motion;
@@ -27,6 +26,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             m_chargeRate = chargeRate;
             return *this;
         }
+        CaptainTakoVM& setColorMul(const s3d::ColorF color);
         void draw() const;
     private:
         void drawWait() const;
@@ -37,10 +37,10 @@ namespace abyss::Actor::Enemy::CaptainTako
         Forward m_forward{};
         s3d::Vec2 m_pos;
 
-        bool m_isDamaging = false;
-
         double m_time = 0;
         double m_chargeRate = 0;
         Motion m_motion = Motion::Wait;
+
+        s3d::ColorF m_colorMul;
     };
 }

@@ -4,7 +4,7 @@
 #include <abyss/entities/Actor/Enemy/CaptainTakoEntity.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
@@ -45,13 +45,6 @@ namespace
 
     class ViewBinder : public IVModelBinder<CaptainTakoVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<DamageCtrl> m_damage;
-        Ref<ChargeCtrl> m_charge;
-        Ref<MotionCtrl> m_motion;
-
-        std::unique_ptr<CaptainTakoVM> m_view;
     private:
         CaptainTakoVM* bind() const final
         {
@@ -59,15 +52,15 @@ namespace
                 ->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setForward(m_body->getForward())
-                .setIsDamaging(m_damage->isInvincibleTime())
                 .setChargeRate(m_charge->getRate())
                 .setMotion(m_motion->get<Motion>())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
             m_charge = m_pActor->find<ChargeCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
@@ -76,5 +69,13 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<CaptainTakoVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
+        Ref<ChargeCtrl> m_charge;
+        Ref<MotionCtrl> m_motion;
+
+        std::unique_ptr<CaptainTakoVM> m_view;
     };
 }
