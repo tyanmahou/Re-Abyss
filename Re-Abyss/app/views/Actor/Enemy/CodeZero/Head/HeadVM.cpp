@@ -1,7 +1,6 @@
 #include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
 
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
@@ -26,9 +25,9 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         m_look = look;
         return *this;
     }
-    HeadVM& HeadVM::setIsDamaging(bool isDamaging)
+    HeadVM& HeadVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
     void HeadVM::draw() const
@@ -55,6 +54,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
             return m_texture(U"head")(0, 0, size);
         }();
 
-        tex.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.drawAt(m_pos, m_colorMul);
     }
 }

@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
@@ -114,9 +114,6 @@ namespace
 
     class ViewBinder : public IVModelBinder<BodyVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Actor::Body> m_body;
-        std::unique_ptr<BodyVM> m_view;
     private:
         BodyVM* bind() const final
         {
@@ -131,21 +128,22 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<BodyVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Actor::Body> m_body;
+        std::unique_ptr<BodyVM> m_view;
     };
 
     class ViewBinderHead : public IVModelBinder<Head::HeadVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<HeadCtrl> m_head;
-        Ref<DamageCtrl> m_damage;
-        std::unique_ptr<Head::HeadVM> m_view;
     private:
         Head::HeadVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setLook(m_head->getLook())
-                .setIsDamaging(m_damage->isInvincibleTime());
+                .setColorMul(m_colorCtrl->colorMul())
+                ;
         }
         void setup(Executer executer) final
         {
@@ -153,12 +151,17 @@ namespace
         void onStart() final
         {
             m_head = m_pActor->find<HeadCtrl>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
         ViewBinderHead(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<Head::HeadVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<HeadCtrl> m_head;
+        Ref<ColorCtrl> m_colorCtrl;
+        std::unique_ptr<Head::HeadVM> m_view;
     };
 }
