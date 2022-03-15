@@ -126,7 +126,8 @@ namespace abyss
             ;
 #endif
     }
-
+    SaveSelectScene::~SaveSelectScene()
+    {}
     void SaveSelectScene::onSceneUpdate()
     {
         m_pImpl->update();

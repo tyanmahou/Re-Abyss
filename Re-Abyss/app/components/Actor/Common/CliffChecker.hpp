@@ -12,6 +12,7 @@ namespace abyss::Actor
 		class Impl;
 	public:
 		CliffChecker(ActorObj* pActor);
+		~CliffChecker();
 
 		CliffChecker& setFrontOffset(const s3d::Vec2& offset);
 		CliffChecker& setBackOffset(const s3d::Vec2& offset);

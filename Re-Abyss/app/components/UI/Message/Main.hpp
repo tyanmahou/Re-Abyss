@@ -28,7 +28,7 @@ namespace abyss::UI::Message
             UIObj* pUi,
             const Ref<Novel::Engine>& engine
         );
-
+        ~Main();
         void onStart() override;
 
         void onUpdate() override;

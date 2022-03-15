@@ -12,6 +12,8 @@ namespace abyss
 		std::unique_ptr<Impl> m_pImpl;
 	public:
 		OpDemoScene(const InitData& init);
+		~OpDemoScene();
+
 		void onSceneUpdate()override;
 		void onSceneDraw() const override;
 	};

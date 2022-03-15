@@ -67,7 +67,8 @@ namespace abyss
         // ローディング
         m_pImpl->loading();
     }
-
+    SplashScene::~SplashScene()
+    {}
     void SplashScene::onSceneUpdate()
     {
         m_pImpl->update();

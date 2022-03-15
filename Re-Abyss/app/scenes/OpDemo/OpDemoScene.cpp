@@ -21,7 +21,8 @@ namespace abyss
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {}
-
+    OpDemoScene::~OpDemoScene()
+    {}
     void OpDemoScene::onSceneUpdate()
     {
         m_pImpl->update();

@@ -15,6 +15,7 @@ namespace abyss::UI::Fade::IrisOut
     {
     public:
         FadeCtrl(UIObj* pUi);
+        ~FadeCtrl();
 
         FadeCtrl& setPos(const s3d::Vec2& pos);
         FadeCtrl& setFadeTime(double fadeTimeSec);

@@ -18,6 +18,7 @@ namespace abyss::Effect::Misc::Fish
     {
     public:
         Main(EffectObj* pObj, s3d::int32 fishId);
+        ~Main();
 
         void onStart() override;
         void onUpdate() override;

@@ -12,7 +12,8 @@ namespace abyss::UI::PlayerInfo
         m_pActor(pActor),
         m_view(std::make_unique<PlayerInfoExVM>())
     {}
-
+    Main::~Main()
+    {}
     void Main::onStart()
     {
         m_hp = m_pActor->find<Actor::HP>();

@@ -94,7 +94,8 @@ namespace abyss
         });
 #endif
     }
-
+    TitleScene::~TitleScene()
+    {}
     void TitleScene::onSceneUpdate()
     {
         m_pImpl->update();

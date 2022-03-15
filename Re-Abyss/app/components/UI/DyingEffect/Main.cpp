@@ -13,7 +13,8 @@ namespace abyss::UI::DyingEffect
         m_pActor(pActor),
         m_view(std::make_unique<DyingEffectVM>())
     {}
-
+    Main::~Main()
+    {}
     void Main::onStart()
     {
         m_hpModel = m_pActor->find<Actor::HP>();

@@ -12,6 +12,7 @@ namespace abyss
 		std::unique_ptr<Impl> m_pImpl;
 	public:
 		RootScene(const InitData& init);
+		~RootScene();
 		void onSceneUpdate()override;
 		void onSceneDraw() const override;
 	};

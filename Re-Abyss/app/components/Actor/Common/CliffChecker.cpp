@@ -145,6 +145,8 @@ namespace abyss::Actor
 	CliffChecker::CliffChecker(ActorObj* pActor):
 		m_pImpl(std::make_unique<Impl>(pActor))
 	{}
+	CliffChecker::~CliffChecker()
+	{}
 	CliffChecker& CliffChecker::setFrontOffset(const s3d::Vec2 & offset)
 	{
 		m_pImpl->setFrontOffset(offset);

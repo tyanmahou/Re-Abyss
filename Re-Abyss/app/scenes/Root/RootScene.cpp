@@ -43,7 +43,8 @@ namespace abyss
         // ローディング
         m_loading.start(m_pImpl->loading());
     }
-
+    RootScene::~RootScene()
+    {}
     void RootScene::onSceneUpdate()
     {
         this->changeScene(SceneName::Splash, 0);

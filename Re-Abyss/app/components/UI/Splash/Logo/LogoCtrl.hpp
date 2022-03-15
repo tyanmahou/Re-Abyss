@@ -18,7 +18,7 @@ namespace abyss::UI::Splash::Logo
 
     public:
         LogoCtrl(UIObj* pUi);
-
+        ~LogoCtrl();
         void onUpdate() override;
 
         void onDraw() const override;

@@ -12,6 +12,7 @@ namespace abyss
 		std::unique_ptr<Impl> m_pImpl;
 	public:
 		SaveSelectScene(const InitData& init);
+		~SaveSelectScene();
 		void onSceneUpdate() override;
 		void onSceneDraw() const override;
 	};

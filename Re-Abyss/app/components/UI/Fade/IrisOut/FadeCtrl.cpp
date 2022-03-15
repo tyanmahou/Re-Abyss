@@ -9,8 +9,9 @@ namespace abyss::UI::Fade::IrisOut
     FadeCtrl::FadeCtrl(UIObj* pUi):
         m_pUi(pUi),
         m_view(std::make_unique<IrisOutVM>())
-    {
-    }
+    {}
+    FadeCtrl::~FadeCtrl()
+    {}
     FadeCtrl& FadeCtrl::setPos(const s3d::Vec2 & pos)
     {
         m_pos = pos;

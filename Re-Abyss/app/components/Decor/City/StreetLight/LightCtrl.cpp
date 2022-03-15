@@ -15,7 +15,8 @@ namespace abyss::Decor::City::StreetLight
         m_pObj(pObj),
         m_view(std::make_unique<LightVM>())
     {}
-
+    LightCtrl::~LightCtrl()
+    {}
     void LightCtrl::setup(Executer executer)
     {
         executer.on<IDraw>().addBefore<BasicDraw>();

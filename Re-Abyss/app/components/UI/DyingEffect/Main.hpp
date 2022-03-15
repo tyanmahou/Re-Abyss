@@ -19,7 +19,7 @@ namespace abyss::UI::DyingEffect
         
     public:
         Main(UIObj* pUi, Actor::ActorObj* actor);
-
+        ~Main();
         void onStart() override;
 
         void onUpdate() override;

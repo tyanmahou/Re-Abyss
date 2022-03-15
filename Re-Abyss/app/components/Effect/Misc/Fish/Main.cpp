@@ -12,7 +12,8 @@ namespace abyss::Effect::Misc::Fish
         m_pObj(pObj),
         m_view(std::make_unique<FishVM>(fishId))
     {}
-
+    Main::~Main()
+    {}
     void Main::onStart()
     {
         m_lifeTime = m_pObj->find<LifeTime>();

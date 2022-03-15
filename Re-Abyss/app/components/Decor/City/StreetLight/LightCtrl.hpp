@@ -19,6 +19,7 @@ namespace abyss::Decor::City::StreetLight
     {
     public:
         LightCtrl(DecorObj* pObj);
+        ~LightCtrl();
 
         void setup(Executer executer) override;
 

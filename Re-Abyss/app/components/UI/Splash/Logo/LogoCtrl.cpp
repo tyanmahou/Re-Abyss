@@ -10,6 +10,8 @@ namespace abyss::UI::Splash::Logo
         m_pUi(pUi),
         m_view(std::make_unique<LogoVM>())
     {}
+    LogoCtrl::~LogoCtrl()
+    {}
     void LogoCtrl::onUpdate()
     {
         if (InputManager::Start.down()) {

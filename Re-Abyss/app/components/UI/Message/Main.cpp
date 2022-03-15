@@ -26,7 +26,8 @@ namespace abyss::UI::Message
     {
         m_showHideTimer.toEnd();
     }
-
+    Main::~Main()
+    {}
     void Main::onStart()
     {}
 

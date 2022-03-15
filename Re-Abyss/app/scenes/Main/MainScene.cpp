@@ -171,7 +171,8 @@ namespace abyss
 			;
 #endif
 	}
-
+	MainScene::~MainScene()
+	{}
 	void MainScene::onSceneUpdate()
 	{
 		m_pImpl->update();
