@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     }
     void CaptainTakoVM::drawCharge() const
     {
-        ColorF color = ColorF(1, 1 - m_chargeRate, 1 - m_chargeRate) * m_colorMul;
+        ColorF color = ColorF(1, 1 - m_chargeRate * 0.5, 1 - m_chargeRate * 0.5) * m_colorMul;
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
 
