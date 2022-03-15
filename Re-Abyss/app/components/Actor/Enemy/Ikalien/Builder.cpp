@@ -6,7 +6,7 @@
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
 #include <abyss/types/CShape.hpp>
 
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
@@ -55,13 +55,6 @@ namespace
 
     class ViewBinder : public IVModelBinder<IkalienVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<DamageCtrl> m_damage;
-        Ref<RotateCtrl> m_rotate;
-        Ref<MotionCtrl> m_motion;
-
-        std::unique_ptr<IkalienVM> m_view;
     private:
         IkalienVM* bind() const final
         {
@@ -69,14 +62,14 @@ namespace
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setRotate(m_rotate->getRotate())
-                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
@@ -85,5 +78,13 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<IkalienVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
+        Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
+
+        std::unique_ptr<IkalienVM> m_view;
     };
 }

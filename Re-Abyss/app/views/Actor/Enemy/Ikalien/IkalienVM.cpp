@@ -1,6 +1,5 @@
 #include <abyss/views/Actor/Enemy/Ikalien/IkalienVM.hpp>
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
@@ -31,13 +30,11 @@ namespace abyss::Actor::Enemy::Ikalien
         m_rotate = rotate;
         return *this;
     }
-
-    IkalienVM& IkalienVM::setIsDamaging(bool isDamaging)
+    IkalienVM& IkalienVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
-
     void IkalienVM::draw() const
     {
         switch (m_motion) {
@@ -59,7 +56,7 @@ namespace abyss::Actor::Enemy::Ikalien
     {
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::WaitAnimeTimeSec, m_time) * 4.0);
         auto tex = m_texture(80 * page, 80, 80, 80);
-        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.rotated(m_rotate).drawAt(m_pos, m_colorMul);
     }
 
     void IkalienVM::drawPursuit() const
@@ -79,7 +76,7 @@ namespace abyss::Actor::Enemy::Ikalien
             page = 1;
         }
         auto tex = m_texture(80 * page, 0, 80, 80);
-        tex.rotated(m_rotate).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        tex.rotated(m_rotate).drawAt(m_pos, m_colorMul);
     }
 
 }
