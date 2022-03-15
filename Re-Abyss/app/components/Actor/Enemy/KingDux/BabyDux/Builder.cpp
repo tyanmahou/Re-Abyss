@@ -3,7 +3,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
@@ -71,18 +71,18 @@ namespace
 		{
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
-				.setIsDamaging(m_damage->isInvincibleTime())
+				.setColorMul(m_colorCtrl->colorMul())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
-			m_damage = m_pActor->find<DamageCtrl>();
+			m_colorCtrl = m_pActor->find<ColorCtrl>();
 		}
 	private:
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
-		Ref<DamageCtrl> m_damage;
+		Ref<ColorCtrl> m_colorCtrl;
 
 		std::unique_ptr<BabyDuxVM> m_view;
 	};

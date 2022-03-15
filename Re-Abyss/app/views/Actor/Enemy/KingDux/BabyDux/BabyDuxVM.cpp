@@ -1,6 +1,5 @@
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
@@ -18,14 +17,14 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		m_pos = s3d::Round(pos);
 		return *this;
 	}
-	BabyDuxVM& BabyDuxVM::setIsDamaging(bool isDamaging)
+	BabyDuxVM& BabyDuxVM::setColorMul(const s3d::ColorF color)
 	{
-		m_isDamaging = isDamaging;
+		m_colorMul = color;
 		return *this;
 	}
 	void BabyDuxVM::draw() const
 	{
-		m_texture.drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+		m_texture.drawAt(m_pos, m_colorMul);
 	}
 }
 
