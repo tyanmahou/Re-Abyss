@@ -1,6 +1,5 @@
 #include <abyss/views/Actor/Enemy/Slime/SlimeVM.hpp>
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 
 namespace abyss::Actor::Enemy::Slime
@@ -29,9 +28,9 @@ namespace abyss::Actor::Enemy::Slime
         return *this;
     }
 
-    SlimeVM& SlimeVM::setIsDamaging(bool isDamaging)
+    SlimeVM& SlimeVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
 
@@ -53,7 +52,7 @@ namespace abyss::Actor::Enemy::Slime
         bool isLeft = m_forward == Forward::Left;
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::WalkAnimeTimeSec, m_time));
         auto tex = m_texture(40 * time, 0, 40, 40);
-        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, m_colorMul);
     }
 
     void SlimeVM::drawJump() const
@@ -62,7 +61,7 @@ namespace abyss::Actor::Enemy::Slime
 
         int32 page = m_velocity.y > 0 ? 1 : 0;
         auto tex = m_texture(40 * page, 40, 40, 40);
-        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+        (isLeft ? tex : tex.mirrored()).drawAt(m_pos, m_colorMul);
     }
 
 }

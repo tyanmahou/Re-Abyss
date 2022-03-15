@@ -10,16 +10,6 @@ namespace abyss::Actor::Enemy::Slime
 {
     class SlimeVM
     {
-        s3d::Texture m_texture;
-
-        Forward m_forward;
-        s3d::Vec2 m_pos;
-        s3d::Vec2 m_velocity;
-
-        bool m_isDamaging = false;
-        double m_time;
-
-        Motion m_motion = Motion::Walk;
     public:
         SlimeVM(Resource::Assets* asset = Resource::Assets::Main());
         SlimeVM& setTime(double time);
@@ -27,16 +17,27 @@ namespace abyss::Actor::Enemy::Slime
         SlimeVM& setPos(const s3d::Vec2& pos);
         SlimeVM& setVelocity(const s3d::Vec2& velocity);
 
-        SlimeVM& setIsDamaging(bool isDamaging);
-
         SlimeVM& setMotion(Motion motion)
         {
             m_motion = motion;
             return *this;
         }
+        SlimeVM& setColorMul(const s3d::ColorF color);
         void draw() const;
     private:
         void drawWalk() const;
         void drawJump() const;
+    private:
+
+        s3d::Texture m_texture;
+
+        Forward m_forward;
+        s3d::Vec2 m_pos;
+        s3d::Vec2 m_velocity;
+
+        double m_time;
+
+        Motion m_motion = Motion::Walk;
+        s3d::ColorF m_colorMul;
     };
 }

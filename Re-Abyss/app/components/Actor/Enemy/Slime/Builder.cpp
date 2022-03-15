@@ -3,7 +3,7 @@
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
@@ -58,11 +58,6 @@ namespace
 
 	class ViewBinder : public IVModelBinder<SlimeVM>
 	{
-		ActorObj* m_pActor = nullptr;
-		Ref<Body> m_body;
-		Ref<DamageCtrl> m_damage;
-		Ref<MotionCtrl> m_motion;
-		std::unique_ptr<SlimeVM> m_view;
 	private:
 		SlimeVM* bind() const final
 		{
@@ -70,14 +65,14 @@ namespace
 				.setForward(m_body->getForward())
 				.setPos(m_body->getPos())
 				.setVelocity(m_body->getVelocity())
-				.setIsDamaging(m_damage->isInvincibleTime())
 				.setMotion(m_motion->get<Motion>())
+				.setColorMul(m_colorCtrl->colorMul())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
-			m_damage = m_pActor->find<DamageCtrl>();
+			m_colorCtrl = m_pActor->find<ColorCtrl>();
 			m_motion = m_pActor->find<MotionCtrl>();
 		}
 	public:
@@ -85,5 +80,11 @@ namespace
 			m_pActor(pActor),
 			m_view(std::make_unique<SlimeVM>())
 		{}
+	private:
+		ActorObj* m_pActor = nullptr;
+		Ref<Body> m_body;
+		Ref<ColorCtrl> m_colorCtrl;
+		Ref<MotionCtrl> m_motion;
+		std::unique_ptr<SlimeVM> m_view;
 	};
 }
