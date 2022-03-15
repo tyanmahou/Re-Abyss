@@ -1,7 +1,6 @@
 #include <abyss/views/Actor/Enemy/LaunShark/Shot/ShotVM.hpp>
 
 #include <Siv3D.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/ShotParam.hpp>
 
@@ -25,9 +24,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         m_rotate = rotate;
         return *this;
     }
-    ShotVM& ShotVM::setIsDamaging(bool isDamaging)
+    ShotVM& ShotVM::setColorMul(const s3d::ColorF color)
     {
-        m_isDamaging = isDamaging;
+        m_colorMul = color;
         return *this;
     }
     void ShotVM::draw() const
@@ -46,7 +45,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         int32 page = static_cast<int32>(Periodic::Sawtooth0_1(ShotParam::View::AnimeTimeSec, t) * 4);
         m_texture(U"shark_shot")({ 0, 12 * page }, { 32, 12 })
             .rotated(m_rotate)
-            .drawAt(m_pos, ColorDef::OnDamage(m_isDamaging, m_time));
+            .drawAt(m_pos, m_colorMul);
     }
     void ShotVM::drawWait() const
     {

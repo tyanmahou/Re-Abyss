@@ -4,7 +4,7 @@
 #include <abyss/entities/Actor/Enemy/LaunSharkEntity.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/TimeCounter.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
@@ -51,26 +51,21 @@ namespace
 
 	class ViewBinder : public IVModelBinder<LaunSharkVM>
 	{
-		ActorObj* m_pActor = nullptr;
-		Ref<Body> m_body;
-		Ref<DamageCtrl> m_damage;
-		Ref<MotionCtrl> m_motion;
-		std::unique_ptr<LaunSharkVM> m_view;
 	private:
 		LaunSharkVM* bind() const final
 		{
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
 				.setForward(m_body->getForward())
-				.setIsDamaging(m_damage->isInvincibleTime())
 				.setAnimeTime(m_motion->animeTime())
 				.setMotion(m_motion->get<Motion>())
+				.setColorMul(m_colorCtrl->colorMul())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
-			m_damage = m_pActor->find<DamageCtrl>();
+			m_colorCtrl = m_pActor->find<ColorCtrl>();
 			m_motion = m_pActor->find<MotionCtrl>();
 		}
 	public:
@@ -78,5 +73,11 @@ namespace
 			m_pActor(pActor),
 			m_view(std::make_unique<LaunSharkVM>())
 		{}
+	private:
+		ActorObj* m_pActor = nullptr;
+		Ref<Body> m_body;
+		Ref<ColorCtrl> m_colorCtrl;
+		Ref<MotionCtrl> m_motion;
+		std::unique_ptr<LaunSharkVM> m_view;
 	};
 }

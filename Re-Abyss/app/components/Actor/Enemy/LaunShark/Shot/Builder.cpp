@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
@@ -98,6 +99,9 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
                 ->setInvincibleTime(0.2);
             pActor->attach<Enemy::DeadCallback>(pActor);
             pActor->attach<Enemy::DamageCallback>(pActor);
+
+            // 色制御
+            pActor->attach<ColorCtrl>(pActor);
         }
         // 死亡チェック
         {
@@ -126,27 +130,20 @@ namespace
 
     class ViewBinder : public IVModelBinder<ShotVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<DamageCtrl> m_damage;
-        Ref<RotateCtrl> m_rotate;
-        Ref<MotionCtrl> m_motion;
-
-        std::unique_ptr<ShotVM> m_view;
     private:
         ShotVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
-                .setIsDamaging(m_damage->isInvincibleTime())
                 .setMotion(m_motion->get<Motion>())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
-            m_damage = m_pActor->find<DamageCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
         }
@@ -155,5 +152,13 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
+        Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
+
+        std::unique_ptr<ShotVM> m_view;
     };
 }
