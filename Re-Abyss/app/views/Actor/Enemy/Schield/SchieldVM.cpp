@@ -7,7 +7,8 @@
 namespace abyss::Actor::Enemy::Schield
 {
     SchieldVM::SchieldVM():
-        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/Schield/Schield.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/Schield/Schield.json")),
+        m_textureOver(Resource::Assets::Main()->load(U"Actor/Enemy/Schield/SchieldOver.json"))
     {}
     SchieldVM& SchieldVM::setTime(double time)
     {
@@ -52,20 +53,34 @@ namespace abyss::Actor::Enemy::Schield
 
     void SchieldVM::drawWait() const
     {
-        auto&& tex = m_texture(U"wait");
         bool isRight = m_forward == Forward::Right;
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
-        tex(0, 60*page, 150, 60).mirrored(isRight).drawAt(m_pos, m_colorMul);
+        {
+            auto&& tex = m_texture(U"wait");
+            tex(0, 60 * page, 150, 60).mirrored(isRight).drawAt(m_pos, m_colorMul);
+        }
+        {
+            auto&& tex = m_textureOver(U"wait_over");
+            tex(0, 60 * page, 150, 60).mirrored(isRight).drawAt(m_pos);
+        }
     }
 
     void SchieldVM::drawToWait(double t) const
     {
         int32 page = Min(static_cast<int32>(t * 8.0), 7);
-        auto&& tex = m_texture(U"wait_to_attack3");
         bool isRight = m_forward == Forward::Right;
-        tex(150 * (page / 4) , 60 * (page % 4), 150, 60)
-            .mirrored(isRight)
-            .drawAt(m_pos, m_colorMul);
+        {
+            auto&& tex = m_texture(U"wait_to_attack3");
+            tex(150 * (page / 4), 60 * (page % 4), 150, 60)
+                .mirrored(isRight)
+                .drawAt(m_pos, m_colorMul);
+        }
+        {
+            auto&& tex = m_textureOver(U"wait_to_attack3_over");
+            tex(150 * (page / 4), 60 * (page % 4), 150, 60)
+                .mirrored(isRight)
+                .drawAt(m_pos);
+        }
     }
 
     void SchieldVM::drawAttackPlus() const
@@ -76,11 +91,19 @@ namespace abyss::Actor::Enemy::Schield
     void SchieldVM::drawToAttackPlus(double t) const
     {
         int32 page = Min(static_cast<int32>(t * 8.0), 7);
-        auto&& tex = m_texture(U"wait_to_attack");
         bool isRight = m_forward == Forward::Right;
-        tex(150 * (page / 4), 60 * (page % 4), 150, 60)
-            .mirrored(isRight)
-            .drawAt(m_pos, m_colorMul);
+        {
+            auto&& tex = m_texture(U"wait_to_attack");
+            tex(150 * (page / 4), 60 * (page % 4), 150, 60)
+                .mirrored(isRight)
+                .drawAt(m_pos, m_colorMul);
+        }
+        {
+            auto&& tex = m_textureOver(U"wait_to_attack_over");
+            tex(150 * (page / 4), 60 * (page % 4), 150, 60)
+                .mirrored(isRight)
+                .drawAt(m_pos);
+        }
     }
 
     void SchieldVM::drawAttackCross() const

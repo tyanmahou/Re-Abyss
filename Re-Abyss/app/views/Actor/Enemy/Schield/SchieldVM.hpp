@@ -36,6 +36,7 @@ namespace abyss::Actor::Enemy::Schield
         void drawToAttackCross(double t)const;
     private:
         TexturePacker m_texture;
+        TexturePacker m_textureOver;
 
         s3d::Vec2 m_pos;
         Forward m_forward;
