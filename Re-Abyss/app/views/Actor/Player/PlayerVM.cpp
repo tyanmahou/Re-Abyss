@@ -33,7 +33,8 @@ namespace abyss::Actor::Player
         return m_colorMul;
     }
     PlayerVM::PlayerVM():
-        m_texture(Resource::Assets::Main()->load(U"Actor/Player/Player.json"))
+        m_texture(Resource::Assets::Main()->load(U"Actor/Player/Player.json")),
+        m_colorMul(s3d::Palette::White)
     {}
     PlayerVM& PlayerVM::setOopartsView(std::unique_ptr<Ooparts::OopartsView> && ooparts)
     {
