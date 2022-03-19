@@ -16,6 +16,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
@@ -93,6 +94,10 @@ namespace abyss::Actor::Enemy::CodeZero
         // プロキシ
         {
             pActor->attach<CodeZeroProxy>(pActor);
+        }
+        // 死亡時制御
+        {
+            pActor->attach<DeadCallback>(pActor);
         }
         // 描画制御
         {
