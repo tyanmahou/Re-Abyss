@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/DeadState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
@@ -111,7 +112,12 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         co_return;
     }
-
+    Coro::Task<> Behavior::Dead(ActorObj* pActor)
+    {
+        pActor->find<HP>()->setHp(0);
+        DeadState::Change(pActor);
+        co_yield{};
+    }
     Coro::Task<> Behavior::LeftAttack(ActorObj* pActor)
     {
         pActor->find<PartsCtrl>()->getLeftHand()->tryAttack();

@@ -88,6 +88,7 @@ namespace abyss::Actor::Enemy::CodeZero
                 .registAction(U"RollingAttack-R", std::bind(Behavior::RollingAttack, _1, true))
                 .registAction(U"Phase2", Behavior::Phase2)
                 .registAction(U"Phase3", Behavior::Phase3)
+                .registAction(U"Dead", Behavior::Dead)
                 ;
 #endif
         }

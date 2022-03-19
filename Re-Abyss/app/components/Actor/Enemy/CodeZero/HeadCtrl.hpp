@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero
         Ref<Body> m_body;
         Ref<PartsCtrl> m_parts;
 
-        bool m_isActive = false;
+        bool m_isActive = true;
         Look m_look;
     };
 }
