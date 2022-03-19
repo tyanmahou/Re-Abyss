@@ -48,7 +48,7 @@ namespace abyss::Actor::Enemy::CodeZero
 
             if (playerPos.y > pos.y + 200) {
                 look += Vec2{ 0, 1 };
-            } else if (playerPos.y < pos.y - 200) {
+            } else if (playerPos.y < pos.y - 100) {
                 look -= Vec2{ 0, 1 };
             }
         }
