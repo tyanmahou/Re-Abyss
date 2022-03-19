@@ -1891,6 +1891,12 @@
     <ClCompile Include="app\components\Actor\Common\ColorCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\DeadState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\DeadCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2842,6 +2848,8 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\DeadState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\DeadCallback.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
