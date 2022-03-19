@@ -4,10 +4,9 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/State/DeadState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
@@ -115,8 +114,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Task<> Behavior::Dead(ActorObj* pActor)
     {
-        pActor->find<HP>()->setHp(0);
-        DeadState::Change(pActor);
+        pActor->find<DeadChecker>()->requestDead();
         co_yield{};
     }
     Coro::Task<> Behavior::LeftAttack(ActorObj* pActor)

@@ -1,13 +1,13 @@
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/StabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/PursuitStabState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/DanceState.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/State/DeadState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
@@ -72,8 +72,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Task<> Behavior::Dead(ActorObj* pActor)
     {
-        pActor->find<HP>()->setHp(0);
-        DeadState::Change(pActor);
+        pActor->find<DeadChecker>()->requestDead();
         co_yield{};
     }
     Coro::Task<> Behavior::Wait(ActorObj* pActor)
