@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/ShotChargeState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/RollingAttackState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/DeadState.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -49,7 +50,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_state->changeState<RollingAttackState>(isReverse);
         return true;
     }
-
+    void HandProxy::dead()
+    {
+        DeadState::Change(m_pActor);
+    }
     bool HandProxy::isShotCharge() const
     {
         return m_state->isState<ShotChargeState>();

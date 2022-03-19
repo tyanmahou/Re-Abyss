@@ -4,6 +4,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/DeadState.hpp>

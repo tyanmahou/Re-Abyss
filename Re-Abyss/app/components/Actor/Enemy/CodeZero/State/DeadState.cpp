@@ -4,8 +4,6 @@
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
-
-#include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -30,6 +28,14 @@ namespace abyss::Actor::Enemy::CodeZero
 		m_pActor->find<ColCtrl>()->setActive(false);
 
 		m_pActor->find<HeadCtrl>()->setActive(false);
+
+		// 手も死亡
+		if (auto&& hand = m_parts->getLeftHand()) {
+			hand->dead();
+		}
+		if (auto&& hand = m_parts->getRightHand()) {
+			hand->dead();
+		}
 	}
 	void DeadState::end()
 	{

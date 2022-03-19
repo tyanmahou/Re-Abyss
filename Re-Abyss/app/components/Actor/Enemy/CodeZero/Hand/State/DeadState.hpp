@@ -1,7 +1,7 @@
 #pragma once
-#include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/BaseState.hpp>
 
-namespace abyss::Actor::Enemy::CodeZero
+namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class DeadState final :
         public BaseState
