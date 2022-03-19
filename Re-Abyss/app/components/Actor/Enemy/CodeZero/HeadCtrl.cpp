@@ -12,12 +12,6 @@ namespace abyss::Actor::Enemy::CodeZero
     HeadCtrl::HeadCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
-    void HeadCtrl::onStart()
-    {
-        m_body = m_pActor->find<Body>();
-        m_parts = m_pActor->find<PartsCtrl>();
-    }
-
     s3d::Vec2 HeadCtrl::getPos() const
     {
         return m_body->getPos() + Param::Head::Offset;
@@ -32,9 +26,21 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         return this->getPos() + s3d::Vec2{ 0, 10 };
     }
+    void HeadCtrl::setActive(bool isActive)
+    {
+        m_isActive = isActive;
+    }
+    void HeadCtrl::onStart()
+    {
+        m_body = m_pActor->find<Body>();
+        m_parts = m_pActor->find<PartsCtrl>();
+    }
 
     void HeadCtrl::onLastUpdate()
     {
+        if (!m_isActive) {
+            return;
+        }
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
         auto pos = this->getCenterPos();
 

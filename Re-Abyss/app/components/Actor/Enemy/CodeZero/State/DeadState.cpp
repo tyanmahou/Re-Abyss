@@ -10,6 +10,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
 
 #include <Siv3D.hpp>
@@ -27,6 +28,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
 		// 当たりむこう
 		m_pActor->find<ColCtrl>()->setActive(false);
+
+		m_pActor->find<HeadCtrl>()->setActive(false);
 	}
 	void DeadState::end()
 	{

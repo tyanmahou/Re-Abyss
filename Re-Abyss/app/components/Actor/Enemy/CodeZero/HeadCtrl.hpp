@@ -16,21 +16,26 @@ namespace abyss::Actor::Enemy::CodeZero
         public ILocator,
         public ILastUpdate
     {
-        Look m_look;
-
-        ActorObj* m_pActor;
-        Ref<Body> m_body;
-        Ref<PartsCtrl> m_parts;
     public:
         HeadCtrl(ActorObj* pActor);
-        void onStart() override;
 
         s3d::Vec2 getPos() const;
 
         const Look& getLook() const;
         s3d::Vec2 getCenterPos() const override;
 
+        void setActive(bool isActive);
+
+        void onStart() override;
+
         void onLastUpdate() override;
+    private:
+        ActorObj* m_pActor;
+        Ref<Body> m_body;
+        Ref<PartsCtrl> m_parts;
+
+        bool m_isActive = false;
+        Look m_look;
     };
 }
 
