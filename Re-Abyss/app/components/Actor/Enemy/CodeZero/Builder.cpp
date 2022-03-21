@@ -33,6 +33,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
+            .setBodySize(Vec2{680, 480})
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setIsEnableCollider(false)
