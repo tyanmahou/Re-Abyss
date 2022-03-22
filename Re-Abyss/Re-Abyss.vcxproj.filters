@@ -727,12 +727,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Player\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -914,9 +908,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\BossMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\GameObject\Executer.cpp">
@@ -2259,8 +2250,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\Builder.hpp" />
     <ClInclude Include="app\modules\World\World.hpp">
       <Filter>Source Files\ActionSystem\World</Filter>
@@ -2345,7 +2334,6 @@
     <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Setup.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Teardown.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\BossMove.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp" />
     <ClInclude Include="app\components\Actor\base\IPostCollision.hpp" />

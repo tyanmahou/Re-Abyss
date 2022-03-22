@@ -6,7 +6,6 @@
 #include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Demo/DemoCtrl.hpp>
 #include <abyss/components/Event/CreateBossHPBar/Builder.hpp>
 #include <abyss/components/Event/CreateBossHPBar/MainStream.hpp>
 #include <abyss/components/UI/BossHPBar/Builder.hpp>
@@ -20,12 +19,7 @@ namespace abyss::Novel::BossTalk0_0
     void Teardown::onStart()
     {
         auto world = m_pTalk->getModule<World>();
-
-        if (auto demoCodeZero = world->find<Actor::Enemy::CodeZero::Demo::DemoCtrl>()) {
-            demoCodeZero->destroy();
-        }
         if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {
-            codeZero->setActive(true);
             auto hpBar = m_pTalk->getModule<UIs>()->create<UI::BossHPBar::Builder>(codeZero->getActor());
             // HPチャージ
             auto chargeHpBar = m_pTalk->getModule<Events>()->create<Event::CreateBossHPBar::Builder>(hpBar);

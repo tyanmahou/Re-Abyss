@@ -289,8 +289,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandDesc.cpp" />
@@ -479,7 +477,6 @@
     <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\BossMove.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Builder.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Setup.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Teardown.cpp" />
@@ -1219,8 +1216,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Demo\DemoCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.hpp" />
@@ -1318,7 +1313,6 @@
     <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\BossMove.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Setup.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Teardown.hpp" />

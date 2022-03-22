@@ -6,7 +6,6 @@
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Demo/Builder.hpp>
 
 namespace abyss::Novel::BossTalk0_0
 {
@@ -16,14 +15,6 @@ namespace abyss::Novel::BossTalk0_0
 
     void Setup::onStart()
     {
-        auto world = m_pTalk->getModule<World>();
-        
-        if (auto codeZero = world->find<Actor::Enemy::CodeZero::CodeZeroProxy>()) {
-            world->create<Actor::Enemy::CodeZero::Demo::Builder>(codeZero->getPos());
-            codeZero->setActive(false);
-        }
-
-        world->flush();
     }
 
     Coro::Task<> Setup::onCommand()

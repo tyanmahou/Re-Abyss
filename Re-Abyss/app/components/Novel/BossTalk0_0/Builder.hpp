@@ -9,9 +9,6 @@ namespace abyss::Novel::BossTalk0_0
         [[REFLECTION(Setup)]]
         static void Setup(TalkObj* pTalk);
 
-        [[REFLECTION(BossMove)]]
-        static void BossMove(TalkObj* pTalk);
-
         [[REFLECTION(Teardown)]]
         static void Teardown(TalkObj* pTalk);
     };
