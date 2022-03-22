@@ -46,9 +46,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
         Vec2 look{0 , 0};
         if (!m_parts->isShotCharge()) {
-            if (playerPos.x > pos.x + 200) {
+            if (playerPos.x > pos.x + 100) {
                 look += Vec2{ 1, 0 };
-            } else if (playerPos.x < pos.x - 200) {
+            } else if (playerPos.x < pos.x - 100) {
                 look -= Vec2{ 1, 0 };
             }
 
