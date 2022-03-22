@@ -61,6 +61,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
         m_look = Look(look);
     }
-
+    void HeadCtrl::onStateStart()
+    {
+        this->setActive(true);
+    }
 }
 

@@ -299,6 +299,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\ParentCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\PartsCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\DeadState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\Builder.cpp" />
@@ -944,6 +945,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\ComponentCache.hpp" />

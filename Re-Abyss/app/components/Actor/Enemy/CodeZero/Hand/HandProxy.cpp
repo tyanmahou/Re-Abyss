@@ -1,6 +1,8 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
+
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
@@ -63,5 +65,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         return m_state->isState<PursuitState>();
     }
-
+    void HandProxy::setMoveActive(bool isActive)
+    {
+        m_pActor->find<HandMove>()->setActive(isActive);
+    }
 }

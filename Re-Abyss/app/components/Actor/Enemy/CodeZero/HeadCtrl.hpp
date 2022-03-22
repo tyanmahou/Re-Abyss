@@ -4,6 +4,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
+#include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/types/Look.hpp>
@@ -14,7 +15,8 @@ namespace abyss::Actor::Enemy::CodeZero
     class HeadCtrl : 
         public IComponent,
         public ILocator,
-        public ILastUpdate
+        public ILastUpdate,
+        public IStateCallback
     {
     public:
         HeadCtrl(ActorObj* pActor);
@@ -29,6 +31,8 @@ namespace abyss::Actor::Enemy::CodeZero
         void onStart() override;
 
         void onLastUpdate() override;
+
+        void onStateStart() override;
     private:
         ActorObj* m_pActor;
         Ref<Body> m_body;
@@ -46,7 +50,8 @@ namespace abyss
     {
         using Base = MultiComponents<
             Actor::ILocator,
-            Actor::ILastUpdate
+            Actor::ILastUpdate,
+            Actor::IStateCallback
         >;
     };
 }

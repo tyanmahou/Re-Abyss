@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -11,11 +12,13 @@ namespace abyss::Actor::Enemy::CodeZero
     protected:
         BehaviorCtrl* m_behavior;
         PartsCtrl* m_parts;
+        HeadCtrl* m_head;
     public:
         void onCache(ActorObj* pActor)
         {
             m_behavior = pActor->find<BehaviorCtrl>().get();
             m_parts = pActor->find<PartsCtrl>().get();
+            m_head = pActor->find<HeadCtrl>().get();
         }
     };
 }

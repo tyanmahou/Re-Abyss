@@ -5,6 +5,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -29,6 +30,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
         // 中盤パターン
         behavior->setBehavior(Behavior::Phase2);
+        // 強制遷移
+        behavior->setActiveBehavior(true);
 
         // HP 1/3まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 3.0);
@@ -36,9 +39,13 @@ namespace abyss::Actor::Enemy::CodeZero
 
         // 後半パターン
         behavior->setBehavior(Behavior::Phase3);
+        // 強制遷移
+        behavior->setActiveBehavior(true);
     }
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {
+        co_await Appear(pActor);
+
         // 待機
         co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase1::WaitRestart);
 
@@ -54,6 +61,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
     Coro::Task<> Behavior::Phase2(ActorObj* pActor)
     {
+        co_await Angry(pActor);
+
         // 追従開始
         co_await ChangeHandsPhase2(pActor);
 
@@ -75,6 +84,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
     Coro::Task<> Behavior::Phase3(ActorObj* pActor)
     {
+        co_await Angry(pActor);
+
         bool isReverse = false;
         while (true) {
 
@@ -110,6 +121,15 @@ namespace abyss::Actor::Enemy::CodeZero
                 co_await RightAttackAndWait(pActor, Param::Phase3::WaitRestart);
             }
         }
+        co_return;
+    }
+    Coro::Task<> Behavior::Appear(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<AppearState>();
+        co_yield{};
+    }
+    Coro::Task<> Behavior::Angry(ActorObj* pActor)
+    {
         co_return;
     }
     Coro::Task<> Behavior::Dead(ActorObj* pActor)

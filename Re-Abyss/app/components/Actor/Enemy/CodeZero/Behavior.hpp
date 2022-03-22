@@ -12,25 +12,27 @@ namespace abyss::Actor::Enemy::CodeZero
     class Behavior
     {
     public:
-        static Coro::Task<> Phase1(ActorObj* pActor);
-        static Coro::Task<> Phase2(ActorObj* pActor);
-        static Coro::Task<> Phase3(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Phase1(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Phase2(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Phase3(ActorObj* pActor);
     public:
-        static Coro::Task<> Dead(ActorObj* pActor);
-        static Coro::Task<> LeftAttack(ActorObj* pActor);
-        static Coro::Task<> RightAttack(ActorObj* pActor);
-        static Coro::Task<> BothAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Appear(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Angry(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> Dead(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> LeftAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> RightAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> BothAttack(ActorObj* pActor);
 
-        static Coro::Task<> LeftAttackAndWait(ActorObj* pActor, double waitSec);
-        static Coro::Task<> RightAttackAndWait(ActorObj* pActor, double waitSec);
-        static Coro::Task<> BothAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Task<> LeftAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Task<> RightAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Task<> BothAttackAndWait(ActorObj* pActor, double waitSec);
 
-        static Coro::Task<> RollingAttack(ActorObj* pActor, bool isReverse);
-        static Coro::Task<> ChargeShot(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> RollingAttack(ActorObj* pActor, bool isReverse);
+        [[nodiscard]] static Coro::Task<> ChargeShot(ActorObj* pActor);
 
-        static Coro::Task<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
-        static Coro::Task<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);
+        [[nodiscard]] static Coro::Task<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
+        [[nodiscard]] static Coro::Task<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);
 
-        static Coro::Task<> WaitPursuitHands(ActorObj* pActor);
+        [[nodiscard]] static Coro::Task<> WaitPursuitHands(ActorObj* pActor);
     };
 }

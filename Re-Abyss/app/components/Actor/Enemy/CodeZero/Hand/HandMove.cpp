@@ -32,11 +32,18 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void HandMove::onMove()
     {
+        if (!m_isActive) {
+            return;
+        }
         m_task.moveNext();
     }
     void HandMove::onStateStart()
     {
         m_task.clear();
+    }
+    void HandMove::setActive(bool isActive)
+    {
+        m_isActive = isActive;
     }
     void HandMove::startForPursuit(bool slowStart)
     {

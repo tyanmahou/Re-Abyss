@@ -21,6 +21,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         bool isShotCharge()const;
         bool isPursuit() const;
 
+        void setMoveActive(bool isActive);
+
         ActorObj* getActor() const
         {
             return m_pActor;

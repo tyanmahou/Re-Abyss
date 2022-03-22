@@ -24,6 +24,7 @@ namespace abyss::Actor::Enemy::CodeZero
         const Ref<Hand::HandProxy>& getRightHand()const { return m_rightHand; }
 
         void setActive(bool active) const;
+        void setMoveActive(bool active) const;
 
         bool isShotCharge() const;
     };

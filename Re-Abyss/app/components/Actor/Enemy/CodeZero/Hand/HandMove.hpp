@@ -18,13 +18,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     public:
         HandMove(ActorObj* pActor);
 
-        void setup(Executer executer) override;
-
-        void onStart() override;
-
-        void onMove() override;
-
-        void onStateStart() override;
+        void setActive(bool isActive);
 
         void setParam(const HandDesc& recipe)
         {
@@ -67,6 +61,14 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         {
             return m_param;
         }
+
+        void setup(Executer executer) override;
+
+        void onStart() override;
+
+        void onMove() override;
+
+        void onStateStart() override;
     private:
         Coro::Task<> movePursuit(bool slowStart = false);
         Coro::Task<> moveAttackWait();
@@ -81,6 +83,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         HandDesc m_param;
         Coro::TaskHolder<> m_task;
+        bool m_isActive = true;
     };
 }
 

@@ -21,6 +21,11 @@ namespace abyss::Actor::Enemy::CodeZero
         m_leftHand->getActor()->setActive(active);
         m_rightHand->getActor()->setActive(active);
     }
+    void PartsCtrl::setMoveActive(bool active) const
+    {
+        m_leftHand->setMoveActive(active);
+        m_rightHand->setMoveActive(active);
+    }
     bool PartsCtrl::isShotCharge() const
     {
         return m_leftHand->isShotCharge() || m_rightHand->isShotCharge();
