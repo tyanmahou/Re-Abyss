@@ -1894,6 +1894,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AppearState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\HideCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2846,6 +2849,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\DeadCallback.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AppearState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\HideCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

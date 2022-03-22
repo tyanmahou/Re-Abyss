@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
@@ -109,6 +110,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
             pActor->attach<VModelSub<1>>()
                 ->setBinder<ViewBinderHead>(pActor);
+
+            pActor->attach<HideCtrl>(pActor)
+                ->setLayer(DrawLayer::DecorBack);
         }
     }
 }
