@@ -1,0 +1,15 @@
+#pragma once
+#include <Siv3D/ColorF.hpp>
+
+namespace abyss::Actor::ColorAnim
+{
+	/// <summary>
+	/// 加算色アニメインターフェース
+	/// </summary>
+	class IColorAdd
+	{
+	public:
+		virtual ~IColorAdd() = default;
+		virtual s3d::ColorF colorAdd() const = 0;
+	};
+}
