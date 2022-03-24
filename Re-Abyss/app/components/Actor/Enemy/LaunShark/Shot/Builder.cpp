@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/DeadOnHItReceiver.hpp>
@@ -102,6 +103,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
 
             // 色制御
             pActor->attach<ColorCtrl>(pActor);
+            pActor->attach<ColorAnim::DamageColor>(pActor);
         }
         // 死亡チェック
         {

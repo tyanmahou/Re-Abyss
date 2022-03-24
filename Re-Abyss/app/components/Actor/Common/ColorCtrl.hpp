@@ -1,7 +1,9 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/IColorMul.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/IColorAdd.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/ColorF.hpp>
 
 namespace abyss::Actor
@@ -16,9 +18,6 @@ namespace abyss::Actor
 	public:
 		ColorCtrl(ActorObj* pActor);
 
-		void startAnim(double sec);
-		void endAnim();
-
 		const s3d::ColorF& colorMul() const;
 		const s3d::ColorF& colorAdd() const;
 	public:
@@ -31,9 +30,8 @@ namespace abyss::Actor
 		s3d::ColorF m_colorMul{};
 		s3d::ColorF m_colorAdd{};
 
-		Ref<DamageCtrl> m_damageCtrl;
-
-		TimeLite::Timer m_colorAnimTimer;
+		s3d::Array<Ref<ColorAnim::IColorMul>> m_colorMulAnims;
+		s3d::Array<Ref<ColorAnim::IColorAdd>> m_colorAddAnims;
 	};
 }
 

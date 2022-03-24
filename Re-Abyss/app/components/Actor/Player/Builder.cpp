@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/FallChecker.hpp>
@@ -104,6 +105,7 @@ namespace abyss::Actor::Player
             pActor->attach<DamageCallback>(pActor);
 
             pActor->attach<ColorCtrl>(pActor);
+            pActor->attach<ColorAnim::DamageColor>(pActor);
         }
         // 部屋移動の検知
         {

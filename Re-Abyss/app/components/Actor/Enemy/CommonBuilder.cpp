@@ -13,6 +13,8 @@
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/InvinsibleColor.hpp>
 
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
@@ -115,6 +117,8 @@ namespace abyss::Actor::Enemy
 		// View
 		{
 			pActor->attach<ColorCtrl>(pActor);
+			pActor->attach<ColorAnim::DamageColor>(pActor);
+			pActor->attach<ColorAnim::InvinsibleColor>(pActor);
 
 			pActor->attach<MotionCtrl>();
 			auto vModel = pActor->attach<VModel>();

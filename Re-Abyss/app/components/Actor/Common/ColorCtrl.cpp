@@ -1,6 +1,5 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/commons/ColorDef.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -8,15 +7,6 @@ namespace abyss::Actor
     ColorCtrl::ColorCtrl(ActorObj* pActor):
         m_pActor(pActor)
     {}
-
-    void ColorCtrl::startAnim(double sec)
-    {
-        m_colorAnimTimer.reset(sec);
-    }
-    void ColorCtrl::endAnim()
-    {
-        m_colorAnimTimer.toEnd();
-    }
     const s3d::ColorF& ColorCtrl::colorMul() const
     {
         return m_colorMul;
@@ -27,27 +17,35 @@ namespace abyss::Actor
         return m_colorAdd;
     }
 
-    void ColorCtrl::setup([[maybe_unused]]Executer executer)
+    void ColorCtrl::setup(Executer executer)
     {
+        executer.on<IComponent>().addAfter<ColorAnim::IColorMul>();
+        executer.on<IComponent>().addAfter<ColorAnim::IColorAdd>();
+
+        executer.on<IPreDraw>().addAfter<ColorAnim::IColorMul>();
+        executer.on<IPreDraw>().addAfter<ColorAnim::IColorAdd>();
     }
 
     void ColorCtrl::onStart()
     {
-        m_damageCtrl = m_pActor->find<DamageCtrl>();
+        m_colorMulAnims = m_pActor->finds<ColorAnim::IColorMul>();
+        m_colorAddAnims = m_pActor->finds<ColorAnim::IColorAdd>();
     }
 
     void ColorCtrl::onPreDraw()
     {
-        const double dt = m_pActor->deltaTime();
-        m_colorAnimTimer.update(dt);
-
-        auto time = m_pActor->getTimeSec();
         m_colorMul = s3d::Palette::White;
         m_colorAdd = ColorF(0, 0);
 
-        if (m_damageCtrl) {
-            m_colorMul *= ColorDef::OnDamage(m_damageCtrl->isInvincibleTime(), time);
-            m_colorAdd += ColorDef::Invincible(m_damageCtrl->isInvincibleState(), m_colorAnimTimer.current(), m_colorAnimTimer.rate());
+        for (auto&& mulAnim : m_colorMulAnims) {
+            if (mulAnim) {
+                m_colorMul *= mulAnim->colorMul();
+            }
+        }
+        for (auto&& addAnim : m_colorAddAnims) {
+            if (addAnim) {
+                m_colorAdd += addAnim->colorAdd();
+            }
         }
     }
 }

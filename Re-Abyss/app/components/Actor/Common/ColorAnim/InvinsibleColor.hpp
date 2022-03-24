@@ -10,13 +10,13 @@ namespace abyss::Actor::ColorAnim
 	/// <summary>
 	/// ダメージカラー
 	/// </summary>
-	class BossInvinsibleColor :
+	class InvinsibleColor :
 		public IComponent,
 		public IPreDraw,
 		public IColorAdd
 	{
 	public:
-		BossInvinsibleColor(ActorObj* pActor);
+		InvinsibleColor(ActorObj* pActor);
 
 		void startAnim(double sec);
 		void endAnim();
@@ -36,7 +36,7 @@ namespace abyss::Actor::ColorAnim
 namespace abyss
 {
 	template<>
-	struct ComponentTree<Actor::ColorAnim::BossInvinsibleColor>
+	struct ComponentTree<Actor::ColorAnim::InvinsibleColor>
 	{
 		using Base = MultiComponents<
 			Actor::IPreDraw,
