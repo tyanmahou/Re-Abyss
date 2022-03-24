@@ -1,5 +1,6 @@
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/commons/ColorDef.hpp>
 
 namespace abyss::Actor::ColorAnim
 {
@@ -9,7 +10,7 @@ namespace abyss::Actor::ColorAnim
 
     s3d::ColorF DamageColor::colorMul() const
     {
-        return s3d::ColorF();
+        return ColorDef::OnDamage(m_damageCtrl->isInvincibleTime(), m_pActor->getTimeSec());
     }
     void DamageColor::onStart()
     {

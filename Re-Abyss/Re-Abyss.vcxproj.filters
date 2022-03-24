@@ -1897,6 +1897,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\HideCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\ColorAnim\DamageColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2850,6 +2853,9 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HideCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorMul.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorAdd.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
