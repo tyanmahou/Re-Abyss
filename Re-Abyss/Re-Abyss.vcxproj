@@ -254,6 +254,7 @@
     <ClCompile Include="app\components\Actor\Common\CliffChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\ColCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\Collider.cpp" />
+    <ClCompile Include="app\components\Actor\Common\ColorAnim\BossInvinsibleColor.cpp" />
     <ClCompile Include="app\components\Actor\Common\ColorAnim\DamageColor.cpp" />
     <ClCompile Include="app\components\Actor\Common\ColorCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\Col\Collider\BodyCollider.cpp" />
@@ -920,6 +921,7 @@
     <ClInclude Include="app\components\Actor\Common\CliffChecker.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collider.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\BossInvinsibleColor.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorAdd.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorMul.hpp" />

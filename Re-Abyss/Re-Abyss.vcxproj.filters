@@ -1900,6 +1900,9 @@
     <ClCompile Include="app\components\Actor\Common\ColorAnim\DamageColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\ColorAnim\BossInvinsibleColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2856,6 +2859,7 @@
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorMul.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorAdd.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\BossInvinsibleColor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
