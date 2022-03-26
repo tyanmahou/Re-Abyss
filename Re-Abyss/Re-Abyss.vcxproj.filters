@@ -1900,7 +1900,7 @@
     <ClCompile Include="app\components\Actor\Common\ColorAnim\DamageColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Common\ColorAnim\InvinsibleColor.cpp">
+    <ClCompile Include="app\components\Actor\Common\ColorAnim\InvincibleColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2859,7 +2859,7 @@
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorMul.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorAdd.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ColorAnim\InvinsibleColor.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\InvincibleColor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

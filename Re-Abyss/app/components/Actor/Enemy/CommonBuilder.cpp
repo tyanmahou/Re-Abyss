@@ -14,7 +14,7 @@
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
-#include <abyss/components/Actor/Common/ColorAnim/InvinsibleColor.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/InvincibleColor.hpp>
 
 #include <abyss/components/Actor/Common/MapCollider.hpp>
 #include <abyss/components/Actor/Common/BreathingCtrl.hpp>
@@ -118,8 +118,8 @@ namespace abyss::Actor::Enemy
 		{
 			pActor->attach<ColorCtrl>(pActor);
 			pActor->attach<ColorAnim::DamageColor>(pActor);
-			if (opt.useInvinsibleColor) {
-				pActor->attach<ColorAnim::InvinsibleColor>(pActor);
+			if (opt.useInvincibleColor) {
+				pActor->attach<ColorAnim::InvincibleColor>(pActor);
 			}
 
 			pActor->attach<MotionCtrl>();

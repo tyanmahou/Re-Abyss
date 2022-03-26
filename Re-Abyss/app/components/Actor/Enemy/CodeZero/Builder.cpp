@@ -39,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
             .setInitHp(Param::Base::Hp)
             .setIsEnableCollider(false)
             .setIsEnableMapCollider(false)
-            .setUseInvinsibleColor(true)
+            .setUseInvincibleColor(true)
             .setIsEnableDeadCallback(false)
             .setIsEnableBreathing(false)
             .setIsEnableItemDrop(false)
