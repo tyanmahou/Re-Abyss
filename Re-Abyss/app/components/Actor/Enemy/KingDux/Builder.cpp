@@ -52,6 +52,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/KingDux.aase")
             .setIsEnableItemDrop(false)
+            .setUseInvinsibleColor(true)
             .setIsEnableDeadCallback(false)
             .setIsAutoDestroy(false)
             .setInitState<WaitState>()

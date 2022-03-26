@@ -44,6 +44,7 @@ namespace abyss::Actor::Enemy
 
         // damage
         bool isEnableDamage = true;
+        bool useInvinsibleColor = false;
 
         // deadcallabck
         bool isEnableDeadCallback = true;
@@ -130,6 +131,11 @@ namespace abyss::Actor::Enemy
         BuildOption& setIsEnableDamage(bool enable)
         {
             this->isEnableDamage = enable;
+            return *this;
+        }
+        BuildOption& setUseInvinsibleColor(bool _useInvinsibleColor)
+        {
+            this->useInvinsibleColor = _useInvinsibleColor;
             return *this;
         }
         BuildOption& setIsEnableDeadCallback(bool enable)

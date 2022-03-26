@@ -118,7 +118,9 @@ namespace abyss::Actor::Enemy
 		{
 			pActor->attach<ColorCtrl>(pActor);
 			pActor->attach<ColorAnim::DamageColor>(pActor);
-			pActor->attach<ColorAnim::InvinsibleColor>(pActor);
+			if (opt.useInvinsibleColor) {
+				pActor->attach<ColorAnim::InvinsibleColor>(pActor);
+			}
 
 			pActor->attach<MotionCtrl>();
 			auto vModel = pActor->attach<VModel>();
