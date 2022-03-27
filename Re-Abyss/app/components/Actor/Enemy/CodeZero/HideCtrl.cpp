@@ -23,4 +23,8 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		m_pActor->getModule<RoomManager>()->currentRoom().getRegion().draw(ColorF(0, 1));
 	}
+	s3d::ColorF HideCtrl::colorMul() const
+	{
+		return s3d::Palette::White;
+	}
 }
