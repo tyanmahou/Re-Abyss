@@ -4,6 +4,7 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
@@ -21,6 +22,12 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> AppearState::task()
 	{
+		auto hideCtrl = m_pActor->find<HideCtrl>();
+		hideCtrl->setVisible(true, 4.0);
+		while (!hideCtrl->isAnimEnd()) {
+			co_yield{};
+		}
+
 		while (!m_pActor->getModule<Events>()->isEmpty()) {
 			co_yield{};
 		}
