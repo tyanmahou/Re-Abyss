@@ -14,10 +14,14 @@ namespace abyss::Actor::Enemy::CodeZero::Body
         m_pos = s3d::Round(pos);
         return *this;
     }
-
+    BodyVM& BodyVM::setColorMul(const s3d::ColorF color)
+    {
+        m_colorMul = color;
+        return *this;
+    }
     void BodyVM::draw() const
     {
-        m_texture(U"body").drawAt(m_pos);
+        m_texture(U"body").drawAt(m_pos, m_colorMul);
     }
 
 }

@@ -22,6 +22,7 @@
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
+#include <Siv3D.hpp>
 
 namespace
 {
@@ -131,11 +132,13 @@ namespace
     private:
         BodyVM* bind() const final
         {
-            return &m_view->setPos(m_body->getPos());
+            return &m_view->setPos(m_body->getPos())
+                .setColorMul(m_hideCtrl->colorMul());
         }
         void onStart() final
         {
             m_body = m_pActor->find<Actor::Body>();
+            m_hideCtrl = m_pActor->find<HideCtrl>();
         }
     public:
         ViewBinder(Actor::ActorObj* pActor) :
@@ -145,6 +148,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Actor::Body> m_body;
+        Ref<HideCtrl> m_hideCtrl;
         std::unique_ptr<BodyVM> m_view;
     };
 
@@ -156,7 +160,7 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setLook(m_head->getLook())
-                .setColorMul(m_colorCtrl->colorMul())
+                .setColorMul(m_colorCtrl->colorMul() * m_hideCtrl->colorMul())
                 ;
         }
         void setup(Executer executer) final
@@ -166,6 +170,7 @@ namespace
         {
             m_head = m_pActor->find<HeadCtrl>();
             m_colorCtrl = m_pActor->find<ColorCtrl>();
+            m_hideCtrl = m_pActor->find<HideCtrl>();
         }
     public:
         ViewBinderHead(ActorObj* pActor) :
@@ -176,6 +181,7 @@ namespace
         ActorObj* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;
         Ref<ColorCtrl> m_colorCtrl;
+        Ref<HideCtrl> m_hideCtrl;
         std::unique_ptr<Head::HeadVM> m_view;
     };
 }

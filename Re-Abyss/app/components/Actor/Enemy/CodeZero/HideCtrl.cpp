@@ -10,6 +10,12 @@ namespace abyss::Actor::Enemy::CodeZero
 		m_pActor(pActor)
 	{}
 
+	void HideCtrl::setVisible(bool isVisible, double fadeSec)
+	{
+		m_isVisible = isVisible;
+		m_timer.reset(fadeSec);
+	}
+
 	void HideCtrl::setup([[maybe_unused]]Executer executer)
 	{
 	}
@@ -19,12 +25,19 @@ namespace abyss::Actor::Enemy::CodeZero
 	void HideCtrl::onEnd()
 	{
 	}
+	void HideCtrl::onPreDraw()
+	{
+		auto dt = m_pActor->deltaTime();
+		m_timer.update(dt);
+	}
 	void HideCtrl::onDraw() const
 	{
-		m_pActor->getModule<RoomManager>()->currentRoom().getRegion().draw(ColorF(0, 1));
+		auto alpha = m_isVisible ? m_timer.rate() : m_timer.invRate();
+		m_pActor->getModule<RoomManager>()->currentRoom().getRegion().draw(ColorF(0, alpha));
 	}
 	s3d::ColorF HideCtrl::colorMul() const
 	{
-		return s3d::Palette::White;
+		auto alpha = m_isVisible ? m_timer.invRate() : m_timer.rate();
+		return ColorF(1, alpha);
 	}
 }
