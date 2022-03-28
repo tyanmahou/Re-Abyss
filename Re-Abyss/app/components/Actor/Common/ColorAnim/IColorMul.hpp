@@ -10,6 +10,10 @@ namespace abyss::Actor::ColorAnim
 	{
 	public:
 		virtual ~IColorMul() = default;
+		virtual size_t indexMask() const 
+		{
+			return 1;
+		}
 		virtual s3d::ColorF colorMul() const = 0;
 	};
 }

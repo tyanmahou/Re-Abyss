@@ -8,13 +8,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     class HandVM
     {
-        TexturePacker m_texture;
-
-        s3d::Vec2 m_pos;
-        Forward m_forward;
-        double  m_rotate;
-        double m_time = 0;
-        Motion m_motion = Motion::Wait;
     public:
         HandVM(Forward forward);
         HandVM& setTime(double time);
@@ -25,9 +18,19 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_motion = motion;
             return *this;
         }
+        HandVM& setColorMul(const s3d::ColorF color);
         void draw() const;
     private:
-        void drawBase(const s3d::Color& color = Palette::White) const;
+        void drawBase(const s3d::Color& color = s3d::Palette::White) const;
         void drawAttackWait() const;
+    private:
+        TexturePacker m_texture;
+
+        s3d::Vec2 m_pos;
+        Forward m_forward;
+        double  m_rotate;
+        double m_time = 0;
+        Motion m_motion = Motion::Wait;
+        s3d::ColorF m_colorMul;
     };
 }

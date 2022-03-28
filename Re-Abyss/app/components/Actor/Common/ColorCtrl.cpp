@@ -6,15 +6,24 @@ namespace abyss::Actor
 {
     ColorCtrl::ColorCtrl(ActorObj* pActor):
         m_pActor(pActor)
-    {}
-    const s3d::ColorF& ColorCtrl::colorMul() const
     {
-        return m_colorMul;
+        m_colorMul.resize(1);
+        m_colorAdd.resize(1);
+    }
+    const s3d::ColorF& ColorCtrl::colorMul(size_t index) const
+    {
+        return m_colorMul[index];
     }
 
-    const s3d::ColorF& ColorCtrl::colorAdd() const
+    const s3d::ColorF& ColorCtrl::colorAdd(size_t index) const
     {
-        return m_colorAdd;
+        return m_colorAdd[index];
+    }
+
+    void ColorCtrl::resizeBuffer(size_t sizeMul, size_t sizeAdd)
+    {
+        m_colorMul.resize(sizeMul);
+        m_colorAdd.resize(sizeAdd);
     }
 
     void ColorCtrl::setup(Executer executer)
@@ -34,17 +43,20 @@ namespace abyss::Actor
 
     void ColorCtrl::onPreDraw()
     {
-        m_colorMul = s3d::Palette::White;
-        m_colorAdd = ColorF(0, 0);
-
-        for (auto&& mulAnim : m_colorMulAnims) {
-            if (mulAnim) {
-                m_colorMul *= mulAnim->colorMul();
+        for (size_t index = 0; index < m_colorMul.size(); ++index) {
+            m_colorMul[index] = s3d::Palette::White;
+            for (auto&& mulAnim : m_colorMulAnims) {
+                if (mulAnim && ((static_cast<size_t>(1) << index) & mulAnim->indexMask()) != 0) {
+                    m_colorMul[index] *= mulAnim->colorMul();
+                }
             }
         }
-        for (auto&& addAnim : m_colorAddAnims) {
-            if (addAnim) {
-                m_colorAdd += addAnim->colorAdd();
+        for (size_t index = 0; index < m_colorAdd.size(); ++index) {
+            m_colorAdd[index] = ColorF(0, 0);
+            for (auto&& addAnim : m_colorAddAnims) {
+                if (addAnim && ((static_cast<size_t>(1) << index) & addAnim->indexMask()) != 0) {
+                    m_colorAdd[index] += addAnim->colorAdd();
+                }
             }
         }
     }

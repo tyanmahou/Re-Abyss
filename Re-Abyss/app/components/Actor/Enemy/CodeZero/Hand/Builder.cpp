@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
@@ -108,7 +109,7 @@ namespace
         Ref<Body> m_body;
         Ref<RotateCtrl> m_rotate;
         Ref<MotionCtrl> m_motion;
-
+        Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<HandVM> m_view;
     private:
         HandVM* bind() const final
@@ -117,6 +118,7 @@ namespace
                 .setPos(m_body->getPos())
                 .setRotate(m_rotate->getRotate())
                 .setMotion(m_motion->get<Motion>())
+                .setColorMul(m_colorCtrl->colorMul(1))
                 ;
         }
         void onStart() final
@@ -124,6 +126,7 @@ namespace
             m_body = m_pActor->find<Body>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
+            m_colorCtrl = m_pActor->find<ParentCtrl>()->getParent()->find<ColorCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor, Forward forward) :

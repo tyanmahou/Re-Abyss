@@ -18,8 +18,9 @@ namespace abyss::Actor
 	public:
 		ColorCtrl(ActorObj* pActor);
 
-		const s3d::ColorF& colorMul() const;
-		const s3d::ColorF& colorAdd() const;
+		const s3d::ColorF& colorMul(size_t index = 0) const;
+		const s3d::ColorF& colorAdd(size_t index = 0) const;
+		void resizeBuffer(size_t sizeMul, size_t sizeAdd);
 	public:
 		void setup(Executer executer);
 		void onStart()override;
@@ -27,8 +28,8 @@ namespace abyss::Actor
 	private:
 		ActorObj* m_pActor = nullptr;
 
-		s3d::ColorF m_colorMul{};
-		s3d::ColorF m_colorAdd{};
+		s3d::Array<s3d::ColorF> m_colorMul;
+		s3d::Array<s3d::ColorF> m_colorAdd;
 
 		s3d::Array<Ref<ColorAnim::IColorMul>> m_colorMulAnims;
 		s3d::Array<Ref<ColorAnim::IColorAdd>> m_colorAddAnims;
