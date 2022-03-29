@@ -22,12 +22,14 @@
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Head/HeadVM.hpp>
+#include <abyss/views/Actor/Enemy/CodeZero/Head/EyeVM.hpp>
 #include <Siv3D.hpp>
 
 namespace
 {
     class ViewBinder;
     class ViewBinderHead;
+    class ViewBinderEye;
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -113,7 +115,10 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<VModelSub<1>>()
                 ->setBinder<ViewBinderHead>(pActor);
 
-            pActor->find<ColorCtrl>()->resizeBuffer(2, 1);
+            pActor->attach<VModelSub<2>>()
+                ->setBinder<ViewBinderEye>(pActor);
+
+            pActor->find<ColorCtrl>()->resizeBuffer(3, 1);
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack);
         }
@@ -182,5 +187,35 @@ namespace
         Ref<HeadCtrl> m_head;
         Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<Head::HeadVM> m_view;
+    };
+
+    class ViewBinderEye : public IVModelBinder<Head::EyeVM>
+    {
+    private:
+        Head::EyeVM* bind() const final
+        {
+            return &m_view
+                ->setPos(m_head->getPos())
+                .setColorMul(m_colorCtrl->colorMul(2))
+                ;
+        }
+        void setup(Executer executer) final
+        {
+        }
+        void onStart() final
+        {
+            m_head = m_pActor->find<HeadCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
+        }
+    public:
+        ViewBinderEye(ActorObj* pActor) :
+            m_pActor(pActor),
+            m_view(std::make_unique<Head::EyeVM>())
+        {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<HeadCtrl> m_head;
+        Ref<ColorCtrl> m_colorCtrl;
+        std::unique_ptr<Head::EyeVM> m_view;
     };
 }
