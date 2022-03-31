@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	public:
 		EyeCtrl(ActorObj* pActor);
 
-		void setVisible(bool isVisible, double fadeSec);
+		void setVisible(bool isVisible, double fadeSec = 0.0);
 		bool isAnimEnd() const;
 	public:
 		void onPreDraw() override;

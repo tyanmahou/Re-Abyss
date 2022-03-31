@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	public:
 		HideCtrl(ActorObj* pActor);
 
-		void setVisible(bool isVisible, double fadeSec);
+		void setVisible(bool isVisible, double fadeSec = 0.0);
 		bool isAnimEnd() const;
 	public:
 		void setup(Executer executer) override;
