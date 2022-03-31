@@ -7,7 +7,6 @@
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -31,6 +30,11 @@ namespace abyss::Actor::Enemy::CodeZero
 		while (!eyeCtrl->isAnimEnd()) {
 			co_yield{};
 		}
+		eyeCtrl->flush(1.0);
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
+
+		// TODO エフェクト
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
 		auto hideCtrl = m_pActor->find<HideCtrl>();
 		hideCtrl->setVisible(true, 4.0);
