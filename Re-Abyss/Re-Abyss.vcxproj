@@ -693,6 +693,7 @@
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
+    <ClCompile Include="app\views\Effect\Actor\Common\KiranVM.cpp" />
     <ClCompile Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
@@ -1186,6 +1187,7 @@
     <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.hpp" />
+    <ClInclude Include="app\views\Effect\Actor\Common\KiranVM.hpp" />
     <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\Motion.hpp" />

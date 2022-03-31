@@ -3,9 +3,11 @@
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDraw.hpp>
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
+namespace abyss::Effect::Actor
+{
+    class KiranVM;
+}
 namespace abyss::Effect::Actor::Enemy::CodeZero::Kiran
 {
     class Main :
@@ -15,13 +17,15 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::Kiran
     {
     public:
         Main(EffectObj* pObj, const s3d::Vec2& pos);
+        ~Main();
 
+    public:
         void onUpdate() override;
         bool onDraw(double time) override;
+
     private:
         EffectObj* m_pObj;
-        s3d::Vec2 m_pos{ 0, 0 };
-        TexturePacker m_texture;
+        std::unique_ptr<Actor::KiranVM> m_view;
     };
 }
 
