@@ -21,6 +21,7 @@ namespace abyss::Actor
 		const s3d::ColorF& colorMul(size_t index = 0) const;
 		const s3d::ColorF& colorAdd(size_t index = 0) const;
 		void resizeBuffer(size_t sizeMul, size_t sizeAdd);
+		void resizeBuffer(size_t size);
 	public:
 		void setup(Executer executer);
 		void onStart()override;

@@ -25,7 +25,10 @@ namespace abyss::Actor
         m_colorMul.resize(sizeMul);
         m_colorAdd.resize(sizeAdd);
     }
-
+    void ColorCtrl::resizeBuffer(size_t size)
+    {
+        this->resizeBuffer(size, size);
+    }
     void ColorCtrl::setup(Executer executer)
     {
         executer.on<IComponent>().addAfter<ColorAnim::IColorMul>();
