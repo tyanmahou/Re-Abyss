@@ -123,7 +123,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
             pActor->find<ColorCtrl>()->resizeBuffer(3, 1);
             pActor->attach<HideCtrl>(pActor)
-                ->setLayer(DrawLayer::DecorBack);
+                ->setLayer(DrawLayer::DecorBack)
+                .setOrder(DrawOrder::DecorBack::MostFront);
         }
     }
 }
