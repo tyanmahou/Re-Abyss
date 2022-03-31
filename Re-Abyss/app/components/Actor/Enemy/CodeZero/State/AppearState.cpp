@@ -41,7 +41,7 @@ namespace abyss::Actor::Enemy::CodeZero
 			const auto effectPos = m_head->getPos() + Vec2{ 18, 33 };
 			m_pActor->getModule<Effects>()
 				->createWorldFront<Effect::Actor::Enemy::CodeZero::Kiran::Builder>(effectPos)
-				->setTimeScale(2.5)
+				->setTimeScale(2.0)
 				;
 		}
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);

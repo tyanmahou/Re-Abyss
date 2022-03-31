@@ -19,7 +19,7 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::Kiran
     {
         s3d::ScopedRenderStates2D blend(s3d::BlendState::Additive);
 
-        auto rate = s3d::EaseOutQuart(s3d::Min(time / 2.0, 1.0));
+        auto rate = s3d::EaseOutCirc(s3d::Min(time / 2.0, 1.0));
         auto alpha = 1.0 - s3d::Math::Lerp(0.0, 1.0, s3d::Max(time - 1.0, 0.0));
         const ColorF color(1, alpha);
         Circle(m_pos, 10.0 * rate).drawFrame(2.0, color);
