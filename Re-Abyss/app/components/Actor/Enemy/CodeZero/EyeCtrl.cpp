@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	double EyeCtrl::scale() const
 	{
-		return s3d::Math::Lerp(1.0, 1.1, m_flushTimer.invRate());
+		return s3d::Math::Lerp(1.0, 1.2, m_flushTimer.invRate());
 	}
 	void EyeCtrl::onPreDraw()
 	{
