@@ -41,10 +41,10 @@ namespace abyss::Actor::Enemy::CodeZero
 			const auto effectPos = m_head->getPos() + Vec2{ 18, 33 };
 			m_pActor->getModule<Effects>()
 				->createWorldFront<Effect::Actor::Enemy::CodeZero::Kiran::Builder>(effectPos)
-				->setTimeScale(2.0)
+				->setTimeScale(2.5)
 				;
 		}
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
+		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.5);
 
 		auto hideCtrl = m_pActor->find<HideCtrl>();
 		hideCtrl->setVisible(true, 4.0);
