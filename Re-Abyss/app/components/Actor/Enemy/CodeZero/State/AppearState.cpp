@@ -30,9 +30,9 @@ namespace abyss::Actor::Enemy::CodeZero
 		while (!eyeCtrl->isAnimEnd()) {
 			co_yield{};
 		}
-		eyeCtrl->flush(1.0);
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
+		eyeCtrl->flush(0.5);
 		// TODO エフェクト
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 

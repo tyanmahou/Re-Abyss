@@ -32,6 +32,6 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	s3d::ColorF EyeCtrl::colorAdd() const
 	{
-		return ColorF(s3d::Periodic::Triangle0_1(1.0, m_flushTimer.rate()), 0.0);
+		return ColorF(m_flushTimer.invRate(), 0.0);
 	}
 }
