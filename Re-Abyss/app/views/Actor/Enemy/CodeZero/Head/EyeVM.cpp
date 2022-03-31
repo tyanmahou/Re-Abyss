@@ -31,6 +31,17 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 	void EyeVM::draw() const
 	{
 		s3d::ScopedColorAdd2D addColor(m_colorAdd);
-		m_texture(U"eye").scaled(m_scale).drawAt(m_pos, m_colorMul);
+		// (58, 110), (74, 125) (95, 110), (111, 125)
+		// (64, 118), (103, 118),(85, 85)
+		{
+			m_texture(U"eye")(58, 110, 16, 16)
+				.scaled(m_scale)
+				.drawAt(m_pos + Vec2{-21, 33}, m_colorMul);
+		}
+		{
+			m_texture(U"eye")(95, 110, 16, 16)
+				.scaled(m_scale)
+				.drawAt(m_pos + Vec2{ 18, 33 }, m_colorMul);
+		}
 	}
 }
