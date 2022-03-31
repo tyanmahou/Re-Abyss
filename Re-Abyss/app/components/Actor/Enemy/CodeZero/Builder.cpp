@@ -201,6 +201,7 @@ namespace
             return &m_view
                 ->setPos(m_head->getPos())
                 .setColorMul(m_colorCtrl->colorMul(2))
+                .setColorAdd(m_colorCtrl->colorMul(1))
                 ;
         }
         void setup(Executer executer) final

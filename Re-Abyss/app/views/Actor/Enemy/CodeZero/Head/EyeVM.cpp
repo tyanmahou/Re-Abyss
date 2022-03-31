@@ -18,8 +18,14 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		m_colorMul = color;
 		return *this;
 	}
+	EyeVM& EyeVM::setColorAdd(const s3d::ColorF color)
+	{
+		m_colorAdd = color;
+		return *this;
+	}
 	void EyeVM::draw() const
 	{
+		s3d::ScopedColorAdd2D addColor(m_colorAdd);
 		m_texture(U"eye").drawAt(m_pos, m_colorMul);
 	}
 }

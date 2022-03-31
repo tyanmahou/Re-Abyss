@@ -10,11 +10,13 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         EyeVM();
         EyeVM& setPos(const s3d::Vec2& pos);
         EyeVM& setColorMul(const s3d::ColorF color);
+        EyeVM& setColorAdd(const s3d::ColorF color);
         void draw() const;
     private:
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
         s3d::ColorF m_colorMul;
+        s3d::ColorF m_colorAdd;
     };
 }
