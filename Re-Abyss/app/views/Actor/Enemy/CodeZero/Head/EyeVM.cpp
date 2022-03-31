@@ -13,6 +13,11 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		m_pos = s3d::Round(pos);
 		return *this;
 	}
+	EyeVM& EyeVM::setScale(double scale)
+	{
+		m_scale = scale;
+		return *this;
+	}
 	EyeVM& EyeVM::setColorMul(const s3d::ColorF color)
 	{
 		m_colorMul = color;
@@ -26,6 +31,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 	void EyeVM::draw() const
 	{
 		s3d::ScopedColorAdd2D addColor(m_colorAdd);
-		m_texture(U"eye").drawAt(m_pos, m_colorMul);
+		m_texture(U"eye").scaled(m_scale).drawAt(m_pos, m_colorMul);
 	}
 }

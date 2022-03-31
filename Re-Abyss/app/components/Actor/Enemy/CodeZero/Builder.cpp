@@ -200,6 +200,7 @@ namespace
         {
             return &m_view
                 ->setPos(m_head->getPos())
+                .setScale(m_eye->scale())
                 .setColorMul(m_colorCtrl->colorMul(2))
                 .setColorAdd(m_colorCtrl->colorAdd(1))
                 ;
@@ -210,6 +211,7 @@ namespace
         void onStart() final
         {
             m_head = m_pActor->find<HeadCtrl>();
+            m_eye = m_pActor->find<EyeCtrl>();
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
@@ -220,6 +222,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<HeadCtrl> m_head;
+        Ref<EyeCtrl> m_eye;
         Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<Head::EyeVM> m_view;
     };

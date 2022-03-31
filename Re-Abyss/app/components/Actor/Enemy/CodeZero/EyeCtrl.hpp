@@ -22,6 +22,8 @@ namespace abyss::Actor::Enemy::CodeZero
 		void setVisible(bool isVisible, double fadeSec = 0.0);
 		bool isAnimEnd() const;
 		void flush(double timeSec = 1.0);
+
+		double scale() const;
 	public:
 		void onPreDraw() override;
 

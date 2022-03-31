@@ -19,6 +19,10 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		m_flushTimer.reset(timeSec);
 	}
+	double EyeCtrl::scale() const
+	{
+		return s3d::Math::Lerp(1.0, 1.1, m_flushTimer.invRate());
+	}
 	void EyeCtrl::onPreDraw()
 	{
 		auto dt = m_pActor->deltaTime();

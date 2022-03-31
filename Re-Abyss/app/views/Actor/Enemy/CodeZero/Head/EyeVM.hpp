@@ -9,6 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
     public:
         EyeVM();
         EyeVM& setPos(const s3d::Vec2& pos);
+        EyeVM& setScale(double scale);
         EyeVM& setColorMul(const s3d::ColorF color);
         EyeVM& setColorAdd(const s3d::ColorF color);
         void draw() const;
@@ -16,6 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
+        double m_scale = 1.0;
         s3d::ColorF m_colorMul;
         s3d::ColorF m_colorAdd;
     };
