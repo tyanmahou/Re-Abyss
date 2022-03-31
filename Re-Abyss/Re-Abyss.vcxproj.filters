@@ -1906,6 +1906,9 @@
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Head\EyeVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2864,6 +2867,7 @@
     <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\InvincibleColor.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Head\EyeVM.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

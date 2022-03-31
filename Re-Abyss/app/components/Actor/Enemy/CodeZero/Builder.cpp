@@ -14,6 +14,7 @@
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
@@ -61,6 +62,8 @@ namespace abyss::Actor::Enemy::CodeZero
             auto head = pActor->attach<HeadCtrl>(pActor);
             headLocator = RefCast<ILocator>(head);
             pActor->attach<PartsCtrl>(pActor);
+
+            pActor->attach<EyeCtrl>(pActor);
         }
         // 衝突
         {

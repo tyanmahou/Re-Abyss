@@ -281,6 +281,7 @@
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\DeadCallback.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\DeadState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\HideCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.cpp" />
@@ -943,6 +944,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\DeadCallback.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\DeadState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\HideCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.hpp" />
