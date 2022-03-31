@@ -1909,6 +1909,12 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2868,6 +2874,8 @@
     <ClInclude Include="app\components\Actor\Common\ColorAnim\InvincibleColor.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Head\EyeVM.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\EyeCtrl.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

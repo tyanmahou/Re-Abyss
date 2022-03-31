@@ -2,10 +2,13 @@
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
 #include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Effect/Effects.hpp>
+#include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
+#include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
@@ -33,7 +36,14 @@ namespace abyss::Actor::Enemy::CodeZero
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
 		eyeCtrl->flush(0.5);
-		// TODO エフェクト
+		// エフェクト
+		{
+			const auto effectPos = m_head->getPos() + Vec2{ 18, 33 };
+			m_pActor->getModule<Effects>()
+				->createWorldFront<Effect::Actor::Enemy::CodeZero::Kiran::Builder>(effectPos)
+				->setTimeScale(2.5)
+				;
+		}
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
 		auto hideCtrl = m_pActor->find<HideCtrl>();
