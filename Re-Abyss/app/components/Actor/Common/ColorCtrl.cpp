@@ -49,7 +49,7 @@ namespace abyss::Actor
         for (size_t index = 0; index < m_colorMul.size(); ++index) {
             m_colorMul[index] = s3d::Palette::White;
             for (auto&& mulAnim : m_colorMulAnims) {
-                if (mulAnim && ((static_cast<size_t>(1) << index) & mulAnim->indexMask()) != 0) {
+                if (mulAnim && ((static_cast<size_t>(1) << index) & mulAnim->indexMaskMul()) != 0) {
                     m_colorMul[index] *= mulAnim->colorMul();
                 }
             }
@@ -57,7 +57,7 @@ namespace abyss::Actor
         for (size_t index = 0; index < m_colorAdd.size(); ++index) {
             m_colorAdd[index] = ColorF(0, 0);
             for (auto&& addAnim : m_colorAddAnims) {
-                if (addAnim && ((static_cast<size_t>(1) << index) & addAnim->indexMask()) != 0) {
+                if (addAnim && ((static_cast<size_t>(1) << index) & addAnim->indexMaskAdd()) != 0) {
                     m_colorAdd[index] += addAnim->colorAdd();
                 }
             }

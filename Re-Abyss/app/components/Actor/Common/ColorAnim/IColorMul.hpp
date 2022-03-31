@@ -10,7 +10,7 @@ namespace abyss::Actor::ColorAnim
 	{
 	public:
 		virtual ~IColorMul() = default;
-		virtual size_t indexMask() const 
+		virtual size_t indexMaskMul() const 
 		{
 			return 1;
 		}

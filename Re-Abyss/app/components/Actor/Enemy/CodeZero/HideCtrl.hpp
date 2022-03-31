@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		void onPreDraw() override;
 		void onDraw() const override;
 
-		size_t indexMask() const override
+		size_t indexMaskMul() const override
 		{
 			return 0x01 | 0x02;
 		}

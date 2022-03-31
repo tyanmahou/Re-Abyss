@@ -121,7 +121,7 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<VModelSub<2>>()
                 ->setBinder<ViewBinderEye>(pActor);
 
-            pActor->find<ColorCtrl>()->resizeBuffer(3, 1);
+            pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack)
                 .setOrder(DrawOrder::DecorBack::MostFront);
