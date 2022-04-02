@@ -196,7 +196,7 @@
  </objectgroup>
  <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
-  <object id="17" gid="49" x="80" y="80" width="40" height="40">
+  <object id="17" gid="49" x="76" y="-72" width="40" height="40">
    <properties>
     <property name="event" type="file" value="../../../../resources/novel/stage0/pre_boss.mns"/>
    </properties>
