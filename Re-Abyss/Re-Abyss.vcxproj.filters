@@ -1918,6 +1918,15 @@
     <ClCompile Include="app\views\Effect\Actor\Common\KiranVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Effect\Actor\Common\EnemyDeadVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2880,6 +2889,9 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.hpp" />
     <ClInclude Include="app\views\Effect\Actor\Common\KiranVM.hpp" />
+    <ClInclude Include="app\views\Effect\Actor\Common\EnemyDeadVM.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
