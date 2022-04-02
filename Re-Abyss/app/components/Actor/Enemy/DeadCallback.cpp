@@ -7,8 +7,7 @@
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 
-#include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
-
+#include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 
 namespace abyss::Actor::Enemy
 {
@@ -27,7 +26,7 @@ namespace abyss::Actor::Enemy
             itemDrop->drop();
         }
         if (auto body = m_pActor->find<Body>()) {
-            m_pActor->getModule<Effects>()->createWorldFront<EnemyDeadEffect>(body->getPos());
+            m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(body->getPos());
         }
         if (m_useQuake) {
             m_pActor->getModule<Camera>()->startQuake(5.0, 0.3);

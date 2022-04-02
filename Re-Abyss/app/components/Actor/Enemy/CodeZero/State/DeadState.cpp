@@ -8,7 +8,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
-#include <abyss/views/Actor/Common/EnemyDeadEffect.hpp>
+#include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 
 #include <Siv3D.hpp>
 
@@ -52,7 +52,7 @@ namespace abyss::Actor::Enemy::CodeZero
 					m_pActor->getModule<Flush>()->start(0.1);
 				}
 				auto effectPos = s3d::RandomVec2(region);
-				m_pActor->getModule<Effects>()->createWorldFront<EnemyDeadEffect>(effectPos);
+				m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);
 				m_pActor->find<AudioSource>()->playAt(U"Damage", effectPos);
 
 				co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.2);
