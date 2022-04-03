@@ -200,9 +200,6 @@
     <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Common\EnemyDeadEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actor\Player\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1927,6 +1924,12 @@
     <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Common\Breath\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Common\Breath\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2059,7 +2062,6 @@
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
-    <ClInclude Include="app\views\Actor\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actor\Player\Shot\ShotEffect.hpp">
       <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
     </ClInclude>
@@ -2892,6 +2894,8 @@
     <ClInclude Include="app\views\Effect\Actor\Common\EnemyDeadVM.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\Breath\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\Breath\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

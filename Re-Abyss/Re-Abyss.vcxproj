@@ -406,6 +406,8 @@
     <ClCompile Include="app\components\Actor\Player\State\TalkState.cpp" />
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actor\utils\BehaviorUtil.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Common\Breath\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Common\Breath\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.cpp" />
@@ -843,7 +845,6 @@
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Hand\HandVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Head\HeadVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Shot\ShotVM.cpp" />
-    <ClCompile Include="app\views\Actor\Common\EnemyDeadEffect.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\Ikalien\IkalienVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\LaunShark\LaunSharkVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\LaunShark\Shot\ShotVM.cpp" />
@@ -1018,6 +1019,8 @@
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\Breath\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Common\Breath\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.hpp" />
@@ -1751,7 +1754,6 @@
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Hand\HandVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Head\HeadVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Shot\ShotVM.hpp" />
-    <ClInclude Include="app\views\Actor\Common\EnemyDeadEffect.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\LaunSharkVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\LaunShark\Shot\ShotVM.hpp" />
