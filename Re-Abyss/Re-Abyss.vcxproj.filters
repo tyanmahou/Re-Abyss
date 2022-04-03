@@ -287,9 +287,6 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Common\BreathEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2114,7 +2111,6 @@
     <ClInclude Include="app\views\Shader\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\Env\Sky\SkyView.hpp" />
     <ClInclude Include="app\models\Camera\QuakeModel.hpp" />
-    <ClInclude Include="app\views\Actor\Common\BreathEffect.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />

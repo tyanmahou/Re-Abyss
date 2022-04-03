@@ -702,7 +702,6 @@
     <ClCompile Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.cpp" />
     <ClCompile Include="app\views\Distortion\DistUtl.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
-    <ClCompile Include="app\views\Actor\Common\BreathEffect.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Door\DoorVM.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\IconView.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\OopartsViewUtil.cpp" />
@@ -1747,7 +1746,6 @@
     <ClInclude Include="app\utils\Clock\Clock.hpp" />
     <ClInclude Include="app\utils\TomlBind\TOMLBind.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
-    <ClInclude Include="app\views\Actor\Common\BreathEffect.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.hpp" />

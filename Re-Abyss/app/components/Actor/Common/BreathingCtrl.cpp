@@ -4,7 +4,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
-#include <abyss/views/Actor/Common/BreathEffect.hpp>
+#include <abyss/components/Effect/Actor/Common/Breath/Builder.hpp>
 
 namespace abyss::Actor
 {
@@ -27,7 +27,7 @@ namespace abyss::Actor
 
         m_timer.update(dt).each([&](double){
             if (RandomBool(0.7)) {
-                m_pActor->getModule<Effects>()->createDecorFront<BreathEffect>(m_body->getPos() + m_offset);
+                m_pActor->getModule<Effects>()->createDecorFront<Effect::Actor::Breath::Builder>(m_body->getPos() + m_offset);
             }
         });
     }
