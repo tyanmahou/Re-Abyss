@@ -413,7 +413,8 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Builder.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
@@ -1027,7 +1028,9 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />

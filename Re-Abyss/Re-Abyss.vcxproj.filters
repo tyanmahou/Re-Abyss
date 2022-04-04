@@ -1930,7 +1930,10 @@
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Main.cpp">
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2899,7 +2902,9 @@
     <ClInclude Include="app\components\Effect\Actor\Common\Breath\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\Breath\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
