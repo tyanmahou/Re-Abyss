@@ -1927,6 +1927,12 @@
     <ClCompile Include="app\components\Effect\Actor\Common\Breath\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2892,6 +2898,8 @@
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\Breath\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Common\Breath\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
