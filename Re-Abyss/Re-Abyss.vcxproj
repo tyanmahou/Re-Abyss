@@ -413,6 +413,7 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Flashs.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
@@ -1029,6 +1030,7 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Flashs.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />

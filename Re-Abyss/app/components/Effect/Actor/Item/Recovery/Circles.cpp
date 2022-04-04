@@ -20,6 +20,8 @@ namespace abyss::Effect::Actor::Item::Recovery
 
     bool Circles::onDraw(double time)
     {
+        ScopedRenderStates2D blend(BlendState::Additive);
+
         const auto& pos = m_location->getPos();
 
         const bool colorFrame = (static_cast<int32>(Periodic::Sawtooth0_1(0.25, time) * 2.0) % 2) == 1;

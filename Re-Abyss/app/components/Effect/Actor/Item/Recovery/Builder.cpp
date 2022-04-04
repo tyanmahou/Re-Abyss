@@ -2,6 +2,7 @@
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/LocationCtrl.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/Circles.hpp>
+#include <abyss/components/Effect/Actor/Item/Recovery/Flashs.hpp>
 
 namespace abyss::Effect::Actor::Item::Recovery
 {
@@ -14,6 +15,7 @@ namespace abyss::Effect::Actor::Item::Recovery
 		// 描画
 		{
 			pObj->attach<Circles>(pObj);
+			pObj->attach<Flashs>(pObj);
 		}
 	}
 }

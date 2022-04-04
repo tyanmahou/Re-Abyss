@@ -1936,6 +1936,9 @@
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Flashs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2905,6 +2908,7 @@
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Flashs.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
