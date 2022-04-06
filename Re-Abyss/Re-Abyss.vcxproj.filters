@@ -1216,9 +1216,6 @@
     <ClCompile Include="app\components\Actor\Common\ShakeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Shader\Dither\DitherShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1942,6 +1939,12 @@
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Particles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2538,7 +2541,6 @@
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\ItemDropCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\ShakeCtrl.hpp" />
-    <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
     <ClInclude Include="app\views\Shader\Dither\DitherShader.hpp" />
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
@@ -2913,6 +2915,8 @@
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Flashs.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Particles.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

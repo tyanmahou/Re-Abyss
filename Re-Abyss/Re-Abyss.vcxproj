@@ -417,6 +417,8 @@
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Particles.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
@@ -700,7 +702,6 @@
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
-    <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryEffect.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
     <ClCompile Include="app\views\Effect\Actor\Common\EnemyDeadVM.cpp" />
     <ClCompile Include="app\views\Effect\Actor\Common\KiranVM.cpp" />
@@ -1035,6 +1036,8 @@
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Particles.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
@@ -1478,7 +1481,6 @@
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
-    <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryEffect.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\views\Distortion\DistUtl.hpp" />
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
