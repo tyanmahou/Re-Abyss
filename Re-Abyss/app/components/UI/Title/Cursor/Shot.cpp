@@ -6,11 +6,14 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
-#include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
+#include <abyss/components/Effect/Actor/Player/Shot/Builder.hpp>
+#include <abyss/components/Effect/Actor/Player/ShotFiring/Builder.hpp>
 #include <abyss/views/UI/Title/Cursor/Shot/ShotVM.hpp>
 
 namespace abyss::UI::Title::Cursor
 {
+    using namespace abyss::Effect::Actor;
+
     Shot::Shot(UIObj* pUi, const s3d::Vec2& pos):
         m_pUi(pUi),
         m_pos(pos),
@@ -26,7 +29,7 @@ namespace abyss::UI::Title::Cursor
         m_pos.x += 840 * dt;
 
         for ([[maybe_unused]]double carryOver : m_effectTimer.update(dt)) {
-            m_pUi->getModule<Effects>()->createWorldFront<Actor::Player::Shot::ShotEffect>(
+            m_pUi->getModule<Effects>()->createWorldFront<Player::Shot::Builder>(
                 m_pos,
                 Actor::Player::ShotParam::Big::Radius,
                 ColorDef::Shot::BigCharge
@@ -45,7 +48,7 @@ namespace abyss::UI::Title::Cursor
     void Shot::addShotFiringEffect() const
     {
         // effect
-        m_pUi->getModule<Effects>()->createWorldFront<Actor::Player::Shot::ShotFiringEffect>(
+        m_pUi->getModule<Effects>()->createWorldFront<Player::ShotFiring::Builder>(
             m_pos,
             Actor::Player::ShotParam::Big::Radius,
             ColorDef::Shot::BigCharge

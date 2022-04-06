@@ -417,6 +417,8 @@
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Particles.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
@@ -711,7 +713,6 @@
     <ClCompile Include="app\views\Actor\Gimmick\Door\DoorVM.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\IconView.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\OopartsViewUtil.cpp" />
-    <ClCompile Include="app\views\Actor\Player\Shot\ShotEffect.cpp" />
     <ClCompile Include="app\views\Effect\Misc\Fish\FishVM.cpp" />
     <ClCompile Include="app\views\Shader\Mask\MaskShader.cpp" />
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp" />
@@ -1036,6 +1037,8 @@
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\LocationCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Particles.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
@@ -1807,7 +1810,6 @@
     <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />
     <ClInclude Include="app\views\Shader\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
-    <ClInclude Include="app\views\Actor\Player\Shot\ShotEffect.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />
     <ClInclude Include="app\views\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />

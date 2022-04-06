@@ -5,12 +5,14 @@
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
-#include <abyss/views/Actor/Player/Shot/ShotEffect.hpp>
+#include <abyss/components/Effect/Actor/Player/Shot/Builder.hpp>
+#include <abyss/components/Effect/Actor/Player/ShotFiring/Builder.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
     using namespace abyss::Effect::Misc;
+    using namespace abyss::Effect::Actor::Player;
 
     EffectCtrl::EffectCtrl(ActorObj* pActor):
         m_pActor(pActor)
@@ -27,7 +29,7 @@ namespace abyss::Actor::Player::Shot
         if (!m_shot->isNormal()) {
             const s3d::Vec2& pos = m_body->getPos();
             double r = m_shot->toRadius();
-            m_pActor->getModule<Effects>()->createWorldFront<ShotFiringEffect>(
+            m_pActor->getModule<Effects>()->createWorldFront<ShotFiring::Builder>(
                 pos,
                 r,
                 m_shot->toColorF()
@@ -47,11 +49,10 @@ namespace abyss::Actor::Player::Shot
 
             s3d::Vec2 pos = m_body->getPos();
             double radius = m_shot->toRadius();
-            auto* pLight = m_pActor->getModule<Light>();
 
             // Effect
             m_effectTimer.update(m_pActor->deltaTime()).each([&](double) {
-                m_pActor->getModule<Effects>()->createWorldFront<ShotEffect>(pos, radius, m_shot->toColorF(), pLight);
+                m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::Player::Shot::Builder>(pos, radius, m_shot->toColorF());
                 m_pActor->getModule<Effects>()->createWorldFront<ShockWaveDist::Builder>(
                     pos,
                     radius * std::sqrt(radius) / 2.0,

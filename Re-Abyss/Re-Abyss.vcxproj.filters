@@ -1123,9 +1123,6 @@
     <ClCompile Include="app\components\Actor\Player\Shot\EffectCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Player\Shot\ShotEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1945,6 +1942,12 @@
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2077,9 +2080,6 @@
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\models\Actors\base\IDamageCallbackModel.hpp" />
     <ClInclude Include="app\models\Actors\base\IDeadCallbackModel.hpp" />
-    <ClInclude Include="app\views\Actor\Player\Shot\ShotEffect.hpp">
-      <Filter>Source Files\ActionSystem\Actors\Player\Shot</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\Actor\Player\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\PlayerVM.hpp" />
     <ClInclude Include="app\models\Actors\Commons\CustomDrawModel.hpp" />
@@ -2917,6 +2917,8 @@
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Particles.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Builder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
