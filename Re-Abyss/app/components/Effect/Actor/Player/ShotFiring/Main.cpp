@@ -21,7 +21,7 @@ namespace abyss::Effect::Actor::Player::ShotFiring
         time *= 1.7;
         ScopedRenderStates2D s(BlendState::Additive);
         double rate = EaseOut(Easing::Quint, time);
-        Color color = m_color.setA(static_cast<uint32>(128.0 * Max(1 - time, 0.0)));
+        Color color = m_color.setA(0.5 * Max(1 - time, 0.0));
         Circle(m_pos, rate * m_radius).drawFrame(1, 1, color);
         return time <= 1.0;
     }
