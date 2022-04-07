@@ -1041,6 +1041,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />

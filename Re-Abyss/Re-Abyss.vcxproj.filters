@@ -2919,6 +2919,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Builder.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

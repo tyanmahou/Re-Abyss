@@ -1,5 +1,7 @@
 #include <abyss/components/Novel/BossTalk0_0/Builder.hpp>
 
+#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
+
 #include <abyss/components/Novel/BossTalk0_0/Command/Setup.hpp>
 #include <abyss/components/Novel/BossTalk0_0/Command/Teardown.hpp>
 
@@ -10,6 +12,8 @@ namespace abyss::Novel::BossTalk0_0
 {
     void Builder::Setup(TalkObj* pTalk)
     {
+        pTalk->attach<SignalCtrl>(pTalk);
+
         pTalk->engine()->addCommand<BossTalk0_0::Setup>();
     }
     void Builder::Teardown(TalkObj* pTalk)
