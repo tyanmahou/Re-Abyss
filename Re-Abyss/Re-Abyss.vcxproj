@@ -421,6 +421,8 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\Signal.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
@@ -1042,6 +1044,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\Signal.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />

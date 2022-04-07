@@ -9,6 +9,7 @@
 #include <abyss/components/Novel/Common/Command/NameSetter.hpp>
 #include <abyss/components/Novel/Common/Command/ShakeTag.hpp>
 #include <abyss/components/Novel/Common/Command/ShowHideMessage.hpp>
+#include <abyss/components/Novel/Common/Command/Signal.hpp>
 #include <abyss/components/Novel/Common/Command/WaitInput.hpp>
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
@@ -112,6 +113,11 @@ namespace
                 this->showHideMessage(true);
             } else if (tag == U"hidemessage") {
                 this->showHideMessage(false);
+            } else if (tag == U"signal" && tagValue) {
+                auto func = Reflect<>::find<void(TalkObj*)>(
+                    U"abyss::Novel::{}::{}"_fmt(*m_build, *tagValue)
+                    );
+                m_pEngine->addCommand<Signal>(func);
             }
         }
         void eval(const Ast::NameStatement& statement) override
