@@ -4,11 +4,13 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
+#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
@@ -28,6 +30,11 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> AppearState::task()
 	{
+		auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>();
+		while (signalCtrl && !signalCtrl->isRequestedAppear()) {
+			co_yield{};
+		}
+
 		auto eyeCtrl = m_pActor->find<EyeCtrl>();
 		eyeCtrl->setVisible(true, 4.0);
 		while (!eyeCtrl->isAnimEnd()) {

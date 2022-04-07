@@ -71,6 +71,18 @@ namespace abyss::Novel
         /// <param name="kind"></param>
         /// <returns></returns>
         s3d::Optional<CharaModel> findChara(CharaKind kind) const;
+
+        /// <summary>
+        /// コンポーネントの検索
+        /// </summary>
+        template<class Type>
+        [[nodiscard]] Ref<Type> find() const
+        {
+            if (isEmpty()) {
+                return nullptr;
+            }
+            return m_talks.front()->find<Type>();
+        }
     private:
         std::queue<std::shared_ptr<TalkObj>> m_talks;
         bool m_doneCurrentInit = false;
