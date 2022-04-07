@@ -1951,7 +1951,10 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\Signal.cpp">
+    <ClCompile Include="app\components\Novel\Common\Command\SignalSend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2926,7 +2929,8 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
-    <ClInclude Include="app\components\Novel\Common\Command\Signal.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

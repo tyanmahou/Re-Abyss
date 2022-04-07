@@ -59,6 +59,9 @@ namespace abyss::Actor::Enemy::CodeZero
 			co_yield{};
 		}
 
+		if (signalCtrl) {
+			signalCtrl->setAppearEnd();
+		}
 		while (!m_pActor->getModule<Events>()->isEmpty()) {
 			co_yield{};
 		}

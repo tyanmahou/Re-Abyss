@@ -4,13 +4,13 @@
 
 namespace abyss::Novel
 {
-    class Signal :
+    class SignalReceive :
         public ICommand
     {
     private:
-        using FunctionType = void(*)(TalkObj*);
+        using FunctionType = bool(*)(TalkObj*);
     public:
-        Signal(TalkObj* pTalk, FunctionType func);
+        SignalReceive(TalkObj* pTalk, FunctionType func);
 
         void onStart() override;
         Coro::Task<> onCommand() override;

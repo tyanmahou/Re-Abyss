@@ -10,4 +10,8 @@ namespace abyss::Novel::BossTalk0_0
 	{
 		pTalk->find<SignalCtrl>()->requestAppear();
 	}
+	bool SignalCtrl::IsAppearEnd(TalkObj* pTalk)
+	{
+		return pTalk->find<SignalCtrl>()->isAppearEnd();
+	}
 }

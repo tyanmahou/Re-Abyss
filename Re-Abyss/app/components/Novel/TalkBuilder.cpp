@@ -9,7 +9,8 @@
 #include <abyss/components/Novel/Common/Command/NameSetter.hpp>
 #include <abyss/components/Novel/Common/Command/ShakeTag.hpp>
 #include <abyss/components/Novel/Common/Command/ShowHideMessage.hpp>
-#include <abyss/components/Novel/Common/Command/Signal.hpp>
+#include <abyss/components/Novel/Common/Command/SignalSend.hpp>
+#include <abyss/components/Novel/Common/Command/SignalReceive.hpp>
 #include <abyss/components/Novel/Common/Command/WaitInput.hpp>
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
@@ -113,11 +114,22 @@ namespace
                 this->showHideMessage(true);
             } else if (tag == U"hidemessage") {
                 this->showHideMessage(false);
-            } else if (tag == U"signal" && tagValue) {
-                auto func = Reflect<>::find<void(TalkObj*)>(
-                    U"abyss::Novel::{}::{}"_fmt(*m_build, *tagValue)
-                    );
-                m_pEngine->addCommand<Signal>(func);
+            } else if (tag == U"signal") {
+                for (const auto& [key, value] : statement.childs) {
+                    if (key == U"send" && value) {
+                        auto func = Reflect<>::find<void(TalkObj*)>(
+                            U"abyss::Novel::{}::{}"_fmt(*m_build, *value)
+                            );
+                        m_pEngine->addCommand<SignalSend>(func);
+                        break;
+                    } else if (key == U"receive" && value) {
+                        auto func = Reflect<>::find<bool(TalkObj*)>(
+                            U"abyss::Novel::{}::{}"_fmt(*m_build, *value)
+                            );
+                        m_pEngine->addCommand<SignalReceive>(func);
+                        break;
+                    }
+                }
             }
         }
         void eval(const Ast::NameStatement& statement) override
