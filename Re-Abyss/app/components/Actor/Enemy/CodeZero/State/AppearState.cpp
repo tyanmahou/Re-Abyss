@@ -1,7 +1,6 @@
 #include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
-#include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
@@ -62,7 +61,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		if (signalCtrl) {
 			signalCtrl->setAppearEnd();
 		}
-		while (!m_pActor->getModule<Events>()->isEmpty()) {
+		while (signalCtrl) {
 			co_yield{};
 		}
 		this->changeState<WaitState>();
