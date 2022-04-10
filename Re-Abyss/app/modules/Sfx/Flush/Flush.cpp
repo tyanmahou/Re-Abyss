@@ -8,28 +8,38 @@ namespace abyss::Sfx
 {
 	void Flush::start(double time, const s3d::ColorF& color)
 	{
-		m_flush.start(time, color);
+		m_base.start(time, color);
 	}
 	void Flush::start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color)
 	{
-		m_flush.start(fadeInTime, fadeOutTime, color);
+		m_base.start(fadeInTime, fadeOutTime, color);
 	}
 	bool Flush::isFadeInEnd() const
 	{
-		return m_flush.isFadeInEnd();
+		return m_base.isFadeInEnd();
 	}
 	bool Flush::isFadeOutEnd() const
 	{
-		return m_flush.isFadeOutEnd();
+		return m_base.isFadeOutEnd();
+	}
+	void Flush::startFront(double time, const s3d::ColorF& color)
+	{
+		m_front.start(time, color);
+	}
+	void Flush::startFront(double fadeInTime, double fadeOutTime, const s3d::ColorF& color)
+	{
+		m_front.start(fadeInTime, fadeOutTime, color);
 	}
 	void Flush::update(double dt)
 	{
-		m_flush.update(dt);
+		m_base.update(dt);
+		m_front.update(dt);
 	}
 	void Flush::draw() const
 	{
 		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
-			m_flush.draw();
+			m_base.draw();
+			m_front.draw();
 		}, DrawOrder::UI::Flush);
 	}
 }

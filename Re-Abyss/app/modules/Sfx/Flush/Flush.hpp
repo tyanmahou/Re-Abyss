@@ -11,7 +11,10 @@ namespace abyss::Sfx
 		void start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color = s3d::Palette::White);
 		bool isFadeInEnd() const;
 		bool isFadeOutEnd() const;
-
+	public:
+		void startFront(double time = 1.0, const s3d::ColorF& color = s3d::Palette::Black);
+		void startFront(double fadeInTime, double fadeOutTime, const s3d::ColorF& color = s3d::Palette::Black);
+	public:
 		void update(double dt);
 		void draw() const;
 		void setManager(Manager* pManager)
@@ -20,6 +23,7 @@ namespace abyss::Sfx
 		}
 	private:
 		Manager* m_pManager;
-		FlushFade m_flush;
+		FlushFade m_base;
+		FlushFade m_front;
 	};
 }
