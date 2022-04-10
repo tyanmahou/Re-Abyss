@@ -1,6 +1,5 @@
 #include <abyss/components/Novel/base/Engine.hpp>
 
-#include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <Siv3D.hpp>
@@ -14,6 +13,8 @@ namespace abyss::Novel
     }
     void Engine::onStart()
     {
+        m_skip = m_pTalk->find<SkipCtrl>();
+
         auto task = [this]()->Coro::Task<> {
             while (!m_commands.empty()) {
                 auto& front = m_commands.front();
@@ -47,8 +48,9 @@ namespace abyss::Novel
     bool Engine::update()
     {
         m_time += m_pTalk->getModule<GlobalTime>()->deltaTime();
-        if (InputManager::Start.down()) {
+        if (m_skip && m_skip->isSkip()) {
             // skip
+            m_skip->onSkip();
             return false;
         }
         return m_stream.moveNext();
