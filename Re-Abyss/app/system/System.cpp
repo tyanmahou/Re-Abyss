@@ -54,7 +54,6 @@ namespace abyss::Sys
 
         // ポストエフェクト更新
         mod<PostEffects>()->update(Scene::DeltaTime());
-        mod<Flush>()->update(dt);
 
         if constexpr (config.isStage) {
             mod<Light>()->update(dt);
@@ -118,6 +117,9 @@ namespace abyss::Sys
 
         // エフェクト更新
         mod<Effects>()->updateAll(dt);
+
+        // フラッシュ
+        mod<Flush>()->update(dt);
 
         // 上位命令聴講
         mod<CycleMaster>()->listen();
