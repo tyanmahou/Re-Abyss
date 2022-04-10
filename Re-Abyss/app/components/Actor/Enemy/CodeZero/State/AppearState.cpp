@@ -40,8 +40,8 @@ namespace abyss::Actor::Enemy::CodeZero
 			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
 				skipCtrl->registCallback([weak = this->getWeak()]{
 					if (weak) {
-						weak->m_isSkip = true;
 						weak->end();
+						weak->m_isSkip = true;
 					}
 				});
 			}
