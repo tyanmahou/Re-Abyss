@@ -4,6 +4,7 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
@@ -38,8 +39,12 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
 			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
-				skipCtrl->registCallback([weak = this->getWeak()]{
+				skipCtrl->registCallback([
+					weak = this->getWeak(),
+					flush = m_pActor->getModule<Flush>()
+				]{
 					if (weak) {
+						flush->startFront(0.0, 1.5);
 						weak->end();
 						weak->m_isSkip = true;
 					}
