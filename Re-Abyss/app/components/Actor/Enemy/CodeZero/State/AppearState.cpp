@@ -44,7 +44,7 @@ namespace abyss::Actor::Enemy::CodeZero
 					flush = m_pActor->getModule<Flush>()
 				]{
 					if (weak) {
-						flush->startFront(0.0, 1.5);
+						flush->startFront(0.0, 1.0);
 						weak->end();
 						weak->m_isSkip = true;
 					}
