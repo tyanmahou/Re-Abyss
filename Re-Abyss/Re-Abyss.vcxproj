@@ -421,6 +421,7 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
+    <ClCompile Include="app\components\Novel\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SignalSend.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp" />
@@ -1044,6 +1045,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Novel\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />

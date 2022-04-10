@@ -9,8 +9,9 @@
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
-#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
+#include <abyss/components/Novel/base/SkipCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
+#include <abyss/utils/Coro/Wait/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -25,11 +26,35 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	void AppearState::end()
 	{
+		if (m_isSkip) {
+			return;
+		}
 		m_parts->setMoveActive(true);
+		m_pActor->find<EyeCtrl>()->setVisible(true);
+		m_pActor->find<EyeCtrl>()->flush(0.0);
+		m_pActor->find<HideCtrl>()->setVisible(true);
 	}
 	Coro::Task<> AppearState::task()
 	{
-		auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>();
+		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
+			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
+				skipCtrl->registCallback([weak = this->getWeak()]{
+					if (weak) {
+						weak->m_isSkip = true;
+						weak->end();
+					}
+				});
+			}
+			co_await (Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onEvent(signalCtrl));
+		}
+		this->changeState<WaitState>();
+		co_return;
+	}
+	void AppearState::update()
+	{
+	}
+	Task<> AppearState::onEvent(Ref<Novel::BossTalk0_0::SignalCtrl> signalCtrl)
+	{
 		while (signalCtrl && !signalCtrl->isRequestedAppear()) {
 			co_yield{};
 		}
@@ -64,10 +89,5 @@ namespace abyss::Actor::Enemy::CodeZero
 		while (signalCtrl) {
 			co_yield{};
 		}
-		this->changeState<WaitState>();
-		co_return;
-	}
-	void AppearState::update()
-	{
 	}
 }

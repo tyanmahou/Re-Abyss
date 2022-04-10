@@ -35,9 +35,13 @@ namespace abyss
             return p;
         }
 
-        [[nodiscard]] explicit operator bool()const noexcept
+        [[nodiscard]] bool isValid() const
         {
             return !m_ptr.expired();
+        }
+        [[nodiscard]] explicit operator bool()const noexcept
+        {
+            return isValid();
         }
         [[nodiscard]] std::shared_ptr<T> lock() const
         {

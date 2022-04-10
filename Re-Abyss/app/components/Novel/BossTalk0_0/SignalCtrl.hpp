@@ -15,6 +15,11 @@ namespace abyss::Novel::BossTalk0_0
     public:
         SignalCtrl(TalkObj* pTalk);
 
+        const TalkObj* getObj() const
+        {
+            return m_pTalk;
+        }
+
         bool isRequestedAppear() const
         {
             return m_requestedAppear;

@@ -1,10 +1,13 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
+#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
     class AppearState final :
-        public BaseState
+        public BaseState,
+        public std::enable_shared_from_this<AppearState>
     {
     public:
         void start() override;
@@ -12,5 +15,13 @@ namespace abyss::Actor::Enemy::CodeZero
         Coro::Task<> task() override;
         void update() override;
     private:
+        Task<> onEvent(Ref<Novel::BossTalk0_0::SignalCtrl> signalCtrl);
+
+        Ref<AppearState> getWeak()
+        {
+            return shared_from_this();
+        }
+    private:
+        bool m_isSkip = false;
     };
 }

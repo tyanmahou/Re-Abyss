@@ -181,7 +181,7 @@ namespace abyss::Novel
             EvalImpl eval(pTalk);
             script.eval(&eval);
         }
-
+        pTalk->attach<SkipCtrl>(pTalk);
         pTalk->attach<MessageBox>(pTalk);
     }
 }
