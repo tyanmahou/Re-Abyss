@@ -18,8 +18,15 @@ namespace abyss::Novel
 
 		bool isSkip() const;
 		void onSkip();
+
+		SkipCtrl& setIsEnabled(bool isEnabled)
+		{
+			m_isEnabled = isEnabled;
+			return *this;
+		}
 	private:
 		TalkObj* m_pTalk;
 		s3d::Array<std::function<void()>> m_callbacks;
+		bool m_isEnabled = false;
 	};
 }

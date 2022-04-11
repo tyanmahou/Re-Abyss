@@ -14,6 +14,9 @@ namespace abyss::Novel
 	}
 	bool SkipCtrl::isSkip() const
 	{
+		if (!m_isEnabled) {
+			return false;
+		}
 		return InputManager::Start.down();
 	}
 	void SkipCtrl::onSkip()
