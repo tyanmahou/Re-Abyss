@@ -1,5 +1,5 @@
 #include <abyss/components/Novel/Common/Command/SkipEnabled.hpp>
-#include <abyss/components/Novel/base/SkipCtrl.hpp>
+#include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 
 namespace abyss::Novel

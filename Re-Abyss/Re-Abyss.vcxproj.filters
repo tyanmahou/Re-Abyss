@@ -1957,7 +1957,7 @@
     <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\base\SkipCtrl.cpp">
+    <ClCompile Include="app\components\Novel\Common\SkipCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\Common\Command\SkipEnabled.cpp">
@@ -2937,7 +2937,7 @@
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
-    <ClInclude Include="app\components\Novel\base\SkipCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
   </ItemGroup>
   <ItemGroup>

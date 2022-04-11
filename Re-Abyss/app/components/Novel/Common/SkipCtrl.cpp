@@ -1,4 +1,4 @@
-#include <abyss/components/Novel/base/SkipCtrl.hpp>
+#include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Novel

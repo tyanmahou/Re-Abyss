@@ -5,7 +5,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
-#include <abyss/components/Novel/base/SkipCtrl.hpp>
+#include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
 #include <abyss/models/Novel/SerifModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
