@@ -1960,6 +1960,9 @@
     <ClCompile Include="app\components\Novel\base\SkipCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Command\SkipEnabled.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2935,6 +2938,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
     <ClInclude Include="app\components\Novel\base\SkipCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

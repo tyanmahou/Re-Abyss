@@ -425,6 +425,7 @@
     <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SignalSend.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\SkipEnabled.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
@@ -1049,6 +1050,7 @@
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
