@@ -11,6 +11,7 @@
 #include <abyss/components/Novel/Common/Command/ShowHideMessage.hpp>
 #include <abyss/components/Novel/Common/Command/SignalSend.hpp>
 #include <abyss/components/Novel/Common/Command/SignalReceive.hpp>
+#include <abyss/components/Novel/Common/Command/SkipEnabled.hpp>
 #include <abyss/components/Novel/Common/Command/WaitInput.hpp>
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
@@ -130,6 +131,10 @@ namespace
                         break;
                     }
                 }
+            } else if (tag == U"skippable") {
+                m_pEngine->addCommand<SkipEnabled>(true);
+            } else if (tag == U"/skippable") {
+                m_pEngine->addCommand<SkipEnabled>(false);
             }
         }
         void eval(const Ast::NameStatement& statement) override
