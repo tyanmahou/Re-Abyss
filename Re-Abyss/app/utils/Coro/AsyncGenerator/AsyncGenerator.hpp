@@ -22,10 +22,6 @@ namespace abyss::Coro
                 isFindValue = true;
                 return std::suspend_always{};
             }
-            auto yield_value(const Yield& _yield)
-            {
-                return operator co_await(_yield);
-            }
             void unhandled_exception() { std::terminate(); }
             void return_void() {}
             Yield yield{ 0 };
