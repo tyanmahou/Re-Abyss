@@ -8,7 +8,7 @@
 #include <abyss/components/UI/Splash/Logo/LogoCtrl.hpp>
 #include <abyss/components/Cycle/Splash/Master.hpp>
 
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 namespace abyss::Event::Splash
 {

@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 namespace abyss::Actor
 {

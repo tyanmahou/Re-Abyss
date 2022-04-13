@@ -12,7 +12,7 @@
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

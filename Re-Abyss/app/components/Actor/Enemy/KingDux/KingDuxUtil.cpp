@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux

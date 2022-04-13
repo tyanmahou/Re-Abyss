@@ -3,7 +3,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 #include <abyss/components/Novel/Common/MessageBox.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 namespace abyss::Novel
 {

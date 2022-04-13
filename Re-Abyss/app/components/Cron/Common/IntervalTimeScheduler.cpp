@@ -4,7 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 
 #include <abyss/utils/Coro/Task/Task.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 namespace abyss::Cron
 {

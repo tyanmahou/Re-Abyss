@@ -6,7 +6,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/UI/BossHPBar/Main.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 #include <Siv3D.hpp>
 

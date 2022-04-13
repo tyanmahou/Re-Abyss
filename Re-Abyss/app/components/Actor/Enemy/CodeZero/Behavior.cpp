@@ -11,7 +11,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 #include <Siv3D.hpp>
 

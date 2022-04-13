@@ -601,7 +601,7 @@
     <ClCompile Include="app\datastores\base\DBDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Coro\Wait\Wait.cpp">
+    <ClCompile Include="app\utils\Coro\Task\Wait.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Common\BehaviorCtrl.cpp">
@@ -2276,7 +2276,7 @@
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
-    <ClInclude Include="app\utils\Coro\Wait\Wait.hpp" />
+    <ClInclude Include="app\utils\Coro\Task\Wait.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actor\utils\BehaviorUtil.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Behavior.hpp" />

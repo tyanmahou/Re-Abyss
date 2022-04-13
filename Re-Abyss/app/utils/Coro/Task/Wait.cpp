@@ -1,4 +1,4 @@
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
 

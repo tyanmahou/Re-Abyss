@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabState.hpp>
 
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/modules/Camera/Camera.hpp>

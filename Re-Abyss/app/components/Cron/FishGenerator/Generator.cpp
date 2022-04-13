@@ -10,7 +10,7 @@
 #include <abyss/components/Effect/Misc/Fish/Builder.hpp>
 #include <abyss/components/Effect/Misc/Fish/Main.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
-#include <abyss/utils/Coro/Wait/Wait.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D/Array.hpp>
 
 namespace
