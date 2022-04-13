@@ -1,13 +1,203 @@
 #pragma once
 #include <coroutine>
 #include <memory>
-#include <abyss/utils/Coro/Task/Yield.hpp>
 
 namespace abyss::Coro
 {
-	template<class T>
-	struct Task;
+	/// <summary>
+	/// Yield
+	/// </summary>
+	/// <returns></returns>
+	struct Yield
+	{
+		constexpr Yield() :
+			count(1)
+		{}
 
+		constexpr Yield(std::uint32_t _count) :
+			count(_count)
+		{}
+
+		std::uint32_t count;
+	};
+
+	namespace detail
+	{
+		template<class Handle>
+		concept YieldAwaitableHandle = requires(Handle handle)
+		{
+			requires std::same_as<Yield, decltype(handle.promise().yield)>;
+			requires std::convertible_to<Handle, std::coroutine_handle<>>;
+		};
+
+		struct YieldAwaiter
+		{
+			bool await_ready() const noexcept
+			{
+				return yield.count == 0;
+			}
+
+			template<YieldAwaitableHandle Handle>
+			void await_suspend(Handle handle)
+			{
+				--(handle.promise().yield = yield).count;
+			}
+			void await_resume() {}
+
+			Yield yield;
+		};
+	}
+
+	inline auto operator co_await(const Yield& yield)
+	{
+		return detail::YieldAwaiter{ yield };
+	}
+
+	namespace detail
+	{
+		template<class T>
+		struct PromiseType;
+
+		template<class T>
+		struct TaskAwaiter;
+	}
+
+	/// <summary>
+	/// タスク
+	/// </summary>
+	template <class T = void>
+	struct Task
+	{
+		using promise_type = detail::PromiseType<T>;
+		using Handle = std::coroutine_handle<promise_type>;
+	public:
+		Task(Handle h) :
+			coro(h)
+		{}
+
+		Task(Task const&) = delete;
+
+		Task(Task&& rhs) noexcept
+			: coro(std::move(rhs.coro))
+		{
+			rhs.coro = nullptr;
+		}
+
+		~Task()
+		{
+			if (coro) {
+				coro.destroy();
+			}
+		}
+	public:
+		/// <summary>
+		/// 再開
+		/// </summary>
+		/// <returns></returns>
+		bool moveNext() const
+		{
+			if (!coro) {
+				return false;
+			}
+			if (coro.done()) {
+				return false;
+			}
+			// Yield
+			{
+				auto& yield = coro.promise().yield;
+				if (yield.count > 0 && yield.count-- > 0) {
+					// カウンタが残ってるなら
+					return true;
+				}
+			}
+			// 割り込み別タスク
+			{
+				auto& next = coro.promise().next;
+				if (next) {
+
+					if (!next.moveNext()) {
+						next.clear();
+					} else {
+						return true;
+					}
+				}
+			}
+			coro.resume();
+			return !coro.done();
+		}
+
+		/// <summary>
+		/// 完了したか
+		/// </summary>
+		/// <returns></returns>
+		[[nodiscard]] bool isDone()const
+		{
+			if (!coro) {
+				return true;
+			}
+			return coro.done();
+		}
+
+		/// <summary>
+		/// 取得
+		/// </summary>
+		/// <returns></returns>
+		[[nodiscard]] decltype(auto) get() const
+		{
+			return coro.promise().getValue();
+		}
+
+	private:
+		Handle coro;
+	};
+
+	template<class T>
+	auto operator co_await(Task<T> other)
+	{
+		return detail::TaskAwaiter{ std::move(other) };
+	}
+
+	template<class T, class U>
+	[[nodiscard]] Task<void> operator & (Task<T> a, Task<U> b)
+	{
+		while (true) {
+			a.moveNext();
+			b.moveNext();
+
+			if (a.isDone() && b.isDone()) {
+				co_return;
+			}
+
+			co_yield{};
+		}
+	}
+
+	template<class T, class U>
+	[[nodiscard]] Task<void> operator | (Task<T> a, Task<U> b)
+	{
+		while (true) {
+			a.moveNext();
+			b.moveNext();
+
+			if (a.isDone() || b.isDone()) {
+				co_return;
+			}
+
+			co_yield{};
+		}
+	}
+
+	template<class T, class U>
+	[[nodiscard]] Task<U> operator + (Task<T> a, Task<U> b)
+	{
+		while (a.moveNext()) {
+			co_yield{};
+		}
+		while (b.moveNext()) {
+			co_yield{};
+		}
+		co_return b.get();
+	}
 	namespace detail
 	{
 		/// <summary>
@@ -106,18 +296,11 @@ namespace abyss::Coro
 			NextTaskHandler next;
 		};
 
-		template<class T>
-		struct IsTaskPromise :std::false_type {};
-		template<class U>
-		struct IsTaskPromise<detail::PromiseType<U>> : std::true_type {};
-
-		template<class T>
-		concept TaskPromiseType = IsTaskPromise<T>::value;
-
-		template<class T>
-		concept TaskHandleType = requires(T handle)
+		template<class Handle>
+		concept TaskAwaitableHandle = requires(Handle handle)
 		{
-			requires TaskPromiseType<std::decay_t<decltype(handle.promise())>>;
+			requires std::same_as<NextTaskHandler, decltype(handle.promise().next)>;
+			requires std::convertible_to<Handle, std::coroutine_handle<>>;
 		};
 
 		/// <summary>
@@ -136,149 +319,11 @@ namespace abyss::Coro
 			{
 				return task.get();
 			}
-			template<TaskHandleType U>
-			void await_suspend(U handle) const
+			template<TaskAwaitableHandle Handle>
+			void await_suspend(Handle handle) const
 			{
 				handle.promise().next = task;
 			}
 		};
 	}
-
-	/// <summary>
-	/// タスク
-	/// </summary>
-	template <class T = void>
-	struct Task
-	{
-		using promise_type = detail::PromiseType<T>;
-		using Handle = std::coroutine_handle<promise_type>;
-
-		Task(Handle h) :
-			coro(h)
-		{}
-
-		Task(Task const&) = delete;
-
-		Task(Task&& rhs) noexcept
-			: coro(std::move(rhs.coro))
-		{
-			rhs.coro = nullptr;
-		}
-
-		~Task()
-		{
-			if (coro) {
-				coro.destroy();
-			}
-		}
-
-		/// <summary>
-		/// 再開
-		/// </summary>
-		/// <returns></returns>
-		bool moveNext() const
-		{
-			if (!coro) {
-				return false;
-			}
-			if (coro.done()) {
-				return false;
-			}
-			// Yield
-			{
-				auto& yield = coro.promise().yield;
-				if (yield.count > 0 && yield.count-- > 0) {
-					// カウンタが残ってるなら
-					return true;
-				}
-			}
-			// 割り込み別タスク
-			{
-				auto& next = coro.promise().next;
-				if (next) {
-
-					if (!next.moveNext()) {
-						next.clear();
-					} else {
-						return true;
-					}
-				}
-			}
-			coro.resume();
-			return !coro.done();
-		}
-
-		/// <summary>
-		/// 完了したか
-		/// </summary>
-		/// <returns></returns>
-		[[nodiscard]] bool isDone()const
-		{
-			if (!coro) {
-				return true;
-			}
-			return coro.done();
-		}
-
-		/// <summary>
-		/// 取得
-		/// </summary>
-		/// <returns></returns>
-		[[nodiscard]] decltype(auto) get() const
-		{
-			return coro.promise().getValue();
-		}
-
-	private:
-		Handle coro;
-	};
-
-	template<class T>
-	auto operator co_await(Task<T> other)
-	{
-		return detail::TaskAwaiter{ std::move(other) };
-	}
-
-    template<class T, class U>
-    [[nodiscard]] Task<void> operator & (Task<T> a, Task<U> b)
-    {
-        while (true) {
-            a.moveNext();
-            b.moveNext();
-
-            if (a.isDone() && b.isDone()) {
-                co_return;
-            }
-
-            co_yield{};
-        }
-    }
-
-
-    template<class T, class U>
-    [[nodiscard]] Task<void> operator | (Task<T> a, Task<U> b)
-    {
-        while (true) {
-            a.moveNext();
-            b.moveNext();
-
-            if (a.isDone() || b.isDone()) {
-                co_return;
-            }
-
-            co_yield{};
-        }
-    }
-
-    template<class T, class U>
-    [[nodiscard]] Task<U> operator + (Task<T> a, Task<U> b)
-    {
-        while (a.moveNext()) {
-            co_yield{};
-        }
-        while (b.moveNext()) {
-            co_yield{};
-        }
-        co_return b.get();
-    }
 }
