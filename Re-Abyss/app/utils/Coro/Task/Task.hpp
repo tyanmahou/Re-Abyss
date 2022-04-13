@@ -277,13 +277,13 @@ namespace abyss::Coro
 		template<class T>
 		struct PromiseType : PromiseValue<T>
 		{
-			using Task = Task<T>;
+			using TaskType = Task<T>;
 
-			static Task get_return_object_on_allocation_failure()
+			static TaskType get_return_object_on_allocation_failure()
 			{
-				return Task{ nullptr };
+				return TaskType{ nullptr };
 			}
-			auto get_return_object() { return Task{ Task::Handle::from_promise(*this) }; }
+			auto get_return_object() { return TaskType{ TaskType::Handle::from_promise(*this) }; }
 			auto initial_suspend() { return std::suspend_always{}; }
 			auto final_suspend() noexcept { return std::suspend_always{}; }
 			void unhandled_exception() { std::terminate(); }
