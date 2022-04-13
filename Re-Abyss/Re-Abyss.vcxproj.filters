@@ -2939,6 +2939,8 @@
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
     <ClInclude Include="app\components\Novel\Common\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
+    <ClInclude Include="app\utils\Coro\AsyncGenerator\AsyncGenerator.hpp" />
+    <ClInclude Include="app\utils\Coro\Yield\Yield.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

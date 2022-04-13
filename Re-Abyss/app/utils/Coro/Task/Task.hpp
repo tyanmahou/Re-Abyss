@@ -1,6 +1,7 @@
 #pragma once
 #include <coroutine>
 #include <memory>
+#include <abyss/utils/Coro/Task/Yield.hpp>
 
 namespace abyss::Coro
 {
@@ -9,23 +10,6 @@ namespace abyss::Coro
 
 	namespace detail
 	{
-		/// <summary>
-		/// Yield
-		/// </summary>
-		/// <returns></returns>
-		struct Yield
-		{
-			constexpr Yield() :
-				count(1)
-			{}
-
-			constexpr Yield(std::uint32_t _count) :
-				count(_count)
-			{}
-
-			std::uint32_t count;
-		};
-
 		/// <summary>
 		/// NextTaskHandler
 		/// </summary>
@@ -114,27 +98,11 @@ namespace abyss::Coro
 			auto final_suspend() noexcept { return std::suspend_always{}; }
 			void unhandled_exception() { std::terminate(); }
 
-			auto yield_value(const detail::Yield& _yield)
+			auto yield_value(const Yield& _yield)
 			{
-				struct Awaiter
-				{
-					bool await_ready() const noexcept
-					{
-						return ready;
-					}
-
-					void await_suspend(std::coroutine_handle<>) {}
-					void await_resume() {}
-
-					bool ready = false;
-				};
-				if (_yield.count == 0) {
-					return Awaiter{ true };
-				}
-				--(this->yield = _yield).count;
-				return Awaiter{ false };
+				return operator co_await(_yield);
 			}
-			detail::Yield yield{ 0 };
+			Yield yield{ 0 };
 			NextTaskHandler next;
 		};
 
