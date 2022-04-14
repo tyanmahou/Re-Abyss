@@ -9,26 +9,29 @@ namespace abyss::Actor
         m_pActor(pActor)
     {}
 
-    void BehaviorCtrl::setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence)
+    void BehaviorCtrl::setSequence(const BehaviorSeqFunc& sequence)
     {
-        m_sequence.reset(std::bind(sequence, this));
+        m_sequence.reset([seq = std::bind(sequence, m_pActor), this]()->Coro::Task<> {
+            co_await seq().each([this](const BehaviorFunc& behavior) {
+                this->setBehavior(behavior);
+                this->setActiveBehavior(true);
+            });
+        });
     }
-    void BehaviorCtrl::setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior)
+    void BehaviorCtrl::setBehavior(const BehaviorFunc& behavior)
     {
         m_behavior.reset(std::bind(behavior, m_pActor));
-    }
-
-    Coro::Task<> BehaviorCtrl::setBehaviorAndWait(std::function<Coro::Task<>(ActorObj*)> behavior)
-    {
-        this->setBehavior(behavior);
-        co_await Coro::WaitUntil([this] {
-            return this->isDoneBehavior();
-        });
     }
 
     bool BehaviorCtrl::isDoneBehavior() const
     {
         return m_behavior.isDone();
+    }
+    Coro::Task<> BehaviorCtrl::WaitDoneBehavior() const
+    {
+        co_await Coro::WaitUntil([this] {
+            return this->isDoneBehavior();
+        });
     }
     void BehaviorCtrl::setup(Executer executer)
     {

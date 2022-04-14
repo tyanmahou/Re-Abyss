@@ -17,18 +17,14 @@
 
 namespace abyss::Actor::Enemy::KingDux
 {
-    Coro::Task<> BehaviorSequence::Root(BehaviorCtrl* behavior)
+    Coro::AsyncGenerator<BehaviorFunc> BehaviorSequence::Root(ActorObj* pActor)
     {
-        auto* pActor = behavior->getActor();
-
         // 前半パターン
-        behavior->setBehavior(Behavior::Phase1);
+        co_yield Behavior::Phase1;
         // HP 1/2まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 2.0);
         // 後半パターン
-        behavior->setBehavior(Behavior::Phase2);
-        // 強制遷移
-        behavior->setActiveBehavior(true);
+        co_yield Behavior::Phase2;
     }
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {

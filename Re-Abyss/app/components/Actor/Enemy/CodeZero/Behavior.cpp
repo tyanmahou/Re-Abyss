@@ -17,30 +17,24 @@
 
 namespace abyss::Actor::Enemy::CodeZero
 {
-    Coro::Task<> BehaviorSequence::Root(BehaviorCtrl* behavior)
+    Coro::AsyncGenerator<BehaviorFunc> BehaviorSequence::Root(ActorObj* pActor)
     {
-        auto* pActor = behavior->getActor();
-
         // 前半パターン
-        behavior->setBehavior(Behavior::Phase1);
+        co_yield Behavior::Phase1;
 
         // HP 2/3まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 2.0 / 3.0);
         co_await Behavior::WaitPursuitHands(pActor);
 
         // 中盤パターン
-        behavior->setBehavior(Behavior::Phase2);
-        // 強制遷移
-        behavior->setActiveBehavior(true);
+        co_yield Behavior::Phase2;
 
         // HP 1/3まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 3.0);
         co_await Behavior::WaitPursuitHands(pActor);
 
         // 後半パターン
-        behavior->setBehavior(Behavior::Phase3);
-        // 強制遷移
-        behavior->setActiveBehavior(true);
+        co_yield Behavior::Phase3;
     }
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {

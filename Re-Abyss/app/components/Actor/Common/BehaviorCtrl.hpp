@@ -8,12 +8,14 @@
 #include <abyss/components/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/AsyncGenerator/AsyncGenerator.hpp>
 
 namespace abyss::Actor
 {
-    class BehaviorCtrl;
+    using BehaviorFunc = std::function<Coro::Task<>(ActorObj*)>;
+    using BehaviorSeqFunc = std::function<Coro::AsyncGenerator<BehaviorFunc>(ActorObj*)>;
 
-    class BehaviorCtrl final : 
+    class BehaviorCtrl final :
         public IComponent,
         public IPostUpdate,
         public IStateCallback
@@ -21,10 +23,8 @@ namespace abyss::Actor
     public:
         BehaviorCtrl(ActorObj* pActor);
 
-        void setSequence(std::function<Coro::Task<>(BehaviorCtrl*)> sequence);
-        void setBehavior(std::function<Coro::Task<>(ActorObj*)> behavior);
-
-        Coro::Task<> setBehaviorAndWait(std::function<Coro::Task<>(ActorObj*)> behavior);
+        void setSequence(const BehaviorSeqFunc& sequence);
+        void setBehavior(const BehaviorFunc& behavior);
 
         BehaviorCtrl& setActiveSequence(bool isActive)
         {
@@ -36,12 +36,11 @@ namespace abyss::Actor
             m_isActiveBehavior = isActive;
             return *this;
         }
-        ActorObj* getActor() const
-        {
-            return m_pActor;
-        }
         bool isDoneBehavior() const;
 
+        Coro::Task<> WaitDoneBehavior() const;
+
+    public:
         void setup(Executer executer)override;
 
         void onPostUpdate() override;

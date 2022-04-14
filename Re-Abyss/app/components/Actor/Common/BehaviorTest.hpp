@@ -28,7 +28,7 @@ namespace abyss::Actor
         BehaviorTest& setWaitAction(const BehaviorFunc& waitAction);
         BehaviorTest& registAction(const s3d::String& key, const BehaviorFunc& behavior);
     private:
-        Coro::Task<> doTest(BehaviorCtrl* behavior);
+        Coro::AsyncGenerator<BehaviorFunc> doTest(ActorObj* pActor);
     private:
         ActorObj* m_pActor;
         std::unique_ptr<WorldComment::Requestor> m_worldComment;

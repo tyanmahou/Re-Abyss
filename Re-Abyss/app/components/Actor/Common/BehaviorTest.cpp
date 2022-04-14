@@ -68,14 +68,17 @@ namespace abyss::Actor
         m_actions.emplace_back(key, behavior);
         return *this;
     }
-    Coro::Task<> BehaviorTest::doTest(BehaviorCtrl* behavior)
+    Coro::AsyncGenerator<BehaviorFunc> BehaviorTest::doTest(ActorObj* pActor)
     {
+        auto behavior = pActor->find<BehaviorCtrl>();
         if (m_initializer) {
-            co_await behavior->setBehaviorAndWait(m_initializer);
+            co_yield m_initializer;
+            co_await behavior->WaitDoneBehavior();
         }
         while (!m_actions.empty()) {
             if (m_waitAction) {
-                co_await behavior->setBehaviorAndWait(m_waitAction);
+                co_yield m_waitAction;
+                co_await behavior->WaitDoneBehavior();
             }
 
             // 技選択
@@ -89,7 +92,9 @@ namespace abyss::Actor
                 co_yield{};
             }
             m_isSelectable = false;
-            co_await behavior->setBehaviorAndWait(m_actions[m_select].second);
+
+            co_yield m_actions[m_select].second;
+            co_await behavior->WaitDoneBehavior();
         }
         co_return;
     }

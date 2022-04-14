@@ -7,7 +7,7 @@ namespace abyss::Actor::Enemy::CodeZero
     class BehaviorSequence
     {
     public:
-        [[nodiscard]] static Coro::Task<> Root(BehaviorCtrl* behavior);
+        [[nodiscard]] static Coro::AsyncGenerator<BehaviorFunc> Root(ActorObj* pActor);
     };
     class Behavior
     {
