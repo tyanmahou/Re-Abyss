@@ -69,7 +69,7 @@ namespace abyss::Actor::Enemy::KingDux
     Coro::Task<> Behavior::Dead(ActorObj* pActor)
     {
         pActor->find<DeadChecker>()->requestDead();
-        co_yield{};
+        co_yield{2};
     }
     Coro::Task<> Behavior::Wait(ActorObj* pActor)
     {

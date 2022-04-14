@@ -75,6 +75,7 @@ namespace abyss::Actor
             co_yield m_initializer;
             co_await behavior->WaitDoneBehavior();
         }
+
         while (!m_actions.empty()) {
             if (m_waitAction) {
                 co_yield m_waitAction;
@@ -89,7 +90,7 @@ namespace abyss::Actor
                         break;
                     }
                 }
-                co_yield{};
+                co_await Coro::Yield{};
             }
             m_isSelectable = false;
 
