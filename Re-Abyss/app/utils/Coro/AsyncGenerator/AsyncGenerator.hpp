@@ -32,25 +32,21 @@ namespace abyss::Coro
         struct iterator
         {
             const AsyncGenerator* owner;
-            Task<iterator> operator++()
+            Task<iterator> operator++() const
             {
-
                 owner->coro.promise().isFindValue = false;
                 while (owner->findValue()) {
                     co_yield{};
                 }
                 co_return *this;
             }
-            decltype(auto) operator*()
+            decltype(auto) operator*() const
             {
                 return owner->coro.promise().value;
             }
             bool operator!=(const iterator&) const
             {
                 return (!owner || !owner->coro.done());
-            }
-            auto next() {
-                return ++(*this);
             }
         };
     public:
