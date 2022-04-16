@@ -26,6 +26,7 @@ namespace abyss::Actor::Enemy::KingDux
         // 後半パターン
         co_yield Behavior::Phase2;
     }
+
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {
         co_await Appear(pActor);

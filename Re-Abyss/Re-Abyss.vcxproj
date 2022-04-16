@@ -421,6 +421,9 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_1\Builder.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_1\Command\Setup.cpp" />
+    <ClCompile Include="app\components\Novel\BossTalk0_1\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Novel\Common\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SignalSend.cpp" />
@@ -1046,6 +1049,9 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_1\Builder.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_1\Command\Setup.hpp" />
+    <ClInclude Include="app\components\Novel\BossTalk0_1\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\Common\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
