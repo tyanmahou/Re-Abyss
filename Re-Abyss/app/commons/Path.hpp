@@ -12,6 +12,7 @@ namespace abyss::Path
     inline static s3d::FilePath ShaderPath = ResourcePath + U"shaders/";
     inline static s3d::FilePath SoundPath = ResourcePath + U"sounds/";
     inline static s3d::FilePath MsgPath = ResourcePath + U"msgs/{}/";
+    inline static s3d::FilePath NovelPath = ResourcePath + U"novel/";
 
     inline static s3d::FilePath UserDataPath = U"userdata/";
 
