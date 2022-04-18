@@ -3,12 +3,16 @@
 #include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
+
+#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
@@ -38,7 +42,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {
-        co_await Appear(pActor);
+        co_await TryToAppear(pActor);
 
         // 待機
         co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase1::WaitRestart);
@@ -116,6 +120,14 @@ namespace abyss::Actor::Enemy::CodeZero
             }
         }
         co_return;
+    }
+    Coro::Task<> Behavior::TryToAppear(ActorObj* pActor)
+    {
+        if (pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
+            // 死亡コールバックを設定
+            pActor->find<DeadCallback>()->setDeadEventPath(U"stage0/kill_boss.mns");
+            co_await Appear(pActor);
+        }
     }
     Coro::Task<> Behavior::Appear(ActorObj* pActor)
     {

@@ -9,7 +9,6 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
@@ -39,9 +38,6 @@ namespace abyss::Actor::Enemy::CodeZero
 	Coro::Task<> AppearState::task()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
-			// 死亡コールバックを設定
-			m_pActor->find<DeadCallback>()->setDeadEventPath(U"stage0/kill_boss.mns");
-
 			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
 				skipCtrl->registCallback([
 					weak = this->getWeak(),

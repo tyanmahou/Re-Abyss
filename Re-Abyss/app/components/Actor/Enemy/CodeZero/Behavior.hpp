@@ -16,6 +16,7 @@ namespace abyss::Actor::Enemy::CodeZero
         [[nodiscard]] static Coro::Task<> Phase2(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Phase3(ActorObj* pActor);
     public:
+        [[nodiscard]] static Coro::Task<> TryToAppear(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Appear(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Angry(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Dead(ActorObj* pActor);

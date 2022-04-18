@@ -86,7 +86,8 @@ namespace abyss::Actor::Enemy::CodeZero
 #if ABYSS_DEBUG
             using std::placeholders::_1;
             pActor->attach<BehaviorTest>(pActor)
-                ->setWaitAction(Behavior::WaitPursuitHands)
+                ->setInitializer(Behavior::TryToAppear)
+                .setWaitAction(Behavior::WaitPursuitHands)
                 .registAction(U"LeftAttack", Behavior::LeftAttack)
                 .registAction(U"RightAttack", Behavior::RightAttack)
                 .registAction(U"BothAttack", Behavior::BothAttack)
