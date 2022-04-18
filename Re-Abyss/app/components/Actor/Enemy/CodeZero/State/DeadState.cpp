@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -41,6 +42,10 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> DeadState::task()
 	{
+		auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_1::SignalCtrl>();
+		while (signalCtrl) {
+			co_yield{};
+		}
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 		// 爆発
 		{

@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
+#include <abyss/components/Novel/BossTalk0_1/SignalCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
