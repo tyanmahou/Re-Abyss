@@ -129,7 +129,7 @@ namespace abyss::Actor::Enemy::CodeZero
     Coro::Task<> Behavior::Dead(ActorObj* pActor)
     {
         pActor->find<DeadChecker>()->requestDead();
-        co_yield{};
+        co_yield{2};
     }
     Coro::Task<> Behavior::LeftAttack(ActorObj* pActor)
     {

@@ -11,7 +11,7 @@ namespace abyss::Novel::BossTalk0_1
 
     void Setup::onStart()
     {
-        m_pTalk->getModule<Sound>()->stop();
+        m_pTalk->getModule<Sound>()->stop(0.5s);
     }
 
     Coro::Task<> Setup::onCommand()
