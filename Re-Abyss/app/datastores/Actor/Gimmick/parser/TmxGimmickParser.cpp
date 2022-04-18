@@ -6,6 +6,7 @@
 #include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/CodeZeroBackEntity.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 using namespace s3d;
 using namespace s3dTiled;
@@ -56,6 +57,8 @@ namespace
 			});
 			PARSE_GIMMICK(BgmChanger, {
 				it->bgm = obj.getProperty(U"bgm").value_or(U"");
+			});
+			PARSE_GIMMICK(CodeZeroBack, {
 			});
 		default:
 			break;

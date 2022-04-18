@@ -20,7 +20,11 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		return m_timer.isEnd();
 	}
-
+	double HideCtrl::calcBackAlpha() const
+	{
+		auto alpha = m_isVisible ? m_timer.invRate() : m_timer.rate();
+		return alpha;
+	}
 	void HideCtrl::setup([[maybe_unused]]Executer executer)
 	{
 	}
@@ -37,7 +41,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	void HideCtrl::onDraw() const
 	{
-		auto alpha = m_isVisible ? m_timer.invRate() : m_timer.rate();
+		auto alpha = this->calcBackAlpha();
 		m_pActor->getModule<RoomManager>()->currentRoom().getRegion().draw(ColorF(0, alpha));
 	}
 	s3d::ColorF HideCtrl::colorMul() const

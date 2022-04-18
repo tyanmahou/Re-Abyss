@@ -18,6 +18,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
 		void setVisible(bool isVisible, double fadeSec = 0.0);
 		bool isAnimEnd() const;
+
+		double calcBackAlpha() const;
 	public:
 		void setup(Executer executer) override;
 

@@ -13,6 +13,7 @@ namespace abyss::Actor::Gimmick
 		Bush,
 		EventTrigger,
 		BgmChanger,
+		CodeZeroBack,
 	};
 	struct GimmickEntity
 	{

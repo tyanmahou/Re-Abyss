@@ -1975,6 +1975,12 @@
     <ClCompile Include="app\components\Novel\BossTalk0_1\SignalCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2956,6 +2962,9 @@
     <ClInclude Include="app\components\Novel\BossTalk0_1\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_1\Builder.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_1\SignalCtrl.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\CodeZeroBackEntity.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

@@ -366,6 +366,8 @@
     <ClCompile Include="app\components\Actor\Gimmick\Bulletin\Talkable.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bush\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Bush\ColReactor.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Main.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
@@ -1031,6 +1033,8 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\FaceCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Main.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraAlgorithm.hpp" />
     <ClInclude Include="app\components\Actor\Ooparts\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\ComponentCache.hpp" />
@@ -1059,6 +1063,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\CodeZeroBackEntity.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />

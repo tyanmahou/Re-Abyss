@@ -4,11 +4,13 @@
 #include <abyss/entities/Actor/Gimmick/BulletinEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/EventTriggerEntity.hpp>
+#include <abyss/entities/Actor/Gimmick/CodeZeroBackEntity.hpp>
 
 #include <abyss/components/Actor/Gimmick/Door/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/Bush/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
+#include <abyss/components/Actor/Gimmick/CodeZeroBack/Builder.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/World/World.hpp>
@@ -57,6 +59,10 @@ namespace abyss::Actor::Gimmick
             return world.create<EventTrigger::Builder>(eventTriggerEntity.event);
         }
         case GimmickType::BgmChanger: return nullptr;
+        case GimmickType::CodeZeroBack:
+        {
+            return world.create<CodeZeroBack::Builder>(static_cast<const CodeZeroBackEntity&>(entity));
+        }
         default:
             break;
         }
