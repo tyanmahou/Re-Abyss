@@ -70,5 +70,4 @@ namespace abyss::Actor::Player
     DeadState::DeadState():
         m_deadTimer(Param::Dead::AnimeTimeSec)
     {}
-
 }

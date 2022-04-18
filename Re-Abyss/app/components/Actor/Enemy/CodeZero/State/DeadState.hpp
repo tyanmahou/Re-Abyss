@@ -15,5 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero
         Coro::Task<> task() override;
         void update() override;
     private:
+        Task<> onEvent(Ref<Novel::BossTalk0_1::SignalCtrl> signalCtrl);
+        Task<> commonDead();
     };
 }

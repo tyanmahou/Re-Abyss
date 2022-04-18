@@ -42,10 +42,30 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> DeadState::task()
 	{
-		auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_1::SignalCtrl>();
-		while (signalCtrl) {
+		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_1::SignalCtrl>()) {
+			co_await this->onEvent(signalCtrl);
+		} else {
+			co_await this->commonDead();
+		}
+
+		co_return;
+	}
+	void DeadState::update()
+	{
+	}
+
+	Task<> abyss::Actor::Enemy::CodeZero::DeadState::onEvent(Ref<Novel::BossTalk0_1::SignalCtrl> signalCtrl)
+	{
+		while (!signalCtrl->isRequestedDead()) {
 			co_yield{};
 		}
+		co_await this->commonDead();
+
+		signalCtrl->setDeadEnd();
+	}
+
+	Task<> abyss::Actor::Enemy::CodeZero::DeadState::commonDead()
+	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 		// 爆発
 		{
@@ -64,9 +84,5 @@ namespace abyss::Actor::Enemy::CodeZero
 			}
 		}
 		m_pActor->destroy();
-		co_return;
-	}
-	void DeadState::update()
-	{
 	}
 }
