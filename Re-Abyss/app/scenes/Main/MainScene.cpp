@@ -145,10 +145,13 @@ namespace abyss
 		}
 		bool onEscape() override
 		{
+			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			return false;
 		}
 		bool onClear() override
 		{
+			m_tempData->clearFlag(abyss::TempLevel::Exit);
+
 			if (m_onClearFunc) {
 				m_onClearFunc();
 			}
