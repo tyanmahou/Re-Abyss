@@ -1981,6 +1981,12 @@
     <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\GameClear\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\GameClear\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2965,6 +2971,8 @@
     <ClInclude Include="app\entities\Actor\Gimmick\CodeZeroBackEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Main.hpp" />
+    <ClInclude Include="app\components\Event\GameClear\Builder.hpp" />
+    <ClInclude Include="app\components\Event\GameClear\MainStream.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

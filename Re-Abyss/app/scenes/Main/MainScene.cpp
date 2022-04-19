@@ -30,6 +30,7 @@ namespace abyss
 
 		std::shared_ptr<Data_t> m_data;
 
+		std::function<void()> m_onClearFunc;
 	public:
 		Impl([[maybe_unused]] const MainScene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
@@ -148,9 +149,16 @@ namespace abyss
 		}
 		bool onClear() override
 		{
-			return false;
+			if (m_onClearFunc) {
+				m_onClearFunc();
+			}
+			return true;
 		}
 
+		void bindOnClear(const std::function<void()>& callback)
+		{
+			m_onClearFunc = callback;
+		}
 	};
 
 	MainScene::MainScene(const InitData& init) :
@@ -170,6 +178,11 @@ namespace abyss
 		    })
 			;
 #endif
+		m_pImpl->bindOnClear([this] {
+			// TODO Clear画面
+			this->changeScene(SceneName::Title, 0);
+		});
+
 	}
 	MainScene::~MainScene()
 	{}

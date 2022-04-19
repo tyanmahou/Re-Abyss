@@ -6,9 +6,12 @@ namespace abyss::UI::Fade::IrisOut
 {
     void Builder::Build(UIObj* pUi)
     {
+        pUi->setFilter(UI::Filter::Always);
+
         // メイン追加
         {
-            pUi->attach<FadeCtrl>(pUi)->setOrder(DrawOrder::UI::Fade);
+            pUi->attach<FadeCtrl>(pUi)
+                ->setOrder(DrawOrder::UI::Fade);
         }
     }
 }
