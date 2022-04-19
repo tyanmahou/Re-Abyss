@@ -20,6 +20,15 @@ namespace abyss
         void release();
 
         const s3d::Optional<s3d::String>& currentBgmPath()const;
+
+        void setBgm(const BackGroundMusic& bgm)
+        {
+            m_bgm = bgm;
+        }
+        const BackGroundMusic& getBgm() const
+        {
+            return m_bgm;
+        }
     private:
         BackGroundMusic m_bgm;
     };

@@ -2973,6 +2973,8 @@
     <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Main.hpp" />
     <ClInclude Include="app\components\Event\GameClear\Builder.hpp" />
     <ClInclude Include="app\components\Event\GameClear\MainStream.hpp" />
+    <ClInclude Include="app\scenes\base\ShareData.hpp" />
+    <ClInclude Include="app\scenes\base\GameData.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

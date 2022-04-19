@@ -32,6 +32,7 @@ namespace abyss
         {
             return m_currentPath;
         }
+
     private:
         s3d::Audio m_prev;
         s3d::Audio m_current;

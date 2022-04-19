@@ -1191,6 +1191,8 @@
     <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
+    <ClInclude Include="app\scenes\base\GameData.hpp" />
+    <ClInclude Include="app\scenes\base\ShareData.hpp" />
     <ClInclude Include="app\scenes\Main\MainSceneContext.hpp" />
     <ClInclude Include="app\scenes\Root\RootScene.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />

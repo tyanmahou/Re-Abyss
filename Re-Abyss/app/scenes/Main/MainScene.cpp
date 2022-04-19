@@ -151,7 +151,8 @@ namespace abyss
 		bool onClear() override
 		{
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
-
+			// BGMの引継ぎ
+			m_data->shareData.sound.bgm = m_system->mod<Sound>()->getBgm();
 			if (m_onClearFunc) {
 				m_onClearFunc();
 			}

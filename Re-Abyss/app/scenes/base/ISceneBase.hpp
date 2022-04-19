@@ -2,26 +2,10 @@
 #include <Siv3D.hpp>
 #include <abyss/debugs/HotReload/HotReload.hpp>
 #include <abyss/commons/Loading/Loading.hpp>
-
-#include <abyss/scenes/Main/MainSceneContext.hpp>
+#include <abyss/scenes/base/GameData.hpp>
 
 namespace abyss
 {
-    using SceneContext = std::variant<
-        s3d::None_t,
-        MainSceneContext
-    >;
-
-    /// <summary>
-    /// game shared data
-    /// </summary>
-    struct GameData
-    {
-        SceneContext context{s3d::none};
-        String fromScene;
-        String toScene;
-    };
-
     using AppScene = SceneManager<String, GameData>;
 
     class ISceneBase : public AppScene::Scene
