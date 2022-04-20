@@ -1987,6 +1987,9 @@
     <ClCompile Include="app\components\Event\GameClear\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\ClearResult\ClearResultScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2975,6 +2978,7 @@
     <ClInclude Include="app\components\Event\GameClear\MainStream.hpp" />
     <ClInclude Include="app\scenes\base\ShareData.hpp" />
     <ClInclude Include="app\scenes\base\GameData.hpp" />
+    <ClInclude Include="app\scenes\ClearResult\ClearResultScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

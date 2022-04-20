@@ -183,8 +183,8 @@ namespace abyss
 			;
 #endif
 		m_pImpl->bindOnClear([this] {
-			// TODO Clear画面
-			this->changeScene(SceneName::Title, 0);
+			// Clear画面に遷移
+			this->changeScene(SceneName::ClearResult, 0);
 		});
 
 	}

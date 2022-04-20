@@ -42,6 +42,7 @@ namespace abyss
         ABYSS_SCENE_NAME(Title);
         ABYSS_SCENE_NAME(SaveSelect);
         ABYSS_SCENE_NAME(Main);
+        ABYSS_SCENE_NAME(ClearResult);
 
 #undef ABYSS_SCENE_NAME
     }
