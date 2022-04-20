@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include <abyss/modules/Sound/BackGroundMusic.hpp>
 
 namespace abyss
 {
@@ -9,14 +8,5 @@ namespace abyss
     /// </summary>
 	struct ShareData
 	{
-        /// <summary>
-        /// サウンド関連
-        /// </summary>
-        struct SoundData
-        {
-            BackGroundMusic bgm;
-        };
-    public:
-        SoundData sound;
 	};
 }

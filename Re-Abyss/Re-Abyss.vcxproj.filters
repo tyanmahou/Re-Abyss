@@ -2979,6 +2979,7 @@
     <ClInclude Include="app\scenes\base\ShareData.hpp" />
     <ClInclude Include="app\scenes\base\GameData.hpp" />
     <ClInclude Include="app\scenes\ClearResult\ClearResultScene.hpp" />
+    <ClInclude Include="app\scenes\ClearResult\ClearResultSceneContext.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
