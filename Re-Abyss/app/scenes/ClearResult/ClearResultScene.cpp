@@ -5,11 +5,11 @@ namespace abyss
 	class ClearResultScene::Impl
 	{
 	public:
-		Impl([[maybe_unused]] const InitData& init)
-		{
-		}
+		Impl([[maybe_unused]] const InitData& init):
+			m_data(init._s)
+		{}
 	private:
-
+		std::shared_ptr<Data_t> m_data;
 	};
 
 	ClearResultScene::ClearResultScene(const InitData& init) :
