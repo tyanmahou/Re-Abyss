@@ -2980,6 +2980,7 @@
     <ClInclude Include="app\scenes\base\GameData.hpp" />
     <ClInclude Include="app\scenes\ClearResult\ClearResultScene.hpp" />
     <ClInclude Include="app\scenes\ClearResult\ClearResultSceneContext.hpp" />
+    <ClInclude Include="app\modules\Sfx\BossFade\BossFade.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

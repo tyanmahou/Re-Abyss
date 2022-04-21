@@ -5,11 +5,13 @@
 
 namespace abyss::Sfx
 {
-	class FlushFade
+	/// <summary>
+	/// Bossフェード
+	/// </summary>
+	class BossFade
 	{
 	public:
-		void start(double time = 1.0, const s3d::ColorF& color = s3d::Palette::White);
-		void start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color = s3d::Palette::White);
+		void start(double fadeInTime = 3.0, double fadeOutTime = 1.0);
 		bool isFadeInEnd() const;
 		bool isFadeOutEnd() const;
 
@@ -18,6 +20,6 @@ namespace abyss::Sfx
 	private:
 		TimeLite::Timer m_fadeInTimer;
 		TimeLite::Timer m_fadeOutTimer;
-		s3d::ColorF m_fadeColor{1, 0};
+		s3d::ColorF m_fadeColor{ 1, 0 };
 	};
 }

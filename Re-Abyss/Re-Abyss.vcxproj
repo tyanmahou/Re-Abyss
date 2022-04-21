@@ -1177,6 +1177,7 @@
     <ClInclude Include="app\modules\Novel\base\TalkObj.hpp" />
     <ClInclude Include="app\modules\Novel\CharaTable.hpp" />
     <ClInclude Include="app\modules\Novel\Novels.hpp" />
+    <ClInclude Include="app\modules\Sfx\BossFade\BossFade.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\Flush.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\FlushFade.hpp" />
     <ClInclude Include="app\modules\Sfx\PostEffects.hpp" />
