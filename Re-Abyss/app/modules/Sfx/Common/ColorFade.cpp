@@ -1,28 +1,28 @@
-#include <abyss/modules/Sfx/Flush/FlushFade.hpp>
+#include <abyss/modules/Sfx/Common/ColorFade.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Sfx
 {
-	void FlushFade::start(double time, const s3d::ColorF& color)
+	void ColorFade::start(double time, const s3d::ColorF& color)
 	{
 		this->start(time / 2.0, time / 2.0, color);
 	}
-	void FlushFade::start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color)
+	void ColorFade::start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color)
 	{
 		m_fadeColor = color;
 		m_fadeColor.a = 0;
 		m_fadeInTimer.reset(fadeInTime);
 		m_fadeOutTimer.reset(fadeOutTime);
 	}
-	bool FlushFade::isFadeInEnd() const
+	bool ColorFade::isFadeInEnd() const
 	{
 		return m_fadeInTimer.isEnd();
 	}
-	bool FlushFade::isFadeOutEnd() const
+	bool ColorFade::isFadeOutEnd() const
 	{
 		return m_fadeOutTimer.isEnd();
 	}
-	void FlushFade::update(double dt)
+	void ColorFade::update(double dt)
 	{
 		dt = m_fadeInTimer.update(dt);
 		dt = m_fadeOutTimer.update(dt);
@@ -35,7 +35,7 @@ namespace abyss::Sfx
 			m_fadeColor.a = 0;
 		}
 	}
-	void FlushFade::draw() const
+	void ColorFade::draw() const
 	{
 		if (m_fadeColor.a <= 0) {
 			return;

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/modules/Sfx/Flush/FlushFade.hpp>
+#include <abyss/modules/Sfx/Common/ColorFade.hpp>
 
 namespace abyss::Sfx
 {
@@ -23,7 +23,7 @@ namespace abyss::Sfx
 		}
 	private:
 		Manager* m_pManager;
-		FlushFade m_base;
-		FlushFade m_front;
+		ColorFade m_base;
+		ColorFade m_front;
 	};
 }

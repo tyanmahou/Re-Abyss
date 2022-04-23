@@ -5,7 +5,7 @@
 
 namespace abyss::Sfx
 {
-	class FlushFade
+	class ColorFade
 	{
 	public:
 		void start(double time = 1.0, const s3d::ColorF& color = s3d::Palette::White);
@@ -18,6 +18,6 @@ namespace abyss::Sfx
 	private:
 		TimeLite::Timer m_fadeInTimer;
 		TimeLite::Timer m_fadeOutTimer;
-		s3d::ColorF m_fadeColor{1, 0};
+		s3d::ColorF m_fadeColor{ 1, 0 };
 	};
 }

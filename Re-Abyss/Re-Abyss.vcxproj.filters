@@ -1753,9 +1753,6 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AppearState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Sfx\Flush\FlushFade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Sfx\Flush\Flush.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1988,6 +1985,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\ClearResult\ClearResultScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\BossFade\BossFade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\SkipFade\SkipFade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Common\ColorFade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2887,7 +2893,6 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AppearState.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\Flush.hpp" />
-    <ClInclude Include="app\modules\Sfx\Flush\FlushFade.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\State\RotateState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Tentacle\Kind.hpp" />
@@ -2981,6 +2986,8 @@
     <ClInclude Include="app\scenes\ClearResult\ClearResultScene.hpp" />
     <ClInclude Include="app\scenes\ClearResult\ClearResultSceneContext.hpp" />
     <ClInclude Include="app\modules\Sfx\BossFade\BossFade.hpp" />
+    <ClInclude Include="app\modules\Sfx\SkipFade\SkipFade.hpp" />
+    <ClInclude Include="app\modules\Sfx\Common\ColorFade.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

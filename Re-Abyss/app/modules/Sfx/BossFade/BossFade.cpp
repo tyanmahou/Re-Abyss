@@ -1,6 +1,5 @@
 #include <abyss/modules/Sfx/BossFade/BossFade.hpp>
 #include <Siv3D.hpp>
-#include "BossFade.hpp"
 
 namespace abyss::Sfx
 {
