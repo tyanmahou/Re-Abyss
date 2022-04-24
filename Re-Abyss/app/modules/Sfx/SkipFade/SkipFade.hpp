@@ -14,12 +14,7 @@ namespace abyss::Sfx
 	public:
 		void update(double dt);
 		void draw() const;
-		void setManager(Manager* pManager)
-		{
-			m_pManager = pManager;
-		}
 	private:
-		Manager* m_pManager;
 		ColorFade m_fade;
 	};
 }

@@ -1,9 +1,5 @@
 #include <abyss/modules/Sfx/SkipFade/SkipFade.hpp>
 
-#include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/DrawManager/DrawManager.hpp>
-#include <abyss/modules/DrawManager/DrawOrder.hpp>
-
 namespace abyss::Sfx
 {
 	void SkipFade::start(double time, const s3d::ColorF& color)
@@ -28,8 +24,6 @@ namespace abyss::Sfx
 	}
 	void SkipFade::draw() const
 	{
-		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
-			m_fade.draw();
-		}, DrawOrder::UI::Flush);
+		m_fade.draw();
 	}
 }
