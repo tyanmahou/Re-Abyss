@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Sfx/Flush/Flush.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::KingDux
 
 		// Flush
 		{
-			auto*const flush = m_pActor->getModule<Flush>();
+			auto*const flush = m_pActor->getModule<SpecialEffects>()->flush();
 			flush->start(0.5);
 
 			co_await Coro::WaitUntil([=] {

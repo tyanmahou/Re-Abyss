@@ -1996,6 +1996,9 @@
     <ClCompile Include="app\modules\Sfx\Common\ColorFade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\SpecialEffects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -2988,6 +2991,7 @@
     <ClInclude Include="app\modules\Sfx\BossFade\BossFade.hpp" />
     <ClInclude Include="app\modules\Sfx\SkipFade\SkipFade.hpp" />
     <ClInclude Include="app\modules\Sfx\Common\ColorFade.hpp" />
+    <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

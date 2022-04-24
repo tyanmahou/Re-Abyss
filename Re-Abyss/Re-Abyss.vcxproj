@@ -592,6 +592,7 @@
     <ClCompile Include="app\modules\Sfx\PostEffects.cpp" />
     <ClCompile Include="app\modules\Sfx\Scanline\Scanline.cpp" />
     <ClCompile Include="app\modules\Room\RoomManager.cpp" />
+    <ClCompile Include="app\modules\Sfx\SpecialEffects.cpp" />
     <ClCompile Include="app\modules\Sfx\SkipFade\SkipFade.cpp" />
     <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp" />
     <ClCompile Include="app\scenes\ClearResult\ClearResultScene.cpp" />
@@ -1186,6 +1187,7 @@
     <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
+    <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp" />
     <ClInclude Include="app\modules\Sfx\SkipFade\SkipFade.hpp" />
     <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />

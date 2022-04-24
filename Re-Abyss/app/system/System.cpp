@@ -118,8 +118,8 @@ namespace abyss::Sys
         // エフェクト更新
         mod<Effects>()->updateAll(dt);
 
-        // フラッシュ
-        mod<Flush>()->update(dt);
+        // Sfx
+        mod<SpecialEffects>()->update(dt);
 
         // 上位命令聴講
         mod<CycleMaster>()->listen();
@@ -154,8 +154,8 @@ namespace abyss::Sys
         mod<UIs>()->draw();
         // Effect Draw
         mod<Effects>()->draw();
-        // Flush Draw
-        mod<Flush>()->draw();
+        // SpecialEffects Draw
+        mod<SpecialEffects>()->draw();
 
 #if ABYSS_DEBUG
         Debug::DebugManager::AlertDrawerCount(drawer);

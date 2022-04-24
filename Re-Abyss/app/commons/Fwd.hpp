@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 /// <summary>
 ///  前方宣言
@@ -128,10 +128,10 @@ namespace abyss
 
 	namespace Sfx
 	{
-		class Flush;
+		class SpecialEffects;
 		class PostEffects;
 	}
-	using Sfx::Flush;
+	using Sfx::SpecialEffects;
 	using Sfx::PostEffects;
 
 	namespace Devs

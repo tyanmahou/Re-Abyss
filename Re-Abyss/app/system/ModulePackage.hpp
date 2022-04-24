@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <abyss/system/base/Config.hpp>
 #include <abyss/system/base/Modules.hpp>
@@ -22,7 +22,7 @@
 #include <abyss/modules/Novel/Novels.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/modules/Sfx/Flush/Flush.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
@@ -58,7 +58,7 @@ namespace abyss::Sys
         mod_if<config.isStage, Novels>,
         mod_if<config.isStage, PhysicsManager>,
         mod_if<config.isStage, RoomManager>,
-        Flush,
+        SpecialEffects,
         PostEffects,
         Sound,
         mod_if<config.isStage, Stage>,

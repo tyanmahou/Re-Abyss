@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss
@@ -31,7 +31,7 @@ namespace abyss
         CycleMaster* m_pCycleMaster = nullptr;
         RoomManager* m_pRoom = nullptr;
         Novels* m_pNovels = nullptr;
-        Flush* m_pFlush = nullptr;
+        SpecialEffects* m_pSfx = nullptr;
         WorldComment* m_pWorldComment = nullptr;
     public:
 
@@ -79,7 +79,7 @@ namespace abyss
 
         Manager& set(Novels* pNovels);
 
-        Manager& set(Flush* pFlush);
+        Manager& set(SpecialEffects* pSfx);
 
         Manager& set(WorldComment* pWorldComment);
 

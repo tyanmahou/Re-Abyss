@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/DeadState.hpp>
 
 #include <abyss/modules/Effect/Effects.hpp>
-#include <abyss/modules/Sfx/Flush/Flush.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::KingDux
 			.setAnimeTime(0);
 
 		// 画面フラッシュ
-		m_pActor->getModule<Flush>()->start(0, 0.5);
+		m_pActor->getModule<SpecialEffects>()->flush()->start(0, 0.5);
 
 		// 当たりむこう
 		m_pActor->find<ColCtrl>()->setActive(false);
@@ -47,7 +47,7 @@ namespace abyss::Actor::Enemy::KingDux
 			for (int32 count : step(20)) {
 				if (count == 4 || count == 5 || count == 11 || count == 12) {
 					// 画面フラッシュ
-					m_pActor->getModule<Flush>()->start(0.1);
+					m_pActor->getModule<SpecialEffects>()->flush()->start(0.1);
 				}
 				auto effectPos = s3d::RandomVec2(region);
 				m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);

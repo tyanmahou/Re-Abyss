@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/State/WaitState.hpp>
 
 #include <abyss/modules/Effect/Effects.hpp>
-#include <abyss/modules/Sfx/Flush/Flush.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/InvincibleColor.hpp>
 #include <abyss/components/Effect/Misc/ShockWaveDist/Builder.hpp>
@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::KingDux
 		m_motion->setAnimeTime(0.0);
 
 		// 画面フラッシュ
-		m_pActor->getModule<Flush>()->start(0, 0.5);
+		m_pActor->getModule<SpecialEffects>()->flush()->start(0, 0.5);
 	}
 	void AngryState::end()
 	{

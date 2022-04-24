@@ -114,9 +114,9 @@ namespace abyss
         m_pNovels = pNovels;
         return *this;
     }
-    Manager& Manager::set(Flush* pFlush)
+    Manager& Manager::set(SpecialEffects* pSfx)
     {
-        m_pFlush = pFlush;
+        m_pSfx = pSfx;
         return *this;
     }
 
@@ -172,8 +172,8 @@ namespace abyss
             return m_pRoom;
         } else if constexpr (std::is_same_v<Novels, T>) {
             return m_pNovels;
-        } else if constexpr (std::is_same_v<Flush, T>) {
-            return m_pFlush;
+        } else if constexpr (std::is_same_v<SpecialEffects, T>) {
+            return m_pSfx;
         } else if constexpr (std::is_same_v<WorldComment, T>) {
             return m_pWorldComment;
         }
@@ -200,6 +200,6 @@ namespace abyss
     template CycleMaster* Manager::getModule<CycleMaster>() const;
     template RoomManager* Manager::getModule<RoomManager>() const;
     template Novels* Manager::getModule<Novels>() const;
-    template Flush* Manager::getModule<Flush>() const;
+    template SpecialEffects* Manager::getModule<SpecialEffects>() const;
     template WorldComment* Manager::getModule<WorldComment>() const;
 }
