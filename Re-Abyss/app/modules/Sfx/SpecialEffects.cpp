@@ -10,12 +10,14 @@ namespace abyss::Sfx
 	{
 		m_flush.update(dt);
 		m_skipFade.update(dt);
+		m_bossFade.update(dt);
 	}
 	void SpecialEffects::draw() const
 	{
 		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
 			m_flush.draw();
 			m_skipFade.draw();
+			m_bossFade.draw();
 		}, DrawOrder::UI::Flush);
 	}
 }

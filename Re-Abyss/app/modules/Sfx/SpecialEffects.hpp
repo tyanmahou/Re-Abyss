@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/modules/Sfx/Flush/Flush.hpp>
 #include <abyss/modules/Sfx/SkipFade/SkipFade.hpp>
+#include <abyss/modules/Sfx/BossFade/BossFade.hpp>
 
 namespace abyss::Sfx
 {
@@ -18,6 +19,10 @@ namespace abyss::Sfx
 		{
 			return &m_skipFade;
 		}
+		BossFade* bossFade()
+		{
+			return &m_bossFade;
+		}
 		void setManager(Manager* pManager)
 		{
 			m_pManager = pManager;
@@ -29,5 +34,6 @@ namespace abyss::Sfx
 		Manager* m_pManager;
 		Flush m_flush;
 		SkipFade m_skipFade;
+		BossFade m_bossFade;
 	};
 }
