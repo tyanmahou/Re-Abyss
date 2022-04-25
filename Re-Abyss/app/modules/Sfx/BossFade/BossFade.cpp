@@ -3,10 +3,14 @@
 
 namespace abyss::Sfx
 {
-	void BossFade::start(double fadeInTime, double fadeOutTime)
-	{
+	void BossFade::start(
+		double fadeInTime,
+		double fadeWaitTime,
+		double fadeOutTime
+	) {
 		m_fadeColor = s3d::ColorF(0, 0);
 		m_fadeInTimer.reset(fadeInTime);
+		m_fadeWaitTimer.reset(fadeWaitTime);
 		m_fadeOutTimer.reset(fadeOutTime);
 	}
 	bool BossFade::isFadeInEnd() const
@@ -20,6 +24,7 @@ namespace abyss::Sfx
 	void BossFade::update(double dt)
 	{
 		dt = m_fadeInTimer.update(dt);
+		dt = m_fadeWaitTimer.update(dt);
 		dt = m_fadeOutTimer.update(dt);
 
 		if (!m_fadeInTimer.isEnd()) {

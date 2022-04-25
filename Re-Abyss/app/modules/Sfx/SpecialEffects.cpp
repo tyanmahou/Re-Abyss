@@ -15,9 +15,9 @@ namespace abyss::Sfx
 	void SpecialEffects::draw() const
 	{
 		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
+			m_bossFade.draw();
 			m_flush.draw();
 			m_skipFade.draw();
-			m_bossFade.draw();
 		}, DrawOrder::UI::Flush);
 	}
 }

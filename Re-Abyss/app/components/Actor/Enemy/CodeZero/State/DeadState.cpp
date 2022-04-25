@@ -69,6 +69,9 @@ namespace abyss::Actor::Enemy::CodeZero
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 		// 爆発
 		{
+			// ボスフェード開始
+			m_pActor->getModule<SpecialEffects>()->bossFade()->start();
+
 			auto region = m_pActor->find<Body>()->region();
 
 			for (int32 count : step(20)) {

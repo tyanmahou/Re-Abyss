@@ -11,7 +11,11 @@ namespace abyss::Sfx
 	class BossFade
 	{
 	public:
-		void start(double fadeInTime = 3.0, double fadeOutTime = 1.0);
+		void start(
+			double fadeInTime = 6.0,
+			double fadeWaitTime = 2.0,
+			double fadeOutTime = 1.0
+		);
 		bool isFadeInEnd() const;
 		bool isFadeOutEnd() const;
 
@@ -19,6 +23,7 @@ namespace abyss::Sfx
 		void draw() const;
 	private:
 		TimeLite::Timer m_fadeInTimer;
+		TimeLite::Timer m_fadeWaitTimer;
 		TimeLite::Timer m_fadeOutTimer;
 		s3d::ColorF m_fadeColor{ 1, 0 };
 	};
