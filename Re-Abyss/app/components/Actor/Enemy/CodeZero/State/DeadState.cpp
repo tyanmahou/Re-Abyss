@@ -10,6 +10,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 
 #include <Siv3D.hpp>
 
@@ -70,12 +71,15 @@ namespace abyss::Actor::Enemy::CodeZero
 		// 爆発
 		{
 			// ボスフェード開始
-			m_pActor->getModule<SpecialEffects>()->bossFade()->start();
+			auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();
+			bossFade->start();
 
 			auto region = m_pActor->find<Body>()->region();
 
-			for (int32 count : step(20)) {
-				if (count == 4 || count == 5 || count == 11 || count == 12) {
+			for (int32 count : step(45)) {
+				if (count == 4 || count == 5 || count == 11 || count == 12
+				 || count == 18 || count == 19 || count == 25 || count == 26
+					) {
 					// 画面フラッシュ
 					m_pActor->getModule<SpecialEffects>()->flush()->start(0.1);
 				}
@@ -85,6 +89,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
 				co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.2);
 			}
+			co_await Coro::WaitUntil([&] {
+				return bossFade->isFadeOutEnd();
+			});
 		}
 		m_pActor->destroy();
 	}
