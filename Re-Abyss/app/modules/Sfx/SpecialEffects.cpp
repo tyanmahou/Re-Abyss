@@ -15,9 +15,15 @@ namespace abyss::Sfx
 	void SpecialEffects::draw() const
 	{
 		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
-			m_bossFade.draw();
-			m_flush.draw();
-			m_skipFade.draw();
+			if (m_bossFade.isActive()) {
+				m_bossFade.draw();
+			}
+			if (m_flush.isActive()) {
+				m_flush.draw();
+			}
+			if (m_skipFade.isActive()) {
+				m_skipFade.draw();
+			}
 		}, DrawOrder::UI::Flush);
 	}
 }

@@ -21,6 +21,24 @@ namespace abyss::Sfx
 	{
 		return m_fadeOutTimer.isEnd();
 	}
+	double BossFade::getFadeInRate() const
+	{
+		return m_fadeInTimer.rate();
+	}
+	double BossFade::getFadeWaitRate() const
+	{
+		return m_fadeWaitTimer.rate();
+	}
+	double BossFade::getFadeOutRate() const
+	{
+		return m_fadeOutTimer.rate();
+	}
+	bool BossFade::isActive() const
+	{
+		return !m_fadeInTimer.isEnd()
+			|| !m_fadeWaitTimer.isEnd()
+			|| !m_fadeOutTimer.isEnd();
+	}
 	void BossFade::update(double dt)
 	{
 		dt = m_fadeInTimer.update(dt);

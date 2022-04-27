@@ -11,6 +11,8 @@ namespace abyss::Sfx
 		void start(double fadeInTime, double fadeOutTime, const s3d::ColorF& color = s3d::Palette::White);
 		bool isFadeInEnd() const;
 		bool isFadeOutEnd() const;
+
+		bool isActive() const;
 	public:
 		void update(double dt);
 		void draw() const;

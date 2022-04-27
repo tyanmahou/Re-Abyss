@@ -18,6 +18,10 @@ namespace abyss::Sfx
 	{
 		return m_fade.isFadeOutEnd();
 	}
+	bool SkipFade::isActive() const
+	{
+		return !isFadeInEnd() || !isFadeOutEnd();
+	}
 	void SkipFade::update(double dt)
 	{
 		m_fade.update(dt);

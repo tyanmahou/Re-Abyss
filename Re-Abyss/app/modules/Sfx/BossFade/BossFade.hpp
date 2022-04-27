@@ -19,6 +19,12 @@ namespace abyss::Sfx
 		bool isFadeInEnd() const;
 		bool isFadeOutEnd() const;
 
+		double getFadeInRate() const;
+		double getFadeWaitRate() const;
+		double getFadeOutRate() const;
+
+		bool isActive() const;
+
 		void update(double dt);
 		void draw() const;
 	private:
