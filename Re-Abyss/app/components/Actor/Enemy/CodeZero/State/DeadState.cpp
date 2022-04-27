@@ -55,7 +55,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 	}
 
-	Task<> abyss::Actor::Enemy::CodeZero::DeadState::onEvent(Ref<Novel::BossTalk0_1::SignalCtrl> signalCtrl)
+	Task<> DeadState::onEvent(Ref<Novel::BossTalk0_1::SignalCtrl> signalCtrl)
 	{
 		while (!signalCtrl->isRequestedDead()) {
 			co_yield{};
@@ -65,7 +65,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		signalCtrl->setDeadEnd();
 	}
 
-	Task<> abyss::Actor::Enemy::CodeZero::DeadState::commonDead()
+	Task<> DeadState::commonDead()
 	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 		// 爆発
