@@ -1,5 +1,8 @@
 #include <abyss/components/Actor/Common/BossFadeMask.hpp>
 
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
+
 namespace abyss::Actor
 {
     BossFadeMask::BossFadeMask(ActorObj* pActor):
@@ -21,8 +24,15 @@ namespace abyss::Actor
 
     void BossFadeMask::onDraw() const
     {
-        if (m_drawer) {
-            m_drawer->onDraw();
+        auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();
+        if (!bossFade->isActive()) {
+            return;
+        }
+        {
+            auto recordBegin = bossFade->record();
+            if (m_drawer) {
+                m_drawer->onDraw();
+            }
         }
     }
     DrawLayer BossFadeMask::getLayer() const
