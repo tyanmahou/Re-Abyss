@@ -3,6 +3,9 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IDraw.hpp>
 
+#include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
+
 namespace abyss::Actor
 {
 	class IBossFadeMaskDrawer
@@ -45,6 +48,22 @@ namespace abyss::Actor
         ActorObj* m_pActor;
         std::shared_ptr<IBossFadeMaskDrawer> m_drawer;
 	};
+
+    class BossFadeMaskFromMainVModel : public IBossFadeMaskDrawer
+    {
+    public:
+        BossFadeMaskFromMainVModel(ActorObj* pActor);
+    public:
+        void setup(Executer executer) override;
+        void onStart() override;
+
+        void onDraw() override;
+        DrawLayer getLayer() const override;
+        double getOrder() const override;
+    private:
+        ActorObj* m_pActor;
+        Ref<VModel> m_view;
+    };
 }
 
 namespace abyss

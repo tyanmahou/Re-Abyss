@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
+#include "BossFadeMask.hpp"
 
 namespace abyss::Actor
 {
@@ -48,5 +49,30 @@ namespace abyss::Actor
             return m_drawer->getOrder();
         }
         return 0.0;
+    }
+
+    //-----------------------------------
+    BossFadeMaskFromMainVModel::BossFadeMaskFromMainVModel(ActorObj* pActor):
+        m_pActor(pActor)
+    {}
+    void BossFadeMaskFromMainVModel::setup(Executer executer)
+    {
+        executer.on<IDraw>().addAfter<VModel>();
+    }
+    void BossFadeMaskFromMainVModel::onStart()
+    {
+        m_view = m_pActor->find<VModel>();
+    }
+    void BossFadeMaskFromMainVModel::onDraw()
+    {
+        m_view->onDraw();
+    }
+    DrawLayer BossFadeMaskFromMainVModel::getLayer() const
+    {
+        return m_view->getLayer();
+    }
+    double BossFadeMaskFromMainVModel::getOrder() const
+    {
+        return m_view->getOrder();
     }
 }
