@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
+#include <abyss/components/Actor/Common/DrawBase.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/IColorMul.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	class HideCtrl :
 		public IComponent,
 		public IPreDraw,
-		public IDraw,
+		public DrawBase,
 		public ColorAnim::IColorMul
 	{
 	public:
@@ -48,7 +48,7 @@ namespace abyss
     {
         using Base = MultiComponents<
 			Actor::IPreDraw,
-            Actor::IDraw,
+            Actor::DrawBase,
 			Actor::ColorAnim::IColorMul
         >;
     };

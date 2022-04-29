@@ -971,6 +971,7 @@
     <ClInclude Include="app\components\Actor\Common\Col\Node.hpp" />
     <ClInclude Include="app\components\Actor\Common\ComboHistory.hpp" />
     <ClInclude Include="app\components\Actor\Common\DebugInfo.hpp" />
+    <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModelUpdater.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />

@@ -2996,6 +2996,7 @@
     <ClInclude Include="app\modules\Sfx\Common\ColorFade.hpp" />
     <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp" />
     <ClInclude Include="app\components\Actor\Common\BossFadeMask.hpp" />
+    <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

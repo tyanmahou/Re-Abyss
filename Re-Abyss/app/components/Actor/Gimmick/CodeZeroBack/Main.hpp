@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
+#include <abyss/components/Actor/Common/DrawBase.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
@@ -11,7 +11,7 @@ namespace abyss::Actor::Gimmick::CodeZeroBack
     class Main :
         public IComponent,
         public IPreDraw,
-        public IDraw
+        public DrawBase
     {
     public:
         Main(ActorObj* pActor, const s3d::Vec2& pos);
@@ -36,7 +36,7 @@ namespace abyss
     {
         using Base = MultiComponents<
             Actor::IPreDraw,
-            Actor::IDraw
+            Actor::DrawBase
         >;
     };
 }

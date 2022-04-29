@@ -166,7 +166,8 @@ namespace abyss::Actor::Player
         // Light
         {
             pActor->attach<LightCtrl>(pActor)
-                ->setRadius(350.0);
+                ->setRadius(350.0)
+                .setOrder(DrawOrder::World::Player);
         }
         // UI制御
         {

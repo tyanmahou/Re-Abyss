@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
+#include <abyss/components/Actor/Common/DrawBase.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
@@ -11,7 +11,7 @@ namespace abyss::Actor::Player::Shot
     class EffectCtrl : 
         public IComponent,
         public IPreDraw,
-        public IDraw
+        public DrawBase
     {
     public:
         EffectCtrl(ActorObj* pActor);
@@ -35,7 +35,7 @@ namespace abyss
     {
         using Base = MultiComponents<
             Actor::IPreDraw,
-            Actor::IDraw
+            Actor::DrawBase
         >;
     };
 }
