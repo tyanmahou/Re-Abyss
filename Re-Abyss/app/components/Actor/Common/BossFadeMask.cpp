@@ -2,7 +2,6 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
-#include "BossFadeMask.hpp"
 
 namespace abyss::Actor
 {
@@ -63,7 +62,7 @@ namespace abyss::Actor
     {
         m_view = m_pActor->find<VModel>();
     }
-    void BossFadeMaskFromMainVModel::onDraw()
+    void BossFadeMaskFromMainVModel::onDraw() const
     {
         m_view->onDraw();
     }

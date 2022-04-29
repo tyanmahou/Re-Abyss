@@ -17,6 +17,7 @@
 #include <abyss/components/Actor/Common/CameraFixPos.hpp>
 #include <abyss/components/Actor/Common/LightCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/BossFadeMask.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/BodyCollider.hpp>
@@ -168,6 +169,12 @@ namespace abyss::Actor::Player
             pActor->attach<LightCtrl>(pActor)
                 ->setRadius(350.0)
                 .setOrder(DrawOrder::World::Player);
+        }
+        // BossFadeMask
+        {
+            pActor->attach<BossFadeMask>(pActor)
+                ->setDrawer<BossFadeMaskFromMainVModel>(pActor)
+                ;
         }
         // UI制御
         {

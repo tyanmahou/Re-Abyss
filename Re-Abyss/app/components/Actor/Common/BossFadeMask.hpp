@@ -57,7 +57,7 @@ namespace abyss::Actor
         void setup(Executer executer) override;
         void onStart() override;
 
-        void onDraw() override;
+        void onDraw() const override;
         DrawLayer getLayer() const override;
         double getOrder() const override;
     private:
