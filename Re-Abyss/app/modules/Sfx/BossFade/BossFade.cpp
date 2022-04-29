@@ -66,4 +66,8 @@ namespace abyss::Sfx
 		s3d::Transformer2D t2d(s3d::Mat3x2::Identity(), s3d::Transformer2D::Target::SetLocal);
 		s3d::Scene::Rect().draw(m_fadeColor);
 	}
+	s3d::ScopedRenderTarget2D BossFade::record() const
+	{
+		return s3d::ScopedRenderTarget2D(m_mask);
+	}
 }
