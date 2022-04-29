@@ -13,6 +13,8 @@ namespace abyss::Actor
 		virtual void setup([[maybe_unused]] Executer executer) {}
 		virtual void onStart() = 0;
 		virtual void onDraw() const = 0;
+        virtual DrawLayer getLayer() const = 0;
+        virtual double getOrder() const = 0;
 	};
 
 	class BossFadeMask:
@@ -37,6 +39,8 @@ namespace abyss::Actor
 
         void onStart() override;
 		void onDraw() const override;
+        DrawLayer getLayer() const override;
+        double getOrder() const override;
     private:
         ActorObj* m_pActor;
         std::shared_ptr<IBossFadeMaskDrawer> m_drawer;

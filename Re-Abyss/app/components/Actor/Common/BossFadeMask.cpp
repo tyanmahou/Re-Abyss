@@ -25,4 +25,18 @@ namespace abyss::Actor
             m_drawer->onDraw();
         }
     }
+    DrawLayer BossFadeMask::getLayer() const
+    {
+        if (m_drawer) {
+            return m_drawer->getLayer();
+        }
+        return DrawLayer::World;
+    }
+    double BossFadeMask::getOrder() const
+    {
+        if (m_drawer) {
+            return m_drawer->getOrder();
+        }
+        return 0.0;
+    }
 }
