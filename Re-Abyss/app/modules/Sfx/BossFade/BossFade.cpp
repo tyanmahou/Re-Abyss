@@ -1,8 +1,16 @@
 #include <abyss/modules/Sfx/BossFade/BossFade.hpp>
+
+#include <abyss/commons/Constants.hpp>
+#include <abyss/views/util/MaskUtil/MaskUtil.hpp>
+
 #include <Siv3D.hpp>
 
 namespace abyss::Sfx
 {
+	BossFade::BossFade() :
+		m_mask(Constants::GameScreenSize.asPoint())
+	{
+	}
 	void BossFade::start(
 		double fadeInTime,
 		double fadeWaitTime,
@@ -41,6 +49,8 @@ namespace abyss::Sfx
 	}
 	void BossFade::update(double dt)
 	{
+		m_mask.clear(ColorF(0, 0));
+
 		dt = m_fadeInTimer.update(dt);
 		dt = m_fadeWaitTimer.update(dt);
 		dt = m_fadeOutTimer.update(dt);
@@ -64,6 +74,11 @@ namespace abyss::Sfx
 			return;
 		}
 		s3d::Transformer2D t2d(s3d::Mat3x2::Identity(), s3d::Transformer2D::Target::SetLocal);
+
+		auto scopedMask = MaskUtil::Instance().notEqual([&] {
+			m_mask.draw(Constants::GameScreenOffset);
+		});
+
 		s3d::Scene::Rect().draw(m_fadeColor);
 	}
 	s3d::ScopedRenderTarget2D BossFade::record() const

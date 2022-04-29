@@ -13,6 +13,8 @@ namespace abyss::Sfx
 	class BossFade
 	{
 	public:
+		BossFade();
+
 		void start(
 			double fadeInTime = 6.0,
 			double fadeWaitTime = 2.0,

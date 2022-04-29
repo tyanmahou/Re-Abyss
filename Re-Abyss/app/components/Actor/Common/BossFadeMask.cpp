@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Actor
 {
@@ -29,6 +30,15 @@ namespace abyss::Actor
             return;
         }
         {
+            static BlendState blend{
+                true,
+                Blend::Zero,
+                Blend::Zero,
+                BlendOp::Add,
+                Blend::One,
+                Blend::One,
+            };
+            ScopedRenderStates2D state(blend);
             auto recordBegin = bossFade->record();
             if (m_drawer) {
                 m_drawer->onDraw();
