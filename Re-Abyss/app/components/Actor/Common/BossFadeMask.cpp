@@ -37,6 +37,7 @@ namespace abyss::Actor
                 BlendOp::Add,
                 Blend::One,
                 Blend::One,
+                BlendOp::Max
             };
             ScopedRenderStates2D state(blend);
             auto recordBegin = bossFade->record();
