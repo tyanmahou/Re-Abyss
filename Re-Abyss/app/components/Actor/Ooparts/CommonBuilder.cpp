@@ -1,6 +1,7 @@
 #include <abyss/components/Actor/Ooparts/CommonBuilder.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Common/BossFadeMask.hpp>
 #include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
 #include <abyss/components/Actor/Ooparts/KiraKiraCtrl.hpp>
 
@@ -35,6 +36,12 @@ namespace abyss::Actor::Ooparts
             pActor->attach<VModel>()
                 ->setLayer(parentLayer)
                 .setOrder(parentOrder - 0.1);
+        }
+        // BossFadeMask
+        {
+            pActor->attach<BossFadeMask>(pActor)
+                ->setDrawer<BossFadeMaskFromMainVModel>(pActor)
+                ;
         }
     }
 }
