@@ -424,6 +424,7 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Common\BossFadeMask.cpp" />
     <ClCompile Include="app\components\Event\GameClear\Builder.cpp" />
     <ClCompile Include="app\components\Event\GameClear\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\BossTalk0_1\Builder.cpp" />
@@ -1063,6 +1064,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Event\GameClear\Builder.hpp" />
     <ClInclude Include="app\components\Event\GameClear\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\BossTalk0_1\Builder.hpp" />
