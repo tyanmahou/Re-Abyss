@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/components/Effect/base/IDrawParts.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Effect/Common/LifeTime.hpp>
 #include <Siv3D/Vector2D.hpp>
@@ -14,7 +14,7 @@ namespace abyss::Effect::Misc::Fish
     class Main :
         public IComponent,
         public IUpdate,
-        public IDraw
+        public IDrawParts
     {
     public:
         Main(EffectObj* pObj, s3d::int32 fishId);
@@ -70,7 +70,7 @@ namespace abyss
     {
         using Base = MultiComponents<
             Effect::IUpdate,
-            Effect::IDraw
+            Effect::IDrawParts
         >;
     };
 }

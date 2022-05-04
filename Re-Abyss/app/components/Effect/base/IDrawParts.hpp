@@ -2,10 +2,10 @@
 
 namespace abyss::Effect
 {
-    class IDraw
+    class IDrawParts
     {
     public:
-        virtual ~IDraw() = default;
+        virtual ~IDrawParts() = default;
 
         virtual bool onDraw(double time) = 0;
     };

@@ -2633,7 +2633,7 @@
     <ClInclude Include="app\system\ModulePackage.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
     <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
-    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDrawParts.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
     <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
     <ClInclude Include="app\modules\Effect\Effects.hpp" />

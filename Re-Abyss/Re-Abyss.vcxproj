@@ -1374,7 +1374,7 @@
     <ClInclude Include="app\components\Decor\General\Common\Builder.hpp" />
     <ClInclude Include="app\components\Decor\Common\CustomDraw.hpp" />
     <ClInclude Include="app\components\Decor\Map\TileMap\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDrawParts.hpp" />
     <ClInclude Include="app\components\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Effect\Common\SivEffect.hpp" />
     <ClInclude Include="app\components\Event\Common\IGlobalTimeScale.hpp" />

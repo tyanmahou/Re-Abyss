@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/components/Effect/base/IDrawParts.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Effect::Actor
@@ -13,7 +13,7 @@ namespace abyss::Effect::Actor::Enemy::CodeZero::Kiran
     class Main :
         public IComponent,
         public IUpdate,
-        public IDraw
+        public IDrawParts
     {
     public:
         Main(EffectObj* pObj, const s3d::Vec2& pos);
@@ -36,7 +36,7 @@ namespace abyss
     {
         using Base = MultiComponents<
             Effect::IUpdate,
-            Effect::IDraw
+            Effect::IDrawParts
         >;
     };
 }

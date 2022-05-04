@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/components/Effect/base/IDrawParts.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/ColorF.hpp>
 #include <Siv3D/HSV.hpp>
@@ -9,7 +9,7 @@ namespace abyss::Effect::Actor::Player::Shot
 {
     class Main :
         public IComponent,
-        public IDraw
+        public IDrawParts
     {
     public:
         Main(
@@ -35,7 +35,7 @@ namespace abyss
     struct ComponentTree<Effect::Actor::Player::Shot::Main>
     {
         using Base = MultiComponents<
-            Effect::IDraw
+            Effect::IDrawParts
         >;
     };
 }
