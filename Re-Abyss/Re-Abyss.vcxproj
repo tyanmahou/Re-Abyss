@@ -1064,6 +1064,7 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
     <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Event\GameClear\Builder.hpp" />
     <ClInclude Include="app\components\Event\GameClear\MainStream.hpp" />

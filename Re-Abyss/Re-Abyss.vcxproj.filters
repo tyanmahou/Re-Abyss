@@ -3001,6 +3001,7 @@
     <ClInclude Include="app\components\Actor\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
     <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp" />
+    <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
