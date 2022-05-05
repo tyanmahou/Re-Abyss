@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/components/Effect/base/IDrawParts.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/LocationCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
@@ -9,7 +9,7 @@ namespace abyss::Effect::Actor::Item::Recovery
 {
     class Flashs :
         public IComponent,
-        public IDraw
+        public IDrawParts
     {
         struct Flash
         {
@@ -44,7 +44,7 @@ namespace abyss
     struct ComponentTree<Effect::Actor::Item::Recovery::Flashs>
     {
         using Base = MultiComponents<
-            Effect::IDraw
+            Effect::IDrawParts
         >;
     };
 }
