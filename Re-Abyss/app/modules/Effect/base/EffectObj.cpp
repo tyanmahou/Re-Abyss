@@ -1,7 +1,9 @@
 #include <abyss/modules/Effect/base/EffectObj.hpp>
 
+#include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/components/Common/ClockCtrl.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
+#include <abyss/components/Effect/base/IDraw.hpp>
 #include <abyss/components/Effect/base/Drawer.hpp>
 
 namespace abyss::Effect
@@ -38,7 +40,12 @@ namespace abyss::Effect
     }
     void EffectObj::draw()
     {
-        m_drawer->draw();
+        auto drawer = this->getModule<DrawManager>();
+        for (auto&& com : this->finds<IDraw>()) {
+            drawer->add(com->getLayer(), [com] {
+                com->onDraw();
+            }, com->getOrder());
+        }
     }
     DrawLayer EffectObj::getLayer() const
     {

@@ -24,7 +24,7 @@ namespace abyss::Effect
         }
     public:
         void onStart() override;
-        void draw() const;
+        void onDraw() const override;
 
         DrawLayer getLayer() const override
         {

@@ -14,25 +14,21 @@ namespace abyss::Effect
         auto draws = m_pObj->finds<IDrawParts>();
         m_drawTasks.reserve(draws.size());
         for (auto&& com : draws) {
-            m_drawTasks.push_back([](EffectObj* pObj, Drawer* drawer, Ref<IDrawParts> com)->Coro::Task<> {
-                auto* drawManager = pObj->getModule<DrawManager>();
-                bool isEnd = false;
-                while (!isEnd) {
+            m_drawTasks.push_back([](EffectObj* pObj, Ref<IDrawParts> com)->Coro::Task<> {
+                while (true) {
                     if (!com) {
                         break;
                     }
-                    drawManager->add(drawer->getLayer(), [=, &isEnd] {
-                        if (!com->onDraw(pObj->timeSec())) {
-                            isEnd = true;
-                        }
-                    }, drawer->getOrder());
+                    if (!com->onDraw(pObj->timeSec())) {
+                        break;
+                    }
                     co_yield{};
                 }
                 co_return;
-            }(m_pObj, this, std::move(com)));
+            }(m_pObj, std::move(com)));
         }
     }
-    void Drawer::draw() const
+    void Drawer::onDraw() const
     {
         bool isActive = false;
         for (auto& t : m_drawTasks) {

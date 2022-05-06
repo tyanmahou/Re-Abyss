@@ -10,5 +10,7 @@ namespace abyss::Effect
 
 		virtual DrawLayer getLayer() const = 0;
 		virtual double getOrder() const = 0;
+
+		virtual void onDraw() const = 0;
 	};
 }
