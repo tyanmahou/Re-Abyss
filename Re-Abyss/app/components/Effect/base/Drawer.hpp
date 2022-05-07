@@ -42,3 +42,12 @@ namespace abyss::Effect
         double m_order = 1.0001;
     };
 }
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Effect::Drawer>
+    {
+        using Base = Effect::IDraw;
+    };
+}
