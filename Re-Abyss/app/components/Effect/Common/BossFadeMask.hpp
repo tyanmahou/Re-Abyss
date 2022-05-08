@@ -1,11 +1,19 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/components/Effect/base/Drawer.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Effect
 {
-	class BossFadeMask final : public IComponent
+	class BossFadeMask final :
+        public IComponent,
+        public IDraw
 	{
-
+    public:
+    private:
+        EffectObj* m_pObj;
+        Ref<Drawer> m_drawer;
 	};
 }
 
@@ -14,6 +22,6 @@ namespace abyss
     template<>
     struct ComponentTree<Effect::BossFadeMask>
     {
-        //using Base = Effect::IDraw;
+        using Base = Effect::IDraw;
     };
 }
