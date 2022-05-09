@@ -11,6 +11,14 @@ namespace abyss::Effect
         public IDraw
 	{
     public:
+        BossFadeMask(EffectObj* pObj);
+    public:
+        void onStart() override;
+
+        DrawLayer getLayer() const override;
+        double getOrder() const override;
+
+        void onDraw() const override;
     private:
         EffectObj* m_pObj;
         Ref<Drawer> m_drawer;
