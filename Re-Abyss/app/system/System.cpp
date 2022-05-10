@@ -218,24 +218,33 @@ namespace abyss::Sys
 #endif
                 }
             }
-#if ABYSS_DEBUG
-#define applyEx(flag, callback) apply(Debug::Menu::IsDebug(Debug::DebugFlag::flag), callback)
-#else
-#define applyEx(flag, callback) apply(callback)
-#endif
+
             // PostEffect適用
-            if constexpr (config.isStage) {
+            {
+                Light* light = nullptr;
+                Distortion* dist = nullptr;
+                if constexpr (config.isStage) {
+                    light = mod<Light>();
+                    dist = mod<Distortion>();
+                }
+#if ABYSS_DEBUG
+                if (!Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectLight)) {
+                    light = nullptr;
+                }
+                if (!Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectDistortion)) {
+                    dist = nullptr;
+                }
+#endif
+
                 snapshot->copyWorldToPost()
-                    .applyEx(PostEffectLight, [=] { return mod<Light>()->start(); })
+                    .apply(light != nullptr, [=] { return light->start(); })
                     .paint([=] {
                         // ライトより前
                         drawer->draw(DrawLayer::LightFront);
                     })
-                    .applyEx(PostEffectDistortion, [=] { return mod<Distortion>()->start(); })
+                    .apply(dist != nullptr, [=] { return dist->start(); })
                     .drawWorld(cameraView.getQuakeOffset());
-            } else {
-                snapshot->copyWorldToPost()
-                    .drawWorld(cameraView.getQuakeOffset());
+
             }
             // UI
             {
@@ -248,9 +257,18 @@ namespace abyss::Sys
                 drawer->draw(DrawLayer::UI);
             }
         }
-        snapshot->copySceneToPost()
-            .applyEx(PostEffectScanline, [=] { return mod<PostEffects>()->getScanline()->start(); })
-            .drawScene();
+        // 最終描画
+        {
+            Sfx::Scanline* scanline = mod<PostEffects>()->getScanline();
+#if ABYSS_DEBUG
+            if (!Debug::Menu::IsDebug(Debug::DebugFlag::PostEffectScanline)) {
+                scanline = nullptr;
+            }
+#endif
+            snapshot->copySceneToPost()
+                .apply(scanline != nullptr, [=] { return scanline->start(); })
+                .drawScene();
+        }
     }
 
     template class System<Config::Splash()>;
