@@ -8,7 +8,8 @@
 namespace abyss::Sfx
 {
 	BossFade::BossFade() :
-		m_mask(Constants::GameScreenSize.asPoint())
+		m_mask(Constants::GameScreenSize.asPoint()),
+		m_shader(Constants::GameScreenSize.asPoint())
 	{
 	}
 	void BossFade::start(
@@ -75,11 +76,11 @@ namespace abyss::Sfx
 		}
 		s3d::Transformer2D t2d(s3d::Mat3x2::Identity(), s3d::Transformer2D::Target::SetLocal);
 
-		auto scopedMask = MaskUtil::Instance().notEqual([&] {
-			m_mask.draw(Constants::GameScreenOffset);
+		auto scopedMask = m_shader.notEqual([&] {
+			m_mask.draw();
 		});
 
-		s3d::Scene::Rect().draw(m_fadeColor);
+		RectF(Constants::GameScreenSize).draw(m_fadeColor);
 	}
 	s3d::ScopedRenderTarget2D BossFade::record() const
 	{

@@ -14,7 +14,7 @@ namespace abyss::Sfx
 	}
 	void SpecialEffects::draw() const
 	{
-		m_pManager->getModule<DrawManager>()->add(DrawLayer::UI, [&] {
+		m_pManager->getModule<DrawManager>()->add(DrawLayer::LightFront, [&] {
 			if (m_bossFade.isActive()) {
 				m_bossFade.draw();
 			}
@@ -24,6 +24,6 @@ namespace abyss::Sfx
 			if (m_skipFade.isActive()) {
 				m_skipFade.draw();
 			}
-		}, DrawOrder::UI::Flush);
+		}, DrawOrder::LightFront::Flush);
 	}
 }

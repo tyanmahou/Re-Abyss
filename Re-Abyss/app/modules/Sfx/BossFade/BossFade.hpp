@@ -3,6 +3,7 @@
 #include <Siv3D/Palette.hpp>
 #include <Siv3D/RenderTexture.hpp>
 #include <Siv3D/ScopedRenderTarget2D.hpp>
+#include <abyss/views/Shader/Mask/MaskShader.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Sfx
@@ -40,5 +41,6 @@ namespace abyss::Sfx
 		s3d::ColorF m_fadeColor{ 1, 0 };
 
 		s3d::RenderTexture m_mask;
+		MaskShader m_shader;
 	};
 }

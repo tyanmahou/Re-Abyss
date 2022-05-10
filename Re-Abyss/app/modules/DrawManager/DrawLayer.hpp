@@ -27,6 +27,9 @@ namespace abyss
         // 装飾前方
         DecorFront,
 
+        // ライトより前
+        LightFront,
+
         // UI
         UI,
 

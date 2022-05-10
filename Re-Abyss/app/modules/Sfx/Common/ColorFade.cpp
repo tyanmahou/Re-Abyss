@@ -1,4 +1,6 @@
 #include <abyss/modules/Sfx/Common/ColorFade.hpp>
+
+#include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Sfx
@@ -41,6 +43,6 @@ namespace abyss::Sfx
 			return;
 		}
 		s3d::Transformer2D t2d(s3d::Mat3x2::Identity(), s3d::Transformer2D::Target::SetLocal);
-		s3d::Scene::Rect().draw(m_fadeColor);
+		RectF(Constants::GameScreenSize).draw(m_fadeColor);
 	}
 }

@@ -162,6 +162,7 @@ namespace abyss::Sys
 #endif
         auto* camera = mod<Camera>();
         auto cameraView = camera->createView();
+        auto cameraMat = cameraView.getMat();
         auto* snapshot = camera->getSnapshot();
         {
             auto sceneRender = snapshot->startSceneRender();
@@ -169,7 +170,7 @@ namespace abyss::Sys
             // in camera
             {
                 auto worldRender = snapshot->startWorldRender();
-                auto t2d = cameraView.getTransformer();
+                auto t2d = CameraView::Transformer(cameraMat);
 
                 auto* env = mod<Environment>();
                 // 背面
@@ -226,6 +227,10 @@ namespace abyss::Sys
             if constexpr (config.isStage) {
                 snapshot->copyWorldToPost()
                     .applyEx(PostEffectLight, [=] { return mod<Light>()->start(); })
+                    .paint([=] {
+                        // ライトより前
+                        drawer->draw(DrawLayer::LightFront);
+                    })
                     .applyEx(PostEffectDistortion, [=] { return mod<Distortion>()->start(); })
                     .drawWorld(cameraView.getQuakeOffset());
             } else {
@@ -235,7 +240,7 @@ namespace abyss::Sys
             // UI
             {
 #if ABYSS_DEBUG
-                auto t2d = cameraView.getTransformer();
+                auto t2d = CameraView::Transformer(cameraMat);
                 mod<WorldComment>()->draw();
 #endif
             }
