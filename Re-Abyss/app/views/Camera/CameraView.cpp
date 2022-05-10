@@ -7,6 +7,10 @@
 
 namespace abyss
 {
+	s3d::Transformer2D CameraView::Transformer(const s3d::Mat3x2& mat)
+	{
+		return s3d::Transformer2D(mat, TransformCursor::Yes, Transformer2D::Target::SetLocal);
+	}
 	CameraView::CameraView(const CameraModel* const pCamera, const s3d::Vec2& quakeOffset) :
 		m_pCamera(pCamera),
 		m_quakeOffset(quakeOffset)
@@ -69,6 +73,6 @@ namespace abyss
 	}
 	s3d::Transformer2D CameraView::getTransformer() const
 	{
-		return Transformer2D(this->getMat(), TransformCursor::Yes, Transformer2D::Target::SetLocal);
+		return Transformer(this->getMat());
 	}
 }

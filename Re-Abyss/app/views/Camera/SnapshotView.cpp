@@ -47,6 +47,15 @@ namespace abyss
         return *this;
     }
 
+    SnapshotView& SnapshotView::paint(std::function<void()> callback)
+    {
+        const auto& prev = this->getPostTexture();
+        auto postRender = this->startPostRender();
+        prev.draw();
+        callback();
+        return *this;
+    }
+
     void SnapshotView::drawWorld(const s3d::Vec2& offset) const
     {
         if (offset.isZero()) {

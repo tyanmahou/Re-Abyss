@@ -24,6 +24,8 @@ namespace abyss
 
         SnapshotView& apply(std::function<void(const s3d::Texture&)> callback);
 
+        SnapshotView& paint(std::function<void()> callback);
+
         template<class ScopedMaterialType>
         SnapshotView& apply(ScopedMaterialType&& callback)
         {
