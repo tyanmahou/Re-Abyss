@@ -279,6 +279,7 @@
     <ClCompile Include="app\components\Actor\Common\ShakeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\StateCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\VModelUpdater.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BossUtil.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\DeadCallback.cpp" />
@@ -976,6 +977,7 @@
     <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModelUpdater.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BossUtil.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\DeadCallback.hpp" />
