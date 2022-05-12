@@ -2005,6 +2005,9 @@
     <ClCompile Include="app\components\Effect\Common\BossFadeMask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Common\EmissiveCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3002,6 +3005,7 @@
     <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
     <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\components\Effect\Common\EmissiveCtrl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

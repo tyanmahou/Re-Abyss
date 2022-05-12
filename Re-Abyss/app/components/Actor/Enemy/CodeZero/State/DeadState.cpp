@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
+#include <abyss/components/Effect/Common/EmissiveCtrl.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
 
 #include <Siv3D.hpp>
@@ -88,6 +89,7 @@ namespace abyss::Actor::Enemy::CodeZero
 				auto effectPos = s3d::RandomVec2(region);
 				auto effectObj = m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);
 				effectObj->attach<Effect::BossFadeMask>(effectObj.get());
+				effectObj->attach<Effect::EmissiveCtrl>(effectObj.get());
 
 				m_pActor->find<AudioSource>()->playAt(U"Damage", effectPos);
 
