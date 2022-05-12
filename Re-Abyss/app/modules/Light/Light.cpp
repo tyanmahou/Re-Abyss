@@ -7,6 +7,11 @@ namespace abyss
         m_view.clear();
     }
 
+    void Light::add(std::function<void(double)> lightDraw)
+    {
+        m_view.add(std::move(lightDraw));
+    }
+
     void Light::addCircle(const s3d::Vec2& pos, double radius, double brightness)
     {
         m_view.addCircle(pos, radius, brightness);

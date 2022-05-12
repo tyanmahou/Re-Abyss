@@ -44,6 +44,11 @@ namespace abyss
         m_lights.clear();
         m_rt.clear(ColorF(0, 1));
     }
+    void LightView::add(std::function<void(double)> lightDraw)
+    {
+        ScopedLight light(m_rt);
+        lightDraw(m_time);
+    }
     void LightView::addCircle(const s3d::Vec2& pos, double radius, double brightness)
     {
         ScopedLight light(m_rt);
