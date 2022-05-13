@@ -197,9 +197,6 @@
     <ClCompile Include="app\views\Shader\Wave\WaveShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Actor\Player\Shot\ShotVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2137,7 +2134,6 @@
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
-    <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
     <ClInclude Include="app\concepts\Actor.hpp" />
     <ClInclude Include="app\concepts\Component.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />

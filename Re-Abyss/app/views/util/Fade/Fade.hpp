@@ -1,7 +1,8 @@
 #pragma once
 #include <functional>
-#include <Siv3D/Fwd.hpp>
+#include <Siv3D/Rect.hpp>
 #include <abyss/concepts/Common.hpp>
+#include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss
 {
@@ -26,18 +27,26 @@ namespace abyss
 	/// <summary>
 	/// フェードの種類関数群
 	/// </summary>
-	namespace Fade
+	class Fade : protected DynamicSingleton<Fade>
 	{
+		friend class DynamicSingleton<Fade>;
+	public:
 		/// <summary>
 		/// 通常のフェード
 		/// </summary>
-		void Default(double t);
+		static void Default(double t);
 
 		/// <summary>
 		/// 円形切り抜き
 		/// </summary>
-		void IrisOutRect(double t, const s3d::Vec2& pos, const s3d::RectF& rect);
+		static void IrisOutRect(double t, const s3d::Vec2& pos, const s3d::RectF& rect);
 
-		void IrisOut(double t, const s3d::Vec2& pos);
-	}
+		static void IrisOut(double t, const s3d::Vec2& pos);
+	private:
+		Fade();
+		~Fade();
+	private:
+		class Impl;
+		std::unique_ptr<Impl> m_pImpl;
+	};
 }

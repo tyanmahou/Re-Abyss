@@ -892,7 +892,6 @@
     <ClCompile Include="app\views\util\Fade\Fade.cpp" />
     <ClCompile Include="app\views\Shader\Wave\WaveShader.cpp" />
     <ClCompile Include="app\views\Light\LightView.cpp" />
-    <ClCompile Include="app\views\util\MaskUtil\MaskUtil.cpp" />
     <ClCompile Include="app\views\Shader\OutLine\OutLineShader.cpp" />
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp" />
@@ -1872,7 +1871,6 @@
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\Shader\Wave\WaveShader.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
-    <ClInclude Include="app\views\util\MaskUtil\MaskUtil.hpp" />
     <ClInclude Include="app\views\Shader\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />

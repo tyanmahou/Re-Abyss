@@ -2,73 +2,84 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/util/MaskUtil/MaskUtil.hpp>
-
-namespace
-{
-	Color g_fadeColor(35, 50, 80);
-
-	Image CreateImg(const Size& size = Scene::Size(), const Color& color = Palette::White)
-	{
-		Image img(size);
-		img.fill(color);
-		return std::move(img);
-	}
-
-	//微調整
-	bool FadeBase(const s3d::RectF& rect, double& t)
-	{
-		if (t > 0.75) {
-			rect.draw(g_fadeColor);
-			return false;
-		}
-
-		t *= (1 / 0.75);
-		return true;
-	}
-	bool FadeBase(double& t)
-	{
-		return ::FadeBase(Scene::Rect(), t);
-	}
-
-}
+#include <abyss/views/Shader/Mask/MaskShader.hpp>
 
 namespace abyss
 {
-	namespace Fade
+	class Fade::Impl
 	{
-		//デフォルト
-		void Default(double t)
+	public:
+		Impl():
+			m_maskShader(Constants::AppResolution)
+		{}
+
+
+		//微調整
+		bool fadeBase(const s3d::RectF& rect, double& t)
 		{
-			if (!::FadeBase(t)) {
+			if (t > 0.75) {
+				rect.draw(m_fadeColor);
+				return false;
+			}
+
+			t *= (1 / 0.75);
+			return true;
+		}
+		bool fadeBase(double& t)
+		{
+			return fadeBase(Scene::Rect(), t);
+		}
+		void defaultFade(double t)
+		{
+			if (!fadeBase(t)) {
 				return;
 			}
-			Scene::Rect().draw(g_fadeColor);
+			Scene::Rect().draw(m_fadeColor);
 		}
-
-		//3次関数的に広がる円形マスク
-		void IrisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
+		void irisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
 		{
-			if (!::FadeBase(rect, t)) {
+			if (!fadeBase(rect, t)) {
 				return;
 			}
 			static auto easing = [](double t) {
 				return ((t - 0.3f) * (t - 0.3f) * (t - 0.3f) + 0.027) / 0.37f;
 			};
-			auto mask = MaskUtil::Instance().notEqual([&] {
+			auto mask = m_maskShader.notEqual([&] {
 				auto alpha = EaseInOut(Easing::Linear, 1.0 - t);
 				Circle(pos, rect.w * easing(1.0 - t)).draw(ColorF(0, alpha));
-			});
-			rect.draw(g_fadeColor);
+				});
+			rect.draw(m_fadeColor);
 		}
-		void IrisOut(double t, const s3d::Vec2& pos)
-		{
-			IrisOutRect(t, pos, Scene::Rect());
-		}
-	}
 
-	void SetFadeColor(const s3d::Color & color)
+		void setFadeColor(const s3d::Color& color)
+		{
+			m_fadeColor = color;
+		}
+	private:
+		Color m_fadeColor{ 35, 50, 80 };
+
+		MaskShader m_maskShader;
+	};
+
+
+	Fade::Fade() :
+		m_pImpl(std::make_unique<Impl>())
+	{}
+	Fade::~Fade()
 	{
-		g_fadeColor = color;
+	}
+	//デフォルト
+	void Fade::Default(double t)
+	{
+		Instance()->m_pImpl->defaultFade(t);
+	}
+	//3次関数的に広がる円形マスク
+	void  Fade::IrisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
+	{
+		Instance()->m_pImpl->irisOutRect(t, pos, rect);
+	}
+	void Fade::IrisOut(double t, const s3d::Vec2& pos)
+	{
+		Instance()->m_pImpl->irisOutRect(t, pos, Scene::Rect());
 	}
 }
