@@ -28,10 +28,13 @@ namespace abyss::Actor::Enemy
 
 			auto region = pActor->find<Body>()->region();
 
+			const auto flushCounts = Array{4, 5, 11, 12, 18, 19, 25, 26};
+			size_t flushCountIndex = 0;
+			const size_t flushCountsSize = flushCounts.size();
+
 			for (int32 count : step(45)) {
-				if (count == 4 || count == 5 || count == 11 || count == 12
-					|| count == 18 || count == 19 || count == 25 || count == 26
-					) {
+				if (flushCountIndex < flushCountsSize && count == flushCounts[flushCountIndex]) {
+					++flushCountIndex;
 					// 画面フラッシュ
 					pActor->getModule<SpecialEffects>()->flush()->start(0.1);
 				}
