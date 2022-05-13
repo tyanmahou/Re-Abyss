@@ -3,8 +3,9 @@
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
-#include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BehaviorTest.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/BossFadeMask.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -31,6 +32,8 @@ namespace
     class ViewBinder;
     class ViewBinderHead;
     class ViewBinderEye;
+
+    class BossFadeMaskDrawer;
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -126,6 +129,9 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack)
                 .setOrder(DrawOrder::DecorBack::MostFront);
+
+            pActor->attach<BossFadeMask>(pActor)
+                ->setDrawer<BossFadeMaskDrawer>(pActor);
         }
     }
 }
@@ -226,5 +232,38 @@ namespace
         Ref<EyeCtrl> m_eye;
         Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<Head::EyeVM> m_view;
+    };
+
+    class BossFadeMaskDrawer : public IBossFadeMaskDrawer
+    {
+    public:
+        BossFadeMaskDrawer(ActorObj* pActor):
+            m_pActor(pActor)
+        {}
+    public:
+        void setup(Executer executer) override{}
+        void onStart() override
+        {
+            m_view = m_pActor->find<VModel>();
+            m_view2 = m_pActor->find<VModelSub<1>>();
+        }
+
+        void onDraw() const override
+        {
+            m_view->onDraw();
+            m_view2->onDraw();
+        }
+        DrawLayer getLayer() const override
+        {
+            return m_view->getLayer();
+        }
+        double getOrder() const override
+        {
+            return m_view->getOrder();
+        }
+    private:
+        ActorObj* m_pActor;
+        Ref<VModel> m_view;
+        Ref<VModelSub<1>> m_view2;
     };
 }
