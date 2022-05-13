@@ -1,6 +1,6 @@
 #include <abyss/views/UI/PlayerInfo/PlayerInfoVM.hpp>
+#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/views/util/MaskUtil/MaskUtil.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
 #include <Siv3D.hpp>
@@ -8,7 +8,8 @@
 namespace abyss::UI::PlayerInfo
 {
     PlayerInfoVM::PlayerInfoVM() :
-        m_texture(Resource::Assets::Main()->load(U"UI/PlayerInfo/PlayerInfo.json"))
+        m_texture(Resource::Assets::Main()->load(U"UI/PlayerInfo/PlayerInfo.json")),
+        m_shader(Constants::AppResolution)
     {}
 
     void PlayerInfoVM::draw()const
@@ -16,7 +17,7 @@ namespace abyss::UI::PlayerInfo
         // Face
         {
             m_texture(U"face_mask").draw(m_pos);
-            auto mask = MaskUtil::Instance().equal([&]() {
+            auto mask = m_shader.equal([&]() {
                 m_texture(U"face_mask").draw(m_pos);
             });
             if (m_face.texture) {

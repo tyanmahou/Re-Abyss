@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <Siv3D/TextureRegion.hpp>
+#include <abyss/views/Shader/Mask/MaskShader.hpp>
 
 namespace abyss::UI::PlayerInfo
 {
@@ -22,6 +23,8 @@ namespace abyss::UI::PlayerInfo
         // オーパーツ
         s3d::TextureRegion m_ooparts;
         s3d::String m_oopartsName;
+
+        MaskShader m_shader;
     public:
         PlayerInfoVM();
         virtual ~PlayerInfoVM() = default;
