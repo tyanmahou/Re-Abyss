@@ -1,7 +1,6 @@
 #include <abyss/modules/Sfx/BossFade/BossFade.hpp>
 
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/util/MaskUtil/MaskUtil.hpp>
 
 #include <Siv3D.hpp>
 
