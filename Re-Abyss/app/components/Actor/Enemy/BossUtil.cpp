@@ -92,7 +92,7 @@ namespace abyss::Actor::Enemy
 			multiTask.add([pActor]()->Coro::Task<> {
 				auto bossFadeMask = pActor->find<BossFadeMask>();
 
-				TimeLite::Timer timer{ 8.0 };
+				TimeLite::Timer timer{ 6.0 };
 				while (!timer.isEnd()) {
 					timer.update(pActor->deltaTime());
 					bossFadeMask->setRate(timer.rate());
