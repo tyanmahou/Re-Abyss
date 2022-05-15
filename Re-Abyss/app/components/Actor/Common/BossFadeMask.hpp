@@ -37,6 +37,12 @@ namespace abyss::Actor
             m_drawer = drawer;
             return *this;
         }
+
+        BossFadeMask& setRate(double rate)
+        {
+            m_rate = rate;
+            return *this;
+        }
     public:
         void setup(Executer executer) override;
 
@@ -47,6 +53,7 @@ namespace abyss::Actor
     private:
         ActorObj* m_pActor;
         std::shared_ptr<IBossFadeMaskDrawer> m_drawer;
+        double m_rate{ 1.0 };
 	};
 
     class BossFadeMaskFromMainVModel : public IBossFadeMaskDrawer

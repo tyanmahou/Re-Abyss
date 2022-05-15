@@ -30,6 +30,8 @@ namespace abyss::Actor
             return;
         }
         {
+            ScopedColorMul2D scopedColorMul(ColorF(1, m_rate));
+
             static BlendState blend{
                 true,
                 Blend::Zero,
