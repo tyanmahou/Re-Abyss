@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
-#include <abyss/components/Actor/Common/ColorAnim/IColorMul.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/ColorMulBase.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::ColorAnim
@@ -13,7 +13,7 @@ namespace abyss::Actor::ColorAnim
 	class BossDeadColor :
 		public IComponent,
 		public IPreDraw,
-		public IColorMul
+		public ColorMulBase
 	{
 	public:
 		BossDeadColor(ActorObj* pActor);
@@ -39,7 +39,7 @@ namespace abyss
 	{
 		using Base = MultiComponents<
 			Actor::IPreDraw,
-			Actor::ColorAnim::IColorMul
+			Actor::ColorAnim::ColorMulBase
 		>;
 	};
 }

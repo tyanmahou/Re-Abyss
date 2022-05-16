@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
-#include <abyss/components/Actor/Common/ColorAnim/IColorMul.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/ColorMulBase.hpp>
 
 namespace abyss::Actor::ColorAnim
 {
@@ -11,7 +11,7 @@ namespace abyss::Actor::ColorAnim
 	/// </summary>
 	class DamageColor : 
 		public IComponent,
-		public IColorMul
+		public ColorMulBase
 	{
 	public:
 		DamageColor(ActorObj* pActor);
@@ -31,7 +31,7 @@ namespace abyss
 	struct ComponentTree<Actor::ColorAnim::DamageColor>
 	{
 		using Base = MultiComponents<
-			Actor::ColorAnim::IColorMul
+			Actor::ColorAnim::ColorMulBase
 		>;
 	};
 }

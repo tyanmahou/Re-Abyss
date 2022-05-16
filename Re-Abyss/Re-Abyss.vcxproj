@@ -959,6 +959,7 @@
     <ClInclude Include="app\components\Actor\Common\ColCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\Collider.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\BossDeadColor.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\ColorMulBase.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\InvincibleColor.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\DamageColor.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\IColorAdd.hpp" />

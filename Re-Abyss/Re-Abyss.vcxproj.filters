@@ -3010,6 +3010,7 @@
     <ClInclude Include="app\components\Effect\Common\EmissiveCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BossUtil.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\BossDeadColor.hpp" />
+    <ClInclude Include="app\components\Actor\Common\ColorAnim\ColorMulBase.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
