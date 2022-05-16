@@ -23,7 +23,7 @@ namespace abyss::Actor::ColorAnim
 	}
 	s3d::ColorF BossDeadColor::colorMul() const
 	{
-		if (m_isStarted) {
+		if (!m_isStarted) {
 			return s3d::ColorF(1, 1);
 		}
 		return s3d::ColorF(

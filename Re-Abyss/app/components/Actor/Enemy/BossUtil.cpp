@@ -8,6 +8,7 @@
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BossFadeMask.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/BossDeadColor.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
@@ -90,6 +91,9 @@ namespace abyss::Actor::Enemy
 				});
 			});
 			multiTask.add([pActor]()->Coro::Task<> {
+				// 死亡カラーアニメ
+				pActor->find<ColorAnim::BossDeadColor>()->startAnim();
+
 				auto bossFadeMask = pActor->find<BossFadeMask>();
 
 				TimeLite::Timer timer{ 6.0 };

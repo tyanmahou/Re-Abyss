@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/BossDeadColor.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
@@ -128,6 +129,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
             pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
             pActor->find<ColorAnim::DamageColor>()->setIndexMaskMul(0x1);
+            // ボス撃破カラー
+            pActor->attach<ColorAnim::BossDeadColor>(pActor);
 
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack)
