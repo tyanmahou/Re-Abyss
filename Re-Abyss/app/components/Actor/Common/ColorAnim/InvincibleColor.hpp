@@ -3,17 +3,17 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
-#include <abyss/components/Actor/Common/ColorAnim/IColorAdd.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/ColorAddBase.hpp>
 
 namespace abyss::Actor::ColorAnim
 {
 	/// <summary>
-	/// ダメージカラー
+	/// 無敵カラー
 	/// </summary>
 	class InvincibleColor :
 		public IComponent,
 		public IPreDraw,
-		public IColorAdd
+		public ColorAddBase
 	{
 	public:
 		InvincibleColor(ActorObj* pActor);
@@ -40,7 +40,7 @@ namespace abyss
 	{
 		using Base = MultiComponents<
 			Actor::IPreDraw,
-			Actor::ColorAnim::IColorAdd
+			Actor::ColorAnim::ColorAddBase
 		>;
 	};
 }
