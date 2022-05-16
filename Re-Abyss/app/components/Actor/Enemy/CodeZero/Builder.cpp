@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
@@ -126,6 +127,8 @@ namespace abyss::Actor::Enemy::CodeZero
                 ->setBinder<ViewBinderEye>(pActor);
 
             pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
+            pActor->find<ColorAnim::DamageColor>()->setIndexMaskMul(0x1);
+
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack)
                 .setOrder(DrawOrder::DecorBack::MostFront);
