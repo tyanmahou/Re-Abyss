@@ -18,7 +18,7 @@ namespace abyss::Actor::ColorAnim
 	public:
 		BossDeadColor(ActorObj* pActor);
 
-		void startAnim(double blackFadeSec = 6.0, double alphaFadeSec = 2.0);
+		void startAnim(double blackFadeSec = 2.0, double alphaFadeSec = 2.0);
 	public:
 		void onPreDraw() override;
 

@@ -91,19 +91,23 @@ namespace abyss::Actor::Enemy
 				});
 			});
 			multiTask.add([pActor]()->Coro::Task<> {
-				// 死亡カラーアニメ
-				pActor->find<ColorAnim::BossDeadColor>()->startAnim();
-
 				auto bossFadeMask = pActor->find<BossFadeMask>();
-
+				bossFadeMask->setRate(0);
 				TimeLite::Timer timer{ 6.0 };
 				while (!timer.isEnd()) {
 					timer.update(pActor->deltaTime());
-					bossFadeMask->setRate(timer.rate());
+
+					auto rate = timer.rate();
+					bossFadeMask->setRate(rate);
 					co_yield{};
 				}
 			});
+			multiTask.add([pActor]()->Coro::Task<> {
+				co_await BehaviorUtil::WaitForSeconds(pActor, 2.0s);
 
+				// 死亡カラーアニメ
+				pActor->find<ColorAnim::BossDeadColor>()->startAnim(4.0);
+			});
 			co_await multiTask();
 		}
 		pActor->destroy();
