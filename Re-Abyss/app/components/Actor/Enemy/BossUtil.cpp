@@ -13,46 +13,10 @@
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
 #include <abyss/components/Effect/Common/EmissiveCtrl.hpp>
+#include <abyss/utils/Coro/Task/MultiTasks.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
 
 #include <Siv3D.hpp>
-
-namespace
-{
-	using namespace abyss;
-
-	class MultiTask
-	{
-	public:
-		MultiTask() = default;
-
-		MultiTask& add(const std::function<Coro::Task<>()>& task)
-		{
-			m_tasks.push_back(task);
-			return *this;
-		}
-
-		Coro::Task<> operator()()
-		{
-			s3d::Array<Coro::Task<>> tasks;
-			for (auto&& task : m_tasks) {
-				tasks.push_back(task());
-			}
-			while (true) {
-				for (auto&& task : tasks) {
-					task.moveNext();
-				}
-				if (tasks.all([](const Coro::Task<>& task) {return task.isDone(); })) {
-					break;
-				}
-				co_yield{};
-			}
-			co_return;
-		}
-	private:
-		s3d::Array<std::function<Coro::Task<>()>> m_tasks;
-	};
-}
 namespace abyss::Actor::Enemy
 {
 	Coro::Task<> BossUtil::DeadDemo(ActorObj* pActor)
@@ -60,9 +24,9 @@ namespace abyss::Actor::Enemy
 		co_await BehaviorUtil::WaitForSeconds(pActor, 1.0);
 		// 爆発
 		{
-			MultiTask multiTask{};
+			Coro::MultiTasks multiTasks{};
 			
-			multiTask.add([pActor]()->Coro::Task<>{
+			multiTasks.add([pActor]()->Coro::Task<>{
 				// ボスフェード開始
 				auto* bossFade = pActor->getModule<SpecialEffects>()->bossFade();
 				bossFade->start();
@@ -90,7 +54,7 @@ namespace abyss::Actor::Enemy
 					return bossFade->isFadeOutEnd();
 				});
 			});
-			multiTask.add([pActor]()->Coro::Task<> {
+			multiTasks.add([pActor]()->Coro::Task<> {
 				auto bossFadeMask = pActor->find<BossFadeMask>();
 				bossFadeMask->setRate(0);
 				TimeLite::Timer timer{ 6.0 };
@@ -102,13 +66,13 @@ namespace abyss::Actor::Enemy
 					co_yield{};
 				}
 			});
-			multiTask.add([pActor]()->Coro::Task<> {
+			multiTasks.add([pActor]()->Coro::Task<> {
 				co_await BehaviorUtil::WaitForSeconds(pActor, 2.0s);
 
 				// 死亡カラーアニメ
 				pActor->find<ColorAnim::BossDeadColor>()->startAnim(4.0);
 			});
-			co_await multiTask();
+			co_await multiTasks();
 		}
 		pActor->destroy();
 	}

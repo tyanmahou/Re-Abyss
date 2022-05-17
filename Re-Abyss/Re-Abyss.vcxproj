@@ -687,6 +687,7 @@
     <ClCompile Include="app\types\Temporary\TempKey.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
+    <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp" />
     <ClCompile Include="app\utils\Coro\Task\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
@@ -1230,6 +1231,7 @@
     <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Coro\AsyncGenerator\AsyncGenerator.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
+    <ClInclude Include="app\utils\Coro\Task\MultiTasks.hpp" />
     <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
