@@ -3,7 +3,6 @@
 #include <abyss/commons/Msg/Common.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/components/UI/Common/HierarchyCtrl.hpp>
 #include <abyss/components/UI/Common/FooterTips.hpp>
 
 #include <abyss/components/UI/SaveSelect/Main/ModeCtrl.hpp>
