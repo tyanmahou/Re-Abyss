@@ -690,6 +690,8 @@
     <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp" />
     <ClCompile Include="app\utils\Coro\Task\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\Root.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Mns\Evaluator\Evaluator.cpp" />
@@ -1233,6 +1235,9 @@
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
     <ClInclude Include="app\utils\Coro\Task\MultiTasks.hpp" />
     <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Root.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />

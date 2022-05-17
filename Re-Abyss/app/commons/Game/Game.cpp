@@ -16,12 +16,12 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Profiler/Profiler.hpp>
+#include <abyss/utils/DebugMenu/Root.hpp>
 
 namespace abyss
 {
 	class Game::Impl
 	{
-		AppScene m_scene;
 		void registerScene()
 		{
 			m_scene.add<RootScene>(SceneName::Root);
@@ -73,8 +73,15 @@ namespace abyss
 
 			InputManager::Update();
 
-			return m_scene.update();
+			bool ret = m_scene.update();
+
+			m_debugMenu.draw();
+
+			return ret;
 		}
+	private:
+		DebugMenu::Root m_debugMenu;
+		AppScene m_scene;
 	};
 
 	Game::Game() :

@@ -2014,6 +2014,12 @@
     <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\Root.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3016,6 +3022,9 @@
     <ClInclude Include="app\components\Actor\Common\ColorAnim\ColorMulBase.hpp" />
     <ClInclude Include="app\components\Actor\Common\ColorAnim\ColorAddBase.hpp" />
     <ClInclude Include="app\utils\Coro\Task\MultiTasks.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Root.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
