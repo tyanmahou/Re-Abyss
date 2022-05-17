@@ -38,6 +38,6 @@ namespace abyss::Actor::Enemy::Slime
         double m_time;
 
         Motion m_motion = Motion::Walk;
-        s3d::ColorF m_colorMul;
+        s3d::ColorF m_colorMul{1, 1};
     };
 }
