@@ -1,4 +1,5 @@
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
+#include <abyss/utils/DebugMenu/IItem.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::DebugMenu
@@ -19,8 +20,14 @@ namespace abyss::DebugMenu
 		}
 	}
 
-	void DefaultSkin::draw(const s3d::Array<s3d::StringView>& labels, const s3d::Optional<size_t> selectIndex) const
+	void DefaultSkin::draw(const s3d::Array<std::shared_ptr<INode>>& nodes, const s3d::Optional<size_t> selectIndex) const
 	{
+		s3d::Array<StringView> labels;
+		for (auto&& pNode : nodes) {
+			if (auto pItem = std::dynamic_pointer_cast<IItem>(pNode)) {
+				labels << pItem->label();
+			}
+		}
 		Vec2 size{ 100, 0 };
 		for (auto&& label : labels) {
 			auto ls = m_font(label).region().size;

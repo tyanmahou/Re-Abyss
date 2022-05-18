@@ -16,6 +16,9 @@ namespace abyss::DebugMenu
 	public:
 		Folder() = default;
 		Folder(
+			const s3d::String& key
+		);
+		Folder(
 			const s3d::String & key,
 			const s3d::String & label
 		);
@@ -40,6 +43,10 @@ namespace abyss::DebugMenu
 		}
 		Ref<IItem> focusItem() const override;
 		s3d::Optional<size_t> focusIndex() const override;
+		const s3d::Array<std::shared_ptr<INode>>& childNodes() const
+		{
+			return m_childs;
+		}
 	private:
 		s3d::String m_key, m_label;
 		s3d::Array<std::shared_ptr<IItem>> m_items;

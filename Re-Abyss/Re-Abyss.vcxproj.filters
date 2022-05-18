@@ -3045,6 +3045,7 @@
     <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

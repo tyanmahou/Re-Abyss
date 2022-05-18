@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <abyss/utils/DebugMenu/ISkin.hpp>
-#include <abyss/utils/DebugMenu/Folder.hpp>
+#include <abyss/utils/DebugMenu/RootFolder.hpp>
 
 namespace abyss::DebugMenu
 {
@@ -13,7 +13,7 @@ namespace abyss::DebugMenu
 		void update();
 		void draw() const;
 	private:
-		std::shared_ptr<Folder> m_rootFolder;
+		std::shared_ptr<RootFolder> m_rootFolder;
 		std::unique_ptr<ISkin> m_skin;
 	};
 }

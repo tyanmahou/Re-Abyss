@@ -1250,6 +1250,7 @@
     <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
     <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Root.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />

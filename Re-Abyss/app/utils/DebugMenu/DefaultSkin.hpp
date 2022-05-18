@@ -11,7 +11,7 @@ namespace abyss::DebugMenu
 	private:
 		void drawBase(const s3d::Vec2& size, bool isActive) const;
 	private:
-		void draw(const s3d::Array<s3d::StringView>& labels, const s3d::Optional<size_t> selectIndex) const override;
+		void draw(const s3d::Array<std::shared_ptr<INode>>& nodes, const s3d::Optional<size_t> selectIndex) const override;
 	private:
 		s3d::Font m_font;
 	};

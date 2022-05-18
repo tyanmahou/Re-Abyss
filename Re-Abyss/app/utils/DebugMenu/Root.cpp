@@ -4,18 +4,19 @@
 
 #include <abyss/utils/DebugMenu/BoolItem.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
+#include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::DebugMenu
 {
 	Root::Root():
-		m_rootFolder(std::make_shared<Folder>()),
+		m_rootFolder(std::make_shared<RootFolder>()),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
-		auto child = std::make_shared<Folder>();
-		child->add(std::make_shared<Button>(U"ButtonA", [] {Print << U"A"; }));
-		child->add(std::make_shared<Button>(U"ButtonB", [] {Print << U"B"; }));
+		auto child = std::make_shared<Folder>(U"NYAA");
+		child->add(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; }));
+		child->add(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; }));
 		m_rootFolder->add(child);
-		m_rootFolder->add(std::make_shared<Button>(U"ButtonC", [] {Print << U"C"; }));
+		m_rootFolder->add(std::make_shared<Button>(U"ButtonC", [] {Debug::Log << U"C"; }));
 	}
 	void Root::update()
 	{
@@ -23,13 +24,13 @@ namespace abyss::DebugMenu
 		while (folder) {
 			if (auto focus = folder->focusItem()) {
 				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
-					folder = childFolder;
-				} else {
-					break;
-				}
-			} else {
-				break;
+					if (childFolder->isOpened()) {
+						folder = childFolder;
+						continue;
+					}
+				} 
 			}
+			break;
 		}
 		if (folder) {
 			folder->onOpendUpdate();
@@ -40,12 +41,22 @@ namespace abyss::DebugMenu
 	}
 	void Root::draw() const
 	{
-		Transformer2D transformer(Mat3x2::Translate(10, 10), s3d::TransformCursor::Yes);
-		const s3d::Array<s3d::StringView> labels{
-			U"AAAAAA",
-			U"BBB",
-			U"CCCCCCC"
-		};
-		m_skin->draw(labels, 1);
+		Vec2 offset{ 10, 10 };
+		std::shared_ptr<IFolder> folder = m_rootFolder;
+		while (folder) {
+			Transformer2D transformer(Mat3x2::Translate(offset), s3d::TransformCursor::Yes);
+			m_skin->draw(folder->childNodes(), folder->focusIndex());
+			if (auto focus = folder->focusItem()) {
+				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
+					if (childFolder->isOpened()) {
+						folder = childFolder;
+						offset += Vec2{ 100, 10 };
+						continue;
+					}
+				}
+			}
+
+			break;
+		}
 	}
 }

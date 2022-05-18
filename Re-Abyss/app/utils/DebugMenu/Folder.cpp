@@ -3,6 +3,10 @@
 
 namespace abyss::DebugMenu
 {
+	Folder::Folder(const s3d::String& key):
+		Folder(key, key)
+	{
+	}
 	Folder::Folder(const s3d::String& key, const s3d::String& label):
 		m_key(key),
 		m_label(label)
