@@ -2020,6 +2020,18 @@
     <ClCompile Include="app\utils\DebugMenu\Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\NodeValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\BoolItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\Folder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3025,6 +3037,14 @@
     <ClInclude Include="app\utils\DebugMenu\Root.hpp" />
     <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\INode.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

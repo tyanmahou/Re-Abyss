@@ -75,6 +75,7 @@ namespace abyss
 
 			bool ret = m_scene.update();
 
+			m_debugMenu.update();
 			m_debugMenu.draw();
 
 			return ret;
