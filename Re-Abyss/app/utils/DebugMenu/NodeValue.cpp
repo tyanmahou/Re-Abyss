@@ -2,6 +2,10 @@
 
 namespace abyss::DebugMenu
 {
+	NodeValue::NodeValue(s3d::None_t):
+		m_value(s3d::none)
+	{
+	}
 	NodeValue::NodeValue(bool value):
 		m_value(value)
 	{}

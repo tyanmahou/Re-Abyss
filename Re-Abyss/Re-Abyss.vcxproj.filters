@@ -2032,6 +2032,9 @@
     <ClCompile Include="app\utils\DebugMenu\Folder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3046,6 +3049,8 @@
     <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

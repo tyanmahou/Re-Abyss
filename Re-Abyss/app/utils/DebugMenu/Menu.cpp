@@ -9,31 +9,31 @@
 namespace abyss::DebugMenu
 {
 	Menu::Menu():
-		m_rootFolder(std::make_shared<RootFolder>(U"DebugMenu")),
+		m_root(std::make_shared<RootFolder>(U"DebugMenu")),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
 		{
-			auto child = std::make_shared<Folder>(U"NYAA");
-			child->add(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; }));
-			child->add(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; }));
-			m_rootFolder->add(child);
+			auto child = Node(std::make_shared<Folder>(U"NYAA"));
+			child.add(Node(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; })));
+			child.add(Node(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; })));
+			m_root.add(child);
 		}
-		m_rootFolder->add(std::make_shared<Button>(U"ButtonC", [] {Debug::Log << U"C"; }));
+		m_root.add(Node(std::make_shared<Button>(U"ButtonC", [] {Debug::Log << U"C"; })));
 		{
-			auto child = std::make_shared<Folder>(U"WANNN");
-			child->add(std::make_shared<Button>(U"ButtonD", [] {Debug::Log << U"D"; }));
-			child->add(std::make_shared<Button>(U"ButtonE", [] {Debug::Log << U"E"; }));
-			m_rootFolder->add(child);
+			auto child = Node(std::make_shared<Folder>(U"WANNN"));
+			child.add(Node(std::make_shared<Button>(U"ButtonD", [] {Debug::Log << U"D"; })));
+			child.add(Node(std::make_shared<Button>(U"ButtonE", [] {Debug::Log << U"E"; })));
+			m_root.add(child);
 		}
 	}
 	void Menu::update()
 	{
-		std::shared_ptr<IFolder> folder = m_rootFolder;
+		auto folder = dynamic_cast<IFolder*>(m_root.raw());
 		while (folder) {
 			if (auto focus = folder->focusItem()) {
 				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
 					if (childFolder->isOpened()) {
-						folder = childFolder;
+						folder = childFolder.get();
 						continue;
 					}
 				} 
@@ -49,6 +49,6 @@ namespace abyss::DebugMenu
 	}
 	void Menu::draw() const
 	{
-		m_skin->draw(m_rootFolder.get());
+		m_skin->draw(dynamic_cast<RootFolder*>(m_root.raw()));
 	}
 }

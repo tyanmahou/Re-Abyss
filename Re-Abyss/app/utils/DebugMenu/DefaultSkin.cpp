@@ -79,7 +79,7 @@ namespace abyss::DebugMenu
 				ls.x = s3d::Max(ls.x, size.x);
 				RectF(offset, ls).draw(focusColor);
 
-				ret = RectF(offset, ls).tr() - Vec2{10, 10};
+				ret = RectF(offset, ls).tr();
 			}
 			auto region = m_font(label).draw(offset, isSelected ? focusTextColor : textColor);
 			offset = region.bl();
@@ -96,7 +96,7 @@ namespace abyss::DebugMenu
 		const IFolder* folder = pRoot;
 		while (folder) {
 			Transformer2D transformer(Mat3x2::Translate(offset), s3d::TransformCursor::Yes);
-			offset += this->drawFolder(folder);
+			offset += this->drawFolder(folder) - Vec2{ 10, 10 };
 			if (auto focus = folder->focusItem()) {
 				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
 					if (childFolder->isOpened()) {

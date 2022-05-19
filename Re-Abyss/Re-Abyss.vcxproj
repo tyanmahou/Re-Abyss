@@ -694,6 +694,7 @@
     <ClCompile Include="app\utils\DebugMenu\Button.cpp" />
     <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Folder.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\Node.cpp" />
     <ClCompile Include="app\utils\DebugMenu\NodeValue.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Menu.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
@@ -1243,11 +1244,13 @@
     <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IItem.hpp" />
     <ClInclude Include="app\utils\DebugMenu\INode.hpp" />
     <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
     <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Menu.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />

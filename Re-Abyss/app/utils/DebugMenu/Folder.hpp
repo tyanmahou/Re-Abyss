@@ -2,6 +2,7 @@
 #include <memory>
 #include <abyss/utils/DebugMenu/INode.hpp>
 #include <abyss/utils/DebugMenu/IFolder.hpp>
+#include <abyss/utils/DebugMenu/IFindable.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/String.hpp>
 
@@ -9,7 +10,8 @@ namespace abyss::DebugMenu
 {
 	class Folder :
 		public INode,
-		public IFolder
+		public IFolder,
+		public IFindable
 	{
 	public:
 		Folder() = default;
@@ -27,6 +29,7 @@ namespace abyss::DebugMenu
 		{
 			return m_key;
 		}
+	public:
 		s3d::StringView label() const override
 		{
 			return m_label;

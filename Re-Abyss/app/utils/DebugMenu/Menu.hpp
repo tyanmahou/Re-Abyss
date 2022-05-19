@@ -2,6 +2,7 @@
 #include <memory>
 #include <abyss/utils/DebugMenu/ISkin.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
+#include <abyss/utils/DebugMenu/Node.hpp>
 
 namespace abyss::DebugMenu
 {
@@ -13,7 +14,7 @@ namespace abyss::DebugMenu
 		void update();
 		void draw() const;
 	private:
-		std::shared_ptr<RootFolder> m_rootFolder;
+		Node m_root;
 		std::unique_ptr<ISkin> m_skin;
 	};
 }

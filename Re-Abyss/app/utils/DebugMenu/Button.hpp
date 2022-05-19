@@ -2,13 +2,15 @@
 #include <functional>
 #include <abyss/utils/DebugMenu/INode.hpp>
 #include <abyss/utils/DebugMenu/IItem.hpp>
+#include <abyss/utils/DebugMenu/IFindable.hpp>
 #include <Siv3D/String.hpp>
 
 namespace abyss::DebugMenu
 {
 	class Button :
 		public INode,
-		public IItem
+		public IItem,
+		public IFindable
 	{
 	public:
 		Button() = default;
@@ -27,6 +29,7 @@ namespace abyss::DebugMenu
 		{
 			return m_key;
 		}
+	public:
 		s3d::StringView label() const override
 		{
 			return m_label;

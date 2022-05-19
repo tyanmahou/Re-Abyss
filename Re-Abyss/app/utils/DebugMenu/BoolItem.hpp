@@ -3,6 +3,7 @@
 #include <abyss/utils/DebugMenu/INode.hpp>
 #include <abyss/utils/DebugMenu/IItem.hpp>
 #include <abyss/utils/DebugMenu/IValue.hpp>
+#include <abyss/utils/DebugMenu/IFindable.hpp>
 #include <Siv3D/String.hpp>
 
 namespace abyss::DebugMenu
@@ -10,7 +11,8 @@ namespace abyss::DebugMenu
 	class BoolItem :
 		public INode,
 		public IItem,
-		public IValue
+		public IValue,
+		public IFindable
 	{
 	public:
 		BoolItem() = default;
@@ -26,6 +28,7 @@ namespace abyss::DebugMenu
 		{
 			return m_key;
 		}
+	public:
 		s3d::StringView label() const override
 		{
 			return m_label;
