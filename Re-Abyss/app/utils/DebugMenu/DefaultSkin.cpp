@@ -5,48 +5,80 @@
 namespace abyss::DebugMenu
 {
 	DefaultSkin::DefaultSkin():
-		m_font(15, Typeface::Regular)
+		m_font(12, Typeface::Regular)
 	{
 	}
 
-	void DefaultSkin::drawBase(const s3d::Vec2& size, bool isActive) const
+	void DefaultSkin::draw(const IFolder* pFolder) const
 	{
-		constexpr auto baseColor = ColorF(0.3, 0.3, 0.5);
-		auto rect = RectF(size);
-		rect.drawShadow(Vec2{ 0, 0 }, 24.0, 3.0, ColorF(baseColor, 0.9))
-			.draw({ ColorF(baseColor, 0.2), ColorF(baseColor, 0.2), ColorF(0, 0.2), ColorF(0, 0.2) });
-		if (isActive) {
-			rect.drawFrame(2.0, ColorF(baseColor, 0.5));
-		}
-	}
+		constexpr auto baseColor = Color(249);
+		constexpr auto headerColor = Color(130, 130, 224);
+		constexpr auto headerTextColor = Palette::White;
+		constexpr auto focusColor = Color(230, 230, 255);
+		constexpr auto focusTextColor = Palette::Black;
+		constexpr auto textColor = Palette::Black;
 
-	void DefaultSkin::draw(const s3d::Array<std::shared_ptr<INode>>& nodes, const s3d::Optional<size_t> selectIndex) const
-	{
 		s3d::Array<StringView> labels;
-		for (auto&& pNode : nodes) {
+		for (auto&& pNode : pFolder->childNodes()) {
 			if (auto pItem = std::dynamic_pointer_cast<IItem>(pNode)) {
 				labels << pItem->label();
 			}
 		}
+		// ウィンドウサイズを確定
 		Vec2 size{ 100, 0 };
+		{
+			auto ls = m_font(pFolder->label()).region().size;
+			size.x = s3d::Max(ls.x, size.x);
+			size.y += ls.y;
+		}
 		for (auto&& label : labels) {
 			auto ls = m_font(label).region().size;
 			size.x = s3d::Max(ls.x, size.x);
 			size.y += ls.y;
 		}
 		size.y = s3d::Max(size.y, 100.0);
-		Vec2 offset{ 5, 5 };
-		drawBase(size + offset * 2, true);
 
+		bool isActive = true;
+		if (auto focus = pFolder->focusItem()) {
+			if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
+				if (childFolder->isOpened()) {
+					isActive = false;
+				}
+			}
+		}
+		
+		// ウィンドウ描画
+		constexpr Vec2 offsetBase{ 5, 5 };
+		const Vec2 windowSize = size + offsetBase * 2.0;
+		{
+			RectF(windowSize).drawShadow(Vec2{ 0, 0 }, 20.0, 2.0, ColorF(baseColor, 0.5))
+				.draw(ColorF(baseColor, 1))
+				.drawFrame(2.0, focusColor);
+		}
+
+		Vec2 offset = offsetBase;
+		// ヘッダー
+		{
+			auto ls = m_font(pFolder->label()).region().size;
+			ls.x = s3d::Max(ls.x, size.x);
+			auto rect = RectF(ls + Vec2{ offset.x * 2.0, offset.y - 1 });
+			rect.draw(headerColor);
+			m_font(pFolder->label()).draw(Vec2{ offset.x, offset.y / 2 }, headerTextColor);
+			offset.y = rect.h + 1;
+		}
+		auto selectIndex = pFolder->focusIndex();
 		for (auto [index, label] : s3d::Indexed(labels)) {
 			bool isSelected = selectIndex && *selectIndex == index;
 			if (isSelected) {
 				auto ls = m_font(label).region().size;
 				ls.x = s3d::Max(ls.x, size.x);
-				RectF(offset, ls).draw(ColorF(1, 0.5));
+				RectF(offset, ls).draw(focusColor);
 			}
-			auto region = m_font(label).draw(offset, isSelected ? Palette::Black : Palette::White);
+			auto region = m_font(label).draw(offset, isSelected ? focusTextColor : textColor);
 			offset = region.bl();
+		}
+		if (!isActive) {
+			RectF(windowSize).draw(ColorF(0, 0.5));
 		}
 	}
 

@@ -9,7 +9,7 @@
 namespace abyss::DebugMenu
 {
 	Root::Root():
-		m_rootFolder(std::make_shared<RootFolder>()),
+		m_rootFolder(std::make_shared<RootFolder>(U"DebugMenu")),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
 		auto child = std::make_shared<Folder>(U"NYAA");
@@ -45,7 +45,7 @@ namespace abyss::DebugMenu
 		std::shared_ptr<IFolder> folder = m_rootFolder;
 		while (folder) {
 			Transformer2D transformer(Mat3x2::Translate(offset), s3d::TransformCursor::Yes);
-			m_skin->draw(folder->childNodes(), folder->focusIndex());
+			m_skin->draw(folder.get());
 			if (auto focus = folder->focusItem()) {
 				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
 					if (childFolder->isOpened()) {

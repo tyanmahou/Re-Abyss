@@ -5,6 +5,9 @@ namespace abyss::DebugMenu
 {
 	class RootFolder : public Folder
 	{
+	public:
+		using Folder::Folder;
+	public:
 		void onOpendUpdate() override
 		{
 			Folder::onOpendUpdate();

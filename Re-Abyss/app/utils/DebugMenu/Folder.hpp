@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 #include <abyss/utils/DebugMenu/INode.hpp>
-#include <abyss/utils/DebugMenu/IItem.hpp>
 #include <abyss/utils/DebugMenu/IFolder.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/String.hpp>
@@ -10,7 +9,6 @@ namespace abyss::DebugMenu
 {
 	class Folder :
 		public INode,
-		public IItem,
 		public IFolder
 	{
 	public:

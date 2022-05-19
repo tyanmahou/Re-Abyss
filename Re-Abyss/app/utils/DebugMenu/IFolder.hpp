@@ -6,11 +6,9 @@
 
 namespace abyss::DebugMenu
 {
-	class IFolder
+	class IFolder : public IItem
 	{
 	public:
-		virtual ~IFolder() = default;
-
 		virtual void onOpendUpdate() = 0;
 
 		virtual bool isOpened() const = 0;
