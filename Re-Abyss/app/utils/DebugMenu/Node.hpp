@@ -19,6 +19,9 @@ namespace abyss::DebugMenu
 		NodeValue value() const;
 
 		INode* raw() const;
+
+		bool isValid() const;
+		bool isValue() const;
 	private:
 		Node(std::shared_ptr<Handle> handle);
 	private:

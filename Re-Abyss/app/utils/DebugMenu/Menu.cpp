@@ -22,7 +22,7 @@ namespace abyss::DebugMenu
 		{
 			auto child = Node(std::make_shared<Folder>(U"WANNN"));
 			child.add(Node(std::make_shared<Button>(U"ButtonD", [] {Debug::Log << U"D"; })));
-			child.add(Node(std::make_shared<Button>(U"ButtonE", [] {Debug::Log << U"E"; })));
+			child.add(Node(std::make_shared<BoolItem>(U"BoolE", U"チェック", false, [](bool a) {Debug::Log << U"E" << a; })));
 			m_root.add(child);
 		}
 	}

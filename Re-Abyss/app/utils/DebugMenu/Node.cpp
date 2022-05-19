@@ -3,6 +3,8 @@
 #include <abyss/utils/DebugMenu/Folder.hpp>
 #include <Siv3D.hpp>
 
+#include <abyss/debugs/Log/Log.hpp>
+
 namespace abyss::DebugMenu
 {
 	class Node::Handle
@@ -27,6 +29,10 @@ namespace abyss::DebugMenu
 				if (auto findable = std::dynamic_pointer_cast<IFindable>(child->m_node)) {
 					m_findableChilds[findable->key()] = child;
 				}
+			} else {
+#if ABYSS_DEBUG
+				Debug::Log << U"DebugMenu::Node is Not Folder";
+#endif
 			}
 		}
 		std::shared_ptr<Handle> find(s3d::StringView key)
@@ -40,9 +46,12 @@ namespace abyss::DebugMenu
 				startIndex = slashIndex + 1;
 				slashIndex = key.indexOf(U'/', startIndex);
 				if (auto&& child = handle->m_findableChilds[key.substr(startIndex, slashIndex - startIndex)]) {
-					ret = child.lock();
+					ret = child;
 					handle = ret.get();
 				} else {
+#if ABYSS_DEBUG
+					Debug::Log << U"DebugMenu::Node Not Found Node :" << key;
+#endif
 					return nullptr;
 				}
 			} while (slashIndex != s3d::StringView::npos);
@@ -60,9 +69,17 @@ namespace abyss::DebugMenu
 		{
 			return m_node.get();
 		}
+		bool isValid() const
+		{
+			return m_node != nullptr;
+		}
+		bool isValue() const
+		{
+			return m_pValue != nullptr;
+		}
 	private:
 		std::shared_ptr<INode> m_node;
-		s3d::HashTable<s3d::StringView, Ref<Handle>> m_findableChilds;
+		s3d::HashTable<s3d::StringView, std::shared_ptr<Handle>> m_findableChilds;
 
 		Folder* m_pFolder = nullptr;
 		IValue* m_pValue = nullptr;
@@ -96,5 +113,13 @@ namespace abyss::DebugMenu
 	INode* Node::raw() const
 	{
 		return m_pHandle->raw();
+	}
+	bool Node::isValid() const
+	{
+		return m_pHandle->isValid();
+	}
+	bool Node::isValue() const
+	{
+		return m_pHandle->isValue();
 	}
 }
