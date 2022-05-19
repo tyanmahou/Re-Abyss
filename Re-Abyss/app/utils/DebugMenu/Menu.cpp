@@ -1,4 +1,4 @@
-#include <abyss/utils/DebugMenu/Root.hpp>
+#include <abyss/utils/DebugMenu/Menu.hpp>
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <Siv3D.hpp>
 
@@ -8,17 +8,25 @@
 
 namespace abyss::DebugMenu
 {
-	Root::Root():
+	Menu::Menu():
 		m_rootFolder(std::make_shared<RootFolder>(U"DebugMenu")),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
-		auto child = std::make_shared<Folder>(U"NYAA");
-		child->add(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; }));
-		child->add(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; }));
-		m_rootFolder->add(child);
+		{
+			auto child = std::make_shared<Folder>(U"NYAA");
+			child->add(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; }));
+			child->add(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; }));
+			m_rootFolder->add(child);
+		}
 		m_rootFolder->add(std::make_shared<Button>(U"ButtonC", [] {Debug::Log << U"C"; }));
+		{
+			auto child = std::make_shared<Folder>(U"WANNN");
+			child->add(std::make_shared<Button>(U"ButtonD", [] {Debug::Log << U"D"; }));
+			child->add(std::make_shared<Button>(U"ButtonE", [] {Debug::Log << U"E"; }));
+			m_rootFolder->add(child);
+		}
 	}
-	void Root::update()
+	void Menu::update()
 	{
 		std::shared_ptr<IFolder> folder = m_rootFolder;
 		while (folder) {
@@ -39,24 +47,8 @@ namespace abyss::DebugMenu
 			}
 		}
 	}
-	void Root::draw() const
+	void Menu::draw() const
 	{
-		Vec2 offset{ 10, 10 };
-		std::shared_ptr<IFolder> folder = m_rootFolder;
-		while (folder) {
-			Transformer2D transformer(Mat3x2::Translate(offset), s3d::TransformCursor::Yes);
-			m_skin->draw(folder.get());
-			if (auto focus = folder->focusItem()) {
-				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
-					if (childFolder->isOpened()) {
-						folder = childFolder;
-						offset += Vec2{ 100, 10 };
-						continue;
-					}
-				}
-			}
-
-			break;
-		}
+		m_skin->draw(m_rootFolder.get());
 	}
 }

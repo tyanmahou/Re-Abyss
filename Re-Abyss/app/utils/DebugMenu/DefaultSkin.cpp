@@ -1,15 +1,17 @@
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <abyss/utils/DebugMenu/IItem.hpp>
+#include <abyss/utils/DebugMenu/RootFolder.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::DebugMenu
 {
 	DefaultSkin::DefaultSkin():
-		m_font(12, Typeface::Regular)
+		m_font(12, Typeface::Regular),
+		m_fontHeader(12, Typeface::Regular, FontStyle::Bold)
 	{
 	}
 
-	void DefaultSkin::draw(const IFolder* pFolder) const
+	s3d::Vec2 DefaultSkin::drawFolder(const IFolder* pFolder) const
 	{
 		constexpr auto baseColor = Color(249);
 		constexpr auto headerColor = Color(130, 130, 224);
@@ -27,7 +29,7 @@ namespace abyss::DebugMenu
 		// ウィンドウサイズを確定
 		Vec2 size{ 100, 0 };
 		{
-			auto ls = m_font(pFolder->label()).region().size;
+			auto ls = m_fontHeader(pFolder->label()).region().size;
 			size.x = s3d::Max(ls.x, size.x);
 			size.y += ls.y;
 		}
@@ -59,13 +61,16 @@ namespace abyss::DebugMenu
 		Vec2 offset = offsetBase;
 		// ヘッダー
 		{
-			auto ls = m_font(pFolder->label()).region().size;
+			auto ls = m_fontHeader(pFolder->label()).region().size;
 			ls.x = s3d::Max(ls.x, size.x);
 			auto rect = RectF(ls + Vec2{ offset.x * 2.0, offset.y - 1 });
 			rect.draw(headerColor);
 			m_font(pFolder->label()).draw(Vec2{ offset.x, offset.y / 2 }, headerTextColor);
 			offset.y = rect.h + 1;
 		}
+
+		// 項目
+		Vec2 ret{ 100,100 };
 		auto selectIndex = pFolder->focusIndex();
 		for (auto [index, label] : s3d::Indexed(labels)) {
 			bool isSelected = selectIndex && *selectIndex == index;
@@ -73,12 +78,35 @@ namespace abyss::DebugMenu
 				auto ls = m_font(label).region().size;
 				ls.x = s3d::Max(ls.x, size.x);
 				RectF(offset, ls).draw(focusColor);
+
+				ret = RectF(offset, ls).tr() - Vec2{10, 10};
 			}
 			auto region = m_font(label).draw(offset, isSelected ? focusTextColor : textColor);
 			offset = region.bl();
 		}
 		if (!isActive) {
-			RectF(windowSize).draw(ColorF(0, 0.5));
+			RectF(windowSize).draw(ColorF(0, 0, 0.2, 0.5));
+		}
+		return ret;
+	}
+
+	void DefaultSkin::draw(const RootFolder* pRoot) const
+	{
+		Vec2 offset{ 10, 10 };
+		const IFolder* folder = pRoot;
+		while (folder) {
+			Transformer2D transformer(Mat3x2::Translate(offset), s3d::TransformCursor::Yes);
+			offset += this->drawFolder(folder);
+			if (auto focus = folder->focusItem()) {
+				if (auto childFolder = std::dynamic_pointer_cast<IFolder>(focus.lock())) {
+					if (childFolder->isOpened()) {
+						folder = childFolder.get();
+						continue;
+					}
+				}
+			}
+
+			break;
 		}
 	}
 

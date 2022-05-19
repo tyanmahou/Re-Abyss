@@ -1,13 +1,14 @@
 #pragma once
-#include <abyss/utils/DebugMenu/IFolder.hpp>
 
 namespace abyss::DebugMenu
 {
+	class RootFolder;
+
 	class ISkin
 	{
 	public:
 		virtual ~ISkin() = default;
 
-		virtual void draw(const IFolder* pFolder) const = 0;
+		virtual void draw(const RootFolder* pRoot) const = 0;
 	};
 }

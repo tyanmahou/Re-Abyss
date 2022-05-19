@@ -16,7 +16,7 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Profiler/Profiler.hpp>
-#include <abyss/utils/DebugMenu/Root.hpp>
+#include <abyss/utils/DebugMenu/Menu.hpp>
 
 namespace abyss
 {
@@ -81,7 +81,7 @@ namespace abyss
 			return ret;
 		}
 	private:
-		DebugMenu::Root m_debugMenu;
+		DebugMenu::Menu m_debugMenu;
 		AppScene m_scene;
 	};
 

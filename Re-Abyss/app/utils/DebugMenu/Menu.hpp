@@ -5,10 +5,10 @@
 
 namespace abyss::DebugMenu
 {
-	class Root
+	class Menu
 	{
 	public:
-		Root();
+		Menu();
 
 		void update();
 		void draw() const;

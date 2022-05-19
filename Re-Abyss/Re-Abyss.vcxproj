@@ -695,7 +695,7 @@
     <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Folder.cpp" />
     <ClCompile Include="app\utils\DebugMenu\NodeValue.cpp" />
-    <ClCompile Include="app\utils\DebugMenu\Root.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\Menu.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Mns\Evaluator\Evaluator.cpp" />
@@ -1249,7 +1249,7 @@
     <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
     <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Root.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Menu.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
