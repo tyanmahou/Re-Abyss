@@ -3051,6 +3051,7 @@
     <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\ICallback.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

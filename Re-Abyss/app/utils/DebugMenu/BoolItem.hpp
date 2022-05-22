@@ -23,10 +23,6 @@ namespace abyss::DebugMenu
 			const std::function<void(bool)>& callback = nullptr
 		);
 
-		void setCallback(const std::function<void(bool)>& callback)
-		{
-			m_callback = callback;
-		}
 	public:
 		s3d::StringView key() const override
 		{
