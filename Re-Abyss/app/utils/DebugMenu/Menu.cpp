@@ -13,16 +13,16 @@ namespace abyss::DebugMenu
 		m_skin(std::make_unique<DefaultSkin>())
 	{
 		{
-			auto child = Node(std::make_shared<Folder>(U"NYAA"));
-			child.add(Node(std::make_shared<Button>(U"ButtonA", [] {Debug::Log << U"A"; })));
-			child.add(Node(std::make_shared<Button>(U"ButtonB", [] {Debug::Log << U"B"; })));
+			auto child = Node::Create<Folder>(U"NYAA");
+			child.add(Node::Create<Button>(U"ButtonA", [] {Debug::Log << U"A"; }));
+			child.add(Node::Create<Button>(U"ButtonB", [] {Debug::Log << U"B"; }));
 			m_root.add(child);
 		}
-		m_root.add(Node(std::make_shared<Button>(U"ButtonC", [] {Debug::Log << U"C"; })));
+		m_root.add(Node::Create<Button>(U"ButtonC", [] {Debug::Log << U"C"; }));
 		{
-			auto child = Node(std::make_shared<Folder>(U"WANNN"));
-			child.add(Node(std::make_shared<Button>(U"ButtonD", [] {Debug::Log << U"D"; })));
-			child.add(Node(std::make_shared<BoolItem>(U"BoolE", U"チェック", false, [](bool a) {Debug::Log << U"E" << a; })));
+			auto child = Node::Create<Folder>(U"WAAAA", U"aaa");
+			child.add(Node::Create<Button>(U"ButtonD", [] {Debug::Log << U"D"; }));
+			child.add(Node::Create<BoolItem>(U"BoolE", U"チェック", false, [](bool a) {Debug::Log << U"E" << a; }));
 			m_root.add(child);
 		}
 	}

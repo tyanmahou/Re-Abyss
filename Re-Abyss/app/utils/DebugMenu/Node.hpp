@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <concepts>
 #include <abyss/utils/DebugMenu/INode.hpp>
 #include <abyss/utils/DebugMenu/NodeValue.hpp>
 #include <Siv3D/StringView.hpp>
@@ -9,6 +10,12 @@ namespace abyss::DebugMenu
 	class Node
 	{
 		class Handle;
+	public:
+		template<class NodeType, class... Args>
+		static Node Create(Args&&... args) requires std::derived_from<NodeType, INode> && std::constructible_from<NodeType, Args...>
+		{
+			return Node(std::make_shared<NodeType>(std::forward<Args>(args)...));
+		}
 	public:
 		Node();
 		Node(std::shared_ptr<INode> node);
