@@ -22,12 +22,6 @@ namespace abyss::DebugMenu
 			bool initValue = false,
 			const std::function<void(bool)>& callback = nullptr
 		);
-
-	public:
-		s3d::StringView key() const override
-		{
-			return m_key;
-		}
 	public:
 		s3d::StringView label() const override
 		{
@@ -36,10 +30,18 @@ namespace abyss::DebugMenu
 
 		void onFoucsUpdate() override;
 
-		NodeValue value() const
+	public:
+		NodeValue value() const override
 		{
 			return { m_value };
 		}
+
+	public:
+		s3d::StringView key() const override
+		{
+			return m_key;
+		}
+
 	private:
 		s3d::String m_key, m_label;
 		bool m_value = false;
