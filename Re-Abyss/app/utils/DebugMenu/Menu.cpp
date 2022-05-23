@@ -4,6 +4,7 @@
 
 #include <abyss/utils/DebugMenu/BoolItem.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
+#include <abyss/utils/DebugMenu/RadioButton.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 namespace abyss::DebugMenu
@@ -24,6 +25,15 @@ namespace abyss::DebugMenu
 			child.add(Node::Create<Button>(U"ButtonD", [] {Debug::Log << U"D"; }));
 			child.add(Node::Create<BoolItem>(U"BoolE", U"チェック", false, [](bool a) {Debug::Log << U"E" << a; }));
 			m_root.add(child);
+		}
+		{
+			auto radioButtonNative = std::make_shared<RadioButton>(U"RadioButton", [](size_t index, s3d::StringView label) {
+				Debug::Log << index << U": " << label;
+			});
+			radioButtonNative->addList(U"AAA");
+			radioButtonNative->addList(U"BBB");
+			radioButtonNative->addList(U"CCC");
+			m_root.add(Node(radioButtonNative));
 		}
 	}
 	void Menu::update()

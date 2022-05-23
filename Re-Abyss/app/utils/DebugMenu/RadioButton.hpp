@@ -68,6 +68,7 @@ namespace abyss::DebugMenu
 		s3d::Array<std::shared_ptr<INode>> m_childs;
 		bool m_isOpened = false;
 
+		size_t m_focusIndex = 0;
 		size_t m_selectIndex = 0;
 		CallbackType m_callback;
 	};

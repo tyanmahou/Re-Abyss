@@ -85,20 +85,22 @@ namespace abyss::DebugMenu
 				}
 			}
 		}
+		m_isOpened = false;
+		m_selectIndex = m_focusIndex;
 	}
 	void RadioButton::onOpendUpdate()
 	{
 		if (m_isOpened && KeyX.down()) {
-			m_isOpened = false;
+			m_isOpened = false;			
 			return;
 		}
 		if (!m_items.isEmpty()) {
-			if (KeyUp.down() && m_selectIndex > 0) {
-				m_selectIndex -= 1;
-			} else if (KeyDown.down() && m_selectIndex < m_items.size() - 1) {
-				m_selectIndex += 1;
+			if (KeyUp.down() && m_focusIndex > 0) {
+				m_focusIndex -= 1;
+			} else if (KeyDown.down() && m_focusIndex < m_items.size() - 1) {
+				m_focusIndex += 1;
 			}
-			m_selectIndex = s3d::Clamp<size_t>(m_selectIndex, 0, m_items.size() - 1);
+			m_focusIndex = s3d::Clamp<size_t>(m_focusIndex, 0, m_items.size() - 1);
 		}
 	}
 	Ref<IItem> RadioButton::focusItem() const
@@ -113,37 +115,25 @@ namespace abyss::DebugMenu
 		if (m_items.isEmpty()) {
 			return s3d::none;
 		}
-		return m_selectIndex;
+		return m_focusIndex;
 	}
 	s3d::StringView RadioButton::label() const
 	{
-		if (auto focusItem = this->focusItem()) {
-			return U"{}: {}"_fmt(m_label, focusItem->label());
-		}
 		return m_label;
 	}
 	void RadioButton::onFoucsUpdate()
 	{
 		if (!m_isOpened && KeyZ.down()) {
 			m_isOpened = true;
+			m_focusIndex = m_selectIndex;
 		}
-
-		//if (!m_items.isEmpty()) {
-		//	if (KeyLeft.down() && m_selectIndex > 0) {
-		//		m_selectIndex -= 1;
-		//	} else if (KeyRight.down() && m_selectIndex < m_items.size() - 1) {
-		//		m_selectIndex += 1;
-		//	}
-		//	m_selectIndex = s3d::Clamp<size_t>(m_selectIndex, 0, m_items.size() - 1);
-		//}
 	}
 	NodeValue RadioButton::value() const
 	{
-		auto&& index = this->focusIndex();
-		if (index) {
+		if (m_items.isEmpty()) {
 			return s3d::none;
 		}
-		const s3d::String& value = std::dynamic_pointer_cast<const Item>(m_items[*index])->value();
-		return std::pair<size_t, s3d::StringView>{*index, value};
+		const s3d::String& value = std::dynamic_pointer_cast<const Item>(m_items[m_selectIndex])->value();
+		return std::pair<size_t, s3d::StringView>{m_selectIndex, value};
 	}
 }
