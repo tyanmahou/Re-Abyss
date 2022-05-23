@@ -68,6 +68,9 @@ namespace abyss::DebugMenu
 	}
 	void RadioButton::close()
 	{
+		m_isOpened = false;
+		m_selectIndex = m_focusIndex;
+
 		if (auto valueOpt = this->value().toIndexedStringOpt()) {
 			auto [index, v] = *valueOpt;
 			if (std::holds_alternative<std::function<void(size_t)>>(m_callback)) {
@@ -85,8 +88,6 @@ namespace abyss::DebugMenu
 				}
 			}
 		}
-		m_isOpened = false;
-		m_selectIndex = m_focusIndex;
 	}
 	void RadioButton::onOpendUpdate()
 	{
