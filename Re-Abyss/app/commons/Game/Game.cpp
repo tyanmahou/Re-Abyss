@@ -45,7 +45,8 @@ namespace abyss
 			FontAsset::Register(U"pm12b-18", 18, U"/resources/fonts/PixelMplus12-Bold.ttf");
 		}
 	public:
-		Impl()
+		Impl():
+			m_debugMenu(DebugMenu::Menu::FromXML(U"debugs/menu.xml"))
 		{
 			// 初期設定
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);

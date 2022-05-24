@@ -1,4 +1,4 @@
-#include <abyss/utils/DebugMenu/parser/XMLParser.hpp>
+#include <abyss/utils/DebugMenu/parser/MenuParser.hpp>
 
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
 
@@ -9,7 +9,7 @@ namespace
     using namespace abyss;
     using namespace abyss::DebugMenu;
 
-    class ParserImpl
+    class XMLParserImpl
     {
     public:
 
@@ -24,9 +24,38 @@ namespace
     private:
         Node parseFolder(const XMLElement& xml, bool isRoot = false)
         {
-            auto key = xml.name();
-            auto label = xml.attribute(U"label").value_or(key);
-            Node ret(this->makeFolderNode(isRoot, key, label));
+            auto folderKey = xml.name();
+            auto folderLabel = xml.attribute(U"label").value_or(folderKey);
+            Node ret(this->makeFolderNode(isRoot, folderKey, folderLabel));
+
+            for (auto e = xml.firstChild(); e; e = e.nextSibling()) {
+                auto key = e.name();
+                if (key == U"hr") {
+                    // @todo
+                    continue;
+                }
+                auto label = e.attribute(U"label").value_or(key);
+                if (e.attribute(U"value")) {
+                    // @todo
+                    continue;
+                } else if (e.attribute(U"select")) {
+                    // radioButton
+                    // @todo
+                    continue;
+                } else if (e.firstChild()) {
+                    // folder
+                    ret.add(this->parseFolder(e));
+                } else if (auto custom = e.attribute(U"custom")) {
+                    // custom
+                    // @todo
+                    continue;
+                } else {
+                    // button
+                    // @todo
+                    continue;
+                }
+            }
+
             return ret;
         }
 
@@ -41,8 +70,8 @@ namespace
 }
 namespace abyss::DebugMenu
 {
-    Node XMLParser::ParseFrom(s3d::FilePathView path, bool isRoot)
+    Node MenuParser::FromXML(s3d::FilePathView path, bool isRoot)
     {
-        return ::ParserImpl{}.parseRoot(path, isRoot);
+        return ::XMLParserImpl{}.parseRoot(path, isRoot);
     }
 }

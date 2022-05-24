@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Root>
-	<Debug label="デバッグ(&D)">
-		<Scene label="シーン" custom="buildSceneMenu"/>
-		<Log label ="ログ">
-			<IsVisible label="表示" isChecked="true"/>
-			<hr/>
-			<Normal label="一般" isChecked="true"/>
-			<Warn label="警告" isChecked="true"/>
-			<Error label="エラー" isChecked="true"/>
-			<Load label="ロード" isChecked="true"/>
-			<hr/>
-			<Clear label="ログのクリア" callback ="execClearLog"/>
-		</Log>
-		<Alert label ="アラート">
-			<Profiler label="処理負荷" isChecked="false"/>
-			<EffectCount label="エフェクト数" isChecked="false"/>
-			<DecorCount label="装飾数" isChecked="false"/>
-			<DrawerCount label="描画リクエスト数" isChecked="false"/>
-		</Alert>
-		<Actor label ="アクター">
-			<DebugInfo label="アクターデバッグ情報" isChecked="false"/>
-			<Collider label="コライダー" isChecked="false"/>
-			<MapCollider label="地形コライダー" isChecked="false"/>
-			<TestBehavior label="テストアクション" isChecked="false"/>
-		</Actor>
-		<PostEffect label ="ポストエフェクト設定">
-			<Light label="ライト" isChecked="true"/>
-			<Distortion label="歪み" isChecked="true"/>
-			<hr/>
-			<Scanline label="スキャンライン" isChecked="true"/>
-		</PostEffect>
-		<FPS select="0" callback="execFPS">
-			<Item label="FPS：可変"/>
-			<Item label="FPS：10" value="10"/>
-			<Item label="FPS：30" value="30"/>
-			<Item label="FPS：60" value="60"/>
-			<Item label="FPS：120" value="120"/>
-		</FPS>
-		<Sound label ="サウンド">
-			<Mute label ="ミュート" isChecked="false" callback="execSoundMute"/>
-		</Sound>
-	</Debug>
-</Root>
+<Debug label="デバッグ">
+	<Scene label="シーン" custom="buildSceneMenu"/>
+	<Log label ="ログ">
+		<IsVisible label="表示" isChecked="true"/>
+		<hr/>
+		<Normal label="一般" isChecked="true"/>
+		<Warn label="警告" isChecked="true"/>
+		<Error label="エラー" isChecked="true"/>
+		<Load label="ロード" isChecked="true"/>
+		<hr/>
+		<Clear label="ログのクリア" callback ="execClearLog"/>
+	</Log>
+	<Alert label ="アラート">
+		<Profiler label="処理負荷" isChecked="false"/>
+		<EffectCount label="エフェクト数" isChecked="false"/>
+		<DecorCount label="装飾数" isChecked="false"/>
+		<DrawerCount label="描画リクエスト数" isChecked="false"/>
+	</Alert>
+	<Actor label ="アクター">
+		<DebugInfo label="アクターデバッグ情報" isChecked="false"/>
+		<Collider label="コライダー" isChecked="false"/>
+		<MapCollider label="地形コライダー" isChecked="false"/>
+		<TestBehavior label="テストアクション" isChecked="false"/>
+	</Actor>
+	<PostEffect label ="ポストエフェクト設定">
+		<Light label="ライト" isChecked="true"/>
+		<Distortion label="歪み" isChecked="true"/>
+		<hr/>
+		<Scanline label="スキャンライン" isChecked="true"/>
+	</PostEffect>
+	<FPS select="0" callback="execFPS">
+		<Item label="FPS：可変"/>
+		<Item label="FPS：10" value="10"/>
+		<Item label="FPS：30" value="30"/>
+		<Item label="FPS：60" value="60"/>
+		<Item label="FPS：120" value="120"/>
+	</FPS>
+	<Sound label ="サウンド">
+		<Mute label ="ミュート" isChecked="false" callback="execSoundMute"/>
+	</Sound>
+</Debug>

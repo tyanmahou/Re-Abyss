@@ -1255,7 +1255,7 @@
     <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
     <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Menu.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\parser\XMLParser.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\parser\MenuParser.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RadioButton.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />

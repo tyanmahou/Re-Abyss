@@ -3058,7 +3058,7 @@
     <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
     <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RadioButton.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\parser\XMLParser.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\parser\MenuParser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />
