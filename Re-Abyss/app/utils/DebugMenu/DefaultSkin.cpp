@@ -36,11 +36,16 @@ namespace abyss::DebugMenu
 			size.x = s3d::Max(ls.x, size.x);
 			size.y += ls.y;
 		}
-		Vec2 checkIconSize = m_font(U"✓").region().size + Vec2{10, 0};
-		Vec2 checkIconSizeOffset = Vec2{ checkIconSize.x, 0 };
+		const Vec2 checkIconSize = m_font(U"✓").region().size + Vec2{ 10, 0};
+		const Vec2 checkIconSizeOffset = Vec2{ checkIconSize.x, 0 };
+
+		const Vec2 openIconSize = m_font(U">").region().size;
+		constexpr double openIconWidthOffset = 20.0;
+		const Vec2 openIconOffseted = openIconSize + Vec2{ openIconWidthOffset, 0 };
+
 		for (auto&& label : labels) {
 			auto ls = m_font(label).region().size;
-			size.x = s3d::Max(ls.x + checkIconSize.x, size.x);
+			size.x = s3d::Max(ls.x + checkIconSize.x + openIconOffseted.x, size.x);
 			size.y += ls.y;
 		}
 		size.y = s3d::Max(size.y, 10.0);
@@ -88,10 +93,14 @@ namespace abyss::DebugMenu
 			}
 			if (auto value = dynamic_cast<IValue*>(pItems[index])) {
 				if (value->value().isBool() && value->value().toBool()) {
-					m_font(U"✓").draw(offset, isSelected ? focusTextColor : textColor);
+					m_font(U"✓").draw(offset + Vec2{5, 0}, isSelected ? focusTextColor : textColor);
 				}
 			}
 			auto region = m_font(label).draw(checkIconSizeOffset + offset, isSelected ? focusTextColor : textColor);
+			if (auto value = dynamic_cast<IFolder*>(pItems[index])) {
+				auto offsX = size.x - openIconSize.x - 5.0;
+				m_font(U">").draw(offset + Vec2{ offsX , 0 }, isSelected ? focusTextColor : textColor);
+			}
 
 			offset = region.bl() - checkIconSizeOffset;
 		}
