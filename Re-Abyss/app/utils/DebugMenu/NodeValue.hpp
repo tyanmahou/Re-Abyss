@@ -16,7 +16,7 @@ namespace abyss::DebugMenu
 		NodeValue(bool value);
 		NodeValue(const std::pair<size_t, s3d::StringView>& value);
 
-
+		bool isBool() const;
 		bool toBool() const;
 		std::pair<size_t, s3d::StringView> toIndexedString() const;
 		s3d::Optional<std::pair<size_t, s3d::StringView>> toIndexedStringOpt() const;

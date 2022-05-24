@@ -1,5 +1,6 @@
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <abyss/utils/DebugMenu/IItem.hpp>
+#include <abyss/utils/DebugMenu/IValue.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
 #include <Siv3D.hpp>
 
@@ -20,9 +21,11 @@ namespace abyss::DebugMenu
 		constexpr auto focusTextColor = Palette::Black;
 		constexpr auto textColor = Palette::Black;
 
+		s3d::Array<IItem*> pItems;
 		s3d::Array<StringView> labels;
 		for (auto&& pNode : pFolder->childNodes()) {
 			if (auto pItem = std::dynamic_pointer_cast<IItem>(pNode)) {
+				pItems << pItem.get();
 				labels << pItem->label();
 			}
 		}
@@ -33,12 +36,14 @@ namespace abyss::DebugMenu
 			size.x = s3d::Max(ls.x, size.x);
 			size.y += ls.y;
 		}
+		Vec2 checkIconSize = m_font(U"✓").region().size + Vec2{10, 0};
+		Vec2 checkIconSizeOffset = Vec2{ checkIconSize.x, 0 };
 		for (auto&& label : labels) {
 			auto ls = m_font(label).region().size;
-			size.x = s3d::Max(ls.x, size.x);
+			size.x = s3d::Max(ls.x + checkIconSize.x, size.x);
 			size.y += ls.y;
 		}
-		size.y = s3d::Max(size.y, 100.0);
+		size.y = s3d::Max(size.y, 10.0);
 
 		bool isActive = true;
 		if (auto focus = pFolder->focusItem()) {
@@ -76,13 +81,19 @@ namespace abyss::DebugMenu
 			bool isSelected = selectIndex && *selectIndex == index;
 			if (isSelected) {
 				auto ls = m_font(label).region().size;
-				ls.x = s3d::Max(ls.x, size.x);
+				ls.x = s3d::Max(ls.x + checkIconSize.x, size.x);
 				RectF(offset, ls).draw(focusColor);
 
 				ret = RectF(offset, ls).tr();
 			}
-			auto region = m_font(label).draw(offset, isSelected ? focusTextColor : textColor);
-			offset = region.bl();
+			if (auto value = dynamic_cast<IValue*>(pItems[index])) {
+				if (value->value().isBool() && value->value().toBool()) {
+					m_font(U"✓").draw(offset, isSelected ? focusTextColor : textColor);
+				}
+			}
+			auto region = m_font(label).draw(checkIconSizeOffset + offset, isSelected ? focusTextColor : textColor);
+
+			offset = region.bl() - checkIconSizeOffset;
 		}
 		if (!isActive) {
 			RectF(windowSize).draw(ColorF(0, 0, 0.2, 0.5));

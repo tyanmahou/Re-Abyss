@@ -12,6 +12,10 @@ namespace abyss::DebugMenu
 	NodeValue::NodeValue(const std::pair<size_t, s3d::StringView>& value) :
 		m_value(value)
 	{}
+	bool NodeValue::isBool() const
+	{
+		return std::holds_alternative<bool>(m_value);
+	}
 	bool NodeValue::toBool() const
 	{
 		return std::get<bool>(m_value);
