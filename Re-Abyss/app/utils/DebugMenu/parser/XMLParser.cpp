@@ -1,6 +1,9 @@
 #include <abyss/utils/DebugMenu/parser/MenuParser.hpp>
 
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
+#include <abyss/utils/DebugMenu/BoolItem.hpp>
+#include <abyss/utils/DebugMenu/Button.hpp>
+#include <abyss/utils/DebugMenu/RadioButton.hpp>
 
 #include <Siv3D.hpp>
 
@@ -36,8 +39,8 @@ namespace
                 }
                 auto label = e.attribute(U"label").value_or(key);
                 if (e.attribute(U"value")) {
-                    // @todo
-                    continue;
+                    // value
+                    ret.add(this->parseValue(e));
                 } else if (e.attribute(U"select")) {
                     // radioButton
                     // @todo
@@ -58,7 +61,18 @@ namespace
 
             return ret;
         }
+        Node parseValue(const XMLElement& xml)
+        {
+            auto key = xml.name();
+            auto label = xml.attribute(U"label").value_or(key);
+            auto value = xml.attribute(U"value").value_or(U"false");
 
+            if (auto boolValue = s3d::ParseOpt<bool>(value)) {
+                // @todo callback
+                return Node::Create<BoolItem>(key, label, *boolValue);
+            }
+            return Node::Create<BoolItem>(key, label);
+        }
         template<class... Args>
         std::shared_ptr<INode> makeFolderNode(bool isRoot, Args&&... args)
         {
