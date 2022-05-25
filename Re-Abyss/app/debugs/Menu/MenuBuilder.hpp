@@ -12,6 +12,9 @@ namespace abyss::Debug
 
 		[[REFLECTION(ExecSoundMute)]]
 		static void ExecSoundMute(bool value);
+
+		[[REFLECTION(ExecFPS)]]
+		static void ExecFPS(s3d::StringView value);
 	};
 }
 

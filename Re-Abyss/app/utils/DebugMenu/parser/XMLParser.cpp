@@ -50,8 +50,7 @@ namespace
                     ret.add(this->parseValue(e));
                 } else if (e.attribute(U"select")) {
                     // radioButton
-                    // @todo
-                    continue;
+                    ret.add(this->parseRadioButton(e));
                 } else if (e.firstChild()) {
                     // folder
                     ret.add(this->parseFolder(e));
@@ -62,7 +61,6 @@ namespace
                 } else {
                     // button
                     ret.add(this->parseButton(e));
-                    continue;
                 }
             }
             if (isPushPath) {
@@ -89,6 +87,32 @@ namespace
             auto callback = this->findCallback<void()>(xml.attribute(U"callback"));
 
             return Node::Create<Button>(key, label, callback);
+        }
+        Node parseRadioButton(const XMLElement& xml)
+        {
+            auto key = xml.name();
+            auto label = xml.attribute(U"label").value_or(key);
+            auto select = xml.attribute(U"select").value_or(U"0");
+            auto initSelect = s3d::ParseOpt<size_t>(select).value_or(0);
+
+            RadioButton::CallbackType callback;
+            if (auto c1 = this->findCallback<void(size_t)>(xml.attribute(U"callback"))) {
+                callback = c1;
+            } else if (auto c2 = this->findCallback<void(s3d::StringView)>(xml.attribute(U"callback"))) {
+                callback = c2;
+            } else if (auto c3 = this->findCallback<void(size_t, s3d::StringView)>(xml.attribute(U"callback"))) {
+                callback = c3;
+            }
+            auto radioButton = std::make_shared<RadioButton>(key, label, callback);
+            for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
+                auto itemValue = item.attribute(U"value").value_or(U"");
+                auto itemLabel = item.attribute(U"label").value_or(itemValue);
+
+                radioButton->addList(itemValue, itemLabel);
+            }
+            radioButton->setSelect(initSelect);
+
+            return Node(radioButton);
         }
         template<class... Args>
         std::shared_ptr<INode> makeFolderNode(bool isRoot, Args&&... args)

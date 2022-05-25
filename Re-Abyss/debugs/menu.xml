@@ -29,7 +29,7 @@
 		<hr/>
 		<Scanline label="スキャンライン" value="true"/>
 	</PostEffect>
-	<FPS select="0" callback="execFPS">
+	<FPS select="0" callback="ExecFPS">
 		<Item label="FPS：可変" />
 		<Item label="FPS：10" value="10"/>
 		<Item label="FPS：30" value="30"/>

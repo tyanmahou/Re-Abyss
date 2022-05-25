@@ -1,5 +1,6 @@
 #include <abyss/debugs/Menu/MenuBuilder.hpp>
 #if ABYSS_DEBUG
+#include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Debug
@@ -16,6 +17,10 @@ namespace abyss::Debug
 		} else {
 			GlobalAudio::SetVolume(1.0);
 		}
+	}
+	void MenuBuilder::ExecFPS(s3d::StringView value)
+	{
+		FrameRateHz::Set(ParseOpt<double>(value));
 	}
 }
 #endif
