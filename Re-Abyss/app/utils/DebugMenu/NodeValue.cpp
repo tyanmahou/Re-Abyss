@@ -31,5 +31,9 @@ namespace abyss::DebugMenu
 		}
 		return s3d::none;
 	}
+	size_t NodeValue::toIndex() const
+	{
+		return this->toIndexedString().first;
+	}
 }
 

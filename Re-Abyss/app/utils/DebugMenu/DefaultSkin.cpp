@@ -1,6 +1,7 @@
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <abyss/utils/DebugMenu/IItem.hpp>
 #include <abyss/utils/DebugMenu/IValue.hpp>
+#include <abyss/utils/DebugMenu/RadioButton.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
 #include <Siv3D.hpp>
 
@@ -82,6 +83,9 @@ namespace abyss::DebugMenu
 		// 項目
 		Vec2 ret{ 100,100 };
 		auto selectIndex = pFolder->focusIndex();
+
+		auto* pRadioButton = dynamic_cast<const RadioButton*>(pFolder);
+
 		for (auto [index, label] : s3d::Indexed(labels)) {
 			bool isSelected = selectIndex && *selectIndex == index;
 			if (isSelected) {
@@ -91,15 +95,23 @@ namespace abyss::DebugMenu
 
 				ret = RectF(offset, ls).tr();
 			}
-			if (auto value = dynamic_cast<IValue*>(pItems[index])) {
+			const ColorF color = isSelected ? focusTextColor : textColor;
+			if (pRadioButton) {
+				Circle buttonCircle(offset + Vec2{ checkIconSize.x / 2.0, checkIconSize.y / 2.0 }, checkIconSize.y / 2.0 - 3);
+				if (pRadioButton->value().toIndex() == index) {
+					buttonCircle.drawFrame(2, 1, headerColor);
+				} else {
+					buttonCircle.drawFrame(1, 1, color);
+				}
+			} else if (auto value = dynamic_cast<IValue*>(pItems[index])) {
 				if (value->value().isBool() && value->value().toBool()) {
-					m_font(U"✓").draw(offset + Vec2{5, 0}, isSelected ? focusTextColor : textColor);
+					m_font(U"✓").draw(offset + Vec2{5, 0}, color);
 				}
 			}
-			auto region = m_font(label).draw(checkIconSizeOffset + offset, isSelected ? focusTextColor : textColor);
+			auto region = m_font(label).draw(checkIconSizeOffset + offset, color);
 			if (auto value = dynamic_cast<IFolder*>(pItems[index])) {
 				auto offsX = size.x - openIconSize.x - 5.0;
-				m_font(U">").draw(offset + Vec2{ offsX , 0 }, isSelected ? focusTextColor : textColor);
+				m_font(U">").draw(offset + Vec2{ offsX , 0 }, color);
 			}
 
 			offset = region.bl() - checkIconSizeOffset;
