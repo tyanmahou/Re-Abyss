@@ -99,9 +99,9 @@ namespace abyss::DebugMenu
 			if (pRadioButton) {
 				Circle buttonCircle(offset + Vec2{ checkIconSize.x / 2.0, checkIconSize.y / 2.0 }, checkIconSize.y / 2.0 - 3);
 				if (pRadioButton->value().toIndex() == index) {
-					buttonCircle.drawFrame(2, 1, headerColor);
+					buttonCircle.drawFrame(3, 1, headerColor);
 				} else {
-					buttonCircle.drawFrame(1, 1, color);
+					buttonCircle.drawFrame(1, 1, ColorF(0.3));
 				}
 			} else if (auto value = dynamic_cast<IValue*>(pItems[index])) {
 				if (value->value().isBool() && value->value().toBool()) {
