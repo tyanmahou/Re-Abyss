@@ -18,7 +18,7 @@ namespace abyss::DebugMenu
 		}
 	public:
 		Node();
-		Node(std::shared_ptr<INode> node);
+		explicit Node(std::shared_ptr<INode> node);
 
 		void add(const Node& child);
 		Node find(s3d::StringView key) const;
@@ -29,6 +29,11 @@ namespace abyss::DebugMenu
 
 		bool isValid() const;
 		bool isValue() const;
+
+		explicit operator bool() const
+		{
+			return this->isValid();
+		}
 	private:
 		Node(std::shared_ptr<Handle> handle);
 	private:

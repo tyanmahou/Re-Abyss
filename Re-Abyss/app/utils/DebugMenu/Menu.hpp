@@ -14,6 +14,11 @@ namespace abyss::DebugMenu
 
 		void update();
 		void draw() const;
+
+		const Node& root() const
+		{
+			return m_root;
+		}
 	private:
 		Menu(Node rootNode);
 	private:

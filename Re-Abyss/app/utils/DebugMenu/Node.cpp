@@ -35,7 +35,7 @@ namespace abyss::DebugMenu
 #endif
 			}
 		}
-		std::shared_ptr<Handle> find(s3d::StringView key)
+		std::shared_ptr<Handle> findCore(s3d::StringView key)
 		{
 			std::shared_ptr<Handle> ret;
 
@@ -49,12 +49,30 @@ namespace abyss::DebugMenu
 					ret = child;
 					handle = ret.get();
 				} else {
-#if ABYSS_DEBUG
-					Debug::Log << U"DebugMenu::Node Not Found Node :" << key;
-#endif
 					return nullptr;
 				}
 			} while (slashIndex != s3d::StringView::npos);
+			return ret;
+		}
+		std::shared_ptr<Handle> find(s3d::StringView key)
+		{
+			// キャッシュ
+			auto cacheIt = m_findableCache.find(key);
+			if (cacheIt != m_findableCache.end()) {
+				if (cacheIt->second) {
+					return cacheIt->second.lock();
+				} else {
+					return nullptr;
+				}
+			}
+
+			std::shared_ptr<Handle> ret = this->findCore(key);
+#if ABYSS_DEBUG
+			if (!ret) {
+				Debug::Log << U"DebugMenu::Node Not Found Node :" << key;
+			}
+#endif
+			m_findableCache[key] = ret;
 
 			return ret;
 		}
@@ -79,7 +97,8 @@ namespace abyss::DebugMenu
 		}
 	private:
 		std::shared_ptr<INode> m_node;
-		s3d::HashTable<s3d::StringView, std::shared_ptr<Handle>> m_findableChilds;
+		s3d::HashTable<s3d::String, std::shared_ptr<Handle>> m_findableChilds;
+		s3d::HashTable<s3d::String, Ref<Handle>> m_findableCache;
 
 		Folder* m_pFolder = nullptr;
 		IValue* m_pValue = nullptr;

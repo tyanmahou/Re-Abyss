@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Debug label="デバッグ" callbackPath ="abyss::Debug::MenuBuilder">
-	<Scene label="シーン" custom="buildSceneMenu"/>
+	<Scene label="シーン" custom="BuildSceneMenu"/>
 	<Log label ="ログ">
 		<IsVisible label="表示" value="true"/>
 		<hr/>

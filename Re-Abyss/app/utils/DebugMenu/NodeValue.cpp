@@ -18,16 +18,23 @@ namespace abyss::DebugMenu
 	}
 	bool NodeValue::toBool() const
 	{
-		return std::get<bool>(m_value);
+		return this->toBoolOpt().value_or(false);
+	}
+	s3d::Optional<bool> NodeValue::toBoolOpt() const
+	{
+		if (std::holds_alternative<bool>(m_value)) {
+			return std::get<bool>(m_value);
+		}
+		return s3d::none;
 	}
 	std::pair<size_t, s3d::StringView> NodeValue::toIndexedString() const
 	{
-		return std::get<std::pair<size_t, s3d::StringView>>(m_value);
+		return this->toIndexedStringOpt().value_or(std::pair<size_t, s3d::StringView>{0, U""});
 	}
 	s3d::Optional<std::pair<size_t, s3d::StringView>> NodeValue::toIndexedStringOpt() const
 	{
 		if (std::holds_alternative<std::pair<size_t, s3d::StringView>>(m_value)) {
-			return this->toIndexedString();
+			return std::get<std::pair<size_t, s3d::StringView>>(m_value);
 		}
 		return s3d::none;
 	}

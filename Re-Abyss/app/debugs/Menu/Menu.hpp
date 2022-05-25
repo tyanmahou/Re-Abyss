@@ -2,10 +2,8 @@
 
 #if ABYSS_DEBUG
 #include <memory>
-#include <Siv3D/StringView.hpp>
-
-#include <abyss/scenes/base/ISceneBase.hpp>
-#include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
+#include <any>
+#include <Siv3D/String.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 #include <abyss/debugs/Menu/DebugFlag.hpp>
 
@@ -14,17 +12,24 @@ namespace abyss::Debug
     class Menu : protected DynamicSingleton<Menu>
     {
         friend class DynamicSingleton<Menu>;
+    public:
+        static void Update();
+
+        static bool IsDebug(const s3d::String& label);
+        static size_t DebugSelect(const s3d::String& label);
+
+        static void Bind(const s3d::String& key, const std::any& object);
+        static const std::any& GetBindObject(const s3d::String& key);
+        template<class Type>
+        static Type GetBind(const s3d::String& key)
+        {
+            return std::any_cast<Type>(GetBindObject(key));
+        }
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
 
         Menu();
-    public:
-        static void Init();
-        static bool IsDebug(const s3d::String& label);
-        static size_t DebugSelect(const s3d::String& label);
-
-        static void BindScene(AppScene* pScene);
     };
 }
 

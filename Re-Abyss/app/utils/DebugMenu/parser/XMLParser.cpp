@@ -56,8 +56,9 @@ namespace
                     ret.add(this->parseFolder(e));
                 } else if (auto custom = e.attribute(U"custom")) {
                     // custom
-                    // @todo
-                    continue;
+                    if (auto customNode = this->parseCustom(e)) {
+                        ret.add(customNode);
+                    }
                 } else {
                     // button
                     ret.add(this->parseButton(e));
@@ -113,6 +114,13 @@ namespace
             radioButton->setSelect(initSelect);
 
             return Node(radioButton);
+        }
+        Node parseCustom(const XMLElement& xml)
+        {
+            if (auto callback = this->findCallback<Node(const XMLElement &)>(xml.attribute(U"custom"))) {
+                return callback(xml);
+            }
+            return Node();
         }
         template<class... Args>
         std::shared_ptr<INode> makeFolderNode(bool isRoot, Args&&... args)

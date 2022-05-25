@@ -16,7 +16,6 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Profiler/Profiler.hpp>
-#include <abyss/utils/DebugMenu/Menu.hpp>
 
 namespace abyss
 {
@@ -45,8 +44,7 @@ namespace abyss
 			FontAsset::Register(U"pm12b-18", 18, U"/resources/fonts/PixelMplus12-Bold.ttf");
 		}
 	public:
-		Impl():
-			m_debugMenu(DebugMenu::Menu::FromXML(U"debugs/menu.xml"))
+		Impl()
 		{
 			// 初期設定
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
@@ -59,7 +57,7 @@ namespace abyss
 
 			Resource::UserData::Migration::Update();
 #if ABYSS_DEBUG
-			Debug::Menu::BindScene(&m_scene);
+			Debug::Menu::Bind(U"Scene", &m_scene);
 #endif
 		}
 
@@ -76,13 +74,11 @@ namespace abyss
 
 			bool ret = m_scene.update();
 
-			m_debugMenu.update();
-			m_debugMenu.draw();
+			Debug::Menu::Update();
 
 			return ret;
 		}
 	private:
-		DebugMenu::Menu m_debugMenu;
 		AppScene m_scene;
 	};
 
