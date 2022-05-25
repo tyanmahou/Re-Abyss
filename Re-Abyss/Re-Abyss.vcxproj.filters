@@ -2041,6 +2041,9 @@
     <ClCompile Include="app\utils\DebugMenu\parser\XMLParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\Menu\MenuBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3059,6 +3062,7 @@
     <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
     <ClInclude Include="app\utils\DebugMenu\RadioButton.hpp" />
     <ClInclude Include="app\utils\DebugMenu\parser\MenuParser.hpp" />
+    <ClInclude Include="app\debugs\Menu\MenuBuilder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

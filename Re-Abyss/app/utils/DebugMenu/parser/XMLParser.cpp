@@ -4,6 +4,7 @@
 #include <abyss/utils/DebugMenu/BoolItem.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
 #include <abyss/utils/DebugMenu/RadioButton.hpp>
+#include <abyss/utils/Reflection/Reflection.hpp>
 
 #include <Siv3D.hpp>
 
@@ -29,6 +30,12 @@ namespace
         {
             auto folderKey = xml.name();
             auto folderLabel = xml.attribute(U"label").value_or(folderKey);
+
+            bool isPushPath = false;
+            if (auto path = xml.attribute(U"callbackPath")) {
+                isPushPath = true;
+                m_callbackPathStack.push(*path);
+            }
             Node ret(this->makeFolderNode(isRoot, folderKey, folderLabel));
 
             for (auto e = xml.firstChild(); e; e = e.nextSibling()) {
@@ -54,11 +61,13 @@ namespace
                     continue;
                 } else {
                     // button
-                    // @todo
+                    ret.add(this->parseButton(e));
                     continue;
                 }
             }
-
+            if (isPushPath) {
+                m_callbackPathStack.pop();
+            }
             return ret;
         }
         Node parseValue(const XMLElement& xml)
@@ -67,11 +76,19 @@ namespace
             auto label = xml.attribute(U"label").value_or(key);
             auto value = xml.attribute(U"value").value_or(U"false");
 
-            if (auto boolValue = s3d::ParseOpt<bool>(value)) {
-                // @todo callback
-                return Node::Create<BoolItem>(key, label, *boolValue);
-            }
-            return Node::Create<BoolItem>(key, label);
+            bool initValue = s3d::ParseOpt<bool>(value).value_or(false);
+            auto callback = this->findCallback<void(bool)>(xml.attribute(U"callback"));
+
+            return Node::Create<BoolItem>(key, label, initValue, callback);
+        }
+        Node parseButton(const XMLElement& xml)
+        {
+            auto key = xml.name();
+            auto label = xml.attribute(U"label").value_or(key);
+
+            auto callback = this->findCallback<void()>(xml.attribute(U"callback"));
+
+            return Node::Create<Button>(key, label, callback);
         }
         template<class... Args>
         std::shared_ptr<INode> makeFolderNode(bool isRoot, Args&&... args)
@@ -80,6 +97,35 @@ namespace
                 std::make_shared<RootFolder>(std::forward<Args>(args)...) :
                 std::make_shared<Folder>(std::forward<Args>(args)...);
         }
+
+        template<class F>
+        std::function<F> findCallback(const s3d::Optional<s3d::String>& path)
+        {
+            if (!path) {
+                return nullptr;
+            }
+            return this->findCallback<F>(*path);
+        }
+        template<class F>
+        std::function<F> findCallback(const s3d::String& path)
+        {
+            if (auto callback = Reflect<>::find<F>(this->callbackPath(path))){
+                return callback;
+            }
+            if (auto callback = Reflect<>::find<F>(path)) {
+                return callback;
+            }
+            return nullptr;
+        }
+        s3d::String callbackPath(const s3d::String& path)
+        {
+            if (m_callbackPathStack.empty() || m_callbackPathStack.top().isEmpty()) {
+                return path;
+            }
+            return U"{}::{}"_fmt(m_callbackPathStack.top(), path);
+        }
+    private:
+        std::stack<s3d::String> m_callbackPathStack;
     };
 }
 namespace abyss::DebugMenu

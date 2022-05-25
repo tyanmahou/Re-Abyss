@@ -37,6 +37,11 @@ namespace abyss::DebugMenu
 		void addList(const s3d::String& value, const s3d::String& label);
 
 		void close();
+
+		void setSelect(size_t select)
+		{
+			m_selectIndex = select;
+		}
 	public:
 		void onOpendUpdate() override;
 

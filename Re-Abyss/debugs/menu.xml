@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Debug label="デバッグ">
+<Debug label="デバッグ" callbackPath ="abyss::Debug::MenuBuilder">
 	<Scene label="シーン" custom="buildSceneMenu"/>
 	<Log label ="ログ">
 		<IsVisible label="表示" value="true"/>
@@ -9,7 +9,7 @@
 		<Error label="エラー" value="true"/>
 		<Load label="ロード" value="true"/>
 		<hr/>
-		<Clear label="ログのクリア" callback ="execClearLog"/>
+		<Clear label="ログのクリア" callback ="ExecClearLog"/>
 	</Log>
 	<Alert label ="アラート">
 		<Profiler label="処理負荷" value="false"/>
@@ -30,13 +30,13 @@
 		<Scanline label="スキャンライン" value="true"/>
 	</PostEffect>
 	<FPS select="0" callback="execFPS">
-		<Item label="FPS：可変"/>
+		<Item label="FPS：可変" />
 		<Item label="FPS：10" value="10"/>
 		<Item label="FPS：30" value="30"/>
 		<Item label="FPS：60" value="60"/>
 		<Item label="FPS：120" value="120"/>
 	</FPS>
 	<Sound label ="サウンド">
-		<Mute label ="ミュート" value="false" callback="execSoundMute"/>
+		<Mute label ="ミュート" value="false" callback="ExecSoundMute"/>
 	</Sound>
 </Debug>
