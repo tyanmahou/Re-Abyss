@@ -1,6 +1,7 @@
 #pragma once
 #if ABYSS_DEBUG
 #include <memory>
+#include <functional>
 
 namespace abyss::Debug
 {
@@ -13,10 +14,7 @@ namespace abyss::Debug
 		System();
 		~System();
 
-		void update();
-		void draw() const;
-
-		bool isPause() const;
+		bool apply(std::function<bool()> callback);
 	private:
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;

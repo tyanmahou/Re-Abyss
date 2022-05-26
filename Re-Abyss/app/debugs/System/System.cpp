@@ -1,6 +1,6 @@
 #include <abyss/debugs/System/System.hpp>
 #if ABYSS_DEBUG
-
+#include <abyss/commons/Constants.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
@@ -14,15 +14,18 @@ namespace abyss::Debug
 	class System::Impl
 	{
 	public:
-		Impl()
+		Impl():
+			m_rt(Constants::AppResolution)
 		{
 		}
-
 		bool isPause() const
 		{
 			return m_pause.isPause();
 		}
-
+		bool isUpdate1f() const
+		{
+			return m_pause.isUpdate1f();
+		}
 		void update()
 		{
 			// ログ更新
@@ -38,13 +41,29 @@ namespace abyss::Debug
 
 		void draw() const
 		{
+			m_rt.draw();
 			if (this->isPause()) {
-				m_pause.captureDraw();
 				Debug::Menu::Update();
 			}
 		}
+
+		bool apply(std::function<bool()> callback)
+		{
+			this->update();
+
+			bool ret = true;
+			if (!this->isPause() || this->isUpdate1f()) {
+				m_rt.clear(ColorF(0, 1));
+				s3d::ScopedRenderTarget2D scoped(m_rt);
+				ret = callback();
+			}
+			this->draw();
+
+			return ret;
+		}
 	private:
 		Pause m_pause;
+		s3d::RenderTexture m_rt;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())
@@ -54,18 +73,9 @@ namespace abyss::Debug
 	System::~System()
 	{
 	}
-
-	void System::update()
+	bool System::apply(std::function<bool()> callback)
 	{
-		m_pImpl->update();
-	}
-	void System::draw() const
-	{
-		m_pImpl->draw();
-	}
-	bool System::isPause() const
-	{
-		return m_pImpl->isPause();
+		return m_pImpl->apply(std::move(callback));
 	}
 }
 #endif

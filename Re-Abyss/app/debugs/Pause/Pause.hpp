@@ -1,7 +1,6 @@
 #pragma once
 #if ABYSS_DEBUG
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
-#include <Siv3D/DynamicTexture.hpp>
 
 namespace abyss::Debug
 {
@@ -10,21 +9,18 @@ namespace abyss::Debug
 	public:
 		Pause();
 
-		bool isPause() const
-		{
-			return m_isPause;
-		}
+		bool isPause() const;
+		bool isUpdate1f() const;
 
 		void update();
-		void captureDraw() const;
-
 	private:
 		Coro::Task<> taskPause();
+		Coro::Task<> taskUpdate1f();
 	private:
-		Coro::TaskHolder<> m_task;
+		Coro::TaskHolder<> m_taskPause;
+		Coro::TaskHolder<> m_taskUpdate1f;
 		bool m_isPause = false;
-
-		s3d::DynamicTexture m_capture;
+		bool m_isUpdate1f = false;
 	};
 }
 #endif

@@ -7,30 +7,44 @@ namespace abyss::Debug
 {
 	Pause::Pause()
 	{
-		m_task.reset(std::bind(&Pause::taskPause, this));
+		m_taskPause.reset(std::bind(&Pause::taskPause, this));
+		m_taskUpdate1f.reset(std::bind(&Pause::taskUpdate1f, this));
+	}
+	bool Pause::isPause() const
+	{
+		return m_isPause;
+	}
+	bool Pause::isUpdate1f() const
+	{
+		return m_isUpdate1f;
 	}
 	void Pause::update()
 	{
-		m_task.moveNext();
-	}
-	void Pause::captureDraw() const
-	{
-		m_capture.draw();
+		m_taskPause.moveNext();
+		m_taskUpdate1f.moveNext();
 	}
 	Coro::Task<> Pause::taskPause()
 	{
 		while (true) {
 			co_await Coro::WaitUntil([] {return KeyF11.down(); });
-			s3d::ScreenCapture::RequestCurrentFrame();
 			co_yield{};
-			s3d::ScreenCapture::GetFrame(m_capture);
 			m_isPause = true;
 			co_await Coro::WaitUntil([] {return KeyF11.down(); });
 			co_yield{};
 			m_isPause = false;
 		}
 		co_return;
-
+	}
+	Coro::Task<> Pause::taskUpdate1f()
+	{
+		while (true) {
+			m_isUpdate1f = false;
+			if (m_isPause && KeyF10.down()) {
+				m_isUpdate1f = true;
+			}
+			co_yield{};
+		}
+		co_return;
 	}
 }
 #endif
