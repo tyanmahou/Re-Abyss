@@ -1,15 +1,12 @@
 #include <abyss/debugs/System/System.hpp>
 #if ABYSS_DEBUG
 
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
-
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/DebugManager/DebugManager.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Profiler/Profiler.hpp>
-
+#include <abyss/debugs/Pause/Pause.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -19,12 +16,11 @@ namespace abyss::Debug
 	public:
 		Impl()
 		{
-			m_pauseUpdater.reset(std::bind(&Impl::taskPause, this));
 		}
 
 		bool isPause() const
 		{
-			return false;
+			return m_pause.isPause();
 		}
 
 		void update()
@@ -37,38 +33,18 @@ namespace abyss::Debug
 			Debug::Profiler::Print();
 
 			Debug::DebugManager::Update();
-
-			m_pauseUpdater.moveNext();
+			m_pause.update();
 		}
 
 		void draw() const
 		{
-			if (m_isPause) {
-				m_capture.draw();
-
+			if (this->isPause()) {
+				m_pause.captureDraw();
 				Debug::Menu::Update();
 			}
 		}
 	private:
-		Coro::Task<> taskPause()
-		{
-			while (true) {
-				co_await Coro::WaitUntil([] {return KeyF11.down(); });
-				s3d::ScreenCapture::RequestCurrentFrame();
-				co_yield{};
-				s3d::ScreenCapture::GetFrame(m_capture);
-				m_isPause = true;
-
-				co_await Coro::WaitUntil([] {return KeyF11.down(); });
-				m_isPause = false;
-			}
-			co_return;
-		}
-	private:
-		Coro::TaskHolder<> m_pauseUpdater;
-		bool m_isPause = false;
-
-		s3d::DynamicTexture m_capture;
+		Pause m_pause;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())

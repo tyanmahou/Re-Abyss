@@ -66,9 +66,9 @@ namespace abyss
 			InputManager::Update();
 
 #if ABYSS_DEBUG
-			bool ret = false;
+			bool ret = true;
 			if (!m_debugSystem.isPause()) {
-				ret |= m_scene.update();
+				ret = m_scene.update();
 			}
 			m_debugSystem.draw();
 
