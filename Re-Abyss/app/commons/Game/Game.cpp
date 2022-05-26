@@ -11,11 +11,8 @@
 #include <abyss/scenes/Main/MainScene.hpp>
 #include <abyss/scenes/ClearResult/ClearResultScene.hpp>
 
-#include <abyss/utils/FPS/FrameRateHz.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
-#include <abyss/debugs/Log/Log.hpp>
+#include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
-#include <abyss/debugs/Profiler/Profiler.hpp>
 
 namespace abyss
 {
@@ -64,22 +61,27 @@ namespace abyss
 		bool update()
 		{
 #if ABYSS_DEBUG
-			Debug::LogUpdater::Update();
-			FrameRateHz::Sleep();
-			Debug::Profiler::Print();
-			Debug::DebugManager::Update();
+			m_debugSystem.update();
 #endif
-
 			InputManager::Update();
 
-			bool ret = m_scene.update();
-
-			Debug::Menu::Update();
+#if ABYSS_DEBUG
+			bool ret = false;
+			if (!m_debugSystem.isPause()) {
+				ret |= m_scene.update();
+			}
+			m_debugSystem.draw();
 
 			return ret;
+#else
+			return m_scene.update();
+#endif
 		}
 	private:
 		AppScene m_scene;
+#if ABYSS_DEBUG
+		Debug::System m_debugSystem;
+#endif
 	};
 
 	Game::Game() :

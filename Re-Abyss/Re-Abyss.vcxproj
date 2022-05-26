@@ -440,6 +440,7 @@
     <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\SkipEnabled.cpp" />
     <ClCompile Include="app\debugs\Menu\MenuBuilder.cpp" />
+    <ClCompile Include="app\debugs\System\System.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
@@ -1096,6 +1097,7 @@
     <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp" />
     <ClInclude Include="app\debugs\Menu\MenuBuilder.hpp" />
+    <ClInclude Include="app\debugs\System\System.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\CodeZeroBackEntity.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
