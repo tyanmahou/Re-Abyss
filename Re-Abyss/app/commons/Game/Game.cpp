@@ -40,15 +40,18 @@ namespace abyss
 			FontAsset::Register(U"pm12b-12", 12, U"/resources/fonts/PixelMplus12-Bold.ttf");
 			FontAsset::Register(U"pm12b-18", 18, U"/resources/fonts/PixelMplus12-Bold.ttf");
 		}
-	public:
-		Impl()
+		void setupDefaultRenderState()
 		{
-			// 初期設定
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 0, SamplerState::ClampNearest);
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 0, SamplerState::ClampNearest);
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Vertex, 1, SamplerState::BorderNearest);
 			Graphics2D::Internal::SetSamplerState(ShaderStage::Pixel, 1, SamplerState::BorderNearest);
-
+		}
+	public:
+		Impl()
+		{
+			// 初期設定
+			this->setupDefaultRenderState();
 			this->registerScene();
 			this->loadFont();
 
