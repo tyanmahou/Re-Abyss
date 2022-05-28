@@ -24,7 +24,7 @@ namespace abyss::Debug
 
 		void onResume() override
 		{
-			Menu::RequestClose();
+			Menu::ResetRequestClose();
 		}
 	};
 	class System::Impl
