@@ -26,11 +26,12 @@ namespace abyss::Debug
 	Coro::Task<> Pause::taskPause()
 	{
 		while (true) {
-			co_await Coro::WaitUntil([] {return KeyF11.down(); });
+			co_await Coro::WaitUntil([this] {return m_eventTrigger->isPauseTrigger(); });
 			co_yield{};
 			m_isPause = true;
-			co_await Coro::WaitUntil([] {return KeyF11.down(); });
+			co_await Coro::WaitUntil([this] {return m_eventTrigger->isResumeTrigger(); });
 			co_yield{};
+			m_eventTrigger->onResume();
 			m_isPause = false;
 		}
 		co_return;

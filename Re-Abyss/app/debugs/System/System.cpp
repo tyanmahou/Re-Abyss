@@ -11,12 +11,29 @@
 
 namespace abyss::Debug
 {
+	class PauseTrigger : public IPauseEventTrigger
+	{
+		bool isPauseTrigger() const override
+		{
+			return KeyF11.down();
+		}
+		bool isResumeTrigger() const override
+		{
+			return isPauseTrigger() || Menu::IsRequestedClose();
+		}
+
+		void onResume() override
+		{
+			Menu::RequestClose();
+		}
+	};
 	class System::Impl
 	{
 	public:
 		Impl():
 			m_rt(Constants::AppResolution)
 		{
+			m_pause.setEvent(std::make_unique<PauseTrigger>());
 		}
 		bool isPause() const
 		{

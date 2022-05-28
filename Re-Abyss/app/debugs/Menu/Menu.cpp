@@ -34,9 +34,18 @@ namespace abyss::Debug
         {
             return m_bindObjs.at(key);
         }
+        bool isRequestedClose() const
+        {
+            return m_isRequestedClose;
+        }
+        void setRequestedClose(bool value)
+        {
+            m_isRequestedClose = value;
+        }
     private:
         DebugMenu::Menu m_menu;
         s3d::HashTable<String, std::any> m_bindObjs;
+        bool m_isRequestedClose = false;
     };
     Menu::Menu() :
         m_pImpl(std::make_unique<Impl>())
@@ -60,6 +69,18 @@ namespace abyss::Debug
     const std::any& Menu::GetBindObject(const s3d::String& key)
     {
         return Instance()->m_pImpl->getBindObject(key);
+    }
+    bool Menu::IsRequestedClose()
+    {
+        return Instance()->m_pImpl->isRequestedClose();
+    }
+    void Menu::RequestClose()
+    {
+        Instance()->m_pImpl->setRequestedClose(true);
+    }
+    void Menu::ResetRequestClose()
+    {
+        Instance()->m_pImpl->setRequestedClose(false);
     }
 }
 #endif

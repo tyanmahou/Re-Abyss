@@ -24,8 +24,11 @@ namespace
 					callback(pScene->get().get());
 				}
 				pScene->changeScene(key, 1000, CrossFade::No);
+
+				// メニューを閉じる
+				Menu::RequestClose();
 			}
-			});
+		});
 	}
 	Node BuildSceneChangeButton(const s3d::String& key, std::function<void(GameData*)> callback = nullptr)
 	{

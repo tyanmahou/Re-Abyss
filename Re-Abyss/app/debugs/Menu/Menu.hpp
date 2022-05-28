@@ -25,6 +25,9 @@ namespace abyss::Debug
         {
             return std::any_cast<Type>(GetBindObject(key));
         }
+        static bool IsRequestedClose();
+        static void RequestClose();
+        static void ResetRequestClose();
     private:
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
