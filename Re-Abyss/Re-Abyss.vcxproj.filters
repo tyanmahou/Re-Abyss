@@ -140,9 +140,6 @@
     <ClCompile Include="app\views\Light\LightView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\Collision\FixPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2126,7 +2123,6 @@
     <ClInclude Include="app\utils\Mask\MaskUtil.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
-    <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\utils\Collision\FixPos.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\types\MapColInfo.hpp" />

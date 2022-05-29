@@ -4,8 +4,7 @@
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Sys
@@ -126,9 +125,9 @@ namespace abyss::Sys
 
 #if ABYSS_DEBUG
         if constexpr (config.isStage) {
-            Debug::DebugManager::DrawDebug(*decors);
+            Debug::DebugUtil::AlertDecorCount(*decors);
         }
-        Debug::DebugManager::DrawDebug(*mod<Effects>());
+        Debug::DebugUtil::AlertEffectCount(*mod<Effects>());
 #endif
     }
 
@@ -158,7 +157,7 @@ namespace abyss::Sys
         mod<SpecialEffects>()->draw();
 
 #if ABYSS_DEBUG
-        Debug::DebugManager::AlertDrawerCount(drawer);
+        Debug::DebugUtil::AlertDrawerCount(drawer);
 #endif
         auto* camera = mod<Camera>();
         auto cameraView = camera->createView();
@@ -213,8 +212,8 @@ namespace abyss::Sys
 
                 if constexpr (config.isStage) {
 #if ABYSS_DEBUG
-                    Debug::DebugManager::DrawDebug(*mod<World>());
-                    Debug::DebugManager::DrawDebug(*mod<PhysicsManager>());
+                    Debug::DebugUtil::DrawDebug(*mod<World>());
+                    Debug::DebugUtil::DrawDebug(*mod<PhysicsManager>());
 #endif
                 }
             }

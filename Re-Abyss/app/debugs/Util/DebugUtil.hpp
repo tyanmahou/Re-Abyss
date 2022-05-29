@@ -5,14 +5,26 @@
 #include <Siv3D/String.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::Debug::DebugUtil
+namespace abyss::Debug
 {
-    void DrawShape(const CShape& shape, const s3d::ColorF& color);
+    class DebugUtil
+    {
+    public:
+        static void DrawDebug(const World& world);
 
-    /// <summary>
-    /// 対象ファイルを既定のエディタで開く
-    /// </summary>
-    bool FileEdit(const s3d::FilePath& path);
+        static void DrawDebug(const PhysicsManager& physics);
+
+        static void DrawShape(const CShape& shape, const s3d::ColorF& color);
+
+        static void AlertDecorCount(const Decors& decor);
+        static void AlertEffectCount(const Effects& effects);
+        static void AlertDrawerCount(const DrawManager* drawManager);
+
+        /// <summary>
+        /// 対象ファイルを既定のエディタで開く
+        /// </summary>
+        static bool FileEdit(const s3d::FilePath& path);
+    };
 }
 
 #endif

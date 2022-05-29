@@ -838,7 +838,6 @@
     <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp" />
     <ClCompile Include="app\modules\Camera\Camera.cpp" />
     <ClCompile Include="app\modules\Stage\Stage.cpp" />
-    <ClCompile Include="app\debugs\DebugManager\DebugManager.cpp" />
     <ClCompile Include="App\Main.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
     <ClCompile Include="app\modules\GameObject\Components.cpp" />
@@ -1763,7 +1762,6 @@
     <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
     <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
-    <ClInclude Include="app\debugs\DebugManager\DebugManager.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\GimmickEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\StartPosEntity.hpp" />
