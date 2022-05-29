@@ -17,8 +17,6 @@ namespace abyss::Debug
 
         DebugManager();
     public:
-        static void Update();
-
         static void DrawDebug(const World& world);
 
         static void DrawDebug(const PhysicsManager& physics);

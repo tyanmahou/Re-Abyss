@@ -2,7 +2,7 @@
 #if ABYSS_DEBUG
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
-#include <abyss/debugs/DebugManager/DebugManager.hpp>
+#include <abyss/debugs/FPSViewer/FPSViewer.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Profiler/Profiler.hpp>
@@ -34,6 +34,9 @@ namespace abyss::Debug
 			m_rt(Constants::AppResolution)
 		{
 			m_pause.setEvent(std::make_unique<PauseTrigger>());
+			m_fpsViewer.setPrinter([](s3d::int32 fps){
+				Log.Update << fps;
+			});
 		}
 		bool isPause() const
 		{
@@ -48,11 +51,11 @@ namespace abyss::Debug
 			// ログ更新
 			Debug::LogUpdater::Update();
 			// FPS制御
+			m_fpsViewer.update();
 			FrameRateHz::Sleep();
 			// プロファイラ
 			Debug::Profiler::Print();
 
-			Debug::DebugManager::Update();
 			m_pause.update();
 		}
 
@@ -80,6 +83,7 @@ namespace abyss::Debug
 		}
 	private:
 		Pause m_pause;
+		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
 	};
 	System::System() :

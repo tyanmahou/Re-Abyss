@@ -2050,6 +2050,9 @@
     <ClCompile Include="app\debugs\Pause\Pause.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\FPSViewer\FPSViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -3071,6 +3074,7 @@
     <ClInclude Include="app\debugs\Menu\MenuBuilder.hpp" />
     <ClInclude Include="app\debugs\System\System.hpp" />
     <ClInclude Include="app\debugs\Pause\Pause.hpp" />
+    <ClInclude Include="app\debugs\FPSViewer\FPSViewer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\Actor\Enemy\CodeZero\Builder.hpp" />

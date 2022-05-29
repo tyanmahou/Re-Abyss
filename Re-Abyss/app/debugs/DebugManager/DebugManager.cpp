@@ -22,18 +22,6 @@ namespace abyss::Debug
     class DebugManager::Impl
     {
     public:
-
-        bool m_showFps = false;
-        void update()
-        {
-            if (KeyF7.down()) {
-                m_showFps ^= true;
-            }
-            if (m_showFps) {
-                Debug::Log.Update << Profiler::FPS();
-            }
-        }
-
         void drawCollider(const World& world)
         {
             if (!Menu::IsDebug(Debug::DebugFlag::ActorCollider)) {
@@ -104,12 +92,6 @@ namespace abyss::Debug
     DebugManager::DebugManager():
         m_pImpl(std::make_unique<Impl>())
     {}
-
-    void DebugManager::Update()
-    {
-        return Instance()->m_pImpl->update();
-    }
-
     void DebugManager::DrawDebug(const World& world)
     {
         Instance()->m_pImpl->drawCollider(world);
