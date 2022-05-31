@@ -1,4 +1,4 @@
-#include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
+﻿#include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
 #include <tuple>
 
 #include <abyss/factories/Storage/StorageInjector.hpp>
@@ -43,7 +43,7 @@ namespace emaject
         void onInject(Storage::Impl* value, Container* c)
         {
             std::apply([=]<class... T>(T&... s) {
-                ((s = c->resolve<T::element_type>()),...);
+                ((s = c->resolve<typename T::element_type>()),...);
             }, value->services);
         }
     };

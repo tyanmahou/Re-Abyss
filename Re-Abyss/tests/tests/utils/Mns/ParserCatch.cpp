@@ -1,4 +1,4 @@
-#if ABYSS_DO_TEST
+﻿#if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/utils/Mns/Lexer/Lexer.hpp>
 #include <abyss/utils/Mns/Parser/Parser.hpp>

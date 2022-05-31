@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/String.hpp>
 
 namespace abyss::Path

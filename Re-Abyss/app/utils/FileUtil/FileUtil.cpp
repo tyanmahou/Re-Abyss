@@ -1,4 +1,4 @@
-#include <abyss/utils/FileUtil/FileUtil.hpp>
+﻿#include <abyss/utils/FileUtil/FileUtil.hpp>
 
 #include <stack>
 #include <Siv3D.hpp>
@@ -23,7 +23,11 @@ namespace abyss::FileUtil
 				if (dirName == U".") {
 
 				} else if (dirName == U"..") {
-					dirNameStack.pop();
+                    if (dirNameStack.empty()) {
+                        dirNameStack.push(dirName);
+                    } else {
+                        dirNameStack.pop();
+                    }
 				} else {
 					dirNameStack.push(dirName);
 				}

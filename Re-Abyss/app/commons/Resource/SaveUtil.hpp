@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/types/UserPlayMode.hpp>
 #include <Siv3DSQL.hpp>
