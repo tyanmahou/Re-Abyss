@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Fwd.hpp>
+#include <Siv3D/Point.hpp>
 #include <abyss/utils/Windows/WindowMenu/WindowMenu.hpp>
 
 namespace abyss
