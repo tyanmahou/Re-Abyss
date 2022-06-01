@@ -66,7 +66,7 @@ namespace abyss
 			InputManager::Update();
 
 #if ABYSS_DEBUG
-			return m_debugSystem.apply([this] {
+			return Debug::System::Apply([this] {
 				return m_scene.update();
 			});
 #else
@@ -75,9 +75,6 @@ namespace abyss
 		}
 	private:
 		AppScene m_scene;
-#if ABYSS_DEBUG
-		Debug::System m_debugSystem;
-#endif
 	};
 
 	Game::Game() :

@@ -94,9 +94,9 @@ namespace abyss::Debug
 	System::~System()
 	{
 	}
-	bool System::apply(std::function<bool()> callback)
+	bool System::Apply(std::function<bool()> callback)
 	{
-		return m_pImpl->apply(std::move(callback));
+		return Instance()->m_pImpl->apply(std::move(callback));
 	}
 }
 #endif
