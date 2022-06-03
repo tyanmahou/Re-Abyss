@@ -5,7 +5,6 @@
 #include <abyss/debugs/FPSViewer/FPSViewer.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
-#include <abyss/debugs/Profiler/Profiler.hpp>
 #include <abyss/debugs/Pause/Pause.hpp>
 #include <Siv3D.hpp>
 
@@ -53,8 +52,6 @@ namespace abyss::Debug
 			// FPS制御
 			m_fpsViewer.update();
 			FrameRateHz::Sleep();
-			// プロファイラ
-			Debug::Profiler::Print();
 
 			m_pause.update();
 		}

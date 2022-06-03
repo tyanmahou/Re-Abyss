@@ -26,18 +26,18 @@ namespace abyss::Debug
     Profiler::Profiler():
         m_pImpl(std::make_unique<Impl>())
     {}
-    void Profiler::Begin(const s3d::StringView name)
+    void Profiler::begin(const s3d::StringView name)
     {
-        Instance()->m_pImpl->begin(name);
+        m_pImpl->begin(name);
     }
-    void Profiler::End(const s3d::StringView name)
+    void Profiler::end(const s3d::StringView name)
     {
-        Instance()->m_pImpl->end(name);
+        m_pImpl->end(name);
     }
-    void Profiler::Print()
+    void Profiler::print()
     {
         if (Menu::IsDebug(DebugFlag::AlertProfiler)) {
-            Instance()->m_pImpl->print();
+            m_pImpl->print();
         }
     }
 }
