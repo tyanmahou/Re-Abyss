@@ -57,6 +57,9 @@ namespace abyss
 
 			Resource::UserData::Migration::Update();
 #if ABYSS_DEBUG
+            Debug::System::SetContext(Debug::SystemContext{
+                .pScene = &m_scene
+            });
 			Debug::Menu::Bind(U"Scene", &m_scene);
 #endif
 		}

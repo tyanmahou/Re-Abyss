@@ -2,6 +2,7 @@
 #if ABYSS_DEBUG
 #include <memory>
 #include <functional>
+#include <abyss/debugs/System/SystemContext.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss::Debug
@@ -14,6 +15,9 @@ namespace abyss::Debug
         friend class DynamicSingleton<System>;
     public:
 		static bool Apply(std::function<bool()> callback);
+
+        static const SystemContext& Context();
+        static void SetContext(const SystemContext& context);
     private:
         System();
         ~System();

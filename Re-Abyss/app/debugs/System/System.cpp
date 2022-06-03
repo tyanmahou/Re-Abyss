@@ -78,8 +78,18 @@ namespace abyss::Debug
 
 			return ret;
 		}
+
+        const SystemContext& context()
+        {
+            return m_context;
+        }
+        void setContext(const SystemContext& context)
+        {
+            m_context = context;
+        }
 	private:
-		Pause m_pause;
+        SystemContext m_context;
+        Pause m_pause;
 		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
 	};
@@ -95,5 +105,13 @@ namespace abyss::Debug
 	{
 		return Instance()->m_pImpl->apply(std::move(callback));
 	}
+    const SystemContext& System::Context()
+    {
+        return Instance()->m_pImpl->context();
+    }
+    void System::SetContext(const SystemContext& context)
+    {
+        Instance()->m_pImpl->setContext(context);
+    }
 }
 #endif

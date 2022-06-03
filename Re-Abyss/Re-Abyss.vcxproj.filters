@@ -5551,6 +5551,9 @@
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\debugs\System\SystemContext.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

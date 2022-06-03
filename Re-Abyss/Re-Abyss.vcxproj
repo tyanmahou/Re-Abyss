@@ -1618,6 +1618,7 @@
     <ClInclude Include="app\debugs\Pause\Pause.hpp" />
     <ClInclude Include="app\debugs\Profiler\Profiler.hpp" />
     <ClInclude Include="app\debugs\System\System.hpp" />
+    <ClInclude Include="app\debugs\System\SystemContext.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
