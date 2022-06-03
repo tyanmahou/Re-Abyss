@@ -2,6 +2,7 @@
 #if ABYSS_DEBUG
 #include <abyss/scenes/base/ISceneBase.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
+#include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 
@@ -18,7 +19,7 @@ namespace
 	Node BuildSceneChangeButton(const s3d::String& key, const s3d::String& label, std::function<void(GameData*)> callback = nullptr)
 	{
 		return Node::Create<DebugMenu::Button>(key, label, [key, callback] {
-			auto pScene = Menu::GetBind<AppScene*>(U"Scene");
+            auto* pScene = Debug::System::Context().pScene;
 			if (pScene) {
 				if (callback) {
 					callback(pScene->get().get());

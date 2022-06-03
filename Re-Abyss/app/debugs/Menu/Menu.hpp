@@ -18,13 +18,6 @@ namespace abyss::Debug
         static bool IsDebug(const s3d::String& label);
         static size_t DebugSelect(const s3d::String& label);
 
-        static void Bind(const s3d::String& key, const std::any& object);
-        static const std::any& GetBindObject(const s3d::String& key);
-        template<class Type>
-        static Type GetBind(const s3d::String& key)
-        {
-            return std::any_cast<Type>(GetBindObject(key));
-        }
         static bool IsRequestedClose();
         static void RequestClose();
         static void ResetRequestClose();

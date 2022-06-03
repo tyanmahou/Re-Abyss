@@ -12,7 +12,6 @@
 #include <abyss/scenes/ClearResult/ClearResultScene.hpp>
 
 #include <abyss/debugs/System/System.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
 
 namespace abyss
 {
@@ -60,7 +59,6 @@ namespace abyss
             Debug::System::SetContext(Debug::SystemContext{
                 .pScene = &m_scene
             });
-			Debug::Menu::Bind(U"Scene", &m_scene);
 #endif
 		}
 
