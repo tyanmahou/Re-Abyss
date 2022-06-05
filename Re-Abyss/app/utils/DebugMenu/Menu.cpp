@@ -4,7 +4,6 @@
 #include <abyss/utils/DebugMenu/parser/MenuParser.hpp>
 #include <Siv3D.hpp>
 
-
 namespace abyss::DebugMenu
 {
 	Menu Menu::FromXML(s3d::FilePathView path)

@@ -13,7 +13,7 @@
 #include <abyss/utils/Overloaded.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Menu/MenuUtil.hpp>
 
 #include <Siv3D.hpp>
 #include <Siv3D/Windows/Windows.hpp>
@@ -22,7 +22,7 @@ namespace abyss::Debug
 {
     void DebugUtil::DrawDebug(const World& world)
     {
-        if (!Menu::IsDebug(Debug::DebugFlag::ActorCollider)) {
+        if (!MenuUtil::IsDebug(Debug::DebugFlag::ActorCollider)) {
             return;
         }
         auto coms = world.finds<Actor::Collider>();
@@ -39,7 +39,7 @@ namespace abyss::Debug
     }
     void DebugUtil::DrawDebug(const PhysicsManager& physics)
     {
-        if (!Menu::IsDebug(Debug::DebugFlag::ActorMapCollider)) {
+        if (!MenuUtil::IsDebug(Debug::DebugFlag::ActorMapCollider)) {
             return;
         }
 
@@ -105,7 +105,7 @@ namespace abyss::Debug
     }
     void DebugUtil::AlertDecorCount(const Decors& decor)
     {
-        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertDecorCount)) {
+        if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::AlertDecorCount)) {
             return;
         }
         Debug::Log.Update << U"---LogDecorCount---";
@@ -113,7 +113,7 @@ namespace abyss::Debug
     }
     void DebugUtil::AlertEffectCount(const Effects& effects)
     {
-        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertEffectCount)) {
+        if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::AlertEffectCount)) {
             return;
         }
         Debug::Log.Update << U"---LogEffectCount---";
@@ -124,7 +124,7 @@ namespace abyss::Debug
         if (!drawManager) {
             return;
         }
-        if (!Debug::Menu::IsDebug(Debug::DebugFlag::AlertDrawerCount)) {
+        if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::AlertDrawerCount)) {
             return;
         }
         Debug::Log.Update << U"---LogDrawerCount---";

@@ -2,30 +2,33 @@
 
 #if ABYSS_DEBUG
 #include <memory>
-#include <any>
 #include <Siv3D/String.hpp>
-#include <abyss/utils/Singleton/DynamicSingleton.hpp>
-#include <abyss/debugs/Menu/DebugFlag.hpp>
 
 namespace abyss::Debug
 {
-    class Menu : protected DynamicSingleton<Menu>
+    /// <summary>
+    /// デバッグメニュー
+    /// </summary>
+    class Menu
     {
-        friend class DynamicSingleton<Menu>;
+        class Impl;
     public:
-        static void Update();
+        Menu();
+        ~Menu();
 
-        static bool IsDebug(const s3d::String& label);
-        static size_t DebugSelect(const s3d::String& label);
+        void update();
+        void draw() const;
 
-        static bool IsRequestedClose();
-        static void RequestClose();
-        static void ResetRequestClose();
+        bool isDebug(const s3d::String& label) const;
+
+        void open();
+        void close();
+
+        bool isOpend() const;
     private:
         class Impl;
+    public:
         std::unique_ptr<Impl> m_pImpl;
-
-        Menu();
     };
 }
 

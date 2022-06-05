@@ -7,6 +7,8 @@
 
 namespace abyss::Debug
 {
+    class Menu;
+
 	/// <summary>
 	/// デバッグシステム
 	/// </summary>
@@ -21,6 +23,9 @@ namespace abyss::Debug
     private:
         System();
         ~System();
+    private:
+        friend class MenuUtil;
+        static Menu& GetMenu();
 	private:
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;

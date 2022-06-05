@@ -28,6 +28,7 @@ namespace abyss::Debug
 		while (true) {
 			co_await Coro::WaitUntil([this] {return m_eventTrigger->isPauseTrigger(); });
 			co_yield{};
+            m_eventTrigger->onPause();
 			m_isPause = true;
 			co_await Coro::WaitUntil([this] {return m_eventTrigger->isResumeTrigger(); });
 			co_yield{};

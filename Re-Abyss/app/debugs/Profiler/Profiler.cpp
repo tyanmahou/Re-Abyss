@@ -1,6 +1,6 @@
 #if ABYSS_DEBUG
 #include <abyss/debugs/Profiler/Profiler.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Menu/MenuUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -36,7 +36,7 @@ namespace abyss::Debug
     }
     void Profiler::print()
     {
-        if (Menu::IsDebug(DebugFlag::AlertProfiler)) {
+        if (MenuUtil::IsDebug(DebugFlag::AlertProfiler)) {
             m_pImpl->print();
         }
     }

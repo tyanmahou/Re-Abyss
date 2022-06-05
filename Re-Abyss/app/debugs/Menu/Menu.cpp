@@ -15,55 +15,66 @@ namespace abyss::Debug
         {}
         void update()
         {
+            if (!m_isOpend) {
+                return;
+            }
             m_menu.update();
+        }
+        void draw() const
+        {
+            if (!m_isOpend) {
+                return;
+            }
             m_menu.draw();
         }
         bool isDebug(const String& label)
         {
             return m_menu.root().find(label).value().toBool();
         }
-        size_t debugSelect(const s3d::String& label)
+        void open()
         {
-            return m_menu.root().find(label).value().toIndex();
+            m_isOpend = true;
         }
-        bool isRequestedClose() const
+        void close()
         {
-            return m_isRequestedClose;
+            m_isOpend = false;
         }
-        void setRequestedClose(bool value)
+        bool isOpend() const
         {
-            m_isRequestedClose = value;
+            return m_isOpend;
         }
     private:
         DebugMenu::Menu m_menu;
-        bool m_isRequestedClose = false;
+        bool m_isOpend = false;
     };
     Menu::Menu() :
         m_pImpl(std::make_unique<Impl>())
     {}
-    void Menu::Update()
+    Menu::~Menu()
+    {}
+    void Menu::update()
     {
-        Instance()->m_pImpl->update();
+        m_pImpl->update();
     }
-    bool Menu::IsDebug(const String& label)
+    void Menu::draw() const
     {
-        return Instance()->m_pImpl->isDebug(label);
+        m_pImpl->draw();
     }
-    size_t Menu::DebugSelect(const s3d::String& label)
+    bool Menu::isDebug(const String& label) const
     {
-        return Instance()->m_pImpl->debugSelect(label);
+        return m_pImpl->isDebug(label);
     }
-    bool Menu::IsRequestedClose()
+    void Menu::open()
     {
-        return Instance()->m_pImpl->isRequestedClose();
+        m_pImpl->open();
     }
-    void Menu::RequestClose()
+    void Menu::close()
     {
-        Instance()->m_pImpl->setRequestedClose(true);
+        m_pImpl->close();
     }
-    void Menu::ResetRequestClose()
+    bool Menu::isOpend() const
     {
-        Instance()->m_pImpl->setRequestedClose(false);
+        return m_pImpl->isOpend();
     }
 }
 #endif

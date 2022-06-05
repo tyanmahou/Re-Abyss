@@ -19,7 +19,7 @@ namespace abyss::Actor
 	}
 	void DebugInfo::onPreDraw()
 	{
-		if (!Debug::Menu::IsDebug(Debug::DebugFlag::ActorDebugInfo)) {
+		if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::ActorDebugInfo)) {
 			return;
 		}
 		if (!m_body) {

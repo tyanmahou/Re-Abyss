@@ -14,6 +14,7 @@ namespace abyss::Debug
 			return this->isPauseTrigger();
 		}
 
+        virtual void onPause(){}
 		virtual void onResume() {}
 	};
 

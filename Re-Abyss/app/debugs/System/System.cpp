@@ -12,19 +12,29 @@ namespace abyss::Debug
 {
 	class PauseTrigger : public IPauseEventTrigger
 	{
+    public:
+        PauseTrigger(Menu& menu):
+            m_menu(menu)
+        {}
 		bool isPauseTrigger() const override
 		{
 			return KeyF11.down();
 		}
 		bool isResumeTrigger() const override
 		{
-			return isPauseTrigger() || Menu::IsRequestedClose();
+			return isPauseTrigger() || !m_menu.isOpend();
 		}
 
+        void onPause() override
+        {
+            m_menu.open();
+        }
 		void onResume() override
 		{
-			Menu::ResetRequestClose();
-		}
+            m_menu.close();
+        }
+    private:
+        Menu& m_menu;
 	};
 	class System::Impl
 	{
@@ -32,7 +42,7 @@ namespace abyss::Debug
 		Impl():
 			m_rt(Constants::AppResolution)
 		{
-			m_pause.setEvent(std::make_unique<PauseTrigger>());
+			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu));
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
 				Log.Update << fps;
 			});
@@ -54,13 +64,17 @@ namespace abyss::Debug
 			FrameRateHz::Sleep();
 
 			m_pause.update();
+
+            if (this->isPause()) {
+                m_menu.update();
+            }
 		}
 
 		void draw() const
 		{
 			m_rt.draw();
 			if (this->isPause()) {
-				Debug::Menu::Update();
+                m_menu.draw();
 			}
 		}
 
@@ -87,9 +101,14 @@ namespace abyss::Debug
         {
             m_context = context;
         }
+        Menu& menu()
+        {
+            return m_menu;
+        }
 	private:
         SystemContext m_context;
         Pause m_pause;
+        Menu m_menu;
 		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
 	};
@@ -112,6 +131,10 @@ namespace abyss::Debug
     void System::SetContext(const SystemContext& context)
     {
         Instance()->m_pImpl->setContext(context);
+    }
+    Menu& System::GetMenu()
+    {
+        return Instance()->m_pImpl->menu();
     }
 }
 #endif

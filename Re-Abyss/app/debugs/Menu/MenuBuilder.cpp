@@ -4,7 +4,7 @@
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Log/Log.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Menu/MenuUtil.hpp>
 
 #include <abyss/utils/DebugMenu/Folder.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
@@ -27,7 +27,7 @@ namespace
 				pScene->changeScene(key, 1000, CrossFade::No);
 
 				// メニューを閉じる
-				Menu::RequestClose();
+				MenuUtil::RequestClose();
 			}
 		});
 	}

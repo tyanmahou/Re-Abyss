@@ -644,6 +644,7 @@
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Menu\MenuBuilder.cpp" />
+    <ClCompile Include="app\debugs\Menu\MenuUtil.cpp" />
     <ClCompile Include="app\debugs\Pause\Pause.cpp" />
     <ClCompile Include="app\debugs\Profiler\Profiler.cpp" />
     <ClCompile Include="app\debugs\System\System.cpp" />
@@ -1615,6 +1616,7 @@
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Menu\MenuBuilder.hpp" />
+    <ClInclude Include="app\debugs\Menu\MenuUtil.hpp" />
     <ClInclude Include="app\debugs\Pause\Pause.hpp" />
     <ClInclude Include="app\debugs\Profiler\Profiler.hpp" />
     <ClInclude Include="app\debugs\System\System.hpp" />

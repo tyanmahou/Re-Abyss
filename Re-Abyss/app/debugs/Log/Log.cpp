@@ -2,7 +2,7 @@
 
 #if ABYSS_DEBUG
 #include <Siv3D.hpp>
-#include <abyss/debugs/Menu/Menu.hpp>
+#include <abyss/debugs/Menu/MenuUtil.hpp>
 
 namespace abyss::Debug
 {
@@ -16,18 +16,18 @@ namespace abyss::Debug
 
             bool isVisble() const
             {
-                if (!Menu::IsDebug(DebugFlag::LogIsVisible)) {
+                if (!MenuUtil::IsDebug(DebugFlag::LogIsVisible)) {
                     return false;
                 }
                 switch (kind) {
                 case LogKind::Normal:
-                    return Menu::IsDebug(DebugFlag::LogNormal);
+                    return MenuUtil::IsDebug(DebugFlag::LogNormal);
                 case LogKind::Warn:
-                    return Menu::IsDebug(DebugFlag::LogWarn);
+                    return MenuUtil::IsDebug(DebugFlag::LogWarn);
                 case LogKind::Error:
-                    return Menu::IsDebug(DebugFlag::LogError);
+                    return MenuUtil::IsDebug(DebugFlag::LogError);
                 case LogKind::Load:
-                    return Menu::IsDebug(DebugFlag::LogLoad);
+                    return MenuUtil::IsDebug(DebugFlag::LogLoad);
                 default:
                     break;
                 }
