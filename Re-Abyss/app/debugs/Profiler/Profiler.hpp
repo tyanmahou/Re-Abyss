@@ -4,9 +4,6 @@
 #include <memory>
 #include <Siv3D/StringView.hpp>
 
-#include <abyss/scenes/base/ISceneBase.hpp>
-#include <abyss/utils/Singleton/Singleton.hpp>
-
 namespace abyss::Debug
 {
     class Profiler
