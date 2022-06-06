@@ -7,6 +7,7 @@
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Pause/Pause.hpp>
 #include <Siv3D.hpp>
+#include <abyss/utils/DebugLog/DebugLog.hpp>
 
 namespace abyss::Debug
 {
@@ -59,6 +60,8 @@ namespace abyss::Debug
 		{
 			// ログ更新
 			Debug::LogUpdater::Update();
+            m_log.update();
+
 			// FPS制御
 			m_fpsViewer.update();
 			FrameRateHz::Sleep();
@@ -73,6 +76,7 @@ namespace abyss::Debug
 		void draw() const
 		{
 			m_rt.draw();
+            m_log.draw();
 			if (this->isPause()) {
                 m_menu.draw();
 			}
@@ -111,6 +115,7 @@ namespace abyss::Debug
         Menu m_menu;
 		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
+        DebugLog::DebugLog m_log;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())

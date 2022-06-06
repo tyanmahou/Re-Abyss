@@ -10,7 +10,7 @@ namespace abyss::DebugLog
     /// </summary>
     enum class LogKind
     {
-        Normal,
+        Info,
         Warn,
         Error,
         Load,

@@ -13,10 +13,20 @@ namespace
         std::source_location location;
     };
 
-    struct LogCache : LogInfo
+    struct LogModel : LogInfo
     {
-        size_t count;
-        s3d::Stopwatch sw{ StartImmediately::Yes };
+        LogModel(const LogInfo& info, s3d::int32 lifeTimeSec):
+            LogInfo(info),
+            m_lifeTimeMsec(lifeTimeSec)
+        {}
+
+        bool isExpired() const
+        {
+            return m_sw.ms() >= m_lifeTimeMsec;
+        }
+    private:
+        s3d::int32 m_lifeTimeMsec;
+        s3d::Stopwatch m_sw{ StartImmediately::Yes };
     };
 }
 namespace abyss::DebugLog
@@ -28,22 +38,39 @@ namespace abyss::DebugLog
         {}
         void print(const LogInfo& log)
         {
-
+            m_buffer.emplace_back(log, 10000);
         }
         void printUpdate(const LogInfo& log)
         {
+            m_buffer.emplace_back(log, 0);
         }
         void update()
         {
+            m_buffer.remove_if([](const LogModel& log) {
+                return log.isExpired();
+            });
+
+            if (Key0.down()) {
+                this->print({ LogKind::Info, U"Test", std::source_location::current() });
+            }
+            this->printUpdate({ LogKind::Info, U"TestUpdate", std::source_location::current() });
         }
         void clear()
         {
-
+            m_buffer.clear();
         }
         void draw()
         {
+            // TODO いい感じのViewerに変更
+            s3d::ClearPrint();
+            for (auto&& log : m_buffer) {
+                const auto filePath = s3d::FileSystem::RelativePath(s3d::Unicode::Widen(log.location.file_name()));
+
+                s3d::Print << log.log << filePath << log.location.line();
+            }
         }
     private:
+        s3d::Array<LogModel> m_buffer;
     };
 
     DebugLog::DebugLog():
