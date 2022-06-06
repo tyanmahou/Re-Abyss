@@ -20,7 +20,10 @@ namespace
             m_location(location),
             m_lifeTimeMsec(lifeTimeSec)
         {}
-
+        LogKind kind() const
+        {
+            return m_kind;
+        }
         const s3d::String& log() const
         {
             return m_log;
@@ -55,33 +58,63 @@ namespace
     };
     class DefaultSkin : public ISkin
     {
+        struct KindCustom
+        {
+            Texture icon;
+            ColorF color;
+        };
     public:
         DefaultSkin():
             m_font(16, Typeface::Regular)
-        {}
+        {
+            m_kindCustom[LogKind::Info] = KindCustom {
+                .icon = Texture(Emoji(U"🗨️")),
+                .color = ColorF(0, 0.2)
+            };
+            m_kindCustom[LogKind::Warn] = KindCustom{
+                .icon = Texture(Emoji(U"⚠️")),
+                .color = ColorF(1.0, 1.0, 0, 0.2)
+            };
+            m_kindCustom[LogKind::Error] = KindCustom{
+                .icon = Texture(Emoji(U"❌")),
+                .color = ColorF(1.0, 0, 0, 0.2)
+            };
+            m_kindCustom[LogKind::Load] = KindCustom{
+                .icon = Texture(Emoji(U"❕")),
+                .color = ColorF(1.0, 0.0, 1.0, 0.2)
+            };
+        }
         void draw(const s3d::Array<LogInfo>& logs) const override
         {
             if (logs.isEmpty()) {
                 return;
             }
+            s3d::ScopedRenderStates2D sampler(s3d::SamplerState::ClampLinear);
+
+            constexpr Vec2 iconSize{ 20,20 };
             // ウィンドウ幅
             double width = 0;
             for (const auto& log : logs) {
                 width = s3d::Max(width, m_font(log.log()).region().w);
             }
+            width += iconSize.x;
             width += 10;
 
             Vec2 pos{0, 0};
             for (const auto& log : logs) {
+                const auto& custom = m_kindCustom.at(log.kind());
                 auto region = m_font(log.log()).region();
                 region.w = width;
-                RectF(pos, region.size).draw(ColorF(0, 0.2));
-                m_font(log.log()).draw(pos);
+                region.h = s3d::Max(region.h, iconSize.y);
+                RectF(pos, region.size).draw(custom.color);
+                auto logPos = custom.icon.resized(iconSize).draw(pos).tr();
+                m_font(log.log()).draw(logPos);
                 pos.y += region.h;
             }
         }
     private:
         s3d::Font m_font;
+        s3d::HashTable<LogKind, KindCustom> m_kindCustom;
     };
 }
 namespace abyss::DebugLog
@@ -106,7 +139,7 @@ namespace abyss::DebugLog
             });
 
             if (Key0.down()) {
-                this->print(LogKind::Info, U"Test", std::source_location::current());
+                this->print(LogKind::Warn, U"Test", std::source_location::current());
             }
             this->printUpdate(LogKind::Info, U"TestUpdate", std::source_location::current());
         }
