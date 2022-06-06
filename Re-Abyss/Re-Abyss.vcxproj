@@ -782,6 +782,7 @@
     <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp" />
     <ClCompile Include="app\utils\Coro\Task\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
+    <ClCompile Include="app\utils\DebugLog\DebugLog.cpp" />
     <ClCompile Include="app\utils\DebugMenu\BoolItem.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Button.cpp" />
     <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
@@ -1885,6 +1886,7 @@
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
+    <ClInclude Include="app\utils\DebugLog\DebugLog.hpp" />
     <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
