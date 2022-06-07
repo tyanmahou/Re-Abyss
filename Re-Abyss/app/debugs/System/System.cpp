@@ -45,7 +45,7 @@ namespace abyss::Debug
 		{
 			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu));
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
-				Log.Update << fps;
+				Log::InfoUpdate(fps);
 			});
 		}
 		bool isPause() const
@@ -59,7 +59,6 @@ namespace abyss::Debug
 		void update()
 		{
 			// ログ更新
-			Debug::LogUpdater::Update();
             m_log.update();
 
 			// FPS制御
@@ -109,6 +108,10 @@ namespace abyss::Debug
         {
             return m_menu;
         }
+        DebugLog::DebugLog& log()
+        {
+            return m_log;
+        }
 	private:
         SystemContext m_context;
         Pause m_pause;
@@ -140,6 +143,10 @@ namespace abyss::Debug
     Menu& System::GetMenu()
     {
         return Instance()->m_pImpl->menu();
+    }
+    DebugLog::DebugLog& System::GetLog()
+    {
+        return Instance()->m_pImpl->log();
     }
 }
 #endif

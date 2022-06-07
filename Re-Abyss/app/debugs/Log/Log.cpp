@@ -1,167 +1,48 @@
 #include <abyss/debugs/Log/Log.hpp>
 
 #if ABYSS_DEBUG
-#include <Siv3D.hpp>
-#include <abyss/debugs/Menu/MenuUtil.hpp>
+#include <abyss/debugs/System/System.hpp>
+#include <abyss/utils/DebugLog/DebugLog.hpp>
 
 namespace abyss::Debug
 {
-    // -------------------------------------------------
-    class LogUpdater::Impl
+    using DebugLog::LogKind;
+
+    void Log::Info(const s3d::String& log, const SourceLocation& location)
     {
-        struct LogInfo
-        {
-            LogKind kind;
-            s3d::String log;
-
-            bool isVisble() const
-            {
-                if (!MenuUtil::IsDebug(DebugFlag::LogIsVisible)) {
-                    return false;
-                }
-                switch (kind) {
-                case LogKind::Normal:
-                    return MenuUtil::IsDebug(DebugFlag::LogNormal);
-                case LogKind::Warn:
-                    return MenuUtil::IsDebug(DebugFlag::LogWarn);
-                case LogKind::Error:
-                    return MenuUtil::IsDebug(DebugFlag::LogError);
-                case LogKind::Load:
-                    return MenuUtil::IsDebug(DebugFlag::LogLoad);
-                default:
-                    break;
-                }
-                return true;
-            }
-            s3d::String mark() const
-            {
-                switch (kind) {
-                case LogKind::Warn:
-                    return U"⚠";
-                case LogKind::Error:
-                    return U"❌";
-                case LogKind::Load:
-                    return U"⬆";
-                default:
-                    break;
-                }
-                return U"";
-            }
-            void print() const
-            {
-                if (!isVisble()) {
-                    return;
-                }
-                s3d::Print << mark() + log;
-            }
-        };
-        struct Cache : LogInfo
-        {
-            s3d::Stopwatch sw{ StartImmediately::Yes };
-        };
-        s3d::Array<Cache> m_printCache;
-    public:
-        void print(LogKind kind, const s3d::String& log)
-        {
-            m_printCache.push_back(Cache{ kind, log });
-        }
-        void printUpdate(LogKind kind, const s3d::String& log)const
-        {
-            LogInfo{ kind, log }.print();
-        }
-        void update()
-        {
-            s3d::ClearPrint();
-            for (const auto& cache : m_printCache.remove_if([](const Cache& cache) {
-                return cache.sw.ms() >= 10000.0;
-            })) {
-                cache.print();
-            }
-        }
-        void clear()
-        {
-            s3d::ClearPrint();
-            m_printCache.clear();
-        }
-    };
-
-    LogUpdater::LogUpdater():
-        m_pImpl(std::make_unique<Impl>())
-    {}
-
-    void LogUpdater::Update()
-    {
-        Instance()->m_pImpl->update();
+        System::GetLog().print(LogKind::Info, log, location);
     }
-    void LogUpdater::Clear()
+    void Log::InfoUpdate(const s3d::String& log, const SourceLocation& location)
     {
-        Instance()->m_pImpl->clear();
+        System::GetLog().printUpdate(LogKind::Info, log, location);
     }
-
-    void LogUpdater::Print(LogKind kind, const s3d::String& log)
+    void Log::Warn(const s3d::String& log, const SourceLocation& location)
     {
-        Instance()->m_pImpl->print(kind, log);
+        System::GetLog().print(LogKind::Warn, log, location);
     }
-
-    void LogUpdater::PrintUpdate(LogKind kind, const s3d::String & log)
+    void Log::WarnUpdate(const s3d::String& log, const SourceLocation& location)
     {
-        Instance()->m_pImpl->printUpdate(kind, log);
+        System::GetLog().printUpdate(LogKind::Warn, log, location);
     }
-
-    namespace detail
+    void Log::Error(const s3d::String& log, const SourceLocation& location)
     {
-        // -------------------------------------------------
-        template<LogKind Kind, LogMethod Method>
-        LogBuffer<Kind, Method>::LogBuffer() :
-            formatData(std::make_unique<s3d::FormatData>())
-        {}
-
-        template<LogKind Kind, LogMethod Method>
-        LogBuffer<Kind, Method>::LogBuffer(LogBuffer&& other) noexcept :
-            formatData(std::move(other.formatData))
-        {}
-
-        template<LogKind Kind, LogMethod Method>
-        LogBuffer<Kind, Method>::~LogBuffer()
-        {
-            if (formatData) {
-                if constexpr (Method == LogMethod::Update) {
-                    LogWriter<Kind>{}.writeUpdate(formatData->string);
-                } else {
-                    LogWriter<Kind>{}.write(formatData->string);
-                }
-            }
-        }
-
-        // -------------------------------------------------
-
-        template<LogKind Kind>
-        void LogWriter<Kind>::write(const s3d::String& log) const
-        {
-            LogUpdater::Print(Kind, log);
-        }
-        template<LogKind Kind>
-        void LogWriter<Kind>::writeUpdate(const s3d::String& log) const
-        {
-            LogUpdater::PrintUpdate(Kind, log);
-        }
-
-        template struct LogWriter<LogKind::Normal>;
-        template struct LogBuffer<LogKind::Normal, LogMethod::Normal>;
-        template struct LogBuffer<LogKind::Normal, LogMethod::Update>;
-
-        template struct LogWriter<LogKind::Warn>;
-        template struct LogBuffer<LogKind::Warn, LogMethod::Normal>;
-        template struct LogBuffer<LogKind::Warn, LogMethod::Update>;
-
-        template struct LogWriter<LogKind::Error>;
-        template struct LogBuffer<LogKind::Error, LogMethod::Normal>;
-        template struct LogBuffer<LogKind::Error, LogMethod::Update>;
-
-        template struct LogWriter<LogKind::Load>;
-        template struct LogBuffer<LogKind::Load, LogMethod::Normal>;
-        template struct LogBuffer<LogKind::Load, LogMethod::Update>;
-
+        System::GetLog().print(LogKind::Error, log, location);
+    }
+    void Log::ErrorUpdate(const s3d::String& log, const SourceLocation& location)
+    {
+        System::GetLog().printUpdate(LogKind::Error, log, location);
+    }
+    void Log::Load(const s3d::String& log, const SourceLocation& location)
+    {
+        System::GetLog().print(LogKind::Load, log, location);
+    }
+    void Log::LoadUpdate(const s3d::String& log, const SourceLocation& location)
+    {
+        System::GetLog().printUpdate(LogKind::Load, log, location);
+    }
+    void Log::Clear()
+    {
+        System::GetLog().clear();
     }
 }
 #endif

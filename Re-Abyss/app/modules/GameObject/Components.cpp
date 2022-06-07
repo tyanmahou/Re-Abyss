@@ -47,7 +47,7 @@ namespace abyss
         {
             if (m_table.find(key) != m_table.end()) [[unlikely]] {
 #if ABYSS_DEBUG
-                Debug::LogWarn << U"Multi Component:" << s3d::Unicode::Widen(key.name());
+                Debug::Log::Warn(U"Multi Component: {}"_fmt(s3d::Unicode::Widen(key.name())));
 #endif
                 return false;
             }

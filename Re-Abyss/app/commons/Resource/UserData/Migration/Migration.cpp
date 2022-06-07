@@ -29,7 +29,7 @@ namespace abyss::Resource::UserData
             } catch (s3dsql::SQLError& error) {
                 LOG_ERROR(error.what());
 #if ABYSS_DEBUG
-                Debug::LogError << error;
+                Debug::Log::Error(error);
 #endif
                 return false;
             }

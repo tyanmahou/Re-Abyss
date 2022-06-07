@@ -12,7 +12,7 @@ namespace
         LogInfo(
             LogKind kind,
             const s3d::String& log,
-            const std::source_location& location,
+            const SourceLocation& location,
             s3d::int32 lifeTimeSec
         ) :
             m_kind(kind),
@@ -30,7 +30,7 @@ namespace
         }
         s3d::String fileName() const
         {
-            return s3d::FileSystem::RelativePath(s3d::Unicode::Widen(m_location.file_name()));
+            return s3d::FileSystem::RelativePath(m_location.fileName());
         }
         s3d::uint32 line() const
         {
@@ -44,7 +44,7 @@ namespace
     private:
         LogKind m_kind;
         s3d::String m_log;
-        std::source_location m_location;
+        SourceLocation m_location;
 
         s3d::int32 m_lifeTimeMsec;
         s3d::Stopwatch m_sw{ StartImmediately::Yes };
@@ -124,11 +124,11 @@ namespace abyss::DebugLog
     public:
         Impl()
         {}
-        void print(LogKind kind, const s3d::String& log, const std::source_location& location)
+        void print(LogKind kind, const s3d::String& log, const SourceLocation& location)
         {
             m_buffer.emplace_back(kind, log, location, 10000);
         }
-        void printUpdate(LogKind kind, const s3d::String& log, const std::source_location& location)
+        void printUpdate(LogKind kind, const s3d::String& log, const SourceLocation& location)
         {
             m_buffer.emplace_back(kind, log, location, 0);
         }
@@ -137,11 +137,6 @@ namespace abyss::DebugLog
             m_buffer.remove_if([](const LogInfo& log) {
                 return log.isExpired();
             });
-
-            if (Key0.down()) {
-                this->print(LogKind::Warn, U"Test", std::source_location::current());
-            }
-            this->printUpdate(LogKind::Info, U"TestUpdate", std::source_location::current());
         }
         void clear()
         {
@@ -160,11 +155,11 @@ namespace abyss::DebugLog
         m_pImpl(std::make_shared<Impl>())
     {
     }
-    void DebugLog::print(LogKind kind, const s3d::String& log, const std::source_location& location)
+    void DebugLog::print(LogKind kind, const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->print(kind, log, location);
     }
-    void DebugLog::printUpdate(LogKind kind, const s3d::String& log, const std::source_location& location)
+    void DebugLog::printUpdate(LogKind kind, const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->printUpdate(kind, log, location);
     }

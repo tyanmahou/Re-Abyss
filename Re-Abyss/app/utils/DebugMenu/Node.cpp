@@ -31,7 +31,7 @@ namespace abyss::DebugMenu
 				}
 			} else {
 #if ABYSS_DEBUG
-				Debug::Log << U"DebugMenu::Node is Not Folder";
+				Debug::Log::Error(U"DebugMenu::Node is Not Folder");
 #endif
 			}
 		}
@@ -69,7 +69,7 @@ namespace abyss::DebugMenu
 			std::shared_ptr<Handle> ret = this->findCore(key);
 #if ABYSS_DEBUG
 			if (!ret) {
-				Debug::Log << U"DebugMenu::Node Not Found Node :" << key;
+				Debug::Log::Error(U"DebugMenu::Node Not Found Node : {}"_fmt(key));
 			}
 #endif
 			m_findableCache[key] = ret;

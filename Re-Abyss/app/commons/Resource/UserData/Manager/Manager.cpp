@@ -23,7 +23,7 @@ namespace abyss::Resource::UserData
             ReadType rc(path, std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
-                Debug::LogWarn << U"Failed Load:" << path;
+                Debug::Log::Warn(U"Failed Load: {}"_fmt(path));
             }
 #endif
             return cache[path] = rc;

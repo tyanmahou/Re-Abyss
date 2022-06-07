@@ -80,7 +80,7 @@ namespace abyss::Resource::Preload
                 for (const auto& [name, value] : mrp) {
 #if ABYSS_DEBUG
                     if (m_prelaodInfos.contains(name)) {
-                        Debug::LogWarn << U"Duplicated Load Preload Name: {}"_fmt(name);
+                        Debug::Log::Warn(U"Duplicated Load Preload Name: {}"_fmt(name));
                     }
 #endif
                     m_prelaodInfos.emplace(name, FromMrpGroup(value));

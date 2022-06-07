@@ -35,7 +35,7 @@ namespace abyss::Debug
                 ++size;
             }
         }
-        Log.Update << U"Colliders: " << size;
+        Log::InfoUpdate(U"Colliders: {}"_fmt(size));
     }
     void DebugUtil::DrawDebug(const PhysicsManager& physics)
     {
@@ -46,7 +46,8 @@ namespace abyss::Debug
         constexpr ColorF color = ColorF(0, 0, 1, 0.4);
         {
             const auto& colliders = physics.getContacters();
-            Log.Update << U"Map Colliders: " << colliders.size();
+
+            Log::InfoUpdate(U"Map Colliders: {}"_fmt(colliders.size()));
 
             for (auto&& col : colliders) {
                 if (!col->isActive()) {
@@ -57,7 +58,7 @@ namespace abyss::Debug
         }
         {
             const auto& terrains = physics.getTerrains();
-            Log.Update << U"Map Terrain: " << terrains.size();
+            Log::InfoUpdate(U"Map Terrain: {}"_fmt(terrains.size()));
 
             for (auto&& terrain : terrains) {
                 if (!terrain->isActive()) {
@@ -108,16 +109,16 @@ namespace abyss::Debug
         if (!MenuUtil::IsDebug(DebugFlag::AlertDecorCount)) {
             return;
         }
-        Log.Update << U"---LogDecorCount---";
-        Log.Update << U"Decor: " << decor.size();
+        Log::InfoUpdate(U"---LogDecorCount---");
+        Log::InfoUpdate(U"Decor: {}"_fmt(decor.size()));
     }
     void DebugUtil::AlertEffectCount(const Effects& effects)
     {
         if (!MenuUtil::IsDebug(DebugFlag::AlertEffectCount)) {
             return;
         }
-        Log.Update << U"---LogEffectCount---";
-        Log.Update << U"Effect: " << effects.size();
+        Log::InfoUpdate(U"---LogEffectCount---");
+        Log::InfoUpdate(U"Effect: {}"_fmt(effects.size()));
     }
     void DebugUtil::AlertDrawerCount(const DrawManager* drawManager)
     {
@@ -127,9 +128,9 @@ namespace abyss::Debug
         if (!MenuUtil::IsDebug(DebugFlag::AlertDrawerCount)) {
             return;
         }
-        Log.Update << U"---LogDrawerCount---";
+        Log::InfoUpdate(U"---LogDrawerCount---");
         for (DrawLayer layer = DrawLayer::BackGround; layer < DrawLayer::Size; ++layer) {
-            Log.Update << U"{}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer));
+            Log::InfoUpdate(U"{}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer)));
         }
     }
     bool DebugUtil::FileEdit(const s3d::FilePath& path)

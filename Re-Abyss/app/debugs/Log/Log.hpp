@@ -1,90 +1,41 @@
 #pragma once
 #if ABYSS_DEBUG
-#include <Siv3D/Print.hpp>
-#include <abyss/utils/Singleton/DynamicSingleton.hpp>
+#include <concepts>
+#include <abyss/utils/SourceLocation/SourceLocation.hpp>
 
 namespace abyss::Debug
 {
-    enum class LogKind
+    /// <summary>
+    /// デバッグログ
+    /// </summary>
+    class Log
     {
-        Normal,
-        Warn,
-        Error,
-        Load,
-    };
-    namespace detail
-    {
-        enum class LogMethod
-        {
-            Normal,
-            Update,
-        };
-        template<LogKind Kind, LogMethod Method = LogMethod::Normal>
-        struct LogBuffer
-        {
-            std::unique_ptr<s3d::FormatData> formatData;
-
-            LogBuffer();
-            LogBuffer(LogBuffer&& other) noexcept;
-            ~LogBuffer();
-
-            template<s3d::Concept::Formattable Type>
-            LogBuffer& operator << (const Type& value)
-            {
-                Formatter(*formatData, value);
-                return *this;
-            }
-        };
-
-        template<LogKind Kind>
-        struct LogWriter
-        {
-            template<LogMethod Method>
-            struct Helper
-            {
-                template<s3d::Concept::Formattable Type>
-                LogBuffer<Kind, Method> operator << (const Type& value)const
-                {
-                    LogBuffer<Kind, Method> buf;
-                    Formatter(*buf.formatData, value);
-                    return buf;
-                }
-            };
-        public:
-            static constexpr Helper<LogMethod::Update> Update{};
-        public:
-            void write(const s3d::String& log) const;
-            void writeUpdate(const s3d::String& log) const;
-
-            template<s3d::Concept::Formattable Type>
-            LogBuffer<Kind> operator << (const Type& value)const
-            {
-                LogBuffer<Kind> buf;
-                Formatter(*buf.formatData, value);
-                return buf;
-            }
-        };
-    }
-
-    class LogUpdater final : private DynamicSingleton<LogUpdater>
-    {
-        friend DynamicSingleton<LogUpdater>;
     public:
-        static void Update();
+#define ABYSS_DEBUG_LOG(kind) \
+        template<class T> requires !std::constructible_from<s3d::String, T>\
+        static void kind(T&& log, const SourceLocation& location = {})\
+        {\
+            kind(s3d::String(U"{}"_fmt(std::forward<T>(log))), location);\
+        }\
+        static void kind(const s3d::String& log, const SourceLocation& location = {});\
+        template<class T> requires !std::constructible_from<s3d::String, T>\
+        static void kind##Update(T&& log, const SourceLocation& location = {})\
+        {\
+            kind##Update(s3d::Format(std::forward<T>(log)), location);\
+        }\
+        static void kind##Update(const s3d::String& log, const SourceLocation& location = {})
+
+        ABYSS_DEBUG_LOG(Info);
+
+        ABYSS_DEBUG_LOG(Warn);
+
+        ABYSS_DEBUG_LOG(Error);
+
+        ABYSS_DEBUG_LOG(Load);
+
+#undef ABYSS_DEBUG_LOG
+
         static void Clear();
-
-        static void Print(LogKind kind, const s3d::String& log);
-        static void PrintUpdate(LogKind kind, const s3d::String& log);
-
-    private:
-        class Impl;
-        LogUpdater();
-        std::unique_ptr<Impl> m_pImpl;
     };
-
-    inline constexpr auto Log = detail::LogWriter<LogKind::Normal>{};
-    inline constexpr auto LogWarn = detail::LogWriter<LogKind::Warn>{};
-    inline constexpr auto LogError = detail::LogWriter<LogKind::Error>{};
-    inline constexpr auto LogLoad = detail::LogWriter<LogKind::Load>{};
 }
 #endif

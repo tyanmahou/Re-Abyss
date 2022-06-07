@@ -1939,6 +1939,7 @@
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\utils\Singleton\Singleton.hpp" />
+    <ClInclude Include="app\utils\SourceLocation\SourceLocation.hpp" />
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />

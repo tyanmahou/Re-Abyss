@@ -5566,6 +5566,9 @@
     <ClInclude Include="app\utils\DebugLog\DebugLog.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\SourceLocation\SourceLocation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

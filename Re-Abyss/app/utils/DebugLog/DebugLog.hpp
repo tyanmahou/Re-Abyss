@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
-#include <source_location>
-#include <Siv3D/String.hpp>
+#include <abyss/utils/SourceLocation/SourceLocation.hpp>
 
 namespace abyss::DebugLog
 {
@@ -25,8 +24,8 @@ namespace abyss::DebugLog
     public:
         DebugLog();
 
-        void print(LogKind kind, const s3d::String& log, const std::source_location& location = std::source_location::current());
-        void printUpdate(LogKind kind, const s3d::String& log, const std::source_location& location = std::source_location::current());
+        void print(LogKind kind, const s3d::String& log, const SourceLocation& location = {});
+        void printUpdate(LogKind kind, const s3d::String& log, const SourceLocation& location = {});
         void clear();
 
         void update();

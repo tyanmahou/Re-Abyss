@@ -69,9 +69,9 @@ namespace abyss::Resource
             ReadType rc = AssetLoadTraits<ReadType>{}.load(fixPath, std::forward<Args>(args)...);
 #if ABYSS_DEBUG
             if (!rc) {
-                Debug::LogError << U"Failed Load:" << fixPath;
+                Debug::Log::Error(U"Failed Load: {}"_fmt(fixPath));
             } else if (m_isWarnMode) {
-                Debug::LogLoad << U"Load: " << fixPath;
+                Debug::Log::Load(U"Load: {}"_fmt(fixPath));
             }
 #endif
             return cache[fixPath] = rc;
@@ -115,7 +115,7 @@ namespace abyss::Resource
             Audio ret = as.loadStreamimg(fixPath);
 #if ABYSS_DEBUG
             if (!ret) {
-                Debug::LogLoad << U"Failed Load:" << fixPath;
+                Debug::Log::Error(U"Failed Load: {}"_fmt(fixPath));
             }
 #endif
             return ret;
@@ -131,7 +131,7 @@ namespace abyss::Resource
                 s3d::Audio ret = s3d::Audio(streaming, fixPath);
 #if ABYSS_DEBUG
                 if (!ret) {
-                    Debug::LogLoad << U"Failed Load:" << fixPath;
+                    Debug::Log::Error(U"Failed Load: {}"_fmt(fixPath));
                 }
 #endif
                 return ret;

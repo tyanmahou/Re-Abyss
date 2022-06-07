@@ -1,4 +1,4 @@
-﻿#include <abyss/utils/FileUtil/FileUtil.hpp>
+#include <abyss/utils/FileUtil/FileUtil.hpp>
 
 #include <stack>
 #include <Siv3D.hpp>
@@ -56,7 +56,7 @@ namespace abyss::FileUtil
 			if (::IsResourcePath(resourcePath)) {
 				return resourcePath;
 			}
-			Debug::LogLoad << U"Not Found Resoure: " << path;
+			Debug::Log::Error(U"Not Found Resoure: {}"_fmt(path));
 #else
 			return resourcePath;
 #endif

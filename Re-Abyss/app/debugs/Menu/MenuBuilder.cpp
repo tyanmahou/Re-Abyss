@@ -85,7 +85,7 @@ namespace abyss::Debug
 	}
 	void MenuBuilder::ExecClearLog()
 	{
-		LogUpdater::Clear();
+		Log::Clear();
 	}
 	void MenuBuilder::ExecSoundMute(bool value)
 	{
