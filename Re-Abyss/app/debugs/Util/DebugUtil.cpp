@@ -111,7 +111,7 @@ namespace abyss::Debug
         }
         Log::InfoUpdate(
             U"[LogDecorCount]\n"
-            "Decor: {}"
+            "  Decor: {}"
             ""_fmt(decor.size())
         );
     }
@@ -122,7 +122,7 @@ namespace abyss::Debug
         }
         Log::InfoUpdate(
             U"[LogEffectCount]\n"
-            "Effect: {}"
+            "  Effect: {}"
             ""_fmt(effects.size())
         );
     }
@@ -136,7 +136,7 @@ namespace abyss::Debug
         }
         String logMsg = U"[LogDrawerCount]";
         for (DrawLayer layer = DrawLayer::BackGround; layer < DrawLayer::Size; ++layer) {
-            logMsg += U"\n{}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer));
+            logMsg += U"\n  {}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer));
         }
         Log::InfoUpdate(logMsg);
     }
