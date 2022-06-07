@@ -28,13 +28,13 @@ namespace
         {
             return m_log;
         }
-        s3d::String fileName() const
+        s3d::String location() const
         {
-            return s3d::FileSystem::RelativePath(m_location.fileName());
-        }
-        s3d::uint32 line() const
-        {
-            return m_location.line();
+            return U"{} (at {}:{})"_fmt(
+                m_location.functionName(),
+                s3d::FileSystem::RelativePath(m_location.fileName(), s3d::FileSystem::CurrentDirectory() + U"/../app"),
+                m_location.line()
+            );
         }
 
         bool isExpired() const
@@ -65,7 +65,8 @@ namespace
         };
     public:
         DefaultSkin():
-            m_font(16, Typeface::Regular)
+            m_font(16, Typeface::Regular),
+            m_fontDetail(12, Typeface::Regular)
         {
             m_kindCustom[LogKind::Info] = KindCustom {
                 .icon = Texture(Emoji(U"🗨️")),
@@ -107,17 +108,27 @@ namespace
                 auto region = m_font(log.log()).region();
                 region.w = width;
                 region.h = s3d::Max(region.h, iconSize.y);
-                RectF(pos, region.size).draw(custom.color);
+
+                auto area = RectF(pos, region.size);
+                area.draw(custom.color);
 
                 custom.icon.resized(iconSize).draw(pos);
                 auto logPos = pos;
                 logPos.x += iconSize.x + iconMargin;
                 m_font(log.log()).draw(logPos);
                 pos.y += region.h;
+
+                if (area.mouseOver()) {
+                    auto detailRegion = m_fontDetail(log.location()).region(pos);
+                    detailRegion.draw(ColorF(0.2, 0.2));
+                    m_fontDetail(log.location()).draw(pos);
+                    pos = detailRegion.bl();
+                }
             }
         }
     private:
         s3d::Font m_font;
+        s3d::Font m_fontDetail;
         s3d::HashTable<LogKind, KindCustom> m_kindCustom;
     };
 }
