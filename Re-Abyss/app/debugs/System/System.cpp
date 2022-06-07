@@ -45,7 +45,7 @@ namespace abyss::Debug
 		{
 			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu));
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
-				Log::InfoUpdate(fps);
+				Log::InfoUpdate(U"[FPS] {}"_fmt(fps));
 			});
 		}
 		bool isPause() const

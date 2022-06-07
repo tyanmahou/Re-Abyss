@@ -92,12 +92,13 @@ namespace
             s3d::ScopedRenderStates2D sampler(s3d::SamplerState::ClampLinear);
 
             constexpr Vec2 iconSize{ 20,20 };
+            constexpr double iconMargin = 5.0;
             // ウィンドウ幅
             double width = 0;
             for (const auto& log : logs) {
                 width = s3d::Max(width, m_font(log.log()).region().w);
             }
-            width += iconSize.x;
+            width += iconSize.x + iconMargin;
             width += 10;
 
             Vec2 pos{0, 0};
@@ -107,7 +108,10 @@ namespace
                 region.w = width;
                 region.h = s3d::Max(region.h, iconSize.y);
                 RectF(pos, region.size).draw(custom.color);
-                auto logPos = custom.icon.resized(iconSize).draw(pos).tr();
+
+                custom.icon.resized(iconSize).draw(pos);
+                auto logPos = pos;
+                logPos.x += iconSize.x + iconMargin;
                 m_font(log.log()).draw(logPos);
                 pos.y += region.h;
             }
