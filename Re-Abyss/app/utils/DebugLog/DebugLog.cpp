@@ -30,10 +30,11 @@ namespace
         }
         s3d::String location() const
         {
-            return U"{} (at {}:{})"_fmt(
-                m_location.functionName(),
+            return U"{}({}:{}) {}"_fmt(
                 s3d::FileSystem::RelativePath(m_location.fileName(), s3d::FileSystem::CurrentDirectory() + U"/../app"),
-                m_location.line()
+                m_location.line(),
+                m_location.column(),
+                m_location.functionName()
             );
         }
 
