@@ -2102,6 +2102,9 @@
     <ClCompile Include="app\utils\DebugLog\DebugLog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Layout\Window\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5567,6 +5570,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\SourceLocation\SourceLocation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Layout\Window\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
