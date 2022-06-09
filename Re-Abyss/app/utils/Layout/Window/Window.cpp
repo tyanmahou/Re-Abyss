@@ -55,8 +55,7 @@ namespace
                     m_grabSize = size;
                     m_grabCursorPos = s3d::Cursor::PosF();
                 }
-            }
-            else if (!MouseL.pressed()) {
+            } else if (!MouseL.pressed()) {
                 m_isGrab = false;
             }
             if (m_isGrab) {
@@ -80,48 +79,35 @@ namespace
 
             if (tl.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeNWSE);
-            }
-            else if (tr.mouseOver()) {
+            } else if (tr.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeNESW);
-            }
-            else if (bl.mouseOver()) {
+            } else if (bl.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeNESW);
-            }
-            else if (br.mouseOver()) {
+            } else if (br.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeNWSE);
-            }
-            else if (top.mouseOver() || bottom.mouseOver()) {
+            } else if (top.mouseOver() || bottom.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeUpDown);
-            }
-            else if (left.mouseOver() || right.mouseOver()) {
+            } else if (left.mouseOver() || right.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeLeftRight);
             }
 
             if (tl.leftClicked()) {
                 return GrabState::Tl;
-            }
-            else if (tr.leftClicked()) {
+            } else if (tr.leftClicked()) {
                 return GrabState::Tr;
-            }
-            else if (bl.leftClicked()) {
+            } else if (bl.leftClicked()) {
                 return GrabState::Bl;
-            }
-            else if (br.leftClicked()) {
+            } else if (br.leftClicked()) {
                 return GrabState::Br;
-            }
-            else if (top.leftClicked()) {
+            } else if (top.leftClicked()) {
                 return GrabState::Top;
-            }
-            else if (bottom.leftClicked()) {
+            } else if (bottom.leftClicked()) {
                 return GrabState::Bottom;
-            }
-            else if (left.leftClicked()) {
+            } else if (left.leftClicked()) {
                 return GrabState::Left;
-            }
-            else if (right.leftClicked()) {
+            } else if (right.leftClicked()) {
                 return GrabState::Right;
-            }
-            else if (rect.leftClicked()) {
+            } else if (rect.leftClicked()) {
                 return GrabState::Move;
             }
             return s3d::none;
@@ -136,8 +122,7 @@ namespace
             if (m_grabState == GrabState::Move) {
                 // 移動
                 pos = m_grabPos + delta;
-            }
-            else {
+            } else {
                 // リサイズ
                 this->grabResize(pos, size, delta, minSize);
             }
@@ -151,8 +136,7 @@ namespace
                 }
                 pos.y = m_grabPos.y + delta.y;
                 size.y = m_grabSize.y - delta.y;
-            }
-            else if (m_grabState == GrabState::Bottom || m_grabState == GrabState::Bl || m_grabState == GrabState::Br) {
+            } else if (m_grabState == GrabState::Bottom || m_grabState == GrabState::Bl || m_grabState == GrabState::Br) {
                 // 下
                 if (m_grabSize.y + delta.y < minSize.y) {
                     delta.y = minSize.y - m_grabSize.y;
@@ -167,8 +151,7 @@ namespace
                 }
                 pos.x = m_grabPos.x + delta.x;
                 size.x = m_grabSize.x - delta.x;
-            }
-            else if (m_grabState == GrabState::Right || m_grabState == GrabState::Tr || m_grabState == GrabState::Br) {
+            } else if (m_grabState == GrabState::Right || m_grabState == GrabState::Tr || m_grabState == GrabState::Br) {
                 // 右
                 if (m_grabSize.x + delta.x < minSize.x) {
                     delta.x = minSize.x - m_grabSize.x;
