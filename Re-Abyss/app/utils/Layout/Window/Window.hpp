@@ -14,7 +14,7 @@ namespace abyss::Layout
         Window(double w, double h);
         Window(const s3d::Vec2& size);
         Window(const s3d::Vec2& pos, const s3d::Vec2& size);
-
+        Window(const s3d::Vec2& pos, const s3d::Vec2& size, const s3d::Vec2& contentSize);
         Window& setBackGround(const s3d::Optional<s3d::ColorF>& color);
         Window& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
 

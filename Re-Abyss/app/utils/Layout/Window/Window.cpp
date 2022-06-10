@@ -40,15 +40,17 @@ namespace
         return s3d::none;
     }
 
+    constexpr double g_margin = 5.0;
+    constexpr double g_scroolMargin = 15.0;
+    constexpr Vec2 g_minSize{ g_scroolMargin * 2.0 + g_margin, g_scroolMargin * 3.0 + g_margin };
+
     struct WindowResizer
     {
     public:
         void update(Vec2& pos, Vec2& size)
         {
-            constexpr double margin = 5.0;
-            constexpr Vec2 minSize{ margin, margin };
             if (!m_isGrab) {
-                if (auto grabState = grabWatch(pos, size, margin)) {
+                if (auto grabState = grabWatch(pos, size, g_margin)) {
                     m_isGrab = true;
                     m_grabState = *grabState;
                     m_grabPos = pos;
@@ -59,7 +61,7 @@ namespace
                 m_isGrab = false;
             }
             if (m_isGrab) {
-                this->grabUpdate(pos, size, minSize);
+                this->grabUpdate(pos, size, g_minSize);
             }
         }
     private:
@@ -172,9 +174,10 @@ namespace abyss::Layout
     class Window::Handle
     {
     public:
-        Handle(const s3d::Vec2& pos, const s3d::Vec2& size) :
+        Handle(const s3d::Vec2& pos, const s3d::Vec2& size, const s3d::Vec2& contentSize) :
             m_pos(pos),
-            m_size(size)
+            m_size(size),
+            m_contentSize(contentSize)
         {}
         void setBackground(const s3d::Optional<s3d::ColorF>& color)
         {
@@ -217,14 +220,79 @@ namespace abyss::Layout
                 auto viewport = this->startViewport();
                 scene(region);
             }
+            bool hasScrollV = m_contentSize.y > m_size.y;
+            bool hasScrollH = m_contentSize.x > m_size.x;
+            const ColorF barColor = Color(240);
+            const ColorF scrollColor = Color(133);
+
+            if (hasScrollV) {
+                double minusH = hasScrollH ? g_scroolMargin : 0;
+                // スクロールバー
+                RectF bar(region.x + region.w - g_scroolMargin, region.y, g_scroolMargin, m_size.y - minusH);
+                bar.draw(barColor);
+                {
+                    const double pushMargin = 1.0;
+                    //RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                    Triangle(
+                        { bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
+                        { bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
+                        { bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
+                    ).draw(scrollColor);
+                }
+                {
+                    const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
+                    const double pushMargin = 1.0;
+                    //RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                    Triangle(
+                        { bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
+                        { bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
+                        { bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
+                    ).draw(scrollColor);
+                }
+            }
+            if (hasScrollH) {
+                double minusW = hasScrollV ? g_scroolMargin : 0;
+                // スクロールバー
+                RectF bar(region.x, region.y + region.h - g_scroolMargin, m_size.x - minusW, g_scroolMargin);
+                bar.draw(barColor);
+                //{
+                //	const double pushMargin = 1.0;
+                //	//RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                //	Triangle(
+                //		{ bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
+                //		{ bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
+                //		{ bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
+                //	).draw(scrollColor);
+                //}
+                //{
+                //	const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
+                //	const double pushMargin = 1.0;
+                //	//RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                //	Triangle(
+                //		{ bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
+                //		{ bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
+                //		{ bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
+                //	).draw(scrollColor);
+                //}
+            }
+            if (hasScrollH && hasScrollV) {
+                RectF(
+                    region.x + region.w - g_scroolMargin,
+                    region.y + region.h - g_scroolMargin,
+                    g_scroolMargin,
+                    g_scroolMargin
+                ).draw(barColor);
+            }
             if (m_frameColor) {
-                region.drawFrame(2, *m_frameColor);
+                region.drawFrame(0, 1, *m_frameColor);
             }
             return region;
         }
     private:
         s3d::Vec2 m_pos{};
         s3d::Vec2 m_size{};
+        s3d::Vec2 m_contentPos;
+        s3d::Vec2 m_contentSize;
         s3d::Optional<ColorF> m_backGroundColor{};
         s3d::Optional<ColorF> m_frameColor{};
         WindowResizer m_resizer;
@@ -240,7 +308,14 @@ namespace abyss::Layout
         Window({ 0, 0 }, size)
     {}
     Window::Window(const s3d::Vec2& pos, const s3d::Vec2& size) :
-        m_pHandle(std::make_shared<Handle>(pos, size))
+        Window(pos, size, size)
+    {}
+    Window::Window(
+        const s3d::Vec2& pos,
+        const s3d::Vec2& size,
+        const s3d::Vec2& contentSize
+    ) :
+        m_pHandle(std::make_shared<Handle>(pos, size, contentSize))
     {}
     Window& Window::setBackGround(const s3d::Optional<s3d::ColorF>& color)
     {
@@ -257,3 +332,4 @@ namespace abyss::Layout
         return m_pHandle->draw(std::move(scene));
     }
 }
+
