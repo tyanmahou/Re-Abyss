@@ -1,20 +1,10 @@
 #pragma once
 #include <memory>
-#include <abyss/utils/SourceLocation/SourceLocation.hpp>
+#include <abyss/utils/DebugLog/LogInfo.hpp>
+#include <abyss/utils/DebugLog/IViewer.hpp>
 
 namespace abyss::DebugLog
 {
-    /// <summary>
-    /// ログ種類
-    /// </summary>
-    enum class LogKind
-    {
-        Info,
-        Warn,
-        Error,
-        Load,
-    };
-
     /// <summary>
     /// デバッグログ
     /// </summary>
@@ -30,6 +20,13 @@ namespace abyss::DebugLog
 
         void update();
         void draw() const;
+
+        template<class Viewer, class... Args>
+        void setViewer(Args&&... args)
+        {
+            this->setViewer(std::make_unique<Viewer>(std::forward<Args>(args)...));
+        }
+        void setViewer(std::unique_ptr<IViewer>&& viewer);
     private:
         std::shared_ptr<Impl> m_pImpl;
     };

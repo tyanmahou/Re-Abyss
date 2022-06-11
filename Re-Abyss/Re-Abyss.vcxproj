@@ -642,6 +642,7 @@
     <ClCompile Include="app\debugs\FPSViewer\FPSViewer.cpp" />
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
+    <ClCompile Include="app\debugs\Log\LogViewer.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
     <ClCompile Include="app\debugs\Menu\MenuBuilder.cpp" />
     <ClCompile Include="app\debugs\Menu\MenuUtil.cpp" />
@@ -783,6 +784,7 @@
     <ClCompile Include="app\utils\Coro\Task\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\DebugLog\DebugLog.cpp" />
+    <ClCompile Include="app\utils\DebugLog\LogInfo.cpp" />
     <ClCompile Include="app\utils\DebugMenu\BoolItem.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Button.cpp" />
     <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
@@ -1615,6 +1617,7 @@
     <ClInclude Include="app\debugs\FPSViewer\FPSViewer.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
+    <ClInclude Include="app\debugs\Log\LogViewer.hpp" />
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
     <ClInclude Include="app\debugs\Menu\Menu.hpp" />
     <ClInclude Include="app\debugs\Menu\MenuBuilder.hpp" />
@@ -1888,6 +1891,9 @@
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
     <ClInclude Include="app\utils\DB\DBUtil.hpp" />
     <ClInclude Include="app\utils\DebugLog\DebugLog.hpp" />
+    <ClInclude Include="app\utils\DebugLog\IViewer.hpp" />
+    <ClInclude Include="app\utils\DebugLog\LogInfo.hpp" />
+    <ClInclude Include="app\utils\DebugLog\LogKind.hpp" />
     <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
     <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
