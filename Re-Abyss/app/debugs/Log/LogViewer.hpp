@@ -1,23 +1,32 @@
 #pragma once
-#include <abyss/utils/DebugLog/IViewer.hpp>
-#include <Siv3D/Texture.hpp>
+#include <memory>
+#include <abyss/utils/SourceLocation/SourceLocation.hpp>
 
 namespace abyss::Debug
 {
-    class LogViewer : DebugLog::IViewer
+    class LogViewer
     {
-        struct KindCustom
-        {
-            s3d::Texture icon;
-            s3d::ColorF color;
-        };
+        class Impl;
     public:
         LogViewer();
 
-        void draw(const s3d::Array<DebugLog::LogInfo>& logs) const override;
+        void update();
+        void draw() const;
+
+        void printInfo(const s3d::String& log, const SourceLocation& location);
+        void printInfoUpdate(const s3d::String& log, const SourceLocation& location);
+
+        void printWarn(const s3d::String& log, const SourceLocation& location);
+        void printWarnUpdate(const s3d::String& log, const SourceLocation& location);
+
+        void printError(const s3d::String& log, const SourceLocation& location);
+        void printErrorUpdate(const s3d::String& log, const SourceLocation& location);
+
+        void printLoad(const s3d::String& log, const SourceLocation& location);
+        void printLoadUpdate(const s3d::String& log, const SourceLocation& location);
+
+        void clear();
     private:
-        s3d::Font m_font;
-        s3d::Font m_fontDetail;
-        s3d::HashTable<DebugLog::LogKind, KindCustom> m_kindCustom;
+        std::shared_ptr<Impl> m_pImpl;
     };
 }

@@ -6,8 +6,8 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Pause/Pause.hpp>
+#include <abyss/debugs/Log/LogViewer.hpp>
 #include <Siv3D.hpp>
-#include <abyss/utils/DebugLog/DebugLog.hpp>
 
 namespace abyss::Debug
 {
@@ -108,7 +108,7 @@ namespace abyss::Debug
         {
             return m_menu;
         }
-        DebugLog::DebugLog& log()
+        LogViewer& log()
         {
             return m_log;
         }
@@ -118,7 +118,7 @@ namespace abyss::Debug
         Menu m_menu;
 		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
-        DebugLog::DebugLog m_log;
+        LogViewer m_log;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())
@@ -144,7 +144,7 @@ namespace abyss::Debug
     {
         return Instance()->m_pImpl->menu();
     }
-    DebugLog::DebugLog& System::GetLog()
+    LogViewer& System::GetLogViewer()
     {
         return Instance()->m_pImpl->log();
     }

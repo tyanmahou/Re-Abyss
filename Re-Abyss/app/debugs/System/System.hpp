@@ -5,13 +5,10 @@
 #include <abyss/debugs/System/SystemContext.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
-namespace abyss::DebugLog
-{
-    class DebugLog;
-}
 namespace abyss::Debug
 {
     class Menu;
+    class LogViewer;
 
 	/// <summary>
 	/// デバッグシステム
@@ -32,7 +29,7 @@ namespace abyss::Debug
         static Menu& GetMenu();
 
         friend class Log;
-        static DebugLog::DebugLog& GetLog();
+        static LogViewer& GetLogViewer();
 	private:
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
