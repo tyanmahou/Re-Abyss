@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/system/ModulePackage.hpp>
+#include <abyss/scenes/System/ModulePackage.hpp>
 
 namespace abyss::Sys
 {

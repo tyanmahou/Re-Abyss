@@ -1,12 +1,12 @@
-#include <abyss/scenes/Scene/Root/RootScene.hpp>
+#include <abyss/scenes/Scene/Root/Scene.hpp>
 
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Message.hpp>
 
-namespace abyss
+namespace abyss::Scene::Root
 {
-    class RootScene::Impl
+    class Scene::Impl
     {
         std::shared_ptr<Data_t> m_data;
     public:
@@ -36,21 +36,21 @@ namespace abyss
             }
         }
     };
-    RootScene::RootScene(const InitData& init) :
+    Scene::Scene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
         // ローディング
         m_loading.start(m_pImpl->loading());
     }
-    RootScene::~RootScene()
+    Scene::~Scene()
     {}
-    void RootScene::onSceneUpdate()
+    void Scene::onSceneUpdate()
     {
         this->requestSceneEnd();
     }
 
-    void RootScene::onSceneDraw() const
+    void Scene::onSceneDraw() const
     {
     }
 }

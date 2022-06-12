@@ -2,10 +2,10 @@
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
-#include <abyss/system/System.hpp>
-#include <abyss/system/Title/Booter.hpp>
+#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Scene/Title/Booter.hpp>
 
-namespace abyss::Title
+namespace abyss::Scene::Title
 {
     class Scene::Impl :
         public Cycle::Title::IMasterObserver
@@ -43,7 +43,7 @@ namespace abyss::Title
         void init()
         {
             m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Sys::Title::Booter>(this);
+            auto booter = std::make_unique<Booter>(this);
             m_system->boot(booter.get());
         }
         void update()
@@ -69,7 +69,7 @@ namespace abyss::Title
                 .isStart = false
             });
         }
-        bool onSceneEnd(const Title::SceneResult& result)
+        bool onSceneEnd(const SceneResult& result)
         {
             m_data->isRequestedSceneEnd = true;
             m_data->result = result;

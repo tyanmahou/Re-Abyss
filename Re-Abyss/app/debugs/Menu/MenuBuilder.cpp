@@ -51,7 +51,7 @@ namespace
 			if (s3d::FileSystem::Extension(path) != U"tmx") {
 				continue;
 			}
-			StageSceneContext context{
+			abyss::Scene::Stage::Context context{
 				.mapPath = s3d::FileSystem::RelativePath(path)
 			};
 			auto name = s3d::FileSystem::RelativePath(path, basePath);

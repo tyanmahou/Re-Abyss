@@ -1,4 +1,4 @@
-#include <abyss/system/Main/Booter.hpp>
+#include <abyss/scenes/Scene/Stage/Booter.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/World/World.hpp>
@@ -22,7 +22,7 @@
 #include <abyss/components/Cron/FishGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Main/Builder.hpp>
 
-namespace abyss::Sys::Main
+namespace abyss::Scene::Stage
 {
     template<BootKind kind>
     Booter<kind>::Booter(Cycle::Main::IMasterObserver* pObserver) :
@@ -39,7 +39,7 @@ namespace abyss::Sys::Main
         }
 
         // Stage初期化
-        auto* stage = pManager->getModule<Stage>();
+        auto* stage = pManager->getModule<abyss::Stage>();
         {
             stage->setStageData(m_stageData);
             stage->load();

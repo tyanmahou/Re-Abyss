@@ -1,4 +1,4 @@
-#include <abyss/system/Splash/Booter.hpp>
+#include <abyss/scenes/Scene/Splash/Booter.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -7,7 +7,7 @@
 #include <abyss/components/Cycle/Splash/Builder.hpp>
 #include <abyss/components/Event/Splash/Builder.hpp>
 
-namespace abyss::Sys::Splash
+namespace abyss::Scene::Splash
 {
     Booter::Booter(Cycle::Splash::IMasterObserver* pObserver) :
         m_pObserver(pObserver)

@@ -1,5 +1,5 @@
-#include <abyss/system/System.hpp>
-#include <abyss/system/base/IBooter.hpp>
+#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/System/IBooter.hpp>
 
 #include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>

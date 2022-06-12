@@ -1,7 +1,7 @@
 #pragma once
 
-#include <abyss/system/base/Config.hpp>
-#include <abyss/system/base/Modules.hpp>
+#include <abyss/scenes/System/Config.hpp>
+#include <abyss/scenes/System/Modules.hpp>
 
 // Modules
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>

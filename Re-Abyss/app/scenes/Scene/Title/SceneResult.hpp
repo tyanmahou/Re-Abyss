@@ -1,6 +1,6 @@
 #pragma once
 
-namespace abyss::Title
+namespace abyss::Scene::Title
 {
     struct SceneResult
     {

@@ -1,19 +1,19 @@
 #pragma once
 #include <abyss/scenes/base/ISceneBase.hpp>
 
-namespace abyss
+namespace abyss::Scene::SaveSelect
 {
 	/// <summary>
-	/// Root Scene
+	/// SaveSelect Scene
 	/// </summary>
-	class RootScene : public ISceneBase
+	class Scene : public ISceneBase
 	{
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
 	public:
-		RootScene(const InitData& init);
-		~RootScene();
-		void onSceneUpdate()override;
+		Scene(const InitData& init);
+		~Scene();
+		void onSceneUpdate() override;
 		void onSceneDraw() const override;
 	};
 }

@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/modules/Sound/BackGroundMusic.hpp>
 
-namespace abyss
+namespace abyss::Scene::StageResult
 {
-    struct StageResultSceneContext
+    struct Context
     {
         BackGroundMusic bgm;
     };

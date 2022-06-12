@@ -1,8 +1,8 @@
 #pragma once
-#include <abyss/system/base/IBooter.hpp>
+#include <abyss/scenes/System/IBooter.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 
-namespace abyss::Sys::Main
+namespace abyss::Scene::Stage
 {
     enum class BootKind
     {
@@ -12,7 +12,7 @@ namespace abyss::Sys::Main
 
     template<BootKind kind = BootKind::Normal>
     class Booter final :
-        public IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::Main::IMasterObserver* pObserver);

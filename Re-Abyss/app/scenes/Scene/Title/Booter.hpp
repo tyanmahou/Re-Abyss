@@ -1,11 +1,11 @@
 #pragma once
-#include <abyss/system/base/IBooter.hpp>
+#include <abyss/scenes/System/IBooter.hpp>
 #include <abyss/components/Cycle/Title/Master.hpp>
 
-namespace abyss::Sys::Title
+namespace abyss::Scene::Title
 {
     class Booter final :
-        public IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::Title::IMasterObserver* pObserver);

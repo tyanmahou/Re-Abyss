@@ -1,19 +1,18 @@
 #pragma once
 #include <abyss/scenes/base/ISceneBase.hpp>
 
-namespace abyss
+namespace abyss::Scene::StageResult
 {
 	/// <summary>
-	/// OpDemo Scene
+	/// StageResult Scene
 	/// </summary>
-	class OpDemoScene : public ISceneBase
+	class Scene : public ISceneBase
 	{
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
 	public:
-		OpDemoScene(const InitData& init);
-		~OpDemoScene();
-
+        Scene(const InitData& init);
+		~Scene();
 		void onSceneUpdate()override;
 		void onSceneDraw() const override;
 	};

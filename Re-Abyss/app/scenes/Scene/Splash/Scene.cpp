@@ -1,12 +1,12 @@
-#include <abyss/scenes/Scene/Splash/SplashScene.hpp>
+#include <abyss/scenes/Scene/Splash/Scene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 
-#include <abyss/system/System.hpp>
-#include <abyss/system/Splash/Booter.hpp>
+#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Scene/Splash/Booter.hpp>
 
-namespace abyss
+namespace abyss::Scene::Splash
 {
-    class SplashScene::Impl :
+    class Scene::Impl :
         public Cycle::Splash::IMasterObserver
     {
         using System = Sys::System<Sys::Config::Splash()>;
@@ -23,7 +23,7 @@ namespace abyss
         void initSystem()
         {
             m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Sys::Splash::Booter>(this);
+            auto booter = std::make_unique<Booter>(this);
             m_system->boot(booter.get());
         }
         void loading()
@@ -51,21 +51,21 @@ namespace abyss
             return true;
         }
     };
-    SplashScene::SplashScene(const InitData& init) :
+    Scene::Scene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
         // ローディング
         m_pImpl->loading();
     }
-    SplashScene::~SplashScene()
+    Scene::~Scene()
     {}
-    void SplashScene::onSceneUpdate()
+    void Scene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void SplashScene::onSceneDraw() const
+    void Scene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

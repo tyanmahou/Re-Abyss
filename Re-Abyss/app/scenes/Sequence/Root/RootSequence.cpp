@@ -2,6 +2,8 @@
 
 namespace abyss
 {
+    using namespace abyss::Scene;
+
     RootSequence::RootSequence(SequenceManager* pManager) :
         m_pManager(pManager)
     {

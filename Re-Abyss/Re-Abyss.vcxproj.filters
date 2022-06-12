@@ -1611,22 +1611,22 @@
     <ClCompile Include="app\scenes\base\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\StageResult\StageResultScene.cpp">
+    <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\Stage\StageScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Stage\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\OpDemo\OpDemoScene.cpp">
+    <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\Root\RootScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Root\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\SaveSelect\SaveSelectScene.cpp">
+    <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\Splash\SplashScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Scene\Title\Scene.cpp">
@@ -1662,19 +1662,19 @@
     <ClCompile Include="app\services\User\UserService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\Main\Booter.cpp">
+    <ClCompile Include="app\scenes\Scene\Stage\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\SaveSelect\Booter.cpp">
+    <ClCompile Include="app\scenes\Scene\SaveSelect\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\Splash\Booter.cpp">
+    <ClCompile Include="app\scenes\Scene\Splash\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\Title\Booter.cpp">
+    <ClCompile Include="app\scenes\Scene\Title\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\system\System.cpp">
+    <ClCompile Include="app\scenes\System\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\Actor\Enemy\EnemyTranslator.cpp">
@@ -4858,28 +4858,28 @@
     <ClInclude Include="app\scenes\base\ISceneBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\StageResult\StageResultScene.hpp">
+    <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\StageResult\StageResultSceneContext.hpp">
+    <ClInclude Include="app\scenes\Scene\StageResult\Context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\Stage\StageScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\Stage\StageSceneContext.hpp">
+    <ClInclude Include="app\scenes\Scene\Stage\Context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\OpDemo\OpDemoScene.hpp">
+    <ClInclude Include="app\scenes\Scene\OpDemo\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\Root\RootScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Root\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\SaveSelect\SaveSelectScene.hpp">
+    <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\Splash\SplashScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Splash\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\Title\Scene.hpp">
@@ -4945,31 +4945,31 @@
     <ClInclude Include="app\services\User\UserService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\base\Config.hpp">
+    <ClInclude Include="app\scenes\System\Config.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\base\IBooter.hpp">
+    <ClInclude Include="app\scenes\System\IBooter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\base\Modules.hpp">
+    <ClInclude Include="app\scenes\System\Modules.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\Main\Booter.hpp">
+    <ClInclude Include="app\scenes\Scene\Stage\Booter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\SaveSelect\Booter.hpp">
+    <ClInclude Include="app\scenes\Scene\SaveSelect\Booter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\Splash\Booter.hpp">
+    <ClInclude Include="app\scenes\Scene\Splash\Booter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\Title\Booter.hpp">
+    <ClInclude Include="app\scenes\Scene\Title\Booter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\ModulePackage.hpp">
+    <ClInclude Include="app\scenes\System\ModulePackage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\system\System.hpp">
+    <ClInclude Include="app\scenes\System\System.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\Actor\Enemy\EnemyTranslator.hpp">

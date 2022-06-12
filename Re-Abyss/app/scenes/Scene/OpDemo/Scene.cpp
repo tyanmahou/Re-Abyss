@@ -1,8 +1,8 @@
-#include <abyss/scenes/Scene/OpDemo/OpDemoScene.hpp>
+#include <abyss/scenes/Scene/OpDemo/Scene.hpp>
 
-namespace abyss
+namespace abyss::Scene::OpDemo
 {
-    class OpDemoScene::Impl
+    class Scene::Impl
     {
     public:
         Impl([[maybe_unused]]const InitData& init)
@@ -14,21 +14,20 @@ namespace abyss
 
         void draw() const
         {
-
         }
     };
-    OpDemoScene::OpDemoScene(const InitData& init):
+    Scene::Scene(const InitData& init):
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {}
-    OpDemoScene::~OpDemoScene()
+    Scene::~Scene()
     {}
-    void OpDemoScene::onSceneUpdate()
+    void Scene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void OpDemoScene::onSceneDraw() const
+    void Scene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

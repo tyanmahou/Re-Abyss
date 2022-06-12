@@ -1,11 +1,11 @@
 #pragma once
-#include <abyss/system/base/IBooter.hpp>
+#include <abyss/scenes/System/IBooter.hpp>
 #include <abyss/components/Cycle/SaveSelect/Master.hpp>
 
-namespace abyss::Sys::SaveSelect
+namespace abyss::Scene::SaveSelect
 {
     class Booter final :
-        public IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::SaveSelect::IMasterObserver* pObserver);

@@ -1,14 +1,14 @@
-#include <abyss/scenes/Scene/SaveSelect/SaveSelectScene.hpp>
+#include <abyss/scenes/Scene/SaveSelect/Scene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-#include <abyss/system/System.hpp>
-#include <abyss/system/SaveSelect/Booter.hpp>
+#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Scene/SaveSelect/Booter.hpp>
 
-namespace abyss
+namespace abyss::Scene::SaveSelect
 {
-    class SaveSelectScene::Impl final:
+    class Scene::Impl final:
         public Cycle::SaveSelect::IMasterObserver
     {
         using System = Sys::System<Sys::Config::SaveSelect()>;
@@ -47,7 +47,7 @@ namespace abyss
         void init()
         {
             m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Sys::SaveSelect::Booter>(this);
+            auto booter = std::make_unique<Booter>(this);
             m_system->boot(booter.get());
         }
         void update()
@@ -97,7 +97,7 @@ namespace abyss
             m_onBackFunc = callback;
         }
     };
-    SaveSelectScene::SaveSelectScene(const InitData& init) :
+    Scene::Scene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
@@ -126,14 +126,14 @@ namespace abyss
             ;
 #endif
     }
-    SaveSelectScene::~SaveSelectScene()
+    Scene::~Scene()
     {}
-    void SaveSelectScene::onSceneUpdate()
+    void Scene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void SaveSelectScene::onSceneDraw() const
+    void Scene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

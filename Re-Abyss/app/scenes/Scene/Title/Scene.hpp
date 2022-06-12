@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/scenes/base/ISceneBase.hpp>
 
-namespace abyss::Title
+namespace abyss::Scene::Title
 {
 	/// <summary>
 	/// Title Scene

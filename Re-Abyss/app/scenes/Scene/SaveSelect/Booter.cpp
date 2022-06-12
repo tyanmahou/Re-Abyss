@@ -1,4 +1,4 @@
-#include <abyss/system/SaveSelect/Booter.hpp>
+#include <abyss/scenes/Scene/SaveSelect/Booter.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
@@ -8,7 +8,7 @@
 #include <abyss/components/Event/SaveSelect/Builder.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
-namespace abyss::Sys::SaveSelect
+namespace abyss::Scene::SaveSelect
 {
     Booter::Booter(Cycle::SaveSelect::IMasterObserver* pObserver) :
         m_pObserver(pObserver)

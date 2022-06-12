@@ -1,11 +1,11 @@
 #include <abyss/scenes/SequenceManager.hpp>
 
-#include <abyss/scenes/Scene/Root/RootScene.hpp>
-#include <abyss/scenes/Scene/Splash/SplashScene.hpp>
+#include <abyss/scenes/Scene/Root/Scene.hpp>
+#include <abyss/scenes/Scene/Splash/Scene.hpp>
 #include <abyss/scenes/Scene/Title/Scene.hpp>
-#include <abyss/scenes/Scene/SaveSelect/SaveSelectScene.hpp>
-#include <abyss/scenes/Scene/Stage/StageScene.hpp>
-#include <abyss/scenes/Scene/StageResult/StageResultScene.hpp>
+#include <abyss/scenes/Scene/SaveSelect/Scene.hpp>
+#include <abyss/scenes/Scene/Stage/Scene.hpp>
+#include <abyss/scenes/Scene/StageResult/Scene.hpp>
 
 #include <abyss/scenes/Sequence/Root/RootSequence.hpp>
 
@@ -15,12 +15,12 @@ namespace abyss
 {
     SequenceManager::SequenceManager()
     {
-        m_scene.add<RootScene>(SceneKind::Root);
-        m_scene.add<SplashScene>(SceneKind::Splash);
-        m_scene.add<Title::Scene>(SceneKind::Title);
-        m_scene.add<SaveSelectScene>(SceneKind::SaveSelect);
-        m_scene.add<StageScene>(SceneKind::Stage);
-        m_scene.add<StageResultScene>(SceneKind::StageResult);
+        m_scene.add<Scene::Root::Scene>(SceneKind::Root);
+        m_scene.add<Scene::Splash::Scene>(SceneKind::Splash);
+        m_scene.add<Scene::Title::Scene>(SceneKind::Title);
+        m_scene.add<Scene::SaveSelect::Scene>(SceneKind::SaveSelect);
+        m_scene.add<Scene::Stage::Scene>(SceneKind::Stage);
+        m_scene.add<Scene::StageResult::Scene>(SceneKind::StageResult);
 
 #if ABYSS_DEBUG
         Debug::System::SetContext(Debug::SystemContext{

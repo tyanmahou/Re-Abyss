@@ -1,4 +1,4 @@
-#include <abyss/system/Title/Booter.hpp>
+#include <abyss/scenes/Scene/Title/Booter.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
@@ -11,7 +11,7 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::Sys::Title
+namespace abyss::Scene::Title
 {
     Booter::Booter(Cycle::Title::IMasterObserver* pObserver) :
         m_pObserver(pObserver)

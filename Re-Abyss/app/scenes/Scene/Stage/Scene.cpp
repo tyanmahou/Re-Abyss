@@ -1,4 +1,4 @@
-#include <abyss/scenes/Scene/Stage/StageScene.hpp>
+#include <abyss/scenes/Scene/Stage/Scene.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 
@@ -10,13 +10,13 @@
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 
-#include <abyss/system/System.hpp>
-#include <abyss/system/Main/Booter.hpp>
+#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Scene/Stage/Booter.hpp>
 #include <abyss/debugs/Util/DebugUtil.hpp>
 
-namespace abyss
+namespace abyss::Scene::Stage
 {
-	class StageScene::Impl :
+	class Scene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
 		using System = Sys::System<Sys::Config::Main()>;
@@ -26,19 +26,19 @@ namespace abyss
 		std::shared_ptr<TemporaryData> m_tempData;
 		std::shared_ptr<Novel::CharaTable> m_charaTable;
 
-        StageSceneContext m_context;
+        Context m_context;
 
 		std::shared_ptr<Data_t> m_data;
 
 		std::function<void()> m_onClearFunc;
 	public:
-		Impl([[maybe_unused]] const StageScene::InitData& init):
+		Impl([[maybe_unused]] const Scene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
 			m_charaTable(std::make_shared<Novel::CharaTable>()),
 			m_data(init._s)
 		{
-			if (std::holds_alternative<StageSceneContext>(m_data->context)) {
-				m_context = std::get<StageSceneContext>(m_data->context);
+			if (std::holds_alternative<Context>(m_data->context)) {
+				m_context = std::get<Stage::Context>(m_data->context);
 			} else {
 				m_context.mapPath = Path::MapPath + U"Stage0.tmx";
 			}
@@ -100,7 +100,7 @@ namespace abyss
 			auto injector = Factory::Main::Injector(m_context.mapPath);
 			m_stageData = injector.resolve<StageData>();
 
-			auto booter = std::make_unique<Sys::Main::BooterNormal>(this);
+			auto booter = std::make_unique<BooterNormal>(this);
 			booter->setInitPlayer(player)
 				.setStageData(m_stageData)
 				.setTempData(m_tempData)
@@ -132,10 +132,9 @@ namespace abyss
 		/// <returns></returns>
 		bool onRestart() override
 		{
-			using namespace Sys::Main;
 			m_system = std::make_unique<System>();
 
-			auto booter = std::make_unique<Sys::Main::BooterRestart>(this);
+			auto booter = std::make_unique<BooterRestart>(this);
 			booter->setStageData(m_stageData)
 				.setTempData(m_tempData)
 				.setCharaTable(m_charaTable)
@@ -152,7 +151,7 @@ namespace abyss
 		{
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			// BGMの引継ぎ
-			m_data->context = StageResultSceneContext{
+			m_data->context = StageResult::Context{
 				.bgm = m_system->mod<Sound>()->getBgm()
 			};
 
@@ -168,7 +167,7 @@ namespace abyss
 		}
 	};
 
-    StageScene::StageScene(const InitData& init) :
+    Scene::Scene(const InitData& init) :
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
 	{
@@ -191,13 +190,13 @@ namespace abyss
 		});
 
 	}
-    StageScene::~StageScene()
+    Scene::~Scene()
 	{}
-	void StageScene::onSceneUpdate()
+	void Scene::onSceneUpdate()
 	{
 		m_pImpl->update();
 	}
-	void StageScene::onSceneDraw() const
+	void Scene::onSceneDraw() const
 	{
 		m_pImpl->draw();
 	}

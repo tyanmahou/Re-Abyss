@@ -1,18 +1,18 @@
 #pragma once
 #include <abyss/scenes/base/ISceneBase.hpp>
 
-namespace abyss
+namespace abyss::Scene::Root
 {
 	/// <summary>
-	/// Splash Scene
+	/// Root Scene
 	/// </summary>
-	class SplashScene : public ISceneBase
+	class Scene : public ISceneBase
 	{
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
 	public:
-		SplashScene(const InitData& init);
-		~SplashScene();
+		Scene(const InitData& init);
+		~Scene();
 		void onSceneUpdate()override;
 		void onSceneDraw() const override;
 	};

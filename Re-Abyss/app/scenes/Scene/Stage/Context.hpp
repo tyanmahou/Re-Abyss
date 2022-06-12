@@ -1,9 +1,9 @@
 #pragma once
 #include <Siv3D/String.hpp>
 
-namespace abyss
+namespace abyss::Scene::Stage
 {
-    struct StageSceneContext
+    struct Context
     {
         s3d::String mapPath;
     };
