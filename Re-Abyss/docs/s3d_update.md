@@ -16,6 +16,7 @@
 - editorconfigを調整
   - インデントスペース4に
   - xmlドキュメントに
+  - elseの改行設定
 - ビルド構成を追加しプリプロセッサ調整
   - `Develop`
     - cpp:`ABYSS_DEBUG` `ABYSS_DO_TEST` `ABYSS_NO_BUILD_RESOURCE` `DEVELOP`
