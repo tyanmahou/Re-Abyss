@@ -1,11 +1,13 @@
 #include <abyss/components/UI/Splash/Logo/LogoTimer.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/params/UI/Splash/Param.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Splash::Logo
 {
-    LogoTimer::LogoTimer():
-        m_timer(Param::Common::FadeTime, StartImmediately::Yes)
+    LogoTimer::LogoTimer(UIObj* pUi):
+        m_timer(Param::Common::FadeTime, StartImmediately::Yes, pUi->getModule<GlobalTime>())
     {}
 
     double LogoTimer::time0_1() const

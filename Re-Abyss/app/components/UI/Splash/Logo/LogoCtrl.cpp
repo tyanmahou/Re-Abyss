@@ -8,6 +8,7 @@ namespace abyss::UI::Splash::Logo
 {
     LogoCtrl::LogoCtrl(UIObj* pUi):
         m_pUi(pUi),
+        m_timer(pUi),
         m_view(std::make_unique<LogoVM>())
     {}
     LogoCtrl::~LogoCtrl()

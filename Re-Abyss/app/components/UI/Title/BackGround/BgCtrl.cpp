@@ -1,13 +1,15 @@
 #include <abyss/components/UI/Title/BackGround/BgCtrl.hpp>
-#include <Siv3D.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::UI::Title::BackGround
 {
     BgCtrl::BgCtrl(UIObj* pUi):
         m_pUi(pUi),
-        m_timer(BgParam::Common::TimeSec)
+        m_timer(BgParam::Common::TimeSec, StartImmediately::No, pUi->getModule<GlobalTime>())
     {}
     void BgCtrl::onStart()
     {

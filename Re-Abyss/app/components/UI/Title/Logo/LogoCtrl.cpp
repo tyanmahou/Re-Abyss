@@ -1,4 +1,7 @@
 #include <abyss/components/UI/Title/Logo/LogoCtrl.hpp>
+
+#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
@@ -8,7 +11,7 @@ namespace abyss::UI::Title::Logo
 {
     LogoCtrl::LogoCtrl(UIObj* pUi):
         m_pUi(pUi),
-        m_timer(LogoParam::Step::TimeSec)
+        m_timer(LogoParam::Step::TimeSec, StartImmediately::No, pUi->getModule<GlobalTime>())
     {
     }
     void LogoCtrl::onUpdate()

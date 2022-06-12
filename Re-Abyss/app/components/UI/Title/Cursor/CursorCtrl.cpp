@@ -8,6 +8,7 @@
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Title/Master.hpp>
 
@@ -32,7 +33,7 @@ namespace abyss::UI::Title::Cursor
     CursorCtrl::CursorCtrl(UIObj* pUi) :
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
-        m_gameStartTimer(1s, StartImmediately::No),
+        m_gameStartTimer(1s, StartImmediately::No, pUi->getModule<GlobalTime>()),
         m_shot(std::make_unique<Shot>(pUi, PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }

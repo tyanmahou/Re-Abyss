@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/commons/Fwd.hpp>
 #include <Siv3D/Timer.hpp>
 
 namespace abyss::UI::Splash::Logo
@@ -6,7 +7,7 @@ namespace abyss::UI::Splash::Logo
     class LogoTimer
     {
     public:
-        LogoTimer();
+        LogoTimer(UIObj* pUi);
 
         double time0_1() const;
 
