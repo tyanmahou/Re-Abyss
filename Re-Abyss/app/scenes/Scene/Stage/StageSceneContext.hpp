@@ -3,7 +3,7 @@
 
 namespace abyss
 {
-    struct MainSceneContext
+    struct StageSceneContext
     {
         s3d::String mapPath;
     };

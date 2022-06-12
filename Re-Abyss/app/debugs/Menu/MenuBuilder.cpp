@@ -8,6 +8,7 @@
 
 #include <abyss/utils/DebugMenu/Folder.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
+#include <abyss/utils/Enum/EnumTraits.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -16,9 +17,9 @@ namespace
 	using namespace abyss;
 	using namespace abyss::Debug;
 
-	Node BuildSceneChangeButton(const s3d::String& key, const s3d::String& label, std::function<void(GameData*)> callback = nullptr)
+	Node BuildSceneChangeButton(SceneKind key, const s3d::String& label, std::function<void(GameData*)> callback = nullptr)
 	{
-		return Node::Create<DebugMenu::Button>(key, label, [key, callback] {
+		return Node::Create<DebugMenu::Button>(Enum::ToStr(key), label, [key, callback] {
             auto* pScene = Debug::System::Context().pScene;
 			if (pScene) {
 				if (callback) {
@@ -31,9 +32,9 @@ namespace
 			}
 		});
 	}
-	Node BuildSceneChangeButton(const s3d::String& key, std::function<void(GameData*)> callback = nullptr)
+	Node BuildSceneChangeButton(SceneKind key, std::function<void(GameData*)> callback = nullptr)
 	{
-		return ::BuildSceneChangeButton(key, key, callback);
+		return ::BuildSceneChangeButton(key, Enum::ToStr(key), callback);
 	}
 	Node BuildMainSceneChangeButtons(Node& folder, const s3d::FilePath& basePath)
 	{
@@ -50,11 +51,11 @@ namespace
 			if (s3d::FileSystem::Extension(path) != U"tmx") {
 				continue;
 			}
-			MainSceneContext context{
+			StageSceneContext context{
 				.mapPath = s3d::FileSystem::RelativePath(path)
 			};
 			auto name = s3d::FileSystem::RelativePath(path, basePath);
-			folder.add(::BuildSceneChangeButton(SceneName::Main, name, [context](GameData* data) {
+			folder.add(::BuildSceneChangeButton(SceneKind::Stage, name, [context](GameData* data) {
 				data->context = context;
 			}));
 		}
@@ -69,12 +70,12 @@ namespace abyss::Debug
 		auto label = xml.attribute(U"label").value_or(key);
 		auto folder = Node::Create<DebugMenu::Folder>(key, label);
 
-		folder.add(::BuildSceneChangeButton(SceneName::Splash));
-		folder.add(::BuildSceneChangeButton(SceneName::Title));
-		folder.add(::BuildSceneChangeButton(SceneName::SaveSelect));
+		folder.add(::BuildSceneChangeButton(SceneKind::Splash));
+		folder.add(::BuildSceneChangeButton(SceneKind::Title));
+		folder.add(::BuildSceneChangeButton(SceneKind::SaveSelect));
 		// マップロード
 		{
-			auto mainFolder = Node::Create<DebugMenu::Folder>(SceneName::Main);
+			auto mainFolder = Node::Create<DebugMenu::Folder>(U"Stage");
 			::BuildMainSceneChangeButtons(mainFolder, Path::MapPath);
 			//child.createSeperator();
 			::BuildMainSceneChangeButtons(mainFolder, Path::TestMapPath);

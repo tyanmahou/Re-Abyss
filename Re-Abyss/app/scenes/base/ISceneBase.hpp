@@ -3,10 +3,11 @@
 #include <abyss/debugs/HotReload/HotReload.hpp>
 #include <abyss/commons/Loading/Loading.hpp>
 #include <abyss/scenes/base/GameData.hpp>
+#include <abyss/scenes/SceneKind.hpp>
 
 namespace abyss
 {
-    using AppScene = SceneManager<String, GameData>;
+    using AppScene = SceneManager<SceneKind, GameData>;
 
     class ISceneBase : public AppScene::Scene
     {
@@ -14,7 +15,7 @@ namespace abyss
         virtual void onSceneUpdate() = 0;
         virtual void onSceneDraw()const = 0;
 
-        void changeScene(const String& state, int transitionTimeMillisec = 1000, const CrossFade crossFade = CrossFade::No)
+        void changeScene(const SceneKind& state, int transitionTimeMillisec = 1000, const CrossFade crossFade = CrossFade::No)
         {
             this->getData().fromScene = this->getState();
             this->getData().toScene = state;
@@ -31,19 +32,4 @@ namespace abyss
         Debug::HotReload m_reloader;
 #endif
     };
-
-    namespace SceneName
-    {
-#define ABYSS_SCENE_NAME(name) inline constexpr auto name = U#name
-
-        ABYSS_SCENE_NAME(Root);
-        ABYSS_SCENE_NAME(Splash);
-        ABYSS_SCENE_NAME(OpDemo);
-        ABYSS_SCENE_NAME(Title);
-        ABYSS_SCENE_NAME(SaveSelect);
-        ABYSS_SCENE_NAME(Main);
-        ABYSS_SCENE_NAME(ClearResult);
-
-#undef ABYSS_SCENE_NAME
-    }
 }

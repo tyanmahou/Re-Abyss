@@ -1,4 +1,4 @@
-#include <abyss/scenes/Main/MainScene.hpp>
+#include <abyss/scenes/Scene/Stage/StageScene.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 
@@ -16,7 +16,7 @@
 
 namespace abyss
 {
-	class MainScene::Impl :
+	class StageScene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
 		using System = Sys::System<Sys::Config::Main()>;
@@ -26,19 +26,19 @@ namespace abyss
 		std::shared_ptr<TemporaryData> m_tempData;
 		std::shared_ptr<Novel::CharaTable> m_charaTable;
 
-		MainSceneContext m_context;
+        StageSceneContext m_context;
 
 		std::shared_ptr<Data_t> m_data;
 
 		std::function<void()> m_onClearFunc;
 	public:
-		Impl([[maybe_unused]] const MainScene::InitData& init):
+		Impl([[maybe_unused]] const StageScene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
 			m_charaTable(std::make_shared<Novel::CharaTable>()),
 			m_data(init._s)
 		{
-			if (std::holds_alternative<MainSceneContext>(m_data->context)) {
-				m_context = std::get<MainSceneContext>(m_data->context);
+			if (std::holds_alternative<StageSceneContext>(m_data->context)) {
+				m_context = std::get<StageSceneContext>(m_data->context);
 			} else {
 				m_context.mapPath = Path::MapPath + U"Stage0.tmx";
 			}
@@ -152,7 +152,7 @@ namespace abyss
 		{
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			// BGMの引継ぎ
-			m_data->context = ClearResultSceneContext{
+			m_data->context = StageResultSceneContext{
 				.bgm = m_system->mod<Sound>()->getBgm()
 			};
 
@@ -168,7 +168,7 @@ namespace abyss
 		}
 	};
 
-	MainScene::MainScene(const InitData& init) :
+    StageScene::StageScene(const InitData& init) :
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
 	{
@@ -187,17 +187,17 @@ namespace abyss
 #endif
 		m_pImpl->bindOnClear([this] {
 			// Clear画面に遷移
-			this->changeScene(SceneName::ClearResult, 0);
+			this->changeScene(SceneKind::StageResult, 0);
 		});
 
 	}
-	MainScene::~MainScene()
+    StageScene::~StageScene()
 	{}
-	void MainScene::onSceneUpdate()
+	void StageScene::onSceneUpdate()
 	{
 		m_pImpl->update();
 	}
-	void MainScene::onSceneDraw() const
+	void StageScene::onSceneDraw() const
 	{
 		m_pImpl->draw();
 	}

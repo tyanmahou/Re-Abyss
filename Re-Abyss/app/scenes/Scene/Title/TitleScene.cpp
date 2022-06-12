@@ -1,4 +1,4 @@
-#include <abyss/scenes/Title/TitleScene.hpp>
+#include <abyss/scenes/Scene/Title/TitleScene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
@@ -78,7 +78,7 @@ namespace abyss
         m_pImpl(std::make_unique<Impl>(init))
     {
         m_pImpl->bindGameStartFunc([this] {
-            this->changeScene(SceneName::SaveSelect);
+            this->changeScene(SceneKind::SaveSelect);
         });
 
         // ローディング

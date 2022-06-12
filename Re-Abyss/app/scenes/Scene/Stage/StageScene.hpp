@@ -4,15 +4,15 @@
 namespace abyss
 {
 	/// <summary>
-	/// Main Scene
+	/// Stage Scene
 	/// </summary>
-	class MainScene : public ISceneBase
+	class StageScene : public ISceneBase
 	{
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
 	public:
-		MainScene(const InitData& init);
-		~MainScene();
+        StageScene(const InitData& init);
+		~StageScene();
 
 		void onSceneUpdate() override;
 		void onSceneDraw() const override;

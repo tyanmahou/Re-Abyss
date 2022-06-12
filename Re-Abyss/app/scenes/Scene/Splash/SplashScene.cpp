@@ -1,4 +1,4 @@
-#include <abyss/scenes/Splash/SplashScene.hpp>
+#include <abyss/scenes/Scene/Splash/SplashScene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 
 #include <abyss/system/System.hpp>
@@ -61,7 +61,7 @@ namespace abyss
     {
         m_pImpl->bindChangeOpDemoScene([this] {
             // TODO OpDemoに変更
-            this->changeScene(SceneName::Title, 0);
+            this->changeScene(SceneKind::Title, 0);
         });
 
         // ローディング

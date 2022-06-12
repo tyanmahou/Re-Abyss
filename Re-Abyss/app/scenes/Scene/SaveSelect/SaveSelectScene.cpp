@@ -1,4 +1,4 @@
-#include <abyss/scenes/SaveSelect/SaveSelectScene.hpp>
+#include <abyss/scenes/Scene/SaveSelect/SaveSelectScene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -102,13 +102,13 @@ namespace abyss
         m_pImpl(std::make_unique<Impl>(init))
     {
         m_pImpl->bindLoadGameFunc([this] {
-            this->changeScene(SceneName::Main);
+            this->changeScene(SceneKind::Stage);
         });
         m_pImpl->bindNewGameFunc([this] {
-            this->changeScene(SceneName::Main);
+            this->changeScene(SceneKind::Stage);
         });
         m_pImpl->bindBackFunc([this] {
-            this->changeScene(SceneName::Title);
+            this->changeScene(SceneKind::Title);
         });
 
         // ローディング

@@ -3,7 +3,7 @@
 
 namespace abyss
 {
-    struct ClearResultSceneContext
+    struct StageResultSceneContext
     {
         BackGroundMusic bgm;
     };

@@ -1,4 +1,4 @@
-#include <abyss/scenes/Root/RootScene.hpp>
+#include <abyss/scenes/Scene/Root/RootScene.hpp>
 
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
@@ -47,7 +47,7 @@ namespace abyss
     {}
     void RootScene::onSceneUpdate()
     {
-        this->changeScene(SceneName::Splash, 0);
+        this->changeScene(SceneKind::Splash, 0);
     }
 
     void RootScene::onSceneDraw() const

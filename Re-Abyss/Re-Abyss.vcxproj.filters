@@ -1611,25 +1611,25 @@
     <ClCompile Include="app\scenes\base\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\ClearResult\ClearResultScene.cpp">
+    <ClCompile Include="app\scenes\Scene\StageResult\StageResultScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Main\MainScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Stage\StageScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\OpDemo\OpDemoScene.cpp">
+    <ClCompile Include="app\scenes\Scene\OpDemo\OpDemoScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Root\RootScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Root\RootScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\SaveSelect\SaveSelectScene.cpp">
+    <ClCompile Include="app\scenes\Scene\SaveSelect\SaveSelectScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Splash\SplashScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Splash\SplashScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Title\TitleScene.cpp">
+    <ClCompile Include="app\scenes\Scene\Title\TitleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\services\Actor\Enemy\EnemyService.cpp">
@@ -2109,6 +2109,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\debugs\Log\LogViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\Sequence\Main\MainSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\SequenceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4855,31 +4861,31 @@
     <ClInclude Include="app\scenes\base\ShareData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\ClearResult\ClearResultScene.hpp">
+    <ClInclude Include="app\scenes\Scene\StageResult\StageResultScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\ClearResult\ClearResultSceneContext.hpp">
+    <ClInclude Include="app\scenes\Scene\StageResult\StageResultSceneContext.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Main\MainScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Stage\StageScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Main\MainSceneContext.hpp">
+    <ClInclude Include="app\scenes\Scene\Stage\StageSceneContext.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\OpDemo\OpDemoScene.hpp">
+    <ClInclude Include="app\scenes\Scene\OpDemo\OpDemoScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Root\RootScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Root\RootScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\SaveSelect\SaveSelectScene.hpp">
+    <ClInclude Include="app\scenes\Scene\SaveSelect\SaveSelectScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Splash\SplashScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Splash\SplashScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Title\TitleScene.hpp">
+    <ClInclude Include="app\scenes\Scene\Title\TitleScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp">
@@ -5591,6 +5597,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\DebugLog\LogKind.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sequence\Main\MainSequence.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\SequenceManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sequence\ISequence.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\SceneKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
