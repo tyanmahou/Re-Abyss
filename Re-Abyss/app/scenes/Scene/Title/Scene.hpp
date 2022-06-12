@@ -1,18 +1,18 @@
 #pragma once
 #include <abyss/scenes/base/ISceneBase.hpp>
 
-namespace abyss
+namespace abyss::Title
 {
 	/// <summary>
 	/// Title Scene
 	/// </summary>
-	class TitleScene : public ISceneBase
+	class Scene : public ISceneBase
 	{
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
 	public:
-		TitleScene(const InitData& init);
-		~TitleScene();
+		Scene(const InitData& init);
+		~Scene();
 
 		void onSceneUpdate() override;
 		void onSceneDraw() const override;

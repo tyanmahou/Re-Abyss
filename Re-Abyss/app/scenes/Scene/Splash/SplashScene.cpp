@@ -46,24 +46,15 @@ namespace abyss
 
         bool chageOpDemoScene() final
         {
-            m_changeOpDemoSceneFunc();
-            return true;
-        }
+            m_data->isRequestedSceneEnd = true;
 
-        void bindChangeOpDemoScene(const std::function<void()>& callback)
-        {
-            m_changeOpDemoSceneFunc = callback;
+            return true;
         }
     };
     SplashScene::SplashScene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        m_pImpl->bindChangeOpDemoScene([this] {
-            // TODO OpDemoに変更
-            this->changeScene(SceneKind::Title, 0);
-        });
-
         // ローディング
         m_pImpl->loading();
     }

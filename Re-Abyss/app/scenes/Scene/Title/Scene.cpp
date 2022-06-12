@@ -1,21 +1,21 @@
-#include <abyss/scenes/Scene/Title/TitleScene.hpp>
+#include <abyss/scenes/Scene/Title/Scene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
 #include <abyss/system/System.hpp>
 #include <abyss/system/Title/Booter.hpp>
 
-namespace abyss
+namespace abyss::Title
 {
-    class TitleScene::Impl :
+    class Scene::Impl :
         public Cycle::Title::IMasterObserver
     {
         using System = Sys::System<Sys::Config::Title()>;
         std::unique_ptr<System> m_system;
-
-        std::function<void()> m_onGameStartFunc;
+        std::shared_ptr<Data_t> m_data;
     public:
-        Impl([[maybe_unused]]const InitData& init)
+        Impl([[maybe_unused]]const InitData& init):
+            m_data(init._s)
         {
         }
 
@@ -58,29 +58,28 @@ namespace abyss
 
         bool onGameStart() final
         {
-            m_onGameStartFunc();
-            return true;
+            return this->onSceneEnd({
+                .isStart = true
+            });
         }
         bool onExit() final
         {
             // 閉じる
-            s3d::System::Exit();
+            return this->onSceneEnd({
+                .isStart = false
+            });
+        }
+        bool onSceneEnd(const Title::SceneResult& result)
+        {
+            m_data->isRequestedSceneEnd = true;
+            m_data->result = result;
             return true;
         }
-
-        void bindGameStartFunc(const std::function<void()>& callback)
-        {
-            m_onGameStartFunc = callback;
-        }
     };
-    TitleScene::TitleScene(const InitData& init):
+    Scene::Scene(const InitData& init):
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        m_pImpl->bindGameStartFunc([this] {
-            this->changeScene(SceneKind::SaveSelect);
-        });
-
         // ローディング
         m_pImpl->loading();
 
@@ -94,14 +93,14 @@ namespace abyss
         });
 #endif
     }
-    TitleScene::~TitleScene()
+    Scene::~Scene()
     {}
-    void TitleScene::onSceneUpdate()
+    void Scene::onSceneUpdate()
     {
         m_pImpl->update();
     }
 
-    void TitleScene::onSceneDraw() const
+    void Scene::onSceneDraw() const
     {
         m_pImpl->draw();
     }

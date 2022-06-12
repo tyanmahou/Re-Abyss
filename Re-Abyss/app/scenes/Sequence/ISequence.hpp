@@ -6,7 +6,6 @@ namespace abyss
     {
     public:
         virtual ~ISequence() = default;
-
-
+        virtual bool onNext() = 0;
     };
 }

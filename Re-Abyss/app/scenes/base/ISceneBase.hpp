@@ -15,11 +15,9 @@ namespace abyss
         virtual void onSceneUpdate() = 0;
         virtual void onSceneDraw()const = 0;
 
-        void changeScene(const SceneKind& state, int transitionTimeMillisec = 1000, const CrossFade crossFade = CrossFade::No)
+        void requestSceneEnd()
         {
-            this->getData().fromScene = this->getState();
-            this->getData().toScene = state;
-            this->AppScene::Scene::changeScene(state, transitionTimeMillisec, crossFade);
+            this->getData().isRequestedSceneEnd = true;
         }
     public:
         using AppScene::Scene::Scene;

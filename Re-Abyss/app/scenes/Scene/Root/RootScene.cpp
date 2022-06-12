@@ -47,7 +47,7 @@ namespace abyss
     {}
     void RootScene::onSceneUpdate()
     {
-        this->changeScene(SceneKind::Splash, 0);
+        this->requestSceneEnd();
     }
 
     void RootScene::onSceneDraw() const

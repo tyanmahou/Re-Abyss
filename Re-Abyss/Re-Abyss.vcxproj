@@ -735,9 +735,9 @@
     <ClCompile Include="app\scenes\Scene\Root\RootScene.cpp" />
     <ClCompile Include="app\scenes\Scene\SaveSelect\SaveSelectScene.cpp" />
     <ClCompile Include="app\scenes\SequenceManager.cpp" />
-    <ClCompile Include="app\scenes\Sequence\Main\MainSequence.cpp" />
+    <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
     <ClCompile Include="app\scenes\Scene\Splash\SplashScene.cpp" />
-    <ClCompile Include="app\scenes\Scene\Title\TitleScene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Title\Scene.cpp" />
     <ClCompile Include="app\services\Actor\Enemy\EnemyService.cpp" />
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
@@ -1807,7 +1807,6 @@
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\base\GameData.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
-    <ClInclude Include="app\scenes\base\ShareData.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\StageResultScene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\StageResultSceneContext.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\StageScene.hpp" />
@@ -1816,11 +1815,12 @@
     <ClInclude Include="app\scenes\Scene\Root\RootScene.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\SaveSelectScene.hpp" />
     <ClInclude Include="app\scenes\SceneKind.hpp" />
+    <ClInclude Include="app\scenes\Scene\Title\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Sequence\ISequence.hpp" />
-    <ClInclude Include="app\scenes\Sequence\Main\MainSequence.hpp" />
+    <ClInclude Include="app\scenes\Sequence\Root\RootSequence.hpp" />
     <ClInclude Include="app\scenes\SequenceManager.hpp" />
     <ClInclude Include="app\scenes\Scene\Splash\SplashScene.hpp" />
-    <ClInclude Include="app\scenes\Scene\Title\TitleScene.hpp" />
+    <ClInclude Include="app\scenes\Scene\Title\Scene.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\EnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
