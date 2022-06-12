@@ -159,7 +159,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Loading\Loading.cpp">
+    <ClCompile Include="app\scenes\Loading\Loading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp">
@@ -2765,7 +2765,7 @@
     <ClInclude Include="app\commons\InputManager\InputManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Loading\Loading.hpp">
+    <ClInclude Include="app\scenes\Loading\Loading.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Msg\Common.hpp">

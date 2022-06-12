@@ -1,4 +1,4 @@
-#include <abyss/commons/Loading/Loading.hpp>
+#include <abyss/scenes/Loading/Loading.hpp>
 #include <abyss/views/UI/Common/Loading/LoadingView.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>

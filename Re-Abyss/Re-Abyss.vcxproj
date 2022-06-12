@@ -242,7 +242,7 @@
     <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
-    <ClCompile Include="app\commons\Loading\Loading.cpp" />
+    <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Message.cpp" />
@@ -1109,7 +1109,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
-    <ClInclude Include="app\commons\Loading\Loading.hpp" />
+    <ClInclude Include="app\scenes\Loading\Loading.hpp" />
     <ClInclude Include="app\commons\Msg\Common.hpp" />
     <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
     <ClInclude Include="app\commons\Msg\Title.hpp" />

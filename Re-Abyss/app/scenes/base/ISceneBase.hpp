@@ -1,7 +1,7 @@
 # pragma once
 #include <Siv3D.hpp>
 #include <abyss/debugs/HotReload/HotReload.hpp>
-#include <abyss/commons/Loading/Loading.hpp>
+#include <abyss/scenes/Loading/Loading.hpp>
 #include <abyss/scenes/base/GameData.hpp>
 #include <abyss/scenes/SceneKind.hpp>
 
