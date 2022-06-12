@@ -48,7 +48,7 @@ namespace abyss
 				return m_sequence.update();
 			});
 #else
-			return m_scene.update();
+			return m_sequence.update();
 #endif
 		}
 	private:
