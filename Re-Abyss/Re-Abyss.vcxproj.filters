@@ -1380,13 +1380,13 @@
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\Main\MainInjector.cpp">
+    <ClCompile Include="app\commons\Factory\Stage\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\Migration\MigrationInjector.cpp">
+    <ClCompile Include="app\commons\Factory\Migration\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\factories\Storage\StorageInjector.cpp">
+    <ClCompile Include="app\commons\Factory\Storage\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actor\Gimmick\Door\DoorModel.cpp">
@@ -4439,13 +4439,13 @@
     <ClInclude Include="app\entities\User\UserEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\factories\Main\MainInjector.hpp">
+    <ClInclude Include="app\commons\Factory\Stage\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\factories\Migration\MigrationInjector.hpp">
+    <ClInclude Include="app\commons\Factory\Migration\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\factories\Storage\StorageInjector.hpp">
+    <ClInclude Include="app\commons\Factory\Storage\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp">

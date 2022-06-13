@@ -650,9 +650,9 @@
     <ClCompile Include="app\debugs\Profiler\Profiler.cpp" />
     <ClCompile Include="app\debugs\System\System.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
-    <ClCompile Include="app\factories\Main\MainInjector.cpp" />
-    <ClCompile Include="app\factories\Migration\MigrationInjector.cpp" />
-    <ClCompile Include="app\factories\Storage\StorageInjector.cpp" />
+    <ClCompile Include="app\commons\Factory\Stage\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Migration\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Storage\Injector.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\Main.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\Door\DoorModel.cpp" />
@@ -1670,9 +1670,9 @@
     <ClInclude Include="app\entities\Novel\SerifEntity.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
-    <ClInclude Include="app\factories\Main\MainInjector.hpp" />
-    <ClInclude Include="app\factories\Migration\MigrationInjector.hpp" />
-    <ClInclude Include="app\factories\Storage\StorageInjector.hpp" />
+    <ClInclude Include="app\commons\Factory\Stage\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Migration\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Storage\Injector.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp" />

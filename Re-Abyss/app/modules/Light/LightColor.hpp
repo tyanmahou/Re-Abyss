@@ -27,9 +27,9 @@ namespace abyss
         }
     private:
         double m_erpTimer = 0.0;
-        s3d::ColorF m_color;
-        s3d::ColorF m_prevColor;
-        s3d::Optional<s3d::ColorF> m_nextColor;
-        s3d::ColorF m_defaultColor;
+        s3d::ColorF m_color{};
+        s3d::ColorF m_prevColor{};
+        s3d::Optional<s3d::ColorF> m_nextColor{};
+        s3d::ColorF m_defaultColor{};
     };
 }

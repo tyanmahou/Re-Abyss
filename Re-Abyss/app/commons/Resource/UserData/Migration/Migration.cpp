@@ -2,7 +2,7 @@
 
 #include <abyss/commons/Resource/SaveUtil.hpp>
 #include <abyss/services/Migration/base/IMigrationService.hpp>
-#include <abyss/factories/Migration/MigrationInjector.hpp>
+#include <abyss/commons/Factory/Migration/Injector.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 
 #include <Siv3D.hpp>

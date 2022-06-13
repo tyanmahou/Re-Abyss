@@ -1,4 +1,4 @@
-#include <abyss/factories/Main/MainInjector.hpp>
+#include <abyss/commons/Factory/Stage/Injector.hpp>
 
 #include <abyss/datastores/Actor/Enemy/TmxEnemyDataStore.hpp>
 #include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>
@@ -20,7 +20,7 @@
 #include <abyss/services/Decor/DecorService.hpp>
 #include <abyss/services/BackGround/BackGroundService.hpp>
 
-namespace abyss::Factory::Main
+namespace abyss::Factory::Stage
 {
     emaject::Injector Injector(const s3d::String& mapPath)
     {

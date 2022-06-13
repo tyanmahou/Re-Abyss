@@ -5,7 +5,7 @@
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Novel/CharaTable.hpp>
-#include <abyss/factories/Main/MainInjector.hpp>
+#include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
@@ -95,7 +95,7 @@ namespace abyss::Scene::Stage
 					.lock();
 			}
 			m_system = std::make_unique<System>();
-			auto injector = Factory::Main::Injector(m_context.mapPath);
+			auto injector = Factory::Stage::Injector(m_context.mapPath);
 			m_stageData = injector.resolve<StageData>();
 
 			auto booter = std::make_unique<BooterNormal>(this);

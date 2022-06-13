@@ -12,7 +12,7 @@ namespace abyss
     private:
         std::queue<std::shared_ptr<Event::EventObj>> m_events;
         bool m_doneCurrentInit = false;
-        Manager* m_pManager;
+        Manager* m_pManager = nullptr;
     public:
         Events& setManager(Manager* pManager)
         {
