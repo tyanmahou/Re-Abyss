@@ -149,9 +149,9 @@ namespace abyss::Scene::Stage
 		{
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			// BGMの引継ぎ
-			m_data->context = StageResult::Context{
-				//.bgm = m_system->mod<Sound>()->getBgm()
-			};
+			m_data->share.bgmBridge
+                .set(m_system->mod<Sound>()->getBgm());
+
             return onSceneEnd({
                 .isClear = true
             });
