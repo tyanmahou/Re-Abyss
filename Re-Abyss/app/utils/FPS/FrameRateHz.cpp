@@ -17,9 +17,6 @@ namespace abyss
     void FrameRateHz::sleep() const
     {
         if (m_sleepTime) {
-#if ABYSS_DEBUG
-            Print << U"Fix FPS: " << *m_value;
-#endif
             s3d::System::Sleep(*m_sleepTime);
         }
     }
