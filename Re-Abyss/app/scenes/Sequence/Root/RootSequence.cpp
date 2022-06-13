@@ -22,22 +22,25 @@ namespace abyss
         co_yield{};
 
         SceneKind next = SceneKind::Title;
+        s3d::int32 transitionMsec = 0;
         while (true) {
             if (next == SceneKind::Title) {
-                m_pManager->changeScene(SceneKind::Title);
+                m_pManager->changeScene(SceneKind::Title, transitionMsec);
                 co_yield{};
                 if (m_pManager->getResult<Title::SceneResult>().isStart) {
                     next = SceneKind::SaveSelect;
+                    transitionMsec = 1000;
                     continue;
                 } else {
                     co_return;
                 }
             } else if (next == SceneKind::SaveSelect) {
-                m_pManager->changeScene(SceneKind::SaveSelect, 1000);
+                m_pManager->changeScene(SceneKind::SaveSelect, transitionMsec);
                 co_yield{};
                 auto result = m_pManager->getResult<SaveSelect::SceneResult>();
                 if (result.isBack) {
                     next = SceneKind::Title;
+                    transitionMsec = 1000;
                     continue;
                 } else {
                     m_pManager->pushSequence<UserSequence>(m_pManager);

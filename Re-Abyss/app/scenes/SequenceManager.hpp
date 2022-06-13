@@ -14,7 +14,7 @@ namespace abyss
         SequenceManager();
 
         bool update();
-        void changeScene(const SceneKind& state, int transitionTimeMillisec = 0, const s3d::CrossFade crossFade = s3d::CrossFade::No);
+        void changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec = 0, const s3d::CrossFade crossFade = s3d::CrossFade::No);
 
         template<class SequenceType, class... Args>
         void pushSequence(Args&&... args)

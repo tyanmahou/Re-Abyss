@@ -59,7 +59,7 @@ namespace abyss
         } while (!success);
         return success;
     }
-    void SequenceManager::changeScene(const SceneKind& state, int transitionTimeMillisec, const s3d::CrossFade crossFade)
+    void SequenceManager::changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec, const s3d::CrossFade crossFade)
     {
         auto data = m_scene.get();
         data->fromScene = data->toScene;

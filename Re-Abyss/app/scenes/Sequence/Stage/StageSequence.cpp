@@ -13,7 +13,7 @@ namespace abyss
     }
     Coro::Task<> StageSequence::sequence()
     {
-        m_pManager->changeScene(SceneKind::Stage);
+        m_pManager->changeScene(SceneKind::Stage, 1000);
         co_yield{};
 
         m_pManager->changeScene(SceneKind::StageResult);
