@@ -4,6 +4,7 @@
 #include <abyss/scenes/Scene/Stage/Context.hpp>
 #include <abyss/scenes/Scene/StageResult/Context.hpp>
 #include <abyss/scenes/Scene/Title/SceneResult.hpp>
+#include <abyss/scenes/Scene/SaveSelect/SceneResult.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -16,7 +17,8 @@ namespace abyss
     >;
     using SceneResultHolder = std::variant<
         s3d::None_t,
-        Scene::Title::SceneResult
+        Scene::Title::SceneResult,
+        Scene::SaveSelect::SceneResult
     >;
     /// <summary>
     /// game shared data

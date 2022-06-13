@@ -11,9 +11,6 @@ namespace abyss::Scene::Splash
     {
         using System = Sys::System<Sys::Config::Splash()>;
         std::unique_ptr<System> m_system;
-
-        std::function<void()> m_changeOpDemoSceneFunc;
-
         std::shared_ptr<Data_t> m_data;
     public:
         Impl([[maybe_unused]] const InitData& init) :

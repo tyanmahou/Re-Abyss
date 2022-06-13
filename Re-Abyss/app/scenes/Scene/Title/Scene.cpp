@@ -14,7 +14,7 @@ namespace abyss::Scene::Title
         std::unique_ptr<System> m_system;
         std::shared_ptr<Data_t> m_data;
     public:
-        Impl([[maybe_unused]]const InitData& init):
+        Impl(const InitData& init):
             m_data(init._s)
         {
         }

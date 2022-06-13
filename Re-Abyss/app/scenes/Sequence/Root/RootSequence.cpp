@@ -1,4 +1,5 @@
 #include <abyss/scenes/Sequence/Root/RootSequence.hpp>
+#include <abyss/scenes/Sequence/User/UserSequence.hpp>
 
 namespace abyss
 {
@@ -19,14 +20,33 @@ namespace abyss
         co_yield{};
         m_pManager->changeScene(SceneKind::Splash);
         co_yield{};
+
+        SceneKind next = SceneKind::Title;
         while (true) {
-            m_pManager->changeScene(SceneKind::Title);
-            co_yield{};
-            if (m_pManager->getResult<Title::SceneResult>().isStart) {
+            if (next == SceneKind::Title) {
+                m_pManager->changeScene(SceneKind::Title);
+                co_yield{};
+                if (m_pManager->getResult<Title::SceneResult>().isStart) {
+                    next = SceneKind::SaveSelect;
+                    continue;
+                } else {
+                    co_return;
+                }
+            } else if (next == SceneKind::SaveSelect) {
                 m_pManager->changeScene(SceneKind::SaveSelect, 1000);
                 co_yield{};
+                auto result = m_pManager->getResult<SaveSelect::SceneResult>();
+                if (result.isBack) {
+                    next = SceneKind::Title;
+                    continue;
+                } else {
+                    m_pManager->pushSequence<UserSequence>(m_pManager);
+                    co_yield{};
+                    next = SceneKind::Title;
+                    continue;
+                }
             } else {
-                co_return;
+                break;
             }
         }
         co_return;

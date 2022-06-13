@@ -738,6 +738,8 @@
     <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
     <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Title\Scene.cpp" />
+    <ClCompile Include="app\scenes\Sequence\Stage\StageSequence.cpp" />
+    <ClCompile Include="app\scenes\Sequence\User\UserSequence.cpp" />
     <ClCompile Include="app\services\Actor\Enemy\EnemyService.cpp" />
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
@@ -1807,6 +1809,7 @@
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\base\GameData.hpp" />
     <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
+    <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Context.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />
@@ -1821,6 +1824,8 @@
     <ClInclude Include="app\scenes\SequenceManager.hpp" />
     <ClInclude Include="app\scenes\Scene\Splash\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\Scene.hpp" />
+    <ClInclude Include="app\scenes\Sequence\Stage\StageSequence.hpp" />
+    <ClInclude Include="app\scenes\Sequence\User\UserSequence.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\EnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />

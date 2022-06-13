@@ -13,13 +13,10 @@ namespace abyss::Scene::SaveSelect
     {
         using System = Sys::System<Sys::Config::SaveSelect()>;
         std::unique_ptr<System> m_system;
-
-        std::function<void()> m_onLoadGameFunc;
-        std::function<void()> m_onNewGameFunc;
-        std::function<void()> m_onBackFunc;
-
+        std::shared_ptr<Data_t> m_data;
     public:
-        Impl([[maybe_unused]] const InitData& init)
+        Impl(const InitData& init) :
+            m_data(init._s)
         {
         }
 
@@ -62,55 +59,33 @@ namespace abyss::Scene::SaveSelect
 
         bool onNewGame() override
         {
-            if (m_onNewGameFunc) {
-                m_onNewGameFunc();
-                return true;
-            }
-            return false;
+            return this->onSceneEnd({
+                .isNewGame = true
+            });
         }
         bool onLoadGame() override
         {
-            if (m_onLoadGameFunc) {
-                m_onLoadGameFunc();
-                return true;
-            }
-            return false;
+            return this->onSceneEnd({
+                .isNewGame = false
+            });
         }
         bool onBack() override
         {
-            if (m_onBackFunc) {
-                m_onBackFunc();
-                return true;
-            }
-            return false;
+            return this->onSceneEnd({
+                .isBack = true
+            });
         }
-        void bindLoadGameFunc(const std::function<void()>& callback)
+        bool onSceneEnd(const SceneResult& result)
         {
-            m_onLoadGameFunc = callback;
-        }
-        void bindNewGameFunc(const std::function<void()>& callback)
-        {
-            m_onNewGameFunc = callback;
-        }
-        void bindBackFunc(const std::function<void()>& callback)
-        {
-            m_onBackFunc = callback;
+            m_data->isRequestedSceneEnd = true;
+            m_data->result = result;
+            return true;
         }
     };
     Scene::Scene(const InitData& init) :
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        m_pImpl->bindLoadGameFunc([this] {
-            this->changeScene(SceneKind::Stage);
-        });
-        m_pImpl->bindNewGameFunc([this] {
-            this->changeScene(SceneKind::Stage);
-        });
-        m_pImpl->bindBackFunc([this] {
-            this->changeScene(SceneKind::Title);
-        });
-
         // ローディング
         m_pImpl->loading();
 
