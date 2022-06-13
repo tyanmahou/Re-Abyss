@@ -27,7 +27,7 @@
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/BgmChangerEntity.hpp>
-#include <abyss/entities/Actor/Map/MapEntity.hpp>
+#include <abyss/entities/Actor/Land/LandEntity.hpp>
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
@@ -36,7 +36,7 @@
 #include <abyss/models/Temporary/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
-#include <abyss/translators/Actor/Map/MapTranslator.hpp>
+#include <abyss/translators/Actor/Land/LandTranslator.hpp>
 #include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/Actor/Item/ItemTranslator.hpp>
@@ -319,12 +319,12 @@ namespace abyss
 
         if (isCheckIn) {
             // マップの生成
-            Actor::Map::MapTranslator mapTranslator{};
-            for (const auto& map : m_stageData->getMaps()) {
-                if (!nextRoom.getRegion().intersects(RectF(map->pos - map->size / 2.0, map->size))) {
+            Actor::Land::LandTranslator landTranslator{};
+            for (const auto& land : m_stageData->getLands()) {
+                if (!nextRoom.getRegion().intersects(RectF(land->pos - land->size / 2.0, land->size))) {
                     continue;
                 }
-                mapTranslator.buildActor(world, *map);
+                landTranslator.buildActor(world, *land);
             }
         }
 

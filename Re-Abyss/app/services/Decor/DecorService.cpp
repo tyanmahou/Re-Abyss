@@ -4,14 +4,14 @@
 #include <abyss/datastores/Decor/base/IAnimationDataStore.hpp>
 #include <abyss/datastores/Decor/base/IGraphicsDataStore.hpp>
 #include <abyss/datastores/Actor/Gimmick/base/IGimmickDataStore.hpp>
-#include <abyss/datastores/Actor/Map/base/ITileMapDataStore.hpp>
+#include <abyss/datastores/Actor/Land/base/ITileMapDataStore.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss::Decor
 {
     DecorService::DecorService(
         std::shared_ptr<IDecorDataStore>decor, 
-        std::shared_ptr<Actor::Map::ITileMapDataStore>map,
+        std::shared_ptr<Actor::Land::ITileMapDataStore>map,
         std::shared_ptr<IGraphicsDataStore> graphics,
         std::shared_ptr<IAnimationDataStore> animation
     )

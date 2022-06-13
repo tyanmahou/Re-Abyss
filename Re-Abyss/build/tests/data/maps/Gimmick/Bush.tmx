@@ -5,19 +5,19 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
- <tileset firstgid="65" source="../../../../resources/maps/Tileset/DecorStage0.tsx"/>
+ <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
+ <tileset firstgid="66" source="../../../../resources/maps/Tileset/DecorStage0.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="12" name="front" parallaxx="1.2">
    <properties>
     <property name="layer" value="DecorFront"/>
    </properties>
-   <object id="46" gid="71" x="800" y="640" width="40" height="320"/>
-   <object id="47" gid="71" x="1320" y="640" width="40" height="320"/>
-   <object id="48" gid="71" x="1760" y="640" width="40" height="320"/>
-   <object id="49" gid="71" x="2200" y="640" width="40" height="320"/>
-   <object id="50" gid="71" x="2680" y="640" width="40" height="320"/>
+   <object id="46" gid="72" x="800" y="640" width="40" height="320"/>
+   <object id="47" gid="72" x="1320" y="640" width="40" height="320"/>
+   <object id="48" gid="72" x="1760" y="640" width="40" height="320"/>
+   <object id="49" gid="72" x="2200" y="640" width="40" height="320"/>
+   <object id="50" gid="72" x="2680" y="640" width="40" height="320"/>
   </objectgroup>
  </group>
  <objectgroup id="10" name="room">
@@ -34,7 +34,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="2" name="map" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100">
   <data encoding="csv">
    <chunk x="-28" y="0" width="28" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -184,7 +184,7 @@
  </layer>
  <objectgroup id="9" name="item"/>
  <objectgroup id="4" name="enemy">
-  <object id="19" gid="55" x="840" y="560" width="40" height="40"/>
+  <object id="19" gid="56" x="840" y="560" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>

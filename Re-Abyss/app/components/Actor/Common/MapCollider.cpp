@@ -4,8 +4,8 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/Foot.hpp>
-#include <abyss/components/Actor/Map/Ladder/LadderUtil.hpp>
-#include <abyss/components/Actor/Map/PenetrateFloor/PenetrateFloorExtension.hpp>
+#include <abyss/components/Actor/Land/Ladder/LadderUtil.hpp>
+#include <abyss/components/Actor/Land/PenetrateFloor/PenetrateFloorExtension.hpp>
 
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
@@ -114,7 +114,7 @@ namespace abyss::Actor
 
                     // Ladder情報があれば保持
                     if (terrain.tag.is<Physics::Tag::Ladder>()) {
-                        using Map::Ladder::LadderUtil;
+                        using Land::Ladder::LadderUtil;
                         m_foot->updateLadderInfo({
                             .pos = LadderUtil::CenterTopPos(terrain)
                         });
@@ -126,7 +126,7 @@ namespace abyss::Actor
                     }
                     // PenetrateFloor情報保持
                     if (col.isUp()) {
-                        using Map::PenetrateFloor::PenetrateFloorExtension;
+                        using Land::PenetrateFloor::PenetrateFloorExtension;
 
                         terrain.isThen<
                             Physics::Tag::PenetrateFloor,

@@ -5,7 +5,7 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
+ <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
@@ -28,7 +28,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="2" name="map" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100">
   <data encoding="csv">
    <chunk x="0" y="0" width="28" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -70,7 +70,7 @@
  </layer>
  <objectgroup id="9" name="item"/>
  <objectgroup id="4" name="enemy">
-  <object id="18" gid="57" x="880" y="560" width="40" height="40"/>
+  <object id="18" gid="58" x="880" y="560" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>

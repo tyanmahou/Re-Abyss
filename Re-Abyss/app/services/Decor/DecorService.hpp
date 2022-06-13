@@ -3,7 +3,7 @@
 #include <abyss/services/Decor/base/IDecorService.hpp>
 #include <Emaject.hpp>
 
-namespace abyss::Actor::Map
+namespace abyss::Actor::Land
 {
     class ITileMapDataStore;
 }
@@ -24,7 +24,7 @@ namespace abyss::Decor
     public:
         INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
-            std::shared_ptr<Actor::Map::ITileMapDataStore> map,
+            std::shared_ptr<Actor::Land::ITileMapDataStore> map,
             std::shared_ptr<IGraphicsDataStore> graphics,
             std::shared_ptr<IAnimationDataStore> animation
         ));

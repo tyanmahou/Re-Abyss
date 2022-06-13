@@ -5,7 +5,7 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
+ <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
@@ -27,7 +27,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="2" name="map" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100">
   <data encoding="csv">
    <chunk x="0" y="0" width="28" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -69,13 +69,13 @@
  </layer>
  <objectgroup id="9" name="item"/>
  <objectgroup id="4" name="enemy">
-  <object id="16" gid="56" x="760" y="560" width="60" height="60">
+  <object id="16" gid="57" x="760" y="560" width="60" height="60">
    <properties>
     <property name="wait" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="17" gid="56" x="2000" y="560" width="60" height="60"/>
-  <object id="19" gid="56" x="2160" y="560" width="60" height="60">
+  <object id="17" gid="57" x="2000" y="560" width="60" height="60"/>
+  <object id="19" gid="57" x="2160" y="560" width="60" height="60">
    <properties>
     <property name="wait" type="bool" value="false"/>
    </properties>

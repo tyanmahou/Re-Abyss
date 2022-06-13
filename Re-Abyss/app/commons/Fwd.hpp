@@ -159,9 +159,9 @@ namespace abyss
 		{
 			struct ItemEntity;
 		}
-		namespace Map
+		namespace Land
 		{
-			struct MapEntity;
+			struct LandEntity;
 		}
 	}
 	namespace Decor

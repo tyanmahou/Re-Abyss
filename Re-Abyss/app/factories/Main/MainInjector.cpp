@@ -2,7 +2,7 @@
 
 #include <abyss/datastores/Actor/Enemy/TmxEnemyDataStore.hpp>
 #include <abyss/datastores/Actor/Gimmick/TmxGimmickDataStore.hpp>
-#include <abyss/datastores/Actor/Map/TmxMapDataStore.hpp>
+#include <abyss/datastores/Actor/Land/TmxLandDataStore.hpp>
 #include <abyss/datastores/Actor/Item/TmxItemDataStore.hpp>
 #include <abyss/datastores/Attribute/TmxAttributeDataStore.hpp>
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
@@ -14,7 +14,7 @@
 #include <abyss/services/Actor/Enemy/EnemyService.hpp>
 #include <abyss/services/Actor/Gimmick/GimmickService.hpp>
 #include <abyss/services/Actor/Item/ItemService.hpp>
-#include <abyss/services/Actor/Map/MapService.hpp>
+#include <abyss/services/Actor/Land/LandService.hpp>
 #include <abyss/services/Attribute/AttributeService.hpp>
 #include <abyss/services/Room/RoomService.hpp>
 #include <abyss/services/Decor/DecorService.hpp>
@@ -32,7 +32,7 @@ namespace abyss::Factory::Main
             .install<Actor::Enemy::TmxEnemyDataStoreInataller>()
             .install<Actor::Gimmick::TmxGimmickDataStoreInataller>()
             .install<Actor::Item::TmxItemDataStoreInataller>()
-            .install<Actor::Map::TmxMapDataStoreInataller>()
+            .install<Actor::Land::TmxLandDataStoreInataller>()
             .install<Attribute::TmxAttributeDataStoreInataller>()
             .install<TmxRoomDataStoreInataller>()
             .install<TmxBackGroundDataStoreInataller>()
@@ -43,7 +43,7 @@ namespace abyss::Factory::Main
             .install<Actor::Enemy::EnemyServiceInstaller>()
             .install<Actor::Gimmick::GimmickServiceInstaller>()
             .install<Actor::Item::ItemServiceInstaller>()
-            .install<Actor::Map::MapServiceInstaller>()
+            .install<Actor::Land::LandServiceInstaller>()
             .install<Attribute::AttributeServiceInstaller>()
             .install<RoomServiceInstaller>()
             .install<BackGroundServiceInstaller>()

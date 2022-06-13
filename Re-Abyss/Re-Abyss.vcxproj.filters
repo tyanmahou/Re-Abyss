@@ -717,25 +717,25 @@
     <ClCompile Include="app\components\Actor\Item\LifeSpan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\Floor\Builder.cpp">
+    <ClCompile Include="app\components\Actor\Land\Floor\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\Ladder\Builder.cpp">
+    <ClCompile Include="app\components\Actor\Land\Ladder\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\Ladder\LadderUtil.cpp">
+    <ClCompile Include="app\components\Actor\Land\Ladder\LadderUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\Builder.cpp">
+    <ClCompile Include="app\components\Actor\Land\PenetrateFloor\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.cpp">
+    <ClCompile Include="app\components\Actor\Land\PenetrateFloor\PenetrateFloorExtension.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\CommonBuilder.cpp">
+    <ClCompile Include="app\components\Actor\Land\CommonBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Map\MapProxy.cpp">
+    <ClCompile Include="app\components\Actor\Land\LandProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Ooparts\Nyan\Builder.cpp">
@@ -1302,10 +1302,10 @@
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Actor\Map\parser\TmxMapParser.cpp">
+    <ClCompile Include="app\datastores\Actor\Land\parser\TmxLandParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Actor\Map\TmxMapDataStore.cpp">
+    <ClCompile Include="app\datastores\Actor\Land\TmxLandDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp">
@@ -1641,7 +1641,7 @@
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\services\Actor\Map\MapService.cpp">
+    <ClCompile Include="app\services\Actor\Land\LandService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\services\Attribute\AttributeService.cpp">
@@ -1686,7 +1686,7 @@
     <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Actor\Map\MapTranslator.cpp">
+    <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp">
@@ -3485,25 +3485,25 @@
     <ClInclude Include="app\components\Actor\Item\LifeSpan.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\Floor\Builder.hpp">
+    <ClInclude Include="app\components\Actor\Land\Floor\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\Ladder\Builder.hpp">
+    <ClInclude Include="app\components\Actor\Land\Ladder\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\Ladder\LadderUtil.hpp">
+    <ClInclude Include="app\components\Actor\Land\Ladder\LadderUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\Builder.hpp">
+    <ClInclude Include="app\components\Actor\Land\PenetrateFloor\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\PenetrateFloor\PenetrateFloorExtension.hpp">
+    <ClInclude Include="app\components\Actor\Land\PenetrateFloor\PenetrateFloorExtension.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\CommonBuilder.hpp">
+    <ClInclude Include="app\components\Actor\Land\CommonBuilder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Map\MapProxy.hpp">
+    <ClInclude Include="app\components\Actor\Land\LandProxy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Ooparts\Nyan\Builder.hpp">
@@ -4223,16 +4223,16 @@
     <ClInclude Include="app\datastores\Actor\Item\TmxItemDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Actor\Map\base\IMapDataStore.hpp">
+    <ClInclude Include="app\datastores\Actor\Land\base\ILandDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Actor\Map\base\ITileMapDataStore.hpp">
+    <ClInclude Include="app\datastores\Actor\Land\base\ITileMapDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Actor\Map\parser\TmxMapParser.hpp">
+    <ClInclude Include="app\datastores\Actor\Land\parser\TmxLandParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Actor\Map\TmxMapDataStore.hpp">
+    <ClInclude Include="app\datastores\Actor\Land\TmxLandDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp">
@@ -4394,7 +4394,7 @@
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\Actor\Map\MapEntity.hpp">
+    <ClInclude Include="app\entities\Actor\Land\LandEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp">
@@ -4909,10 +4909,10 @@
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\services\Actor\Map\base\IMapService.hpp">
+    <ClInclude Include="app\services\Actor\Land\base\ILandService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\services\Actor\Map\MapService.hpp">
+    <ClInclude Include="app\services\Actor\Land\LandService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp">
@@ -4987,7 +4987,7 @@
     <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\translators\Actor\Map\MapTranslator.hpp">
+    <ClInclude Include="app\translators\Actor\Land\LandTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp">

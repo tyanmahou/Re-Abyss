@@ -5,7 +5,7 @@
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
- <tileset firstgid="55" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
+ <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
  <group id="6" name="bgs"/>
  <group id="3" name="decor">
   <objectgroup id="7" name="back">
@@ -40,7 +40,7 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="2" name="map" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100">
   <data encoding="csv">
    <chunk x="-56" y="-16" width="28" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -298,35 +298,35 @@
  </layer>
  <objectgroup id="9" name="item"/>
  <objectgroup id="4" name="enemy">
-  <object id="20" gid="60" x="1720" y="240" width="120" height="60"/>
-  <object id="21" gid="2147483708" x="1560" y="520" width="120" height="60"/>
-  <object id="22" gid="60" x="680" y="80" width="120" height="60"/>
-  <object id="23" gid="60" x="680" y="520" width="120" height="60"/>
-  <object id="24" gid="60" x="2680.67" y="390" width="120" height="60"/>
-  <object id="27" gid="60" x="-200" y="80" width="120" height="60"/>
-  <object id="28" gid="60" x="-440" y="80" width="120" height="60"/>
-  <object id="29" gid="60" x="-680" y="80" width="120" height="60"/>
-  <object id="30" gid="60" x="-920" y="80" width="120" height="60"/>
-  <object id="31" gid="60" x="-1160" y="80" width="120" height="60"/>
-  <object id="32" gid="60" x="-1400" y="80" width="120" height="60"/>
-  <object id="33" gid="60" x="-1400" y="640" width="120" height="60"/>
-  <object id="34" gid="60" x="-1160" y="640" width="120" height="60"/>
-  <object id="35" gid="60" x="-920" y="640" width="120" height="60"/>
-  <object id="36" gid="60" x="-680" y="640" width="120" height="60"/>
-  <object id="37" gid="60" x="-440" y="640" width="120" height="60"/>
-  <object id="38" gid="60" x="-200" y="640" width="120" height="60"/>
-  <object id="39" gid="2147483708" x="-1400" y="200" width="120" height="60"/>
-  <object id="40" gid="2147483708" x="-1160" y="200" width="120" height="60"/>
-  <object id="41" gid="2147483708" x="-920" y="200" width="120" height="60"/>
-  <object id="42" gid="2147483708" x="-680" y="200" width="120" height="60"/>
-  <object id="43" gid="2147483708" x="-440" y="200" width="120" height="60"/>
-  <object id="44" gid="2147483708" x="-200" y="200" width="120" height="60"/>
-  <object id="45" gid="2147483708" x="-1400" y="520" width="120" height="60"/>
-  <object id="46" gid="2147483708" x="-1160" y="520" width="120" height="60"/>
-  <object id="47" gid="2147483708" x="-920" y="520" width="120" height="60"/>
-  <object id="48" gid="2147483708" x="-680" y="520" width="120" height="60"/>
-  <object id="49" gid="2147483708" x="-440" y="520" width="120" height="60"/>
-  <object id="50" gid="2147483708" x="-200" y="520" width="120" height="60"/>
+  <object id="20" gid="61" x="1720" y="240" width="120" height="60"/>
+  <object id="21" gid="2147483709" x="1560" y="520" width="120" height="60"/>
+  <object id="22" gid="61" x="680" y="80" width="120" height="60"/>
+  <object id="23" gid="61" x="680" y="520" width="120" height="60"/>
+  <object id="24" gid="61" x="2680.67" y="390" width="120" height="60"/>
+  <object id="27" gid="61" x="-200" y="80" width="120" height="60"/>
+  <object id="28" gid="61" x="-440" y="80" width="120" height="60"/>
+  <object id="29" gid="61" x="-680" y="80" width="120" height="60"/>
+  <object id="30" gid="61" x="-920" y="80" width="120" height="60"/>
+  <object id="31" gid="61" x="-1160" y="80" width="120" height="60"/>
+  <object id="32" gid="61" x="-1400" y="80" width="120" height="60"/>
+  <object id="33" gid="61" x="-1400" y="640" width="120" height="60"/>
+  <object id="34" gid="61" x="-1160" y="640" width="120" height="60"/>
+  <object id="35" gid="61" x="-920" y="640" width="120" height="60"/>
+  <object id="36" gid="61" x="-680" y="640" width="120" height="60"/>
+  <object id="37" gid="61" x="-440" y="640" width="120" height="60"/>
+  <object id="38" gid="61" x="-200" y="640" width="120" height="60"/>
+  <object id="39" gid="2147483709" x="-1400" y="200" width="120" height="60"/>
+  <object id="40" gid="2147483709" x="-1160" y="200" width="120" height="60"/>
+  <object id="41" gid="2147483709" x="-920" y="200" width="120" height="60"/>
+  <object id="42" gid="2147483709" x="-680" y="200" width="120" height="60"/>
+  <object id="43" gid="2147483709" x="-440" y="200" width="120" height="60"/>
+  <object id="44" gid="2147483709" x="-200" y="200" width="120" height="60"/>
+  <object id="45" gid="2147483709" x="-1400" y="520" width="120" height="60"/>
+  <object id="46" gid="2147483709" x="-1160" y="520" width="120" height="60"/>
+  <object id="47" gid="2147483709" x="-920" y="520" width="120" height="60"/>
+  <object id="48" gid="2147483709" x="-680" y="520" width="120" height="60"/>
+  <object id="49" gid="2147483709" x="-440" y="520" width="120" height="60"/>
+  <object id="50" gid="2147483709" x="-200" y="520" width="120" height="60"/>
  </objectgroup>
  <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
