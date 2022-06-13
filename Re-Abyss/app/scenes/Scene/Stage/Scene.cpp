@@ -29,8 +29,6 @@ namespace abyss::Scene::Stage
         Context m_context;
 
 		std::shared_ptr<Data_t> m_data;
-
-		std::function<void()> m_onClearFunc;
 	public:
 		Impl([[maybe_unused]] const Scene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
@@ -152,19 +150,19 @@ namespace abyss::Scene::Stage
 			m_tempData->clearFlag(abyss::TempLevel::Exit);
 			// BGMの引継ぎ
 			m_data->context = StageResult::Context{
-				.bgm = m_system->mod<Sound>()->getBgm()
+				//.bgm = m_system->mod<Sound>()->getBgm()
 			};
-
-			if (m_onClearFunc) {
-				m_onClearFunc();
-			}
-			return true;
+            return onSceneEnd({
+                .isClear = true
+            });
 		}
 
-		void bindOnClear(const std::function<void()>& callback)
-		{
-			m_onClearFunc = callback;
-		}
+        bool onSceneEnd(const SceneResult& result)
+        {
+            m_data->isRequestedSceneEnd = true;
+            m_data->result = result;
+            return true;
+        }
 	};
 
     Scene::Scene(const InitData& init) :
@@ -184,11 +182,6 @@ namespace abyss::Scene::Stage
 		    })
 			;
 #endif
-		m_pImpl->bindOnClear([this] {
-			// Clear画面に遷移
-			this->changeScene(SceneKind::StageResult, 0);
-		});
-
 	}
     Scene::~Scene()
 	{}

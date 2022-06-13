@@ -5,6 +5,5 @@ namespace abyss::Scene::StageResult
 {
     struct Context
     {
-        BackGroundMusic bgm;
     };
 }
