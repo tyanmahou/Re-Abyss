@@ -95,7 +95,7 @@ namespace abyss::UI::SaveSelect::Main
                             // 選択
                             m_pUi->getModule<CycleMaster>()
                                 ->find<Cycle::SaveSelect::Master>()
-                                ->loadGame();
+                                ->loadGame(m_selectId);
                             co_return;
                         }
                     } else {
@@ -129,7 +129,7 @@ namespace abyss::UI::SaveSelect::Main
             m_users->create(m_selectId, result.playMode);
             m_pUi->getModule<CycleMaster>()
                 ->find<Cycle::SaveSelect::Master>()
-                ->newGame();
+                ->newGame(m_selectId);
             co_return;
         }
 

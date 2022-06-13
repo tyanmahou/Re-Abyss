@@ -57,15 +57,17 @@ namespace abyss::Scene::SaveSelect
             m_system->draw();
         }
 
-        bool onNewGame() override
+        bool onNewGame(s3d::int32 userId) override
         {
             return this->onSceneEnd({
+                .userId = userId,
                 .isNewGame = true
             });
         }
-        bool onLoadGame() override
+        bool onLoadGame(s3d::int32 userId) override
         {
             return this->onSceneEnd({
+                .userId = userId,
                 .isNewGame = false
             });
         }

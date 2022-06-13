@@ -13,8 +13,8 @@ namespace abyss::Cycle::SaveSelect
     public:
         virtual ~IMasterObserver() = default;
 
-        virtual bool onNewGame() = 0;
-        virtual bool onLoadGame() = 0;
+        virtual bool onNewGame(s3d::int32 userId) = 0;
+        virtual bool onLoadGame(s3d::int32 userId) = 0;
         virtual bool onBack() = 0;
     };
 
@@ -39,13 +39,13 @@ namespace abyss::Cycle::SaveSelect
         /// ニューゲーム
         /// </summary>
         /// <returns></returns>
-        bool newGame();
+        bool newGame(s3d::int32 userId);
 
         /// <summary>
         /// ロードゲーム
         /// </summary>
         /// <returns></returns>
-        bool loadGame();
+        bool loadGame(s3d::int32 userId);
 
         /// <summary>
         /// 戻る
@@ -56,9 +56,10 @@ namespace abyss::Cycle::SaveSelect
         bool listen() override;
 
     private:
-        bool notify(Notify notify);
+        bool notify(Notify notify, s3d::int32 userId);
     private:
         Notify m_notify = Notify::None;
+        s3d::int32 m_userId = 0;
         IMasterObserver* m_observer = nullptr;
     };
 }
