@@ -402,4 +402,4 @@ lib/
 !/Re-Abyss/build/[Rr]esources/params/
 !/Re-Abyss/build/[Rr]esources/msgs/
 [Vv]endor/
-/Re-Abyss/[Uu]serdata/*
+/Re-Abyss/build/[Uu]serdata/*
