@@ -12,7 +12,7 @@
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 #include <abyss/utils/Collision/SweepUtil.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor

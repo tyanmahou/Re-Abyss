@@ -2,7 +2,7 @@
 #include <memory>
 #include <functional>
 #include <Siv3D/RectF.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/modules/Physics/base/Tag.hpp>
 #include <abyss/modules/Physics/base/ITerrainExtData.hpp>
 

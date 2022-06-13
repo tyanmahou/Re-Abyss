@@ -1,5 +1,5 @@
 #include <abyss/utils/Collision/SweepUtil.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/utils/Overloaded.hpp>

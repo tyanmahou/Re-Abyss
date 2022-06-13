@@ -4,7 +4,7 @@
 
 #include <abyss/entities/Actor/Enemy/IkalienEntity.hpp>
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>

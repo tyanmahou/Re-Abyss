@@ -2,7 +2,7 @@
 #include <functional>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>

@@ -1870,9 +1870,9 @@
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
-    <ClInclude Include="app\types\ColDirection.hpp" />
-    <ClInclude Include="app\types\CollisionPairHash.hpp" />
-    <ClInclude Include="app\types\CShape.hpp" />
+    <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
+    <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
+    <ClInclude Include="app\utils\Collision\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\Look.hpp" />
     <ClInclude Include="app\types\Novel\CharaKind.hpp" />

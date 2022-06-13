@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 
 namespace abyss::Actor::Land
 {

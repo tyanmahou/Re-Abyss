@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 
 namespace abyss::ColSys
 {

@@ -9,7 +9,7 @@
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
 #include <abyss/modules/World/World.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
 #include <abyss/debugs/Log/Log.hpp>

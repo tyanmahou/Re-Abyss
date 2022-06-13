@@ -3,7 +3,7 @@
 #include <Siv3D/Fwd.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 
 namespace abyss
 {

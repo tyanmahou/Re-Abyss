@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Actor::Land::PenetrateFloor

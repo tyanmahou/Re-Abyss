@@ -4,8 +4,8 @@
 #include <abyss/components/Actor/base/IPostPhysics.hpp>
 #include <abyss/concepts/Component.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
-#include <abyss/types/CShape.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 
 #include <abyss/utils/Ref/Ref.hpp>
 

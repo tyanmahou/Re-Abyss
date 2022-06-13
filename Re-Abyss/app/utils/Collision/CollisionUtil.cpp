@@ -1,6 +1,6 @@
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <Siv3D.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 #include <concepts>
 
 namespace

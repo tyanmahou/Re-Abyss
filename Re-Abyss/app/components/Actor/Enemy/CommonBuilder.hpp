@@ -4,7 +4,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/types/Forward.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>

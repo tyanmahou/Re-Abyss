@@ -2,7 +2,7 @@
 
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Land/LandProxy.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 
 namespace abyss::Actor::Land
 {

@@ -5023,13 +5023,13 @@
     <ClInclude Include="app\types\Temporary\TempLevel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\ColDirection.hpp">
+    <ClInclude Include="app\utils\Collision\ColDirection.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\CollisionPairHash.hpp">
+    <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\CShape.hpp">
+    <ClInclude Include="app\utils\Collision\CShape.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\types\Forward.hpp">

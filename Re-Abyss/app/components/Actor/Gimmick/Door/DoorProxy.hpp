@@ -4,7 +4,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {

@@ -1,6 +1,6 @@
 #include <abyss/models/Room/RoomModel.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/types/ColDirection.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 
 using namespace s3d;
 

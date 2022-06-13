@@ -2,7 +2,7 @@
 
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
-#include <abyss/types/CShape.hpp>
+#include <abyss/utils/Collision/CShape.hpp>
 
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
