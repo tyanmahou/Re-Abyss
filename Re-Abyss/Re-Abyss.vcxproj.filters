@@ -1608,7 +1608,7 @@
     <ClCompile Include="app\modules\World\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\base\ISceneBase.cpp">
+    <ClCompile Include="app\scenes\Scene\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp">
@@ -4858,10 +4858,10 @@
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\base\GameData.hpp">
+    <ClInclude Include="app\scenes\Data\SequecneData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\base\ISceneBase.hpp">
+    <ClInclude Include="app\scenes\Scene\ISceneBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp">
@@ -5624,6 +5624,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Data\ShareData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\SceneManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include <stack>
 #include <abyss/scenes/Sequence/ISequence.hpp>
-#include <abyss/scenes/base/ISceneBase.hpp>
+#include <abyss/scenes/Scene/SceneManager.hpp>
 
 namespace abyss
 {
@@ -33,7 +33,7 @@ namespace abyss
 
         void pushSequence(std::shared_ptr<ISequence> child);
     private:
-        AppScene m_scene;
+        SceneManager m_scene;
         std::stack<std::shared_ptr<ISequence>> m_sequence;
     };
 }

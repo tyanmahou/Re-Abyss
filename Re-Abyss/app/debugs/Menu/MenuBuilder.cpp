@@ -1,6 +1,7 @@
 #include <abyss/debugs/Menu/MenuBuilder.hpp>
 #if ABYSS_DEBUG
-#include <abyss/scenes/base/ISceneBase.hpp>
+#include <abyss/commons/Path.hpp>
+#include <abyss/scenes/Scene/SceneManager.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Log/Log.hpp>
@@ -17,7 +18,7 @@ namespace
 	using namespace abyss;
 	using namespace abyss::Debug;
 
-	Node BuildSceneChangeButton(SceneKind key, const s3d::String& label, std::function<void(GameData*)> callback = nullptr)
+	Node BuildSceneChangeButton(SceneKind key, const s3d::String& label, std::function<void(SequecneData*)> callback = nullptr)
 	{
 		return Node::Create<DebugMenu::Button>(Enum::ToStr(key), label, [key, callback] {
             auto* pScene = Debug::System::Context().pScene;
@@ -32,7 +33,7 @@ namespace
 			}
 		});
 	}
-	Node BuildSceneChangeButton(SceneKind key, std::function<void(GameData*)> callback = nullptr)
+	Node BuildSceneChangeButton(SceneKind key, std::function<void(SequecneData*)> callback = nullptr)
 	{
 		return ::BuildSceneChangeButton(key, Enum::ToStr(key), callback);
 	}
@@ -55,7 +56,7 @@ namespace
 				.mapPath = s3d::FileSystem::RelativePath(path)
 			};
 			auto name = s3d::FileSystem::RelativePath(path, basePath);
-			folder.add(::BuildSceneChangeButton(SceneKind::Stage, name, [context](GameData* data) {
+			folder.add(::BuildSceneChangeButton(SceneKind::Stage, name, [context](SequecneData* data) {
 				data->context = context;
 			}));
 		}

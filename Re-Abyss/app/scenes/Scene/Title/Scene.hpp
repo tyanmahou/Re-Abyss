@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/scenes/base/ISceneBase.hpp>
+#include <abyss/scenes/Scene/ISceneBase.hpp>
 
 namespace abyss::Scene::Title
 {

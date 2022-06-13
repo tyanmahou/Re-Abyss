@@ -1,15 +1,11 @@
 # pragma once
-#include <Siv3D.hpp>
+#include <abyss/scenes/Scene/SceneManager.hpp>
 #include <abyss/debugs/HotReload/HotReload.hpp>
 #include <abyss/scenes/Loading/Loading.hpp>
-#include <abyss/scenes/base/GameData.hpp>
-#include <abyss/scenes/SceneKind.hpp>
 
 namespace abyss
 {
-    using AppScene = SceneManager<SceneKind, GameData>;
-
-    class ISceneBase : public AppScene::Scene
+    class ISceneBase : public SceneManager::Scene
     {
     protected:
         virtual void onSceneUpdate() = 0;
@@ -20,7 +16,7 @@ namespace abyss
             this->getData().isRequestedSceneEnd = true;
         }
     public:
-        using AppScene::Scene::Scene;
+        using SceneManager::Scene::Scene;
 
         void update() final;
         void draw() const final;

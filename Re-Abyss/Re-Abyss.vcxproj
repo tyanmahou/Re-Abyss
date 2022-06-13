@@ -728,7 +728,7 @@
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
     <ClCompile Include="app\modules\World\World.cpp" />
-    <ClCompile Include="app\scenes\base\ISceneBase.cpp" />
+    <ClCompile Include="app\scenes\Scene\ISceneBase.cpp" />
     <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Stage\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp" />
@@ -1111,6 +1111,9 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
+    <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
+    <ClInclude Include="app\scenes\Data\ShareData.hpp" />
     <ClInclude Include="app\scenes\Loading\Loading.hpp" />
     <ClInclude Include="app\commons\Msg\Common.hpp" />
     <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
@@ -1807,9 +1810,10 @@
     <ClInclude Include="app\params\UI\Splash\Param.hpp" />
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
-    <ClInclude Include="app\scenes\base\GameData.hpp" />
-    <ClInclude Include="app\scenes\base\ISceneBase.hpp" />
+    <ClInclude Include="app\scenes\Data\SequecneData.hpp" />
+    <ClInclude Include="app\scenes\Scene\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp" />
+    <ClInclude Include="app\scenes\Scene\SceneManager.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Context.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />
@@ -1818,6 +1822,7 @@
     <ClInclude Include="app\scenes\Scene\Root\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp" />
     <ClInclude Include="app\scenes\SceneKind.hpp" />
+    <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Sequence\ISequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Root\RootSequence.hpp" />
