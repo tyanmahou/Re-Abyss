@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/types/MapColInfo.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Actor::Land

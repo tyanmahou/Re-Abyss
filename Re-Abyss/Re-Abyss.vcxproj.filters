@@ -5038,9 +5038,6 @@
     <ClInclude Include="app\types\Look.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\MapColInfo.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\types\OopartsType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

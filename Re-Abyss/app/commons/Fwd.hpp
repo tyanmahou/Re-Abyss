@@ -205,7 +205,6 @@ namespace abyss
 	/// </summary>
 	struct CShape;
 	class ColDirection;
-	struct MapColInfo;
 
 	/// <summary>
 	/// Views

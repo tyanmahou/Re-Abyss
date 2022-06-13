@@ -21,6 +21,5 @@ namespace abyss::Actor::Land
         s3d::RectF region() const;
 
         ColDirection getCol() const;
-        MapColInfo getMapColInfo() const;
     };
 }

@@ -1,6 +1,5 @@
 #include <abyss/components/Actor/Land/LandProxy.hpp>
 #include <Siv3D.hpp>
-#include <abyss/types/MapColInfo.hpp>
 
 namespace abyss::Actor::Land
 {
@@ -31,12 +30,5 @@ namespace abyss::Actor::Land
     ColDirection LandProxy::getCol() const
     {
         return m_col;
-    }
-    MapColInfo LandProxy::getMapColInfo() const
-    {
-        return {
-            .region = this->region(),
-            .col = m_col
-        };
     }
 }

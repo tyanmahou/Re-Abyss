@@ -1875,7 +1875,6 @@
     <ClInclude Include="app\types\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\types\Look.hpp" />
-    <ClInclude Include="app\types\MapColInfo.hpp" />
     <ClInclude Include="app\types\Novel\CharaKind.hpp" />
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />
