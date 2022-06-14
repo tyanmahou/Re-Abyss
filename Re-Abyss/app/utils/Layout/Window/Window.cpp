@@ -9,7 +9,7 @@ namespace
         Top, Bottom, Left, Right,
         Tl, Tr, Bl, Br,
         Move,
-        Scroll,
+        ScrollV,
     };
 
     s3d::Optional<CursorStyle> GetCursorStyle(GrabState grab)
@@ -42,8 +42,141 @@ namespace
 
     constexpr double g_margin = 5.0;
     constexpr double g_scroolMargin = 15.0;
-    constexpr Vec2 g_minSize{ g_scroolMargin * 2.0 + g_margin, g_scroolMargin * 3.0 + g_margin };
+    constexpr double g_scroolBarSize = 20.0;
+    constexpr Vec2 g_minSize{ g_scroolMargin * 2.0 + g_margin + g_scroolBarSize, g_scroolMargin * 3.0 + g_margin + g_scroolBarSize };
 
+    struct ScrollBar
+    {
+        s3d::RectF barV(const RectF& region, const Vec2& contentSize) const
+        {
+            const Vec2& size = region.size;
+            bool hasScrollH = contentSize.x > size.x;
+            double minusH = hasScrollH ? g_scroolMargin : 0;
+            return { region.x + region.w - g_scroolMargin, region.y, g_scroolMargin, size.y - minusH };
+        }
+        void drawV(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, const ColorF& barColor, const ColorF& scrollColor) const
+        {
+            const Vec2& size = region.size;
+            // スクロールバー
+            RectF bar = this->barV(region, contentSize);
+            bar.draw(barColor);
+            {
+                const double pushMargin = 1.0;
+                //RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                Triangle(
+                    { bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
+                    { bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
+                    { bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
+                ).draw(scrollColor);
+            }
+            {
+                const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
+                const double pushMargin = 1.0;
+                //RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                Triangle(
+                    { bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
+                    { bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
+                    { bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
+                ).draw(scrollColor);
+            }
+            {
+                auto hight = s3d::Math::Lerp(
+                    g_scroolBarSize,
+                    bar.h - bar.w * 2.0,
+                    s3d::Saturate(size.y / contentSize.y)
+                );
+                auto yOffs = s3d::Math::Lerp(
+                    0,
+                    bar.h - bar.w * 2.0 - hight,
+                    s3d::Saturate(contentPos.y / (contentSize.y - size.y))
+                );
+                const double pushMargin = 1.0;
+                RoundRect(
+                    bar.x + (5.0 - pushMargin),
+                    bar.y + bar.w + yOffs,
+                    bar.w - (5.0 - pushMargin) * 2.0,
+                    hight,
+                    2.0
+                ).draw(scrollColor);
+            }
+        }
+        s3d::RectF barH(const RectF& region, const Vec2& contentSize) const
+        {
+            const Vec2& size = region.size;
+            bool hasScrollV = contentSize.y > size.y;
+            double minusW = hasScrollV ? g_scroolMargin : 0;
+            return { region.x, region.y + region.h - g_scroolMargin, size.x - minusW, g_scroolMargin };
+        }
+        void drawH(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, const ColorF& barColor, const ColorF& scrollColor) const
+        {
+            const Vec2& size = region.size;
+            // スクロールバー
+            RectF bar = this->barH(region, contentSize);
+            bar.draw(barColor);
+            {
+                const double pushMargin = 1.0;
+                //RectF(bar.pos, bar.h, bar.h).draw(ColorF(0.8, 1));
+                Triangle(
+                    { bar.x + (5.0 - pushMargin), bar.y + bar.h * 0.5 },
+                    { bar.x + bar.h - (5.0 - pushMargin), bar.y + (4.0 - pushMargin) },
+                    { bar.x + bar.h - (5.0 - pushMargin) , bar.y + bar.h - (4.0 - pushMargin) }
+                ).draw(scrollColor);
+            }
+            {
+                const Vec2 basePos{ bar.x + bar.w - g_scroolMargin, bar.y };
+                const double pushMargin = 1.0;
+                //RectF(basePos, bar.h, bar.h).draw(ColorF(0.8, 1));
+                Triangle(
+                    { bar.x + bar.w - (5.0 - pushMargin), bar.y + bar.h * 0.5 },
+                    { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + (4.0 - pushMargin) },
+                    { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + bar.h - (4.0 - pushMargin) }
+                ).draw(scrollColor);
+            }
+            {
+                auto width = s3d::Math::Lerp(
+                    g_scroolBarSize,
+                    bar.w - bar.h * 2.0,
+                    s3d::Saturate(size.x / contentSize.x)
+                );
+                auto xOffs = s3d::Math::Lerp(
+                    0,
+                    bar.w - bar.h * 2.0 - width,
+                    s3d::Saturate(contentPos.x / (contentSize.x - size.x))
+                );
+                const double pushMargin = 1.0;
+                RoundRect(
+                    bar.x + bar.h + xOffs,
+                    bar.y + (5.0 - pushMargin),
+                    width,
+                    bar.h - (5.0 - pushMargin) * 2.0,
+                    2.0
+                ).draw(scrollColor);
+            }
+        }
+        void draw(const RectF& region, const Vec2& contentPos, const Vec2& contentSize) const
+        {
+            const Vec2& size = region.size;
+            bool hasScrollV = contentSize.y > size.y;
+            bool hasScrollH = contentSize.x > size.x;
+            const ColorF barColor = Color(240);
+            const ColorF scrollColor = Color(133);
+
+            if (hasScrollV) {
+                this->drawV(region, contentPos, contentSize, barColor, scrollColor);
+            }
+            if (hasScrollH) {
+                this->drawH(region, contentPos, contentSize, barColor, scrollColor);
+            }
+            if (hasScrollH && hasScrollV) {
+                RectF(
+                    region.x + region.w - g_scroolMargin,
+                    region.y + region.h - g_scroolMargin,
+                    g_scroolMargin,
+                    g_scroolMargin
+                ).draw(barColor);
+            }
+        }
+    };
     struct WindowResizer
     {
     public:
@@ -205,11 +338,15 @@ namespace abyss::Layout
         }
         s3d::Transformer2D transformer() const
         {
-            return { Mat3x2::Identity(), Mat3x2::Translate(m_pos) };
+            return { Mat3x2::Translate(-m_contentPos), Mat3x2::Translate(m_pos - m_contentPos) };
         }
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene)
         {
             this->update();
+            m_contentPos.x += 10.0 * (KeyRight.pressed() - KeyLeft.pressed());
+            m_contentPos.x = s3d::Clamp(m_contentPos.x, 0.0, Max(m_contentSize.x - m_size.x, 0.0));
+            m_contentPos.y += 10.0 * (KeyDown.pressed() - KeyUp.pressed());
+            m_contentPos.y = s3d::Clamp(m_contentPos.y, 0.0, Max(m_contentSize.y - m_size.y, 0.0));
 
             auto region = this->regionF();
             if (m_backGroundColor) {
@@ -220,69 +357,7 @@ namespace abyss::Layout
                 auto viewport = this->startViewport();
                 scene(region);
             }
-            bool hasScrollV = m_contentSize.y > m_size.y;
-            bool hasScrollH = m_contentSize.x > m_size.x;
-            const ColorF barColor = Color(240);
-            const ColorF scrollColor = Color(133);
-
-            if (hasScrollV) {
-                double minusH = hasScrollH ? g_scroolMargin : 0;
-                // スクロールバー
-                RectF bar(region.x + region.w - g_scroolMargin, region.y, g_scroolMargin, m_size.y - minusH);
-                bar.draw(barColor);
-                {
-                    const double pushMargin = 1.0;
-                    //RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
-                    Triangle(
-                        { bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
-                        { bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
-                        { bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
-                    ).draw(scrollColor);
-                }
-                {
-                    const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
-                    const double pushMargin = 1.0;
-                    //RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
-                    Triangle(
-                        { bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
-                        { bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
-                        { bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
-                    ).draw(scrollColor);
-                }
-            }
-            if (hasScrollH) {
-                double minusW = hasScrollV ? g_scroolMargin : 0;
-                // スクロールバー
-                RectF bar(region.x, region.y + region.h - g_scroolMargin, m_size.x - minusW, g_scroolMargin);
-                bar.draw(barColor);
-                //{
-                //	const double pushMargin = 1.0;
-                //	//RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
-                //	Triangle(
-                //		{ bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
-                //		{ bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
-                //		{ bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
-                //	).draw(scrollColor);
-                //}
-                //{
-                //	const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
-                //	const double pushMargin = 1.0;
-                //	//RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
-                //	Triangle(
-                //		{ bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
-                //		{ bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
-                //		{ bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
-                //	).draw(scrollColor);
-                //}
-            }
-            if (hasScrollH && hasScrollV) {
-                RectF(
-                    region.x + region.w - g_scroolMargin,
-                    region.y + region.h - g_scroolMargin,
-                    g_scroolMargin,
-                    g_scroolMargin
-                ).draw(barColor);
-            }
+            ScrollBar{}.draw(region, m_contentPos, m_contentSize);
             if (m_frameColor) {
                 region.drawFrame(0, 1, *m_frameColor);
             }
@@ -291,7 +366,7 @@ namespace abyss::Layout
     private:
         s3d::Vec2 m_pos{};
         s3d::Vec2 m_size{};
-        s3d::Vec2 m_contentPos;
+        s3d::Vec2 m_contentPos{};
         s3d::Vec2 m_contentSize;
         s3d::Optional<ColorF> m_backGroundColor{};
         s3d::Optional<ColorF> m_frameColor{};
