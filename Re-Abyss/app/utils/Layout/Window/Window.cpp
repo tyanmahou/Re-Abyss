@@ -10,6 +10,7 @@ namespace
         Tl, Tr, Bl, Br,
         Move,
         ScrollV,
+        ScrollH,
     };
 
     s3d::Optional<CursorStyle> GetCursorStyle(GrabState grab)
@@ -54,9 +55,55 @@ namespace
             double minusH = hasScrollH ? g_scroolMargin : 0;
             return { region.x + region.w - g_scroolMargin, region.y, g_scroolMargin, size.y - minusH };
         }
-        void drawV(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, const ColorF& barColor, const ColorF& scrollColor) const
+        s3d::Optional<s3d::RectF> gripVOpt(const RectF& region, const Vec2& contentPos, const Vec2& contentSize) const
         {
             const Vec2& size = region.size;
+            bool hasScrollV = contentSize.y > size.y;
+            if (!hasScrollV) {
+                return s3d::none;
+            }
+            return this->gripV(region, contentPos, contentSize);
+        }
+        s3d::RectF gripV(const RectF& region, const Vec2& contentPos, const Vec2& contentSize) const
+        {
+            auto bar = this->barV(region, contentSize);
+            const Vec2& size = region.size;
+            auto [hight, offsetMax] = this->gripVHightAndOffsetMax(region, contentSize);
+            auto yOffs = s3d::Math::Lerp(
+                0,
+                offsetMax,
+                s3d::Saturate(contentPos.y / (contentSize.y - size.y))
+            );
+            const double pushMargin = 1.0;
+            return {
+                bar.x + (5.0 - pushMargin),
+                bar.y + bar.w + yOffs,
+                bar.w - (5.0 - pushMargin) * 2.0,
+                hight
+            };
+        }
+        std::pair<double, double> gripVHightAndOffsetMax(const RectF& region, const Vec2& contentSize) const
+        {
+            auto bar = this->barV(region, contentSize);
+            const Vec2& size = region.size;
+            auto hight = s3d::Math::Lerp(
+                g_scroolBarSize,
+                bar.h - bar.w * 2.0,
+                s3d::Saturate(size.y / contentSize.y)
+            );
+            return { hight, bar.h - bar.w * 2.0 - hight };
+        }
+        double toContentYFromGripDiff(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, double diff) const
+        {
+            const double moveable = (contentSize.y - region.size.y);
+            if (moveable <= 0) {
+                return 0;
+            }
+            auto [hight, offsetMax] = this->gripVHightAndOffsetMax(region, contentSize);
+            return s3d::Clamp(contentPos.y + diff * moveable / offsetMax, 0.0, moveable);
+        }
+        void drawV(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, const ColorF& barColor, const ColorF& scrollColor) const
+        {
             // スクロールバー
             RectF bar = this->barV(region, contentSize);
             bar.draw(barColor);
@@ -80,24 +127,8 @@ namespace
                 ).draw(scrollColor);
             }
             {
-                auto hight = s3d::Math::Lerp(
-                    g_scroolBarSize,
-                    bar.h - bar.w * 2.0,
-                    s3d::Saturate(size.y / contentSize.y)
-                );
-                auto yOffs = s3d::Math::Lerp(
-                    0,
-                    bar.h - bar.w * 2.0 - hight,
-                    s3d::Saturate(contentPos.y / (contentSize.y - size.y))
-                );
-                const double pushMargin = 1.0;
-                RoundRect(
-                    bar.x + (5.0 - pushMargin),
-                    bar.y + bar.w + yOffs,
-                    bar.w - (5.0 - pushMargin) * 2.0,
-                    hight,
-                    2.0
-                ).draw(scrollColor);
+                RoundRect(this->gripV(region, contentPos, contentSize), 2.0)
+                    .draw(scrollColor);
             }
         }
         s3d::RectF barH(const RectF& region, const Vec2& contentSize) const
@@ -106,6 +137,53 @@ namespace
             bool hasScrollV = contentSize.y > size.y;
             double minusW = hasScrollV ? g_scroolMargin : 0;
             return { region.x, region.y + region.h - g_scroolMargin, size.x - minusW, g_scroolMargin };
+        }
+        s3d::Optional<s3d::RectF> gripHOpt(const RectF& region, const Vec2& contentPos, const Vec2& contentSize) const
+        {
+            const Vec2& size = region.size;
+            bool hasScrollH = contentSize.x > size.x;
+            if (!hasScrollH) {
+                return s3d::none;
+            }
+            return this->gripH(region, contentPos, contentSize);
+        }
+        s3d::RectF gripH(const RectF& region, const Vec2& contentPos, const Vec2& contentSize) const
+        {
+            auto bar = this->barH(region, contentSize);
+            const Vec2& size = region.size;
+            auto [width, offsetMax] = this->gripHWidthAndOffsetMax(region, contentSize);
+            auto xOffs = s3d::Math::Lerp(
+                0,
+                offsetMax,
+                s3d::Saturate(contentPos.x / (contentSize.x - size.x))
+            );
+            const double pushMargin = 1.0;
+            return{
+                bar.x + bar.h + xOffs,
+                bar.y + (5.0 - pushMargin),
+                width,
+                bar.h - (5.0 - pushMargin) * 2.0
+            };
+        }
+        std::pair<double, double> gripHWidthAndOffsetMax(const RectF& region, const Vec2& contentSize) const
+        {
+            auto bar = this->barH(region, contentSize);
+            const Vec2& size = region.size;
+            auto width = s3d::Math::Lerp(
+                g_scroolBarSize,
+                bar.w - bar.h * 2.0,
+                s3d::Saturate(size.x / contentSize.x)
+            );
+            return { width, bar.w - bar.h * 2.0 - width };
+        }
+        double toContentXFromGripDiff(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, double diff) const
+        {
+            const double moveable = (contentSize.x - region.size.x);
+            if (moveable <= 0) {
+                return 0;
+            }
+            auto [hight, offsetMax] = this->gripHWidthAndOffsetMax(region, contentSize);
+            return s3d::Clamp(contentPos.x + diff * moveable / offsetMax, 0.0, moveable);
         }
         void drawH(const RectF& region, const Vec2& contentPos, const Vec2& contentSize, const ColorF& barColor, const ColorF& scrollColor) const
         {
@@ -133,22 +211,8 @@ namespace
                 ).draw(scrollColor);
             }
             {
-                auto width = s3d::Math::Lerp(
-                    g_scroolBarSize,
-                    bar.w - bar.h * 2.0,
-                    s3d::Saturate(size.x / contentSize.x)
-                );
-                auto xOffs = s3d::Math::Lerp(
-                    0,
-                    bar.w - bar.h * 2.0 - width,
-                    s3d::Saturate(contentPos.x / (contentSize.x - size.x))
-                );
-                const double pushMargin = 1.0;
                 RoundRect(
-                    bar.x + bar.h + xOffs,
-                    bar.y + (5.0 - pushMargin),
-                    width,
-                    bar.h - (5.0 - pushMargin) * 2.0,
+                    this->gripH(region, contentPos, contentSize),
                     2.0
                 ).draw(scrollColor);
             }
@@ -180,25 +244,31 @@ namespace
     struct WindowResizer
     {
     public:
-        void update(Vec2& pos, Vec2& size)
+        bool update(Vec2& pos, Vec2& size, Vec2& contentPos, const Vec2& contentSize)
         {
             if (!m_isGrab) {
-                if (auto grabState = grabWatch(pos, size, g_margin)) {
+                if (auto grabState = grabWatch(pos, size, contentPos, contentSize, g_margin)) {
                     m_isGrab = true;
                     m_grabState = *grabState;
                     m_grabPos = pos;
                     m_grabSize = size;
+                    m_grabContentPos = contentPos;
                     m_grabCursorPos = s3d::Cursor::PosF();
                 }
             } else if (!MouseL.pressed()) {
                 m_isGrab = false;
             }
             if (m_isGrab) {
-                this->grabUpdate(pos, size, g_minSize);
+                this->grabUpdate(pos, size, contentPos, contentSize, g_minSize);
             }
+            return m_isGrab;
+        }
+        const ScrollBar& scrollBar() const
+        {
+            return m_scroll;
         }
     private:
-        s3d::Optional<GrabState> grabWatch(const Vec2& pos, const Vec2& size, double margin)
+        s3d::Optional<GrabState> grabWatch(const Vec2& pos, const Vec2& size, Vec2& contentPos, const Vec2& contentSize, double margin)
         {
             const auto rect = RectF{ pos, size };
 
@@ -242,12 +312,16 @@ namespace
                 return GrabState::Left;
             } else if (right.leftClicked()) {
                 return GrabState::Right;
+            } else if (auto gripV = m_scroll.gripVOpt({ pos, size }, contentPos, contentSize); gripV && gripV->leftClicked()) {
+                return GrabState::ScrollV;
+            } else if (auto gripH = m_scroll.gripHOpt({ pos, size }, contentPos, contentSize); gripH && gripH->leftClicked()) {
+                return GrabState::ScrollH;
             } else if (rect.leftClicked()) {
                 return GrabState::Move;
             }
             return s3d::none;
         }
-        void grabUpdate(Vec2& pos, Vec2& size, const Vec2& minSize)
+        void grabUpdate(Vec2& pos, Vec2& size, Vec2& contentPos, const Vec2& contentSize, const Vec2& minSize)
         {
             auto delta = Cursor::PosF() - m_grabCursorPos;
 
@@ -257,6 +331,12 @@ namespace
             if (m_grabState == GrabState::Move) {
                 // 移動
                 pos = m_grabPos + delta;
+            } else if (m_grabState == GrabState::ScrollV) {
+                // スクロール
+                contentPos.y = m_scroll.toContentYFromGripDiff({ pos, size }, m_grabContentPos, contentSize, delta.y);
+            } else if (m_grabState == GrabState::ScrollH) {
+                // スクロール
+                contentPos.x = m_scroll.toContentXFromGripDiff({ pos, size }, m_grabContentPos, contentSize, delta.x);
             } else {
                 // リサイズ
                 this->grabResize(pos, size, delta, minSize);
@@ -300,6 +380,10 @@ namespace
         s3d::Vec2 m_grabPos{};
         s3d::Vec2 m_grabSize{};
         GrabState m_grabState{};
+
+        s3d::Vec2 m_grabContentPos{};
+
+        ScrollBar m_scroll{};
     };
 }
 namespace abyss::Layout
@@ -322,7 +406,7 @@ namespace abyss::Layout
         }
         void update()
         {
-            m_resizer.update(m_pos, m_size);
+            m_resizer.update(m_pos, m_size, m_contentPos, m_contentSize);
         }
         [[nodiscard]] s3d::Rect region() const
         {
@@ -343,9 +427,7 @@ namespace abyss::Layout
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene)
         {
             this->update();
-            m_contentPos.x += 10.0 * (KeyRight.pressed() - KeyLeft.pressed());
             m_contentPos.x = s3d::Clamp(m_contentPos.x, 0.0, Max(m_contentSize.x - m_size.x, 0.0));
-            m_contentPos.y += 10.0 * (KeyDown.pressed() - KeyUp.pressed());
             m_contentPos.y = s3d::Clamp(m_contentPos.y, 0.0, Max(m_contentSize.y - m_size.y, 0.0));
 
             auto region = this->regionF();
@@ -357,7 +439,8 @@ namespace abyss::Layout
                 auto viewport = this->startViewport();
                 scene(region);
             }
-            ScrollBar{}.draw(region, m_contentPos, m_contentSize);
+            m_resizer.scrollBar().draw(region, m_contentPos, m_contentSize);
+
             if (m_frameColor) {
                 region.drawFrame(0, 1, *m_frameColor);
             }
@@ -407,4 +490,3 @@ namespace abyss::Layout
         return m_pHandle->draw(std::move(scene));
     }
 }
-
