@@ -15,9 +15,9 @@ namespace
                 s3d::RectF region;
             };
         };
-        SIV3D_DISABLE_MSVC_WARNINGS_POP()
-            s3d::Vec2 scenePos;
+        s3d::Vec2 scenePos;
         s3d::Vec2 sceneSize;
+        SIV3D_DISABLE_MSVC_WARNINGS_POP()
     };
     enum class GrabState
     {
@@ -681,11 +681,11 @@ namespace abyss::Layout
             scenePos.x = s3d::Clamp(scenePos.x, 0.0, Max(sceneSize.x - size.x, 0.0));
             scenePos.y = s3d::Clamp(scenePos.y, 0.0, Max(sceneSize.y - size.y, 0.0));
         }
-        [[nodiscard]] s3d::Rect region() const
+        s3d::Rect region() const
         {
             return this->regionF().asRect();
         }
-        [[nodiscard]] s3d::RectF regionF() const
+        s3d::RectF regionF() const
         {
             return WindowParam::region;
         }
