@@ -16,8 +16,8 @@ namespace
             };
         };
         SIV3D_DISABLE_MSVC_WARNINGS_POP()
-            s3d::Vec2 contentPos;
-        s3d::Vec2 contentSize;
+            s3d::Vec2 scenePos;
+        s3d::Vec2 sceneSize;
     };
     enum class GrabState
     {
@@ -27,7 +27,7 @@ namespace
         Move,
         ScrollV, ScrollH,
         ScrollUp, ScrollDown, ScrollLeft, ScrollRight,
-        ScrollVPos, ScrollHPos,
+        ScrollVTo, ScrollHTo,
     };
 
     s3d::Optional<CursorStyle> GetCursorStyle(GrabState grab)
@@ -70,11 +70,18 @@ namespace
         {}
         bool hasScrollV() const
         {
-            return m_param.contentSize.y > m_param.size.y;
+            return m_param.sceneSize.y > m_param.size.y;
         }
         bool hasScrollH() const
         {
-            return m_param.contentSize.x > m_param.size.x;
+            return m_param.sceneSize.x > m_param.size.x;
+        }
+        bool isBarVClicked() const
+        {
+            if (!this->hasScrollV()) {
+                return false;
+            }
+            return this->barV().leftClicked();
         }
         bool isBarVMouseOver() const
         {
@@ -102,7 +109,7 @@ namespace
             auto yOffs = s3d::Math::Lerp(
                 0,
                 offsetMax,
-                s3d::Saturate(m_param.contentPos.y / (m_param.contentSize.y - m_param.size.y))
+                s3d::Saturate(m_param.scenePos.y / (m_param.sceneSize.y - m_param.size.y))
             );
             double pushMargin = 1.0;
             if (!isFixMargin) {
@@ -121,18 +128,18 @@ namespace
             auto hight = s3d::Math::Lerp(
                 g_scroolBarSize,
                 bar.h - bar.w * 2.0,
-                s3d::Saturate(m_param.size.y / m_param.contentSize.y)
+                s3d::Saturate(m_param.size.y / m_param.sceneSize.y)
             );
             return { hight, bar.h - bar.w * 2.0 - hight };
         }
-        double toContentYFromGripDiff(const s3d::Vec2& contentPos, double diff) const
+        double toSceneYFromGripDiff(const s3d::Vec2& scenePos, double diff) const
         {
-            const double moveable = (m_param.contentSize.y - m_param.region.size.y);
+            const double moveable = (m_param.sceneSize.y - m_param.region.size.y);
             if (moveable <= 0) {
                 return 0;
             }
             auto [hight, offsetMax] = this->gripVHightAndOffsetMax();
-            return s3d::Clamp(contentPos.y + diff * moveable / offsetMax, 0.0, moveable);
+            return s3d::Clamp(scenePos.y + diff * moveable / offsetMax, 0.0, moveable);
         }
 
         RectF upBtn() const
@@ -201,6 +208,13 @@ namespace
                 RoundRect(this->gripV(false), 2.0).draw(scrollColor);
             }
         }
+        bool isBarHClicked() const
+        {
+            if (!this->hasScrollH()) {
+                return false;
+            }
+            return this->barH().leftClicked();
+        }
         bool isBarHMouseOver() const
         {
             if (!this->hasScrollH()) {
@@ -227,7 +241,7 @@ namespace
             auto xOffs = s3d::Math::Lerp(
                 0,
                 offsetMax,
-                s3d::Saturate(m_param.contentPos.x / (m_param.contentSize.x - m_param.size.x))
+                s3d::Saturate(m_param.scenePos.x / (m_param.sceneSize.x - m_param.size.x))
             );
             double pushMargin = 1.0;
             if (!isFixMargin) {
@@ -246,18 +260,18 @@ namespace
             auto width = s3d::Math::Lerp(
                 g_scroolBarSize,
                 bar.w - bar.h * 2.0,
-                s3d::Saturate(m_param.size.x / m_param.contentSize.x)
+                s3d::Saturate(m_param.size.x / m_param.sceneSize.x)
             );
             return { width, bar.w - bar.h * 2.0 - width };
         }
-        double toContentXFromGripDiff(const s3d::Vec2& contentPos, double diff) const
+        double toSceneXFromGripDiff(const s3d::Vec2& scenePos, double diff) const
         {
-            const double moveable = (m_param.contentSize.x - m_param.size.x);
+            const double moveable = (m_param.sceneSize.x - m_param.size.x);
             if (moveable <= 0) {
                 return 0;
             }
             auto [hight, offsetMax] = this->gripHWidthAndOffsetMax();
-            return s3d::Clamp(contentPos.x + diff * moveable / offsetMax, 0.0, moveable);
+            return s3d::Clamp(scenePos.x + diff * moveable / offsetMax, 0.0, moveable);
         }
         RectF leftBtn() const
         {
@@ -327,8 +341,8 @@ namespace
         void draw() const
         {
             const Vec2& size = m_param.size;
-            bool hasScrollV = m_param.contentSize.y > size.y;
-            bool hasScrollH = m_param.contentSize.x > size.x;
+            bool hasScrollV = m_param.sceneSize.y > size.y;
+            bool hasScrollH = m_param.sceneSize.x > size.x;
             const ColorF barColor = Color(240);
             const ColorF scrollColor = Color(133);
 
@@ -372,9 +386,45 @@ namespace
                     m_grabState = *grabState;
                     m_grabPos = m_param.pos;
                     m_grabSize = m_param.size;
-                    m_grabContentPos = m_param.contentPos;
+                    m_grabscenePos = m_param.scenePos;
                     m_grabCursorPos = s3d::Cursor::PosF();
                     m_waitTimer = 0;
+
+                    if (m_grabState == GrabState::ScrollUp) {
+                        m_scroll.pushUpBtn = true;
+                        m_param.scenePos.y -= 1;
+                    } else if (m_grabState == GrabState::ScrollDown) {
+                        m_scroll.pushDownBtn = true;
+                        m_param.scenePos.y += 1;
+                    } else if (m_grabState == GrabState::ScrollLeft) {
+                        m_scroll.pushLeftBtn = true;
+                        m_param.scenePos.x -= 1;
+                    } else if (m_grabState == GrabState::ScrollRight) {
+                        m_scroll.pushRightBtn = true;
+                        m_param.scenePos.x += 1;
+                    } else if (m_grabState == GrabState::ScrollVTo) {
+                        auto moveDiff = m_scroll.gripVHightAndOffsetMax().first;
+                        const auto gripV = m_scroll.gripV();
+                        if (gripV.y > m_grabCursorPos.y) {
+                            moveDiff *= -1.0;
+                        } else if (gripV.y + gripV.h < m_grabCursorPos.y) {
+                            moveDiff *= 1.0;
+                        } else {
+                            moveDiff *= 0.0;
+                        }
+                        m_param.scenePos.y = m_scroll.toSceneYFromGripDiff(m_grabscenePos, moveDiff);
+                    } else if (m_grabState == GrabState::ScrollHTo) {
+                        auto moveDiff = m_scroll.gripHWidthAndOffsetMax().first;
+                        const auto gripH = m_scroll.gripH();
+                        if (gripH.x > m_grabCursorPos.x) {
+                            moveDiff *= -1.0;
+                        } else if (gripH.x + gripH.w < m_grabCursorPos.x) {
+                            moveDiff *= 1.0;
+                        } else {
+                            moveDiff *= 0.0;
+                        }
+                        m_param.scenePos.x = m_scroll.toSceneXFromGripDiff(m_grabscenePos, moveDiff);
+                    }
                 }
             } else if (!MouseL.pressed()) {
                 m_isGrab = false;
@@ -457,25 +507,21 @@ namespace
             } else if (right.leftClicked()) {
                 return GrabState::Right;
             } else if (m_scroll.isUpBtnClicked()) {
-                m_scroll.pushUpBtn = true;
-                m_param.contentPos.y -= 1;
                 return GrabState::ScrollUp;
             } else if (m_scroll.isDownBtnClicked()) {
-                m_scroll.pushDownBtn = true;
-                m_param.contentPos.y += 1;
                 return GrabState::ScrollDown;
             } else if (m_scroll.isGripVClicked()) {
                 return GrabState::ScrollV;
+            } else if (m_scroll.isBarVClicked()) {
+                return GrabState::ScrollVTo;
             } else if (m_scroll.isLeftBtnClicked()) {
-                m_scroll.pushLeftBtn = true;
-                m_param.contentPos.x -= 1;
                 return GrabState::ScrollLeft;
             } else if (m_scroll.isRightBtnClicked()) {
-                m_scroll.pushRightBtn = true;
-                m_param.contentPos.x += 1;
                 return GrabState::ScrollRight;
             } else if (m_scroll.isGripHClicked()) {
                 return GrabState::ScrollH;
+            } else if (m_scroll.isBarHClicked()) {
+                return GrabState::ScrollHTo;
             } else if (rect.leftClicked()) {
                 return GrabState::Move;
             }
@@ -496,32 +542,62 @@ namespace
                 m_param.pos = m_grabPos + delta;
             } else if (m_grabState == GrabState::ScrollV) {
                 // スクロール
-                m_param.contentPos.y = m_scroll.toContentYFromGripDiff(m_grabContentPos, delta.y);
+                m_param.scenePos.y = m_scroll.toSceneYFromGripDiff(m_grabscenePos, delta.y);
             } else if (m_grabState == GrabState::ScrollH) {
                 // スクロール
-                m_param.contentPos.x = m_scroll.toContentXFromGripDiff(m_grabContentPos, delta.x);
+                m_param.scenePos.x = m_scroll.toSceneXFromGripDiff(m_grabscenePos, delta.x);
             } else if (m_grabState == GrabState::ScrollUp) {
                 if (m_waitTimer >= 0.5) {
                     if (m_scroll.isUpBtnMouseOver()) {
-                        m_param.contentPos.y -= 200.0 * dt;
+                        m_param.scenePos.y -= 200.0 * dt;
                     }
                 }
             } else if (m_grabState == GrabState::ScrollDown) {
                 if (m_waitTimer >= 0.5) {
                     if (m_scroll.isDownBtnMouseOver()) {
-                        m_param.contentPos.y += 200.0 * dt;
+                        m_param.scenePos.y += 200.0 * dt;
                     }
                 }
             } else if (m_grabState == GrabState::ScrollLeft) {
                 if (m_waitTimer >= 0.5) {
                     if (m_scroll.isLeftBtnMouseOver()) {
-                        m_param.contentPos.x -= 200.0 * dt;
+                        m_param.scenePos.x -= 200.0 * dt;
                     }
                 }
             } else if (m_grabState == GrabState::ScrollRight) {
                 if (m_waitTimer >= 0.5) {
                     if (m_scroll.isRightBtnMouseOver()) {
-                        m_param.contentPos.x += 200.0 * dt;
+                        m_param.scenePos.x += 200.0 * dt;
+                    }
+                }
+            } else if (m_grabState == GrabState::ScrollVTo) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isBarVMouseOver()) {
+                        auto moveDiff = m_scroll.gripVHightAndOffsetMax().first * 60.0 * dt;
+                        const auto gripV = m_scroll.gripV();
+                        if (gripV.y > m_grabCursorPos.y) {
+                            moveDiff *= -1.0;
+                        } else if (gripV.y + gripV.h < m_grabCursorPos.y) {
+                            moveDiff *= 1.0;
+                        } else {
+                            moveDiff *= 0.0;
+                        }
+                        m_param.scenePos.y = m_scroll.toSceneYFromGripDiff(m_param.scenePos, moveDiff);
+                    }
+                }
+            } else if (m_grabState == GrabState::ScrollHTo) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isBarHMouseOver()) {
+                        auto moveDiff = m_scroll.gripHWidthAndOffsetMax().first * 60.0 * dt;
+                        const auto gripH = m_scroll.gripH();
+                        if (gripH.x > m_grabCursorPos.x) {
+                            moveDiff *= -1.0;
+                        } else if (gripH.x + gripH.w < m_grabCursorPos.x) {
+                            moveDiff *= 1.0;
+                        } else {
+                            moveDiff *= 0.0;
+                        }
+                        m_param.scenePos.x = m_scroll.toSceneXFromGripDiff(m_param.scenePos, moveDiff);
                     }
                 }
             } else {
@@ -570,7 +646,7 @@ namespace
         s3d::Vec2 m_grabSize{};
         GrabState m_grabState{};
 
-        s3d::Vec2 m_grabContentPos{};
+        s3d::Vec2 m_grabscenePos{};
 
         ScrollBar m_scroll;
         double m_waitTimer = 0;
@@ -581,14 +657,14 @@ namespace abyss::Layout
     class Window::Handle : public WindowParam
     {
     public:
-        Handle(const s3d::Vec2& _pos, const s3d::Vec2& _size, const s3d::Vec2& _contentSize) :
+        Handle(const s3d::Vec2& _pos, const s3d::Vec2& _size, const s3d::Vec2& _sceneSize) :
             m_resizer(*this)
         {
             this->pos = _pos;
             this->size.x = s3d::Max(_size.x, g_minSize.x);
             this->size.y = s3d::Max(_size.y, g_minSize.y);
-            this->contentSize = _contentSize;
-            this->contentPos = {};
+            this->sceneSize = _sceneSize;
+            this->scenePos = {};
         }
         void setBackground(const s3d::Optional<s3d::ColorF>& color)
         {
@@ -602,8 +678,8 @@ namespace abyss::Layout
         {
             m_resizer.update();
 
-            contentPos.x = s3d::Clamp(contentPos.x, 0.0, Max(contentSize.x - size.x, 0.0));
-            contentPos.y = s3d::Clamp(contentPos.y, 0.0, Max(contentSize.y - size.y, 0.0));
+            scenePos.x = s3d::Clamp(scenePos.x, 0.0, Max(sceneSize.x - size.x, 0.0));
+            scenePos.y = s3d::Clamp(scenePos.y, 0.0, Max(sceneSize.y - size.y, 0.0));
         }
         [[nodiscard]] s3d::Rect region() const
         {
@@ -619,7 +695,7 @@ namespace abyss::Layout
         }
         s3d::Transformer2D transformer() const
         {
-            return { Mat3x2::Translate(-contentPos), Mat3x2::Translate(pos - contentPos) };
+            return { Mat3x2::Translate(-scenePos), Mat3x2::Translate(pos - scenePos) };
         }
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene)
         {
@@ -662,9 +738,9 @@ namespace abyss::Layout
     Window::Window(
         const s3d::Vec2& pos,
         const s3d::Vec2& size,
-        const s3d::Vec2& contentSize
+        const s3d::Vec2& sceneSize
     ) :
-        m_pHandle(std::make_shared<Handle>(pos, size, contentSize))
+        m_pHandle(std::make_shared<Handle>(pos, size, sceneSize))
     {}
     Window& Window::setBackGround(const s3d::Optional<s3d::ColorF>& color)
     {
