@@ -5,7 +5,8 @@ namespace
 {
     struct WindowParam
     {
-        union {
+        SIV3D_DISABLE_MSVC_WARNINGS_PUSH(4201)
+            union {
             struct {
                 s3d::Vec2 pos;
                 s3d::Vec2 size;
@@ -14,7 +15,8 @@ namespace
                 s3d::RectF region;
             };
         };
-        s3d::Vec2 contentPos;
+        SIV3D_DISABLE_MSVC_WARNINGS_POP()
+            s3d::Vec2 contentPos;
         s3d::Vec2 contentSize;
     };
     enum class GrabState
@@ -23,8 +25,9 @@ namespace
         Top, Bottom, Left, Right,
         Tl, Tr, Bl, Br,
         Move,
-        ScrollV,
-        ScrollH,
+        ScrollV, ScrollH,
+        ScrollUp, ScrollDown, ScrollLeft, ScrollRight,
+        ScrollVPos, ScrollHPos,
     };
 
     s3d::Optional<CursorStyle> GetCursorStyle(GrabState grab)
@@ -65,21 +68,34 @@ namespace
         ScrollBar(const WindowParam& param) :
             m_param(param)
         {}
+        bool hasScrollV() const
+        {
+            return m_param.contentSize.y > m_param.size.y;
+        }
+        bool hasScrollH() const
+        {
+            return m_param.contentSize.x > m_param.size.x;
+        }
+        bool isBarVMouseOver() const
+        {
+            if (!this->hasScrollV()) {
+                return false;
+            }
+            return this->barV().mouseOver();
+        }
         s3d::RectF barV() const
         {
-            bool hasScrollH = m_param.contentSize.x > m_param.size.x;
-            double minusH = hasScrollH ? g_scroolMargin : 0;
+            double minusH = this->hasScrollH() ? g_scroolMargin : 0;
             return { m_param.region.x + m_param.region.w - g_scroolMargin, m_param.region.y, g_scroolMargin, m_param.size.y - minusH };
         }
         bool isGripVClicked() const
         {
-            bool hasScrollV = m_param.contentSize.y > m_param.size.y;
-            if (!hasScrollV) {
+            if (!this->hasScrollV()) {
                 return false;
             }
             return this->gripV().leftClicked();
         }
-        s3d::RectF gripV() const
+        s3d::RectF gripV(bool isFixMargin = true) const
         {
             auto bar = this->barV();
             auto [hight, offsetMax] = this->gripVHightAndOffsetMax();
@@ -88,7 +104,10 @@ namespace
                 offsetMax,
                 s3d::Saturate(m_param.contentPos.y / (m_param.contentSize.y - m_param.size.y))
             );
-            const double pushMargin = 1.0;
+            double pushMargin = 1.0;
+            if (!isFixMargin) {
+                pushMargin = onTimeV;
+            }
             return {
                 bar.x + (5.0 - pushMargin),
                 bar.y + bar.w + yOffs,
@@ -115,49 +134,93 @@ namespace
             auto [hight, offsetMax] = this->gripVHightAndOffsetMax();
             return s3d::Clamp(contentPos.y + diff * moveable / offsetMax, 0.0, moveable);
         }
+
+        RectF upBtn() const
+        {
+            RectF bar = this->barV();
+            return { bar.pos, bar.w, bar.w };
+        }
+        bool isUpBtnMouseOver() const
+        {
+            if (!hasScrollV()) {
+                return false;
+            }
+            return this->upBtn().mouseOver();
+        }
+        bool isUpBtnClicked() const
+        {
+            if (!hasScrollV()) {
+                return false;
+            }
+            return this->upBtn().leftClicked();
+        }
+        RectF downBtn() const
+        {
+            RectF bar = this->barV();
+            const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
+            return { basePos, bar.w, bar.w };
+        }
+        bool isDownBtnMouseOver() const
+        {
+            if (!hasScrollV()) {
+                return false;
+            }
+            return this->downBtn().mouseOver();
+        }
+        bool isDownBtnClicked() const
+        {
+            if (!hasScrollV()) {
+                return false;
+            }
+            return this->downBtn().leftClicked();
+        }
+
         void drawV(const ColorF& barColor, const ColorF& scrollColor) const
         {
             // スクロールバー
             RectF bar = this->barV();
             bar.draw(barColor);
             {
-                const double pushMargin = 1.0;
-                //RectF(bar.pos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                const double pushMargin = pushUpBtn ? 0.0 : 1.0;
                 Triangle(
                     { bar.x + bar.w * 0.5, bar.y + (5.0 - pushMargin) },
                     { bar.x + (4.0 - pushMargin), bar.y + bar.w - (5.0 - pushMargin) },
                     { bar.x + bar.w - (4.0 - pushMargin) , bar.y + bar.w - (5.0 - pushMargin) }
-                ).draw(scrollColor);
+                ).draw(ColorF(scrollColor, onTimeV));
             }
             {
                 const Vec2 basePos{ bar.x, bar.y + bar.h - g_scroolMargin };
-                const double pushMargin = 1.0;
-                //RectF(basePos, bar.w, bar.w).draw(ColorF(0.8, 1));
+                const double pushMargin = pushDownBtn ? 0.0 : 1.0;
                 Triangle(
                     { bar.x + bar.w * 0.5, bar.y + bar.h - (5.0 - pushMargin) },
                     { bar.x + (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) },
                     { bar.x + bar.w - (4.0 - pushMargin), bar.y + bar.h - (bar.w - (5.0 - pushMargin)) }
-                ).draw(scrollColor);
+                ).draw(ColorF(scrollColor, onTimeV));
             }
             {
-                RoundRect(this->gripV(), 2.0).draw(scrollColor);
+                RoundRect(this->gripV(false), 2.0).draw(scrollColor);
             }
+        }
+        bool isBarHMouseOver() const
+        {
+            if (!this->hasScrollH()) {
+                return false;
+            }
+            return this->barH().mouseOver();
         }
         s3d::RectF barH() const
         {
-            bool hasScrollV = m_param.contentSize.y > m_param.size.y;
-            double minusW = hasScrollV ? g_scroolMargin : 0;
+            double minusW = this->hasScrollV() ? g_scroolMargin : 0;
             return { m_param.region.x, m_param.region.y + m_param.region.h - g_scroolMargin, m_param.size.x - minusW, g_scroolMargin };
         }
         bool isGripHClicked() const
         {
-            bool hasScrollH = m_param.contentSize.x > m_param.size.x;
-            if (!hasScrollH) {
+            if (!this->hasScrollH()) {
                 return false;
             }
             return this->gripH().leftClicked();
         }
-        s3d::RectF gripH() const
+        s3d::RectF gripH(bool isFixMargin = true) const
         {
             auto bar = this->barH();
             auto [width, offsetMax] = this->gripHWidthAndOffsetMax();
@@ -166,7 +229,10 @@ namespace
                 offsetMax,
                 s3d::Saturate(m_param.contentPos.x / (m_param.contentSize.x - m_param.size.x))
             );
-            const double pushMargin = 1.0;
+            double pushMargin = 1.0;
+            if (!isFixMargin) {
+                pushMargin = onTimeH;
+            }
             return{
                 bar.x + bar.h + xOffs,
                 bar.y + (5.0 - pushMargin),
@@ -193,32 +259,69 @@ namespace
             auto [hight, offsetMax] = this->gripHWidthAndOffsetMax();
             return s3d::Clamp(contentPos.x + diff * moveable / offsetMax, 0.0, moveable);
         }
+        RectF leftBtn() const
+        {
+            RectF bar = this->barH();
+            return { bar.pos, bar.h, bar.h };
+        }
+        bool isLeftBtnMouseOver() const
+        {
+            if (!hasScrollH()) {
+                return false;
+            }
+            return this->leftBtn().mouseOver();
+        }
+        bool isLeftBtnClicked() const
+        {
+            if (!hasScrollH()) {
+                return false;
+            }
+            return this->leftBtn().leftClicked();
+        }
+        RectF rightBtn() const
+        {
+            RectF bar = this->barH();
+            const Vec2 basePos{ bar.x + bar.w - g_scroolMargin, bar.y };
+            return { basePos, bar.h, bar.h };
+        }
+        bool isRightBtnMouseOver() const
+        {
+            if (!hasScrollH()) {
+                return false;
+            }
+            return this->rightBtn().mouseOver();
+        }
+        bool isRightBtnClicked() const
+        {
+            if (!hasScrollH()) {
+                return false;
+            }
+            return this->rightBtn().leftClicked();
+        }
         void drawH(const ColorF& barColor, const ColorF& scrollColor) const
         {
             // スクロールバー
             RectF bar = this->barH();
             bar.draw(barColor);
             {
-                const double pushMargin = 1.0;
-                //RectF(bar.pos, bar.h, bar.h).draw(ColorF(0.8, 1));
+                const double pushMargin = pushLeftBtn ? 0.0 : 1.0;
                 Triangle(
                     { bar.x + (5.0 - pushMargin), bar.y + bar.h * 0.5 },
                     { bar.x + bar.h - (5.0 - pushMargin), bar.y + (4.0 - pushMargin) },
                     { bar.x + bar.h - (5.0 - pushMargin) , bar.y + bar.h - (4.0 - pushMargin) }
-                ).draw(scrollColor);
+                ).draw(ColorF(scrollColor, onTimeH));
             }
             {
                 const Vec2 basePos{ bar.x + bar.w - g_scroolMargin, bar.y };
-                const double pushMargin = 1.0;
-                //RectF(basePos, bar.h, bar.h).draw(ColorF(0.8, 1));
+                const double pushMargin = pushRightBtn ? 0.0 : 1.0;
                 Triangle(
                     { bar.x + bar.w - (5.0 - pushMargin), bar.y + bar.h * 0.5 },
                     { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + (4.0 - pushMargin) },
                     { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + bar.h - (4.0 - pushMargin) }
-                ).draw(scrollColor);
+                ).draw(ColorF(scrollColor, onTimeH));
             }
             {
-                RoundRect(this->gripH(), 2.0).draw(scrollColor);
+                RoundRect(this->gripH(false), 2.0).draw(scrollColor);
             }
         }
         void draw() const
@@ -244,6 +347,13 @@ namespace
                 ).draw(barColor);
             }
         }
+
+        double onTimeV = 0;
+        double onTimeH = 0;
+        bool pushUpBtn = false;
+        bool pushDownBtn = false;
+        bool pushLeftBtn = false;
+        bool pushRightBtn = false;
     private:
         const WindowParam& m_param;
     };
@@ -264,9 +374,14 @@ namespace
                     m_grabSize = m_param.size;
                     m_grabContentPos = m_param.contentPos;
                     m_grabCursorPos = s3d::Cursor::PosF();
+                    m_waitTimer = 0;
                 }
             } else if (!MouseL.pressed()) {
                 m_isGrab = false;
+                m_scroll.pushUpBtn = false;
+                m_scroll.pushDownBtn = false;
+                m_scroll.pushLeftBtn = false;
+                m_scroll.pushRightBtn = false;
             }
             if (m_isGrab) {
                 this->grabUpdate(g_minSize);
@@ -280,6 +395,7 @@ namespace
     private:
         s3d::Optional<GrabState> grabWatch(double margin)
         {
+            double dt = Scene::DeltaTime();
             const auto rect = RectF{ m_param.pos, m_param.size };
 
             const RectF tl{ rect.x - margin, rect.y - margin, margin, margin };
@@ -291,6 +407,9 @@ namespace
             const RectF bottom{ rect.x, rect.y + rect.h , rect.w, margin };
             const RectF   left{ rect.x - margin, rect.y, margin, rect.h };
             const RectF  right{ rect.x + rect.w, rect.y, margin, rect.h };
+
+            bool isBarVMouseOver = false;
+            bool isBarHMouseOver = false;
 
             if (tl.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeNWSE);
@@ -304,6 +423,21 @@ namespace
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeUpDown);
             } else if (left.mouseOver() || right.mouseOver()) {
                 s3d::Cursor::RequestStyle(CursorStyle::ResizeLeftRight);
+            } else if (m_scroll.isBarVMouseOver()) {
+                isBarVMouseOver = true;
+            } else if (m_scroll.isBarHMouseOver()) {
+                isBarHMouseOver = true;
+            }
+            // スクロールバーの演出
+            if (isBarVMouseOver) {
+                m_scroll.onTimeV = s3d::Saturate(m_scroll.onTimeV + dt * 5.0);
+            } else {
+                m_scroll.onTimeV = s3d::Saturate(m_scroll.onTimeV - dt * 2.0);
+            }
+            if (isBarHMouseOver) {
+                m_scroll.onTimeH = s3d::Saturate(m_scroll.onTimeH + dt * 5.0);
+            } else {
+                m_scroll.onTimeH = s3d::Saturate(m_scroll.onTimeH - dt * 2.0);
             }
 
             if (tl.leftClicked()) {
@@ -322,8 +456,24 @@ namespace
                 return GrabState::Left;
             } else if (right.leftClicked()) {
                 return GrabState::Right;
+            } else if (m_scroll.isUpBtnClicked()) {
+                m_scroll.pushUpBtn = true;
+                m_param.contentPos.y -= 1;
+                return GrabState::ScrollUp;
+            } else if (m_scroll.isDownBtnClicked()) {
+                m_scroll.pushDownBtn = true;
+                m_param.contentPos.y += 1;
+                return GrabState::ScrollDown;
             } else if (m_scroll.isGripVClicked()) {
                 return GrabState::ScrollV;
+            } else if (m_scroll.isLeftBtnClicked()) {
+                m_scroll.pushLeftBtn = true;
+                m_param.contentPos.x -= 1;
+                return GrabState::ScrollLeft;
+            } else if (m_scroll.isRightBtnClicked()) {
+                m_scroll.pushRightBtn = true;
+                m_param.contentPos.x += 1;
+                return GrabState::ScrollRight;
             } else if (m_scroll.isGripHClicked()) {
                 return GrabState::ScrollH;
             } else if (rect.leftClicked()) {
@@ -333,6 +483,9 @@ namespace
         }
         void grabUpdate(const Vec2& minSize)
         {
+            auto dt = Scene::DeltaTime();
+            m_waitTimer += dt;
+
             auto delta = Cursor::PosF() - m_grabCursorPos;
 
             ::GetCursorStyle(m_grabState).then([](CursorStyle stlye) {
@@ -347,6 +500,30 @@ namespace
             } else if (m_grabState == GrabState::ScrollH) {
                 // スクロール
                 m_param.contentPos.x = m_scroll.toContentXFromGripDiff(m_grabContentPos, delta.x);
+            } else if (m_grabState == GrabState::ScrollUp) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isUpBtnMouseOver()) {
+                        m_param.contentPos.y -= 200.0 * dt;
+                    }
+                }
+            } else if (m_grabState == GrabState::ScrollDown) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isDownBtnMouseOver()) {
+                        m_param.contentPos.y += 200.0 * dt;
+                    }
+                }
+            } else if (m_grabState == GrabState::ScrollLeft) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isLeftBtnMouseOver()) {
+                        m_param.contentPos.x -= 200.0 * dt;
+                    }
+                }
+            } else if (m_grabState == GrabState::ScrollRight) {
+                if (m_waitTimer >= 0.5) {
+                    if (m_scroll.isRightBtnMouseOver()) {
+                        m_param.contentPos.x += 200.0 * dt;
+                    }
+                }
             } else {
                 // リサイズ
                 this->grabResize(delta, minSize);
@@ -396,6 +573,7 @@ namespace
         s3d::Vec2 m_grabContentPos{};
 
         ScrollBar m_scroll;
+        double m_waitTimer = 0;
     };
 }
 namespace abyss::Layout
@@ -407,7 +585,8 @@ namespace abyss::Layout
             m_resizer(*this)
         {
             this->pos = _pos;
-            this->size = _size;
+            this->size.x = s3d::Max(_size.x, g_minSize.x);
+            this->size.y = s3d::Max(_size.y, g_minSize.y);
             this->contentSize = _contentSize;
             this->contentPos = {};
         }
