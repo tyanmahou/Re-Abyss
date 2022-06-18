@@ -6,7 +6,7 @@ namespace
     struct WindowParam
     {
         SIV3D_DISABLE_MSVC_WARNINGS_PUSH(4201)
-            union {
+        union {
             struct {
                 s3d::Vec2 pos;
                 s3d::Vec2 size;
