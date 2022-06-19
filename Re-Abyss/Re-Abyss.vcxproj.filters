@@ -2123,6 +2123,9 @@
     <ClCompile Include="app\scenes\Sequence\Stage\StageSequence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
