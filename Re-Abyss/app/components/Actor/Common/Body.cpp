@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <Siv3D/Math.hpp>
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/utils/Collision/FixPos.hpp>
 

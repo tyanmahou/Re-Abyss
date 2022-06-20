@@ -661,7 +661,7 @@
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Novel\CharaModel.cpp" />
-    <ClCompile Include="app\models\Room\RoomData.cpp" />
+    <ClCompile Include="app\modules\Room\RoomData.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
@@ -1685,7 +1685,7 @@
     <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp" />
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
     <ClInclude Include="app\models\Novel\SerifModel.hpp" />
-    <ClInclude Include="app\models\Room\RoomData.hpp" />
+    <ClInclude Include="app\modules\Room\RoomData.hpp" />
     <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Actor\base\ActorObj.hpp" />

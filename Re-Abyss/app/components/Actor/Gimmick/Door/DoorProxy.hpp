@@ -2,7 +2,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 #include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
 #include <abyss/utils/Collision/CShape.hpp>
 

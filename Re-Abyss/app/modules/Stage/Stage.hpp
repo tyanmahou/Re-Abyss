@@ -4,7 +4,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 #include <abyss/models/Actor/Gimmick/StartPos/StartPosListModel.hpp>
 
 namespace abyss

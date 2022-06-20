@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 #include <abyss/modules/Room/IRoomMoveCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

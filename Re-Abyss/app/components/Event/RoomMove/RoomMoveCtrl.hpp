@@ -2,7 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Event/base/IStream.hpp>
 #include <abyss/components/Event/RoomMove/IRoomMoveCallback.hpp>
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 
 namespace abyss::Event::RoomMove
 {

@@ -3,7 +3,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Graphics.hpp>
 #include <Siv3D/Stopwatch.hpp>
-#include <abyss/models/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomData.hpp>
 
 #include <memory>
 
