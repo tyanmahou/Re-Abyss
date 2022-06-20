@@ -122,6 +122,8 @@ namespace abyss
 	/// </summary>
 	namespace Room
 	{
+        struct RoomBorders;
+        class RoomData;
 		class RoomManager;
 	}
 	using Room::RoomManager;
@@ -174,8 +176,6 @@ namespace abyss
 	/// <summary>
 	/// Models
 	/// </summary>
-	struct RoomBorders;
-	class RoomData;
 	class CameraModel;
 	class QuakeModel;
 	namespace User

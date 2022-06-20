@@ -6,6 +6,6 @@ namespace abyss
     class RoomTranslator
     {
     public:
-        static RoomData ToModel(const RoomEntity& entity);
+        static Room::RoomData ToModel(const RoomEntity& entity);
     };
 }

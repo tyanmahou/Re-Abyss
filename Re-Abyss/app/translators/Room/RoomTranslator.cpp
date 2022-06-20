@@ -4,8 +4,8 @@
 
 namespace abyss
 {
-    RoomData RoomTranslator::ToModel(const RoomEntity& entity)
+    Room::RoomData RoomTranslator::ToModel(const RoomEntity& entity)
     {
-        return RoomData(entity.region, entity.passbleBits, entity.lightColor);
+        return Room::RoomData(entity.region, entity.passbleBits, entity.lightColor);
     }
 }

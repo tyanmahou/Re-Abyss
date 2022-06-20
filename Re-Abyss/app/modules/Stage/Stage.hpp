@@ -26,8 +26,8 @@ namespace abyss
 	private:
 
 		bool initBackGround(BackGround& backGround) const;
-		bool initDecor(Decors& decor, const RoomData& nextRoom) const;
-		bool initWorld(World& world, const RoomData& nextRoom, BuildTiming buildTiming) const;
+		bool initDecor(Decors& decor, const Room::RoomData& nextRoom) const;
+		bool initWorld(World& world, const Room::RoomData& nextRoom, BuildTiming buildTiming) const;
 
 	public:
 		Stage();
@@ -41,7 +41,7 @@ namespace abyss
 		bool checkIn() const;
 
 		s3d::Optional<StartPosModel> findStartPos(const s3d::int32 startId) const;
-		s3d::Optional<RoomData> findRoom(const s3d::Vec2& pos) const;
+		s3d::Optional<Room::RoomData> findRoom(const s3d::Vec2& pos) const;
 
 		void load();
 		void setStageData(std::shared_ptr<StageData> stageData);

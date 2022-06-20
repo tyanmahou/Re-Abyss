@@ -4,7 +4,7 @@
 
 using namespace s3d;
 
-namespace abyss
+namespace abyss::Room
 {
 	RoomData::RoomData(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor) :
 		m_region(region),

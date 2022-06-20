@@ -294,7 +294,7 @@ namespace abyss::Actor
 
         return colDir;
     }
-    ColDirection Body::fixPos(const RoomData& room, const s3d::Optional<ColDirection>& strict)
+    ColDirection Body::fixPos(const Room::RoomData& room, const s3d::Optional<ColDirection>& strict)
     {
         auto c = strict.value_or(room.getCol());
         c.ignoredForVelocity(m_velocity);

@@ -7,6 +7,6 @@ namespace abyss::Actor::Gimmick::Door
 {
     struct Builder
     {
-        static void Build(ActorObj* pActor, const DoorModel& door, const RoomData& nextRoom);
+        static void Build(ActorObj* pActor, const DoorModel& door, const Room::RoomData& nextRoom);
     };
 }

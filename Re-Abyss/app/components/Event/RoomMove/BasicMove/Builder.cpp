@@ -12,7 +12,7 @@
 
 namespace abyss::Event::RoomMove::BasicMove
 {
-    void Builder::Build(EventObj* pEvent, const RoomData& nextRoom, double milliSec)
+    void Builder::Build(EventObj* pEvent, const Room::RoomData& nextRoom, double milliSec)
     {
         {
             auto* player = pEvent->getModule<Actor::Player::PlayerManager>();

@@ -6,7 +6,7 @@
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Room
 {
     /// <summary>
     /// 部屋の境界線

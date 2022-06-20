@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Optional.hpp>
@@ -106,7 +106,7 @@ namespace abyss::Actor
         bool isForward(Forward f) const;
 
         ColDirection fixPos(const Physics::TerrainData& terrain);
-        ColDirection fixPos(const RoomData& room, const s3d::Optional<ColDirection>& strict = s3d::none);
+        ColDirection fixPos(const Room::RoomData& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
         s3d::Vec2 getCenterPos()const override;
 
