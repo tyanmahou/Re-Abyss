@@ -1,4 +1,4 @@
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>
 
@@ -6,18 +6,18 @@ using namespace s3d;
 
 namespace abyss
 {
-	RoomModel::RoomModel(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor) :
+	RoomData::RoomData(const s3d::RectF& region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor) :
 		m_region(region),
 		m_passbleBits(passbleBits),
 		m_lightColor(lightColor)
 	{}
 
-	bool RoomModel::passable(Forward f) const
+	bool RoomData::passable(Forward f) const
 	{
 		return (m_passbleBits & static_cast<uint8>(f)) != 0;
 	}
 
-	double RoomModel::pos(Forward f) const
+	double RoomData::pos(Forward f) const
 	{
 		switch (f) {
 		case Forward::Up:return m_region.y;
@@ -31,19 +31,19 @@ namespace abyss
 		}
 		return 0.0;
 	}
-	const s3d::RectF& RoomModel::getRegion() const
+	const s3d::RectF& RoomData::getRegion() const
 	{
 		return m_region;
 	}
-	s3d::RectF RoomModel::getRegion(double margin) const
+	s3d::RectF RoomData::getRegion(double margin) const
 	{
 		return m_region.stretched(margin);
 	}
-	RoomModel::operator s3d::RectF() const
+	RoomData::operator s3d::RectF() const
 	{
 		return m_region;
 	}
-	RoomBorders RoomModel::cameraBorders() const
+	RoomBorders RoomData::cameraBorders() const
 	{
 		constexpr auto screenHarf = Constants::GameScreenSize / 2;
 
@@ -54,7 +54,7 @@ namespace abyss
 		ret.right = pos(Forward::Right) - screenHarf.x;
 		return ret;
 	}
-	s3d::Vec2 RoomModel::cameraBorderAdjusted(s3d::Vec2 pos) const
+	s3d::Vec2 RoomData::cameraBorderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->cameraBorders();
 		if (pos.x < border.left) {
@@ -74,7 +74,7 @@ namespace abyss
 		}
 		return pos;
 	}
-	RoomBorders RoomModel::borders() const
+	RoomBorders RoomData::borders() const
 	{
 		RoomBorders ret;
 		ret.up = pos(Forward::Up);
@@ -83,7 +83,7 @@ namespace abyss
 		ret.right = pos(Forward::Right);
 		return ret;
 	}
-	s3d::Vec2 RoomModel::borderAdjusted(s3d::Vec2 pos) const
+	s3d::Vec2 RoomData::borderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->borders();
 		constexpr double epsilon = 1.0;
@@ -103,7 +103,7 @@ namespace abyss
 		// 下は落ちて死ぬ判定があるので調整はいらない
 		return pos;
 	}
-    s3d::Vec2 RoomModel::strictBorderAdjusted(s3d::Vec2 pos) const
+    s3d::Vec2 RoomData::strictBorderAdjusted(s3d::Vec2 pos) const
     {
 		auto border = this->borders();
 		if (pos.x < border.left) {
@@ -124,7 +124,7 @@ namespace abyss
 
 		return pos;
     }
-	ColDirection RoomModel::getCol() const
+	ColDirection RoomData::getCol() const
 	{
 		ColDirection col = ColDirection::None;
 		if (!this->passable(Forward::Up)) {
@@ -138,7 +138,7 @@ namespace abyss
 		}
 		return col;
 	}
-	const s3d::Optional<s3d::ColorF>& RoomModel::getLightColor() const
+	const s3d::Optional<s3d::ColorF>& RoomData::getLightColor() const
 	{
 		return m_lightColor;
 	}

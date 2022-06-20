@@ -175,7 +175,7 @@ namespace abyss
 	/// Models
 	/// </summary>
 	struct RoomBorders;
-	class RoomModel;
+	class RoomData;
 	class CameraModel;
 	class QuakeModel;
 	namespace User

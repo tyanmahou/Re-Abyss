@@ -16,15 +16,15 @@ namespace abyss
         double up = 0, down = 0, left = 0, right = 0;
     };
 
-    class RoomModel
+    class RoomData
     {
     private:
 		s3d::RectF m_region;
 		s3d::uint8 m_passbleBits;
 		s3d::Optional<s3d::ColorF> m_lightColor;
 	public:
-		RoomModel() = default;
-		RoomModel(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor);
+		RoomData() = default;
+		RoomData(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor);
 
 		bool passable(Forward f) const;
 		double pos(Forward f) const;

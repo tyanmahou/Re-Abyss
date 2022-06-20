@@ -2,7 +2,7 @@
 #include <Siv3D/Fwd.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
 #include <abyss/utils/Collision/CShape.hpp>
 
@@ -12,7 +12,7 @@ namespace abyss::Actor::Gimmick::Door
         public IComponent
     {
     public:
-        DoorProxy(ActorObj* pActor, const DoorModel& door, const RoomModel& nextRoom);
+        DoorProxy(ActorObj* pActor, const DoorModel& door, const RoomData& nextRoom);
 
         void setup(Executer executer) override;
 
@@ -21,7 +21,7 @@ namespace abyss::Actor::Gimmick::Door
         CShape getCollider() const;
 
         s3d::int32 getStartId()const;
-        const RoomModel& getNextRoom() const;
+        const RoomData& getNextRoom() const;
         const s3d::Vec2& getPos() const;
         const s3d::Vec2& getTargetPos() const;
         Forward getTargetForward() const;
@@ -34,6 +34,6 @@ namespace abyss::Actor::Gimmick::Door
     private:
         ActorObj* m_pActor;
         DoorModel m_door;
-        RoomModel m_nextRoom;
+        RoomData m_nextRoom;
     };
 }

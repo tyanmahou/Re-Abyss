@@ -1,11 +1,11 @@
 #include <abyss/translators/Room/RoomTranslator.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/entities/Room/RoomEntity.hpp>
 
 namespace abyss
 {
-    RoomModel RoomTranslator::ToModel(const RoomEntity& entity)
+    RoomData RoomTranslator::ToModel(const RoomEntity& entity)
     {
-        return RoomModel(entity.region, entity.passbleBits, entity.lightColor);
+        return RoomData(entity.region, entity.passbleBits, entity.lightColor);
     }
 }

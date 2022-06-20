@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/modules/Room/IRoomMoveCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -23,7 +23,7 @@ namespace abyss::Room
         /// 現在の部屋設定
         /// </summary>
         /// <returns></returns>
-        void setRoom(const RoomModel& room)
+        void setRoom(const RoomData& room)
         {
             m_currentRoom = room;
         }
@@ -32,7 +32,7 @@ namespace abyss::Room
         /// 現在の部屋取得
         /// </summary>
         /// <returns></returns>
-        const RoomModel& currentRoom() const
+        const RoomData& currentRoom() const
         {
             return m_currentRoom;
         }
@@ -41,7 +41,7 @@ namespace abyss::Room
         /// 次の部屋設定
         /// </summary>
         /// <returns></returns>
-        void setNextRoom(const s3d::Optional<RoomModel>& room)
+        void setNextRoom(const s3d::Optional<RoomData>& room)
         {
             m_nextRoom = room;
         }
@@ -50,7 +50,7 @@ namespace abyss::Room
         /// 次の部屋取得
         /// </summary>
         /// <returns></returns>
-        const s3d::Optional<RoomModel>& nextRoom() const
+        const s3d::Optional<RoomData>& nextRoom() const
         {
             return m_nextRoom;
         }
@@ -91,8 +91,8 @@ namespace abyss::Room
         void onCheckIn();
     private:
         Manager* m_pManager;
-        RoomModel m_currentRoom;
-        s3d::Optional<RoomModel> m_nextRoom;
+        RoomData m_currentRoom;
+        s3d::Optional<RoomData> m_nextRoom;
 
         std::shared_ptr<CameraFix> m_cameraFix;
 

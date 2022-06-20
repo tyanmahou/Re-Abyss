@@ -13,7 +13,7 @@ namespace abyss::Event::RoomMove::DoorMove
 {
     void Builder::Build(
         EventObj* pEvent,
-        const RoomModel& nextRoom,
+        const RoomData& nextRoom,
         const Actor::Gimmick::Door::DoorModel& door,
         const s3d::Vec2& playerPos,
         std::function<void()> fadeInCallback,

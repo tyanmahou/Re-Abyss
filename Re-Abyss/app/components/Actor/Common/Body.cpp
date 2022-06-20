@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <Siv3D/Math.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/utils/Collision/FixPos.hpp>
 
@@ -294,7 +294,7 @@ namespace abyss::Actor
 
         return colDir;
     }
-    ColDirection Body::fixPos(const RoomModel& room, const s3d::Optional<ColDirection>& strict)
+    ColDirection Body::fixPos(const RoomData& room, const s3d::Optional<ColDirection>& strict)
     {
         auto c = strict.value_or(room.getCol());
         c.ignoredForVelocity(m_velocity);

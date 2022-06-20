@@ -2,7 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Event/base/IStream.hpp>
 #include <abyss/components/Event/RoomMove/IRoomMoveCallback.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 
 namespace abyss::Event::RoomMove
 {
@@ -16,7 +16,7 @@ namespace abyss::Event::RoomMove
         RoomMoveCtrl(
             EventObj* pEvent, 
             std::unique_ptr<IRoomMoveCallback> callback,
-            const RoomModel& nextRoom,
+            const RoomData& nextRoom,
             double animeMilliSec
         );
 
@@ -29,7 +29,7 @@ namespace abyss::Event::RoomMove
     private:
         EventObj* m_pEvent;
         std::unique_ptr<IRoomMoveCallback> m_callback;
-        RoomModel m_nextRoom;
+        RoomData m_nextRoom;
         double m_animeMilliSec = 0;
     };
 }

@@ -39,7 +39,7 @@ namespace abyss::Event::RoomMove
     RoomMoveCtrl::RoomMoveCtrl(
         EventObj* pEvent,
         std::unique_ptr<IRoomMoveCallback> callback,
-        const RoomModel& nextRoom,
+        const RoomData& nextRoom,
         double animeMilliSec
     ):
         m_pEvent(pEvent),

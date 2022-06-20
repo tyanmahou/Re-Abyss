@@ -4,7 +4,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Room/RoomModel.hpp>
+#include <abyss/models/Room/RoomData.hpp>
 #include <abyss/models/Actor/Gimmick/StartPos/StartPosListModel.hpp>
 
 namespace abyss
@@ -26,8 +26,8 @@ namespace abyss
 	private:
 
 		bool initBackGround(BackGround& backGround) const;
-		bool initDecor(Decors& decor, const RoomModel& nextRoom) const;
-		bool initWorld(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const;
+		bool initDecor(Decors& decor, const RoomData& nextRoom) const;
+		bool initWorld(World& world, const RoomData& nextRoom, BuildTiming buildTiming) const;
 
 	public:
 		Stage();
@@ -41,7 +41,7 @@ namespace abyss
 		bool checkIn() const;
 
 		s3d::Optional<StartPosModel> findStartPos(const s3d::int32 startId) const;
-		s3d::Optional<RoomModel> findRoom(const s3d::Vec2& pos) const;
+		s3d::Optional<RoomData> findRoom(const s3d::Vec2& pos) const;
 
 		void load();
 		void setStageData(std::shared_ptr<StageData> stageData);

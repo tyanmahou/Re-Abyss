@@ -15,7 +15,7 @@ namespace
 
 namespace abyss::Actor::Gimmick::Door
 {
-    void Builder::Build(ActorObj* pActor, const DoorModel& door, const RoomModel& nextRoom)
+    void Builder::Build(ActorObj* pActor, const DoorModel& door, const RoomData& nextRoom)
     {
 		pActor->setDestoryTiming(DestoryTiming::CheckIn);
 

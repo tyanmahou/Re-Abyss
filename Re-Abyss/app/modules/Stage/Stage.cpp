@@ -48,7 +48,7 @@ namespace
 {
     using namespace abyss;
 
-    Optional<RoomModel> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
+    Optional<RoomData> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
     {
         for (const auto& room : rooms) {
             if (room.region.intersects(pos)) {
@@ -72,7 +72,7 @@ namespace
         }
         return ret;
     }
-    Optional<FilePath> NextBgm(const RoomModel& nextRoom, const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
+    Optional<FilePath> NextBgm(const RoomData& nextRoom, const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
     {
         for (const auto& gimmick : gimmicks) {
             if (gimmick->type != Actor::Gimmick::GimmickType::BgmChanger) {
@@ -96,7 +96,7 @@ namespace abyss
     Stage::~Stage()
     {}
 
-    s3d::Optional<RoomModel> Stage::findRoom(const s3d::Vec2& pos)const
+    s3d::Optional<RoomData> Stage::findRoom(const s3d::Vec2& pos)const
     {
         return ::GetNextRoom(pos, m_stageData->getRooms());
     }
@@ -122,7 +122,7 @@ namespace abyss
     bool Stage::init() const
     {
         auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
-        s3d::Optional<RoomModel> nextRoom = this->findRoom(playerManager->getPos());
+        s3d::Optional<RoomData> nextRoom = this->findRoom(playerManager->getPos());
         if (!nextRoom) {
             return false;
         }
@@ -276,7 +276,7 @@ namespace abyss
         return this->initWorld(*world, room, BuildTiming::CheckIn);
     }
 
-    bool Stage::initDecor(Decors& decor, const RoomModel& nextRoom) const
+    bool Stage::initDecor(Decors& decor, const RoomData& nextRoom) const
     {
         auto decorService = m_stageData->getDecorService();
         if (!decorService) {
@@ -308,7 +308,7 @@ namespace abyss
         decor.flush();
         return true;
     }
-    bool Stage::initWorld(World& world, const RoomModel& nextRoom, BuildTiming buildTiming) const
+    bool Stage::initWorld(World& world, const RoomData& nextRoom, BuildTiming buildTiming) const
     {
         if (!m_stageData) {
             return false;
