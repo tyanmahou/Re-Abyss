@@ -1410,7 +1410,7 @@
     <ClCompile Include="app\models\Room\RoomModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp">
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp">
@@ -1701,7 +1701,7 @@
     <ClCompile Include="app\types\Novel\TagString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\types\Temporary\TempKey.cpp">
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\types\Look.cpp">
@@ -4484,10 +4484,7 @@
     <ClInclude Include="app\models\Room\RoomModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp">
+    <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\User\UserModel.hpp">
@@ -5017,10 +5014,10 @@
     <ClInclude Include="app\types\Novel\TagString.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Temporary\TempKey.hpp">
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Temporary\TempLevel.hpp">
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Collision\ColDirection.hpp">
@@ -5639,6 +5636,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

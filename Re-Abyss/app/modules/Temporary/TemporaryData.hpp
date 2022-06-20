@@ -1,14 +1,11 @@
 #pragma once
-#include <abyss/models/Temporary/RestartInfo/RestartInfoModel.hpp>
-#include <abyss/models/Temporary/TempFlag/TempFlagsModel.hpp>
+#include <abyss/modules/Temporary/RestartInfo/RestartInfo.hpp>
+#include <abyss/modules/Temporary/TempFrag/TempFlags.hpp>
 
 namespace abyss
 {
     class TemporaryData
     {
-        s3d::Optional<RestartInfoModel> m_restartInfo;
-        s3d::Optional<s3d::int32> m_reservedRestartId;
-        TempFlagsModel m_flags;
     public:
         bool saveFlag(const TempKey& key, TempLevel level);
         bool onFlag(const TempKey& key)const;
@@ -26,7 +23,12 @@ namespace abyss
         /// <returns></returns>
         s3d::Optional<s3d::int32> popReservedRestartId();
 
-        void setRestartInfo(const RestartInfoModel& info);
-        const s3d::Optional<RestartInfoModel>& getRestartInfo() const;
+        void setRestartInfo(const RestartInfo& info);
+        const s3d::Optional<RestartInfo>& getRestartInfo() const;
+
+    private:
+        s3d::Optional<RestartInfo> m_restartInfo;
+        s3d::Optional<s3d::int32> m_reservedRestartId;
+        TempFlags m_flags;
     };
 }

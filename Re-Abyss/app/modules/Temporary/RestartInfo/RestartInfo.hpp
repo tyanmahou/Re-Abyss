@@ -2,12 +2,11 @@
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
+
 namespace abyss
 {
-    class RestartInfoModel
+    class RestartInfo
     {
-        s3d::int32 m_startId = 0;
-        s3d::Optional<s3d::String> m_bgm;
     public:
         s3d::int32 getStartId() const
         {
@@ -29,5 +28,8 @@ namespace abyss
         {
             m_bgm = bgm;
         }
+    private:
+        s3d::int32 m_startId = 0;
+        s3d::Optional<s3d::String> m_bgm;
     };
 }

@@ -1,6 +1,7 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/models/Temporary/TempFlag/TempFlagsModel.hpp>
+#include <abyss/modules/Temporary/TempFrag/TempFlags.hpp>
+
 namespace abyss::tests
 {
     TEST_CASE("Temporary::TempFlag. Sample Test")
@@ -11,28 +12,28 @@ namespace abyss::tests
 
         SECTION("test add")
         {
-            TempFlagsModel flags;
+            TempFlags flags;
             flags.add(key1, TempLevel::Room);
             REQUIRE(flags.isContain(key1));
             REQUIRE(!flags.isContain(key2));
         }
         SECTION("test clear success")
         {
-            TempFlagsModel flags;
+            TempFlags flags;
             flags.add(key1, TempLevel::Room);
             flags.clear(TempLevel::Room);
             REQUIRE(!flags.isContain(key1));
         }
         SECTION("test clear failuer")
         {
-            TempFlagsModel flags;
+            TempFlags flags;
             flags.add(key1, TempLevel::Restart);
             flags.clear(TempLevel::Room);
             REQUIRE(flags.isContain(key1));
         }
         SECTION("test clear complex")
         {
-            TempFlagsModel flags;
+            TempFlags flags;
             flags.add(key1, TempLevel::Room);
             flags.add(key2, TempLevel::Restart);
             flags.add(key3, TempLevel::Exit);
@@ -44,7 +45,7 @@ namespace abyss::tests
 
         SECTION("test dupulicated")
         {
-            TempFlagsModel flags;
+            TempFlags flags;
             REQUIRE(flags.add(key1, TempLevel::Exit));
             REQUIRE(!flags.add(key1, TempLevel::Room));
 

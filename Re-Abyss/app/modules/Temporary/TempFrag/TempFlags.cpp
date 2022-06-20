@@ -1,10 +1,10 @@
-#include <abyss/models/Temporary/TempFlag/TempFlagsModel.hpp>
+#include <abyss/modules/Temporary/TempFrag/TempFlags.hpp>
 
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-    bool TempFlagsModel::add(const TempKey& key, TempLevel level)
+    bool TempFlags::add(const TempKey& key, TempLevel level)
     {
         for (auto&& pair : m_flags) {
             auto l = pair.first;
@@ -22,7 +22,7 @@ namespace abyss
         m_flags[level].insert(key);
         return true;
     }
-    bool TempFlagsModel::isContain(const TempKey& key) const
+    bool TempFlags::isContain(const TempKey& key) const
     {
         for (const auto& [level, sets] : m_flags) {
             if (sets.find(key) != sets.end()) {
@@ -31,7 +31,7 @@ namespace abyss
         }
         return false;
     }
-    void TempFlagsModel::clear(TempLevel level)
+    void TempFlags::clear(TempLevel level)
     {
         for (auto&& pair : m_flags) {
             auto l = pair.first;

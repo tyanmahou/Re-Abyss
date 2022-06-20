@@ -662,7 +662,7 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
     <ClCompile Include="app\models\Novel\CharaModel.cpp" />
     <ClCompile Include="app\models\Room\RoomModel.cpp" />
-    <ClCompile Include="app\models\Temporary\TempFlag\TempFlagsModel.cpp" />
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
@@ -774,7 +774,7 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\types\Look.cpp" />
     <ClCompile Include="app\types\Novel\TagString.cpp" />
-    <ClCompile Include="app\types\Temporary\TempKey.cpp" />
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\types\UserPlayMode.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
@@ -1112,6 +1112,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
@@ -1685,8 +1686,7 @@
     <ClInclude Include="app\models\Novel\CharaModel.hpp" />
     <ClInclude Include="app\models\Novel\SerifModel.hpp" />
     <ClInclude Include="app\models\Room\RoomModel.hpp" />
-    <ClInclude Include="app\models\Temporary\RestartInfo\RestartInfoModel.hpp" />
-    <ClInclude Include="app\models\Temporary\TempFlag\TempFlagsModel.hpp" />
+    <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
     <ClInclude Include="app\modules\Actor\base\ActorObj.hpp" />
     <ClInclude Include="app\modules\Actor\base\ActorObj.ipp" />
@@ -1881,8 +1881,8 @@
     <ClInclude Include="app\types\Novel\Side.hpp" />
     <ClInclude Include="app\types\Novel\TagString.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
-    <ClInclude Include="app\types\Temporary\TempKey.hpp" />
-    <ClInclude Include="app\types\Temporary\TempLevel.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />
     <ClInclude Include="app\types\UserPlayMode.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />

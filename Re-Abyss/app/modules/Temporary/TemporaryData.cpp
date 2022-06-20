@@ -32,12 +32,12 @@ namespace abyss
         return s3d::none;
     }
 
-    void TemporaryData::setRestartInfo(const RestartInfoModel& info)
+    void TemporaryData::setRestartInfo(const RestartInfo& info)
     {
         m_restartInfo = info;
     }
 
-    const s3d::Optional<RestartInfoModel>& TemporaryData::getRestartInfo() const
+    const s3d::Optional<RestartInfo>& TemporaryData::getRestartInfo() const
     {
         return m_restartInfo;
     }

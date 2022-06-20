@@ -20,6 +20,7 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
+#include <abyss/modules/Temporary/RestartInfo/RestartInfo.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
@@ -32,8 +33,6 @@
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
-
-#include <abyss/models/Temporary/RestartInfo/RestartInfoModel.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
 #include <abyss/translators/Actor/Land/LandTranslator.hpp>

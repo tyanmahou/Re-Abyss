@@ -33,18 +33,18 @@ namespace abyss
 
     void Temporary::setRestartInfo(s3d::int32 startId, const s3d::Optional<s3d::String>& bgm) const
     {
-        RestartInfoModel info;
+        RestartInfo info;
         info.setStartId(startId);
         info.setBgm(bgm);
         this->setRestartInfo(info);
     }
 
-    void Temporary::setRestartInfo(const RestartInfoModel & info) const
+    void Temporary::setRestartInfo(const RestartInfo & info) const
     {
         m_tempData->setRestartInfo(info);
     }
 
-    const s3d::Optional<RestartInfoModel>& Temporary::getRestartInfo() const
+    const s3d::Optional<RestartInfo>& Temporary::getRestartInfo() const
     {
         return m_tempData->getRestartInfo();
     }
