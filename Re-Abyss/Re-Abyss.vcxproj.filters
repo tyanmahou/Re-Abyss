@@ -5002,9 +5002,6 @@
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\types\Novel\CharaKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

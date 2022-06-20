@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/types/Actor/Gimmick/BushKind.hpp>
+#include <abyss/entities/Actor/Gimmick/BushEntity.hpp>
 #include <Siv3D/Texture.hpp>
 
 namespace abyss::Actor::Gimmick::Bush

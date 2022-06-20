@@ -1870,7 +1870,6 @@
     <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
-    <ClInclude Include="app\types\Actor\Gimmick\BushKind.hpp" />
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
