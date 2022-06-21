@@ -4,8 +4,11 @@
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::Layout
+namespace abyss::Layout::Window
 {
+    /// <summary>
+    /// 仮想ウィンドウ
+    /// </summary>
     class Window
     {
         class Handle;
@@ -15,6 +18,7 @@ namespace abyss::Layout
         Window(const s3d::Vec2& size);
         Window(const s3d::Vec2& pos, const s3d::Vec2& size);
         Window(const s3d::Vec2& pos, const s3d::Vec2& size, const s3d::Vec2& sceneSize);
+
         Window& setBackGround(const s3d::Optional<s3d::ColorF>& color);
         Window& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
 

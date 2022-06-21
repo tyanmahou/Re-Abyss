@@ -801,6 +801,11 @@
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
     <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
+    <ClCompile Include="app\utils\Layout\Window\detail\Component.cpp" />
+    <ClCompile Include="app\utils\Layout\Window\detail\GrabCtrl.cpp" />
+    <ClCompile Include="app\utils\Layout\Window\detail\ScrollCtrl.cpp" />
+    <ClCompile Include="app\utils\Layout\Window\detail\WindowMover.cpp" />
+    <ClCompile Include="app\utils\Layout\Window\detail\WindowResizer.cpp" />
     <ClCompile Include="app\utils\Layout\Window\Window.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\utils\Mns\Evaluator\Evaluator.cpp" />
@@ -1935,6 +1940,13 @@
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
     <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\Component.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\Constants.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\GrabCtrl.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\ScrollCtrl.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowMover.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowParam.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowResizer.hpp" />
     <ClInclude Include="app\utils\Layout\Window\Window.hpp" />
     <ClInclude Include="app\utils\Math\Math.hpp" />
     <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
