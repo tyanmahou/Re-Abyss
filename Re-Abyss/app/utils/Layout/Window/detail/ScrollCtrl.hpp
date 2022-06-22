@@ -16,7 +16,7 @@ namespace abyss::Layout::Window::detail
     public:
         ScrollCtrl(Component* pComp);
 
-        void draw() const;
+        void draw(const s3d::ColorF& barColor, const s3d::ColorF& gripColor) const;
     public:
         bool onGrabPromise() override;
         void onPreGrabCheck(bool isPromised) override;

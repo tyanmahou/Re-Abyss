@@ -269,7 +269,7 @@ namespace abyss::Layout::Window::detail
             }
             return this->rightBtn().leftClicked();
         }
-        void drawH(const ColorF& barColor, const ColorF& scrollColor) const
+        void drawH(const ColorF& barColor, const ColorF& gripColor) const
         {
             // スクロールバー
             RectF bar = this->barH();
@@ -280,7 +280,7 @@ namespace abyss::Layout::Window::detail
                     { bar.x + (5.0 - pushMargin), bar.y + bar.h * 0.5 },
                     { bar.x + bar.h - (5.0 - pushMargin), bar.y + (4.0 - pushMargin) },
                     { bar.x + bar.h - (5.0 - pushMargin) , bar.y + bar.h - (4.0 - pushMargin) }
-                ).draw(ColorF(scrollColor, m_onTimeH));
+                ).draw(ColorF(gripColor, m_onTimeH));
             }
             {
                 const Vec2 basePos{ bar.x + bar.w - Constants::ScrollMargin, bar.y };
@@ -289,25 +289,23 @@ namespace abyss::Layout::Window::detail
                     { bar.x + bar.w - (5.0 - pushMargin), bar.y + bar.h * 0.5 },
                     { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + (4.0 - pushMargin) },
                     { bar.x + bar.w - (bar.h - (5.0 - pushMargin)) , bar.y + bar.h - (4.0 - pushMargin) }
-                ).draw(ColorF(scrollColor, m_onTimeH));
+                ).draw(ColorF(gripColor, m_onTimeH));
             }
             {
-                RoundRect(this->gripH(false), 2.0).draw(scrollColor);
+                RoundRect(this->gripH(false), 2.0).draw(gripColor);
             }
         }
-        void draw() const
+        void draw(const ColorF& barColor, const ColorF& gripColor) const
         {
             const Vec2& size = m_param.size;
             bool hasScrollV = m_param.sceneSize.y > size.y;
             bool hasScrollH = m_param.sceneSize.x > size.x;
-            const ColorF barColor = Color(240);
-            const ColorF scrollColor = Color(133);
 
             if (hasScrollV) {
-                this->drawV(barColor, scrollColor);
+                this->drawV(barColor, gripColor);
             }
             if (hasScrollH) {
-                this->drawH(barColor, scrollColor);
+                this->drawH(barColor, gripColor);
             }
             if (hasScrollH && hasScrollV) {
                 RectF(
@@ -373,9 +371,9 @@ namespace abyss::Layout::Window::detail
     {
         grab().registHandler(this);
     }
-    void ScrollCtrl::draw() const
+    void ScrollCtrl::draw(const ColorF& barColor, const ColorF& gripColor) const
     {
-        m_view->draw();
+        m_view->draw(barColor, gripColor);
     }
     bool ScrollCtrl::onGrabPromise()
     {

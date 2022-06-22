@@ -6,6 +6,29 @@
 
 namespace abyss::Layout::Window
 {
+    struct WindowContext
+    {
+    public:
+        WindowContext();
+        WindowContext(const s3d::Vec2& _size);
+        WindowContext(const s3d::Vec2& _pos, const s3d::Vec2& _size);
+        WindowContext(const s3d::Vec2& _pos, const s3d::Vec2& _size, const s3d::Vec2& _sceneSize);
+
+        WindowContext& setBackGroundColor(const s3d::Optional<s3d::ColorF>& color);
+        WindowContext& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
+        WindowContext& setScrollBarColor(const s3d::ColorF& color);
+        WindowContext& setScrollGripColor(const s3d::ColorF& color);
+    public:
+        s3d::Vec2 pos;
+        s3d::Vec2 size;
+        s3d::Vec2 sceneSize;
+
+        s3d::Optional<ColorF> backGroundColor;
+        s3d::Optional<ColorF> frameColor;
+        s3d::ColorF scrollBarColor;
+        s3d::ColorF scrollGripColor;
+    };
+
     /// <summary>
     /// 仮想ウィンドウ
     /// </summary>
@@ -14,12 +37,18 @@ namespace abyss::Layout::Window
         class Handle;
     public:
         Window();
-        Window(double w, double h);
         Window(const s3d::Vec2& size);
         Window(const s3d::Vec2& pos, const s3d::Vec2& size);
         Window(const s3d::Vec2& pos, const s3d::Vec2& size, const s3d::Vec2& sceneSize);
 
-        Window& setBackGround(const s3d::Optional<s3d::ColorF>& color);
+        Window(const WindowContext& context);
+
+        Window& setPos(const s3d::Vec2& pos);
+        Window& setSize(const s3d::Vec2& size);
+        Window& setScenePos(const s3d::Vec2& scenePos);
+        Window& setSceneSize(const s3d::Vec2& sceneSize);
+
+        Window& setBackGroundColor(const s3d::Optional<s3d::ColorF>& color);
         Window& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
 
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene) const;

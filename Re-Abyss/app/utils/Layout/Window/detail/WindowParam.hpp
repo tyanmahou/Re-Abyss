@@ -17,6 +17,11 @@ namespace abyss::Layout::Window::detail
         };
         s3d::Vec2 scenePos;
         s3d::Vec2 sceneSize;
+
+        s3d::Optional<ColorF> backGroundColor;
+        s3d::Optional<ColorF> frameColor;
+        s3d::ColorF scrollBarColor;
+        s3d::ColorF scrollGripColor;
         SIV3D_DISABLE_MSVC_WARNINGS_POP()
     };
 }
