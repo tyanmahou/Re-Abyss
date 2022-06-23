@@ -50,6 +50,8 @@ namespace abyss::Layout::Window
 
         Window& setBackGroundColor(const s3d::Optional<s3d::ColorF>& color);
         Window& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
+        Window& setScrollBarColor(const s3d::ColorF& color);
+        Window& setScrollGripColor(const s3d::ColorF& color);
 
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene) const;
     private:

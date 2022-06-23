@@ -68,8 +68,16 @@ namespace abyss::Layout::Window
         }
         void setSize(const s3d::Vec2& _size)
         {
-            this->size.x = s3d::Max(_size.x, Constants::WinMinSize.x);
-            this->size.y = s3d::Max(_size.y, Constants::WinMinSize.x);
+            if (this->sceneSize.x > _size.x) {
+                this->size.x = s3d::Max(_size.x, Constants::WinMinSize.x);
+            } else {
+                this->size.x = _size.x;
+            }
+            if (this->sceneSize.y > _size.y) {
+                this->size.y = s3d::Max(_size.y, Constants::WinMinSize.x);
+            } else {
+                this->size.y = _size.y;
+            }
         }
         void setScenePos(const s3d::Vec2& _pos)
         {
@@ -170,6 +178,16 @@ namespace abyss::Layout::Window
     Window& Window::setFrameColor(const s3d::Optional<s3d::ColorF>& color)
     {
         m_pHandle->frameColor = color;
+        return *this;
+    }
+    Window& Window::setScrollBarColor(const s3d::ColorF& color)
+    {
+        m_pHandle->scrollBarColor = color;
+        return *this;
+    }
+    Window& Window::setScrollGripColor(const s3d::ColorF& color)
+    {
+        m_pHandle->scrollGripColor = color;
         return *this;
     }
     s3d::RectF Window::draw(std::function<void(const s3d::RectF&)> scene) const
