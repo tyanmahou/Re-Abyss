@@ -104,7 +104,7 @@ namespace abyss::Layout::Window
         {
             return this->regionF().asRect();
         }
-        s3d::RectF regionF() const
+        const s3d::RectF& regionF() const
         {
             return WindowParam::region;
         }
@@ -120,14 +120,14 @@ namespace abyss::Layout::Window
         {
             this->update();
 
-            auto region = this->regionF();
+            const auto& region = this->regionF();
             if (backGroundColor) {
                 region.draw(*backGroundColor);
             }
             {
                 auto t2d = this->transformer();
                 auto viewport = this->startViewport();
-                scene(region);
+                scene(s3d::RectF{scenePos, size});
             }
             if (this->canScroll) {
                 m_comp.scrollCtrl().draw(scrollBarColor, scrollGripColor);
