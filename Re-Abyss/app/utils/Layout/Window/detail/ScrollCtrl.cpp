@@ -371,6 +371,24 @@ namespace abyss::Layout::Window::detail
     {
         grab().registHandler(this);
     }
+    void ScrollCtrl::update()
+    {
+        if (!m_pComp->param().canScroll) {
+            return;
+        }
+        if (grab().isGrab()) {
+            return;
+        }
+        if (m_pComp->param().region.mouseOver()) {
+            constexpr double speed = 30.0;
+            if (KeyShift.pressed()) {
+                m_pComp->param().scenePos.x += Mouse::Wheel() * speed;
+            } else {
+                m_pComp->param().scenePos.y += Mouse::Wheel() * speed;
+                m_pComp->param().scenePos.x += Mouse::WheelH() * speed;
+            }
+        }
+    }
     void ScrollCtrl::draw(const ColorF& barColor, const ColorF& gripColor) const
     {
         m_view->draw(barColor, gripColor);

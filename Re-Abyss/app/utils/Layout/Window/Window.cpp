@@ -92,6 +92,7 @@ namespace abyss::Layout::Window
         void update()
         {
             m_comp.grabCtrl().update();
+            m_comp.scrollCtrl().update();
 
             // Clamp
             if (isResizeClampSceneSize) {
