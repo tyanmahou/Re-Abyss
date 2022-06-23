@@ -18,6 +18,27 @@ namespace abyss::Layout::Window
         WindowContext& setFrameColor(const s3d::Optional<s3d::ColorF>& color);
         WindowContext& setScrollBarColor(const s3d::ColorF& color);
         WindowContext& setScrollGripColor(const s3d::ColorF& color);
+
+        WindowContext& setCanResize(bool _canResize)
+        {
+            this->canResize = _canResize;
+            return *this;
+        }
+        WindowContext& setIsResizeClampSceneSize(bool _isResizeClampSceneSize)
+        {
+            this->isResizeClampSceneSize = _isResizeClampSceneSize;
+            return *this;
+        }
+        WindowContext& setCanMove(bool _canMove)
+        {
+            this->canMove = _canMove;
+            return *this;
+        }
+        WindowContext& setCanScroll(bool _canScroll)
+        {
+            this->canScroll = _canScroll;
+            return *this;
+        }
     public:
         s3d::Vec2 pos;
         s3d::Vec2 size;
@@ -27,6 +48,11 @@ namespace abyss::Layout::Window
         s3d::Optional<ColorF> frameColor;
         s3d::ColorF scrollBarColor;
         s3d::ColorF scrollGripColor;
+
+        bool canResize = true;
+        bool isResizeClampSceneSize = false;
+        bool canMove = true;
+        bool canScroll = true;
     };
 
     /// <summary>

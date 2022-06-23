@@ -15,6 +15,9 @@ namespace abyss::Layout::Window::detail
     bool WindowMover::onGrabPromise()
     {
         auto& param = m_pComp->param();
+        if (!param.canMove) {
+            return false;
+        }
         const auto rect = param.region;
         return rect.mouseOver();
     }

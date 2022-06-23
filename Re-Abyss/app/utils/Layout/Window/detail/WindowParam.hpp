@@ -6,6 +6,7 @@ namespace abyss::Layout::Window::detail
     struct WindowParam
     {
         SIV3D_DISABLE_MSVC_WARNINGS_PUSH(4201)
+
         union {
             struct {
                 s3d::Vec2 pos;
@@ -15,6 +16,9 @@ namespace abyss::Layout::Window::detail
                 s3d::RectF region;
             };
         };
+
+        SIV3D_DISABLE_MSVC_WARNINGS_POP()
+
         s3d::Vec2 scenePos;
         s3d::Vec2 sceneSize;
 
@@ -22,6 +26,10 @@ namespace abyss::Layout::Window::detail
         s3d::Optional<ColorF> frameColor;
         s3d::ColorF scrollBarColor;
         s3d::ColorF scrollGripColor;
-        SIV3D_DISABLE_MSVC_WARNINGS_POP()
+
+        bool canResize;
+        bool isResizeClampSceneSize;
+        bool canMove;
+        bool canScroll;
     };
 }

@@ -15,8 +15,11 @@ namespace abyss::Layout::Window::detail
 
     bool WindowResizer::onGrabPromise()
     {
-        constexpr auto margin = Constants::Margin;
         auto& param = m_pComp->param();
+        if (!param.canResize) {
+            return false;
+        }
+        constexpr auto margin = Constants::Margin;
         const auto rect = param.region;
 
         const RectF tl{ rect.x - margin, rect.y - margin, margin, margin };
@@ -29,17 +32,17 @@ namespace abyss::Layout::Window::detail
         const RectF   left{ rect.x - margin, rect.y, margin, rect.h };
         const RectF  right{ rect.x + rect.w, rect.y, margin, rect.h };
 
-        if (tl.mouseOver()) {
+        if (param.canMove && tl.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeNWSE);
-        } else if (tr.mouseOver()) {
+        } else if (param.canMove && tr.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeNESW);
-        } else if (bl.mouseOver()) {
+        } else if (param.canMove && bl.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeNESW);
         } else if (br.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeNWSE);
-        } else if (top.mouseOver() || bottom.mouseOver()) {
+        } else if ((param.canMove && top.mouseOver()) || bottom.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeUpDown);
-        } else if (left.mouseOver() || right.mouseOver()) {
+        } else if ((param.canMove && left.mouseOver()) || right.mouseOver()) {
             s3d::Cursor::RequestStyle(CursorStyle::ResizeLeftRight);
         } else {
             return false;
@@ -67,19 +70,19 @@ namespace abyss::Layout::Window::detail
         const RectF   left{ rect.x - margin, rect.y, margin, rect.h };
         const RectF  right{ rect.x + rect.w, rect.y, margin, rect.h };
 
-        if (tl.leftClicked()) {
+        if (param.canMove && tl.leftClicked()) {
             return GrabState::Tl;
-        } else if (tr.leftClicked()) {
+        } else if (param.canMove && tr.leftClicked()) {
             return GrabState::Tr;
-        } else if (bl.leftClicked()) {
+        } else if (param.canMove && bl.leftClicked()) {
             return GrabState::Bl;
         } else if (br.leftClicked()) {
             return GrabState::Br;
-        } else if (top.leftClicked()) {
+        } else if (param.canMove && top.leftClicked()) {
             return GrabState::Top;
         } else if (bottom.leftClicked()) {
             return GrabState::Bottom;
-        } else if (left.leftClicked()) {
+        } else if (param.canMove && left.leftClicked()) {
             return GrabState::Left;
         } else if (right.leftClicked()) {
             return GrabState::Right;

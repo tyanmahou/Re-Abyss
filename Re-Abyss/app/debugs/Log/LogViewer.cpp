@@ -17,15 +17,18 @@ namespace
         };
     public:
         ViewerCore() :
-            m_window(std::make_unique<Layout::Window::Window>()),
             m_font(16, Typeface::Regular),
             m_fontDetail(12, Typeface::Regular)
         {
-            m_window->setBackGroundColor(s3d::none)
+            auto windowContext = Layout::Window::WindowContext{}
+                .setBackGroundColor(s3d::none)
                 .setFrameColor(s3d::none)
                 .setScrollBarColor(ColorF(0, 0.5))
                 .setScrollGripColor(ColorF(0.9))
+                .setCanResize(false)
+                .setIsResizeClampSceneSize(true)
                 ;
+            m_window = std::make_unique<Layout::Window::Window>(windowContext);
             m_kindCustom[LogKind::Info] = KindCustom{
                 .icon = Texture(Emoji(U"🗨️")),
                 .color = ColorF(0, 0.2)

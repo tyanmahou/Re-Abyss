@@ -377,6 +377,9 @@ namespace abyss::Layout::Window::detail
     }
     bool ScrollCtrl::onGrabPromise()
     {
+        if (!m_pComp->param().canScroll) {
+            return false;
+        }
         if (m_view->isBarVMouseOver()) {
             return true;
         } else if (m_view->isBarHMouseOver()) {

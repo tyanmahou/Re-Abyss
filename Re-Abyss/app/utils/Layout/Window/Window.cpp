@@ -65,6 +65,11 @@ namespace abyss::Layout::Window
             this->frameColor = context.frameColor;
             this->scrollBarColor = context.scrollBarColor;
             this->scrollGripColor = context.scrollGripColor;
+
+            this->canResize = context.canResize;
+            this->isResizeClampSceneSize = context.isResizeClampSceneSize;
+            this->canMove = context.canMove;
+            this->canScroll = context.canScroll;
         }
         void setSize(const s3d::Vec2& _size)
         {
@@ -89,6 +94,10 @@ namespace abyss::Layout::Window
             m_comp.grabCtrl().update();
 
             // Clamp
+            if (isResizeClampSceneSize) {
+                size.x = Min(size.x, sceneSize.x);
+                size.y = Min(size.y, sceneSize.y);
+            }
             this->setScenePos(this->scenePos);
         }
         s3d::Rect region() const
@@ -120,7 +129,9 @@ namespace abyss::Layout::Window
                 auto viewport = this->startViewport();
                 scene(region);
             }
-            m_comp.scrollCtrl().draw(scrollBarColor, scrollGripColor);
+            if (this->canScroll) {
+                m_comp.scrollCtrl().draw(scrollBarColor, scrollGripColor);
+            }
 
             if (frameColor) {
                 region.drawFrame(0, 1, *frameColor);
