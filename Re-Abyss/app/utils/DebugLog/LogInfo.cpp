@@ -5,13 +5,11 @@ namespace abyss::DebugLog
     LogInfo::LogInfo(
         LogKind kind,
         const s3d::String& log,
-        const SourceLocation& location,
-        s3d::int32 lifeTimeSec
+        const SourceLocation& location
     ) :
         m_kind(kind),
         m_log(log),
-        m_location(location),
-        m_lifeTimeMsec(lifeTimeSec)
+        m_location(location)
     {}
 
     s3d::String LogInfo::location() const

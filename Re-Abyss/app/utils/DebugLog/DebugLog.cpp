@@ -10,21 +10,26 @@ namespace abyss::DebugLog
         {}
         void print(LogKind kind, const s3d::String& log, const SourceLocation& location)
         {
-            m_buffer.emplace_back(kind, log, location, 10000);
+            m_buffer.emplace_back(kind, log, location);
+            m_indexMap[m_buffer.back().location()] = m_buffer.size() - 1;
         }
         void printUpdate(LogKind kind, const s3d::String& log, const SourceLocation& location)
         {
-            m_buffer.emplace_back(kind, log, location, 0);
+            auto info = LogInfo(kind, log, location);
+            auto cache = m_indexMap.find(info.location());
+            if (cache != m_indexMap.end()) {
+                m_buffer[cache->second] = info;
+                return;
+            }
+            this->print(kind, log, location);
         }
         void update()
         {
-            m_buffer.remove_if([](const LogInfo& log) {
-                return log.isExpired();
-            });
         }
         void clear()
         {
             m_buffer.clear();
+            m_indexMap.clear();
         }
         void draw()
         {
@@ -38,6 +43,7 @@ namespace abyss::DebugLog
         }
     private:
         s3d::Array<LogInfo> m_buffer;
+        s3d::HashTable<String, size_t> m_indexMap;
         std::unique_ptr<IViewer> m_viewer;
     };
 

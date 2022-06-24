@@ -8,6 +8,6 @@ namespace abyss::DebugLog
     {
     public:
         virtual ~IViewer() = default;
-        virtual void draw(const s3d::Array<LogInfo>& logs) const = 0;
+        virtual void draw(const s3d::Array<LogInfo>& logs) = 0;
     };
 }

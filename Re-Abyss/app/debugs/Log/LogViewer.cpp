@@ -20,12 +20,12 @@ namespace
             m_font(16, Typeface::Regular),
             m_fontDetail(12, Typeface::Regular)
         {
-            auto windowContext = Layout::Window::WindowContext{}
-                .setBackGroundColor(s3d::none)
+            auto windowContext = Layout::Window::WindowContext{ Vec2{10, 10}, Vec2{300, 150} }
+                .setBackGroundColor(ColorF(0, 0.1))
                 .setFrameColor(s3d::none)
                 .setScrollBarColor(ColorF(0, 0.5))
                 .setScrollGripColor(ColorF(0.9))
-                .setCanResize(false)
+                //.setCanResize(false)
                 .setIsResizeClampSceneSize(true)
                 ;
             m_window = std::make_unique<Layout::Window::Window>(windowContext);
@@ -47,11 +47,12 @@ namespace
             };
         }
 
-        void draw(const s3d::Array<LogInfo>& logs) const override
+        void draw(const s3d::Array<LogInfo>& logs) override
         {
             if (logs.isEmpty()) {
                 return;
             }
+            const LogInfo* pFocusLog = nullptr;
             m_window->draw([&](const RectF& sceneScreen) {
 
                 s3d::ScopedRenderStates2D sampler(s3d::SamplerState::ClampLinear);
@@ -85,21 +86,33 @@ namespace
                     }
                     pos.y += region.h;
 
-                    //if (area.mouseOver()) {
-                    //    auto detailRegion = m_fontDetail(log.location()).region(pos);
-                    //    detailRegion.draw(ColorF(0.2, 0.2));
-                    //    m_fontDetail(log.location()).draw(pos);
-                    //    pos = detailRegion.bl();
-                    //}
+                    if (area.mouseOver()) {
+                        pFocusLog = &log;
+                    }
                 }
 
                 bool isScrollButtom = m_window->isScrollBottom();
-                m_window->setSize({ s3d::Min<double>(width, s3d::Scene::Width()), s3d::Min<double>(pos.y, s3d::Scene::Height()) });
-                m_window->setSceneSize({ width, pos.y });
+                {
+                    auto sizePrev = m_size;
+                    m_size = Vec2{ s3d::Min<double>(width, s3d::Scene::Width()), s3d::Min<double>(pos.y, s3d::Scene::Height()) };
+
+                    Vec2 nextSize = sceneScreen.size;
+                    if (sceneScreen.size.x >= sizePrev.x) {
+                        nextSize.x = m_size.x;
+                    }
+                    m_window->setSize(nextSize);
+                }
+                m_window->setSceneSize({ width, s3d::Max(pos.y, 150.0) });
                 if (isScrollButtom) {
                     m_window->setScenePosToBottom();
                 }
             });
+            if (pFocusLog) {
+                auto detailRegion = m_fontDetail(pFocusLog->location()).region();
+                auto pos = detailRegion.movedBy(Scene::Size() - detailRegion.size - Vec2{ 10, 10 })
+                    .draw(ColorF(0.2, 0.2));
+                m_fontDetail(pFocusLog->location()).draw(pos);
+            }
         }
     private:
         std::unique_ptr<Layout::Window::Window> m_window;
@@ -107,6 +120,7 @@ namespace
         s3d::Font m_font;
         s3d::Font m_fontDetail;
         s3d::HashTable<LogKind, KindCustom> m_kindCustom;
+        Vec2 m_size{};
     };
 }
 namespace abyss::Debug

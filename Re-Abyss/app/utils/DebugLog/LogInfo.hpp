@@ -11,8 +11,7 @@ namespace abyss::DebugLog
         LogInfo(
             LogKind kind,
             const s3d::String& log,
-            const SourceLocation& location,
-            s3d::int32 lifeTimeSec
+            const SourceLocation& location
         );
 
         LogKind kind() const
@@ -24,18 +23,10 @@ namespace abyss::DebugLog
             return m_log;
         }
         s3d::String location() const;
-
-        bool isExpired() const
-        {
-            return m_sw.ms() >= m_lifeTimeMsec;
-        }
     private:
         LogKind m_kind;
         s3d::String m_log;
         SourceLocation m_location;
-
-        s3d::int32 m_lifeTimeMsec;
-        s3d::Stopwatch m_sw{ s3d::StartImmediately::Yes };
     };
 
 }
