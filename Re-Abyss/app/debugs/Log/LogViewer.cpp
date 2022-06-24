@@ -52,7 +52,7 @@ namespace
             if (logs.isEmpty()) {
                 return;
             }
-            m_window->draw([&](const RectF&) {
+            m_window->draw([&](const RectF& sceneScreen) {
 
                 s3d::ScopedRenderStates2D sampler(s3d::SamplerState::ClampLinear);
 
@@ -74,12 +74,15 @@ namespace
                     region.h = s3d::Max(region.h, iconSize.y);
 
                     auto area = RectF(pos, region.size);
-                    area.draw(custom.color);
+                    if (area.y <= sceneScreen.y + sceneScreen.h && area.y + area.h >= sceneScreen.y) {
+                        // 画面外の描画はしない
+                        area.draw(custom.color);
 
-                    custom.icon.resized(iconSize).draw(pos);
-                    auto logPos = pos;
-                    logPos.x += iconSize.x + iconMargin;
-                    m_font(log.log()).draw(logPos);
+                        custom.icon.resized(iconSize).draw(pos);
+                        auto logPos = pos;
+                        logPos.x += iconSize.x + iconMargin;
+                        m_font(log.log()).draw(logPos);
+                    }
                     pos.y += region.h;
 
                     //if (area.mouseOver()) {
@@ -89,8 +92,13 @@ namespace
                     //    pos = detailRegion.bl();
                     //}
                 }
+
+                bool isScrollButtom = m_window->isScrollBottom();
                 m_window->setSize({ s3d::Min<double>(width, s3d::Scene::Width()), s3d::Min<double>(pos.y, s3d::Scene::Height()) });
                 m_window->setSceneSize({ width, pos.y });
+                if (isScrollButtom) {
+                    m_window->setScenePosToBottom();
+                }
             });
         }
     private:

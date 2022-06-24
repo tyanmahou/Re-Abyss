@@ -89,6 +89,16 @@ namespace abyss::Layout::Window
             this->scenePos.x = s3d::Clamp(_pos.x, 0.0, Max(sceneSize.x - size.x, 0.0));
             this->scenePos.y = s3d::Clamp(_pos.y, 0.0, Max(sceneSize.y - size.y, 0.0));
         }
+        void setScenePosToBottom()
+        {
+            Vec2 nextScenePos = this->scenePos;
+            nextScenePos.y = Max(sceneSize.y - size.y, 0.0);
+            this->setScenePos(nextScenePos);
+        }
+        bool isScrollBottom() const
+        {
+            return scenePos.y >= Max(sceneSize.y - size.y, 0.0);
+        }
         void update()
         {
             m_comp.grabCtrl().update();
@@ -176,6 +186,15 @@ namespace abyss::Layout::Window
     {
         m_pHandle->setScenePos(scenePos);
         return *this;
+    }
+    Window& Window::setScenePosToBottom()
+    {
+        m_pHandle->setScenePosToBottom();
+        return *this;
+    }
+    bool Window::isScrollBottom() const
+    {
+        return m_pHandle->isScrollBottom();
     }
     Window& Window::setSceneSize(const s3d::Vec2& sceneSize)
     {

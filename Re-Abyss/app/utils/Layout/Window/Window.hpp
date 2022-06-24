@@ -69,9 +69,34 @@ namespace abyss::Layout::Window
 
         Window(const WindowContext& context);
 
+        /// <summary>
+        /// ウィンドウの座標を設定
+        /// </summary>
         Window& setPos(const s3d::Vec2& pos);
+
+        /// <summary>
+        /// ウィンドウのサイズを設定
+        /// </summary>
         Window& setSize(const s3d::Vec2& size);
+
+        /// <summary>
+        /// シーンの座標を設定
+        /// </summary>
         Window& setScenePos(const s3d::Vec2& scenePos);
+
+        /// <summary>
+        /// シーンの座標を一番下にする
+        /// </summary>
+        Window& setScenePosToBottom();
+
+        /// <summary>
+        /// スクロールが一番下にあるか
+        /// </summary>
+        bool isScrollBottom() const;
+
+        /// <summary>
+        /// シーンのサイズを設定する
+        /// </summary>
         Window& setSceneSize(const s3d::Vec2& sceneSize);
 
         Window& setBackGroundColor(const s3d::Optional<s3d::ColorF>& color);
@@ -79,6 +104,9 @@ namespace abyss::Layout::Window
         Window& setScrollBarColor(const s3d::ColorF& color);
         Window& setScrollGripColor(const s3d::ColorF& color);
 
+        /// <summary>
+        /// 描画
+        /// </summary>
         s3d::RectF draw(std::function<void(const s3d::RectF&)> scene) const;
     private:
         std::shared_ptr<Handle> m_pHandle;
