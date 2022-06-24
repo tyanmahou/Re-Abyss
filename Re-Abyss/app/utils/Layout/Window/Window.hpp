@@ -105,9 +105,14 @@ namespace abyss::Layout::Window
         Window& setScrollGripColor(const s3d::ColorF& color);
 
         /// <summary>
+        /// ウィンドウ領域
+        /// </summary>
+        const s3d::RectF& region() const;
+
+        /// <summary>
         /// 描画
         /// </summary>
-        s3d::RectF draw(std::function<void(const s3d::RectF&)> scene) const;
+        const s3d::RectF& draw(std::function<void(const s3d::RectF&)> scene) const;
     private:
         std::shared_ptr<Handle> m_pHandle;
     };

@@ -77,7 +77,16 @@ namespace
                     auto area = RectF(pos, region.size);
                     if (area.y <= sceneScreen.y + sceneScreen.h && area.y + area.h >= sceneScreen.y) {
                         // 画面外の描画はしない
-                        area.draw(custom.color);
+                        bool isFocus = false;
+                        if (!pFocusLog && sceneScreen.mouseOver() && area.mouseOver()) {
+                            pFocusLog = &log;
+                            isFocus = true;
+                        }
+                        auto color = custom.color;
+                        if (isFocus) {
+                            color.a *= 2.0;
+                        }
+                        area.draw(color);
 
                         custom.icon.resized(iconSize).draw(pos);
                         auto logPos = pos;
@@ -85,10 +94,6 @@ namespace
                         m_font(log.log()).draw(logPos);
                     }
                     pos.y += region.h;
-
-                    if (area.mouseOver()) {
-                        pFocusLog = &log;
-                    }
                 }
 
                 bool isScrollButtom = m_window->isScrollBottom();
@@ -108,9 +113,8 @@ namespace
                 }
             });
             if (pFocusLog) {
-                auto detailRegion = m_fontDetail(pFocusLog->location()).region();
-                auto pos = detailRegion.movedBy(Scene::Size() - detailRegion.size - Vec2{ 10, 10 })
-                    .draw(ColorF(0.2, 0.2));
+                auto detailRegion = m_fontDetail(pFocusLog->location()).region(m_window->region().bl() + Vec2{ 0, 5 });
+                auto pos = detailRegion.draw(ColorF(0, 0.5));
                 m_fontDetail(pFocusLog->location()).draw(pos);
             }
         }

@@ -127,7 +127,7 @@ namespace abyss::Layout::Window
         {
             return { Mat3x2::Translate(-scenePos), Mat3x2::Translate(pos - scenePos) };
         }
-        s3d::RectF draw(std::function<void(const s3d::RectF&)> scene)
+        const s3d::RectF& draw(std::function<void(const s3d::RectF&)> scene)
         {
             this->update();
 
@@ -221,7 +221,11 @@ namespace abyss::Layout::Window
         m_pHandle->scrollGripColor = color;
         return *this;
     }
-    s3d::RectF Window::draw(std::function<void(const s3d::RectF&)> scene) const
+    const s3d::RectF& Window::region() const
+    {
+        return m_pHandle->regionF();
+    }
+    const s3d::RectF& Window::draw(std::function<void(const s3d::RectF&)> scene) const
     {
         return m_pHandle->draw(std::move(scene));
     }
