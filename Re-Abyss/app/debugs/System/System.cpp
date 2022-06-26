@@ -7,6 +7,7 @@
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Pause/Pause.hpp>
 #include <abyss/debugs/Log/LogViewer.hpp>
+#include <abyss/debugs/Watcher/Watcher.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -45,7 +46,7 @@ namespace abyss::Debug
 		{
 			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu));
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
-				Log::InfoUpdate(U"[FPS] {}"_fmt(fps));
+				Watcher::Print(U"[FPS] {}"_fmt(fps));
 			});
 		}
 		bool isPause() const

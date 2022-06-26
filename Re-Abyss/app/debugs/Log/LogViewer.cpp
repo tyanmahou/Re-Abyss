@@ -1,4 +1,5 @@
 #include <abyss/debugs/Log/LogViewer.hpp>
+#if ABYSS_DEBUG
 #include <abyss/utils/DebugLog/DebugLog.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 #include <Siv3D.hpp>
@@ -168,37 +169,21 @@ namespace abyss::Debug
     {
         m_pImpl->log().print(LogKind::Info, log, location);
     }
-    void LogViewer::printInfoUpdate(const s3d::String& log, const SourceLocation& location)
-    {
-        m_pImpl->log().printUpdate(LogKind::Info, log, location);
-    }
     void LogViewer::printWarn(const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->log().print(LogKind::Warn, log, location);
-    }
-    void LogViewer::printWarnUpdate(const s3d::String& log, const SourceLocation& location)
-    {
-        m_pImpl->log().printUpdate(LogKind::Warn, log, location);
     }
     void LogViewer::printError(const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->log().print(LogKind::Error, log, location);
     }
-    void LogViewer::printErrorUpdate(const s3d::String& log, const SourceLocation& location)
-    {
-        m_pImpl->log().printUpdate(LogKind::Error, log, location);
-    }
     void LogViewer::printLoad(const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->log().print(LogKind::Load, log, location);
-    }
-    void LogViewer::printLoadUpdate(const s3d::String& log, const SourceLocation& location)
-    {
-        m_pImpl->log().printUpdate(LogKind::Load, log, location);
     }
     void LogViewer::clear()
     {
         m_pImpl->log().clear();
     }
 }
-
+#endif

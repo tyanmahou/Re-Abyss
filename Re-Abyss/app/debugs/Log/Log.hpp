@@ -17,13 +17,7 @@ namespace abyss::Debug
         {\
             kind(s3d::String(U"{}"_fmt(std::forward<T>(log))), location);\
         }\
-        static void kind(const s3d::String& log, const SourceLocation& location = {});\
-        template<class T> requires !std::constructible_from<s3d::String, T>\
-        static void kind##Update(T&& log, const SourceLocation& location = {})\
-        {\
-            kind##Update(s3d::Format(std::forward<T>(log)), location);\
-        }\
-        static void kind##Update(const s3d::String& log, const SourceLocation& location = {})
+        static void kind(const s3d::String& log, const SourceLocation& location = {})
 
         ABYSS_DEBUG_LOG(Info);
 

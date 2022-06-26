@@ -14,7 +14,7 @@
 
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/MenuUtil.hpp>
-
+#include <abyss/debugs/Watcher/Watcher.hpp>
 #include <Siv3D.hpp>
 #include <Siv3D/Windows/Windows.hpp>
 
@@ -35,7 +35,7 @@ namespace abyss::Debug
                 ++size;
             }
         }
-        Log::InfoUpdate(U"[Colliders] {}"_fmt(size));
+        Watcher::Print(U"[Colliders] {}"_fmt(size));
     }
     void DebugUtil::DrawDebug(const PhysicsManager& physics)
     {
@@ -47,7 +47,7 @@ namespace abyss::Debug
         {
             const auto& colliders = physics.getContacters();
 
-            Log::InfoUpdate(U"[Map Colliders] {}"_fmt(colliders.size()));
+            Watcher::Print(U"[Map Colliders] {}"_fmt(colliders.size()));
 
             for (auto&& col : colliders) {
                 if (!col->isActive()) {
@@ -58,7 +58,7 @@ namespace abyss::Debug
         }
         {
             const auto& terrains = physics.getTerrains();
-            Log::InfoUpdate(U"[Map Terrain] {}"_fmt(terrains.size()));
+            Watcher::Print(U"[Map Terrain] {}"_fmt(terrains.size()));
 
             for (auto&& terrain : terrains) {
                 if (!terrain->isActive()) {
@@ -109,7 +109,7 @@ namespace abyss::Debug
         if (!MenuUtil::IsDebug(DebugFlag::AlertDecorCount)) {
             return;
         }
-        Log::InfoUpdate(
+        Watcher::Print(
             U"[LogDecorCount]\n"
             "  Decor: {}"
             ""_fmt(decor.size())
@@ -120,7 +120,7 @@ namespace abyss::Debug
         if (!MenuUtil::IsDebug(DebugFlag::AlertEffectCount)) {
             return;
         }
-        Log::InfoUpdate(
+        Watcher::Print(
             U"[LogEffectCount]\n"
             "  Effect: {}"
             ""_fmt(effects.size())
@@ -138,7 +138,7 @@ namespace abyss::Debug
         for (DrawLayer layer = DrawLayer::BackGround; layer < DrawLayer::Size; ++layer) {
             logMsg += U"\n  {}: {}"_fmt(Enum::ToStrView(layer), drawManager->size(layer));
         }
-        Log::InfoUpdate(logMsg);
+        Watcher::Print(logMsg);
     }
     bool DebugUtil::FileEdit(const s3d::FilePath& path)
     {

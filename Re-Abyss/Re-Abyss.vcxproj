@@ -242,6 +242,7 @@
     <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
+    <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
@@ -1117,6 +1118,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
