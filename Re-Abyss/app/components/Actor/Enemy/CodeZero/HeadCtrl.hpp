@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/types/Look.hpp>
+#include <abyss/utils/Look/Look.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero

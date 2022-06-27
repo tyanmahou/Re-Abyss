@@ -774,7 +774,7 @@
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
-    <ClCompile Include="app\types\Look.cpp" />
+    <ClCompile Include="app\utils\Look\Look.cpp" />
     <ClCompile Include="app\types\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\types\UserPlayMode.cpp" />
@@ -1883,7 +1883,7 @@
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
-    <ClInclude Include="app\types\Look.hpp" />
+    <ClInclude Include="app\utils\Look\Look.hpp" />
     <ClInclude Include="app\types\Novel\CharaKind.hpp" />
     <ClInclude Include="app\types\Novel\Face.hpp" />
     <ClInclude Include="app\types\Novel\Name.hpp" />

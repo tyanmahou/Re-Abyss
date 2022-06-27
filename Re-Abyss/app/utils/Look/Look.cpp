@@ -1,4 +1,4 @@
-#include <abyss/types/Look.hpp>
+#include <abyss/utils/Look/Look.hpp>
 
 namespace abyss
 {

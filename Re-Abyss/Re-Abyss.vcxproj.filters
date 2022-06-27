@@ -1704,7 +1704,7 @@
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\types\Look.cpp">
+    <ClCompile Include="app\utils\Look\Look.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\types\UserPlayMode.cpp">
@@ -5053,7 +5053,7 @@
     <ClInclude Include="app\types\Forward.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Look.hpp">
+    <ClInclude Include="app\utils\Look\Look.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\types\OopartsType.hpp">
