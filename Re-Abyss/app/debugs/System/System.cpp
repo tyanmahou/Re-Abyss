@@ -4,10 +4,11 @@
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <abyss/debugs/FPSViewer/FPSViewer.hpp>
 #include <abyss/debugs/Log/Log.hpp>
+#include <abyss/debugs/Log/LogViewer.hpp>
 #include <abyss/debugs/Menu/Menu.hpp>
 #include <abyss/debugs/Pause/Pause.hpp>
-#include <abyss/debugs/Log/LogViewer.hpp>
 #include <abyss/debugs/Watcher/Watcher.hpp>
+#include <abyss/debugs/Watcher/WatchViewer.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -61,6 +62,7 @@ namespace abyss::Debug
 		{
 			// ログ更新
             m_log.update();
+            m_watcher.update();
 
 			// FPS制御
 			m_fpsViewer.update();
@@ -77,6 +79,7 @@ namespace abyss::Debug
 		{
 			m_rt.draw();
             m_log.draw();
+            m_watcher.draw();
 			if (this->isPause()) {
                 m_menu.draw();
 			}
@@ -113,6 +116,10 @@ namespace abyss::Debug
         {
             return m_log;
         }
+        WatchViewer& watcher()
+        {
+            return m_watcher;
+        }
 	private:
         SystemContext m_context;
         Pause m_pause;
@@ -120,6 +127,7 @@ namespace abyss::Debug
 		FPSViewer m_fpsViewer;
 		s3d::RenderTexture m_rt;
         LogViewer m_log;
+        WatchViewer m_watcher;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())
@@ -148,6 +156,10 @@ namespace abyss::Debug
     LogViewer& System::GetLogViewer()
     {
         return Instance()->m_pImpl->log();
+    }
+    WatchViewer& System::GetWatchViewer()
+    {
+        return Instance()->m_pImpl->watcher();
     }
 }
 #endif

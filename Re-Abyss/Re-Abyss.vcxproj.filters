@@ -2144,6 +2144,9 @@
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5681,6 +5684,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

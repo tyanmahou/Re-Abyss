@@ -9,6 +9,7 @@ namespace abyss::Debug
 {
     class Menu;
     class LogViewer;
+    class WatchViewer;
 
 	/// <summary>
 	/// デバッグシステム
@@ -30,6 +31,9 @@ namespace abyss::Debug
 
         friend class Log;
         static LogViewer& GetLogViewer();
+
+        friend class Watcher;
+        static WatchViewer& GetWatchViewer();
 	private:
 		class Impl;
 		std::unique_ptr<Impl> m_pImpl;
