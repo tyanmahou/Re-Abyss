@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/modules/GlobalTime/GlobalTimeScale.hpp>
 #include <abyss/components/Event/base/ILastUpdate.hpp>
-#include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
 
 namespace abyss::Event
 {
@@ -16,7 +16,7 @@ namespace abyss::Event
         void onLastUpdate() override;
     private:
         EventObj* m_pEvent;
-        std::shared_ptr<GlobalTimeScaleModel> m_timeScaleModel;
+        std::shared_ptr<GlobalTimeScale> m_timeScaleModel;
     };
 }
 

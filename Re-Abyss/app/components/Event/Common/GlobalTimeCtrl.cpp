@@ -8,7 +8,7 @@ namespace abyss::Event
 {
     GlobalTimeCtrl::GlobalTimeCtrl(EventObj* pEvent):
         m_pEvent(pEvent),
-        m_timeScaleModel(std::make_shared<GlobalTimeScaleModel>())
+        m_timeScaleModel(std::make_shared<GlobalTimeScale>())
     {}
     void GlobalTimeCtrl::onStart()
     {

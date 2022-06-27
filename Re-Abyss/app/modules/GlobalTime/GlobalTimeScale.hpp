@@ -2,13 +2,13 @@
 
 namespace abyss
 {
-    class GlobalTimeScaleModel
+    class GlobalTimeScale
     {
         double m_scale = 1.0;
     public:
-        GlobalTimeScaleModel() = default;
+        GlobalTimeScale() = default;
 
-        GlobalTimeScaleModel& setScale(double scale)
+        GlobalTimeScale& setScale(double scale)
         {
             m_scale = scale;
             return *this;

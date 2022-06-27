@@ -11,7 +11,7 @@ namespace abyss
     private:
         Stopwatch m_stopwatch{ StartImmediately::Yes };
         double m_timeScale = 1.0;
-        s3d::Array<std::weak_ptr<GlobalTimeScaleModel>> m_timeScaleModels;
+        s3d::Array<std::weak_ptr<GlobalTimeScale>> m_timeScaleModels;
         double m_totalTimeSec = 0.0;
         double m_deltaTimeSec = 0.0;
 
@@ -22,7 +22,7 @@ namespace abyss
             auto prevTime = m_currentRealTime;
 
             m_timeScale = 1.0;
-            m_timeScaleModels.remove_if([](const std::weak_ptr<GlobalTimeScaleModel>& elm) {
+            m_timeScaleModels.remove_if([](const std::weak_ptr<GlobalTimeScale>& elm) {
                 return elm.expired();
             });
             for (const auto& elm : m_timeScaleModels) {
@@ -66,7 +66,7 @@ namespace abyss
             m_stopwatch.resume();
         }
 
-        void addTimeScale(const std::shared_ptr<GlobalTimeScaleModel>& timeScale)
+        void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale)
         {
             m_timeScaleModels.push_back(timeScale);
         }
@@ -113,7 +113,7 @@ namespace abyss
     {
         return m_pImpl->isPause();
     }
-    void GlobalTime::addTimeScale(const std::shared_ptr<GlobalTimeScaleModel>& timeScale)
+    void GlobalTime::addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale)
     {
         return m_pImpl->addTimeScale(timeScale);
     }

@@ -4493,7 +4493,7 @@
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\GlobalTime\GlobalTimeScaleModel.hpp">
+    <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\Novel\CharaModel.hpp">

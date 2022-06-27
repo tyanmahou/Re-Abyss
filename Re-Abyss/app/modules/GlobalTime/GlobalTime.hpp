@@ -2,7 +2,7 @@
 #include <memory>
 #include <Siv3D/Duration.hpp>
 #include <Siv3D/ISteadyClock.hpp>
-#include <abyss/models/GlobalTime/GlobalTimeScaleModel.hpp>
+#include <abyss/modules/GlobalTime/GlobalTimeScale.hpp>
 
 using namespace std::literals;
 
@@ -32,6 +32,6 @@ namespace abyss
 
         bool isPuase() const;
 
-        void addTimeScale(const std::shared_ptr<GlobalTimeScaleModel>& timeScale);
+        void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale);
     };
 }
