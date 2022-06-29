@@ -18,7 +18,7 @@ namespace abyss
     class Camera
     {
 	private:
-		Manager* m_pManager;
+		Manager* m_pManager = nullptr;
 		std::unique_ptr<CameraModel> m_camera;
 		std::unique_ptr<CameraTargetCtrl> m_target;
 		std::unique_ptr<CameraFixCtrl> m_fixCtrl;
