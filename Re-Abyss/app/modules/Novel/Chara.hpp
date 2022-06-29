@@ -1,16 +1,16 @@
 #pragma once
-#include <abyss/types/Novel/CharaKind.hpp>
-#include <abyss/types/Novel/Name.hpp>
-#include <abyss/types/Novel/Face.hpp>
+#include <abyss/modules/Novel/CharaKind.hpp>
+#include <abyss/modules/Novel/Name.hpp>
+#include <abyss/modules/Novel/Face.hpp>
 #include <Siv3D/Texture.hpp>
 #include <Siv3D/String.hpp>
 
 namespace abyss::Novel
 {
-    class CharaModel
+    class Chara
     {
     public:
-        CharaModel& setKind(CharaKind kind)
+        Chara& setKind(CharaKind kind)
         {
             m_kind = kind;
             return *this;
@@ -19,7 +19,7 @@ namespace abyss::Novel
         {
             return m_kind;
         }
-        CharaModel& setName(const Name& name)
+        Chara& setName(const Name& name)
         {
             m_name = name;
             return *this;
@@ -28,7 +28,7 @@ namespace abyss::Novel
         {
             return m_name;
         }
-        CharaModel& setFacePath(const s3d::FilePath& facePath)
+        Chara& setFacePath(const s3d::FilePath& facePath)
         {
             m_facePath = facePath;
             return *this;

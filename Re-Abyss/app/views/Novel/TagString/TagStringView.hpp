@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Font.hpp>
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/types/Novel/TagString.hpp>
+#include <abyss/modules/Novel/TagString.hpp>
 
 namespace abyss::Novel
 {

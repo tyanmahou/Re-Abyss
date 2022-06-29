@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
-#include <abyss/types/Novel/CharaKind.hpp>
-#include <abyss/types/Novel/Face.hpp>
-#include <abyss/types/Novel/Side.hpp>
+#include <abyss/modules/Novel/CharaKind.hpp>
+#include <abyss/modules/Novel/Face.hpp>
+#include <abyss/modules/Novel/Side.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss::Novel

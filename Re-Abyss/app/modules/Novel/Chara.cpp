@@ -1,4 +1,4 @@
-#include <abyss/models/Novel/CharaModel.hpp>
+#include <abyss/modules/Novel/Chara.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace
@@ -13,12 +13,12 @@ namespace
 
 namespace abyss::Novel
 {
-    bool CharaModel::isFindFace(const Face& face) const
+    bool Chara::isFindFace(const Face& face) const
     {
         return ::Load(m_facePath).isContain(face);
     }
 
-    s3d::Texture CharaModel::getFace(const Face& face) const
+    s3d::Texture Chara::getFace(const Face& face) const
     {
         return ::Load(m_facePath)(face);
     }

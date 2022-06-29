@@ -1,4 +1,4 @@
-#include <abyss/types/Novel/TagString.hpp>
+#include <abyss/modules/Novel/TagString.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
 namespace abyss::Novel

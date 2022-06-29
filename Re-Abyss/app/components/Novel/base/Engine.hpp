@@ -7,7 +7,7 @@
 #include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
-#include <abyss/models/Novel/SerifModel.hpp>
+#include <abyss/modules/Novel/Serif.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -30,7 +30,7 @@ namespace abyss::Novel
         }
         void addCommand(std::shared_ptr<ICommand> command);
 
-        const SerifModel& getSerif() const
+        const Serif& getSerif() const
         {
             return m_serif;
         }
@@ -73,7 +73,7 @@ namespace abyss::Novel
     private:
         TalkObj* m_pTalk;
 
-        SerifModel m_serif;
+        Serif m_serif;
         TagString m_prevMessage;
         std::stack<s3d::ColorF> m_color;
         bool m_isShake = false;

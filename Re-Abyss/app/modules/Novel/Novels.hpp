@@ -70,7 +70,7 @@ namespace abyss::Novel
         /// </summary>
         /// <param name="kind"></param>
         /// <returns></returns>
-        s3d::Optional<CharaModel> findChara(CharaKind kind) const;
+        s3d::Optional<Chara> findChara(CharaKind kind) const;
 
         /// <summary>
         /// コンポーネントの検索

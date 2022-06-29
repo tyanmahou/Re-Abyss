@@ -1,19 +1,19 @@
 #pragma once
-#include <abyss/types/Novel/CharaKind.hpp>
-#include <abyss/types/Novel/Side.hpp>
-#include <abyss/types/Novel/Name.hpp>
-#include <abyss/types/Novel/Face.hpp>
-#include <abyss/types/Novel/TagString.hpp>
+#include <abyss/modules/Novel/CharaKind.hpp>
+#include <abyss/modules/Novel/Side.hpp>
+#include <abyss/modules/Novel/Name.hpp>
+#include <abyss/modules/Novel/Face.hpp>
+#include <abyss/modules/Novel/TagString.hpp>
 
 namespace abyss::Novel
 {
     /// <summary>
     /// セリフ1つの情報
     /// </summary>
-    class SerifModel
+    class Serif
     {
     public:
-        SerifModel& setKind(CharaKind kind)
+        Serif& setKind(CharaKind kind)
         {
             m_kind = kind;
             return *this;
@@ -23,7 +23,7 @@ namespace abyss::Novel
             return m_kind;
         }
 
-        SerifModel& setSide(Side side)
+        Serif& setSide(Side side)
         {
             m_side = side;
             return *this;
@@ -42,7 +42,7 @@ namespace abyss::Novel
         {
             return m_side == Side::Right;
         }
-        SerifModel& setFace(const Face& face)
+        Serif& setFace(const Face& face)
         {
             m_face = face;
             return *this;
@@ -52,7 +52,7 @@ namespace abyss::Novel
             return m_face;
         }
 
-        SerifModel& setName(const Name& name)
+        Serif& setName(const Name& name)
         {
             m_name = name;
             return *this;
@@ -62,7 +62,7 @@ namespace abyss::Novel
             return m_name;
         }
         
-        SerifModel& setMessage(const TagString& message)
+        Serif& setMessage(const TagString& message)
         {
             m_message = message;
             return *this;

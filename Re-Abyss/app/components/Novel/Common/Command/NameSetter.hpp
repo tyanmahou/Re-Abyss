@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
-#include <abyss/types/Novel/Name.hpp>
+#include <abyss/modules/Novel/Name.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss::Novel

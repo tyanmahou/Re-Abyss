@@ -38,7 +38,7 @@ namespace abyss::Novel
         m_talks.push(talk);
         return talk;
     }
-    s3d::Optional<CharaModel> Novels::findChara(CharaKind kind) const
+    s3d::Optional<Chara> Novels::findChara(CharaKind kind) const
     {
         if (!m_charaTable) {
             return s3d::none;

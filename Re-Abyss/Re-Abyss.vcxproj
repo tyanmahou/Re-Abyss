@@ -662,7 +662,7 @@
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\models\Camera\CameraModel.cpp" />
     <ClCompile Include="app\models\Camera\QuakeModel.cpp" />
-    <ClCompile Include="app\models\Novel\CharaModel.cpp" />
+    <ClCompile Include="app\modules\Novel\Chara.cpp" />
     <ClCompile Include="app\modules\Room\RoomData.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
@@ -775,7 +775,7 @@
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\Look\Look.cpp" />
-    <ClCompile Include="app\types\Novel\TagString.cpp" />
+    <ClCompile Include="app\modules\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\types\UserPlayMode.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
@@ -1692,8 +1692,8 @@
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp" />
-    <ClInclude Include="app\models\Novel\CharaModel.hpp" />
-    <ClInclude Include="app\models\Novel\SerifModel.hpp" />
+    <ClInclude Include="app\modules\Novel\Chara.hpp" />
+    <ClInclude Include="app\modules\Novel\Serif.hpp" />
     <ClInclude Include="app\modules\Room\RoomData.hpp" />
     <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
@@ -1884,11 +1884,11 @@
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
     <ClInclude Include="app\types\Forward.hpp" />
     <ClInclude Include="app\utils\Look\Look.hpp" />
-    <ClInclude Include="app\types\Novel\CharaKind.hpp" />
-    <ClInclude Include="app\types\Novel\Face.hpp" />
-    <ClInclude Include="app\types\Novel\Name.hpp" />
-    <ClInclude Include="app\types\Novel\Side.hpp" />
-    <ClInclude Include="app\types\Novel\TagString.hpp" />
+    <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
+    <ClInclude Include="app\modules\Novel\Face.hpp" />
+    <ClInclude Include="app\modules\Novel\Name.hpp" />
+    <ClInclude Include="app\modules\Novel\Side.hpp" />
+    <ClInclude Include="app\modules\Novel\TagString.hpp" />
     <ClInclude Include="app\types\OopartsType.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />

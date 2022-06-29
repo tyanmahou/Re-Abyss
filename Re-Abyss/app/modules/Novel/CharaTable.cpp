@@ -5,7 +5,7 @@ namespace abyss::Novel
 {
     CharaTable::CharaTable()
     {
-        // @todo 外部からロードになる
+        // TODO 外部からロードになる
         m_table[CharaKind::Player]
             .setKind(CharaKind::Player)
             .setName(U"Player")
@@ -19,7 +19,7 @@ namespace abyss::Novel
             .setName(U"DrQuery")
             .setFacePath(U"Actor/Enemy/DrQuery/Face.json");
     }
-    void CharaTable::add(const CharaModel& chara)
+    void CharaTable::add(const Chara& chara)
     {
         m_table[chara.getKind()] = chara;
     }
@@ -27,14 +27,14 @@ namespace abyss::Novel
     {
         return m_table.contains(kind);
     }
-    s3d::Optional<CharaModel> CharaTable::find(CharaKind kind) const
+    s3d::Optional<Chara> CharaTable::find(CharaKind kind) const
     {
         if (!isContain(kind)) {
             return s3d::none;
         }
         return this->get(kind);
     }
-    const CharaModel& CharaTable::get(CharaKind kind) const
+    const Chara& CharaTable::get(CharaKind kind) const
     {
         return m_table.at(kind);
     }

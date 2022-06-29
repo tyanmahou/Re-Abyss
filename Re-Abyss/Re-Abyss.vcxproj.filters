@@ -1404,7 +1404,7 @@
     <ClCompile Include="app\models\Camera\QuakeModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Novel\CharaModel.cpp">
+    <ClCompile Include="app\modules\Novel\Chara.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Room\RoomData.cpp">
@@ -1698,7 +1698,7 @@
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\types\Novel\TagString.cpp">
+    <ClCompile Include="app\modules\Novel\TagString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
@@ -4496,10 +4496,10 @@
     <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Novel\CharaModel.hpp">
+    <ClInclude Include="app\modules\Novel\Chara.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Novel\SerifModel.hpp">
+    <ClInclude Include="app\modules\Novel\Serif.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Room\RoomData.hpp">
@@ -5020,19 +5020,19 @@
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Novel\CharaKind.hpp">
+    <ClInclude Include="app\modules\Novel\CharaKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Novel\Face.hpp">
+    <ClInclude Include="app\modules\Novel\Face.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Novel\Name.hpp">
+    <ClInclude Include="app\modules\Novel\Name.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Novel\Side.hpp">
+    <ClInclude Include="app\modules\Novel\Side.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\types\Novel\TagString.hpp">
+    <ClInclude Include="app\modules\Novel\TagString.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp">
