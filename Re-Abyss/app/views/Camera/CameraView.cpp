@@ -2,7 +2,7 @@
 
 #include <Siv3D.hpp>
 
-#include <abyss/models/Camera/CameraModel.hpp>
+#include <abyss/modules/Camera/CameraParam.hpp>
 #include <abyss/commons/Constants.hpp>
 
 namespace abyss
@@ -11,7 +11,7 @@ namespace abyss
 	{
 		return s3d::Transformer2D(mat, TransformCursor::Yes, Transformer2D::Target::SetLocal);
 	}
-	CameraView::CameraView(const CameraModel* const pCamera, const s3d::Vec2& quakeOffset) :
+	CameraView::CameraView(const CameraParam* const pCamera, const s3d::Vec2& quakeOffset) :
 		m_pCamera(pCamera),
 		m_quakeOffset(quakeOffset)
 	{}

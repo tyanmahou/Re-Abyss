@@ -13,7 +13,7 @@
 namespace abyss
 {
 	Camera::Camera():
-		m_camera(std::make_unique<CameraModel>()),
+		m_camera(std::make_unique<CameraParam>()),
 		m_target(std::make_unique<CameraTargetCtrl>()),
 		m_fixCtrl(std::make_unique<CameraFixCtrl>()),
 		m_quake(std::make_unique<Quake>()),

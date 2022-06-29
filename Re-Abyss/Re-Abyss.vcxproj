@@ -660,7 +660,7 @@
     <ClCompile Include="app\models\Actor\Gimmick\Door\DoorModel.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
-    <ClCompile Include="app\models\Camera\CameraModel.cpp" />
+    <ClCompile Include="app\modules\Camera\CameraParam.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp" />
     <ClCompile Include="app\modules\Novel\Chara.cpp" />
     <ClCompile Include="app\modules\Room\RoomData.cpp" />
@@ -1687,7 +1687,7 @@
     <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp" />
-    <ClInclude Include="app\models\Camera\CameraModel.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraParam.hpp" />
     <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp" />
     <ClInclude Include="app\models\Decor\Map\TileModel.hpp" />

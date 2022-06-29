@@ -1398,7 +1398,7 @@
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Camera\CameraModel.cpp">
+    <ClCompile Include="app\modules\Camera\CameraParam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp">
@@ -4481,7 +4481,7 @@
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Camera\CameraModel.hpp">
+    <ClInclude Include="app\modules\Camera\CameraParam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp">

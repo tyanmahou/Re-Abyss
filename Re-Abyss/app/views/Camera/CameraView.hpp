@@ -7,12 +7,14 @@
 
 namespace abyss
 {
+    class CameraParam;
+
 	class CameraView
 	{
 	public:
 		static s3d::Transformer2D Transformer(const s3d::Mat3x2& mat);
 	public:
-		CameraView(const CameraModel* const pCamera, const s3d::Vec2& quakeOffset);
+		CameraView(const CameraParam* const pCamera, const s3d::Vec2& quakeOffset);
 
 		const s3d::Vec2& getCameraPos() const;
 		const s3d::Vec2& getQuakeOffset() const;
@@ -27,7 +29,7 @@ namespace abyss
 		s3d::Transformer2D getTransformer() const;
 
 	private:
-		const CameraModel* const m_pCamera;
+		const CameraParam* const m_pCamera;
 		const s3d::Vec2 m_quakeOffset;
 	};
 }

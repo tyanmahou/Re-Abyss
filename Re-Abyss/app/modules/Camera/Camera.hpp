@@ -4,7 +4,7 @@
 #include <Siv3D/Fwd.hpp>
 
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/models/Camera/CameraModel.hpp>
+#include <abyss/modules/Camera/CameraParam.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss
@@ -19,7 +19,7 @@ namespace abyss
     {
 	private:
 		Manager* m_pManager = nullptr;
-		std::unique_ptr<CameraModel> m_camera;
+		std::unique_ptr<CameraParam> m_camera;
 		std::unique_ptr<CameraTargetCtrl> m_target;
 		std::unique_ptr<CameraFixCtrl> m_fixCtrl;
 		std::unique_ptr<Quake> m_quake;

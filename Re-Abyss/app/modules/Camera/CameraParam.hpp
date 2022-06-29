@@ -9,7 +9,7 @@
 
 namespace abyss
 {
-	class CameraModel
+	class CameraParam
 	{
 	private:
 		s3d::Vec2 m_pos;
@@ -17,7 +17,7 @@ namespace abyss
 		double m_zoomScale = 1.0;
 
 	public:
-		CameraModel();
+		CameraParam();
 
 		void setPos(const s3d::Vec2 pos);
 		const s3d::Vec2& getPos()const;

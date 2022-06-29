@@ -177,7 +177,6 @@ namespace abyss
 	/// <summary>
 	/// Models
 	/// </summary>
-	class CameraModel;
 	namespace User
 	{
 		class UserModel;
