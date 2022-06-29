@@ -4,7 +4,6 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/models/Camera/QuakeModel.hpp>
 
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Builder.hpp>
 

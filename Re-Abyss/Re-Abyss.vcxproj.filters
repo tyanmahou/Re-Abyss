@@ -1401,7 +1401,7 @@
     <ClCompile Include="app\models\Camera\CameraModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Camera\QuakeModel.cpp">
+    <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Novel\Chara.cpp">
@@ -4484,7 +4484,7 @@
     <ClInclude Include="app\models\Camera\CameraModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Camera\QuakeModel.hpp">
+    <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp">

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <functional>
 
 #include <Siv3D/Fwd.hpp>
@@ -61,7 +61,7 @@ namespace abyss
 		/// </summary>
 		/// <param name="maxOffset"></param>
 		/// <param name="timeSec"></param>
-		Ref<QuakeModel> startQuake(double maxOffset = 5.0, double timeSec = -1.0);
+		Ref<QuakeEpicenter> startQuake(double maxOffset = 5.0, double timeSec = -1.0);
 
 		/// <summary>
 		/// 地震停止

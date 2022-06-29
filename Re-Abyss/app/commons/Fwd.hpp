@@ -19,6 +19,7 @@ namespace abyss
 	class GlobalTime;
 	class Camera;
 	class Quake;
+    class QuakeEpicenter;
 	class Distortion;
 	class ICameraWork;
 	class World;
@@ -177,7 +178,6 @@ namespace abyss
 	/// Models
 	/// </summary>
 	class CameraModel;
-	class QuakeModel;
 	namespace User
 	{
 		class UserModel;

@@ -1,17 +1,17 @@
-#include <abyss/models/Camera/QuakeModel.hpp>
+#include <abyss/modules/Camera/Quake/QuakeEpicenter.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
 {
-    QuakeModel::QuakeModel(double maxOffset, double timeSec) :
+    QuakeEpicenter::QuakeEpicenter(double maxOffset, double timeSec) :
         m_maxOffset(maxOffset),
         m_timeSec(timeSec),
         m_offset(0, 0),
         m_offsetTarget(0, 0)
     {}
 
-    void QuakeModel::update(double dt)
+    void QuakeEpicenter::update(double dt)
     {
         if (dt <= 0.0) {
             return;
@@ -25,11 +25,11 @@ namespace abyss
         }
         m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, 120.0));
     }
-    void QuakeModel::stop()
+    void QuakeEpicenter::stop()
     {
         m_isStop = true;
     }
-    bool QuakeModel::isEnd() const
+    bool QuakeEpicenter::isEnd() const
     {
         if (m_isStop) {
             return true;
@@ -39,7 +39,7 @@ namespace abyss
         }
         return m_elapsedSec > m_timeSec;
     }
-    const s3d::Vec2& QuakeModel::getOffset() const
+    const s3d::Vec2& QuakeEpicenter::getOffset() const
     {
         return m_offset;
     }

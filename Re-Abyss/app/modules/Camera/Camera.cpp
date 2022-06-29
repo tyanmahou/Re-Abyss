@@ -1,7 +1,5 @@
 #include <abyss/modules/Camera/Camera.hpp>
 
-#include <abyss/models/Camera/QuakeModel.hpp>
-
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
@@ -67,9 +65,9 @@ namespace abyss
 		m_fixCtrl->remove(fix);
 	}
 
-	Ref<QuakeModel> Camera::startQuake(double maxOffset, double timeSec)
+	Ref<QuakeEpicenter> Camera::startQuake(double maxOffset, double timeSec)
 	{
-		auto quake = std::make_shared<QuakeModel>(maxOffset, timeSec);
+		auto quake = std::make_shared<QuakeEpicenter>(maxOffset, timeSec);
 		m_quake->add(quake);
 		return quake;
 	}

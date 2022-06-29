@@ -1,10 +1,9 @@
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <Siv3D.hpp>
-#include <abyss/models/Camera/QuakeModel.hpp>
 
 namespace abyss
 {
-    void Quake::add(const std::shared_ptr<QuakeModel>& quake)
+    void Quake::add(const std::shared_ptr<QuakeEpicenter>& quake)
     {
         m_quakes.push_back(quake);
     }
@@ -21,7 +20,7 @@ namespace abyss
             quake->update(dt);
             offset += quake->getOffset();
         }
-        m_quakes.remove_if([](const std::shared_ptr<QuakeModel>& quake) {
+        m_quakes.remove_if([](const std::shared_ptr<QuakeEpicenter>& quake) {
             return quake->isEnd();
         });
         m_offset = offset;
