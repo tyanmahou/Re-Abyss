@@ -9,16 +9,13 @@
 
 namespace abyss::Actor::Player
 {
-    DoorInState::DoorInState(const Ref<Gimmick::Door::DoorProxy>& door):
-        m_door(door)
+    DoorInState::DoorInState(const Gimmick::Door::DoorData& door, const Room::RoomData& room):
+        m_door(door),
+        m_room(room)
     {}
 
     void DoorInState::start()
     {
-        if (!m_door) {
-            this->changeState<SwimState>();
-            return;
-        }
         m_motion->set(Motion::Door);
 
         // SE
@@ -29,12 +26,12 @@ namespace abyss::Actor::Player
 
         // 速度0にする
         m_body->setVelocity(Vec2::Zero());
-        m_body->setForward(m_door->getTargetForward());
+        m_body->setForward(m_door.getTargetForward());
 
         // ドア移動
         m_pActor->getModule<Events>()->create<Event::RoomMove::DoorMove::Builder>(
-            m_door->getNextRoom(),
-            m_door->getDoor(),
+            m_room,
+            m_door,
             m_body->getPos(),
             [this]() {
             // ステートを更新する
@@ -43,9 +40,9 @@ namespace abyss::Actor::Player
             stateCtrl->stateUpdate();
         });
 
-        if (m_door->isSave()) {
+        if (m_door.isSave()) {
             // セーブ対象だった場合
-            m_pActor->getModule<Temporary>()->reserveRestartId(m_door->getStartId());
+            m_pActor->getModule<Temporary>()->reserveRestartId(m_door.getStartId());
         }
     }
     void DoorInState::end()

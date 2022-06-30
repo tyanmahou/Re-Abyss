@@ -7,13 +7,6 @@ namespace abyss::Actor::Gimmick::Door
 {
     class DoorData
     {
-        s3d::int32 m_startId;
-        s3d::Vec2 m_pos;
-        s3d::Vec2 m_targetPos;
-        Forward m_targetForward;
-        s3d::Vec2 m_size;
-        DoorKind m_kind;
-        bool m_isSave = true;
     public:
         DoorData() = default;
         DoorData(
@@ -55,5 +48,13 @@ namespace abyss::Actor::Gimmick::Door
             return m_isSave;
         }
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
+    private:
+        s3d::int32 m_startId;
+        s3d::Vec2 m_pos;
+        s3d::Vec2 m_targetPos;
+        Forward m_targetForward;
+        s3d::Vec2 m_size;
+        DoorKind m_kind;
+        bool m_isSave = true;
     };
 }

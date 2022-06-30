@@ -2,14 +2,17 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
+
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
+#include <abyss/components/Actor/Gimmick/Door/DoorData.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
-    GimmickReactor::GimmickReactor(ActorObj* pActor):
+    GimmickReactor::GimmickReactor(ActorObj* pActor) :
         m_pActor(pActor)
     {}
     void GimmickReactor::onStart()
@@ -17,7 +20,7 @@ namespace abyss::Actor::Gimmick::Door
         m_door = m_pActor->find<DoorProxy>();
         m_collider = m_pActor->find<Collider>()->main();
     }
-    void GimmickReactor::onGimmickReact(ActorObj * player)
+    void GimmickReactor::onGimmickReact(ActorObj* player)
     {
         auto playerCollider = player->find<Collider>()->main();
         if (m_collider && playerCollider) {
@@ -31,7 +34,22 @@ namespace abyss::Actor::Gimmick::Door
             return;
         }
         if (InputManager::Up.down()) {
-            player->find<StateCtrl>()->changeState<Player::DoorInState>(m_door);
+            auto pStage = m_pActor->getModule<Stage>();
+            if (auto startPos = pStage->findStartPos(m_door->getStartId())) {
+                if (auto room = pStage->findRoom(startPos->getPos())) {
+                    Door::DoorData door{
+                        startPos->getStartId(),
+                        m_door->getPos(),
+                        startPos->getPos(),
+                        startPos->getForward(),
+                        m_door->getSize(),
+                        m_door->getKind(),
+                        startPos->isSave()
+                    };
+                    player->find<StateCtrl>()->changeState<Player::DoorInState>(door, *room);
+                    return;
+                }
+            }
         }
     }
 }

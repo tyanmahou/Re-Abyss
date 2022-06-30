@@ -1,6 +1,5 @@
 #include <abyss/components/Actor/Gimmick/Door/Builder.hpp>
 
-#include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
@@ -20,26 +19,7 @@ namespace abyss::Actor::Gimmick::Door
         pActor->setDestoryTiming(DestoryTiming::CheckIn);
 
         // プロキシー
-        Ref<DoorProxy> proxy;
-        auto pStage = pActor->getModule<Stage>();
-        if (auto startPos = pStage->findStartPos(entity.startId)) {
-            if (auto room = pStage->findRoom(startPos->getPos())) {
-                Door::DoorData door{
-                    startPos->getStartId(),
-                    entity.pos,
-                    startPos->getPos(),
-                    startPos->getForward(),
-                    entity.size,
-                    entity.kind,
-                    startPos->isSave()
-                };
-                proxy = pActor->attach<DoorProxy>(pActor, door, *room);
-            }
-        }
-        if (!proxy) {
-            pActor->destroy();
-            return;
-        }
+        auto proxy = pActor->attach<DoorProxy>(pActor, entity);
 
         // コライダー
         {
