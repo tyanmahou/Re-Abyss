@@ -5,7 +5,7 @@
 
 namespace abyss::Actor::Gimmick::Door
 {
-    class DoorModel
+    class DoorData
     {
         s3d::int32 m_startId;
         s3d::Vec2 m_pos;
@@ -15,8 +15,8 @@ namespace abyss::Actor::Gimmick::Door
         DoorKind m_kind;
         bool m_isSave = true;
     public:
-        DoorModel() = default;
-        DoorModel(
+        DoorData() = default;
+        DoorData(
             s3d::int32 startId,
             const s3d::Vec2& pos, 
             const s3d::Vec2& targetPos, 

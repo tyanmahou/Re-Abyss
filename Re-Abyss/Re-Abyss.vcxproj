@@ -657,7 +657,7 @@
     <ClCompile Include="app\commons\Factory\Storage\Injector.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\Main.cpp" />
-    <ClCompile Include="app\models\Actor\Gimmick\Door\DoorModel.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp" />
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
     <ClCompile Include="app\modules\Camera\CameraParam.cpp" />
@@ -1119,6 +1119,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
@@ -1684,7 +1685,6 @@
     <ClInclude Include="app\commons\Factory\Stage\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Migration\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Storage\Injector.hpp" />
-    <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp" />
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp" />
     <ClInclude Include="app\modules\Camera\CameraParam.hpp" />

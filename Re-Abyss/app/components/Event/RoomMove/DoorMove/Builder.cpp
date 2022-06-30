@@ -14,7 +14,7 @@ namespace abyss::Event::RoomMove::DoorMove
     void Builder::Build(
         EventObj* pEvent,
         const Room::RoomData& nextRoom,
-        const Actor::Gimmick::Door::DoorModel& door,
+        const Actor::Gimmick::Door::DoorData& door,
         const s3d::Vec2& playerPos,
         std::function<void()> fadeInCallback,
         double milliSec

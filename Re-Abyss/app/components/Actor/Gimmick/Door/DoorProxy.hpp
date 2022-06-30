@@ -3,7 +3,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Room/RoomData.hpp>
-#include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
+#include <abyss/components/Actor/Gimmick/Door/DoorData.hpp>
 #include <abyss/utils/Collision/CShape.hpp>
 
 namespace abyss::Actor::Gimmick::Door
@@ -12,7 +12,7 @@ namespace abyss::Actor::Gimmick::Door
         public IComponent
     {
     public:
-        DoorProxy(ActorObj* pActor, const DoorModel& door, const Room::RoomData& nextRoom);
+        DoorProxy(ActorObj* pActor, const DoorData& door, const Room::RoomData& nextRoom);
 
         void setup(Executer executer) override;
 
@@ -30,10 +30,10 @@ namespace abyss::Actor::Gimmick::Door
         s3d::Vec2 fixedVisiterPos(const s3d::Vec2& visitSize = { 22,80 }) const;
 
         ActorObj* getActor()const { return m_pActor; }
-        const DoorModel& getDoor() const;
+        const DoorData& getDoor() const;
     private:
         ActorObj* m_pActor;
-        DoorModel m_door;
+        DoorData m_door;
         Room::RoomData m_nextRoom;
     };
 }

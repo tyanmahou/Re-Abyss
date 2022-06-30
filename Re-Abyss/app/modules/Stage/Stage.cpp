@@ -329,7 +329,7 @@ namespace abyss
 
         if (isCheckOut) {
             // ギミックの生成
-            Actor::Gimmick::GimmickTranslator gimmickTranslator(this);
+            Actor::Gimmick::GimmickTranslator gimmickTranslator{};
             for (const auto& gimmick : m_stageData->getGimmicks()) {
                 if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                     continue;

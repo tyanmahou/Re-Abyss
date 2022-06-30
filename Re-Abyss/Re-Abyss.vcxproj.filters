@@ -1389,7 +1389,7 @@
     <ClCompile Include="app\commons\Factory\Storage\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actor\Gimmick\Door\DoorModel.cpp">
+    <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp">
@@ -4472,9 +4472,6 @@
     <ClInclude Include="app\commons\Factory\Storage\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Actor\Gimmick\Door\DoorModel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5687,6 +5684,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

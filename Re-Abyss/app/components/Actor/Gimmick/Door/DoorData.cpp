@@ -1,8 +1,8 @@
-#include <abyss/models/Actor/Gimmick/Door/DoorModel.hpp>
+#include <abyss/components/Actor/Gimmick/Door/DoorData.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
-    DoorModel::DoorModel(
+    DoorData::DoorData(
         s3d::int32 startId,
         const s3d::Vec2& pos,
         const s3d::Vec2& targetPos,
@@ -20,7 +20,7 @@ namespace abyss::Actor::Gimmick::Door
         m_isSave(isSave)
     {}
 
-    s3d::Vec2 DoorModel::fixedVisiterPos(const s3d::Vec2 & visitSize) const
+    s3d::Vec2 DoorData::fixedVisiterPos(const s3d::Vec2 & visitSize) const
     {
         s3d::Vec2 ret = m_pos;
         ret.y += (m_size.y - visitSize.y) / 2.0;

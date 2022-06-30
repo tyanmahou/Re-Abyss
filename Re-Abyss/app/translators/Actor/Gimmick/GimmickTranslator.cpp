@@ -12,13 +12,11 @@
 #include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
 #include <abyss/components/Actor/Gimmick/CodeZeroBack/Builder.hpp>
 
-#include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/World/World.hpp>
 
 namespace abyss::Actor::Gimmick
 {
-    GimmickTranslator::GimmickTranslator(const Stage* pStage):
-        m_pStage(pStage)
+    GimmickTranslator::GimmickTranslator()
     {}
 
     Ref<Actor::ActorObj> GimmickTranslator::buildActor(World& world, const GimmickEntity& entity)
@@ -28,22 +26,23 @@ namespace abyss::Actor::Gimmick
         case GimmickType::StartPos: return nullptr;
         case GimmickType::Door:
         {
-            const auto& doorEntity = static_cast<const DoorEntity&>(entity);
-            if (auto startPos = m_pStage->findStartPos(doorEntity.startId)) {
-                if (auto room = m_pStage->findRoom(startPos->getPos())) {
-                    Door::DoorModel door{
-                        startPos->getStartId(),
-                        doorEntity.pos,
-                        startPos->getPos(),
-                        startPos->getForward(),
-                        doorEntity.size,
-                        doorEntity.kind,
-                        startPos->isSave()
-                    };
-                    return world.create<Door::Builder>(door, *room);
-                }
-            }
-            break;
+            return world.create<Door::Builder>(static_cast<const DoorEntity&>(entity));
+            //const auto& doorEntity = static_cast<const DoorEntity&>(entity);
+            //if (auto startPos = m_pStage->findStartPos(doorEntity.startId)) {
+            //    if (auto room = m_pStage->findRoom(startPos->getPos())) {
+            //        Door::DoorModel door{
+            //            startPos->getStartId(),
+            //            doorEntity.pos,
+            //            startPos->getPos(),
+            //            startPos->getForward(),
+            //            doorEntity.size,
+            //            doorEntity.kind,
+            //            startPos->isSave()
+            //        };
+            //        return world.create<Door::Builder>(door, *room);
+            //    }
+            //}
+            //break;
         }
         case GimmickType::Bulletin:
         {

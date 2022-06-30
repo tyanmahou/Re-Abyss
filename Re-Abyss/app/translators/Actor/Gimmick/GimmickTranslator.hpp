@@ -6,9 +6,8 @@ namespace abyss::Actor::Gimmick
 {
     class GimmickTranslator
     {
-        const Stage* m_pStage = nullptr;
     public:
-        GimmickTranslator(const Stage* pStage);
+        GimmickTranslator();
 
         Ref<Actor::ActorObj> buildActor(World& world, const GimmickEntity& entity);
     };
