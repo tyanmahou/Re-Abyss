@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
+#include <abyss/debugs/Debug.hpp>
 
 namespace abyss::Actor::Gimmick::Door
 {
@@ -50,6 +51,9 @@ namespace abyss::Actor::Gimmick::Door
                     return;
                 }
             }
+#if ABYSS_DEBUG
+            Debug::Log::Warn(U"Not Found Door dest (startId: {})"_fmt(m_door->getStartId()));
+#endif
         }
     }
 }
