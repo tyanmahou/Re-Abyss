@@ -5,7 +5,7 @@
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
 	BabyDuxVM::BabyDuxVM() :
-		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/BabyDux.png"))
+		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/BabyDux.json"))
 	{}
 	BabyDuxVM& BabyDuxVM::setTime(double time)
 	{
@@ -24,7 +24,11 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	}
 	void BabyDuxVM::draw() const
 	{
-		m_texture.drawAt(m_pos, m_colorMul);
+        int32 page = static_cast<int32>(Periodic::Triangle0_1(1.2, m_time) * 3.0);
+        if (page == 3) {
+            page = 2;
+        }
+		m_texture(U"stay")(90 * page, 0, 90, 120).drawAt(m_pos, m_colorMul);
 	}
 }
 

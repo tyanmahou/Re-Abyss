@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <Siv3D/Texture.hpp>
+#include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         BabyDuxVM& setColorMul(const s3d::ColorF color);
         void draw() const;
     private:
-        s3d::Texture m_texture;
+        TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
         double m_time = 0;
