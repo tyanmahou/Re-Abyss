@@ -20,7 +20,7 @@ namespace abyss::Decor
         DecorGraphics m_graphics;
         DecorAnimations m_animation;
 
-        s3d::HashTable<s3d::String, Map::TileMapModel> m_tileMap;
+        s3d::HashTable<s3d::String, Map::TileMapData> m_tileMap;
     public:
         INJECT_CTOR(DecorService(
             std::shared_ptr<IDecorDataStore> decor,
@@ -32,7 +32,7 @@ namespace abyss::Decor
         {
             return m_decors;
         }
-        s3d::Array<Map::TileMapModel> getTileMap(const s3d::RectF& screen) const override;
+        s3d::Array<Map::TileMapData> getTileMap(const s3d::RectF& screen) const override;
 
         const DecorGraphics& getGraphics() const override
         {

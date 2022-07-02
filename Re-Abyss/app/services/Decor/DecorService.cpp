@@ -42,7 +42,7 @@ namespace abyss::Decor
                                 .setFirstGId(graphic.firstGId)
                                 ;
                         }
-                        model[y][x] = Map::TileModel{
+                        model[y][x] = Map::Tile{
                             .gId = entity.gId,
                             .col = static_cast<uint32>(entity.col)
                         };
@@ -60,9 +60,9 @@ namespace abyss::Decor
             .to<DecorService>()
             .asCache();
     }
-    s3d::Array<Map::TileMapModel> DecorService::getTileMap(const s3d::RectF& screen) const
+    s3d::Array<Map::TileMapData> DecorService::getTileMap(const s3d::RectF& screen) const
     {
-        s3d::Array<Map::TileMapModel> ret;
+        s3d::Array<Map::TileMapData> ret;
         for (auto&& [path, tileMap] : m_tileMap) {
             const Vec2& tileSize = tileMap.getTileSize();
 
@@ -74,7 +74,7 @@ namespace abyss::Decor
             xEnd = Min<int32>(xEnd, xStart + static_cast<int32>(screen.w / tileSize.x));
             yEnd = Min<int32>(yEnd, yStart + static_cast<int32>(screen.h / tileSize.y));
 
-            Map::TileMapModel model;
+            Map::TileMapData model;
             model
                 .setPos(Vec2{ xStart * tileSize.x, yStart * tileSize.y })
                 .setFilePath(path)

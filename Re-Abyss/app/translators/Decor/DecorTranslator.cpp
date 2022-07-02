@@ -28,7 +28,7 @@ namespace abyss::Decor
         return nullptr;
     }
 
-    Ref<DecorObj> DecorTranslator::build(Decors& decor, const Map::TileMapModel& tileMap) const
+    Ref<DecorObj> DecorTranslator::build(Decors& decor, const Map::TileMapData& tileMap) const
     {
         return decor.create<Map::TileMap::Builder>(tileMap);
     }

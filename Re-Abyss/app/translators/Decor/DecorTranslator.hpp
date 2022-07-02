@@ -7,13 +7,13 @@ namespace abyss::Decor
 {
 	namespace Map
 	{
-		class TileMapModel;
+		class TileMapData;
 	}
 	class DecorTranslator
 	{
 	public:
 		Ref<DecorObj> build(Decors& decor, const DecorEntity& entity) const;
 
-		Ref<DecorObj> build(Decors& decor, const Map::TileMapModel& tileMap) const;
+		Ref<DecorObj> build(Decors& decor, const Map::TileMapData& tileMap) const;
 	};
 }

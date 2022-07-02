@@ -7,7 +7,7 @@
 
 namespace abyss::Decor::Map
 {
-    TileMapView::TileMapView(const TileMapModel& tileMap):
+    TileMapView::TileMapView(const TileMapData& tileMap):
         m_tileMap(tileMap),
         m_texture(Image(tileMap.size()* tileMap.getTileSize().asPoint()))
     {

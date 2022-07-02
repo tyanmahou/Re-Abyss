@@ -4484,10 +4484,10 @@
     <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Decor\Map\TileMapModel.hpp">
+    <ClInclude Include="app\modules\Decor\Map\TileMapData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Decor\Map\TileModel.hpp">
+    <ClInclude Include="app\modules\Decor\Map\Tile.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp">

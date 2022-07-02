@@ -3,13 +3,13 @@
 
 namespace abyss::Decor::Map
 {
-    class TileMapModel;
+    class TileMapData;
 }
 
 namespace abyss::Decor::Map::TileMap
 {
     struct Builder
     {
-        static void Build(DecorObj* pObj, const TileMapModel& tileMap);
+        static void Build(DecorObj* pObj, const TileMapData& tileMap);
     };
 }

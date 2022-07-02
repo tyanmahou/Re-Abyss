@@ -3,7 +3,7 @@
 
 namespace abyss::Decor::Map
 {
-    struct TileModel
+    struct Tile
     {
         s3d::uint32 gId;
         s3d::uint32 col;

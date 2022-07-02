@@ -1,15 +1,15 @@
 #pragma once
-#include <abyss/models/Decor/Map/TileModel.hpp>
+#include <abyss/modules/Decor/Map/Tile.hpp>
 #include <abyss/utils/Chunk/Chunk.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Decor::Map
 {
-    class TileMapModel
+    class TileMapData
     {
     public:
-        TileMapModel& setPos(const s3d::Vec2& pos)
+        TileMapData& setPos(const s3d::Vec2& pos)
         {
             m_pos = pos;
             return *this;
@@ -18,7 +18,7 @@ namespace abyss::Decor::Map
         {
             return m_pos;
         }
-        TileMapModel& setFilePath(const s3d::String& path)
+        TileMapData& setFilePath(const s3d::String& path)
         {
             m_filePath = path;
             return *this;
@@ -27,7 +27,7 @@ namespace abyss::Decor::Map
         {
             return m_filePath;
         }
-        TileMapModel& setTileSize(const s3d::Vec2& size)
+        TileMapData& setTileSize(const s3d::Vec2& size)
         {
             m_tileSize = size;
             return *this;
@@ -36,7 +36,7 @@ namespace abyss::Decor::Map
         {
             return m_tileSize;
         }
-        TileMapModel& setFirstGId(s3d::uint32 firstGId)
+        TileMapData& setFirstGId(s3d::uint32 firstGId)
         {
             m_firstGId = firstGId;
             return *this;
@@ -95,7 +95,7 @@ namespace abyss::Decor::Map
             return m_tiles[y];
         }
 
-        const ChunkGrid<TileModel>& tiles()const
+        const ChunkGrid<Tile>& tiles()const
         {
             return m_tiles;
         }
@@ -104,7 +104,7 @@ namespace abyss::Decor::Map
         s3d::String m_filePath;
         s3d::Vec2 m_tileSize;
         s3d::uint32 m_firstGId;
-        ChunkGrid<TileModel> m_tiles;
+        ChunkGrid<Tile> m_tiles;
         s3d::Size m_startIndex;
         s3d::Size m_endIndex;
     };

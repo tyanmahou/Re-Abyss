@@ -12,7 +12,7 @@ namespace
 }
 namespace abyss::Decor::Map::TileMap
 {
-    void Builder::Build(DecorObj* pObj, const TileMapModel& tileMap)
+    void Builder::Build(DecorObj* pObj, const TileMapData& tileMap)
     {
         pObj->attach<CustomDraw>()
             ->setDrawer<Drawer>(pObj, tileMap)
@@ -28,7 +28,7 @@ namespace
     class Drawer : public CustomDraw::IImpl
     {
     public:
-        Drawer(DecorObj* pObj, const TileMapModel& tileMap) :
+        Drawer(DecorObj* pObj, const TileMapData& tileMap) :
             m_pObj(pObj),
             m_view(tileMap)
         {}
