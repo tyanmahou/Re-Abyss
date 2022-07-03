@@ -45,6 +45,8 @@ namespace abyss::Actor::Enemy::KingDux::Foot
     }
     void FootVM::draw() const
     {
+        auto shader = m_shader.start();
+
         auto color = m_colorMul;
         s3d::ScopedColorAdd2D addColor(m_colorAdd);
         if (m_motion == Motion::Dead) {

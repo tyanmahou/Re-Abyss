@@ -37,7 +37,10 @@ namespace abyss::Actor::Enemy::KingDux
         double m_animTime = 0;
         Motion m_motion = Motion::Wait;
 
-        s3d::ColorF m_colorMul;
-        s3d::ColorF m_colorAdd;
+        s3d::ColorF m_colorMul{};
+        s3d::ColorF m_colorAdd{};
+
+        s3d::RenderTexture m_rt;
+        DitherShader m_shader;
     };
 }
