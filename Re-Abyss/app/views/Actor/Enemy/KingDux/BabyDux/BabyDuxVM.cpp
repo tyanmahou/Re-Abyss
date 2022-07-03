@@ -1,6 +1,7 @@
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
-#include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/views/util/Anim/AnimUtil.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
@@ -39,31 +40,22 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     }
     void BabyDuxVM::drawWait() const
     {
-        int32 page = static_cast<int32>(Periodic::Triangle0_1(1.2, m_time) * 3.0);
-        if (page == 3) {
-            page = 2;
-        }
+        int32 page = AnimUtil::FrameFromTriangle(1.2, m_time, 3);
         m_texture(U"stay")(90 * page, 0, 90, 100).drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawCharge() const
     {
-        int32 page = static_cast<int32>(m_animTime * 12);
-        if (page == 12) {
-            page = 11;
-        }
-        constexpr int32 mapping[] = {0, 1, 2, 3, 4, 4, 5, 5, 3, 3, 3, 3};
+        constexpr int32 mapping[] = { 0, 1, 2, 3, 4, 4, 5, 5, 3, 3, 3, 3 };
+        int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
-        m_texture(U"charge")(90 * (mapping[page] % 3), 100 * (mapping[page] / 3), 90, 100).drawAt(m_pos, m_colorMul);
+        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100).drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawJump() const
     {
-        int32 page = static_cast<int32>(m_animTime * 21);
-        if (page == 21) {
-            page = 20;
-        }
         constexpr int32 mapping[] = { 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
-        m_texture(U"charge")(90 * (mapping[page] % 3), 100 * (mapping[page] / 3), 90, 100).drawAt(m_pos, m_colorMul);
+        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100).drawAt(m_pos, m_colorMul);
     }
 }
 

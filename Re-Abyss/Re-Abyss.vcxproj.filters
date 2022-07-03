@@ -2147,6 +2147,9 @@
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\Anim\AnimUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5690,6 +5693,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\Motion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\util\Anim\AnimUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -898,6 +898,7 @@
     <ClCompile Include="app\views\UI\Title\Cursor\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\UI\Title\Logo\LogoVM.cpp" />
+    <ClCompile Include="app\views\util\Anim\AnimUtil.cpp" />
     <ClCompile Include="app\views\util\Fade\Fade.cpp" />
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
@@ -2080,6 +2081,7 @@
     <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp" />
+    <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
