@@ -69,11 +69,11 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     {
         // 左目
         Circle(m_pos + BabyDuxParam::Base::EyeL, 8).draw();
-        Circle(m_pos + m_eyePosL + BabyDuxParam::Base::EyeL, 4).draw(Palette::Black);
+        Circle(m_pos + m_eyePosL + BabyDuxParam::Base::EyeL, 5).draw(Palette::Black);
 
         // 右目
         Circle(m_pos + BabyDuxParam::Base::EyeR, 8).draw();
-        Circle(m_pos + m_eyePosR + BabyDuxParam::Base::EyeR, 4).draw(Palette::Black);
+        Circle(m_pos + m_eyePosR + BabyDuxParam::Base::EyeR, 5).draw(Palette::Black);
     }
 }
 

@@ -27,7 +27,7 @@ appearTime = 4.0
 appearMove = "(0, 600)"
 
 [Eye]
-dist = 4.0
+dist = 3.0
 distRate = 0.25
 erpRate = 0.02
 limitBeginL = "(5, -2)"
