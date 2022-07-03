@@ -63,19 +63,16 @@ namespace
                 // ウィンドウ幅
                 double width = 0;
                 for (const auto& log : logs) {
-                    width = s3d::Max(width, m_font(log.log()).region().w);
+                    width = s3d::Max(width, log.log().size() * m_font.spaceWidth() * 2);
                 }
                 width += iconSize.x + iconMargin;
                 width += 10;
 
                 Vec2 pos{ 0, 0 };
+                Vec2 rectSize{ width, s3d::Max(static_cast<double>(m_font.height()), iconSize.y) };
                 for (const auto& log : logs) {
                     const auto& custom = m_kindCustom.at(log.kind());
-                    auto region = m_font(log.log()).region();
-                    region.w = width;
-                    region.h = s3d::Max(region.h, iconSize.y);
-
-                    auto area = RectF(pos, region.size);
+                    auto area = RectF(pos, rectSize);
                     if (area.y <= sceneScreen.y + sceneScreen.h && area.y + area.h >= sceneScreen.y) {
                         // 画面外の描画はしない
                         bool isFocus = false;
@@ -94,7 +91,7 @@ namespace
                         logPos.x += iconSize.x + iconMargin;
                         m_font(log.log()).draw(logPos);
                     }
-                    pos.y += region.h;
+                    pos.y += rectSize.y;
                 }
 
                 bool isScrollButtom = m_window->isScrollBottom();
