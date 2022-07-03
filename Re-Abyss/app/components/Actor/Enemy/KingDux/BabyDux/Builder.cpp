@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
@@ -49,6 +50,10 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		{
 			pActor->attach<ParentObserver>(pActor, parent);
 		}
+        // 目の制御
+        {
+            pActor->attach<EyeCtrl>(pActor);
+        }
 	}
 }
 
@@ -71,6 +76,7 @@ namespace
 		{
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
+                .setEyePos(m_eyeCtrl->getEyePosL(), m_eyeCtrl->getEyePosR())
                 .setAnimTime(m_motion->animeTime())
                 .setMotion(m_motion->get<Motion>())
                 .setColorMul(m_colorCtrl->colorMul())
@@ -81,12 +87,14 @@ namespace
 			m_body = m_pActor->find<Body>();
             m_motion = m_pActor->find<MotionCtrl>();
 			m_colorCtrl = m_pActor->find<ColorCtrl>();
+            m_eyeCtrl = m_pActor->find<EyeCtrl>();
 		}
 	private:
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
 		Ref<MotionCtrl> m_motion;
         Ref<ColorCtrl> m_colorCtrl;
+        Ref<EyeCtrl> m_eyeCtrl;
 		std::unique_ptr<BabyDuxVM> m_view;
 	};
 }

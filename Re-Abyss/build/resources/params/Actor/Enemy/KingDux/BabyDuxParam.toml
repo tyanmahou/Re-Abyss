@@ -1,5 +1,7 @@
 [Base]
 hp = 12
+eyeL = "(-14, -2)"
+eyeR = "(9, -2)"
 pivot = "(0, -15)"
 colRadius = 18
 
@@ -23,4 +25,14 @@ waitTimeSec = 0.5
 offset = "(200, -400)"
 appearTime = 4.0
 appearMove = "(0, 600)"
+
+[Eye]
+dist = 4.0
+distRate = 0.25
+erpRate = 0.02
+limitBeginL = "(5, -2)"
+limitEndL = "(-5, 1)"
+limitBeginR = "(-5, -2)"
+limitEndR = "(5, 1)"
+
 

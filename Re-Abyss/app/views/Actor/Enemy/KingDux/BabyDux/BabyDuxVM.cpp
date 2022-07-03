@@ -1,5 +1,6 @@
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 #include <abyss/views/util/Anim/AnimUtil.hpp>
 #include <Siv3D.hpp>
 
@@ -67,12 +68,12 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     void BabyDuxVM::drawEye() const
     {
         // 左目
-        Circle(m_pos + Vec2{ -14, -2 }, 8).draw();
-        Circle(m_pos + m_eyePosL + Vec2{ -14, -2 }, 3).draw(Palette::Black);
+        Circle(m_pos + BabyDuxParam::Base::EyeL, 8).draw();
+        Circle(m_pos + m_eyePosL + BabyDuxParam::Base::EyeL, 4).draw(Palette::Black);
 
         // 右目
-        Circle(m_pos + Vec2{ 9, -2 }, 8).draw();
-        Circle(m_pos + m_eyePosR + Vec2{ 9, -2 }, 3).draw(Palette::Black);
+        Circle(m_pos + BabyDuxParam::Base::EyeR, 8).draw();
+        Circle(m_pos + m_eyePosR + BabyDuxParam::Base::EyeR, 4).draw(Palette::Black);
     }
 }
 

@@ -32,8 +32,8 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
-        s3d::Vec2 m_eyePosL{ };
-        s3d::Vec2 m_eyePosR{ };
+        s3d::Vec2 m_eyePosL{};
+        s3d::Vec2 m_eyePosR{};
 
         double m_time = 0;
         double m_animTime = 0;
