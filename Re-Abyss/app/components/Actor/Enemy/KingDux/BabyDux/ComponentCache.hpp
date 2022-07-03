@@ -1,7 +1,9 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
+#include <abyss/views/Actor/Enemy/KingDux/BabyDux/Motion.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
@@ -10,11 +12,13 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     protected:
         Main* m_main;
         Body* m_body;
+        MotionCtrl* m_motion;
     public:
         void onCache(ActorObj* pActor)
         {
             m_main = pActor->find<Main>().get();
             m_body = pActor->find<Body>().get();
+            m_motion = pActor->find<MotionCtrl>().get();
         }
     };
 }

@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	{
 		m_startPos = m_body->getPos();
 		m_body->noneResistanced();
-
+        m_motion->set(Motion::Charge);
 		TimeLite::Timer timer{ BabyDuxParam::Move::ChargeTimeSec };
 		while (!timer.isEnd()) {
 			timer.update(m_pActor->deltaTime());
@@ -41,9 +41,11 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 			targetPos.y += offsetY;
 
 			m_body->moveToPos(targetPos, m_pActor->deltaTime());
-			co_yield{};
+            m_motion->setAnimeTime(timer.rate());
+            co_yield{};
 		}
-	}
+        m_motion->set(Motion::Wait);
+    }
 	Task<> MoveState::taskJump()
 	{
 		auto toPlayer = ActorUtils::ToPlayer(*m_pActor, *m_body);

@@ -71,19 +71,22 @@ namespace
 		{
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
-				.setColorMul(m_colorCtrl->colorMul())
+                .setAnimTime(m_motion->animeTime())
+                .setMotion(m_motion->get<Motion>())
+                .setColorMul(m_colorCtrl->colorMul())
 				;
 		}
 		void onStart() final
 		{
 			m_body = m_pActor->find<Body>();
+            m_motion = m_pActor->find<MotionCtrl>();
 			m_colorCtrl = m_pActor->find<ColorCtrl>();
 		}
 	private:
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
-		Ref<ColorCtrl> m_colorCtrl;
-
+		Ref<MotionCtrl> m_motion;
+        Ref<ColorCtrl> m_colorCtrl;
 		std::unique_ptr<BabyDuxVM> m_view;
 	};
 }

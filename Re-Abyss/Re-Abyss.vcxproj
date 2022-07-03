@@ -2002,6 +2002,7 @@
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\KingDuxVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />

@@ -5689,6 +5689,9 @@
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\Motion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
