@@ -2,8 +2,8 @@
 hp = 12
 eyeL = "(-14, -2)"
 eyeR = "(9, -2)"
-pivot = "(0, -15)"
-colRadius = 18
+pivot = "(0, 0)"
+size = "(40, 86)"
 
 [Move]
 gravity = 400

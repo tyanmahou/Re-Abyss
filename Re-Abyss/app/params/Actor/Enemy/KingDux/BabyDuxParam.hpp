@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::KingDux
         [[TOML_BIND(Base::EyeL, "Base.eyeL")]]
         [[TOML_BIND(Base::EyeR, "Base.eyeR")]]
         [[TOML_BIND(Base::Pivot, "Base.pivot")]]
-        [[TOML_BIND(Base::ColRadius, "Base.colRadius")]]
+        [[TOML_BIND(Base::Size, "Base.size")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 6 };
@@ -30,7 +30,7 @@ namespace abyss::Actor::Enemy::KingDux
             inline static s3d::Vec2 EyeR{ 9, -2 };
 
             inline static s3d::Vec2 Pivot{ 0, -15 };
-            inline static double ColRadius = 18;
+            inline static s3d::Vec2 Size{ 20, 20};
         };
 
         [[TOML_BIND(Move::Gravity, "Move.gravity")]]

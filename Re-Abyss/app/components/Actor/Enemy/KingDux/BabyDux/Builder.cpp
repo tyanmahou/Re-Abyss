@@ -27,10 +27,10 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         auto pos = parentPos + desc.posOffset;
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(pos)
+            .setBodySize(BabyDuxParam::Base::Size)
             .setBodyPivot(BabyDuxParam::Base::Pivot)
             .setForward(parentBody->getForward())
             .setInitHp(BabyDuxParam::Base::Hp)
-            //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setIsEnableItemDrop(false)
             .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
