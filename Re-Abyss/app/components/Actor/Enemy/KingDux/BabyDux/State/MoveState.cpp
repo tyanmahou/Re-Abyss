@@ -44,7 +44,6 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             m_motion->setAnimeTime(timer.rate());
             co_yield{};
 		}
-        m_motion->set(Motion::Wait);
     }
 	Task<> MoveState::taskJump()
 	{
@@ -55,12 +54,20 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 			.setDecelX(BabyDuxParam::Move::DecelX)
 			.setVelocityX(sign * s3d::Math::Sqrt(2.0 * BabyDuxParam::Move::MoveX * BabyDuxParam::Move::DecelX))
 			.jumpToHeight(BabyDuxParam::Move::JumpHeight);
-
+        m_motion->set(Motion::Jump);
+        auto jumpSpeed = Abs(m_body->getVelocity().y);
 		while (true) {
-			if (m_body->getVelocity().y > 0 && m_body->getPos().y >= m_startPos.y) {
+            auto vy = m_body->getVelocity().y;
+            if (vy < 0) {
+                m_motion->setAnimeTime(1.0 - Saturate(Abs(vy) / jumpSpeed));
+            } else if (vy > 0 && m_body->getPos().y >= m_startPos.y - BabyDuxParam::Move::JumpHeight / 2.0) {
+                m_motion->set(Motion::Wait);
+            }
+			if (vy > 0 && m_body->getPos().y >= m_startPos.y) {
 				break;
 			}
 			co_yield{};
 		}
+        m_motion->set(Motion::Wait);
 	}
 }

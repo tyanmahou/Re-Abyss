@@ -24,6 +24,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     private:
         void drawWait() const;
         void drawCharge() const;
+        void drawJump() const;
     private:
         TexturePacker m_texture;
 

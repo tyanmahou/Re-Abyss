@@ -33,6 +33,8 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             this->drawWait();
         } else if (m_motion == Motion::Charge) {
             this->drawCharge();
+        } else if (m_motion == Motion::Jump) {
+            this->drawJump();
         }
     }
     void BabyDuxVM::drawWait() const
@@ -50,6 +52,16 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             page = 11;
         }
         constexpr int32 mapping[] = {0, 1, 2, 3, 4, 4, 5, 5, 3, 3, 3, 3};
+
+        m_texture(U"charge")(90 * (mapping[page] % 3), 100 * (mapping[page] / 3), 90, 100).drawAt(m_pos, m_colorMul);
+    }
+    void BabyDuxVM::drawJump() const
+    {
+        int32 page = static_cast<int32>(m_animTime * 21);
+        if (page == 21) {
+            page = 20;
+        }
+        constexpr int32 mapping[] = { 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         m_texture(U"charge")(90 * (mapping[page] % 3), 100 * (mapping[page] / 3), 90, 100).drawAt(m_pos, m_colorMul);
     }
