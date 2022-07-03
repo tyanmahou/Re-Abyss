@@ -1125,6 +1125,7 @@
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />

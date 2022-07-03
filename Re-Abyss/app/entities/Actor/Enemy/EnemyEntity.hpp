@@ -14,6 +14,7 @@ namespace abyss::Actor::Enemy
 		LaunShark,
 		Schield,
 		Warrus,
+        BabyDux,
 
 		// MidBoss
 		KingDux,

@@ -2,6 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/Motion.hpp>
+#include <abyss/views/Shader/Dither/DitherShader.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
 {

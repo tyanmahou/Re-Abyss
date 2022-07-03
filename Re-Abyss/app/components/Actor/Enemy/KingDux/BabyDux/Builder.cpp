@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/MoveState.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
 #include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
 
@@ -19,42 +20,55 @@ namespace
 
 namespace abyss::Actor::Enemy::KingDux::BabyDux
 {
+    namespace
+    {
+        void BuildCommon(ActorObj* pActor, const Vec2& pos, Forward forward, std::shared_ptr<IState> initState)
+        {
+            // 共通ビルド
+            CommonBuilder::Build(pActor, BuildOption{}
+                .setInitPos(pos)
+                .setBodySize(BabyDuxParam::Base::Size)
+                .setBodyPivot(BabyDuxParam::Base::Pivot)
+                .setForward(forward)
+                .setInitHp(BabyDuxParam::Base::Hp)
+                .setIsEnableMapCollider(false)
+                .setIsEnableItemDrop(false)
+                .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
+                .setInitState(initState)
+                .setVModelBinder<ViewBinder>(pActor)
+            );
+            // Body調整
+            {
+                pActor->find<Body>()->noneResistanced();
+            }
+            // 目の制御
+            {
+                pActor->attach<EyeCtrl>(pActor);
+            }
+        }
+    }
 	void Builder::Build(ActorObj* pActor, ActorObj* parent, const BuildDesc& desc)
 	{
         // 共通ビルド
         auto parentBody = parent->find<Body>();
 		const s3d::Vec2& parentPos = parentBody->getPos();
         auto pos = parentPos + desc.posOffset;
-        CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(pos)
-            .setBodySize(BabyDuxParam::Base::Size)
-            .setBodyPivot(BabyDuxParam::Base::Pivot)
-            .setForward(parentBody->getForward())
-            .setInitHp(BabyDuxParam::Base::Hp)
-            .setIsEnableMapCollider(false)
-            .setIsEnableItemDrop(false)
-            .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
-            .setInitState<AppearState>()
-            .setVModelBinder<ViewBinder>(pActor)
-        );
+        BuildCommon(pActor, pos, parentBody->getForward(), std::make_shared<AppearState>());
 
 		// Main
 		{
 			pActor->attach<Main>(pActor, desc, parentPos);
 		}
-        // Body調整
-        {
-            pActor->find<Body>()->noneResistanced();
-        }
 		// 親監視
 		{
 			pActor->attach<ParentObserver>(pActor, parent);
 		}
-        // 目の制御
-        {
-            pActor->attach<EyeCtrl>(pActor);
-        }
 	}
+    void Builder::Build(ActorObj* pActor, const BabyDuxEntity& entity)
+    {
+        // 共通ビルド
+        BuildCommon(pActor, entity.pos, entity.forward, std::make_shared<MoveState>());
+    }
 }
 
 namespace

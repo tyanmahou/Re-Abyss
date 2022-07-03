@@ -5704,6 +5704,9 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
