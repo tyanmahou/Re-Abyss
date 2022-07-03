@@ -16,13 +16,12 @@ struct PSInput
     float4 color	: COLOR0;
     float2 uv		: TEXCOORD0;
 };
-
 float4 PS(PSInput input) : SV_TARGET
 {
     const float2 uv = input.uv;
     float4 result = g_texture0.Sample(g_sampler0, uv);
 
-    float2 ditherUv = input.position.xy % 4;
+    float2 ditherUv = input.position.xy % 4 / 4.0;
     float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
     float4 inputColor = input.color;
     if (inputColor.a - dither <= 0) {

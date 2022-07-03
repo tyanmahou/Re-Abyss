@@ -4,10 +4,10 @@
 
 namespace
 {
-    Image g_ditherImage = []
+    Image g_ditherImage4x4 = []
     {
         Image image(4, 4);
-        double dither[4][4] = {
+        constexpr double dither[4][4] = {
             {1, 13, 4, 16},
             {9, 5, 12, 8},
             {3, 15, 2, 14},
@@ -20,6 +20,28 @@ namespace
         }
         return image;
     }();
+
+    Image g_ditherImage8x8 = []
+    {
+        Image image(8, 8);
+        constexpr double dither[8][8] = {
+            {1, 33, 9, 41, 3, 35, 11, 43},
+            {49, 17, 57, 25, 51, 19, 59, 27},
+            {13, 45, 5, 37, 15, 47, 7, 39},
+            {61, 29, 53, 21, 63, 31, 55, 23},
+            {4, 36, 12, 44, 2, 34, 10, 42},
+            {52, 20, 60, 28, 50, 18, 58, 26},
+            {16, 48, 8, 40, 14, 46, 6, 38},
+            {64, 32, 56, 24, 62, 30, 54, 22},
+        };
+        for (int32 y : step(0, 8)) {
+            for (int32 x : step(0, 8)) {
+                image[y][x] = ColorF(dither[y][x] / 65.0);
+            }
+        }
+        return image;
+    }();
+
 }
 
 namespace abyss
@@ -29,7 +51,7 @@ namespace abyss
     public:
         Impl() :
             m_ps(Resource::Assets::Norelease()->load(U"dither.hlsl")),
-            m_dither(g_ditherImage)
+            m_dither(g_ditherImage4x4)
         {}
         ScopedCustomShader2D start() const
         {
