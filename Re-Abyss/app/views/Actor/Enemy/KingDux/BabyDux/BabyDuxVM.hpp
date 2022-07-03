@@ -10,6 +10,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     public:
         BabyDuxVM();
         BabyDuxVM& setPos(const s3d::Vec2& pos);
+        BabyDuxVM& setEyePos(const s3d::Vec2& posL, const s3d::Vec2& posR);
 
         BabyDuxVM& setTime(double time);
         BabyDuxVM& setAnimTime(double time);
@@ -25,10 +26,15 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         void drawWait() const;
         void drawCharge() const;
         void drawJump() const;
+
+        void drawEye() const;
     private:
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos;
+        s3d::Vec2 m_eyePosL{ };
+        s3d::Vec2 m_eyePosR{ };
+
         double m_time = 0;
         double m_animTime = 0;
         Motion m_motion = Motion::Wait;

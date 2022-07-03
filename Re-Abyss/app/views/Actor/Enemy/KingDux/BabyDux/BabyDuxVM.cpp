@@ -13,6 +13,12 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		m_pos = s3d::Round(pos);
 		return *this;
 	}
+    BabyDuxVM& BabyDuxVM::setEyePos(const s3d::Vec2& posL, const s3d::Vec2& posR)
+    {
+        m_eyePosL = posL;
+        m_eyePosR = posR;
+        return *this;
+    }
     BabyDuxVM& BabyDuxVM::setTime(double time)
     {
         m_time = time;
@@ -30,6 +36,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	}
 	void BabyDuxVM::draw() const
 	{
+        this->drawEye();
         if (m_motion == Motion::Wait) {
             this->drawWait();
         } else if (m_motion == Motion::Charge) {
@@ -56,6 +63,16 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
         m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100).drawAt(m_pos, m_colorMul);
+    }
+    void BabyDuxVM::drawEye() const
+    {
+        // 左目
+        Circle(m_pos + Vec2{ -14, -2 }, 8).draw();
+        Circle(m_pos + m_eyePosL + Vec2{ -14, -2 }, 3).draw(Palette::Black);
+
+        // 右目
+        Circle(m_pos + Vec2{ 9, -2 }, 8).draw();
+        Circle(m_pos + m_eyePosR + Vec2{ 9, -2 }, 3).draw(Palette::Black);
     }
 }
 
