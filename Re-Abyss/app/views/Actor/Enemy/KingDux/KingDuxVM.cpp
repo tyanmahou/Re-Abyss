@@ -65,23 +65,18 @@ namespace abyss::Actor::Enemy::KingDux
             auto color = m_colorMul;
             s3d::ScopedColorAdd2D addColor(m_colorAdd);
 
-            auto deadAlpha = 1.0;
-            if (m_motion == Motion::Dead) {
-                deadAlpha = s3d::Saturate(1.0 - m_animTime);
-                color.a *= deadAlpha;
-            }
             if (m_motion != Motion::Hide) {
                 auto eyeDraw = [&](const Vec2& eyePos, const Vec2& offset, float damageRadius) {
                     auto posBase = m_pos + offset;
-                    Circle(posBase, 80).draw(ColorF(1, deadAlpha));
+                    Circle(posBase, 80).draw(ColorF(1, 1));
                     double r = 24;
                     if (m_isDamaging || m_motion == Motion::Dead) {
                         double rate = s3d::Periodic::Triangle0_1(0.3, m_time);
                         r = s3d::Math::Lerp(r, damageRadius, rate);
-                        Shape2D::Cross(r, 15, posBase + eyePos).draw(ColorF(0, deadAlpha));
+                        Shape2D::Cross(r, 15, posBase + eyePos).draw(ColorF(0, 1));
                         return;
                     }
-                    Circle(posBase + eyePos, r).draw(ColorF(0, deadAlpha));
+                    Circle(posBase + eyePos, r).draw(ColorF(0, 1));
                 };
                 // 右目
                 eyeDraw(m_eyePosR, Param::Base::EyeR, 18.0);
@@ -118,10 +113,16 @@ namespace abyss::Actor::Enemy::KingDux
         }
 
         {
+            auto color = m_colorMul;
+            auto deadAlpha = 1.0;
+            if (m_motion == Motion::Dead) {
+                deadAlpha = s3d::Saturate(1.0 - m_animTime);
+                color.a *= deadAlpha;
+            }
             auto shader = m_shader.start();
             Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
             Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
-            m_rt.draw();
+            m_rt.draw(ColorF(1, color.a));
         }
     }
 }

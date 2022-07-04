@@ -127,7 +127,7 @@ namespace abyss::Actor::Enemy::KingDux
 
             pActor->attach<VModelSub<1>>()
                 ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot1)
-                .setLayer(DrawLayer::BackGround);
+                .setLayer(DrawLayer::DecorBack);
 
             pActor->attach<VModelSub<2>>()
                 ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot2)
@@ -139,7 +139,7 @@ namespace abyss::Actor::Enemy::KingDux
 
             pActor->attach<VModelSub<4>>()
                 ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot4)
-                .setLayer(DrawLayer::BackGround);
+                .setLayer(DrawLayer::DecorBack);
 
             pActor->attach<VModelUpdater>(pActor);
         }
