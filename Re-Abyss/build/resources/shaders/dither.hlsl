@@ -20,8 +20,8 @@ float4 PS(PSInput input) : SV_TARGET
 {
     const float2 uv = input.uv;
 
-    float2 ditherUv = input.position.xy % 4 / 4.0;
-    float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
+    float2 ditherUv = input.position.xy % 4 / 8.0;
+    float dither = g_texture1.Sample(g_sampler0, ditherUv).g;
 
     float4 texColor = g_texture0.Sample(g_sampler0, uv);
 

@@ -4,27 +4,34 @@
 
 namespace
 {
-    Image g_ditherImage4x4 = []
-    {
-        Image image(4, 4);
-        constexpr double dither[4][4] = {
-            {1, 13, 4, 16},
-            {9, 5, 12, 8},
-            {3, 15, 2, 14},
-            {11, 7, 10, 6},
-        };
-        for (int32 y : step(0, 4)) {
-            for (int32 x : step(0, 4)) {
-                image[y][x] = ColorF(dither[y][x] / 17.0);
-            }
-        }
-        return image;
-    }();
-
-    Image g_ditherImage8x8 = []
+    Image g_ditherImage = []
     {
         Image image(8, 8);
-        constexpr double dither[8][8] = {
+        {
+            constexpr double dither2x2[2][2] = {
+                {1, 4},
+                {3, 2},
+            };
+            for (int32 y : step(0, 4)) {
+                for (int32 x : step(0, 4)) {
+                    image[y][x].r = Color::ToUint8(dither2x2[y][x] / 5.0);
+                }
+            }
+        }
+        {
+            constexpr double dither4x4[4][4] = {
+                {1, 13, 4, 16},
+                {9, 5, 12, 8},
+                {3, 15, 2, 14},
+                {11, 7, 10, 6},
+            };
+            for (int32 y : step(0, 4)) {
+                for (int32 x : step(0, 4)) {
+                    image[y][x].g = Color::ToUint8(dither4x4[y][x] / 17.0);
+                }
+            }
+        }
+        constexpr double dither8x8[8][8] = {
             {1, 33, 9, 41, 3, 35, 11, 43},
             {49, 17, 57, 25, 51, 19, 59, 27},
             {13, 45, 5, 37, 15, 47, 7, 39},
@@ -36,12 +43,11 @@ namespace
         };
         for (int32 y : step(0, 8)) {
             for (int32 x : step(0, 8)) {
-                image[y][x] = ColorF(dither[y][x] / 65.0);
+                image[y][x].b = Color::ToUint8(dither8x8[y][x] / 65.0);
             }
         }
         return image;
     }();
-
 }
 
 namespace abyss
@@ -51,7 +57,7 @@ namespace abyss
     public:
         Impl() :
             m_ps(Resource::Assets::Norelease()->load(U"dither.hlsl")),
-            m_dither(g_ditherImage4x4)
+            m_dither(g_ditherImage)
         {}
         ScopedCustomShader2D start() const
         {
