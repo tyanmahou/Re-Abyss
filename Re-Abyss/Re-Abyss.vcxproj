@@ -243,6 +243,7 @@
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp" />
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
@@ -1122,6 +1123,7 @@
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />

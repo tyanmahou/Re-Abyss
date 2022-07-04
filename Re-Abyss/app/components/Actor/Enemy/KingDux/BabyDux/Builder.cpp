@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/EyeCtrl.hpp>
+#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ForwardCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/MoveState.hpp>
@@ -44,6 +45,10 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             // 目の制御
             {
                 pActor->attach<EyeCtrl>(pActor);
+            }
+            // 向きの制御
+            {
+                pActor->attach<ForwardCtrl>(pActor);
             }
         }
     }
@@ -91,6 +96,7 @@ namespace
 			return &m_view->setTime(m_pActor->getTimeSec())
 				.setPos(m_body->getPos())
                 .setEyePos(m_eyeCtrl->getEyePosL(), m_eyeCtrl->getEyePosR())
+                .setForward(m_body->getForward())
                 .setAnimTime(m_motion->animeTime())
                 .setMotion(m_motion->get<Motion>())
                 .setColorMul(m_colorCtrl->colorMul())

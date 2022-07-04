@@ -49,31 +49,43 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     void BabyDuxVM::drawWait() const
     {
         int32 page = AnimUtil::FrameFromTriangle(1.2, m_time, 3);
-        m_texture(U"stay")(90 * page, 0, 90, 100).drawAt(m_pos, m_colorMul);
+        m_texture(U"stay")(90 * page, 0, 90, 100)
+            .mirrored(m_forward == Forward::Right)
+            .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawCharge() const
     {
         constexpr int32 mapping[] = { 0, 1, 2, 3, 4, 4, 5, 5, 3, 3, 3, 3 };
         int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
-        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100).drawAt(m_pos, m_colorMul);
+        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100)
+            .mirrored(m_forward == Forward::Right)
+            .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawJump() const
     {
         constexpr int32 mapping[] = { 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
-        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100).drawAt(m_pos, m_colorMul);
+        m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100)
+            .mirrored(m_forward == Forward::Right)
+            .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawEye() const
     {
         // 左目
-        Circle(m_pos + BabyDuxParam::Base::EyeL, 8).draw();
-        Circle(m_pos + m_eyePosL + BabyDuxParam::Base::EyeL, 5).draw(Palette::Black);
+        {
+            auto eyePos = m_pos + BabyDuxParam::Base::EyeL * -ToVec2(m_forward);
+            Circle(eyePos, 8).draw();
+            Circle(eyePos + m_eyePosL, 5).draw(Palette::Black);
+        }
 
         // 右目
-        Circle(m_pos + BabyDuxParam::Base::EyeR, 8).draw();
-        Circle(m_pos + m_eyePosR + BabyDuxParam::Base::EyeR, 5).draw(Palette::Black);
+        {
+            auto eyePos = m_pos + BabyDuxParam::Base::EyeR * -ToVec2(m_forward);
+            Circle(eyePos, 8).draw();
+            Circle(eyePos + m_eyePosR, 5).draw(Palette::Black);
+        }
     }
 }
 
