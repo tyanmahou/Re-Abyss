@@ -776,6 +776,7 @@
     <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
+    <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
     <ClCompile Include="app\utils\Look\Look.cpp" />
     <ClCompile Include="app\modules\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
@@ -1981,6 +1982,7 @@
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
+    <ClInclude Include="app\utils\Easing\EasingUtil.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
