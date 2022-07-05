@@ -19,6 +19,18 @@ namespace
             }
         }
         {
+            constexpr double dither3x3[3][3] = {
+                {3, 6, 2},
+                {7, 1, 8},
+                {4, 9, 5},
+            };
+            for (int32 y : step(0, 3)) {
+                for (int32 x : step(0, 3)) {
+                    image[y][x].g = Color::ToUint8(dither3x3[y][x] / 10.0);
+                }
+            }
+        }
+        {
             constexpr double dither4x4[4][4] = {
                 {1, 13, 4, 16},
                 {9, 5, 12, 8},
@@ -27,23 +39,23 @@ namespace
             };
             for (int32 y : step(0, 4)) {
                 for (int32 x : step(0, 4)) {
-                    image[y][x].g = Color::ToUint8(dither4x4[y][x] / 17.0);
+                    image[y][x].b = Color::ToUint8(dither4x4[y][x] / 17.0);
                 }
             }
         }
         constexpr double dither8x8[8][8] = {
-            {1, 33, 9, 41, 3, 35, 11, 43},
-            {49, 17, 57, 25, 51, 19, 59, 27},
-            {13, 45, 5, 37, 15, 47, 7, 39},
-            {61, 29, 53, 21, 63, 31, 55, 23},
-            {4, 36, 12, 44, 2, 34, 10, 42},
-            {52, 20, 60, 28, 50, 18, 58, 26},
-            {16, 48, 8, 40, 14, 46, 6, 38},
-            {64, 32, 56, 24, 62, 30, 54, 22},
+            {1, 49, 13, 61, 4, 52, 16, 64},
+            {33, 17, 45, 29, 36, 20, 48, 32},
+            {9, 57, 5, 53, 12, 60, 8, 56},
+            {41, 25, 37, 21, 44, 28, 40, 24},
+            {3, 51, 15, 63, 2, 50, 14, 62},
+            {35, 19, 47, 31, 34, 18, 46, 30},
+            {11, 59, 7, 55, 10, 58, 6, 54},
+            {43, 27, 39, 23, 42, 26, 38, 22},
         };
         for (int32 y : step(0, 8)) {
             for (int32 x : step(0, 8)) {
-                image[y][x].b = Color::ToUint8(dither8x8[y][x] / 65.0);
+                image[y][x].a = Color::ToUint8(dither8x8[y][x] / 65.0);
             }
         }
         return image;
@@ -68,7 +80,7 @@ namespace abyss
         PixelShader m_ps;
         s3d::Texture m_dither;
     };
-    DitherShader::DitherShader():
+    DitherShader::DitherShader() :
         m_pImpl(std::make_shared<Impl>())
     {}
     s3d::ScopedCustomShader2D DitherShader::start() const
