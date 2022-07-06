@@ -23,7 +23,9 @@ namespace abyss
         m_scene.add<Scene::SaveSelect::Scene>(SceneKind::SaveSelect);
         m_scene.add<Scene::Stage::Scene>(SceneKind::Stage);
         m_scene.add<Scene::StageResult::Scene>(SceneKind::StageResult);
+#if ABYSS_DEVELOP
         m_scene.add<Scene::Experiment::Scene>(SceneKind::Experiment);
+#endif
 
 #if ABYSS_DEBUG
         Debug::System::SetContext(Debug::SystemContext{
@@ -61,6 +63,7 @@ namespace abyss
     bool SequenceManager::changeNext()
     {
         bool success = false;
+        bool pushedChild = false;
         do {
             if (m_sequence.empty()) {
                 m_sequence.push(std::make_shared<RootSequence>(this));
@@ -68,12 +71,15 @@ namespace abyss
             auto top = m_sequence.top();
             success = top->onNext();
             if (top != m_sequence.top()) {
+                pushedChild = true;
                 continue;
+            } else {
+                pushedChild = false;
             }
             if (!success) {
                 m_sequence.pop();
             }
-        } while (!success);
+        } while (!success || pushedChild);
         return success;
     }
     void SequenceManager::exit()

@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/scenes/Scene/ISceneBase.hpp>
 
+#if ABYSS_DEVELOP
 namespace abyss::Scene::Experiment
 {
 	/// <summary>
@@ -17,3 +18,4 @@ namespace abyss::Scene::Experiment
 		void onSceneDraw() const override;
 	};
 }
+#endif

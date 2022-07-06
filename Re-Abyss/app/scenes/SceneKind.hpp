@@ -22,7 +22,9 @@ namespace abyss
         /// <summary>ステージリザルト</summary>
         StageResult,
 
-        /// <summary>エントリーポイント</summary>
+#if ABYSS_DEVELOP
+        /// <summary>実験シーン</summary>
         Experiment,
+#endif
     };
 }

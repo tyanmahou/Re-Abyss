@@ -1,10 +1,12 @@
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
+#include <abyss/debugs/Debug.hpp>
+#include <Siv3D.hpp>
 
+#if ABYSS_DEVELOP
 namespace abyss::Scene::Experiment
 {
     class Scene::Impl
     {
-        std::shared_ptr<Data_t> m_data;
     public:
         Impl([[maybe_unused]] const InitData& init) :
             m_data(init._s)
@@ -18,8 +20,11 @@ namespace abyss::Scene::Experiment
         }
         void draw()
         {
-
+            m_font(U"[Experiment] Push Enter Start").draw();
         }
+    private:
+        std::shared_ptr<Data_t> m_data;
+        Font m_font{ 20 };
     };
     Scene::Scene(const InitData& init) :
         ISceneBase(init),
@@ -38,3 +43,4 @@ namespace abyss::Scene::Experiment
         m_pImpl->draw();
     }
 }
+#endif
