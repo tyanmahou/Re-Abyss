@@ -2162,6 +2162,9 @@
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5723,6 +5726,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\Experiment\Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,10 +1,13 @@
 #pragma once
-#include <abyss/scenes/Scene/SceneManager.hpp>
 
+namespace abyss
+{
+    class SequenceManager;
+}
 namespace abyss::Debug
 {
     struct SystemContext
     {
-        SceneManager* pScene = nullptr;
+        SequenceManager* pSequence = nullptr;
     };
 }

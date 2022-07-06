@@ -39,6 +39,9 @@ namespace abyss
         {
             return std::get<Result>(this->getResult());
         }
+
+        SequecneData* data();
+        const SequecneData* data() const;
     private:
         bool changeNext();
 

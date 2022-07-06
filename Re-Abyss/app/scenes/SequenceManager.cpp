@@ -27,10 +27,10 @@ namespace abyss
 
 #if ABYSS_DEBUG
         Debug::System::SetContext(Debug::SystemContext{
-            .pScene = &m_scene
+            .pSequence = this
         });
 #endif
-        m_scene.get()->isRequestedSceneEnd = true;
+        data()->isRequestedSceneEnd = true;
     }
     bool SequenceManager::update()
     {
@@ -49,6 +49,14 @@ namespace abyss
     const SceneResultHolder& SequenceManager::getResult() const
     {
         return m_scene.get()->result;
+    }
+    SequecneData* SequenceManager::data()
+    {
+        return m_scene.get().get();
+    }
+    const SequecneData* SequenceManager::data() const
+    {
+        return m_scene.get().get();
     }
     bool SequenceManager::changeNext()
     {
@@ -87,6 +95,7 @@ namespace abyss
         std::stack<std::shared_ptr<ISequence>> empty;
         m_sequence.swap(empty);
         m_sequence.push(child);
+        data()->isRequestedSceneEnd = true;
     }
     void SequenceManager::pushSequence(std::shared_ptr<ISequence> child)
     {

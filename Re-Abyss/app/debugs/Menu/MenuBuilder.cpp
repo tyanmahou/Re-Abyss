@@ -1,15 +1,16 @@
 #include <abyss/debugs/Menu/MenuBuilder.hpp>
 #if ABYSS_DEBUG
 #include <abyss/commons/Path.hpp>
-#include <abyss/scenes/Scene/SceneManager.hpp>
-#include <abyss/utils/FPS/FrameRateHz.hpp>
+#include <abyss/scenes/SequenceManager.hpp>
+#include <abyss/scenes/Sequence/SceneDebug/SceneDebugSequence.hpp>
+
 #include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Menu/MenuUtil.hpp>
-
 #include <abyss/utils/DebugMenu/Folder.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
+#include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -18,15 +19,29 @@ namespace
 	using namespace abyss;
 	using namespace abyss::Debug;
 
+    template<class SeqType, class... Args>
+    Node BuildSeqChangeButton(const s3d::String& label, Args&&... args)
+    {
+        return Node::Create<DebugMenu::Button>(label, label, [args...] {
+            if (auto* pSequence = Debug::System::Context().pSequence) {
+                if constexpr (std::is_constructible_v<SeqType, SequenceManager*, Args...>) {
+                    pSequence->changeSequence<SeqType>(pSequence, args...);
+                } else {
+                    pSequence->changeSequence<SeqType>(args...);
+                }
+                // メニューを閉じる
+                MenuUtil::RequestClose();
+            }
+        });
+    }
 	Node BuildSceneChangeButton(SceneKind key, const s3d::String& label, std::function<void(SequecneData*)> callback = nullptr)
 	{
-		return Node::Create<DebugMenu::Button>(Enum::ToStr(key), label, [key, callback] {
-            auto* pScene = Debug::System::Context().pScene;
-			if (pScene) {
+		return Node::Create<DebugMenu::Button>(label, [key, callback] {
+			if (auto* pSequence = Debug::System::Context().pSequence) {
 				if (callback) {
-					callback(pScene->get().get());
+					callback(pSequence->data());
 				}
-				pScene->changeScene(key, 1000, CrossFade::No);
+				pSequence->changeSequence<SceneDebugSequence>(pSequence, key);
 
 				// メニューを閉じる
 				MenuUtil::RequestClose();

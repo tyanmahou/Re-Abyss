@@ -743,6 +743,7 @@
     <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
     <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Title\Scene.cpp" />
+    <ClCompile Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Stage\StageSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\User\UserSequence.cpp" />
     <ClCompile Include="app\services\Actor\Enemy\EnemyService.cpp" />
@@ -1849,6 +1850,7 @@
     <ClInclude Include="app\scenes\SequenceManager.hpp" />
     <ClInclude Include="app\scenes\Scene\Splash\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\Scene.hpp" />
+    <ClInclude Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Stage\StageSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\User\UserSequence.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp" />
