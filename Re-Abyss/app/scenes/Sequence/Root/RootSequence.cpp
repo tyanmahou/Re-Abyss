@@ -16,7 +16,7 @@ namespace abyss
     }
     Coro::Task<> RootSequence::sequence()
     {
-        m_pManager->changeScene(SceneKind::Root);
+        m_pManager->changeScene(SceneKind::EntryPoint);
         co_yield{};
         m_pManager->changeScene(SceneKind::Splash);
         co_yield{};
@@ -32,6 +32,7 @@ namespace abyss
                     transitionMsec = 1000;
                     continue;
                 } else {
+                    m_pManager->exit();
                     co_return;
                 }
             } else if (next == SceneKind::SaveSelect) {

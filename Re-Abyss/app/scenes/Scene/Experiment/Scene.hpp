@@ -1,10 +1,10 @@
 #pragma once
 #include <abyss/scenes/Scene/ISceneBase.hpp>
 
-namespace abyss::Scene::Root
+namespace abyss::Scene::Experiment
 {
 	/// <summary>
-	/// Root Scene
+	/// Experiment Scene
 	/// </summary>
 	class Scene : public ISceneBase
 	{

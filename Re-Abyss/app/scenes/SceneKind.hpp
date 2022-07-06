@@ -7,8 +7,8 @@ namespace abyss
     /// </summary>
     enum class SceneKind
     {
-        /// <summary>ルート</summary>
-        Root,
+        /// <summary>エントリーポイント</summary>
+        EntryPoint,
         /// <summary>スプラッシュ</summary>
         Splash,
         /// <summary>OPデモ</summary>
@@ -21,5 +21,8 @@ namespace abyss
         Stage,
         /// <summary>ステージリザルト</summary>
         StageResult,
+
+        /// <summary>エントリーポイント</summary>
+        Experiment,
     };
 }

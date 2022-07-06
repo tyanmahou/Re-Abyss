@@ -1620,7 +1620,7 @@
     <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\Root\Scene.cpp">
+    <ClCompile Include="app\scenes\Scene\EntryPoint\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp">
@@ -2157,6 +2157,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4909,7 +4912,7 @@
     <ClInclude Include="app\scenes\Scene\OpDemo\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\Root\Scene.hpp">
+    <ClInclude Include="app\scenes\Scene\EntryPoint\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp">
@@ -5717,6 +5720,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Easing\EasingUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\Experiment\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

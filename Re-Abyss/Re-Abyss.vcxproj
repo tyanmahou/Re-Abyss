@@ -732,11 +732,12 @@
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
     <ClCompile Include="app\modules\World\World.cpp" />
+    <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\ISceneBase.cpp" />
     <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Stage\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp" />
-    <ClCompile Include="app\scenes\Scene\Root\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\EntryPoint\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp" />
     <ClCompile Include="app\scenes\SequenceManager.cpp" />
     <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
@@ -1829,6 +1830,7 @@
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\Data\SequecneData.hpp" />
+    <ClInclude Include="app\scenes\Scene\Experiment\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\SceneManager.hpp" />
@@ -1837,7 +1839,7 @@
     <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Context.hpp" />
     <ClInclude Include="app\scenes\Scene\OpDemo\Scene.hpp" />
-    <ClInclude Include="app\scenes\Scene\Root\Scene.hpp" />
+    <ClInclude Include="app\scenes\Scene\EntryPoint\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp" />
     <ClInclude Include="app\scenes\SceneKind.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp" />
