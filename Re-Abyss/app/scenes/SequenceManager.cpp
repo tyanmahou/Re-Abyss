@@ -30,6 +30,7 @@ namespace abyss
             .pScene = &m_scene
         });
 #endif
+        m_scene.get()->isRequestedSceneEnd = true;
     }
     bool SequenceManager::update()
     {
