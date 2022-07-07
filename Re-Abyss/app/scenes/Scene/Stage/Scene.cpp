@@ -123,7 +123,6 @@ namespace abyss::Scene::Stage
 		void draw() const
 		{
 			m_system->draw();
-
 		}
 
 		/// <summary>
@@ -142,6 +141,25 @@ namespace abyss::Scene::Stage
 			m_system->boot(booter.get());
 			return true;
 		}
+        bool onMoveStage(const s3d::String& link) override
+        {
+            m_system = std::make_unique<System>();
+
+            // マップ更新
+            m_context.mapPath = U"{}/{}.tmx"_fmt(Path::MapPath, link);
+
+            auto injector = Factory::Stage::Injector(m_context.mapPath);
+            m_stageData = injector.resolve<StageData>();
+
+            auto booter = std::make_unique<BooterNormal>(this);
+            booter->setStageData(m_stageData)
+                .setTempData(m_tempData)
+                .setCharaTable(m_charaTable)
+                ;
+
+            m_system->boot(booter.get());
+            return true;
+        }
 		bool onEscape() override
 		{
 			m_tempData->clearFlag(abyss::TempLevel::Exit);

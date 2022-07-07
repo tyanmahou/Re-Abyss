@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#146b52" nextlayerid="13" nextobjectid="55">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#146b52" nextlayerid="13" nextobjectid="56">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
  <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
- <group id="6" name="bgs"/>
+ <group id="6" name="bgs" offsetx="-320" offsety="-96"/>
  <group id="3" name="decor">
   <objectgroup id="12" name="front" parallaxx="1.2">
    <properties>
@@ -191,5 +191,10 @@
    </properties>
   </object>
   <object id="54" gid="47" x="2040" y="480" width="80" height="120"/>
+  <object id="55" gid="46" x="920" y="560" width="80" height="120">
+   <properties>
+    <property name="link" value="Gimmick/Door_1"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

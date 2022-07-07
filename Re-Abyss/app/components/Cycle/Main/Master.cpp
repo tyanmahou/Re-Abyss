@@ -20,17 +20,38 @@ namespace abyss::Cycle::Main
 
     bool Master::escape()
     {
-        return this->notify(Notify::Escape);
+        if (this->notify(Notify::Escape)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onEscape, m_observer);
+            return true;
+        }
+        return false;
     }
 
     bool Master::restart()
     {
-        return this->notify(Notify::Restart);
+        if (this->notify(Notify::Restart)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onRestart, m_observer);
+            return true;
+        }
+        return false;
     }
 
     bool Master::clear()
     {
-        return this->notify(Notify::Clear);
+        if (this->notify(Notify::Clear)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onClear, m_observer);
+            return true;
+        }
+        return false;
+    }
+
+    bool Master::moveStage(const s3d::String& link)
+    {
+        if (this->notify(Notify::MoveStage)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onMoveStage, m_observer, link);
+            return true;
+        }
+        return false;
     }
 
     bool Master::listen()
@@ -38,13 +59,9 @@ namespace abyss::Cycle::Main
         if (!m_observer) {
             return false;
         }
-        switch (m_notify) {
-        case Notify::Escape: return m_observer->onEscape();
-        case Notify::Restart: return m_observer->onRestart();
-        case Notify::Clear: return m_observer->onClear();
-        default:
-            break;
+        if (!m_notifyEvent) {
+            return false;
         }
-        return false;
+        return m_notifyEvent();
     }
 }

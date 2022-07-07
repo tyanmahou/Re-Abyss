@@ -11,7 +11,9 @@ namespace abyss::Cycle::Main
     class IMasterObserver
     {
     public:
+        virtual ~IMasterObserver() = default;
         virtual bool onRestart() = 0;
+        virtual bool onMoveStage(const s3d::String& link) = 0;
         virtual bool onEscape() = 0;
         virtual bool onClear() = 0;
     };
@@ -30,6 +32,7 @@ namespace abyss::Cycle::Main
             Escape,
             Restart,
             Clear,
+            MoveStage,
         };
     public:
         Master(IMasterObserver* observer);
@@ -52,6 +55,12 @@ namespace abyss::Cycle::Main
         /// <returns></returns>
         bool clear();
 
+        /// <summary>
+        /// マップ移動を予約する
+        /// </summary>
+        /// <returns></returns>
+        bool moveStage(const s3d::String& link);
+
         bool listen() override;
 
     private:
@@ -59,6 +68,7 @@ namespace abyss::Cycle::Main
     private:
         Notify m_notify = Notify::None;
         IMasterObserver* m_observer = nullptr;
+        std::function<bool()> m_notifyEvent;
     };
 }
 
