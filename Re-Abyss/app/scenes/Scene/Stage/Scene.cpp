@@ -12,7 +12,8 @@
 
 #include <abyss/scenes/System/System.hpp>
 #include <abyss/scenes/Scene/Stage/Booter.hpp>
-#include <abyss/debugs/Util/DebugUtil.hpp>
+#include <abyss/utils/FileUtil/FileUtil.hpp>
+#include <abyss/debugs/Debug.hpp>
 
 namespace abyss::Scene::Stage
 {
@@ -30,7 +31,7 @@ namespace abyss::Scene::Stage
 
 		std::shared_ptr<Data_t> m_data;
 	public:
-		Impl([[maybe_unused]] const Scene::InitData& init):
+		Impl(const Scene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
 			m_charaTable(std::make_shared<Novel::CharaTable>()),
 			m_data(init._s)
@@ -38,7 +39,7 @@ namespace abyss::Scene::Stage
 			if (std::holds_alternative<Context>(m_data->context)) {
 				m_context = std::get<Stage::Context>(m_data->context);
 			} else {
-				m_context.mapPath = Path::MapPath + U"Stage0.tmx";
+				m_context.mapPath = Path::MapPath + U"Stage0/Stage0_0.tmx";
 			}
 		}
 
@@ -47,17 +48,18 @@ namespace abyss::Scene::Stage
 			co_yield 0.0;
 			Resource::Assets::Main()->release();
 #if ABYSS_DEBUG
-			String path;
-			if (m_context.mapPath.includes(U"tests/data/maps")) {
-				path = U"Map/Test";
-			} else {
-				auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
-				path = U"Map/{}"_fmt(stageKey);
-			}
-			Resource::Preload::Preloader loader(path);
+            String path;
+            if (m_context.mapPath.includes(U"tests/data/maps")) {
+                path = U"Map/Test";
+            } else {
+                auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(m_context.mapPath), Path::MapPath);
+                path = U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
+            }
+            Resource::Preload::Preloader loader(path);
 #else
-			auto stageKey = s3d::FileSystem::BaseName(m_context.mapPath);
-			Resource::Preload::Preloader loader(U"Map/{}"_fmt(stageKey));
+            auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(m_context.mapPath), Path::MapPath);
+            String path = U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
+            Resource::Preload::Preloader loader(path);
 #endif
 			for (auto&& p : loader.preloadProgress()) {
 				co_yield p;
