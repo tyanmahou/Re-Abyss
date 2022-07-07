@@ -21,6 +21,8 @@ namespace abyss::Actor::Gimmick::Door
         CShape getCollider() const;
 
         s3d::int32 getStartId()const;
+        const s3d::Optional<s3d::String>& getLink() const;
+
         const s3d::Vec2& getPos() const;
         const s3d::Vec2& getSize() const;
         DoorKind getKind() const;
@@ -28,6 +30,7 @@ namespace abyss::Actor::Gimmick::Door
         ActorObj* m_pActor;
 
         s3d::int32 m_startId;
+        s3d::Optional<s3d::String> m_link;
         s3d::Vec2 m_pos;
         s3d::Vec2 m_size;
         DoorKind m_kind;

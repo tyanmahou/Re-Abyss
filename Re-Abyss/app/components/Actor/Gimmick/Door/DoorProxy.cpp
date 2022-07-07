@@ -5,6 +5,7 @@ namespace abyss::Actor::Gimmick::Door
 	DoorProxy::DoorProxy(ActorObj* pActor, const DoorEntity& entity) :
 		m_pActor(pActor),
         m_startId(entity.startId),
+        m_link(entity.link),
 		m_pos(entity.pos),
 		m_size(entity.size),
         m_kind(entity.kind)
@@ -18,6 +19,10 @@ namespace abyss::Actor::Gimmick::Door
 	{
         return m_startId;
 	}
+    const s3d::Optional<s3d::String>& DoorProxy::getLink() const
+    {
+        return m_link;
+    }
 	void DoorProxy::setup([[maybe_unused]]Executer executer)
 	{}
 	void DoorProxy::onStart()

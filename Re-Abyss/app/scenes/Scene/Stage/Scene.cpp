@@ -23,6 +23,7 @@ namespace abyss::Scene::Stage
 		using System = Sys::System<Sys::Config::Main()>;
 
 		std::unique_ptr<System> m_system;
+        std::unique_ptr<System> m_systemNext;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
 		std::shared_ptr<Novel::CharaTable> m_charaTable;
@@ -113,6 +114,10 @@ namespace abyss::Scene::Stage
 		void update()
 		{
 			m_system->update();
+            if (m_systemNext) {
+                m_system = std::move(m_systemNext);
+                m_systemNext = nullptr;
+            }
 #if ABYSS_DEBUG
 			if ((KeyControl + KeyO).down()) {
 				Debug::DebugUtil::FileEdit(m_context.mapPath);
@@ -131,23 +136,30 @@ namespace abyss::Scene::Stage
 		/// <returns></returns>
 		bool onRestart() override
 		{
-			m_system = std::make_unique<System>();
+            m_systemNext = std::make_unique<System>();
 
 			auto booter = std::make_unique<BooterRestart>(this);
 			booter->setStageData(m_stageData)
 				.setTempData(m_tempData)
 				.setCharaTable(m_charaTable)
 				;
-			m_system->boot(booter.get());
+            m_systemNext->boot(booter.get());
 			return true;
 		}
         bool onMoveStage(const s3d::String& link) override
         {
-            m_system = std::make_unique<System>();
-
             // マップ更新
-            m_context.mapPath = U"{}/{}.tmx"_fmt(Path::MapPath, link);
+#if ABYSS_DEBUG
+            if (m_context.mapPath.includes(U"tests/data/maps")) {
+                m_context.mapPath = Path::TestMapPath + link + U".tmx";
+            } else {
+                m_context.mapPath = Path::MapPath + link + U".tmx";
+            }
+#else
+            m_context.mapPath = Path::MapPath + link + U".tmx";
+#endif
 
+            m_systemNext = std::make_unique<System>();
             auto injector = Factory::Stage::Injector(m_context.mapPath);
             m_stageData = injector.resolve<StageData>();
 
@@ -157,7 +169,7 @@ namespace abyss::Scene::Stage
                 .setCharaTable(m_charaTable)
                 ;
 
-            m_system->boot(booter.get());
+            m_systemNext->boot(booter.get());
             return true;
         }
 		bool onEscape() override

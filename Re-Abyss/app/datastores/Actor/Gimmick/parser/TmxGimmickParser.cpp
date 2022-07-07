@@ -42,7 +42,7 @@ namespace
             });
             PARSE_GIMMICK(Door, {
                 it->startId = obj.getProperty(U"start_id").value_or(0);
-                if (auto link = obj.getProperty(U"link").value_or(U"").toString()) {
+                if (auto link = obj.getProperty(U"link").value_or(U"").toString(); !link.isEmpty()) {
                     it->link = std::move(link);
                 }
                 it->size = obj.toRectF().size;

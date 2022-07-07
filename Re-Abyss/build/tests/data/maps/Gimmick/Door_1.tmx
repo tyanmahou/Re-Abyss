@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" nextlayerid="11" nextobjectid="4">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" nextlayerid="11" nextobjectid="6">
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
  <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
@@ -12,10 +12,10 @@
    </properties>
   </objectgroup>
  </group>
- <objectgroup id="10" name="room">
+ <objectgroup id="10" name="room" locked="1">
   <object id="1" type="room" x="0" y="0" width="1120" height="640"/>
  </objectgroup>
- <layer id="2" name="land" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100" locked="1">
   <data encoding="csv">
    <chunk x="0" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -55,9 +55,11 @@
 </chunk>
   </data>
  </layer>
- <objectgroup id="9" name="item"/>
- <objectgroup id="4" name="enemy"/>
- <objectgroup id="8" name="gimmick">
+ <objectgroup id="9" name="item" locked="1"/>
+ <objectgroup id="4" name="enemy" locked="1">
+  <object id="4" gid="56" x="560" y="560" width="40" height="40"/>
+ </objectgroup>
+ <objectgroup id="8" name="gimmick" locked="1">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="3" gid="46" x="720" y="560" width="80" height="120">
    <properties>
