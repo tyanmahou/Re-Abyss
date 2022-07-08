@@ -1,5 +1,19 @@
 {
     "maps": [
+        {
+            "fileName": "Door_1.tmx",
+            "height": 640,
+            "width": 1280,
+            "x": -2920,
+            "y": -1160
+        },
+        {
+            "fileName": "Door_0.tmx",
+            "height": 1280,
+            "width": 3200,
+            "x": -2920,
+            "y": -240
+        }
     ],
     "onlyShowAdjacentMaps": false,
     "type": "world"

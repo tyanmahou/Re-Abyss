@@ -19,10 +19,10 @@
   - elseの改行設定
 - ビルド構成を追加しプリプロセッサ調整
   - `Develop`
-    - cpp:`ABYSS_DEBUG` `ABYSS_DO_TEST` `ABYSS_NO_BUILD_RESOURCE` `DEVELOP`
+    - cpp:`ABYSS_DEBUG` `ABYSS_DO_TEST` `ABYSS_NO_BUILD_RESOURCE` `ABYSS_DEVELOP`
     -リソース:`ABYSS_NO_BUILD_RESOURCE`
   - `Staging`
-    - cpp: `ABYSS_DEBUG` `STAGING`
+    - cpp: `ABYSS_DEBUG` `ABYSS_STAGING`
 
 ### その他
 
