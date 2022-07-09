@@ -8,7 +8,7 @@ namespace abyss::Scene::Experiment
     class Scene::Impl
     {
     public:
-        Impl([[maybe_unused]] const InitData& init) :
+        Impl(const InitData& init) :
             m_data(init._s)
         {}
 

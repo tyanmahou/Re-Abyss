@@ -45,6 +45,7 @@ namespace abyss
                     m_pManager->pushSequence<UserSequence>(m_pManager);
                     co_yield{};
                     next = SceneKind::Title;
+                    transitionMsec = 1000;
                     continue;
                 }
             } else {

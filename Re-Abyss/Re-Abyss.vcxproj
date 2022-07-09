@@ -244,6 +244,10 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp" />
+    <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
+    <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
+    <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
@@ -734,6 +738,7 @@
     <ClCompile Include="app\modules\World\World.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\ISceneBase.cpp" />
+    <ClCompile Include="app\scenes\Scene\StageResult\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Stage\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp" />
@@ -1129,6 +1134,10 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
+    <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
+    <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
+    <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
@@ -1836,6 +1845,7 @@
     <ClInclude Include="app\scenes\Scene\ISceneBase.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\SceneManager.hpp" />
+    <ClInclude Include="app\scenes\Scene\StageResult\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Context.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />

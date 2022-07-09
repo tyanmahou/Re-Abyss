@@ -22,13 +22,19 @@ namespace abyss::Sys
 				.isStage = false
 			};
 		}
-		static consteval Config Main()
+		static consteval Config Stage()
 		{
 			return Config{
 				.isStage = true
 			};
 		}
-	public:
+        static consteval Config StageResult()
+        {
+            return Config{
+                .isStage = false
+            };
+        }
+    public:
 		bool isStage = false;
 	};
 }

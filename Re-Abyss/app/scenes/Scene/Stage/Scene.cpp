@@ -20,7 +20,7 @@ namespace abyss::Scene::Stage
 	class Scene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
-		using System = Sys::System<Sys::Config::Main()>;
+		using System = Sys::System<Sys::Config::Stage()>;
 
 		std::unique_ptr<System> m_system;
         std::unique_ptr<System> m_systemNext;
