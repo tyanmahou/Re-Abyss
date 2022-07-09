@@ -6,23 +6,28 @@ namespace abyss
     using namespace abyss::Scene;
 
     GameSequence::GameSequence(SequenceManager* pManager) :
+        GameSequence(pManager, SceneKind::Splash)
+    {
+    }
+    GameSequence::GameSequence(SequenceManager* pManager, SceneKind initScene):
         m_pManager(pManager)
     {
-        m_seq.reset(std::bind(&GameSequence::sequence, this));
+        m_seq.reset(std::bind(&GameSequence::sequence, this, initScene));
     }
     bool GameSequence::onNext()
     {
         return m_seq.moveNext();
     }
-    Coro::Task<> GameSequence::sequence()
+    Coro::Task<> GameSequence::sequence(const SceneKind initScene)
     {
-        m_pManager->changeScene(SceneKind::Splash);
-        co_yield{};
-
-        SceneKind next = SceneKind::Title;
+        SceneKind next = initScene;
         s3d::int32 transitionMsec = 0;
         while (true) {
-            if (next == SceneKind::Title) {
+            if (next == SceneKind::Splash) {
+                m_pManager->changeScene(SceneKind::Splash);
+                co_yield{};
+                next = SceneKind::Title;
+            } else if (next == SceneKind::Title) {
                 m_pManager->changeScene(SceneKind::Title, transitionMsec);
                 co_yield{};
                 if (m_pManager->getResult<Title::SceneResult>().isStart) {

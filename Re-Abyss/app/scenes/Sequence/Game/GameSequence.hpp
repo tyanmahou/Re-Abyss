@@ -8,10 +8,10 @@ namespace abyss
     {
     public:
         GameSequence(SequenceManager* pManager);
-
+        GameSequence(SequenceManager* pManager, SceneKind initScene);
         bool onNext() override;
     private:
-        Coro::Task<> sequence();
+        Coro::Task<> sequence(SceneKind initScene);
     private:
         SequenceManager* m_pManager;
         Coro::TaskHolder<> m_seq;

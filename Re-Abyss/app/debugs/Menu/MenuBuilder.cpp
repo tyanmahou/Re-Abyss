@@ -2,6 +2,7 @@
 #if ABYSS_DEBUG
 #include <abyss/commons/Path.hpp>
 #include <abyss/scenes/SequenceManager.hpp>
+#include <abyss/scenes/Sequence/Game/GameSequence.hpp>
 #include <abyss/scenes/Sequence/SceneDebug/SceneDebugSequence.hpp>
 #include <abyss/scenes/Sequence/Stage/StageSequence.hpp>
 
@@ -88,9 +89,9 @@ namespace abyss::Debug
 		auto label = xml.attribute(U"label").value_or(key);
 		auto folder = Node::Create<DebugMenu::Folder>(key, label);
 
-		folder.add(::BuildSceneChangeButton(SceneKind::Splash));
-		folder.add(::BuildSceneChangeButton(SceneKind::Title));
-		folder.add(::BuildSceneChangeButton(SceneKind::SaveSelect));
+		folder.add(::BuildSeqChangeButton<GameSequence>(U"Splash", SceneKind::Splash));
+		folder.add(::BuildSeqChangeButton<GameSequence>(U"Title", SceneKind::Title));
+		folder.add(::BuildSeqChangeButton<GameSequence>(U"SaveSelect", SceneKind::SaveSelect));
 		// マップロード
 		{
 			auto mainFolder = Node::Create<DebugMenu::Folder>(U"Stage");
