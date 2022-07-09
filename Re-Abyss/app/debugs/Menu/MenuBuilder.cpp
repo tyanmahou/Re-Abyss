@@ -3,6 +3,7 @@
 #include <abyss/commons/Path.hpp>
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/scenes/Sequence/SceneDebug/SceneDebugSequence.hpp>
+#include <abyss/scenes/Sequence/Stage/StageSequence.hpp>
 
 #include <abyss/debugs/System/System.hpp>
 #include <abyss/debugs/Log/Log.hpp>
@@ -70,13 +71,11 @@ namespace
             if (s3d::FileSystem::FileName(path).starts_with(U".")) {
                 continue;
             }
-			abyss::Scene::Stage::Context context{
+			abyss::StageSeqContext context{
 				.mapPath = s3d::FileSystem::RelativePath(path)
 			};
 			auto name = s3d::FileSystem::RelativePath(path, basePath);
-			folder.add(::BuildSceneChangeButton(SceneKind::Stage, name, [context](SequecneData* data) {
-				data->context = context;
-			}));
+			folder.add(::BuildSeqChangeButton<StageSequence>(name, context));
 		}
 		return folder;
 	}
