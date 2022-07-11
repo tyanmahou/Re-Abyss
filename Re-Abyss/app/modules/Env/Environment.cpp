@@ -35,7 +35,7 @@ namespace abyss::Env
     {
 #if ABYSS_DEBUG
         if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderFog)) {
-            nullptr;
+            return nullptr;
         }
 #endif
         return m_fog.get();
