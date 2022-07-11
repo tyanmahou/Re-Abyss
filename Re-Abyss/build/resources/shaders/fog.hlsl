@@ -29,15 +29,25 @@ float rand(float2 st)
 }
 float4 PS(PSInput input) : SV_TARGET
 {
+	float2 size;
+	float  level;
+	g_texture0.GetDimensions(0, size.x, size.y, level);
+
+	float2 shiftOffs = g_z * g_z * 4 / size;
 	float2 uv = input.uv;
-	float4 outColor = g_texture0.Sample(g_sampler0, uv);
-    float4 rawColor = (outColor * input.color) + g_colorAdd;
+	float2 ra = g_texture0.Sample(g_sampler0, uv + shiftOffs).ra;
+	float2 ga = g_texture0.Sample(g_sampler0, uv).ga;
+	float2 ba = g_texture0.Sample(g_sampler0, uv - shiftOffs).ba;
+	float a = (ra.y + ga.y + ba.y) / 3;
+	float4 texColor = float4(ra.x, ga.x, ba.x, a);
+
+    float4 rawColor = (texColor * input.color) + g_colorAdd;
 	
 	float4 fogColor = g_fogColor -0.3 * g_z;
 	float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
 
 	float4 result = lerp(fogColor, rawColor, fog);
 	result.a = rawColor.a;
-	result.rgb += rand(uv) * 0.08 * g_z;
+	result.rgb += rand(uv) * 0.05 * g_z;
 	return result;
 }

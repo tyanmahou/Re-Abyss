@@ -50,7 +50,7 @@ namespace abyss::Env
     }
     void Environment::applyFog(std::function<void()> drawer, double z) const
     {
-        if (z < 1.0) {
+        if (z > 0.0) {
             if (auto fog = this->getFog()) {
                 auto fogShader = fog->setZ(z).start();
                 drawer();
