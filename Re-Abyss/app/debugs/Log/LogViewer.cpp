@@ -1,5 +1,6 @@
 #include <abyss/debugs/Log/LogViewer.hpp>
 #if ABYSS_DEBUG
+#include <abyss/debugs/Debug.hpp>
 #include <abyss/utils/DebugLog/DebugLog.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 #include <Siv3D.hpp>
@@ -9,6 +10,23 @@ namespace
     using namespace abyss;
     using namespace abyss::DebugLog;
 
+    bool IsVisible(LogKind kind)
+    {
+        switch (kind)
+        {
+        case LogKind::Info:
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogNormal);
+        case LogKind::Warn:
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogWarn);
+        case LogKind::Error:
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogError);
+        case LogKind::Load:
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogLoad);
+        default:
+            break;
+        }
+        return true;
+    }
     class ViewerCore : public IViewer
     {
         struct KindCustom
@@ -51,6 +69,9 @@ namespace
         void draw(const s3d::Array<LogInfo>& logs) override
         {
             if (logs.isEmpty()) {
+                return;
+            }
+            if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogIsVisible)) {
                 return;
             }
             const LogInfo* pFocusLog = nullptr;
