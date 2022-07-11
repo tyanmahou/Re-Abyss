@@ -12,7 +12,7 @@
 		<Clear label="ログのクリア" callback ="ExecClearLog"/>
 	</Log>
 	<Alert label ="アラート">
-		<Profiler label="処理負荷" value="false"/>
+		<!-- <Profiler label="処理負荷" value="false"/> -->
 		<EffectCount label="エフェクト数" value="false"/>
 		<DecorCount label="装飾数" value="false"/>
 		<DrawerCount label="描画リクエスト数" value="false"/>
