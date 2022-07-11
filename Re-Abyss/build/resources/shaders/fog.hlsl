@@ -29,10 +29,11 @@ float4 PS(PSInput input) : SV_TARGET
 	float2 uv = input.uv;
 	float4 outColor = g_texture0.Sample(g_sampler0, uv);
     float4 rawColor = (outColor * input.color) + g_colorAdd;
+	
+	float4 fogColor = g_fogColor -0.3 * g_z;
+	float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
 
-	float fog = exp(-g_fogFactor * 6.0 * g_z);
-
-	float4 result = lerp(g_fogColor, rawColor, fog);
+	float4 result = lerp(fogColor, rawColor, fog);
 	result.a = rawColor.a;
 	return result;
 }

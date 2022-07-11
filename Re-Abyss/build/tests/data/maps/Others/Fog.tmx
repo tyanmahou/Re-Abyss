@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#26283a" nextlayerid="14" nextobjectid="55">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#205b64" nextlayerid="17" nextobjectid="77">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
@@ -8,8 +8,40 @@
  <tileset firstgid="56" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
  <tileset firstgid="67" source="../../../../resources/maps/Tileset/DecorStage0.tsx"/>
  <group id="6" name="bgs" locked="1"/>
- <group id="3" name="decor" locked="1">
-  <objectgroup id="13" name="back0_5" parallaxx="0.5">
+ <group id="3" name="decor">
+  <objectgroup id="14" name="back_0" parallaxx="0">
+   <properties>
+    <property name="layer" value="BackGround"/>
+   </properties>
+   <object id="56" gid="81" x="-560" y="640" width="1120" height="640"/>
+  </objectgroup>
+  <objectgroup id="16" name="back0_1" parallaxx="0.1">
+   <properties>
+    <property name="layer" value="DecorBack"/>
+   </properties>
+   <object id="67" gid="80" x="-796.364" y="774.545" width="160" height="440"/>
+   <object id="69" gid="80" x="-156.364" y="774.545" width="160" height="440"/>
+   <object id="71" gid="80" x="483.636" y="774.545" width="160" height="440"/>
+   <object id="73" gid="80" x="1123.64" y="774.545" width="160" height="440"/>
+   <object id="75" gid="80" x="1763.64" y="774.545" width="160" height="440"/>
+   <object id="76" gid="80" x="2083.64" y="774.545" width="160" height="440"/>
+  </objectgroup>
+  <objectgroup id="15" name="back0_25" parallaxx="0.25">
+   <properties>
+    <property name="layer" value="DecorBack"/>
+   </properties>
+   <object id="57" gid="80" x="-560" y="720" width="160" height="440"/>
+   <object id="58" gid="80" x="-240" y="720" width="160" height="440"/>
+   <object id="59" gid="80" x="80" y="720" width="160" height="440"/>
+   <object id="60" gid="80" x="400" y="720" width="160" height="440"/>
+   <object id="61" gid="80" x="720" y="720" width="160" height="440"/>
+   <object id="62" gid="80" x="1040" y="720" width="160" height="440"/>
+   <object id="63" gid="80" x="1360" y="720" width="160" height="440"/>
+   <object id="64" gid="80" x="1680" y="720" width="160" height="440"/>
+   <object id="65" gid="80" x="2000" y="720" width="160" height="440"/>
+   <object id="66" gid="80" x="2320" y="720" width="160" height="440"/>
+  </objectgroup>
+  <objectgroup id="13" name="back0_5" locked="1" parallaxx="0.5">
    <properties>
     <property name="layer" value="DecorBack"/>
    </properties>
@@ -24,7 +56,7 @@
    <object id="53" gid="80" x="2000" y="800" width="160" height="440"/>
    <object id="54" gid="80" x="2320" y="800" width="160" height="440"/>
   </objectgroup>
-  <objectgroup id="12" name="back0_75" parallaxx="0.75">
+  <objectgroup id="12" name="back0_75" locked="1" parallaxx="0.75">
    <properties>
     <property name="layer" value="DecorBack"/>
    </properties>
@@ -58,7 +90,7 @@
  <objectgroup id="10" name="room">
   <object id="1" type="room" x="0" y="0" width="3200" height="640">
    <properties>
-    <property name="light_color" type="color" value="#ffffffff"/>
+    <property name="light_color" type="color" value=""/>
     <property name="right" type="bool" value="false"/>
    </properties>
   </object>

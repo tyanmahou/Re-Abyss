@@ -181,7 +181,8 @@ namespace abyss
 
             // Fog
             if (auto fog = env->getFog()) {
-                fog->setFogColor(m_stageData->getAttributeService()->getBgColor());
+                fog->setFogColor(m_stageData->getAttributeService()->getBgColor())
+                    .setFogFactor(2.0);
             }
         }
         // サウンド初期化
