@@ -2183,6 +2183,12 @@
     <ClCompile Include="app\components\Event\StageResult\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Shader\Fog\FogShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Env\Fog\Fog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5765,6 +5771,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\StageResult\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Shader\Fog\FogShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Env\Fog\Fog.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

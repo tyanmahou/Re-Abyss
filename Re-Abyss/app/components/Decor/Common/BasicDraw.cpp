@@ -5,6 +5,7 @@
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Light/Light.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <Siv3D.hpp>
 
@@ -30,8 +31,10 @@ namespace abyss::Decor
             ->getTexture(m_info->getGId(), time)
             .mirrored(m_info->isMirrored())
             .flipped(m_info->isFlipped());
-        quad(tex).draw();
-        
+
+        m_pObj->getModule<Environment>()->applyFog([&] {
+            quad(tex).draw();
+        }, 1.0 - this->getOrder());
         if (m_info->useShadow()) {
             m_pObj->getModule<Light>()->addShadow([quad, tex](double) {
                 quad(tex).draw();

@@ -24,6 +24,7 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
@@ -174,7 +175,15 @@ namespace abyss
             light->setDefaultColor(m_stageData->getAttributeService()->getBgColor());
             light->initColor(nextRoom->getLightColor());
         }
+        // Env
+        {
+            auto* env = m_pManager->getModule<Environment>();
 
+            // Fog
+            if (auto fog = env->getFog()) {
+                fog->setFogColor(m_stageData->getAttributeService()->getBgColor());
+            }
+        }
         // サウンド初期化
         {
             auto temporary = m_pManager->getModule<Temporary>();

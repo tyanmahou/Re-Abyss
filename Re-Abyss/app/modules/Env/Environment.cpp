@@ -14,6 +14,9 @@ namespace abyss::Env
         if (desc.useWave) {
             m_wave = std::make_unique<Wave>();
         }
+        if (desc.useFog) {
+            m_fog = std::make_unique<Fog>();
+        }
     }
     void Environment::update(double dt)
     {
@@ -31,6 +34,19 @@ namespace abyss::Env
     {
         if (m_wave) {
             m_wave->apply(drawer);
+        } else {
+            drawer();
+        }
+    }
+    void Environment::applyFog(std::function<void()> drawer, double z) const
+    {
+        if (z < 1.0) {
+            if (m_fog) {
+                auto fogShader = m_fog->setZ(z).start();
+                drawer();
+            } else {
+                drawer();
+            }
         } else {
             drawer();
         }

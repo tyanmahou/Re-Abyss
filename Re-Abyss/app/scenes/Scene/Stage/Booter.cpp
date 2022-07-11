@@ -125,7 +125,8 @@ namespace abyss::Scene::Stage
         env->init(Env::EnvDesc{
             .useSky = true,
             .useCaustics = true,
-            .useWave = true
+            .useWave = true,
+            .useFog = true
         });
         // 背景色
         env->getBg()->setColor(m_stageData->getAttributeService()->getBgColor());

@@ -4,6 +4,7 @@
 #include <abyss/modules/Env/Sky/Sky.hpp>
 #include <abyss/modules/Env/Caustics/Caustics.hpp>
 #include <abyss/modules/Env/Wave/Wave.hpp>
+#include <abyss/modules/Env/Fog/Fog.hpp>
 
 namespace abyss::Env
 {
@@ -12,6 +13,7 @@ namespace abyss::Env
         bool useSky = false;
         bool useCaustics = false;
         bool useWave = false;
+        bool useFog = false;
     };
 
     class Environment
@@ -35,12 +37,17 @@ namespace abyss::Env
         {
             return m_caustics.get();
         }
-
+        Fog* getFog() const
+        {
+            return m_fog.get();
+        }
         void applyWave(std::function<void()> drawer) const;
+        void applyFog(std::function<void()> drawer, double z) const;
     private:
         std::unique_ptr<Bg> m_bg;
         std::unique_ptr<Sky> m_sky;
         std::unique_ptr<Caustics> m_caustics;
         std::unique_ptr<Wave> m_wave;
+        std::unique_ptr<Fog> m_fog;
     };
 }
