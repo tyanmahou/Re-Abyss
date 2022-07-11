@@ -23,7 +23,10 @@ cbuffer FogParam : register(b1)
 	float g_fogFactor;
 	float g_z;
 }
-
+float rand(float2 st)
+{
+	return frac(sin(dot(st.xy, float2(12.9898, 78.233))) * 43758.5453123);
+}
 float4 PS(PSInput input) : SV_TARGET
 {
 	float2 uv = input.uv;
@@ -35,5 +38,6 @@ float4 PS(PSInput input) : SV_TARGET
 
 	float4 result = lerp(fogColor, rawColor, fog);
 	result.a = rawColor.a;
+	result.rgb += rand(uv) * 0.08 * g_z;
 	return result;
 }
