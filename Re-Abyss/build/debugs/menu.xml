@@ -23,12 +23,14 @@
 		<MapCollider label="地形コライダー" value="false"/>
 		<TestBehavior label="テストアクション" value="false"/>
 	</Actor>
-	<PostEffect label ="ポストエフェクト設定">
+	<Render label ="レンダリング設定">
+		<Fog label="フォグ" value="true"/>
+		<hr/>
 		<Light label="ライト" value="true"/>
 		<Distortion label="歪み" value="true"/>
 		<hr/>
 		<Scanline label="スキャンライン" value="true"/>
-	</PostEffect>
+	</Render>
 	<FPS select="0" callback="ExecFPS">
 		<Item label="FPS：可変" />
 		<Item label="FPS：10" value="10"/>

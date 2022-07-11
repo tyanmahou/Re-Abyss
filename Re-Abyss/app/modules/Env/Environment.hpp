@@ -37,10 +37,7 @@ namespace abyss::Env
         {
             return m_caustics.get();
         }
-        Fog* getFog() const
-        {
-            return m_fog.get();
-        }
+        Fog* getFog() const;
         void applyWave(std::function<void()> drawer) const;
         void applyFog(std::function<void()> drawer, double z) const;
     private:

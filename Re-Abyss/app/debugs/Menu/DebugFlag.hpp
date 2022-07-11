@@ -20,9 +20,10 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* ActorMapCollider = U"Actor/MapCollider";
     inline constexpr auto* ActorTestBehavior = U"Actor/TestBehavior";
 
-    inline constexpr auto* PostEffectLight = U"PostEffect/Light";
-    inline constexpr auto* PostEffectDistortion = U"PostEffect/Distortion";
-    inline constexpr auto* PostEffectScanline = U"PostEffect/Scanline";
+    inline constexpr auto* RenderFog = U"Render/Fog";
+    inline constexpr auto* RenderLight = U"Render/Light";
+    inline constexpr auto* RenderDistortion = U"Render/Distortion";
+    inline constexpr auto* RenderScanline = U"Render/Scanline";
 }
 
 #endif

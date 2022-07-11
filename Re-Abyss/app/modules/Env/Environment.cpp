@@ -1,4 +1,5 @@
 #include <abyss/modules/Env/Environment.hpp>
+#include <abyss/debugs/Debug.hpp>
 
 namespace abyss::Env
 {
@@ -30,6 +31,15 @@ namespace abyss::Env
             m_wave->update(dt);
         }
     }
+    Fog* Environment::getFog() const
+    {
+#if ABYSS_DEBUG
+        if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderFog)) {
+            nullptr;
+        }
+#endif
+        return m_fog.get();
+    }
     void Environment::applyWave(std::function<void()> drawer) const
     {
         if (m_wave) {
@@ -41,8 +51,8 @@ namespace abyss::Env
     void Environment::applyFog(std::function<void()> drawer, double z) const
     {
         if (z < 1.0) {
-            if (m_fog) {
-                auto fogShader = m_fog->setZ(z).start();
+            if (auto fog = this->getFog()) {
+                auto fogShader = fog->setZ(z).start();
                 drawer();
             } else {
                 drawer();

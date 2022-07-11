@@ -227,10 +227,10 @@ namespace abyss::Sys
                     dist = mod<Distortion>();
                 }
 #if ABYSS_DEBUG
-                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::PostEffectLight)) {
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderLight)) {
                     light = nullptr;
                 }
-                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::PostEffectDistortion)) {
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDistortion)) {
                     dist = nullptr;
                 }
 #endif
@@ -260,7 +260,7 @@ namespace abyss::Sys
         {
             Sfx::Scanline* scanline = mod<PostEffects>()->getScanline();
 #if ABYSS_DEBUG
-            if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::PostEffectScanline)) {
+            if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderScanline)) {
                 scanline = nullptr;
             }
 #endif
