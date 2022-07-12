@@ -27,31 +27,23 @@ float rand(float2 st)
 {
 	return frac(sin(dot(st.xy, float2(12.9898, 78.233))) * 43758.5453123);
 }
-float4 rgbShift(float2 uv)
-{
-	float2 size;
-	float  level;
-	g_texture0.GetDimensions(0, size.x, size.y, level);
-
-	float2 shiftOffs = g_z * g_z * 4 / size;
-	float2 ra = g_texture0.Sample(g_sampler0, uv + shiftOffs).ra;
-	float2 ga = g_texture0.Sample(g_sampler0, uv).ga;
-	float2 ba = g_texture0.Sample(g_sampler0, uv - shiftOffs).ba;
-	float a = (ra.y + ga.y + ba.y) / 3;
-	return float4(ra.x, ga.x, ba.x, a);
-}
 float4 PS(PSInput input) : SV_TARGET
 {
 	float2 uv = input.uv;
-	float4 texColor = rgbShift(uv);
+	float4 texColor = g_texture0.Sample(g_sampler0, uv);
 
     float4 rawColor = (texColor * input.color) + g_colorAdd;
-	
-	float4 fogColor = g_fogColor -0.3 * g_z;
-	float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
 
-	float4 result = lerp(fogColor, rawColor, fog);
-	result.a = rawColor.a;
-	result.rgb += rand(uv) * 0.05 * g_z;
+	float4 result = rawColor;
+	{
+		float4 fogColor = g_fogColor - g_z * 0.3;
+		float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
+
+		result = lerp(fogColor, result, fog);
+	}
+	{
+		result.a = rawColor.a;
+		result.rgb += rand(uv) * 0.05 * g_z;
+	}
 	return result;
 }
