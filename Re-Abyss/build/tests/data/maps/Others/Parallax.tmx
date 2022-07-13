@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#746558" nextlayerid="18" nextobjectid="130">
+<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#746558" nextlayerid="18" nextobjectid="130">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
@@ -7,7 +7,7 @@
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
  <tileset firstgid="56" source="../../../../resources/maps/Tileset/DecorStage0.tsx"/>
  <group id="6" name="bgs" locked="1"/>
- <group id="3" name="decor">
+ <group id="3" name="decor" locked="1">
   <objectgroup id="16" name="aa" locked="1">
    <properties>
     <property name="layer" value="DecorBack"/>
@@ -330,22 +330,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="room" locked="1">
-  <object id="1" type="room" x="1120" y="0" width="1760" height="640">
+ <objectgroup id="10" name="room">
+  <object id="1" class="Room" x="1120" y="0" width="1760" height="640">
    <properties>
     <property name="left" type="bool" value="true"/>
     <property name="light_color" type="color" value="#ff9c4a20"/>
     <property name="right" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="19" type="room" x="-1800" y="0" width="1800" height="640">
+  <object id="19" class="Room" x="-1800" y="0" width="1800" height="640">
    <properties>
     <property name="left" type="bool" value="false"/>
     <property name="light_color" type="color" value="#ff66274e"/>
     <property name="right" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="112" type="room" x="0" y="0" width="1120" height="640">
+  <object id="112" class="Room" x="0" y="0" width="1120" height="640">
    <properties>
     <property name="left" type="bool" value="true"/>
     <property name="light_color" type="color" value="#ff000000"/>

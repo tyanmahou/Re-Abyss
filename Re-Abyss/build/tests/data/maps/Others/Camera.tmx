@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="12" nextobjectid="42">
+<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#7d80bc" nextlayerid="12" nextobjectid="42">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
- <group id="6" name="bgs"/>
- <group id="3" name="decor">
+ <group id="6" name="bgs" locked="1"/>
+ <group id="3" name="decor" locked="1">
   <objectgroup id="7" name="back">
    <properties>
     <property name="layer" value="DecorFront"/>
    </properties>
   </objectgroup>
  </group>
- <layer id="2" name="land" width="100" height="100">
+ <layer id="2" name="land" width="100" height="100" locked="1">
   <data encoding="csv">
    <chunk x="-28" y="-32" width="28" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -449,9 +449,9 @@
 </chunk>
   </data>
  </layer>
- <objectgroup id="9" name="item"/>
- <objectgroup id="4" name="enemy"/>
- <objectgroup id="8" name="gimmick">
+ <objectgroup id="9" name="item" locked="1"/>
+ <objectgroup id="4" name="enemy" locked="1"/>
+ <objectgroup id="8" name="gimmick" locked="1">
   <object id="24" gid="46" x="2680" y="560" width="80" height="120">
    <properties>
     <property name="start_id" type="int" value="2"/>
@@ -497,14 +497,14 @@
   </object>
  </objectgroup>
  <objectgroup id="10" name="room" locked="1">
-  <object id="1" type="room" x="1120" y="0" width="1760" height="640">
+  <object id="1" class="Room" x="1120" y="0" width="1760" height="640">
    <properties>
     <property name="left" type="bool" value="true"/>
     <property name="light_color" type="color" value="#ff9c4a20"/>
     <property name="right" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="17" type="room" x="0" y="0" width="1120" height="640">
+  <object id="17" class="Room" x="0" y="0" width="1120" height="640">
    <properties>
     <property name="down" type="bool" value="true"/>
     <property name="left" type="bool" value="true"/>
@@ -512,26 +512,26 @@
     <property name="up" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="19" type="room" x="-1800" y="0" width="1800" height="640">
+  <object id="19" class="Room" x="-1800" y="0" width="1800" height="640">
    <properties>
     <property name="left" type="bool" value="false"/>
     <property name="light_color" type="color" value="#ff66274e"/>
     <property name="right" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="22" type="room" x="0" y="-1200" width="1120" height="1200">
+  <object id="22" class="Room" x="0" y="-1200" width="1120" height="1200">
    <properties>
     <property name="down" type="bool" value="true"/>
     <property name="light_color" type="color" value="#ffabb34e"/>
    </properties>
   </object>
-  <object id="23" type="room" x="0" y="640" width="1120" height="1200">
+  <object id="23" class="Room" x="0" y="640" width="1120" height="1200">
    <properties>
     <property name="light_color" type="color" value="#ff2f622f"/>
     <property name="up" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="32" type="room" x="-1800" y="1880" width="4652" height="640">
+  <object id="32" class="Room" x="-1800" y="1880" width="4652" height="640">
    <properties>
     <property name="light_color" type="color" value="#ff390525"/>
    </properties>
