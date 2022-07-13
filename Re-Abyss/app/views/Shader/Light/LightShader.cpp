@@ -1,6 +1,7 @@
 #include <abyss/views/Shader/Light/LightShader.hpp>
-#include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/views/Shader/util/BayerMatrix.hpp>
+#include <Siv3D.hpp>
 
 namespace
 {
@@ -8,22 +9,6 @@ namespace
     {
         Float4 bgColor;
     };
-    Image CreateDither()
-    {
-        Image image(4, 4);
-        constexpr double dither[4][4] = {
-            {1, 13, 4, 16},
-            {9, 5, 12, 8},
-            {3, 15, 2, 14},
-            {11, 7, 10, 6},
-        };
-        for (int32 y : step(0, 4)) {
-            for (int32 x : step(0, 4)) {
-                image[y][x] = ColorF(dither[y][x] / 17.0);
-            }
-        }
-        return image;
-    }
 }
 
 namespace abyss
@@ -33,7 +18,7 @@ namespace abyss
     public:
         Impl() :
             m_ps(Resource::Assets::Norelease()->load(U"light.hlsl")),
-            m_dither(::CreateDither())
+            m_dither(BayerMatrix::Texture())
         {}
         void setBgColor(const s3d::ColorF& color)
         {
