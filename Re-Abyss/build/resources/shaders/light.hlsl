@@ -69,8 +69,8 @@ float4 PS(PSInput input) : SV_TARGET
     float4 dest = g_texture0.Sample(g_sampler0, uv);
     float4 light = g_texture2.Sample(g_sampler0, uv);
     light = light * sqrt(light);
-    float2 ditherUv = input.position.xy % 4 / 4.0;
-    float dither = g_texture1.Sample(g_sampler0, ditherUv).r;
+    float2 ditherUv = input.position.xy % 4 / 8.0;
+    float dither = g_texture1.Sample(g_sampler0, ditherUv).b;
     if (dither - light.r <= 0) {
         return dest;
     }

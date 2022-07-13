@@ -1,5 +1,6 @@
 #include <abyss/views/Shader/Fog/FogShader.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/views/Shader/util/BayerMatrix.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -18,7 +19,8 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"fog.hlsl"))
+            m_ps(Resource::Assets::Norelease()->load(U"fog.hlsl")),
+            m_dither(BayerMatrix::Texture())
         {
             m_cb->z = 0;
             m_cb->fogFactor = 1.0;
@@ -41,12 +43,14 @@ namespace abyss
         }
         ScopedCustomShader2D start() const
         {
+            s3d::Graphics2D::SetPSTexture(3, m_dither);
             s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
             return ScopedCustomShader2D(m_ps);
         }
     private:
         PixelShader m_ps;
         ConstantBuffer<FogParam> m_cb;
+        Texture m_dither;
     };
 
     FogShader::FogShader():

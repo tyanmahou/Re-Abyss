@@ -1,4 +1,5 @@
 Texture2D		g_texture0 : register(t0);
+Texture2D		g_texture1 : register(t3);
 SamplerState	g_sampler0 : register(s0);
 
 cbuffer PSConstants2D : register(b0)
@@ -40,6 +41,21 @@ float4 PS(PSInput input) : SV_TARGET
 		float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
 
 		result = lerp(fogColor, result, fog);
+	}
+	{
+		float height = (-40 + (640 - input.position.y)) * lerp(0, 4.2, g_z * sqrt(g_z));
+		float dist = 10 + g_z * g_z * 1120;
+		float k = height / dist;
+		float a0 = 0.3;
+		float b = 0.9;
+		float4 fogColor = g_fogColor - g_z * 0.05;
+		float fog = 2 * exp(a0 * 1 * (exp(-b * height) - 1) / (b * k));
+
+		float2 ditherUv = input.position.xy % 8 / 8.0;
+		float dither = g_texture1.Sample(g_sampler0, ditherUv).a;
+		if (fog - dither <= 0) {
+			result = fogColor;
+		}
 	}
 	{
 		result.a = rawColor.a;
