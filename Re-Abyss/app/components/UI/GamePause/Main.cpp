@@ -1,6 +1,7 @@
 #include <abyss/components/UI/GamePause/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
+#include <Siv3D.hpp>
 
 namespace abyss::UI::GamePause
 {
@@ -27,6 +28,7 @@ namespace abyss::UI::GamePause
     }
     void Main::onDraw() const
     {
+        s3d::Scene::Rect().draw(ColorF(0, 0.5));
     }
     Coro::Task<> Main::stateSelect()
     {
