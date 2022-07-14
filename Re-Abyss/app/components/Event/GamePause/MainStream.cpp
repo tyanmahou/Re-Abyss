@@ -2,7 +2,9 @@
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/commons/InputManager/InputManager.hpp>
+#include <abyss/modules/UI/UIs.hpp>
+#include <abyss/components/UI/GamePause/Main.hpp>
+#include <abyss/components/UI/utils/DialogUtil.hpp>
 
 namespace abyss::Event::GamePause
 {
@@ -25,12 +27,15 @@ namespace abyss::Event::GamePause
         // 1フレーム待ち
         co_yield{};
 
-        while (true) {
-            if (InputManager::Start.down()) {
-                co_return;
-            }
-            co_yield{};
+        // ポーズ画面
+        auto result = co_await UI::DialogUtil::Wait<UI::GamePause::Main>(m_pEvent);
+        if (result.isContinue) {
+            // ゲームを続ける
+            co_return;
+        } else {
+            // ステージから出る
         }
+        co_return;
     }
 
 }

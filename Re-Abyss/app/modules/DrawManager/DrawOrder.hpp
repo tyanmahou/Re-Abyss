@@ -38,6 +38,7 @@ namespace abyss
             static constexpr double MostBack = -9999.0;
             static constexpr double Default = 1.0;
             static constexpr double Dialog = 1000.0;
+            static constexpr double Pause = 1100.0;
             static constexpr double Footer = 99998.0;
             static constexpr double Fade = 99999.0;
         };

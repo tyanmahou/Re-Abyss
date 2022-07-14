@@ -2192,6 +2192,9 @@
     <ClCompile Include="app\views\Shader\util\BayerMatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\GamePause\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5783,6 +5786,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\util\BayerMatrix.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\GamePause\Main.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\GamePause\Result.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,6 +6,7 @@
 
 namespace abyss
 {
+    class GameObject;
 	class IComponent;
 
 	namespace Sys

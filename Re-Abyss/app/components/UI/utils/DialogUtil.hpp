@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
 #include <abyss/utils/Coro/Task/Task.hpp>
@@ -13,7 +13,7 @@ namespace abyss::UI::DialogUtil
     };
 
     template<class BuilderType, class ResultType, class... Args>
-    [[nodiscard]] Coro::Task<ResultType> Wait(UIObj* pObj, Args&&... args)
+    [[nodiscard]] Coro::Task<ResultType> Wait(GameObject* pObj, Args&&... args)
     {
         auto dialog = pObj->getModule<UIs>()->create<BuilderType>(std::forward<Args>(args)...);
         auto result = dialog->find<Dialog::DialogResult<ResultType>>();
@@ -33,7 +33,7 @@ namespace abyss::UI::DialogUtil
     }
 
     template<class BuildType, class... Args> requires DialogBuildy<BuildType, Args...>
-    [[nodiscard]] Coro::Task<typename BuildType::value_type> Wait(UIObj* pObj, Args&&... args)
+    [[nodiscard]] Coro::Task<typename BuildType::value_type> Wait(GameObject* pObj, Args&&... args)
     {
         return Wait<BuildType, typename BuildType::value_type, Args...>(pObj, std::forward<Args>(args)...);
     }
