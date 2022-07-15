@@ -7,8 +7,6 @@
 #include <abyss/components/UI/GamePause/Result.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
-#include <abyss/views/Shader/Dither/DitherShader.hpp>
-
 namespace abyss::UI::GamePause
 {
     class Main :
@@ -31,8 +29,6 @@ namespace abyss::UI::GamePause
     private:
         UIObj* m_pUi;
         Coro::TaskHolder<> m_state;
-
-        DitherShader m_dither;
     };
 }
 namespace abyss
