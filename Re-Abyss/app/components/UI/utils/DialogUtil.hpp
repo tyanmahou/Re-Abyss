@@ -37,4 +37,27 @@ namespace abyss::UI::DialogUtil
     {
         return Wait<BuildType, typename BuildType::value_type, Args...>(pObj, std::forward<Args>(args)...);
     }
+
+    template<class BuilderType, class ResultType, class... Args>
+    [[nodiscard]] Coro::Task<std::pair<Ref<UIObj>, ResultType>> WaitNoHide(GameObject* pObj, Args&&... args)
+    {
+        auto dialog = pObj->getModule<UIs>()->create<BuilderType>(std::forward<Args>(args)...);
+        auto result = dialog->find<Dialog::DialogResult<ResultType>>();
+        while (result) {
+            if (const auto& ret = result->get()) {
+                co_return{ dialog, *ret };
+            }
+            co_yield{};
+        }
+        if (dialog) {
+            dialog->destroy();
+        }
+        co_return{};
+    }
+
+    template<class BuildType, class... Args> requires DialogBuildy<BuildType, Args...>
+    [[nodiscard]] auto WaitNoHide(GameObject* pObj, Args&&... args)
+    {
+        return WaitNoHide<BuildType, typename BuildType::value_type, Args...>(pObj, std::forward<Args>(args)...);
+    }
 }

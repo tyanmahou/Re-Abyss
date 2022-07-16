@@ -4,6 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
+#include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
@@ -38,12 +39,15 @@ namespace abyss::Event::GamePause
         co_yield{};
 
         // ポーズ画面
-        auto result = co_await UI::DialogUtil::Wait<UI::GamePause::Main>(m_pEvent);
+        auto&& [obj, result] = co_await UI::DialogUtil::WaitNoHide<UI::GamePause::Main>(m_pEvent);
         if (result.isContinue) {
             // ゲームを続ける
+            obj->destroy();
             co_return;
         } else {
             // ステージから出る
+
+            m_pEvent->getModule<Sound>()->stop(1s);
 
             // フェード
             {
@@ -59,8 +63,11 @@ namespace abyss::Event::GamePause
                     co_yield{};
                 }
             }
-            GlobalAudio::BusFadeVolume(MixBusKind::Bgm, 1, 0.5s);
+
+            // ステージから出る
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
+            // 音量戻す
+            GlobalAudio::BusSetVolume(MixBusKind::Bgm, 1.0);
 
             while (true) {
                 co_yield{};

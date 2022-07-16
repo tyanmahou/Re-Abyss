@@ -62,18 +62,26 @@ namespace abyss::UI::GamePause
     Coro::Task<> Main::stateSelect()
     {
         while (true) {
+            // カーソル移動
             if (InputManager::Up.down()) {
                 m_isSelectContinue = true;
             } else if (InputManager::Down.down()) {
                 m_isSelectContinue = false;
             }
 
+            // 決定
             if (InputManager::Start.down()) {
+                DialogResult::set({
+                    .isContinue = true
+                });
+                co_return;
+            } else if (InputManager::A.down()) {
                 DialogResult::set({
                     .isContinue = m_isSelectContinue
                 });
                 co_return;
             }
+
             co_yield{};
         }
     }
