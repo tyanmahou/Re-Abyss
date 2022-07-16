@@ -222,6 +222,7 @@ namespace abyss::Sys
             {
                 Light* light = nullptr;
                 Distortion* dist = nullptr;
+                Sfx::Blur* blur = mod<PostEffects>()->getBlur();
                 if constexpr (config.isStage) {
                     light = mod<Light>();
                     dist = mod<Distortion>();
@@ -233,6 +234,9 @@ namespace abyss::Sys
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDistortion)) {
                     dist = nullptr;
                 }
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderBlur)) {
+                    blur = nullptr;
+                }
 #endif
 
                 snapshot->copyWorldToPost()
@@ -242,6 +246,7 @@ namespace abyss::Sys
                         drawer->draw(DrawLayer::LightFront);
                     })
                     .apply(dist != nullptr, [=] { return dist->start(); })
+                    .apply(blur != nullptr && blur->isValid(), [=] { return blur->start(); })
                     .drawWorld(cameraView.getQuakeOffset());
 
             }

@@ -32,6 +32,7 @@ namespace abyss
         RoomManager* m_pRoom = nullptr;
         Novels* m_pNovels = nullptr;
         SpecialEffects* m_pSfx = nullptr;
+        PostEffects* m_pPostEffects = nullptr;
         WorldComment* m_pWorldComment = nullptr;
     public:
 
@@ -80,6 +81,7 @@ namespace abyss
         Manager& set(Novels* pNovels);
 
         Manager& set(SpecialEffects* pSfx);
+        Manager& set(PostEffects* pPostEffects);
 
         Manager& set(WorldComment* pWorldComment);
 

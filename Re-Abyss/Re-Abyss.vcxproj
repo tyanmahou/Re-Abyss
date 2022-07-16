@@ -252,6 +252,7 @@
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\modules\Env\Fog\Fog.cpp" />
+    <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
@@ -886,6 +887,7 @@
     <ClCompile Include="app\views\Shader\Light\LightShader.cpp" />
     <ClCompile Include="app\views\Shader\Mask\MaskShader.cpp" />
     <ClCompile Include="app\views\Shader\OutLine\OutLineShader.cpp" />
+    <ClCompile Include="app\views\Shader\RgbShift\RgbShiftShader.cpp" />
     <ClCompile Include="app\views\Shader\Scanline\ScanlineShader.cpp" />
     <ClCompile Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.cpp" />
     <ClCompile Include="app\views\Shader\Sky\SkyShader.cpp" />
@@ -1148,6 +1150,7 @@
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\modules\Env\Fog\Fog.hpp" />
+    <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
@@ -2086,6 +2089,7 @@
     <ClInclude Include="app\views\Shader\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Shader\Mask\MaskShader.hpp" />
     <ClInclude Include="app\views\Shader\OutLine\OutLineShader.hpp" />
+    <ClInclude Include="app\views\Shader\RgbShift\RgbShiftShader.hpp" />
     <ClInclude Include="app\views\Shader\Scanline\ScanlineShader.hpp" />
     <ClInclude Include="app\views\Shader\SchoolOfFish\SchoolOfFishShader.hpp" />
     <ClInclude Include="app\views\Shader\Sky\SkyShader.hpp" />

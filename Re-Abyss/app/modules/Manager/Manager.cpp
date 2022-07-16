@@ -120,6 +120,12 @@ namespace abyss
         return *this;
     }
 
+    Manager& Manager::set(PostEffects* pPostEffects)
+    {
+        m_pPostEffects = pPostEffects;
+        return *this;
+    }
+
     Manager& Manager::set(WorldComment* pWorldComment)
     {
         m_pWorldComment = pWorldComment;
@@ -174,6 +180,8 @@ namespace abyss
             return m_pNovels;
         } else if constexpr (std::is_same_v<SpecialEffects, T>) {
             return m_pSfx;
+        } else if constexpr (std::is_same_v<PostEffects, T>) {
+            return m_pPostEffects;
         } else if constexpr (std::is_same_v<WorldComment, T>) {
             return m_pWorldComment;
         }
@@ -201,5 +209,6 @@ namespace abyss
     template RoomManager* Manager::getModule<RoomManager>() const;
     template Novels* Manager::getModule<Novels>() const;
     template SpecialEffects* Manager::getModule<SpecialEffects>() const;
+    template PostEffects* Manager::getModule<PostEffects>() const;
     template WorldComment* Manager::getModule<WorldComment>() const;
 }

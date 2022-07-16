@@ -28,6 +28,7 @@
 		<hr/>
 		<Light label="ライト" value="true"/>
 		<Distortion label="歪み" value="true"/>
+		<Blur label="ぼかし" value="true"/>
 		<hr/>
 		<Scanline label="スキャンライン" value="true"/>
 	</Render>

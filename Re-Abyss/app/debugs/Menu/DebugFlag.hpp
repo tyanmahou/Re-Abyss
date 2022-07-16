@@ -23,6 +23,7 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* RenderFog = U"Render/Fog";
     inline constexpr auto* RenderLight = U"Render/Light";
     inline constexpr auto* RenderDistortion = U"Render/Distortion";
+    inline constexpr auto* RenderBlur = U"Render/Blur";
     inline constexpr auto* RenderScanline = U"Render/Scanline";
 }
 

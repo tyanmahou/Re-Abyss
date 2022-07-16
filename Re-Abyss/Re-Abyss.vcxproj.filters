@@ -2195,6 +2195,12 @@
     <ClCompile Include="app\components\UI\GamePause\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Shader\RgbShift\RgbShiftShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5792,6 +5798,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\GamePause\Result.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Shader\RgbShift\RgbShiftShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

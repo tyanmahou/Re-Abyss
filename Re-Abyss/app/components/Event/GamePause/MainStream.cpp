@@ -3,6 +3,7 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/components/UI/GamePause/Main.hpp>
 #include <abyss/components/UI/utils/DialogUtil.hpp>
 
@@ -17,10 +18,12 @@ namespace abyss::Event::GamePause
     void MainStream::onStart()
     {
         m_pEvent->getModule<GlobalTime>()->pause();
+        m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(true);
     }
     void MainStream::onEnd()
     {
         m_pEvent->getModule<GlobalTime>()->resume();
+        m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(false);
     }
     Coro::Task<> MainStream::onExecute()
     {
