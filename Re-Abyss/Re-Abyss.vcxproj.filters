@@ -2204,6 +2204,15 @@
     <ClCompile Include="app\views\UI\GamePause\BackGround\BackGroundVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Fade\Screen\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5810,6 +5819,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

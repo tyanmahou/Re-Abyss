@@ -8,6 +8,8 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/components/UI/GamePause/Main.hpp>
+#include <abyss/components/UI/Fade/Screen/Builder.hpp>
+#include <abyss/components/UI/Fade/Screen/FadeCtrl.hpp>
 #include <abyss/components/UI/utils/DialogUtil.hpp>
 
 namespace abyss::Event::GamePause
@@ -42,6 +44,21 @@ namespace abyss::Event::GamePause
             co_return;
         } else {
             // ステージから出る
+
+            // フェード
+            {
+                auto fade = m_pEvent->getModule<UIs>()
+                    ->create<UI::Fade::Screen::Builder>()
+                    ->find <UI::Fade::Screen::FadeCtrl>();
+                Timer timer(1s, StartImmediately::Yes);
+
+                while (!timer.reachedZero()) {
+                    fade->setIsFadeOut(true)
+                        .setFadeTime(timer.progress0_1())
+                        ;
+                    co_yield{};
+                }
+            }
             GlobalAudio::BusFadeVolume(MixBusKind::Bgm, 1, 0.5s);
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
 

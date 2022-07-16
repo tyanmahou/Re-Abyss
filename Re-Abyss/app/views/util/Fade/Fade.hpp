@@ -42,6 +42,12 @@ namespace abyss
 		static void IrisOutRect(double t, const s3d::Vec2& pos, const s3d::RectF& rect);
 
 		static void IrisOut(double t, const s3d::Vec2& pos);
+
+        /// <summary>
+        /// 色指定
+        /// </summary>
+        /// <param name="color"></param>
+        static void SetColor(const s3d::ColorF& color);
 	private:
 		Fade();
 		~Fade();

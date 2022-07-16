@@ -34,7 +34,7 @@ namespace abyss
 			if (!fadeBase(t)) {
 				return;
 			}
-			Scene::Rect().draw(m_fadeColor);
+			Scene::Rect().draw(ColorF(m_fadeColor, t));
 		}
 		void irisOutRect(double t, const s3d::Vec2& pos, const  s3d::RectF& rect)
 		{
@@ -61,8 +61,7 @@ namespace abyss
 		MaskShader m_maskShader;
 	};
 
-
-	Fade::Fade() :
+    Fade::Fade() :
 		m_pImpl(std::make_unique<Impl>())
 	{}
 	Fade::~Fade()
@@ -82,4 +81,10 @@ namespace abyss
 	{
 		Instance()->m_pImpl->irisOutRect(t, pos, Scene::Rect());
 	}
+
+    void Fade::SetColor(const s3d::ColorF& color)
+    {
+        Instance()->m_pImpl->setFadeColor(color);
+    }
+
 }

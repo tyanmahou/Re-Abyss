@@ -1,6 +1,5 @@
 #include <abyss/views/UI/Fade/IrisOut/IrisOutVM.hpp>
 #include <abyss/views/util/Fade/Fade.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Fade::IrisOut

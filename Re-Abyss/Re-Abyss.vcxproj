@@ -248,6 +248,8 @@
     <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
     <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
+    <ClCompile Include="app\components\UI\Fade\Screen\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp" />
     <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
@@ -899,6 +901,7 @@
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
+    <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp" />
     <ClCompile Include="app\views\UI\GamePause\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\UI\Message\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Message\MessageBoxVM.cpp" />
@@ -1145,6 +1148,8 @@
     <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
     <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
+    <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Main.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Result.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
@@ -2102,6 +2107,7 @@
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
+    <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp" />
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\Message\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Message\MessageBoxVM.hpp" />
