@@ -132,7 +132,7 @@ namespace
                     }
                     m_window->setSize(nextSize);
                 }
-                m_window->setSceneSize({ width, s3d::Max(pos.y, 150.0) });
+                m_window->setSceneSize({ width, s3d::Max<double>(pos.y, m_font.height()) });
                 if (isScrollButtom) {
                     m_window->setScenePosToBottom();
                 }
