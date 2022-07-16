@@ -84,6 +84,9 @@ namespace
                 // ウィンドウ幅
                 double width = 0;
                 for (const auto& log : logs) {
+                    if (!::IsVisible(log.kind())) {
+                        continue;
+                    }
                     width = s3d::Max(width, log.log().size() * m_font.spaceWidth() * 2);
                 }
                 width += iconSize.x + iconMargin;
@@ -92,6 +95,9 @@ namespace
                 Vec2 pos{ 0, 0 };
                 Vec2 rectSize{ width, s3d::Max(static_cast<double>(m_font.height()), iconSize.y) };
                 for (const auto& log : logs) {
+                    if (!::IsVisible(log.kind())) {
+                        continue;
+                    }
                     const auto& custom = m_kindCustom.at(log.kind());
                     auto area = RectF(pos, rectSize);
                     if (area.y <= sceneScreen.y + sceneScreen.h && area.y + area.h >= sceneScreen.y) {
