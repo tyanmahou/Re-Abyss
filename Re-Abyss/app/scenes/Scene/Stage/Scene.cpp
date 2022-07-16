@@ -174,8 +174,9 @@ namespace abyss::Scene::Stage
         }
 		bool onEscape() override
 		{
-			m_tempData->clearFlag(abyss::TempLevel::Exit);
-			return false;
+            return onSceneEnd({
+                .isClear = false
+            });
 		}
 		bool onClear() override
 		{

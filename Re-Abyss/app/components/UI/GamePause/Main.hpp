@@ -5,6 +5,8 @@
 #include <abyss/components/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
 #include <abyss/components/UI/GamePause/Result.hpp>
+#include <abyss/views/UI/GamePause/BackGround/BackGroundVM.hpp>
+#include <abyss/views/UI/Message/CursorVM.hpp>
 #include <abyss/utils/Coro/Task/TaskHolder.hpp>
 
 namespace abyss::UI::GamePause
@@ -29,6 +31,10 @@ namespace abyss::UI::GamePause
     private:
         UIObj* m_pUi;
         Coro::TaskHolder<> m_state;
+
+        bool m_isSelectContinue = true;
+        std::unique_ptr<UI::GamePause::BackGround::BackGroundVM> m_bg;
+        std::unique_ptr<UI::Message::CursorVM> m_cursor;
     };
 }
 namespace abyss
