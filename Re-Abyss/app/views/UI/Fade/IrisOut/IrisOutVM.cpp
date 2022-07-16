@@ -6,6 +6,8 @@ namespace abyss::UI::Fade::IrisOut
 {
     void IrisOutVM::draw() const
     {
+        m_color.then(abyss::Fade::SetColor);
+
         if (m_isFadeOut) {
             FadeOut(abyss::Fade::IrisOut, m_fadeTimeSec, m_pos);
         } else {

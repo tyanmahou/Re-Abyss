@@ -2,6 +2,7 @@
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/ColorDef.hpp>
 #include <abyss/views/Shader/Mask/MaskShader.hpp>
 
 namespace abyss
@@ -56,7 +57,7 @@ namespace abyss
 			m_fadeColor = color;
 		}
 	private:
-		Color m_fadeColor{ 35, 50, 80 };
+		Color m_fadeColor{ ColorDef::DefaultFadeColor };
 
 		MaskShader m_maskShader;
 	};

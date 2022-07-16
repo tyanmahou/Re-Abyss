@@ -7,22 +7,29 @@ namespace abyss::UI::Fade::Screen
     FadeCtrl::FadeCtrl(UIObj* pUi):
         m_pUi(pUi),
         m_view(std::make_unique<ScreenVM>())
-    {}
+    {
+
+    }
     FadeCtrl::~FadeCtrl()
     {}
     FadeCtrl& FadeCtrl::setFadeTime(double fadeTimeSec)
     {
-        m_fadeTimeSec = fadeTimeSec;
+        m_view->setFadeTimeSec(fadeTimeSec);
         return *this;
     }
     FadeCtrl& FadeCtrl::setIsFadeOut(bool isFadeOut)
     {
-        m_isFadeOut = isFadeOut;
+        m_view->setIsFadeOut(isFadeOut);
         return *this;
     }
     FadeCtrl& FadeCtrl::setIsFadeIn(bool isFadeIn)
     {
         return this->setIsFadeOut(!isFadeIn);
+    }
+    FadeCtrl& FadeCtrl::setColor(const s3d::ColorF& color)
+    {
+        m_view->setColor(color);
+        return *this;
     }
     void FadeCtrl::destroy()
     {
@@ -30,9 +37,6 @@ namespace abyss::UI::Fade::Screen
     }
     void FadeCtrl::onDraw() const
     {
-        m_view
-            ->setFadeTimeSec(m_fadeTimeSec)
-            .setIsFadeOut(m_isFadeOut)
-            .draw();
+        m_view->draw();
     }
 }

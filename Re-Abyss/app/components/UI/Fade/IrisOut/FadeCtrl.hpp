@@ -21,16 +21,13 @@ namespace abyss::UI::Fade::IrisOut
         FadeCtrl& setFadeTime(double fadeTimeSec);
         FadeCtrl& setIsFadeOut(bool isFadeOut);
         FadeCtrl& setIsFadeIn(bool isFadeIn);
+        FadeCtrl& setColor(const s3d::ColorF& color);
 
         void destroy();
         void onDraw() const override;
     private:
         UIObj* m_pUi;
-
         s3d::Vec2 m_pos;
-        double m_fadeTimeSec = 0;
-        bool m_isFadeOut = true;
-
         std::unique_ptr<IrisOutVM> m_view;
     };
 }

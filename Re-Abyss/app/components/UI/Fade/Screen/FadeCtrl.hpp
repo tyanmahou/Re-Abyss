@@ -20,13 +20,11 @@ namespace abyss::UI::Fade::Screen
         FadeCtrl& setFadeTime(double fadeTimeSec);
         FadeCtrl& setIsFadeOut(bool isFadeOut);
         FadeCtrl& setIsFadeIn(bool isFadeIn);
-
+        FadeCtrl& setColor(const s3d::ColorF& color);
         void destroy();
         void onDraw() const override;
     private:
         UIObj* m_pUi;
-        double m_fadeTimeSec = 0;
-        bool m_isFadeOut = true;
 
         std::unique_ptr<ScreenVM> m_view;
     };

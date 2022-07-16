@@ -19,17 +19,22 @@ namespace abyss::UI::Fade::IrisOut
     }
     FadeCtrl& FadeCtrl::setFadeTime(double fadeTimeSec)
     {
-        m_fadeTimeSec = fadeTimeSec;
+        m_view->setFadeTimeSec(fadeTimeSec);
         return *this;
     }
     FadeCtrl& FadeCtrl::setIsFadeOut(bool isFadeOut)
     {
-        m_isFadeOut = isFadeOut;
+        m_view->setIsFadeOut(isFadeOut);
         return *this;
     }
     FadeCtrl& FadeCtrl::setIsFadeIn(bool isFadeIn)
     {
         return this->setIsFadeOut(!isFadeIn);
+    }
+    FadeCtrl& FadeCtrl::setColor(const s3d::ColorF& color)
+    {
+        m_view->setColor(color);
+        return *this;
     }
     void FadeCtrl::destroy()
     {
@@ -41,8 +46,6 @@ namespace abyss::UI::Fade::IrisOut
         auto pos = m_pUi->getModule<Camera>()->transform(m_pos);
         m_view
             ->setPos(pos)
-            .setFadeTimeSec(m_fadeTimeSec)
-            .setIsFadeOut(m_isFadeOut)
             .draw();
     }
 }

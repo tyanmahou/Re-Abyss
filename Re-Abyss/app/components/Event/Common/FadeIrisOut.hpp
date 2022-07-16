@@ -23,6 +23,7 @@ namespace abyss::Event
         FadeIrisOut& setIsFadeIn(bool fadeIn);
         FadeIrisOut& setPos(const s3d::Vec2& pos);
         FadeIrisOut& setFadeTime(double time);
+        FadeIrisOut& setColor(const s3d::ColorF& color);
     private:
         EventObj* m_pEvent;
         Ref<UI::Fade::IrisOut::FadeCtrl> m_fadeUI;

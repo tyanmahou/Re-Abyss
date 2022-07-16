@@ -63,4 +63,11 @@ namespace abyss::Event
         }
         return *this;
     }
+    FadeIrisOut& FadeIrisOut::setColor(const s3d::ColorF& color)
+    {
+        if (m_fadeUI) {
+            m_fadeUI->setColor(color);
+        }
+        return *this;
+    }
 }

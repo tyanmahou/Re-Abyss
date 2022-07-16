@@ -18,4 +18,6 @@ namespace abyss::ColorDef
         inline constexpr s3d::ColorF MediumCharge{ 0.5, 0.5, 1.0 };
         inline constexpr s3d::ColorF NormalCharge{ 1.0 };
     }
+
+    inline constexpr s3d::ColorF DefaultFadeColor{ Color(35, 50, 80) };
 }

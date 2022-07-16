@@ -12,7 +12,10 @@ namespace abyss::Env
         {
             m_bgColor = color;
         }
-
+        const s3d::ColorF& getColor() const
+        {
+            return m_bgColor;
+        }
         void draw(const s3d::RectF& screen) const;
     private:
         s3d::ColorF m_bgColor;

@@ -1,4 +1,5 @@
 #include <abyss/modules/Env/Environment.hpp>
+#include <abyss/commons/ColorDef.hpp>
 #include <abyss/debugs/Debug.hpp>
 
 namespace abyss::Env
@@ -60,5 +61,9 @@ namespace abyss::Env
         } else {
             drawer();
         }
+    }
+    s3d::ColorF Environment::getThemeColorOrDefault() const
+    {
+        return m_themeColor.value_or(ColorDef::DefaultFadeColor);
     }
 }

@@ -9,6 +9,8 @@ namespace abyss::UI::Fade::Screen
             .setIsShape(true)
             .start();
 
+        m_color.then(::abyss::Fade::SetColor);
+
         if (m_isFadeOut) {
             FadeOut(abyss::Fade::Default, m_fadeTimeSec);
         } else {

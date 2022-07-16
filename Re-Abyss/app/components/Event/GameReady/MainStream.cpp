@@ -3,6 +3,7 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 
@@ -30,12 +31,14 @@ namespace abyss::Event::GameReady
 
             auto globalTime = m_pEvent->getModule<GlobalTime>();
             auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
+            auto env = m_pEvent->getModule<Environment>();
 
             s3d::Timer timer(1s, s3d::StartImmediately::Yes, globalTime);
 
             while (!timer.reachedZero()) {
                 fade->setPos(playerManager->getPos())
                     .setFadeTime(timer.progress0_1())
+                    .setColor(env->getThemeColorOrDefault())
                     ;
                 co_yield{};
             }

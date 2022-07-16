@@ -1,13 +1,12 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
+#include <Siv3D/ColorF.hpp>
+#include <Siv3D/Optional.hpp>
 
 namespace abyss::UI::Fade::IrisOut
 {
     class IrisOutVM
     {
-        s3d::Vec2 m_pos;
-        double m_fadeTimeSec = 0;
-        bool m_isFadeOut = true;
     public:
         IrisOutVM& setPos(const s3d::Vec2& pos)
         {
@@ -24,6 +23,16 @@ namespace abyss::UI::Fade::IrisOut
             m_isFadeOut = isFadeOut;
             return *this;
         }
+        IrisOutVM& setColor(const s3d::ColorF& color)
+        {
+            m_color = color;
+            return *this;
+        }
         void draw() const;
+    private:
+        s3d::Vec2 m_pos;
+        double m_fadeTimeSec = 0;
+        bool m_isFadeOut = true;
+        s3d::Optional<s3d::ColorF> m_color;
     };
 }

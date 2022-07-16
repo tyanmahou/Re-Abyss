@@ -59,6 +59,7 @@ namespace abyss::Event::GamePause
                 while (!timer.reachedZero()) {
                     fade->setIsFadeOut(true)
                         .setFadeTime(timer.progress0_1())
+                        .setColor(s3d::ColorF(0, 1))
                         ;
                     co_yield{};
                 }

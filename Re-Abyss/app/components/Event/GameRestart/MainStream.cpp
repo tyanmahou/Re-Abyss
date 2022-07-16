@@ -4,6 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
+#include <abyss/modules/Env/Environment.hpp>
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
@@ -46,12 +47,14 @@ namespace abyss::Event::GameRestart
             auto fade = m_pEvent->find<FadeIrisOut>();
             fade->create();
             auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
+            auto env = m_pEvent->getModule<Environment>();
 
             Timer timer(1s, StartImmediately::Yes);
 
             while (!timer.reachedZero()) {
                 fade->setPos(playerManager->getPos())
                     .setFadeTime(timer.progress0_1())
+                    .setColor(env->getThemeColorOrDefault())
                     ;
                 co_yield{};
             }
