@@ -37,13 +37,19 @@ namespace abyss::Room
 	bool RoomManager::isOutOfRoomDeath(const s3d::Vec2& pos, double margin) const
     {
 		// TODO 自動スクロール
-		if (!m_currentRoom.passable(Forward::Down) && pos.y > m_currentRoom.borders().down + margin) {
+
+        bool isPassableDown = !m_roomGarder.isLock() && m_currentRoom.passable(Forward::Down);
+		if (!isPassableDown && pos.y > m_currentRoom.borders().down + margin) {
 			return true;
 		}
 		return false;
     }
 	bool RoomManager::canNextRoom(const s3d::Vec2& pos) const
 	{
+        if (m_roomGarder.isLock()) {
+            // ルームガーダー中は次の部屋には行けない
+            return false;
+        }
 		if (this->isInRoom(pos)) {
 			return false;
 		}
@@ -66,18 +72,29 @@ namespace abyss::Room
 	{
 		// TODO 自動スクロール中はカメラのスクリーン内に入るように
 
+        if (m_roomGarder.isLock()) {
+            return m_currentRoom.strictBorderAdjusted(pos, ColDirection::ExceptDown);
+        }
 		return m_currentRoom.borderAdjusted(pos);
 	}
+	void RoomManager::requestRoomGarder()
+	{
+        m_roomGarder.lock();
+	}
+	void RoomManager::unlockRoomGarder()
+	{
+        m_roomGarder.unlock();
+    }
 	void RoomManager::drawDeathLine() const
 	{
 		constexpr ColorF colors[4] = { ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1) };
 
-		if (!m_currentRoom.passable(Forward::Down)) {
-			auto region = m_currentRoom.getRegion();
+		if (!m_currentRoom.passable(Forward::Down) || m_roomGarder.isLock()) {
+			const auto& region = m_currentRoom.getRegion();
 			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
 		}
 		if (m_nextRoom && !m_nextRoom->passable(Forward::Down)) {
-			auto region = m_nextRoom->getRegion();
+            const auto& region = m_nextRoom->getRegion();
 			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
 		}
 	}

@@ -125,6 +125,29 @@ namespace abyss::Room
 
 		return pos;
     }
+	s3d::Vec2 RoomData::strictBorderAdjusted(s3d::Vec2 pos, const s3d::Optional<ColDirection>& strict) const
+	{
+        auto col = strict.value_or(this->getCol());
+
+        auto border = this->borders();
+        if (col.isLeft() && pos.x < border.left) {
+            //左端
+            pos.x = border.left;
+        } else if (col.isRight() && pos.x > border.right) {
+            //右端
+            pos.x = border.right;
+        }
+
+        if (col.isUp() && pos.y < border.up) {
+            //上端
+            pos.y = border.up;
+        } else if (col.isDown() && pos.y > border.down) {
+            //上端
+            pos.y = border.down;
+        }
+
+        return pos;
+	}
 	ColDirection RoomData::getCol() const
 	{
 		ColDirection col = ColDirection::None;

@@ -5830,6 +5830,9 @@
     <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

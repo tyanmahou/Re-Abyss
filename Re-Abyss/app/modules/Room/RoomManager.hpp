@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/modules/Room/RoomData.hpp>
+#include <abyss/modules/Room/RoomGarderCtrl.hpp>
 #include <abyss/modules/Room/IRoomMoveCallback.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
@@ -84,6 +85,16 @@ namespace abyss::Room
             return m_currentRoom.getRegion().intersects(shape);
         }
 
+        /// <summary>
+        /// ルームガーダーのリクエスト
+        /// </summary>
+        void requestRoomGarder();
+
+        /// <summary>
+        /// ルームガーダーの解除
+        /// </summary>
+        void unlockRoomGarder();
+
         void drawDeathLine() const;
 
         void addCallback(std::shared_ptr<IRoomMoveCallback> callback);
@@ -95,7 +106,8 @@ namespace abyss::Room
         s3d::Optional<RoomData> m_nextRoom;
 
         std::shared_ptr<CameraFix> m_cameraFix;
-
         s3d::Array<Ref<IRoomMoveCallback>> m_callbacks;
+
+        RoomGarderCtrl m_roomGarder;
     };
 }

@@ -5,6 +5,7 @@
 #include <Siv3D/Optional.hpp>
 #include <abyss/types/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 
 namespace abyss::Room
 {
@@ -39,6 +40,7 @@ namespace abyss::Room
 		RoomBorders borders()const;
 		s3d::Vec2 borderAdjusted(s3d::Vec2 pos) const;
 		s3d::Vec2 strictBorderAdjusted(s3d::Vec2 pos) const;
+        s3d::Vec2 strictBorderAdjusted(s3d::Vec2 pos, const s3d::Optional<ColDirection>& strict) const;
 
 		ColDirection getCol() const;
 

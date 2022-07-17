@@ -1156,6 +1156,7 @@
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\modules\Env\Fog\Fog.hpp" />
+    <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
     <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />

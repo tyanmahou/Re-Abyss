@@ -194,5 +194,6 @@ namespace abyss
         static constexpr value_type Vertical = Up | Down;
         static constexpr value_type Horizon = Left | Right;
         static constexpr value_type All   = Vertical | Horizon;
+        static constexpr value_type ExceptDown = Up | Left | Right;
     };
 }
