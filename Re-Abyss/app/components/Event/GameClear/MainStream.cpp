@@ -28,12 +28,6 @@ namespace abyss::Event::GameClear
     }
     void MainStream::onEnd()
     {
-        // リスタート
-        m_pEvent->getModule<CycleMaster>()
-            ->find<Cycle::Main::Master>()
-            ->clear();
-
-        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Always);
     }
     Coro::Task<> MainStream::onExecute()
     {
@@ -56,6 +50,17 @@ namespace abyss::Event::GameClear
                     ;
                 co_yield{};
             }
+        }
+
+        // リスタート
+        m_pEvent->getModule<CycleMaster>()
+            ->find<Cycle::Main::Master>()
+            ->clear();
+
+        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Always);
+
+        while (true) {
+            co_yield{};
         }
     }
 }
