@@ -248,6 +248,7 @@
     <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
     <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\Stash.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Builder.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Command\Teardown.cpp" />
@@ -1152,6 +1153,7 @@
     <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
     <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\Stash.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Builder.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Teardown.hpp" />

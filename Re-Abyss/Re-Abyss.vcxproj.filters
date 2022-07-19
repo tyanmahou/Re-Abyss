@@ -2225,6 +2225,9 @@
     <ClCompile Include="app\components\Novel\RoomGarder\Command\Teardown.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Command\Stash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5855,6 +5858,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Teardown.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\Common\Command\Stash.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

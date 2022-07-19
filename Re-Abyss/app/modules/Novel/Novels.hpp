@@ -85,6 +85,7 @@ namespace abyss::Novel
         }
     private:
         std::queue<std::shared_ptr<TalkObj>> m_talks;
+        s3d::Array<std::shared_ptr<TalkObj>> m_stash;
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
 

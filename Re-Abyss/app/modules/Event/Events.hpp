@@ -9,10 +9,6 @@ namespace abyss
 {
     class Events
     {
-    private:
-        std::queue<std::shared_ptr<Event::EventObj>> m_events;
-        bool m_doneCurrentInit = false;
-        Manager* m_pManager = nullptr;
     public:
         Events& setManager(Manager* pManager)
         {
@@ -53,5 +49,10 @@ namespace abyss
         /// <param name="event"></param>
         /// <returns></returns>
         Ref<Event::EventObj> regist(const std::shared_ptr<Event::EventObj>& event);
+
+    private:
+        std::queue<std::shared_ptr<Event::EventObj>> m_events;
+        bool m_doneCurrentInit = false;
+        Manager* m_pManager = nullptr;
     };
 }
