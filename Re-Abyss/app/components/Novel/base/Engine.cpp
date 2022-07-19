@@ -51,6 +51,23 @@ namespace abyss::Novel
         if (m_skip && m_skip->isSkip()) {
             // skip
             m_skip->onSkip();
+
+            // 残りのコマンドを処理する
+            while (!m_commands.empty()) {
+                auto& front = m_commands.front();
+                if (!m_doneCurrentInit) {
+                    front->onStart();
+                    m_doneCurrentInit = true;
+                }
+                front->onEnd();
+                m_commands.pop();
+                m_doneCurrentInit = false;
+
+                if (m_pTalk->isStahed()) {
+                    // スタッシュの場合最後までスキップしない
+                    return true;
+                }
+            }
             return false;
         }
         return m_stream.moveNext();

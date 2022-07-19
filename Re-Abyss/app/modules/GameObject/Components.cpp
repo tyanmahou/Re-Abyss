@@ -1,16 +1,13 @@
 #include <abyss/modules/GameObject/Components.hpp>
 #include <unordered_map>
 #include <ranges>
-
 #include <abyss/modules/GameObject/ExecuteSorter.hpp>
-
 #include <abyss/debugs/Log/Log.hpp>
+
 namespace abyss
 {
     class Components::Impl
     {
-        std::unordered_map<std::type_index, std::shared_ptr<IComponent>> m_table;
-        std::unordered_map<std::type_index, s3d::Array<Ref<IComponent>>> m_tree;
     public:
         void setup()
         {
@@ -30,6 +27,7 @@ namespace abyss
                 }
                 pair.second = sorter.sort(pair.first, pair.second);
             }
+            m_isSetuped = true;
         }
         void start()
         {
@@ -88,6 +86,14 @@ namespace abyss
             }
             return coms[0];
         }
+        bool isSetuped() const
+        {
+            return m_isSetuped;
+        }
+    private:
+        std::unordered_map<std::type_index, std::shared_ptr<IComponent>> m_table;
+        std::unordered_map<std::type_index, s3d::Array<Ref<IComponent>>> m_tree;
+        bool m_isSetuped = false;
     };
 
     Components::Components():
@@ -127,6 +133,11 @@ namespace abyss
     void Components::end() const
     {
         m_pImpl->end();
+    }
+
+    bool Components::isSetuped() const
+    {
+        return m_pImpl->isSetuped();
     }
 
     void Components::registTree(const std::type_index& key, const std::shared_ptr<IComponent>& component) const

@@ -50,7 +50,7 @@ namespace abyss::Actor::Enemy::CodeZero
 					}
 				});
 			}
-			co_await (Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onEvent(signalCtrl));
+			co_await (Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid() && !signalCtrl->getObj()->isStahed(); }) | this->onEvent(signalCtrl));
 		}
 		this->changeState<WaitState>();
 		co_return;

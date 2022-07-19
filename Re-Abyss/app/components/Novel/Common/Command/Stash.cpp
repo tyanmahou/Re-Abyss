@@ -13,6 +13,6 @@ namespace abyss::Novel
     }
     Coro::Task<> Stash::onCommand()
     {
-        co_yield{};
+        co_return;
     }
 }

@@ -79,6 +79,8 @@ namespace abyss
             }
             return ret;
         }
+
+        bool isSetuped() const;
     private:
         std::shared_ptr<Impl> m_pImpl;
     };

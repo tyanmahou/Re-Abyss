@@ -18,6 +18,10 @@ namespace abyss
 	public:
 		virtual ~GameObject() = default;
 
+        bool isSetuped() const
+        {
+            return m_components.isSetuped();
+        }
 		void setup() const
 		{
 			m_components.setup();
