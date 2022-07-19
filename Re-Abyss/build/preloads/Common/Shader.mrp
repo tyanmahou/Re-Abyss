@@ -1,6 +1,7 @@
 [Common/Shader]
 - ps"distortion.hlsl"
 - ps"dither.hlsl"
+- ps"fog.hlsl"
 - ps"light.hlsl"
 - ps"mask.hlsl"
 - ps"outline.hlsl"

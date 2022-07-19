@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
 
-namespace abyss::Novel::KingDuxAppear
+namespace abyss::Novel::RoomGarder
 {
     struct Builder
     {
