@@ -12,7 +12,6 @@
 #include <abyss/components/Novel/Common/Command/SignalSend.hpp>
 #include <abyss/components/Novel/Common/Command/SignalReceive.hpp>
 #include <abyss/components/Novel/Common/Command/SkipEnabled.hpp>
-#include <abyss/components/Novel/Common/Command/Stash.hpp>
 #include <abyss/components/Novel/Common/Command/WaitInput.hpp>
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
@@ -136,8 +135,6 @@ namespace
                 m_pEngine->addCommand<SkipEnabled>(true);
             } else if (tag == U"/skippable") {
                 m_pEngine->addCommand<SkipEnabled>(false);
-            } else if (tag == U"stash") {
-                m_pEngine->addCommand<Stash>();
             }
         }
         void eval(const Ast::NameStatement& statement) override

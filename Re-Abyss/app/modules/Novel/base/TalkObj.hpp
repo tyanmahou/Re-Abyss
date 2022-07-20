@@ -17,21 +17,7 @@ namespace abyss::Novel
         {
             return m_engine;
         }
-
-        void stash()
-        {
-            m_isStashed = true;
-        }
-        void stashPop()
-        {
-            m_isStashed = false;
-        }
-        bool isStahed() const
-        {
-            return m_isStashed;
-        }
     private:
         Ref<Engine> m_engine;
-        bool m_isStashed = false;
     };
 }

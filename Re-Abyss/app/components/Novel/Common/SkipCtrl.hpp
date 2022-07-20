@@ -19,6 +19,10 @@ namespace abyss::Novel
 		bool isSkip() const;
 		void onSkip();
 
+        bool isEnabled() const
+        {
+            return m_isEnabled;
+        }
 		SkipCtrl& setIsEnabled(bool isEnabled)
 		{
 			m_isEnabled = isEnabled;

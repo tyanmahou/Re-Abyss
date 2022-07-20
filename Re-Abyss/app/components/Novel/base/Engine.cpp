@@ -63,8 +63,7 @@ namespace abyss::Novel
                 m_commands.pop();
                 m_doneCurrentInit = false;
 
-                if (m_pTalk->isStahed()) {
-                    // スタッシュの場合最後までスキップしない
+                if (!m_skip->isEnabled()) {
                     return true;
                 }
             }

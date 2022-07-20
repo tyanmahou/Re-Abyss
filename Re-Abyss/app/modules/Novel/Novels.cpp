@@ -4,32 +4,18 @@ namespace abyss::Novel
 {
     bool Novels::update()
     {
-        for (auto it = m_stash.begin(); it != m_stash.end();) {
-            if (!(*it)->isStahed()) {
-                m_talks.push((*it));
-                it = m_stash.erase(it);
-            } else {
-                ++it;
-            }
-        }
         do {
             if (m_talks.empty()) {
                 return false;
             }
             auto& front = m_talks.front();
             if (!m_doneCurrentInit) {
-                if (!front->isSetuped()) {
-                    front->setup();
-                    front->start();
-                }
+                front->setup();
+                front->start();
                 m_doneCurrentInit = true;
             }
             if (!front->update()) {
                 front->end();
-                m_talks.pop();
-                m_doneCurrentInit = false;
-            } else if (front->isStahed()) {
-                m_stash << front;
                 m_talks.pop();
                 m_doneCurrentInit = false;
             }
