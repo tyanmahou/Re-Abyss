@@ -19,7 +19,7 @@ namespace Mns
 		}
 		String line;
 		while (reader.readLine(line)) {
-			if (line[0] == ';') {
+			if (line[0] == U';') {
 				// コメント
 				continue;
 			}
@@ -33,7 +33,7 @@ namespace Mns
 	bool Lexer::load(s3d::Arg::code_<s3d::String> code)
 	{
 		for (auto&& line : code->split(U'\n')) {
-			if (line[0] == ';') {
+			if (line[0] == U';') {
 				// コメント
 				continue;
 			}
@@ -53,6 +53,10 @@ namespace Mns
 			while (IsSpace(line[pos])) {
 				++pos;
 			}
+            if (line[pos] == U';') {
+                // コメント
+                return;
+            }
 			if (m_isTag && IsAlpha(line[pos])) {
 				// 識別子
 				const size_t start = pos;
