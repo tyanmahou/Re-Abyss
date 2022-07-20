@@ -41,5 +41,24 @@ namespace abyss
     {
         m_current.release();
         m_prev.release();
+
+        {
+            std::stack<s3d::String> empty{};
+            m_stash.swap(empty);
+        }
+    }
+    void BackGroundMusic::stash(const s3d::Duration& sec)
+    {
+        if (m_currentPath) {
+            m_stash.push(*m_currentPath);
+        }
+        this->stop(sec);
+    }
+    void BackGroundMusic::stashPop(const s3d::Duration& sec)
+    {
+        if (!m_stash.empty()) {
+            this->play(m_stash.top(), sec);
+            m_stash.pop();
+        }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#340723" nextlayerid="12" nextobjectid="38">
+<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" backgroundcolor="#340723" nextlayerid="12" nextobjectid="39">
  <editorsettings>
   <chunksize width="28" height="16"/>
  </editorsettings>
@@ -251,6 +251,11 @@
   <object id="37" gid="49" x="105.455" y="98.7879" width="40" height="40">
    <properties>
     <property name="event" type="file" value="../../../../resources/novel/Common/RoomGarder.mns"/>
+   </properties>
+  </object>
+  <object id="38" gid="50" x="-1056.36" y="113.939" width="40" height="40">
+   <properties>
+    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/Main/Stage0/stage0.aas"/>
    </properties>
   </object>
  </objectgroup>

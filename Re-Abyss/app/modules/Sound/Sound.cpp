@@ -14,6 +14,14 @@ namespace abyss
     {
         m_bgm.stop(sec);
     }
+    void Sound::stash(const s3d::Duration& sec)
+    {
+        m_bgm.stash(sec);
+    }
+    void Sound::stashPop(const s3d::Duration& sec)
+    {
+        m_bgm.stashPop(sec);
+    }
     void Sound::release()
     {
         m_bgm.release();

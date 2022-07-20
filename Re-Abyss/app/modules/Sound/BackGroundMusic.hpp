@@ -1,4 +1,5 @@
 #pragma once
+#include <stack>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Audio.hpp>
 
@@ -33,9 +34,15 @@ namespace abyss
             return m_currentPath;
         }
 
+        /// <summary>
+        /// 一時退避
+        /// </summary>
+        void stash(const s3d::Duration& sec = 2s);
+        void stashPop(const s3d::Duration& sec = 2s);
     private:
         s3d::Audio m_prev;
         s3d::Audio m_current;
         s3d::Optional<s3d::String> m_currentPath;
+        std::stack<s3d::String> m_stash;
     };
 }

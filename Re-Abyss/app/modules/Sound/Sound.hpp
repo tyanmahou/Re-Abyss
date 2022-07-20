@@ -17,6 +17,9 @@ namespace abyss
 
         void stop(const s3d::Duration& sec = 2s);
 
+        void stash(const s3d::Duration& sec = 2s);
+        void stashPop(const s3d::Duration& sec = 2s);
+
         void release();
 
         const s3d::Optional<s3d::String>& currentBgmPath()const;

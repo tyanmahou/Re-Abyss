@@ -1,11 +1,13 @@
 #include <abyss/components/Novel/RoomGarder/Builder.hpp>
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
+#include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 #include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
 #include <abyss/components/Novel/RoomGarder/Command/Setup.hpp>
 #include <abyss/components/Novel/RoomGarder/Command/Teardown.hpp>
 #include <abyss/components/Novel/Common/TalkCtrl.hpp>
+#include <abyss/commons/Path.hpp>
 
 namespace abyss::Novel::RoomGarder
 {
@@ -19,24 +21,28 @@ namespace abyss::Novel::RoomGarder
     {
         pTalk->engine()->addCommand([](TalkObj* p) {
             p->find<TalkCtrl>()->request();
+            p->getModule<Sound>()->stash();
         });
     }
     void Builder::Appear::End(TalkObj* pTalk)
     {
         pTalk->engine()->addCommand([](TalkObj* p) {
             p->find<TalkCtrl>()->resume();
+            p->getModule<Sound>()->play(Path::SoundPath + U"bgm/Main/Common/RoomGarder.aas", 0s);
         });
     }
     void Builder::Disappear::Start(TalkObj* pTalk)
     {
         pTalk->engine()->addCommand([](TalkObj* p) {
             p->find<TalkCtrl>()->request();
+            p->getModule<Sound>()->stop(0.5s);
         });
     }
     void Builder::Disappear::End(TalkObj* pTalk)
     {
         pTalk->engine()->addCommand([](TalkObj* p) {
             p->find<TalkCtrl>()->resume();
+            p->getModule<Sound>()->stashPop();
         });
     }
     void Builder::Teardown(TalkObj* pTalk)
