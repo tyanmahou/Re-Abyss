@@ -16,6 +16,8 @@
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
 
 #include <abyss/components/Novel/Common/MessageBox.hpp>
+#include <abyss/components/Novel/Common/TalkCtrl.hpp>
+
 #include <abyss/utils/Mns/Script.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
@@ -188,5 +190,6 @@ namespace abyss::Novel
         }
         pTalk->attach<SkipCtrl>(pTalk);
         pTalk->attach<MessageBox>(pTalk);
+        pTalk->attach<TalkCtrl>(pTalk);
     }
 }

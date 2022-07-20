@@ -28,6 +28,9 @@ namespace abyss::Novel
         {
             addCommand(std::make_shared<T>(m_pTalk, std::forward<Args>(args)...));
         }
+
+        void addCommand(std::function<void(TalkObj*)> callback);
+
         void addCommand(std::shared_ptr<ICommand> command);
 
         const Serif& getSerif() const

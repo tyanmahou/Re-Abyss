@@ -6,6 +6,7 @@ namespace abyss::Actor
     struct StatePriority
     {
         static inline constexpr s3d::int32 Normal = 0;
+        static inline constexpr s3d::int32 Event = 9;
         static inline constexpr s3d::int32 Damage = 10;
         static inline constexpr s3d::int32 Dead = 99;
     private:

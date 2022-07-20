@@ -8,8 +8,10 @@ namespace abyss::Novel::RoomGarder
     class SignalCtrl : public IComponent
     {
     public:
-        [[REFLECTION(IsRoomGarderStart)]]
-        static bool IsRoomGarderStart(TalkObj* pTalk);
+        [[REFLECTION(IsBattleStart)]]
+        static bool IsBattleStart(TalkObj* pTalk);
+        [[REFLECTION(IsBattleEnd)]]
+        static bool IsBattleEnd(TalkObj* pTalk);
         [[REFLECTION(IsRoomGarderEnd)]]
         static bool IsRoomGarderEnd(TalkObj* pTalk);
     public:
@@ -19,18 +21,26 @@ namespace abyss::Novel::RoomGarder
         {
             return m_pTalk;
         }
-        void requestRoomGarderStart()
+        void requestBattleStart()
         {
-            m_isRoomGarderStart = true;
+            m_isBattleStart = true;
+        }
+        void requestBattleEnd()
+        {
+            m_isBattleEnd = true;
         }
         void requestRoomGarderEnd()
         {
             m_isRoomGarderEnd = true;
         }
     private:
-        bool isRoomGarderStart() const
+        bool isBattleStart() const
         {
-            return m_isRoomGarderStart;
+            return m_isBattleStart;
+        }
+        bool isBattleEnd() const
+        {
+            return m_isBattleEnd;
         }
         bool isRoomGarderEnd() const
         {
@@ -39,7 +49,8 @@ namespace abyss::Novel::RoomGarder
     private:
         TalkObj* m_pTalk;
 
-        bool m_isRoomGarderStart = false;
+        bool m_isBattleStart = false;
+        bool m_isBattleEnd = false;
         bool m_isRoomGarderEnd = false;
     };
 }

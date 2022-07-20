@@ -1,8 +1,13 @@
 #include <abyss/components/Actor/Player/State/TalkState.hpp>
+#include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
 {
+    void TalkState::Change(ActorObj* pActor, const Ref<ILocator>& pTargetLocator)
+    {
+        pActor->find<StateCtrl>()->changeState<TalkState, StatePriority::Event>(pTargetLocator);
+    }
     TalkState::TalkState(const Ref<ILocator>& pTargetLocator):
         m_pTargetLocator(pTargetLocator)
     {

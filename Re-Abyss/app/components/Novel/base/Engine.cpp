@@ -71,6 +71,31 @@ namespace abyss::Novel
         }
         return m_stream.moveNext();
     }
+    void Engine::addCommand(std::function<void(TalkObj*)> callback)
+    {
+        class Callback : public ICommand
+        {
+        public:
+            Callback(TalkObj* pTalk, std::function<void(TalkObj*)>&& callback):
+                m_pTalk(pTalk),
+                m_callback(std::move(callback))
+            {}
+            void onStart() override
+            {
+                if (m_callback) {
+                    m_callback(m_pTalk);
+                }
+            }
+            Coro::Task<> onCommand()override
+            {
+                co_return;
+            }
+        private:
+            TalkObj* m_pTalk;
+            std::function<void(TalkObj*)> m_callback;
+        };
+        m_commands.push(std::make_shared<Callback>(m_pTalk, std::move(callback)));
+    }
     void Engine::addCommand(std::shared_ptr<ICommand> command)
     {
         m_commands.push(command);
