@@ -120,15 +120,11 @@ namespace
             } else if (tag == U"signal") {
                 for (const auto& [key, value] : statement.childs) {
                     if (key == U"send" && value) {
-                        auto func = Reflect<>::find<void(TalkObj*)>(
-                            U"abyss::Novel::{}::{}"_fmt(*m_build, *value)
-                            );
+                        auto func = this->findFunc<void(TalkObj*)>(*value);
                         m_pEngine->addCommand<SignalSend>(func);
                         break;
                     } else if (key == U"receive" && value) {
-                        auto func = Reflect<>::find<bool(TalkObj*)>(
-                            U"abyss::Novel::{}::{}"_fmt(*m_build, *value)
-                            );
+                        auto func = this->findFunc<bool(TalkObj*)>(*value);
                         m_pEngine->addCommand<SignalReceive>(func);
                         break;
                     }
@@ -137,6 +133,18 @@ namespace
                 m_pEngine->addCommand<SkipEnabled>(true);
             } else if (tag == U"/skippable") {
                 m_pEngine->addCommand<SkipEnabled>(false);
+            } else if (tag == U"start" && tagValue) {
+                m_blocks.push(*tagValue);
+                if (auto blockFunc = this->findBlockFunc(*tagValue, U"Start")) {
+                    (*blockFunc)(m_pTalk);
+                }
+            } else if (tag == U"end") {
+                if (!m_blocks.empty()) {
+                    if (auto blockFunc = this->findBlockFunc(m_blocks.top(), U"End")) {
+                        (*blockFunc)(m_pTalk);
+                    }
+                    m_blocks.pop();
+                }
             }
         }
         void eval(const Ast::NameStatement& statement) override
@@ -162,11 +170,31 @@ namespace
             if (!m_build) {
                 return;
             }
-            if (auto buildFunc = Reflect<>::find<void(TalkObj*)>(
-                U"abyss::Novel::{}::Builder::{}"_fmt(*m_build, eventName)
-                )) {
+            if (auto buildFunc = findBuildFunc(eventName)) {
                 (*buildFunc)(m_pTalk);
             }
+        }
+        template<class T>
+        auto findFunc(s3d::StringView name)
+            ->decltype(Reflect<>::find<T>(U""))
+        {
+            return Reflect<>::find<T>(
+                U"abyss::Novel::{}::{}"_fmt(*m_build, name)
+                );
+        }
+        auto findBuildFunc(s3d::StringView name)
+            ->decltype(Reflect<>::find<void(TalkObj*)>(U""))
+        {
+            return Reflect<>::find<void(TalkObj*)>(
+                U"abyss::Novel::{}::Builder::{}"_fmt(*m_build, name)
+                );
+        }
+        auto findBlockFunc(s3d::StringView blockName, s3d::StringView name)
+            ->decltype(Reflect<>::find<void(TalkObj*)>(U""))
+        {
+            return Reflect<>::find<void(TalkObj*)>(
+                U"abyss::Novel::{}::Builder::{}::{}"_fmt(*m_build, blockName, name)
+                );
         }
     private:
         TalkObj* m_pTalk;
@@ -176,6 +204,8 @@ namespace
         s3d::Optional<CharaKind> m_charaKind;
         s3d::Optional<Side> m_charaSide;
         s3d::Optional<s3d::String> m_build;
+
+        std::stack<s3d::String> m_blocks;
     };
 }
 namespace abyss::Novel
