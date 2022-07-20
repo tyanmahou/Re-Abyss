@@ -1,6 +1,8 @@
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
+
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AngryState.hpp>
@@ -11,6 +13,8 @@
 #include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
+
+#include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
 
 #include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
@@ -29,7 +33,7 @@ namespace abyss::Actor::Enemy::KingDux
 
     Coro::Task<> Behavior::Phase1(ActorObj* pActor)
     {
-        co_await Appear(pActor);
+        co_await TryToAppear(pActor);
 
         co_await BehaviorUtil::WaitForSeconds(pActor, 0.5);
 
@@ -55,6 +59,14 @@ namespace abyss::Actor::Enemy::KingDux
 
             co_await StabBy(pActor, stabId);
             stabId = (stabId + 1) % 3;
+        }
+    }
+    Coro::Task<> Behavior::TryToAppear(ActorObj* pActor)
+    {
+        if (pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
+            co_await Appear(pActor);
+        } else {
+            co_await Wait(pActor);
         }
     }
     Coro::Task<> Behavior::Appear(ActorObj* pActor)

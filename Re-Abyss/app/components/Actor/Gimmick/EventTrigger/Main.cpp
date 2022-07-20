@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Gimmick/EventTrigger/Main.hpp>
-#include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Event/Talk/Builder.hpp>
+#include <abyss/components/Novel/TalkBuilder.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
@@ -12,7 +12,7 @@ namespace abyss::Actor::Gimmick::EventTrigger
 
     void Main::onStart()
     {
-        m_pActor->getModule<Events>()->create<Event::Talk::Builder>(m_path);
+        m_pActor->getModule<Novels>()->create<Novel::TalkBuilder>(m_path);
 
         m_pActor->destroy();
     }

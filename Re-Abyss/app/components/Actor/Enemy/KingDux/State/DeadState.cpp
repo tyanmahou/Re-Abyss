@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
+#include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -36,28 +37,13 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	Coro::Task<> DeadState::task()
 	{
-		co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
+        if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
+            co_await this->onDemo(signalCtrl);
+        } else {
+            co_await this->commonDead();
+        }
 
-		m_phase = Phase::Explosion;
-		m_timer.reset(3.0);
-		// 爆発
-		{
-			auto region = m_body->region().stretched(100, 0);
-
-			for (int32 count : step(20)) {
-				if (count == 4 || count == 5 || count == 11 || count == 12) {
-					// 画面フラッシュ
-					m_pActor->getModule<SpecialEffects>()->flush()->start(0.1);
-				}
-				auto effectPos = s3d::RandomVec2(region);
-				m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);
-				m_audioSource->playAt(U"Damage", effectPos);
-
-				co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.2);
-			}
-		}
-		m_pActor->destroy();
-		co_return;
+        co_return;
 	}
 	void DeadState::update()
 	{
@@ -72,4 +58,34 @@ namespace abyss::Actor::Enemy::KingDux
 			break;
 		}
 	}
+    Task<> DeadState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
+    {
+        signalCtrl->requestBattleEnd();
+        co_await this->commonDead();
+        signalCtrl->requestRoomGarderEnd();
+    }
+    Task<> DeadState::commonDead()
+    {
+        co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
+
+        m_phase = Phase::Explosion;
+        m_timer.reset(3.0);
+        // 爆発
+        {
+            auto region = m_body->region().stretched(100, 0);
+
+            for (int32 count : step(20)) {
+                if (count == 4 || count == 5 || count == 11 || count == 12) {
+                    // 画面フラッシュ
+                    m_pActor->getModule<SpecialEffects>()->flush()->start(0.1);
+                }
+                auto effectPos = s3d::RandomVec2(region);
+                m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);
+                m_audioSource->playAt(U"Damage", effectPos);
+
+                co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.2);
+            }
+        }
+        m_pActor->destroy();
+    }
 }

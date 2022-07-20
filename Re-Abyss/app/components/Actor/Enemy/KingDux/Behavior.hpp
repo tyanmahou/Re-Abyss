@@ -14,6 +14,7 @@ namespace abyss::Actor::Enemy::KingDux
         [[nodiscard]] static Coro::Task<> Phase1(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Phase2(ActorObj* pActor);
     public:
+        [[nodiscard]] static Coro::Task<> TryToAppear(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Appear(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Angry(ActorObj* pActor);
         [[nodiscard]] static Coro::Task<> Dead(ActorObj* pActor);

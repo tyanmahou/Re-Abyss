@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/KingDux/State/BaseState.hpp>
+#include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -19,6 +20,9 @@ namespace abyss::Actor::Enemy::KingDux
         void end() override;
         Coro::Task<> task() override;
         void update() override;
+    private:
+        Task<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
+        Task<> commonDead();
     private:
         Phase m_phase = Phase::Wait;
         TimeLite::Timer m_timer{};
