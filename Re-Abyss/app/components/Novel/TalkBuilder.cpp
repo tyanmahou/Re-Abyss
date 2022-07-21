@@ -178,8 +178,13 @@ namespace
         auto findFunc(s3d::StringView name)
             ->decltype(Reflect<>::find<T>(U""))
         {
-            return Reflect<>::find<T>(
+            if (auto func = Reflect<>::find<T>(
                 U"abyss::Novel::{}::{}"_fmt(*m_build, name)
+                )) {
+                return func;
+            }
+            return Reflect<>::find<T>(
+                U"abyss::Novel::{}"_fmt(name)
                 );
         }
         auto findBuildFunc(s3d::StringView name)

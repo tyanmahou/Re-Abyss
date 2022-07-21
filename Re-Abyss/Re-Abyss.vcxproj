@@ -249,6 +249,7 @@
     <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\NovelUtil.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Builder.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Command\Teardown.cpp" />
@@ -1155,6 +1156,7 @@
     <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\Common\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\NovelUtil.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Builder.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Teardown.hpp" />

@@ -2228,6 +2228,9 @@
     <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\NovelUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5864,6 +5867,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\Common\TalkCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\NovelUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
