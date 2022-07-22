@@ -123,7 +123,10 @@ namespace Mns
 					}
 					++pos;
 				}
-				m_tokens.emplace_back(m_isTag ? TokenType::Value : TokenType::Text, line.substr(start, pos - start));
+                auto text = line.substr(start, pos - start);
+                if (!text.isEmpty()) {
+                    m_tokens.emplace_back(m_isTag ? TokenType::Value : TokenType::Text, line.substr(start, pos - start));
+                }
 			}
 		}
 	}
