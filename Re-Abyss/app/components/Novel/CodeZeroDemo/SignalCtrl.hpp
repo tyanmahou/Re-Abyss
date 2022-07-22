@@ -13,6 +13,8 @@ namespace abyss::Novel::CodeZeroDemo
         [[REFLECTION(IsAppearEnd)]]
         static bool IsAppearEnd(TalkObj* pTalk);
 
+        [[REFLECTION(RequestBattleStart)]]
+        static void RequestBattleStart(TalkObj* pTalk);
         [[REFLECTION(IsBattleEnd)]]
         static bool IsBattleEnd(TalkObj* pTalk);
 
@@ -36,6 +38,10 @@ namespace abyss::Novel::CodeZeroDemo
         {
             m_isAppearEnd = true;
         }
+        bool isBattleStart() const
+        {
+            return m_isBattleStart;
+        }
         void requestBattleEnd()
         {
             m_isBattleEnd = true;
@@ -57,6 +63,10 @@ namespace abyss::Novel::CodeZeroDemo
         {
             return m_isAppearEnd;
         }
+        void requestBattleStart()
+        {
+            m_isBattleStart = true;
+        }
         bool isBattleEnd() const
         {
             return m_isBattleEnd;
@@ -75,6 +85,7 @@ namespace abyss::Novel::CodeZeroDemo
         bool m_requestedAppear = false;
         bool m_isAppearEnd = false;
 
+        bool m_isBattleStart = false;
         bool m_isBattleEnd = false;
 
         bool m_requestedDead = false;

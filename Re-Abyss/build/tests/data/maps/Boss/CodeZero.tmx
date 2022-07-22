@@ -187,11 +187,11 @@
  <objectgroup id="4" name="enemy" locked="1">
   <object id="19" gid="64" x="220" y="560" width="680" height="480"/>
  </objectgroup>
- <objectgroup id="8" name="gimmick" locked="1">
+ <objectgroup id="8" name="gimmick">
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="17" gid="49" x="80" y="80" width="40" height="40">
    <properties>
-    <property name="event" type="file" value="../../../../resources/novel/stage0/pre_boss.mns"/>
+    <property name="event" type="file" value="../../../../resources/novel/CodeZero/CodeZeroDemo.mns"/>
    </properties>
   </object>
   <object id="21" gid="55" x="880" y="200" width="160" height="160"/>

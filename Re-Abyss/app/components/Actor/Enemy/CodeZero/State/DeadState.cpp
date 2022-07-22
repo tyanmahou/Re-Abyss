@@ -37,7 +37,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> DeadState::task()
 	{
-		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_1::SignalCtrl>()) {
+		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
 			co_await this->onEvent(signalCtrl);
 		} else {
 			co_await this->commonDead();
@@ -49,8 +49,10 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 	}
 
-	Task<> DeadState::onEvent(Ref<Novel::BossTalk0_1::SignalCtrl> signalCtrl)
+	Task<> DeadState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
+        signalCtrl->requestBattleEnd();
+
 		while (!signalCtrl->isRequestedDead()) {
 			co_yield{};
 		}

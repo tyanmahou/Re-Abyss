@@ -3,7 +3,7 @@
 
 #include <abyss/components/Novel/base/ICommand.hpp>
 
-namespace abyss::Novel::BossTalk0_0
+namespace abyss::Novel::CodeZeroDemo
 {
     class Teardown :
         public ICommand

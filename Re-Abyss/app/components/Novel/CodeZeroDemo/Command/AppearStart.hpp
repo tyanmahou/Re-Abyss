@@ -1,14 +1,15 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
+
 #include <abyss/components/Novel/base/ICommand.hpp>
 
-namespace abyss::Novel::BossTalk0_0
+namespace abyss::Novel::CodeZeroDemo
 {
-    class Setup : 
+    class AppearStart :
         public ICommand
     {
     public:
-        Setup(TalkObj* pTalk);
+        AppearStart(TalkObj* pTalk);
 
         void onStart() override;
 

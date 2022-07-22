@@ -37,7 +37,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Task<> AppearState::task()
 	{
-		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
+		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
 			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
 				skipCtrl->registCallback([
 					weak = this->getWeak(),
@@ -58,7 +58,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	void AppearState::update()
 	{
 	}
-	Task<> AppearState::onEvent(Ref<Novel::BossTalk0_0::SignalCtrl> signalCtrl)
+	Task<> AppearState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
 		while (signalCtrl && !signalCtrl->isRequestedAppear()) {
 			co_yield{};
@@ -91,7 +91,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		if (signalCtrl) {
 			signalCtrl->setAppearEnd();
 		}
-		while (signalCtrl) {
+		while (signalCtrl && !signalCtrl->isBattleStart()) {
 			co_yield{};
 		}
 	}

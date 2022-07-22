@@ -12,14 +12,11 @@ namespace abyss::Actor::Enemy::CodeZero
     {
     public:
         DeadCallback(ActorObj* pActor);
-
-        void setDeadEventPath(const s3d::String& path);
     public:
         void onDead() override;
 
     private:
         ActorObj* m_pActor;
-        s3d::Optional<s3d::String> m_deadEventPath;
     };
 }
 

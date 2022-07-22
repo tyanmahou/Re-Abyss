@@ -12,7 +12,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
-#include <abyss/components/Novel/BossTalk0_0/SignalCtrl.hpp>
+#include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
@@ -123,9 +123,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Task<> Behavior::TryToAppear(ActorObj* pActor)
     {
-        if (pActor->getModule<Novels>()->find<Novel::BossTalk0_0::SignalCtrl>()) {
-            // 死亡コールバックを設定
-            pActor->find<DeadCallback>()->setDeadEventPath(U"stage0/kill_boss.mns");
+        if (pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
             co_await Appear(pActor);
         }
     }

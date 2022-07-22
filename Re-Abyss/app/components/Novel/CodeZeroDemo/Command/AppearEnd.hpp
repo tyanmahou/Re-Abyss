@@ -3,13 +3,13 @@
 
 #include <abyss/components/Novel/base/ICommand.hpp>
 
-namespace abyss::Novel::BossTalk0_1
+namespace abyss::Novel::CodeZeroDemo
 {
-    class Teardown :
+    class AppearEnd :
         public ICommand
     {
     public:
-        Teardown(TalkObj* pTalk);
+        AppearEnd(TalkObj* pTalk);
 
         void onStart() override;
 

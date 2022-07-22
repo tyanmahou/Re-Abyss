@@ -1101,30 +1101,6 @@
     <ClCompile Include="app\components\Novel\base\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Setup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Command\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_0\SignalCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_1\Command\Setup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_1\Command\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_1\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossTalk0_1\SignalCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2235,6 +2211,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\CodeZeroDemo\SignalCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\Teardown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4064,30 +4049,6 @@
     <ClInclude Include="app\components\Novel\base\ICommand.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Setup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Command\Teardown.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_0\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_0\SignalCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_1\Command\Setup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_1\Command\Teardown.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_1\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossTalk0_1\SignalCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5882,6 +5843,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\CodeZeroDemo\SignalCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\Teardown.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
