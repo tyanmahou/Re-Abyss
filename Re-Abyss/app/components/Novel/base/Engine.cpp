@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Novel
@@ -15,21 +16,7 @@ namespace abyss::Novel
     {
         m_skip = m_pTalk->find<SkipCtrl>();
 
-        auto task = [this]()->Coro::Task<> {
-            while (!m_commands.empty()) {
-                auto& front = m_commands.front();
-                front->onStart();
-                m_doneCurrentInit = true;
-
-                co_await front->onCommand();
-
-                front->onEnd();
-                m_commands.pop();
-                m_doneCurrentInit = false;
-            }
-            co_return;
-        };
-        m_stream.reset(task);
+        this->resetStream();
     }
     void Engine::onEnd()
     {
@@ -51,23 +38,6 @@ namespace abyss::Novel
         if (m_skip && m_skip->isSkip()) {
             // skip
             m_skip->onSkip();
-
-            // 残りのコマンドを処理する
-            while (!m_commands.empty()) {
-                auto& front = m_commands.front();
-                if (!m_doneCurrentInit) {
-                    front->onStart();
-                    m_doneCurrentInit = true;
-                }
-                front->onEnd();
-                m_commands.pop();
-                m_doneCurrentInit = false;
-
-                if (!m_skip->isEnabled()) {
-                    return true;
-                }
-            }
-            return false;
         }
         return m_stream.moveNext();
     }
@@ -163,5 +133,28 @@ namespace abyss::Novel
         if (m_prevMessage.length() > 0) {
             m_prevMessage.clear();
         }
+    }
+    void Engine::resetStream()
+    {
+        auto task = [this]()->Coro::Task<> {
+            while (!m_commands.empty()) {
+                auto& front = m_commands.front();
+                front->onStart();
+                m_doneCurrentInit = true;
+
+                co_await (
+                    Coro::WaitUntil([this] {
+                        return m_skip && m_skip->isSkip();
+                    })
+                    | front->onCommand()
+                );
+
+                front->onEnd();
+                m_commands.pop();
+                m_doneCurrentInit = false;
+            }
+            co_return;
+        };
+        m_stream.reset(task);
     }
 }

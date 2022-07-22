@@ -38,6 +38,7 @@ namespace abyss::UI::Message
         bool isBusyAnim() const;
         bool isVisible() const;
         void setVisible(bool isVisible);
+        void animToTail();
     private:
         UIObj* m_pUi;
 

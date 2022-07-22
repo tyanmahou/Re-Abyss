@@ -20,6 +20,7 @@ namespace abyss::Novel
 
         void setVisible(bool isVisible);
         bool isBusyAnim() const;
+        void animToTail() const;
     private:
         TalkObj* m_pTalk;
         Ref<UI::UIObj> m_pUi;

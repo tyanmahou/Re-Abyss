@@ -74,6 +74,8 @@ namespace abyss::Novel
         /// </summary>
         void clearBuffer();
     private:
+        void resetStream();
+    private:
         TalkObj* m_pTalk;
 
         Serif m_serif;

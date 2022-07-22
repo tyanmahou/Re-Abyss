@@ -112,4 +112,8 @@ namespace abyss::UI::Message
         m_isVisible = isVisible;
         m_showHideTimer.reset();
     }
+    void Main::animToTail()
+    {
+        m_showHideTimer.toEnd();
+    }
 }

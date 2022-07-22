@@ -36,4 +36,10 @@ namespace abyss::Novel
         }
         return false;
     }
+    void MessageBox::animToTail() const
+    {
+        if (m_msgMain) {
+            m_msgMain->animToTail();
+        }
+    }
 }

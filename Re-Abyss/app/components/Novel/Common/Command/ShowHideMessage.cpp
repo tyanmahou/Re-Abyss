@@ -19,6 +19,9 @@ namespace abyss::Novel
     }
     void ShowHideMessage::onEnd()
     {
+        if (auto messageBox = m_pTalk->find<MessageBox>()) {
+            messageBox->animToTail();
+        }
         if (!m_isShow) {
             // 非表示の場合は終わった時点でバッファクリア
             m_pTalk->engine()->clearBuffer();
