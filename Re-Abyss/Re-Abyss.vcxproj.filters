@@ -699,9 +699,6 @@
     <ClCompile Include="app\components\Actor\God\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\God\PauseCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Item\Recovery\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2222,6 +2219,9 @@
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Pause\PauseManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -3561,9 +3561,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\God\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Actor\God\PauseCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Item\Recovery\Builder.hpp">
@@ -5852,6 +5849,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Pause\PauseManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

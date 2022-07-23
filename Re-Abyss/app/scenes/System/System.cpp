@@ -31,7 +31,10 @@ namespace abyss::Sys
             pCollision = mod<CollisionManager>();
             physics = mod<PhysicsManager>();
         }
-
+        // ポーズ制御
+        if constexpr (config.isStage) {
+            mod<Pause::PauseManager>()->update();
+        }
         timer->update();
 
         // フラッシュ

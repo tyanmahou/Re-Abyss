@@ -265,6 +265,7 @@
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\modules\Env\Fog\Fog.cpp" />
+    <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
     <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
@@ -445,7 +446,6 @@
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Main.cpp" />
     <ClCompile Include="app\components\Actor\God\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\God\PauseCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Item\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Item\ItemCollision.cpp" />
     <ClCompile Include="app\components\Actor\Item\LifeSpan.cpp" />
@@ -1171,6 +1171,7 @@
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\modules\Env\Fog\Fog.hpp" />
+    <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
     <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
@@ -1405,7 +1406,6 @@
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Main.hpp" />
     <ClInclude Include="app\components\Actor\God\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\God\PauseCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Item\ItemCollision.hpp" />

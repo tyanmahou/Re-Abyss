@@ -1,5 +1,4 @@
 #include <abyss/components/Actor/God/Builder.hpp>
-#include <abyss/components/Actor/God/PauseCtrl.hpp>
 
 namespace abyss::Actor::God
 {
@@ -7,8 +6,5 @@ namespace abyss::Actor::God
     {
         // 死なない
         pActor->setDestoryTiming(DestoryTiming::Never);
-
-        // ポーズ制御
-        pActor->attach<PauseCtrl>(pActor);
     }
 }

@@ -20,6 +20,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Pause/PauseManager.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
@@ -56,6 +57,7 @@ namespace abyss::Sys
         GlobalTime,
         mod_if<config.isStage, Light>,
         mod_if<config.isStage, Novels>,
+        mod_if<config.isStage, Pause::PauseManager>,
         mod_if<config.isStage, PhysicsManager>,
         mod_if<config.isStage, RoomManager>,
         SpecialEffects,
