@@ -10,7 +10,8 @@ namespace abyss::Pause
     /// </summary>
     class PauseManager
     {
-        enum DisableKind
+    public:
+        enum class DisableKind
         {
             Demo,
         };

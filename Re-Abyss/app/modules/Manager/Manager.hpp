@@ -34,6 +34,7 @@ namespace abyss
         SpecialEffects* m_pSfx = nullptr;
         PostEffects* m_pPostEffects = nullptr;
         WorldComment* m_pWorldComment = nullptr;
+        PauseManager* m_pPause = nullptr;
     public:
 
         Manager& set(GlobalTime* pGlobalTime);
@@ -84,6 +85,8 @@ namespace abyss
         Manager& set(PostEffects* pPostEffects);
 
         Manager& set(WorldComment* pWorldComment);
+
+        Manager& set(PauseManager* pPause);
 
         template<class T>
         T* getModule() const;

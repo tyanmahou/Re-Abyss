@@ -2222,6 +2222,15 @@
     <ClCompile Include="app\modules\Pause\PauseManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Command\PauseDisabled.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5852,6 +5861,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Pause\PauseManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\Common\Command\PauseDisabled.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

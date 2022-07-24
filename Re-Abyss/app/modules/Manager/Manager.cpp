@@ -131,6 +131,11 @@ namespace abyss
         m_pWorldComment = pWorldComment;
         return *this;
     }
+    Manager& Manager::set(PauseManager* pPause)
+    {
+        m_pPause = pPause;
+        return *this;
+    }
     template<class T>
     T* Manager::getModule() const
     {
@@ -184,6 +189,8 @@ namespace abyss
             return m_pPostEffects;
         } else if constexpr (std::is_same_v<WorldComment, T>) {
             return m_pWorldComment;
+        } else if constexpr (std::is_same_v<PauseManager, T>) {
+            return m_pPause;
         }
     }
     template GlobalTime* Manager::getModule<GlobalTime>() const;
@@ -211,4 +218,5 @@ namespace abyss
     template SpecialEffects* Manager::getModule<SpecialEffects>() const;
     template PostEffects* Manager::getModule<PostEffects>() const;
     template WorldComment* Manager::getModule<WorldComment>() const;
+    template PauseManager* Manager::getModule<PauseManager>() const;
 }

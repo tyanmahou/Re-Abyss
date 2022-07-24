@@ -7,6 +7,7 @@
 #include <abyss/components/Novel/Common/Command/ColorTag.hpp>
 #include <abyss/components/Novel/Common/Command/MessageStream.hpp>
 #include <abyss/components/Novel/Common/Command/NameSetter.hpp>
+#include <abyss/components/Novel/Common/Command/PauseDisabled.hpp>
 #include <abyss/components/Novel/Common/Command/ShakeTag.hpp>
 #include <abyss/components/Novel/Common/Command/ShowHideMessage.hpp>
 #include <abyss/components/Novel/Common/Command/SignalSend.hpp>
@@ -145,6 +146,10 @@ namespace
                     }
                     m_blocks.pop();
                 }
+            } else if (tag == U"pause-disabled") {
+                m_pEngine->addCommand<PauseDisabled>(true);
+            } else if (tag == U"/pause-disabled") {
+                m_pEngine->addCommand<PauseDisabled>(false);
             }
         }
         void eval(const Ast::NameStatement& statement) override

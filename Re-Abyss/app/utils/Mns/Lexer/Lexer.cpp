@@ -62,7 +62,7 @@ namespace Mns
 				const size_t start = pos;
 				++pos;
 
-				while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_')) {
+				while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_' || line[pos] == U'-')) {
 					++pos;
 				}
 				m_tokens.emplace_back(TokenType::Ident, line.substr(start, pos - start));

@@ -251,8 +251,11 @@
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Builder.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.cpp" />
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.cpp" />
+    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\PauseDisabled.cpp" />
     <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp" />
     <ClCompile Include="app\components\Novel\NovelUtil.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Builder.cpp" />
@@ -1155,8 +1158,11 @@
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Builder.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.hpp" />
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.hpp" />
+    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\PauseDisabled.hpp" />
     <ClInclude Include="app\components\Novel\Common\TalkCtrl.hpp" />
     <ClInclude Include="app\components\Novel\NovelUtil.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Builder.hpp" />

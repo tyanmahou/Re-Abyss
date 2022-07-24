@@ -144,6 +144,12 @@ namespace abyss
 	}
 	using Devs::WorldComment;
 
+    namespace Pause
+    {
+        class PauseManager;
+    }
+    using Pause::PauseManager;
+
 	/// <summary>
 	/// Entities
 	/// </summary>

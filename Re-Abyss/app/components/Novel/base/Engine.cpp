@@ -35,10 +35,6 @@ namespace abyss::Novel
     bool Engine::update()
     {
         m_time += m_pTalk->getModule<GlobalTime>()->deltaTime();
-        if (m_skip && m_skip->isSkip()) {
-            // skip
-            m_skip->onSkip();
-        }
         return m_stream.moveNext();
     }
     void Engine::addCommand(std::function<void(TalkObj*)> callback)
@@ -137,21 +133,35 @@ namespace abyss::Novel
     void Engine::resetStream()
     {
         auto task = [this]()->Coro::Task<> {
+            // スキップ制御
+            bool isSkipped = false;
+            auto skipCheck = [this, &isSkipped]()->Coro::Task<> {
+                while (true) {
+                    bool isSkipPrev = isSkipped;
+                    if (isSkipped = (m_skip && m_skip->isSkip())) {
+                        co_return;
+                    }
+                    if (isSkipPrev) {
+                        m_skip->onSkip();
+                    }
+                    co_yield {};
+                }
+            };
             while (!m_commands.empty()) {
                 auto& front = m_commands.front();
                 front->onStart();
                 m_doneCurrentInit = true;
 
                 co_await (
-                    Coro::WaitUntil([this] {
-                        return m_skip && m_skip->isSkip();
-                    })
-                    | front->onCommand()
+                    skipCheck() | front->onCommand()
                 );
 
                 front->onEnd();
                 m_commands.pop();
                 m_doneCurrentInit = false;
+            }
+            if (isSkipped) {
+                m_skip->onSkip();
             }
             co_return;
         };
