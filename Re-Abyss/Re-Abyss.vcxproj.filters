@@ -2231,6 +2231,15 @@
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5870,6 +5879,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\MapMove\MapMoveCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\MapMove\LinkData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,9 +11,6 @@
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <abyss/debugs/Debug.hpp>
 
-#include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/components/Cycle/Main/Master.hpp>
-
 namespace abyss::Actor::Gimmick::Door
 {
     GimmickReactor::GimmickReactor(ActorObj* pActor) :
@@ -41,9 +38,6 @@ namespace abyss::Actor::Gimmick::Door
             auto pStage = m_pActor->getModule<Stage>();
             if (const auto& link = m_door->getLink()) {
                 // TODO 演出
-                m_pActor->getModule<CycleMaster>()
-                    ->find<Cycle::Main::Master>()
-                    ->moveStage(*link);
                 return;
             } else if (auto startPos = pStage->findStartPos(m_door->getStartId())) {
                 if (auto room = pStage->findRoom(startPos->getPos())) {

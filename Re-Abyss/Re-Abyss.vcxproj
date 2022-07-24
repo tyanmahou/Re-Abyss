@@ -246,6 +246,9 @@
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp" />
     <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Builder.cpp" />
@@ -1153,6 +1156,11 @@
     <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
     <ClInclude Include="app\components\Event\base\IStashUpdate.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\LinkData.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\MapMoveCtrl.hpp" />
     <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Builder.hpp" />

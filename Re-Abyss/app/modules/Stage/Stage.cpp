@@ -210,9 +210,6 @@ namespace abyss
     {
         auto roomManager = m_pManager->getModule<RoomManager>();
         const auto& nextRoom = roomManager->nextRoom();
-        if (!nextRoom) {
-            return false;
-        }
         // チェックアウト時にはルーム移動で消えるフラグを消す
         m_pManager->getModule<Temporary>()->clearFlag(TempLevel::Room);
 
@@ -220,8 +217,11 @@ namespace abyss
         {
             auto world = m_pManager->getModule<World>();
             world->onCheckOut();
-            if (!this->initWorld(*world, *nextRoom, BuildTiming::CheckOut)) {
-                return false;
+
+            if (nextRoom) {
+                if (!this->initWorld(*world, *nextRoom, BuildTiming::CheckOut)) {
+                    return false;
+                }
             }
         }
 
@@ -230,15 +230,17 @@ namespace abyss
         {
             auto decor = m_pManager->getModule<Decors>();
             decor->onCheckOut();
-            if (!this->initDecor(*decor, *nextRoom)) {
-                return false;
+            if (nextRoom) {
+                if (!this->initDecor(*decor, *nextRoom)) {
+                    return false;
+                }
             }
         }
 
         // サウンドが変わる場合は停止
-        {
+        if (nextRoom) {
             auto sound = m_pManager->getModule<Sound>();
-            if (auto bgm = ::NextBgm(*roomManager->nextRoom(), m_stageData->getGimmicks());bgm && *bgm != sound->currentBgmPath()) {
+            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && *bgm != sound->currentBgmPath()) {
                 sound->stop();
             }
         }
