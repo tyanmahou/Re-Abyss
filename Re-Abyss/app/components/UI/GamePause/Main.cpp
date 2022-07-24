@@ -9,6 +9,7 @@ namespace abyss::UI::GamePause
 {
     void Main::Build(UIObj* pUi)
     {
+        pUi->setFilter(UI::Filter::Always);
         pUi->attach<Main>(pUi)
             ->setOrder(DrawOrder::UI::Pause);
 
