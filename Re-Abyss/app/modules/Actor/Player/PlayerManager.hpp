@@ -18,7 +18,8 @@ namespace abyss::Actor::Player
 
         const Ref<ActorObj>& getActor() const;
 
-        PlayerDesc getDesc() const;
+        PlayerDesc getDesc(bool asDirect = false) const;
+        PlayerDesc getDescAsDirect() const;
     private:
         Ref<ActorObj> m_player;
         Ref<Body> m_body;

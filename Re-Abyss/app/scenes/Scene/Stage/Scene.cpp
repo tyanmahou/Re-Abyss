@@ -29,8 +29,6 @@ namespace abyss::Scene::Stage
 		std::shared_ptr<Novel::CharaTable> m_charaTable;
 
         Context m_context;
-        Actor::Player::PlayerDesc m_playerDesc;
-
 		std::shared_ptr<Data_t> m_data;
 	public:
 		Impl(const Scene::InitData& init):
@@ -91,11 +89,11 @@ namespace abyss::Scene::Stage
 #endif
 		void init(bool isLockPlayer = false)
 		{
-            Actor::Player::PlayerDesc desc = m_playerDesc;
+            Actor::Player::PlayerDesc desc{};
 			if (isLockPlayer && m_system) {
                 desc = m_system
                     ->mod<Actor::Player::PlayerManager>()
-                    ->getDesc();
+                    ->getDescAsDirect();
             }
 			m_system = std::make_unique<System>();
 			auto injector = Factory::Stage::Injector(m_context.mapPath);
@@ -157,14 +155,19 @@ namespace abyss::Scene::Stage
             }
 #else
             m_context.mapPath = Path::MapPath + link + U".tmx";
-#endif
+#endif            
+            Actor::Player::PlayerDesc desc = m_system
+                ->mod<Actor::Player::PlayerManager>()
+                ->getDesc();
+            desc.startId = startId;
 
             m_systemNext = std::make_unique<System>();
             auto injector = Factory::Stage::Injector(m_context.mapPath);
             m_stageData = injector.resolve<StageData>();
 
             auto booter = std::make_unique<BooterNormal>(this);
-            booter->setStageData(m_stageData)
+            booter->setPlayerDesc(desc)
+                .setStageData(m_stageData)
                 .setTempData(m_tempData)
                 .setCharaTable(m_charaTable)
                 ;

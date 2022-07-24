@@ -24,15 +24,21 @@ namespace abyss::Actor::Player
     {
         return m_player;
     }
-    PlayerDesc PlayerManager::getDesc() const
+    PlayerDesc PlayerManager::getDesc(bool asDirect) const
     {
         PlayerDesc desc;
         desc.hp = m_hp->getHp();
-        desc.direct = PlayerDesc::DirectInfo{
-            .pos = m_body->getPos(),
-            .forward = m_body->getForward()
-        };
+        if (asDirect) {
+            desc.direct = PlayerDesc::DirectInfo{
+                .pos = m_body->getPos(),
+                .forward = m_body->getForward()
+            };
+        }
         return desc;
+    }
+    PlayerDesc PlayerManager::getDescAsDirect() const
+    {
+        return this->getDesc(true);
     }
 }
 
