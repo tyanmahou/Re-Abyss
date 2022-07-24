@@ -85,7 +85,7 @@ namespace abyss::Event::MapMove
         // マップ移動
         m_pEvent->getModule<CycleMaster>()
             ->find<Cycle::Main::Master>()
-            ->moveStage(m_link.link);
+            ->moveStage(m_link.link, m_link.startId);
         co_return;
     }
 }

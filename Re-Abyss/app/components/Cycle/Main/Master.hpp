@@ -13,7 +13,7 @@ namespace abyss::Cycle::Main
     public:
         virtual ~IMasterObserver() = default;
         virtual bool onRestart() = 0;
-        virtual bool onMoveStage(const s3d::String& link) = 0;
+        virtual bool onMoveStage(const s3d::String& link, s3d::int32 startId) = 0;
         virtual bool onEscape() = 0;
         virtual bool onClear() = 0;
     };
@@ -59,7 +59,7 @@ namespace abyss::Cycle::Main
         /// マップ移動を予約する
         /// </summary>
         /// <returns></returns>
-        bool moveStage(const s3d::String& link);
+        bool moveStage(const s3d::String& link, s3d::int32 startId);
 
         bool listen() override;
 

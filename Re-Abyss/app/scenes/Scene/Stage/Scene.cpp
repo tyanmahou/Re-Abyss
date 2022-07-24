@@ -146,7 +146,7 @@ namespace abyss::Scene::Stage
             m_systemNext->boot(booter.get());
 			return true;
 		}
-        bool onMoveStage(const s3d::String& link) override
+        bool onMoveStage(const s3d::String& link, s3d::int32 startId) override
         {
             // マップ更新
 #if ABYSS_DEBUG

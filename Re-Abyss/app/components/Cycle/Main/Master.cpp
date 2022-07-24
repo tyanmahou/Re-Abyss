@@ -45,10 +45,10 @@ namespace abyss::Cycle::Main
         return false;
     }
 
-    bool Master::moveStage(const s3d::String& link)
+    bool Master::moveStage(const s3d::String& link, s3d::int32 startId)
     {
         if (this->notify(Notify::MoveStage)) {
-            m_notifyEvent = std::bind(&IMasterObserver::onMoveStage, m_observer, link);
+            m_notifyEvent = std::bind(&IMasterObserver::onMoveStage, m_observer, link, startId);
             return true;
         }
         return false;
