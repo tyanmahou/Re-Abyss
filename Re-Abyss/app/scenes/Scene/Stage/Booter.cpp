@@ -80,24 +80,23 @@ namespace abyss::Scene::Stage
 
         // プレイヤー初期化
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
-        std::shared_ptr<Actor::ActorObj> player = m_initPlayer;
+        std::shared_ptr<Actor::ActorObj> player;
         {
-            if (!player) {
-                // 未初期化なら生成
-                s3d::int32 startId = 0;
-                if constexpr (kind == BootKind::Restart) {
-                    // リスタートの場合保存されているスタート地点から再開
-                    startId = temporary->getRestartId().value_or(0);
-                }
-
-                auto initStartPos = stage->findStartPos(startId);
-                if (!initStartPos) {
-                    return false;
-                }
-                player = std::make_shared<Actor::ActorObj>();
-                player->setManager(pManager);
-                Actor::Player::Builder::Build(player.get(), *initStartPos);
+            auto desc = m_playerDesc;
+            if constexpr (kind == BootKind::Restart) {
+                // リスタートの場合保存されているスタート地点から再開
+                desc.startId = temporary->getRestartId().value_or(0);
             }
+            s3d::int32 startId = desc.startId;
+
+            auto initStartPos = stage->findStartPos(startId);
+            if (!initStartPos) {
+                return false;
+            }
+            player = std::make_shared<Actor::ActorObj>();
+            player->setManager(pManager);
+            Actor::Player::Builder::Build(player.get(), desc);
+
             // PlayerManager初期化
             playerManager->regist(player);
         }

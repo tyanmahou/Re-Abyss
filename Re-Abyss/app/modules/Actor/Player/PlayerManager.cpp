@@ -1,6 +1,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 
 namespace abyss::Actor::Player
 {
@@ -8,6 +9,7 @@ namespace abyss::Actor::Player
     {
         m_player = player;
         m_body = player->find<Body>();
+        m_hp = player->find<HP>();
     }
     PlayerManager& PlayerManager::setPos(const s3d::Vec2& pos)
     {
@@ -21,6 +23,16 @@ namespace abyss::Actor::Player
     const Ref<ActorObj>& PlayerManager::getActor() const
     {
         return m_player;
+    }
+    PlayerDesc PlayerManager::getDesc() const
+    {
+        PlayerDesc desc;
+        desc.hp = m_hp->getHp();
+        desc.direct = PlayerDesc::DirectInfo{
+            .pos = m_body->getPos(),
+            .forward = m_body->getForward()
+        };
+        return desc;
     }
 }
 

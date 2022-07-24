@@ -244,6 +244,7 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
@@ -1154,6 +1155,7 @@
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
+    <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />

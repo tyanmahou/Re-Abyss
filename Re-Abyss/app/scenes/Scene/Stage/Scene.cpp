@@ -29,6 +29,7 @@ namespace abyss::Scene::Stage
 		std::shared_ptr<Novel::CharaTable> m_charaTable;
 
         Context m_context;
+        Actor::Player::PlayerDesc m_playerDesc;
 
 		std::shared_ptr<Data_t> m_data;
 	public:
@@ -90,19 +91,18 @@ namespace abyss::Scene::Stage
 #endif
 		void init(bool isLockPlayer = false)
 		{
-			std::shared_ptr<Actor::ActorObj> player = nullptr;
+            Actor::Player::PlayerDesc desc = m_playerDesc;
 			if (isLockPlayer && m_system) {
-				player = m_system
-					->mod<Actor::Player::PlayerManager>()
-					->getActor()
-					.lock();
-			}
+                desc = m_system
+                    ->mod<Actor::Player::PlayerManager>()
+                    ->getDesc();
+            }
 			m_system = std::make_unique<System>();
 			auto injector = Factory::Stage::Injector(m_context.mapPath);
 			m_stageData = injector.resolve<StageData>();
 
 			auto booter = std::make_unique<BooterNormal>(this);
-			booter->setInitPlayer(player)
+            booter->setPlayerDesc(desc)
 				.setStageData(m_stageData)
 				.setTempData(m_tempData)
 				.setCharaTable(m_charaTable)

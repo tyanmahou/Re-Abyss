@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/scenes/System/IBooter.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
+#include <abyss/components/Actor/Player/PlayerDesc.hpp>
 
 namespace abyss::Scene::Stage
 {
@@ -19,9 +20,9 @@ namespace abyss::Scene::Stage
 
         bool onBoot(Manager* pManager) const override;
 
-        Booter& setInitPlayer(std::shared_ptr<Actor::ActorObj> player)
+        Booter& setPlayerDesc(const Actor::Player::PlayerDesc& playerDesc)
         {
-            m_initPlayer = player;
+            m_playerDesc = playerDesc;
             return *this;
         }
         Booter& setInitEvent(std::shared_ptr<Event::EventObj> event)
@@ -48,7 +49,7 @@ namespace abyss::Scene::Stage
     private:
         Cycle::Main::IMasterObserver* m_pObserver;
 
-        std::shared_ptr<Actor::ActorObj> m_initPlayer;
+        Actor::Player::PlayerDesc m_playerDesc;
         std::shared_ptr<Event::EventObj> m_initEvent;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;

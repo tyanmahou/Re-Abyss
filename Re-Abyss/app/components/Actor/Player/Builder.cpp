@@ -2,6 +2,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 
 #include <abyss/components/Common/MotionCtrl.hpp>
@@ -37,6 +38,8 @@
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
 #include <abyss/components/Actor/Player/CameraTarget.hpp>
 
+#include <abyss/models/Actor/Gimmick/StartPos/StartPosModel.hpp>
+
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 
@@ -46,16 +49,30 @@ namespace
 }
 namespace abyss::Actor::Player
 {
-	void Builder::Build(ActorObj* pActor, const StartPosModel& startPos)
-	{
+	void Builder::Build(
+        ActorObj* pActor,
+        const PlayerDesc& desc
+    ) {
 		// 基本設定
         pActor->setDestoryTiming(DestoryTiming::Never);
+
+        Vec2 initPos{0, 0};
+        Forward forward = Forward::Right;
+        if (desc.direct) {
+            initPos = desc.direct->pos;
+            forward = desc.direct->forward;
+        } else {
+            auto startPos = pActor->getModule<Stage>()->findStartPos(desc.startId);
+            initPos = startPos->getPos();
+            forward = startPos->getForward();
+        }
+
 		// Body
 		{
 			pActor->attach<Body>(pActor)
 				->initSize(Param::Base::Size)
-                .initPos(startPos.getPos())
-				.setForward(startPos.getForward())
+                .initPos(initPos)
+				.setForward(forward)
 				;
             pActor->attach<BodyUpdater>(pActor);
 
@@ -69,8 +86,10 @@ namespace abyss::Actor::Player
 		}
 		// HP
 		{
-			pActor->attach<HP>(pActor)
-				->initHp(Param::Base::Hp);
+            pActor->attach<HP>(pActor)
+                ->initHp(Param::Base::Hp)
+                .setHp(desc.hp)
+                ;
 		}
 		// 衝突
 		{
