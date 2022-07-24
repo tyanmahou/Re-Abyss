@@ -9,8 +9,8 @@ namespace abyss::Event::MapMove::DoorIn
 {
     void Builder::Build(
         EventObj* pEvent,
-        const LinkData& link,
         const Actor::Gimmick::Door::DoorData& door,
+        const s3d::String& link,
         const s3d::Vec2& playerPos,
         double milliSec
     ) {
@@ -31,8 +31,12 @@ namespace abyss::Event::MapMove::DoorIn
                 playerPos
                 );
 
+            LinkData linkData{
+                link,
+                door.getStartId()
+            };
             pEvent
-                ->attach<MapMoveCtrl>(pEvent, std::move(callback), link, milliSec);
+                ->attach<MapMoveCtrl>(pEvent, std::move(callback), linkData, milliSec);
         }
         // フェード
         {

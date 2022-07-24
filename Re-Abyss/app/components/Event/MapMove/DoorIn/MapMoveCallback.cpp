@@ -24,6 +24,13 @@ namespace abyss::Event::MapMove::DoorIn
     void MapMoveCallback::onMoveUpdate(double t)
     {
         m_elapsed = t;
+
+        if (m_fade) {
+            m_fade->setPos(m_origin)
+                .setFadeTime(m_elapsed)
+                .setIsFadeIn(false)
+                ;
+        }
     }
     void MapMoveCallback::onMoveEnd()
     {

@@ -8,6 +8,7 @@
 #include <abyss/components/Actor/Gimmick/Door/DoorData.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>
+#include <abyss/components/Actor/Player/State/DoorInMapMoveState.hpp>
 #include <abyss/utils/Collision/CollisionUtil.hpp>
 #include <abyss/debugs/Debug.hpp>
 
@@ -37,7 +38,16 @@ namespace abyss::Actor::Gimmick::Door
         if (InputManager::Up.down()) {
             auto pStage = m_pActor->getModule<Stage>();
             if (const auto& link = m_door->getLink()) {
-                // TODO 演出
+                Door::DoorData door{
+                    m_door->getStartId(),
+                    m_door->getPos(),
+                    {},
+                    {},
+                    m_door->getSize(),
+                    m_door->getKind(),
+                    true
+                };
+                Player::DoorInMapMoveState::Change(player, door, *link);
                 return;
             } else if (auto startPos = pStage->findStartPos(m_door->getStartId())) {
                 if (auto room = pStage->findRoom(startPos->getPos())) {

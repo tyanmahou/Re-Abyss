@@ -2240,6 +2240,9 @@
     <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5894,6 +5897,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
