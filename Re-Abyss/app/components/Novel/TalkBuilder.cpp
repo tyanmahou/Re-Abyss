@@ -2,6 +2,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 
+#include <abyss/components/Novel/Common/Command/Bgm.hpp>
 #include <abyss/components/Novel/Common/Command/CharaSetter.hpp>
 #include <abyss/components/Novel/Common/Command/ClearMessage.hpp>
 #include <abyss/components/Novel/Common/Command/ColorTag.hpp>
@@ -150,6 +151,25 @@ namespace
                 m_pEngine->addCommand<PauseDisabled>(true);
             } else if (tag == U"/pause-disabled") {
                 m_pEngine->addCommand<PauseDisabled>(false);
+            } else if (tag == U"bgm") {
+                Duration fade{2s};
+                Bgm::Kind kind{};
+                String path = U"";
+                for (const auto& [key, value] : statement.childs) {
+                    if (key == U"play" && value) {
+                        kind = Bgm::Kind::Play;
+                        path = *value;
+                    }if (key == U"stop") {
+                        kind = Bgm::Kind::Stop;
+                    } else if (key == U"stash") {
+                        kind = Bgm::Kind::Stash;
+                    } else if (key == U"stash-pop") {
+                        kind = Bgm::Kind::StashPop;
+                    } else if (key == U"fade" && value) {
+                        fade = Duration(s3d::Parse<double>(*value));
+                    }
+                }
+                m_pEngine->addCommand<Bgm>(kind, path, fade);
             }
         }
         void eval(const Ast::NameStatement& statement) override

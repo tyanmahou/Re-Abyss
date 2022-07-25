@@ -260,6 +260,7 @@
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Novel\CodeZeroDemo\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\Novel\Common\Command\Bgm.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\PauseDisabled.cpp" />
     <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp" />
     <ClCompile Include="app\components\Novel\NovelUtil.cpp" />
@@ -1174,6 +1175,7 @@
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\CodeZeroDemo\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\Command\Bgm.hpp" />
     <ClInclude Include="app\components\Novel\Common\Command\PauseDisabled.hpp" />
     <ClInclude Include="app\components\Novel\Common\TalkCtrl.hpp" />
     <ClInclude Include="app\components\Novel\NovelUtil.hpp" />

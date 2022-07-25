@@ -2246,6 +2246,9 @@
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\Common\Command\Bgm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5906,6 +5909,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\Common\Command\Bgm.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
