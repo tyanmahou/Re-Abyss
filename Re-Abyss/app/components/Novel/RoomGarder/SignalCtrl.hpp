@@ -8,12 +8,16 @@ namespace abyss::Novel::RoomGarder
     class SignalCtrl : public IComponent
     {
     public:
-        [[REFLECTION(IsBattleStart)]]
-        static bool IsBattleStart(TalkObj* pTalk);
+        [[REFLECTION(IsAppearEnd)]]
+        static bool IsAppearEnd(TalkObj* pTalk);
+
+        [[REFLECTION(RequestBattleStart)]]
+        static void RequestBattleStart(TalkObj* pTalk);
         [[REFLECTION(IsBattleEnd)]]
         static bool IsBattleEnd(TalkObj* pTalk);
-        [[REFLECTION(IsRoomGarderEnd)]]
-        static bool IsRoomGarderEnd(TalkObj* pTalk);
+
+        [[REFLECTION(IsDeadEnd)]]
+        static bool IsDeadEnd(TalkObj* pTalk);
     public:
         SignalCtrl(TalkObj* pTalk);
 
@@ -21,36 +25,47 @@ namespace abyss::Novel::RoomGarder
         {
             return m_pTalk;
         }
-        void requestBattleStart()
+        void requestAppearEnd()
         {
-            m_isBattleStart = true;
+            m_isAppearEnd = true;
+        }
+        bool isBattleStart() const
+        {
+            return m_isBattleStart;
         }
         void requestBattleEnd()
         {
             m_isBattleEnd = true;
         }
-        void requestRoomGarderEnd()
+        void requestDeadEnd()
         {
-            m_isRoomGarderEnd = true;
+            m_isDeadEnd = true;
         }
     private:
-        bool isBattleStart() const
+        bool isAppearEnd() const
         {
-            return m_isBattleStart;
+            return m_isAppearEnd;
+        }
+        void requestBattleStart()
+        {
+            m_isBattleStart = true;
         }
         bool isBattleEnd() const
         {
             return m_isBattleEnd;
         }
-        bool isRoomGarderEnd() const
+        bool isDeadEnd() const
         {
-            return m_isRoomGarderEnd;
+            return m_isDeadEnd;
         }
     private:
         TalkObj* m_pTalk;
 
+        bool m_isAppearEnd = false;
+
         bool m_isBattleStart = false;
         bool m_isBattleEnd = false;
-        bool m_isRoomGarderEnd = false;
+
+        bool m_isDeadEnd = false;
     };
 }

@@ -62,7 +62,7 @@ namespace abyss::Actor::Enemy::KingDux
     {
         signalCtrl->requestBattleEnd();
         co_await this->commonDead();
-        signalCtrl->requestRoomGarderEnd();
+        signalCtrl->requestDeadEnd();
     }
     Task<> DeadState::commonDead()
     {

@@ -69,7 +69,10 @@ namespace abyss::Actor::Enemy::KingDux
             m_body->setPos(pos);
             co_yield{};
         }
-        signalCtrl->requestBattleStart();
-        co_return;
+        signalCtrl->requestAppearEnd();
+
+        while (signalCtrl && !signalCtrl->isBattleStart()) {
+            co_yield{};
+        }
     }
 }
