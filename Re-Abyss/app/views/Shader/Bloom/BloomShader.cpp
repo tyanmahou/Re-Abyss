@@ -15,12 +15,14 @@ namespace abyss
 {
     class BloomShader::Impl
     {
+        static constexpr Point Size = Constants::GameScreenSize.asPoint();
     public:
         Impl():
             m_ps(Resource::Assets::Norelease()->load(U"bloom_brightness.hlsl")),
-            m_scene(Constants::GameScreenSize.asPoint()),
-            m_blurA(Constants::GameScreenSize.asPoint()),
-            m_blurB(Constants::GameScreenSize.asPoint())
+            m_blurA(Size),
+            m_blurB(Size),
+            m_blur8A(Size / 8),
+            m_blur8B(Size / 8)
         {}
         void setLightColor(const s3d::ColorF& color)
         {
@@ -29,20 +31,29 @@ namespace abyss
         void apply(const s3d::Texture& tex) 
         {
             {
-                s3d::ScopedRenderTarget2D target(m_scene.clear(ColorF(0, 1)));
-                BlendState b = BlendState::Default2D;
-                b.srcAlpha = Blend::One;
-                b.dstAlpha = Blend::One;
-                b.opAlpha = BlendOp::Max;
-                s3d::ScopedRenderStates2D blend(b);
+                s3d::ScopedRenderTarget2D target(m_blurA.clear(ColorF(0, 1)));
                 s3d::ScopedCustomShader2D scopedShader(m_ps);
                 s3d::Graphics2D::SetConstantBuffer(s3d::ShaderStage::Pixel, 1, m_cb);
                 tex.draw();
             }
             {
-                s3d::Shader::GaussianBlur(m_scene, m_blurA, m_blurB);
+                s3d::Shader::GaussianBlur(m_blurA, m_blurB, m_blurA);
+                Shader::Downsample(m_blurA, m_blur8A);
+                s3d::Shader::GaussianBlur(m_blur8A, m_blur8B, m_blur8A);
             }
             tex.draw();
+            {
+                s3d::ScopedRenderTarget2D target(m_blurB.clear(ColorF(0, 1)));
+                BlendState b{
+                    true,
+                    Blend::One,
+                    Blend::One,
+                    BlendOp::Max
+                };
+                s3d::ScopedRenderStates2D blend(b, SamplerState::BorderLinear);
+                m_blurA.draw();
+                m_blur8A.resized(Size).draw();
+            }
             {
                 s3d::ScopedRenderStates2D blend(BlendState::Additive);
                 m_blurB.draw();
@@ -51,8 +62,8 @@ namespace abyss
     private:
         PixelShader m_ps;
         ConstantBuffer<ShaderParam> m_cb;
-        RenderTexture m_scene;
         RenderTexture m_blurA, m_blurB;
+        RenderTexture m_blur8A, m_blur8B;
     };
     BloomShader::BloomShader() :
         m_pImpl(std::make_shared<Impl>())
