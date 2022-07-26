@@ -1,4 +1,5 @@
 #pragma once
+#include <abyss/modules/Sfx/Bloom/Bloom.hpp>
 #include <abyss/modules/Sfx/Blur/Blur.hpp>
 #include <abyss/modules/Sfx/Scanline/Scanline.hpp>
 
@@ -14,10 +15,12 @@ namespace abyss::Sfx
 
         void update(double dt);
 
+        Bloom* getBloom() const;
         Blur* getBlur() const;
         Scanline* getScanline() const;
     private:
         std::unique_ptr<Scanline> m_scanline;
         std::unique_ptr<Blur> m_blur;
+        std::unique_ptr<Bloom> m_bloom;
     };
 }

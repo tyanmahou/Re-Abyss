@@ -22,7 +22,8 @@ namespace abyss
         SnapshotView& copySceneToPost();
         SnapshotView& copyWorldToPost();
 
-        SnapshotView& apply(std::function<void(const s3d::Texture&)> callback);
+        SnapshotView& applyF(std::function<void(const s3d::Texture&)> callback);
+        SnapshotView& applyF(bool enable, std::function<void(const s3d::Texture&)> callback);
 
         SnapshotView& paint(std::function<void()> callback);
 

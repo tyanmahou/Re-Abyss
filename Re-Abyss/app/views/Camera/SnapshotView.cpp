@@ -39,12 +39,20 @@ namespace abyss
         s3d::Shader::Copy(m_worldTexture, m_isSwapPostTexture ? m_postTexture2 : m_postTexture);
         return *this;
     }
-    SnapshotView& SnapshotView::apply(std::function<void(const s3d::Texture&)> callback)
+    SnapshotView& SnapshotView::applyF(std::function<void(const s3d::Texture&)> callback)
     {
         const auto& prev = this->getPostTexture();
         auto postRender = this->startPostRender();
         callback(prev);
         return *this;
+    }
+
+    SnapshotView& SnapshotView::applyF(bool enable, std::function<void(const s3d::Texture&)> callback)
+    {
+        if (!enable) {
+            return *this;
+        }
+        return this->applyF(std::move(callback));
     }
 
     SnapshotView& SnapshotView::paint(std::function<void()> callback)

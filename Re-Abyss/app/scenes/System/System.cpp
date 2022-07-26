@@ -226,6 +226,7 @@ namespace abyss::Sys
                 Light* light = nullptr;
                 Distortion* dist = nullptr;
                 Sfx::Blur* blur = mod<PostEffects>()->getBlur();
+                Sfx::Bloom* bloom = mod<PostEffects>()->getBloom();
                 if constexpr (config.isStage) {
                     light = mod<Light>();
                     dist = mod<Distortion>();
@@ -244,6 +245,7 @@ namespace abyss::Sys
 
                 snapshot->copyWorldToPost()
                     .apply(light != nullptr, [=] { return light->start(); })
+                    .applyF(bloom != nullptr, std::bind_front(&Sfx::Bloom::apply, bloom))
                     .paint([=] {
                         // ライトより前
                         drawer->draw(DrawLayer::LightFront);
