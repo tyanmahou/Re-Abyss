@@ -3,11 +3,19 @@
 namespace abyss::Sfx
 {
     PostEffects::PostEffects():
+        m_pManager(nullptr),
         m_scanline(std::make_unique<Scanline>()),
         m_blur(std::make_unique<Blur>()),
         m_bloom(std::make_unique<Bloom>())
     {}
 
+    void PostEffects::setManager(Manager* pManager)
+    {
+        m_pManager = pManager;
+        if (m_bloom) {
+            m_bloom->setManager(pManager);
+        }
+    }
     void PostEffects::update(double dt)
     {
         m_scanline->update(dt);
