@@ -22,6 +22,11 @@ namespace abyss
         SnapshotView& copySceneToPost();
         SnapshotView& copyWorldToPost();
 
+        template<class T, class MemFunc>
+        SnapshotView& applyF(T* ptr, MemFunc memFunc)
+        {
+            return this->applyF(ptr != nullptr, std::bind_front(memFunc, ptr));
+        }
         SnapshotView& applyF(std::function<void(const s3d::Texture&)> callback);
         SnapshotView& applyF(bool enable, std::function<void(const s3d::Texture&)> callback);
 

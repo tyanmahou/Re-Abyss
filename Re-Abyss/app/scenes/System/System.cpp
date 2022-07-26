@@ -235,6 +235,9 @@ namespace abyss::Sys
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderLight)) {
                     light = nullptr;
                 }
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderBloom)) {
+                    bloom = nullptr;
+                }
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDistortion)) {
                     dist = nullptr;
                 }
@@ -245,7 +248,7 @@ namespace abyss::Sys
 
                 snapshot->copyWorldToPost()
                     .apply(light != nullptr, [=] { return light->start(); })
-                    .applyF(bloom != nullptr, std::bind_front(&Sfx::Bloom::apply, bloom))
+                    .applyF(bloom, &Sfx::Bloom::apply)
                     .paint([=] {
                         // ライトより前
                         drawer->draw(DrawLayer::LightFront);
