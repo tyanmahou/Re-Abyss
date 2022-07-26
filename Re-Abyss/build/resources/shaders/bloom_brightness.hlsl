@@ -30,7 +30,8 @@ float4 PS(PSInput input) : SV_TARGET
 	float4 texColor = g_texture0.Sample(g_sampler0, uv);
 	float bright = dot(texColor.rgb, float3(0.2126, 0.7152, 0.0722));
 
-	float factor = bright > g_threshold ? 1.0 : 0.0;
+	float tmp = bright / g_threshold;
+	float factor = bright > g_threshold ? 1.0 : pow(tmp, 6.0);
 	float4 result = texColor * factor;
 
 	// 全体の明るさとの比較でパワーを変える
