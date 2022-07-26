@@ -50,7 +50,7 @@ namespace abyss
                 };
                 s3d::ScopedRenderStates2D blend(b, SamplerState::BorderLinear);
                 tex.draw();
-                m_blur4A.resized(Size).draw(ColorF(0.75));
+                m_blur4A.resized(Size).draw(ColorF(0.8));
             }
             // 描画
             m_scene.draw();
