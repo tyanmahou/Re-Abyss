@@ -4,9 +4,10 @@ namespace abyss::Sfx
 {
     PostEffects::PostEffects():
         m_pManager(nullptr),
-        m_scanline(std::make_unique<Scanline>()),
+        m_moisture(std::make_unique<Moisture>()),
+        m_bloom(std::make_unique<Bloom>()),
         m_blur(std::make_unique<Blur>()),
-        m_bloom(std::make_unique<Bloom>())
+        m_scanline(std::make_unique<Scanline>())
     {}
 
     void PostEffects::setManager(Manager* pManager)
@@ -19,6 +20,11 @@ namespace abyss::Sfx
     void PostEffects::update(double dt)
     {
         m_scanline->update(dt);
+    }
+
+    Moisture* PostEffects::getMoisture() const
+    {
+        return m_moisture.get();
     }
 
     Bloom* PostEffects::getBloom() const

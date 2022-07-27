@@ -226,6 +226,7 @@ namespace abyss::Sys
                 Light* light = nullptr;
                 Distortion* dist = nullptr;
                 Sfx::Blur* blur = mod<PostEffects>()->getBlur();
+                Sfx::Moisture* moisture = mod<PostEffects>()->getMoisture();
                 Sfx::Bloom* bloom = mod<PostEffects>()->getBloom();
                 if constexpr (config.isStage) {
                     light = mod<Light>();
@@ -234,6 +235,9 @@ namespace abyss::Sys
 #if ABYSS_DEBUG
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderLight)) {
                     light = nullptr;
+                }
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderMoisture)) {
+                    moisture = nullptr;
                 }
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderBloom)) {
                     bloom = nullptr;
@@ -248,6 +252,7 @@ namespace abyss::Sys
 
                 snapshot->copyWorldToPost()
                     .apply(light != nullptr, [=] { return light->start(); })
+                    .applyF(moisture, &Sfx::Moisture::apply)
                     .applyF(bloom, &Sfx::Bloom::apply)
                     .paint([=] {
                         // ライトより前

@@ -27,6 +27,7 @@
 		<Fog label="フォグ" value="true"/>
 		<hr/>
 		<Light label="ライト" value="true"/>
+		<Moisture label="湿気表現" value="true"/>
 		<Bloom label="ブルーム" value="true"/>
 		<Distortion label="歪み" value="true"/>
 		<Blur label="ぼかし" value="true"/>

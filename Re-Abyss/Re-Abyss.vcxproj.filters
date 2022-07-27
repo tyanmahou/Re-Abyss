@@ -2255,6 +2255,9 @@
     <ClCompile Include="app\modules\Sfx\Bloom\Bloom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5924,6 +5927,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Sfx\Bloom\Bloom.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

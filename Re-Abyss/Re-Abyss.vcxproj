@@ -277,6 +277,7 @@
     <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
     <ClCompile Include="app\modules\Sfx\Bloom\Bloom.cpp" />
     <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
+    <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
@@ -1197,6 +1198,7 @@
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
     <ClInclude Include="app\modules\Sfx\Bloom\Bloom.hpp" />
     <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
+    <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
