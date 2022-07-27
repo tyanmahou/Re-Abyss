@@ -22,7 +22,7 @@ cbuffer ShaderParam : register(b1)
 	float4 g_lightColor;
 }
 static float g_threshold = 0.7;
-static float g_power = 0.45;
+static float g_power = 0.4;
 
 float4 PS(PSInput input) : SV_TARGET
 {

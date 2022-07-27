@@ -4,8 +4,8 @@ namespace abyss::Sfx
 {
     PostEffects::PostEffects():
         m_pManager(nullptr),
-        m_moisture(std::make_unique<Moisture>()),
         m_bloom(std::make_unique<Bloom>()),
+        m_moisture(std::make_unique<Moisture>()),
         m_blur(std::make_unique<Blur>()),
         m_scanline(std::make_unique<Scanline>())
     {}

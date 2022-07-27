@@ -18,14 +18,14 @@ namespace abyss::Sfx
         void setManager(Manager* pManager);
         void update(double dt);
 
-        Moisture* getMoisture() const;
         Bloom* getBloom() const;
+        Moisture* getMoisture() const;
         Blur* getBlur() const;
         Scanline* getScanline() const;
     private:
         Manager* m_pManager;
-        std::unique_ptr<Moisture> m_moisture;
         std::unique_ptr<Bloom> m_bloom;
+        std::unique_ptr<Moisture> m_moisture;
         std::unique_ptr<Blur> m_blur;
         std::unique_ptr<Scanline> m_scanline;
     };

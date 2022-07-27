@@ -224,10 +224,10 @@ namespace abyss::Sys
             // PostEffect適用
             {
                 Light* light = nullptr;
+                Sfx::Bloom* bloom = mod<PostEffects>()->getBloom();
+                Sfx::Moisture* moisture = mod<PostEffects>()->getMoisture();
                 Distortion* dist = nullptr;
                 Sfx::Blur* blur = mod<PostEffects>()->getBlur();
-                Sfx::Moisture* moisture = mod<PostEffects>()->getMoisture();
-                Sfx::Bloom* bloom = mod<PostEffects>()->getBloom();
                 if constexpr (config.isStage) {
                     light = mod<Light>();
                     dist = mod<Distortion>();
@@ -236,11 +236,11 @@ namespace abyss::Sys
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderLight)) {
                     light = nullptr;
                 }
-                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderMoisture)) {
-                    moisture = nullptr;
-                }
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderBloom)) {
                     bloom = nullptr;
+                }
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderMoisture)) {
+                    moisture = nullptr;
                 }
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDistortion)) {
                     dist = nullptr;
@@ -252,8 +252,8 @@ namespace abyss::Sys
 
                 snapshot->copyWorldToPost()
                     .apply(light != nullptr, [=] { return light->start(); })
-                    .applyF(moisture, &Sfx::Moisture::apply)
                     .applyF(bloom, &Sfx::Bloom::apply)
+                    .applyF(moisture, &Sfx::Moisture::apply)
                     .paint([=] {
                         // ライトより前
                         drawer->draw(DrawLayer::LightFront);
