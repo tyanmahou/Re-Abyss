@@ -33,7 +33,7 @@ float4 PS(PSInput input) : SV_TARGET
 	float3 post = blur.rgb;
 	post = (ceil(post * 8.0) / 8.0);
 	// ぼかしと合成
-	post = (5.0 * blur.rgb +  11.0 * post) / 16;
+	post = lerp(blur.rgb, post, 11 / 16.0);
 
 	// コントラスト調整
 	post = 1 / (1 + exp(-8 * (post - 0.5)));
@@ -41,6 +41,6 @@ float4 PS(PSInput input) : SV_TARGET
 	float4 ret = tex0;
 
 	// srcと合成
-	ret.rgb = (2 * tex0.rgb + post) / 3.0;
+	ret.rgb = lerp(tex0.rgb, post, 1 / 3.0);
 	return ret;
 }
