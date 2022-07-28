@@ -35,28 +35,23 @@ bool checkOutLine(float2 uv)
 	int countSq = count * count;
 
 	// (size + 1)^2 の値をいれる
-	[unroll(4)] for (int i = 0; i < countSq; ++i) {
+	[unroll(4)]for (int i = 0; i < countSq; ++i) {
 		int x = (int)(i / (float)count) - thick;
 		int y = (int)(i % (float)count) - thick;
 		float a = g_texture0.Sample(g_sampler0, uv + float2(x, y) / g_textureSize).a +
 			g_texture0.Sample(g_sampler0, uv + float2(x, -y) / g_textureSize).a +
 			g_texture0.Sample(g_sampler0, uv + float2(-x, y) / g_textureSize).a +
 			g_texture0.Sample(g_sampler0, uv + float2(-x, -y) / g_textureSize).a;
-		if (a > 0.0 && x * x + y * y <= rangeSq) {
-			ret = true;
-			break;
-		}
+		ret = ret || (a > 0.0 && x * x + y * y <= rangeSq);
 	}
 	return ret;
 }
 float4 getOutLine(float2 uv)
 {
 	float4 result = g_texture0.Sample(g_sampler0, uv);
-	if (result.a <= 0.0) {
-		if (checkOutLine(uv)) {
-			result = g_outlineColor;
-		}
-	}
+
+	bool useOutLine = result.a > 0 ? false : checkOutLine(uv);
+	result = useOutLine ? g_outlineColor : result;
 	return result;
 }
 float4 PS(PSInput input) : SV_TARGET
