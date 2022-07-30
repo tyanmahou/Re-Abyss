@@ -7,9 +7,11 @@ namespace abyss::UI::PlayerInfo
     struct Param
     {
         [[TOML_BIND(Face::BasePos, "Face.basePos")]]
+        [[TOML_BIND(Face::Size, "Face.size")]]
         struct Face
         {
             inline static s3d::Vec2 BasePos{ 80, 20 };
+            inline static s3d::Vec2 Size{ 66, 66 };
         };
         [[TOML_BIND(HP::BasePos, "HP.basePos")]]
         [[TOML_BIND(HP::Offset, "HP.offset")]]

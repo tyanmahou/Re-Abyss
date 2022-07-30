@@ -1,13 +1,14 @@
 [Face]
-basePos = "(80,20)"
+basePos = "(35,40)"
+size = "(84, 84)"
 
 [HP]
 basePos = "(139, 1)"
 offset = 14
 
 [Ooparts]
-basePos = "(135, 20)"
-namePos = "(160, 26)"
+basePos = "(60, 45)"
+namePos = "(85, 51)"
 
 [Main]
 drawPos = "(10, 21)"
