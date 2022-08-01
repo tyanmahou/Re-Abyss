@@ -1284,9 +1284,6 @@
     <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\BackGround\TmxBackGroundDataStore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\datastores\base\DBDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1393,9 +1390,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\BackGround\BackGround.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp">
@@ -1620,9 +1614,6 @@
     <ClCompile Include="app\services\Attribute\AttributeService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\services\BackGround\BackGroundService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\services\Decor\DecorService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1660,9 +1651,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp">
@@ -1873,12 +1861,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Player\PlayerVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\BackGround\BackGroundView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\BackGround\BackGroundVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Camera\CameraView.cpp">
@@ -4352,12 +4334,6 @@
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\datastores\base\parser\TmxParseUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -4508,9 +4484,6 @@
     <ClInclude Include="app\entities\Actor\Land\LandEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -4609,9 +4582,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Actor\Player\PlayerManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\BackGround\BackGround.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp">
@@ -5026,12 +4996,6 @@
     <ClInclude Include="app\services\Attribute\AttributeService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\services\BackGround\BackGroundService.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5093,9 +5057,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\Actor\Land\LandTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp">
@@ -5519,12 +5480,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actor\Player\PlayerVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\BackGround\BackGroundView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\BackGround\BackGroundVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Camera\CameraView.hpp">

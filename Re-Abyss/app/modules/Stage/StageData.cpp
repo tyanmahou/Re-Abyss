@@ -2,10 +2,6 @@
 
 namespace abyss
 {
-    const s3d::Array<BackGroundEntity>& StageData::getBgs() const
-    {
-        return m_backGroundService->getBgs();
-    }
     const s3d::Array<RoomEntity>& StageData::getRooms() const
     {
         return m_roomService->getRooms();
@@ -26,10 +22,6 @@ namespace abyss
     const s3d::Array<std::shared_ptr<Actor::Item::ItemEntity>>& StageData::getItems() const
     {
         return m_itemService->getItems();
-    }
-    IBackGroundService* StageData::getBackGroundService() const
-    {
-        return m_backGroundService.get();
     }
     Decor::IDecorService* StageData::getDecorService() const
     {

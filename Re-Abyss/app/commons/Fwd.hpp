@@ -40,7 +40,6 @@ namespace abyss
 	class Stage;
 	class StageData;
 	class Light;
-	class BackGround;
 	class Sound;
 	class Crons;
 	class Temporary;
@@ -154,7 +153,6 @@ namespace abyss
 	/// Entities
 	/// </summary>
 	struct RoomEntity;
-	struct BackGroundEntity;
 	namespace Actor
 	{
 		namespace Enemy
@@ -218,6 +216,4 @@ namespace abyss
 	
 	class WorldView;
 	class CameraView;
-
-	class BackGroundVM;
 }

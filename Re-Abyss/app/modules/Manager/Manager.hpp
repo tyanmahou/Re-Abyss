@@ -21,7 +21,6 @@ namespace abyss
         Environment* m_pEnv = nullptr;
         Sound* m_pSound = nullptr;
         UIs* m_pUserInterface = nullptr;
-        BackGround* m_pBackGround = nullptr;
         Decors* m_pDecors = nullptr;
         Stage* m_pStage = nullptr;
         Crons* m_pCrons = nullptr;
@@ -60,8 +59,6 @@ namespace abyss
         Manager& set(Sound* pSound);
 
         Manager& set(UIs* pUIs);
-
-        Manager& set(BackGround* pBackGround);
 
         Manager& set(Decors* pDecors);
 

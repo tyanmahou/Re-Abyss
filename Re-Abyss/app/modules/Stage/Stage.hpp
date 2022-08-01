@@ -25,7 +25,6 @@ namespace abyss
 		Manager* m_pManager;
 	private:
 
-		bool initBackGround(BackGround& backGround) const;
 		bool initDecor(Decors& decor, const Room::RoomData& nextRoom) const;
 		bool initWorld(World& world, const Room::RoomData& nextRoom, BuildTiming buildTiming) const;
 

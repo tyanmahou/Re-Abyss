@@ -652,7 +652,6 @@
     <ClCompile Include="app\datastores\Actor\Land\parser\TmxLandParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Land\TmxLandDataStore.cpp" />
     <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp" />
-    <ClCompile Include="app\datastores\BackGround\TmxBackGroundDataStore.cpp" />
     <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\base\IAnimationDataStore.cpp" />
@@ -693,7 +692,6 @@
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
-    <ClCompile Include="app\modules\BackGround\BackGround.cpp" />
     <ClCompile Include="app\modules\Camera\Camera.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
@@ -776,7 +774,6 @@
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
     <ClCompile Include="app\services\Actor\Land\LandService.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
-    <ClCompile Include="app\services\BackGround\BackGroundService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
     <ClCompile Include="app\services\Room\RoomService.cpp" />
@@ -800,7 +797,6 @@
     <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp" />
     <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp" />
     <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp" />
-    <ClCompile Include="app\translators\BackGround\BackGroundTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
@@ -880,8 +876,6 @@
     <ClCompile Include="app\views\Actor\Ooparts\Xto\XtoVM.cpp" />
     <ClCompile Include="app\views\Actor\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actor\Player\Shot\ShotVM.cpp" />
-    <ClCompile Include="app\views\BackGround\BackGroundView.cpp" />
-    <ClCompile Include="app\views\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\Camera\CameraView.cpp" />
     <ClCompile Include="app\views\Camera\SnapshotView.cpp" />
     <ClCompile Include="app\views\Decor\City\StreetLight\LightVM.cpp" />
@@ -1682,8 +1676,6 @@
     <ClInclude Include="app\datastores\Actor\Land\TmxLandDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
-    <ClInclude Include="app\datastores\BackGround\base\IBackGroundDataStore.hpp" />
-    <ClInclude Include="app\datastores\BackGround\TmxBackGroundDataStore.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
     <ClInclude Include="app\datastores\base\parser\TmxParseUtil.hpp" />
     <ClInclude Include="app\datastores\base\TmxDataStore.hpp" />
@@ -1737,7 +1729,6 @@
     <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Land\LandEntity.hpp" />
-    <ClInclude Include="app\entities\BackGround\BackGroundEntity.hpp" />
     <ClInclude Include="app\entities\Decor\AnimationEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
@@ -1772,7 +1763,6 @@
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
     <ClInclude Include="app\modules\Actor\Player\PlayerManager.hpp" />
-    <ClInclude Include="app\modules\BackGround\BackGround.hpp" />
     <ClInclude Include="app\modules\Camera\Camera.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
@@ -1925,8 +1915,6 @@
     <ClInclude Include="app\services\Actor\Land\LandService.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
-    <ClInclude Include="app\services\BackGround\BackGroundService.hpp" />
-    <ClInclude Include="app\services\BackGround\base\IBackGroundService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
     <ClInclude Include="app\services\Decor\DecorService.hpp" />
     <ClInclude Include="app\services\Migration\base\IMigrationService.hpp" />
@@ -1949,7 +1937,6 @@
     <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp" />
     <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
     <ClInclude Include="app\translators\Actor\Land\LandTranslator.hpp" />
-    <ClInclude Include="app\translators\BackGround\BackGroundTranslator.hpp" />
     <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
     <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
@@ -2106,8 +2093,6 @@
     <ClInclude Include="app\views\Actor\Player\PlayerVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\Xto\XtoAtkVM.hpp" />
-    <ClInclude Include="app\views\BackGround\BackGroundView.hpp" />
-    <ClInclude Include="app\views\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\Camera\CameraView.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
     <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />

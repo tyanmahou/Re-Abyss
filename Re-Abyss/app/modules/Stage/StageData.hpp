@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/services/BackGround/base/IBackGroundService.hpp>
 #include <abyss/services/Actor/Enemy/base/IEnemyService.hpp>
 #include <abyss/services/Actor/Gimmick/base/IGimmickService.hpp>
 #include <abyss/services/Actor/Item/base/IItemService.hpp>
@@ -15,9 +14,6 @@ namespace abyss
 {
     class StageData
     {
-        [[INJECT(m_backGroundService)]]
-        std::shared_ptr<IBackGroundService> m_backGroundService;
-
         [[INJECT(m_roomService)]]
         std::shared_ptr<IRoomService> m_roomService;
 
@@ -37,7 +33,6 @@ namespace abyss
         std::shared_ptr<Attribute::IAttributeService> m_attributeService;
     public:
         StageData() = default;
-        const s3d::Array<BackGroundEntity>& getBgs() const;
 
         const s3d::Array<RoomEntity>& getRooms() const;
         const s3d::Array<std::shared_ptr<Actor::Land::LandEntity>>& getLands() const;
@@ -45,7 +40,6 @@ namespace abyss
         const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& getGimmicks() const;
         const s3d::Array<std::shared_ptr<Actor::Item::ItemEntity>>& getItems() const;
 
-        IBackGroundService* getBackGroundService() const;
         Decor::IDecorService* getDecorService() const;
 
         Attribute::IAttributeService* getAttributeService() const;

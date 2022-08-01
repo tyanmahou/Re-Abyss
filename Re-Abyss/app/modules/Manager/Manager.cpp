@@ -62,11 +62,6 @@ namespace abyss
         m_pUserInterface = pUI;
         return *this;
     }
-    Manager& Manager::set(BackGround* pBackGround)
-    {
-        m_pBackGround = pBackGround;
-        return *this;
-    }
     Manager& Manager::set(Decors* pDecors)
     {
         m_pDecors = pDecors;
@@ -163,8 +158,6 @@ namespace abyss
             return m_pSound;
         } else if constexpr (std::is_same_v<UIs, T>) {
             return m_pUserInterface;
-        } else if constexpr (std::is_same_v<BackGround, T>) {
-            return m_pBackGround;
         } else if constexpr (std::is_same_v<Decors, T>) {
             return m_pDecors;
         } else if constexpr (std::is_same_v<Stage, T>) {
@@ -205,7 +198,6 @@ namespace abyss
     template Environment* Manager::getModule<Environment>() const;
     template Sound* Manager::getModule<Sound>() const;
     template UIs* Manager::getModule<UIs>() const;
-    template BackGround* Manager::getModule<BackGround>() const;
     template Decors* Manager::getModule<Decors>() const;
     template Stage* Manager::getModule<Stage>() const;
     template Crons* Manager::getModule<Crons>() const;

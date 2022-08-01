@@ -15,7 +15,6 @@
 #include <abyss/modules/Decor/DecorGraphics.hpp>
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
-#include <abyss/modules/BackGround/BackGround.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Light/Light.hpp>
@@ -32,7 +31,6 @@
 #include <abyss/entities/Actor/Land/LandEntity.hpp>
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
-#include <abyss/entities/BackGround/BackGroundEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
 #include <abyss/translators/Room/RoomTranslator.hpp>
@@ -40,10 +38,7 @@
 #include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
 #include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
 #include <abyss/translators/Actor/Item/ItemTranslator.hpp>
-#include <abyss/translators/BackGround/BackGroundTranslator.hpp>
 #include <abyss/translators/Decor/DecorTranslator.hpp>
-
-#include <abyss/services/BackGround/base/IBackGroundService.hpp>
 
 namespace
 {
@@ -105,21 +100,6 @@ namespace abyss
     {
         m_pManager = pManager;
     }
-    bool Stage::initBackGround(BackGround& backGround)const
-    {
-        if (!m_stageData) {
-            return false;
-        }
-        auto service = m_stageData->getBackGroundService();
-        if (!service) {
-            return false;
-        }
-        BackGroundTranslator translator;
-        for (const auto& entity : service->getBgs()) {
-            backGround.add(translator.toVM(entity));
-        }
-        return true;
-    }
     bool Stage::init() const
     {
         auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
@@ -147,14 +127,6 @@ namespace abyss
         {
             auto camera = m_pManager->getModule<Camera>();
             camera->update(0);
-        }
-
-        // 背景の初期化
-        {
-            auto backGround = m_pManager->getModule<BackGround>();
-            if (!this->initBackGround(*backGround)) {
-                return false;
-            }
         }
 
         // 装飾の初期化

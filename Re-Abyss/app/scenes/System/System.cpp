@@ -183,9 +183,6 @@ namespace abyss::Sys
                     if (auto sky = env->getSky()) {
                         sky->draw(cameraView.tl());
                     }
-                    if constexpr (config.isStage) {
-                        mod<BackGround>()->draw(cameraView);
-                    }
                     drawer->draw(DrawLayer::BackGround);
                 });
                 if (auto caustics = env->getCaustics()) {
