@@ -180,10 +180,10 @@ namespace abyss::Sys
                     if (auto bg = env->getBg()) {
                         bg->draw(cameraView.screenRegion());
                     }
+                    drawer->draw(DrawLayer::BackGround);
                     if (auto sky = env->getSky()) {
                         sky->draw(cameraView.tl());
                     }
-                    drawer->draw(DrawLayer::BackGround);
                 });
                 if (auto caustics = env->getCaustics()) {
                     caustics->drawBack(cameraView.getCameraPos());
