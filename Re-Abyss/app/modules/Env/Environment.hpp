@@ -3,7 +3,6 @@
 #include <abyss/modules/Env/Bg/Bg.hpp>
 #include <abyss/modules/Env/Sky/Sky.hpp>
 #include <abyss/modules/Env/Caustics/Caustics.hpp>
-#include <abyss/modules/Env/Wave/Wave.hpp>
 #include <abyss/modules/Env/Fog/Fog.hpp>
 
 namespace abyss::Env
@@ -12,7 +11,6 @@ namespace abyss::Env
     {
         bool useSky = false;
         bool useCaustics = false;
-        bool useWave = false;
         bool useFog = false;
     };
 
@@ -38,7 +36,6 @@ namespace abyss::Env
             return m_caustics.get();
         }
         Fog* getFog() const;
-        void applyWave(std::function<void()> drawer) const;
         void applyFog(std::function<void()> drawer, double z) const;
 
         void setThemeColor(const s3d::ColorF& color)
@@ -54,7 +51,6 @@ namespace abyss::Env
         std::unique_ptr<Bg> m_bg;
         std::unique_ptr<Sky> m_sky;
         std::unique_ptr<Caustics> m_caustics;
-        std::unique_ptr<Wave> m_wave;
         std::unique_ptr<Fog> m_fog;
 
         s3d::Optional<s3d::ColorF> m_themeColor;

@@ -1473,9 +1473,6 @@
     <ClCompile Include="app\modules\Env\Sky\Sky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Wave\Wave.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Env\Environment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1935,9 +1932,6 @@
     <ClCompile Include="app\views\Shader\TileMap\TileMapShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Shader\Wave\WaveShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2241,6 +2235,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Shader\Moisture\MoistureShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Shader\DecorFar\DecorFarShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4701,9 +4698,6 @@
     <ClInclude Include="app\modules\Env\Sky\Sky.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Wave\Wave.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\Env\Environment.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5554,9 +5548,6 @@
     <ClInclude Include="app\views\Shader\TileMap\TileMapShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Shader\Wave\WaveShader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5891,6 +5882,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\Moisture\MoistureShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Shader\DecorFar\DecorFarShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

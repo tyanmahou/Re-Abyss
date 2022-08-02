@@ -13,9 +13,6 @@ namespace abyss::Env
         if (desc.useCaustics) {
             m_caustics = std::make_unique<Caustics>();
         }
-        if (desc.useWave) {
-            m_wave = std::make_unique<Wave>();
-        }
         if (desc.useFog) {
             m_fog = std::make_unique<Fog>();
         }
@@ -28,9 +25,6 @@ namespace abyss::Env
         if (m_caustics) {
             m_caustics->update(dt);
         }
-        if (m_wave) {
-            m_wave->update(dt);
-        }
     }
     Fog* Environment::getFog() const
     {
@@ -40,14 +34,6 @@ namespace abyss::Env
         }
 #endif
         return m_fog.get();
-    }
-    void Environment::applyWave(std::function<void()> drawer) const
-    {
-        if (m_wave) {
-            m_wave->apply(drawer);
-        } else {
-            drawer();
-        }
     }
     void Environment::applyFog(std::function<void()> drawer, double z) const
     {

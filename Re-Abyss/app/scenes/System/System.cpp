@@ -176,15 +176,15 @@ namespace abyss::Sys
 
                 auto* env = mod<Environment>();
                 // 背面
-                env->applyWave([&] {
+                {
                     if (auto bg = env->getBg()) {
                         bg->draw(cameraView.screenRegion());
                     }
                     drawer->draw(DrawLayer::BackGround);
-                    if (auto sky = env->getSky()) {
-                        sky->draw(cameraView.tl());
-                    }
-                });
+                }
+                if (auto sky = env->getSky()) {
+                    sky->draw(cameraView.tl());
+                }
                 if (auto caustics = env->getCaustics()) {
                     caustics->drawBack(cameraView.getCameraPos());
                 }

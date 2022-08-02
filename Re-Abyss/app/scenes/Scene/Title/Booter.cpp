@@ -33,7 +33,6 @@ namespace abyss::Scene::Title
         // Env初期化
         pManager->getModule<Environment>()->init(Env::EnvDesc{
             .useCaustics = true,
-            .useWave = true
         });
         return true;
     }

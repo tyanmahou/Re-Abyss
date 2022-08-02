@@ -1,5 +1,6 @@
 [Common/Shader]
 - ps"bloom_brightness.hlsl"
+- ps"decor_far.hlsl"
 - ps"distortion.hlsl"
 - ps"dither.hlsl"
 - ps"fog.hlsl"
@@ -13,4 +14,3 @@
 - ps"school_of_fish.hlsl"
 - ps"sky.hlsl"
 - ps"tilemap.hlsl"
-- ps"wave.hlsl"
