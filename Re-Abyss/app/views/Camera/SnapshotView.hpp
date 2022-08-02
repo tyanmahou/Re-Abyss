@@ -11,11 +11,14 @@ namespace abyss
 
         s3d::ScopedRenderTarget2D startSceneRender() const;
         s3d::ScopedRenderTarget2D startWorldRender() const;
+        s3d::ScopedRenderTarget2D startDecorFarRender() const;
 
         const s3d::Texture& getSceneTexture() const
         {
             return m_sceneTexture;
         }
+        const s3d::RenderTexture& getDecorFarTexture() const;
+
         s3d::ScopedRenderTarget2D startPostRender();
         const s3d::RenderTexture& getPostTexture() const;
 
@@ -56,6 +59,7 @@ namespace abyss
     private:
         s3d::RenderTexture m_sceneTexture;
         s3d::RenderTexture m_worldTexture;
+        s3d::RenderTexture m_decorFarTexture;
 
         s3d::RenderTexture m_postTexture;
         s3d::RenderTexture m_postTexture2;

@@ -9,6 +9,7 @@ namespace abyss
     SnapshotView::SnapshotView():
         m_sceneTexture(Constants::GameScreenSize.asPoint()),
         m_worldTexture(Constants::GameScreenSize.asPoint()),
+        m_decorFarTexture(Constants::GameScreenSize.asPoint()),
         m_postTexture(Constants::GameScreenSize.asPoint()),
         m_postTexture2(Constants::GameScreenSize.asPoint())
     {}
@@ -21,6 +22,15 @@ namespace abyss
     {
         m_worldTexture.clear(s3d::ColorF(0, 1));
         return s3d::ScopedRenderTarget2D(m_worldTexture);
+    }
+    s3d::ScopedRenderTarget2D SnapshotView::startDecorFarRender() const
+    {
+        m_decorFarTexture.clear(s3d::ColorF(0, 1));
+        return s3d::ScopedRenderTarget2D(m_decorFarTexture);
+    }
+    const s3d::RenderTexture& SnapshotView::getDecorFarTexture() const
+    {
+        return m_decorFarTexture;
     }
     s3d::ScopedRenderTarget2D SnapshotView::startPostRender()
     {
