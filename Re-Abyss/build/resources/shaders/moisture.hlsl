@@ -41,6 +41,6 @@ float4 PS(PSInput input) : SV_TARGET
 	float4 ret = tex0;
 
 	// srcと合成
-	ret.rgb = lerp(tex0.rgb, post, 1 / 3.0);
+	ret.rgb = lerp(tex0.rgb, post, 1 / 4.0);
 	return ret;
 }
