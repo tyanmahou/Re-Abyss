@@ -24,9 +24,19 @@ cbuffer FogParam : register(b1)
 	float g_fogFactor;
 	float g_z;
 }
-float rand(float2 st)
+
+float pinLight(float dest, float src)
 {
-	return frac(sin(dot(st.xy, float2(12.9898, 78.233))) * 43758.5453123);
+	return src < 0.5 ? min(dest, 2 * src) : max(dest, 2 * (src - 0.5));
+}
+float4 pinLight(float4 dest, float4 src)
+{
+	float4 color;
+	color.r = pinLight(dest.r, src.r);
+	color.g = pinLight(dest.g, src.g);
+	color.b = pinLight(dest.b, src.b);
+	color.a = src.a;
+	return color;
 }
 float4 PS(PSInput input) : SV_TARGET
 {
@@ -37,7 +47,7 @@ float4 PS(PSInput input) : SV_TARGET
 
 	float4 result = rawColor;
 	{
-		float4 fogColor = g_fogColor - g_z * 0.3;
+		float4 fogColor = g_fogColor;
 		float fog = exp(-g_fogFactor * (1 - (1 - g_z) * (1 - g_z)));
 
 		result = lerp(fogColor, result, fog);
@@ -59,7 +69,6 @@ float4 PS(PSInput input) : SV_TARGET
 	}
 	{
 		result.a = rawColor.a;
-		result.rgb += rand(uv) * 0.05 * g_z;
 	}
-	return result;
+	return lerp(result, pinLight(rawColor, result), 0.4);
 }

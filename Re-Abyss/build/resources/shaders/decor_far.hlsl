@@ -19,11 +19,17 @@ struct PSInput
 
 cbuffer ShaderParam : register(b1)
 {
-	float2 g_textureSize;
+	float g_timer;
 }
 float4 PS(PSInput input) : SV_TARGET
 {
+	float2 size;
+	float  level;
+	g_texture0.GetDimensions(0, size.x, size.y, level);
+
 	float2 uv = input.uv;
-	float4 outColor = g_texture0.Sample(g_sampler0, uv);
+	float2 offs = float2(0, 0);
+	offs.x = sin(uv.y * 50 + g_timer * 2) * (2 / size.x);
+	float4 outColor = g_texture0.Sample(g_sampler0, uv + offs);
     return outColor;
 }
