@@ -1,0 +1,26 @@
+[Base]
+hp = 12
+eyeL = "(-14, -2)"
+eyeR = "(9, -2)"
+pivot = "(0, 0)"
+size = "(40, 86)"
+
+[Move]
+gravity = 400
+jumpHeight = 300
+maxSpeedY = 95
+decelX = 30
+moveX = 200
+chargeTimeSec = 0.9
+chargeOffs = 60
+
+[Eye]
+dist = 3.0
+distRate = 0.25
+erpRate = 0.02
+limitBeginL = "(5, -2)"
+limitEndL = "(-5, 1)"
+limitBeginR = "(-5, -2)"
+limitEndR = "(5, 1)"
+
+

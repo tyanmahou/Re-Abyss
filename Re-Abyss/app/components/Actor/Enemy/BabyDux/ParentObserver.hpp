@@ -3,7 +3,7 @@
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	class ParentObserver final :
 		public IComponent,
@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 namespace abyss
 {
 	template<>
-	struct ComponentTree<Actor::Enemy::KingDux::BabyDux::ParentObserver>
+	struct ComponentTree<Actor::Enemy::BabyDux::ParentObserver>
 	{
 		using Base = MultiComponents<
 			Actor::ILastUpdate

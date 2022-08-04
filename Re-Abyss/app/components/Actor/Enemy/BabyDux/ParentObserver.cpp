@@ -1,7 +1,7 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/ParentObserver.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	ParentObserver::ParentObserver(ActorObj* pActor, ActorObj* pParent):
 		m_pActor(pActor),

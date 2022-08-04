@@ -1,5 +1,5 @@
 #pragma once
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     enum class Motion
     {

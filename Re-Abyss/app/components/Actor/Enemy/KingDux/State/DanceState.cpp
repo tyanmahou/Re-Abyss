@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::KingDux
 	Coro::Task<> DanceState::task()
 	{
 		auto babyCtrl = m_pActor->find<BabyCtrl>();
-		for (const auto& desc : BabyDuxParam::Convene::Baby) {
+		for (const auto& desc : KingDux::BabyDuxParam::Convene::Baby) {
 			// 少し待ってから
 			co_await BehaviorUtil::WaitForSeconds(m_pActor, desc.waitTimeSec);
 

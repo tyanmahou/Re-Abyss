@@ -1,9 +1,9 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ForwardCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/ForwardCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     ForwardCtrl::ForwardCtrl(ActorObj* pActor):
         m_pActor(pActor)

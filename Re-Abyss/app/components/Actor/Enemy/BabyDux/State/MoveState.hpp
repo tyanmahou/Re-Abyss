@@ -1,7 +1,7 @@
 #pragma once
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/BaseState.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/State/BaseState.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     class MoveState final :
         public BaseState

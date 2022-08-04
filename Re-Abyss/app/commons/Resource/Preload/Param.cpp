@@ -14,6 +14,7 @@
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
 #include <abyss/params/Actor/Enemy/Schield/ShotParam.hpp>
+#include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
 
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
@@ -112,11 +113,12 @@ namespace abyss::Resource::Preload
 
 			resource->loadToml<Schield::Param>(U"Actor/Enemy/Schield/Param.toml");
 			resource->loadToml<Schield::ShotParam>(U"Actor/Enemy/Schield/ShotParam.toml");
+            resource->loadToml<BabyDux::Param>(U"Actor/Enemy/BabyDux/Param.toml");
 
 			// MidBoss
 			resource->loadToml<KingDux::Param>(U"Actor/Enemy/KingDux/Param.toml");
 			resource->loadToml<KingDux::TentacleParam>(U"Actor/Enemy/KingDux/TentacleParam.toml");
-			resource->loadToml<KingDux::BabyDuxParam>(U"Actor/Enemy/KingDux/BabyDuxParam.toml");
+            resource->loadToml<KingDux::BabyDuxParam>(U"Actor/Enemy/KingDux/BabyDuxParam.toml");
 
 			// Boss
 			resource->loadToml<CodeZero::Param>(U"Actor/Enemy/CodeZero/Param.toml");

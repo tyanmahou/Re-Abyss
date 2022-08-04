@@ -1,13 +1,13 @@
-#include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
+#include <abyss/views/Actor/Enemy/BabyDux/BabyDuxVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
+#include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
 #include <abyss/views/util/Anim/AnimUtil.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	BabyDuxVM::BabyDuxVM() :
-		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/KingDux/BabyDux.json"))
+		m_texture(Resource::Assets::Main()->load(U"Actor/Enemy/BabyDux/BabyDux.json"))
 	{}
 	BabyDuxVM& BabyDuxVM::setPos(const s3d::Vec2& pos)
 	{
@@ -75,14 +75,14 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
     {
         // 左目
         {
-            auto eyePos = m_pos + BabyDuxParam::Base::EyeL * -ToVec2(m_forward);
+            auto eyePos = m_pos + Param::Base::EyeL * -ToVec2(m_forward);
             Circle(eyePos, 8).draw();
             Circle(eyePos + m_eyePosL, 5).draw(Palette::Black);
         }
 
         // 右目
         {
-            auto eyePos = m_pos + BabyDuxParam::Base::EyeR * -ToVec2(m_forward);
+            auto eyePos = m_pos + Param::Base::EyeR * -ToVec2(m_forward);
             Circle(eyePos, 8).draw();
             Circle(eyePos + m_eyePosR, 5).draw(Palette::Black);
         }

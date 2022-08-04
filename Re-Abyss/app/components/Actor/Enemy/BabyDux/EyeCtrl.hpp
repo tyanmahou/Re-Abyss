@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     class EyeCtrl final :
         public IComponent,
@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::Enemy::KingDux::BabyDux::EyeCtrl>
+    struct ComponentTree<Actor::Enemy::BabyDux::EyeCtrl>
     {
         using Base = MultiComponents<
             Actor::ILastUpdate

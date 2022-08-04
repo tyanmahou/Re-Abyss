@@ -1,14 +1,14 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/EyeCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/EyeCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ForwardCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/ForwardCtrl.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
-#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
+#include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     EyeCtrl::EyeCtrl(ActorObj* pActor) :
         m_pActor(pActor)
@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         const auto& pos = m_body->getPos();
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
 
-        auto erpRate = InterpUtil::DampRatio(BabyDuxParam::Eye::ErpRate, m_pActor->deltaTime());
+        auto erpRate = InterpUtil::DampRatio(Param::Eye::ErpRate, m_pActor->deltaTime());
 
         auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             if (!toPlayerPos.isZero()) {
                 toPlayerUnit = toPlayerPos.normalized();
             }
-            const double dist = s3d::Min(toPlayerPos.length() * BabyDuxParam::Eye::DistRate, BabyDuxParam::Eye::Dist);
+            const double dist = s3d::Min(toPlayerPos.length() * Param::Eye::DistRate,Param::Eye::Dist);
 
             targetPos = toPlayerUnit * dist;
 
@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
         };
 
         // 眼を動かす
-#define MOVE_EYE(Kind) moveEye(m_eyePos##Kind, BabyDuxParam::Base::Eye##Kind, BabyDuxParam::Eye::LimitBegin##Kind, BabyDuxParam::Eye::LimitEnd##Kind)
+#define MOVE_EYE(Kind) moveEye(m_eyePos##Kind, Param::Base::Eye##Kind, Param::Eye::LimitBegin##Kind, Param::Eye::LimitEnd##Kind)
 
         MOVE_EYE(L);
         MOVE_EYE(R);

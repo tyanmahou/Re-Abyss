@@ -450,22 +450,22 @@
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\MainCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\AppearState.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\AppearState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\BaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\State\MoveState.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\MoveState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\Main.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ParentObserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\KingDux\State\AngryState.cpp">
@@ -1797,7 +1797,7 @@
     <ClCompile Include="app\views\Actor\Enemy\Ikalien\IkalienVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.cpp">
+    <ClCompile Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.cpp">
@@ -2099,10 +2099,10 @@
     <ClCompile Include="app\views\util\Anim\AnimUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp">
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp">
@@ -3305,28 +3305,28 @@
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\MainCollider.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\AppearState.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\AppearState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\BaseState.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\BaseState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\State\MoveState.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\MoveState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\BuildDesc.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\BuildDesc.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Builder.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ComponentCache.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ComponentCache.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\Main.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ParentObserver.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ParentObserver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\KingDux\State\AngryState.hpp">
@@ -4864,7 +4864,7 @@
     <ClInclude Include="app\params\Actor\Enemy\Ikalien\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp">
+    <ClInclude Include="app\params\Actor\Enemy\BabyDux\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp">
@@ -5392,7 +5392,7 @@
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\BabyDuxVM.hpp">
+    <ClInclude Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.hpp">
@@ -5728,19 +5728,19 @@
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Actor\Enemy\KingDux\BabyDux\Motion.hpp">
+    <ClInclude Include="app\views\Actor\Enemy\BabyDux\Motion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.hpp">
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Easing\EasingUtil.hpp">
@@ -5900,6 +5900,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

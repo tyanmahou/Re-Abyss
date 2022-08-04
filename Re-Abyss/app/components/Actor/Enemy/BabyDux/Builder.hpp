@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/BuildDesc.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/BuildDesc.hpp>
 #include <abyss/entities/Actor/Enemy/BabyDuxEntity.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     struct Builder
     {

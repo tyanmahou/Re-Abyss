@@ -1,10 +1,10 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/MoveState.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/State/MoveState.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
-#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
+#include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	void MoveState::start()
 	{
@@ -30,13 +30,13 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 		m_startPos = m_body->getPos();
 		m_body->noneResistanced();
         m_motion->set(Motion::Charge);
-		TimeLite::Timer timer{ BabyDuxParam::Move::ChargeTimeSec };
+		TimeLite::Timer timer{ Param::Move::ChargeTimeSec };
 		while (!timer.isEnd()) {
 			timer.update(m_pActor->deltaTime());
 
 			auto rate = timer.rate();
 			rate = s3d::EaseOutQuad(rate);
-			double offsetY = s3d::Math::Lerp(0, BabyDuxParam::Move::ChargeOffs, rate);
+			double offsetY = s3d::Math::Lerp(0, Param::Move::ChargeOffs, rate);
 			auto targetPos = m_startPos;
 			targetPos.y += offsetY;
 
@@ -49,18 +49,18 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
 	{
 		auto toPlayer = ActorUtils::ToPlayer(*m_pActor, *m_body);
 		auto sign = toPlayer.x <= 0 ? -1 : 1;
-		m_body->setAccelY(BabyDuxParam::Move::Gravity)
-			.setMaxVelocityY(BabyDuxParam::Move::MaxSpeedY)
-			.setDecelX(BabyDuxParam::Move::DecelX)
-			.setVelocityX(sign * s3d::Math::Sqrt(2.0 * BabyDuxParam::Move::MoveX * BabyDuxParam::Move::DecelX))
-			.jumpToHeight(BabyDuxParam::Move::JumpHeight);
+		m_body->setAccelY(Param::Move::Gravity)
+			.setMaxVelocityY(Param::Move::MaxSpeedY)
+			.setDecelX(Param::Move::DecelX)
+			.setVelocityX(sign * s3d::Math::Sqrt(2.0 * Param::Move::MoveX * Param::Move::DecelX))
+			.jumpToHeight(Param::Move::JumpHeight);
         m_motion->set(Motion::Jump);
         auto jumpSpeed = Abs(m_body->getVelocity().y);
 		while (true) {
             auto vy = m_body->getVelocity().y;
             if (vy < 0) {
                 m_motion->setAnimeTime(1.0 - Saturate(Abs(vy) / jumpSpeed));
-            } else if (vy > 0 && m_body->getPos().y >= m_startPos.y - BabyDuxParam::Move::JumpHeight / 2.0) {
+            } else if (vy > 0 && m_body->getPos().y >= m_startPos.y - Param::Move::JumpHeight / 2.0) {
                 m_motion->set(Motion::Wait);
             }
 			if (vy > 0 && m_body->getPos().y >= m_startPos.y) {

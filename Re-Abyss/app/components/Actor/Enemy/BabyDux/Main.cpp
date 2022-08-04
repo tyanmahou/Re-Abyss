@@ -1,6 +1,6 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/Main.hpp>
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	Main::Main(ActorObj* pActor, const BuildDesc& desc, const s3d::Vec2& parentPos):
 		m_pActor(pActor),

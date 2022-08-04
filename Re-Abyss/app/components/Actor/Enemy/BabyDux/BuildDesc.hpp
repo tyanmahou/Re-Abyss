@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
 	struct BuildDesc
 	{

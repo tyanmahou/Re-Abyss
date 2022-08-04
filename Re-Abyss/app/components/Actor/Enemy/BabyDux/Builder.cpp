@@ -1,25 +1,25 @@
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Main.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/EyeCtrl.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ForwardCtrl.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/ParentObserver.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/AppearState.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/State/MoveState.hpp>
-#include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
-#include <abyss/views/Actor/Enemy/KingDux/BabyDux/BabyDuxVM.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/Main.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/EyeCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/ForwardCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/ParentObserver.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/State/AppearState.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/State/MoveState.hpp>
+#include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
+#include <abyss/views/Actor/Enemy/BabyDux/BabyDuxVM.hpp>
 
 namespace
 {
 	class ViewBinder;
 }
 
-namespace abyss::Actor::Enemy::KingDux::BabyDux
+namespace abyss::Actor::Enemy::BabyDux
 {
     namespace
     {
@@ -28,13 +28,13 @@ namespace abyss::Actor::Enemy::KingDux::BabyDux
             // 共通ビルド
             CommonBuilder::Build(pActor, BuildOption{}
                 .setInitPos(pos)
-                .setBodySize(BabyDuxParam::Base::Size)
-                .setBodyPivot(BabyDuxParam::Base::Pivot)
+                .setBodySize(Param::Base::Size)
+                .setBodyPivot(Param::Base::Pivot)
                 .setForward(forward)
-                .setInitHp(BabyDuxParam::Base::Hp)
+                .setInitHp(Param::Base::Hp)
                 .setIsEnableMapCollider(false)
                 .setIsEnableItemDrop(false)
-                .setAudioSettingGroupPath(U"Enemy/KingDux/BabyDux.aase")
+                .setAudioSettingGroupPath(U"Enemy/BabyDux/BabyDux.aase")
                 .setInitState(initState)
                 .setVModelBinder<ViewBinder>(pActor)
             );
@@ -80,8 +80,7 @@ namespace
 {
 	using namespace abyss;
 	using namespace abyss::Actor;
-	using namespace abyss::Actor::Enemy::KingDux;
-	using namespace abyss::Actor::Enemy::KingDux::BabyDux;
+	using namespace abyss::Actor::Enemy::BabyDux;
 
 	class ViewBinder : public IVModelBinder<BabyDuxVM>
 	{

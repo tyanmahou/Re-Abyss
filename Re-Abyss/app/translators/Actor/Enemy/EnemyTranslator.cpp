@@ -22,7 +22,7 @@
 #include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
 #include <abyss/components/Actor/Enemy/Warrus/Builder.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/Builder.hpp>
 
 #include <abyss/components/Actor/Enemy/KingDux/Builder.hpp>
@@ -45,7 +45,7 @@ namespace abyss::Actor::Enemy
             CASE_ENEMY(Schield);
             CASE_ENEMY(Slime);
             CASE_ENEMY(Warrus);
-        case EnemyType::BabyDux: return world.create<KingDux::BabyDux::Builder>(static_cast<const BabyDuxEntity&>(entity));
+            CASE_ENEMY(BabyDux);
             CASE_ENEMY(BazookaKun);
             CASE_ENEMY(KingDux);
 

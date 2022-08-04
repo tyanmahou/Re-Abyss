@@ -5,7 +5,7 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Builder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
-#include <abyss/components/Actor/Enemy/KingDux/BabyDux/Builder.hpp>
+#include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/utils/Coro/Task/Wait.hpp>
 #include <Siv3D.hpp>
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::KingDux
             .waitTimeSec = desc.waitTimeSec
             });
     }
-    Ref<ActorObj> KingDuxUtil::BuildBaby(ActorObj* pActor, const BabyDesc& desc)
+    Ref<ActorObj> KingDuxUtil::BuildBaby(ActorObj* pActor, const BabyDux::BabyDesc& desc)
     {
         return pActor->getModule<World>()->create<BabyDux::Builder>(pActor, BabyDux::BuildDesc{
             .posOffset = desc.offset,
