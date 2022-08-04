@@ -242,6 +242,7 @@
     <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
@@ -1151,6 +1152,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
@@ -1188,6 +1190,7 @@
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
     <ClInclude Include="app\modules\Env\Fog\Fog.hpp" />
     <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />

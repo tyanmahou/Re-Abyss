@@ -15,6 +15,7 @@ namespace abyss::Actor::Enemy
 		Schield,
 		Warrus,
         BabyDux,
+        BazookaKun,
 
 		// MidBoss
 		KingDux,

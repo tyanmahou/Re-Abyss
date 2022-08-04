@@ -9,6 +9,7 @@
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
 #include <abyss/entities/Actor/Enemy/WarrusEntity.hpp>
 #include <abyss/entities/Actor/Enemy/BabyDuxEntity.hpp>
+#include <abyss/entities/Actor/Enemy/BazookaKunEntity.hpp>
 
 #include <abyss/entities/Actor/Enemy/KingDuxEntity.hpp>
 
@@ -54,7 +55,8 @@ namespace
 			PARSE_ENEMY(Schield);
 			PARSE_ENEMY(Warrus);
             PARSE_ENEMY(BabyDux);
-			PARSE_ENEMY(KingDux);
+            PARSE_ENEMY(BazookaKun);
+            PARSE_ENEMY(KingDux);
 			PARSE_ENEMY(CodeZero);
 		default:
 			break;
