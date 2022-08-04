@@ -1,22 +1,20 @@
 #include <abyss/translators/Actor/Item/ItemTranslator.hpp>
 
-#include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
-
-#include<abyss/components/Actor/Item/Recovery/Builder.hpp>
 #include <abyss/modules/World/World.hpp>
+#include <abyss/entities/Actor/Item/ItemEntity.hpp>
+#include <abyss/utils/Reflection/Reflection.hpp>
 
 namespace abyss::Actor::Item
 {
 	Ref<Actor::ActorObj> ItemTranslator::buildActor(World& world, const ItemEntity& entity)
 	{
-#define CASE_ITEM(type) case ItemType::##type : return world.create<type::Builder>(static_cast<const type##Entity&>(entity))
-
-		switch (entity.type) {
-			CASE_ITEM(Recovery);
-		default:
-			break;
-		}
-		return nullptr;
-#undef CASE_ITEM
+        if (auto builder = Reflect<>::find<void(ActorObj*, const ItemEntity&)>(
+            U"abyss::Actor::Item::BuilderFromEntity<{}>::Build"_fmt(static_cast<s3d::int32>(entity.type))
+            )) {
+            auto obj = world.create();
+            builder(obj.get(), entity);
+            return obj;
+        }
+        return nullptr;
 	}
 }

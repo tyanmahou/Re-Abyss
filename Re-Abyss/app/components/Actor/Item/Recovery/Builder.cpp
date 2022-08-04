@@ -3,6 +3,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
 
+#include <abyss/components/Actor/Item/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Item/CommonBuilder.hpp>
 #include <abyss/components/Actor/Item/Recovery/ItemReactor.hpp>
 #include <abyss/components/Actor/Item/LifeSpan.hpp>
@@ -123,4 +124,13 @@ namespace
 
         std::unique_ptr<RecoveryVM> m_view;
     };
+}
+namespace abyss::Actor::Item
+{
+    template struct BuilderFromEntity<ItemType::Recovery>;
+    template<>
+    void BuilderFromEntity<ItemType::Recovery>::Build(ActorObj* pActor, const ItemEntity& entity)
+    {
+        Recovery::Builder::Build(pActor, static_cast<const RecoveryEntity&>(entity));
+    }
 }

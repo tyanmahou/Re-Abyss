@@ -1158,6 +1158,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
+    <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
