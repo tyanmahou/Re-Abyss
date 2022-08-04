@@ -1156,6 +1156,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />

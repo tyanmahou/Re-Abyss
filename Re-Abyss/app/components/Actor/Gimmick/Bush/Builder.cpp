@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/RectCollider.hpp>
+#include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Gimmick/Bush/ColReactor.hpp>
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
@@ -93,3 +94,12 @@ namespace
 	};
 }
 
+namespace abyss::Actor::Gimmick
+{
+    template struct BuilderFromEntity<GimmickType::Bush>;
+    template<>
+    void BuilderFromEntity<GimmickType::Bush>::Build(ActorObj* pActor, const GimmickEntity& entity)
+    {
+        Bush::Builder::Build(pActor, static_cast<const BushEntity&>(entity));
+    }
+}

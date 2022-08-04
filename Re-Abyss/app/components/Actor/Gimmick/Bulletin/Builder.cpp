@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/CircleCollider.hpp>
+#include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Gimmick/Bulletin/Talkable.hpp>
 #include <abyss/views/Actor/Gimmick/Bulletin/BulletinVM.hpp>
 
@@ -74,4 +75,13 @@ namespace
 		Ref<ILocator> m_locator;
 		std::unique_ptr<BulletinVM> m_view;
 	};
+}
+namespace abyss::Actor::Gimmick
+{
+    template struct BuilderFromEntity<GimmickType::Bulletin>;
+    template<>
+    void BuilderFromEntity<GimmickType::Bulletin>::Build(ActorObj* pActor, const GimmickEntity& entity)
+    {
+        Bulletin::Builder::Build(pActor, static_cast<const BulletinEntity&>(entity));
+    }
 }

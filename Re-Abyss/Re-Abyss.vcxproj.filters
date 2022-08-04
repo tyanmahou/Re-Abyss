@@ -5911,6 +5911,9 @@
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

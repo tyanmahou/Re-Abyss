@@ -2,6 +2,7 @@
 
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Gimmick/Door/DoorProxy.hpp>
 #include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
@@ -72,4 +73,13 @@ namespace
 
         std::unique_ptr<DoorVM> m_view;
     };
+}
+namespace abyss::Actor::Gimmick
+{
+    template struct BuilderFromEntity<GimmickType::Door>;
+    template<>
+    void BuilderFromEntity<GimmickType::Door>::Build(ActorObj* pActor, const GimmickEntity& entity)
+    {
+        Door::Builder::Build(pActor, static_cast<const DoorEntity&>(entity));
+    }
 }
