@@ -14,6 +14,7 @@
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/BossDeadColor.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
@@ -273,3 +274,14 @@ namespace
         Ref<VModelSub<1>> m_view2;
     };
 }
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::CodeZero>;
+    template<>
+    void BuilderFromEntity<EnemyType::CodeZero>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        CodeZero::Builder::Build(pActor, static_cast<const CodeZeroEntity&>(entity));
+    }
+}
+

@@ -15,6 +15,7 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
@@ -250,4 +251,14 @@ namespace
         bool m_isFlip = false;
         double m_rotate = 0;
     };
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::KingDux>;
+    template<>
+    void BuilderFromEntity<EnemyType::KingDux>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        KingDux::Builder::Build(pActor, static_cast<const KingDuxEntity&>(entity));
+    }
 }

@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Schield/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/FaceCtrl.hpp>
@@ -88,3 +89,14 @@ namespace
         std::unique_ptr<SchieldVM> m_view;
     };
 }
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::Schield>;
+    template<>
+    void BuilderFromEntity<EnemyType::Schield>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        Schield::Builder::Build(pActor, static_cast<const SchieldEntity&>(entity));
+    }
+}
+

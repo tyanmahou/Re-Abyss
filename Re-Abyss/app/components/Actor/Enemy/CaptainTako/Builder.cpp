@@ -6,6 +6,7 @@
 
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
 #include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>
@@ -78,4 +79,14 @@ namespace
 
         std::unique_ptr<CaptainTakoVM> m_view;
     };
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::CaptainTako>;
+    template<>
+    void BuilderFromEntity<EnemyType::CaptainTako>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        CaptainTako::Builder::Build(pActor, static_cast<const CaptainTakoEntity&>(entity));
+    }
 }

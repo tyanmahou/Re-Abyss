@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Common/MotionCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
 
@@ -87,4 +88,14 @@ namespace
 		Ref<MotionCtrl> m_motion;
 		std::unique_ptr<SlimeVM> m_view;
 	};
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::Slime>;
+    template<>
+    void BuilderFromEntity<EnemyType::Slime>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        Slime::Builder::Build(pActor, static_cast<const SlimeEntity&>(entity));
+    }
 }

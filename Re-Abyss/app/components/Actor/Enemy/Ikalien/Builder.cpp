@@ -8,6 +8,7 @@
 
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/MainCollider.hpp>
@@ -87,4 +88,14 @@ namespace
 
         std::unique_ptr<IkalienVM> m_view;
     };
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::Ikalien>;
+    template<>
+    void BuilderFromEntity<EnemyType::Ikalien>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        Ikalien::Builder::Build(pActor, static_cast<const IkalienEntity&>(entity));
+    }
 }

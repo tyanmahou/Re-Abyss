@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/TimeCounter.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/LaunShark/State/SwimState.hpp>
 
@@ -80,4 +81,14 @@ namespace
 		Ref<MotionCtrl> m_motion;
 		std::unique_ptr<LaunSharkVM> m_view;
 	};
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::LaunShark>;
+    template<>
+    void BuilderFromEntity<EnemyType::LaunShark>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        LaunShark::Builder::Build(pActor, static_cast<const LaunSharkEntity&>(entity));
+    }
 }

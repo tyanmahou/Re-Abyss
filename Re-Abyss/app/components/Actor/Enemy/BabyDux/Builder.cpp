@@ -4,6 +4,7 @@
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/BabyDux/Main.hpp>
 #include <abyss/components/Actor/Enemy/BabyDux/EyeCtrl.hpp>
@@ -116,4 +117,14 @@ namespace
         Ref<EyeCtrl> m_eyeCtrl;
 		std::unique_ptr<BabyDuxVM> m_view;
 	};
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::BabyDux>;
+    template<>
+    void BuilderFromEntity<EnemyType::BabyDux>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        BabyDux::Builder::Build(pActor, static_cast<const BabyDuxEntity&>(entity));
+    }
 }

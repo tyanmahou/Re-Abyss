@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/OutRoomChecker.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
+#include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/RollingTako/State/RunState.hpp>
@@ -96,4 +97,14 @@ namespace
 
         std::unique_ptr<RollingTakoVM> m_view;
     };
+}
+
+namespace abyss::Actor::Enemy
+{
+    template struct BuilderFromEntity<EnemyType::RollingTako>;
+    template<>
+    void BuilderFromEntity<EnemyType::RollingTako>::Build(ActorObj* pActor, const EnemyEntity& entity)
+    {
+        RollingTako::Builder::Build(pActor, static_cast<const RollingTakoEntity&>(entity));
+    }
 }
