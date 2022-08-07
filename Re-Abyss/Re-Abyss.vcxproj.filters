@@ -2246,6 +2246,9 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5915,6 +5918,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
