@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <abyss/views/Actor/Enemy/BazookaKun/BazookaKunVM.hpp>
 
 namespace
@@ -19,7 +20,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             .setInitPos(entity.pos)
             //.setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
-            //.setInitHp(Param::Base::Hp)
+            .setInitHp(Param::Base::Hp)
             //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")

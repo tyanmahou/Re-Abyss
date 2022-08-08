@@ -1204,6 +1204,7 @@
     <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />

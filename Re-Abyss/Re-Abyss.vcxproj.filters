@@ -5923,6 +5923,9 @@
     <ClInclude Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
