@@ -5,4 +5,8 @@ namespace abyss::Actor::Enemy::BazookaKun
     void WaitState::start()
     {
     }
+    Task<> WaitState::task()
+    {
+        co_return;
+    }
 }
