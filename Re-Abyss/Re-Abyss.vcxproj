@@ -245,6 +245,8 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
@@ -1156,6 +1158,9 @@
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />

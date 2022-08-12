@@ -2249,6 +2249,12 @@
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5924,6 +5930,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,10 @@
 #include <abyss/components/Actor/Enemy/BazookaKun/Builder.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/BazookaKun/State/WaitState.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <abyss/views/Actor/Enemy/BazookaKun/BazookaKunVM.hpp>
 
@@ -24,7 +26,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             //.setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")
-            //.setInitState<WaitState>()
+            .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
         // Body調整
@@ -47,11 +49,13 @@ namespace
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :
@@ -61,6 +65,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
+        Ref<ColorCtrl> m_colorCtrl;
 
         std::unique_ptr<BazookaKunVM> m_view;
     };
