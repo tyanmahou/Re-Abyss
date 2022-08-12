@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/types/Forward.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
@@ -10,9 +9,19 @@ namespace abyss::Actor::Enemy::BazookaKun
         BazookaKunVM();
 
         BazookaKunVM& setPos(const s3d::Vec2& pos);
-        BazookaKunVM& setForward(Forward forward)
+        BazookaKunVM& setIsMirrored(bool isMirrored)
         {
-            m_forward = forward;
+            m_isMirrored = isMirrored;
+            return *this;
+        }
+        BazookaKunVM& setIsFlipped(bool isFlipped)
+        {
+            m_isFlipped = isFlipped;
+            return *this;
+        }
+        BazookaKunVM& setRotate(double rotate)
+        {
+            m_rotate = rotate;
             return *this;
         }
         BazookaKunVM& setTime(double time)
@@ -20,12 +29,17 @@ namespace abyss::Actor::Enemy::BazookaKun
             m_time = time;
             return *this;
         }
+        BazookaKunVM& setColorMul(const s3d::ColorF color);
+
         void draw() const;
     private:
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos{};
-        Forward m_forward = Forward::Left;
+        bool m_isMirrored;
+        bool m_isFlipped;
+        double m_rotate;
         double m_time = 0;
+        s3d::ColorF m_colorMul;
     };
 }
