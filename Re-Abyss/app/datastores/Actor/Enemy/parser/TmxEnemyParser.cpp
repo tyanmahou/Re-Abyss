@@ -55,7 +55,11 @@ namespace
 			PARSE_ENEMY(Schield);
 			PARSE_ENEMY(Warrus);
             PARSE_ENEMY(BabyDux);
-            PARSE_ENEMY(BazookaKun);
+            PARSE_ENEMY(BazookaKun, {
+                it->isMirrored = obj.isMirrored;
+                it->isFlipped = obj.isFliped;
+                it->rotate = obj.rotation;
+            });
             PARSE_ENEMY(KingDux);
 			PARSE_ENEMY(CodeZero);
 		default:

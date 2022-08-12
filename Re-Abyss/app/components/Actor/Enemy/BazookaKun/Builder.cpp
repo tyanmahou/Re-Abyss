@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/BazookaKun/TargetCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/State/WaitState.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <abyss/views/Actor/Enemy/BazookaKun/BazookaKunVM.hpp>
@@ -33,6 +34,13 @@ namespace abyss::Actor::Enemy::BazookaKun
         {
             pActor->find<Body>()->noneResistanced();
         }
+        {
+            pActor->attach<TargetCtrl>(pActor)
+                ->setIsMirrored(entity.isMirrored)
+                .setIsFlipped(entity.isFlipped)
+                .setRotate(entity.rotate)
+                ;
+        }
     }
 }
 
@@ -49,12 +57,16 @@ namespace
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
+                .setIsMirrored(m_target->isMirrored())
+                .setIsFlipped(m_target->isFlipped())
+                .setRotate(m_target->rotate())
                 .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_target = m_pActor->find<TargetCtrl>();
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
@@ -65,6 +77,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
+        Ref<TargetCtrl> m_target;
         Ref<ColorCtrl> m_colorCtrl;
 
         std::unique_ptr<BazookaKunVM> m_view;

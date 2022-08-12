@@ -5,5 +5,8 @@ namespace abyss::Actor::Enemy
 {
     struct BazookaKunEntity : EnemyEntity
     {
+        bool isMirrored;
+        bool isFlipped;
+        double rotate;
     };
 }
