@@ -57,7 +57,7 @@ namespace
             PARSE_ENEMY(BabyDux);
             PARSE_ENEMY(BazookaKun, {
                 it->isMirrored = obj.isMirrored;
-                it->isFlipped = obj.isFliped;
+                it->isFlipped = obj.isFlipped;
                 it->rotate = obj.rotation;
             });
             PARSE_ENEMY(KingDux);

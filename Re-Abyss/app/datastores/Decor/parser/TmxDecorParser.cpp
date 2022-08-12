@@ -38,7 +38,7 @@ namespace
             entity->size = size;
             entity->rotation = obj.rotation;
             entity->isMirrored = obj.isMirrored;
-            entity->isFlipped = obj.isFliped;
+            entity->isFlipped = obj.isFlipped;
         }
         return entity;
     }
