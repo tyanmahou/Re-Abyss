@@ -33,6 +33,9 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         void draw() const;
     private:
+        s3d::Quad quad() const;
+        void drawEye() const;
+    private:
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos{};
