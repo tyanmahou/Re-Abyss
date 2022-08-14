@@ -20,19 +20,32 @@ namespace abyss::Actor::Enemy::BazookaKun
     }
     void BazookaKunVM::draw() const
     {
-        auto quad = this->quad();
-
-        auto tex = m_texture(U"body")
-            .mirrored(m_isMirrored)
-            .flipped(m_isFlipped);
-        quad(tex).draw();
-
+        this->drawBazooka();
+        this->drawBody();
         this->drawEye();
     }
     s3d::Quad BazookaKunVM::quad() const
     {
         RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
         return rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
+    }
+    void BazookaKunVM::drawBazooka() const
+    {
+        auto quad = this->quad();
+
+        auto tex = m_texture(U"bazooka")
+            .mirrored(m_isMirrored)
+            .flipped(m_isFlipped);
+        quad(tex).draw();
+    }
+    void BazookaKunVM::drawBody() const
+    {
+        auto quad = this->quad();
+
+        auto tex = m_texture(U"body")
+            .mirrored(m_isMirrored)
+            .flipped(m_isFlipped);
+        quad(tex).draw();
     }
     void BazookaKunVM::drawEye() const
     {
