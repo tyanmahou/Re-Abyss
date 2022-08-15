@@ -2,6 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
@@ -57,6 +58,8 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         double m_bazookaRotate = 0;
         double m_bazookaRotateTarget = 0;
+
+        TimeLite::Timer m_waitTimer;
 
         Ref<Body> m_body;
     };

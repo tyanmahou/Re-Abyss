@@ -5,7 +5,8 @@
 namespace abyss::Actor::Enemy::BazookaKun
 {
     TargetCtrl::TargetCtrl(ActorObj* pActor):
-        m_pActor(pActor)
+        m_pActor(pActor),
+        m_waitTimer(2.0)
     {
     }
 
@@ -16,6 +17,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
     void TargetCtrl::onLastUpdate()
     {
+        auto dt = m_pActor->deltaTime();
         const auto& pos = m_body->getPos();
         // 基準点の計算
         RectF rect{ pos - Vec2{45, 30}, Vec2{90, 60} };
@@ -29,7 +31,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         // 角度の計算
         auto toPlayer = playerPos - pivot;
         if (!toPlayer.isZero() &&
-            toPlayer.normalized().dot(eyeVec) > Cos(s3d::ToRadians(60))
+            toPlayer.normalized().dot(eyeVec) > Cos(s3d::ToRadians(90))
         ) {
             double targetRad = 0;
             targetRad = toPlayer.getAngle();
@@ -44,9 +46,17 @@ namespace abyss::Actor::Enemy::BazookaKun
                 targetRotate += 360;
             }
             m_bazookaRotateTarget = targetRotate;
+
+            m_waitTimer.reset();
+        } else {
+            // 一定時間たったら戻る
+            m_waitTimer.update(dt);
+            if (m_waitTimer.isEnd()) {
+                m_bazookaRotateTarget = 0;
+            }
         }
         // 補完
-        auto deltaRot = 45.0 * m_pActor->deltaTime();
+        auto deltaRot = 30.0 * dt;
         if (m_bazookaRotateTarget > m_bazookaRotate + deltaRot) {
             m_bazookaRotate += deltaRot;
         } else if (m_bazookaRotateTarget < m_bazookaRotate - deltaRot) {
@@ -57,9 +67,9 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         // Clamp
         if (m_isMirrored != m_isFlipped) {
-            m_bazookaRotate = Clamp(m_bazookaRotate, -45.0, 0.0);
+            m_bazookaRotate = Clamp(m_bazookaRotate, -60.0, 0.0);
         } else {
-            m_bazookaRotate = Clamp(m_bazookaRotate, 0.0, 45.0);
+            m_bazookaRotate = Clamp(m_bazookaRotate, 0.0, 60.0);
         }
     }
 }
