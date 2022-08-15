@@ -1,10 +1,14 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
     class TargetCtrl final :
-        public IComponent
+        public IComponent,
+        public ILastUpdate
     {
     public:
         TargetCtrl(ActorObj* pActor);
@@ -36,10 +40,35 @@ namespace abyss::Actor::Enemy::BazookaKun
         {
             return m_rotate;
         }
+
+        double bazookaRotate() const
+        {
+            return m_bazookaRotate;
+        }
+    public:
+        void onStart() override;
+
+        void onLastUpdate() override;
     private:
         ActorObj* m_pActor = nullptr;
-        bool m_isMirrored;
-        bool m_isFlipped;
-        double m_rotate;
+        bool m_isMirrored = false;
+        bool m_isFlipped = false;
+        double m_rotate = 0;
+
+        double m_bazookaRotate = 0;
+        double m_bazookaRotateTarget = 0;
+
+        Ref<Body> m_body;
+    };
+}
+
+namespace abyss
+{
+    template<>
+    struct ComponentTree<Actor::Enemy::BazookaKun::TargetCtrl>
+    {
+        using Base = MultiComponents<
+            Actor::ILastUpdate
+        >;
     };
 }
