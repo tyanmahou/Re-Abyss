@@ -31,6 +31,16 @@ namespace abyss::Actor::Enemy::BazookaKun
         }
         BazookaKunVM& setColorMul(const s3d::ColorF color);
 
+        BazookaKunVM& setBazookaRotate(double rotate)
+        {
+            m_bazookaRotate = rotate;
+            return *this;
+        }
+        BazookaKunVM& setBazookaAnimRate(double rate)
+        {
+            m_bazookaAnimRate = rate;
+            return *this;
+        }
         void draw() const;
     private:
         s3d::Quad quad() const;
@@ -45,6 +55,10 @@ namespace abyss::Actor::Enemy::BazookaKun
         bool m_isFlipped;
         double m_rotate;
         double m_time = 0;
+
+        double m_bazookaRotate = 0;
+        double m_bazookaAnimRate = 0;
+
         s3d::ColorF m_colorMul;
     };
 }

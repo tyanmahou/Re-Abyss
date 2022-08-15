@@ -60,6 +60,7 @@ namespace
                 .setIsMirrored(m_target->isMirrored())
                 .setIsFlipped(m_target->isFlipped())
                 .setRotate(m_target->rotate())
+                .setBazookaRotate(s3d::Math::Lerp(0, 45, s3d::Periodic::Sine0_1(2s)))
                 .setColorMul(m_colorCtrl->colorMul())
                 ;
         }

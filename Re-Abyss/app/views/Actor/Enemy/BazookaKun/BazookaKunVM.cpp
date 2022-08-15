@@ -31,7 +31,16 @@ namespace abyss::Actor::Enemy::BazookaKun
     }
     void BazookaKunVM::drawBazooka() const
     {
-        auto quad = this->quad();
+        RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
+        auto quad = rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
+        quad.moveBy(Vec2{ m_isMirrored ? -1 : 1, 0 }.rotate(s3d::ToRadians(m_rotate)) * -10);
+        {
+            auto center = rect.center();
+            auto pivot = center + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };
+            pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));
+
+            quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
+        }
 
         auto tex = m_texture(U"bazooka")
             .mirrored(m_isMirrored)
@@ -52,6 +61,14 @@ namespace abyss::Actor::Enemy::BazookaKun
         s3d::int32 frame = static_cast<int32>(m_time * 60.0) % 240 <= 10 ? 1 : 0;
 
         auto quad = this->quad();
+        {
+            RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
+            auto center = rect.center();
+            auto pivot = center + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
+            pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));
+
+            quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
+        }
         auto tex = m_texture(frame == 1 ? U"eye2" : U"eye")
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped);
