@@ -29,6 +29,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
+            .setIsEnableBreathing(false)
         );
         // Body調整
         {
