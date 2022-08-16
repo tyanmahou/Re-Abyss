@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
         RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
         auto quad = rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
-        quad.moveBy(Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate)) * 10);
+        quad.moveBy(Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate)) * 10 * m_bazookaAnimRate);
         {
             auto center = rect.center();
             auto pivot = center + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };

@@ -30,7 +30,9 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         // 角度の計算
         auto toPlayer = playerPos - pivot;
-        if (!toPlayer.isZero() &&
+        if (
+            m_isValidAim &&
+            !toPlayer.isZero() &&
             toPlayer.normalized().dot(eyeVec) > Cos(s3d::ToRadians(90))
         ) {
             double targetRad = 0;
@@ -56,7 +58,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             }
         }
         // 補完
-        auto deltaRot = 30.0 * dt;
+        auto deltaRot = 40.0 * dt;
         if (m_bazookaRotateTarget > m_bazookaRotate + deltaRot) {
             m_bazookaRotate += deltaRot;
         } else if (m_bazookaRotateTarget < m_bazookaRotate - deltaRot) {

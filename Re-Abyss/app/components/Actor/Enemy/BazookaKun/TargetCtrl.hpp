@@ -46,6 +46,12 @@ namespace abyss::Actor::Enemy::BazookaKun
         {
             return m_bazookaRotate;
         }
+
+        TargetCtrl& setIsValidAim(bool isValid)
+        {
+            m_isValidAim = isValid;
+            return *this;
+        }
     public:
         void onStart() override;
 
@@ -56,6 +62,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         bool m_isFlipped = false;
         double m_rotate = 0;
 
+        bool m_isValidAim = false;
         double m_bazookaRotate = 0;
         double m_bazookaRotateTarget = 0;
 

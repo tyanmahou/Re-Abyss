@@ -61,6 +61,7 @@ namespace
                 .setIsFlipped(m_target->isFlipped())
                 .setRotate(m_target->rotate())
                 .setBazookaRotate(m_target->bazookaRotate())
+                .setBazookaAnimRate(m_motion->animeTime())
                 .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
@@ -69,6 +70,7 @@ namespace
             m_body = m_pActor->find<Body>();
             m_target = m_pActor->find<TargetCtrl>();
             m_colorCtrl = m_pActor->find<ColorCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
         ViewBinder(ActorObj* pActor) :
@@ -80,6 +82,7 @@ namespace
         Ref<Body> m_body;
         Ref<TargetCtrl> m_target;
         Ref<ColorCtrl> m_colorCtrl;
+        Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<BazookaKunVM> m_view;
     };

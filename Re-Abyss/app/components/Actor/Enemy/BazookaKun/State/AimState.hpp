@@ -3,12 +3,11 @@
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
-    class WaitState final :
+    class AimState final :
         public BaseState
     {
     public:
         void start() override;
-        void update() override;
         Task<> task() override;
     private:
     };
