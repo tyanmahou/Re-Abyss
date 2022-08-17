@@ -2261,6 +2261,9 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\AimState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\MainCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5951,6 +5954,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\AimState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\MainCollider.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

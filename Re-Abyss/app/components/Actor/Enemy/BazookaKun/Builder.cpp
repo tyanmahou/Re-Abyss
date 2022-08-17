@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/TargetCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/State/WaitState.hpp>
+#include <abyss/components/Actor/Enemy/BazookaKun/MainCollider.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <abyss/views/Actor/Enemy/BazookaKun/BazookaKunVM.hpp>
 
@@ -24,7 +25,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             //.setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
-            //.setCollider<MainCollider>(pActor)
+            .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")
             .setInitState<WaitState>()

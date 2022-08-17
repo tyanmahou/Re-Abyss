@@ -245,6 +245,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\AimState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
@@ -1161,6 +1162,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\AimState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
