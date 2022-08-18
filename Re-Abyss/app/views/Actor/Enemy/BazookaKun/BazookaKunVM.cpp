@@ -1,5 +1,6 @@
 #include <abyss/views/Actor/Enemy/BazookaKun/BazookaKunVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
@@ -26,12 +27,12 @@ namespace abyss::Actor::Enemy::BazookaKun
     }
     s3d::Quad BazookaKunVM::quad() const
     {
-        RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
+        RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
         return rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
     }
     void BazookaKunVM::drawBazooka() const
     {
-        RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
+        RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
         auto quad = rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
         quad.moveBy(Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate)) * 10 * m_bazookaAnimRate);
         {
@@ -62,7 +63,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         auto quad = this->quad();
         {
-            RectF rect{ m_pos - Vec2{45, 30}, Vec2{90, 60} };
+            RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
             auto center = rect.center();
             auto pivot = center + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
             pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));

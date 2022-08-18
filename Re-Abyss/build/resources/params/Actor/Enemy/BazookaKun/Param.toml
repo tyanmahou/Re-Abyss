@@ -1,3 +1,4 @@
 [Base]
 hp = 8
-
+size = "(90, 60)"
+bodySize = "(80, 40)"

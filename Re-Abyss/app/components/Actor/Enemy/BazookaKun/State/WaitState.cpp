@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/State/AimState.hpp>
+#include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
@@ -12,7 +13,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
         const auto& pos = m_body->getPos();
         // 基準点の計算
-        RectF rect{ pos - Vec2{45, 30}, Vec2{90, 60} };
+        RectF rect{ pos - Param::Base::Size / 2, Param::Base::Size };
         auto center = rect.center();
         auto pivot = center + Vec2{ m_target->isMirrored() ? 3 : -3, m_target->isFlipped() ? -15 : 15};
         pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_target->rotate()));
