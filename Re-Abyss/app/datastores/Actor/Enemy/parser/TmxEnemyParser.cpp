@@ -55,11 +55,18 @@ namespace
 			PARSE_ENEMY(Schield);
 			PARSE_ENEMY(Warrus);
             PARSE_ENEMY(BabyDux);
-            PARSE_ENEMY(BazookaKun, {
+        case EnemyType::BazookaKun:
+            {
+                auto it = std::make_shared<BazookaKunEntity>();
                 it->isMirrored = obj.isMirrored;
                 it->isFlipped = obj.isFlipped;
                 it->rotate = obj.rotation;
-            });
+                it->forward = obj.isMirrored ? Forward::Right : Forward::Left;
+                RectF rect = obj.toRectF();
+                Vec2 size = rect.size;
+                it->pos = rect.center().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
+                return it;
+            }
             PARSE_ENEMY(KingDux);
 			PARSE_ENEMY(CodeZero);
 		default:
