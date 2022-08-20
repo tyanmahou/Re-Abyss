@@ -44,7 +44,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         auto tex = m_texture(U"bazooka")
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped);
-        quad(tex).draw();
+        quad(tex).draw(m_colorMul);
     }
     void BazookaKunVM::drawBody() const
     {
@@ -52,7 +52,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped)
             .rotated(s3d::ToRadians(m_rotate))
-            .drawAt(m_pos)
+            .drawAt(m_pos, m_colorMul)
             ;
     }
     void BazookaKunVM::drawEye() const
@@ -69,6 +69,6 @@ namespace abyss::Actor::Enemy::BazookaKun
         auto tex = m_texture(frame == 1 ? U"eye2" : U"eye")
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped);
-        quad(tex).draw();
+        quad(tex).draw(m_colorMul);
     }
 }
