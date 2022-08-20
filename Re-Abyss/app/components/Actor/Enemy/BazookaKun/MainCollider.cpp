@@ -18,8 +18,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
         const auto& pos = m_body->getPos();
         // 基準点の計算
-        RectF rect{ pos - Param::Base::Size / 2, Param::Base::Size };
         return RectF{ pos - Vec2{40, m_target->isFlipped() ? 30 : 10}, Param::Base::BodySize }
-        .rotatedAt(rect.bl(), s3d::ToRadians(m_target->rotate()));
+        .rotatedAt(pos, s3d::ToRadians(m_target->rotate()));
     }
 }

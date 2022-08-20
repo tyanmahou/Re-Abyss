@@ -21,10 +21,8 @@ namespace abyss::Actor::Enemy::BazookaKun
         auto dt = m_pActor->deltaTime();
         const auto& pos = m_body->getPos();
         // 基準点の計算
-        RectF rect{ pos - Param::Base::Size / 2, Param::Base::Size };
-        auto center = rect.center();
-        auto pivot = center + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
-        pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));
+        auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
+        pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
 
         auto eyeVec = Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate));
