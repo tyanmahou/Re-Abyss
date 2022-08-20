@@ -28,17 +28,15 @@ namespace abyss::Actor::Enemy::BazookaKun
     s3d::Quad BazookaKunVM::quad() const
     {
         RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
-        return rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
+        return rect.rotated(s3d::ToRadians(m_rotate));
     }
     void BazookaKunVM::drawBazooka() const
     {
-        RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
-        auto quad = rect.rotatedAt(rect.bl(), s3d::ToRadians(m_rotate));
+        auto quad = this->quad();
         quad.moveBy(Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate)) * 10 * m_bazookaAnimRate);
         {
-            auto center = rect.center();
-            auto pivot = center + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };
-            pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));
+            auto pivot = m_pos + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };
+            pivot = pivot.rotateAt(m_pos, s3d::ToRadians(m_rotate));
 
             quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
         }
@@ -50,12 +48,12 @@ namespace abyss::Actor::Enemy::BazookaKun
     }
     void BazookaKunVM::drawBody() const
     {
-        auto quad = this->quad();
-
-        auto tex = m_texture(U"body")
+        m_texture(U"body")
             .mirrored(m_isMirrored)
-            .flipped(m_isFlipped);
-        quad(tex).draw();
+            .flipped(m_isFlipped)
+            .rotated(s3d::ToRadians(m_rotate))
+            .drawAt(m_pos)
+            ;
     }
     void BazookaKunVM::drawEye() const
     {
@@ -63,10 +61,8 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         auto quad = this->quad();
         {
-            RectF rect{ m_pos - Param::Base::Size / 2, Param::Base::Size };
-            auto center = rect.center();
-            auto pivot = center + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
-            pivot = pivot.rotateAt(rect.bl(), s3d::ToRadians(m_rotate));
+            auto pivot = m_pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
+            pivot = pivot.rotateAt(m_pos, s3d::ToRadians(m_rotate));
 
             quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
         }
