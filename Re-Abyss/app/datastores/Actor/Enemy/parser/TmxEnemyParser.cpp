@@ -58,12 +58,13 @@ namespace
         case EnemyType::BazookaKun:
             {
                 auto it = std::make_shared<BazookaKunEntity>();
+                it->type = EnemyType::BazookaKun;
                 it->isMirrored = obj.isMirrored;
                 it->isFlipped = obj.isFlipped;
                 it->rotate = obj.rotation;
                 it->forward = obj.isMirrored ? Forward::Right : Forward::Left;
-                RectF rect = obj.toRectF();
-                Vec2 size = rect.size;
+                Vec2 size = obj.toRectF().size;
+                RectF rect{ obj.pos + Vec2{0, -size.y}, size};
                 it->pos = rect.center().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
                 return it;
             }
