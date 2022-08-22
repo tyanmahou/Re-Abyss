@@ -121,7 +121,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         m_bazookaRotate = InterpUtil::LerpDeg(
             m_bazookaRotate,
             m_bazookaRotateTarget,
-            InterpUtil::DampRatio(0.01, dt)
+            InterpUtil::DampRatio(0.005, dt)
         );
 
         // Clamp
