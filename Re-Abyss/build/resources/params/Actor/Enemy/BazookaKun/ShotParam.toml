@@ -1,0 +1,7 @@
+[Base]
+speed = 420
+colRadius = 5.0
+
+[View]
+animeTimeSec = 0.3
+rotateDeg = 720.0

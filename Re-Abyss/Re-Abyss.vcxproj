@@ -246,6 +246,8 @@
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\MainCollider.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\AimState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
@@ -854,6 +856,7 @@
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.cpp" />
+    <ClCompile Include="app\views\Actor\Enemy\BazookaKun\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Body\BodyVM.cpp" />
@@ -1163,6 +1166,8 @@
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\AimState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
@@ -1216,6 +1221,7 @@
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
@@ -2073,6 +2079,7 @@
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\BazookaKun\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\Shot\ShotVM.hpp" />
