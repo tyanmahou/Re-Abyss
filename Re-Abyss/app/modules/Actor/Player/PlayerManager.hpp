@@ -15,6 +15,7 @@ namespace abyss::Actor::Player
 
         PlayerManager& setPos(const s3d::Vec2& pos);
         const s3d::Vec2& getPos() const;
+        const s3d::Vec2& getVelocity() const;
 
         const Ref<ActorObj>& getActor() const;
 

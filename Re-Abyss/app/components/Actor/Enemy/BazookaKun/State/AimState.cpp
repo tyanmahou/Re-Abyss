@@ -35,13 +35,13 @@ namespace abyss::Actor::Enemy::BazookaKun
                     m_target->bazookaPos(),
                     m_target->bazookaVec()
                     );
-                co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
+                co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.7);
                 m_pActor->getModule<World>()->create<Shot::Builder>(
                     m_target->bazookaPos(),
                     m_target->bazookaVec()
                     );
                 // 少し待つ
-                co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.5);
+                co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
             }
             co_yield{};
         }

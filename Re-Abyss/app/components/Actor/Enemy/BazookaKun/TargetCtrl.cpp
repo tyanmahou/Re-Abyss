@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         // 基準点の計算
         auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
         pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
-        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
+        const Vec2& playerPos = ActorUtils::PlayerPos(*m_pActor);
 
         auto eyeVec = this->eyeVec();
 
@@ -67,6 +67,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         Vec2 toPlayer;
         if (m_isValidAim && this->isInAimRange(toPlayer)) {
+            toPlayer += ActorUtils::PlayerVelocity(*m_pActor) * 1.5;
             double targetRad = 0;
             targetRad = toPlayer.getAngle();
             // 0 ～ 360度にする
@@ -90,7 +91,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             }
         }
         // 補完
-        auto deltaRot = 40.0 * dt;
+        auto deltaRot = 50.0 * dt;
         if (m_bazookaRotateTarget > m_bazookaRotate + deltaRot) {
             m_bazookaRotate += deltaRot;
         } else if (m_bazookaRotateTarget < m_bazookaRotate - deltaRot) {

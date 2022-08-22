@@ -20,6 +20,10 @@ namespace abyss::Actor::Player
     {
         return m_body->getPos();
     }
+    const s3d::Vec2& PlayerManager::getVelocity() const
+    {
+        return m_body->getVelocity();
+    }
     const Ref<ActorObj>& PlayerManager::getActor() const
     {
         return m_player;

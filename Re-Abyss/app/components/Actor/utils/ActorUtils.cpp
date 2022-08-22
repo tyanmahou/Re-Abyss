@@ -10,6 +10,10 @@ namespace abyss::Actor::ActorUtils
     {
         return actor.getModule<Actor::Player::PlayerManager>()->getPos();
     }
+    const s3d::Vec2& PlayerVelocity(const ActorObj& actor)
+    {
+        return actor.getModule<Actor::Player::PlayerManager>()->getVelocity();
+    }
     s3d::Vec2 ToPlayer(const ActorObj& actor, const Body& body)
     {
         return PlayerPos(actor) - body.getPos();
