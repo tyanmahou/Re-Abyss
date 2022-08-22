@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
+#include <abyss/utils/Interp/InterpUtil.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
@@ -67,7 +68,14 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         Vec2 toPlayer;
         if (m_isValidAim && this->isInAimRange(toPlayer)) {
-            toPlayer += ActorUtils::PlayerVelocity(*m_pActor) * 1.5;
+            {
+                // 推測位置
+                Vec2 toPlayer2 = toPlayer + ActorUtils::PlayerVelocity(*m_pActor) * 1.5;
+                if (toPlayer.dot(toPlayer2) > 0) {
+                    // 推測位置が交差していなければ差し替え
+                    toPlayer = toPlayer2;
+                }
+            }
             double targetRad = 0;
             targetRad = toPlayer.getAngle();
             // 0 ～ 360度にする
@@ -99,6 +107,11 @@ namespace abyss::Actor::Enemy::BazookaKun
         } else {
             m_bazookaRotate = m_bazookaRotateTarget;
         }
+        m_bazookaRotate = InterpUtil::LerpDeg(
+            m_bazookaRotate,
+            m_bazookaRotateTarget,
+            InterpUtil::DampRatio(0.01, dt)
+        );
 
         // Clamp
         if (m_isMirrored != m_isFlipped) {
