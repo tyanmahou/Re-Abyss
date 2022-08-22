@@ -8,6 +8,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
     public:
         void start() override;
+        void update() override;
         Task<> task() override;
     private:
     };

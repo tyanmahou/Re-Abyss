@@ -11,6 +11,51 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
     }
 
+    bool TargetCtrl::isInAimRange(Vec2& outToPlayer) const
+    {
+        const auto& pos = m_body->getPos();
+        // 基準点の計算
+        auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
+        pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
+        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
+
+        auto eyeVec = this->eyeVec();
+
+        // 角度の計算
+         outToPlayer = playerPos - pivot;
+         Vec2 toPlayerUnit{ 0,0 };
+         if (!outToPlayer.isZero()) {
+             toPlayerUnit = outToPlayer.normalized();
+         }
+        return toPlayerUnit.dot(eyeVec) > Cos(s3d::ToRadians(90));
+    }
+
+    bool TargetCtrl::isInAimRangeWithDist() const
+    {
+        Vec2 toPlayer;
+        bool isInRange = isInAimRange(toPlayer);
+        constexpr double dist = 600;
+        return isInRange && toPlayer.lengthSq() <= (dist * dist);
+    }
+
+    s3d::Vec2 TargetCtrl::eyeVec() const
+    {
+        return  Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate));
+    }
+
+    s3d::Vec2 TargetCtrl::bazookaPos() const
+    {
+        const auto& pos = m_body->getPos();
+        // 基準点の計算
+        auto pivot = pos + Vec2{ m_isMirrored ? 50 : -50, m_isFlipped ? -17 : 17 };
+        return pivot.rotateAt(pos, s3d::ToRadians(m_rotate + m_bazookaRotate));
+    }
+
+    s3d::Vec2 TargetCtrl::bazookaVec() const
+    {
+        return  Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate + m_bazookaRotate));
+    }
+
     void TargetCtrl::onStart()
     {
         m_body = m_pActor->find<Body>();
@@ -19,21 +64,9 @@ namespace abyss::Actor::Enemy::BazookaKun
     void TargetCtrl::onLastUpdate()
     {
         auto dt = m_pActor->deltaTime();
-        const auto& pos = m_body->getPos();
-        // 基準点の計算
-        auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
-        pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
-        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
 
-        auto eyeVec = Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate));
-
-        // 角度の計算
-        auto toPlayer = playerPos - pivot;
-        if (
-            m_isValidAim &&
-            !toPlayer.isZero() &&
-            toPlayer.normalized().dot(eyeVec) > Cos(s3d::ToRadians(90))
-        ) {
+        Vec2 toPlayer;
+        if (m_isValidAim && this->isInAimRange(toPlayer)) {
             double targetRad = 0;
             targetRad = toPlayer.getAngle();
             // 0 ～ 360度にする

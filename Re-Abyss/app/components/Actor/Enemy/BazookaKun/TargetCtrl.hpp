@@ -52,6 +52,16 @@ namespace abyss::Actor::Enemy::BazookaKun
             m_isValidAim = isValid;
             return *this;
         }
+        bool isValidAim() const
+        {
+            return m_isValidAim;
+        }
+
+        bool isInAimRange(Vec2& outToPlayer) const;
+        bool isInAimRangeWithDist() const;
+        s3d::Vec2 eyeVec() const;
+        s3d::Vec2 bazookaPos() const;
+        s3d::Vec2 bazookaVec() const;
     public:
         void onStart() override;
 
