@@ -3,6 +3,8 @@
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Axis2/Axis2.hpp>
+#include <abyss/utils/Math/Math.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
 {
@@ -18,17 +20,26 @@ namespace abyss::Actor::Enemy::BazookaKun
         // 基準点の計算
         auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
         pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
-        const Vec2& playerPos = ActorUtils::PlayerPos(*m_pActor);
+        const Vec2 playerPos = ActorUtils::PlayerPos(*m_pActor);
 
         auto eyeVec = this->eyeVec();
 
         // 角度の計算
-         outToPlayer = playerPos - pivot;
-         Vec2 toPlayerUnit{ 0,0 };
-         if (!outToPlayer.isZero()) {
-             toPlayerUnit = outToPlayer.normalized();
-         }
-        return toPlayerUnit.dot(eyeVec) > Cos(s3d::ToRadians(90));
+        outToPlayer = playerPos - pivot;
+
+        auto axis = Axis2::FromRight(eyeVec);
+        auto relativeToPlayer = axis.relative(outToPlayer);
+        if (abyss::Math::IsZeroLoose(eyeVec.dot(Vec2{ 1, 0 }))) {
+            if (-11 <= relativeToPlayer.y && relativeToPlayer.y <= 11) {
+                relativeToPlayer.y = 0;
+            }
+        } else {
+            if (-40 <= relativeToPlayer.y && relativeToPlayer.y <= 40) {
+                relativeToPlayer.y = 0;
+            }
+        }
+        outToPlayer = axis.global(relativeToPlayer);
+        return outToPlayer.dot(eyeVec) > 0;
     }
 
     bool TargetCtrl::isInAimRangeWithDist() const
