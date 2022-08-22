@@ -22,7 +22,6 @@ namespace abyss::Actor::Enemy::BazookaKun
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
-            //.setBodyPivot(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
