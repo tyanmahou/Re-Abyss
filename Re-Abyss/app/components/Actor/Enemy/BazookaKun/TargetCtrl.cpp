@@ -64,9 +64,14 @@ namespace abyss::Actor::Enemy::BazookaKun
     s3d::Vec2 TargetCtrl::bazookaPos() const
     {
         const auto& pos = m_body->getPos();
+
         // 基準点の計算
-        auto pivot = pos + Vec2{ m_isMirrored ? 50 : -50, m_isFlipped ? -17 : 17 };
-        return pivot.rotateAt(pos, s3d::ToRadians(m_rotate + m_bazookaRotate));
+        auto pivot = pos + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };
+        pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
+        auto pivot2 = pos + Vec2{ m_isMirrored ? 50 : -50, m_isFlipped ? -15 : 15 };
+        pivot2 = pivot2.rotateAt(pos, s3d::ToRadians(m_rotate));
+
+        return pivot2.rotateAt(pivot, s3d::ToRadians(m_bazookaRotate));
     }
 
     s3d::Vec2 TargetCtrl::bazookaVec() const
