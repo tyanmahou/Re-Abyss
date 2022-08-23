@@ -14,6 +14,12 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
     }
 
+    TargetCtrl& TargetCtrl::setBazookaRotate(double rotate)
+    {
+        m_bazookaRotate = rotate;
+        return *this;
+    }
+
     bool TargetCtrl::isInAimRange(Vec2& outToPlayer) const
     {
         const auto& pos = m_body->getPos();
@@ -75,54 +81,56 @@ namespace abyss::Actor::Enemy::BazookaKun
 
     void TargetCtrl::onLastUpdate()
     {
-        auto dt = m_pActor->deltaTime();
+        if (!m_isFixBazooka) {
+            auto dt = m_pActor->deltaTime();
 
-        Vec2 toPlayer;
-        if (m_isValidAim && this->isInAimRange(toPlayer)) {
-            {
-                // 推測位置
-                Vec2 toPlayer2 = toPlayer + ActorUtils::PlayerVelocity(*m_pActor) * 1.5;
-                if (toPlayer.dot(toPlayer2) > 0) {
-                    // 推測位置が交差していなければ差し替え
-                    toPlayer = toPlayer2;
+            Vec2 toPlayer;
+            if (m_isValidAim && this->isInAimRange(toPlayer)) {
+                {
+                    // 推測位置
+                    Vec2 toPlayer2 = toPlayer + ActorUtils::PlayerVelocity(*m_pActor) * 1.5;
+                    if (toPlayer.dot(toPlayer2) > 0) {
+                        // 推測位置が交差していなければ差し替え
+                        toPlayer = toPlayer2;
+                    }
+                }
+                double targetRad = 0;
+                targetRad = toPlayer.getAngle();
+                // 0 ～ 360度にする
+                auto targetRotate = s3d::Math::ToDegrees(targetRad) + 90 - m_rotate + (m_isMirrored ? 180 : 0);
+
+                // 角度の近いほうに調整
+                if (Abs(targetRotate - m_bazookaRotate) > Abs((targetRotate - 360) - m_bazookaRotate)) {
+                    targetRotate -= 360;
+                }
+                if (Abs(targetRotate - m_bazookaRotate) > Abs((targetRotate + 360) - m_bazookaRotate)) {
+                    targetRotate += 360;
+                }
+                m_bazookaRotateTarget = targetRotate;
+
+                m_waitTimer.reset();
+            } else {
+                // 一定時間たったら戻る
+                m_waitTimer.update(dt);
+                if (m_waitTimer.isEnd()) {
+                    m_bazookaRotateTarget = 0;
                 }
             }
-            double targetRad = 0;
-            targetRad = toPlayer.getAngle();
-            // 0 ～ 360度にする
-            auto targetRotate = s3d::Math::ToDegrees(targetRad) + 90 - m_rotate + (m_isMirrored ? 180 : 0);
-
-            // 角度の近いほうに調整
-            if (Abs(targetRotate - m_bazookaRotate) > Abs((targetRotate - 360) - m_bazookaRotate)) {
-                targetRotate -= 360;
+            // 補完
+            auto deltaRot = 50.0 * dt;
+            if (m_bazookaRotateTarget > m_bazookaRotate + deltaRot) {
+                m_bazookaRotate += deltaRot;
+            } else if (m_bazookaRotateTarget < m_bazookaRotate - deltaRot) {
+                m_bazookaRotate -= deltaRot;
+            } else {
+                m_bazookaRotate = m_bazookaRotateTarget;
             }
-            if (Abs(targetRotate - m_bazookaRotate) > Abs((targetRotate + 360) - m_bazookaRotate)) {
-                targetRotate += 360;
-            }
-            m_bazookaRotateTarget = targetRotate;
-
-            m_waitTimer.reset();
-        } else {
-            // 一定時間たったら戻る
-            m_waitTimer.update(dt);
-            if (m_waitTimer.isEnd()) {
-                m_bazookaRotateTarget = 0;
-            }
+            m_bazookaRotate = InterpUtil::LerpDeg(
+                m_bazookaRotate,
+                m_bazookaRotateTarget,
+                InterpUtil::DampRatio(0.005, dt)
+            );
         }
-        // 補完
-        auto deltaRot = 50.0 * dt;
-        if (m_bazookaRotateTarget > m_bazookaRotate + deltaRot) {
-            m_bazookaRotate += deltaRot;
-        } else if (m_bazookaRotateTarget < m_bazookaRotate - deltaRot) {
-            m_bazookaRotate -= deltaRot;
-        } else {
-            m_bazookaRotate = m_bazookaRotateTarget;
-        }
-        m_bazookaRotate = InterpUtil::LerpDeg(
-            m_bazookaRotate,
-            m_bazookaRotateTarget,
-            InterpUtil::DampRatio(0.005, dt)
-        );
 
         // Clamp
         if (m_isMirrored != m_isFlipped) {

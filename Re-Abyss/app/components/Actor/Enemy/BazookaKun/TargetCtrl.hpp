@@ -42,6 +42,8 @@ namespace abyss::Actor::Enemy::BazookaKun
             return m_rotate;
         }
 
+        TargetCtrl& setBazookaRotate(double rotate);
+
         double bazookaRotate() const
         {
             return m_bazookaRotate;
@@ -56,7 +58,15 @@ namespace abyss::Actor::Enemy::BazookaKun
         {
             return m_isValidAim;
         }
-
+        TargetCtrl& setIsFixBazooka(bool isFixBazooka)
+        {
+            m_isFixBazooka = isFixBazooka;
+            return *this;
+        }
+        bool isFixBazooka() const
+        {
+            return m_isFixBazooka;
+        }
         bool isInAimRange(Vec2& outToPlayer) const;
         bool isInAimRangeWithDist() const;
         s3d::Vec2 eyeVec() const;
@@ -76,6 +86,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         double m_bazookaRotate = 0;
         double m_bazookaRotateTarget = 0;
 
+        bool m_isFixBazooka = false;
         TimeLite::Timer m_waitTimer;
 
         Ref<Body> m_body;

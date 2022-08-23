@@ -40,6 +40,8 @@ namespace abyss::Actor::Enemy::BazookaKun
                 ->setIsMirrored(entity.isMirrored)
                 .setIsFlipped(entity.isFlipped)
                 .setRotate(entity.rotate)
+                .setBazookaRotate(entity.bazookaRotate)
+                .setIsFixBazooka(entity.isFixBazooka)
                 ;
         }
     }

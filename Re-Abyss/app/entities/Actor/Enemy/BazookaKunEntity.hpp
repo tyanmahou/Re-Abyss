@@ -8,5 +8,8 @@ namespace abyss::Actor::Enemy
         bool isMirrored;
         bool isFlipped;
         double rotate;
+
+        bool isFixBazooka;
+        double bazookaRotate;
     };
 }
