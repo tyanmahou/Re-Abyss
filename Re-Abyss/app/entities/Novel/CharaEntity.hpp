@@ -1,6 +1,6 @@
 #pragma once
-#include <abyss/types/Novel/CharaKind.hpp>
-#include <abyss/types/Novel/Name.hpp>
+#include <abyss/modules/Novel/CharaKind.hpp>
+#include <abyss/modules/Novel/Name.hpp>
 #include <Siv3D/String.hpp>
 
 namespace abyss::Novel
