@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
-#include <abyss/types/OopartsType.hpp>
+#include <abyss/entities/OopartsType.hpp>
 
 namespace abyss::UI::SaveSelect::UserInfo
 {

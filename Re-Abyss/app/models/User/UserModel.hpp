@@ -3,7 +3,7 @@
 #include <Siv3D/String.hpp>
 #include <Siv3D/DateTime.hpp>
 
-#include <abyss/types/UserPlayMode.hpp>
+#include <abyss/entities/UserPlayMode.hpp>
 
 namespace abyss::User
 {
