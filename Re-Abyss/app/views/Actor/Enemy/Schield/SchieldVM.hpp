@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <abyss/views/Actor/Enemy/Schield/Motion.hpp>
 
 namespace abyss::Actor::Enemy::Schield

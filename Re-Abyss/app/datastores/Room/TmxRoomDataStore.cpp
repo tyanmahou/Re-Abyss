@@ -1,6 +1,6 @@
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss

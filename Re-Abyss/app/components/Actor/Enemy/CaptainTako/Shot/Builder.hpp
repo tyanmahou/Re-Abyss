@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <Siv3D/Fwd.hpp>
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {

@@ -1969,7 +1969,7 @@
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
-    <ClInclude Include="app\types\Forward.hpp" />
+    <ClInclude Include="app\entities\Forward.hpp" />
     <ClInclude Include="app\utils\Look\Look.hpp" />
     <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
     <ClInclude Include="app\modules\Novel\Face.hpp" />

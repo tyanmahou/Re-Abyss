@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <abyss/views/Actor/Enemy/Ikalien/Motion.hpp>
 
 namespace abyss::Actor::Enemy::Ikalien

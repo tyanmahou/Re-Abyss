@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 #include <abyss/components/Actor/Player/Shot/PlayerShot.hpp>
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss::Actor::Player::Shot

@@ -3,7 +3,7 @@
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>

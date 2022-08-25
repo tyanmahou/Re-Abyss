@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/types/Forward.hpp>
+#include <abyss/entities/Forward.hpp>
 #include <Siv3D/Types.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Optional.hpp>
