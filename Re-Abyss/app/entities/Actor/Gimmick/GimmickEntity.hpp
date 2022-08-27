@@ -14,6 +14,7 @@ namespace abyss::Actor::Gimmick
 		EventTrigger,
 		BgmChanger,
 		CodeZeroBack,
+        ShutterWall,
 	};
 	struct GimmickEntity
 	{
