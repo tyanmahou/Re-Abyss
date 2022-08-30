@@ -252,6 +252,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
@@ -1175,6 +1176,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
@@ -1211,6 +1213,7 @@
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
     <ClInclude Include="app\modules\Env\Fog\Fog.hpp" />
     <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
