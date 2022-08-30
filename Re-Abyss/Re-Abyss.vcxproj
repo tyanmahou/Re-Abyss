@@ -879,6 +879,7 @@
     <ClCompile Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Bush\BushVM.cpp" />
     <ClCompile Include="app\views\Actor\Gimmick\Door\DoorVM.cpp" />
+    <ClCompile Include="app\views\Actor\Gimmick\ShutterWall\ShutterWallVM.cpp" />
     <ClCompile Include="app\views\Actor\Item\Recovery\RecoveryVM.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\IconView.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\base\OopartsView.cpp" />
@@ -2114,6 +2115,7 @@
     <ClInclude Include="app\views\Actor\Gimmick\Bulletin\BulletinVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Bush\BushVM.hpp" />
     <ClInclude Include="app\views\Actor\Gimmick\Door\DoorVM.hpp" />
+    <ClInclude Include="app\views\Actor\Gimmick\ShutterWall\ShutterWallVM.hpp" />
     <ClInclude Include="app\views\Actor\Item\Recovery\RecoveryVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\BaseVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\base\IconView.hpp" />

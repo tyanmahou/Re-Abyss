@@ -2276,6 +2276,9 @@
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Gimmick\ShutterWall\ShutterWallVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5987,6 +5990,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actor\Gimmick\ShutterWall\ShutterWallVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
