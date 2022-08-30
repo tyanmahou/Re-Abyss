@@ -14,7 +14,7 @@ namespace abyss::Actor::Gimmick
 {
     template struct BuilderFromEntity<GimmickType::ShutterWall>;
     template<>
-    void BuilderFromEntity<GimmickType::EventTrigger>::Build(ActorObj* pActor, const GimmickEntity& entity)
+    void BuilderFromEntity<GimmickType::ShutterWall>::Build(ActorObj* pActor, const GimmickEntity& entity)
     {
         ShutterWall::Builder::Build(pActor, static_cast<const ShutterWallEntity&>(entity));
     }
