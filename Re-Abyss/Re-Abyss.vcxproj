@@ -1229,6 +1229,7 @@
     <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BazookaKun\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
+    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\Param.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />

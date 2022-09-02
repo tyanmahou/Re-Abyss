@@ -26,6 +26,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
 
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 
@@ -132,7 +133,8 @@ namespace abyss::Resource::Preload
 		{
 			using namespace Actor::Gimmick;
 			resource->loadToml<Bush::Param>(U"Actor/Gimmick/Bush/Param.toml");
-		}
+            resource->loadToml<ShutterWall::Param>(U"Actor/Gimmick/ShutterWall/Param.toml");
+        }
 
 		// Item
 		{
