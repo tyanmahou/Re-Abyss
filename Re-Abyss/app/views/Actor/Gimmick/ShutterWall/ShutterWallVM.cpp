@@ -1,4 +1,5 @@
 #include <abyss/views/Actor/Gimmick/ShutterWall/ShutterWallVM.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -7,7 +8,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     }
     void ShutterWallVM::draw() const
     {
-        constexpr Vec2 baseSize{40, 160};
+        const Vec2& baseSize = Param::BaseSize;
         RectF(
             m_pos - baseSize / 2,
             baseSize.x,

@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/views/Actor/Gimmick/ShutterWall/ShutterWallVM.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
 
 namespace
 {
@@ -16,7 +17,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     void Builder::Build(ActorObj* pActor, const ShutterWallEntity& entity)
     {
         {
-            constexpr Vec2 baseSize{ 40, 160 };
+            const Vec2& baseSize = Param::BaseSize;
             pActor->attach<TerrainProxy>(pActor)
                 ->setColDirection(ColDirection::All)
                 .setRegion(RectF{
