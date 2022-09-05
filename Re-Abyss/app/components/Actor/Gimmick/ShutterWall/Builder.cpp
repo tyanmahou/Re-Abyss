@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
+#include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/views/Actor/Gimmick/ShutterWall/ShutterWallVM.hpp>
 #include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
@@ -32,6 +33,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
             pActor->attach<Locator>()
                 ->setPos(entity.pos)
                 ;
+        }
+        // シャッター制御
+        {
+            pActor->attach<ShutterCtrl>(pActor);
         }
         // 描画
         {
