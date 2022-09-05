@@ -14,4 +14,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     {
         m_terrain = m_pActor->find<TerrainProxy>();
     }
+    void ShutterCtrl::onPrePhysics()
+    {
+    }
 }
