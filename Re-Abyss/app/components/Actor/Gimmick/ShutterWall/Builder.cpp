@@ -66,18 +66,20 @@ namespace
         void onStart() override
         {
             m_locator = m_pActor->find<Locator>();
+            m_shutter = m_pActor->find<ShutterCtrl>();
         }
         ShutterWallVM* bind() const override
         {
             return &m_view
                 ->setPos(m_locator->getPos())
-                .setShutterRate(1.0)
+                .setShutterRate(m_shutter->getShutterRate())
                 ;
         }
     private:
         ActorObj* m_pActor;
 
         Ref<Locator> m_locator;
+        Ref<ShutterCtrl> m_shutter;
         std::unique_ptr<ShutterWallVM> m_view;
     };
 }

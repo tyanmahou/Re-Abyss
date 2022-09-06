@@ -14,6 +14,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
     public:
         ShutterCtrl(ActorObj* pActor);
 
+        double getShutterRate() const
+        {
+            return m_shutterRate;
+        }
     public:
         void setup(Executer executer) override;
         void onStart()override;
@@ -22,6 +26,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     private:
         ActorObj* m_pActor;
         Ref<TerrainProxy> m_terrain;
+        double m_shutterRate = 0.0;
     };
 }
 
