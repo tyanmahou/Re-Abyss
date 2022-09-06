@@ -2282,6 +2282,9 @@
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6002,6 +6005,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\Param.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

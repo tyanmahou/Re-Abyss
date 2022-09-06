@@ -22,6 +22,8 @@ namespace abyss::Actor
         TerrainProxy& setTag(const Physics::TagType& tag);
         TerrainProxy& setExtData(std::shared_ptr<Physics::ITerrainExtData> data);
         TerrainProxy& setActive(bool isActive);
+
+        const s3d::Vec2& tl() const;
     private:
         ActorObj* m_pActor;
         std::shared_ptr<Terrain> m_terrain;

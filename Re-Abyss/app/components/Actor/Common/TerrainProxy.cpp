@@ -96,4 +96,8 @@ namespace abyss::Actor
         m_terrain->setActive(isActive);
         return *this;
     }
+    const s3d::Vec2& TerrainProxy::tl() const
+    {
+        return m_terrain->getData().region.pos;
+    }
 }

@@ -254,6 +254,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
@@ -1180,6 +1181,7 @@
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.hpp" />
     <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />

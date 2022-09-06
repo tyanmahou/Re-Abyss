@@ -5,6 +5,7 @@
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
+#include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/views/Actor/Gimmick/ShutterWall/ShutterWallVM.hpp>
 #include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
@@ -18,14 +19,9 @@ namespace abyss::Actor::Gimmick::ShutterWall
     void Builder::Build(ActorObj* pActor, const ShutterWallEntity& entity)
     {
         {
-            const Vec2& baseSize = Param::BaseSize;
             pActor->attach<TerrainProxy>(pActor)
                 ->setColDirection(ColDirection::All)
-                .setRegion(RectF{
-                    entity.pos - baseSize / 2,
-                    baseSize.x,
-                    baseSize.y * 1.0
-                })
+                .setRegion(ShutterUtil::Region(entity.pos))
                 ;
         }
         // 座標

@@ -33,7 +33,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
 namespace abyss
 {
     template<>
-    struct ComponentTree<Actor::MapCollider>
+    struct ComponentTree<Actor::Gimmick::ShutterWall::ShutterCtrl>
     {
         using Base = MultiComponents<
             Actor::IPrePhysics

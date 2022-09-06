@@ -1,5 +1,6 @@
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -16,5 +17,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
     }
     void ShutterCtrl::onPrePhysics()
     {
+        // 最新地形サイズ更新
+        const Vec2& pos = m_terrain->tl();
+        m_terrain->setRegion(ShutterUtil::Region(pos, m_shutterRate));
     }
 }
