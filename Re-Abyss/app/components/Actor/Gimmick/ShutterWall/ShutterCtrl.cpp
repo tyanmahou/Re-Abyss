@@ -1,5 +1,6 @@
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 
@@ -7,11 +8,23 @@ namespace abyss::Actor::Gimmick::ShutterWall
 {
     ShutterCtrl::ShutterCtrl(ActorObj* pActor):
         m_pActor(pActor),
-        m_shutterTimer(0.5)
-    {}
+        m_shutterTimer(0.1)
+    {
+        m_task.reset(std::bind(&ShutterCtrl::anim, this));
+    }
     double ShutterCtrl::getShutterRate() const
     {
         return m_shutterTimer.rate();
+    }
+    Coro::Task<> ShutterCtrl::anim()
+    {
+        while (!m_shutterTimer.isEnd()) {
+            co_yield{};
+        }
+        // 地震
+        m_pActor->getModule<Camera>()->startQuake(4.0, 0.3);
+
+        co_return;
     }
     void ShutterCtrl::setup(Executer executer)
     {
@@ -37,6 +50,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         if (!m_isWait) {
             m_shutterTimer.update(m_pActor->deltaTime());
         }
+        m_task.moveNext();
 
         // 最新地形サイズ更新
         m_terrain->setRegion(ShutterUtil::Region(pos, this->getShutterRate()));
