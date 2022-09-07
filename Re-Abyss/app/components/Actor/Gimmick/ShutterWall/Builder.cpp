@@ -22,6 +22,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
             pActor->attach<TerrainProxy>(pActor)
                 ->setColDirection(ColDirection::All)
                 .setRegion(ShutterUtil::RegionFromCenter(entity.pos))
+                .setTag(Physics::Tag::Floor{})
                 ;
         }
         // 座標
