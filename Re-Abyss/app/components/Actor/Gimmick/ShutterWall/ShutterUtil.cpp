@@ -12,4 +12,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
             baseSize.y * shutterRate
         };
     }
+    s3d::Vec2 ShutterUtil::CenterPosFromTl(const s3d::Vec2& pos)
+    {
+        return Region(pos).center();
+    }
 }

@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -14,10 +15,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     public:
         ShutterCtrl(ActorObj* pActor);
 
-        double getShutterRate() const
-        {
-            return m_shutterRate;
-        }
+        double getShutterRate() const;
     public:
         void setup(Executer executer) override;
         void onStart()override;
@@ -26,7 +24,9 @@ namespace abyss::Actor::Gimmick::ShutterWall
     private:
         ActorObj* m_pActor;
         Ref<TerrainProxy> m_terrain;
-        double m_shutterRate = 0.0;
+        TimeLite::Timer m_shutterTimer;
+        bool m_isWait = true;
+
     };
 }
 
