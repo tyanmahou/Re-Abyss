@@ -694,8 +694,8 @@
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\Main.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp" />
-    <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp" />
-    <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp" />
+    <ClCompile Include="app\modules\Stage\StartPos\StartPosContainer.cpp" />
+    <ClCompile Include="app\modules\Stage\StartPos\StartPos.cpp" />
     <ClCompile Include="app\modules\Camera\CameraParam.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp" />
     <ClCompile Include="app\modules\Novel\Chara.cpp" />
@@ -1782,8 +1782,8 @@
     <ClInclude Include="app\commons\Factory\Stage\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Migration\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Storage\Injector.hpp" />
-    <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp" />
-    <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp" />
+    <ClInclude Include="app\modules\Stage\StartPos\StartPosContainer.hpp" />
+    <ClInclude Include="app\modules\Stage\StartPos\StartPos.hpp" />
     <ClInclude Include="app\modules\Camera\CameraParam.hpp" />
     <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp" />
     <ClInclude Include="app\modules\Decor\Map\TileMapData.hpp" />

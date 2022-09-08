@@ -4,15 +4,11 @@
 
 namespace abyss
 {
-    class StartPosModel
+    class StartPos
     {
-        s3d::int32 m_startId = -1;
-        s3d::Vec2 m_pos{0, 0};
-        Forward m_forward{ Forward::Right };
-        bool m_isSave = true;
     public :
-        StartPosModel() = default;
-        StartPosModel(
+        StartPos() = default;
+        StartPos(
             s3d::int32 startId, 
             const s3d::Vec2& pos, 
             const Forward& forward,
@@ -36,5 +32,10 @@ namespace abyss
         {
             return m_isSave;
         }
+    private:
+        s3d::int32 m_startId = -1;
+        s3d::Vec2 m_pos{ 0, 0 };
+        Forward m_forward{ Forward::Right };
+        bool m_isSave = true;
     };
 }

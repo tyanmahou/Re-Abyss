@@ -5,7 +5,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Room/RoomData.hpp>
-#include <abyss/models/Actor/Gimmick/StartPos/StartPosListModel.hpp>
+#include <abyss/modules/Stage/StartPos/StartPosContainer.hpp>
 
 namespace abyss
 {
@@ -20,7 +20,7 @@ namespace abyss
     private:
 		std::shared_ptr<StageData> m_stageData;
 
-		StartPosListModel m_startPos;
+        StartPosContainer m_startPos;
 
 		Manager* m_pManager;
 	private:
@@ -39,7 +39,7 @@ namespace abyss
 		bool checkOut() const;
 		bool checkIn() const;
 
-		s3d::Optional<StartPosModel> findStartPos(const s3d::int32 startId) const;
+		s3d::Optional<StartPos> findStartPos(const s3d::int32 startId) const;
 		s3d::Optional<Room::RoomData> findRoom(const s3d::Vec2& pos) const;
 
 		void load();

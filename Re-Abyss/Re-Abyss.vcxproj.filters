@@ -1362,10 +1362,10 @@
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.cpp">
+    <ClCompile Include="app\modules\Stage\StartPos\StartPosContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\models\Actor\Gimmick\StartPos\StartPosModel.cpp">
+    <ClCompile Include="app\modules\Stage\StartPos\StartPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Camera\CameraParam.cpp">
@@ -4574,10 +4574,10 @@
     <ClInclude Include="app\commons\Factory\Storage\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosListModel.hpp">
+    <ClInclude Include="app\modules\Stage\StartPos\StartPosContainer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Actor\Gimmick\StartPos\StartPosModel.hpp">
+    <ClInclude Include="app\modules\Stage\StartPos\StartPos.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Camera\CameraParam.hpp">

@@ -54,17 +54,17 @@ namespace
         return s3d::none;
     }
 
-    StartPosListModel GetStartPosList(const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
+    StartPosContainer GetStartPosList(const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
     {
-        StartPosListModel ret;
+        StartPosContainer ret;
 
         for (const auto& gimmick : gimmicks) {
             if (gimmick->type != Actor::Gimmick::GimmickType::StartPos) {
                 continue;
             }
             const auto& startPos = static_cast<const Actor::Gimmick::StartPosEntity&>(*gimmick);
-            StartPosModel model{ startPos.startId, startPos.pos, startPos.forward, startPos.isSave };
-            ret.add(model);
+            StartPos entry{ startPos.startId, startPos.pos, startPos.forward, startPos.isSave };
+            ret.add(entry);
         }
         return ret;
     }
@@ -349,7 +349,7 @@ namespace abyss
         //world.flush();
         return true;
     }
-    s3d::Optional<StartPosModel> Stage::findStartPos(const s3d::int32 startId)const
+    s3d::Optional<StartPos> Stage::findStartPos(const s3d::int32 startId)const
     {
         return m_startPos.find(startId);
     }

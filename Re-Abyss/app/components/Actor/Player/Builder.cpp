@@ -38,8 +38,6 @@
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
 #include <abyss/components/Actor/Player/CameraTarget.hpp>
 
-#include <abyss/models/Actor/Gimmick/StartPos/StartPosModel.hpp>
-
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 
