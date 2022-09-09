@@ -13,6 +13,6 @@ namespace abyss::Actor::Gimmick::ShutterWall
             m_pos - baseSize / 2,
             baseSize.x,
             baseSize.y * m_shutterRate
-        ).draw();
+        ).draw(m_colorMul);
     }
 }

@@ -20,10 +20,16 @@ namespace abyss::Actor::Gimmick::ShutterWall
             m_shutterRate = rate;
             return *this;
         }
+        ShutterWallVM& setColorMul(const s3d::ColorF color)
+        {
+            m_colorMul = color;
+            return *this;
+        }
         void draw() const;
     private:
         TexturePacker m_texture;
         s3d::Vec2 m_pos;
         double m_shutterRate = 1.0;
+        s3d::ColorF m_colorMul;
     };
 }

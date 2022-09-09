@@ -1,6 +1,12 @@
 #include <abyss/components/Actor/Gimmick/ShutterWall/Builder.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Common/ColorCtrl.hpp>
+#include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
+#include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
+#include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
@@ -18,6 +24,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
 {
     void Builder::Build(ActorObj* pActor, const ShutterWallEntity& entity)
     {
+        // 地形
         {
             pActor->attach<TerrainProxy>(pActor)
                 ->setColDirection(ColDirection::All)
@@ -30,6 +37,27 @@ namespace abyss::Actor::Gimmick::ShutterWall
             pActor->attach<Locator>()
                 ->setPos(entity.pos)
                 ;
+        }
+        // 衝突
+        {
+            auto collider = pActor->attach<Collider>();
+            pActor->attach<ColCtrl>(pActor)
+                ->addBranch()
+                ->addNode<Col::Node>(collider->main())
+                .setLayer(ColSys::LayerGroup::Gimmick)
+                .attach<Col::Receiver>(pActor)
+                ;
+        }
+        // ダメージ
+        {
+            pActor->attach<DamageCtrl>(pActor)
+                ->setInvincibleTime(0.2);
+            //pActor->attach<Enemy::DeadCallback>(pActor);
+            //pActor->attach<Enemy::DamageCallback>(pActor);
+
+            // 色制御
+            pActor->attach<ColorCtrl>(pActor);
+            pActor->attach<ColorAnim::DamageColor>(pActor);
         }
         // シャッター制御
         {
@@ -64,12 +92,14 @@ namespace
         {
             m_locator = m_pActor->find<Locator>();
             m_shutter = m_pActor->find<ShutterCtrl>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
         ShutterWallVM* bind() const override
         {
             return &m_view
                 ->setPos(m_locator->getPos())
                 .setShutterRate(m_shutter->getShutterRate())
+                .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
     private:
@@ -77,6 +107,7 @@ namespace
 
         Ref<Locator> m_locator;
         Ref<ShutterCtrl> m_shutter;
+        Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<ShutterWallVM> m_view;
     };
 }
