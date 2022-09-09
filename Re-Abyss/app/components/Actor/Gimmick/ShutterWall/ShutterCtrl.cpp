@@ -23,16 +23,20 @@ namespace abyss::Actor::Gimmick::ShutterWall
         }
         // 地震
         m_pActor->getModule<Camera>()->startQuake(4.0, 0.3);
+        m_col->setActive(true);
 
         co_return;
     }
     void ShutterCtrl::setup(Executer executer)
     {
         executer.on<IComponent>().addAfter<TerrainProxy>();
+        executer.on<IComponent>().addAfter<ColCtrl>();
     }
     void ShutterCtrl::onStart()
     {
         m_terrain = m_pActor->find<TerrainProxy>();
+        m_col = m_pActor->find<ColCtrl>();
+        m_col->setActive(false);
     }
     void ShutterCtrl::onPrePhysics()
     {

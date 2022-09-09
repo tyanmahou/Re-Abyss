@@ -2,6 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
+#include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
@@ -26,6 +27,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     private:
         ActorObj* m_pActor;
         Ref<TerrainProxy> m_terrain;
+        Ref<ColCtrl> m_col;
         TimeLite::Timer m_shutterTimer;
         bool m_isWait = true;
 
