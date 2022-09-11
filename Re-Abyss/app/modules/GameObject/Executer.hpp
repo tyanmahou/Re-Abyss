@@ -45,6 +45,8 @@ namespace abyss
         }
 
         Command onStart() const;
+
+        [[deprecated("Unimplemented")]]
         Command onEnd() const;
     private:
         class Impl;
