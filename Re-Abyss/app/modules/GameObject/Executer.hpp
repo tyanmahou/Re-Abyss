@@ -10,9 +10,6 @@ namespace abyss
 {
     class Executer
     {
-        class Impl;
-        std::shared_ptr<Impl> m_pImpl;
-
         class Command
         {
             const Executer* m_executer;
@@ -46,5 +43,11 @@ namespace abyss
         {
             return this->on(typeid(Process));
         }
+
+        Command onStart() const;
+        Command onEnd() const;
+    private:
+        class Impl;
+        std::shared_ptr<Impl> m_pImpl;
     };
 }
