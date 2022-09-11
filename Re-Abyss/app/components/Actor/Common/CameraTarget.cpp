@@ -28,7 +28,7 @@ namespace abyss::Actor
     {}
     void CameraTarget::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<ILocator>();
+        executer.onStart().addAfter<ILocator>();
     }
     void CameraTarget::onStart()
     {

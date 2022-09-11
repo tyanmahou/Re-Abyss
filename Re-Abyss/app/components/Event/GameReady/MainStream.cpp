@@ -17,7 +17,7 @@ namespace abyss::Event::GameReady
     {}
     void MainStream::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<FadeIrisOut>();
+        executer.onStart().addAfter<FadeIrisOut>();
     }
     void MainStream::onStart()
     {

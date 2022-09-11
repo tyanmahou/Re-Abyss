@@ -17,7 +17,7 @@ namespace abyss::Cron
         }
         void setup(Executer executer)
         {
-            executer.on<IComponent>().addAfter<Room::IRoomMoveCallback>();
+            executer.onStart().addAfter<Room::IRoomMoveCallback>();
         }
         void onStart()
         {

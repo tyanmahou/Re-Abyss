@@ -12,7 +12,7 @@ namespace abyss::Actor::Item
 
     void ItemCollision::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<IItemReactor>();
+        executer.onStart().addAfter<IItemReactor>();
     }
 
     void ItemCollision::onStart()

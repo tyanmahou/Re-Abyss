@@ -21,7 +21,7 @@ namespace abyss::UI::Title::BackGround
 
     void ViewCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<BgCtrl>();
+        executer.onStart().addAfter<BgCtrl>();
     }
     void ViewCtrl::onStart()
     {

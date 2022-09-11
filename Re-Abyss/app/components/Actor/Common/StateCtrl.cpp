@@ -18,7 +18,7 @@ namespace abyss::Actor
 
     void StateCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<IStateCallback>();
+        executer.onStart().addAfter<IStateCallback>();
     }
 
     void StateCtrl::onStart()

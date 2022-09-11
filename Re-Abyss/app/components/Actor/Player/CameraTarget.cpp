@@ -87,7 +87,7 @@ namespace abyss::Actor::Player
     {}
     void CameraTarget::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<Body>();
+        executer.onStart().addAfter<Body>();
         executer.on<IPostPhysics>().addAfter<MapCollider>();
     }
     void CameraTarget::onStart()

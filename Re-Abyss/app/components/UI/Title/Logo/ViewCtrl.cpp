@@ -18,7 +18,7 @@ namespace abyss::UI::Title::Logo
 
     void ViewCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<LogoCtrl>();
+        executer.onStart().addAfter<LogoCtrl>();
     }
     void ViewCtrl::onStart()
     {

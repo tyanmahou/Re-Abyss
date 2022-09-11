@@ -32,7 +32,7 @@ namespace abyss::Event
     {}
     void StreamHandler::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<IStream>();
+        executer.onStart().addAfter<IStream>();
     }
     void StreamHandler::onStart()
     {

@@ -29,8 +29,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
     }
     void ShutterCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<TerrainProxy>();
-        executer.on<IComponent>().addAfter<ColCtrl>();
+        executer.onStart().addAfter<TerrainProxy>();
+        executer.onStart().addAfter<ColCtrl>();
     }
     void ShutterCtrl::onStart()
     {

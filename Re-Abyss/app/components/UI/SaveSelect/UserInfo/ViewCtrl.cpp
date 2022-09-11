@@ -12,7 +12,7 @@ namespace abyss::UI::SaveSelect::UserInfo
 
     void ViewCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<Main::UserSelector>();
+        executer.onStart().addAfter<Main::UserSelector>();
     }
     void ViewCtrl::onStart()
     {

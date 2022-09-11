@@ -10,7 +10,7 @@ namespace abyss::UI::SaveSelect::Main
 
     void SelectFrameCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<UserSelector>();
+        executer.onStart().addAfter<UserSelector>();
     }
 
     void SelectFrameCtrl::onStart()

@@ -31,8 +31,8 @@ namespace abyss::Actor
     }
     void ColorCtrl::setup(Executer executer)
     {
-        executer.on<IComponent>().addAfter<ColorAnim::IColorMul>();
-        executer.on<IComponent>().addAfter<ColorAnim::IColorAdd>();
+        executer.onStart().addAfter<ColorAnim::IColorMul>();
+        executer.onStart().addAfter<ColorAnim::IColorAdd>();
 
         executer.on<IPreDraw>().addAfter<ColorAnim::IColorMul>();
         executer.on<IPreDraw>().addAfter<ColorAnim::IColorAdd>();
