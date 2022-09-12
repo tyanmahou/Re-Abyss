@@ -50,7 +50,7 @@ float3 rgb2hsv(in float3 rgb)
 }
 
 // カラー合成
-float4 v(in float4 dest, in float4 src)
+float4 color(in float4 dest, in float4 src)
 {
     float3 hsvDest = rgb2hsv(dest.rgb);
     float3 hsvSrc = rgb2hsv(src.rgb * src.a);
