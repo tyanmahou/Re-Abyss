@@ -6,6 +6,7 @@ namespace abyss::Sfx
     class ColorLayer
     {
     public:
+        ColorLayer();
         ColorLayer& setColor(const s3d::ColorF& color);
         ColorLayer& setIsValid(bool isValid)
         {
@@ -19,6 +20,6 @@ namespace abyss::Sfx
         s3d::ScopedCustomShader2D start() const;
     private:
         ColorShader m_shader;
-        bool m_isValid = false;
+        bool m_isValid;
     };
 }

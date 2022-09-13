@@ -2,6 +2,10 @@
 
 namespace  abyss::Sfx
 {
+    ColorLayer::ColorLayer():
+        m_isValid(false)
+    {
+    }
     ColorLayer& ColorLayer::setColor(const s3d::ColorF& color)
     {
         m_shader.setColor(color);
