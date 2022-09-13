@@ -10,8 +10,8 @@ namespace abyss
         class Impl;
     public:
         ColorShader();
-
-        ColorShader& setColor(const s3d::ColorF& color);
+        ~ColorShader();
+        const ColorShader& setColor(const s3d::ColorF& color) const;
         [[nodiscard]] s3d::ScopedCustomShader2D start() const;
     private:
         std::unique_ptr<Impl> m_pImpl;

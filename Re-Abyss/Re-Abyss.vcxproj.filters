@@ -2291,6 +2291,9 @@
     <ClCompile Include="app\views\Shader\Color\ColorShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\ColorLayer\ColorLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6020,6 +6023,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\Color\ColorShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sfx\ColorLayer\ColorLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

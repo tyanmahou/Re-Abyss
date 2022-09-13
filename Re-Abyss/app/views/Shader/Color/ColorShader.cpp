@@ -36,7 +36,11 @@ namespace abyss
     {
     }
 
-    ColorShader& ColorShader::setColor(const s3d::ColorF& color)
+    ColorShader::~ColorShader()
+    {
+    }
+
+    const ColorShader& ColorShader::setColor(const s3d::ColorF& color) const
     {
         m_pImpl->setColor(color);
         return *this;

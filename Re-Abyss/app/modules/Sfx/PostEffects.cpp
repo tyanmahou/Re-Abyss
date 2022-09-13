@@ -8,6 +8,7 @@ namespace abyss::Sfx
         m_bloom(std::make_unique<Bloom>()),
         m_moisture(std::make_unique<Moisture>()),
         m_blur(std::make_unique<Blur>()),
+        m_color(std::make_unique<ColorLayer>()),
         m_scanline(std::make_unique<Scanline>())
     {}
 
@@ -42,6 +43,11 @@ namespace abyss::Sfx
     Blur* PostEffects::getBlur() const
     {
         return m_blur.get();
+    }
+
+    ColorLayer* PostEffects::getColorLayer() const
+    {
+        return m_color.get();
     }
 
     Scanline* PostEffects::getScanline() const
