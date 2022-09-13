@@ -1,5 +1,4 @@
 Texture2D		g_texture0 : register(t0);
-Texture2D		g_texture1 : register(t1);
 SamplerState	g_sampler0 : register(s0);
 
 cbuffer PSConstants2D : register(b0)
@@ -17,6 +16,11 @@ struct PSInput
     float4 color	: COLOR0;
     float2 uv		: TEXCOORD0;
 };
+
+cbuffer ShaderParam : register(b1)
+{
+    float4 g_color;
+}
 
 // https://chilliant.com/rgb2hsv.html
 float3 hue2rgb(in float h)
@@ -67,7 +71,7 @@ float4 color(in float4 dest, in float4 src)
 float4 PS(PSInput input) : SV_TARGET
 {
     const float2 uv = input.uv;
-    float4 src = g_texture0.Sample(g_sampler0, uv);
-    float4 dest = g_texture1.Sample(g_sampler0, uv);
+    float4 src = g_color;
+    float4 dest = g_texture0.Sample(g_sampler0, uv);
     return color(dest, src);
 }

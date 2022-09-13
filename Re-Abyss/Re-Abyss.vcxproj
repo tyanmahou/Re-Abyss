@@ -907,6 +907,7 @@
     <ClCompile Include="app\views\Light\LightView.cpp" />
     <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp" />
     <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp" />
+    <ClCompile Include="app\views\Shader\Color\ColorShader.cpp" />
     <ClCompile Include="app\views\Shader\DecorFar\DecorFarShader.cpp" />
     <ClCompile Include="app\views\Shader\Distortion\DistortionShader.cpp" />
     <ClCompile Include="app\views\Shader\Dither\DitherShader.cpp" />
@@ -2150,6 +2151,7 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
     <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp" />
+    <ClInclude Include="app\views\Shader\Color\ColorShader.hpp" />
     <ClInclude Include="app\views\Shader\DecorFar\DecorFarShader.hpp" />
     <ClInclude Include="app\views\Shader\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Shader\Dither\DitherShader.hpp" />
