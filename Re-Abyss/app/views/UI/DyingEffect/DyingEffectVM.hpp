@@ -5,12 +5,6 @@ namespace abyss::UI::DyingEffect
 {
     class DyingEffectVM
     {
-    private:
-        s3d::Texture m_texture;
-        s3d::Vec2 m_pos;
-        double m_hp = 1;
-        double m_maxHp = 1;
-        double m_time = 0;
     public:
         DyingEffectVM();
 
@@ -30,5 +24,11 @@ namespace abyss::UI::DyingEffect
             return *this;
         }
         void draw() const;
+    private:
+        s3d::Texture m_texture;
+        s3d::Vec2 m_pos{};
+        double m_hp = 1;
+        double m_maxHp = 1;
+        double m_time = 0;
     };
 }

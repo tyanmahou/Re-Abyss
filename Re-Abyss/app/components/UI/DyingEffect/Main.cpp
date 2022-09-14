@@ -2,6 +2,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/views/UI/DyingEffect/DyingEffectVM.hpp>
@@ -20,6 +21,9 @@ namespace abyss::UI::DyingEffect
         m_hpModel = m_pActor->find<Actor::HP>();
         m_hp = 0;
         m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
+        m_pUi->getModule<PostEffects>()
+            ->getColorLayer()
+            ->setColor(ColorF(1, 0.6, 0.6, 1));
     }
 
     void Main::onUpdate()
@@ -31,6 +35,12 @@ namespace abyss::UI::DyingEffect
 
     void Main::onDraw() const
     {
+        // ポストエフェクト設定
+        {
+            m_pUi->getModule<PostEffects>()
+                ->getColorLayer()
+                ->setIsValid(m_hp <= 0);
+        }
         m_view
             ->setHp(m_hp)
             .setMaxHp(m_maxHp)
