@@ -18,7 +18,7 @@ namespace abyss::UI::DyingEffect
             return;
         }
         ScopedRenderStates2D blend(BlendState::Additive);
-        auto color = ColorF(1, 0, 0, 0.8 - 0.4 * Periodic::Sawtooth0_1(1s, m_time));
+        auto color = ColorF(1, 1.0 - 0.3 * Periodic::Sawtooth0_1(1s, m_time));
         m_texture.draw(color);
     }
 
