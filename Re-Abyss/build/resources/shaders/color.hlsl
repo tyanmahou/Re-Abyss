@@ -22,38 +22,74 @@ cbuffer ShaderParam : register(b1)
     float4 g_color;
 }
 
-// https://chilliant.com/rgb2hsv.html
-float3 hue2rgb(in float h)
-{
-    float r = abs(h * 6 - 3) - 1;
-    float g = 2 - abs(h * 6 - 2);
-    float b = 2 - abs(h * 6 - 4);
-    return saturate(float3(r, g, b));
-}
-float3 hsl2rgb(in float3 hsl)
-{
-    float3 rgb = hue2rgb(hsl.x);
-    float c = (1 - abs(2 * hsl.z - 1)) * hsl.y;
-    return (rgb - 0.5) * c + hsl.z;
-}
-static const float epsilon = 1e-10;
-float3 rgb2hcv(in float3 rgb)
-{
-    float4 p = (rgb.g < rgb.b) ? float4(rgb.bg, -1.0, 2.0 / 3.0) : float4(rgb.gb, 0.0, -1.0 / 3.0);
-    float4 q = (rgb.r < p.x) ? float4(p.xyw, rgb.r) : float4(rgb.r, p.yzx);
-    float c = q.x - min(q.w, q.y);
-    float h = abs((q.w - q.y) / (6 * c + epsilon) + q.z);
-    return float3(h, c, q.x);
-}
 float3 rgb2hsl(in float3 rgb)
 {
-    float3 hcv = rgb2hcv(rgb);
-    float l = hcv.z - hcv.y * 0.5;
-    float s = hcv.y / (1 - abs(l * 2 - 1) + epsilon);
-    return float3(hcv.x, s, l);
+    float r = rgb.r;
+    float g = rgb.g;
+    float b = rgb.b;
+
+    float maxv = max(r, max(g, b));
+    float minv = min(r, min(g, b));
+    float h = -1;
+    if (minv == maxv) {
+        h = -1;
+    } else if (minv == b) {
+        h = ((g - r) / (maxv - minv) + 1.0) / 6.0;
+    } else if (minv == r) {
+        h = ((b - g) / (maxv - minv) + 3.0) / 6.0;
+    } else if (minv == g) {
+        h = ((r - b) / (maxv - minv) + 5.0) / 6.0;
+    }
+    float l = (maxv + minv) / 2.0;
+    float s = (maxv - minv) / (1 - abs(maxv + minv - 1));
+    return float3(h, s, l);
+}
+
+float3 hsl2rgb(in float3 hsl)
+{
+    float h = hsl.r;
+    float s = hsl.g;
+    float l = hsl.b;
+
+    float maxv = l + (s * (1 - abs(2 * l - 1))) / 2;
+    float minv = l - (s * (1 - abs(2 * l - 1))) / 2;
+
+    float r, g, b;
+    float h360 = h * 6;
+    if (h < 0) {
+        r = maxv;
+        g = maxv;
+        b = maxv;
+    } else if (h360 <= 1) {
+        r = maxv;
+        g = minv + (maxv - minv) * h360;
+        b = minv;
+    } else if (h360 <= 2) {
+        r = minv + (maxv - minv) * (2 - h360);
+        g = maxv;
+        b = minv;
+    } else if (h360 <= 3) {
+        r = minv;
+        g = maxv;
+        b = minv + (maxv - minv) * (h360 - 2);
+    } else if (h360 <= 4) {
+        r = minv;
+        g = minv + (maxv - minv) * (4 - h360);
+        b = maxv;
+    } else if (h360 <= 5) {
+        r = minv + (maxv - minv) * (h360 - 4);
+        g = minv;
+        b = maxv;
+    } else {
+        r = maxv;
+        g = minv;
+        b = minv + (maxv - minv) * (6 - h360);
+    }
+    return float3(r, g, b);
 }
 
 // カラー合成
+// LCH空間のほうがそれっぽいが、コスト安なのでHSL空間でやる
 float4 color(in float4 dest, in float4 src)
 {
     float3 hslDest = rgb2hsl(dest.rgb);

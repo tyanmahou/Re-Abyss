@@ -23,7 +23,7 @@ namespace abyss::UI::DyingEffect
         m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
         m_pUi->getModule<PostEffects>()
             ->getColorLayer()
-            ->setColor(ColorF(1, 0.6, 0.6, 1));
+            ->setColor(ColorF(1, 0, 0, 0.8));
     }
 
     void Main::onUpdate()
