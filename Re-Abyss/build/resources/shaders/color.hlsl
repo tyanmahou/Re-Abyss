@@ -55,35 +55,35 @@ float3 hsl2rgb(in float3 hsl)
     float minv = l - (s * (1 - abs(2 * l - 1))) / 2;
 
     float r, g, b;
-    float h360 = h * 6;
+    float h6 = h * 6;
     if (h < 0) {
         r = maxv;
         g = maxv;
         b = maxv;
-    } else if (h360 <= 1) {
+    } else if (h6 <= 1) {
         r = maxv;
-        g = minv + (maxv - minv) * h360;
+        g = minv + (maxv - minv) * h6;
         b = minv;
-    } else if (h360 <= 2) {
-        r = minv + (maxv - minv) * (2 - h360);
+    } else if (h6 <= 2) {
+        r = minv + (maxv - minv) * (2 - h6);
         g = maxv;
         b = minv;
-    } else if (h360 <= 3) {
+    } else if (h6 <= 3) {
         r = minv;
         g = maxv;
-        b = minv + (maxv - minv) * (h360 - 2);
-    } else if (h360 <= 4) {
+        b = minv + (maxv - minv) * (h6 - 2);
+    } else if (h6 <= 4) {
         r = minv;
-        g = minv + (maxv - minv) * (4 - h360);
+        g = minv + (maxv - minv) * (4 - h6);
         b = maxv;
-    } else if (h360 <= 5) {
-        r = minv + (maxv - minv) * (h360 - 4);
+    } else if (h6 <= 5) {
+        r = minv + (maxv - minv) * (h6 - 4);
         g = minv;
         b = maxv;
     } else {
         r = maxv;
         g = minv;
-        b = minv + (maxv - minv) * (6 - h360);
+        b = minv + (maxv - minv) * (6 - h6);
     }
     return float3(r, g, b);
 }
