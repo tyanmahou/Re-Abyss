@@ -289,7 +289,7 @@
     <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
     <ClCompile Include="app\modules\Sfx\Bloom\Bloom.cpp" />
     <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
-    <ClCompile Include="app\modules\Sfx\ColorLayer\ColorLayer.cpp" />
+    <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp" />
     <ClCompile Include="app\modules\Sfx\DecorFar\DecorFar.cpp" />
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
@@ -908,7 +908,7 @@
     <ClCompile Include="app\views\Light\LightView.cpp" />
     <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp" />
     <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp" />
-    <ClCompile Include="app\views\Shader\Color\ColorShader.cpp" />
+    <ClCompile Include="app\views\Shader\Blend\BlendShader.cpp" />
     <ClCompile Include="app\views\Shader\DecorFar\DecorFarShader.cpp" />
     <ClCompile Include="app\views\Shader\Distortion\DistortionShader.cpp" />
     <ClCompile Include="app\views\Shader\Dither\DitherShader.cpp" />
@@ -1228,7 +1228,7 @@
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
     <ClInclude Include="app\modules\Sfx\Bloom\Bloom.hpp" />
     <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
-    <ClInclude Include="app\modules\Sfx\ColorLayer\ColorLayer.hpp" />
+    <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp" />
     <ClInclude Include="app\modules\Sfx\DecorFar\DecorFar.hpp" />
     <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
@@ -2153,7 +2153,7 @@
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
     <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp" />
-    <ClInclude Include="app\views\Shader\Color\ColorShader.hpp" />
+    <ClInclude Include="app\views\Shader\Blend\BlendShader.hpp" />
     <ClInclude Include="app\views\Shader\DecorFar\DecorFarShader.hpp" />
     <ClInclude Include="app\views\Shader\Distortion\DistortionShader.hpp" />
     <ClInclude Include="app\views\Shader\Dither\DitherShader.hpp" />

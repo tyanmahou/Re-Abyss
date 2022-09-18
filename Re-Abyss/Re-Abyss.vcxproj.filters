@@ -2288,10 +2288,10 @@
     <ClCompile Include="app\modules\GameObject\IComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Shader\Color\ColorShader.cpp">
+    <ClCompile Include="app\views\Shader\Blend\BlendShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Sfx\ColorLayer\ColorLayer.cpp">
+    <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6022,10 +6022,10 @@
     <ClInclude Include="app\modules\GameObject\EventKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Shader\Color\ColorShader.hpp">
+    <ClInclude Include="app\views\Shader\Blend\BlendShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Sfx\ColorLayer\ColorLayer.hpp">
+    <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

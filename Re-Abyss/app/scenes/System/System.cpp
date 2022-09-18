@@ -232,7 +232,7 @@ namespace abyss::Sys
                 Sfx::Bloom* bloom = mod<PostEffects>()->getBloom();
                 Sfx::Moisture* moisture = mod<PostEffects>()->getMoisture();
                 Distortion* dist = nullptr;
-                Sfx::ColorLayer* colorLayer = mod<PostEffects>()->getColorLayer();
+                Sfx::DeadEffect* deadEffect = mod<PostEffects>()->getDeadEffect();
                 Sfx::Blur* blur = mod<PostEffects>()->getBlur();
                 if constexpr (config.isStage) {
                     light = mod<Light>();
@@ -251,8 +251,8 @@ namespace abyss::Sys
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDistortion)) {
                     dist = nullptr;
                 }
-                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderColorLayer)) {
-                    colorLayer = nullptr;
+                if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderDeadEffect)) {
+                    deadEffect = nullptr;
                 }
                 if (!Debug::MenuUtil::IsDebug(Debug::DebugFlag::RenderBlur)) {
                     blur = nullptr;
@@ -268,7 +268,7 @@ namespace abyss::Sys
                         drawer->draw(DrawLayer::LightFront);
                     })
                     .apply(dist != nullptr, [=] { return dist->start(); })
-                    .apply(colorLayer != nullptr && colorLayer->isValid(), [=] { return colorLayer->start(); })
+                    .apply(deadEffect != nullptr && deadEffect->isValid(), [=] { return deadEffect->start(); })
                     .apply(blur != nullptr && blur->isValid(), [=] { return blur->start(); })
                     .drawWorld(cameraView.getQuakeOffset());
 

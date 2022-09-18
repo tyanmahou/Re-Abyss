@@ -8,7 +8,7 @@ namespace abyss::Sfx
         m_bloom(std::make_unique<Bloom>()),
         m_moisture(std::make_unique<Moisture>()),
         m_blur(std::make_unique<Blur>()),
-        m_color(std::make_unique<ColorLayer>()),
+        m_deadEffect(std::make_unique<DeadEffect>()),
         m_scanline(std::make_unique<Scanline>())
     {}
 
@@ -45,9 +45,9 @@ namespace abyss::Sfx
         return m_blur.get();
     }
 
-    ColorLayer* PostEffects::getColorLayer() const
+    DeadEffect* PostEffects::getDeadEffect() const
     {
-        return m_color.get();
+        return m_deadEffect.get();
     }
 
     Scanline* PostEffects::getScanline() const

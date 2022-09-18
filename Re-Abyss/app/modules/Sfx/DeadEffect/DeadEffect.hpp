@@ -1,14 +1,14 @@
 #pragma once
-#include <abyss/views/Shader/Color/ColorShader.hpp>
+#include <abyss/views/Shader/Blend/BlendShader.hpp>
 
 namespace abyss::Sfx
 {
-    class ColorLayer
+    class DeadEffect
     {
     public:
-        ColorLayer();
-        ColorLayer& setColor(const s3d::ColorF& color);
-        ColorLayer& setIsValid(bool isValid)
+        DeadEffect();
+        DeadEffect& setColor(const s3d::ColorF& color);
+        DeadEffect& setIsValid(bool isValid)
         {
             m_isValid = isValid;
             return *this;
@@ -19,7 +19,7 @@ namespace abyss::Sfx
         }
         s3d::ScopedCustomShader2D start() const;
     private:
-        ColorShader m_shader;
+        BlendShader m_shader;
         bool m_isValid;
     };
 }

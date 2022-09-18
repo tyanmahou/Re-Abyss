@@ -30,7 +30,7 @@
 		<Bloom label="ブルーム" value="true"/>
 		<Moisture label="湿気表現" value="true"/>
 		<Distortion label="歪み" value="true"/>
-		<ColorLayer label="カラー合成" value="true"/>
+		<DeadEffect label="死亡エフェクト" value="true"/>
 		<Blur label="ぼかし" value="true"/>
 		<hr/>
 		<Scanline label="スキャンライン" value="true"/>

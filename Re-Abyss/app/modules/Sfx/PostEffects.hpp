@@ -4,7 +4,7 @@
 #include <abyss/modules/Sfx/Bloom/Bloom.hpp>
 #include <abyss/modules/Sfx/Blur/Blur.hpp>
 #include <abyss/modules/Sfx/DecorFar/DecorFar.hpp>
-#include <abyss/modules/Sfx/ColorLayer/ColorLayer.hpp>
+#include <abyss/modules/Sfx/DeadEffect/DeadEffect.hpp>
 #include <abyss/modules/Sfx/Scanline/Scanline.hpp>
 
 namespace abyss::Sfx
@@ -24,7 +24,7 @@ namespace abyss::Sfx
         Bloom* getBloom() const;
         Moisture* getMoisture() const;
         Blur* getBlur() const;
-        ColorLayer* getColorLayer() const;
+        DeadEffect* getDeadEffect() const;
         Scanline* getScanline() const;
     private:
         Manager* m_pManager;
@@ -32,7 +32,7 @@ namespace abyss::Sfx
         std::unique_ptr<Bloom> m_bloom;
         std::unique_ptr<Moisture> m_moisture;
         std::unique_ptr<Blur> m_blur;
-        std::unique_ptr<ColorLayer> m_color;
+        std::unique_ptr<DeadEffect> m_deadEffect;
         std::unique_ptr<Scanline> m_scanline;
     };
 }

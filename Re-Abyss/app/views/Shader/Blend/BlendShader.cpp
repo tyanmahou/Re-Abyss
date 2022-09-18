@@ -1,4 +1,4 @@
-#include <abyss/views/Shader/Color/ColorShader.hpp>
+#include <abyss/views/Shader/Blend/BlendShader.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <Siv3D.hpp>
 
@@ -12,11 +12,11 @@ namespace
 
 namespace abyss
 {
-    class ColorShader::Impl
+    class BlendShader::Impl
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"color.hlsl"))
+            m_ps(Resource::Assets::Norelease()->load(U"blend.hlsl"))
         {}
         void setColor(const s3d::ColorF& color)
         {
@@ -31,22 +31,22 @@ namespace abyss
         PixelShader m_ps;
         ConstantBuffer<ShaderParam> m_cb;
     };
-    ColorShader::ColorShader() :
+    BlendShader::BlendShader() :
         m_pImpl(std::make_unique<Impl>())
     {
     }
 
-    ColorShader::~ColorShader()
+    BlendShader::~BlendShader()
     {
     }
 
-    const ColorShader& ColorShader::setColor(const s3d::ColorF& color) const
+    const BlendShader& BlendShader::setColor(const s3d::ColorF& color) const
     {
         m_pImpl->setColor(color);
         return *this;
     }
 
-    s3d::ScopedCustomShader2D ColorShader::start() const
+    s3d::ScopedCustomShader2D BlendShader::start() const
     {
         return m_pImpl->start();
     }

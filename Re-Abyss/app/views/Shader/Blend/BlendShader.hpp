@@ -5,13 +5,13 @@
 
 namespace abyss
 {
-    class ColorShader
+    class BlendShader
     {
         class Impl;
     public:
-        ColorShader();
-        ~ColorShader();
-        const ColorShader& setColor(const s3d::ColorF& color) const;
+        BlendShader();
+        ~BlendShader();
+        const BlendShader& setColor(const s3d::ColorF& color) const;
         [[nodiscard]] s3d::ScopedCustomShader2D start() const;
     private:
         std::unique_ptr<Impl> m_pImpl;
