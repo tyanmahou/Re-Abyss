@@ -1,4 +1,5 @@
 [Common/Shader]
+- ps"blend.hlsl"
 - ps"bloom_brightness.hlsl"
 - ps"decor_far.hlsl"
 - ps"distortion.hlsl"
