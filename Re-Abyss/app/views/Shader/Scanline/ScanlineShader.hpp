@@ -10,6 +10,7 @@ namespace abyss
         class Impl;
     public:
         ScanlineShader();
+        ~ScanlineShader();
 
         const ScanlineShader& setTime(double time) const;
         const ScanlineShader& setTextureSize(const s3d::Vec2& size) const;
@@ -17,6 +18,6 @@ namespace abyss
         s3d::ScopedCustomShader2D start() const;
 
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

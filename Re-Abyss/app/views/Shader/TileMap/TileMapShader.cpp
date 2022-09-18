@@ -51,8 +51,11 @@ namespace abyss
         ConstantBuffer<TileMapShaderParam> m_cb;
     };
     TileMapShader::TileMapShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    TileMapShader::~TileMapShader()
+    {
+    }
     TileMapShader& TileMapShader::setTextureSize(const Vec2 & size)
     {
         m_pImpl->setTextureSize(size);

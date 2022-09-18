@@ -42,8 +42,12 @@ namespace abyss
 
     };
     SkyShader::SkyShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+
+    SkyShader::~SkyShader()
+    {
+    }
 
     SkyShader& SkyShader::setTime(double time)
     {

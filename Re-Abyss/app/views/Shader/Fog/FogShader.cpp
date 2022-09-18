@@ -54,7 +54,11 @@ namespace abyss
     };
 
     FogShader::FogShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
+    {
+    }
+
+    FogShader::~FogShader()
     {
     }
 

@@ -10,12 +10,13 @@ namespace abyss
         class Impl;
     public:
         DecorFarShader();
+        ~DecorFarShader();
 
         const DecorFarShader& setTime(double time) const;
 
         s3d::ScopedCustomShader2D start() const;
 
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

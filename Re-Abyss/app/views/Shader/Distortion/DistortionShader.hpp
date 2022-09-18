@@ -10,10 +10,11 @@ namespace abyss
         class Impl;
     public:
         DistortionShader();
+        ~DistortionShader();
 
         const DistortionShader& setDistTexture(const s3d::Texture& dist) const;
         s3d::ScopedCustomShader2D start() const;
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

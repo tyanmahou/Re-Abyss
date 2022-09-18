@@ -41,8 +41,11 @@ namespace abyss
         s3d::Texture m_dither;
     };
     DitherShader::DitherShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    DitherShader::~DitherShader()
+    {
+    }
     const DitherShader& DitherShader::setIsShape(bool isShape) const
     {
         m_pImpl->setIsShape(isShape);

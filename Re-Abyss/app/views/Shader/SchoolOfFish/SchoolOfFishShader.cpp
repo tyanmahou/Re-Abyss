@@ -83,8 +83,11 @@ namespace abyss
     };
 
     SchoolOfFishShader::SchoolOfFishShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    SchoolOfFishShader::~SchoolOfFishShader()
+    {
+    }
     const SchoolOfFishShader& SchoolOfFishShader::setPos(const s3d::Vec2& pos) const
     {
         m_pImpl->setPos(pos);

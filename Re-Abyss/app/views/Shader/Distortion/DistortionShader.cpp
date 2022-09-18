@@ -36,8 +36,12 @@ namespace abyss
     };
 
     DistortionShader::DistortionShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+
+    DistortionShader::~DistortionShader()
+    {
+    }
 
     const DistortionShader& DistortionShader::setDistTexture(const s3d::Texture& dist) const
     {

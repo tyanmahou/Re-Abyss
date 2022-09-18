@@ -9,15 +9,17 @@ namespace abyss
     /// </summary>
     class TileMapShader
     {
-        class Impl;
-        std::shared_ptr<Impl> m_pImpl;
     public:
         TileMapShader();
+        ~TileMapShader();
 
         TileMapShader& setTextureSize(const s3d::Vec2& size);
 
         TileMapShader& setMapChip(const s3d::Texture& mapChip, const s3d::Vec2& tileSize);
 
         s3d::ScopedCustomShader2D start(s3d::Image&& image) const;
+    private:
+        class Impl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

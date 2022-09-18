@@ -20,8 +20,11 @@ namespace abyss
     };
 
     RgbShiftShader::RgbShiftShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    RgbShiftShader::~RgbShiftShader()
+    {
+    }
     s3d::ScopedCustomShader2D RgbShiftShader::start() const
     {
         return m_pImpl->start();

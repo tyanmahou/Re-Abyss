@@ -42,8 +42,11 @@ namespace abyss
         s3d::Texture m_lights;
     };
     LightShader::LightShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    LightShader::~LightShader()
+    {
+    }
     const LightShader& LightShader::setBgColor(const s3d::ColorF & color) const
     {
         m_pImpl->setBgColor(color);

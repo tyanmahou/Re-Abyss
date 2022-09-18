@@ -38,8 +38,11 @@ namespace abyss
         ConstantBuffer<ShaderParam> m_cb;
     };
     ScanlineShader::ScanlineShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    ScanlineShader::~ScanlineShader()
+    {
+    }
     const ScanlineShader& ScanlineShader::setTime(double time) const
     {
         m_pImpl->setTime(time);

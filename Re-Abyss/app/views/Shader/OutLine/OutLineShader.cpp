@@ -50,8 +50,11 @@ namespace abyss
         }
     };
     OutLineShader::OutLineShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    OutLineShader::~OutLineShader()
+    {
+    }
     const OutLineShader& OutLineShader::setTextureSize(const s3d::Vec2 & size) const
     {
         m_pImpl->setTextureSize(size);

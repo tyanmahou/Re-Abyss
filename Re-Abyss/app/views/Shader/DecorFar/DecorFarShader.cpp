@@ -32,8 +32,11 @@ namespace abyss
         ConstantBuffer<ShaderParam> m_cb;
     };
     DecorFarShader::DecorFarShader():
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    DecorFarShader::~DecorFarShader()
+    {
+    }
     const DecorFarShader& DecorFarShader::setTime(double time) const
     {
         m_pImpl->setTime(time);

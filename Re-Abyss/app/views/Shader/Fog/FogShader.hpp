@@ -9,6 +9,7 @@ namespace abyss
         class Impl;
     public:
         FogShader();
+        ~FogShader();
 
         const FogShader& setFogColor(const s3d::ColorF& color) const;
         const FogShader& setFogFactor(double factor) const;
@@ -16,6 +17,6 @@ namespace abyss
 
         [[nodiscard]] s3d::ScopedCustomShader2D start() const;
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

@@ -45,8 +45,11 @@ namespace abyss
         RenderTexture m_blur8A, m_blur8B;
     };
     MoistureShader::MoistureShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
     {}
+    MoistureShader::~MoistureShader()
+    {
+    }
     void MoistureShader::apply(const s3d::Texture& tex) const
     {
         m_pImpl->apply(tex);

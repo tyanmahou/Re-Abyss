@@ -9,6 +9,7 @@ namespace abyss
         class Impl;
     public:
         LightShader();
+        ~LightShader();
 
         const LightShader& setBgColor(const s3d::ColorF& color) const;
 
@@ -16,6 +17,6 @@ namespace abyss
         s3d::ScopedCustomShader2D start() const;
 
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

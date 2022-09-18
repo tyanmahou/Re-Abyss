@@ -53,7 +53,11 @@ namespace abyss
         RenderTexture m_blurA, m_blurB;
     };
     BloomShader::BloomShader() :
-        m_pImpl(std::make_shared<Impl>())
+        m_pImpl(std::make_unique<Impl>())
+    {
+    }
+
+    BloomShader::~BloomShader()
     {
     }
 

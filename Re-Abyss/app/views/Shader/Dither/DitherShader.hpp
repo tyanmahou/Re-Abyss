@@ -19,13 +19,13 @@ namespace abyss
         };
     public:
         DitherShader();
-
+        ~DitherShader();
         const DitherShader& setIsShape(bool isShape) const;
         const DitherShader& setKind(Kind kind) const;
 
         [[nodiscard]] s3d::ScopedCustomShader2D start() const;
 
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }

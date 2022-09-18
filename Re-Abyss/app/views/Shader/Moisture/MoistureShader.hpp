@@ -9,10 +9,11 @@ namespace abyss
         class Impl;
     public:
         MoistureShader();
+        ~MoistureShader();
 
         void apply(const s3d::Texture& tex) const;
 
     private:
-        std::shared_ptr<Impl> m_pImpl;
+        std::unique_ptr<Impl> m_pImpl;
     };
 }
