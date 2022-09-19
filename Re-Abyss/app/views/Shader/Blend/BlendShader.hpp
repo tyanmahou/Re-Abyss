@@ -5,11 +5,18 @@
 
 namespace abyss
 {
+    /// <summary>
+    /// ブレンドモード
+    /// </summary>
     enum class BlendMode
     {
-        Color
+        /// <summary>カラー</summary>
+        Color,
     };
 
+    /// <summary>
+    /// ブレンドシェーダー
+    /// </summary>
     class BlendShader
     {
         class Impl;
