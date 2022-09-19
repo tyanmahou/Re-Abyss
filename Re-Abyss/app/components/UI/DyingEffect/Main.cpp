@@ -21,9 +21,6 @@ namespace abyss::UI::DyingEffect
         m_hpModel = m_pActor->find<Actor::HP>();
         m_hp = 0;
         m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
-        m_pUi->getModule<PostEffects>()
-            ->getDeadEffect()
-            ->setColor(ColorF(1, 0, 0, 0.8));
     }
 
     void Main::onUpdate()

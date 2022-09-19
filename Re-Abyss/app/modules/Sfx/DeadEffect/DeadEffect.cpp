@@ -5,6 +5,11 @@ namespace  abyss::Sfx
     DeadEffect::DeadEffect():
         m_isValid(false)
     {
+
+        m_shader
+            .setBlendMode(BlendMode::Color)
+            .setColor(ColorF(1, 0, 0, 0.8))
+            ;
     }
     DeadEffect& DeadEffect::setColor(const s3d::ColorF& color)
     {

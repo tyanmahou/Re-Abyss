@@ -5,13 +5,21 @@
 
 namespace abyss
 {
+    enum class BlendMode
+    {
+        Color
+    };
+
     class BlendShader
     {
         class Impl;
     public:
         BlendShader();
         ~BlendShader();
+
         const BlendShader& setColor(const s3d::ColorF& color) const;
+        const BlendShader& setBlendMode(BlendMode mode) const;
+
         [[nodiscard]] s3d::ScopedCustomShader2D start() const;
     private:
         std::unique_ptr<Impl> m_pImpl;

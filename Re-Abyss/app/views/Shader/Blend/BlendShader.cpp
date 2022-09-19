@@ -7,6 +7,7 @@ namespace
     struct ShaderParam
     {
         Float4 color;
+        abyss::BlendMode mode;
     };
 }
 
@@ -21,6 +22,10 @@ namespace abyss
         void setColor(const s3d::ColorF& color)
         {
             m_cb->color = color.toFloat4();
+        }
+        void setBlendMode(BlendMode mode)
+        {
+            m_cb->mode = mode;
         }
         ScopedCustomShader2D start() const
         {
@@ -43,6 +48,12 @@ namespace abyss
     const BlendShader& BlendShader::setColor(const s3d::ColorF& color) const
     {
         m_pImpl->setColor(color);
+        return *this;
+    }
+
+    const BlendShader& BlendShader::setBlendMode(BlendMode mode) const
+    {
+        m_pImpl->setBlendMode(mode);
         return *this;
     }
 

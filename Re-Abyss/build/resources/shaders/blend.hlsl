@@ -20,6 +20,7 @@ struct PSInput
 cbuffer ShaderParam : register(b1)
 {
     float4 g_color;
+    int g_blendMode;
 }
 
 float3 rgb2hsl(in float3 rgb)
@@ -110,5 +111,11 @@ float4 PS(PSInput input) : SV_TARGET
     const float2 uv = input.uv;
     float4 src = g_color;
     float4 dest = g_texture0.Sample(g_sampler0, uv);
-    return color(dest, src);
+
+    float4 ret = src;
+    if (g_blendMode == 0) {
+        // カラー合成
+        ret = color(dest, src);
+    }
+    return ret;
 }
