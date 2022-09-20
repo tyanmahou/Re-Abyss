@@ -14,6 +14,8 @@ namespace abyss
 {
     class StageData
     {
+        s3d::String m_mapName;
+
         [[INJECT(m_roomService)]]
         std::shared_ptr<IRoomService> m_roomService;
 
@@ -34,6 +36,14 @@ namespace abyss
     public:
         StageData() = default;
 
+        const s3d::String& getMapName() const
+        {
+            return m_mapName;
+        }
+        void setMapName(s3d::String&& mapName)
+        {
+            m_mapName = std::move(mapName);
+        }
         const s3d::Array<RoomEntity>& getRooms() const;
         const s3d::Array<std::shared_ptr<Actor::Land::LandEntity>>& getLands() const;
         const s3d::Array<std::shared_ptr<Actor::Enemy::EnemyEntity>>& getEnemies() const;

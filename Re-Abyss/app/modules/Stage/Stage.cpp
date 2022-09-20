@@ -349,6 +349,10 @@ namespace abyss
         //world.flush();
         return true;
     }
+    const s3d::String& Stage::mapName() const
+    {
+        return m_stageData->getMapName();
+    }
     s3d::Optional<StartPos> Stage::findStartPos(const s3d::int32 startId)const
     {
         return m_startPos.find(startId);

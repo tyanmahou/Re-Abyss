@@ -6,9 +6,9 @@ namespace abyss::tests
 {
     TEST_CASE("Temporary::TempFlag. Sample Test")
     {
-        auto key1 = TempKey::ItemGet(1);
-        auto key2 = TempKey::ItemGet(2);
-        auto key3 = TempKey::ItemGet(3);
+        auto key1 = TempKey::ItemGet(U"Test", 1);
+        auto key2 = TempKey::ItemGet(U"Test", 2);
+        auto key3 = TempKey::ItemGet(U"Test", 3);
 
         SECTION("test add")
         {

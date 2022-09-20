@@ -5,12 +5,15 @@
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/Builder.hpp>
 
 namespace
 {
+    using namespace abyss;
+    using namespace abyss::Actor;
     using namespace abyss::Actor::Item;
     using namespace abyss::Actor::Item::Recovery;
 
@@ -26,6 +29,10 @@ namespace
         }
         return 0;
     }
+    TempKey ItemGetKey(ActorObj* pActor, s3d::uint32 id)
+    {
+        return TempKey::ItemGet(pActor->getModule<Stage>()->mapName(), id);
+    }
 }
 namespace abyss::Actor::Item::Recovery
 {
@@ -38,7 +45,7 @@ namespace abyss::Actor::Item::Recovery
     {
         if (m_objId) {
             // 取得済みなら破棄
-            if (m_pActor->getModule<Temporary>()->onFlag(TempKey::ItemGet(*m_objId))) {
+            if (m_pActor->getModule<Temporary>()->onFlag(ItemGetKey(m_pActor, *m_objId))) {
                 m_pActor->destroy();
                 return;
             }
@@ -66,7 +73,7 @@ namespace abyss::Actor::Item::Recovery
 
         if (m_objId) {
             // IDありならリスタートレベルの保存する
-            m_pActor->getModule<Temporary>()->saveFlagRestart(TempKey::ItemGet(*m_objId));
+            m_pActor->getModule<Temporary>()->saveFlagRestart(ItemGetKey(m_pActor, *m_objId));
         }
 
         m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::Item::Recovery::Builder>(player->find<ILocator>());

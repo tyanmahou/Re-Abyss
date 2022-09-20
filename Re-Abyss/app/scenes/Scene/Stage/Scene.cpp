@@ -17,6 +17,20 @@
 
 namespace abyss::Scene::Stage
 {
+    namespace
+    {
+        String MapName(const s3d::String& fullPath)
+        {
+#if ABYSS_DEBUG
+            if (fullPath.includes(U"tests/data/maps")) {
+                auto relativeTestPath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(fullPath), Path::TestMapPath);
+                return U"TestMap/{}"_fmt(relativeTestPath.substrView(0, relativeTestPath.lastIndexOf('.')));
+            }
+#endif
+            auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(fullPath), Path::MapPath);
+            return U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
+        }
+    }
 	class Scene::Impl :
 		public Cycle::Main::IMasterObserver
 	{
@@ -42,7 +56,6 @@ namespace abyss::Scene::Stage
 				m_context.mapPath = Path::MapPath + U"Stage0/Stage0_0.tmx";
 			}
 		}
-
 		Coro::Generator<double> loading()
 		{
 			co_yield 0.0;
@@ -52,13 +65,11 @@ namespace abyss::Scene::Stage
             if (m_context.mapPath.includes(U"tests/data/maps")) {
                 path = U"Map/Test";
             } else {
-                auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(m_context.mapPath), Path::MapPath);
-                path = U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
+                path = MapName(m_context.mapPath);
             }
             Resource::Preload::Preloader loader(path);
 #else
-            auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(m_context.mapPath), Path::MapPath);
-            String path = U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
+            String path = MapName(m_context.mapPath);
             Resource::Preload::Preloader loader(path);
 #endif
 			for (auto&& p : loader.preloadProgress()) {
@@ -98,6 +109,7 @@ namespace abyss::Scene::Stage
 			m_system = std::make_unique<System>();
 			auto injector = Factory::Stage::Injector(m_context.mapPath);
 			m_stageData = injector.resolve<StageData>();
+            m_stageData->setMapName(MapName(m_context.mapPath));
 
 			auto booter = std::make_unique<BooterNormal>(this);
             booter->setPlayerDesc(desc)
@@ -164,6 +176,7 @@ namespace abyss::Scene::Stage
             m_systemNext = std::make_unique<System>();
             auto injector = Factory::Stage::Injector(m_context.mapPath);
             m_stageData = injector.resolve<StageData>();
+            m_stageData->setMapName(MapName(m_context.mapPath));
 
             auto booter = std::make_unique<BooterNormal>(this);
             booter->setPlayerDesc(desc)
