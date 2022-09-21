@@ -19,7 +19,7 @@ namespace abyss
         static TempKey ItemGet(const s3d::String& mapName, s3d::uint32 id);
 
         /// <summary>
-        /// 
+        /// 中ボス撃破
         /// </summary>
         /// <param name="mapName"></param>
         /// <param name="id"></param>
