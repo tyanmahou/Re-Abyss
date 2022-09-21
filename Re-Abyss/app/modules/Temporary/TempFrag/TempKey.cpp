@@ -7,6 +7,10 @@ namespace abyss
 {
     TempKey TempKey::ItemGet(const s3d::String& mapName, s3d::uint32 id)
     {
-        return TempKey(U"[{}]item-get-{}"_fmt(mapName, id));
+        return TempKey(U"[{}]ItemGet-{}"_fmt(mapName, id));
+    }
+    TempKey TempKey::MidBossKill(const s3d::String& mapName, s3d::uint32 id)
+    {
+        return TempKey(U"[{}]MidBossKill-{}"_fmt(mapName, id));
     }
 }

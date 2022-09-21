@@ -10,7 +10,21 @@ namespace abyss
     {
         friend struct std::hash<TempKey>;
     public:
+        /// <summary>
+        /// アイテム取得
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         static TempKey ItemGet(const s3d::String& mapName, s3d::uint32 id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        static TempKey MidBossKill(const s3d::String& mapName, s3d::uint32 id);
     public:
         [[nodiscard]] auto operator <=>(const TempKey& other) const = default;
     private:
