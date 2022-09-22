@@ -252,6 +252,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
@@ -1180,6 +1181,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />

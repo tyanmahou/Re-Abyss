@@ -2,7 +2,6 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
-#include "MidBossDeadCtrl.hpp"
 
 namespace abyss::Actor::Enemy
 {
@@ -23,7 +22,7 @@ namespace abyss::Actor::Enemy
 
     void MidBossDeadCtrl::onDead()
     {
-        m_pActor->getModule<Temporary>()->saveFlagRestart(key());
+        m_pActor->getModule<Temporary>()->saveFlagExit(key());
     }
     TempKey MidBossDeadCtrl::key() const
     {
