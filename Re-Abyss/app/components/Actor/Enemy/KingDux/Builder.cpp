@@ -17,6 +17,7 @@
 
 #include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/MidBossDeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/BabyCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
@@ -59,6 +60,9 @@ namespace abyss::Actor::Enemy::KingDux
             .setInitState<WaitState>()
             .setVModelBinder<ViewBinder>(pActor)
         );
+
+        // 中ボス制御
+        pActor->attach<MidBossDeadCtrl>(pActor, entity.id);
 
         // Body調整
         {
