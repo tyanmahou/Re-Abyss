@@ -62,7 +62,9 @@ namespace abyss::Actor::Enemy::KingDux
         );
 
         // 中ボス制御
-        pActor->attach<MidBossDeadCtrl>(pActor, entity.id);
+        {
+            pActor->attach<MidBossDeadCtrl>(pActor, entity.id);
+        }
 
         // Body調整
         {

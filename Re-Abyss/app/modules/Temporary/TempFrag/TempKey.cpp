@@ -13,4 +13,8 @@ namespace abyss
     {
         return TempKey(U"[{}]MidBossKill-{}"_fmt(mapName, id));
     }
+    TempKey TempKey::EventComplete(const s3d::String& mapName, s3d::uint32 id, s3d::uint32 phase)
+    {
+        return TempKey(U"[{}]EventComplete-{}-{}"_fmt(mapName, id, phase));
+    }
 }
