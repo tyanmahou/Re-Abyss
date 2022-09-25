@@ -274,6 +274,7 @@
     <ClCompile Include="app\components\Novel\CodeZeroDemo\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\Bgm.cpp" />
     <ClCompile Include="app\components\Novel\Common\Command\PauseDisabled.cpp" />
+    <ClCompile Include="app\components\Novel\Common\EventCtrl.cpp" />
     <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp" />
     <ClCompile Include="app\components\Novel\NovelUtil.cpp" />
     <ClCompile Include="app\components\Novel\RoomGarder\Builder.cpp" />
@@ -1215,6 +1216,7 @@
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Novel\RoomGarder\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Novel\Common\EventCtrl.hpp" />
     <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp" />
     <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Main.hpp" />

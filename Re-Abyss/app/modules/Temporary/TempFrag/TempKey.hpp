@@ -31,9 +31,8 @@ namespace abyss
         /// </summary>
         /// <param name="mapName"></param>
         /// <param name="id"></param>
-        /// <param name="phase"></param>
         /// <returns></returns>
-        static TempKey EventComplete(const s3d::String& mapName, s3d::uint32 id, s3d::uint32 phase = 0);
+        static TempKey EventComplete(const s3d::String& mapName, s3d::uint32 id);
     public:
         [[nodiscard]] auto operator <=>(const TempKey& other) const = default;
     private:

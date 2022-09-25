@@ -6,11 +6,7 @@ namespace abyss::Actor::Gimmick::EventTrigger
 {
     void Builder::Build(ActorObj* pActor, const EventTriggerEntity& entity)
     {
-        Build(pActor, entity.event);
-    }
-    void Builder::Build(ActorObj* pActor, const s3d::FilePath& path)
-    {
-        pActor->attach<Main>(pActor, path);
+        pActor->attach<Main>(pActor, entity.event, entity.id);
     }
 }
 
