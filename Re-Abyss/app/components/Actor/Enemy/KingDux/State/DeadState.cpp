@@ -8,8 +8,9 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
+#include <abyss/components/Actor/Enemy/MidBossDeadCtrl.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
-
+#include <abyss/components/Novel/Common/EventCtrl.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -62,7 +63,14 @@ namespace abyss::Actor::Enemy::KingDux
     {
         signalCtrl->requestBattleEnd();
         co_await this->commonDead();
+
         signalCtrl->requestDeadEnd();
+
+        // 死亡通知
+        m_pActor->find<MidBossDeadCtrl>()->notifyDead();
+        if (auto eventCtrl = signalCtrl->getObj()->find<Novel::EventCtrl>()) {
+            eventCtrl->requestComplete();
+        }
     }
     Task<> DeadState::commonDead()
     {

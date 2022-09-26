@@ -11,6 +11,11 @@ namespace abyss::Actor::Enemy
     {
     }
 
+    void MidBossDeadCtrl::notifyDead()
+    {
+        m_pActor->getModule<Temporary>()->saveFlagExit(key());
+    }
+
     void MidBossDeadCtrl::onStart()
     {
         // 撃破済みなら破棄
@@ -18,11 +23,6 @@ namespace abyss::Actor::Enemy
             m_pActor->destroy();
             return;
         }
-    }
-
-    void MidBossDeadCtrl::onDead()
-    {
-        m_pActor->getModule<Temporary>()->saveFlagExit(key());
     }
     TempKey MidBossDeadCtrl::key() const
     {
