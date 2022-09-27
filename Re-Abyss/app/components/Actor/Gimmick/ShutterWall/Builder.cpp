@@ -8,6 +8,7 @@
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
@@ -50,6 +51,9 @@ namespace abyss::Actor::Gimmick::ShutterWall
         }
         // ダメージ
         {
+            pActor->attach<HP>(pActor)
+                ->setHp(15);
+
             pActor->attach<DamageCtrl>(pActor)
                 ->setInvincibleTime(0.2);
             //pActor->attach<Enemy::DeadCallback>(pActor);
