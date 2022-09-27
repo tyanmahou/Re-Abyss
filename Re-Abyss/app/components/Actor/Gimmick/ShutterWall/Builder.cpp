@@ -7,6 +7,7 @@
 #include <abyss/components/Actor/Common/Col/Extension/Receiver.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
@@ -60,7 +61,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
             pActor->attach<DamageCtrl>(pActor)
                 ->setInvincibleTime(0.2);
             //pActor->attach<Enemy::DeadCallback>(pActor);
-            //pActor->attach<Enemy::DamageCallback>(pActor);
+            pActor->attach<DeadChecker>(pActor);
 
             // 色制御
             pActor->attach<ColorCtrl>(pActor);
