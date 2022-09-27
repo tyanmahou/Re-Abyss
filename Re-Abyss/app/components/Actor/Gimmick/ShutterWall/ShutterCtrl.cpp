@@ -38,6 +38,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
         m_col = m_pActor->find<ColCtrl>();
         m_col->setActive(false);
     }
+    s3d::RectF ShutterCtrl::getRegion() const
+    {
+        return ShutterUtil::Region(m_terrain->tl(), this->getShutterRate());
+    }
     void ShutterCtrl::onPrePhysics()
     {
         const Vec2& pos = m_terrain->tl();

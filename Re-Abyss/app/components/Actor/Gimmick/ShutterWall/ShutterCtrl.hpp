@@ -22,6 +22,9 @@ namespace abyss::Actor::Gimmick::ShutterWall
     public:
         void setup(Executer executer) override;
         void onStart()override;
+
+        s3d::RectF getRegion() const;
+
     public:
         void onPrePhysics() override;
     private:

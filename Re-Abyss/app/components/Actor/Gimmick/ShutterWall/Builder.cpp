@@ -11,6 +11,7 @@
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
+#include <abyss/components/Actor/Gimmick/ShutterWall/MainCollider.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
@@ -42,6 +43,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
         // 衝突
         {
             auto collider = pActor->attach<Collider>();
+            collider->add<MainCollider>(pActor);
+
             pActor->attach<ColCtrl>(pActor)
                 ->addBranch()
                 ->addNode<Col::Node>(collider->main())
