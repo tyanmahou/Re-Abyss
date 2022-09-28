@@ -254,6 +254,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
@@ -1186,6 +1187,7 @@
     <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.hpp" />

@@ -2303,6 +2303,9 @@
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6044,6 +6047,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

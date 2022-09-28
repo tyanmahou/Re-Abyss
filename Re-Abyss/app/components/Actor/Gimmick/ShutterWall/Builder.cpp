@@ -12,6 +12,7 @@
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
+#include <abyss/components/Actor/Gimmick/ShutterWall/DamageCallback.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/MainCollider.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
@@ -60,7 +61,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
 
             pActor->attach<DamageCtrl>(pActor)
                 ->setInvincibleTime(0.2);
-            //pActor->attach<Enemy::DeadCallback>(pActor);
+            pActor->attach<DamageCallback> (pActor);
             pActor->attach<DeadChecker>(pActor);
 
             // 色制御
