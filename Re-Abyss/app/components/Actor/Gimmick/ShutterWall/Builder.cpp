@@ -57,7 +57,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         // ダメージ
         {
             pActor->attach<HP>(pActor)
-                ->setHp(15);
+                ->setHp(Param::Hp);
 
             pActor->attach<DamageCtrl>(pActor)
                 ->setInvincibleTime(0.2);
