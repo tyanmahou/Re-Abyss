@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -11,7 +12,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
 
     void DamageCallback::onDamaged([[maybe_unused]]const DamageData& damage) 
     {
-        // TODO ダメージ音鳴らす
+        // ダメージ音
+        m_pActor->find<AudioSource>()->playAt(U"Damage");
     }
 
     void DamageCallback::onDead()

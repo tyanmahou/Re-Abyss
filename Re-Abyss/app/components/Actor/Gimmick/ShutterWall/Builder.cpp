@@ -1,6 +1,7 @@
 #include <abyss/components/Actor/Gimmick/ShutterWall/Builder.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -77,6 +78,11 @@ namespace abyss::Actor::Gimmick::ShutterWall
             pActor->attach<VModel>()
                 ->setBinder<ViewBinder>(pActor)
                 ;
+        }
+        // 音源
+        {
+            pActor->attach<AudioSource>(pActor)
+                ->load(U"Gimmick/ShutterWall/ShutterWall.aase");
         }
     }
 }
