@@ -6,6 +6,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 
@@ -15,11 +16,6 @@ namespace abyss::Actor
         public IComponent,
         public IUpdate
     {
-    private:
-        ActorObj* m_pActor;
-        Ref<Body> m_body;
-        s3d::Array<s3d::Audio> m_audios;
-        AudioSettingGroup m_audioSettingGroup;
     public:
         AudioSource(ActorObj* pActor);
         void onStart() override;
@@ -41,6 +37,11 @@ namespace abyss::Actor
         void playAtDirect(const s3d::Audio& audio) const;
         void playAtDirect(const s3d::Audio& audio, const s3d::Vec2& pos) const;
 
+    private:
+        ActorObj* m_pActor;
+        Ref<ILocator> m_locator;
+        s3d::Array<s3d::Audio> m_audios;
+        AudioSettingGroup m_audioSettingGroup;
     };
 }
 

@@ -4,6 +4,7 @@
 
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
+#include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
@@ -42,7 +43,7 @@ namespace
 
         void onStart() override
         {
-            m_body = m_pActor->find<Body>();
+            m_locator = m_pActor->find<Locator>();
             m_audio.play();
         }
 
@@ -51,7 +52,7 @@ namespace
             if (!m_audio.isPlaying()) {
                 m_pActor->destroy();
             }
-            const auto& pos = m_body->getPos();
+            const auto& pos = m_locator->getPos();
             const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
             auto [volume, pan] = ::CalcVolume(pos, listener);
@@ -59,7 +60,7 @@ namespace
             m_audio.setPan(pan);
         }
     private:
-        Ref<Body> m_body;
+        Ref<Locator> m_locator;
         ActorObj* m_pActor;
         Audio m_audio;
     };
@@ -80,7 +81,11 @@ namespace abyss::Actor
 
     void AudioSource::onStart()
     {
-        m_body = m_pActor->find<Body>();
+        if (auto body = m_pActor->find<Body>()) {
+            m_locator = RefCast<ILocator>(body);
+        } else {
+            m_locator = m_pActor->find<ILocator>();
+        }
     }
 
     void AudioSource::load(const s3d::FilePath& path)
@@ -93,7 +98,7 @@ namespace abyss::Actor
         m_audios.remove_if([](const Audio& audio) {
             return !audio.isPlaying();
         });
-        const auto& pos = m_body->getPos();
+        const auto pos = m_locator->getCenterPos();
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
         for (auto&& audio : m_audios) {
@@ -114,7 +119,7 @@ namespace abyss::Actor
 
     void AudioSource::playAt(const s3d::String& key) const
     {
-        const auto& pos = m_body->getPos();
+        const auto pos = m_locator->getCenterPos();
         this->playAt(key, pos);
     }
 
@@ -133,7 +138,7 @@ namespace abyss::Actor
     }
     void AudioSource::playDirect(const s3d::Audio& audio)
     {
-        const auto& pos = m_body->getPos();
+        const auto pos = m_locator->getCenterPos();
         const auto& listener = ActorUtils::PlayerPos(*m_pActor);
 
         auto [volume, pan] = ::CalcVolume(pos, listener);
@@ -144,7 +149,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path) const
     {
-        const auto& pos = m_body->getPos();
+        const auto pos = m_locator->getCenterPos();
         this->playAtDirect(path, pos);
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
@@ -155,14 +160,15 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio) const
     {
-        const auto& pos = m_body->getPos();
+        const auto pos = m_locator->getCenterPos();
         this->playAtDirect(audio, pos);
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
     {
-        auto pActor = m_pActor->getModule<World>()->create().get();
-        pActor->setDestoryTiming(DestoryTiming::Never);
-        pActor->attach<Body>(pActor)->initPos(pos);
-        pActor->attach<TemporarySoundEffect>(pActor, audio);
+        auto pActor = m_pActor->getModule<World>()->create();
+        auto raw = pActor.get();
+        raw->setDestoryTiming(DestoryTiming::Never);
+        raw->attach<Locator>()->setPos(pos);
+        raw->attach<TemporarySoundEffect>(raw, audio);
     }
 }
