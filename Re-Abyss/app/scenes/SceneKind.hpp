@@ -17,6 +17,8 @@ namespace abyss
         Title,
         /// <summary>セーブ選択</summary>
         SaveSelect,
+        /// <summary>ホーム画面</summary>
+        Home,
         /// <summary>ステージ</summary>
         Stage,
         /// <summary>ステージリザルト</summary>
