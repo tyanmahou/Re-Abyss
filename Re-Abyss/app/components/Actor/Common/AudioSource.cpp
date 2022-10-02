@@ -14,6 +14,8 @@
 #include <Siv3D.hpp>
 namespace
 {
+    constexpr s3d::FilePathView ActorSePathPrefix = U"se/Actor/";
+
     using namespace abyss;
     using namespace abyss::Actor;
     std::pair<double, double> CalcVolume(const s3d::Vec2& pos, const s3d::Vec2& listener)
@@ -90,7 +92,7 @@ namespace abyss::Actor
 
     void AudioSource::load(const s3d::FilePath& path)
     {
-        m_audioSettingGroup = Resource::Assets::Main()->load(U"se/Actor/" + path);
+        m_audioSettingGroup = Resource::Assets::Main()->load(ActorSePathPrefix + path);
     }
 
     void AudioSource::onUpdate()
@@ -132,7 +134,7 @@ namespace abyss::Actor
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {
-        if (Audio audio = Resource::Assets::Main()->load(U"se/Actor/" + path)) {
+        if (Audio audio = Resource::Assets::Main()->load(ActorSePathPrefix + path)) {
             this->playDirect(audio);
         }
     }
@@ -154,7 +156,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(s3d::FilePathView path, const s3d::Vec2 & pos) const
     {
-        if (Audio audio = Resource::Assets::Main()->load(U"se/Actor/" + path)) {
+        if (Audio audio = Resource::Assets::Main()->load(ActorSePathPrefix + path)) {
             this->playAtDirect(audio, pos);
         }
     }
