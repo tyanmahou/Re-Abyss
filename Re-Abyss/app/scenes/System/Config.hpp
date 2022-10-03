@@ -22,6 +22,12 @@ namespace abyss::Sys
 				.isStage = false
 			};
 		}
+        static consteval Config Home()
+        {
+            return Config{
+                .isStage = false
+            };
+        }
 		static consteval Config Stage()
 		{
 			return Config{

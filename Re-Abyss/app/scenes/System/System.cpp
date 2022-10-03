@@ -301,6 +301,7 @@ namespace abyss::Sys
     template class System<Config::Splash()>;
     template class System<Config::Title()>;
     template class System<Config::SaveSelect()>;
+    template class System<Config::Home()>;
     template class System<Config::Stage()>;
     template class System<Config::StageResult()>;
 }
