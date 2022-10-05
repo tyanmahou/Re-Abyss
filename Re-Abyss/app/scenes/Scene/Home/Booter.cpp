@@ -15,5 +15,6 @@ namespace abyss::Scene::Home
         pManager->getModule<CycleMaster>()->build<Cycle::Home::Builder>(m_pObserver);
         pManager->getModule<CycleMaster>()->init();
 
+        return true;
     }
 }
