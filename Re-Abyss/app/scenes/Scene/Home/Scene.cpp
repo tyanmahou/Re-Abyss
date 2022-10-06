@@ -19,7 +19,7 @@ namespace abyss::Scene::Home
         void loading()
         {
             Resource::Assets::Main()->release();
-            Resource::Preload::Preloader preloader(U"Scene/Title");
+            Resource::Preload::Preloader preloader(U"Scene/Home");
             preloader.preload();
 
             this->init();
