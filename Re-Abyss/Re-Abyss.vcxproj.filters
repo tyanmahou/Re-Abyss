@@ -2318,6 +2318,9 @@
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\Home\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6074,6 +6077,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Cycle\Home\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\Home\MainStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

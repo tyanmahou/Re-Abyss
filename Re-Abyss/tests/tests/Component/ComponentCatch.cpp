@@ -78,7 +78,6 @@ namespace abyss
 }
 namespace abyss::tests
 {
-
     TEST_CASE("Component. Executer")
     {
         Components components;
