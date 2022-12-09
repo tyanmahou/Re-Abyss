@@ -176,19 +176,26 @@ namespace abyss::Sys
 
                 auto* env = mod<Environment>();
                 // 背面
-                {
-                    auto decorFarRender = snapshot->startDecorFarRender();
-
+                const auto bgDrawer = [&] {
                     if (auto bg = env->getBg()) {
                         bg->draw(cameraView.screenRegion());
                     }
                     drawer->draw(DrawLayer::BackGround);
-                }
-                {
-                    auto decorFar = mod<PostEffects>()->getDecorFar()->start();
-                    snapshot->getDecorFarTexture().draw(
-                        cameraView.tl()
-                    );
+                };
+                if (auto* decorFar = mod<PostEffects>()->getDecorFar()) {
+                    // 遠方表現の使用
+                    {
+                        auto decorFarRender = snapshot->startDecorFarRender();
+                        bgDrawer();
+                    }
+                    {
+                        auto scopedShader = decorFar->start();
+                        snapshot->getDecorFarTexture().draw(
+                            cameraView.tl()
+                        );
+                    }
+                } else {
+                    bgDrawer();
                 }
                 if (auto sky = env->getSky()) {
                     sky->draw(cameraView.tl());
