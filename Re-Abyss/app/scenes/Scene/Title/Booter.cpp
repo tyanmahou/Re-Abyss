@@ -37,7 +37,7 @@ namespace abyss::Scene::Title
         });
 
         // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
+        pManager->getModule<PostEffects>()->init(Sfx::PostEffectsDesc::CreateTitle());
 
         return true;
     }

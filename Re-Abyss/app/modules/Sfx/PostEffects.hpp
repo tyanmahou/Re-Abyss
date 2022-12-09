@@ -17,6 +17,13 @@ namespace abyss::Sfx
                 .useScanline = true
             };
         }
+        constexpr static PostEffectsDesc CreateTitle()
+        {
+            return {
+                .useDecorFar = true,
+                .useScanline = true
+            };
+        }
         constexpr static PostEffectsDesc CreateStage()
         {
             return {
