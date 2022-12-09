@@ -3,6 +3,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
 #include <abyss/components/Event/SaveSelect/Builder.hpp>
@@ -26,6 +27,9 @@ namespace abyss::Scene::SaveSelect
         // UI初期化
         pManager->getModule<UIs>()->create<UI::SaveSelect::Main::Builder>();
         pManager->getModule<UIs>()->flush();
+
+        // PostEffects初期化
+        pManager->getModule<PostEffects>()->init();
 
         return true;
     }

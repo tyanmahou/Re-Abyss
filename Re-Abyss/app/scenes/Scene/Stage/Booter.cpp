@@ -7,6 +7,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
@@ -128,6 +129,9 @@ namespace abyss::Scene::Stage
         });
         // 背景色
         env->getBg()->setColor(m_stageData->getAttributeService()->getBgColor());
+
+        // PostEffects初期化
+        pManager->getModule<PostEffects>()->init(Sfx::PostEffectsDesc::CreateStage());
 
         return stage->init();
     }

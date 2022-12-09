@@ -13,6 +13,7 @@ namespace abyss::Sfx
         }
         if (desc.useBloom) {
             m_bloom = std::make_unique<Bloom>();
+            m_bloom->setManager(m_pManager);
         }
         if (desc.useMoisture) {
             m_moisture = std::make_unique<Moisture>();
@@ -31,9 +32,6 @@ namespace abyss::Sfx
     void PostEffects::setManager(Manager* pManager)
     {
         m_pManager = pManager;
-        if (m_bloom) {
-            m_bloom->setManager(pManager);
-        }
     }
     void PostEffects::update(double dt)
     {

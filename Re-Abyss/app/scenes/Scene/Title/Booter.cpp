@@ -4,6 +4,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Title/Builder.hpp>
@@ -34,6 +35,10 @@ namespace abyss::Scene::Title
         pManager->getModule<Environment>()->init(Env::EnvDesc{
             .useCaustics = true,
         });
+
+        // PostEffects初期化
+        pManager->getModule<PostEffects>()->init();
+
         return true;
     }
 }

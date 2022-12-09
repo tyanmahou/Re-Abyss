@@ -3,6 +3,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cycle/Splash/Builder.hpp>
 #include <abyss/components/Event/Splash/Builder.hpp>
@@ -24,6 +25,10 @@ namespace abyss::Scene::Splash
 
         // UI初期化
         pManager->getModule<UIs>()->flush();
+
+        // PostEffects初期化
+        pManager->getModule<PostEffects>()->init();
+
         return true;
     }
 }
