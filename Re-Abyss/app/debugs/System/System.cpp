@@ -16,8 +16,12 @@ namespace abyss::Debug
 	class PauseTrigger : public IPauseEventTrigger
 	{
     public:
-        PauseTrigger(Menu& menu):
-            m_menu(menu)
+        PauseTrigger(
+            Menu& menu,
+            bool& isDrawDebugViewer
+        ):
+            m_menu(menu),
+            m_isDrawDebugViewer(isDrawDebugViewer)
         {}
 		bool isPauseTrigger() const override
 		{
@@ -30,6 +34,7 @@ namespace abyss::Debug
 
         void onPause() override
         {
+            m_isDrawDebugViewer = true;
             m_menu.open();
         }
 		void onResume() override
@@ -38,6 +43,7 @@ namespace abyss::Debug
         }
     private:
         Menu& m_menu;
+        bool& m_isDrawDebugViewer;
 	};
 	class System::Impl
 	{
@@ -45,7 +51,7 @@ namespace abyss::Debug
 		Impl():
 			m_rt(Constants::AppResolution)
 		{
-			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu));
+			m_pause.setEvent(std::make_unique<PauseTrigger>(m_menu, m_isDrawDebugViewer));
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
 				Watcher::Print(U"[FPS] {}"_fmt(fps));
 			});
@@ -70,19 +76,26 @@ namespace abyss::Debug
 
 			m_pause.update();
 
-            if (this->isPause()) {
-                m_menu.update();
+            if (KeyF9.down()) {
+                m_isDrawDebugViewer = !m_isDrawDebugViewer;
+            }
+            if (m_isDrawDebugViewer) {
+                if (this->isPause()) {
+                    m_menu.update();
+                }
             }
 		}
 
 		void draw() const
 		{
 			m_rt.draw();
-            m_log.draw();
-            m_watcher.draw();
-			if (this->isPause()) {
-                m_menu.draw();
-			}
+            if (m_isDrawDebugViewer) {
+                m_log.draw();
+                m_watcher.draw();
+                if (this->isPause()) {
+                    m_menu.draw();
+                }
+            }
 		}
 
 		bool apply(std::function<bool()> callback)
@@ -128,6 +141,8 @@ namespace abyss::Debug
 		s3d::RenderTexture m_rt;
         LogViewer m_log;
         WatchViewer m_watcher;
+
+        bool m_isDrawDebugViewer = true;
 	};
 	System::System() :
 		m_pImpl(std::make_unique<Impl>())
