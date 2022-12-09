@@ -3,14 +3,30 @@
 namespace abyss::Sfx
 {
     PostEffects::PostEffects():
-        m_pManager(nullptr),
-        m_decorFar(std::make_unique<DecorFar>()),
-        m_bloom(std::make_unique<Bloom>()),
-        m_moisture(std::make_unique<Moisture>()),
-        m_blur(std::make_unique<Blur>()),
-        m_deadEffect(std::make_unique<DeadEffect>()),
-        m_scanline(std::make_unique<Scanline>())
+        m_pManager(nullptr)
     {}
+
+    void PostEffects::init(const PostEffectsDesc& desc)
+    {
+        if (desc.useDecorFar) {
+            m_decorFar = std::make_unique<DecorFar>();
+        }
+        if (desc.useBloom) {
+            m_bloom = std::make_unique<Bloom>();
+        }
+        if (desc.useMoisture) {
+            m_moisture = std::make_unique<Moisture>();
+        }
+        if (desc.useBlur) {
+            m_blur = std::make_unique<Blur>();
+        }
+        if (desc.useDeadEffect) {
+            m_deadEffect = std::make_unique<DeadEffect>();
+        }
+        if (desc.useScanline) {
+            m_scanline = std::make_unique<Scanline>();
+        }
+    }
 
     void PostEffects::setManager(Manager* pManager)
     {
@@ -21,8 +37,12 @@ namespace abyss::Sfx
     }
     void PostEffects::update(double dt)
     {
-        m_decorFar->update(dt);
-        m_scanline->update(dt);
+        if (m_decorFar) {
+            m_decorFar->update(dt);
+        }
+        if (m_scanline) [[likely]] {
+            m_scanline->update(dt);
+        }
     }
 
     Moisture* PostEffects::getMoisture() const

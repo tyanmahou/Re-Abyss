@@ -123,6 +123,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
       <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -154,6 +155,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
       <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -187,6 +189,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
       <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -220,6 +223,7 @@
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
       <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

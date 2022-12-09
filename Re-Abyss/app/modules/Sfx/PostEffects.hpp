@@ -9,6 +9,33 @@
 
 namespace abyss::Sfx
 {
+    struct PostEffectsDesc
+    {
+        constexpr static PostEffectsDesc CreateDefault()
+        {
+            return {
+                .useScanline = true
+            };
+        }
+        constexpr static PostEffectsDesc CreateStage()
+        {
+            return {
+                .useDecorFar = true,
+                .useBloom = true,
+                .useMoisture = true,
+                .useBlur = true,
+                .useDeadEffect = true,
+                .useScanline = true
+            };
+        }
+        bool useDecorFar = false;
+        bool useBloom = false;
+        bool useMoisture = false;
+        bool useBlur = false;
+        bool useDeadEffect = false;
+        bool useScanline = false;
+    };
+
     /// <summary>
     /// ポストエフェクト
     /// </summary>
@@ -17,6 +44,7 @@ namespace abyss::Sfx
     public:
         PostEffects();
 
+        void init(const PostEffectsDesc& desc = PostEffectsDesc::CreateDefault());
         void setManager(Manager* pManager);
         void update(double dt);
 
