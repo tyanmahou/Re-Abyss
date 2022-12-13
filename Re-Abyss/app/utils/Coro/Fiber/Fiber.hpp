@@ -1,26 +1,10 @@
 #pragma once
 #include <coroutine>
 #include <memory>
+#include <abyss/utils/Coro/Fiber/Yield.hpp>
 
 namespace abyss::Coro
 {
-    /// <summary>
-    /// Yield
-    /// </summary>
-    /// <returns></returns>
-    struct Yield
-    {
-        constexpr Yield() :
-            count(1)
-        {}
-
-        constexpr Yield(std::uint32_t _count) :
-            count(_count)
-        {}
-
-        std::uint32_t count;
-    };
-
     namespace detail
     {
         template<class Handle>

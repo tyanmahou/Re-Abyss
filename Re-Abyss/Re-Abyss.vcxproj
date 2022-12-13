@@ -2010,6 +2010,7 @@
     <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp" />
     <ClInclude Include="app\utils\Look\Look.hpp" />
     <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
     <ClInclude Include="app\modules\Novel\Face.hpp" />
