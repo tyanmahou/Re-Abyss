@@ -9,9 +9,6 @@ namespace abyss::Coro
     {
         template<class T>
         struct PromiseType;
-
-        template<class T>
-        struct FiberAwaiter;
     }
 
     /// <summary>
@@ -23,259 +20,77 @@ namespace abyss::Coro
         using promise_type = detail::PromiseType<T>;
         using Handle = std::coroutine_handle<promise_type>;
     public:
-        Fiber(Handle h) :
-            coro(h)
-        {}
+        Fiber(Handle h);
 
         Fiber(Fiber const&) = delete;
 
-        Fiber(Fiber&& rhs) noexcept
-            : coro(std::move(rhs.coro))
-        {
-            rhs.coro = nullptr;
-        }
+        Fiber(Fiber&& rhs) noexcept;
 
-        ~Fiber()
-        {
-            if (coro) {
-                coro.destroy();
-            }
-        }
+        ~Fiber();
     public:
         /// <summary>
         /// 再開
         /// </summary>
         /// <returns></returns>
-        bool resume() const
-        {
-            if (!coro) {
-                return false;
-            }
-            if (coro.done()) {
-                return false;
-            }
-            // Yield
-            {
-                auto& yield = coro.promise().yield;
-                if (yield.count > 0 && yield.count-- > 0) {
-                    // カウンタが残ってるなら
-                    return true;
-                }
-            }
-            // 割り込み別タスク
-            {
-                auto& next = coro.promise().next;
-                if (next) {
-
-                    if (!next.resume()) {
-                        next.clear();
-                    } else {
-                        return true;
-                    }
-                }
-            }
-            coro.resume();
-            return !coro.done();
-        }
+        bool resume() const;
 
         /// <summary>
         /// 完了したか
         /// </summary>
         /// <returns></returns>
-        [[nodiscard]] bool isDone()const
-        {
-            if (!coro) {
-                return true;
-            }
-            return coro.done();
-        }
+        [[nodiscard]] bool isDone() const;
 
         /// <summary>
         /// 取得
         /// </summary>
         /// <returns></returns>
-        [[nodiscard]] decltype(auto) get() const
-        {
-            return coro.promise().getValue();
-        }
+        [[nodiscard]] decltype(auto) get() const;
 
     private:
-        Handle coro;
+        Handle m_coro;
     };
 
+    /// <summary>
+    /// operator co_await
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="other"></param>
+    /// <returns></returns>
     template<class T>
-    auto operator co_await(Fiber<T> other)
-    {
-        return detail::FiberAwaiter{ std::move(other) };
-    }
+    auto operator co_await(Fiber<T> other);
 
+    /// <summary>
+    /// 両辺のFiberの完了を待つFiberを生成
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="U"></typeparam>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     template<class T, class U>
-    [[nodiscard]] Fiber<void> operator & (Fiber<T> a, Fiber<U> b)
-    {
-        while (true) {
-            a.resume();
-            b.resume();
+    [[nodiscard]] Fiber<void> operator & (Fiber<T> a, Fiber<U> b);
 
-            if (a.isDone() && b.isDone()) {
-                co_return;
-            }
-
-            co_yield{};
-        }
-    }
-
+    /// <summary>
+    /// 両辺のいずれかのFiberの完了を待つFiberを生成
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="U"></typeparam>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     template<class T, class U>
-    [[nodiscard]] Fiber<void> operator | (Fiber<T> a, Fiber<U> b)
-    {
-        while (true) {
-            a.resume();
-            b.resume();
+    [[nodiscard]] Fiber<void> operator | (Fiber<T> a, Fiber<U> b);
 
-            if (a.isDone() || b.isDone()) {
-                co_return;
-            }
-
-            co_yield{};
-        }
-    }
-
+    /// <summary>
+    /// 左辺のFiberの完了を待ったあと右辺のFiberを待つ
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="U"></typeparam>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     template<class T, class U>
-    [[nodiscard]] Fiber<U> operator + (Fiber<T> a, Fiber<U> b)
-    {
-        while (a.resume()) {
-            co_yield{};
-        }
-        while (b.resume()) {
-            co_yield{};
-        }
-        co_return b.get();
-    }
-    namespace detail
-    {
-        /// <summary>
-        /// NextFiberHandler
-        /// </summary>
-        struct NextFiberHandler
-        {
-        public:
-            NextFiberHandler() = default;
-            template<class T>
-            NextFiberHandler(const Fiber<T>& fiber) :
-                m_holder(std::make_unique<Holder<T>>(fiber))
-            {}
-
-            bool resume() const
-            {
-                return m_holder->resume();
-            }
-            void clear()
-            {
-                m_holder = nullptr;
-            }
-            explicit operator bool() const
-            {
-                return static_cast<bool>(m_holder);
-            }
-        private:
-            struct IHolder
-            {
-                virtual ~IHolder() = default;
-                virtual bool resume() const = 0;
-            };
-            template<class T>
-            struct Holder final : IHolder
-            {
-                Holder(const Fiber<T>& fiber) :
-                    m_fiber(fiber)
-                {}
-                bool resume() const override
-                {
-                    return m_fiber.resume();
-                }
-            private:
-                const Fiber<T>& m_fiber;
-            };
-            std::unique_ptr<IHolder> m_holder;
-        };
-
-        /// <summary>
-        /// Promise
-        /// </summary>
-        template<class T>
-        struct PromiseValue
-        {
-            void return_value(const T& _value)
-            {
-                this->value = _value;
-            }
-
-            const T& getValue() const
-            {
-                return value;
-            }
-            T value;
-        };
-
-        // void特殊化
-        template<>
-        struct PromiseValue<void>
-        {
-            void return_void() {}
-
-            void getValue() const
-            {}
-        };
-
-        template<class T>
-        struct PromiseType : PromiseValue<T>
-        {
-            using FiberType = Fiber<T>;
-
-            static FiberType get_return_object_on_allocation_failure()
-            {
-                return FiberType{ nullptr };
-            }
-            auto get_return_object() { return FiberType{ FiberType::Handle::from_promise(*this) }; }
-            auto initial_suspend() { return std::suspend_always{}; }
-            auto final_suspend() noexcept { return std::suspend_always{}; }
-            void unhandled_exception() { std::terminate(); }
-
-            auto yield_value(const Yield& _yield)
-            {
-                return operator co_await(_yield);
-            }
-            Yield yield{ 0 };
-            NextFiberHandler next;
-        };
-
-        template<class Handle>
-        concept FiberAwaitableHandle = requires(Handle handle)
-        {
-            requires std::same_as<NextFiberHandler, decltype(handle.promise().next)>;
-            requires std::convertible_to<Handle, std::coroutine_handle<>>;
-        };
-
-        /// <summary>
-        /// Awaiter
-        /// </summary>
-        template<class T>
-        struct FiberAwaiter
-        {
-            Fiber<T> fiber;
-
-            bool await_ready() const
-            {
-                return !fiber.resume();
-            }
-            decltype(auto) await_resume() const
-            {
-                return fiber.get();
-            }
-            template<FiberAwaitableHandle Handle>
-            void await_suspend(Handle handle) const
-            {
-                handle.promise().next = std::move(fiber);
-            }
-        };
-    }
+    [[nodiscard]] Fiber<U> operator + (Fiber<T> a, Fiber<U> b);
 }
+
+#include "Fiber.ipp"

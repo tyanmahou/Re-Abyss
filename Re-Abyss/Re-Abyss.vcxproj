@@ -2007,6 +2007,7 @@
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
     <ClInclude Include="app\entities\Forward.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
     <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp" />

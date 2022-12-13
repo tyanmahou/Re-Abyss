@@ -6085,6 +6085,7 @@
     <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
