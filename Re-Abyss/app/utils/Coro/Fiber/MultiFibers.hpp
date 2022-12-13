@@ -20,11 +20,17 @@ namespace abyss::Coro
 		/// <returns></returns>
 		MultiFibers& add(const std::function<Fiber<>()>& fiber);
 
-		/// <summary>
-		/// 実行
-		/// </summary>
-		/// <returns></returns>
-        Fiber<> operator()() const;
+        /// <summary>
+        /// すべて完了するまで待機
+        /// </summary>
+        /// <returns></returns>
+        Fiber<> whenAll() const;
+
+        /// <summary>
+        /// いずれか完了するまで待機
+        /// </summary>
+        /// <returns></returns>
+        Fiber<> whenAny() const;
 	private:
 		s3d::Array<std::function<Fiber<>()>> m_fibers;
     };

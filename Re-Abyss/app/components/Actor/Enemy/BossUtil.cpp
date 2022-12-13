@@ -72,7 +72,7 @@ namespace abyss::Actor::Enemy
 				// 死亡カラーアニメ
 				pActor->find<ColorAnim::BossDeadColor>()->startAnim(4.0);
 			});
-			co_await multiFibers();
+			co_await multiFibers.whenAll();
 		}
 		pActor->destroy();
 	}
