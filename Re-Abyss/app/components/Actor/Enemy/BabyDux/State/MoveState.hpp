@@ -8,12 +8,12 @@ namespace abyss::Actor::Enemy::BabyDux
     {
     public:
         void start() override;
-        Task<> task() override;
+        Fiber<> task() override;
 
         void update() override;
     private:
-        Task<> taskCharge();
-        Task<> taskJump();
+        Fiber<> taskCharge();
+        Fiber<> taskJump();
     private:
         s3d::Vec2 m_startPos;
     };

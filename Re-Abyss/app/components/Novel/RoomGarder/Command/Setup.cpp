@@ -14,7 +14,7 @@ namespace abyss::Novel::RoomGarder
         m_pTalk->getModule<RoomManager>()->requestRoomGarder();
     }
 
-    Coro::Task<> Setup::onCommand()
+    Coro::Fiber<> Setup::onCommand()
     {
         co_return;
     }

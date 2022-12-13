@@ -11,7 +11,7 @@ namespace abyss::Novel
     {
         m_pTalk->engine()->clearMessage();
     }
-    Coro::Task<> ClearMessage::onCommand()
+    Coro::Fiber<> ClearMessage::onCommand()
     {
         co_return;
     }

@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabState.hpp>
 
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	void StabState::end()
 	{
 	}
-	Coro::Task<> StabState::task()
+	Coro::Fiber<> StabState::task()
 	{
 		TimeLite::Timer moveTimer{ 0.2 };
 		Vec2 startPos = m_body->getPos();

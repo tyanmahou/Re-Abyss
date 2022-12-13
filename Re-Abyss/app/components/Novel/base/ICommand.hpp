@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Novel
 {
@@ -10,6 +10,6 @@ namespace abyss::Novel
 
         virtual void onStart() {}
         virtual void onEnd() {}
-        virtual Coro::Task<> onCommand() = 0;
+        virtual Coro::Fiber<> onCommand() = 0;
     };
 }

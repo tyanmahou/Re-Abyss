@@ -12,28 +12,28 @@ namespace abyss::Actor::Enemy::CodeZero
     class Behavior
     {
     public:
-        [[nodiscard]] static Coro::Task<> Phase1(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Phase2(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Phase3(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Phase1(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Phase2(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Phase3(ActorObj* pActor);
     public:
-        [[nodiscard]] static Coro::Task<> TryToAppear(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Appear(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Angry(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> Dead(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> LeftAttack(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> RightAttack(ActorObj* pActor);
-        [[nodiscard]] static Coro::Task<> BothAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> TryToAppear(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Appear(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Angry(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> Dead(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> LeftAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> RightAttack(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> BothAttack(ActorObj* pActor);
 
-        [[nodiscard]] static Coro::Task<> LeftAttackAndWait(ActorObj* pActor, double waitSec);
-        [[nodiscard]] static Coro::Task<> RightAttackAndWait(ActorObj* pActor, double waitSec);
-        [[nodiscard]] static Coro::Task<> BothAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Fiber<> LeftAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Fiber<> RightAttackAndWait(ActorObj* pActor, double waitSec);
+        [[nodiscard]] static Coro::Fiber<> BothAttackAndWait(ActorObj* pActor, double waitSec);
 
-        [[nodiscard]] static Coro::Task<> RollingAttack(ActorObj* pActor, bool isReverse);
-        [[nodiscard]] static Coro::Task<> ChargeShot(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> RollingAttack(ActorObj* pActor, bool isReverse);
+        [[nodiscard]] static Coro::Fiber<> ChargeShot(ActorObj* pActor);
 
-        [[nodiscard]] static Coro::Task<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
-        [[nodiscard]] static Coro::Task<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);
+        [[nodiscard]] static Coro::Fiber<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
+        [[nodiscard]] static Coro::Fiber<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);
 
-        [[nodiscard]] static Coro::Task<> WaitPursuitHands(ActorObj* pActor);
+        [[nodiscard]] static Coro::Fiber<> WaitPursuitHands(ActorObj* pActor);
     };
 }

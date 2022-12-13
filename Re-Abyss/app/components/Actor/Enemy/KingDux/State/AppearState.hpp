@@ -10,9 +10,9 @@ namespace abyss::Actor::Enemy::KingDux
     public:
         void start() override;
         void end() override;
-        Coro::Task<> task() override;
+        Coro::Fiber<> task() override;
         void update() override;
     private:
-        Coro::Task<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
+        Coro::Fiber<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
     };
 }

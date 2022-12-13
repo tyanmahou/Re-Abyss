@@ -1,6 +1,6 @@
 #include <abyss/debugs/Pause/Pause.hpp>
 #if ABYSS_DEBUG
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -20,10 +20,10 @@ namespace abyss::Debug
 	}
 	void Pause::update()
 	{
-		m_taskPause.moveNext();
-		m_taskUpdate1f.moveNext();
+		m_taskPause.resume();
+		m_taskUpdate1f.resume();
 	}
-	Coro::Task<> Pause::taskPause()
+	Coro::Fiber<> Pause::taskPause()
 	{
 		while (true) {
 			co_await Coro::WaitUntil([this] {return m_eventTrigger->isPauseTrigger(); });
@@ -37,7 +37,7 @@ namespace abyss::Debug
 		}
 		co_return;
 	}
-	Coro::Task<> Pause::taskUpdate1f()
+	Coro::Fiber<> Pause::taskUpdate1f()
 	{
 		while (true) {
 			m_isUpdate1f = false;

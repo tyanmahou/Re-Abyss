@@ -2,7 +2,7 @@
 
 namespace abyss::Cron
 {
-    Coro::Task<> OnceScheduler::execute(std::function<Coro::Task<>()> task)
+    Coro::Fiber<> OnceScheduler::execute(std::function<Coro::Fiber<>()> task)
     {
         co_await task();
     }

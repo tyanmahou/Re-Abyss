@@ -16,7 +16,7 @@ namespace abyss::Event::SaveSelect
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         co_yield{};
     }

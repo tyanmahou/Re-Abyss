@@ -12,7 +12,7 @@ namespace abyss::Novel
     {
         m_pTalk->engine()->setColor(m_color);
     }
-    Coro::Task<> ColorTag::onCommand()
+    Coro::Fiber<> ColorTag::onCommand()
     {
         co_return;
     }

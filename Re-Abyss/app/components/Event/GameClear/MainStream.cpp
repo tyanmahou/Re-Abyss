@@ -9,7 +9,7 @@
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 #include <Siv3D.hpp>
 
@@ -29,7 +29,7 @@ namespace abyss::Event::GameClear
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         // クリアBGM
         m_pEvent->getModule<Sound>()->play(Path::SoundPath + U"bgm/Main/Common/clear.aas", 0s);

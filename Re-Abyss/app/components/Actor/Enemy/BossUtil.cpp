@@ -13,20 +13,20 @@
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
 #include <abyss/components/Effect/Common/EmissiveCtrl.hpp>
-#include <abyss/utils/Coro/Task/MultiTasks.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/MultiFibers.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 #include <Siv3D.hpp>
 namespace abyss::Actor::Enemy
 {
-	Coro::Task<> BossUtil::DeadDemo(ActorObj* pActor)
+	Coro::Fiber<> BossUtil::DeadDemo(ActorObj* pActor)
 	{
 		co_await BehaviorUtil::WaitForSeconds(pActor, 1.0);
 		// 爆発
 		{
-			Coro::MultiTasks multiTasks{};
+			Coro::MultiFibers multiFibers{};
 			
-			multiTasks.add([pActor]()->Coro::Task<>{
+			multiFibers.add([pActor]()->Coro::Fiber<>{
 				// ボスフェード開始
 				auto* bossFade = pActor->getModule<SpecialEffects>()->bossFade();
 				bossFade->start();
@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy
 					return bossFade->isFadeOutEnd();
 				});
 			});
-			multiTasks.add([pActor]()->Coro::Task<> {
+			multiFibers.add([pActor]()->Coro::Fiber<> {
 				auto bossFadeMask = pActor->find<BossFadeMask>();
 				bossFadeMask->setRate(0);
 				TimeLite::Timer timer{ 6.0 };
@@ -66,13 +66,13 @@ namespace abyss::Actor::Enemy
 					co_yield{};
 				}
 			});
-			multiTasks.add([pActor]()->Coro::Task<> {
+			multiFibers.add([pActor]()->Coro::Fiber<> {
 				co_await BehaviorUtil::WaitForSeconds(pActor, 2.0s);
 
 				// 死亡カラーアニメ
 				pActor->find<ColorAnim::BossDeadColor>()->startAnim(4.0);
 			});
-			co_await multiTasks();
+			co_await multiFibers();
 		}
 		pActor->destroy();
 	}

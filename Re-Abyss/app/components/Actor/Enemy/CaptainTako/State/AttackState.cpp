@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::CaptainTako
         m_motion->set(Motion::Charge);
         m_charge->setRate(1);
     }
-    Task<> AttackState::task()
+    Fiber<> AttackState::task()
     {
 
         while (true) {

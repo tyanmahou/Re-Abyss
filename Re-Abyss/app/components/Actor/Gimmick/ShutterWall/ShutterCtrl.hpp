@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -18,7 +18,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         ShutterCtrl(ActorObj* pActor);
 
         double getShutterRate() const;
-        Coro::Task<> anim();
+        Coro::Fiber<> anim();
     public:
         void setup(Executer executer) override;
         void onStart()override;
@@ -34,7 +34,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         TimeLite::Timer m_shutterTimer;
         bool m_isWait = true;
 
-        Coro::TaskHolder<> m_task;
+        Coro::FiberHolder<> m_task;
     };
 }
 

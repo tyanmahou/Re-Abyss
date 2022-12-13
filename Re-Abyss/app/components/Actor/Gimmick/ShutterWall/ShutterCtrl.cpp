@@ -16,7 +16,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     {
         return m_shutterTimer.rate();
     }
-    Coro::Task<> ShutterCtrl::anim()
+    Coro::Fiber<> ShutterCtrl::anim()
     {
         while (!m_shutterTimer.isEnd()) {
             co_yield{};
@@ -58,7 +58,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         if (!m_isWait) {
             m_shutterTimer.update(m_pActor->deltaTime());
         }
-        m_task.moveNext();
+        m_task.resume();
 
         // 最新地形サイズ更新
         m_terrain->setRegion(ShutterUtil::Region(pos, this->getShutterRate()));

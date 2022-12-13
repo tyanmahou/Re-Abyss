@@ -14,7 +14,7 @@ namespace abyss::Event::GameReady
         void setup(Executer executer) override;
         void onStart() override;
 
-        Coro::Task<> onExecute() override;
+        Coro::Fiber<> onExecute() override;
     private:
         EventObj* m_pEvent;
     };

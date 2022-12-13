@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy
 	{
 	public:
 		// 死亡デモ
-		static Coro::Task<> DeadDemo(ActorObj* pActor);
+		static Coro::Fiber<> DeadDemo(ActorObj* pActor);
 
 	private:
 		// 死亡エフェクトをリクエスト

@@ -11,9 +11,9 @@ namespace abyss
     }
     bool SceneDebugSequence::onNext()
     {
-        return m_seq.moveNext();
+        return m_seq.resume();
     }
-    Coro::Task<> SceneDebugSequence::sequence(SceneKind kind)
+    Coro::Fiber<> SceneDebugSequence::sequence(SceneKind kind)
     {
         m_pManager->changeScene(kind, 1000);
         co_yield{};

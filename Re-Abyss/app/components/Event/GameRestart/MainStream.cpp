@@ -30,7 +30,7 @@ namespace abyss::Event::GameRestart
             ->find<Cycle::Main::Master>()
             ->restart();
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         // スローモーション
         {

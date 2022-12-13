@@ -23,7 +23,7 @@ namespace abyss::Event::GameReady
     {
         m_pEvent->find<FadeIrisOut>()->setIsFadeIn(true);
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         // フェード
         {

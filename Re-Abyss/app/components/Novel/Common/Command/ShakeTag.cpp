@@ -12,7 +12,7 @@ namespace abyss::Novel
     {
         m_pTalk->engine()->setIsShake(m_isShake);
     }
-    Coro::Task<> ShakeTag::onCommand()
+    Coro::Fiber<> ShakeTag::onCommand()
     {
         co_return;
     }

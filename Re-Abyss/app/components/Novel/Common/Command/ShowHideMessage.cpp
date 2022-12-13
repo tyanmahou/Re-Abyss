@@ -3,7 +3,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
 #include <abyss/components/Novel/Common/MessageBox.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Novel
 {
@@ -27,7 +27,7 @@ namespace abyss::Novel
             m_pTalk->engine()->clearBuffer();
         }
     }
-    Coro::Task<> ShowHideMessage::onCommand()
+    Coro::Fiber<> ShowHideMessage::onCommand()
     {
         auto messageBox = m_pTalk->find<MessageBox>();
         co_await Coro::WaitWhile([&] {

@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Actor
 {
@@ -11,7 +11,7 @@ namespace abyss::Actor
 
     void BehaviorCtrl::setSequence(const BehaviorSeqFunc& sequence)
     {
-        m_sequence.reset([seq = std::bind(sequence, m_pActor), this]()->Coro::Task<> {
+        m_sequence.reset([seq = std::bind(sequence, m_pActor), this]()->Coro::Fiber<> {
             co_await seq().each([this](const BehaviorFunc& behavior) {
                 this->setBehavior(behavior);
                 this->setActiveBehavior(true);
@@ -27,7 +27,7 @@ namespace abyss::Actor
     {
         return m_behavior.isDone();
     }
-    Coro::Task<> BehaviorCtrl::WaitDoneBehavior() const
+    Coro::Fiber<> BehaviorCtrl::WaitDoneBehavior() const
     {
         co_await Coro::WaitUntil([this] {
             return this->isDoneBehavior();
@@ -41,11 +41,11 @@ namespace abyss::Actor
     void BehaviorCtrl::onPostUpdate()
     {
         if (m_isActiveSeq) {
-            m_sequence.moveNext();
+            m_sequence.resume();
         }
 
         if (m_isActiveBehavior) {
-            m_behavior.moveNext();
+            m_behavior.resume();
         }
     }
 

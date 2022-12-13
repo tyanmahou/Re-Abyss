@@ -1692,12 +1692,6 @@
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\utils\Coro\Task\Wait.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2319,6 +2313,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\Home\MainStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5224,18 +5224,6 @@
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Coro\Task\MultiTasks.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Coro\Task\Task.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\Coro\Task\Wait.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6080,6 +6068,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\Home\MainStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #pragma once
 #if ABYSS_DEBUG
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Debug
 {
@@ -33,11 +33,11 @@ namespace abyss::Debug
 
 		void update();
 	private:
-		Coro::Task<> taskPause();
-		Coro::Task<> taskUpdate1f();
+		Coro::Fiber<> taskPause();
+		Coro::Fiber<> taskUpdate1f();
 	private:
-		Coro::TaskHolder<> m_taskPause;
-		Coro::TaskHolder<> m_taskUpdate1f;
+		Coro::FiberHolder<> m_taskPause;
+		Coro::FiberHolder<> m_taskUpdate1f;
 		bool m_isPause = false;
 		bool m_isUpdate1f = false;
 

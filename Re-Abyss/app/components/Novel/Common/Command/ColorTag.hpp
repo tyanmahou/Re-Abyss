@@ -13,7 +13,7 @@ namespace abyss::Novel
         ColorTag(TalkObj* pTalk, const s3d::Optional<s3d::ColorF>& color);
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         s3d::Optional<s3d::ColorF> m_color;

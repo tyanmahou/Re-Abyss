@@ -29,7 +29,7 @@ namespace abyss::UI::GamePause
     }
     void Main::onUpdate()
     {
-        m_state.moveNext();
+        m_state.resume();
     }
     void Main::onDraw() const
     {
@@ -60,7 +60,7 @@ namespace abyss::UI::GamePause
 
         }
     }
-    Coro::Task<> Main::stateSelect()
+    Coro::Fiber<> Main::stateSelect()
     {
         while (true) {
             // カーソル移動

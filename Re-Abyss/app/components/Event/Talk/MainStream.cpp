@@ -22,7 +22,7 @@ namespace abyss::Event::Talk
     {
         m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Always);
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         // 会話中はイベントとする
         while (m_talk) {

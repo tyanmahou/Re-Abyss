@@ -1,13 +1,13 @@
 #include <abyss/scenes/Loading/Loading.hpp>
 #include <abyss/views/UI/Common/Loading/LoadingView.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace
 {
     using namespace abyss;
     using namespace abyss::UI;
-    class AsyncLoading final : public ILoadingTask
+    class AsyncLoading final : public ILoadingFiber
     {
     public:
         AsyncLoading(Coro::Generator<double> task):
@@ -19,10 +19,10 @@ namespace
         }
         bool isDone() const override
         {
-            return m_task.isDone() || !m_task.moveNext();
+            return m_task.isDone() || !m_task.resume();
         }
     private:
-        Coro::Task<> asyncLoad(Coro::Generator<double> task)
+        Coro::Fiber<> asyncLoad(Coro::Generator<double> task)
         {
             co_await Coro::Aysnc([&]{
                 m_progressTarget = 0.0;
@@ -32,7 +32,7 @@ namespace
                 m_progressTarget = 1.0;
             });
         }
-        Coro::Task<> anim()
+        Coro::Fiber<> anim()
         {
             while (m_progress < 1.0) {
                 m_progress += 2.0 * s3d::Scene::DeltaTime();
@@ -45,7 +45,7 @@ namespace
     private:
         double m_progress = 0.0;
         double m_progressTarget = 0.0;
-        Coro::Task<void> m_task;
+        Coro::Fiber<void> m_task;
     };
 }
 namespace abyss

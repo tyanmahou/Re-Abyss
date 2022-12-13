@@ -16,9 +16,9 @@ namespace abyss
     }
     bool GameSequence::onNext()
     {
-        return m_seq.moveNext();
+        return m_seq.resume();
     }
-    Coro::Task<> GameSequence::sequence(const SceneKind initScene)
+    Coro::Fiber<> GameSequence::sequence(const SceneKind initScene)
     {
         SceneKind next = initScene;
         s3d::int32 transitionMsec = 0;

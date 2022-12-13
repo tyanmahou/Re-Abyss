@@ -14,7 +14,7 @@ namespace abyss::Novel
 
         void onStart() override;
         void onEnd() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         bool m_isShow = false;

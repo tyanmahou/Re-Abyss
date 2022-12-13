@@ -9,8 +9,8 @@
 
 #include <abyss/components/Effect/Misc/Bubble/Builder.hpp>
 #include <abyss/components/Effect/Misc/Bubble/Main.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D/Array.hpp>
 
 namespace
@@ -46,7 +46,7 @@ namespace abyss::Cron::BubbleGenerator
 			}
 		}
 	}
-	Coro::Task<> Generator::onExecute()
+	Coro::Fiber<> Generator::onExecute()
     {
 		auto time = m_pManager->getModule<GlobalTime>();
 		while (true) {

@@ -11,11 +11,11 @@ namespace abyss::Novel
     public:
         WaitTime(TalkObj* pTalk, const s3d::Duration& waitTime);
 
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
 
     private:
-        Coro::Task<> wait();
-        Coro::Task<> skip();
+        Coro::Fiber<> wait();
+        Coro::Fiber<> skip();
     private:
         TalkObj* m_pTalk = nullptr;
         s3d::Duration m_waitTime;

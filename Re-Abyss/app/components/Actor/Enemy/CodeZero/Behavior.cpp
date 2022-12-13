@@ -15,7 +15,7 @@
 #include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 #include <Siv3D.hpp>
 
@@ -40,7 +40,7 @@ namespace abyss::Actor::Enemy::CodeZero
         // 後半パターン
         co_yield Behavior::Phase3;
     }
-    Coro::Task<> Behavior::Phase1(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Phase1(ActorObj* pActor)
     {
         co_await TryToAppear(pActor);
 
@@ -57,7 +57,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Phase2(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Phase2(ActorObj* pActor)
     {
         co_await Angry(pActor);
 
@@ -80,7 +80,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::Phase3(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Phase3(ActorObj* pActor)
     {
         co_await Angry(pActor);
 
@@ -121,39 +121,39 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         co_return;
     }
-    Coro::Task<> Behavior::TryToAppear(ActorObj* pActor)
+    Coro::Fiber<> Behavior::TryToAppear(ActorObj* pActor)
     {
         if (pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
             co_await Appear(pActor);
         }
     }
-    Coro::Task<> Behavior::Appear(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Appear(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AppearState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::Angry(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Angry(ActorObj* pActor)
     {
         co_return;
     }
-    Coro::Task<> Behavior::Dead(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Dead(ActorObj* pActor)
     {
         pActor->find<DeadChecker>()->requestDead();
         co_yield{2};
     }
-    Coro::Task<> Behavior::LeftAttack(ActorObj* pActor)
+    Coro::Fiber<> Behavior::LeftAttack(ActorObj* pActor)
     {
         pActor->find<PartsCtrl>()->getLeftHand()->tryAttack();
         co_return;
     }
 
-    Coro::Task<> Behavior::RightAttack(ActorObj* pActor)
+    Coro::Fiber<> Behavior::RightAttack(ActorObj* pActor)
     {
         pActor->find<PartsCtrl>()->getRightHand()->tryAttack();
         co_return;
     }
 
-    Coro::Task<> Behavior::BothAttack(ActorObj* pActor)
+    Coro::Fiber<> Behavior::BothAttack(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -162,14 +162,14 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::LeftAttackAndWait(ActorObj* pActor, double waitSec)
+    Coro::Fiber<> Behavior::LeftAttackAndWait(ActorObj* pActor, double waitSec)
     {
         co_await LeftAttack(pActor);
         // 待機
         co_await BehaviorUtil::WaitForSeconds(pActor, waitSec);
     }
 
-    Coro::Task<> Behavior::RightAttackAndWait(ActorObj* pActor, double waitSec)
+    Coro::Fiber<> Behavior::RightAttackAndWait(ActorObj* pActor, double waitSec)
     {
         // 右手攻撃
         co_await RightAttack(pActor);
@@ -177,7 +177,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await BehaviorUtil::WaitForSeconds(pActor, waitSec);
     }
 
-    Coro::Task<> Behavior::BothAttackAndWait(ActorObj* pActor, double waitSec)
+    Coro::Fiber<> Behavior::BothAttackAndWait(ActorObj* pActor, double waitSec)
     {
         // 両手攻撃
         co_await BothAttack(pActor);
@@ -185,7 +185,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await BehaviorUtil::WaitForSeconds(pActor, waitSec);
     }
 
-    Coro::Task<> Behavior::RollingAttack(ActorObj* pActor, bool isReverse)
+    Coro::Fiber<> Behavior::RollingAttack(ActorObj* pActor, bool isReverse)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -195,7 +195,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await WaitPursuitHands(pActor);
     }
 
-    Coro::Task<> Behavior::ChargeShot(ActorObj* pActor)
+    Coro::Fiber<> Behavior::ChargeShot(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>().get();
 
@@ -210,7 +210,7 @@ namespace abyss::Actor::Enemy::CodeZero
         pActor->getModule<World>()->create<Shot::Builder>(pActor);
     }
 
-    Coro::Task<> Behavior::ChangeHandsPhase1(ActorObj* pActor, bool slowStart)
+    Coro::Fiber<> Behavior::ChangeHandsPhase1(ActorObj* pActor, bool slowStart)
     {
         auto parts = pActor->find<PartsCtrl>().get();
         parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase1(), slowStart);
@@ -218,7 +218,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::ChangeHandsPhase2(ActorObj* pActor, bool slowStart)
+    Coro::Fiber<> Behavior::ChangeHandsPhase2(ActorObj* pActor, bool slowStart)
     {
         auto parts = pActor->find<PartsCtrl>().get();
         parts->getLeftHand()->tryPursuit(Hand::HandDesc::CreateLeftPhase2(), slowStart);
@@ -226,7 +226,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_return;
     }
 
-    Coro::Task<> Behavior::WaitPursuitHands(ActorObj* pActor)
+    Coro::Fiber<> Behavior::WaitPursuitHands(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>();
         co_await Coro::WaitUntil([parts] {

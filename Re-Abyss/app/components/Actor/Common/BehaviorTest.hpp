@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 #include <Siv3D/Array.hpp>
 #include <Siv3D/String.hpp>
@@ -17,7 +17,7 @@ namespace abyss::Actor
         public IComponent,
         public IPreDraw
     {
-        using BehaviorFunc = std::function<Coro::Task<>(ActorObj*)>;
+        using BehaviorFunc = std::function<Coro::Fiber<>(ActorObj*)>;
     public:
         BehaviorTest(ActorObj* pActor);
 

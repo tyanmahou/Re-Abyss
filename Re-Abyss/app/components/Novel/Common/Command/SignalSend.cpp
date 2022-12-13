@@ -13,7 +13,7 @@ namespace abyss::Novel
             m_func(m_pTalk);
         }
     }
-    Coro::Task<> SignalSend::onCommand()
+    Coro::Fiber<> SignalSend::onCommand()
     {
         co_return;
     }

@@ -11,7 +11,7 @@ namespace abyss::Novel
         SkipEnabled(TalkObj* pTalk, bool isEnabled);
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         bool m_isEnabled = false;

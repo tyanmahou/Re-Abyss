@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void DeadState::end()
 	{
 	}
-	Coro::Task<> DeadState::task()
+	Coro::Fiber<> DeadState::task()
 	{
         if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
             co_await this->onDemo(signalCtrl);
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::KingDux
 			break;
 		}
 	}
-    Task<> DeadState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
+    Fiber<> DeadState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
     {
         signalCtrl->requestBattleEnd();
         co_await this->commonDead();
@@ -72,7 +72,7 @@ namespace abyss::Actor::Enemy::KingDux
             eventCtrl->requestComplete();
         }
     }
-    Task<> DeadState::commonDead()
+    Fiber<> DeadState::commonDead()
     {
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 1.0);
 

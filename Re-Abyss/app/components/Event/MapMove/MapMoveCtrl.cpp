@@ -60,7 +60,7 @@ namespace abyss::Event::MapMove
     {
         m_callback->onMoveEnd();
     }
-    Coro::Task<> MapMoveCtrl::onExecute()
+    Coro::Fiber<> MapMoveCtrl::onExecute()
     {
         s3d::Stopwatch sw(s3d::StartImmediately::Yes, m_pEvent->getModule<GlobalTime>());
 

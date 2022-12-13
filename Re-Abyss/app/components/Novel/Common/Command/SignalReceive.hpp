@@ -13,7 +13,7 @@ namespace abyss::Novel
         SignalReceive(TalkObj* pTalk, FunctionType func);
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         FunctionType m_func;

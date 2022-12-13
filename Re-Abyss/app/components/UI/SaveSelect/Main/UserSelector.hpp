@@ -4,7 +4,7 @@
 #include <abyss/components/UI/SaveSelect/Main/ModeCtrl.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Users.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss::UI::SaveSelect::Main
@@ -47,16 +47,16 @@ namespace abyss::UI::SaveSelect::Main
         /// <returns></returns>
         s3d::Optional<User::UserModel> getSelectUser() const;
     private:
-        Coro::Task<> stateSelect();
-        Coro::Task<> stateCreateUserConfirm();
-        Coro::Task<> stateEraseUserConfirm();
+        Coro::Fiber<> stateSelect();
+        Coro::Fiber<> stateCreateUserConfirm();
+        Coro::Fiber<> stateEraseUserConfirm();
     private:
         UIObj* m_pUi;
         Ref<ModeCtrl> m_mode;
         Ref<Users> m_users;
         s3d::int32 m_selectId = 0;
 
-        Coro::TaskHolder<> m_state;
+        Coro::FiberHolder<> m_state;
     };
 }
 

@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Novel
@@ -35,7 +35,7 @@ namespace abyss::Novel
     bool Engine::update()
     {
         m_time += m_pTalk->getModule<GlobalTime>()->deltaTime();
-        return m_stream.moveNext();
+        return m_stream.resume();
     }
     void Engine::addCommand(std::function<void(TalkObj*)> callback)
     {
@@ -52,7 +52,7 @@ namespace abyss::Novel
                     m_callback(m_pTalk);
                 }
             }
-            Coro::Task<> onCommand()override
+            Coro::Fiber<> onCommand()override
             {
                 co_return;
             }
@@ -132,10 +132,10 @@ namespace abyss::Novel
     }
     void Engine::resetStream()
     {
-        auto task = [this]()->Coro::Task<> {
+        auto task = [this]()->Coro::Fiber<> {
             // スキップ制御
             bool isSkipped = false;
-            auto skipCheck = [this, &isSkipped]()->Coro::Task<> {
+            auto skipCheck = [this, &isSkipped]()->Coro::Fiber<> {
                 while (true) {
                     bool isSkipPrev = isSkipped;
                     if (isSkipped = (m_skip && m_skip->isSkip())) {

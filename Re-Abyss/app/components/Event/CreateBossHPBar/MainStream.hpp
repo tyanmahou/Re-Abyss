@@ -19,7 +19,7 @@ namespace abyss::Event::CreateBossHPBar
         void onStart() override;
         void onEnd() override;
 
-        Coro::Task<> onExecute() override;
+        Coro::Fiber<> onExecute() override;
 
         void setBossBgmPath(const s3d::FilePath& path)
         {

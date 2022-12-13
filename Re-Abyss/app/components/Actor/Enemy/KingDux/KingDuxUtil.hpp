@@ -3,7 +3,7 @@
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/TentacleParam.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/BabyDuxParam.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 namespace abyss::Actor::Enemy::KingDux
 {
 	struct KingDuxUtil
@@ -15,15 +15,15 @@ namespace abyss::Actor::Enemy::KingDux
 
 		static void SetVisible(ActorObj* pActor, bool isVisible);
 
-		static Coro::Task<void> WaitTillStabAction(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles);
-		static Coro::Task<void> WaitTillTentacleRetire(const s3d::Array<Ref<ActorObj>>& tentacles, s3d::int32 count = 2);
-		static Coro::Task<void> RetireTask(
+		static Coro::Fiber<void> WaitTillStabAction(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles);
+		static Coro::Fiber<void> WaitTillTentacleRetire(const s3d::Array<Ref<ActorObj>>& tentacles, s3d::int32 count = 2);
+		static Coro::Fiber<void> RetireFiber(
 			ActorObj* pActor,
 			const s3d::Array<Ref<ActorObj>>& tentacles,
 			double timeOutSec = 10.0,
 			s3d::int32 count = 2
 		);
-		static Coro::Task<void> WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles);
+		static Coro::Fiber<void> WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles);
 		static void RequestRetires(const s3d::Array<Ref<ActorObj>>& tentacles);
 	};
 }

@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         AttackWaitState();
         void start() override;
         void end() override;
-        Task<> task()override;
+        Fiber<> task()override;
         void update()override;
     };
 }

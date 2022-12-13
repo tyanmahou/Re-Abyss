@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabPrevState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabState.hpp>
 
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	void StabPrevState::end()
 	{
 	}
-	Coro::Task<> StabPrevState::task()
+	Coro::Fiber<> StabPrevState::task()
 	{
 		m_shake->request(10.0, 1.0);
 

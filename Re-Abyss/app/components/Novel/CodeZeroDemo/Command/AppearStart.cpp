@@ -14,7 +14,7 @@ namespace abyss::Novel::CodeZeroDemo
         m_pTalk->find<TalkCtrl>()->request();
         m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Novel);
     }
-    Coro::Task<> AppearStart::onCommand()
+    Coro::Fiber<> AppearStart::onCommand()
     {
         co_return;
     }

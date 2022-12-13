@@ -8,12 +8,12 @@
 # include <abyss/components/Actor/base/IPreUpdate.hpp>
 # include <abyss/components/Actor/base/IPostUpdate.hpp>
 # include <abyss/components/Actor/base/ILastUpdate.hpp>
-# include <abyss/utils/Coro/Task/Task.hpp>
+# include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Actor
 {
     class StateCtrl;
-    using Coro::Task;
+    using Coro::Fiber;
 
     using StatePriorityType = s3d::int32;
 
@@ -38,7 +38,7 @@ namespace abyss::Actor
         virtual void onCache() {}
 
         virtual void start() {}
-        virtual Task<void> task() { co_return; }
+        virtual Fiber<void> task() { co_return; }
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
@@ -56,7 +56,7 @@ namespace abyss::Actor
         State_t m_current;
         std::pair<StatePriorityType, State_t> m_next;
         std::shared_ptr<IPostCollision> m_collisionReact;
-        std::unique_ptr<Task<void>> m_task;
+        std::unique_ptr<Fiber<void>> m_task;
         bool m_doneOnStart = false;
         ActorObj* const  m_pActor;
     public:

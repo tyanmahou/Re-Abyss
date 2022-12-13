@@ -16,7 +16,7 @@ namespace abyss::Novel
     {
         m_pTalk->engine()->setIsInputWait(false);
     }
-    Coro::Task<> WaitInput::onCommand()
+    Coro::Fiber<> WaitInput::onCommand()
     {
         // 1フレーム待つ
         co_yield{};

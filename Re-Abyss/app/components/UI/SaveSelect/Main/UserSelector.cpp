@@ -31,7 +31,7 @@ namespace abyss::UI::SaveSelect::Main
     }
     void UserSelector::onUpdate()
     {
-        m_state.moveNext();
+        m_state.resume();
     }
     bool UserSelector::isValidUser() const
     {
@@ -48,7 +48,7 @@ namespace abyss::UI::SaveSelect::Main
         }
         return m_users->getUser(m_selectId);
     }
-    Coro::Task<> UserSelector::stateSelect()
+    Coro::Fiber<> UserSelector::stateSelect()
     {
         // 変わっていたら時間リセット
         auto userInfoView = m_pUi->find<UserInfo::ViewCtrl>();
@@ -121,7 +121,7 @@ namespace abyss::UI::SaveSelect::Main
         }
         co_return;
     }
-    Coro::Task<> UserSelector::stateCreateUserConfirm()
+    Coro::Fiber<> UserSelector::stateCreateUserConfirm()
     {
         // ユーザー生成ダイアログ待ち
         if (auto result = co_await DialogUtil::Wait<CreateUserConfirm::Dialog>(m_pUi); !result.isBack) {
@@ -136,7 +136,7 @@ namespace abyss::UI::SaveSelect::Main
         m_state.reset(std::bind(&UserSelector::stateSelect, this));
         co_return;
     }
-    Coro::Task<> UserSelector::stateEraseUserConfirm()
+    Coro::Fiber<> UserSelector::stateEraseUserConfirm()
     {
         // ユーザー削除ダイアログ待ち
         auto [yes] = co_await DialogUtil::Wait<EraseUserConfirm::Dialog>(m_pUi);

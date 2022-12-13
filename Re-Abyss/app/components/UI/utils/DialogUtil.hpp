@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::UI::DialogUtil
 {
@@ -13,7 +13,7 @@ namespace abyss::UI::DialogUtil
     };
 
     template<class BuilderType, class ResultType, class... Args>
-    [[nodiscard]] Coro::Task<ResultType> Wait(GameObject* pObj, Args&&... args)
+    [[nodiscard]] Coro::Fiber<ResultType> Wait(GameObject* pObj, Args&&... args)
     {
         auto dialog = pObj->getModule<UIs>()->create<BuilderType>(std::forward<Args>(args)...);
         auto result = dialog->find<Dialog::DialogResult<ResultType>>();
@@ -33,13 +33,13 @@ namespace abyss::UI::DialogUtil
     }
 
     template<class BuildType, class... Args> requires DialogBuildy<BuildType, Args...>
-    [[nodiscard]] Coro::Task<typename BuildType::value_type> Wait(GameObject* pObj, Args&&... args)
+    [[nodiscard]] Coro::Fiber<typename BuildType::value_type> Wait(GameObject* pObj, Args&&... args)
     {
         return Wait<BuildType, typename BuildType::value_type, Args...>(pObj, std::forward<Args>(args)...);
     }
 
     template<class BuilderType, class ResultType, class... Args>
-    [[nodiscard]] Coro::Task<std::pair<Ref<UIObj>, ResultType>> WaitNoHide(GameObject* pObj, Args&&... args)
+    [[nodiscard]] Coro::Fiber<std::pair<Ref<UIObj>, ResultType>> WaitNoHide(GameObject* pObj, Args&&... args)
     {
         auto dialog = pObj->getModule<UIs>()->create<BuilderType>(std::forward<Args>(args)...);
         auto result = dialog->find<Dialog::DialogResult<ResultType>>();

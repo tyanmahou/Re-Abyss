@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandDesc.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -70,11 +70,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         void onStateStart() override;
     private:
-        Coro::Task<> movePursuit(bool slowStart = false);
-        Coro::Task<> moveAttackWait();
-        Coro::Task<> moveAttack();
-        Coro::Task<> moveShotCharge();
-        Coro::Task<> moveRollingAttack(bool isReverse = false);
+        Coro::Fiber<> movePursuit(bool slowStart = false);
+        Coro::Fiber<> moveAttackWait();
+        Coro::Fiber<> moveAttack();
+        Coro::Fiber<> moveShotCharge();
+        Coro::Fiber<> moveRollingAttack(bool isReverse = false);
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -82,7 +82,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Ref<ParentCtrl> m_parent;
 
         HandDesc m_param;
-        Coro::TaskHolder<> m_task;
+        Coro::FiberHolder<> m_task;
         bool m_isActive = true;
     };
 }

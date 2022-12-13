@@ -10,7 +10,7 @@
 #include <abyss/components/UI/Title/Cursor/Builder.hpp>
 #include <abyss/components/UI/Title/Cursor/CursorCtrl.hpp>
 #include <abyss/components/UI/Title/BackGround/Builder.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Event::Title
 {
@@ -26,7 +26,7 @@ namespace abyss::Event::Title
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         using namespace UI::Title;
         auto uis = m_pEvent->getModule<UIs>();

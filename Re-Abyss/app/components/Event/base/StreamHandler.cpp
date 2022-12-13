@@ -6,18 +6,18 @@ namespace
     using namespace abyss;
     using namespace abyss::Event;
 
-    Coro::Task<> ExecuteStrems(EventObj* pEvent)
+    Coro::Fiber<> ExecuteStrems(EventObj* pEvent)
     {
-        s3d::Array<Coro::Task<>> tasks;
+        s3d::Array<Coro::Fiber<>> tasks;
         for (auto&& stream : pEvent->finds<IStream>()) {
             tasks.push_back(stream->onExecute());
         }
         while (true) {
             for (auto& task : tasks) {
-                task.moveNext();
+                task.resume();
             }
 
-            if (tasks.all([](const Coro::Task<>& t) {return t.isDone(); })) {
+            if (tasks.all([](const Coro::Fiber<>& t) {return t.isDone(); })) {
                 co_return;
             }
 
@@ -36,13 +36,13 @@ namespace abyss::Event
     }
     void StreamHandler::onStart()
     {
-        m_stream = std::make_unique<Coro::Task<>>(ExecuteStrems(m_pEvent));
+        m_stream = std::make_unique<Coro::Fiber<>>(ExecuteStrems(m_pEvent));
     }
     bool StreamHandler::update()
     {
         if (!m_stream) {
             return false;
         }
-        return m_stream->moveNext();
+        return m_stream->resume();
     }
 }

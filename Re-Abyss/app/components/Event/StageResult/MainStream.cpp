@@ -5,7 +5,7 @@
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/components/Cycle/StageResult/Master.hpp>
 
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Event::StageResult
 {
@@ -21,7 +21,7 @@ namespace abyss::Event::StageResult
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         co_await Coro::WaitUntil([]{
             return InputManager::A.down();

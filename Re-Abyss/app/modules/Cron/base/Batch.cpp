@@ -10,17 +10,17 @@ namespace abyss::Cron
         if (jobs.isEmpty()) {
             return;
         }
-        std::function<Coro::Task<>()> callback = [jobs]()->Coro::Task<> {
-            s3d::Array<Coro::Task<>> tasks;
+        std::function<Coro::Fiber<>()> callback = [jobs]()->Coro::Fiber<> {
+            s3d::Array<Coro::Fiber<>> tasks;
             for (auto& job : jobs) {
                 tasks.push_back(job->onExecute());
             }
             while (true) {
                 for (auto& task : tasks) {
-                    task.moveNext();
+                    task.resume();
                 }
 
-                if (tasks.all([](const Coro::Task<>& t) {return t.isDone(); })) {
+                if (tasks.all([](const Coro::Fiber<>& t) {return t.isDone(); })) {
                     co_return;
                 }
 
@@ -28,7 +28,7 @@ namespace abyss::Cron
             }
         };
         auto scheduler = this->find<IScheduler>();
-        m_task = std::make_unique<Coro::Task<>>(scheduler->execute(callback));
+        m_task = std::make_unique<Coro::Fiber<>>(scheduler->execute(callback));
     }
 
     bool Batch::update()
@@ -36,6 +36,6 @@ namespace abyss::Cron
         if (!m_task) {
             return false;
         }
-        return m_task->moveNext();
+        return m_task->resume();
     }
 }

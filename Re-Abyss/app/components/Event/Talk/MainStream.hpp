@@ -16,7 +16,7 @@ namespace abyss::Event::Talk
         void onStart() override;
         void onEnd() override;
 
-        Coro::Task<> onExecute() override;
+        Coro::Fiber<> onExecute() override;
     private:
         EventObj* m_pEvent;
         s3d::String m_path;

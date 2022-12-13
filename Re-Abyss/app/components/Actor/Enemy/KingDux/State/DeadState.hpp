@@ -18,11 +18,11 @@ namespace abyss::Actor::Enemy::KingDux
     public:
         void start() override;
         void end() override;
-        Coro::Task<> task() override;
+        Coro::Fiber<> task() override;
         void update() override;
     private:
-        Task<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
-        Task<> commonDead();
+        Fiber<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
+        Fiber<> commonDead();
     private:
         Phase m_phase = Phase::Wait;
         TimeLite::Timer m_timer{};

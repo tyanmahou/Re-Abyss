@@ -12,7 +12,7 @@
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		m_pActor->find<EyeCtrl>()->flush(0.0);
 		m_pActor->find<HideCtrl>()->setVisible(true);
 	}
-	Coro::Task<> AppearState::task()
+	Coro::Fiber<> AppearState::task()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
 			if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
@@ -61,7 +61,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	void AppearState::update()
 	{
 	}
-	Task<> AppearState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+	Fiber<> AppearState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
 		while (signalCtrl && !signalCtrl->isRequestedAppear()) {
 			co_yield{};

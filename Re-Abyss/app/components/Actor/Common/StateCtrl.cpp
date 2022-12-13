@@ -41,7 +41,7 @@ namespace abyss::Actor
             }
             m_current = m_next.second;
             m_collisionReact = std::dynamic_pointer_cast<IPostCollision>(m_current);
-            m_task = std::make_unique<Coro::Task<void>>(m_current->task());
+            m_task = std::make_unique<Coro::Fiber<void>>(m_current->task());
             m_current->init(this);
             m_next.first = 0;
             m_next.second = nullptr;
@@ -66,7 +66,7 @@ namespace abyss::Actor
             m_doneOnStart = true;
         }
         if (m_task) {
-            m_task->moveNext();
+            m_task->resume();
         }
         if (m_current) {
             m_current->update();

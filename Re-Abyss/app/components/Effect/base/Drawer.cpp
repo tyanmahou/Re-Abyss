@@ -12,9 +12,9 @@ namespace abyss::Effect
     void Drawer::onStart()
     {
         auto draws = m_pObj->finds<IDrawParts>();
-        m_drawTasks.reserve(draws.size());
+        m_drawFibers.reserve(draws.size());
         for (auto&& com : draws) {
-            m_drawTasks.push_back([](EffectObj* pObj, Ref<IDrawParts> com)->Coro::Task<> {
+            m_drawFibers.push_back([](EffectObj* pObj, Ref<IDrawParts> com)->Coro::Fiber<> {
                 while (true) {
                     if (!com) {
                         break;
@@ -31,8 +31,8 @@ namespace abyss::Effect
     void Drawer::onDraw() const
     {
         bool isActive = false;
-        for (auto& t : m_drawTasks) {
-            isActive |= t.moveNext();
+        for (auto& t : m_drawFibers) {
+            isActive |= t.resume();
         }
         if (!isActive) {
             m_pObj->destroy();

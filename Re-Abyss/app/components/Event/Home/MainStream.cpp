@@ -16,7 +16,7 @@ namespace abyss::Event::Home
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         co_return;
     }

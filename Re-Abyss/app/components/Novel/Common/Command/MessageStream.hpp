@@ -14,10 +14,10 @@ namespace abyss::Novel
         void onStart() override;
         void onEnd() override;
 
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
-        Coro::Task<> stream();
-        Coro::Task<> skip();
+        Coro::Fiber<> stream();
+        Coro::Fiber<> skip();
     private:
         TalkObj* m_pTalk = nullptr;
         s3d::String m_message;

@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     public:
         void start() override;
         void end() override;
-        Coro::Task<> task() override;
+        Coro::Fiber<> task() override;
         void update() override;
     private:
     };

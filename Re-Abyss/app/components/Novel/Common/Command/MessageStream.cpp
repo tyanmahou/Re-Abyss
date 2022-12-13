@@ -1,5 +1,5 @@
 #include <abyss/components/Novel/Common/Command/MessageStream.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Novel/base/Engine.hpp>
@@ -22,11 +22,11 @@ namespace abyss::Novel
         }
     }
 
-    Coro::Task<> MessageStream::onCommand()
+    Coro::Fiber<> MessageStream::onCommand()
     {
         return skip() | stream();
     }
-    Coro::Task<> MessageStream::stream()
+    Coro::Fiber<> MessageStream::stream()
     {
         const auto& engine = m_pTalk->engine();
         auto* globalTime = m_pTalk->getModule<GlobalTime>();
@@ -39,7 +39,7 @@ namespace abyss::Novel
         }
         co_return;
     }
-    Coro::Task<> MessageStream::skip()
+    Coro::Fiber<> MessageStream::skip()
     {
         while (true) {
             if (InputManager::A.down()) {

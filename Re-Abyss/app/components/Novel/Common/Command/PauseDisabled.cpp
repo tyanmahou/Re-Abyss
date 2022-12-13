@@ -15,7 +15,7 @@ namespace abyss::Novel
             pPause->setPausable(!m_isDisabled, Pause::PauseManager::DisableKind::Demo);
         }
     }
-    Coro::Task<> PauseDisabled::onCommand()
+    Coro::Fiber<> PauseDisabled::onCommand()
     {
         co_return;
     }

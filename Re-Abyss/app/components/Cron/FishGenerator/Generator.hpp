@@ -14,7 +14,7 @@ namespace abyss::Cron::FishGenerator
 		Generator(Manager* pManager);
 
 		void onStart() override;
-		Coro::Task<> onExecute() override;
+		Coro::Fiber<> onExecute() override;
 
 		void onCheckOut() override;
 		void onCheckIn() override;

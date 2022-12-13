@@ -17,7 +17,7 @@ namespace abyss::Novel::CodeZeroDemo
         m_pTalk->getModule<Events>()->create<Event::GameClear::Builder>();
     }
 
-    Coro::Task<> Teardown::onCommand()
+    Coro::Fiber<> Teardown::onCommand()
     {
         co_return;
     }

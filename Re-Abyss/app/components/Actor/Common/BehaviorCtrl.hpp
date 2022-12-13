@@ -7,12 +7,12 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 #include <abyss/utils/Coro/AsyncGenerator/AsyncGenerator.hpp>
 
 namespace abyss::Actor
 {
-    using BehaviorFunc = std::function<Coro::Task<>(ActorObj*)>;
+    using BehaviorFunc = std::function<Coro::Fiber<>(ActorObj*)>;
     using BehaviorSeqFunc = std::function<Coro::AsyncGenerator<BehaviorFunc>(ActorObj*)>;
 
     class BehaviorCtrl final :
@@ -38,7 +38,7 @@ namespace abyss::Actor
         }
         bool isDoneBehavior() const;
 
-        Coro::Task<> WaitDoneBehavior() const;
+        Coro::Fiber<> WaitDoneBehavior() const;
 
     public:
         void setup(Executer executer)override;
@@ -48,8 +48,8 @@ namespace abyss::Actor
         void onStateStart() override;
     private:
         ActorObj* m_pActor = nullptr;
-        Coro::TaskHolder<> m_sequence;
-        Coro::TaskHolder<> m_behavior;
+        Coro::FiberHolder<> m_sequence;
+        Coro::FiberHolder<> m_behavior;
 
         bool m_isActiveSeq = true;
         bool m_isActiveBehavior = true;

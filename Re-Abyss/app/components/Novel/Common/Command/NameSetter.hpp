@@ -13,7 +13,7 @@ namespace abyss::Novel
         NameSetter(TalkObj* pTalk, const Name& name);
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         Name m_name;

@@ -11,7 +11,7 @@ namespace abyss::Cron
 	public:
 		OnceScheduler() = default;
 
-		Coro::Task<> execute(std::function<Coro::Task<>()> task) override;
+		Coro::Fiber<> execute(std::function<Coro::Fiber<>()> task) override;
 	};
 }
 

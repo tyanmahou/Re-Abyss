@@ -10,7 +10,7 @@ namespace abyss::Novel
     void SignalReceive::onStart()
     {
     }
-    Coro::Task<> SignalReceive::onCommand()
+    Coro::Fiber<> SignalReceive::onCommand()
     {
         if (m_func) {
             while (!m_func(m_pTalk)){

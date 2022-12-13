@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::BabyDux
 	{
 		m_startPos = m_body->getPos();
 	}
-	Task<> MoveState::task()
+	Fiber<> MoveState::task()
 	{
 		while (true) {
 			// ため
@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::BabyDux
 	{
 	}
 
-	Task<> MoveState::taskCharge()
+	Fiber<> MoveState::taskCharge()
 	{
 		m_startPos = m_body->getPos();
 		m_body->noneResistanced();
@@ -45,7 +45,7 @@ namespace abyss::Actor::Enemy::BabyDux
             co_yield{};
 		}
     }
-	Task<> MoveState::taskJump()
+	Fiber<> MoveState::taskJump()
 	{
 		auto toPlayer = ActorUtils::ToPlayer(*m_pActor, *m_body);
 		auto sign = toPlayer.x <= 0 ? -1 : 1;

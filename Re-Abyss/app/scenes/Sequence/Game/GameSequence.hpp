@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/scenes/SequenceManager.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss
 {
@@ -11,9 +11,9 @@ namespace abyss
         GameSequence(SequenceManager* pManager, SceneKind initScene);
         bool onNext() override;
     private:
-        Coro::Task<> sequence(SceneKind initScene);
+        Coro::Fiber<> sequence(SceneKind initScene);
     private:
         SequenceManager* m_pManager;
-        Coro::TaskHolder<> m_seq;
+        Coro::FiberHolder<> m_seq;
     };
 }

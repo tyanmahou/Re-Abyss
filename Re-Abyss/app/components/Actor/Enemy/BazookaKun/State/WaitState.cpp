@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             this->changeState<AimState>();
         }
     }
-    Task<> WaitState::task()
+    Fiber<> WaitState::task()
     {
         co_return;
     }

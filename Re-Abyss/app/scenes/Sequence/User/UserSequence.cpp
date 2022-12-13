@@ -10,9 +10,9 @@ namespace abyss
     }
     bool UserSequence::onNext()
     {
-        return m_seq.moveNext();
+        return m_seq.resume();
     }
-    Coro::Task<> UserSequence::sequence()
+    Coro::Fiber<> UserSequence::sequence()
     {
         m_pManager->pushSequence<StageSequence>(m_pManager);
         co_yield{};

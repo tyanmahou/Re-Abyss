@@ -13,7 +13,7 @@ namespace abyss::Novel::RoomGarder
         m_pTalk->getModule<RoomManager>()->unlockRoomGarder();
     }
 
-    Coro::Task<> Teardown::onCommand()
+    Coro::Fiber<> Teardown::onCommand()
     {
         co_return;
     }

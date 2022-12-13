@@ -825,6 +825,8 @@
     <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp" />
     <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
     <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp" />
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
     <ClCompile Include="app\utils\Look\Look.cpp" />
     <ClCompile Include="app\modules\Novel\TagString.cpp" />
@@ -838,8 +840,6 @@
     <ClCompile Include="app\utils\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\utils\Collision\FixPos.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
-    <ClCompile Include="app\utils\Coro\Task\MultiTasks.cpp" />
-    <ClCompile Include="app\utils\Coro\Task\Wait.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\DebugLog\DebugLog.cpp" />
     <ClCompile Include="app\utils\DebugLog\LogInfo.cpp" />
@@ -2006,6 +2006,10 @@
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
     <ClInclude Include="app\entities\Forward.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp" />
     <ClInclude Include="app\utils\Look\Look.hpp" />
     <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
     <ClInclude Include="app\modules\Novel\Face.hpp" />
@@ -2030,10 +2034,6 @@
     <ClInclude Include="app\utils\Coro\Enumerator\Enumerator.hpp" />
     <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
     <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
-    <ClInclude Include="app\utils\Coro\Task\MultiTasks.hpp" />
-    <ClInclude Include="app\utils\Coro\Task\Task.hpp" />
-    <ClInclude Include="app\utils\Coro\Task\TaskHolder.hpp" />
-    <ClInclude Include="app\utils\Coro\Task\Wait.hpp" />
     <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
     <ClInclude Include="app\utils\DB\DBBind.hpp" />
     <ClInclude Include="app\utils\DB\DBBindDef.hpp" />

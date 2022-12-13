@@ -33,7 +33,7 @@ namespace abyss::Event::GamePause
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(false);
         GlobalAudio::BusFadeVolume(MixBusKind::Bgm, 1, 0.5s);
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         // 1フレーム待ち
         co_yield{};

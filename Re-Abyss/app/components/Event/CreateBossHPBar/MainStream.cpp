@@ -6,7 +6,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/UI/BossHPBar/Main.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 #include <Siv3D.hpp>
 
@@ -28,7 +28,7 @@ namespace abyss::Event::CreateBossHPBar
             ->load(U"se/Common/charge_boss_hp.ogg");
     }
 
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         auto hpGauge = m_hpBar->find<UI::BossHPBar::HPGaugeCtrl>();
         while (hpGauge && !hpGauge->isFull()) {

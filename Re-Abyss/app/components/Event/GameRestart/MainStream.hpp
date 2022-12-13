@@ -17,7 +17,7 @@ namespace abyss::Event::GameRestart
         void onStart() override;
         void onEnd() override;
 
-        Coro::Task<> onExecute() override;
+        Coro::Fiber<> onExecute() override;
 
         double getGlobalTimeScale() const override;
     private:

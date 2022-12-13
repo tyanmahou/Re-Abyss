@@ -1,6 +1,6 @@
 #pragma once
 #include <coroutine>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Coro
 {
@@ -25,14 +25,14 @@ namespace abyss::Coro
             void unhandled_exception() { std::terminate(); }
             void return_void() {}
             Yield yield{ 0 };
-            detail::NextTaskHandler next;
+            detail::NextFiberHandler next;
             bool isFindValue = false;
         };
 
         struct iterator
         {
             const AsyncGenerator* owner;
-            Task<iterator> operator++() const
+            Fiber<iterator> operator++() const
             {
                 owner->coro.promise().isFindValue = false;
                 while (owner->findValue()) {
@@ -50,7 +50,7 @@ namespace abyss::Coro
             }
         };
     public:
-        Task<iterator> begin() const
+        Fiber<iterator> begin() const
         {
             coro.promise().isFindValue = false;
             while (this->findValue()) {
@@ -61,7 +61,7 @@ namespace abyss::Coro
         iterator end()const { return { nullptr }; }
 
         template<class Func>
-        Task<void> each(Func func) const requires std::is_invocable_v<Func, Type>
+        Fiber<void> each(Func func) const requires std::is_invocable_v<Func, Type>
         {
             auto it = co_await this->begin();
             auto endIt = this->end();
@@ -110,7 +110,7 @@ namespace abyss::Coro
                 auto& next = coro.promise().next;
                 if (next) {
 
-                    if (!next.moveNext()) {
+                    if (!next.resume()) {
                         next.clear();
                     } else {
                         return true;

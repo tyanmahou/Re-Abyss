@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Effect/base/IDraw.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Effect
 {
@@ -36,7 +36,7 @@ namespace abyss::Effect
         }
     private:
         EffectObj* m_pObj;
-        s3d::Array<Coro::Task<>> m_drawTasks;
+        s3d::Array<Coro::Fiber<>> m_drawFibers;
 
         DrawLayer m_layer = DrawLayer::WorldFront;
         double m_order = 1.0001;

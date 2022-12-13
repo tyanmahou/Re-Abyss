@@ -7,7 +7,7 @@
 #include <abyss/components/UI/GamePause/Result.hpp>
 #include <abyss/views/UI/GamePause/BackGround/BackGroundVM.hpp>
 #include <abyss/views/UI/Message/CursorVM.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::UI::GamePause
 {
@@ -27,10 +27,10 @@ namespace abyss::UI::GamePause
         void onUpdate() override;
         void onDraw() const override;
     private:
-        Coro::Task<> stateSelect();
+        Coro::Fiber<> stateSelect();
     private:
         UIObj* m_pUi;
-        Coro::TaskHolder<> m_state;
+        Coro::FiberHolder<> m_state;
 
         bool m_isSelectContinue = true;
         std::unique_ptr<UI::GamePause::BackGround::BackGroundVM> m_bg;

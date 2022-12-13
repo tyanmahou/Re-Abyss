@@ -8,7 +8,7 @@
 #include <abyss/components/UI/Splash/Logo/LogoCtrl.hpp>
 #include <abyss/components/Cycle/Splash/Master.hpp>
 
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Event::Splash
 {
@@ -30,7 +30,7 @@ namespace abyss::Event::Splash
     void MainStream::onEnd()
     {
     }
-    Coro::Task<> MainStream::onExecute()
+    Coro::Fiber<> MainStream::onExecute()
     {
         auto logoCtrl = m_pLogo->find<Logo::LogoCtrl>();
 

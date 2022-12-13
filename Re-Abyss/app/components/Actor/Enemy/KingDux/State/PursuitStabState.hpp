@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::KingDux
     public:
         void start() override;
         void end() override;
-        Task<void> task() override;
+        Fiber<void> task() override;
     private:
         s3d::Array<Ref<ActorObj>> m_tentacles;
     };

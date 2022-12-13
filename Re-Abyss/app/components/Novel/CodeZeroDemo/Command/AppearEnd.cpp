@@ -30,7 +30,7 @@ namespace abyss::Novel::CodeZeroDemo
                 ->setBossBgmPath(U"bgm/Main/Stage0/stage0_boss.aas");
         }
     }
-    Coro::Task<> AppearEnd::onCommand()
+    Coro::Fiber<> AppearEnd::onCommand()
     {
         co_return;
     }

@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Event
 {
@@ -8,6 +8,6 @@ namespace abyss::Event
     public:
         virtual ~IStream() = default;
 
-        virtual Coro::Task<> onExecute() = 0;
+        virtual Coro::Fiber<> onExecute() = 0;
     };
 }

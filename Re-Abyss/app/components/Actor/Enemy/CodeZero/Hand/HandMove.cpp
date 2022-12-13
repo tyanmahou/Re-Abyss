@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         if (!m_isActive) {
             return;
         }
-        m_task.moveNext();
+        m_task.resume();
     }
     void HandMove::onStateStart()
     {
@@ -73,7 +73,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         return m_param.axis;
     }
-    Coro::Task<> HandMove::movePursuit(bool slowStart)
+    Coro::Fiber<> HandMove::movePursuit(bool slowStart)
     {
         const Vec2& target = ActorUtils::PlayerPos(*m_pActor);
         const Vec2& parentPos = m_parent->getPos();
@@ -145,7 +145,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         co_return;
     }
-    Coro::Task<> HandMove::moveAttackWait()
+    Coro::Fiber<> HandMove::moveAttackWait()
     {
         auto velocity = m_param.axis.projectRight(-50);
         m_body->setVelocity(velocity);
@@ -155,7 +155,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         co_return;
     }
-    Coro::Task<> HandMove::moveAttack()
+    Coro::Fiber<> HandMove::moveAttack()
     {
         const Vec2& pos = m_body->getPos();
         const Vec2& parentPos = m_parent->getPos();
@@ -196,7 +196,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         co_return;
     }
-    Coro::Task<> HandMove::moveShotCharge()
+    Coro::Fiber<> HandMove::moveShotCharge()
     {
         m_body->noneResistanced()
             .setVelocity(s3d::Vec2::Zero());
@@ -219,7 +219,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         co_return;
     }
-    Coro::Task<> HandMove::moveRollingAttack(bool isReverse)
+    Coro::Fiber<> HandMove::moveRollingAttack(bool isReverse)
     {
         m_body->noneResistanced()
             .setVelocity(s3d::Vec2::Zero());

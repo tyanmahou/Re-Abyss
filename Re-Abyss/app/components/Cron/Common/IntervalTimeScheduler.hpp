@@ -12,7 +12,7 @@ namespace abyss::Cron
 	public:
 		IntervalTimeScheduler(Manager* pManager, const s3d::Duration& duration);
 
-		Coro::Task<> execute(std::function<Coro::Task<>()> task) override;
+		Coro::Fiber<> execute(std::function<Coro::Fiber<>()> task) override;
 	private:
 		Manager* m_pManager;
 		s3d::Duration m_duration;

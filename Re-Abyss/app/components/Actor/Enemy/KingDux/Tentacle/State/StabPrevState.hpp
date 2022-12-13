@@ -9,6 +9,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
     public:
         void start() override;
         void end() override;
-        Coro::Task<> task() override;
+        Coro::Fiber<> task() override;
     };
 }

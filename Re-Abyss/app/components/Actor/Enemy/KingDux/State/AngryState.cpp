@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::KingDux
 		m_motion->set(Motion::Wait);
 		m_motion->setAnimeTime(0.0);
 	}
-	Coro::Task<> AngryState::task()
+	Coro::Fiber<> AngryState::task()
 	{
 		co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.3);
 		m_phase = Phase::Open;

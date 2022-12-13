@@ -12,7 +12,7 @@ namespace abyss::Novel::RoomGarder
 
         void onStart() override;
 
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
 
     private:
         TalkObj* m_pTalk;

@@ -25,9 +25,9 @@ namespace abyss
     }
     bool StageSequence::onNext()
     {
-        return m_seq.moveNext();
+        return m_seq.resume();
     }
-    Coro::Task<> StageSequence::sequence()
+    Coro::Fiber<> StageSequence::sequence()
     {
         // ステージイン
         {

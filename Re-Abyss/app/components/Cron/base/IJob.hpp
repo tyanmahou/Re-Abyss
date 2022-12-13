@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Cron
 {
@@ -9,6 +9,6 @@ namespace abyss::Cron
     public:
         virtual ~IJob() = default;
 
-        virtual Coro::Task<> onExecute() = 0;
+        virtual Coro::Fiber<> onExecute() = 0;
     };
 }

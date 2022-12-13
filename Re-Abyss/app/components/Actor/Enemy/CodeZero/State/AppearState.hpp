@@ -12,10 +12,10 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         void start() override;
         void end() override;
-        Coro::Task<> task() override;
+        Coro::Fiber<> task() override;
         void update() override;
     private:
-        Task<> onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
 
         Ref<AppearState> getWeak()
         {

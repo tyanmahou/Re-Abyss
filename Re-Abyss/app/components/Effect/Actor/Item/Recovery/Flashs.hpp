@@ -3,7 +3,7 @@
 #include <abyss/components/Effect/base/IDrawParts.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/LocationCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Effect::Actor::Item::Recovery
 {
@@ -24,7 +24,7 @@ namespace abyss::Effect::Actor::Item::Recovery
     public:
         Flashs(EffectObj* pObj);
 
-        Coro::Task<void> task();
+        Coro::Fiber<void> task();
     public:
         void onStart() override;
 
@@ -34,7 +34,7 @@ namespace abyss::Effect::Actor::Item::Recovery
         EffectObj* m_pObj;
         Ref<LocationCtrl> m_location;
         s3d::Array<Flash> m_flashs;
-        Coro::TaskHolder<void> m_task;
+        Coro::FiberHolder<void> m_task;
     };
 }
 

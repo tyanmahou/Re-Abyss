@@ -6,7 +6,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Novel/base/ICommand.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 #include <abyss/modules/Novel/Serif.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Optional.hpp>
@@ -85,7 +85,7 @@ namespace abyss::Novel
         bool m_isInputWait = false;
 
         // コマンド
-        Coro::TaskHolder<> m_stream;
+        Coro::FiberHolder<> m_stream;
         std::queue<std::shared_ptr<ICommand>> m_commands;
         bool m_doneCurrentInit = false;
 

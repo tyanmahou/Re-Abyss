@@ -37,7 +37,7 @@ namespace abyss::Actor::Player
         };
         m_body->setVelocity(velocity);
     }
-    Task<> DamageState::task()
+    Fiber<> DamageState::task()
     {
         // 一定時間待機
         co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Damage::TimeSec);

@@ -5,7 +5,7 @@
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/Novel/CharaTable.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/Coro/Task/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Novel
 {

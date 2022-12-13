@@ -20,7 +20,7 @@ namespace abyss::Novel
         );
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         s3d::Optional<CharaKind> m_kind;

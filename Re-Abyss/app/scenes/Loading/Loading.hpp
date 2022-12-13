@@ -8,10 +8,10 @@ namespace abyss
         class LoadingView;
     }
 
-    class ILoadingTask
+    class ILoadingFiber
     {
     public:
-        virtual ~ILoadingTask() = default;
+        virtual ~ILoadingFiber() = default;
         virtual double progress() const = 0;
         virtual bool isDone() const = 0;
     };
@@ -26,7 +26,7 @@ namespace abyss
 
         void draw() const;
     private:
-        std::unique_ptr<ILoadingTask> m_task;
+        std::unique_ptr<ILoadingFiber> m_task;
         std::unique_ptr<UI::LoadingView> m_view;
     };
 }

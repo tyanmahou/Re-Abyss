@@ -16,7 +16,7 @@ namespace abyss::Event::Splash
         void onStart() override;
         void onEnd() override;
 
-        Coro::Task<> onExecute() override;
+        Coro::Fiber<> onExecute() override;
     private:
         EventObj* m_pEvent;
         Ref<UI::UIObj> m_pLogo;

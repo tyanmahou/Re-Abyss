@@ -12,9 +12,9 @@ namespace abyss
     }
     bool RootSequence::onNext()
     {
-        return m_seq.moveNext();
+        return m_seq.resume();
     }
-    Coro::Task<> RootSequence::sequence()
+    Coro::Fiber<> RootSequence::sequence()
     {
         m_pManager->changeScene(SceneKind::EntryPoint);
         co_yield{};

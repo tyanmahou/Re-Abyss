@@ -28,7 +28,7 @@ namespace abyss::Novel
             engine->setFace(*m_face);
         }
     }
-    Coro::Task<> CharaSetter::onCommand()
+    Coro::Fiber<> CharaSetter::onCommand()
     {
         co_return;
     }

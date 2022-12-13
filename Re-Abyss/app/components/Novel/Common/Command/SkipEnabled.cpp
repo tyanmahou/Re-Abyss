@@ -14,7 +14,7 @@ namespace abyss::Novel
 			skipCtrl->setIsEnabled(m_isEnabled);
 		}
 	}
-	Coro::Task<> SkipEnabled::onCommand()
+	Coro::Fiber<> SkipEnabled::onCommand()
 	{
 		co_return;
 	}

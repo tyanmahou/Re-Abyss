@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/scenes/SequenceManager.hpp>
-#include <abyss/utils/Coro/Task/TaskHolder.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss
 {
@@ -17,10 +17,10 @@ namespace abyss
 
         bool onNext() override;
     private:
-        Coro::Task<> sequence();
+        Coro::Fiber<> sequence();
     private:
         SequenceManager* m_pManager;
         StageSeqContext m_context;
-        Coro::TaskHolder<> m_seq;
+        Coro::FiberHolder<> m_seq;
     };
 }

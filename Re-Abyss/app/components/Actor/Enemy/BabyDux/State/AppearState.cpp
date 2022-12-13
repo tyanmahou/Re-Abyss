@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::BabyDux
 	{
 
 	}
-	Task<> AppearState::task()
+	Fiber<> AppearState::task()
 	{
 		// 移動
 		{

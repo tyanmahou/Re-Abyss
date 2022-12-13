@@ -13,7 +13,7 @@ namespace abyss::Novel
         m_pTalk->engine()->setName(m_name);
     }
 
-    Coro::Task<> NameSetter::onCommand()
+    Coro::Fiber<> NameSetter::onCommand()
     {
         co_return;
     }

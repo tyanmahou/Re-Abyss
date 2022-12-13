@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	{
 		m_retireCtrl->setIsReturnState(true);
 	}
-	Coro::Task<> ReturnState::task()
+	Coro::Fiber<> ReturnState::task()
 	{
 		TimeLite::Timer moveTimer{ 1.0 };
 		Vec2 startPos = m_body->getPos();

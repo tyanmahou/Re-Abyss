@@ -26,7 +26,7 @@ namespace abyss::Novel
         );
 
         void onStart() override;
-        Coro::Task<> onCommand() override;
+        Coro::Fiber<> onCommand() override;
     private:
         TalkObj* m_pTalk = nullptr;
         Kind m_kind;

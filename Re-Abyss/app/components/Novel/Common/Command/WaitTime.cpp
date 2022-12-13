@@ -1,5 +1,5 @@
 #include <abyss/components/Novel/Common/Command/WaitTime.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Novel
@@ -8,16 +8,16 @@ namespace abyss::Novel
         m_pTalk(pTalk),
         m_waitTime(waitTime)
     {}
-    Coro::Task<> WaitTime::onCommand()
+    Coro::Fiber<> WaitTime::onCommand()
     {
         return skip() | wait();
     }
 
-    Coro::Task<> WaitTime::wait()
+    Coro::Fiber<> WaitTime::wait()
     {
         co_await Coro::WaitForSeconds(m_waitTime);
     }
-    Coro::Task<> WaitTime::skip()
+    Coro::Fiber<> WaitTime::skip()
     {
         while (true) {
             if (InputManager::A.down()) {

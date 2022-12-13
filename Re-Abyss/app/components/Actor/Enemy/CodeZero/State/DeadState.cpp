@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	void DeadState::end()
 	{
 	}
-	Coro::Task<> DeadState::task()
+	Coro::Fiber<> DeadState::task()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
 			co_await this->onEvent(signalCtrl);
@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 	}
 
-	Task<> DeadState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+	Fiber<> DeadState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
         signalCtrl->requestBattleEnd();
 
@@ -61,7 +61,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		signalCtrl->setDeadEnd();
 	}
 
-	Task<> DeadState::commonDead()
+	Fiber<> DeadState::commonDead()
 	{
 		co_await BossUtil::DeadDemo(m_pActor);
 	}

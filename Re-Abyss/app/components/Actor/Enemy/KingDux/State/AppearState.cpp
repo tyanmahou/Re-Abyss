@@ -8,7 +8,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		KingDuxUtil::SetVisible(m_pActor, true);
 	}
-	Coro::Task<> AppearState::task()
+	Coro::Fiber<> AppearState::task()
 	{
         if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
             co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void AppearState::update()
 	{
 	}
-    Coro::Task<> AppearState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
+    Coro::Fiber<> AppearState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
     {
         Vec2 initPos = m_body->getPos();
         const Vec2 offset = Vec2{ 0, 400 };

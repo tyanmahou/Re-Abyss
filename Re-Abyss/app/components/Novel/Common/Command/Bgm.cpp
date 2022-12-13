@@ -38,7 +38,7 @@ namespace abyss::Novel
             break;
         }
     }
-    Coro::Task<> Bgm::onCommand()
+    Coro::Fiber<> Bgm::onCommand()
     {
         co_return;
     }

@@ -18,6 +18,6 @@ namespace abyss::Event
         bool update();
     private:
         EventObj* m_pEvent;
-        std::unique_ptr<Coro::Task<>> m_stream;
+        std::unique_ptr<Coro::Fiber<>> m_stream;
     };
 }

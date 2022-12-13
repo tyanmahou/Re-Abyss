@@ -67,7 +67,7 @@ namespace abyss::Event::RoomMove
         roomManager->onCheckIn();
         m_pEvent->getModule<Stage>()->checkIn();
     }
-    Coro::Task<> RoomMoveCtrl::onExecute()
+    Coro::Fiber<> RoomMoveCtrl::onExecute()
     {
         s3d::Stopwatch sw(s3d::StartImmediately::Yes, m_pEvent->getModule<GlobalTime>());
 

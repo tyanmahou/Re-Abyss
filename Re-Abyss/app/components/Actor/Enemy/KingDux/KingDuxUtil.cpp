@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -38,11 +38,11 @@ namespace abyss::Actor::Enemy::KingDux
         pActor->find<VModelSub<3>>()->setVisible(isVisible);
         pActor->find<VModelSub<4>>()->setVisible(isVisible);
     }
-    Coro::Task<void> KingDuxUtil::WaitTillStabAction(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles)
+    Coro::Fiber<void> KingDuxUtil::WaitTillStabAction(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles)
     {
-        return RetireTask(pActor, tentacles) | WaitTillTentacle(tentacles);
+        return RetireFiber(pActor, tentacles) | WaitTillTentacle(tentacles);
     }
-    Coro::Task<void> KingDuxUtil::WaitTillTentacleRetire(const s3d::Array<Ref<ActorObj>>& tentacles, s3d::int32 count)
+    Coro::Fiber<void> KingDuxUtil::WaitTillTentacleRetire(const s3d::Array<Ref<ActorObj>>& tentacles, s3d::int32 count)
     {
         return Coro::WaitUntil([&tentacles, count] {
             int32 retireCount = 0;
@@ -54,7 +54,7 @@ namespace abyss::Actor::Enemy::KingDux
             return retireCount >= count;
         });
     }
-    Coro::Task<void> KingDuxUtil::RetireTask(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles, double timeOutSec, s3d::int32 count)
+    Coro::Fiber<void> KingDuxUtil::RetireFiber(ActorObj* pActor, const s3d::Array<Ref<ActorObj>>& tentacles, double timeOutSec, s3d::int32 count)
     {
         co_await (
             BehaviorUtil::WaitForSeconds(pActor, timeOutSec) |
@@ -65,7 +65,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         co_await BehaviorUtil::Freeze();
     }
-    Coro::Task<void> KingDuxUtil::WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles)
+    Coro::Fiber<void> KingDuxUtil::WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles)
     {
         co_await Coro::WaitUntil([&] {
             return tentacles.all([](const Ref<ActorObj>& obj) {

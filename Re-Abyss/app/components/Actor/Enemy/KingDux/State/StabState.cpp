@@ -19,7 +19,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		KingDuxUtil::RequestRetires(m_tentacles);
 	}
-	Task<void> StabState::task()
+	Fiber<void> StabState::task()
 	{
 		co_await KingDuxUtil::WaitTillStabAction(m_pActor, m_tentacles);
 

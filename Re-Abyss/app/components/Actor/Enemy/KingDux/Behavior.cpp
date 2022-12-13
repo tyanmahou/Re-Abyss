@@ -16,7 +16,7 @@
 
 #include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
 
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::KingDux
         co_yield Behavior::Phase2;
     }
 
-    Coro::Task<> Behavior::Phase1(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Phase1(ActorObj* pActor)
     {
         co_await TryToAppear(pActor);
 
@@ -46,7 +46,7 @@ namespace abyss::Actor::Enemy::KingDux
         }
         co_return;
     }
-    Coro::Task<> Behavior::Phase2(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Phase2(ActorObj* pActor)
     {
         co_await Angry(pActor);
 
@@ -61,7 +61,7 @@ namespace abyss::Actor::Enemy::KingDux
             stabId = (stabId + 1) % 3;
         }
     }
-    Coro::Task<> Behavior::TryToAppear(ActorObj* pActor)
+    Coro::Fiber<> Behavior::TryToAppear(ActorObj* pActor)
     {
         if (pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
             co_await Appear(pActor);
@@ -69,42 +69,42 @@ namespace abyss::Actor::Enemy::KingDux
             co_await Wait(pActor);
         }
     }
-    Coro::Task<> Behavior::Appear(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Appear(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AppearState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::Angry(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Angry(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AngryState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::Dead(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Dead(ActorObj* pActor)
     {
         pActor->find<DeadChecker>()->requestDead();
         co_yield{2};
     }
-    Coro::Task<> Behavior::Wait(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Wait(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<WaitState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::Stab(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Stab(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle);
         co_yield{};
     }
-    Coro::Task<> Behavior::Stab2(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Stab2(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle2);
         co_yield{};
     }
-    Coro::Task<> Behavior::Stab3(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Stab3(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<StabState>(TentacleParam::Stab::Tentacle3);
         co_yield{};
     }
-    Coro::Task<> Behavior::StabBy(ActorObj* pActor, int id)
+    Coro::Fiber<> Behavior::StabBy(ActorObj* pActor, int id)
     {
         switch (id)
         {
@@ -117,17 +117,17 @@ namespace abyss::Actor::Enemy::KingDux
         }
         return Stab(pActor);
     }
-    Coro::Task<> Behavior::PursuitStab(ActorObj* pActor)
+    Coro::Fiber<> Behavior::PursuitStab(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<PursuitStabState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::Convene(ActorObj* pActor)
+    Coro::Fiber<> Behavior::Convene(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<DanceState>();
         co_yield{};
     }
-    Coro::Task<> Behavior::ConveneWhenNotExistBaby(ActorObj* pActor)
+    Coro::Fiber<> Behavior::ConveneWhenNotExistBaby(ActorObj* pActor)
     {
         if (!pActor->find<BabyCtrl>()->isExistBaby()) {
             co_await Convene(pActor);

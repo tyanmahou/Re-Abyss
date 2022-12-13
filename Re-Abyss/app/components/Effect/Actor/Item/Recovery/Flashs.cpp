@@ -26,7 +26,7 @@ namespace abyss::Effect::Actor::Item::Recovery
 		m_task.reset(std::bind(&Flashs::task, this));
 	}
 
-	Coro::Task<void> Flashs::task()
+	Coro::Fiber<void> Flashs::task()
 	{
 		for ([[maybe_unused]] auto count : step(1, 10)) {
 			m_flashs.emplace_back();
@@ -59,6 +59,6 @@ namespace abyss::Effect::Actor::Item::Recovery
 			}
 		}
 
-		return m_task.moveNext();
+		return m_task.resume();
 	}
 }

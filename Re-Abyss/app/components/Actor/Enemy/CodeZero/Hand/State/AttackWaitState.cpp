@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_motion->set(Motion::Wait);
     }
 
-    Task<> AttackWaitState::task()
+    Fiber<> AttackWaitState::task()
     {
         m_handMove->startForAttackWait();
 

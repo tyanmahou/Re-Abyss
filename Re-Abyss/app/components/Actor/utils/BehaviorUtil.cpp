@@ -2,16 +2,16 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Task/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Actor
 {
-	Coro::Task<> BehaviorUtil::WaitForSeconds(ActorObj* pActor, double sec)
+	Coro::Fiber<> BehaviorUtil::WaitForSeconds(ActorObj* pActor, double sec)
 	{
 		return WaitForSeconds(pActor, s3d::Duration(sec));
 	}
 
-	Coro::Task<> BehaviorUtil::WaitForSeconds(ActorObj* pActor, s3d::Duration duration)
+	Coro::Fiber<> BehaviorUtil::WaitForSeconds(ActorObj* pActor, s3d::Duration duration)
 	{
 		TimeLite::Timer timer(duration.count());
 		while (true) {
@@ -23,14 +23,14 @@ namespace abyss::Actor
 		}
 	}
 
-	Coro::Task<> BehaviorUtil::Freeze()
+	Coro::Fiber<> BehaviorUtil::Freeze()
 	{
 		while (true) {
 			co_yield{};
 		}
 	}
 
-	Coro::Task<> BehaviorUtil::WaitLessThanHpRate(ActorObj* pActor, double rate)
+	Coro::Fiber<> BehaviorUtil::WaitLessThanHpRate(ActorObj* pActor, double rate)
 	{
 		auto hp = pActor->find<HP>();
 		if (!hp) {

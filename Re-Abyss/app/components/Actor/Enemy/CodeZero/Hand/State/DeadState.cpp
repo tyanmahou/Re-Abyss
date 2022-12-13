@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 	void DeadState::end()
 	{
 	}
-	Coro::Task<> DeadState::task()
+	Coro::Fiber<> DeadState::task()
 	{
 		m_pActor->destroy();
 		co_return;
