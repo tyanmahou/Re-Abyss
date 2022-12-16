@@ -268,6 +268,7 @@
     <ClCompile Include="app\components\Cycle\Home\Master.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp" />
     <ClCompile Include="app\components\Event\Home\MainStream.cpp" />
     <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
     <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
@@ -1208,6 +1209,7 @@
     <ClInclude Include="app\components\Cycle\Home\Master.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp" />
     <ClInclude Include="app\components\Event\base\IStashUpdate.hpp" />
     <ClInclude Include="app\components\Event\Home\MainStream.hpp" />
     <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp" />

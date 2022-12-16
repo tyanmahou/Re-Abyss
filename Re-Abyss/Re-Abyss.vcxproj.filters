@@ -2321,6 +2321,9 @@
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6086,6 +6089,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
+    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
