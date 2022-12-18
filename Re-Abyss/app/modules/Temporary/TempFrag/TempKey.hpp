@@ -33,6 +33,14 @@ namespace abyss
         /// <param name="id"></param>
         /// <returns></returns>
         static TempKey EventComplete(const s3d::String& mapName, s3d::uint32 id);
+
+        /// <summary>
+        /// シャッター破壊
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        static TempKey ShutterWallBreak(const s3d::String& mapName, s3d::uint32 id);
     public:
         [[nodiscard]] auto operator <=>(const TempKey& other) const = default;
     private:

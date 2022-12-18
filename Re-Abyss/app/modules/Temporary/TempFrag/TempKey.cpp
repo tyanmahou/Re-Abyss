@@ -17,4 +17,8 @@ namespace abyss
     {
         return TempKey(U"[{}]EventComplete-{}"_fmt(mapName, id));
     }
+    TempKey abyss::TempKey::ShutterWallBreak(const s3d::String& mapName, s3d::uint32 id)
+    {
+        return TempKey(U"[{}]ShutterWallBreak-{}"_fmt(mapName, id));
+    }
 }
