@@ -16,7 +16,7 @@ namespace abyss
         /// <param name="mapName"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        static TempKey ItemGet(const s3d::String& mapName, s3d::uint32 id);
+        [[nodiscard]] static TempKey ItemGet(const s3d::String& mapName, s3d::uint32 id);
 
         /// <summary>
         /// 中ボス撃破
@@ -24,7 +24,7 @@ namespace abyss
         /// <param name="mapName"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        static TempKey MidBossKill(const s3d::String& mapName, s3d::uint32 id);
+        [[nodiscard]] static TempKey MidBossKill(const s3d::String& mapName, s3d::uint32 id);
 
         /// <summary>
         /// イベント完了
@@ -32,7 +32,7 @@ namespace abyss
         /// <param name="mapName"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        static TempKey EventComplete(const s3d::String& mapName, s3d::uint32 id);
+        [[nodiscard]] static TempKey EventComplete(const s3d::String& mapName, s3d::uint32 id);
 
         /// <summary>
         /// シャッター破壊
@@ -40,7 +40,7 @@ namespace abyss
         /// <param name="mapName"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        static TempKey ShutterWallBreak(const s3d::String& mapName, s3d::uint32 id);
+        [[nodiscard]] static TempKey ShutterWallBreak(const s3d::String& mapName, s3d::uint32 id);
     public:
         [[nodiscard]] auto operator <=>(const TempKey& other) const = default;
     private:
