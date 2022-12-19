@@ -1,6 +1,7 @@
 #include <abyss/components/Actor/Gimmick/ShutterWall/Builder.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
+#include <abyss/components/Actor/Common/ActorId.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
@@ -29,6 +30,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
 {
     void Builder::Build(ActorObj* pActor, const ShutterWallEntity& entity)
     {
+        // Id
+        {
+            pActor->attach<ActorId>(entity.id);
+        }
         // 地形
         {
             pActor->attach<TerrainProxy>(pActor)
