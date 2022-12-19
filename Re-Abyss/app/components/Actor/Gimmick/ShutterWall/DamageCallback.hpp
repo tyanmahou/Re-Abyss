@@ -13,6 +13,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
     public:
         DamageCallback(ActorObj* pActor);
     public:
+        void onStart() override;
+    public:
         void onDamaged(const DamageData& damage) override;
     public:
         void onDead() override;
