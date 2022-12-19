@@ -2324,6 +2324,9 @@
     <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Common\ActorId.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6090,6 +6093,9 @@
     </ClInclude>
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
     <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Common\ActorId.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,4 @@
 #include <abyss/components/Actor/Common/ActorId.hpp>
-#include "ActorId.hpp"
 
 namespace abyss::Actor
 {
