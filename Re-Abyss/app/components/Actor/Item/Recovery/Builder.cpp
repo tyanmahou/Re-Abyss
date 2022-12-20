@@ -54,6 +54,7 @@ namespace abyss::Actor::Item::Recovery
         auto setting = ::GetSetting(kind);
 
         CommonBuilder::Build(pActor, BuildOption{}
+            .setDeployId(objId)
             .setInitPos(pos)
             .setBodySize(setting.size)
             .setBodyPivot(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
@@ -61,7 +62,7 @@ namespace abyss::Actor::Item::Recovery
         );
 
         {
-            pActor->attach<ItemReactor>(pActor, kind, objId);
+            pActor->attach<ItemReactor>(pActor, kind);
         }
         {
             pActor->attach<ShakeCtrl>(pActor);
