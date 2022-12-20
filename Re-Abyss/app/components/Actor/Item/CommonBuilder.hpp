@@ -14,6 +14,12 @@ namespace abyss::Actor::Item
     public:
         BuildOption();
 
+        BuildOption& setDeployId(const s3d::Optional<s3d::uint32>& deployId)
+        {
+            this->deployId = deployId;
+            return *this;
+        }
+
         BuildOption& setInitPos(const s3d::Vec2& _pos)
         {
             this->pos = _pos;
@@ -54,6 +60,8 @@ namespace abyss::Actor::Item
             return setInitState(std::make_shared<State>(std::forward<Args>(args)...));
         }
     private:
+        s3d::Optional<s3d::uint32> deployId;
+
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
