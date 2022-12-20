@@ -4,11 +4,11 @@
 
 namespace abyss::Actor
 {
-    class ActorId :
+    class DeployId :
         public IComponent
     {
     public:
-        ActorId(s3d::uint32 id);
+        DeployId(s3d::uint32 id);
 
         s3d::uint32 id() const
         {

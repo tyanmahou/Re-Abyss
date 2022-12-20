@@ -4,7 +4,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
-#include <abyss/components/Actor/Common/ActorId.hpp>
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 
 namespace
@@ -15,7 +15,7 @@ namespace
     {
         return TempKey::ShutterWallBreak(
             pActor->getModule<Stage>()->mapName(),
-            pActor->find<ActorId>()->id()
+            pActor->find<DeployId>()->id()
         );
     }
 }

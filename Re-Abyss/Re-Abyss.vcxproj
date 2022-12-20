@@ -246,7 +246,7 @@
     <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
-    <ClCompile Include="app\components\Actor\Common\ActorId.cpp" />
+    <ClCompile Include="app\components\Actor\Common\DeployId.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
@@ -1183,7 +1183,7 @@
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
-    <ClInclude Include="app\components\Actor\Common\ActorId.hpp" />
+    <ClInclude Include="app\components\Actor\Common\DeployId.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
