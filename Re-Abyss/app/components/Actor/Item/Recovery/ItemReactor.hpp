@@ -3,6 +3,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Item/IItemReactor.hpp>
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
@@ -16,7 +17,7 @@ namespace abyss::Actor::Item::Recovery
         public IItemReactor
     {
     public:
-        ItemReactor(ActorObj* pActor, RecoveryKind kind, const s3d::Optional<s3d::uint32>& objId = s3d::none);
+        ItemReactor(ActorObj* pActor, RecoveryKind kind);
 
         void onStart() override;
         void onUpdate() override;
@@ -24,7 +25,7 @@ namespace abyss::Actor::Item::Recovery
     private:
         ActorObj* m_pActor;
         RecoveryKind m_kind;
-        s3d::Optional<s3d::uint32> m_objId;
+        Ref<DeployId> m_deployId;
 
         bool m_isCollide = false;
         bool m_isCollideNext = false;

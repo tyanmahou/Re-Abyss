@@ -36,16 +36,17 @@ namespace
 }
 namespace abyss::Actor::Item::Recovery
 {
-    ItemReactor::ItemReactor(ActorObj* pActor, RecoveryKind kind, const s3d::Optional<s3d::uint32>& objId) :
+    ItemReactor::ItemReactor(ActorObj* pActor, RecoveryKind kind) :
         m_pActor(pActor),
-        m_kind(kind),
-        m_objId(objId)
+        m_kind(kind)
     {}
     void ItemReactor::onStart()
     {
-        if (m_objId) {
+        m_deployId = m_pActor->find<DeployId>();
+
+        if (m_deployId) {
             // 取得済みなら破棄
-            if (m_pActor->getModule<Temporary>()->onFlag(ItemGetKey(m_pActor, *m_objId))) {
+            if (m_pActor->getModule<Temporary>()->onFlag(ItemGetKey(m_pActor, m_deployId->id()))) {
                 m_pActor->destroy();
                 return;
             }
@@ -71,9 +72,9 @@ namespace abyss::Actor::Item::Recovery
         // 破棄
         m_pActor->destroy();
 
-        if (m_objId) {
+        if (m_deployId) {
             // IDありならリスタートレベルの保存する
-            m_pActor->getModule<Temporary>()->saveFlagRestart(ItemGetKey(m_pActor, *m_objId));
+            m_pActor->getModule<Temporary>()->saveFlagRestart(ItemGetKey(m_pActor, m_deployId->id()));
         }
 
         m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::Item::Recovery::Builder>(player->find<ILocator>());
