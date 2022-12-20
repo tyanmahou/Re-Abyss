@@ -14,9 +14,9 @@ namespace abyss::Actor::Item
     public:
         BuildOption();
 
-        BuildOption& setDeployId(const s3d::Optional<s3d::uint32>& deployId)
+        BuildOption& setDeployId(const s3d::Optional<s3d::uint32>& _deployId)
         {
-            this->deployId = deployId;
+            this->deployId = _deployId;
             return *this;
         }
 
