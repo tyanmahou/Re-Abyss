@@ -22,6 +22,12 @@ namespace abyss::Actor::Enemy
     public:
         BuildOption();
 
+        BuildOption& setDeployId(const s3d::Optional<s3d::uint32>& _deployId)
+        {
+            this->deployId = _deployId;
+            return *this;
+        }
+
         BuildOption& setInitPos(const s3d::Vec2& _pos)
         {
             this->pos = _pos;
@@ -141,6 +147,8 @@ namespace abyss::Actor::Enemy
             return setVModelBinder(std::make_shared<Binder>(std::forward<Args>(args)...));
         }
     private:
+        s3d::Optional<s3d::uint32> deployId;
+
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;

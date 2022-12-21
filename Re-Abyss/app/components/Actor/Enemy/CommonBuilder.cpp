@@ -2,6 +2,7 @@
 
 #include <abyss/components/Common/MotionCtrl.hpp>
 
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
@@ -30,6 +31,11 @@ namespace abyss::Actor::Enemy
 {
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
     {
+        // DeployId
+        if (opt.deployId) {
+            pActor->attach<DeployId>(*opt.deployId);
+        }
+
 		// Body
 		{
 			pActor->attach<Body>(pActor)
