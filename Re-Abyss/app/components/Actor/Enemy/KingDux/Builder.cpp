@@ -45,6 +45,7 @@ namespace abyss::Actor::Enemy::KingDux
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
+            .setDeployId(entity.id)
             .setInitPos(entity.pos)
             .setBodySize(Param::Base::ColSize)
             .setBodyPivot(Param::Base::Pivot)
@@ -63,7 +64,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         // 中ボス制御
         {
-            pActor->attach<MidBossDeadCtrl>(pActor, entity.id);
+            pActor->attach<MidBossDeadCtrl>(pActor);
         }
 
         // Body調整

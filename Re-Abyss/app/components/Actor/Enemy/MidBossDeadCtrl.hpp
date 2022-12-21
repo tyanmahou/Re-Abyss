@@ -1,5 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/Components.hpp>
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempKey.hpp>
 
 namespace abyss::Actor::Enemy
@@ -8,7 +9,7 @@ namespace abyss::Actor::Enemy
         public IComponent
     {
     public:
-        MidBossDeadCtrl(ActorObj* pActor, s3d::uint32 id);
+        MidBossDeadCtrl(ActorObj* pActor);
 
         void notifyDead();
 
@@ -18,6 +19,6 @@ namespace abyss::Actor::Enemy
         TempKey key() const;
     private:
         ActorObj* m_pActor;
-        s3d::uint32 m_id;
+        Ref<DeployId> m_deployId;
     };
 }

@@ -5,14 +5,14 @@
 
 namespace abyss::Actor::Enemy
 {
-    MidBossDeadCtrl::MidBossDeadCtrl(ActorObj* pActor, s3d::uint32 id) :
-        m_pActor(pActor),
-        m_id(id)
+    MidBossDeadCtrl::MidBossDeadCtrl(ActorObj* pActor) :
+        m_pActor(pActor)
     {
     }
 
     void MidBossDeadCtrl::notifyDead()
     {
+        m_deployId = m_pActor->find<DeployId>();
         m_pActor->getModule<Temporary>()->saveFlagExit(key());
     }
 
@@ -26,6 +26,6 @@ namespace abyss::Actor::Enemy
     }
     TempKey MidBossDeadCtrl::key() const
     {
-        return TempKey::MidBossKill(m_pActor->getModule<Stage>()->mapName(), m_id);
+        return TempKey::MidBossKill(m_pActor->getModule<Stage>()->mapName(), m_deployId->id());
     }
 }
