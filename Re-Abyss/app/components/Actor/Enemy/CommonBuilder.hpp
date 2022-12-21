@@ -19,49 +19,6 @@ namespace abyss::Actor::Enemy
     struct BuildOption
     {
         friend struct CommonBuilder;
-    private:
-        // body
-        s3d::Vec2 pos;
-        s3d::Vec2 bodySize;
-        s3d::Vec2 bodyPivot;
-        Forward forward;
-
-        // hp
-        s3d::int32 initHp;
-
-        // collder
-        bool isEnableCollider = true;
-        std::function<CShape()> colliderFunc;
-        std::shared_ptr<Col::ICollider> collider;
-
-        // map collider
-        bool isEnableMapCollider = true;
-        bool isEnableRoomHit = false;
-        s3d::Optional<ColDirection> roomHitStrict;
-
-        // audio sourece
-        s3d::String audioSettingGroupPath;
-
-        // damage
-        bool isEnableDamage = true;
-        bool useInvincibleColor = false;
-
-        // deadcallabck
-        bool isEnableDeadCallback = true;
-
-        // breathing
-        bool isEnableBreathing = true;
-
-        // itemdrop
-        bool isEnableItemDrop = true;
-
-        bool isAutoDestroy = true;
-
-        std::shared_ptr<IState> initState = nullptr;
-
-        // view
-        std::shared_ptr<IVModelBinderBase> vModelBinder = nullptr;
-
     public:
         BuildOption();
 
@@ -183,6 +140,48 @@ namespace abyss::Actor::Enemy
         {
             return setVModelBinder(std::make_shared<Binder>(std::forward<Args>(args)...));
         }
+    private:
+        // body
+        s3d::Vec2 pos;
+        s3d::Vec2 bodySize;
+        s3d::Vec2 bodyPivot;
+        Forward forward;
+
+        // hp
+        s3d::int32 initHp;
+
+        // collder
+        bool isEnableCollider = true;
+        std::function<CShape()> colliderFunc;
+        std::shared_ptr<Col::ICollider> collider;
+
+        // map collider
+        bool isEnableMapCollider = true;
+        bool isEnableRoomHit = false;
+        s3d::Optional<ColDirection> roomHitStrict;
+
+        // audio sourece
+        s3d::String audioSettingGroupPath;
+
+        // damage
+        bool isEnableDamage = true;
+        bool useInvincibleColor = false;
+
+        // deadcallabck
+        bool isEnableDeadCallback = true;
+
+        // breathing
+        bool isEnableBreathing = true;
+
+        // itemdrop
+        bool isEnableItemDrop = true;
+
+        bool isAutoDestroy = true;
+
+        std::shared_ptr<IState> initState = nullptr;
+
+        // view
+        std::shared_ptr<IVModelBinderBase> vModelBinder = nullptr;
     };
 
     struct CommonBuilder
