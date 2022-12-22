@@ -10,7 +10,7 @@ namespace abyss::Actor::Gimmick::EventTrigger
         public IComponent
     {
     public:
-        Main(ActorObj* pActor, const s3d::String& path, s3d::uint32 eventId);
+        Main(ActorObj* pActor, const s3d::String& path);
         void onStart() override;
     private:
         ActorObj* m_pActor;

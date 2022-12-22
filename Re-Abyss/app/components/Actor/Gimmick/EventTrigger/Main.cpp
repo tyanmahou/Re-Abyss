@@ -4,19 +4,21 @@
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Novel/TalkBuilder.hpp>
 #include <abyss/components/Novel/Common/EventCtrl.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
-    Main::Main(ActorObj* pActor, const s3d::String& path, s3d::uint32 eventId):
+    Main::Main(ActorObj* pActor, const s3d::String& path):
         m_pActor(pActor),
         m_path(path),
-        m_eventId(eventId)
+        m_eventId()
     {}
 
     void Main::onStart()
     {
+        m_eventId = m_pActor->find<DeployId>()->id();
         if (m_pActor->getModule<Temporary>()->onFlag(TempKey::EventComplete(
             m_pActor->getModule<Stage>()->mapName(),
             m_eventId

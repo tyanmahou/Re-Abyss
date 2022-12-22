@@ -1,4 +1,6 @@
 #include <abyss/components/Actor/Gimmick/EventTrigger/Builder.hpp>
+
+#include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Gimmick/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Gimmick/EventTrigger/Main.hpp>
 
@@ -6,7 +8,8 @@ namespace abyss::Actor::Gimmick::EventTrigger
 {
     void Builder::Build(ActorObj* pActor, const EventTriggerEntity& entity)
     {
-        pActor->attach<Main>(pActor, entity.event, entity.id);
+        pActor->attach<DeployId>(entity.id);
+        pActor->attach<Main>(pActor, entity.event);
     }
 }
 
