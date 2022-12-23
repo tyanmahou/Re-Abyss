@@ -7,6 +7,8 @@
 #include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 
+#include <abyss/components/Effect/Actor/Gimmick/ShutterWall/Break/Builder.hpp>
+
 namespace
 {
     using namespace abyss;
@@ -42,7 +44,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
 
     void DamageCallback::onDead()
     {
-        // TODO 死亡エフェクト
+        // 死亡エフェクト
+        m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::Gimmick::ShutterWall::Break::Builder>(
+            m_pActor->find<ILocator>()->getCenterPos()
+            );
 
         // 地震
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.3);
