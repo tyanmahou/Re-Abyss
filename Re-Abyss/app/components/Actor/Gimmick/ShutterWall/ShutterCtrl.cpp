@@ -3,12 +3,13 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
 
 namespace abyss::Actor::Gimmick::ShutterWall
 {
     ShutterCtrl::ShutterCtrl(ActorObj* pActor):
         m_pActor(pActor),
-        m_shutterTimer(0.1)
+        m_shutterTimer(Param::ShutterTime)
     {
         m_task.reset(std::bind(&ShutterCtrl::anim, this));
     }
@@ -22,7 +23,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
             co_yield{};
         }
         // 地震
-        m_pActor->getModule<Camera>()->startQuake(4.0, 0.3);
+        m_pActor->getModule<Camera>()->startQuake(Param::Quake::Offset, Param::Quake::TimeSec);
         m_col->setActive(true);
 
         co_return;
@@ -51,7 +52,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
             const Vec2 centerPos = ShutterUtil::CenterPosFromTl(pos);
 
             auto toPlayer = playerPos - centerPos;
-            if (Abs(toPlayer.x) <= 300) {
+            if (Abs(toPlayer.x) <= Param::ActionRange) {
                 m_isWait = false;
             }
         }

@@ -1,2 +1,8 @@
 hp = 15
+shutterTime = 0.1
+actionRange = 300.0
 baseSize = "(40, 160)"
+
+[Quake]
+offset = 4.0
+timeSec = 0.3
