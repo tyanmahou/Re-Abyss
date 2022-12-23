@@ -8,14 +8,6 @@ namespace abyss
     using namespace s3d;
     class GlobalTime::Impl
     {
-    private:
-        Stopwatch m_stopwatch{ StartImmediately::Yes };
-        double m_timeScale = 1.0;
-        s3d::Array<std::weak_ptr<GlobalTimeScale>> m_timeScaleModels;
-        double m_totalTimeSec = 0.0;
-        double m_deltaTimeSec = 0.0;
-
-        double m_currentRealTime = 0.0;
     public:
         void update()
         {
@@ -30,7 +22,9 @@ namespace abyss
                     m_timeScale *= scale->getScale();
                 }
             }
-            m_currentRealTime = m_stopwatch.sF();
+            if (!m_isPause) {
+                m_currentRealTime += Scene::DeltaTime();
+            }
             m_deltaTimeSec = s3d::Min(m_currentRealTime - prevTime, 0.1) * m_timeScale;
             m_totalTimeSec += m_deltaTimeSec;
         }
@@ -53,23 +47,31 @@ namespace abyss
 
         void pause()
         {
-            m_stopwatch.pause();
+            m_isPause = true;
         }
 
         bool isPause()const
         {
-            return m_stopwatch.isPaused();
+            return m_isPause;
         }
 
         void resume()
         {
-            m_stopwatch.resume();
+            m_isPause = true;
         }
 
         void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale)
         {
             m_timeScaleModels.push_back(timeScale);
         }
+    private:
+        double m_timeScale = 1.0;
+        s3d::Array<std::weak_ptr<GlobalTimeScale>> m_timeScaleModels;
+        double m_totalTimeSec = 0.0;
+        double m_deltaTimeSec = 0.0;
+
+        double m_currentRealTime = 0.0;
+        bool m_isPause = false;
     };
 
     GlobalTime::GlobalTime() :
