@@ -19,8 +19,10 @@ namespace abyss::Actor::Gimmick::ShutterWall
 
         auto&& headTex = m_texture(U"head");
         // 下
-        headTex.flipped().draw(tl + Vec2{ -10, Max(-2.0, height - headTex.size().y) });
+        const double underHeadTop= Max(-2.0, height - headTex.size().y);
+        headTex.flipped().draw(tl + Vec2{ -10, underHeadTop });
         // 上
-        headTex(0, 0, headTex.size().x, Clamp<double>(height, 7.0, headTex.size().y)).draw(tl + Vec2{-10, 0});
+        const double topHeadHeight = Round(Clamp<double>((underHeadTop + 9.0 + 7.0) / 2.0, 7.0, headTex.size().y));
+        headTex(0, 0, headTex.size().x, topHeadHeight).draw(tl + Vec2{-10, 0});
     }
 }
