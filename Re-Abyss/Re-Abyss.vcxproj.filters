@@ -2327,6 +2327,9 @@
     <ClCompile Include="app\components\Actor\Common\DeployId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6096,6 +6099,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Common\DeployId.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
