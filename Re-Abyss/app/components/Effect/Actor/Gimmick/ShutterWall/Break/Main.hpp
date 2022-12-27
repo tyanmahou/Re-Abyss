@@ -1,15 +1,18 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDrawParts.hpp>
 
 namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 {
     class Main :
         public IComponent,
+        public IUpdate,
         public IDrawParts
     {
     public:
         Main(EffectObj* pObj, const s3d::Vec2& pos);
+        void onUpdate() override;
         bool onDraw(double time) override;
     private:
         EffectObj* m_pObj;

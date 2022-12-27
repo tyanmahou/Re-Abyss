@@ -6,7 +6,10 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_pObj(pObj),
         m_pos(pos)
     {}
+    void Main::onUpdate()
+    {
 
+    }
     bool Main::onDraw(double time)
     {
         return time <= 1.0;
