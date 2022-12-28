@@ -5,6 +5,15 @@
 
 namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 {
+    class PieceParts
+    {
+    public:
+        PieceParts(const s3d::Triangle& tri):
+            m_tri(tri)
+        {}
+    private:
+        s3d::Triangle m_tri;
+    };
     class Main :
         public IComponent,
         public IUpdate,
@@ -17,6 +26,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     private:
         EffectObj* m_pObj;
         s3d::Vec2 m_pos;
+        s3d::Array<PieceParts> m_pieces;
     };
 }
 
