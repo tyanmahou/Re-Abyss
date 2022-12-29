@@ -8,9 +8,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     class PieceParts
     {
     public:
-        PieceParts(const s3d::Triangle& tri):
-            m_tri(tri)
-        {}
+        PieceParts(const s3d::Vec2& p0, const s3d::Vec2& p1, const s3d::Vec2& p2);
+        PieceParts(const s3d::Triangle& tri);
     private:
         s3d::Triangle m_tri;
     };
