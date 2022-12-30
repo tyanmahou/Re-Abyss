@@ -10,6 +10,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     public:
         PieceParts(const s3d::Vec2& p0, const s3d::Vec2& p1, const s3d::Vec2& p2);
         PieceParts(const s3d::Triangle& tri);
+
+        void update(double dt);
     private:
         s3d::Triangle m_tri;
     };

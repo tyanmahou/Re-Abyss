@@ -13,6 +13,9 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_tri(tri)
     {
     }
+    void PieceParts::update(double dt)
+    {
+    }
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
         m_pos(pos)
