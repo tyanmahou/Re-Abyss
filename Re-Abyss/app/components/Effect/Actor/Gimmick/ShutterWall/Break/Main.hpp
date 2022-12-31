@@ -2,6 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Effect/base/IUpdate.hpp>
 #include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 {
@@ -12,8 +13,11 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         PieceParts(const s3d::Triangle& tri);
 
         void update(double dt);
+        void draw(const s3d::ColorF& color) const;
     private:
         s3d::Triangle m_tri;
+        s3d::Vec2 m_localPos;
+        s3d::Vec2 m_velocity;
     };
     class Main :
         public IComponent,
@@ -28,6 +32,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         EffectObj* m_pObj;
         s3d::Vec2 m_pos;
         s3d::Array<PieceParts> m_pieces;
+        TimeLite::Timer m_timer;
     };
 }
 
@@ -37,6 +42,7 @@ namespace abyss
     struct ComponentTree<Effect::Actor::Gimmick::ShutterWall::Break::Main>
     {
         using Base = MultiComponents<
+            Effect::IUpdate,
             Effect::IDrawParts
         >;
     };
