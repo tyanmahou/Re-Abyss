@@ -14,8 +14,10 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_tri(tri),
         m_localPos(0, 0)
     {
-        m_velocity.x = s3d::Random(-240, 240);
-        m_velocity.y = s3d::Random(-400, -800);
+        m_velocity = s3d::Circular0{
+            s3d::Random(400.0, 580.0),
+            s3d::ToRadians(s3d::Random(-60, 60))
+        }.fastToVec2();
     }
     void PieceParts::update(double dt)
     {
@@ -30,8 +32,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         }
 
         m_velocity.y += 720.0 * dt;
-        if (m_velocity.y >= 100) {
-            m_velocity.y = 100;
+        if (m_velocity.y >= 300) {
+            m_velocity.y = 300;
         }
     }
     void PieceParts::draw(const s3d::ColorF& color) const
@@ -41,7 +43,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
         m_pos(pos),
-        m_timer(2.0)
+        m_timer(1.0)
     {
         {
             auto rect = ShutterUtil::RegionScaledFromCenter(m_pos, 0.5);
@@ -55,7 +57,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     void Main::onUpdate()
     {
-        auto dt = m_pObj->deltaTime();
+        auto dt = m_pObj->deltaTime() * 1.3;
         m_timer.update(dt);
         for (auto&& p : m_pieces) {
             p.update(dt);
