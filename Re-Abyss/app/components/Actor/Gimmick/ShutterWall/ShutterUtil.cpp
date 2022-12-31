@@ -21,6 +21,15 @@ namespace abyss::Actor::Gimmick::ShutterWall
             baseSize.y * shutterRate
         };
     }
+    s3d::RectF ShutterUtil::RegionScaledFromCenter(const s3d::Vec2& pos, double scale)
+    {
+        const Vec2 baseSize = Param::BaseSize * scale;
+        return {
+            pos - baseSize / 2,
+            baseSize.x,
+            baseSize.y
+        };
+    }
     s3d::Vec2 ShutterUtil::CenterPosFromTl(const s3d::Vec2& pos)
     {
         return Region(pos).center();

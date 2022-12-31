@@ -15,6 +15,8 @@ namespace abyss::Actor::Gimmick::ShutterWall
         static s3d::RectF Region(const s3d::Vec2& pos, double shutterRate = 1.0);
         static s3d::RectF RegionFromCenter(const s3d::Vec2& pos, double shutterRate = 1.0);
 
+        static s3d::RectF RegionScaledFromCenter(const s3d::Vec2& pos, double scale);
+
         /// <summary>
         /// 中心座標
         /// </summary>
