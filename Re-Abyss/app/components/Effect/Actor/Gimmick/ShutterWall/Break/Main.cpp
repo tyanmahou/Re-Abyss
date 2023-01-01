@@ -57,7 +57,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     void Main::onUpdate()
     {
-        auto dt = m_pObj->deltaTime() * 1.3;
+        auto dt = m_pObj->deltaTime() * 1.2;
         m_timer.update(dt);
         for (auto&& p : m_pieces) {
             p.update(dt);
