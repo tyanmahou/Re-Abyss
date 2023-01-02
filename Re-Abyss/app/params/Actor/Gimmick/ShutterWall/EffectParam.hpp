@@ -23,6 +23,9 @@ namespace abyss::Actor::Gimmick::ShutterWall
         [[TOML_BIND(MaxSpeedV, "maxSpeedV")]]
         inline static double MaxSpeedV{ 300.0 };
 
+        [[TOML_BIND(LifeTime, "lifeTime")]]
+        inline static double LifeTime{ 1.0 };
+
         [[TOML_BIND(TimeScale, "timeScale")]]
         inline static double TimeScale{ 1.2 };
     };

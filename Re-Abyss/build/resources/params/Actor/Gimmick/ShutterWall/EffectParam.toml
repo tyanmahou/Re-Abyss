@@ -7,4 +7,5 @@ gravity = 720.0
 
 maxSpeedV = 300.0
 
+lifeTime = 1.0
 timeScale = 1.2

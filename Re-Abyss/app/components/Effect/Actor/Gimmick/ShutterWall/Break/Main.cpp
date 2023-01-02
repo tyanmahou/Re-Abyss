@@ -1,6 +1,7 @@
 #include <abyss/components/Effect/Actor/Gimmick/ShutterWall/Break/Main.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/EffectParam.hpp>
 
 namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 {
@@ -15,14 +16,14 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_localPos(0, 0)
     {
         m_velocity = s3d::Circular0{
-            s3d::Random(400.0, 580.0),
-            s3d::ToRadians(s3d::Random(-60, 60))
+            s3d::Random(EffectParam::InitSpeedMin, EffectParam::InitSpeedMax),
+            s3d::ToRadians(s3d::Random(-EffectParam::InitVelocityAngleRange , -EffectParam::InitVelocityAngleRange))
         }.fastToVec2();
     }
     void PieceParts::update(double dt)
     {
         m_localPos += m_velocity * dt;
-        auto accelX = -s3d::Sign(m_velocity.x) * 360.0 * dt;
+        auto accelX = -s3d::Sign(m_velocity.x) * EffectParam::DecelH * dt;
         if (m_velocity.x > 0 && m_velocity.x + accelX <= 0) {
             m_velocity.x = 0;
         } else if (m_velocity.x < 0 && m_velocity.x + accelX >= 0) {
@@ -31,9 +32,9 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
             m_velocity.x += accelX;
         }
 
-        m_velocity.y += 720.0 * dt;
-        if (m_velocity.y >= 300) {
-            m_velocity.y = 300;
+        m_velocity.y += EffectParam::Gravity * dt;
+        if (m_velocity.y >= EffectParam::MaxSpeedV) {
+            m_velocity.y = EffectParam::MaxSpeedV;
         }
     }
     void PieceParts::draw(const s3d::ColorF& color) const
@@ -43,7 +44,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
         m_pos(pos),
-        m_timer(1.0)
+        m_timer(EffectParam::LifeTime)
     {
         {
             auto rect = ShutterUtil::RegionScaledFromCenter(m_pos, 0.5);
@@ -57,7 +58,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     void Main::onUpdate()
     {
-        auto dt = m_pObj->deltaTime() * 1.2;
+        auto dt = m_pObj->deltaTime() * EffectParam::TimeScale;
         m_timer.update(dt);
         for (auto&& p : m_pieces) {
             p.update(dt);

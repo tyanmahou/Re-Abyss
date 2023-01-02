@@ -6104,6 +6104,9 @@
     <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\EffectParam.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
