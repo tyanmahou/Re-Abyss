@@ -27,6 +27,7 @@
 
 #include <abyss/params/Actor/Gimmick/Bush/Param.hpp>
 #include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/EffectParam.hpp>
 
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 
@@ -115,7 +116,9 @@ namespace abyss::Resource::Preload
 
 			resource->loadToml<Schield::Param>(U"Actor/Enemy/Schield/Param.toml");
 			resource->loadToml<Schield::ShotParam>(U"Actor/Enemy/Schield/ShotParam.toml");
+
             resource->loadToml<BabyDux::Param>(U"Actor/Enemy/BabyDux/Param.toml");
+
             resource->loadToml<BazookaKun::Param>(U"Actor/Enemy/BazookaKun/Param.toml");
 
 			// MidBoss
@@ -133,7 +136,9 @@ namespace abyss::Resource::Preload
 		{
 			using namespace Actor::Gimmick;
 			resource->loadToml<Bush::Param>(U"Actor/Gimmick/Bush/Param.toml");
+
             resource->loadToml<ShutterWall::Param>(U"Actor/Gimmick/ShutterWall/Param.toml");
+            resource->loadToml<ShutterWall::EffectParam>(U"Actor/Gimmick/ShutterWall/EffectParam.toml");
         }
 
 		// Item
