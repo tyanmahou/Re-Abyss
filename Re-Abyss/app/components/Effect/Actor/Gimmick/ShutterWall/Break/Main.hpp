@@ -18,6 +18,9 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         s3d::Triangle m_tri;
         s3d::Vec2 m_localPos;
         s3d::Vec2 m_velocity;
+
+        double m_rotate = 0;
+        double m_rotateSpeed = 0;
     };
     class Main :
         public IComponent,

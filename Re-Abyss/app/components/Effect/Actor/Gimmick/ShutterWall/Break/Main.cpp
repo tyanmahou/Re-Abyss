@@ -42,10 +42,16 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         if (m_velocity.y >= EffectParam::MaxSpeedV) {
             m_velocity.y = EffectParam::MaxSpeedV;
         }
+
+        // 回転
+        m_rotateSpeed = s3d::Clamp(m_velocity.length() * 0.7, 0.0, 360.0);
+        m_rotate += s3d::Sign(m_velocity.x) * m_rotateSpeed * dt;
     }
     void PieceParts::draw(const s3d::ColorF& color) const
     {
-        m_tri.movedBy(m_localPos).draw(color);
+        const auto movedTri = m_tri.movedBy(m_localPos);
+        movedTri.rotatedAt(movedTri.centroid(), s3d::ToRadians(m_rotate))
+            .draw(color);
     }
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
