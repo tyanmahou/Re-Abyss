@@ -2,10 +2,10 @@ initSpeedMin = 400.0
 initSpeedMax = 580.0
 initVelocityAngleRange = 60.0
 
-decelH = 360.0
+decelH = 100.0
 gravity = 720.0
 
-maxSpeedV = 300.0
+maxSpeedV = 400.0
 
-lifeTime = 1.0
+lifeTime = 1.2
 timeScale = 1.2

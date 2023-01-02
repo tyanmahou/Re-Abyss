@@ -15,10 +15,16 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_tri(tri),
         m_localPos(0, 0)
     {
+        const double angle = s3d::Random(-EffectParam::InitVelocityAngleRange, EffectParam::InitVelocityAngleRange);
         m_velocity = s3d::Circular0{
             s3d::Random(EffectParam::InitSpeedMin, EffectParam::InitSpeedMax),
-            s3d::ToRadians(s3d::Random(-EffectParam::InitVelocityAngleRange , EffectParam::InitVelocityAngleRange))
+            s3d::ToRadians(angle)
         }.fastToVec2();
+
+        // 左右にふっとびすぎないように水平方向速度だけ補正をかける
+        const double angleRate = s3d::Abs(angle) / EffectParam::InitVelocityAngleRange;
+        double speedHFactor = s3d::Math::Lerp(1.0, 0.7, angleRate);
+        m_velocity.x *= speedHFactor;
     }
     void PieceParts::update(double dt)
     {
