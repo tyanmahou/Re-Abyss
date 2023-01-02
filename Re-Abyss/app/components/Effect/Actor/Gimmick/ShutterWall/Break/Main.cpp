@@ -17,7 +17,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     {
         m_velocity = s3d::Circular0{
             s3d::Random(EffectParam::InitSpeedMin, EffectParam::InitSpeedMax),
-            s3d::ToRadians(s3d::Random(-EffectParam::InitVelocityAngleRange , -EffectParam::InitVelocityAngleRange))
+            s3d::ToRadians(s3d::Random(-EffectParam::InitVelocityAngleRange , EffectParam::InitVelocityAngleRange))
         }.fastToVec2();
     }
     void PieceParts::update(double dt)
