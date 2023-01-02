@@ -17,7 +17,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         [[TOML_BIND(BaseSize, "baseSize")]]
         inline static s3d::Vec2 BaseSize{ 40, 160 };
 
-        [[TOML_BIND(Quake)]]
+        [[TOML_BIND(_quake, "Quake")]]
         struct Quake
         {
             [[TOML_BIND(Offset, "offset")]]
@@ -26,6 +26,6 @@ namespace abyss::Actor::Gimmick::ShutterWall
             inline static double TimeSec{ 0.3 };
         };
     private:
-        [[no_unique_address]] Quake Quake;
+        [[no_unique_address]] Quake _quake;
     };
 }
