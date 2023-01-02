@@ -11,8 +11,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         PieceParts(Triangle{p0, p1, p2})
     {
     }
-    PieceParts::PieceParts(const s3d::Triangle& tri):
-        m_tri(tri),
+    PieceParts::PieceParts(const s3d::Triangle& polygon):
+        m_polygon(polygon),
         m_localPos(0, 0)
     {
         const double angle = s3d::Random(-EffectParam::InitVelocityAngleRange, EffectParam::InitVelocityAngleRange);
@@ -49,8 +49,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     void PieceParts::draw(const s3d::ColorF& color) const
     {
-        const auto movedTri = m_tri.movedBy(m_localPos);
-        movedTri.rotatedAt(movedTri.centroid(), s3d::ToRadians(m_rotate))
+        const auto movedPoly = m_polygon.movedBy(m_localPos);
+        movedPoly.rotatedAt(movedPoly.centroid(), s3d::ToRadians(m_rotate))
             .draw(color);
     }
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
