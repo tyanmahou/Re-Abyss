@@ -77,8 +77,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_timer(EffectParam::LifeTime)
     {
         {
-            auto rect = ShutterUtil::RegionScaledFromCenter(m_pos, 0.5);
-            auto pivot = s3d::RandomVec2(rect);
+            const auto rect = ShutterUtil::RegionFromCenter(m_pos);
+            const auto pivot = s3d::RandomVec2(rect.scaledAt(m_pos, 0.5));
 
             m_pieces << PieceParts{ rect.tl(), rect.tr(), pivot, m_pos };
             m_pieces << PieceParts{ rect.tr(), rect.br(), pivot, m_pos };
