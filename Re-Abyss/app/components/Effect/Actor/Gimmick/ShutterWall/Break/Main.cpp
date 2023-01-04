@@ -76,6 +76,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_pos(pos),
         m_timer(EffectParam::LifeTime)
     {
+        // ポリゴンの分割
+        // 四角形を複数の三角形に分ける
         {
             const auto rect = ShutterUtil::RegionFromCenter(m_pos);
             const auto pivot = s3d::RandomVec2(rect.scaledAt(m_pos, 0.5));
