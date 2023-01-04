@@ -1,19 +1,23 @@
 #include <abyss/components/Effect/Actor/Gimmick/ShutterWall/Break/Main.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
+#include <abyss/params/Actor/Gimmick/ShutterWall/Param.hpp>
 #include <abyss/params/Actor/Gimmick/ShutterWall/EffectParam.hpp>
+
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 {
     using namespace abyss::Actor::Gimmick::ShutterWall;
 
-    PieceParts::PieceParts(const s3d::Vec2& p0, const s3d::Vec2& p1, const s3d::Vec2& p2):
-        PieceParts(Triangle{p0, p1, p2})
+    PieceParts::PieceParts(const s3d::Vec2& p0, const s3d::Vec2& p1, const s3d::Vec2& p2, const s3d::Vec2& center):
+        PieceParts(Triangle{p0, p1, p2}, center)
     {
     }
-    PieceParts::PieceParts(const s3d::Triangle& polygon):
+    PieceParts::PieceParts(const s3d::Triangle& polygon, const s3d::Vec2& center):
         m_polygon(polygon),
-        m_localPos(0, 0)
+        m_localPos(0, 0),
+        m_center(center)
     {
         const double angle = s3d::Random(-EffectParam::InitVelocityAngleRange, EffectParam::InitVelocityAngleRange);
         m_velocity = s3d::Circular0{
@@ -50,8 +54,22 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     void PieceParts::draw(const s3d::ColorF& color) const
     {
         const auto movedPoly = m_polygon.movedBy(m_localPos);
-        movedPoly.rotatedAt(movedPoly.centroid(), s3d::ToRadians(m_rotate))
-            .draw(color);
+        const auto resultPoly = movedPoly.rotatedAt(movedPoly.centroid(), s3d::ToRadians(m_rotate));
+        {
+            Buffer2D buff{3, 1};
+            auto toVertex = [&](size_t index) ->Vertex2D{
+                return {
+                    .pos = resultPoly.p(index),
+                    .tex = (m_polygon.p(index) - (m_center - Param::BaseSize / 2)) / Param::BaseSize,
+                    .color = color.toFloat4()
+                };
+            };
+            buff.vertices[0] = toVertex(0);
+            buff.vertices[1] = toVertex(1);
+            buff.vertices[2] = toVertex(2);
+            buff.indices[0] = TriangleIndex{0, 1, 2};
+            buff.draw(Resource::Assets::Main()->loadTexturePacker(U"Actor/Gimmick/ShutterWall/ShutterWall.json")(U"wall"));
+        }
     }
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
@@ -62,10 +80,10 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
             auto rect = ShutterUtil::RegionScaledFromCenter(m_pos, 0.5);
             auto pivot = s3d::RandomVec2(rect);
 
-            m_pieces << PieceParts{ rect.tl(), rect.tr(), pivot };
-            m_pieces << PieceParts{ rect.tr(), rect.br(), pivot };
-            m_pieces << PieceParts{ rect.tl(), rect.bl(), pivot };
-            m_pieces << PieceParts{ rect.bl(), rect.br(), pivot };
+            m_pieces << PieceParts{ rect.tl(), rect.tr(), pivot, m_pos };
+            m_pieces << PieceParts{ rect.tr(), rect.br(), pivot, m_pos };
+            m_pieces << PieceParts{ rect.tl(), rect.bl(), pivot, m_pos };
+            m_pieces << PieceParts{ rect.bl(), rect.br(), pivot, m_pos };
         }
     }
     void Main::onUpdate()
