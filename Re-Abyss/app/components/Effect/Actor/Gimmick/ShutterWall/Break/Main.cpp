@@ -51,26 +51,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         m_rotateSpeed = s3d::Clamp(m_velocity.length() * 0.7, 0.0, 360.0);
         m_rotate += s3d::Sign(m_velocity.x) * m_rotateSpeed * dt;
     }
-    void PieceParts::draw(const s3d::ColorF& color) const
-    {
-        const auto movedPoly = m_polygon.movedBy(m_localPos);
-        const auto resultPoly = movedPoly.rotatedAt(movedPoly.centroid(), s3d::ToRadians(m_rotate));
-        {
-            Buffer2D buff{3, 1};
-            auto toVertex = [&](size_t index) ->Vertex2D{
-                return {
-                    .pos = resultPoly.p(index),
-                    .tex = (m_polygon.p(index) - (m_center - Param::BaseSize / 2)) / Param::BaseSize,
-                    .color = color.toFloat4()
-                };
-            };
-            buff.vertices[0] = toVertex(0);
-            buff.vertices[1] = toVertex(1);
-            buff.vertices[2] = toVertex(2);
-            buff.indices[0] = TriangleIndex{0, 1, 2};
-            buff.draw(Resource::Assets::Main()->loadTexturePacker(U"Actor/Gimmick/ShutterWall/ShutterWall.json")(U"wall"));
-        }
-    }
+
     s3d::Array<Vertex2D> PieceParts::vertices(const s3d::ColorF& color) const
     {
         const auto movedPoly = m_polygon.movedBy(m_localPos);

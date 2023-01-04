@@ -13,7 +13,6 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         PieceParts(const s3d::Triangle& polygon, const s3d::Vec2& center);
 
         void update(double dt);
-        void draw(const s3d::ColorF& color) const;
 
         s3d::Array<Vertex2D> vertices(const s3d::ColorF& color) const;
     private:
