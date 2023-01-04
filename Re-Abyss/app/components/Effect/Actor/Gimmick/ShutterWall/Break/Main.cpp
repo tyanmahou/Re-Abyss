@@ -80,10 +80,21 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
             const auto rect = ShutterUtil::RegionFromCenter(m_pos);
             const auto pivot = s3d::RandomVec2(rect.scaledAt(m_pos, 0.5));
 
-            m_pieces << PieceParts{ rect.tl(), rect.tr(), pivot, m_pos };
-            m_pieces << PieceParts{ rect.tr(), rect.br(), pivot, m_pos };
-            m_pieces << PieceParts{ rect.tl(), rect.bl(), pivot, m_pos };
-            m_pieces << PieceParts{ rect.bl(), rect.br(), pivot, m_pos };
+            auto addPieces = [&](size_t i0, size_t i1){
+                const auto p0 = rect.point(i0);
+                const auto p1 = rect.point(i1);
+
+                const Triangle tri{ p0, p1, pivot };
+                const auto pivot2 = s3d::RandomVec2(tri.scaledAt(tri.centroid(), 0.5));
+
+                m_pieces << PieceParts{ p0, p1, pivot2, m_pos };
+                m_pieces << PieceParts{ p0, pivot2, pivot, m_pos };
+                m_pieces << PieceParts{ pivot2, p1, pivot, m_pos };
+            };
+            addPieces(0, 1);
+            addPieces(1, 2);
+            addPieces(2, 3);
+            addPieces(3, 0);
         }
     }
     void Main::onUpdate()
