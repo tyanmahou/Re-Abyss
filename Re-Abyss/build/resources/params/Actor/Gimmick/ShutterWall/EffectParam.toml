@@ -1,5 +1,5 @@
-initSpeedMin = 400.0
-initSpeedMax = 580.0
+initSpeedMin = 300.0
+initSpeedMax = 480.0
 initVelocityAngleRange = 60.0
 
 decelH = 100.0

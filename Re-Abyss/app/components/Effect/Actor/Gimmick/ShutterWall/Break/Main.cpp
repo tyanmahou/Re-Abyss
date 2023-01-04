@@ -80,21 +80,28 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
             const auto rect = ShutterUtil::RegionFromCenter(m_pos);
             const auto pivot = s3d::RandomVec2(rect.scaledAt(m_pos, 0.5));
 
-            auto addPieces = [&](size_t i0, size_t i1){
+            auto addPieces = [&](size_t i0, size_t i1, bool isRecursive){
                 const auto p0 = rect.point(i0);
                 const auto p1 = rect.point(i1);
 
-                const Triangle tri{ p0, p1, pivot };
-                const auto pivot2 = s3d::RandomVec2(tri.scaledAt(tri.centroid(), 0.5));
+                if (isRecursive) {
+                    // 再帰分割
+                    const Triangle tri{ p0, p1, pivot };
+                    const auto pivot2 = s3d::RandomVec2(tri.scaledAt(tri.centroid(), 0.5));
 
-                m_pieces << PieceParts{ p0, p1, pivot2, m_pos };
-                m_pieces << PieceParts{ p0, pivot2, pivot, m_pos };
-                m_pieces << PieceParts{ pivot2, p1, pivot, m_pos };
+                    m_pieces << PieceParts{ p0, p1, pivot2, m_pos };
+                    m_pieces << PieceParts{ p0, pivot2, pivot, m_pos };
+                    m_pieces << PieceParts{ pivot2, p1, pivot, m_pos };
+                } else {
+                    m_pieces << PieceParts{ p0, p1, pivot, m_pos };
+                }
             };
-            addPieces(0, 1);
-            addPieces(1, 2);
-            addPieces(2, 3);
-            addPieces(3, 0);
+
+            auto recursiveFlag = s3d::Random(0, 15);
+            addPieces(0, 1, (recursiveFlag & 0x01) != 0);
+            addPieces(1, 2, (recursiveFlag & 0x02) != 0);
+            addPieces(2, 3, (recursiveFlag & 0x04) != 0);
+            addPieces(3, 0, (recursiveFlag & 0x08) != 0);
         }
     }
     void Main::onUpdate()
