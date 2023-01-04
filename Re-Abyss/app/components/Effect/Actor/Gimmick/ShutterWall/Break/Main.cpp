@@ -71,6 +71,24 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
             buff.draw(Resource::Assets::Main()->loadTexturePacker(U"Actor/Gimmick/ShutterWall/ShutterWall.json")(U"wall"));
         }
     }
+    s3d::Array<Vertex2D> PieceParts::vertices(const s3d::ColorF& color) const
+    {
+        const auto movedPoly = m_polygon.movedBy(m_localPos);
+        const auto resultPoly = movedPoly.rotatedAt(movedPoly.centroid(), s3d::ToRadians(m_rotate));
+
+        auto toVertex = [&](size_t index) ->Vertex2D {
+            return {
+                .pos = resultPoly.p(index),
+                .tex = (m_polygon.p(index) - (m_center - Param::BaseSize / 2)) / Param::BaseSize,
+                .color = color.toFloat4()
+            };
+        };
+        return {
+            toVertex(0),
+            toVertex(1),
+            toVertex(2),
+        };
+    }
     Main::Main(EffectObj* pObj, const s3d::Vec2& pos) :
         m_pObj(pObj),
         m_pos(pos),
@@ -116,9 +134,22 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     bool Main::onDraw([[maybe_unused]]double time)
     {
-        for (auto&& p : m_pieces) {
-            p.draw(ColorF(1, m_timer.invRate()));
+        const auto color = ColorF(1, m_timer.invRate());
+        Buffer2D buff;
+        buff.vertices.reserve(m_pieces.size() * 3);
+        buff.indices.reserve(m_pieces.size());
+
+        for (const auto& [index, p] : s3d::Indexed(m_pieces)) {
+            for (const auto& v : p.vertices(color)) {
+                buff.vertices << v;
+            }
+            buff.indices << TriangleIndex{
+                static_cast<TriangleIndex::value_type>(3 * index + 0),
+                static_cast<TriangleIndex::value_type>(3 * index + 1),
+                static_cast<TriangleIndex::value_type>(3 * index + 2)
+            };
         }
+        buff.draw(Resource::Assets::Main()->loadTexturePacker(U"Actor/Gimmick/ShutterWall/ShutterWall.json")(U"wall"));
         return !m_timer.isEnd();
     }
 }

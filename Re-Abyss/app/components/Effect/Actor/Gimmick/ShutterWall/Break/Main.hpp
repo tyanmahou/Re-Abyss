@@ -14,6 +14,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 
         void update(double dt);
         void draw(const s3d::ColorF& color) const;
+
+        s3d::Array<Vertex2D> vertices(const s3d::ColorF& color) const;
     private:
         s3d::Triangle m_polygon;
         s3d::Vec2 m_localPos;
