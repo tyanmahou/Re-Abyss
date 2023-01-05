@@ -57,7 +57,7 @@ namespace abyss
 
         void resume()
         {
-            m_isPause = true;
+            m_isPause = false;
         }
 
         void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale)
