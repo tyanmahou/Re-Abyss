@@ -27,13 +27,13 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 
         // 左右にふっとびすぎないように水平方向速度だけ補正をかける
         const double angleRate = s3d::Abs(angle) / EffectParam::InitVelocityAngleRange;
-        double speedHFactor = s3d::Math::Lerp(1.0, EffectParam::SpeedHFactorMin, angleRate);
+        const double speedHFactor = s3d::Math::Lerp(1.0, EffectParam::SpeedHFactorMin, angleRate);
         m_velocity.x *= speedHFactor;
     }
     void PieceParts::update(double dt)
     {
         m_localPos += m_velocity * dt;
-        auto accelX = -s3d::Sign(m_velocity.x) * EffectParam::DecelH * dt;
+        const double accelX = -s3d::Sign(m_velocity.x) * EffectParam::DecelH * dt;
         if (m_velocity.x > 0 && m_velocity.x + accelX <= 0) {
             m_velocity.x = 0;
         } else if (m_velocity.x < 0 && m_velocity.x + accelX >= 0) {
@@ -98,7 +98,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
                 }
             };
 
-            auto recursiveFlag = s3d::Random(0, 15);
+            const s3d::int32 recursiveFlag = s3d::Random(0, 15);
             addPieces(0, 1, (recursiveFlag & 0x01) != 0);
             addPieces(1, 2, (recursiveFlag & 0x02) != 0);
             addPieces(2, 3, (recursiveFlag & 0x04) != 0);
@@ -107,7 +107,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     void Main::onUpdate()
     {
-        auto dt = m_pObj->deltaTime() * EffectParam::TimeScale;
+        const auto dt = m_pObj->deltaTime() * EffectParam::TimeScale;
         m_timer.update(dt);
         for (auto&& p : m_pieces) {
             p.update(dt);
@@ -115,7 +115,8 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
     }
     bool Main::onDraw([[maybe_unused]]double time)
     {
-        const auto color = ColorF(1, m_timer.invRate());
+        const ColorF color(1, m_timer.invRate());
+
         Buffer2D buff;
         buff.vertices.reserve(m_pieces.size() * 3);
         buff.indices.reserve(m_pieces.size());
