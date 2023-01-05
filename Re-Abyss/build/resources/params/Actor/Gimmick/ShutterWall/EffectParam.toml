@@ -7,5 +7,10 @@ gravity = 720.0
 
 maxSpeedV = 400.0
 
+# 左右にふっとびすぎないように水平方向速度補正
+speedHFactorMin = 0.7
+
+rotateSpeedFactor = 0.7
+
 lifeTime = 1.2
 timeScale = 1.2

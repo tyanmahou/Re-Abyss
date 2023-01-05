@@ -27,7 +27,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
 
         // 左右にふっとびすぎないように水平方向速度だけ補正をかける
         const double angleRate = s3d::Abs(angle) / EffectParam::InitVelocityAngleRange;
-        double speedHFactor = s3d::Math::Lerp(1.0, 0.7, angleRate);
+        double speedHFactor = s3d::Math::Lerp(1.0, EffectParam::SpeedHFactorMin, angleRate);
         m_velocity.x *= speedHFactor;
     }
     void PieceParts::update(double dt)
@@ -48,7 +48,7 @@ namespace abyss::Effect::Actor::Gimmick::ShutterWall::Break
         }
 
         // 回転
-        m_rotateSpeed = s3d::Clamp(m_velocity.length() * 0.7, 0.0, 360.0);
+        m_rotateSpeed = s3d::Clamp(m_velocity.length() * EffectParam::RotateSpeedFactor, 0.0, 360.0);
         m_rotate += s3d::Sign(m_velocity.x) * m_rotateSpeed * dt;
     }
 
