@@ -12,12 +12,13 @@ namespace abyss::Actor::Enemy
 
     void MidBossDeadCtrl::notifyDead()
     {
-        m_deployId = m_pActor->find<DeployId>();
         m_pActor->getModule<Temporary>()->saveFlagExit(key());
     }
 
     void MidBossDeadCtrl::onStart()
     {
+        m_deployId = m_pActor->find<DeployId>();
+
         // 撃破済みなら破棄
         if (m_pActor->getModule<Temporary>()->onFlag(key())) {
             m_pActor->destroy();
