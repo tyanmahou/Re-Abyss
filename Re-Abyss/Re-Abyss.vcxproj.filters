@@ -2330,6 +2330,9 @@
     <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Env\Env.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6105,6 +6108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\EffectParam.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Env\Env.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
