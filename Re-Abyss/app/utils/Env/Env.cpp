@@ -143,7 +143,7 @@ namespace abyss
     bool Env::Load(const s3d::String& path, bool overwrite)
     {
         s3d::TextReader file(path);
-        if (not file) {
+        if (!file) {
             return false;
         }
 
