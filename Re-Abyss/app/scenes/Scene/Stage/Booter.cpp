@@ -6,7 +6,7 @@
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
@@ -122,7 +122,7 @@ namespace abyss::Scene::Stage
 
         // Env初期化
         auto env = pManager->getModule<Environment>();
-        env->init(Env::EnvDesc{
+        env->init(FieldEnv::EnvDesc{
             .useSky = true,
             .useCaustics = true,
             .useFog = true

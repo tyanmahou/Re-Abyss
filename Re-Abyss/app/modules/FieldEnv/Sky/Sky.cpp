@@ -1,6 +1,6 @@
-#include <abyss/modules/Env/Sky/Sky.hpp>
+#include <abyss/modules/FieldEnv/Sky/Sky.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     void Sky::update(double dt)
     {

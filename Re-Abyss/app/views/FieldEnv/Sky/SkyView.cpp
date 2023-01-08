@@ -1,9 +1,9 @@
-#include <abyss/views/Env/Sky/SkyView.hpp>
+#include <abyss/views/FieldEnv/Sky/SkyView.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/Camera/CameraView.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     SkyView::SkyView() :
         m_texture(Resource::Assets::Main()->load(U"Env/Sky.png")),

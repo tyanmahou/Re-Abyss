@@ -1,4 +1,4 @@
-#include <abyss/views/Env/Caustics/CausticsView.hpp>
+#include <abyss/views/FieldEnv/Caustics/CausticsView.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -27,7 +27,7 @@ namespace
 		}
 	}
 }
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
 	CausticsView::CausticsView():
 		m_texture(Resource::Assets::Main()->load(U"Env/Caustics.png")),

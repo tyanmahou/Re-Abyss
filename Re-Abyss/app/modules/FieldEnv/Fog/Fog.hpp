@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/views/Shader/Fog/FogShader.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     /// <summary>
     /// Fog

@@ -1,7 +1,7 @@
 #pragma once
-#include <abyss/views/Env/Caustics/CausticsView.hpp>
+#include <abyss/views/FieldEnv/Caustics/CausticsView.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     class Caustics
     {

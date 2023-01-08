@@ -14,7 +14,7 @@
 #include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
-#include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Light/Light.hpp>

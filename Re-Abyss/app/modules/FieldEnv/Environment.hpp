@@ -1,11 +1,11 @@
 #pragma once
 #include <memory>
-#include <abyss/modules/Env/Bg/Bg.hpp>
-#include <abyss/modules/Env/Sky/Sky.hpp>
-#include <abyss/modules/Env/Caustics/Caustics.hpp>
-#include <abyss/modules/Env/Fog/Fog.hpp>
+#include <abyss/modules/FieldEnv/Bg/Bg.hpp>
+#include <abyss/modules/FieldEnv/Sky/Sky.hpp>
+#include <abyss/modules/FieldEnv/Caustics/Caustics.hpp>
+#include <abyss/modules/FieldEnv/Fog/Fog.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     struct EnvDesc
     {

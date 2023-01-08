@@ -1464,16 +1464,16 @@
     <ClCompile Include="app\modules\Effect\Effects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Bg\Bg.cpp">
+    <ClCompile Include="app\modules\FieldEnv\Bg\Bg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Caustics\Caustics.cpp">
+    <ClCompile Include="app\modules\FieldEnv\Caustics\Caustics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Sky\Sky.cpp">
+    <ClCompile Include="app\modules\FieldEnv\Sky\Sky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Environment.cpp">
+    <ClCompile Include="app\modules\FieldEnv\Environment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Event\base\EventObj.cpp">
@@ -1884,10 +1884,10 @@
     <ClCompile Include="app\views\Effect\Misc\Fish\FishVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Env\Caustics\CausticsView.cpp">
+    <ClCompile Include="app\views\FieldEnv\Caustics\CausticsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Env\Sky\SkyView.cpp">
+    <ClCompile Include="app\views\FieldEnv\Sky\SkyView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Light\LightUtil.cpp">
@@ -2129,7 +2129,7 @@
     <ClCompile Include="app\views\Shader\Fog\FogShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Env\Fog\Fog.cpp">
+    <ClCompile Include="app\modules\FieldEnv\Fog\Fog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Shader\util\BayerMatrix.cpp">
@@ -4782,16 +4782,16 @@
     <ClInclude Include="app\modules\Effect\Effects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Bg\Bg.hpp">
+    <ClInclude Include="app\modules\FieldEnv\Bg\Bg.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Caustics\Caustics.hpp">
+    <ClInclude Include="app\modules\FieldEnv\Caustics\Caustics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Sky\Sky.hpp">
+    <ClInclude Include="app\modules\FieldEnv\Sky\Sky.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Environment.hpp">
+    <ClInclude Include="app\modules\FieldEnv\Environment.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Event\base\EventObj.hpp">
@@ -5587,10 +5587,10 @@
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Env\Caustics\CausticsView.hpp">
+    <ClInclude Include="app\views\FieldEnv\Caustics\CausticsView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Env\Sky\SkyView.hpp">
+    <ClInclude Include="app\views\FieldEnv\Sky\SkyView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Light\LightUtil.hpp">
@@ -5848,7 +5848,7 @@
     <ClInclude Include="app\views\Shader\Fog\FogShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Env\Fog\Fog.hpp">
+    <ClInclude Include="app\modules\FieldEnv\Fog\Fog.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\util\BayerMatrix.hpp">

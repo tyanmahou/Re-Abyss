@@ -3,7 +3,7 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 
 #include <abyss/components/Event/Common/FadeIrisOut.hpp>
 

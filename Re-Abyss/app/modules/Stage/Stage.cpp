@@ -23,7 +23,7 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>

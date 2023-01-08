@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Texture.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     class CausticsView
     {

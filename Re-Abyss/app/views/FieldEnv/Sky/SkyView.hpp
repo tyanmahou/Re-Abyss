@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/views/Shader/Sky/SkyShader.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     class SkyView
     {

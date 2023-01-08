@@ -1,8 +1,8 @@
-#include <abyss/modules/Env/Environment.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/debugs/Debug.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     void Environment::init(const EnvDesc& desc)
     {

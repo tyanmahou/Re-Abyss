@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Color.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     class Bg
     {

@@ -112,11 +112,11 @@ namespace abyss
 	}
 	using Cycle::CycleMaster;
 
-	namespace Env
+	namespace FieldEnv
 	{
 		class Environment;
 	}
-	using Env::Environment;
+	using FieldEnv::Environment;
 
 	/// <summary>
 	/// Modules/Room

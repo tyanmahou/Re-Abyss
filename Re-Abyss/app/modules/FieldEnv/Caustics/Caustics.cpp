@@ -1,6 +1,6 @@
-#include <abyss/modules/Env/Caustics/Caustics.hpp>
+#include <abyss/modules/FieldEnv/Caustics/Caustics.hpp>
 
-namespace  abyss::Env
+namespace abyss::FieldEnv
 {
     void Caustics::update(double dt)
     {

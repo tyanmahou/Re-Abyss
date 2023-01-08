@@ -1,6 +1,6 @@
-#include <abyss/modules/Env/Fog/Fog.hpp>
+#include <abyss/modules/FieldEnv/Fog/Fog.hpp>
 
-namespace abyss::Env
+namespace abyss::FieldEnv
 {
     const Fog& Fog::setFogColor(const s3d::ColorF& color) const
     {
