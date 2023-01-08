@@ -1,6 +1,6 @@
 [Scene/Title]
-- @"Env/Caustics"
-- @"Env/Wave"
+- @"FieldEnv/Caustics"
+- @"FieldEnv/Wave"
 
 - @"UI/Title/Logo"
 - @"UI/Title/Cursor"

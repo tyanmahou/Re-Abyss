@@ -6,8 +6,8 @@
 namespace abyss::FieldEnv
 {
     SkyView::SkyView() :
-        m_texture(Resource::Assets::Main()->load(U"Env/Sky.png")),
-        m_texture2(Resource::Assets::Main()->load(U"Env/Caustics.png"))
+        m_texture(Resource::Assets::Main()->load(U"FieldEnv/Sky.png")),
+        m_texture2(Resource::Assets::Main()->load(U"FieldEnv/Caustics.png"))
     {
 
     }
