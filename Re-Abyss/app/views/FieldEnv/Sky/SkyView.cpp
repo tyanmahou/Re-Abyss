@@ -26,5 +26,4 @@ namespace abyss::FieldEnv
         auto offset = Vec2{ 0, s3d::Min(0.0, -pos.y / 20.0) };
         m_texture.draw(pos + offset, Arg::top(ColorF(1, 1)), Arg::bottom(ColorF(1, 0)));
     }
-
 }
