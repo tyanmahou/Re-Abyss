@@ -298,6 +298,7 @@
     <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
+    <ClCompile Include="app\modules\Actor\Actors.cpp" />
     <ClCompile Include="app\modules\FieldEnv\Fog\Fog.cpp" />
     <ClCompile Include="app\modules\GameObject\IComponent.cpp" />
     <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
@@ -1249,6 +1250,7 @@
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
+    <ClInclude Include="app\modules\Actor\Actors.hpp" />
     <ClInclude Include="app\modules\FieldEnv\Fog\Fog.hpp" />
     <ClInclude Include="app\modules\GameObject\EventKind.hpp" />
     <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
