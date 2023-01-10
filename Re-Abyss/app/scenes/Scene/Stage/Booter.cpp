@@ -102,7 +102,7 @@ namespace abyss::Scene::Stage
             playerManager->regist(player);
         }
 
-        // World初期化
+        // Actor初期化
         auto* actors = pManager->getModule<Actors>();
         {
             actors->create<Actor::God::Builder>(); // God生成
