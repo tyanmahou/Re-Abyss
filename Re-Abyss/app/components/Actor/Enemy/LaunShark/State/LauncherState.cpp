@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Enemy/LaunShark/State/SwimState.hpp>
 
 #include <Siv3D.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 
@@ -34,7 +34,7 @@ namespace abyss::Actor::Enemy::LaunShark
                     int32 page = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, this->m_pActor->getTimeSec()));
                     double offsetY = page == 1 ? 8 : 4;
                     Vec2 shotPos = m_body->getPos() + (m_body->isForward(Forward::Left) ? Vec2{ -62, offsetY } : Vec2{ 62, offsetY });
-                    m_pActor->getModule<World>()->create<Shot::Builder>(shotPos, m_body->getForward());
+                    m_pActor->getModule<Actors>()->create<Shot::Builder>(shotPos, m_body->getForward());
                 }
                 m_waitTimer.update(dt);
                 if (m_waitTimer.isEnd()) {

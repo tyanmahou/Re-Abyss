@@ -10,7 +10,7 @@ namespace abyss
     {
     private:
         GlobalTime* m_pGlobalTime = nullptr;
-        World* m_pWorld = nullptr;
+        Actors* m_pActors = nullptr;
         CollisionManager* m_pCollision = nullptr;
         PhysicsManager* m_pPhysics = nullptr;
         Events* m_pEvents = nullptr;
@@ -38,7 +38,7 @@ namespace abyss
 
         Manager& set(GlobalTime* pGlobalTime);
 
-        Manager& set(World* pWorld);
+        Manager& set(Actors* pActors);
 
         Manager& set(CollisionManager* pCollision);
 

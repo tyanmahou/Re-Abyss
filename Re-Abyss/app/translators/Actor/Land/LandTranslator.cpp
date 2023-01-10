@@ -5,21 +5,21 @@
 #include <abyss/components/Actor/Land/PenetrateFloor/Builder.hpp>
 #include <abyss/components/Actor/Land/Ladder/Builder.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 
 namespace abyss::Actor::Land
 {
-	Ref<Actor::ActorObj> LandTranslator::buildActor(World& world, const LandEntity& entity)
+	Ref<Actor::ActorObj> LandTranslator::buildActor(Actors& actors, const LandEntity& entity)
 	{
 		using namespace Actor::Land;
 		if (entity.type == LandType::Floor) {
-			return world.create<Floor::Builder>(entity.col, entity.pos, entity.size);
+			return actors.create<Floor::Builder>(entity.col, entity.pos, entity.size);
 		}
 		if (entity.type == LandType::Ladder) {
-			return world.create<Ladder::Builder>(entity.col, entity.pos, entity.size);
+			return actors.create<Ladder::Builder>(entity.col, entity.pos, entity.size);
 		}
 		if (entity.type == LandType::Penetrate) {
-			return world.create<PenetrateFloor::Builder>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
+			return actors.create<PenetrateFloor::Builder>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
 		}
 		return nullptr;
 	}

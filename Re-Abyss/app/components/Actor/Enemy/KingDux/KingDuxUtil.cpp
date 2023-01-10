@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Builder.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::KingDux
 {
     Ref<ActorObj> KingDuxUtil::BuildTentacle(ActorObj* pActor, const TentacleDesc& desc)
     {
-        return pActor->getModule<World>()->create<Tentacle::Builder>(pActor, Tentacle::BuildDesc{
+        return pActor->getModule<Actors>()->create<Tentacle::Builder>(pActor, Tentacle::BuildDesc{
             .offset = desc.offset,
             .rotate = s3d::ToRadians(desc.rotateDeg),
             .distOffset = desc.distOffset,
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Ref<ActorObj> KingDuxUtil::BuildBaby(ActorObj* pActor, const BabyDux::BabyDesc& desc)
     {
-        return pActor->getModule<World>()->create<BabyDux::Builder>(pActor, BabyDux::BuildDesc{
+        return pActor->getModule<Actors>()->create<BabyDux::Builder>(pActor, BabyDux::BuildDesc{
             .posOffset = desc.offset,
             .appearTime = desc.appearTime,
             .appearMove = desc.appearMove

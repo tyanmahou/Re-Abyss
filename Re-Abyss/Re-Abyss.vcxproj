@@ -780,7 +780,6 @@
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
-    <ClCompile Include="app\modules\World\World.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Scene.cpp" />
@@ -1921,7 +1920,6 @@
     <ClInclude Include="app\modules\UI\base\UIHolder.hpp" />
     <ClInclude Include="app\modules\UI\base\UIObj.hpp" />
     <ClInclude Include="app\modules\UI\UIs.hpp" />
-    <ClInclude Include="app\modules\World\World.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CodeZero\HandParam.hpp" />

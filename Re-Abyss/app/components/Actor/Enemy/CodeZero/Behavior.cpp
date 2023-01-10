@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 
-#include <abyss/modules/World/World.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
 
@@ -207,7 +207,7 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitShot);
 
         // ショット生成
-        pActor->getModule<World>()->create<Shot::Builder>(pActor);
+        pActor->getModule<Actors>()->create<Shot::Builder>(pActor);
     }
 
     Coro::Fiber<> Behavior::ChangeHandsPhase1(ActorObj* pActor, bool slowStart)

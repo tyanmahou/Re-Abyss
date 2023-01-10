@@ -26,7 +26,7 @@ namespace abyss
 	private:
 
 		bool initDecor(Decors& decor, const Room::RoomData& nextRoom) const;
-		bool initWorld(World& world, const Room::RoomData& nextRoom, BuildTiming buildTiming) const;
+		bool initActor(Actors& actors, const Room::RoomData& nextRoom, BuildTiming buildTiming) const;
 
 	public:
 		Stage();

@@ -2,7 +2,7 @@
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandProxy.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 { 
@@ -12,9 +12,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
     void PartsCtrl::onStart()
     {
-        auto* const world = m_pActor->getModule<World>();
-        m_leftHand = world->create<Hand::Builder>(m_pActor, Hand::HandKind::Left)->find<Hand::HandProxy>();
-        m_rightHand = world->create<Hand::Builder>(m_pActor, Hand::HandKind::Right)->find<Hand::HandProxy>();
+        auto* const actors = m_pActor->getModule<Actors>();
+        m_leftHand = actors->create<Hand::Builder>(m_pActor, Hand::HandKind::Left)->find<Hand::HandProxy>();
+        m_rightHand = actors->create<Hand::Builder>(m_pActor, Hand::HandKind::Right)->find<Hand::HandProxy>();
     }
     void PartsCtrl::setActive(bool active) const
     {

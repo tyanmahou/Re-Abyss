@@ -10,7 +10,7 @@ namespace abyss::Debug
     class DebugUtil
     {
     public:
-        static void DrawDebug(const World& world);
+        static void DrawDebug(const Actors& actors);
 
         static void DrawDebug(const PhysicsManager& physics);
 

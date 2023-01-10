@@ -9,6 +9,6 @@ namespace abyss::Actor::Land
 	class LandTranslator
 	{
 	public:
-		Ref<Actor::ActorObj> buildActor(World& world, const LandEntity& entity);
+		Ref<Actor::ActorObj> buildActor(Actors& actors, const LandEntity& entity);
 	};
 }

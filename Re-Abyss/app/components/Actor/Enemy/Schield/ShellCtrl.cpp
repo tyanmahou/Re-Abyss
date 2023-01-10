@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/Schield/ShellCtrl.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/Enemy/Schield/Shell/Builder.hpp>
 
 namespace abyss::Actor::Enemy::Schield
@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::Schield
     }
     void ShellCtrl::onStart()
     {
-        m_shell = m_pActor->getModule<World>()->create<Shell::Builder>(m_pActor);
+        m_shell = m_pActor->getModule<Actors>()->create<Shell::Builder>(m_pActor);
     }
     void ShellCtrl::onEnd()
     {

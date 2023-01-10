@@ -7,6 +7,6 @@ namespace abyss::Actor::Item
     class ItemTranslator
     {
     public:
-        Ref<Actor::ActorObj> buildActor(World& world, const ItemEntity& entity);
+        Ref<Actor::ActorObj> buildActor(Actors& actors, const ItemEntity& entity);
     };
 }

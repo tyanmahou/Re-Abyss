@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/BazookaKun/State/AimState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/Enemy/BazookaKun/Shot/Builder.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
@@ -31,12 +31,12 @@ namespace abyss::Actor::Enemy::BazookaKun
 
         while (true) {
             if (m_target->isInAimRangeWithDist()) {
-                m_pActor->getModule<World>()->create<Shot::Builder>(
+                m_pActor->getModule<Actors>()->create<Shot::Builder>(
                     m_target->bazookaPos(),
                     m_target->bazookaVec()
                     );
                 co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.7);
-                m_pActor->getModule<World>()->create<Shot::Builder>(
+                m_pActor->getModule<Actors>()->create<Shot::Builder>(
                     m_target->bazookaPos(),
                     m_target->bazookaVec()
                     );

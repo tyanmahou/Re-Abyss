@@ -1,7 +1,7 @@
 #include <abyss/scenes/Scene/Stage/Booter.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
@@ -103,10 +103,10 @@ namespace abyss::Scene::Stage
         }
 
         // World初期化
-        auto* world = pManager->getModule<World>();
+        auto* actors = pManager->getModule<Actors>();
         {
-            world->create<Actor::God::Builder>(); // God生成
-            world->regist(player);          // プレイヤー登録
+            actors->create<Actor::God::Builder>(); // God生成
+            actors->regist(player);          // プレイヤー登録
         }
 
         // Cron初期化

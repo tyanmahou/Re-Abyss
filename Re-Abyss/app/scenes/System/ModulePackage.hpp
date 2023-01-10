@@ -4,6 +4,7 @@
 #include <abyss/scenes/System/Modules.hpp>
 
 // Modules
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/ColSys/CollisionManager.hpp>
@@ -28,7 +29,6 @@
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/modules/World/World.hpp>
 
 
 namespace abyss::Sys
@@ -38,6 +38,7 @@ namespace abyss::Sys
 
     template<Config config>
     using ModulePackage = ModuleSet<
+        mod_if<config.isStage, Actor::Actors>,
         mod_if<config.isStage, Actor::Player::PlayerManager>,
         Camera,
         mod_if<config.isStage, CollisionManager>,
@@ -63,7 +64,6 @@ namespace abyss::Sys
         Sound,
         mod_if<config.isStage, Stage>,
         mod_if<config.isStage, Temporary>,
-        UIs,
-        mod_if<config.isStage, World>
+        UIs
     >;
 }

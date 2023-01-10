@@ -21,12 +21,12 @@ namespace abyss::Sys
         auto* timer = mod<GlobalTime>();
         auto* events = mod<Events>();
         auto* ui = mod<UIs>();
-        [[maybe_unused]] World* world = nullptr;
+        [[maybe_unused]] Actors* actors = nullptr;
         [[maybe_unused]] Decors* decors = nullptr;
         [[maybe_unused]] CollisionManager* pCollision = nullptr;
         [[maybe_unused]] PhysicsManager* physics = nullptr;
         if constexpr (config.isStage) {
-            world = mod<World>();
+            actors = mod<Actors>();
             decors = mod<Decors>();
             pCollision = mod<CollisionManager>();
             physics = mod<PhysicsManager>();
@@ -42,7 +42,7 @@ namespace abyss::Sys
         mod<WorldComment>()->flush();
 #endif
         if constexpr (config.isStage) {
-            world->flush();
+            actors->flush();
             decors->flush();
             pCollision->cleanUp();
             physics->cleanUp();
@@ -60,21 +60,21 @@ namespace abyss::Sys
         if constexpr (config.isStage) {
             mod<Light>()->update(dt);
 
-            world->updateDeltaTime(dt);
+            actors->updateDeltaTime(dt);
         }
 
-        // World更新
+        // Actor更新
         [[maybe_unused]]bool isWorldStop = false;
         if constexpr (config.isStage) {
             isWorldStop = events->isWorldStop();
             if (!isWorldStop) {
-                world->update();
-                world->move();
+                actors->update();
+                actors->move();
                 {
                     // 地形衝突
-                    world->prePhysics();
+                    actors->prePhysics();
                     physics->onPhysicsCollision();
-                    world->postPhysics();
+                    actors->postPhysics();
                 }
             }
         }
@@ -82,15 +82,15 @@ namespace abyss::Sys
         // カメラ更新
         mod<Camera>()->update(dt);
 
-        // World衝突後更新
+        // Actor衝突後更新
         if constexpr (config.isStage) {
             if (!isWorldStop) {
 
-                world->preCollision();
+                actors->preCollision();
                 pCollision->onCollision();
-                world->postCollision();
+                actors->postCollision();
 
-                world->lastUpdate();
+                actors->lastUpdate();
             }
         }
         // イベント更新
@@ -113,7 +113,7 @@ namespace abyss::Sys
 
         // クリーンアップ
         if constexpr (config.isStage) {
-            world->cleanUp();
+            actors->cleanUp();
             physics->cleanUp();
         }
 
@@ -148,7 +148,7 @@ namespace abyss::Sys
 
         if constexpr (config.isStage) {
             // Actor Draw
-            mod<World>()->draw();
+            mod<Actors>()->draw();
             // Deor Draw
             mod<Decors>()->draw();
         }
@@ -227,7 +227,7 @@ namespace abyss::Sys
 
                 if constexpr (config.isStage) {
 #if ABYSS_DEBUG
-                    Debug::DebugUtil::DrawDebug(*mod<World>());
+                    Debug::DebugUtil::DrawDebug(*mod<Actors>());
                     Debug::DebugUtil::DrawDebug(*mod<PhysicsManager>());
 #endif
                 }

@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Gimmick/CodeZeroBack/Main.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 
@@ -16,7 +16,7 @@ namespace abyss::Actor::Gimmick::CodeZeroBack
     }
     void Main::onPreDraw()
     {
-        if (m_hideCtrl = m_pActor->getModule<World>()->find<Enemy::CodeZero::HideCtrl>()) {
+        if (m_hideCtrl = m_pActor->getModule<Actors>()->find<Enemy::CodeZero::HideCtrl>()) {
             m_isFind = true;
         }
     }

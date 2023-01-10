@@ -2,13 +2,13 @@
 #if ABYSS_DEBUG
 
 #include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/modules/Physics/PhysicsManager.hpp>
 #include <abyss/modules/Physics/base/IContacter.hpp>
 #include <abyss/modules/Physics/base/ITerrain.hpp>
-#include <abyss/modules/World/World.hpp>
 #include <abyss/utils/Collision/CShape.hpp>
 #include <abyss/utils/Overloaded.hpp>
 
@@ -20,12 +20,12 @@
 
 namespace abyss::Debug
 {
-    void DebugUtil::DrawDebug(const World& world)
+    void DebugUtil::DrawDebug(const Actors& actors)
     {
         if (!MenuUtil::IsDebug(Debug::DebugFlag::ActorCollider)) {
             return;
         }
-        auto coms = world.finds<Actor::Collider>();
+        auto coms = actors.finds<Actor::Collider>();
 
         constexpr ColorF color = ColorF(1, 0, 0, 0.4);
         size_t size{};

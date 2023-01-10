@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/CaptainTako/State/AttackState.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/Shot/Builder.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::CaptainTako
                 offset.y
             };
             auto pos = m_body->getPos() + fixedOffset;
-            m_pActor->getModule<World>()->create<Shot::Builder>(pos, m_body->getForward());
+            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos, m_body->getForward());
 
             if (++m_currentAttackCount >= m_attackCount) {
                 break;

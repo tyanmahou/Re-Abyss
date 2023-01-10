@@ -2,7 +2,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Player/Shot/Builder.hpp>
 
@@ -55,7 +55,7 @@ namespace abyss::Actor::Player
         m_timer.reset();
 
         double charge = m_charge->pop();
-        m_pActor->getModule<World>()->create<Shot::Builder>(
+        m_pActor->getModule<Actors>()->create<Shot::Builder>(
             m_body->getPos() + Vec2{ 30 * m_body->getForward(), -1 }, 
             m_body->getForward(), 
             charge

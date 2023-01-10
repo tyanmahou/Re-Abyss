@@ -23,7 +23,6 @@ namespace abyss
     class QuakeEpicenter;
 	class Distortion;
 	class ICameraWork;
-	class World;
 	namespace ColSys
 	{
 		class CollisionManager;
@@ -46,15 +45,20 @@ namespace abyss
 	class TemporaryData;
 	class DrawManager;
 	
-	/// Modules/Actors
+	/// <summary>
+	/// Modules/Actor
+	/// </summary>
 	namespace Actor
 	{
+        class Actors;
 		class ActorObj;
+
 		namespace Player
 		{
 			class PlayerManager;
 		}
 	}
+    using Actor::Actors;
 
 	namespace Cron
 	{
@@ -213,7 +217,5 @@ namespace abyss
 	/// <summary>
 	/// Views
 	/// </summary>
-	
-	class WorldView;
 	class CameraView;
 }

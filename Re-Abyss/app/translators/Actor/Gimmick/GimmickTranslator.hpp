@@ -9,6 +9,6 @@ namespace abyss::Actor::Gimmick
     public:
         GimmickTranslator();
 
-        Ref<Actor::ActorObj> buildActor(World& world, const GimmickEntity& entity);
+        Ref<Actor::ActorObj> buildActor(Actors& actors, const GimmickEntity& entity);
     };
 }

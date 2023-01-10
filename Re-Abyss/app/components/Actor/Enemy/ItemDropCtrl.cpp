@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/ItemDropCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Item/Recovery/Builder.hpp>
@@ -63,7 +63,7 @@ namespace abyss::Actor::Enemy
 
         Vec2 basePos = body->region().bottomCenter();
 
-        auto world = m_pActor->getModule<World>();
+        auto actors = m_pActor->getModule<Actors>();
         using abyss::Actor::Item::RecoveryKind;
         using abyss::Actor::Item::Recovery::Param;
 
@@ -71,11 +71,11 @@ namespace abyss::Actor::Enemy
         case DropItemKind::None:
             return nullptr;
         case DropItemKind::RecoverySmall:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Small);
+            return actors->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Small);
         case DropItemKind::RecoveryMiddle:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0}, RecoveryKind::Middle);
+            return actors->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0}, RecoveryKind::Middle);
         case DropItemKind::RecoveryBig:
-            return world->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Big);
+            return actors->create<Item::Recovery::Builder>(basePos - Vec2{ 0, 20.0 }, RecoveryKind::Big);
         default:
             break;
         }

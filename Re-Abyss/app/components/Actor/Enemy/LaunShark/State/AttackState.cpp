@@ -2,7 +2,7 @@
 #include <abyss/components/Actor/Enemy/LaunShark/State/SwimState.hpp>
 #include <Siv3D.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/params/Actor/Enemy/LaunShark/Param.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {

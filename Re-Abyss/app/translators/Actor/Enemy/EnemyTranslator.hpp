@@ -7,6 +7,6 @@ namespace abyss::Actor::Enemy
 	class EnemyTranslator
 	{
 	public:
-		Ref<Actor::ActorObj> buildActor(World& world, const EnemyEntity& entity);
+		Ref<Actor::ActorObj> buildActor(Actors& actors, const EnemyEntity& entity);
 	};
 }

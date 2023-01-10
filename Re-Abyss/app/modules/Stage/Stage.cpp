@@ -10,7 +10,7 @@
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Event/GameReady/Builder.hpp>
 
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/Decor/DecorGraphics.hpp>
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
@@ -115,10 +115,10 @@ namespace abyss
             roomManager->init();
         }
 
-        // World初期化
+        // Actor初期化
         {
-            auto world = m_pManager->getModule<World>();
-            if (!this->initWorld(*world, *nextRoom, BuildTiming::All)) {
+            auto actors = m_pManager->getModule<Actors>();
+            if (!this->initActor(*actors, *nextRoom, BuildTiming::All)) {
                 return false;
             }
         }
@@ -185,13 +185,13 @@ namespace abyss
         // チェックアウト時にはルーム移動で消えるフラグを消す
         m_pManager->getModule<Temporary>()->clearFlag(TempLevel::Room);
 
-        // World CheckOut
+        // Actor CheckOut
         {
-            auto world = m_pManager->getModule<World>();
-            world->onCheckOut();
+            auto actors = m_pManager->getModule<Actors>();
+            actors->onCheckOut();
 
             if (nextRoom) {
-                if (!this->initWorld(*world, *nextRoom, BuildTiming::CheckOut)) {
+                if (!this->initActor(*actors, *nextRoom, BuildTiming::CheckOut)) {
                     return false;
                 }
             }
@@ -227,10 +227,10 @@ namespace abyss
             decor->onCheckIn();
         }
 
-        // World CheckIn
-        auto world = m_pManager->getModule<World>();
+        // Actor CheckIn
+        auto actors = m_pManager->getModule<Actors>();
         {
-            world->onCheckIn();
+            actors->onCheckIn();
         }
 
         auto roomManager = m_pManager->getModule<RoomManager>();
@@ -257,7 +257,7 @@ namespace abyss
             }
         }
 
-        return this->initWorld(*world, room, BuildTiming::CheckIn);
+        return this->initActor(*actors, room, BuildTiming::CheckIn);
     }
 
     bool Stage::initDecor(Decors& decor, const Room::RoomData& nextRoom) const
@@ -292,7 +292,7 @@ namespace abyss
         decor.flush();
         return true;
     }
-    bool Stage::initWorld(World& world, const Room::RoomData& nextRoom, BuildTiming buildTiming) const
+    bool Stage::initActor(Actors& actors, const Room::RoomData& nextRoom, BuildTiming buildTiming) const
     {
         if (!m_stageData) {
             return false;
@@ -307,7 +307,7 @@ namespace abyss
                 if (!nextRoom.getRegion().intersects(RectF(land->pos - land->size / 2.0, land->size))) {
                     continue;
                 }
-                landTranslator.buildActor(world, *land);
+                landTranslator.buildActor(actors, *land);
             }
         }
 
@@ -318,7 +318,7 @@ namespace abyss
                 if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                     continue;
                 }
-                gimmickTranslator.buildActor(world, *gimmick);
+                gimmickTranslator.buildActor(actors, *gimmick);
             }
         }
 
@@ -329,7 +329,7 @@ namespace abyss
                 if (!nextRoom.getRegion().intersects(enemy->pos)) {
                     continue;
                 }
-                enemyTranslator.buildActor(world, *enemy);
+                enemyTranslator.buildActor(actors, *enemy);
             }
         }
 
@@ -340,13 +340,10 @@ namespace abyss
                 if (!nextRoom.getRegion().intersects(item->pos)) {
                     continue;
                 }
-                itemTranslator.buildActor(world, *item);
+                itemTranslator.buildActor(actors, *item);
             }
         }
 
-        // @note なぜ必要か忘れた
-        // ないほうが嬉しいのでひとまずコメント
-        //world.flush();
         return true;
     }
     const s3d::String& Stage::mapName() const

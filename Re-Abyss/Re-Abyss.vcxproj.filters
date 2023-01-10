@@ -1569,9 +1569,6 @@
     <ClCompile Include="app\modules\UI\UIs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\World\World.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\scenes\Scene\ISceneBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -4931,9 +4928,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\UI\UIs.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\World\World.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\Param.hpp">

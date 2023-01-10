@@ -8,7 +8,7 @@
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/modules/World/World.hpp>
+#include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/commons/Constants.hpp>
 
 #include <Siv3D.hpp>
@@ -167,7 +167,7 @@ namespace abyss::Actor
     }
     void AudioSource::playAtDirect(const s3d::Audio & audio, const s3d::Vec2 & pos) const
     {
-        auto pActor = m_pActor->getModule<World>()->create();
+        auto pActor = m_pActor->getModule<Actors>()->create();
         auto raw = pActor.get();
         raw->setDestoryTiming(DestoryTiming::Never);
         raw->attach<Locator>()->setPos(pos);
