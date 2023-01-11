@@ -2333,6 +2333,9 @@
     <ClCompile Include="app\modules\Actor\Actors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Env\detail\EnvParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6111,6 +6114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Actor\Actors.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Env\detail\EnvParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
