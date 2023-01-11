@@ -76,7 +76,8 @@ namespace abyss::detail
             if (multiLine > 0) {
                 // マルチライン
                 auto v = line.trim();
-                if (multiLine == MultilineType::DoubleQuote && v == U"\"\"\"" || multiLine == MultilineType::SingleQuote && v == U"'''") {
+                if (multiLine == MultilineType::DoubleQuote && v == U"\"\"\""
+                    || multiLine == MultilineType::SingleQuote && v == U"'''") {
                     // マルチライン解除
                     multiLine = 0;
                 } else {
@@ -85,7 +86,7 @@ namespace abyss::detail
                     }
                     if (multiLine == MultilineType::DoubleQuote) {
                         value += this->interp(line.replaced(U"\\\"", U"\""));
-                    } else if (multiLine == 2) {
+                    } else if (multiLine == MultilineType::SingleQuote) {
                         value += line.replaced(U"\\'", U"'");
                     }
                 }
@@ -102,10 +103,10 @@ namespace abyss::detail
                 // Value
                 auto v = line.substr(eq + 1).trim();
                 if (v == U"\"\"\"") {
-                    multiLine = MultilineType::SingleQuote;
+                    multiLine = MultilineType::DoubleQuote;
                     value.clear();
                 } else if (v == U"'''") {
-                    multiLine = MultilineType::DoubleQuote;
+                    multiLine = MultilineType::SingleQuote;
                     value.clear();
                 } else {
                     value = this->parseValue(v);

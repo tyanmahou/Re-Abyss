@@ -77,8 +77,8 @@ namespace abyss::tests
             REQUIRE(parser.get(U"QUOT_TEST3") == U"'AAA'");
             REQUIRE(parser.get(U"QUOT_TEST4") == U"'AAA'");
 
-            REQUIRE(parser.get(U"MULTILINE_TEST1") == U"");
-            REQUIRE(parser.get(U"MULTILINE_TEST2") == U"");
+            REQUIRE(parser.get(U"MULTILINE_TEST1") == U"AAA BBB\nCCC");
+            REQUIRE(parser.get(U"MULTILINE_TEST2") == U"${TEST2} ${TEST1}\nCCC");
         }
     }
 }
