@@ -1,6 +1,6 @@
 #include <abyss/scenes/SequenceManager.hpp>
 
-#include <abyss/scenes/Scene/EntryPoint/Scene.hpp>
+#include <abyss/scenes/Scene/Boot/Scene.hpp>
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
 #include <abyss/scenes/Scene/Splash/Scene.hpp>
 #include <abyss/scenes/Scene/Title/Scene.hpp>
@@ -18,7 +18,7 @@ namespace abyss
 {
     SequenceManager::SequenceManager()
     {
-        m_scene.add<Scene::EntryPoint::Scene>(SceneKind::EntryPoint);
+        m_scene.add<Scene::Boot::Scene>(SceneKind::Boot);
         m_scene.add<Scene::Splash::Scene>(SceneKind::Splash);
         m_scene.add<Scene::Title::Scene>(SceneKind::Title);
         m_scene.add<Scene::SaveSelect::Scene>(SceneKind::SaveSelect);

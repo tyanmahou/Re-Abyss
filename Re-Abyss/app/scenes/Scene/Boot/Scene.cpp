@@ -1,10 +1,10 @@
-#include <abyss/scenes/Scene/EntryPoint/Scene.hpp>
+#include <abyss/scenes/Scene/Boot/Scene.hpp>
 
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Message.hpp>
 
-namespace abyss::Scene::EntryPoint
+namespace abyss::Scene::Boot
 {
     class Scene::Impl
     {

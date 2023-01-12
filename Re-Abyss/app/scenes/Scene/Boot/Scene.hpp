@@ -1,10 +1,10 @@
 #pragma once
 #include <abyss/scenes/Scene/ISceneBase.hpp>
 
-namespace abyss::Scene::EntryPoint
+namespace abyss::Scene::Boot
 {
 	/// <summary>
-	/// EntryPoint Scene
+	/// Boot Scene
 	/// </summary>
 	class Scene : public ISceneBase
 	{

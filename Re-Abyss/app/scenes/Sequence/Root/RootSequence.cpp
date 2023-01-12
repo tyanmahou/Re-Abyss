@@ -16,7 +16,7 @@ namespace abyss
     }
     Coro::Fiber<> RootSequence::sequence()
     {
-        m_pManager->changeScene(SceneKind::EntryPoint);
+        m_pManager->changeScene(SceneKind::Boot);
         co_yield{};
 
 #if ABYSS_DEVELOP

@@ -1581,7 +1581,7 @@
     <ClCompile Include="app\scenes\Scene\OpDemo\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\EntryPoint\Scene.cpp">
+    <ClCompile Include="app\scenes\Scene\Boot\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp">
@@ -5044,7 +5044,7 @@
     <ClInclude Include="app\scenes\Scene\OpDemo\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Scene\EntryPoint\Scene.hpp">
+    <ClInclude Include="app\scenes\Scene\Boot\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp">

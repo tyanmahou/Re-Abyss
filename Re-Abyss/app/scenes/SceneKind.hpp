@@ -7,8 +7,8 @@ namespace abyss
     /// </summary>
     enum class SceneKind
     {
-        /// <summary>エントリーポイント</summary>
-        EntryPoint,
+        /// <summary>起動シーン</summary>
+        Boot,
         /// <summary>スプラッシュ</summary>
         Splash,
         /// <summary>OPデモ</summary>
