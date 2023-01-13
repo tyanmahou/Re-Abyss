@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <memory>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Audio.hpp>
@@ -9,7 +9,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOMLBind/TOMLUtil.hpp>
 
 namespace s3dTiled
 {
@@ -56,7 +56,7 @@ namespace abyss::Resource
         template<class Entity>
         Entity loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const
         {
-            return TOMLBind<Entity>{}(this->loadToml(path, prefix));
+            return TOMLUtil::FromTOML<Entity>(this->loadToml(path, prefix));
         }
 
         void release() const;

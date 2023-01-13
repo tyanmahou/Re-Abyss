@@ -2125,8 +2125,9 @@
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
-    <ClInclude Include="app\utils\TomlBind\TomlBind.hpp" />
-    <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp" />
+    <ClInclude Include="app\utils\TOMLBind\TOMLBind.hpp" />
+    <ClInclude Include="app\utils\TOMLBind\TOMLBindDef.hpp" />
+    <ClInclude Include="app\utils\TOMLBind\TOMLUtil.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />

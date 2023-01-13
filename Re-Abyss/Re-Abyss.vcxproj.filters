@@ -5416,10 +5416,10 @@
     <ClInclude Include="app\utils\TimeLite\Timer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\TomlBind\TomlBind.hpp">
+    <ClInclude Include="app\utils\TOMLBind\TOMLBind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\TomlBind\TOMLBindDef.hpp">
+    <ClInclude Include="app\utils\TOMLBind\TOMLBindDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp">
@@ -6129,6 +6129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\JSON\JSONBind.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\TOMLBind\TOMLUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
