@@ -2339,6 +2339,9 @@
     <ClCompile Include="tests\tests\utils\Env\EnvCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\JSON\JSONBindCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6120,6 +6123,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Env\detail\EnvParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\JSON\JSONUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\JSON\JSONBind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -979,6 +979,7 @@
     <ClCompile Include="tests\tests\utils\Di\DiCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Env\EnvCatch.cpp" />
     <ClCompile Include="tests\tests\utils\FixedPtr\FixedPtrCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\JSON\JSONBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp" />
@@ -2024,6 +2025,8 @@
     <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp" />
     <ClInclude Include="app\utils\Env\detail\EnvParser.hpp" />
     <ClInclude Include="app\utils\Env\Env.hpp" />
+    <ClInclude Include="app\utils\JSON\JSONBind.hpp" />
+    <ClInclude Include="app\utils\JSON\JSONUtil.hpp" />
     <ClInclude Include="app\utils\Look\Look.hpp" />
     <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
     <ClInclude Include="app\modules\Novel\Face.hpp" />
