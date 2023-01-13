@@ -4,6 +4,11 @@
 
 namespace abyss
 {
+    namespace detail::tomlbind {
+        template<class Type>
+        Type Get(const s3d::TOMLValue& value);
+    }
+
     template<class Type>
     struct TOMLValueTraits
     {
@@ -14,25 +19,32 @@ namespace abyss
     };
 
     template<class Type>
-    Type GetValue(const s3d::TOMLValue& value)
-    {
-        return TOMLValueTraits<Type>{}(value);
-    }
-    template<class Type>
-    s3d::Optional<Type> GetOpt(const s3d::TOMLValue& value)
-    {
-        if (value.isEmpty()) {
-            return s3d::none;
-        }
-        return TOMLValueTraits<Type>{}(value);
-    }
-
-    template<class Type>
     struct TOMLValueTraits<s3d::Optional<Type>>
     {
         s3d::Optional<Type> operator()(const s3d::TOMLValue& value) const
         {
-            return GetOpt<Type>(value);
+            if (value.isEmpty()) {
+                return s3d::none;
+            }
+            return detail::tomlbind::Get<Type>(value);
+        }
+    };
+    template<class Type, class Allocator>
+    struct TOMLValueTraits<s3d::Array<Type, Allocator>>
+    {
+        s3d::Array<Type, Allocator> operator()(const s3d::TOMLValue& value) const
+        {
+            s3d::Array<Type, Allocator> ret{};
+            if (value.getType() == s3d::TOMLValueType::Array) {
+                for (const auto& object : value.arrayView()) {
+                    ret << detail::tomlbind::Get<Type>(object);
+                }
+            } else if (value.getType() == s3d::TOMLValueType::TableArray) {
+                for (const auto& object : value.tableArrayView()) {
+                    ret << detail::tomlbind::Get<Type>(object);
+                }
+            }
+            return ret;
         }
     };
 
@@ -88,15 +100,6 @@ namespace abyss
             { TOMLBind<Type>{}(toml) }->std::same_as<Type>;
         };
 
-        template<class Type>
-        struct IsSivArray_impl : std::false_type {};
-
-        template<class Type, class Allocator>
-        struct IsSivArray_impl<s3d::Array<Type, Allocator>> : std::true_type {};
-
-        template<class Type>
-        concept IsSivArray = IsSivArray_impl<Type>::value;
-
         template<class Type, int Num>
         concept IsTOMLBindIdCallable = requires(Type a, TOMLBindId<Num> id)
         {
@@ -148,34 +151,20 @@ namespace abyss
             auto_bind_all_impl(ret, toml, make_sequence<Type>());
         }
 
-        template <class Value>
-        Value GetData(const s3d::TOMLValue& toml)
+        template<class Type>
+        Type Get(const s3d::TOMLValue& toml)
         {
-            if constexpr (IsTOMLBindable<Value>) {
-                return TOMLBind<Value>{}(toml);
-            } else {
-                return GetValue<Value>(toml);
-            }
-        }
-
-        template <IsSivArray Value>
-        Value GetData(const s3d::TOMLValue& toml)
-        {
-            using Elm = typename Value::value_type;
-            Value ret{};
-            if (toml.getType() == s3d::TOMLValueType::Array) {
-                for (const auto& object : toml.arrayView()) {
-                    ret << GetData<Elm>(object);
-                }
-            } else if (toml.getType() == s3d::TOMLValueType::TableArray) {
-                for (const auto& object : toml.tableArrayView()) {
-                    ret << GetData<Elm>(object);
-                }
-            }
-            return ret;
+            return TOMLValueTraits<Type>{}(toml);
         }
     }
-
+    template<detail::tomlbind::IsTOMLBindable Type>
+    struct TOMLValueTraits<Type>
+    {
+        Type operator()(const s3d::TOMLValue& value) const
+        {
+            return TOMLBind<Type>{}(value);
+        }
+    };
     template<detail::tomlbind::IsAutoTOMLBindable Type>
     struct TOMLBind<Type>
     {
@@ -198,7 +187,7 @@ namespace abyss
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::tomlbind::AUTO_TOML_BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
-    Value = ::abyss::detail::tomlbind::GetData<Type>(id.toml[U##TOMLKey]);\
+    Value = ::abyss::detail::tomlbind::Get<Type>(id.toml[U##TOMLKey]);\
 }[[
 
 #define TOML_BIND_IMPL_1(Value) TOML_BIND_IMPL_2(Value, #Value)
