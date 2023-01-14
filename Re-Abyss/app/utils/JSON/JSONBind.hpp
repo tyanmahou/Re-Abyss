@@ -106,7 +106,7 @@ namespace abyss
             { JSONBind<Type>{}.toJSON(value) }->std::same_as<s3d::JSON>;
         };
         template<class Type>
-        concept JSONBindable = JSONDecodable<Type> || JSONEncodable<Type>;
+        concept JSONBindable = JSONDecodable<Type> && JSONEncodable<Type>;
 
 
         template<class Type, int Num>
@@ -155,7 +155,7 @@ namespace abyss
         concept AutoJSONEncodable = decltype(make_sequence<Type, true>())::size() > 0;
 
         template<class Type>
-        concept AutoJSONBindable = AutoJSONDecodable<Type> || AutoJSONEncodable<Type>;
+        concept AutoJSONBindable = AutoJSONDecodable<Type> && AutoJSONEncodable<Type>;
 
         template<AutoJSONDecodable Type, size_t Num>
         void auto_bind_decode(Type& ret, const s3d::JSON& json)

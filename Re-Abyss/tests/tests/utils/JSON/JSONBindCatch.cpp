@@ -116,13 +116,16 @@ namespace abyss::tests
                 .optNum = s3d::none,
                 .ar = {1,2,3}
             };
-            JSON json = JSONUtil::ToJSON(test);
-            REQUIRE(json[U"num"].get<int32>() == 334);
-            REQUIRE(json[U"string"].get<String>() == U"Hello World");
-            REQUIRE(json[U"optNum"].isNull());
-            REQUIRE(json[U"ar"][0].get<int32>() == 1);
-            REQUIRE(json[U"ar"][1].get<int32>() == 2);
-            REQUIRE(json[U"ar"][2].get<int32>() == 3);
+            SECTION("test normal")
+            {
+                JSON json = JSONUtil::ToJSON(test);
+                REQUIRE(json[U"num"].get<int32>() == 334);
+                REQUIRE(json[U"string"].get<String>() == U"Hello World");
+                REQUIRE(json[U"optNum"].isNull());
+                REQUIRE(json[U"ar"][0].get<int32>() == 1);
+                REQUIRE(json[U"ar"][1].get<int32>() == 2);
+                REQUIRE(json[U"ar"][2].get<int32>() == 3);
+            }
         }
     }
 }
