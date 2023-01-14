@@ -38,7 +38,7 @@ namespace abyss
         s3d::JSON toJSON(const s3d::Optional<Type>& value) const
         {
             if (value) {
-                return *value;
+                return detail::jsonbind::ToJSON(*value);
             }
             return nullptr;
         }
@@ -61,7 +61,7 @@ namespace abyss
         s3d::JSON toJSON(const s3d::Array<Type, Allocator>& value) const
         {
             return value.map([](const Type& v) {
-                return v;
+                return detail::jsonbind::ToJSON(v);
             });
         }
     };
@@ -76,7 +76,7 @@ namespace abyss
     {
         inline constexpr size_t AUTO_JSON_BINDABLE_MAX_LINES = 500;
 
-        template<size_t Num>
+        template<size_t Num, bool Encode = false>
         struct JSONBindId
         {
             enum : size_t
@@ -85,18 +85,39 @@ namespace abyss
             };
             const s3d::JSON& json;
         };
-
+        template<size_t Num>
+        struct JSONBindId<Num, true>
+        {
+            enum : size_t
+            {
+                Value = Num
+            };
+            s3d::JSON& json;
+        };
 
         template<class Type>
-        concept IsJSONBindable = requires(const s3d::JSON & json)
+        concept JSONDecodable = requires(const s3d::JSON & json)
         {
             { JSONBind<Type>{}.fromJSON(json) }->std::same_as<Type>;
         };
+        template<class Type>
+        concept JSONEncodable = requires(const Type & value)
+        {
+            { JSONBind<Type>{}.toJSON(value) }->std::same_as<s3d::JSON>;
+        };
+        template<class Type>
+        concept JSONBindable = JSONDecodable<Type> || JSONEncodable<Type>;
+
 
         template<class Type, int Num>
-        concept IsJSONBindIdCallable = requires(Type a, JSONBindId<Num> id)
+        concept AutoJSONBindIdDecodable = requires(Type a, JSONBindId<Num, false> id)
         {
             { a.decodeJSON(id) } -> std::same_as<void>;
+        };
+        template<class Type, int Num>
+        concept AutoJSONBindIdEncodable = requires(Type a, JSONBindId<Num, true> id)
+        {
+            { a.encodeJSON(id) } -> std::same_as<void>;
         };
 
         template <size_t... As, size_t... Bs>
@@ -104,44 +125,70 @@ namespace abyss
         {
             return {};
         }
-        template <class Type, size_t LineNum>
+        template <class Type, bool Encode, size_t LineNum>
         constexpr auto filter_seq()
         {
-            if constexpr (IsJSONBindIdCallable<Type, LineNum>) {
+            if constexpr (Encode && AutoJSONBindIdEncodable<Type, LineNum>) {
+                return std::index_sequence<LineNum>{};
+            } else if constexpr (!Encode && AutoJSONBindIdDecodable<Type, LineNum>) {
                 return std::index_sequence<LineNum>{};
             } else {
                 return std::index_sequence<>{};
             }
         }
-        template <class Type, size_t ...Seq>
+        template <class Type, bool Encode, size_t ...Seq>
         constexpr auto make_sequence_impl(std::index_sequence<Seq...>)
         {
-            return (filter_seq<Type, Seq>() + ...);
+            return (filter_seq<Type, Encode, Seq>() + ...);
         }
 
-        template <class Type>
+        template <class Type, bool Encode>
         constexpr auto make_sequence()
         {
-            return make_sequence_impl<Type>(std::make_index_sequence<AUTO_JSON_BINDABLE_MAX_LINES>());
+            return make_sequence_impl<Type, Encode>(std::make_index_sequence<AUTO_JSON_BINDABLE_MAX_LINES>());
         }
 
         template<class Type>
-        concept IsAutoJSONBindable = decltype(make_sequence<Type>())::size() > 0;
+        concept AutoJSONDecodable = decltype(make_sequence<Type, false>())::size() > 0;
 
-        template<IsAutoJSONBindable Type, size_t Num>
-        void auto_bind(Type& ret, const s3d::JSON& json)
+        template<class Type>
+        concept AutoJSONEncodable = decltype(make_sequence<Type, true>())::size() > 0;
+
+        template<class Type>
+        concept AutoJSONBindable = AutoJSONDecodable<Type> || AutoJSONEncodable<Type>;
+
+        template<AutoJSONDecodable Type, size_t Num>
+        void auto_bind_decode(Type& ret, const s3d::JSON& json)
         {
-            ret.decodeJSON(JSONBindId<Num>{json});
+            ret.decodeJSON(JSONBindId<Num, false>{json});
         }
-        template<IsAutoJSONBindable Type, size_t ...Seq>
-        void auto_bind_all_impl([[maybe_unused]] Type& ret, const s3d::JSON& json, std::index_sequence<Seq...>)
+
+        template<AutoJSONDecodable Type, size_t ...Seq>
+        void auto_bind_decode_all_impl(Type& ret, const s3d::JSON& json, std::index_sequence<Seq...>)
         {
-            (auto_bind<Type, Seq>(ret, json), ...);
+            (auto_bind_decode<Type, Seq>(ret, json), ...);
         }
-        template<IsAutoJSONBindable Type>
-        void auto_bind_all(Type& ret, const s3d::JSON& json)
+        template<AutoJSONDecodable Type>
+        void auto_bind_decode_all(Type& ret, const s3d::JSON& json)
         {
-            auto_bind_all_impl(ret, json, make_sequence<Type>());
+            auto_bind_decode_all_impl(ret, json, make_sequence<Type, false>());
+        }
+
+        template<AutoJSONEncodable Type, size_t Num>
+        void auto_bind_encode(const Type& ret, s3d::JSON& json)
+        {
+            ret.encodeJSON(JSONBindId<Num, true>{json});
+        }
+
+        template<AutoJSONEncodable Type, size_t ...Seq>
+        void auto_bind_encode_all_impl(const Type& ret, s3d::JSON& json, std::index_sequence<Seq...>)
+        {
+            (auto_bind_encode<Type, Seq>(ret, json), ...);
+        }
+        template<AutoJSONEncodable Type>
+        void auto_bind_encode_all(const Type& ret, s3d::JSON& json)
+        {
+            auto_bind_encode_all_impl(ret, json, make_sequence<Type, true>());
         }
 
         template<class Type>
@@ -175,21 +222,31 @@ namespace abyss
             }
         };
     }
-    template<detail::jsonbind::IsJSONBindable Type>
+    template<detail::jsonbind::JSONBindable Type>
     struct JSONValueTraits<Type>
     {
         Type fromJSON(const s3d::JSON& value) const
         {
             return JSONBind<Type>{}.fromJSON(value);
         }
+        s3d::JSON toJSON(const Type& value) const
+        {
+            return JSONBind<Type>{}.toJSON(value);
+        }
     };
-    template<detail::jsonbind::IsAutoJSONBindable Type>
+    template<detail::jsonbind::AutoJSONBindable Type>
     struct JSONBind<Type>
     {
-        Type fromJSON(const s3d::JSON& json)
+        Type fromJSON(const s3d::JSON& json) const
         {
             Type ret{};
-            detail::jsonbind::auto_bind_all(ret, json);
+            detail::jsonbind::auto_bind_decode_all(ret, json);
+            return ret;
+        }
+        s3d::JSON toJSON(const Type& value) const
+        {
+            s3d::JSON ret{};
+            detail::jsonbind::auto_bind_encode_all(value, ret);
             return ret;
         }
     };
@@ -201,11 +258,17 @@ namespace abyss
 
 #define JSON_BIND_IMPL_OVERLOAD(e1, e2, NAME, ...) NAME
 #define JSON_BIND_IMPL_2(Value, JSONKey)\
-]]  void decodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__>& id)\
+]]  void decodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, false>& id)\
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
     Value = ::abyss::detail::jsonbind::JSONDecoder<Type>::Decode(id.json, U##JSONKey);\
+}\
+ void encodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, true>& id) const\
+{\
+    static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
+    using Type = decltype(Value);\
+    id.json[U##JSONKey] = ::abyss::detail::jsonbind::ToJSON(Value);\
 }[[
 
 #define JSON_BIND_IMPL_1(Value) JSON_BIND_IMPL_2(Value, #Value)
