@@ -7,6 +7,9 @@ namespace abyss
     namespace detail::jsonbind {
         template<class Type>
         Type FromJSON(const s3d::JSON& value);
+
+        template<class Type>
+        s3d::JSON ToJSON(const Type& value);
     }
 
     template<class Type>
@@ -15,6 +18,10 @@ namespace abyss
         Type fromJSON(const s3d::JSON& value) const
         {
             return value.get<Type>();
+        }
+        s3d::JSON toJSON(const Type& value) const
+        {
+            return value;
         }
     };
     template<class Type>
@@ -26,6 +33,14 @@ namespace abyss
                 return s3d::none;
             }
             return detail::jsonbind::FromJSON<Type>(value);
+        }
+
+        s3d::JSON toJSON(const s3d::Optional<Type>& value) const
+        {
+            if (value) {
+                return *value;
+            }
+            return nullptr;
         }
     };
 
@@ -41,6 +56,13 @@ namespace abyss
                 }
             }
             return ret;
+        }
+
+        s3d::JSON toJSON(const s3d::Array<Type, Allocator>& value) const
+        {
+            return value.map([](const Type& v) {
+                return v;
+            });
         }
     };
 
@@ -128,6 +150,11 @@ namespace abyss
             return JSONValueTraits<Type>{}.fromJSON(json);
         }
 
+        template<class Type>
+        s3d::JSON ToJSON(const Type& value)
+        {
+            return JSONValueTraits<Type>{}.toJSON(value);
+        }
         template<class Type>
         struct JSONDecoder
         {

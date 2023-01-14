@@ -11,5 +11,11 @@ namespace abyss
         {
             return JSONBind<Type>{}.fromJSON(json);
         }
+
+        template<class Type>
+        static s3d::JSON ToJSON(const Type& value)
+        {
+            return JSONBind<Type>{}.toJSON(value);
+        }
     };
 }
