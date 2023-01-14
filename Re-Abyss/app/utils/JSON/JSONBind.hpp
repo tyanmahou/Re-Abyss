@@ -70,6 +70,7 @@ namespace abyss
     struct JSONBind
     {
         // Type fromJSON(const s3d::JSON& value) const
+        // s3d::JSON toJSON(const Type& value) const
     };
 
     namespace detail::jsonbind
