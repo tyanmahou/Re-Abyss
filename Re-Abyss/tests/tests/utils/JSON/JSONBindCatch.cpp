@@ -116,7 +116,6 @@ namespace abyss::tests
                 .optNum = s3d::none,
                 .ar = {1,2,3}
             };
-
             SECTION("test normal")
             {
                 JSON json = JSONUtil::ToJSON(test);
