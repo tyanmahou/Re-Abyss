@@ -6,7 +6,7 @@ namespace abyss
 {
     namespace detail::jsonbind {
         template<class Type>
-        Type Get(const s3d::JSON& value);
+        Type FromJSON(const s3d::JSON& value);
     }
 
     template<class Type>
@@ -25,7 +25,7 @@ namespace abyss
             if (value.isNull() || value.isEmpty()) {
                 return s3d::none;
             }
-            return detail::jsonbind::Get<Type>(value);
+            return detail::jsonbind::FromJSON<Type>(value);
         }
     };
 
@@ -37,7 +37,7 @@ namespace abyss
             s3d::Array<Type, Allocator> ret{};
             if (value.isArray()) {
                 for (const auto& object : value.arrayView()) {
-                    ret << detail::jsonbind::Get<Type>(object);
+                    ret << detail::jsonbind::FromJSON<Type>(object);
                 }
             }
             return ret;
@@ -123,7 +123,7 @@ namespace abyss
         }
 
         template<class Type>
-        Type Get(const s3d::JSON& json)
+        Type FromJSON(const s3d::JSON& json)
         {
             return JSONValueTraits<Type>{}.fromJSON(json);
         }
@@ -133,7 +133,7 @@ namespace abyss
         {
             static Type Decode(const s3d::JSON& json, const s3d::String& key)
             {
-                return Get<Type>(json[key]);
+                return FromJSON<Type>(json[key]);
             }
         };
         template<class Type>
@@ -144,7 +144,7 @@ namespace abyss
                 if (!json.hasElement(key)) {
                     return s3d::none;
                 }
-                return Get<s3d::Optional<Type>>(json[key]);
+                return FromJSON<s3d::Optional<Type>>(json[key]);
             }
         };
     }
