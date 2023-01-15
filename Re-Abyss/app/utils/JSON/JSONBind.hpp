@@ -107,7 +107,7 @@ namespace abyss
             { JSONBind<Type>{}.toJSON(value) }->std::same_as<s3d::JSON>;
         };
         template<class Type>
-        concept JSONBindable = JSONDecodable<Type> && JSONEncodable<Type>;
+        concept JSONBindable = JSONDecodable<Type> || JSONEncodable<Type>;
 
 
         template<class Type, int Num>
@@ -156,7 +156,7 @@ namespace abyss
         concept AutoJSONEncodable = decltype(make_sequence<Type, true>())::size() > 0;
 
         template<class Type>
-        concept AutoJSONBindable = AutoJSONDecodable<Type> && AutoJSONEncodable<Type>;
+        concept AutoJSONBindable = AutoJSONDecodable<Type> || AutoJSONEncodable<Type>;
 
         template<AutoJSONDecodable Type, size_t Num>
         void auto_bind_decode(Type& ret, const s3d::JSON& json)
@@ -226,11 +226,11 @@ namespace abyss
     template<detail::jsonbind::JSONBindable Type>
     struct JSONValueTraits<Type>
     {
-        Type fromJSON(const s3d::JSON& value) const
+        Type fromJSON(const s3d::JSON& value) const requires detail::jsonbind::JSONDecodable<Type>
         {
             return JSONBind<Type>{}.fromJSON(value);
         }
-        s3d::JSON toJSON(const Type& value) const
+        s3d::JSON toJSON(const Type& value) const requires detail::jsonbind::JSONEncodable<Type>
         {
             return JSONBind<Type>{}.toJSON(value);
         }
@@ -238,13 +238,13 @@ namespace abyss
     template<detail::jsonbind::AutoJSONBindable Type>
     struct JSONBind<Type>
     {
-        Type fromJSON(const s3d::JSON& json) const
+        Type fromJSON(const s3d::JSON& json) const requires detail::jsonbind::AutoJSONDecodable<Type>
         {
             Type ret{};
             detail::jsonbind::auto_bind_decode_all(ret, json);
             return ret;
         }
-        s3d::JSON toJSON(const Type& value) const
+        s3d::JSON toJSON(const Type& value) const requires detail::jsonbind::AutoJSONEncodable<Type>
         {
             s3d::JSON ret{};
             detail::jsonbind::auto_bind_encode_all(value, ret);
