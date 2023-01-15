@@ -222,15 +222,6 @@ namespace abyss
                 return FromJSON<s3d::Optional<Type>>(json[key]);
             }
         };
-
-        template<class Type>
-        concept ConvertFromJSON = requires(s3d::JSON json) {
-            {FromJSON<Type>(json)}->std::same_as<Type>;
-        };
-        template<class Type>
-        concept ConvertToJSON = requires(Type value) {
-            {ToJSON<Type>(value)}->std::same_as<s3d::JSON>;
-        };
     }
     template<detail::jsonbind::JSONBindable Type>
     struct JSONValueTraits<Type>
