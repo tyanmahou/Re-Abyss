@@ -113,12 +113,12 @@ namespace abyss
         template<class Type, int Num>
         concept AutoJSONBindIdDecodable = requires(Type a, JSONBindId<Num, false> id)
         {
-            { a.decodeJSON(id) } -> std::same_as<void>;
+            { a.decodeJSON(id, nullptr) } -> std::same_as<void>;
         };
         template<class Type, int Num>
         concept AutoJSONBindIdEncodable = requires(Type a, JSONBindId<Num, true> id)
         {
-            { a.encodeJSON(id) } -> std::same_as<void>;
+            { a.encodeJSON(id, nullptr) } -> std::same_as<void>;
         };
 
         template <size_t... As, size_t... Bs>
@@ -161,7 +161,7 @@ namespace abyss
         template<AutoJSONDecodable Type, size_t Num>
         void auto_bind_decode(Type& ret, const s3d::JSON& json)
         {
-            ret.decodeJSON(JSONBindId<Num, false>{json});
+            ret.decodeJSON(JSONBindId<Num, false>{json}, nullptr);
         }
 
         template<AutoJSONDecodable Type, size_t ...Seq>
@@ -178,7 +178,7 @@ namespace abyss
         template<AutoJSONEncodable Type, size_t Num>
         void auto_bind_encode(const Type& ret, s3d::JSON& json)
         {
-            ret.encodeJSON(JSONBindId<Num, true>{json});
+            ret.encodeJSON(JSONBindId<Num, true>{json}, nullptr);
         }
 
         template<AutoJSONEncodable Type, size_t ...Seq>
@@ -222,6 +222,15 @@ namespace abyss
                 return FromJSON<s3d::Optional<Type>>(json[key]);
             }
         };
+
+        template<class Type>
+        concept ConvertFromJSON = requires(s3d::JSON json) {
+            {FromJSON<Type>(json)}->std::same_as<Type>;
+        };
+        template<class Type>
+        concept ConvertToJSON = requires(Type value) {
+            {ToJSON<Type>(value)}->std::same_as<s3d::JSON>;
+        };
     }
     template<detail::jsonbind::JSONBindable Type>
     struct JSONValueTraits<Type>
@@ -259,13 +268,13 @@ namespace abyss
 
 #define JSON_BIND_IMPL_OVERLOAD(e1, e2, NAME, ...) NAME
 #define JSON_BIND_IMPL_2(Value, JSONKey)\
-]]  void decodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, false>& id)\
+]]  void decodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, false>& id, auto = nullptr)\
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
     Value = ::abyss::detail::jsonbind::JSONDecoder<Type>::Decode(id.json, U##JSONKey);\
 }\
- void encodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, true>& id) const\
+ void encodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, true>& id, auto = nullptr) const \
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
     using Type = decltype(Value);\
