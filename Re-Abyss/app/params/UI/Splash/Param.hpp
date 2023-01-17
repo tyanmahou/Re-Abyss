@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
+#include <abyss/utils/TOML/TOMLBindDef.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::UI::Splash

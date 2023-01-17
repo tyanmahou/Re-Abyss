@@ -986,7 +986,7 @@
     <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp" />
-    <ClCompile Include="tests\tests\utils\TomlBind\TomlBindCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2132,9 +2132,9 @@
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
-    <ClInclude Include="app\utils\TOMLBind\TOMLBind.hpp" />
-    <ClInclude Include="app\utils\TOMLBind\TOMLBindDef.hpp" />
-    <ClInclude Include="app\utils\TOMLBind\TOMLUtil.hpp" />
+    <ClInclude Include="app\utils\TOML\TOMLBind.hpp" />
+    <ClInclude Include="app\utils\TOML\TOMLBindDef.hpp" />
+    <ClInclude Include="app\utils\TOML\TOMLUtil.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />

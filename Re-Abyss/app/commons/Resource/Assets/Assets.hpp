@@ -9,7 +9,7 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
-#include <abyss/utils/TOMLBind/TOMLUtil.hpp>
+#include <abyss/utils/TOML/TOMLUtil.hpp>
 
 namespace s3dTiled
 {

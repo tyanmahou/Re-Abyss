@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOML/TOMLBind.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 
 namespace abyss

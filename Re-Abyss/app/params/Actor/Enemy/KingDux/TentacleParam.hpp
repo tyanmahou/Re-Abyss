@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Triangle.hpp>
-#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
+#include <abyss/utils/TOML/TOMLBindDef.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/Kind.hpp>
 
 namespace abyss::Actor::Enemy::KingDux

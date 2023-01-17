@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOML/TOMLBind.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
 {

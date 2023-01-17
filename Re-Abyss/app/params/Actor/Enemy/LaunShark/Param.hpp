@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/utils/TOMLBind/TOMLBind.hpp>
+#include <abyss/utils/TOML/TOMLBind.hpp>
 namespace abyss::Actor::Enemy::LaunShark
 {
     struct Param

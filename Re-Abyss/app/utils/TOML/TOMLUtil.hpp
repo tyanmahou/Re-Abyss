@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TOMLBind/TOMLBindDef.hpp>
+#include <abyss/utils/TOML/TOMLBindDef.hpp>
 
 namespace abyss
 {

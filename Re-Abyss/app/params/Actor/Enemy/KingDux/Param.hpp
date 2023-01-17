@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TomlBind/TOMLBindDef.hpp>
+#include <abyss/utils/TOML/TOMLBindDef.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux

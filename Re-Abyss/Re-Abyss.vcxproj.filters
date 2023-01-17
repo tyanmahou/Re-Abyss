@@ -2032,7 +2032,7 @@
     <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\tests\utils\TomlBind\TomlBindCatch.cpp">
+    <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\testing.ixx" />
@@ -5425,10 +5425,10 @@
     <ClInclude Include="app\utils\TimeLite\Timer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\TOMLBind\TOMLBind.hpp">
+    <ClInclude Include="app\utils\TOML\TOMLBind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\TOMLBind\TOMLBindDef.hpp">
+    <ClInclude Include="app\utils\TOML\TOMLBindDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp">
@@ -6140,7 +6140,7 @@
     <ClInclude Include="app\utils\JSON\JSONBind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\TOMLBind\TOMLUtil.hpp">
+    <ClInclude Include="app\utils\TOML\TOMLUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp">
