@@ -875,6 +875,8 @@
     <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Mrp\Mrp.cpp" />
     <ClCompile Include="app\utils\Mrp\Parser\Parser.cpp" />
+    <ClCompile Include="app\utils\Network\GItHub\BaseApi.cpp" />
+    <ClCompile Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
@@ -2115,6 +2117,9 @@
     <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
     <ClInclude Include="app\utils\Mrp\Parser\Parser.hpp" />
     <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
+    <ClInclude Include="app\utils\Network\GItHub\BaseApi.hpp" />
+    <ClInclude Include="app\utils\Network\GItHub\Issue\Issue.hpp" />
+    <ClInclude Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
     <ClInclude Include="app\utils\Easing\EasingUtil.hpp" />

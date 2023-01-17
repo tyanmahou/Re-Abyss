@@ -2345,6 +2345,12 @@
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\Network\GItHub\BaseApi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6138,6 +6144,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Network\GItHub\Issue\Issue.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Network\GItHub\BaseApi.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

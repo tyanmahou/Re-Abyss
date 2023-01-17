@@ -72,7 +72,19 @@ namespace abyss
         // Type fromJSON(const s3d::JSON& value) const
         // s3d::JSON toJSON(const Type& value) const
     };
+    template<class Type, class Allocator>
+    struct JSONBind<s3d::Array<Type, Allocator>>
+    {
+        s3d::Array<Type, Allocator> fromJSON(const s3d::JSON& value) const
+        {
+            return detail::jsonbind::FromJSON<s3d::Array<Type, Allocator>>(value);
+        }
 
+        s3d::JSON toJSON(const s3d::Array<Type, Allocator>& value) const
+        {
+            return detail::jsonbind::ToJSON(value);
+        }
+    };
     namespace detail::jsonbind
     {
         inline constexpr size_t AUTO_JSON_BINDABLE_MAX_LINES = 500;
@@ -262,14 +274,14 @@ namespace abyss
 ]]  void decodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, false>& id, auto = nullptr)\
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
-    using Type = decltype(Value);\
-    Value = ::abyss::detail::jsonbind::JSONDecoder<Type>::Decode(id.json, U##JSONKey);\
+    using Type = decltype(this->Value);\
+    this->Value = ::abyss::detail::jsonbind::JSONDecoder<Type>::Decode(id.json, U##JSONKey);\
 }\
  void encodeJSON(const ::abyss::detail::jsonbind::JSONBindId<__LINE__, true>& id, auto = nullptr) const \
 {\
     static_assert(__LINE__ - 2 < ::abyss::detail::jsonbind::AUTO_JSON_BINDABLE_MAX_LINES);\
-    using Type = decltype(Value);\
-    id.json[U##JSONKey] = ::abyss::detail::jsonbind::ToJSON(Value);\
+    using Type = decltype(this->Value);\
+    id.json[U##JSONKey] = ::abyss::detail::jsonbind::ToJSON(this->Value);\
 }[[
 
 #define JSON_BIND_IMPL_1(Value) JSON_BIND_IMPL_2(Value, #Value)
