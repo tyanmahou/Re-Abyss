@@ -20,7 +20,7 @@ namespace abyss
         co_yield{};
 
 #if ABYSS_DEVELOP
-        m_pManager->changeScene(SceneKind::Experiment);
+        m_pManager->changeScene(SceneKind::DevPortal);
         co_yield{};
 #endif
         m_pManager->pushSequence<GameSequence>(m_pManager);

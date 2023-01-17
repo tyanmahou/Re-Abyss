@@ -25,6 +25,8 @@ namespace abyss
         StageResult,
 
 #if ABYSS_DEVELOP
+        /// <summary>開発ポータル</summary>
+        DevPortal,
         /// <summary>実験シーン</summary>
         Experiment,
 #endif

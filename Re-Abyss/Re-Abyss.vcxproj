@@ -780,6 +780,7 @@
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
+    <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Scene.cpp" />
@@ -1953,6 +1954,7 @@
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
     <ClInclude Include="app\scenes\Data\SequecneData.hpp" />
+    <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Experiment\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\Scene.hpp" />

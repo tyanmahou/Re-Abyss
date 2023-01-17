@@ -2342,6 +2342,9 @@
     <ClCompile Include="tests\tests\utils\JSON\JSONBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6132,6 +6135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\TOMLBind\TOMLUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
