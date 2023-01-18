@@ -1,4 +1,4 @@
-#include <abyss/utils/Network/GItHub/Issue/ListRepositoryIssuesApi.hpp>
+#include <abyss/utils/Network/GitHub/Issue/ListRepositoryIssuesApi.hpp>
 
 namespace abyss::Network::GitHub::Issue
 {

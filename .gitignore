@@ -395,6 +395,7 @@ AS_DEBUG/
 lib/
 
 ## Application
+/Re-Abyss/build/.env
 [Ww]ork/
 !/Re-Abyss/app/debugs/Log/*
 /Re-Abyss/build/[Rr]esources/*

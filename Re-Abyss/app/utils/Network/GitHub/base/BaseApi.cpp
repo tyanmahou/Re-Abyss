@@ -1,4 +1,4 @@
-#include <abyss/utils/Network/GItHub/BaseApi.hpp>
+#include <abyss/utils/Network/GitHub/base/BaseApi.hpp>
 
 namespace abyss::Network::GitHub
 {

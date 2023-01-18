@@ -1,12 +1,9 @@
 #pragma once
-#include <expected>
+#include <abyss/utils/Network/GitHub/base/ApiResponse.hpp>
 #include <abyss/utils/JSON/JSONUtil.hpp>
 
 namespace abyss::Network::GitHub
 {
-    template<class T>
-    using ApiResponse = std::expected<T, s3d::int32>;
-
     class BaseApi
     {
     public:
