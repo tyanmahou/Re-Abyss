@@ -1,8 +1,8 @@
 #include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #if ABYSS_DEVELOP
+#include <abyss/debugs/Debug.hpp>
 #include <abyss/utils/Env/Env.hpp>
 #include <abyss/utils/Network/GitHub/GitHubService.hpp>
-
 namespace abyss::Devs
 {
     using namespace Network::GitHub;
@@ -27,6 +27,7 @@ namespace abyss::Devs
         if (response) {
             return response.value();
         }
+        Debug::Log::Error(U"[GitHub]Issueの取得に失敗しました");
         return {};
     }
 

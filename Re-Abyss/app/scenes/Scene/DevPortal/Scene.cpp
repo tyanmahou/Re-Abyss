@@ -1,5 +1,6 @@
 #include <abyss/scenes/Scene/DevPortal/Scene.hpp>
 #include <abyss/debugs/Debug.hpp>
+#include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #include <Siv3D.hpp>
 
 #if ABYSS_DEVELOP
@@ -10,7 +11,12 @@ namespace abyss::Scene::DevPortal
     public:
         Impl(const InitData& init) :
             m_data(init._s)
-        {}
+        {
+
+            for (auto&& issue : m_gitHub.issueList()) {
+                Debug::Log::Info(issue.title);
+            }
+        }
 
         void update()
         {
@@ -24,6 +30,7 @@ namespace abyss::Scene::DevPortal
         }
     private:
         std::shared_ptr<Data_t> m_data;
+        Devs::GitHub m_gitHub;
         Font m_font{ 20 };
     };
     Scene::Scene(const InitData& init) :

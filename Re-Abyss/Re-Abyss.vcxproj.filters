@@ -2345,10 +2345,16 @@
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Network\GItHub\BaseApi.cpp">
+    <ClCompile Include="app\utils\Network\GitHub\base\BaseApi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.cpp">
+    <ClCompile Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Devs\GitHub\GitHub.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\Network\GItHub\GitHubService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6146,13 +6152,22 @@
     <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Network\GItHub\Issue\Issue.hpp">
+    <ClInclude Include="app\utils\Network\GitHub\Issue\Issue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Network\GItHub\Issue\ListRepositoryIssuesApi.hpp">
+    <ClInclude Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Network\GItHub\BaseApi.hpp">
+    <ClInclude Include="app\utils\Network\GitHub\base\BaseApi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Devs\GitHub\GitHub.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Network\GitHub\GitHubService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Network\GitHub\base\ApiResponse.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
