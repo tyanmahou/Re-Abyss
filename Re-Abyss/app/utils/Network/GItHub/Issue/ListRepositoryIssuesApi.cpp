@@ -8,6 +8,6 @@ namespace abyss::Network::GitHub::Issue
         const s3d::String& token
     )
     {
-        return BaseApi::GetTo<Response>(s3d::Format(Url, owner, repo), token);
+        return BaseApi::GetTo<Response>(s3d::Fmt(Url)(owner, repo), token);
     }
 }
