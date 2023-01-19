@@ -7,6 +7,13 @@ namespace abyss::Network::GitHub
     class GitHubService
     {
     public:
+        /// <summary>
+        /// グラフクエリをリクエスト
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        static s3d::JSON GraphQL(const s3d::String& query, const s3d::String& token);
 
         static ApiResponse<Issue::ListRepositoryIssuesApi::Response> ListRepositoryIssues(
             const s3d::String& owner,
