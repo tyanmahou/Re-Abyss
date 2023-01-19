@@ -11,7 +11,11 @@ namespace abyss::Network::GitHub
             const s3d::String& url,
             const s3d::String& token
         );
-
+        static ApiResponse<s3d::JSON> Post(
+            const s3d::String& url,
+            const s3d::String& token,
+            const s3d::JSON& param
+        );
         template<class T>
         static ApiResponse<T> GetTo(
             const s3d::String& url,

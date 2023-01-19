@@ -87,7 +87,7 @@ namespace
                     if (!::IsVisible(log.kind())) {
                         continue;
                     }
-                    width = s3d::Max(width, log.log().size() * m_font.spaceWidth() * 2);
+                    width = s3d::Max(width, log.log().size() * m_font.spaceWidth() * 4);
                 }
                 width += iconSize.x + iconMargin;
                 width += 10;

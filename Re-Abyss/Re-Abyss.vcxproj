@@ -878,6 +878,7 @@
     <ClCompile Include="app\utils\Mrp\Parser\Parser.cpp" />
     <ClCompile Include="app\utils\Network\GitHub\base\BaseApi.cpp" />
     <ClCompile Include="app\utils\Network\GItHub\GitHubService.cpp" />
+    <ClCompile Include="app\utils\Network\GitHub\GraphQL\GraphQLApi.cpp" />
     <ClCompile Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
@@ -2123,6 +2124,7 @@
     <ClInclude Include="app\utils\Network\GitHub\base\ApiResponse.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\base\BaseApi.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\GitHubService.hpp" />
+    <ClInclude Include="app\utils\Network\GitHub\GraphQL\GraphQLApi.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\Issue\Issue.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
