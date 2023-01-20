@@ -16,6 +16,9 @@ namespace abyss::Network::GitHub::Issue
 
         [[JSON_BIND(title)]]
         s3d::String title;
+
+        [[JSON_BIND(url)]]
+        s3d::String url;
     };
 
     using IssueList = s3d::Array<Issue>;
