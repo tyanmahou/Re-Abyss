@@ -1,12 +1,10 @@
 #include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #if ABYSS_DEVELOP
-#include <abyss/debugs/Debug.hpp>
 #include <abyss/utils/Env/Env.hpp>
-#include <abyss/utils/Network/GitHub/GitHubService.hpp>
-namespace abyss::Devs
-{
-    using namespace Network::GitHub;
+#include <Siv3D.hpp>
 
+namespace abyss::Devs::GitHub
+{
     GitHub::GitHub():
         GitHub(
             Env::Get(U"GITHUB_OWNER"),
@@ -17,23 +15,17 @@ namespace abyss::Devs
     GitHub::GitHub(const s3d::String& owner, const s3d::String& repository, const s3d::String& token):
         m_owner(owner),
         m_repository(repository),
-        m_token(token)
+        m_token(token),
+        m_task(Env::Get(U"GITHUB_PROJECT_ID"), token)
     {
     }
-
-    GitHub::IssueList GitHub::issueList() const
+    const s3d::Array<TaskIssue>& GitHub::getIssues(const s3d::String& status) const
     {
-        auto response = GitHubService::ListRepositoryIssues(m_owner, m_repository, m_token);
-        if (response) {
-            return response.value();
-        }
-        Debug::Log::Error(U"[GitHub]Issueの取得に失敗しました");
-        return {};
+        return m_task.getIssues(status);
     }
-
-    bool GitHub::openIssue(s3d::int32 number) const
+    bool GitHub::open(const s3d::String& url) const
     {
-        return GitHubService::OpenIssueByBrowser(m_owner, m_repository, number);
+        return System::LaunchBrowser(url);
     }
 }
 #endif

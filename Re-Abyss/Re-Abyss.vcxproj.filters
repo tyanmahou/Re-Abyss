@@ -2360,6 +2360,9 @@
     <ClCompile Include="app\utils\Network\GitHub\GraphQL\GraphQLApi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Devs\GitHub\Task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6174,6 +6177,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Network\GitHub\GraphQL\GraphQLApi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Devs\GitHub\Task.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

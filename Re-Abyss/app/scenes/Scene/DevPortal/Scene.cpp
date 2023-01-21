@@ -12,8 +12,12 @@ namespace abyss::Scene::DevPortal
         Impl(const InitData& init) :
             m_data(init._s)
         {
-
-            for (auto&& issue : m_gitHub.issueList()) {
+            Debug::Log::Info(U"Todo");
+            for (auto&& issue : m_gitHub.getIssues(U"Todo")) {
+                Debug::Log::Info(issue.title);
+            }
+            Debug::Log::Info(U"In Progress");
+            for (auto&& issue : m_gitHub.getIssues(U"In Progress")) {
                 Debug::Log::Info(issue.title);
             }
         }
@@ -30,7 +34,7 @@ namespace abyss::Scene::DevPortal
         }
     private:
         std::shared_ptr<Data_t> m_data;
-        Devs::GitHub m_gitHub;
+        Devs::GitHub::GitHub m_gitHub;
         Font m_font{ 20 };
     };
     Scene::Scene(const InitData& init) :
