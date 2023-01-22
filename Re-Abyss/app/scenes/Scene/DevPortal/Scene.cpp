@@ -36,15 +36,39 @@ namespace abyss::Scene::DevPortal
                 // In Progressタスク
                 for (auto&& issue : m_gitHub.getIssues(U"In Progress")) {
                     RectF column(0, columnSize.y * index, columnSize);
-                    column.draw(ColorF(s3d::Palette::Greenyellow, 0.9));
+                    ColorF color(s3d::Palette::Greenyellow);
+                    if (column.mouseOver()) {
+                        HSV hsv(color);
+                        hsv.s -= 0.1;
+                        hsv.v += 0.1;
+                        color = hsv;
+                        s3d::Cursor::RequestStyle(CursorStyle::Hand);
+                    }
+                    column.draw(color.setA(0.9));
                     m_font(issue.title).draw(column, Palette::Black);
+
+                    if (column.leftClicked()) {
+                        m_gitHub.open(issue.url);
+                    }
                     ++index;
                 }
                 // Todoタスク
                 for (auto&& issue : m_gitHub.getIssues(U"Todo")) {
                     RectF column(0, columnSize.y * index, columnSize);
-                    column.draw(ColorF(s3d::Palette::Aquamarine, 0.9));
+                    ColorF color(s3d::Palette::Aquamarine);
+                    if (column.mouseOver()) {
+                        HSV hsv(color);
+                        hsv.s -= 0.1;
+                        hsv.v += 0.1;
+                        color = hsv;
+                        s3d::Cursor::RequestStyle(CursorStyle::Hand);
+                    }
+                    column.draw(color.setA(0.9));
                     m_font(issue.title).draw(column, Palette::Black);
+
+                    if (column.leftClicked()) {
+                        m_gitHub.open(issue.url);
+                    }
                     ++index;
                 }
             });
