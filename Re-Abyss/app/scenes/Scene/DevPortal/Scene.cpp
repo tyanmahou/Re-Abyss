@@ -31,45 +31,33 @@ namespace abyss::Scene::DevPortal
         void draw() const
         {
             m_window->draw([&](const RectF& sceneScreen) {
-                const Vec2 columnSize{ sceneScreen.w, m_font.height(16)};
-                size_t index = 0;
                 // In Progressタスク
-                for (auto&& issue : m_gitHub.getIssues(U"In Progress")) {
-                    RectF column(0, columnSize.y * index, columnSize);
-                    ColorF color(s3d::Palette::Greenyellow);
-                    if (column.mouseOver()) {
-                        HSV hsv(color);
-                        hsv.s -= 0.1;
-                        hsv.v += 0.1;
-                        color = hsv;
-                        s3d::Cursor::RequestStyle(CursorStyle::Hand);
-                    }
-                    column.draw(color.setA(0.9));
-                    m_font(issue.title).draw(column, Palette::Black);
+                const std::tuple<String, ColorF> statuInfos[] = {
+                    {U"In Progress", Color(201, 255, 80)},
+                    {U"Todo", Color(168, 255, 243)},
+                };
+                const Vec2 columnSize{ sceneScreen.w, m_font.height(16) };
+                size_t index = 0;
+                for (const auto& [statusName, statusColor] : statuInfos) {
 
-                    if (column.leftClicked()) {
-                        m_gitHub.open(issue.url);
-                    }
-                    ++index;
-                }
-                // Todoタスク
-                for (auto&& issue : m_gitHub.getIssues(U"Todo")) {
-                    RectF column(0, columnSize.y * index, columnSize);
-                    ColorF color(s3d::Palette::Aquamarine);
-                    if (column.mouseOver()) {
-                        HSV hsv(color);
-                        hsv.s -= 0.1;
-                        hsv.v += 0.1;
-                        color = hsv;
-                        s3d::Cursor::RequestStyle(CursorStyle::Hand);
-                    }
-                    column.draw(color.setA(0.9));
-                    m_font(issue.title).draw(column, Palette::Black);
+                    for (auto&& issue : m_gitHub.getIssues(statusName)) {
+                        RectF column(0, columnSize.y * index, columnSize);
+                        ColorF color(statusColor);
+                        if (column.mouseOver()) {
+                            HSV hsv(color);
+                            hsv.s += 0.1;
+                            hsv.v -= 0.1;
+                            color = hsv;
+                            s3d::Cursor::RequestStyle(CursorStyle::Hand);
+                        }
+                        column.draw(color.setA(0.9));
+                        m_font(issue.title).draw(column, Palette::Black);
 
-                    if (column.leftClicked()) {
-                        m_gitHub.open(issue.url);
+                        if (column.leftClicked()) {
+                            m_gitHub.open(issue.url);
+                        }
+                        ++index;
                     }
-                    ++index;
                 }
             });
         }
