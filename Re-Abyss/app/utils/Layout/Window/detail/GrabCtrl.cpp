@@ -26,7 +26,6 @@ namespace
         case GrabState::Left:
             return CursorStyle::ResizeLeftRight;
         case GrabState::Right:
-            s3d::Cursor::RequestStyle(CursorStyle::ResizeLeftRight);
             return CursorStyle::ResizeLeftRight;
         case GrabState::Move:
             return CursorStyle::Default;
