@@ -1,4 +1,5 @@
-﻿#pragma once
+#pragma once
+#if ABYSS_DEBUG
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/ColorF.hpp>
@@ -73,3 +74,4 @@ namespace abyss::Devs
 		s3d::Array<Record> m_records;
 	};
 }
+#endif

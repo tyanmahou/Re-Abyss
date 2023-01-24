@@ -1,4 +1,5 @@
 #include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
+#if ABYSS_DEBUG
 #include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
 
@@ -87,3 +88,4 @@ namespace abyss::Devs
 		m_records.push_back(std::move(record));
 	}
 }
+#endif
