@@ -50,7 +50,7 @@ namespace abyss::Sys
         WorldComment,
 #endif
 #if ABYSS_DEVELOP
-        GitHub,
+        mod_if<config.useGitHub, GitHub>,
 #endif
         mod_if<config.isStage, Distortion>,
         DrawManager,

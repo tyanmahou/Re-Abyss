@@ -4,6 +4,15 @@ namespace abyss::Sys
 {
 	struct Config
 	{
+#if ABYSS_DEVELOP
+        static consteval Config DevPortal()
+        {
+            return Config{
+                .isStage = false,
+                .useGitHub = true
+            };
+        }
+#endif
 		static consteval Config Splash()
 		{
 			return Config{
@@ -42,5 +51,9 @@ namespace abyss::Sys
         }
     public:
 		bool isStage = false;
+
+#if ABYSS_DEVELOP
+        bool useGitHub = false;
+#endif
 	};
 }
