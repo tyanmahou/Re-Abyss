@@ -1,6 +1,6 @@
 #include <abyss/scenes/Sequence/Root/RootSequence.hpp>
+#include <abyss/scenes/Sequence/Develop/DevlopSequence.hpp>
 #include <abyss/scenes/Sequence/Game/GameSequence.hpp>
-
 namespace abyss
 {
     using namespace abyss::Scene;
@@ -20,7 +20,7 @@ namespace abyss
         co_yield{};
 
 #if ABYSS_DEVELOP
-        m_pManager->changeScene(SceneKind::DevPortal);
+        m_pManager->pushSequence<DevelopSequence>(m_pManager);
         co_yield{};
 #endif
         m_pManager->pushSequence<GameSequence>(m_pManager);
