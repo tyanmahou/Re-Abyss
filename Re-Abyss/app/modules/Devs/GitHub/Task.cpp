@@ -9,6 +9,8 @@ namespace abyss::Devs::GitHub
 
     Task::Task(const s3d::String& projectId, const s3d::String& token)
     {
+        m_issues[U"No Status"] = m_issues[U"Todo"] = m_issues[U"In Progress"] = m_issues[U"Done"] = {};
+
         this->load(projectId, token);
     }
 
