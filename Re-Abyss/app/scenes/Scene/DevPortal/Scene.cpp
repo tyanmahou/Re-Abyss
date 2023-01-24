@@ -1,5 +1,6 @@
 #include <abyss/scenes/Scene/DevPortal/Scene.hpp>
 #include <abyss/debugs/Debug.hpp>
+#include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #include <abyss/modules/Devs/GitHub/TaskBoard.hpp>
 #include <Siv3D.hpp>
 
@@ -14,7 +15,9 @@ namespace abyss::Scene::DevPortal
     {
     public:
         Impl(const InitData& init) :
-            m_data(init._s)
+            m_data(init._s),
+            m_gitHub(),
+            m_task(&m_gitHub)
         {
         }
 
@@ -34,6 +37,7 @@ namespace abyss::Scene::DevPortal
         std::shared_ptr<Data_t> m_data;
         Font m_font{ 20 };
 
+        GitHub m_gitHub;
         Devs::GitHub::TaskBoard m_task;
     };
     Scene::Scene(const InitData& init) :

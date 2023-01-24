@@ -1,10 +1,12 @@
 #include <abyss/modules/Devs/GitHub/TaskBoard.hpp>
 #if ABYSS_DEVELOP
+#include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #include <abyss/commons/Constants.hpp>
 
 namespace abyss::Devs::GitHub
 {
-    TaskBoard::TaskBoard()
+    TaskBoard::TaskBoard(GitHub* gitHub):
+        m_gitHub(gitHub)
     {
         auto windowContext =
             Layout::Window::WindowContext{ Vec2{Constants::AppResolutionF.x - 400 - 10 , 10}, Vec2{400, 600} }
@@ -16,7 +18,6 @@ namespace abyss::Devs::GitHub
             .setIsResizeClampSceneSize(false)
             ;
         m_window = std::make_unique<Layout::Window::Window>(windowContext);
-
     }
     void TaskBoard::draw() const
     {
@@ -30,7 +31,7 @@ namespace abyss::Devs::GitHub
             size_t index = 0;
             for (const auto& [statusName, statusColor] : statuInfos) {
             
-                for (auto&& issue : m_gitHub.getIssues(statusName)) {
+                for (auto&& issue : m_gitHub->getIssues(statusName)) {
                     RectF column(0, columnSize.y * index, columnSize);
                     ColorF color(statusColor);
                     if (column.mouseOver()) {
@@ -44,7 +45,7 @@ namespace abyss::Devs::GitHub
                     m_font(issue.title).draw(column, Palette::Black);
             
                     if (column.leftClicked()) {
-                        m_gitHub.open(issue.url);
+                        m_gitHub->open(issue.url);
                     }
                     ++index;
                 }

@@ -1,6 +1,6 @@
 #pragma once
 #if ABYSS_DEVELOP
-#include <abyss/modules/Devs/GitHub/GitHub.hpp>
+#include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 
 namespace abyss::Devs::GitHub
@@ -8,11 +8,11 @@ namespace abyss::Devs::GitHub
     class TaskBoard
     {
     public:
-        TaskBoard();
+        TaskBoard(GitHub* gitHub);
 
         void draw() const;
     private:
-        Devs::GitHub::GitHub m_gitHub;
+        Devs::GitHub::GitHub* m_gitHub;
         Font m_font{ 16, Typeface::Regular };
         std::unique_ptr<Layout::Window::Window> m_window;
     };

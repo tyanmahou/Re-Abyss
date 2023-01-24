@@ -144,8 +144,14 @@ namespace abyss
 	namespace Devs
 	{
 		class WorldComment;
-	}
+
+        namespace GitHub
+        {
+            class GitHub;
+        }
+ 	}
 	using Devs::WorldComment;
+    using Devs::GitHub::GitHub;
 
     namespace Pause
     {

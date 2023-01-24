@@ -12,6 +12,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Decor/Decors.hpp>
 #include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
+#include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #include <abyss/modules/Distortion/Distortion.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
@@ -47,6 +48,9 @@ namespace abyss::Sys
         mod_if<config.isStage, Decors>,
 #if ABYSS_DEBUG
         WorldComment,
+#endif
+#if ABYSS_DEVELOP
+        GitHub,
 #endif
         mod_if<config.isStage, Distortion>,
         DrawManager,
