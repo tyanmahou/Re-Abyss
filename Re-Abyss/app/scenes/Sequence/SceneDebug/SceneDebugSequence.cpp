@@ -1,5 +1,5 @@
 #include <abyss/scenes/Sequence/SceneDebug/SceneDebugSequence.hpp>
-
+#if ABYSS_DEBUG
 namespace abyss
 {
     using namespace abyss::Scene;
@@ -19,3 +19,4 @@ namespace abyss
         co_yield{};
     }
 }
+#endif

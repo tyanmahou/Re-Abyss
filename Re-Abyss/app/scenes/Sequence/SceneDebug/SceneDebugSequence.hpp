@@ -1,4 +1,5 @@
 #pragma once
+#if ABYSS_DEBUG
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
@@ -17,3 +18,4 @@ namespace abyss
         Coro::FiberHolder<> m_seq;
     };
 }
+#endif
