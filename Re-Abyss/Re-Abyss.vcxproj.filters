@@ -2366,6 +2366,9 @@
     <ClCompile Include="app\modules\Devs\GitHub\TaskBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Sequence\Develop\DevlopSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6186,6 +6189,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Devs\GitHub\TaskBoard.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sequence\Develop\DevlopSequence.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\DevPortal\SceneResult.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

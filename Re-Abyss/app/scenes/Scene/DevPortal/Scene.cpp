@@ -25,6 +25,14 @@ namespace abyss::Scene::DevPortal
         {
             if (KeyEnter.down()) {
                 m_data->isRequestedSceneEnd = true;
+                m_data->result = SceneResult{
+                    .command = SceneResult::GameStart
+                };
+            } else if (KeyE.down()) {
+                m_data->isRequestedSceneEnd = true;
+                m_data->result = SceneResult{
+                    .command = SceneResult::Experience
+                };
             }
         }
         void draw()

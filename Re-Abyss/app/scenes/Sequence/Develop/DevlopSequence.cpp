@@ -14,8 +14,16 @@ namespace abyss
     }
     Coro::Fiber<> DevelopSequence::sequence()
     {
-        m_pManager->changeScene(SceneKind::DevPortal);
-        co_yield{};
+        while (true)
+        {
+            m_pManager->changeScene(SceneKind::DevPortal);
+            co_yield{};
+            if (m_pManager->getResult<Scene::DevPortal::SceneResult>().command == Scene::DevPortal::SceneResult::GameStart) {
+                break;
+            }
+            m_pManager->changeScene(SceneKind::Experiment);
+            co_yield{};
+        }
     }
 }
 #endif
