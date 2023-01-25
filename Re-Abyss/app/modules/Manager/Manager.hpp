@@ -32,8 +32,13 @@ namespace abyss
         Novels* m_pNovels = nullptr;
         SpecialEffects* m_pSfx = nullptr;
         PostEffects* m_pPostEffects = nullptr;
-        WorldComment* m_pWorldComment = nullptr;
         PauseManager* m_pPause = nullptr;
+#if ABYSS_DEBUG
+        WorldComment* m_pWorldComment = nullptr;
+#endif
+#if ABYSS_DEVELOP
+        GitHub* m_pGitHub = nullptr;
+#endif
     public:
 
         Manager& set(GlobalTime* pGlobalTime);
@@ -81,10 +86,16 @@ namespace abyss
         Manager& set(SpecialEffects* pSfx);
         Manager& set(PostEffects* pPostEffects);
 
-        Manager& set(WorldComment* pWorldComment);
-
         Manager& set(PauseManager* pPause);
 
+
+#if ABYSS_DEBUG
+        Manager& set(WorldComment* pWorldComment);
+#endif
+
+#if ABYSS_DEVELOP
+        Manager& set(GitHub* pGitHub);
+#endif
         template<class T>
         T* getModule() const;
     };

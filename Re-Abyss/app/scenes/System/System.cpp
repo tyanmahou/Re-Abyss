@@ -311,4 +311,8 @@ namespace abyss::Sys
     template class System<Config::Home()>;
     template class System<Config::Stage()>;
     template class System<Config::StageResult()>;
+
+#if ABYSS_DEVELOP
+    template class System<Config::DevPortal()>;
+#endif
 }
