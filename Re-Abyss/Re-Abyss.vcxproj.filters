@@ -2384,6 +2384,9 @@
     <ClCompile Include="app\components\UI\DevPortal\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6225,6 +6228,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\DevPortal\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

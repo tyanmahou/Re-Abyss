@@ -297,6 +297,7 @@
     <ClCompile Include="app\components\Novel\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\Main.cpp" />
+    <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp" />
     <ClCompile Include="app\components\UI\Fade\Screen\Builder.cpp" />
     <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp" />
     <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
@@ -1261,6 +1262,7 @@
     <ClInclude Include="app\components\Novel\Common\EventCtrl.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\Main.hpp" />
+    <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp" />
     <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp" />
     <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Main.hpp" />

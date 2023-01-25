@@ -1,41 +1,31 @@
 #pragma once
 #if ABYSS_DEVELOP
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/base/IDraw.hpp>
+
+#include <abyss/modules/Devs/GitHub/TaskBoard.hpp>
 
 namespace abyss::UI::DevPortal
 {
-    class Main final:
+    class TaskBoard final :
         public IComponent,
-        public IUpdate,
         public IDraw
     {
     public:
-        enum class Mode
-        {
-            GameStart,
-            Experiment,
-        };
-    public:
-        Main(UIObj* pUi);
-
-    public:
-        void onUpdate() override;
+        TaskBoard(UIObj* pUi);
     public:
         void onDraw()const override;
     private:
         UIObj* m_pUi;
-        Mode m_mode = Mode::GameStart;
+        Devs::GitHub::TaskBoard m_task;
     };
 }
 namespace abyss
 {
     template<>
-    struct ComponentTree<UI::DevPortal::Main>
+    struct ComponentTree<UI::DevPortal::TaskBoard>
     {
         using Base = MultiComponents<
-            UI::IUpdate,
             UI::IDraw
         >;
     };
