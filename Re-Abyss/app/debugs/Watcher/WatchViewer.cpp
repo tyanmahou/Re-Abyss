@@ -1,6 +1,7 @@
 #include <abyss/debugs/Watcher/WatchViewer.hpp>
 
 #if ABYSS_DEBUG
+#include <abyss/commons/FontName.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 #include <Siv3D.hpp>
 
@@ -17,8 +18,7 @@ namespace
     class ViewerCore
     {
     public:
-        ViewerCore() :
-            m_font(16, Typeface::Regular)
+        ViewerCore()
         {
             auto windowContext = Layout::Window::WindowContext{ Vec2{Scene::Width(), 5}, Vec2{300, 150}}
                 .setBackGroundColor(s3d::none)
@@ -38,18 +38,18 @@ namespace
             }
             m_window->draw([&](const RectF& sceneScreen) {
                 s3d::ScopedRenderStates2D sampler(s3d::SamplerState::ClampLinear);
-
+                auto font = FontAsset(FontName::DebugLog);
                 // ウィンドウ幅
                 double width = 0;
                 for (const auto& log : logs) {
-                    width = s3d::Max(width, m_font(log.log).region().w);
+                    width = s3d::Max(width, font(log.log).region().w);
                 }
                 constexpr double margin = 5.0;
                 width += margin + 30;
 
                 Vec2 pos{ 0, 0 };
                 for (const auto& log : logs) {
-                    auto region = m_font(log.log).region();
+                    auto region = font(log.log).region();
                     region.w = width;
 
                     auto area = RectF(pos, region.size);
@@ -60,7 +60,7 @@ namespace
 
                         auto logPos = pos;
                         logPos.x += margin;
-                        m_font(log.log).draw(logPos);
+                        font(log.log).draw(logPos);
                     }
                     pos.y += region.h;
                 }
@@ -99,7 +99,6 @@ namespace
         }
     private:
         std::unique_ptr<Layout::Window::Window> m_window;
-        s3d::Font m_font;
         Vec2 m_pos{};
         Vec2 m_size{};
     };

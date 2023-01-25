@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Siv3D/AssetInfo.hpp>
 
 namespace abyss::FontName
@@ -12,4 +12,7 @@ namespace abyss::FontName
     inline constexpr s3d::AssetNameView Serif = U"pm12r-20";
     inline constexpr s3d::AssetNameView SerifName = U"pm12b-18";
     inline constexpr s3d::AssetNameView WorldComment = U"pm12r-15";
+
+    inline constexpr s3d::AssetNameView DebugLog = U"r-16";
+    inline constexpr s3d::AssetNameView DebugLogDetail = U"r-12";
 }

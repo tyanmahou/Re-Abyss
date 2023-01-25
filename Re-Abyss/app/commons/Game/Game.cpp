@@ -53,6 +53,9 @@ namespace abyss
 
             FontAsset::Register(U"pm12b-12", 12, U"/resources/fonts/PixelMplus12-Bold.ttf");
             FontAsset::Register(U"pm12b-18", 18, U"/resources/fonts/PixelMplus12-Bold.ttf");
+
+            FontAsset::Register(U"r-12", 12, Typeface::Regular);
+            FontAsset::Register(U"r-16", 16, Typeface::Regular);
         }
         void setupDefaultRenderState()
         {

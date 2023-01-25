@@ -2,6 +2,7 @@
 #if ABYSS_DEVELOP
 #include <abyss/modules/Devs/GitHub/GitHub.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/commons/FontName.hpp>
 
 namespace abyss::Devs::GitHub
 {
@@ -21,13 +22,15 @@ namespace abyss::Devs::GitHub
     }
     void TaskBoard::draw() const
     {
+        auto font = FontAsset(FontName::DebugLog);
+
         m_window->draw([&](const RectF& sceneScreen) {
             // In Progressタスク
             const std::tuple<String, ColorF> statuInfos[] = {
                 {U"In Progress", Color(201, 255, 80)},
                 {U"Todo", Color(168, 255, 243)},
             };
-            const Vec2 columnSize{ sceneScreen.w, m_font.height(16) };
+            const Vec2 columnSize{ sceneScreen.w, font.height(16) };
             size_t index = 0;
             for (const auto& [statusName, statusColor] : statuInfos) {
             
@@ -42,7 +45,7 @@ namespace abyss::Devs::GitHub
                         s3d::Cursor::RequestStyle(CursorStyle::Hand);
                     }
                     column.draw(color.setA(0.9));
-                    m_font(issue.title).draw(column, Palette::Black);
+                    font(issue.title).draw(column, Palette::Black);
             
                     if (column.leftClicked()) {
                         m_gitHub->open(issue.url);

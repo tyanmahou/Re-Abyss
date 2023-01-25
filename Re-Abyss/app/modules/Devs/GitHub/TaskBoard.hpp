@@ -13,7 +13,6 @@ namespace abyss::Devs::GitHub
         void draw() const;
     private:
         Devs::GitHub::GitHub* m_gitHub;
-        Font m_font{ 16, Typeface::Regular };
         std::unique_ptr<Layout::Window::Window> m_window;
     };
 }

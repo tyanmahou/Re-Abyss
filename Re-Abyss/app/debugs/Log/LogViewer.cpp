@@ -1,6 +1,7 @@
 #include <abyss/debugs/Log/LogViewer.hpp>
 #if ABYSS_DEBUG
 #include <abyss/debugs/Debug.hpp>
+#include <abyss/commons/FontName.hpp>
 #include <abyss/utils/DebugLog/DebugLog.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 #include <Siv3D.hpp>
@@ -35,9 +36,7 @@ namespace
             s3d::ColorF color;
         };
     public:
-        ViewerCore() :
-            m_font(16, Typeface::Regular),
-            m_fontDetail(12, Typeface::Regular)
+        ViewerCore()
         {
             auto windowContext = Layout::Window::WindowContext{ Vec2{10, 10}, Vec2{300, 150} }
                 .setBackGroundColor(ColorF(0, 0.1))
@@ -68,6 +67,9 @@ namespace
 
         void draw(const s3d::Array<LogInfo>& logs) override
         {
+            auto font = FontAsset(FontName::DebugLog);
+            auto fontDetail = FontAsset(FontName::DebugLogDetail);
+
             if (logs.isEmpty()) {
                 return;
             }
@@ -87,13 +89,13 @@ namespace
                     if (!::IsVisible(log.kind())) {
                         continue;
                     }
-                    width = s3d::Max(width, log.log().size() * m_font.spaceWidth() * 4);
+                    width = s3d::Max(width, log.log().size() * font.spaceWidth() * 4);
                 }
                 width += iconSize.x + iconMargin;
                 width += 10;
 
                 Vec2 pos{ 0, 0 };
-                Vec2 rectSize{ width, s3d::Max(static_cast<double>(m_font.height()), iconSize.y) };
+                Vec2 rectSize{ width, s3d::Max(static_cast<double>(font.height()), iconSize.y) };
                 for (const auto& log : logs) {
                     if (!::IsVisible(log.kind())) {
                         continue;
@@ -116,7 +118,7 @@ namespace
                         custom.icon.resized(iconSize).draw(pos);
                         auto logPos = pos;
                         logPos.x += iconSize.x + iconMargin;
-                        m_font(log.log()).draw(logPos);
+                        font(log.log()).draw(logPos);
                     }
                     pos.y += rectSize.y;
                 }
@@ -132,22 +134,20 @@ namespace
                     }
                     m_window->setSize(nextSize);
                 }
-                m_window->setSceneSize({ width, s3d::Max<double>(pos.y, m_font.height()) });
+                m_window->setSceneSize({ width, s3d::Max<double>(pos.y, font.height()) });
                 if (isScrollButtom) {
                     m_window->setScenePosToBottom();
                 }
             });
             if (pFocusLog) {
-                auto detailRegion = m_fontDetail(pFocusLog->location()).region(m_window->region().bl() + Vec2{ 0, 5 });
+                auto detailRegion = fontDetail(pFocusLog->location()).region(m_window->region().bl() + Vec2{ 0, 5 });
                 auto pos = detailRegion.draw(ColorF(0, 0.5));
-                m_fontDetail(pFocusLog->location()).draw(pos);
+                fontDetail(pFocusLog->location()).draw(pos);
             }
         }
     private:
         std::unique_ptr<Layout::Window::Window> m_window;
 
-        s3d::Font m_font;
-        s3d::Font m_fontDetail;
         s3d::HashTable<LogKind, KindCustom> m_kindCustom;
         Vec2 m_size{};
     };
