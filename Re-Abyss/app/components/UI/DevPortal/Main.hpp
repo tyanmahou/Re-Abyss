@@ -29,4 +29,15 @@ namespace abyss::UI::DevPortal
         Mode m_mode = Mode::GameStart;
     };
 }
+namespace abyss
+{
+    template<>
+    struct ComponentTree<UI::DevPortal::Main>
+    {
+        using Base = MultiComponents<
+            UI::IUpdate,
+            UI::IDraw
+        >;
+    };
+}
 #endif
