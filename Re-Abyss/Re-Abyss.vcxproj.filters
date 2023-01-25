@@ -2378,6 +2378,12 @@
     <ClCompile Include="app\scenes\Scene\DevPortal\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\DevPortal\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\UI\DevPortal\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6213,6 +6219,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\DevPortal\Booter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\DevPortal\Main.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\DevPortal\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
