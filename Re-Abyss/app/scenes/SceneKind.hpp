@@ -7,6 +7,7 @@ namespace abyss
     /// </summary>
     enum class SceneKind
     {
+        Invalid,
         /// <summary>起動シーン</summary>
         Boot,
         /// <summary>スプラッシュ</summary>

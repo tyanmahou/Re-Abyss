@@ -95,7 +95,11 @@ namespace abyss
         auto data = m_scene.get();
         data->fromScene = data->toScene;
         data->toScene = state;
-        m_scene.changeScene(state, transitionTimeMillisec, crossFade);
+        if (data->fromScene == SceneKind::Invalid) {
+            m_scene.init(state);
+        } else {
+            m_scene.changeScene(state, transitionTimeMillisec, crossFade);
+        }
 #if ABYSS_DEBUG
         Debug::Log::Info(U"[Scene Load] {}"_fmt(Enum::ToStr(state)));
 #endif
