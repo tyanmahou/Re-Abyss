@@ -3902,10 +3902,10 @@
     <ClInclude Include="app\components\Common\VModelBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Cron\base\IJob.hpp">
+    <ClInclude Include="app\modules\Cron\base\IJob.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Cron\base\IScheduler.hpp">
+    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp">

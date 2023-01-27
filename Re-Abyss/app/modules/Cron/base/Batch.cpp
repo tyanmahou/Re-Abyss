@@ -1,6 +1,6 @@
 #include <abyss/modules/Cron/base/Batch.hpp>
-#include <abyss/components/Cron/base/IJob.hpp>
-#include <abyss/components/Cron/base/IScheduler.hpp>
+#include <abyss/modules/Cron/base/IJob.hpp>
+#include <abyss/modules/Cron/base/IScheduler.hpp>
 
 namespace abyss::Cron
 {

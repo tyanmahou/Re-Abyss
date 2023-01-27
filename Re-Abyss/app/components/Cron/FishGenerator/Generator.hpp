@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/Components.hpp>
-#include <abyss/components/Cron/base/IJob.hpp>
+#include <abyss/modules/Cron/base/IJob.hpp>
 #include <abyss/modules/Room/IRoomMoveCallback.hpp>
 
 namespace abyss::Cron::FishGenerator

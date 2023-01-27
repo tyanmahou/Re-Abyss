@@ -1584,8 +1584,8 @@
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
     <ClInclude Include="app\components\Common\VModelBase.hpp" />
-    <ClInclude Include="app\components\Cron\base\IJob.hpp" />
-    <ClInclude Include="app\components\Cron\base\IScheduler.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Cron\Common\IntervalTimeScheduler.hpp" />

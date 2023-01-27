@@ -1,7 +1,7 @@
 #pragma once
 
 #include <abyss/modules/GameObject/Components.hpp>
-#include <abyss/components/Cron/base/IScheduler.hpp>
+#include <abyss/modules/Cron/base/IScheduler.hpp>
 
 namespace abyss::Cron
 {
