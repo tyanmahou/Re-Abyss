@@ -7,17 +7,8 @@
 #include <abyss/entities/Actor/Gimmick/GimmickEntity.hpp>
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/Actor/Land/LandEntity.hpp>
+#include <abyss/entities/Decor/DecorEntity.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
-
-// TODO リフレクション化
-#include <abyss/entities/Decor/General/CommonEntity.hpp>
-#include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>
-#include <abyss/entities/Decor/City/StreetLightEntity.hpp>
-#include <abyss/entities/Decor/Map/CommonEntity.hpp>
-
-#include <abyss/components/Decor/General/Common/Builder.hpp>
-#include <abyss/components/Decor/General/SchoolOfFish/Builder.hpp>
-#include <abyss/components/Decor/City/StreetLight/Builder.hpp>
 #include <abyss/components/Decor/Map/TileMap/Builder.hpp>
 
 namespace abyss
@@ -85,17 +76,19 @@ namespace abyss
     using namespace Decor;
     Ref<DecorObj> StageTranslator::Build(Decors& decor, const DecorEntity& entity)
     {
-#define BUILD_DECOR(buildType) if(entity.type == DecorType::##buildType) {\
-    return decor.create<buildType::Builder>(static_cast<const buildType##Entity&>(entity)); \
-}
-        // General
-        BUILD_DECOR(General::Common);
-        BUILD_DECOR(General::SchoolOfFish);
-
-        // City
-        BUILD_DECOR(City::StreetLight);
-
-        return nullptr;
+        return entity.type.visit([&](auto value)-> Ref<DecorObj> {
+            if (auto builder = Reflect<>::find<void(DecorObj*, const DecorEntity&)>(
+                U"abyss::Decor::BuilderFromEntity<{},{}>::Build"_fmt(
+                    static_cast<s3d::int32>(entity.type.toMotif()),
+                    static_cast<s3d::int32>(value)
+                     )
+                )) {
+                auto obj = decor.create();
+                builder(obj.get(), entity);
+                return obj;
+            }
+            return nullptr;
+        });
     }
 
     Ref<DecorObj> StageTranslator::Build(Decors& decor, const Map::TileMapData& tileMap)

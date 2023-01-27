@@ -6188,6 +6188,9 @@
     <ClInclude Include="app\components\Actor\Land\BuilderFromEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Decor\BuilderFromEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
