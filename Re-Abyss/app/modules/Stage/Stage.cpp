@@ -15,6 +15,7 @@
 #include <abyss/modules/Decor/DecorGraphics.hpp>
 #include <abyss/modules/Decor/DecorBuildUtil.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
+#include <abyss/modules/Stage/StageTranslator.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Light/Light.hpp>
@@ -33,22 +34,20 @@
 #include <abyss/entities/Actor/Item/ItemEntity.hpp>
 #include <abyss/entities/Decor/DecorEntity.hpp>
 
-#include <abyss/translators/Room/RoomTranslator.hpp>
-#include <abyss/translators/Actor/Land/LandTranslator.hpp>
-#include <abyss/translators/Actor/Enemy/EnemyTranslator.hpp>
-#include <abyss/translators/Actor/Gimmick/GimmickTranslator.hpp>
-#include <abyss/translators/Actor/Item/ItemTranslator.hpp>
-#include <abyss/translators/Decor/DecorTranslator.hpp>
-
 namespace
 {
     using namespace abyss;
+
+    Room::RoomData ToModel(const RoomEntity& entity)
+    {
+        return Room::RoomData(entity.region, entity.passbleBits, entity.lightColor);
+    }
 
     Optional<Room::RoomData> GetNextRoom(const s3d::Vec2& pos, const s3d::Array<RoomEntity>& rooms)
     {
         for (const auto& room : rooms) {
             if (room.region.intersects(pos)) {
-                return RoomTranslator::ToModel(room);
+                return ToModel(room);
             }
         }
         return s3d::none;
@@ -266,7 +265,6 @@ namespace abyss
         if (!decorService) {
             return false;
         }
-        Decor::DecorTranslator m_translator;
         auto&& deloyIds = decor.getDeployIds();
 
         for (const auto& entity : decorService->getDecors()) {
@@ -280,14 +278,14 @@ namespace abyss
                 // すでに生成済みなら引継ぎする
                 deloyIds[entity->id]->setBufferLayer(decor.getBufferLayer());
             } else {
-                if(auto&& obj = m_translator.build(decor, *entity)){
+                if(auto&& obj = StageTranslator::Build(decor, *entity)){
                     obj->setDeployId(entity->id);
                 }
             }
         }
 
         for (const auto& tileMap : decorService->getTileMap(nextRoom.getRegion())) {
-            m_translator.build(decor, tileMap);
+            StageTranslator::Build(decor, tileMap);
         }
         decor.flush();
         return true;
@@ -302,45 +300,41 @@ namespace abyss
 
         if (isCheckIn) {
             // マップの生成
-            Actor::Land::LandTranslator landTranslator{};
             for (const auto& land : m_stageData->getLands()) {
                 if (!nextRoom.getRegion().intersects(RectF(land->pos - land->size / 2.0, land->size))) {
                     continue;
                 }
-                landTranslator.buildActor(actors, *land);
+                StageTranslator::Build(actors, *land);
             }
         }
 
         if (isCheckOut) {
             // ギミックの生成
-            Actor::Gimmick::GimmickTranslator gimmickTranslator{};
             for (const auto& gimmick : m_stageData->getGimmicks()) {
                 if (!nextRoom.getRegion().intersects(gimmick->pos)) {
                     continue;
                 }
-                gimmickTranslator.buildActor(actors, *gimmick);
+                StageTranslator::Build(actors, *gimmick);
             }
         }
 
         if (isCheckIn) {
             // エネミーの生成
-            Actor::Enemy::EnemyTranslator enemyTranslator{};
             for (const auto& enemy : m_stageData->getEnemies()) {
                 if (!nextRoom.getRegion().intersects(enemy->pos)) {
                     continue;
                 }
-                enemyTranslator.buildActor(actors, *enemy);
+                StageTranslator::Build(actors, *enemy);
             }
         }
 
         if (isCheckIn) {
             // アイテムの生成
-            Actor::Item::ItemTranslator itemTranslator{};
             for (const auto& item : m_stageData->getItems()) {
                 if (!nextRoom.getRegion().intersects(item->pos)) {
                     continue;
                 }
-                itemTranslator.buildActor(actors, *item);
+                StageTranslator::Build(actors, *item);
             }
         }
 

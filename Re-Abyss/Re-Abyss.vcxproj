@@ -317,6 +317,7 @@
     <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp" />
     <ClCompile Include="app\modules\Sfx\DecorFar\DecorFar.cpp" />
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
+    <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\scenes\Loading\Loading.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
@@ -835,12 +836,6 @@
     <ClCompile Include="app\scenes\Scene\Splash\Booter.cpp" />
     <ClCompile Include="app\scenes\System\System.cpp" />
     <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
-    <ClCompile Include="app\translators\Actor\Enemy\EnemyTranslator.cpp" />
-    <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp" />
-    <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp" />
-    <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp" />
-    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp" />
-    <ClCompile Include="app\translators\Room\RoomTranslator.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp" />
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
@@ -1290,6 +1285,7 @@
     <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp" />
     <ClInclude Include="app\modules\Sfx\DecorFar\DecorFar.hpp" />
     <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
+    <ClInclude Include="app\modules\Stage\StageTranslator.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
@@ -2028,12 +2024,6 @@
     <ClInclude Include="app\scenes\Scene\Splash\Booter.hpp" />
     <ClInclude Include="app\scenes\System\System.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\Booter.hpp" />
-    <ClInclude Include="app\translators\Actor\Enemy\EnemyTranslator.hpp" />
-    <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp" />
-    <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp" />
-    <ClInclude Include="app\translators\Actor\Land\LandTranslator.hpp" />
-    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp" />
-    <ClInclude Include="app\translators\Room\RoomTranslator.hpp" />
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />

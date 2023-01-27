@@ -1635,24 +1635,6 @@
     <ClCompile Include="app\scenes\System\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\translators\Actor\Enemy\EnemyTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Actor\Gimmick\GimmickTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Actor\Item\ItemTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Actor\Land\LandTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Decor\DecorTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\translators\Room\RoomTranslator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Novel\TagString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2391,6 +2373,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Stage\StageTranslator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -5158,24 +5143,6 @@
     <ClInclude Include="app\scenes\System\System.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\translators\Actor\Enemy\EnemyTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Actor\Gimmick\GimmickTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Actor\Item\ItemTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Actor\Land\LandTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Decor\DecorTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\translators\Room\RoomTranslator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\Novel\CharaKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6213,6 +6180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Game\RenderStateInitializer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Stage\StageTranslator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
