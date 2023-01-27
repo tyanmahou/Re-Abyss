@@ -1,5 +1,4 @@
 #pragma once
-#include <abyss/modules/Manager/Manager.hpp>
 #include <Siv3D/Duration.hpp>
 #include <Siv3D/ISteadyClock.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>

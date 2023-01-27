@@ -2,7 +2,6 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/base/IPrePhysics.hpp>
 #include <abyss/components/Actor/base/IPostPhysics.hpp>
-#include <abyss/concepts/Component.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 #include <abyss/utils/Collision/CShape.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>

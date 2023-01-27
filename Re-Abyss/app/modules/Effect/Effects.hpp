@@ -1,5 +1,4 @@
 #pragma once
-#include <abyss/concepts/Effect.hpp>
 #include <abyss/modules/Effect/base/EffectsHolder.hpp>
 #include <abyss/modules/DrawManager/DrawLayer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -7,6 +6,15 @@
 
 namespace abyss::Effect
 {
+    template<class T>
+    concept DerviedFromSivEffect = std::derived_from<T, s3d::IEffect>;
+
+    template<class Type, class... Args>
+    concept EffectBuildable = requires(EffectObj * pObj, Args&&... args)
+    {
+        Type::Build(pObj, std::forward<Args>(args)...);
+    };
+
     /// <summary>
     /// エフェクト
     /// </summary>
@@ -51,7 +59,7 @@ namespace abyss::Effect
         /// </summary>
         template<class BuilerType, DrawLayer layer, class... Args>
         Ref<EffectObj> create(Args&& ... args)
-            requires EffectBuildy<BuilerType, Args...>
+            requires EffectBuildable<BuilerType, Args...>
         {
             auto obj = this->create(layer);
             BuilerType::Build(obj.get(), std::forward<Args>(args)...);

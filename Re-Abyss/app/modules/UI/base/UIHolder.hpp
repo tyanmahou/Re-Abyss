@@ -2,7 +2,6 @@
 #include <memory>
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/concepts/UI.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 
 namespace abyss::UI

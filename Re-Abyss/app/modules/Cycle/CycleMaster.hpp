@@ -1,9 +1,14 @@
 #pragma once
-#include <abyss/concepts/Cycle.hpp>
 #include <abyss/modules/Cycle/base/CycleObj.hpp>
 
 namespace abyss::Cycle
 {
+    template<class Type, class... Args>
+    concept CycleBuildable = requires(CycleObj * pCycle, Args&&... args)
+    {
+        Type::Build(pCycle, std::forward<Args>(args)...);
+    };
+
     /// <summary>
     /// Cycle Master
     /// </summary>
@@ -36,7 +41,7 @@ namespace abyss::Cycle
         /// </summary>
         template<class Type, class... Args>
         void build(Args&&... args)
-            requires CycleBuildy<Type, Args...>
+            requires CycleBuildable<Type, Args...>
         {
             Type::Build(&m_master, std::forward<Args>(args)...);
         }

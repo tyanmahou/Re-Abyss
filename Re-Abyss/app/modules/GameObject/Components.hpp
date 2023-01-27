@@ -6,10 +6,16 @@
 
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/GameObject/ComponentMapping.hpp>
-#include <abyss/concepts/Component.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+
 namespace abyss
 {
+    /// <summary>
+    /// コンポーネントか
+    /// </summary>
+    template<class T>
+    concept IsComponent = std::is_base_of_v<IComponent, T>;
+
     class Components
     {
         class Impl;

@@ -4,6 +4,7 @@
 #include <Siv3D/HashTable.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/entities/Decor/DecorType.hpp>
+#include <abyss/modules/Decor/base/DecorObj.hpp>
 #include <abyss/modules/Decor/base/BufferLayer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

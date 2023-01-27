@@ -9,7 +9,7 @@ namespace abyss::UI::DialogUtil
     concept DialogBuildy = requires
     {
         typename Type::value_type;
-        requires UIBuildy<Type, Args...>;
+        requires UIBuildable<Type, Args...>;
     };
 
     template<class BuilderType, class ResultType, class... Args>

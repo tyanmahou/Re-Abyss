@@ -2,12 +2,17 @@
 #include <memory>
 #include <concepts>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/concepts/UI.hpp>
 #include <abyss/modules/UI/base/UIHolder.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::UI
 {
+    template<class Type, class... Args>
+    concept UIBuildable = requires(UI::UIObj * pUi, Args&&... args)
+    {
+        Type::Build(pUi, std::forward<Args>(args)...);
+    };
+
     class UIs
     {
     private:
@@ -38,7 +43,7 @@ namespace abyss::UI
         /// </summary>
         template<class BuilerType, class... Args>
         Ref<UIObj> create(Args&& ... args)
-            requires UIBuildy<BuilerType, Args...>
+            requires UIBuildable<BuilerType, Args...>
         {
             auto ui = this->create();
             BuilerType::Build(ui.get(), std::forward<Args>(args)...);

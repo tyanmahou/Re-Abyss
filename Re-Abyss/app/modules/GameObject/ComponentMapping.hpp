@@ -2,12 +2,17 @@
 #include <typeindex>
 #include <Siv3D/Array.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/concepts/Component.hpp>
 
 namespace abyss
 {
     namespace detail
     {
+        template <class T>
+        concept HasBaseComponent = requires(T a)
+        {
+            typename ComponentTree<T>::Base;
+        };
+
         template<class T>
         struct ComponentMapping
         {

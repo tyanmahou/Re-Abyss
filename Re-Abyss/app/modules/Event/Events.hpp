@@ -3,10 +3,18 @@
 #include <memory>
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/concepts/Event.hpp>
 
 namespace abyss
 {
+    template<class Type, class... Args>
+    concept EventBuildable = requires(Event::EventObj * pEvent, Args&&... args)
+    {
+        Type::Build(pEvent, std::forward<Args>(args)...);
+    };
+
+    /// <summary>
+    /// イベント管理
+    /// </summary>
     class Events
     {
     public:
@@ -36,7 +44,7 @@ namespace abyss
         /// </summary>
         template<class BuilerType, class... Args>
         Ref<Event::EventObj> create(Args&& ... args)
-            requires EventBuildy<BuilerType, Args...>
+            requires EventBuildable<BuilerType, Args...>
         {
             auto event = this->create();
             BuilerType::Build(event.get(), std::forward<Args>(args)...);

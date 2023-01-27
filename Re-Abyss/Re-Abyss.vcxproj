@@ -1198,6 +1198,7 @@
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
+    <ClInclude Include="app\commons\Concepts.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Fwd.hpp" />
@@ -1747,17 +1748,6 @@
     <ClInclude Include="app\components\UI\Title\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
-    <ClInclude Include="app\concepts\Actor.hpp" />
-    <ClInclude Include="app\concepts\Common.hpp" />
-    <ClInclude Include="app\concepts\Component.hpp" />
-    <ClInclude Include="app\concepts\Cron.hpp" />
-    <ClInclude Include="app\concepts\Cycle.hpp" />
-    <ClInclude Include="app\concepts\Decor.hpp" />
-    <ClInclude Include="app\concepts\Effect.hpp" />
-    <ClInclude Include="app\concepts\Event.hpp" />
-    <ClInclude Include="app\concepts\Module.hpp" />
-    <ClInclude Include="app\concepts\Novel.hpp" />
-    <ClInclude Include="app\concepts\UI.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\base\IEnemyDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\parser\TmxEnemyParser.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\TmxEnemyDataStore.hpp" />

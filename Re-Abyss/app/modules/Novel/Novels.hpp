@@ -1,7 +1,6 @@
 #pragma once
 #include <queue>
 #include <memory>
-#include <abyss/concepts/Novel.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
 #include <abyss/modules/Novel/CharaTable.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
@@ -9,6 +8,12 @@
 
 namespace abyss::Novel
 {
+    template<class Type, class... Args>
+    concept TalkBuildable = requires(Novel::TalkObj * pTalk, Args&&... args)
+    {
+        Type::Build(pTalk, std::forward<Args>(args)...);
+    };
+
     /// <summary>
     /// ノベル
     /// </summary>
@@ -51,7 +56,7 @@ namespace abyss::Novel
         /// </summary>
         template<class BuilerType, class... Args>
         Ref<TalkObj> create(Args&& ... args)
-            requires TalkBuildy<BuilerType, Args...>
+            requires TalkBuildable<BuilerType, Args...>
         {
             auto talk = this->create();
             BuilerType::Build(talk.get(), std::forward<Args>(args)...);

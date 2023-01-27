@@ -1,12 +1,9 @@
 #pragma once
 #include <memory>
-
+#include <abyss/commons/Fwd.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/Fwd.hpp>
-
-#include <abyss/commons/Fwd.hpp>
-#include <abyss/concepts/Actor.hpp>
-#include <abyss/concepts/Component.hpp>
 
 namespace abyss::Actor
 {

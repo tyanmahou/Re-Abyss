@@ -1,11 +1,23 @@
 #pragma once
 #include <tuple>
 #include <memory>
-#include <abyss/concepts/Module.hpp>
 #include <abyss/utils/Meta/RemoveParam.hpp>
+#include <abyss/modules/Manager/Manager.hpp>
 
 namespace abyss::Sys
 {
+    template<class Mod>
+    concept Managed = requires(Mod * pMod, Manager * pManager)
+    {
+        pManager->set(pMod);
+    };
+
+    template<class Mod>
+    concept SetManagerable = requires(Mod * pMod, Manager * pManager)
+    {
+        pMod->setManager(pManager);
+    };
+
     /// <summary>
     /// モジュール
     /// </summary>

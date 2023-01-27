@@ -1,11 +1,17 @@
 #pragma once
 #include <functional>
 #include <Siv3D/Rect.hpp>
-#include <abyss/concepts/Common.hpp>
+#include <abyss/commons/Concepts.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
 namespace abyss
 {
+    /// <summary>
+    /// フェードに使用できる関数か
+    /// </summary>
+    template<class Func, class... Args>
+    concept FadeFunctionaly = std::invocable<Func, double, Args...>;
+
 	/// <summary>
 	/// フェードイン
 	/// </summary>

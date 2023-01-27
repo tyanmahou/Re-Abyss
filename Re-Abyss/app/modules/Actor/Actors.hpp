@@ -3,6 +3,12 @@
 
 namespace abyss::Actor
 {
+    template<class Type, class... Args>
+    concept ActBuildable = requires(Actor::ActorObj * pActor, Args&&... args)
+    {
+        Type::Build(pActor, std::forward<Args>(args)...);
+    };
+
     class Actors
     {
     public:
@@ -72,7 +78,7 @@ namespace abyss::Actor
 
         template<class Type, class... Args>
         std::shared_ptr<ActorObj> create(Args&& ... args)
-            requires ActBuildy<Type, Args...>
+            requires ActBuildable<Type, Args...>
         {
             auto obj = this->create();
             Type::Build(obj.get(), std::forward<Args>(args)...);

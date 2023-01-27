@@ -2,12 +2,17 @@
 #include <unordered_map>
 #include <Siv3D/Array.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/concepts/Decor.hpp>
 #include <abyss/modules/Decor/base/DecorHolder.hpp>
 
 namespace abyss::Decor
 {
     class DecorGraphics;
+
+    template<class Type, class... Args>
+    concept DecorBuildable = requires(Decor::DecorObj * pDecor, Args&&... args)
+    {
+        Type::Build(pDecor, std::forward<Args>(args)...);
+    };
 
     class Decors
     {
@@ -54,7 +59,7 @@ namespace abyss::Decor
         /// </summary>
         template<class BuilerType, class... Args>
         Ref<DecorObj> create(Args&& ... args)
-            requires DecorBuildy<BuilerType, Args...>
+            requires DecorBuildable<BuilerType, Args...>
         {
             auto decor = this->create();
             BuilerType::Build(decor.get(), std::forward<Args>(args)...);

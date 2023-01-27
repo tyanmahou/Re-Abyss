@@ -40,7 +40,6 @@ namespace abyss
 	class StageData;
 	class Light;
 	class Sound;
-	class Crons;
 	class Temporary;
 	class TemporaryData;
 	class DrawManager;
@@ -63,7 +62,9 @@ namespace abyss
 	namespace Cron
 	{
 		class Batch;
-	}
+        class Crons;
+    }
+    using Cron::Crons;
 
 	/// <summary>
 	/// Modules/Effect
