@@ -1,7 +1,7 @@
 #pragma once
 #if ABYSS_DEVELOP
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Cycle/base/IListener.hpp>
+#include <abyss/modules/Cycle/base/IListener.hpp>
 #include <Siv3D/Fwd.hpp>
 
 namespace abyss::Cycle::DevPortal

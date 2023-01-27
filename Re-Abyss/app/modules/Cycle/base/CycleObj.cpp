@@ -1,5 +1,5 @@
 #include <abyss/modules/Cycle/base/CycleObj.hpp>
-#include <abyss/components/Cycle/base/IListener.hpp>
+#include <abyss/modules/Cycle/base/IListener.hpp>
 
 namespace abyss::Cycle
 {
