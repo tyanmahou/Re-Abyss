@@ -3,7 +3,7 @@
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Color.hpp>
 #include <Siv3D/Optional.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/views/Actor/Ooparts/base/BaseVM.hpp>
-#include <abyss/entities/OopartsType.hpp>
+#include <abyss/values/OopartsType.hpp>
 
 namespace abyss::Actor::Ooparts::OopartsViewUtil
 {

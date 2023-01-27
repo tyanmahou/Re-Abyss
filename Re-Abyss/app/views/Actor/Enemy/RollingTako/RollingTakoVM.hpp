@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 #include <abyss/views/Actor/Enemy/RollingTako/Motion.hpp>
 
 namespace abyss::Actor::Enemy::RollingTako

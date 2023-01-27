@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 
 namespace abyss::Actor::Player::Shot
 {

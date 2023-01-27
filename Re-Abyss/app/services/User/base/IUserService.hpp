@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/entities/UserPlayMode.hpp>
+#include <abyss/values/UserPlayMode.hpp>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/HashTable.hpp>
 

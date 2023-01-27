@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 
 namespace abyss
 {

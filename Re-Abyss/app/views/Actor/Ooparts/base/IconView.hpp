@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/HashTable.hpp>
 #include <Siv3D/TextureRegion.hpp>
-#include <abyss/entities/OopartsType.hpp>
+#include <abyss/values/OopartsType.hpp>
 
 namespace abyss::Actor::Ooparts
 {

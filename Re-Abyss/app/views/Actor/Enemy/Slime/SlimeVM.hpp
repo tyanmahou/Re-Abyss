@@ -2,7 +2,7 @@
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/Texture.hpp>
 
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/views/Actor/Enemy/Slime/Motion.hpp>
 

@@ -3,8 +3,8 @@
 #include <Siv3D/String.hpp>
 #include <Siv3D/DateTime.hpp>
 
-#include <abyss/entities/OopartsType.hpp>
-#include <abyss/entities/UserPlayMode.hpp>
+#include <abyss/values/OopartsType.hpp>
+#include <abyss/values/UserPlayMode.hpp>
 #include <abyss/utils/DB/DBBindDef.hpp>
 
 namespace abyss::User

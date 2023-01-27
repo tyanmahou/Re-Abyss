@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 #include <abyss/views/Actor/Enemy/CodeZero/Hand/Motion.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand

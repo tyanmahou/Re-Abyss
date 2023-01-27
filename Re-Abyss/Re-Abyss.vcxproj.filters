@@ -1662,7 +1662,7 @@
     <ClCompile Include="app\utils\Look\Look.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\entities\UserPlayMode.cpp">
+    <ClCompile Include="app\values\UserPlayMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp">
@@ -5206,16 +5206,16 @@
     <ClInclude Include="app\utils\Collision\CShape.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\Forward.hpp">
+    <ClInclude Include="app\values\Forward.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Look\Look.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\OopartsType.hpp">
+    <ClInclude Include="app\values\OopartsType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\entities\UserPlayMode.hpp">
+    <ClInclude Include="app\values\UserPlayMode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp">

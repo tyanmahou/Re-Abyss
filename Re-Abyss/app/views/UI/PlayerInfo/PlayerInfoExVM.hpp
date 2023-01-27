@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/views/UI/PlayerInfo/PlayerInfoVM.hpp>
-#include <abyss/entities/OopartsType.hpp>
+#include <abyss/values/OopartsType.hpp>
 #include <abyss/views/Actor/Ooparts/base/IconView.hpp>
 
 namespace abyss::UI::PlayerInfo

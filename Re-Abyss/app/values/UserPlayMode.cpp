@@ -1,4 +1,4 @@
-#include <abyss/entities/UserPlayMode.hpp>
+#include <abyss/values/UserPlayMode.hpp>
 #include <abyss/commons/Msg/Common.hpp>
 
 namespace abyss

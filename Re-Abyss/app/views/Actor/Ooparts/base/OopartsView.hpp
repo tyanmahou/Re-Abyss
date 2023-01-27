@@ -1,6 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/views/Actor/Ooparts/base/BaseVM.hpp>

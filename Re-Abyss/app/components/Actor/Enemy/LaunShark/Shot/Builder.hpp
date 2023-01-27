@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/entities/Forward.hpp>
+#include <abyss/values/Forward.hpp>
 #include <Siv3D/Fwd.hpp>
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
