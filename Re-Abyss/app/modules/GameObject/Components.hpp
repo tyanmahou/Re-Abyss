@@ -14,7 +14,7 @@ namespace abyss
     /// コンポーネントか
     /// </summary>
     template<class T>
-    concept IsComponent = std::is_base_of_v<IComponent, T>;
+    concept Componently = std::derived_from<T, IComponent>;
 
     class Components
     {
@@ -37,7 +37,7 @@ namespace abyss
 
         template<class Component>
         Ref<Component> add(const std::shared_ptr<Component>& component) const
-            requires IsComponent<Component>
+            requires Componently<Component>
         {
             if (!add(typeid(Component), component)) {
                 return this->find<Component>();
@@ -51,7 +51,7 @@ namespace abyss
         template<class Component, class... Args>
         Ref<Component> add(Args&&... args) const
             requires
-            IsComponent<Component> &&
+            Componently<Component> &&
             std::constructible_from<Component, Args...>
         {
             return add(std::make_shared<Component>(std::forward<Args>(args)...));
@@ -59,7 +59,7 @@ namespace abyss
 
         template<class Component>
         bool remove() const
-            requires IsComponent<Component>
+            requires Componently<Component>
         {
             return remove(typeid(Component));
         }

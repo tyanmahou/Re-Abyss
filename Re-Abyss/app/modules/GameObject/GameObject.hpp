@@ -57,7 +57,7 @@ namespace abyss
 		/// </summary>
 		template<class Component>
 		Ref<Component> attach(const std::shared_ptr<Component>& component) const
-			requires IsComponent<Component>
+			requires Componently<Component>
 			;
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace abyss
 		template<class Component, class... Args>
 		Ref<Component> attach(Args&&... args) const
 			requires
-			IsComponent<Component>&&
+			Componently<Component>&&
 			std::constructible_from<Component, Args...>
 			;
 
@@ -75,7 +75,7 @@ namespace abyss
 		/// </summary>
 		template<class Component>
 		bool detach() const
-			requires IsComponent<Component>
+			requires Componently<Component>
 			;
 
 		/// <summary>

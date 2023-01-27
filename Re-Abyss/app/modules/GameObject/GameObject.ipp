@@ -38,7 +38,7 @@ namespace abyss
 
 	template<class Component>
 	Ref<Component> GameObject::attach(const std::shared_ptr<Component>& component) const
-		requires IsComponent<Component>
+		requires Componently<Component>
 	{
 		return m_components.add<Component>(component);
 	}
@@ -46,7 +46,7 @@ namespace abyss
 	template<class Component, class... Args>
 	Ref<Component> GameObject::attach(Args&&... args) const
 		requires
-		IsComponent<Component>&&
+		Componently<Component>&&
 		std::constructible_from<Component, Args...>
 	{
 		return m_components.add<Component>(std::forward<Args>(args)...);
@@ -54,7 +54,7 @@ namespace abyss
 
 	template<class Component>
 	bool GameObject::detach() const
-		requires IsComponent<Component>
+		requires Componently<Component>
 	{
 		return m_components.remove<Component>();
 	}
