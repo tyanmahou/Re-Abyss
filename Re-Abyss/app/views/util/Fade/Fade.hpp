@@ -10,7 +10,7 @@ namespace abyss
 	/// フェードイン
 	/// </summary>
 	template<class Func, class... Args> 
-	void FadeIn(Func func, double t, Args&& ...args) requires IsFadeFunc<Func, Args...>
+	void FadeIn(Func func, double t, Args&& ...args) requires FadeFunctionaly<Func, Args...>
 	{
 		func(1.0 - t, std::forward<Args>(args)...);
 	}
@@ -19,7 +19,7 @@ namespace abyss
 	/// フェードアウト
 	/// </summary>
 	template<class Func, class... Args>
-	void FadeOut(Func func, double t, Args&& ...args) requires IsFadeFunc<Func, Args...>
+	void FadeOut(Func func, double t, Args&& ...args) requires FadeFunctionaly<Func, Args...>
 	{
 		func(t, std::forward<Args>(args)...);
 	}

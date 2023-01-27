@@ -1,5 +1,5 @@
 #pragma once
-#include<type_traits>
+#include<concepts>
 
 namespace abyss
 {
@@ -7,5 +7,5 @@ namespace abyss
 	/// フェードに使用できる関数か
 	/// </summary>
 	template<class Func, class... Args>
-	concept IsFadeFunc = std::is_invocable_v<Func, double, Args...>;
+	concept FadeFunctionaly = std::invocable<Func, double, Args...>;
 }
