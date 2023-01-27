@@ -1,8 +1,8 @@
 #pragma once
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
 #include <abyss/components/UI/GamePause/Result.hpp>
 #include <abyss/views/UI/GamePause/BackGround/BackGroundVM.hpp>

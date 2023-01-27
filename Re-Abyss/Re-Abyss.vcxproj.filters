@@ -972,7 +972,7 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Effect\base\Drawer.cpp">
+    <ClCompile Include="app\modules\Effect\base\Drawer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Effect\Common\BossFadeMask.cpp">
@@ -1008,7 +1008,7 @@
     <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\base\StreamHandler.cpp">
+    <ClCompile Include="app\modules\Event\base\StreamHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp">
@@ -1095,7 +1095,7 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\base\Engine.cpp">
+    <ClCompile Include="app\modules\Novel\base\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp">
@@ -3101,37 +3101,37 @@
     <ClInclude Include="app\commons\Path.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IDraw.hpp">
+    <ClInclude Include="app\modules\Actor\base\IDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\ILastUpdate.hpp">
+    <ClInclude Include="app\modules\Actor\base\ILastUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IMove.hpp">
+    <ClInclude Include="app\modules\Actor\base\IMove.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPostCollision.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPostCollision.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPostPhysics.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPostPhysics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPostUpdate.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPostUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPreCollision.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPreCollision.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPreDraw.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPreDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPrePhysics.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPrePhysics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IPreUpdate.hpp">
+    <ClInclude Include="app\modules\Actor\base\IPreUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\base\IUpdate.hpp">
+    <ClInclude Include="app\modules\Actor\base\IUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Common\Col\Collider\BodyCollider.hpp">
@@ -3956,10 +3956,10 @@
     <ClInclude Include="app\components\Cycle\Title\Master.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Decor\base\IDraw.hpp">
+    <ClInclude Include="app\modules\Decor\base\IDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Decor\base\IUpdate.hpp">
+    <ClInclude Include="app\modules\Decor\base\IUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp">
@@ -4055,16 +4055,16 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Effect\base\Drawer.hpp">
+    <ClInclude Include="app\modules\Effect\base\Drawer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Effect\base\IDraw.hpp">
+    <ClInclude Include="app\modules\Effect\base\IDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Effect\base\IDrawParts.hpp">
+    <ClInclude Include="app\modules\Effect\base\IDrawParts.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Effect\base\IUpdate.hpp">
+    <ClInclude Include="app\modules\Effect\base\IUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp">
@@ -4109,16 +4109,16 @@
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\base\ILastUpdate.hpp">
+    <ClInclude Include="app\modules\Event\base\ILastUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\base\IStream.hpp">
+    <ClInclude Include="app\modules\Event\base\IStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\base\IUpdate.hpp">
+    <ClInclude Include="app\modules\Event\base\IUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\base\StreamHandler.hpp">
+    <ClInclude Include="app\modules\Event\base\StreamHandler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp">
@@ -4211,10 +4211,10 @@
     <ClInclude Include="app\components\Event\Title\MainStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Novel\base\Engine.hpp">
+    <ClInclude Include="app\modules\Novel\base\Engine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Novel\base\ICommand.hpp">
+    <ClInclude Include="app\modules\Novel\base\ICommand.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp">
@@ -4262,13 +4262,13 @@
     <ClInclude Include="app\components\Novel\TalkBuilder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\UI\base\IDraw.hpp">
+    <ClInclude Include="app\modules\UI\base\IDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\UI\base\IPostUpdate.hpp">
+    <ClInclude Include="app\modules\UI\base\IPostUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\UI\base\IUpdate.hpp">
+    <ClInclude Include="app\modules\UI\base\IUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp">

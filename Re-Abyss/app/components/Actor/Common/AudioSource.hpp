@@ -5,7 +5,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/modules/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>

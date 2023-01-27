@@ -2,8 +2,8 @@
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 

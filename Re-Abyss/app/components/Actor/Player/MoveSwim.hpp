@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IMove.hpp>
+#include <abyss/modules/Actor/base/IMove.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 
 namespace abyss::Actor::Player

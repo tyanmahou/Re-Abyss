@@ -1,8 +1,8 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPostUpdate.hpp>
-#include <abyss/components/Actor/base/IMove.hpp>
-#include <abyss/components/Actor/base/IPostCollision.hpp>
+#include <abyss/modules/Actor/base/IPostUpdate.hpp>
+#include <abyss/modules/Actor/base/IMove.hpp>
+#include <abyss/modules/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>

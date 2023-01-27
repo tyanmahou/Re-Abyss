@@ -4,7 +4,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Devs/WorldComment/WorldComment.hpp>
-#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>

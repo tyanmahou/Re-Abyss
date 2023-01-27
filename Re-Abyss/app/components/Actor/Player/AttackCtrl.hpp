@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/components/Actor/Player/ChargeCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

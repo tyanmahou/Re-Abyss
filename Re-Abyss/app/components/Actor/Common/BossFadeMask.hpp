@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
+#include <abyss/modules/Actor/base/IDraw.hpp>
 
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Common/ITimeScale.hpp>
-#include <abyss/components/Actor/base/IPostCollision.hpp>
+#include <abyss/modules/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

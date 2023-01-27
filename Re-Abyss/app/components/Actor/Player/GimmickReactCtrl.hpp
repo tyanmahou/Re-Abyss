@@ -1,7 +1,7 @@
 #pragma once
 
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPostUpdate.hpp>
+#include <abyss/modules/Actor/base/IPostUpdate.hpp>
 
 namespace abyss::Actor::Player
 {

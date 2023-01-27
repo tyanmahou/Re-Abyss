@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/GlobalTime/GlobalTimeScale.hpp>
-#include <abyss/components/Event/base/ILastUpdate.hpp>
+#include <abyss/modules/Event/base/ILastUpdate.hpp>
 
 namespace abyss::Event
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
-#include <abyss/components/Effect/base/Drawer.hpp>
+#include <abyss/modules/Effect/base/IDraw.hpp>
+#include <abyss/modules/Effect/base/Drawer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Effect

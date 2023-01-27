@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/Components.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 

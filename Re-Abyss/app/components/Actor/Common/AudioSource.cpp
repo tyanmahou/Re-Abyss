@@ -2,7 +2,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
-#include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/modules/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/Locator.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Mode.hpp>
 
 namespace abyss::UI::SaveSelect::Main

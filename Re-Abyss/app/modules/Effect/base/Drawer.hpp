@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
+#include <abyss/modules/Effect/base/IDraw.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Effect

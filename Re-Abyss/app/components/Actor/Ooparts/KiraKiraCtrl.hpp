@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/Actor/base/IPreDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Actor/Ooparts/KiraKiraAlgorithm.hpp>
 #include <abyss/commons/Fwd.hpp>

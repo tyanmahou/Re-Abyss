@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/modules/Effect/base/IDrawParts.hpp>
 #include <abyss/views/Effect/Actor/Ooparts/Common/KiraKira/KiraKiraVM.hpp>
 
 namespace abyss::Effect::Actor::Ooparts::KiraKira

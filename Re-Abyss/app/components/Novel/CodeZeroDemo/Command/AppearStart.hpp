@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 
-#include <abyss/components/Novel/base/ICommand.hpp>
+#include <abyss/modules/Novel/base/ICommand.hpp>
 
 namespace abyss::Novel::CodeZeroDemo
 {

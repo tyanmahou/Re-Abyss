@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
 #include <abyss/components/UI/SaveSelect/Main/ModeCtrl.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Users.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

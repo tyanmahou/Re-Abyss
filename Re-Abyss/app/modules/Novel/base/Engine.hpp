@@ -4,7 +4,7 @@
 #include <queue>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Novel/base/ICommand.hpp>
+#include <abyss/modules/Novel/base/ICommand.hpp>
 #include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 #include <abyss/modules/Novel/Serif.hpp>

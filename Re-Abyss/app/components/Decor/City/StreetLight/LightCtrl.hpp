@@ -2,7 +2,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Decor/base/IDraw.hpp>
+#include <abyss/modules/Decor/base/IDraw.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Decor

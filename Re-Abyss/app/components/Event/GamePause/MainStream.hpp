@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Event/base/IStream.hpp>
+#include <abyss/modules/Event/base/IStream.hpp>
 
 namespace abyss::Event::GamePause
 {

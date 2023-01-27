@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Common/CustomDrawBase.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
+#include <abyss/modules/Actor/base/IDraw.hpp>
 
 namespace abyss::Actor
 {

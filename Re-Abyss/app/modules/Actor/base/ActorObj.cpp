@@ -1,17 +1,17 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
 #include <abyss/components/Common/ClockCtrl.hpp>
-#include <abyss/components/Actor/base/IPreUpdate.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
-#include <abyss/components/Actor/base/IPostUpdate.hpp>
-#include <abyss/components/Actor/base/IMove.hpp>
-#include <abyss/components/Actor/base/IPrePhysics.hpp>
-#include <abyss/components/Actor/base/IPostPhysics.hpp>
-#include <abyss/components/Actor/base/IPreCollision.hpp>
-#include <abyss/components/Actor/base/IPostCollision.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
-#include <abyss/components/Actor/base/IDraw.hpp>
-#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/Actor/base/IPreUpdate.hpp>
+#include <abyss/modules/Actor/base/IUpdate.hpp>
+#include <abyss/modules/Actor/base/IPostUpdate.hpp>
+#include <abyss/modules/Actor/base/IMove.hpp>
+#include <abyss/modules/Actor/base/IPrePhysics.hpp>
+#include <abyss/modules/Actor/base/IPostPhysics.hpp>
+#include <abyss/modules/Actor/base/IPreCollision.hpp>
+#include <abyss/modules/Actor/base/IPostCollision.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/IDraw.hpp>
+#include <abyss/modules/Actor/base/IPreDraw.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Actor

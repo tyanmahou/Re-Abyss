@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/DrawBase.hpp>
-#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/Actor/base/IPreDraw.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/IColorMul.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 

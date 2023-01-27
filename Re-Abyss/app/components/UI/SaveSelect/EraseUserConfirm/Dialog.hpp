@@ -1,6 +1,6 @@
 #pragma once
-#include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Dialog/DialogResult.hpp>
 #include <abyss/components/UI/SaveSelect/EraseUserConfirm/Result.hpp>
 

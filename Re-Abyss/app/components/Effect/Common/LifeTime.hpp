@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IUpdate.hpp>
+#include <abyss/modules/Effect/base/IUpdate.hpp>
 
 namespace abyss::Effect
 {

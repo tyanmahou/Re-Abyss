@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IPostUpdate.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IPostUpdate.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/components/Actor/Ooparts/KiraKiraAlgorithm.hpp>
 

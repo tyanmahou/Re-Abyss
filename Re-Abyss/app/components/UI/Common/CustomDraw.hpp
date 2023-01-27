@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Common/CustomDrawBase.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 
 namespace abyss::UI
 {

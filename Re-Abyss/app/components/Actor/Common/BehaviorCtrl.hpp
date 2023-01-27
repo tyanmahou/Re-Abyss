@@ -5,7 +5,7 @@
 
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPostUpdate.hpp>
+#include <abyss/modules/Actor/base/IPostUpdate.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 #include <abyss/utils/Coro/AsyncGenerator/AsyncGenerator.hpp>

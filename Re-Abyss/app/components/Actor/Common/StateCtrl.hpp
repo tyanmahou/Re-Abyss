@@ -4,10 +4,10 @@
 
 # include <abyss/modules/Actor/base/ActorObj.hpp>
 # include <abyss/modules/GameObject/IComponent.hpp>
-# include <abyss/components/Actor/base/IPostCollision.hpp>
-# include <abyss/components/Actor/base/IPreUpdate.hpp>
-# include <abyss/components/Actor/base/IPostUpdate.hpp>
-# include <abyss/components/Actor/base/ILastUpdate.hpp>
+# include <abyss/modules/Actor/base/IPostCollision.hpp>
+# include <abyss/modules/Actor/base/IPreUpdate.hpp>
+# include <abyss/modules/Actor/base/IPostUpdate.hpp>
+# include <abyss/modules/Actor/base/ILastUpdate.hpp>
 # include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::Actor

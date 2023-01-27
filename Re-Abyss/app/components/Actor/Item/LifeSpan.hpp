@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IUpdate.hpp>
+#include <abyss/modules/Actor/base/IUpdate.hpp>
 
 namespace abyss::Actor::Item
 {

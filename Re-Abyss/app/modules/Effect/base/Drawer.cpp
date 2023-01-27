@@ -1,7 +1,7 @@
-#include <abyss/components/Effect/base/Drawer.hpp>
+#include <abyss/modules/Effect/base/Drawer.hpp>
 
 #include <abyss/modules/Effect/base/EffectObj.hpp>
-#include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/modules/Effect/base/IDrawParts.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Effect

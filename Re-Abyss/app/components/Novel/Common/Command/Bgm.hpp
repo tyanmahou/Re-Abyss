@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Novel/base/ICommand.hpp>
+#include <abyss/modules/Novel/base/ICommand.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Duration.hpp>
 

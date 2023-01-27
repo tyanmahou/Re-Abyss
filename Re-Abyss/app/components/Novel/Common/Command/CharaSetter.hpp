@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/components/Novel/base/ICommand.hpp>
+#include <abyss/modules/Novel/base/ICommand.hpp>
 #include <abyss/modules/Novel/CharaKind.hpp>
 #include <abyss/modules/Novel/Face.hpp>
 #include <abyss/modules/Novel/Side.hpp>

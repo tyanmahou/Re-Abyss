@@ -1,6 +1,6 @@
 #include <abyss/components/Novel/Common/Command/ClearMessage.hpp>
 #include <abyss/modules/Novel/base/TalkObj.hpp>
-#include <abyss/components/Novel/base/Engine.hpp>
+#include <abyss/modules/Novel/base/Engine.hpp>
 
 namespace abyss::Novel
 {

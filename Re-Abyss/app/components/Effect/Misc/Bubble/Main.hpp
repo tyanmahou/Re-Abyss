@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/modules/Effect/base/IUpdate.hpp>
+#include <abyss/modules/Effect/base/IDrawParts.hpp>
 #include <abyss/components/Effect/Common/LifeTime.hpp>
 #include <abyss/components/Effect/Misc/Bubble/BubbleKind.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

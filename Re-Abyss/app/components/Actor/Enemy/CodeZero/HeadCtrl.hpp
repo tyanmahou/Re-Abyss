@@ -5,7 +5,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/utils/Look/Look.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

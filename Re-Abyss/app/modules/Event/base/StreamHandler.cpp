@@ -1,4 +1,4 @@
-#include <abyss/components/Event/base/StreamHandler.hpp>
+#include <abyss/modules/Event/base/StreamHandler.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
 
 namespace

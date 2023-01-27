@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/modules/Effect/base/IUpdate.hpp>
+#include <abyss/modules/Effect/base/IDrawParts.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
 
 #include <Siv3D/Vector2D.hpp>

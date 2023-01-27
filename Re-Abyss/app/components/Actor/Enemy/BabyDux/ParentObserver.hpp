@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/ILastUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 
 namespace abyss::Actor::Enemy::BabyDux

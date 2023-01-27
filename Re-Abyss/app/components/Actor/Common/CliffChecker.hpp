@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPrePhysics.hpp>
+#include <abyss/modules/Actor/base/IPrePhysics.hpp>
 
 namespace abyss::Actor
 {

@@ -2,9 +2,9 @@
 
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 #include <abyss/components/Common/ClockCtrl.hpp>
-#include <abyss/components/Effect/base/IUpdate.hpp>
-#include <abyss/components/Effect/base/IDraw.hpp>
-#include <abyss/components/Effect/base/Drawer.hpp>
+#include <abyss/modules/Effect/base/IUpdate.hpp>
+#include <abyss/modules/Effect/base/IDraw.hpp>
+#include <abyss/modules/Effect/base/Drawer.hpp>
 
 namespace abyss::Effect
 {

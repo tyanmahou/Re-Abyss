@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
 #include <Siv3D/Timer.hpp>
 #include <Siv3D/Vector2D.hpp>
 

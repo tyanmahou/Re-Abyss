@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IPostUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IPostUpdate.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/utils/Hierarchy/Hierarchy.hpp>
 
 namespace abyss::UI

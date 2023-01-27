@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPostCollision.hpp>
+#include <abyss/modules/Actor/base/IPostCollision.hpp>
 #include <abyss/components/Actor/Common/IStateCallback.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>

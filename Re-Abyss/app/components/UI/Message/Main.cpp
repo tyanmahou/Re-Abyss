@@ -2,7 +2,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
 
-#include <abyss/components/Novel/base/Engine.hpp>
+#include <abyss/modules/Novel/base/Engine.hpp>
 
 #include <abyss/views/UI/Message/MessageBoxVM.hpp>
 #include <abyss/views/UI/Message/CursorVM.hpp>

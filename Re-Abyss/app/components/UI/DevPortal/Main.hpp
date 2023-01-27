@@ -1,8 +1,8 @@
 #pragma once
 #if ABYSS_DEVELOP
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/UI/base/IUpdate.hpp>
-#include <abyss/components/UI/base/IDraw.hpp>
+#include <abyss/modules/UI/base/IUpdate.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 
 namespace abyss::UI::DevPortal
 {

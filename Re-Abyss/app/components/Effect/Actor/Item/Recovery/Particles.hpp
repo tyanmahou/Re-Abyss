@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Effect/base/IDrawParts.hpp>
+#include <abyss/modules/Effect/base/IDrawParts.hpp>
 #include <abyss/components/Effect/Actor/Item/Recovery/LocationCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/ColorF.hpp>

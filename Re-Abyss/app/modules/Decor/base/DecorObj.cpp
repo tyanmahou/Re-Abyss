@@ -1,6 +1,6 @@
 #include <abyss/modules/Decor/base/DecorObj.hpp>
-#include <abyss/components/Decor/base/IUpdate.hpp>
-#include <abyss/components/Decor/base/IDraw.hpp>
+#include <abyss/modules/Decor/base/IUpdate.hpp>
+#include <abyss/modules/Decor/base/IDraw.hpp>
 #include <abyss/modules/DrawManager/DrawManager.hpp>
 
 namespace abyss::Decor

@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Common/VModelBase.hpp>
-#include <abyss/components/Actor/base/IPreDraw.hpp>
+#include <abyss/modules/Actor/base/IPreDraw.hpp>
 
 namespace abyss::Actor
 {

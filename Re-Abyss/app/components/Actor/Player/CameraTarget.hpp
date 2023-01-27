@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/modules/GameObject/Components.hpp>
-#include <abyss/components/Actor/base/IPostPhysics.hpp>
+#include <abyss/modules/Actor/base/IPostPhysics.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/CameraTargetBase.hpp>
 
 namespace abyss::Actor::Player

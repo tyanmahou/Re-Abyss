@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/components/Actor/base/IPrePhysics.hpp>
+#include <abyss/modules/Actor/base/IPrePhysics.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
