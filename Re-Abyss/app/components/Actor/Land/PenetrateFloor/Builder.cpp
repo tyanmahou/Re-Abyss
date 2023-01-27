@@ -1,5 +1,5 @@
 #include <abyss/components/Actor/Land/PenetrateFloor/Builder.hpp>
-
+#include <abyss/components/Actor/Land/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Land/CommonBuilder.hpp>
 #include <abyss/components/Actor/Land/PenetrateFloor/PenetrateFloorExtension.hpp>
 
@@ -16,4 +16,13 @@ namespace abyss::Actor::Land::PenetrateFloor
             .setTerrainExtData<PenetrateFloorExtension>(canDown, aroundFloor)
         );
    }
+}
+namespace abyss::Actor::Land
+{
+    template struct BuilderFromEntity<LandType::Penetrate>;
+    template<>
+    void BuilderFromEntity<LandType::Penetrate>::Build(ActorObj* pActor, const LandEntity& entity)
+    {
+        PenetrateFloor::Builder::Build(pActor, entity.pos, entity.size, entity.canDown, entity.aroundFloor);
+    }
 }

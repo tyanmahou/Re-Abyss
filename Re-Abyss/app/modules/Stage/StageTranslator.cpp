@@ -10,10 +10,6 @@
 #include <abyss/utils/Reflection/Reflection.hpp>
 
 // TODO リフレクション化
-#include <abyss/components/Actor/Land/Floor/Builder.hpp>
-#include <abyss/components/Actor/Land/PenetrateFloor/Builder.hpp>
-#include <abyss/components/Actor/Land/Ladder/Builder.hpp>
-
 #include <abyss/entities/Decor/General/CommonEntity.hpp>
 #include <abyss/entities/Decor/General/SchoolOfFishEntity.hpp>
 #include <abyss/entities/Decor/City/StreetLightEntity.hpp>
@@ -76,15 +72,12 @@ namespace abyss
     using namespace Actor::Land;
     Ref<Actor::ActorObj> StageTranslator::Build(Actors& actors, const LandEntity& entity)
     {
-        using namespace Actor::Land;
-        if (entity.type == LandType::Floor) {
-            return actors.create<Floor::Builder>(entity.col, entity.pos, entity.size);
-        }
-        if (entity.type == LandType::Ladder) {
-            return actors.create<Ladder::Builder>(entity.col, entity.pos, entity.size);
-        }
-        if (entity.type == LandType::Penetrate) {
-            return actors.create<PenetrateFloor::Builder>(entity.pos, entity.size, entity.canDown, entity.aroundFloor);
+        if (auto builder = Reflect<>::find<void(ActorObj*, const LandEntity&)>(
+            U"abyss::Actor::Land::BuilderFromEntity<{}>::Build"_fmt(static_cast<s3d::int32>(entity.type))
+            )) {
+            auto obj = actors.create();
+            builder(obj.get(), entity);
+            return obj;
         }
         return nullptr;
     }

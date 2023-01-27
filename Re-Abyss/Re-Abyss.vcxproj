@@ -1225,6 +1225,7 @@
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.hpp" />
     <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
+    <ClInclude Include="app\components\Actor\Land\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
