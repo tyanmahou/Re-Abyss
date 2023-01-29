@@ -995,6 +995,7 @@
     <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\NameOf\NameOfCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
   </ItemGroup>
