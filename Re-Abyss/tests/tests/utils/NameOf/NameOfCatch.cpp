@@ -29,6 +29,9 @@ namespace abyss::tests
             REQUIRE(NameOf::nameof<TestEnumClass>() == U"TestEnumClass");
             REQUIRE(NameOf::nameof<TestStruct>() == U"TestStruct");
             REQUIRE(NameOf::nameof<TestClass>() == U"TestClass");
+
+            REQUIRE(NameOf::nameof<TestEnum::A>() == U"A");
+            REQUIRE(NameOf::nameof<TestEnumClass::A>() == U"A");
         }
     }
 }
