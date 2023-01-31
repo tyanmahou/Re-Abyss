@@ -54,7 +54,7 @@ namespace NameOf
 		return detail::NameOfImpl<Type>();
 	}
 	template<class Type>
-	consteval s3d::StringView nameof_ws()
+	consteval s3d::StringView nameof_full()
 	{
 		return detail::NameOfImplWithNamespace<Type>();
 	}
@@ -65,7 +65,7 @@ namespace NameOf
 		return detail::NameOfImpl<V>();
 	}
 	template<auto V>
-	consteval s3d::StringView nameof_ws()
+	consteval s3d::StringView nameof_full()
 	{
 		return detail::NameOfImplWithNamespace<V>();
 	}
