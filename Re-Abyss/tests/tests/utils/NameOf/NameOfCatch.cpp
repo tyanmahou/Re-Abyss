@@ -29,6 +29,10 @@ namespace abyss::tests
         SECTION("test literal")
         {
            REQUIRE(NameOf::nameof<int>() == U"int");
+           REQUIRE(NameOf::nameof_full<int>() == U"int");
+
+           REQUIRE(NameOf::nameof<int*>() == U"int*");
+           REQUIRE(NameOf::nameof_full<int*>() == U"int*");
         }
         SECTION("test normal")
         {
