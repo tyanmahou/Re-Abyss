@@ -16,12 +16,35 @@ namespace NameOf
 			return U"" __FUNCSIG__;
 		}
 
+        template<class Type>
+        consteval bool IsEnumPrefix()
+        {
+            constexpr auto signature = Signature<Type>();
+            return signature.starts_with(U"class s3d::StringView __cdecl NameOf::detail::Signature<enum ");
+        }
+        template<class Type>
+        consteval bool IsStructPrefix()
+        {
+            constexpr auto signature = Signature<Type>();
+            return signature.starts_with(U"class s3d::StringView __cdecl NameOf::detail::Signature<struct ");
+        }
+        template<class Type>
+        consteval bool IsClassPrefix()
+        {
+            constexpr auto signature = Signature<Type>();
+            return signature.starts_with(U"class s3d::StringView __cdecl NameOf::detail::Signature<class ");
+        }
 		template<class Type>
 		consteval s3d::StringView NameOfImplWithNamespace()
 		{
 			constexpr auto signature = Signature<Type>();
 			constexpr auto len = signature.length();
-			constexpr auto prefixLen = sizeof("class s3d::StringView __cdecl NameOf::detail::Signature<enum ") - 1;
+            constexpr auto typePrefixLen =
+                IsEnumPrefix<Type>() ? (sizeof("enum ") - 1)
+                : IsStructPrefix<Type>() ? (sizeof("struct ") - 1)
+                : IsClassPrefix<Type>() ? (sizeof("class ") - 1)
+                : 0;
+            constexpr auto prefixLen = sizeof("class s3d::StringView __cdecl NameOf::detail::Signature<") - 1 + typePrefixLen;
 			constexpr auto suffixLen = sizeof(">(void)") - 1;
 			return signature.substr(prefixLen, len - prefixLen - suffixLen);
 		}

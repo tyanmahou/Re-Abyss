@@ -26,6 +26,10 @@ namespace abyss::tests
 {
     TEST_CASE("utils::NameOf. Test")
     {
+        SECTION("test literal")
+        {
+           REQUIRE(NameOf::nameof<int>() == U"int");
+        }
         SECTION("test normal")
         {
             REQUIRE(NameOf::nameof<Test::TestEnum>() == U"TestEnum");
@@ -43,8 +47,8 @@ namespace abyss::tests
 
             REQUIRE(NameOf::nameof_full<Test::TestEnum>() == anonymousNamespacePrefix + U"Test::TestEnum");
             REQUIRE(NameOf::nameof_full<Test::TestEnumClass>() == anonymousNamespacePrefix + U"Test::TestEnumClass");
-            //REQUIRE(NameOf::nameof_full<Test::TestStruct>() == anonymousNamespacePrefix + U"Test::TestStruct");
-            //REQUIRE(NameOf::nameof_full<Test::TestClass>() == U"TestClass");
+            REQUIRE(NameOf::nameof_full<Test::TestStruct>() == anonymousNamespacePrefix + U"Test::TestStruct");
+            REQUIRE(NameOf::nameof_full<Test::TestClass>() == anonymousNamespacePrefix + U"Test::TestClass");
 
             REQUIRE(NameOf::nameof_full<Test::TestEnum::A>() == anonymousNamespacePrefix + U"Test::A");
             REQUIRE(NameOf::nameof_full<Test::TestEnumClass::A>() == anonymousNamespacePrefix + U"Test::TestEnumClass::A");
