@@ -13,7 +13,7 @@ namespace abyss::Loading::Common
     bool Loading::update(double progress)
     {
         m_progressTarget = progress;
-        m_progress += 2.0 * s3d::Scene::DeltaTime();
+        m_progress += 3.0 * s3d::Scene::DeltaTime();
         if (m_progress >= m_progressTarget) {
             m_progress = m_progressTarget;
         }
