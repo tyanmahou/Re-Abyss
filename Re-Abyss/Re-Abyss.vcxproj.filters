@@ -159,9 +159,6 @@
     <ClCompile Include="app\commons\InputManager\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Loading\Loading.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1908,9 +1905,6 @@
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\UI\Common\Loading\LoadingView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2379,6 +2373,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\utils\NameOf\NameOfCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\Loading\Common\LoadingView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\Loading\Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\scenes\Loading\Common\Loading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -3027,9 +3030,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\InputManager\InputManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\Loading\Loading.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Msg\Common.hpp">
@@ -5626,9 +5626,6 @@
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\UI\Common\Loading\LoadingView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6192,6 +6189,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Decor\BuilderFromEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Loading\Common\LoadingView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Loading\Loader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Loading\ILoading.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Loading\Common\Loading.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

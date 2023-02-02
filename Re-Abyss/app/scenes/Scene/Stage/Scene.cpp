@@ -218,7 +218,7 @@ namespace abyss::Scene::Stage
 		ISceneBase(init),
 		m_pImpl(std::make_unique<Impl>(init))
 	{
-		getData().loading.start(m_pImpl->loading());
+		getData().loader.startAsync(m_pImpl->loading());
 
 #if ABYSS_NO_BUILD_RESOURCE
 		m_reloader

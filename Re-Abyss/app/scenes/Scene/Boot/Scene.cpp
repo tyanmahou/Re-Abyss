@@ -49,7 +49,7 @@ namespace abyss::Scene::Boot
         m_pImpl(std::make_unique<Impl>(init))
     {
         // ローディング
-        getData().loading.start(m_pImpl->loading());
+        getData().loader.startAsync(m_pImpl->loading());
     }
     Scene::~Scene()
     {}

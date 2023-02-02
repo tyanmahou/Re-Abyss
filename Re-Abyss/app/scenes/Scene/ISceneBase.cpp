@@ -4,7 +4,8 @@ namespace abyss
 {
     void ISceneBase::update()
     {
-        if (!this->getData().loading.isDone()) {
+        if (this->getData().loader.update()) {
+            // ローディング
             return;
         }
 #if ABYSS_NO_BUILD_RESOURCE
@@ -14,8 +15,8 @@ namespace abyss
     }
     void ISceneBase::draw() const
     {
-        if (!this->getData().loading.isDone()) {
-            this->getData().loading.draw();
+        if (this->getData().loader.isLoading()) {
+            this->getData().loader.draw();
             return;
         }
         this->onSceneDraw();

@@ -1,4 +1,4 @@
-#include <abyss/views/UI/Common/Loading/LoadingView.hpp>
+#include <abyss/views/Loading/Common/LoadingView.hpp>
 
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/UI/Common/LoadingParam.hpp>
@@ -6,8 +6,10 @@
 
 #include <Siv3D.hpp>
 
-namespace abyss::UI
+namespace abyss::Loading::Common
 {
+    using namespace abyss::UI;
+
     LoadingView::LoadingView():
         m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::Norelease()))
     {}

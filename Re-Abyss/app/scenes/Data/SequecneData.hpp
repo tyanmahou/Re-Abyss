@@ -3,7 +3,7 @@
 #include <abyss/scenes/Data/SceneContextHolder.hpp>
 #include <abyss/scenes/Data/SceneResultHolder.hpp>
 #include <abyss/scenes/Data/ShareData.hpp>
-#include <abyss/scenes/Loading/Loading.hpp>
+#include <abyss/scenes/Loading/Loader.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -22,6 +22,6 @@ namespace abyss
         SceneKind toScene{};
         SharedData share{};
 
-        Loading loading;
+        Loading::Loader loader;
     };
 }

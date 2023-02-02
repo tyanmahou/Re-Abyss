@@ -318,7 +318,8 @@
     <ClCompile Include="app\modules\Sfx\DecorFar\DecorFar.cpp" />
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
-    <ClCompile Include="app\scenes\Loading\Loading.cpp" />
+    <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
+    <ClCompile Include="app\scenes\Loading\Loader.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Message.cpp" />
@@ -936,6 +937,7 @@
     <ClCompile Include="app\views\FieldEnv\Sky\SkyView.cpp" />
     <ClCompile Include="app\views\Light\LightUtil.cpp" />
     <ClCompile Include="app\views\Light\LightView.cpp" />
+    <ClCompile Include="app\views\Loading\Common\LoadingView.cpp" />
     <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp" />
     <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp" />
     <ClCompile Include="app\views\Shader\Blend\BlendShader.cpp" />
@@ -954,7 +956,6 @@
     <ClCompile Include="app\views\Shader\TileMap\TileMapShader.cpp" />
     <ClCompile Include="app\views\Shader\util\BayerMatrix.cpp" />
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp" />
-    <ClCompile Include="app\views\UI\Common\Loading\LoadingView.cpp" />
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
     <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
@@ -1300,7 +1301,9 @@
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
     <ClInclude Include="app\scenes\Data\ShareData.hpp" />
-    <ClInclude Include="app\scenes\Loading\Loading.hpp" />
+    <ClInclude Include="app\scenes\Loading\Common\Loading.hpp" />
+    <ClInclude Include="app\scenes\Loading\ILoading.hpp" />
+    <ClInclude Include="app\scenes\Loading\Loader.hpp" />
     <ClInclude Include="app\commons\Msg\Common.hpp" />
     <ClInclude Include="app\commons\Msg\SaveSelect.hpp" />
     <ClInclude Include="app\commons\Msg\Title.hpp" />
@@ -2211,6 +2214,7 @@
     <ClInclude Include="app\views\FieldEnv\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
+    <ClInclude Include="app\views\Loading\Common\LoadingView.hpp" />
     <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp" />
     <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp" />
     <ClInclude Include="app\views\Shader\Blend\BlendShader.hpp" />
@@ -2229,7 +2233,6 @@
     <ClInclude Include="app\views\Shader\TileMap\TileMapShader.hpp" />
     <ClInclude Include="app\views\Shader\util\BayerMatrix.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
-    <ClInclude Include="app\views\UI\Common\Loading\LoadingView.hpp" />
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
