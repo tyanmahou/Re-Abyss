@@ -1,7 +1,6 @@
 # pragma once
 #include <abyss/scenes/Scene/SceneManager.hpp>
 #include <abyss/debugs/HotReload/HotReload.hpp>
-#include <abyss/scenes/Loading/Loading.hpp>
 
 namespace abyss
 {
@@ -21,7 +20,6 @@ namespace abyss
         void update() final;
         void draw() const final;
     protected:
-        Loading m_loading;
 #if ABYSS_NO_BUILD_RESOURCE && ABYSS_DEBUG
         Debug::HotReload m_reloader;
 #endif
