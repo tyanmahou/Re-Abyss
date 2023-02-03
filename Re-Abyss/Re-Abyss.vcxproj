@@ -1297,6 +1297,7 @@
     <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\EffectParam.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\Param.hpp" />
+    <ClInclude Include="app\params\Loading\Common\Param.hpp" />
     <ClInclude Include="app\scenes\Data\BgmBridge.hpp" />
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
@@ -1964,7 +1965,6 @@
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\params\UI\Common\FooterParam.hpp" />
-    <ClInclude Include="app\params\UI\Common\LoadingParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\params\UI\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\UI\SaveSelect\UserInfoParam.hpp" />

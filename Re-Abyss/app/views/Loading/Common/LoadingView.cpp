@@ -1,15 +1,13 @@
 #include <abyss/views/Loading/Common/LoadingView.hpp>
 
 #include <abyss/commons/FontName.hpp>
-#include <abyss/params/UI/Common/LoadingParam.hpp>
+#include <abyss/params/Loading/Common/Param.hpp>
 #include <abyss/views/util/Pivot/PivotUtil.hpp>
 
 #include <Siv3D.hpp>
 
 namespace abyss::Loading::Common
 {
-    using namespace abyss::UI;
-
     LoadingView::LoadingView():
         m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::Norelease()))
     {}
@@ -23,7 +21,7 @@ namespace abyss::Loading::Common
         s3d::Scene::Rect().draw(Palette::Black);
         // Slime君
         {
-            using Slime = LoadingParam::Slime;
+            using Slime = Param::Slime;
             ScopedColorAdd2D scopedColorAdd(ColorF(1,0));
 
             Vec2 pos = PivotUtil::FromBr(Slime::BasePos);
@@ -52,7 +50,7 @@ namespace abyss::Loading::Common
 
         // Loading
         {
-            using Text = LoadingParam::Text;
+            using Text = Param::Text;
 
             const double periodicSec = Text::PeriodicSec;
             const auto jumpTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::JumpPeriodicOffset) * periodicSec;
@@ -61,7 +59,7 @@ namespace abyss::Loading::Common
             const auto rotateTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::RotatePeriodicOffset) * periodicSec;
             const auto rotateIndex = rotateTime * Text::RotateIndexCoef;
 
-            Vec2 basePos = PivotUtil::FromBr(LoadingParam::Text::BasePos);
+            Vec2 basePos = PivotUtil::FromBr(Text::BasePos);
 
             for (auto&& [index, glyph] : Indexed(FontAsset(FontName::Loading).getGlyphs(U"NOW LOADING..."))) {
                 auto pos = basePos;
@@ -72,13 +70,13 @@ namespace abyss::Loading::Common
                 tex = tex.scaled(Cos(rotate), 1.0);
                 pos.x += (baseSize.x - tex.size.x) / 2.0;
                 tex.draw(pos + glyph.getOffset(), Palette::White);
-                basePos.x += glyph.xAdvance + LoadingParam::Text::OffsetX;
+                basePos.x += glyph.xAdvance + Text::OffsetX;
             }
         }
 
         // ProgressBar
         {
-            using Bar = LoadingParam::ProgressBar;
+            using Bar = Param::ProgressBar;
             Vec2 basePos = PivotUtil::FromBr(Bar::BasePos);
             RectF(basePos, Vec2{Bar::Size.x * m_progress, Bar::Size.y}).draw();
             RectF(basePos, Bar::Size).drawFrame();

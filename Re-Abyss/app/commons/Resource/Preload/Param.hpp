@@ -13,4 +13,5 @@ namespace abyss::Resource::Preload
 
     void LoadActorToml(const Assets* resource = Assets::Main());
     void LoadUIToml(const Assets* resource = Assets::Main());
+    void LoadLoadingToml(const Assets* resource = Assets::Main());
 }

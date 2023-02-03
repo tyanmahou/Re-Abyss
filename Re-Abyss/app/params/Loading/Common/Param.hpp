@@ -2,9 +2,9 @@
 #include <abyss/utils/TOML/TOMLBind.hpp>
 #include <Siv3D/Vector2D.hpp>
 
-namespace abyss::UI
+namespace abyss::Loading::Common
 {
-    struct LoadingParam
+    struct Param
     {
         [[TOML_BIND(Slime::BasePos, "Slime.basePos")]]
         [[TOML_BIND(Slime::PeriodicSec, "Slime.periodicSec")]]

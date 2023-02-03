@@ -5011,9 +5011,6 @@
     <ClInclude Include="app\params\UI\Common\FooterParam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\params\UI\Common\LoadingParam.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6201,6 +6198,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Loading\Common\Loading.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\params\Loading\Common\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
