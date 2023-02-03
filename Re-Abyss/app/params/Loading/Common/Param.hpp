@@ -29,16 +29,16 @@ namespace abyss::Loading::Common
         struct Text
         {
             inline static s3d::Vec2 BasePos{ -220, -54 };
-            inline static double OffsetX{ 5.0 };
-            inline static double PeriodicSec{ 2.0 };
-            inline static double JumpPeriodicOffset{ 2.0 };
-            inline static double JumpIndexCoef{ 2.0 };
-            inline static double JumpTimeRate{ 2.0 };
-            inline static double JumpHeight{ 2.0 };
+            inline static double OffsetX{ 1.0 };
+            inline static double PeriodicSec{ 3.9 };
+            inline static double JumpPeriodicOffset{ -0.15 };
+            inline static double JumpIndexCoef{ 15.0 };
+            inline static double JumpTimeRate{ 0.2 };
+            inline static double JumpHeight{ 20 };
 
-            inline static double RotatePeriodicOffset{ 2.0 };
-            inline static double RotateIndexCoef{ 2.0 };
-            inline static double RotateTimeRate{ 2.0 };
+            inline static double RotatePeriodicOffset{ -1.3 };
+            inline static double RotateIndexCoef{ 8.0 };
+            inline static double RotateTimeRate{ 0.2 };
         };
 
         [[TOML_BIND(ProgressBar::BasePos, "ProgressBar.basePos")]]
@@ -46,7 +46,7 @@ namespace abyss::Loading::Common
         struct ProgressBar
         {
             inline static s3d::Vec2 BasePos{ -220, -25 };
-            inline static s3d::Vec2 Size{ 200, 10 };
+            inline static s3d::Vec2 Size{ 200, 5 };
         };
     };
 }
