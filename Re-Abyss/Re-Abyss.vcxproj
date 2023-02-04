@@ -805,7 +805,7 @@
     <ClCompile Include="app\scenes\Scene\Boot\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp" />
     <ClCompile Include="app\scenes\SequenceManager.cpp" />
-    <ClCompile Include="app\scenes\Sequence\Develop\DevlopSequence.cpp" />
+    <ClCompile Include="app\scenes\Sequence\Develop\DevelopSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Game\GameSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
     <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp" />
@@ -1992,7 +1992,7 @@
     <ClInclude Include="app\scenes\SceneKind.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\SceneResult.hpp" />
-    <ClInclude Include="app\scenes\Sequence\Develop\DevlopSequence.hpp" />
+    <ClInclude Include="app\scenes\Sequence\Develop\DevelopSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Game\GameSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\ISequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Root\RootSequence.hpp" />

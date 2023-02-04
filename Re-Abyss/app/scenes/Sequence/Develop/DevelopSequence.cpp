@@ -1,4 +1,4 @@
-#include <abyss/scenes/Sequence/Develop/DevlopSequence.hpp>
+#include <abyss/scenes/Sequence/Develop/DevelopSequence.hpp>
 #if ABYSS_DEVELOP
 
 namespace abyss

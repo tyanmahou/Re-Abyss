@@ -1,5 +1,5 @@
 #include <abyss/scenes/Sequence/Root/RootSequence.hpp>
-#include <abyss/scenes/Sequence/Develop/DevlopSequence.hpp>
+#include <abyss/scenes/Sequence/Develop/DevelopSequence.hpp>
 #include <abyss/scenes/Sequence/Game/GameSequence.hpp>
 namespace abyss
 {
