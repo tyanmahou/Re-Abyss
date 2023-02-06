@@ -11,7 +11,7 @@ namespace abyss::Loading::Common
         [[TOML_BIND(Slime::JumpSec, "Slime.jumpSec")]]
         struct Slime
         {
-            inline static s3d::Vec2 BasePos{ -260, -40 };
+            inline static s3d::Vec2 BasePos{ -60, -40 };
             inline static double PeriodicSec{ 1.3 };
             inline static double JumpSec{ 1.0 };
         };

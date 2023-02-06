@@ -14,8 +14,11 @@ namespace abyss::Scene::Boot
     public:
         Impl([[maybe_unused]] const InitData& init) :
             m_data(init._s)
-        {}
-        Coro::Generator<double> loading()
+        {
+            // ローディング
+            m_data->loader.startAsync(std::bind(&Impl::loading, this));
+        }
+        void loading()
         {
             // マイグレーション適用
             Resource::UserData::Migration::Update();
@@ -36,11 +39,10 @@ namespace abyss::Scene::Boot
 #endif
             }
 
+            // Norelease
             {
                 Resource::Preload::Preloader norelease(U"Norelease");
-                for (auto&& p : norelease.preloadProgress(Resource::Assets::Norelease())) {
-                    co_yield p;
-                }
+                norelease.preload(Resource::Assets::Norelease());
             }
         }
     };
@@ -48,8 +50,6 @@ namespace abyss::Scene::Boot
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        // ローディング
-        getData().loader.startAsync(m_pImpl->loading());
     }
     Scene::~Scene()
     {}
