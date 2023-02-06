@@ -12,18 +12,11 @@ namespace abyss::Loading::Common
     }
     bool Loading::update(double progress)
     {
-        m_progressTarget = progress;
-        m_progress += 3.0 * s3d::Scene::DeltaTime();
-        if (m_progress >= m_progressTarget) {
-            m_progress = m_progressTarget;
-        }
-        return m_progress < 1.0;
+        return progress < 1.0;
     }
     void Loading::draw() const
     {
-        m_view
-            ->setProgress(m_progress)
-            .draw();
+        m_view->draw();
     }
 }
 

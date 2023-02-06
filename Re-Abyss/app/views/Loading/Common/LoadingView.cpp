@@ -11,14 +11,8 @@ namespace abyss::Loading::Common
     LoadingView::LoadingView():
         m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::Norelease()))
     {}
-    LoadingView& LoadingView::setProgress(double progress)
-    {
-        m_progress = s3d::Saturate(progress);
-        return *this;
-    }
     void LoadingView::draw() const
     {
-        s3d::Scene::Rect().draw(Palette::Black);
         // Slime君
         {
             using Slime = Param::Slime;
@@ -46,40 +40,6 @@ namespace abyss::Loading::Common
                     ->setMotion(Actor::Enemy::Slime::Motion::Walk)
                     .draw();
             }
-        }
-
-        // Loading
-        {
-            using Text = Param::Text;
-
-            const double periodicSec = Text::PeriodicSec;
-            const auto jumpTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::JumpPeriodicOffset) * periodicSec;
-            const auto jumpIndex = jumpTime * Text::JumpIndexCoef;
-
-            const auto rotateTime = Periodic::Sawtooth0_1(periodicSec, Scene::Time() + Text::RotatePeriodicOffset) * periodicSec;
-            const auto rotateIndex = rotateTime * Text::RotateIndexCoef;
-
-            Vec2 basePos = PivotUtil::FromBr(Text::BasePos);
-
-            for (auto&& [index, glyph] : Indexed(FontAsset(FontName::Loading).getGlyphs(U"NOW LOADING..."))) {
-                auto pos = basePos;
-                pos.y -= Text::JumpHeight * Periodic::Jump0_1(1s, Saturate((jumpIndex - index) * Text::JumpTimeRate));
-                const auto rotate = Saturate((rotateIndex - index) * Text::RotateTimeRate) * Math::TwoPi;
-                TextureRegion tex = glyph.texture;
-                auto baseSize = tex.size;
-                tex = tex.scaled(Cos(rotate), 1.0);
-                pos.x += (baseSize.x - tex.size.x) / 2.0;
-                tex.draw(pos + glyph.getOffset(), Palette::White);
-                basePos.x += glyph.xAdvance + Text::OffsetX;
-            }
-        }
-
-        // ProgressBar
-        {
-            using Bar = Param::ProgressBar;
-            Vec2 basePos = PivotUtil::FromBr(Bar::BasePos);
-            RectF(basePos, Vec2{Bar::Size.x * m_progress, Bar::Size.y}).draw();
-            RectF(basePos, Bar::Size).drawFrame();
         }
     }
 }

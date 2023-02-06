@@ -15,9 +15,6 @@ namespace abyss::Loading::Common
         bool update(double progress) override;
         void draw() const  override;
     private:
-        double m_progress = 0.0;
-        double m_progressTarget = 0.0;
-
         std::unique_ptr<LoadingView> m_view;
     };
 }

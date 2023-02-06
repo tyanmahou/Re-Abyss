@@ -7,10 +7,8 @@ namespace abyss::Loading::Common
     {
     public:
         LoadingView();
-        LoadingView& setProgress(double progress);
         void draw() const;
     private:
         std::unique_ptr<Actor::Enemy::Slime::SlimeVM> m_slime;
-        double m_progress = 1.0;
     };
 }
