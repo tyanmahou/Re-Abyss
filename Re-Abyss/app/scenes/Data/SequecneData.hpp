@@ -4,6 +4,7 @@
 #include <abyss/scenes/Data/SceneResultHolder.hpp>
 #include <abyss/scenes/Data/ShareData.hpp>
 #include <abyss/scenes/Loading/Loader.hpp>
+#include <abyss/scenes/Fade/Fader.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -23,5 +24,6 @@ namespace abyss
         SharedData share{};
 
         Loading::Loader loader;
+        Fade::Fader feader;
     };
 }

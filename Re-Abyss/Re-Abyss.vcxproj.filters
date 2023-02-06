@@ -6203,6 +6203,9 @@
     <ClInclude Include="app\params\Loading\Common\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\scenes\Fade\Fader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

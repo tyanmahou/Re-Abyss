@@ -1302,6 +1302,7 @@
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
     <ClInclude Include="app\scenes\Data\ShareData.hpp" />
+    <ClInclude Include="app\scenes\Fade\Fader.hpp" />
     <ClInclude Include="app\scenes\Loading\Common\Loading.hpp" />
     <ClInclude Include="app\scenes\Loading\ILoading.hpp" />
     <ClInclude Include="app\scenes\Loading\Loader.hpp" />
