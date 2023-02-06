@@ -30,6 +30,8 @@ namespace abyss::Resource::Preload
         {
             return m_info.size();
         }
+
+        Preloader& operator << (Preloader&& other);
     private:
         PreloadInfo m_info;
     };

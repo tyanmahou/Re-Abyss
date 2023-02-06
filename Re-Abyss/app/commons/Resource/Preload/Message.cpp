@@ -6,11 +6,19 @@
 
 namespace abyss::Resource::Preload
 {
-	void LoadMessage(s3d::StringView lang, const Assets* resource)
+	Preloader Message(s3d::StringView lang)
 	{
-		auto prefix = s3d::Fmt(Path::MsgPath)(lang);
-		resource->loadToml<Msg::Common>(U"Common.toml", prefix);
-		resource->loadToml<Msg::Title>(U"Title.toml", prefix);
-		resource->loadToml<Msg::SaveSelect>(U"SaveSelect.toml", prefix);
+        PreloadInfo info{};
+        auto prefix = s3d::Fmt(Path::MsgPath)(lang);
+        info.custom << [prefix](const Assets* assets) {
+            assets->loadToml<Msg::Common>(U"Common.toml", prefix);
+        };
+        info.custom << [prefix](const Assets* assets) {
+            assets->loadToml<Msg::Title>(U"Title.toml", prefix);
+        };
+        info.custom << [prefix](const Assets* assets) {
+            assets->loadToml<Msg::SaveSelect>(U"SaveSelect.toml", prefix);
+        };
+		return Preloader(std::move(info));
 	}
 }

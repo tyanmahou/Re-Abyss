@@ -1,11 +1,13 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
 
 namespace abyss::Resource::Preload
 {
     /// <summary>
-    /// メッセージをロード
+    /// メッセージ
     /// </summary>
-    void LoadMessage(s3d::StringView lang = U"ja", const Assets* resource = Assets::Norelease());
+    /// <param name="lang"></param>
+    /// <returns></returns>
+    Preloader Message(s3d::StringView lang = U"ja");
 }

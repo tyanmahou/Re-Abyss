@@ -37,6 +37,9 @@ namespace abyss::Resource::Preload
         });
         LOAD_ASSET(toml, Toml);
 
+        for (auto&& custom : m_info.custom) {
+            custom(assets);
+        }
 #undef LOAD_ASSET
 #if ABYSS_DEBUG
         assets->setWarnMode(true);
@@ -71,6 +74,11 @@ namespace abyss::Resource::Preload
         });
         LOAD_ASSET(toml, Toml);
 
+        for (auto&& custom : m_info.custom) {
+            custom(assets);
+            ++count;
+            co_yield static_cast<double>(count) / static_cast<double>(loadNum);
+        }
 #undef LOAD_ASSET
 
 #if ABYSS_DEBUG
@@ -78,5 +86,9 @@ namespace abyss::Resource::Preload
 #endif
 
         co_yield 1.0;
+    }
+    Preloader& Preloader::operator<<(Preloader&& other)
+    {
+        this->m_info << std::move(other.m_info);
     }
 }

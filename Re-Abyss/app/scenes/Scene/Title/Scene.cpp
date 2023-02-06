@@ -31,13 +31,9 @@ namespace abyss::Scene::Title
 #if ABYSS_NO_BUILD_RESOURCE
         void reload()
         {
+            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
             Resource::Assets::Norelease()->release();
-            Resource::Assets::Main()->release();
-
-            Resource::Preload::LoadCycleCommon();
-            Resource::Preload::LoadTitleToml();
-
-            this->init();
+            this->loading();
         }
 #endif
         void init()

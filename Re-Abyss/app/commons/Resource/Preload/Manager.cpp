@@ -98,9 +98,9 @@ namespace abyss::Resource::Preload
 
             PreloadInfo ret{};
             const auto& other = m_prelaodInfos[preloadName];
-            ret += other;
+            ret << other;
             for (const auto& p : other.preload) {
-                ret += getInfo(p);
+                ret << getInfo(p);
             }
             return m_cache[preloadName] = ret.unique();
         }

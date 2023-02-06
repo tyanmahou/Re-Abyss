@@ -26,23 +26,24 @@ namespace abyss::Scene::Boot
             // フォントロード
             Resource::FontRegister::Load();
 
-            // 最初にToml全部ロード
-            if (auto* assets = Resource::Assets::Norelease()) {
-#if ABYSS_DEBUG
-                assets->setWarnMode(false);
-#endif
-                Resource::Preload::LoadTomlAll(assets);
-                Resource::Preload::LoadMessage(U"ja", assets);
-                assets->release();
-#if ABYSS_DEBUG
-                assets->setWarnMode(true);
-#endif
+            auto* assets = Resource::Assets::Norelease();
+            // 最初にParam全部ロード
+            {
+                auto param = Resource::Preload::ParamAll();
+                param.preload(assets);
             }
+            // Meesage
+            {
+                auto message = Resource::Preload::Message();
+                message.preload(assets);
+            }
+            // 一度キャッシュ削除
+            assets->release();
 
             // Norelease
             {
                 Resource::Preload::Preloader norelease(U"Norelease");
-                norelease.preload(Resource::Assets::Norelease());
+                norelease.preload(assets);
             }
         }
     };

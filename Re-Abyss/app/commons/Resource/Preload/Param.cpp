@@ -54,24 +54,11 @@
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 
-namespace abyss::Resource::Preload
+namespace
 {
-    void LoadTomlAll(const Assets* resource)
-    {
-        // Loading
-        LoadLoadingToml(resource);
+    using namespace abyss;
+    using namespace abyss::Resource;
 
-        // Cycle
-        LoadCycleCommon(resource);
-        LoadSplashToml(resource);
-        LoadTitleToml(resource);
-        LoadSaveSelectToml(resource);
-
-        // Actor
-        LoadActorToml(resource);
-        // UI
-        LoadUIToml(resource);
-    }
     void LoadCycleCommon(const Assets* resource)
     {
         resource->loadToml<UI::FooterParam>(U"UI/Common/FooterParam.toml");
@@ -161,5 +148,28 @@ namespace abyss::Resource::Preload
     void LoadLoadingToml(const Assets* resource)
     {
         resource->loadToml<Loading::Common::Param>(U"Loading/Common/Param.toml");
+    }
+}
+namespace abyss::Resource::Preload
+{
+    Preloader ParamAll()
+    {
+        PreloadInfo info{};
+
+        // Loading
+        info.custom << LoadLoadingToml;
+
+        // Cycle
+        info.custom << LoadCycleCommon;
+        info.custom << LoadSplashToml;
+        info.custom << LoadTitleToml;
+        info.custom << LoadSaveSelectToml;
+
+        // Actor
+        info.custom << LoadActorToml;
+        // UI
+        info.custom << LoadUIToml;
+
+        return Preloader(std::move(info));
     }
 }

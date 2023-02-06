@@ -2,8 +2,14 @@
 #include <Siv3D/Array.hpp>
 #include <Siv3D/String.hpp>
 
+namespace abyss::Resource
+{
+    class Assets;
+}
 namespace abyss::Resource::Preload
 {
+    using CustomPreload = std::function<void(const Assets*)>;
+
     /// <summary>
     /// プリロード情報
     /// </summary>
@@ -17,11 +23,13 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::FilePath> audio;
         s3d::Array<s3d::FilePath> audioSettingGroup;
         s3d::Array<s3d::FilePath> toml;
+        s3d::Array<CustomPreload> custom;
 
         PreloadInfo& unique();
         size_t size() const;
 
-        PreloadInfo& operator +=(const PreloadInfo& other);
+        PreloadInfo& operator <<(const PreloadInfo& other);
+        PreloadInfo& operator <<(PreloadInfo&& other);
     };
 
     using PreloadInfoMemPtr = decltype(&PreloadInfo::texture);
