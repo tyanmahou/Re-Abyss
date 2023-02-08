@@ -12,7 +12,9 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         HandProxy(ActorObj* pActor);
         void onStart()override;
 
+        bool tryAngry();
         bool tryAttack();
+        bool tryPursuit(bool slowStart = false);
         bool tryPursuit(const HandDesc& desc, bool slowStart = false);
         bool tryShotCharge();
         bool tryRollingAttack(bool isReverse);

@@ -3,6 +3,7 @@
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
@@ -20,6 +21,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_state = m_pActor->find<StateCtrl>();
     }
 
+    bool HandProxy::tryAngry()
+    {
+        m_state->changeState<AngryState>();
+        return true;
+    }
+
     bool HandProxy::tryAttack()
     {
         if (m_state->isState<PursuitState>()) {
@@ -27,6 +34,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             return true;
         }
         return false;
+    }
+
+    bool HandProxy::tryPursuit(bool slowStart)
+    {
+        m_state->changeState<PursuitState>(s3d::none, slowStart);
+        return true;
     }
 
     bool HandProxy::tryPursuit(const HandDesc& desc, bool slowStart)

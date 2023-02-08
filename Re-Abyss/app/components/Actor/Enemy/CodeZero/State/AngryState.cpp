@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         // 無敵
         m_damageCtrl->setInvincibleState(true);
-        m_pActor->find<ColorAnim::InvincibleColor>()->startAnim(4.0);
+        m_pActor->find<ColorAnim::InvincibleColor>()->startAnim(3.0);
 
         // 頭固定
         m_head->setActive(false);
@@ -22,6 +22,9 @@ namespace abyss::Actor::Enemy::CodeZero
 
         // 地震
         m_pActor->getModule<Camera>()->startQuake(10.0, 0.3);
+
+        m_parts->getLeftHand()->tryAngry();
+        m_parts->getRightHand()->tryAngry();
     }
     void AngryState::end()
     {
@@ -30,7 +33,10 @@ namespace abyss::Actor::Enemy::CodeZero
 
     Coro::Fiber<> AngryState::task()
     {
-        co_await BehaviorUtil::WaitForSeconds(m_pActor, 4.0);
+        co_await BehaviorUtil::WaitForSeconds(m_pActor, 3.0);
+
+        m_parts->getLeftHand()->tryPursuit(true);
+        m_parts->getRightHand()->tryPursuit(true);
         this->changeState<WaitState>();
     }
 

@@ -29,14 +29,12 @@ namespace abyss::Actor::Enemy::CodeZero
 
         // HP 2/3まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 2.0 / 3.0);
-        co_await Behavior::WaitPursuitHands(pActor);
 
         // 中盤パターン
         co_yield Behavior::Phase2;
 
         // HP 1/3まで
         co_await BehaviorUtil::WaitLessThanHpRate(pActor, 1.0 / 3.0);
-        co_await Behavior::WaitPursuitHands(pActor);
 
         // 後半パターン
         co_yield Behavior::Phase3;
@@ -62,6 +60,8 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         co_await Angry(pActor);
 
+        co_await Behavior::WaitPursuitHands(pActor);
+
         // 追従開始
         co_await ChangeHandsPhase2(pActor);
 
@@ -84,6 +84,8 @@ namespace abyss::Actor::Enemy::CodeZero
     Coro::Fiber<> Behavior::Phase3(ActorObj* pActor)
     {
         co_await Angry(pActor);
+
+        co_await Behavior::WaitPursuitHands(pActor);
 
         bool isReverse = false;
         while (true) {
