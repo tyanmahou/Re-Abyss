@@ -6,6 +6,7 @@
 #include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
@@ -134,6 +135,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Fiber<> Behavior::Angry(ActorObj* pActor)
     {
+        pActor->find<StateCtrl>()->changeState<AngryState>();
         co_return;
     }
     Coro::Fiber<> Behavior::Dead(ActorObj* pActor)
