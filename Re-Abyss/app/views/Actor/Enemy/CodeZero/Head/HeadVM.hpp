@@ -13,6 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         HeadVM& setPos(const s3d::Vec2& pos);
         HeadVM& setLook(const Look& look);
         HeadVM& setColorMul(const s3d::ColorF color);
+        HeadVM& setColorAdd(const s3d::ColorF color);
         void draw() const;
     private:
         TexturePacker m_texture;
@@ -22,5 +23,6 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         double m_time = 0;
 
         s3d::ColorF m_colorMul;
+        s3d::ColorF m_colorAdd;
     };
 }

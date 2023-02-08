@@ -136,7 +136,7 @@ namespace abyss::Actor::Enemy::CodeZero
     Coro::Fiber<> Behavior::Angry(ActorObj* pActor)
     {
         pActor->find<StateCtrl>()->changeState<AngryState>();
-        co_return;
+        co_yield{};
     }
     Coro::Fiber<> Behavior::Dead(ActorObj* pActor)
     {

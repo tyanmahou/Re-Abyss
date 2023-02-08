@@ -30,8 +30,15 @@ namespace abyss::Actor::Enemy::CodeZero::Head
         m_colorMul = color;
         return *this;
     }
+    HeadVM& HeadVM::setColorAdd(const s3d::ColorF color)
+    {
+        m_colorAdd = color;
+        return *this;
+    }
     void HeadVM::draw() const
     {
+        s3d::ScopedColorAdd2D addColor(m_colorAdd);
+
         TextureRegion tex = [&]() {
             constexpr Vec2 size{ 170, 170 };
             if (m_look.isForward(Forward::Up)) {

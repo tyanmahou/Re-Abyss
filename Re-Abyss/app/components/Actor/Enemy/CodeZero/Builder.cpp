@@ -185,6 +185,7 @@ namespace
                 .setPos(m_head->getPos())
                 .setLook(m_head->getLook())
                 .setColorMul(m_colorCtrl->colorMul())
+                .setColorAdd(m_colorCtrl->colorAdd())
                 ;
         }
         void setup(Executer executer) final
