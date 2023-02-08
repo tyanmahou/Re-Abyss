@@ -30,8 +30,15 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_colorMul = color;
         return *this;
     }
+    HandVM& HandVM::setColorAdd(const s3d::ColorF color)
+    {
+        m_colorAdd = color;
+        return *this;
+    }
     void HandVM::draw() const
     {
+        s3d::ScopedColorAdd2D addColor(m_colorAdd);
+
         switch (m_motion) {
         case Motion::Wait:
             return this->drawBase();

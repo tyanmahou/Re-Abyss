@@ -19,6 +19,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             return *this;
         }
         HandVM& setColorMul(const s3d::ColorF color);
+        HandVM& setColorAdd(const s3d::ColorF color);
         void draw() const;
     private:
         void drawBase(const s3d::Color& color = s3d::Palette::White) const;
@@ -32,5 +33,6 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         double m_time = 0;
         Motion m_motion = Motion::Wait;
         s3d::ColorF m_colorMul;
+        s3d::ColorF m_colorAdd;
     };
 }

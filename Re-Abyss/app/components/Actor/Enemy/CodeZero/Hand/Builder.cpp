@@ -119,6 +119,7 @@ namespace
                 .setRotate(m_rotate->getRotate())
                 .setMotion(m_motion->get<Motion>())
                 .setColorMul(m_colorCtrl->colorMul(1))
+                .setColorAdd(m_colorCtrl->colorAdd())
                 ;
         }
         void onStart() final
