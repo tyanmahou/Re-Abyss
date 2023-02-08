@@ -65,6 +65,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveRollingAttack, this, isReverse));
     }
+    void HandMove::startAngry()
+    {
+        m_task.reset(std::bind(&HandMove::moveAngry, this));
+    }
     bool HandMove::isMoveEnd() const
     {
         return m_task.isDone();
@@ -254,6 +258,21 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             auto offset = Param::Head::Offset * rate;
             m_body->setPos(parentPos + offset + newDist * newToHand);
             m_rotate->setRotate(initRotate + rotate2);
+            co_yield{};
+        }
+        co_return;
+    }
+    Coro::Fiber<> HandMove::moveAngry()
+    {
+        const Vec2 initVec = m_body->getVelocity()
+            .limitLength(HandParam::Pursuit::Speed);
+        TimeLite::Timer moveTimer(2.0);
+
+        while (!moveTimer.isEnd()) {
+            moveTimer.update(m_pActor->deltaTime());
+
+            auto rate = moveTimer.rate();
+            m_body->setVelocity(initVec * (1 - rate));
             co_yield{};
         }
         co_return;

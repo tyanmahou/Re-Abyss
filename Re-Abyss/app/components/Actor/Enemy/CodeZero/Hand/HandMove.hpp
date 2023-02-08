@@ -51,6 +51,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void startForRollingAttack(bool isReverse = false);
 
         /// <summary>
+        /// 怒り演出開始
+        /// </summary>
+        void startAngry();
+
+        /// <summary>
         /// 移動終了
         /// </summary>
         /// <returns></returns>
@@ -75,6 +80,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Coro::Fiber<> moveAttack();
         Coro::Fiber<> moveShotCharge();
         Coro::Fiber<> moveRollingAttack(bool isReverse = false);
+        Coro::Fiber<> moveAngry();
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;

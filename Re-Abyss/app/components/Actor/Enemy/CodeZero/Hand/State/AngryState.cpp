@@ -9,12 +9,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     }
     void AngryState::start()
     {
-        m_handMove->setActive(false);
-        m_pActor->find<Body>()->setVelocity(s3d::Vec2::Zero());
+        m_handMove->startAngry();
     }
     void AngryState::end()
     {
-        m_handMove->setActive(true);
     }
     void AngryState::update()
     {}
