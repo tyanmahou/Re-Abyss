@@ -2,7 +2,6 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Game/RenderStateInitializer.hpp>
-#include <abyss/commons/SingletonManager/SingletonManager.hpp>
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/debugs/System/System.hpp>
 
@@ -39,8 +38,7 @@ namespace abyss
 		}
 	private:
         SequenceManager m_sequence;
-        SingletonManager m_singletonManager;
-	};
+    };
 
 	Game::Game() :
 		m_pImpl(std::make_unique<Impl>())

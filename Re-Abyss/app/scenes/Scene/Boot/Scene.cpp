@@ -10,13 +10,11 @@ namespace abyss::Scene::Boot
 {
     class Scene::Impl
     {
-        std::shared_ptr<Data_t> m_data;
     public:
-        Impl([[maybe_unused]] const InitData& init) :
-            m_data(init._s)
+        Impl([[maybe_unused]] const InitData& init)
         {
             // ローディング
-            m_data->loader.startAsync(std::bind(&Impl::loading, this));
+            init._s->loader.startAsync(std::bind(&Impl::loading, this));
         }
         void loading()
         {
