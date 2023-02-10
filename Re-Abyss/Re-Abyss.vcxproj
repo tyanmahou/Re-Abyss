@@ -2057,6 +2057,7 @@
     <ClInclude Include="app\modules\Novel\Name.hpp" />
     <ClInclude Include="app\modules\Novel\Side.hpp" />
     <ClInclude Include="app\modules\Novel\TagString.hpp" />
+    <ClInclude Include="app\values\Fps.hpp" />
     <ClInclude Include="app\values\OopartsType.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />

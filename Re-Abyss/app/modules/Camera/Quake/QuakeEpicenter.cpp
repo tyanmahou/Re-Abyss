@@ -23,7 +23,7 @@ namespace abyss
             m_nextTargetTimeSec = static_cast<int32>(m_elapsedSec / nextDiff) * nextDiff + nextDiff;
             m_offsetTarget = s3d::RandomVec2(Circle(m_maxOffset * radiusRate));
         }
-        m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, 120.0));
+        m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, 120_fps));
     }
     void QuakeEpicenter::stop()
     {

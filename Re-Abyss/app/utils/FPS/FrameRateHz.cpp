@@ -2,12 +2,14 @@
 
 namespace abyss
 {
-    void FrameRateHz::set(const s3d::Optional<double>& value)
+    void FrameRateHz::set(const s3d::Optional<Fps>& value)
     {
         m_value = value;
-        auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate;
-        if (value && refreshRate && *refreshRate >= *value && *value > 0) {
-            m_sleepTime = s3d::Duration(1.0 / (*value));
+        auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate.map([](double x) {
+            return Fps{ x };
+        });
+        if (value && refreshRate && *refreshRate >= *value) {
+            m_sleepTime = value->duration();
             s3d::Graphics::SetVSyncEnabled(false);
         } else {
             m_sleepTime = s3d::none;

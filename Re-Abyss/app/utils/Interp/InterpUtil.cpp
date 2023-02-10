@@ -3,8 +3,8 @@
 
 namespace abyss::InterpUtil
 {
-    double DampRatio(double ratio, double dt, double baseFps)
+    double DampRatio(double ratio, double dt, const Fps& baseFps)
     {
-        return 1.0 - s3d::Pow(1.0 - ratio, baseFps * dt);
+        return 1.0 - s3d::Pow(1.0 - ratio, baseFps.frame(dt));
     }
 }

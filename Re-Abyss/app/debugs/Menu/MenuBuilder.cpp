@@ -118,7 +118,9 @@ namespace abyss::Debug
 	}
 	void MenuBuilder::ExecFPS(s3d::StringView value)
 	{
-		FrameRateHz::Set(ParseOpt<double>(value));
+        FrameRateHz::Set(ParseOpt<double>(value).map([](double fps) {
+            return Fps{ fps };
+        }));
 	}
 }
 #endif
