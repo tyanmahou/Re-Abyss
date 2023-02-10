@@ -847,6 +847,7 @@
     <ClCompile Include="app\utils\Look\Look.cpp" />
     <ClCompile Include="app\modules\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
+    <ClCompile Include="app\utils\Random\RandUtil.cpp" />
     <ClCompile Include="app\values\UserPlayMode.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp" />
@@ -2038,6 +2039,7 @@
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
+    <ClInclude Include="app\utils\Random\RandUtil.hpp" />
     <ClInclude Include="app\values\Forward.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
