@@ -14,7 +14,7 @@ namespace abyss
             assert(fps > 0);
         }
 
-        constexpr s3d::Duration duration() const
+        [[nodiscard]] constexpr s3d::Duration duration() const
         {
             return s3d::Duration(1.0 / m_fps);
         }
@@ -24,12 +24,12 @@ namespace abyss
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        constexpr double frame(double dt) const
+        [[nodiscard]] constexpr double frame(double dt) const
         {
             return dt * m_fps;
         }
 
-        constexpr auto operator <=> (const Fps& other) const = default;
+        [[nodiscard]] constexpr auto operator <=> (const Fps& other) const = default;
     private:
         double m_fps = 60;
     };
