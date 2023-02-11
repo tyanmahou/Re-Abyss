@@ -5,15 +5,32 @@ namespace abyss
 {
     class PivotUtil
     {
-#define DEFINE_PIVOT(name, ...) \
-        static constexpr s3d::Vec2 name{ __VA_ARGS__ };\
-        static constexpr s3d::Vec2 From##name(const s3d::Vec2& pos)\
+        static constexpr s3d::RectF AppScreen{ Constants::AppResolutionF };
+
+#define DEFINE_ANCHOR(name, method) \
+        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, double x, double y)\
         {\
-            return pos + name;\
+            return From##name(rect, { x, y });\
+        }\
+        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, const s3d::Vec2& pos)\
+        {\
+            return rect.method() + pos;\
         }\
         static constexpr s3d::Vec2 From##name(double x, double y)\
         {\
-            return From##name(s3d::Vec2{ x, y });\
+            return From##name({ x, y });\
+        }\
+        static constexpr s3d::Vec2 From##name(const s3d::Vec2& pos)\
+        {\
+            return From##name(AppScreen, pos);\
+        }\
+        static s3d::Vec2 FromScene##name(double x, double y)\
+        {\
+            return FromScene##name({ x, y });\
+        }\
+        static s3d::Vec2 FromScene##name(const s3d::Vec2& pos)\
+        {\
+            return From##name(s3d::Scene::Rect(), pos);\
         }
     public:
         /// <summary>
@@ -23,7 +40,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Tl, 0, 0)
+        DEFINE_ANCHOR(Tl, tl)
 
         /// <summary>
         /// ┏━━━━━■
@@ -32,7 +49,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Tr, Constants::AppResolution.x, 0)
+        DEFINE_ANCHOR(Tr, tr)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -41,7 +58,7 @@ namespace abyss
         /// ┃          ┃
         /// ■━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Bl, 0, Constants::AppResolution.y)
+        DEFINE_ANCHOR(Bl, bl)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -50,7 +67,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━■
         /// </summary>
-        DEFINE_PIVOT(Br, Constants::AppResolution)
+        DEFINE_ANCHOR(Br, br)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -59,7 +76,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Cc, Constants::AppResolution / 2.0)
+        DEFINE_ANCHOR(Cc, center)
 
         /// <summary>
         /// ┏━━■━━┓
@@ -68,7 +85,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Tc, Constants::AppResolution.x / 2.0, 0)
+        DEFINE_ANCHOR(Tc, topCenter)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -77,7 +94,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━■━━┛
         /// </summary>
-        DEFINE_PIVOT(Bc, Constants::AppResolution.x / 2.0, Constants::AppResolution.y)
+        DEFINE_ANCHOR(Bc, bottomCenter)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -86,7 +103,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Cl, 0, Constants::AppResolution.y / 2.0)
+        DEFINE_ANCHOR(Cl, leftCenter)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -95,7 +112,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_PIVOT(Cr, Constants::AppResolution.x, Constants::AppResolution.y / 2.0)
-#undef DEFINE_PIVOT
+        DEFINE_ANCHOR(Cr, rightCenter)
+#undef DEFINE_ANCHOR
     };
 }
