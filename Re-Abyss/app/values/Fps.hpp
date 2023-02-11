@@ -19,6 +19,11 @@ namespace abyss
             return s3d::Duration(1.0 / m_fps);
         }
 
+        [[nodiscard]] constexpr double deltaTime() const
+        {
+            return duration().count();
+        }
+
         /// <summary>
         /// フレーム数
         /// </summary>

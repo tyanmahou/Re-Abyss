@@ -14,7 +14,7 @@ namespace abyss::tests
             REQUIRE(fps30 == fps30);
             REQUIRE(fps30 < fps60);
             REQUIRE(fps30 < fps120);
-            REQUIRE(fps30.duration().count() == 1 / 30.0);
+            REQUIRE(fps30.deltaTime() == 1 / 30.0);
             REQUIRE(fps30.frame(1.0) == 30.0);
         }
 
@@ -22,7 +22,7 @@ namespace abyss::tests
             REQUIRE(fps60 > fps30);
             REQUIRE(fps60 == fps60);
             REQUIRE(fps60 < fps120);
-            REQUIRE(fps60.duration().count() == 1 / 60.0);
+            REQUIRE(fps60.deltaTime() == 1 / 60.0);
             REQUIRE(fps60.frame(1.0) == 60.0);
         }
 
@@ -30,7 +30,7 @@ namespace abyss::tests
             REQUIRE(fps120 > fps30);
             REQUIRE(fps120 > fps60);
             REQUIRE(fps120 == fps120);
-            REQUIRE(fps120.duration().count() == 1 / 120.0);
+            REQUIRE(fps120.deltaTime() == 1 / 120.0);
             REQUIRE(fps120.frame(1.0) == 120.0);
         }
     }
