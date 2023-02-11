@@ -40,6 +40,7 @@
 
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/views/Actor/Player/MotionUtil.hpp>
+#include <abyss/views/Actor/Player/ChargeEffectVM.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 
 namespace
@@ -219,7 +220,8 @@ namespace
         Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<PlayerVM>()),
-            m_oopartsView(std::make_unique<Ooparts::OopartsView>())
+            m_oopartsView(std::make_unique<Ooparts::OopartsView>()),
+            m_chargeView(std::make_unique<ChargeEffectVM>())
         {}
     public:
         void onStart() override
@@ -242,11 +244,11 @@ namespace
                     ooparts->setPipeline(Ooparts::OopartsView::Pipeline::Back).draw();
                     player->draw();
                     ooparts->setPipeline(Ooparts::OopartsView::Pipeline::Front).draw();
-
                     return;
                 }
             }
             player->draw();
+            bindChargeEft()->draw();
         }
     private:
         PlayerVM* bind() const
@@ -255,7 +257,6 @@ namespace
                 .setPos(m_body->getPos())
                 .setVelocity(m_body->getVelocity())
                 .setForward(m_body->getForward())
-                .setCharge(m_charge->getCharge())
                 .setIsAttacking(m_attackCtrl->isAttacking())
                 .setMotion(m_motion->get<Motion>())
                 .setAnimeTime(m_motion->animeTime())
@@ -270,6 +271,14 @@ namespace
                 .setPos(m_body->getPos() + handOffset)
                 ;
         }
+        ChargeEffectVM* bindChargeEft()const
+        {
+            return &m_chargeView
+                ->setTime(m_pActor->getTimeSec())
+                .setPos(m_body->getPos())
+                .setCharge(m_charge->getCharge())
+                ;
+        }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -280,5 +289,6 @@ namespace
 
         std::unique_ptr<PlayerVM> m_view;
         std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
+        std::unique_ptr<ChargeEffectVM> m_chargeView;
     };
 }

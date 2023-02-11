@@ -3,25 +3,7 @@
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/params/Actor/Player/Param.hpp>
-#include <abyss/params/Actor/Player/ShotParam.hpp>
 #include <abyss/views/Actor/Player/MotionUtil.hpp>
-
-namespace
-{
-    using namespace abyss;
-
-    ColorF ChargeToColor(double charge)
-    {
-        if (charge >= Actor::Player::ShotParam::Big::Charge) {
-            return ColorDef::Shot::BigCharge;
-        } else if (charge >= Actor::Player::ShotParam::Medium::Charge) {
-            return ColorDef::Shot::MediumCharge;
-        } else {
-            return ColorF(1);
-        }
-    }
-}
 
 namespace abyss::Actor::Player
 {
@@ -53,12 +35,6 @@ namespace abyss::Actor::Player
         m_forward = forward;
         return *this;
     }
-    PlayerVM& PlayerVM::setCharge(double charge)
-    {
-        m_charge = charge;
-        return *this;
-    }
-
     PlayerVM& PlayerVM::setIsAttacking(bool isAttacking)
     {
         m_isAttacking = isAttacking;
@@ -105,7 +81,6 @@ namespace abyss::Actor::Player
             this->drawStateDoor();
             break;
         }
-        this->drawCharge();
     }
 
     void PlayerVM::drawStateStay() const
@@ -223,28 +198,5 @@ namespace abyss::Actor::Player
     {
         m_texture(U"door")(MotionUtil::DoorRect(this))
             .drawAt(m_pos, this->calcColor());
-    }
-    void PlayerVM::drawCharge() const
-    {
-        if (m_charge <= ShotParam::Small::Charge) {
-            return;
-        }
-        ScopedRenderStates2D t2d(BlendState::Additive);
-        double a = 0.5 * Periodic::Triangle0_1(0.2s, m_time);
-        
-        ColorF color = ::ChargeToColor(m_charge);
-
-        Circle(m_pos, 80 * (1 - Periodic::Sawtooth0_1(0.6s, m_time))).drawFrame(1, 1, color.setA(a));
-        double s = 100 * Periodic::Triangle0_1(0.3s, m_time);
-        RectF({ 0,0,s, s })
-            .setCenter(m_pos)
-            .rotated(Math::QuarterPi * Periodic::Square0_1(0.6s, m_time))
-            .drawFrame(1, 1, color.setA(0.5 - a));
-
-        if (m_charge >= ShotParam::Big::Charge) {
-            Circle(m_pos, Periodic::Triangle0_1(0.3s, m_time) * 30 + 30).draw(color.setA(a));
-        } else if (m_charge >= ShotParam::Medium::Charge) {
-            Circle(m_pos, Periodic::Triangle0_1(0.3s, m_time) * 5 + 30).draw(color.setA(a));
-        }
     }
 }

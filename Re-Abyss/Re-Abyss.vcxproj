@@ -924,6 +924,7 @@
     <ClCompile Include="app\views\Actor\Ooparts\base\OopartsViewUtil.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\Nyan\NyanVM.cpp" />
     <ClCompile Include="app\views\Actor\Ooparts\Xto\XtoVM.cpp" />
+    <ClCompile Include="app\views\Actor\Player\ChargeEffectVM.cpp" />
     <ClCompile Include="app\views\Actor\Player\MotionUtil.cpp" />
     <ClCompile Include="app\views\Actor\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actor\Player\Shot\ShotVM.cpp" />
@@ -2205,6 +2206,7 @@
     <ClInclude Include="app\views\Actor\Ooparts\base\OopartsViewUtil.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Nyan\NyanVM.hpp" />
     <ClInclude Include="app\views\Actor\Ooparts\Xto\XtoVM.hpp" />
+    <ClInclude Include="app\views\Actor\Player\ChargeEffectVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Player\MotionUtil.hpp" />
     <ClInclude Include="app\views\Actor\Player\PlayerVM.hpp" />

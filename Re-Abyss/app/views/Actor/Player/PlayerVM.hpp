@@ -3,8 +3,6 @@
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/values/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
-#include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
-#include <abyss/views/Actor/Player/Xto/XtoAtkVM.hpp>
 #include <abyss/views/Actor/Player/Motion.hpp>
 
 namespace abyss::Actor::Player
@@ -19,8 +17,6 @@ namespace abyss::Actor::Player
         PlayerVM& setPos(const s3d::Vec2& pos);
         PlayerVM& setVelocity(const s3d::Vec2& v);
         PlayerVM& setForward(const Forward& forward);
-        PlayerVM& setCharge(double charge);
-
         PlayerVM& setIsAttacking(bool isAttacking);
 
         PlayerVM& setMotion(Motion motion)
@@ -55,14 +51,12 @@ namespace abyss::Actor::Player
         void drawStateLadderTopAtk() const;
         void drawStateDoor() const;
 
-        void drawCharge()const;
         s3d::ColorF calcColor() const;
     private:
         TexturePacker m_texture;
         s3d::Vec2 m_pos;
         s3d::Vec2 m_velocity;
         Forward m_forward;
-        double m_charge = 0;
 
         bool m_isAttacking = false;
         double m_time = 0;
