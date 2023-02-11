@@ -53,6 +53,7 @@
 // SaveSelect
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
+#include "Param.hpp"
 
 namespace
 {
@@ -170,6 +171,14 @@ namespace abyss::Resource::Preload
         // UI
         info.custom << LoadUIToml;
 
+        return Preloader(std::move(info));
+    }
+    Preloader ParamStartup()
+    {
+        PreloadInfo info{};
+
+        // Loading
+        info.custom << LoadLoadingToml;
         return Preloader(std::move(info));
     }
 }

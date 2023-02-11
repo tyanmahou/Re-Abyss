@@ -5,4 +5,5 @@
 namespace abyss::Resource::Preload
 {
     Preloader ParamAll();
+    Preloader ParamStartup();
 }

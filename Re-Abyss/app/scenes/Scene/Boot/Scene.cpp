@@ -13,6 +13,15 @@ namespace abyss::Scene::Boot
     public:
         Impl([[maybe_unused]] const InitData& init)
         {
+            // Boot時のローディングで即必要なものはココで初期化する
+            {
+                // フォントロード
+                Resource::FontRegister::Load();
+
+                // 初期で必要なものロード
+                Resource::Preload::ParamStartup().preload();
+            }
+
             // ローディング
             init._s->loader.startAsync(std::bind(&Impl::loading, this));
         }
@@ -20,9 +29,6 @@ namespace abyss::Scene::Boot
         {
             // マイグレーション適用
             Resource::UserData::Migration::Update();
-
-            // フォントロード
-            Resource::FontRegister::Load();
 
             auto* assets = Resource::Assets::Norelease();
             // 最初にParam全部ロード

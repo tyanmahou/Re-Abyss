@@ -20,7 +20,7 @@ namespace abyss
             // 環境設定ファイル読み込み
             Env::Load();
 #endif
-			// 初期設定
+            // 初期設定
             RenderStateInitializer::Init();
 		}
 
