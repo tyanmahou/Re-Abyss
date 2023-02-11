@@ -22,7 +22,7 @@
 #include <abyss/views/Actor/Enemy/CaptainTako/Shot/ShotVM.hpp>
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Enemy::CaptainTako::Shot
 {
@@ -79,7 +79,7 @@ namespace abyss::Actor::Enemy::CaptainTako::Shot
         // 描画制御
         {
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
+                ->setPresenter<Presenter>(pActor);
         }
         // 状態
         {
@@ -97,7 +97,7 @@ namespace
     using namespace abyss::Actor::Enemy::CaptainTako;
     using namespace abyss::Actor::Enemy::CaptainTako::Shot;
 
-    class ViewBinder : public IVModelBinder<ShotVM>
+    class Presenter : public IVModelPresenter<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -115,7 +115,7 @@ namespace
             m_body = m_pActor->find<Body>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

@@ -31,7 +31,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 
 namespace abyss::Actor::Enemy::LaunShark::Shot
@@ -118,7 +118,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         {
             pActor->attach<MotionCtrl>();
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
+                ->setPresenter<Presenter>(pActor);
         }
     }
 }
@@ -130,7 +130,7 @@ namespace
     using namespace abyss::Actor::Enemy::LaunShark;
     using namespace abyss::Actor::Enemy::LaunShark::Shot;
 
-    class ViewBinder : public IVModelBinder<ShotVM>
+    class Presenter : public IVModelPresenter<ShotVM>
     {
     private:
         ShotVM* bind() const final
@@ -150,7 +150,7 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

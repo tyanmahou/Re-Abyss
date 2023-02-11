@@ -15,7 +15,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 namespace abyss::Actor::Enemy::LaunShark
 {
@@ -30,7 +30,7 @@ namespace abyss::Actor::Enemy::LaunShark
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::All))
 			.setAudioSettingGroupPath(U"Enemy/LaunShark/LaunShark.aase")
 			.setInitState<SwimState>()
-			.setVModelBinder<ViewBinder>(pActor)
+			.setVModelPresenter<Presenter>(pActor)
 		);
 
 		// Body調整
@@ -50,7 +50,7 @@ namespace
 	using namespace abyss::Actor;
 	using namespace abyss::Actor::Enemy::LaunShark;
 
-	class ViewBinder : public IVModelBinder<LaunSharkVM>
+	class Presenter : public IVModelPresenter<LaunSharkVM>
 	{
 	private:
 		LaunSharkVM* bind() const final
@@ -70,7 +70,7 @@ namespace
 			m_motion = m_pActor->find<MotionCtrl>();
 		}
 	public:
-		ViewBinder(ActorObj* pActor) :
+		Presenter(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<LaunSharkVM>())
 		{}

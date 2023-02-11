@@ -10,7 +10,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 
 namespace abyss::Actor::Gimmick::Bulletin
@@ -40,7 +40,7 @@ namespace abyss::Actor::Gimmick::Bulletin
 		// 描画
 		{
 			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor)
+				->setPresenter<Presenter>(pActor)
 				.setLayer(DrawLayer::WorldBack);
 		}
     }
@@ -52,10 +52,10 @@ namespace
 	using namespace abyss::Actor;
 	using namespace abyss::Actor::Gimmick::Bulletin;
 
-	class ViewBinder : public IVModelBinder<BulletinVM>
+	class Presenter : public IVModelPresenter<BulletinVM>
 	{
 	public:
-		ViewBinder(ActorObj* pActor) :
+		Presenter(ActorObj* pActor) :
 			m_pActor(pActor),
 			m_view(std::make_unique<BulletinVM>())
 		{}

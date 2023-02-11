@@ -17,7 +17,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace
 {
@@ -74,7 +74,7 @@ namespace abyss::Actor::Item::Recovery
         // View
         {
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor, kind, setting);
+                ->setPresenter<Presenter>(pActor, kind, setting);
         }
     }
 }
@@ -85,7 +85,7 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Item::Recovery;
 
-    class ViewBinder : public IVModelBinder<RecoveryVM>
+    class Presenter : public IVModelPresenter<RecoveryVM>
     {
     private:
         RecoveryVM* bind() const final
@@ -110,7 +110,7 @@ namespace
             m_view->setKind(m_kind);
         }
     public:
-        ViewBinder(ActorObj* pActor, RecoveryKind kind, const Setting& setting) :
+        Presenter(ActorObj* pActor, RecoveryKind kind, const Setting& setting) :
             m_pActor(pActor),
             m_kind(kind),
             m_view(std::make_unique<RecoveryVM>(setting))

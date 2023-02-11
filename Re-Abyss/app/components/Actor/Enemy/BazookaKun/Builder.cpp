@@ -12,7 +12,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 
 namespace abyss::Actor::Enemy::BazookaKun
@@ -28,7 +28,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             .setIsEnableMapCollider(false)
             .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")
             .setInitState<WaitState>()
-            .setVModelBinder<ViewBinder>(pActor)
+            .setVModelPresenter<Presenter>(pActor)
             .setIsEnableBreathing(false)
         );
         // Body調整
@@ -53,7 +53,7 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::BazookaKun;
 
-    class ViewBinder : public IVModelBinder<BazookaKunVM>
+    class Presenter : public IVModelPresenter<BazookaKunVM>
     {
     private:
         BazookaKunVM* bind() const final
@@ -76,7 +76,7 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<BazookaKunVM>())
         {}

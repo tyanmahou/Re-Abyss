@@ -32,9 +32,9 @@
 
 namespace
 {
-    class ViewBinder;
-    class ViewBinderHead;
-    class ViewBinderEye;
+    class Presenter;
+    class PresenterHead;
+    class PresenterEye;
 
     class BossFadeMaskDrawer;
 }
@@ -55,7 +55,7 @@ namespace abyss::Actor::Enemy::CodeZero
             .setIsEnableItemDrop(false)
             .setIsAutoDestroy(false)
             .setInitState<WaitState>()
-            .setVModelBinder<ViewBinder>(pActor)
+            .setVModelPresenter<Presenter>(pActor)
         );
 
         // Body調整
@@ -123,10 +123,10 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
 
             pActor->attach<VModelSub<1>>()
-                ->setBinder<ViewBinderHead>(pActor);
+                ->setPresenter<PresenterHead>(pActor);
 
             pActor->attach<VModelSub<2>>()
-                ->setBinder<ViewBinderEye>(pActor);
+                ->setPresenter<PresenterEye>(pActor);
 
             pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
             pActor->find<ColorAnim::DamageColor>()->setIndexMaskMul(0x1);
@@ -151,7 +151,7 @@ namespace
 
     using abyss::Actor::Enemy::CodeZero::Body::BodyVM;
 
-    class ViewBinder : public IVModelBinder<BodyVM>
+    class Presenter : public IVModelPresenter<BodyVM>
     {
     private:
         BodyVM* bind() const final
@@ -165,7 +165,7 @@ namespace
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
-        ViewBinder(Actor::ActorObj* pActor) :
+        Presenter(Actor::ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<BodyVM>())
         {}
@@ -176,7 +176,7 @@ namespace
         std::unique_ptr<BodyVM> m_view;
     };
 
-    class ViewBinderHead : public IVModelBinder<Head::HeadVM>
+    class PresenterHead : public IVModelPresenter<Head::HeadVM>
     {
     private:
         Head::HeadVM* bind() const final
@@ -197,7 +197,7 @@ namespace
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
-        ViewBinderHead(ActorObj* pActor) :
+        PresenterHead(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<Head::HeadVM>())
         {}
@@ -208,7 +208,7 @@ namespace
         std::unique_ptr<Head::HeadVM> m_view;
     };
 
-    class ViewBinderEye : public IVModelBinder<Head::EyeVM>
+    class PresenterEye : public IVModelPresenter<Head::EyeVM>
     {
     private:
         Head::EyeVM* bind() const final
@@ -230,7 +230,7 @@ namespace
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
-        ViewBinderEye(ActorObj* pActor) :
+        PresenterEye(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<Head::EyeVM>())
         {}

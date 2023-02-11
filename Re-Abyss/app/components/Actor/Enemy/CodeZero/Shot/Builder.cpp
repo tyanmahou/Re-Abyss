@@ -24,7 +24,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
@@ -69,7 +69,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         // 描画設定
         {
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor);
+                ->setPresenter<Presenter>(pActor);
         }
     }
 }
@@ -80,7 +80,7 @@ namespace
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Shot;
 
-    class ViewBinder : public IVModelBinder<ShotVM>
+    class Presenter : public IVModelPresenter<ShotVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -101,7 +101,7 @@ namespace
             m_scale = m_pActor->find<ScaleCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShotVM>())
         {}

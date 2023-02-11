@@ -14,7 +14,7 @@
 #include <Siv3D.hpp>
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 namespace abyss::Actor::Gimmick::Bush
 {
@@ -48,7 +48,7 @@ namespace abyss::Actor::Gimmick::Bush
         // 描画
         {
 			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor, entity)
+				->setPresenter<Presenter>(pActor, entity)
                 .setLayer(DrawLayer::WorldFront);
         }
     }
@@ -61,10 +61,10 @@ namespace
 	using namespace abyss::Actor::Gimmick;
 	using namespace abyss::Actor::Gimmick::Bush;
 
-	class ViewBinder : public IVModelBinder<BushVM>
+	class Presenter : public IVModelPresenter<BushVM>
 	{
 	public:
-		ViewBinder(ActorObj* pActor, const BushEntity& entity) :
+		Presenter(ActorObj* pActor, const BushEntity& entity) :
 			m_pActor(pActor),
 			m_view(std::make_unique<BushVM>())
 		{

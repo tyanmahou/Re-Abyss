@@ -25,7 +25,7 @@
 #include <abyss/views/Actor/Enemy/CodeZero/Hand/HandVM.hpp>
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -87,7 +87,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         {
             pActor->attach<MotionCtrl>();
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor, forward);
+                ->setPresenter<Presenter>(pActor, forward);
         }
         // プロキシ
         {
@@ -103,7 +103,7 @@ namespace
     using namespace abyss::Actor::Enemy::CodeZero;
     using namespace abyss::Actor::Enemy::CodeZero::Hand;
 
-    class ViewBinder : public IVModelBinder<HandVM>
+    class Presenter : public IVModelPresenter<HandVM>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -130,7 +130,7 @@ namespace
             m_colorCtrl = m_pActor->find<ParentCtrl>()->getParent()->find<ColorCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor, Forward forward) :
+        Presenter(ActorObj* pActor, Forward forward) :
             m_pActor(pActor),
             m_view(std::make_unique<HandVM>(forward))
         {}

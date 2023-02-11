@@ -135,16 +135,16 @@ namespace abyss::Actor::Enemy
             return setInitState(std::make_shared<State>(std::forward<Args>(args)...));
         }
 
-        BuildOption& setVModelBinder(const std::shared_ptr<IVModelBinderBase>& _vModelBinder)
+        BuildOption& setVModelPresenter(const std::shared_ptr<IVModelPresenterBase>& _vModelPresenter)
         {
-            this->vModelBinder = _vModelBinder;
+            this->vModelPresenter = _vModelPresenter;
             return *this;
         }
 
         template<class Binder, class... Args>
-        BuildOption& setVModelBinder(Args&&... args)
+        BuildOption& setVModelPresenter(Args&&... args)
         {
-            return setVModelBinder(std::make_shared<Binder>(std::forward<Args>(args)...));
+            return setVModelPresenter(std::make_shared<Binder>(std::forward<Args>(args)...));
         }
     private:
         s3d::Optional<s3d::uint32> deployId;
@@ -189,7 +189,7 @@ namespace abyss::Actor::Enemy
         std::shared_ptr<IState> initState = nullptr;
 
         // view
-        std::shared_ptr<IVModelBinderBase> vModelBinder = nullptr;
+        std::shared_ptr<IVModelPresenterBase> vModelPresenter = nullptr;
     };
 
     struct CommonBuilder

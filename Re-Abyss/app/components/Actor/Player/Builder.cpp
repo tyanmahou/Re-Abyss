@@ -43,7 +43,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 namespace abyss::Actor::Player
 {
@@ -178,7 +178,7 @@ namespace abyss::Actor::Player
         {
             pActor->attach<MotionCtrl>();
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor)
+                ->setPresenter<Presenter>(pActor)
                 .setOrder(DrawOrder::World::Player);
         }
         // Light
@@ -212,7 +212,7 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Player;
 
-    class ViewBinder : public IVModelBinder<PlayerVM>
+    class Presenter : public IVModelPresenter<PlayerVM>
     {
     private:
         PlayerVM* bind() const final
@@ -241,7 +241,7 @@ namespace
             m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<PlayerVM>())
         {}

@@ -130,8 +130,8 @@ namespace abyss::Actor::Enemy
 
 			pActor->attach<MotionCtrl>();
 			auto vModel = pActor->attach<VModel>();
-			if (opt.vModelBinder) {
-				vModel->setBinder(opt.vModelBinder);
+			if (opt.vModelPresenter) {
+				vModel->setPresenter(opt.vModelPresenter);
 			}
 		}
 

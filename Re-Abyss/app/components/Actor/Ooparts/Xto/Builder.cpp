@@ -10,7 +10,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Ooparts::Xto
 {
@@ -22,7 +22,7 @@ namespace abyss::Actor::Ooparts::Xto
         {
             pActor
                 ->find<VModel>()
-                ->setBinder<ViewBinder>(pActor);
+                ->setPresenter<Presenter>(pActor);
         }
     };
 }
@@ -34,7 +34,7 @@ namespace
     using namespace abyss::Actor::Ooparts;
     using namespace abyss::Actor::Ooparts::Xto;
 
-    class ViewBinder : public IVModelBinder<OopartsView>
+    class Presenter : public IVModelPresenter<OopartsView>
     {
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -55,7 +55,7 @@ namespace
             m_view->setCharacter(std::make_shared<XtoVM>());
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<OopartsView>())
         {}

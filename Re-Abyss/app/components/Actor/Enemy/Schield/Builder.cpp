@@ -17,7 +17,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 namespace abyss::Actor::Enemy::Schield
 {
@@ -32,7 +32,7 @@ namespace abyss::Actor::Enemy::Schield
             .setCollider<FaceCollider>(pActor)
             .setAudioSettingGroupPath(U"Enemy/Schield/Schield.aase")
             .setInitState<WaitState>()
-            .setVModelBinder<ViewBinder>(pActor)
+            .setVModelPresenter<Presenter>(pActor)
         );
 
         // 顔制御
@@ -56,7 +56,7 @@ namespace
     /// <summary>
     /// 描画
     /// </summary>
-    class ViewBinder : public IVModelBinder<SchieldVM>
+    class Presenter : public IVModelPresenter<SchieldVM>
     {
     private:
         SchieldVM* bind() const final
@@ -76,7 +76,7 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<SchieldVM>())
         {}

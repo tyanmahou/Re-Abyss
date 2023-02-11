@@ -23,7 +23,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 
 namespace abyss::Actor::Player::Shot
@@ -73,7 +73,7 @@ namespace abyss::Actor::Player::Shot
 		// View
 		{
 			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor, shot->getType(), forward);
+				->setPresenter<Presenter>(pActor, shot->getType(), forward);
 
 			pActor->attach<EffectCtrl>(pActor);
 		}
@@ -95,7 +95,7 @@ namespace
 	using namespace abyss::Actor::Player;
 	using namespace abyss::Actor::Player::Shot;
 
-	class ViewBinder : public IVModelBinder<ShotVM>
+	class Presenter : public IVModelPresenter<ShotVM>
 	{
 		ActorObj* m_pActor = nullptr;
 		Ref<Body> m_body;
@@ -113,7 +113,7 @@ namespace
 			m_body = m_pActor->find<Body>();
 		}
 	public:
-		ViewBinder(ActorObj* pActor, PlayerShotType type, Forward forward) :
+		Presenter(ActorObj* pActor, PlayerShotType type, Forward forward) :
 			m_pActor(pActor),
 			m_view(std::make_unique<ShotVM>(type, forward))
 		{}

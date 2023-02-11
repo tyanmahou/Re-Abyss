@@ -24,7 +24,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Gimmick::ShutterWall
 {
@@ -81,7 +81,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         // 描画
         {
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor)
+                ->setPresenter<Presenter>(pActor)
                 ;
         }
         // 音源
@@ -99,10 +99,10 @@ namespace
     using namespace abyss::Actor::Gimmick;
     using namespace abyss::Actor::Gimmick::ShutterWall;
 
-    class ViewBinder : public IVModelBinder<ShutterWallVM>
+    class Presenter : public IVModelPresenter<ShutterWallVM>
     {
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<ShutterWallVM>())
         {

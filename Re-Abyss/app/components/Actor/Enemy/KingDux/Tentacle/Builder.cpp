@@ -28,7 +28,7 @@
 
 namespace
 {
-	class ViewBinder;
+	class Presenter;
 }
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
@@ -110,7 +110,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 		// 描画制御
 		{
 			pActor->attach<VModel>()
-				->setBinder<ViewBinder>(pActor, parent);
+				->setPresenter<Presenter>(pActor, parent);
 		}
 	}
 }
@@ -122,10 +122,10 @@ namespace
 	using namespace abyss::Actor::Enemy::KingDux;
 	using namespace abyss::Actor::Enemy::KingDux::Tentacle;
 
-	class ViewBinder : public IVModelBinder<TentacleVM>
+	class Presenter : public IVModelPresenter<TentacleVM>
 	{
 	public:
-		ViewBinder(ActorObj* pActor, ActorObj* parent) :
+		Presenter(ActorObj* pActor, ActorObj* parent) :
 			m_pActor(pActor),
 			m_parentColor(parent->find<ColorCtrl>()),
 			m_view(std::make_unique<TentacleVM>())

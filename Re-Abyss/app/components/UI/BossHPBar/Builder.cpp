@@ -7,7 +7,7 @@
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::UI::BossHPBar
 {
@@ -26,7 +26,7 @@ namespace abyss::UI::BossHPBar
         // ビュー制御
         {
             pUi->attach<VModel>()
-                ->setBinder<ViewBinder>(pUi);
+                ->setPresenter<Presenter>(pUi);
         }
     };
 }
@@ -37,10 +37,10 @@ namespace
     using namespace abyss::UI;
     using namespace abyss::UI::BossHPBar;
 
-    class ViewBinder final : public IVModelBinder<BossHPBarVM>
+    class Presenter final : public IVModelPresenter<BossHPBarVM>
     {
     public:
-        ViewBinder(UIObj* pUi) :
+        Presenter(UIObj* pUi) :
             m_pUi(pUi),
             m_view(std::make_unique<BossHPBarVM>())
         {}

@@ -10,7 +10,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 
 namespace abyss::Actor::Gimmick::Door
@@ -36,7 +36,7 @@ namespace abyss::Actor::Gimmick::Door
         // 描画制御
         {
             pActor->attach<VModel>()
-                ->setBinder<ViewBinder>(pActor)
+                ->setPresenter<Presenter>(pActor)
                 .setLayer(DrawLayer::WorldBack);
         }
     }
@@ -48,10 +48,10 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Gimmick::Door;
 
-    class ViewBinder : public IVModelBinder<DoorVM>
+    class Presenter : public IVModelPresenter<DoorVM>
     {
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<DoorVM>())
         {}

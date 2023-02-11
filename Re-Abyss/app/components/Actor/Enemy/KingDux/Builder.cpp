@@ -35,8 +35,8 @@
 
 namespace
 {
-    class ViewBinder;
-    class ViewBinderFoot;
+    class Presenter;
+    class PresenterFoot;
 }
 
 namespace abyss::Actor::Enemy::KingDux
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setIsEnableDeadCallback(false)
             .setIsAutoDestroy(false)
             .setInitState<WaitState>()
-            .setVModelBinder<ViewBinder>(pActor)
+            .setVModelPresenter<Presenter>(pActor)
         );
 
         // 中ボス制御
@@ -134,19 +134,19 @@ namespace abyss::Actor::Enemy::KingDux
                 ->setLayer(DrawLayer::WorldBack);
 
             pActor->attach<VModelSub<1>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot1)
+                ->setPresenter<PresenterFoot>(pActor, Param::Foot::Foot1)
                 .setLayer(DrawLayer::DecorBack);
 
             pActor->attach<VModelSub<2>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot2)
+                ->setPresenter<PresenterFoot>(pActor, Param::Foot::Foot2)
                 .setLayer(DrawLayer::WorldFront);
 
             pActor->attach<VModelSub<3>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot3)
+                ->setPresenter<PresenterFoot>(pActor, Param::Foot::Foot3)
                 .setLayer(DrawLayer::Land);
 
             pActor->attach<VModelSub<4>>()
-                ->setBinder<ViewBinderFoot>(pActor, Param::Foot::Foot4)
+                ->setPresenter<PresenterFoot>(pActor, Param::Foot::Foot4)
                 .setLayer(DrawLayer::DecorBack);
 
             pActor->attach<VModelUpdater>(pActor);
@@ -166,10 +166,10 @@ namespace
     using namespace abyss::Actor::Enemy::KingDux;
     using namespace abyss::Actor::Enemy::KingDux::Foot;
 
-    class ViewBinder : public IVModelBinder<KingDuxVM>
+    class Presenter : public IVModelPresenter<KingDuxVM>
     {
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<KingDuxVM>())
         {}
@@ -208,10 +208,10 @@ namespace
         std::unique_ptr<KingDuxVM> m_view;
     };
 
-    class ViewBinderFoot : public IVModelBinder<FootVM>
+    class PresenterFoot : public IVModelPresenter<FootVM>
     {
     public:
-        ViewBinderFoot(ActorObj* pActor, const FootDesc& desc) :
+        PresenterFoot(ActorObj* pActor, const FootDesc& desc) :
             m_pActor(pActor),
             m_view(std::make_unique<FootVM>()),
             m_offset(desc.pos),

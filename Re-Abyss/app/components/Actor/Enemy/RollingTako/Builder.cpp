@@ -16,7 +16,7 @@
 
 namespace
 {
-    class ViewBinder;
+    class Presenter;
 }
 namespace abyss::Actor::Enemy::RollingTako
 {
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::RollingTako
             .setInitHp(Param::Base::Hp)
             .setIsEnableRoomHit(true)
             .setAudioSettingGroupPath(U"Enemy/RollingTako/RollingTako.aase")
-            .setVModelBinder<ViewBinder>(pActor)
+            .setVModelPresenter<Presenter>(pActor)
         );
 
         // 初期状態
@@ -66,7 +66,7 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Enemy::RollingTako;
 
-    class ViewBinder : public IVModelBinder<RollingTakoVM>
+    class Presenter : public IVModelPresenter<RollingTakoVM>
     {
     private:
         RollingTakoVM* bind() const final
@@ -85,7 +85,7 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        ViewBinder(ActorObj* pActor) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
             m_view(std::make_unique<RollingTakoVM>())
         {}
