@@ -21,10 +21,6 @@ namespace
             return ColorF(1);
         }
     }
-    int32 GetTimeInt32(double time)
-    {
-        return static_cast<int32>(time * 60);
-    }
 }
 
 namespace abyss::Actor::Player
@@ -97,7 +93,7 @@ namespace abyss::Actor::Player
             this->drawStateDamage();
             break;
         case Motion::Dead:
-            this->drawStateDead(m_animeTime);
+            this->drawStateDead();
             break;
         case Motion::Ladder:
             this->drawStateLadder();
@@ -118,16 +114,12 @@ namespace abyss::Actor::Player
             this->drawStateStayAtk();
             return;
         }
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-
-        int32 page = timer % 240 <= 10 ? 1 : 0;
-        m_texture(U"stay")({ isRight ? 40 : 0, 80 * page }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"stay")(MotionUtil::StayRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateStayAtk() const
     {
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"stay_atk")({ 0, isRight ? 80 : 0 }, { 80, 80 })
+        m_texture(U"stay_atk")(MotionUtil::StayAtkRect(this))
             .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateFloat() const
@@ -136,27 +128,13 @@ namespace abyss::Actor::Player
             this->drawStateFloatAtk();
             return;
         }
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-
-        double y = 160;
-        if (m_velocity.y < -96) {
-            y = 0;
-        } else if (m_velocity.y < -48) {
-            y = 80;
-        } else {
-            y = 80 * (timer / 30 % 2) + 160;
-        }
-
-        m_texture(U"float")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"float")(MotionUtil::FloatRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateFloatAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-
-        double y = 80 * (timer / 30 % 2);
-        m_texture(U"float_atk")({ isRight ? 70 : 0, y }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"float_atk")(MotionUtil::FloatAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRun() const
     {
@@ -164,22 +142,13 @@ namespace abyss::Actor::Player
             this->drawStateRunAtk();
             return;
         }
-        bool isRight = m_forward == Forward::Right;
-
-        int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5) * 60;
-        m_texture(U"run")({ x, isRight ? 80 : 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"run")(MotionUtil::RunRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRunAtk() const
     {
-        bool isRight = m_forward == Forward::Right;
-        auto page = static_cast<int32>(Periodic::Triangle0_1(1.2s, m_time) * 5);
-        if (page == 3) {
-            page = 1;
-        } else if (page == 4) {
-            page = 0;
-        }
-        int32 x = page * 80;
-        m_texture(U"run_atk")({ x, isRight ? 80 : 0 }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"run_atk")(MotionUtil::RunAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwim() const
     {
@@ -187,24 +156,14 @@ namespace abyss::Actor::Player
             this->drawStateSwimAtk();
             return;
         }
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-
-        double y = 0;
-        if (m_velocity.y < -96) {
-            y = 160;
-        } else if (m_velocity.y < -48) {
-            y = 240;
-        } else {
-            y = 80 * (timer / 30 % 2);
-        }
-        m_texture(U"swim")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"swim")(MotionUtil::SwimRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwimAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"swim_atk")({ isRight ? 80 : 0, 80 * (timer / 30 % 2) }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+
+        m_texture(U"swim_atk")(MotionUtil::SwimAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDive() const
     {
@@ -212,39 +171,24 @@ namespace abyss::Actor::Player
             this->drawStateDiveAtk();
             return;
         }
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
 
-        double y = 80 * (timer / 30 % 2);
-        m_texture(U"dive")({ isRight ? 60 : 0, y }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"dive")(MotionUtil::DiveRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDiveAtk() const
     {
-        int32 timer = GetTimeInt32(m_time);
-        bool isRight = m_forward == Forward::Right;
-
-        double y = 80 * (timer / 30 % 2);
-        m_texture(U"dive_atk")({ isRight ? 80 : 0, y }, { 80, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"dive_atk")(MotionUtil::DiveAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDamage() const
     {
-        bool isRight = m_forward == Forward::Right;
-
-        m_texture(U"damage")({ isRight ? 60 : 0, 0 }, { 60, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"damage")(MotionUtil::DamageRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
-    void PlayerVM::drawStateDead(double rate) const
+    void PlayerVM::drawStateDead() const
     {
-        bool isRight = m_forward == Forward::Right;
-
-        int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, s3d::Pow(rate, 1.8)));
-        if (frame == 5) {
-            frame = 4;
-        }
-        auto pos = m_pos;
-        if (frame == 4) {
-            pos.y += 3;
-        }
-        m_texture(U"dead")({ isRight ? 80 : 0, frame * 80 }, {80, 80})
+        Vec2 pos;
+        m_texture(U"dead")(MotionUtil::DeadRect(this, &pos))
             .drawAt(pos, this->calcColor());
     }
     void PlayerVM::drawStateLadder() const
@@ -253,7 +197,8 @@ namespace abyss::Actor::Player
             this->drawStateLadderAtk();
             return;
         }
-        m_texture(U"ladder")({ 40 * (static_cast<int32>(s3d::Abs(s3d::Floor(m_pos.y / 16))) % 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder")(MotionUtil::LadderRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderAtk() const
     {
@@ -266,16 +211,18 @@ namespace abyss::Actor::Player
             this->drawStateLadderTopAtk();
             return;
         }
-        m_texture(U"ladder")({ 80, 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder")(MotionUtil::LadderTopRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTopAtk() const
     {
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 160 }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder_atk")(MotionUtil::LadderTopAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDoor() const
     {
-        m_texture(U"door")({ 40 * static_cast<int32>(Periodic::Sawtooth0_1(1s) * 2), 0 }, { 40, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"door")(MotionUtil::DoorRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawCharge() const
     {

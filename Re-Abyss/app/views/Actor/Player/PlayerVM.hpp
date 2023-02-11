@@ -48,7 +48,7 @@ namespace abyss::Actor::Player
         void drawStateDive() const;
         void drawStateDiveAtk() const;
         void drawStateDamage() const;
-        void drawStateDead(double rate) const;
+        void drawStateDead() const;
         void drawStateLadder() const;
         void drawStateLadderAtk() const;
         void drawStateLadderTop() const;

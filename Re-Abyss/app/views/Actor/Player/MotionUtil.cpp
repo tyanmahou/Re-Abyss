@@ -2,8 +2,133 @@
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <Siv3D.hpp>
 
+namespace
+{
+    using namespace abyss;
+
+    int32 GetTimeInt32(double time)
+    {
+        return static_cast<int32>(time * 60);
+    }
+}
+
 namespace abyss::Actor::Player
 {
+    s3d::RectF MotionUtil::StayRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        int32 page = timer % 240 <= 10 ? 1 : 0;
+        return { { isRight ? 40 : 0, 80 * page }, { 40, 80 } };
+    }
+    s3d::RectF MotionUtil::StayAtkRect(const PlayerVM* view)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+        return { { 0, isRight ? 80 : 0 }, { 80, 80 } };
+    }
+    s3d::RectF MotionUtil::FloatRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        double y = 160;
+        if (view->m_velocity.y < -96) {
+            y = 0;
+        } else if (view->m_velocity.y < -48) {
+            y = 80;
+        } else {
+            y = 80 * (timer / 30 % 2) + 160;
+        }
+        return { { isRight ? 60 : 0, y }, { 60, 80 } };
+    }
+    s3d::RectF MotionUtil::FloatAtkRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        double y = 80 * (timer / 30 % 2);
+        return { { isRight ? 70 : 0, y }, { 70, 80 } };
+    }
+    s3d::RectF MotionUtil::RunRect(const PlayerVM* view)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+        int32 x = static_cast<int32>(Periodic::Triangle0_1(1.2s, view->m_time) * 5) * 60;
+        return { { x, isRight ? 80 : 0 }, { 60, 80 } };
+    }
+    s3d::RectF MotionUtil::RunAtkRect(const PlayerVM* view)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+        auto page = static_cast<int32>(Periodic::Triangle0_1(1.2s, view->m_time) * 5);
+        if (page == 3) {
+            page = 1;
+        } else if (page == 4) {
+            page = 0;
+        }
+        int32 x = page * 80;
+        return { { x, isRight ? 80 : 0 }, { 80, 80 } };
+    }
+    s3d::RectF MotionUtil::SwimRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        double y = 0;
+        if (view->m_velocity.y < -96) {
+            y = 160;
+        } else if (view->m_velocity.y < -48) {
+            y = 240;
+        } else {
+            y = 80 * (timer / 30 % 2);
+        }
+        return { { isRight ? 60 : 0, y }, { 60, 80 } };
+    }
+    s3d::RectF MotionUtil::SwimAtkRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+        return { { isRight ? 80 : 0, 80 * (timer / 30 % 2) }, { 80, 80 } };
+    }
+    s3d::RectF MotionUtil::DiveRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        double y = 80 * (timer / 30 % 2);
+        return { { isRight ? 60 : 0, y }, { 60, 80 } };
+    }
+    s3d::RectF MotionUtil::DiveAtkRect(const PlayerVM* view)
+    {
+        int32 timer = GetTimeInt32(view->m_time);
+        bool isRight = view->m_forward == Forward::Right;
+
+        double y = 80 * (timer / 30 % 2);
+        return { { isRight ? 80 : 0, y }, { 80, 80 } };
+    }
+    s3d::RectF MotionUtil::DamageRect(const PlayerVM* view)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+        return { { isRight ? 60 : 0, 0 }, { 60, 80 } };
+    }
+    s3d::RectF MotionUtil::DeadRect(const PlayerVM* view, Vec2* outPos)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+
+        int32 frame = static_cast<int32>(s3d::Math::Lerp(0, 5, s3d::Pow(view->m_animeTime, 1.8)));
+        if (frame == 5) {
+            frame = 4;
+        }
+        *outPos = view->m_pos;
+        if (frame == 4) {
+            outPos->y += 3;
+        }
+
+        return { { isRight ? 80 : 0, frame * 80 }, {80, 80} };
+    }
+    s3d::RectF MotionUtil::LadderRect(const PlayerVM* view)
+    {
+        return { { 40 * (static_cast<int32>(s3d::Abs(s3d::Floor(view->m_pos.y / 16))) % 2), 0 }, { 40, 80 } };
+    }
     s3d::int32 MotionUtil::LadderAtkPage(const PlayerVM* view)
     {
         return static_cast<int32>(s3d::Abs(s3d::Floor(view->m_pos.y / 16))) % 2;
@@ -14,6 +139,22 @@ namespace abyss::Actor::Player
         bool isRight = view->m_forward == Forward::Right;
         return {
             { isRight ? 70 : 0, 80 * page }, { 70, 80 }
+        };
+    }
+    s3d::RectF MotionUtil::LadderTopRect([[maybe_unused]]const PlayerVM* view)
+    {
+        return { { 80, 0 }, { 40, 80 } };
+    }
+    s3d::RectF MotionUtil::LadderTopAtkRect(const PlayerVM* view)
+    {
+        bool isRight = view->m_forward == Forward::Right;
+        return { { isRight ? 70 : 0, 160 }, { 70, 80 } };
+    }
+    s3d::RectF MotionUtil::DoorRect(const PlayerVM* view)
+    {
+        return {
+            { 40 * static_cast<int32>(Periodic::Sawtooth0_1(1s, view->m_time) * 2), 0 },
+            { 40, 80 }
         };
     }
     s3d::Optional<s3d::Vec2> MotionUtil::AtkHandPos(const PlayerVM* view)
