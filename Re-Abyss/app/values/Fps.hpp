@@ -34,7 +34,7 @@ namespace abyss
         double m_fps = 60;
     };
 
-    constexpr inline Fps operator""_fps(unsigned long long fps)
+    constexpr inline Fps operator""_fps(s3d::uint64 fps)
     {
         return Fps{ static_cast<double>(fps) };
     }
