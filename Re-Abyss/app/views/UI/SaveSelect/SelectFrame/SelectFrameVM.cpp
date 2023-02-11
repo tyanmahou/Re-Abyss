@@ -3,7 +3,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::SaveSelect::SelectFrame
@@ -15,7 +15,7 @@ namespace abyss::UI::SaveSelect::SelectFrame
     void SelectFrameVM::draw() const
     {
         const Vec2& size = Param::SelectFrame::Size;
-        const Vec2 framePos = PivotUtil::FromCc(Param::SelectFrame::BasePos);
+        const Vec2 framePos = AnchorUtil::FromCc(Param::SelectFrame::BasePos);
         const Vec2& tl = framePos - size / 2.0;
         const Vec2& selectSize = Param::SelectFrame::SelectSize;
         const Vec2& trashSize = Param::SelectFrame::TrashSize;

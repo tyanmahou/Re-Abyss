@@ -2,7 +2,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Title::BackGround
@@ -25,10 +25,10 @@ namespace abyss::UI::Title::BackGround
     }
     s3d::Vec2 BgCtrl::getPos() const
     {
-        return PivotUtil::FromCc(EaseIn(Easing::Linear, { 0, 0 }, BgParam::BackGround::EndPos, this->time0_1()));
+        return AnchorUtil::FromCc(EaseIn(Easing::Linear, { 0, 0 }, BgParam::BackGround::EndPos, this->time0_1()));
     }
     s3d::Vec2 BgCtrl::getAtlantisPos() const
     {
-        return PivotUtil::FromCc(EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, {0, 0}, this->time0_1()));
+        return AnchorUtil::FromCc(EaseIn(Easing::Linear, BgParam::Atlantis::StartPos, {0, 0}, this->time0_1()));
     }
 }

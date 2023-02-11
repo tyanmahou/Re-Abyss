@@ -5,7 +5,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/Msg/Title.hpp>
 #include <abyss/views/UI/Title/Cursor/CursorVM.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
@@ -34,7 +34,7 @@ namespace abyss::UI::Title::Cursor
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, StartImmediately::No, pUi->getModule<GlobalTime>()),
-        m_shot(std::make_unique<Shot>(pUi, PivotUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
+        m_shot(std::make_unique<Shot>(pUi, AnchorUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
     {
     }
     CursorCtrl::~CursorCtrl()
@@ -99,10 +99,10 @@ namespace abyss::UI::Title::Cursor
             CursorViewParam{Msg::Title::Exit, 140.0},
         };
         size_t modeIndex = static_cast<size_t>(m_mode);
-        m_view->setPos(PivotUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
+        m_view->setPos(AnchorUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
 
         for (const auto& param : viewParams) {
-            FontAsset(FontName::SceneName)(param.name).drawAt(PivotUtil::FromCc(0, param.posY));
+            FontAsset(FontName::SceneName)(param.name).drawAt(AnchorUtil::FromCc(0, param.posY));
         }
         if (m_isGameStart) {
             m_shot->draw();

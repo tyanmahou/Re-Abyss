@@ -4,7 +4,7 @@
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 #include <abyss/utils/DateTime/DateTimeUtil.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::SaveSelect::UserInfo
@@ -17,7 +17,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     }
     void UserInfoView::draw(const User::UserModel& user) const
     {
-        const Vec2 basePos = PivotUtil::FromCc(Param::SelectFrame::BasePos) + UserInfoParam::Common::BasePos;
+        const Vec2 basePos = AnchorUtil::FromCc(Param::SelectFrame::BasePos) + UserInfoParam::Common::BasePos;
 
         m_playerInfo
             ->setFace(U"default")

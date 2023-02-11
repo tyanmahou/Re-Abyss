@@ -2,7 +2,7 @@
 
 #include <abyss/commons/FontName.hpp>
 #include <abyss/params/Loading/Common/Param.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 
 #include <Siv3D.hpp>
 
@@ -18,7 +18,7 @@ namespace abyss::Loading::Common
             using Slime = Param::Slime;
             ScopedColorAdd2D scopedColorAdd(ColorF(1,0));
 
-            Vec2 pos = PivotUtil::FromBr(Slime::BasePos);
+            Vec2 pos = AnchorUtil::FromBr(Slime::BasePos);
 
             const double periodicSec = Slime::PeriodicSec;
             const double jumpSec = Slime::JumpSec;

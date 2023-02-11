@@ -7,7 +7,7 @@
 #include <abyss/views/UI/Message/MessageBoxVM.hpp>
 #include <abyss/views/UI/Message/CursorVM.hpp>
 #include <abyss/views/Novel/TagString/TagStringView.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <Siv3D.hpp>
@@ -54,7 +54,7 @@ namespace abyss::UI::Message
             s3d::EaseOutCubic(m_showHideTimer.rate()) :
             s3d::EaseInCubic(m_showHideTimer.invRate());
         const auto alpha = rate;
-        const Vec2 pos = PivotUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -40.0};
+        const Vec2 pos = AnchorUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -40.0};
         m_boxView
             ->setIsLeft(serif.isLeft())
             .setPos(pos)

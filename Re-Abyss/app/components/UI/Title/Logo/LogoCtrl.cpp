@@ -4,7 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Title::Logo
@@ -39,8 +39,8 @@ namespace abyss::UI::Title::Logo
     std::pair<s3d::Optional<LogoCtrl::ViewParam>, s3d::Optional<LogoCtrl::ViewParam>>
         LogoCtrl::getViewParams() const
     {
-        const Vec2 basePos = PivotUtil::FromCc(LogoParam::Step::BasePos);
-        const Vec2 endPos = PivotUtil::FromCc(LogoParam::End::Pos);
+        const Vec2 basePos = AnchorUtil::FromCc(LogoParam::Step::BasePos);
+        const Vec2 endPos = AnchorUtil::FromCc(LogoParam::End::Pos);
         const auto& moveOffset = LogoParam::Step::MoveOffset;
         const auto& moveDiff = LogoParam::Step::MoveDiff;
 

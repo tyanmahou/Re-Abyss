@@ -2,7 +2,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::GamePause
@@ -35,9 +35,9 @@ namespace abyss::UI::GamePause
     {
         m_bg->setBgColor(ColorF(0.5, 0.7)).draw();
         {
-            FontAsset(FontName::SceneName)(U"- Pause -").drawAt(PivotUtil::FromTc(0, 50), Color(0, 255, 255));
+            FontAsset(FontName::SceneName)(U"- Pause -").drawAt(AnchorUtil::FromTc(0, 50), Color(0, 255, 255));
 
-            const Vec2 basePos = PivotUtil::FromCc({0, 0});
+            const Vec2 basePos = AnchorUtil::FromCc({0, 0});
             const Vec2 boardSize = { 500, 270};
             const auto board = RectF{ basePos - boardSize / 2, boardSize };
             board.draw(Palette::Black);

@@ -2269,7 +2269,7 @@
     <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
-    <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp" />
+    <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>

@@ -5701,7 +5701,7 @@
     <ClInclude Include="app\views\util\Fade\Fade.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\util\Pivot\PivotUtil.hpp">
+    <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp">

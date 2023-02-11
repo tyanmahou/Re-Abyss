@@ -1,7 +1,7 @@
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/UI/BossHPBar/Param.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D/Math.hpp>
 
 namespace 
@@ -21,7 +21,7 @@ namespace abyss::UI::BossHPBar
 {
     BossHPBarVM::BossHPBarVM():
         m_texture(Resource::Assets::Main()->load(U"UI/BossHPBar/BossHpBar.json")),
-        m_pos(PivotUtil::FromBr(Param::BrPos))
+        m_pos(AnchorUtil::FromBr(Param::BrPos))
     {
     
     }

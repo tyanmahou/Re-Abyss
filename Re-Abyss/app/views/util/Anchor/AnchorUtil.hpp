@@ -3,7 +3,7 @@
 
 namespace abyss
 {
-    class PivotUtil
+    class AnchorUtil
     {
         static constexpr s3d::RectF AppScreen{ Constants::AppResolutionF };
 

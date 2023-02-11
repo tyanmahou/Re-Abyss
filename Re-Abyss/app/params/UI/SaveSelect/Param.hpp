@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/utils/TOML/TOMLBind.hpp>
-#include <abyss/views/util/Pivot/PivotUtil.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/RectF.hpp>
 
@@ -51,7 +51,7 @@ namespace abyss::UI::SaveSelect
 
             inline static s3d::RectF Board()
             {
-                return s3d::RectF{ PivotUtil::FromCc(SelectFrame::BasePos) + BoardPos - BoardSize/2.0, BoardSize };
+                return s3d::RectF{ AnchorUtil::FromCc(SelectFrame::BasePos) + BoardPos - BoardSize/2.0, BoardSize };
             }
         };
     };
