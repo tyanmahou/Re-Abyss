@@ -235,11 +235,7 @@ namespace
         {
             auto* player = this->bind();
             if (m_attackCtrl->isAttacking()) {
-                if (auto handOffsetPos = MotionUtil::AtkHandPos(
-                    m_motion->get<Motion>(),
-                    m_body->getForward(),
-                    m_body->getPos()
-                )) {
+                if (auto handOffsetPos = MotionUtil::AtkHandPos(player)) {
                     // 攻撃中の描画上書き
                     auto ooparts = this->bindOoparts(*handOffsetPos);
 

@@ -11,6 +11,7 @@ namespace abyss::Actor::Player
 {
     class PlayerVM
     {
+        friend class MotionUtil;
     public:
         PlayerVM();
 

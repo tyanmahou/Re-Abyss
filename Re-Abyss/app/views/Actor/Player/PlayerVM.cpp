@@ -5,6 +5,7 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/params/Actor/Player/ShotParam.hpp>
+#include <abyss/views/Actor/Player/MotionUtil.hpp>
 
 namespace
 {
@@ -256,9 +257,8 @@ namespace abyss::Actor::Player
     }
     void PlayerVM::drawStateLadderAtk() const
     {
-        auto page = static_cast<int32>(s3d::Abs(s3d::Floor(m_pos.y / 16))) % 2;
-        bool isRight = m_forward == Forward::Right;
-        m_texture(U"ladder_atk")({ isRight ? 70 : 0, 80 * page }, { 70, 80 }).drawAt(m_pos, this->calcColor());
+        m_texture(U"ladder_atk")(MotionUtil::LadderAtkRect(this))
+            .drawAt(m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTop() const
     {
