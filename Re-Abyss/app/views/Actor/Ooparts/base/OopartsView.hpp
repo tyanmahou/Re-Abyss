@@ -9,12 +9,20 @@ namespace abyss::Actor::Ooparts
 {
     class OopartsView
     {
-    private:
-        std::shared_ptr<BaseVM> m_character;
+    public:
+        enum class Pipeline
+        {
+            Back = 0x1,
+            Character = 0x2,
+            Front = 0x4,
 
-        s3d::Vec2 m_pos{0, 0};
-        Forward m_forward{Forward::Right};
-        double m_time = 0;
+            All = Back | Character | Front,
+        };
+
+        friend bool operator &(Pipeline a, Pipeline b)
+        {
+            return (static_cast<int32>(a) & static_cast<int32>(b)) != 0;
+        }
     public:
         OopartsView();
         virtual ~OopartsView() = default;
@@ -44,6 +52,20 @@ namespace abyss::Actor::Ooparts
             m_forward = forward;
             return *this;
         }
+        OopartsView& setForward(Pipeline pipeline)
+        {
+            m_pipeline = pipeline;
+            return *this;
+        }
         void draw() const;
+
+    private:
+        std::shared_ptr<BaseVM> m_character;
+
+        s3d::Vec2 m_pos{ 0, 0 };
+        Forward m_forward{ Forward::Right };
+        double m_time = 0;
+
+        Pipeline m_pipeline = Pipeline::All;
     };
 }
