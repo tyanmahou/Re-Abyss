@@ -18,12 +18,14 @@ namespace abyss
         }
         m_elapsedSec += dt;
         double radiusRate = m_timeSec <= 0 ? 1.0 : Max(1.0 - m_elapsedSec / m_timeSec, 0.0);
+
+        constexpr Fps baseFps = 120_fps;
         if (m_elapsedSec >= m_nextTargetTimeSec) {
-            constexpr double nextDiff = 1.0 / 120.0;
+            constexpr double nextDiff = baseFps.deltaTime();
             m_nextTargetTimeSec = static_cast<int32>(m_elapsedSec / nextDiff) * nextDiff + nextDiff;
             m_offsetTarget = s3d::RandomVec2(Circle(m_maxOffset * radiusRate));
         }
-        m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, 120_fps));
+        m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, baseFps));
     }
     void QuakeEpicenter::stop()
     {

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Actor/base/IUpdate.hpp>
@@ -33,11 +33,15 @@ namespace abyss::Actor
         bool isShakeing() const;
     private:
         ActorObj* m_pActor;
-        double m_time = 0;
-        double m_shakeTime = 0;
-        double m_maxOffset = 5.0;
+
+        double m_maxOffset = 0;
+        double m_timeSec = 0.0;
+        double m_elapsedSec = 0.0;
+
+        double m_nextTargetTimeSec = 0.0;
+        Vec2 m_offsetTarget;
+
         s3d::Vec2 m_offset;
-        double m_noiseOffset = 0.0;
     };
 }
 

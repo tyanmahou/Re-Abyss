@@ -1,6 +1,7 @@
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/utils/Interp/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -12,43 +13,40 @@ namespace abyss::Actor
 
     void ShakeCtrl::onUpdate()
     {
-        if (m_shakeTime <= 0 || m_time <= 0) {
-            // 揺れてない
-            m_offset = Vec2{ 0, 0 };
-            return;
-        }
         double dt = m_pActor->deltaTime();
         if (dt <= 0) {
             // 更新不要
             return;
         }
+        if (!this->isShakeing()) {
+            // 揺れてない
+            m_offset = Vec2{ 0, 0 };
+            return;
+        }
 
-        // 時間経過
-        m_time -= dt;
+        m_elapsedSec += dt;
+        double radiusRate = m_timeSec <= 0 ? 1.0 : Max(1.0 - m_elapsedSec / m_timeSec, 0.0);
 
-        // オフセット計算
-        double rate = s3d::Saturate(m_time / m_shakeTime);
-        auto periodTime = m_time * m_time * 11.4514;
-
-        // ノイズ
-        const double noise = s3d::Periodic::Sine0_1(m_shakeTime, periodTime)
-            + s3d::Periodic::Triangle0_1(s3d::Math::InvPi, rate)
-            + m_noiseOffset;
-
-        // 左右に往復させるためのオフセット
-        double offsetFactor = s3d::Periodic::Triangle0_1(m_shakeTime, periodTime * 5.0);
-
-        m_offset = Vec2::UnitX().rotated(noise * s3d::Math::TwoPi) * (m_maxOffset * offsetFactor) * rate;
+        constexpr Fps baseFps = 120_fps;
+        if (m_elapsedSec >= m_nextTargetTimeSec) {
+            constexpr double nextDiff = baseFps.deltaTime();
+            m_nextTargetTimeSec = static_cast<int32>(m_elapsedSec / nextDiff) * nextDiff + nextDiff;
+            m_offsetTarget = s3d::RandomVec2(Circle(m_maxOffset * radiusRate));
+        }
+        m_offset = s3d::Math::Lerp(m_offset, m_offsetTarget, InterpUtil::DampRatio(0.99, dt, baseFps));
     }
     void ShakeCtrl::request(double maxOffset, double timeSec)
     {
-        m_time = timeSec;
-        m_shakeTime = timeSec;
         m_maxOffset = maxOffset;
-        m_noiseOffset = s3d::Random();
+        m_timeSec = timeSec;
+        m_elapsedSec = 0;
+        m_nextTargetTimeSec = 0;
     }
     bool ShakeCtrl::isShakeing() const
     {
-        return m_time > 0;
+        if (m_timeSec <= 0) {
+            return false;
+        }
+        return m_elapsedSec <= m_timeSec;
     }
 }
