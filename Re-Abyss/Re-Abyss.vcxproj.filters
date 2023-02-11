@@ -2399,6 +2399,9 @@
     <ClCompile Include="app\views\Actor\Player\ChargeEffectVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\values\FpsCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
