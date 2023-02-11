@@ -2,7 +2,7 @@
 
 namespace abyss::Actor::Player
 {
-    enum Motion
+    enum class Motion
     {
         Stay,
         Float,

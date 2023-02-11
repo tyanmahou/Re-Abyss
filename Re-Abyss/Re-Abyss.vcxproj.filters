@@ -2393,6 +2393,9 @@
     <ClCompile Include="app\utils\Random\RandUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Actor\Player\MotionUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6225,6 +6228,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\values\Fps.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Actor\Player\MotionUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

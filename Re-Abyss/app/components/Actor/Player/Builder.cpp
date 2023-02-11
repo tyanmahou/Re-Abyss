@@ -39,6 +39,7 @@
 #include <abyss/components/Actor/Player/CameraTarget.hpp>
 
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
+#include <abyss/views/Actor/Player/MotionUtil.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsView.hpp>
 
 namespace
@@ -212,10 +213,47 @@ namespace
     using namespace abyss::Actor;
     using namespace abyss::Actor::Player;
 
-    class Presenter : public IVModelPresenter<PlayerVM>
+    class Presenter final : public IVModelPresenterBase
     {
+    public:
+        Presenter(ActorObj* pActor) :
+            m_pActor(pActor),
+            m_view(std::make_unique<PlayerVM>()),
+            m_oopartsView(std::make_unique<Ooparts::OopartsView>())
+        {}
+    public:
+        void onStart() override
+        {
+            m_body = m_pActor->find<Body>();
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
+            m_charge = m_pActor->find<ChargeCtrl>();
+            m_attackCtrl = m_pActor->find<AttackCtrl>();
+            m_motion = m_pActor->find<MotionCtrl>();
+        }
+
+        void onDraw() const override
+        {
+            auto* player = this->bind();
+            if (m_attackCtrl->isAttacking()) {
+                if (auto handOffsetPos = MotionUtil::AtkHandPos(
+                    m_motion->get<Motion>(),
+                    m_body->getForward(),
+                    m_body->getPos()
+                )) {
+                    // 攻撃中の描画上書き
+                    auto ooparts = this->bindOoparts(*handOffsetPos);
+
+                    ooparts->setPipeline(Ooparts::OopartsView::Pipeline::Back).draw();
+                    player->draw();
+                    ooparts->setPipeline(Ooparts::OopartsView::Pipeline::Front).draw();
+
+                    return;
+                }
+            }
+            player->draw();
+        }
     private:
-        PlayerVM* bind() const final
+        PlayerVM* bind() const
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
@@ -228,23 +266,14 @@ namespace
                 .setColorMul(m_colorCtrl->colorMul())
                 ;
         }
-        void onStart() final
+        Ooparts::OopartsView* bindOoparts(const s3d::Vec2& handOffset) const
         {
-            m_body = m_pActor->find<Body>();
-            m_colorCtrl = m_pActor->find<ColorCtrl>();
-            m_charge = m_pActor->find<ChargeCtrl>();
-            m_attackCtrl = m_pActor->find<AttackCtrl>();
-            m_motion = m_pActor->find<MotionCtrl>();
-
-            auto oopartsView = std::make_unique<Ooparts::OopartsView>();
-            m_view->setOopartsView(std::move(oopartsView));
-            m_view->setXtoAtkView(std::make_shared<XtoAtkVM>());
+            return &m_oopartsView
+                ->setTime(m_pActor->getTimeSec())
+                .setForward(m_body->getForward())
+                .setPos(m_body->getPos() + handOffset)
+                ;
         }
-    public:
-        Presenter(ActorObj* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<PlayerVM>())
-        {}
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
@@ -254,5 +283,6 @@ namespace
         Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<PlayerVM> m_view;
+        std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
     };
 }

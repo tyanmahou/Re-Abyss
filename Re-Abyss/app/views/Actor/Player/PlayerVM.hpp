@@ -13,8 +13,6 @@ namespace abyss::Actor::Player
     {
     public:
         PlayerVM();
-        PlayerVM& setOopartsView(std::unique_ptr<Ooparts::OopartsView>&& ooparts);
-        PlayerVM& setXtoAtkView(std::shared_ptr<XtoAtkVM>&& xto);
 
         PlayerVM& setTime(double time);
         PlayerVM& setPos(const s3d::Vec2& pos);
@@ -70,8 +68,5 @@ namespace abyss::Actor::Player
         Motion m_motion;
         double m_animeTime = 0;
         s3d::ColorF m_colorMul;
-
-        std::unique_ptr<Ooparts::OopartsView> m_oopartsView;
-        std::shared_ptr<XtoAtkVM> m_xto;
     };
 }

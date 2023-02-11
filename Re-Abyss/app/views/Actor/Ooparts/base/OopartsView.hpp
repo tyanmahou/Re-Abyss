@@ -52,7 +52,7 @@ namespace abyss::Actor::Ooparts
             m_forward = forward;
             return *this;
         }
-        OopartsView& setForward(Pipeline pipeline)
+        OopartsView& setPipeline(Pipeline pipeline)
         {
             m_pipeline = pipeline;
             return *this;
