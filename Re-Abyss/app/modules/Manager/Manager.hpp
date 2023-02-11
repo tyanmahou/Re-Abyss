@@ -37,7 +37,7 @@ namespace abyss
         WorldComment* m_pWorldComment = nullptr;
 #endif
 #if ABYSS_DEVELOP
-        GitHub* m_pGitHub = nullptr;
+        Project* m_pProject = nullptr;
 #endif
     public:
 
@@ -94,7 +94,7 @@ namespace abyss
 #endif
 
 #if ABYSS_DEVELOP
-        Manager& set(GitHub* pGitHub);
+        Manager& set(Project* pProject);
 #endif
         template<class T>
         T* getModule() const;

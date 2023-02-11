@@ -1,4 +1,5 @@
 #pragma once
+#if ABYSS_DEVELOP
 #include <abyss/commons/Fwd.hpp>
 
 namespace abyss::UI::DevPortal
@@ -8,3 +9,4 @@ namespace abyss::UI::DevPortal
         static void Build(UIObj* pUi);
     };
 }
+#endif

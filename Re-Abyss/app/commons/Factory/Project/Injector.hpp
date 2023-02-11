@@ -1,6 +1,10 @@
 #pragma once
+#if ABYSS_DEVELOP
 #include <Emaject.hpp>
-namespace abyss::Factory::Migration
+
+namespace abyss::Factory::Project
 {
     emaject::Injector Injector();
 }
+
+#endif

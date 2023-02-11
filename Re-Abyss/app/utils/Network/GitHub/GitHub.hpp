@@ -4,7 +4,7 @@
 
 namespace abyss::Network::GitHub
 {
-    class GitHubService
+    class GitHub
     {
     public:
         /// <summary>

@@ -3,16 +3,16 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Layout/Window/Window.hpp>
 
-namespace abyss::Devs::GitHub
+namespace abyss::Devs::Project
 {
     class TaskBoard
     {
     public:
-        TaskBoard(GitHub* gitHub);
+        TaskBoard(Project* project);
 
         void draw() const;
     private:
-        Devs::GitHub::GitHub* m_gitHub;
+        Project* m_project;
         std::unique_ptr<Layout::Window::Window> m_window;
     };
 }

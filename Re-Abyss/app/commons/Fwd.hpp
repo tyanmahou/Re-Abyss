@@ -146,13 +146,13 @@ namespace abyss
 	{
 		class WorldComment;
 
-        namespace GitHub
+        namespace Project
         {
-            class GitHub;
+            class Project;
         }
  	}
 	using Devs::WorldComment;
-    using Devs::GitHub::GitHub;
+    using Devs::Project::Project;
 
     namespace Pause
     {

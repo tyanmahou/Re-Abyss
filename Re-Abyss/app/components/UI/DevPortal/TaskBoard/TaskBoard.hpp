@@ -3,7 +3,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/UI/base/IDraw.hpp>
 
-#include <abyss/modules/Devs/GitHub/TaskBoard.hpp>
+#include <abyss/modules/Devs/Project/TaskBoard.hpp>
 
 namespace abyss::UI::DevPortal
 {
@@ -17,7 +17,7 @@ namespace abyss::UI::DevPortal
         void onDraw()const override;
     private:
         UIObj* m_pUi;
-        Devs::GitHub::TaskBoard m_task;
+        Devs::Project::TaskBoard m_task;
     };
 }
 namespace abyss

@@ -136,9 +136,9 @@ namespace abyss
 #endif
 
 #if ABYSS_DEVELOP
-    Manager& Manager::set(GitHub* pGitHub)
+    Manager& Manager::set(Project* pProject)
     {
-        m_pGitHub = pGitHub;
+        m_pProject = pProject;
         return *this;
     }
 #endif
@@ -201,8 +201,8 @@ namespace abyss
         }
 #endif
 #if ABYSS_DEVELOP
-        else if constexpr (std::is_same_v<GitHub, T>) {
-            return m_pGitHub;
+        else if constexpr (std::is_same_v<Project, T>) {
+            return m_pProject;
         }
 #endif
     }
@@ -234,6 +234,6 @@ namespace abyss
     template WorldComment* Manager::getModule<WorldComment>() const;
 #endif
 #if ABYSS_DEVELOP
-    template GitHub* Manager::getModule<GitHub>() const;
+    template Project* Manager::getModule<Project>() const;
 #endif
 }

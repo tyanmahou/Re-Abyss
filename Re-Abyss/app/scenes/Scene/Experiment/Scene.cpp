@@ -1,8 +1,7 @@
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
+#if ABYSS_DEVELOP
 #include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
-
-#if ABYSS_DEVELOP
 namespace abyss::Scene::Experiment
 {
     class Scene::Impl

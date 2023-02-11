@@ -1,13 +1,13 @@
-#include <abyss/modules/Devs/GitHub/TaskBoard.hpp>
 #if ABYSS_DEVELOP
-#include <abyss/modules/Devs/GitHub/GitHub.hpp>
+#include <abyss/modules/Devs/Project/TaskBoard.hpp>
+#include <abyss/modules/Devs/Project/Project.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
 
-namespace abyss::Devs::GitHub
+namespace abyss::Devs::Project
 {
-    TaskBoard::TaskBoard(GitHub* gitHub):
-        m_gitHub(gitHub)
+    TaskBoard::TaskBoard(Project* project) :
+        m_project(project)
     {
         auto windowContext =
             Layout::Window::WindowContext{ Vec2{Constants::AppResolutionF.x - 400 - 10 , 10}, Vec2{400, 600} }
@@ -26,15 +26,15 @@ namespace abyss::Devs::GitHub
 
         m_window->draw([&](const RectF& sceneScreen) {
             // In Progressタスク
-            const std::tuple<String, ColorF> statuInfos[] = {
-                {U"In Progress", Color(201, 255, 80)},
-                {U"Todo", Color(168, 255, 243)},
+            const std::tuple<TaskStatus, ColorF> statuInfos[] = {
+                {TaskStatus::InProgress, Color(201, 255, 80)},
+                {TaskStatus::Todo, Color(168, 255, 243)},
             };
             const Vec2 columnSize{ sceneScreen.w, font.height(16) };
             size_t index = 0;
             for (const auto& [statusName, statusColor] : statuInfos) {
             
-                for (auto&& issue : m_gitHub->getIssues(statusName)) {
+                for (auto&& issue : m_project->issues(statusName)) {
                     RectF column(0, columnSize.y * index, columnSize);
                     ColorF color(statusColor);
                     if (column.mouseOver()) {
@@ -47,8 +47,8 @@ namespace abyss::Devs::GitHub
                     column.draw(color.setA(0.9));
                     font(issue.title).draw(column, Palette::Black);
             
-                    if (column.leftClicked()) {
-                        m_gitHub->open(issue.url);
+                    if (column.leftReleased()) {
+                        m_project->open(issue.url);
                     }
                     ++index;
                 }

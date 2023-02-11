@@ -7,7 +7,7 @@ namespace abyss::UI::DevPortal
 {
     TaskBoard::TaskBoard(UIObj* pUi):
         m_pUi(pUi),
-        m_task(m_pUi->getModule<GitHub>())
+        m_task(m_pUi->getModule<Project>())
     {
     }
     void TaskBoard::onDraw() const
