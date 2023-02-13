@@ -16,6 +16,6 @@ namespace abyss::Actor::Enemy
     {
         container->bind<IEnemyService>()
             .to<EnemyService>()
-            .asCache();
+            .asCached();
     }
 }

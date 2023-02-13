@@ -32,7 +32,7 @@ namespace abyss
         {
             conatienr->bind<From>()
                 .to<To>()
-                .asCache();
+                .asCached();
         }
     };
 }

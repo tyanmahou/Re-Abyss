@@ -58,7 +58,7 @@ namespace abyss::Decor
     {
         container->bind<IDecorService>()
             .to<DecorService>()
-            .asCache();
+            .asCached();
     }
     s3d::Array<Map::TileMapData> DecorService::getTileMap(const s3d::RectF& screen) const
     {

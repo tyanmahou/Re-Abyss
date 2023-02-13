@@ -23,7 +23,7 @@ namespace abyss::Resource::UserData
 
     Storage::Storage()
     {
-        m_pImpl = Factory::Storage::Injector().resolve<Impl>();
+        m_pImpl = Factory::Storage::Injector().instantiate<Impl>();
     }
 
     template<class T>

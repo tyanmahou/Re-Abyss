@@ -100,7 +100,7 @@ namespace abyss::Devs::Project
     {
         container->bind<IProjectDataStore>()
             .to<GitHubDataStore>()
-            .asCache();
+            .asCached();
     }
 }
 #endif

@@ -997,7 +997,6 @@
     <ClCompile Include="tests\tests\testing.ixx" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DB\DBBindCatch.cpp" />
-    <ClCompile Include="tests\tests\utils\Di\DiCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Env\EnvCatch.cpp" />
     <ClCompile Include="tests\tests\utils\FixedPtr\FixedPtrCatch.cpp" />
     <ClCompile Include="tests\tests\utils\JSON\JSONBindCatch.cpp" />

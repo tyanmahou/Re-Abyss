@@ -18,7 +18,7 @@ namespace abyss
     {
         conatienr->bind<s3dTiled::TiledMap>()
             .fromInstance(m_tmx)
-            .asCache();
+            .asCached();
     }
 
 }

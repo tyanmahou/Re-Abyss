@@ -18,7 +18,7 @@ namespace abyss::Devs::Project
     {
         container->bind<IProjectService>()
             .to<ProjectService>()
-            .asCache();
+            .asCached();
     }
 }
 #endif

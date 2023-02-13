@@ -16,6 +16,6 @@ namespace abyss::Actor::Land
     {
         container->bind<ILandService>()
             .to<LandService>()
-            .asCache();
+            .asCached();
     }
 }

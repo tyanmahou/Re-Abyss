@@ -17,6 +17,6 @@ namespace abyss::Attribute
     {
         container->bind<IAttributeService>()
             .to<AttributeService>()
-            .asCache();
+            .asCached();
     }
 }

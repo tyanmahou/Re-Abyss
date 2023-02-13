@@ -1993,9 +1993,6 @@
     <ClCompile Include="tests\tests\utils\DB\DBBindCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\tests\utils\Di\DiCatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests\tests\utils\FixedPtr\FixedPtrCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

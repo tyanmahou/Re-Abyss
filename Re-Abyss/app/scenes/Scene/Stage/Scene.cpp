@@ -113,7 +113,7 @@ namespace abyss::Scene::Stage
             }
 			m_system = std::make_unique<System>();
 			auto injector = Factory::Stage::Injector(m_context.mapPath);
-			m_stageData = injector.resolve<StageData>();
+			m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(MapName(m_context.mapPath));
 
 			auto booter = std::make_unique<BooterNormal>(this);
@@ -183,7 +183,7 @@ namespace abyss::Scene::Stage
 
             m_system = std::make_unique<System>();
             auto injector = Factory::Stage::Injector(m_context.mapPath);
-            m_stageData = injector.resolve<StageData>();
+            m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(MapName(m_context.mapPath));
 
             auto booter = std::make_unique<BooterNormal>(this);

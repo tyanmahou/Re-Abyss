@@ -35,10 +35,10 @@ namespace abyss::tests
     {
         emaject::Injector injector;
         injector.install([](emaject::Container* c) {
-            c->bind<IRoomService>().to<Test_RoomService>().asCache();
+            c->bind<IRoomService>().to<Test_RoomService>().asCached();
         });
         Stage stage;
-        stage.setStageData(injector.resolve<StageData>());
+        stage.setStageData(injector.instantiate<StageData>());
 
         SECTION("find border min: pos (0, 0)")
         {

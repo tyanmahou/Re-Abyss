@@ -16,6 +16,6 @@ namespace abyss
     {
         container->bind<IRoomService>()
             .to<RoomService>()
-            .asCache();
+            .asCached();
     }
 }

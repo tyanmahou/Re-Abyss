@@ -27,7 +27,7 @@ namespace abyss
     {
         conatienr->bind<s3dsql::SQLite3>()
             .fromInstance(m_db)
-            .asCache();
+            .asCached();
     }
 
 }

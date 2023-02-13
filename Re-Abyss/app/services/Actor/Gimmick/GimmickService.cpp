@@ -16,6 +16,6 @@ namespace abyss::Actor::Gimmick
     {
         container->bind<IGimmickService>()
             .to<GimmickService>()
-            .asCache();
+            .asCached();
     }
 }

@@ -16,6 +16,6 @@ namespace abyss::Actor::Item
     {
         container->bind<IItemService>()
             .to<ItemService>()
-            .asCache();
+            .asCached();
     }
 }

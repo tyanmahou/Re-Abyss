@@ -25,10 +25,10 @@ namespace abyss::Actor::Land
         {
             conatienr->bind<ILandDataStore>()
                 .to<TmxMapDataStore>()
-                .asCache();
+                .asCached();
             conatienr->bind<ITileMapDataStore>()
                 .to<TmxMapDataStore>()
-                .asCache();
+                .asCached();
         }
     };
 }

@@ -37,6 +37,6 @@ namespace abyss::User
     {
         container->bind<IMigrationService>()
             .to<DBMigrationService>()
-            .asCache();
+            .asCached();
     }
 }
