@@ -34,4 +34,9 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         return m_parts->isShotCharge();
     }
+    bool ParentCtrl::isExistParent() const
+    {
+        // コンポーネントが死んでるなら存在してない
+        return m_hp.isValid();
+    }
 }

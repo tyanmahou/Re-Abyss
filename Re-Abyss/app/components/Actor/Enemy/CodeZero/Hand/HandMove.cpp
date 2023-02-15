@@ -69,6 +69,13 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveAngry, this));
     }
+    void HandMove::stop()
+    {
+        m_body->noneResistanced()
+            .setVelocity(s3d::Vec2::Zero());
+        m_task.clear();
+        this->setActive(false);
+    }
     bool HandMove::isMoveEnd() const
     {
         return m_task.isDone();

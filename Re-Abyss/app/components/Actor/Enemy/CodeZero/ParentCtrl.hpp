@@ -30,5 +30,7 @@ namespace abyss::Actor::Enemy::CodeZero
         const s3d::Vec2& getPos() const;
 
         bool isShotCharge()const;
+
+        bool isExistParent()const;
     };
 }

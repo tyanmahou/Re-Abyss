@@ -57,8 +57,13 @@ namespace abyss::Actor::Enemy::CodeZero
 			co_yield{};
 		}
 		co_await this->commonDead();
-
-		signalCtrl->setDeadEnd();
+        if (auto&& hand = m_parts->getLeftHand()) {
+            hand->destroy();
+        }
+        if (auto&& hand = m_parts->getRightHand()) {
+            hand->destroy();
+        }
+        signalCtrl->setDeadEnd();
 	}
 
 	Fiber<> DeadState::commonDead()

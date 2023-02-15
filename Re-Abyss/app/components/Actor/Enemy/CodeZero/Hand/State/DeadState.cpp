@@ -13,13 +13,16 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 	{
 		// 当たりむこう
 		m_colCtrl->setActive(false);
+
+        // 動作停止
+        m_handMove->stop();
 	}
 	void DeadState::end()
 	{
 	}
 	Coro::Fiber<> DeadState::task()
 	{
-		m_pActor->destroy();
+		//m_pActor->destroy();
 		co_return;
 	}
 	void DeadState::update()

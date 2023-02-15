@@ -82,4 +82,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_pActor->find<HandMove>()->setActive(isActive);
     }
+    void HandProxy::destroy()
+    {
+        m_pActor->destroy();
+    }
 }

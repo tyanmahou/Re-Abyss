@@ -29,6 +29,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         {
             return m_pActor;
         }
+        void destroy();
     private:
         ActorObj* m_pActor;
         Ref<StateCtrl> m_state;

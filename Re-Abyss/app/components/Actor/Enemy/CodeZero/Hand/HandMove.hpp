@@ -56,6 +56,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void startAngry();
 
         /// <summary>
+        /// 停止
+        /// </summary>
+        void stop();
+
+        /// <summary>
         /// 移動終了
         /// </summary>
         /// <returns></returns>
