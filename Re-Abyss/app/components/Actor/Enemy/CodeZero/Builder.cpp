@@ -160,6 +160,8 @@ namespace
         BodyVM* bind() const final
         {
             return &m_view->setPos(m_body->getPos())
+                .setWindLPos(m_body->getPos())
+                .setWindRPos(m_body->getPos())
                 .setColorMul(m_colorCtrl->colorMul(1));
         }
         void onStart() final
