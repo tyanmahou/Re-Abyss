@@ -7,6 +7,8 @@
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
+#include <abyss/components/Actor/Common/BossFadeMask.hpp>
+#include <abyss/components/Actor/Common/BossFadeHider.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -88,6 +90,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             pActor->attach<MotionCtrl>();
             pActor->attach<VModel>()
                 ->setPresenter<Presenter>(pActor, forward);
+
+            pActor->attach<BossFadeMask>(pActor)
+                ->setDrawer<BossFadeMaskFromMainVModel>(pActor);
+            pActor->attach<BossFadeHider>(pActor);
         }
         // プロキシ
         {
@@ -105,12 +111,6 @@ namespace
 
     class Presenter : public IVModelPresenter<HandVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<RotateCtrl> m_rotate;
-        Ref<MotionCtrl> m_motion;
-        Ref<ColorCtrl> m_colorCtrl;
-        std::unique_ptr<HandVM> m_view;
     private:
         HandVM* bind() const final
         {
@@ -134,5 +134,12 @@ namespace
             m_pActor(pActor),
             m_view(std::make_unique<HandVM>(forward))
         {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<RotateCtrl> m_rotate;
+        Ref<MotionCtrl> m_motion;
+        Ref<ColorCtrl> m_colorCtrl;
+        std::unique_ptr<HandVM> m_view;
     };
 }

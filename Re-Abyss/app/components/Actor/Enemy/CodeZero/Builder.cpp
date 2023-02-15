@@ -6,6 +6,7 @@
 #include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BossFadeMask.hpp>
+#include <abyss/components/Actor/Common/BossFadeHider.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/Common/ColorCtrl.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -139,6 +140,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
             pActor->attach<BossFadeMask>(pActor)
                 ->setDrawer<BossFadeMaskDrawer>(pActor);
+            pActor->attach<BossFadeHider>(pActor);
+
         }
     }
 }

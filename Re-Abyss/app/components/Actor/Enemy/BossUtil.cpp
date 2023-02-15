@@ -55,18 +55,6 @@ namespace abyss::Actor::Enemy
 				});
 			});
 			multiFibers.add([pActor]()->Coro::Fiber<> {
-				auto bossFadeMask = pActor->find<BossFadeMask>();
-				bossFadeMask->setRate(0);
-				TimeLite::Timer timer{ 6.0 };
-				while (!timer.isEnd()) {
-					timer.update(pActor->deltaTime());
-
-					auto rate = timer.rate();
-					bossFadeMask->setRate(rate);
-					co_yield{};
-				}
-			});
-			multiFibers.add([pActor]()->Coro::Fiber<> {
 				co_await BehaviorUtil::WaitForSeconds(pActor, 2.0s);
 
 				// 死亡カラーアニメ

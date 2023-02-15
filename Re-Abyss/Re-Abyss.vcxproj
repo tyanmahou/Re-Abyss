@@ -249,6 +249,7 @@
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
     <ClCompile Include="app\commons\Resource\Font\FontRegister.cpp" />
+    <ClCompile Include="app\components\Actor\Common\BossFadeHider.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeployId.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
@@ -1214,6 +1215,7 @@
     <ClInclude Include="app\commons\Game\RenderStateInitializer.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\commons\Resource\Font\FontRegister.hpp" />
+    <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp" />
     <ClInclude Include="app\components\Actor\Common\DeployId.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />

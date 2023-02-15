@@ -47,6 +47,7 @@ namespace abyss::Actor
         void setup(Executer executer) override;
 
         void onStart() override;
+    public:
 		void onDraw() const override;
         DrawLayer getLayer() const override;
         double getOrder() const override;
@@ -78,6 +79,6 @@ namespace abyss
     template<>
     struct ComponentTree<Actor::BossFadeMask>
     {
-        using Base = Actor::IDraw;
+        using Base = MultiComponents<Actor::IDraw>;
     };
 }
