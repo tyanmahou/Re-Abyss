@@ -69,6 +69,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveAngry, this));
     }
+    void HandMove::startDeadFall()
+    {
+        m_task.reset(std::bind(&HandMove::moveDeadFall, this));
+    }
     void HandMove::stop()
     {
         m_body->noneResistanced()
@@ -280,6 +284,25 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
             auto rate = moveTimer.rate();
             m_body->setVelocity(initVec * (1 - rate));
+            co_yield{};
+        }
+        co_return;
+    }
+    Coro::Fiber<> HandMove::moveDeadFall()
+    {
+        bool isLeft = m_pActor->find<KindCtrl>()->isLeftHand();
+        m_body->setAccelY(Body::DefaultGravity);
+        m_body->setMaxVelocityY(Body::DefaultMaxVelocityY * 1.5);
+
+        TimeLite::Timer slowTimer{ 2.0 };
+        while (true)
+        {
+            auto dt = m_pActor->deltaTime();
+            slowTimer.update(dt);
+
+            auto dampRatio = InterpUtil::DampRatio(0.02 * slowTimer.rate(), dt);
+            const double rotateEnd = isLeft ? Math::ToRadians(40 + 90) : Math::ToRadians(-40 - 90);
+            m_rotate->setRotate(s3d::Math::Lerp( m_rotate->getRotate(), rotateEnd, dampRatio));
             co_yield{};
         }
         co_return;

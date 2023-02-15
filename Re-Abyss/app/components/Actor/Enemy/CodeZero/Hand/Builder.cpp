@@ -4,6 +4,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
+#include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Common/RotateCtrl.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
@@ -85,6 +86,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         {
             pActor->attach<ShockWaveCtrl>(pActor);
         }
+        // Shake
+        {
+            pActor->attach<ShakeCtrl>(pActor);
+        }
         // 描画制御
         {
             pActor->attach<MotionCtrl>();
@@ -115,7 +120,7 @@ namespace
         HandVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_body->getPos())
+                .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setRotate(m_rotate->getRotate())
                 .setMotion(m_motion->get<Motion>())
                 .setColorMul(m_colorCtrl->colorMul(1))
@@ -125,6 +130,7 @@ namespace
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
+            m_shake = m_pActor->find<ShakeCtrl>();
             m_rotate = m_pActor->find<RotateCtrl>();
             m_motion = m_pActor->find<MotionCtrl>();
             m_colorCtrl = m_pActor->find<ParentCtrl>()->getParent()->find<ColorCtrl>();
@@ -137,6 +143,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
+        Ref<ShakeCtrl> m_shake;
         Ref<RotateCtrl> m_rotate;
         Ref<MotionCtrl> m_motion;
         Ref<ColorCtrl> m_colorCtrl;
