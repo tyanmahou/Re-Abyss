@@ -19,20 +19,20 @@ namespace abyss::Actor::Enemy::CodeZero::Body
         m_colorMul = color;
         return *this;
     }
-    BodyVM& BodyVM::setWindLPos(const s3d::Vec2& pos)
+    BodyVM& BodyVM::setWingLPos(const s3d::Vec2& pos)
     {
-        m_windLPos = s3d::Round(pos);
+        m_wingLPos = s3d::Round(pos);
         return *this;
     }
-    BodyVM& BodyVM::setWindRPos(const s3d::Vec2& pos)
+    BodyVM& BodyVM::setWingRPos(const s3d::Vec2& pos)
     {
-        m_windRPos = s3d::Round(pos);
+        m_wingRPos = s3d::Round(pos);
         return *this;
     }
     void BodyVM::draw() const
     {
-        m_texture(U"wind").drawAt(m_windLPos, m_colorMul);
-        m_texture(U"wind").mirrored().drawAt(m_windRPos, m_colorMul);
+        m_texture(U"wing").drawAt(m_wingLPos, m_colorMul);
+        m_texture(U"wing").mirrored().drawAt(m_wingRPos, m_colorMul);
         m_texture(U"body").drawAt(m_pos, m_colorMul);
     }
 
