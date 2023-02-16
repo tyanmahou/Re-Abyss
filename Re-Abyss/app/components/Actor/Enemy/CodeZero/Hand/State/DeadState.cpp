@@ -39,6 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.65);
 
         //　落下
+        m_pActor->find<ShakeCtrl>()->request(2.0, -1);
         m_handMove->setActive(true);
         m_handMove->startDeadFall();
 

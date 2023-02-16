@@ -1,8 +1,11 @@
 #include <abyss/components/Actor/Enemy/CodeZero/WingCtrl.hpp>
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Shake/SimpleShake.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -102,7 +105,33 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Fiber<> WingCtrl::stateDead()
     {
-        co_return;
+        // フェード開始を待つ
+        auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();
+        co_await Coro::WaitUntil([bossFade] {return bossFade->isActive(); });
+
+        auto wingUpdate = [this](Vec2& wingLocalPos, double waitSec)->Coro::Fiber<>{
+            Vec2 initPos = wingLocalPos;
+            Vec2 move{ 0,0 };
+            co_await BehaviorUtil::WaitForSeconds(m_pActor, waitSec);
+            // 揺れる
+            Shake::SimpleShake shake;
+            shake.request(5.0, 0.4);
+            auto shakeUpdater = Coro::Loop([&] {
+                shake.update(m_pActor->deltaTime());
+            });
+            auto mover = [&]()->Coro::Fiber<> {
+                co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.65);
+                shake.request(2.0, -1);
+                co_await Coro::Loop([&] {
+                    move.y += 100.0 * m_pActor->deltaTime();
+                });
+            };
+            auto updater = Coro::Loop([&] {
+                wingLocalPos = initPos + move + shake.getShakeOffset();
+            });
+            co_await (std::move(shakeUpdater) | mover() | std::move(updater));
+        };
+        co_await(wingUpdate(m_localL, 0.5) & wingUpdate(m_localR, 2.0));
     }
 }
 
