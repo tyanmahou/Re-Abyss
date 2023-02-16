@@ -20,6 +20,16 @@ namespace abyss::Actor::Enemy::CodeZero
             inline static s3d::Vec2 Offset{ 0, -50 };
         };
 
+        [[TOML_BIND(Wing::FuwaFuwaPeriod, "Wing.fuwaFuwaPeriod")]]
+        [[TOML_BIND(Wing::FuwaFuwaOffset, "Wing.fuwaFuwaOffset")]]
+        [[TOML_BIND(Wing::ErpRate, "Wing.erpRate")]]
+        struct Wing
+        {
+            inline static double FuwaFuwaPeriod{ 3.0 };
+            inline static s3d::Vec2 FuwaFuwaOffset{ 20, 50.0 };
+            inline static double ErpRate{ 0.5 };
+        };
+
         [[TOML_BIND(Phase1::WaitRestart, "Phase1.waitRestart")]]
         [[TOML_BIND(Phase1::WaitAttack, "Phase1.waitAttack")]]
         struct Phase1

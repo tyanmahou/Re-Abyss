@@ -24,6 +24,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/WingCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Body/BodyVM.hpp>
@@ -71,6 +72,8 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<PartsCtrl>(pActor);
 
             pActor->attach<EyeCtrl>(pActor);
+
+            pActor->attach<WingCtrl>(pActor);
         }
         // 衝突
         {
@@ -141,7 +144,6 @@ namespace abyss::Actor::Enemy::CodeZero
             pActor->attach<BossFadeMask>(pActor)
                 ->setDrawer<BossFadeMaskDrawer>(pActor);
             pActor->attach<BossFadeHider>(pActor);
-
         }
     }
 }
@@ -159,14 +161,16 @@ namespace
     private:
         BodyVM* bind() const final
         {
-            return &m_view->setPos(m_body->getPos())
-                .setWingLPos(m_body->getPos())
-                .setWingRPos(m_body->getPos())
+            auto pos = m_body->getPos();
+            return &m_view->setPos(pos)
+                .setWingLPos(pos + m_wing->localL())
+                .setWingRPos(pos + m_wing->localR())
                 .setColorMul(m_colorCtrl->colorMul(1));
         }
         void onStart() final
         {
             m_body = m_pActor->find<Actor::Body>();
+            m_wing = m_pActor->find<WingCtrl>();
             m_colorCtrl = m_pActor->find<ColorCtrl>();
         }
     public:
@@ -177,6 +181,7 @@ namespace
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Actor::Body> m_body;
+        Ref<WingCtrl> m_wing;
         Ref<ColorCtrl> m_colorCtrl;
         std::unique_ptr<BodyVM> m_view;
     };

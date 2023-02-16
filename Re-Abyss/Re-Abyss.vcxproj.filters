@@ -2411,6 +2411,9 @@
     <ClCompile Include="app\components\Actor\Common\BossFadeHider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\WingCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6273,6 +6276,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

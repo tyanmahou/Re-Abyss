@@ -5,6 +5,11 @@ hp = 240
 colRadius = 60.0
 offset = "(0, -86)"
 
+[Wing]
+fuwaFuwaPeriod = 6.0
+fuwaFuwaOffset = "(5.0, 20.0)"
+erpRate = 0.2
+
 [Phase1]
 waitRestart = 3.0
 waitAttack = 1.2
