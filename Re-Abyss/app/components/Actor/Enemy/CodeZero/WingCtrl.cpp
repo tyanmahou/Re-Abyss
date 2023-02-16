@@ -83,14 +83,22 @@ namespace abyss::Actor::Enemy::CodeZero
                 m_localTargetL += Param::Wing::FuwaFuwaOffset * fuwaFuwaOffset0_1;
                 m_localTargetR += Param::Wing::FuwaFuwaOffset * fuwaFuwaOffset0_1 * Vec2{ -1, 1 };
             }
-            auto dampRate = InterpUtil::DampRatio(Param::Wing::ErpRate, dt, 120_fps);
-            m_localL = s3d::Math::Lerp(m_localL, m_localTargetL, dampRate);
-            m_localR = s3d::Math::Lerp(m_localR, m_localTargetR, dampRate);
+            auto dampRatio = InterpUtil::DampRatio(Param::Wing::ErpRate, dt, 120_fps);
+            m_localL = m_localL.lerp(m_localTargetL, dampRatio);
+            m_localR = m_localR.lerp(m_localTargetR, dampRatio);
         });
     }
     Coro::Fiber<> WingCtrl::stateShot()
     {
-        co_return;
+        m_localTargetL = Param::Wing::InitLocalPos * Vec2{ -1, 1 };
+        m_localTargetR = Param::Wing::InitLocalPos;
+        return Coro::Loop([this] {
+            auto dt = m_pActor->deltaTime();
+            auto dampRatio = InterpUtil::DampRatio(0.02, dt);
+
+            m_localL = m_localL.lerp(m_localTargetL, dampRatio);
+            m_localR = m_localR.lerp(m_localTargetR, dampRatio);
+        });
     }
     Coro::Fiber<> WingCtrl::stateDead()
     {
