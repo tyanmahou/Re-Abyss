@@ -57,6 +57,6 @@ namespace abyss::Shake
     }
     bool SimpleShake::isEnd() const
     {
-        return !m_shake.isShakeing();
+        return !isShakeing();
     }
 }
