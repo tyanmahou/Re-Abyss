@@ -263,6 +263,7 @@
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AngryState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\ShotState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\WingCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
@@ -1232,6 +1233,7 @@
     <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AngryState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\ShotState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />

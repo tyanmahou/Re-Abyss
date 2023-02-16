@@ -8,9 +8,8 @@
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/ShotState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
 #include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
@@ -92,9 +91,6 @@ namespace abyss::Actor::Enemy::CodeZero
 
             // ショット攻撃
             co_await ChargeShot(pActor);
-
-            // 待機
-            co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitPursuit);
 
             // 回転攻撃
             co_await RollingAttack(pActor, isReverse);
@@ -201,17 +197,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
     Coro::Fiber<> Behavior::ChargeShot(ActorObj* pActor)
     {
-        auto parts = pActor->find<PartsCtrl>().get();
-
-        // チャージ開始
-        parts->getRightHand()->tryShotCharge();
-        parts->getLeftHand()->tryShotCharge();
-
-        // 待機
-        co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase3::WaitShot);
-
-        // ショット生成
-        pActor->getModule<Actors>()->create<Shot::Builder>(pActor);
+        pActor->find<StateCtrl>()->changeState<ShotState>();
+        co_yield{};
     }
 
     Coro::Fiber<> Behavior::ChangeHandsPhase1(ActorObj* pActor, bool slowStart)

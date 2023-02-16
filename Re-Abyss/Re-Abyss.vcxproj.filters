@@ -2414,6 +2414,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\WingCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\ShotState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6279,6 +6282,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\ShotState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
