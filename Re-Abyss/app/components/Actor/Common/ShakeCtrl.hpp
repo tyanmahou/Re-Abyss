@@ -2,7 +2,7 @@
 
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Actor/base/IUpdate.hpp>
-#include <Siv3D/Vector2D.hpp>
+#include <abyss/utils/Shake/SimpleShake.hpp>
 
 namespace abyss::Actor
 {
@@ -27,21 +27,14 @@ namespace abyss::Actor
 
         const s3d::Vec2& getShakeOffset() const
         {
-            return m_offset;
+            return m_shake.getShakeOffset();
         }
 
         bool isShakeing() const;
     private:
         ActorObj* m_pActor;
 
-        double m_maxOffset = 0;
-        double m_timeSec = 0.0;
-        double m_elapsedSec = 0.0;
-
-        double m_nextTargetTimeSec = 0.0;
-        Vec2 m_offsetTarget;
-
-        s3d::Vec2 m_offset;
+        Shake::SimpleShake m_shake;
     };
 }
 

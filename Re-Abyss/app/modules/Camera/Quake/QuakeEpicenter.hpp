@@ -1,6 +1,6 @@
 #pragma once
-#include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/utils/Shake/SimpleShake.hpp>
 
 namespace abyss
 {
@@ -21,14 +21,6 @@ namespace abyss
         const s3d::Vec2& getOffset()const;
 
     private:
-        double m_maxOffset = 0;
-        double m_timeSec = 1.0;
-        double m_elapsedSec = 0.0;
-
-        double m_nextTargetTimeSec = 0.0;
-        Vec2 m_offsetTarget;
-
-        Vec2 m_offset;
-        bool m_isStop = false;
+        Shake::SimpleShake m_shake;
     };
 }
