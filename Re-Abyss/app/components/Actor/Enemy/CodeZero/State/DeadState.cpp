@@ -23,6 +23,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		m_pActor->find<ColCtrl>()->setActive(false);
 
 		m_head->setActive(false);
+        m_wing->startDead();
 
 		// 手も死亡
 		if (auto&& hand = m_parts->getLeftHand()) {

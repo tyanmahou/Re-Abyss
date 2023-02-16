@@ -6,6 +6,7 @@ colRadius = 60.0
 offset = "(0, -86)"
 
 [Wing]
+initLocalPos = "(-50.0, 60.0)"
 fuwaFuwaPeriod = 6.0
 fuwaFuwaOffset = "(5.0, 20.0)"
 lookOffset = "(20.0, 10.0)"

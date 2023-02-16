@@ -4,6 +4,7 @@
 #include <abyss/modules/Actor/base/ILastUpdate.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -25,10 +26,20 @@ namespace abyss::Actor::Enemy::CodeZero
         {
             return m_localR;
         }
+
+        void startAppear();
+        void startWait();
+        void startShot();
+        void startDead();
     public:
         void setup(Executer executer) override;
         void onStart() override;
         void onLastUpdate() override;
+    private:
+        Coro::Fiber<> stateAppear();
+        Coro::Fiber<> stateWait();
+        Coro::Fiber<> stateShot();
+        Coro::Fiber<> stateDead();
     private:
         ActorObj* m_pActor;
         Ref<HeadCtrl> m_head;
@@ -40,6 +51,7 @@ namespace abyss::Actor::Enemy::CodeZero
         Vec2 m_localTargetR{};
 
         double m_elapsedTimeSec = 0;
+        Coro::FiberHolder<> m_task;
     };
 }
 namespace abyss

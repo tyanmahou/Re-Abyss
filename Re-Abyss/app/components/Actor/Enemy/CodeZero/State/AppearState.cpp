@@ -24,6 +24,8 @@ namespace abyss::Actor::Enemy::CodeZero
 
 		m_pActor->find<EyeCtrl>()->setVisible(false);
 		m_pActor->find<HideCtrl>()->setVisible(false);
+
+        m_wing->startAppear();
 	}
 	void AppearState::end()
 	{

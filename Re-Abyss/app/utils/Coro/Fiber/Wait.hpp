@@ -60,4 +60,14 @@ namespace abyss::Coro
     /// 停止
     /// </summary>
     [[nodiscard]] Fiber<> Stop();
+
+    /// <summary>
+    /// ループ処理をする
+    /// </summary>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    [[nodiscard]] Fiber<> Loop(std::function<void()> func);
+    [[nodiscard]] Fiber<> Loop(std::function<bool()> func);
+    [[nodiscard]] Fiber<> Loop(std::function<Fiber<>()> func);
+    [[nodiscard]] Fiber<> Loop(std::function<Fiber<bool>()> func);
 }

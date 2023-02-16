@@ -20,12 +20,15 @@ namespace abyss::Actor::Enemy::CodeZero
             inline static s3d::Vec2 Offset{ 0, -50 };
         };
 
+        [[TOML_BIND(Wing::InitLocalPos, "Wing.initLocalPos")]]
         [[TOML_BIND(Wing::FuwaFuwaPeriod, "Wing.fuwaFuwaPeriod")]]
         [[TOML_BIND(Wing::FuwaFuwaOffset, "Wing.fuwaFuwaOffset")]]
         [[TOML_BIND(Wing::LookOffset, "Wing.lookOffset")]]
         [[TOML_BIND(Wing::ErpRate, "Wing.erpRate")]]
         struct Wing
         {
+            inline static s3d::Vec2 InitLocalPos{};
+
             inline static double FuwaFuwaPeriod{ 3.0 };
             inline static s3d::Vec2 FuwaFuwaOffset{ 20, 50.0 };
             inline static s3d::Vec2 LookOffset{ 50, 50.0 };
