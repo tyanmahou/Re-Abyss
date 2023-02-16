@@ -6,6 +6,7 @@
 #include <abyss/modules/Novel/Novels.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AngryState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/AppearState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/ShotState.hpp>
@@ -216,7 +217,11 @@ namespace abyss::Actor::Enemy::CodeZero
         parts->getRightHand()->tryPursuit(Hand::HandDesc::CreateRightPhase2(), slowStart);
         co_return;
     }
-
+    Coro::Fiber<> Behavior::Wait(ActorObj* pActor)
+    {
+        pActor->find<StateCtrl>()->changeState<WaitState>();
+        co_yield{};
+    }
     Coro::Fiber<> Behavior::WaitPursuitHands(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>();

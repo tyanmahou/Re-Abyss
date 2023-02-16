@@ -34,6 +34,7 @@ namespace abyss::Actor::Enemy::CodeZero
         [[nodiscard]] static Coro::Fiber<> ChangeHandsPhase1(ActorObj* pActor, bool slowStart = false);
         [[nodiscard]] static Coro::Fiber<> ChangeHandsPhase2(ActorObj* pActor, bool slowStart = false);
 
+        [[nodiscard]] static Coro::Fiber<> Wait(ActorObj* pActor);
         [[nodiscard]] static Coro::Fiber<> WaitPursuitHands(ActorObj* pActor);
     };
 }
