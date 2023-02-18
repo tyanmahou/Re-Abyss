@@ -31,5 +31,14 @@ namespace abyss::Actor
         /// <param name="rate"></param>
         /// <returns></returns>
         [[nodiscard]] static Coro::Fiber<> WaitLessThanHpRate(ActorObj* pActor, double rate);
+
+        /// <summary>
+        /// スローモーション
+        /// </summary>
+        /// <param name="pActor"></param>
+        /// <param name="timeSec"></param>
+        /// <param name=""></param>
+        /// <returns></returns>
+        [[nodiscard]] static Coro::Fiber<> GlobalSlowmotion(ActorObj* pActor, s3d::Duration duration, std::function<double(double)> easing = s3d::Easing::Linear);
     };
 }

@@ -4,7 +4,6 @@ namespace abyss
 {
     class GlobalTimeScale
     {
-        double m_scale = 1.0;
     public:
         GlobalTimeScale() = default;
 
@@ -18,5 +17,7 @@ namespace abyss
         {
             return m_scale;
         }
+    private:
+        double m_scale = 1.0;
     };
 }

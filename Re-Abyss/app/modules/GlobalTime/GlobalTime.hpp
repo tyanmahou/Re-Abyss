@@ -10,11 +10,6 @@ namespace abyss
 {
     class GlobalTime : public s3d::ISteadyClock
     {
-        s3d::uint64 getMicrosec() override;
-    private:
-        class Impl;
-        std::unique_ptr<Impl> m_pImpl;
-
     public:
         GlobalTime();
         ~GlobalTime();
@@ -33,5 +28,11 @@ namespace abyss
         bool isPuase() const;
 
         void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale);
+    private:
+        s3d::uint64 getMicrosec() override;
+    private:
+        class Impl;
+        std::unique_ptr<Impl> m_pImpl;
+
     };
 }

@@ -1,9 +1,10 @@
 #include <abyss/components/Actor/Enemy/CodeZero/State/DeadState.hpp>
 
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Novel/Novels.hpp>
-
 #include <abyss/components/Actor/utils/StatePriority.hpp>
+#include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BossUtil.hpp>
 #include <Siv3D.hpp>
@@ -18,6 +19,8 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		// 画面フラッシュ
 		m_pActor->getModule<SpecialEffects>()->flush()->start(0, 0.5);
+        // 地震
+        m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);
 
 		// 当たりむこう
 		m_pActor->find<ColCtrl>()->setActive(false);
@@ -53,6 +56,8 @@ namespace abyss::Actor::Enemy::CodeZero
 	Fiber<> DeadState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
         signalCtrl->requestBattleEnd();
+        // スローモーション
+        co_await BehaviorUtil::GlobalSlowmotion(m_pActor, 2.5s);
 
 		while (!signalCtrl->isRequestedDead()) {
 			co_yield{};
