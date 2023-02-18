@@ -14,6 +14,10 @@ namespace abyss::Novel::CodeZeroDemo
 	{
 		return pTalk->find<SignalCtrl>()->isAppearEnd();
 	}
+    void SignalCtrl::RequestPrepareBattle(TalkObj* pTalk)
+    {
+        pTalk->find<SignalCtrl>()->requestPrepareBattle();
+    }
     void SignalCtrl::RequestBattleStart(TalkObj* pTalk)
     {
         pTalk->find<SignalCtrl>()->requestBattleStart();

@@ -15,7 +15,9 @@ namespace abyss::Actor::Enemy::CodeZero
         Coro::Fiber<> task() override;
         void update() override;
     private:
-        Fiber<> onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onDemo(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onAppear(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onPrepareBattle(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
 
         Ref<AppearState> getWeak()
         {

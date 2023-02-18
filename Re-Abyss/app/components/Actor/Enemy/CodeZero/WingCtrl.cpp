@@ -50,7 +50,32 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Fiber<> WingCtrl::stateAppear()
     {
-        co_return;
+        auto initL = m_localL;
+        auto initR = m_localR;
+        m_localTargetL = Vec2{ 0, 0 };
+        m_localTargetR = Vec2{ 0, 0 };
+        auto moveV = [&]()->Coro::Fiber<> {
+            return Coro::Loop([this] {
+                auto dt = m_pActor->deltaTime();
+                auto dampRatio = InterpUtil::DampRatio(0.1, dt);
+                m_localL.y = s3d::Math::Lerp(m_localL.y, m_localTargetL.y, dampRatio);
+                m_localR.y = s3d::Math::Lerp(m_localR.y, m_localTargetR.y, dampRatio);
+            });
+        }; 
+        auto moveH = [&]()->Coro::Fiber<> {
+            co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.6s);
+            TimeLite::Timer timer{ 1.4 };
+            while (!timer.isEnd())
+            {
+                timer.update(m_pActor->deltaTime());
+                auto rate = s3d::EaseOutQuad(timer.rate());
+                m_localL.x = s3d::Math::Lerp(initL.x, m_localTargetL.x, rate);
+                m_localR.x = s3d::Math::Lerp(initR.x, m_localTargetR.x, rate);
+                co_yield{};
+            }
+            co_return;
+        };
+        co_await (moveV() & moveH());
     }
     Coro::Fiber<> WingCtrl::stateWait()
     {
