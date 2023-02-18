@@ -32,4 +32,8 @@ namespace abyss::UI
     {
         m_userInterfaces.setFilter(filter);
     }
+    Filter UIs::getFilter() const
+    {
+        return m_userInterfaces.getFilter();
+    }
 }

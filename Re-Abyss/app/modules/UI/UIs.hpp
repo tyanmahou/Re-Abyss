@@ -61,5 +61,7 @@ namespace abyss::UI
         /// </summary>
         /// <param name="filter"></param>
         void setFilter(const Filter& filter);
+
+        Filter getFilter() const;
     };
 }

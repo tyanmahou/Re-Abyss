@@ -408,9 +408,6 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\DeadCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1015,12 +1012,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Event\CreateBossHPBar\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Event\CreateBossHPBar\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\GameClear\Builder.cpp">
@@ -2423,6 +2414,15 @@
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Novel\BossCommon\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\abyss\include\abyss\components\Novel\BossCommon\Command\ShowHpBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\BossHpBarTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -3434,9 +3434,6 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\CodeZeroProxy.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\ComponentCache.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -4158,12 +4155,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Event\CreateBossHPBar\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Event\CreateBossHPBar\MainStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\GameClear\Builder.hpp">
@@ -6294,6 +6285,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\BossCommon\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Novel\BossCommon\Command\ShowHpBar.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\BossHpBarTarget.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

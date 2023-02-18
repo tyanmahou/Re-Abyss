@@ -108,13 +108,8 @@ namespace
                 this->buildTrigger(U"Teardown");
                 m_build = tagValue;
                 this->buildTrigger(U"Setup");
-            } else if (tag == U"trigger") {
-                for (const auto& [key, value] : statement.childs) {
-                    if (key == U"event" && value) {
-                        this->buildTrigger(*value);
-                        break;
-                    }
-                }
+            } else if (tag == U"command" && tagValue) {
+                this->buildNativeCommand(*tagValue);
             } else if (tag == U"showmessage") {
                 this->showHideMessage(true);
             } else if (tag == U"hidemessage") {
@@ -190,14 +185,27 @@ namespace
             m_isVisibleMessage = isShow;
             m_pEngine->addCommand<ShowHideMessage>(isShow);
         }
-        void buildTrigger(s3d::StringView eventName)
+        bool buildNativeCommand(s3d::StringView name)
+        {
+            if (this->buildTrigger(name)) {
+                return true;
+            }
+            if (auto func = this->findFunc<void(TalkObj*)>(name)) {
+                (*func)(m_pTalk);
+                return true;
+            }
+            return false;
+        }
+        bool buildTrigger(s3d::StringView eventName)
         {
             if (!m_build) {
-                return;
+                return false;
             }
             if (auto buildFunc = findBuildFunc(eventName)) {
                 (*buildFunc)(m_pTalk);
+                return true;
             }
+            return false;
         }
         template<class T>
         auto findFunc(s3d::StringView name)

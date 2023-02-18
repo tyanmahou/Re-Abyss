@@ -28,5 +28,10 @@ namespace abyss::UI
         {
             m_filter = filter;
         }
+
+        Filter getFilter() const
+        {
+            return m_filter;
+        }
     };
 }

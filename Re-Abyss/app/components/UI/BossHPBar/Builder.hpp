@@ -7,5 +7,6 @@ namespace abyss::UI::BossHPBar
     struct Builder
     {
         static void Build(UIObj* pUi, Actor::ActorObj* pActor);
+        static void Build(UIObj* pUi, Ref<Actor::HP> hp);
     };
 }

@@ -12,7 +12,6 @@ namespace abyss::Novel::CodeZeroDemo
     }
     void DisappearStart::onStart()
     {
-        m_pTalk->getModule<Sound>()->stop(0.5s);
         m_pTalk->find<TalkCtrl>()->request();
         m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Novel);
     }

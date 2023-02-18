@@ -18,11 +18,11 @@
 #include <abyss/components/Actor/Common/ColorAnim/DamageColor.hpp>
 #include <abyss/components/Actor/Enemy/BuilderFromEntity.hpp>
 #include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+#include <abyss/components/Actor/Enemy/BossHpBarTarget.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Behavior.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HeadCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/CodeZeroProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/DeadCallback.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/WingCtrl.hpp>
@@ -111,9 +111,9 @@ namespace abyss::Actor::Enemy::CodeZero
                 ;
 #endif
         }
-        // プロキシ
+        // HPバー検索
         {
-            pActor->attach<CodeZeroProxy>(pActor);
+            pActor->attach<BossHpBarTarget>(pActor);
         }
         // 死亡時制御
         {

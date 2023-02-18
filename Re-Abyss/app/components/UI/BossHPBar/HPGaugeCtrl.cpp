@@ -1,30 +1,30 @@
 #include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
-#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 
 namespace abyss::UI::BossHPBar
 {
-    HPGaugeCtrl::HPGaugeCtrl(Actor::ActorObj* pActor):
-        m_pActor(pActor)
+    HPGaugeCtrl::HPGaugeCtrl(UIObj* pUi, Ref<Actor::HP> hp):
+        m_pUi(pUi),
+        m_hpRef(hp)
     {}
     void HPGaugeCtrl::onStart()
     {
-        m_hpModel = m_pActor->find<Actor::HP>();
         m_hp = 0;
-        m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
+        m_maxHp = static_cast<double>(m_hpRef->getMaxHp());
     }
     void HPGaugeCtrl::onUpdate()
     {
-        if (!m_hpModel) {
+        if (!m_hpRef) {
             m_hp = 0;
             return;
         }
-        m_maxHp = static_cast<double>(m_hpModel->getMaxHp());
+        m_maxHp = static_cast<double>(m_hpRef->getMaxHp());
 
-        auto hp = static_cast<double>(m_hpModel->getHp());
+        auto hp = static_cast<double>(m_hpRef->getHp());
 
-        auto dt = m_pActor->getModule<GlobalTime>()->deltaTime();
+        auto dt = m_pUi->getModule<GlobalTime>()->deltaTime();
         double add = m_maxHp * dt;
         if (m_hp - add >= hp) {
             m_hp -= add;
@@ -40,6 +40,6 @@ namespace abyss::UI::BossHPBar
     }
     bool HPGaugeCtrl::isValid() const
     {
-        return static_cast<bool>(m_hpModel);
+        return static_cast<bool>(m_hpRef);
     }
 }

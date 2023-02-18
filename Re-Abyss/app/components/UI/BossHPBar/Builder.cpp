@@ -1,8 +1,10 @@
 #include <abyss/components/UI/BossHPBar/Builder.hpp>
 
-#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/UI/Common/VModel.hpp>
 #include <abyss/components/UI/BossHPBar/Main.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
 
 #include <abyss/views/UI/BossHPBar/BossHPBarVM.hpp>
 namespace
@@ -13,6 +15,10 @@ namespace abyss::UI::BossHPBar
 {
     void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
+        Builder::Build(pUi, pActor->find<Actor::HP>());
+    }
+    void Builder::Build(UIObj* pUi, Ref<Actor::HP> hp)
+    {
         pUi->setFilter(Filter::Game | Filter::Event);
 
         // メイン制御
@@ -21,14 +27,14 @@ namespace abyss::UI::BossHPBar
         }
         // HPゲージ制御
         {
-            pUi->attach<HPGaugeCtrl>(pActor);
+            pUi->attach<HPGaugeCtrl>(pUi, hp);
         }
         // ビュー制御
         {
             pUi->attach<VModel>()
                 ->setPresenter<Presenter>(pUi);
         }
-    };
+    }
 }
 
 namespace
