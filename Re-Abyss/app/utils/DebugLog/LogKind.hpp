@@ -8,6 +8,7 @@ namespace abyss::DebugLog
     enum class LogKind
     {
         Info,
+        Alert,
         Warn,
         Error,
         Load,

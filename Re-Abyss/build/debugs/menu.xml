@@ -4,7 +4,8 @@
 	<Log label ="ログ">
 		<IsVisible label="表示" value="true"/>
 		<hr/>
-		<Normal label="一般" value="true"/>
+		<Info label="インフォ" value="false"/>
+		<Alert label="アラート" value="true"/>
 		<Warn label="警告" value="true"/>
 		<Error label="エラー" value="true"/>
 		<Load label="ロード" value="true"/>

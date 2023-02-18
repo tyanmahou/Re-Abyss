@@ -16,7 +16,9 @@ namespace
         switch (kind)
         {
         case LogKind::Info:
-            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogNormal);
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogInfo);
+        case LogKind::Alert:
+            return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogAlert);
         case LogKind::Warn:
             return Debug::MenuUtil::IsDebug(Debug::DebugFlag::LogWarn);
         case LogKind::Error:
@@ -51,6 +53,10 @@ namespace
                 .icon = Texture(Emoji(U"🗨️")),
                 .color = ColorF(0, 0.2)
             };
+            m_kindCustom[LogKind::Alert] = KindCustom{
+                .icon = Texture(Emoji(U"❕")),
+                .color = ColorF(0, 0.2)
+            };
             m_kindCustom[LogKind::Warn] = KindCustom{
                 .icon = Texture(Emoji(U"⚠️")),
                 .color = ColorF(1.0, 1.0, 0, 0.2)
@@ -60,7 +66,7 @@ namespace
                 .color = ColorF(1.0, 0, 0, 0.2)
             };
             m_kindCustom[LogKind::Load] = KindCustom{
-                .icon = Texture(Emoji(U"❕")),
+                .icon = Texture(Emoji(U"🔻")),
                 .color = ColorF(1.0, 0.0, 1.0, 0.2)
             };
         }
@@ -192,6 +198,10 @@ namespace abyss::Debug
     void LogViewer::printInfo(const s3d::String& log, const SourceLocation& location)
     {
         m_pImpl->log().print(LogKind::Info, log, location);
+    }
+    void LogViewer::printAlert(const s3d::String& log, const SourceLocation& location)
+    {
+        m_pImpl->log().print(LogKind::Alert, log, location);
     }
     void LogViewer::printWarn(const s3d::String& log, const SourceLocation& location)
     {

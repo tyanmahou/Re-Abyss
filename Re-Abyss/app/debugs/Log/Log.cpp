@@ -10,6 +10,10 @@ namespace abyss::Debug
     {
         System::GetLogViewer().printInfo(log, location);
     }
+    void Log::Alert(const s3d::String& log, const SourceLocation& location)
+    {
+        System::GetLogViewer().printAlert(log, location);
+    }
     void Log::Warn(const s3d::String& log, const SourceLocation& location)
     {
         System::GetLogViewer().printWarn(log, location);

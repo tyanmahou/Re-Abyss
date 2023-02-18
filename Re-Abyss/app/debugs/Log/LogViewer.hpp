@@ -16,6 +16,8 @@ namespace abyss::Debug
 
         void printInfo(const s3d::String& log, const SourceLocation& location);
 
+        void printAlert(const s3d::String& log, const SourceLocation& location);
+
         void printWarn(const s3d::String& log, const SourceLocation& location);
 
         void printError(const s3d::String& log, const SourceLocation& location);

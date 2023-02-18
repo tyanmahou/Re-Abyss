@@ -21,6 +21,8 @@ namespace abyss::Debug
 
         ABYSS_DEBUG_LOG(Info);
 
+        ABYSS_DEBUG_LOG(Alert);
+
         ABYSS_DEBUG_LOG(Warn);
 
         ABYSS_DEBUG_LOG(Error);
