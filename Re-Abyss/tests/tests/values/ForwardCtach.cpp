@@ -10,6 +10,7 @@ namespace abyss::tests
             auto forward = Forward::None();
             REQUIRE(forward == Forward::None());
 
+            REQUIRE(forward.isNone());
             REQUIRE_FALSE(forward.isLeft());
             REQUIRE_FALSE(forward.isRight());
             REQUIRE_FALSE(forward.isUp());
@@ -24,10 +25,11 @@ namespace abyss::tests
             auto forward = Forward::Left();
             REQUIRE(forward == Forward::Left());
 
+            REQUIRE_FALSE(forward.isNone());
             REQUIRE(forward.isLeft());
             REQUIRE_FALSE(forward.isRight());
-            REQUIRE_FALSE(forward.isDown());
             REQUIRE_FALSE(forward.isUp());
+            REQUIRE_FALSE(forward.isDown());
 
             REQUIRE(forward.signH() < 0);
             REQUIRE(forward.signV() == 0);
@@ -38,10 +40,11 @@ namespace abyss::tests
             auto forward = Forward::Right();
             REQUIRE(forward == Forward::Right());
 
+            REQUIRE_FALSE(forward.isNone());
             REQUIRE_FALSE(forward.isLeft());
             REQUIRE(forward.isRight());
-            REQUIRE_FALSE(forward.isDown());
             REQUIRE_FALSE(forward.isUp());
+            REQUIRE_FALSE(forward.isDown());
 
             REQUIRE(forward.signH() > 0);
             REQUIRE(forward.signV() == 0);
@@ -52,10 +55,11 @@ namespace abyss::tests
             auto forward = Forward::Up();
             REQUIRE(forward == Forward::Up());
 
+            REQUIRE_FALSE(forward.isNone());
             REQUIRE_FALSE(forward.isLeft());
             REQUIRE_FALSE(forward.isRight());
-            REQUIRE_FALSE(forward.isDown());
             REQUIRE(forward.isUp());
+            REQUIRE_FALSE(forward.isDown());
 
             REQUIRE(forward.signH() == 0);
             REQUIRE(forward.signV() < 0);
@@ -66,15 +70,33 @@ namespace abyss::tests
             auto forward = Forward::Down();
             REQUIRE(forward == Forward::Down());
 
+            REQUIRE_FALSE(forward.isNone());
             REQUIRE_FALSE(forward.isLeft());
             REQUIRE_FALSE(forward.isRight());
-            REQUIRE(forward.isDown());
             REQUIRE_FALSE(forward.isUp());
+            REQUIRE(forward.isDown());
 
             REQUIRE(forward.signH() == 0);
             REQUIRE(forward.signV() > 0);
 
             REQUIRE(forward.toVec2() == Vec2{ 0, 1 });
+        }
+        SECTION("Free") {
+            auto forward = Forward(2, 2);
+
+            REQUIRE(forward.isSame(Forward::Down()));
+            REQUIRE(forward.isSame(Forward::Right()));
+
+            REQUIRE_FALSE(forward.isNone());
+            REQUIRE_FALSE(forward.isLeft());
+            REQUIRE(forward.isRight());
+            REQUIRE_FALSE(forward.isUp());
+            REQUIRE(forward.isDown());
+
+            REQUIRE(forward.signH() > 0);
+            REQUIRE(forward.signV() > 0);
+
+            REQUIRE(forward.toVec2() == Vec2{ 1, 1 });
         }
     }
 }

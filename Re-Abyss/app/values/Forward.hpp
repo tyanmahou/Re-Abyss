@@ -144,6 +144,7 @@ namespace abyss
         {
             return Forward{ 0, m_value.y };
         }
+
         /// <summary>
         /// 同じ方向か
         /// </summary>
@@ -151,15 +152,22 @@ namespace abyss
         /// <returns></returns>
         constexpr bool isSame(const Forward& other) const
         {
-            if (m_value == other.m_value) {
-                // None用
-                return true;
-            }
             return m_value.dot(other.m_value) > 0;
         }
+
+        /// <summary>
+        /// 向き合っているか
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        constexpr bool isOpposite(const Forward& other) const
+        {
+            return m_value.dot(other.m_value) < 0;
+        }
+
         constexpr s3d::Vec2 toVec2() const
         {
-            return m_value;
+            return s3d::Sign(m_value);
         }
         friend constexpr bool operator == (const Forward& a, const Forward& b)
         {
