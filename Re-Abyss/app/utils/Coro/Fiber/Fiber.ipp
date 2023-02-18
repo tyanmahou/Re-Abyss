@@ -89,9 +89,11 @@ namespace abyss::Coro
     {
         while (true) {
             a.resume();
+            if (a.isDone()) {
+                co_return;
+            }
             b.resume();
-
-            if (a.isDone() || b.isDone()) {
+            if (b.isDone()) {
                 co_return;
             }
 

@@ -1,5 +1,6 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Builder.hpp>
 
+#include <abyss/commons/Constants.hpp>
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 
@@ -122,10 +123,13 @@ namespace abyss::Actor::Enemy::CodeZero
         {
             pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
 
-            pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
-            pActor->find<ColorAnim::DamageColor>()->setIndexMaskMul(0x1);
+            pActor->find<ColorCtrl>()->resizeBuffer(4, 2);
+            pActor->find<ColorAnim::DamageColor>()
+                ->setIndexMaskMul(0x4);
+
             // ボス撃破カラー
-            pActor->attach<ColorAnim::BossDeadColor>(pActor);
+            pActor->attach<ColorAnim::BossDeadColor>(pActor)
+                ->setIndexMaskMul(0x1);
 
             pActor->attach<HideCtrl>(pActor)
                 ->setLayer(DrawLayer::DecorBack)
@@ -153,7 +157,8 @@ namespace
             m_pActor(pActor),
             m_viewBody(std::make_unique<BodyVM>()),
             m_viewHead(std::make_unique<Head::HeadVM>()),
-            m_viewEye(std::make_unique<Head::EyeVM>())
+            m_viewEye(std::make_unique<Head::EyeVM>()),
+            m_rt(Constants::GameScreenSize.asPoint())
         {}
     public:
         void onStart() override
@@ -168,8 +173,27 @@ namespace
         }
         void onDraw() const override
         {
-            this->bindBody()->draw();
-            this->bindHead()->draw();
+            {
+                m_rt.clear(ColorF(0, 0));
+                s3d::ScopedRenderTarget2D renderStart(m_rt);
+                s3d::ScopedRenderStates2D blend(BlendState{
+                    true,
+                    Blend::SrcAlpha,
+                    Blend::InvSrcAlpha,
+                    BlendOp::Add,
+                    Blend::One,
+                    Blend::One,
+                    BlendOp::Max
+                    });
+                this->bindBody()->draw();
+                this->bindHead()->draw();
+            }
+            {
+                Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
+                Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
+                m_rt.draw(m_colorCtrl->colorMul());
+            }
+
             if (m_eye->isVisible()) {
                 this->bindEye()->draw();
             }
@@ -189,7 +213,7 @@ namespace
             return &m_viewHead->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setLook(m_head->getLook())
-                .setColorMul(m_colorCtrl->colorMul())
+                .setColorMul(m_colorCtrl->colorMul(2))
                 .setColorAdd(m_colorCtrl->colorAdd())
                 ;
         }
@@ -199,7 +223,7 @@ namespace
             return &m_viewEye
                 ->setPos(m_head->getPos())
                 .setScale(m_eye->scale())
-                .setColorMul(m_colorCtrl->colorMul(2))
+                .setColorMul(m_colorCtrl->colorMul(3))
                 .setColorAdd(m_colorCtrl->colorAdd(1))
                 ;
         }
@@ -215,6 +239,8 @@ namespace
         std::unique_ptr<BodyVM> m_viewBody;
         std::unique_ptr<Head::HeadVM> m_viewHead;
         std::unique_ptr<Head::EyeVM> m_viewEye;
+
+        s3d::RenderTexture m_rt;
     };
 }
 

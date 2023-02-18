@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::CodeZero
 
 		size_t indexMaskMul() const override
 		{
-			return 0x04;
+			return 0x08;
 		}
 		s3d::ColorF colorMul() const override;
 

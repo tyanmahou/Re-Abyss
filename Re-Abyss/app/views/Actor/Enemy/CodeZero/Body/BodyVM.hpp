@@ -23,7 +23,5 @@ namespace abyss::Actor::Enemy::CodeZero::Body
         s3d::Vec2 m_wingLPos;
         s3d::Vec2 m_wingRPos;
         s3d::ColorF m_colorMul;
-
-        s3d::RenderTexture m_rt;
     };
 }

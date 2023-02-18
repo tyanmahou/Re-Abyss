@@ -123,7 +123,7 @@ namespace
                 .setPos(m_body->getPos() + m_shake->getShakeOffset())
                 .setRotate(m_rotate->getRotate())
                 .setMotion(m_motion->get<Motion>())
-                .setColorMul(m_colorCtrl->colorMul(1))
+                .setColorMul(m_colorCtrl->colorMul())
                 .setColorAdd(m_colorCtrl->colorAdd())
                 ;
         }
