@@ -274,7 +274,7 @@ namespace abyss::Actor
     }
     bool Body::isForward(Forward f) const
     {
-        return m_forward == f;
+        return m_forward.isSame(f);
     }
     ColDirection Body::fixPos(const Physics::TerrainData& terrain)
     {
