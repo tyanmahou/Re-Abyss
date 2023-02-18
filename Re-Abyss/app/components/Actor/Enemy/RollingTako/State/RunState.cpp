@@ -9,9 +9,9 @@ namespace abyss::Actor::Enemy::RollingTako
     }
     void RunState::update()
     {
-        if (m_body->isForward(Forward::Left)) {
+        if (m_body->isForward(Forward::Left())) {
             m_body->setAccelX(-Param::Run::AccelX);
-        } else if (m_body->isForward(Forward::Right)) {
+        } else if (m_body->isForward(Forward::Right())) {
             m_body->setAccelX(Param::Run::AccelX);
         }
     }

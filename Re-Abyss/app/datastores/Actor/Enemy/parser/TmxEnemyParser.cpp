@@ -29,7 +29,7 @@ namespace
 		if (entity) {
 			Vec2 size = obj.toRectF().size;
 			entity->pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
-			entity->forward = obj.isMirrored ? Forward::Right : Forward::Left;
+			entity->forward = obj.isMirrored ? Forward::Right() : Forward::Left();
 		}
 		return entity;
 	}
@@ -62,7 +62,7 @@ namespace
                 it->isMirrored = obj.isMirrored;
                 it->isFlipped = obj.isFlipped;
                 it->rotate = obj.rotation;
-                it->forward = obj.isMirrored ? Forward::Right : Forward::Left;
+                it->forward = obj.isMirrored ? Forward::Right() : Forward::Left();
                 Vec2 size = obj.toRectF().size;
                 RectF rect{ obj.pos + Vec2{0, -size.y}, size};
                 it->pos = rect.center().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));

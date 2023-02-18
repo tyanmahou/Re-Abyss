@@ -20,10 +20,10 @@ namespace abyss::Actor::Enemy::BabyDux
         const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
         auto diff = playerPos - pos;
 
-        if (m_body->isForward(Forward::Left) && diff.x > 100) {
-            m_body->setForward(Forward::Right);
-        } else if (m_body->isForward(Forward::Right) && diff.x < -100) {
-            m_body->setForward(Forward::Left);
+        if (m_body->isForward(Forward::Left()) && diff.x > 100) {
+            m_body->setForward(Forward::Right());
+        } else if (m_body->isForward(Forward::Right()) && diff.x < -100) {
+            m_body->setForward(Forward::Left());
         }
     }
 }

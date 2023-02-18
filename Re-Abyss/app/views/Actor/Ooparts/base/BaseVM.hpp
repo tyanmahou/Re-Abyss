@@ -8,7 +8,7 @@ namespace abyss::Actor::Ooparts
     {
     protected:
         s3d::Vec2 m_pos{ 0, 0 };
-        Forward m_forward{ Forward::Right };
+        Forward m_forward{ Forward::Right() };
         double m_time = 0;
     public:
 

@@ -43,7 +43,7 @@ namespace abyss::Actor::Player
 
             // 手元に移動
             m_mainOoparts->find<Ooparts::PursuitCtrl>()
-                ->setLocalPos(s3d::Vec2{ 30 * m_body->getForward(), -1 })
+                ->setLocalPos(s3d::Vec2{ 30 * m_body->getForward().signH(), -1})
                 .setIsPursuit(false);
 
 

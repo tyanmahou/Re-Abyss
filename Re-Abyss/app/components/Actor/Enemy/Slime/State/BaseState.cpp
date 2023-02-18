@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::Slime
     }
     void BaseState::updateMove()
     {
-        m_body->setAccelX(m_body->getForward() * Param::Walk::AccelX);
+        m_body->setAccelX(m_body->getForward().signH() * Param::Walk::AccelX);
     }
 
     void BaseState::checkWallHit()

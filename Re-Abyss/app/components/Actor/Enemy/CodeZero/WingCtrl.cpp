@@ -67,16 +67,16 @@ namespace abyss::Actor::Enemy::CodeZero
                 const Look& look = m_head->getLook();
                 m_localTargetL = m_localTargetR = Vec2{ 0, 0 };
             
-                if (look.isForward(Forward::Left)) {
+                if (look.isForward(Forward::Left())) {
                     m_localTargetL.x = m_localTargetR.x = Param::Wing::LookOffset.x;
                     m_localTargetL.x *= Param::Wing::LookDiffRate;
-                } else if (look.isForward(Forward::Right)) {
+                } else if (look.isForward(Forward::Right())) {
                     m_localTargetL.x = m_localTargetR.x = -Param::Wing::LookOffset.x;
                     m_localTargetR.x *= Param::Wing::LookDiffRate;
                 }
-                if (look.isForward(Forward::Up)) {
+                if (look.isForward(Forward::Up())) {
                     m_localTargetL.y = m_localTargetR.y = Param::Wing::LookOffset.y;
-                } else if (look.isForward(Forward::Down)) {
+                } else if (look.isForward(Forward::Down())) {
                     m_localTargetL.y = m_localTargetR.y = -Param::Wing::LookOffset.y;
                 }
             }

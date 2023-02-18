@@ -38,7 +38,7 @@ namespace abyss::Room
     {
 		// TODO 自動スクロール
 
-        bool isPassableDown = !m_roomGarder.isLock() && m_currentRoom.passable(Forward::Down);
+        bool isPassableDown = !m_roomGarder.isLock() && m_currentRoom.passable(ColDirection::Down);
 		if (!isPassableDown && pos.y > m_currentRoom.borders().down + margin) {
 			return true;
 		}
@@ -89,11 +89,11 @@ namespace abyss::Room
 	{
 		constexpr ColorF colors[4] = { ColorF(0,0), ColorF(0,0) ,ColorF(0,1),ColorF(0,1) };
 
-		if (!m_currentRoom.passable(Forward::Down) || m_roomGarder.isLock()) {
+		if (!m_currentRoom.passable(ColDirection::Down) || m_roomGarder.isLock()) {
 			const auto& region = m_currentRoom.getRegion();
 			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
 		}
-		if (m_nextRoom && !m_nextRoom->passable(Forward::Down)) {
+		if (m_nextRoom && !m_nextRoom->passable(ColDirection::Down)) {
             const auto& region = m_nextRoom->getRegion();
 			RectF(region.x, region.y + region.size.y - 40, region.w, 40).draw(colors);
 		}

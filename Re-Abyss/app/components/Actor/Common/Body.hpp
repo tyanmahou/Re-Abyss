@@ -31,7 +31,7 @@ namespace abyss::Actor
         s3d::Vec2 m_accel{0, DefaultGravity};
         double m_decelX = 0.0;
 
-        Forward m_forward{Forward::None};
+        Forward m_forward{Forward::None()};
 
         s3d::Vec2 m_size{ 0, 0 };
         s3d::Vec2 m_sizePrev{ 0, 0 };

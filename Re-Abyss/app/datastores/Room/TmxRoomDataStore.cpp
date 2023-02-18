@@ -1,6 +1,6 @@
 #include <abyss/datastores/Room/TmxRoomDataStore.hpp>
 
-#include <abyss/values/Forward.hpp>
+#include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/datastores/base/parser/TmxParseUtil.hpp>
 
 namespace abyss
@@ -22,16 +22,16 @@ namespace abyss
 
 				s3d::uint8 passbleBits = 0;
 				if (obj.getProperty(U"up").value_or(false)) {
-					passbleBits |= static_cast<uint8>(Forward::Up);
+					passbleBits |= ColDirection::Up;
 				}
 				if (obj.getProperty(U"down").value_or(false)) {
-					passbleBits |= static_cast<uint8>(Forward::Down);
+					passbleBits |= ColDirection::Down;
 				}
 				if (obj.getProperty(U"left").value_or(false)) {
-					passbleBits |= static_cast<uint8>(Forward::Left);
+					passbleBits |= ColDirection::Left;
 				}
 				if (obj.getProperty(U"right").value_or(false)) {
-					passbleBits |= static_cast<uint8>(Forward::Right);
+					passbleBits |= ColDirection::Right;
 				}
 				s3d::Optional<s3d::ColorF> lightColor;
 				if (auto c = obj.getProperty(U"light_color")) {

@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::BabyDux
         auto moveEye = [&](Vec2& eyePos, const Vec2& offset, const Vec2& limitBegin, const Vec2& limitEnd) {
 
             Vec2 targetPos{ 0, 0 };
-            const auto toPlayerPos = playerPos - (pos + (offset * -ToVec2(m_body->getForward())) + Vec2{ 0, 10 });
+            const auto toPlayerPos = playerPos - (pos + (offset * -m_body->getForward().toVec2()) + Vec2{ 0, 10 });
             auto toPlayerUnit = s3d::Vec2::Zero();
             if (!toPlayerPos.isZero()) {
                 toPlayerUnit = toPlayerPos.normalized();

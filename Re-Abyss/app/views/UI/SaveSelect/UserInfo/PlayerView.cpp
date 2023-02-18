@@ -30,7 +30,7 @@ namespace abyss::UI::SaveSelect::UserInfo
     }
     s3d::Vec2 PlayerView::getOopartsPos() const
     {
-        auto localTarget = s3d::Vec2{ Forward::Left * -20 , -40 };
+        auto localTarget = s3d::Vec2{ Forward::Left().signH() * -20 , -40 };
         localTarget += s3d::Vec2{
             15 * s3d::Sin(m_time * 2.0),
             10 * s3d::Sin(m_time * 4.0)
@@ -42,13 +42,13 @@ namespace abyss::UI::SaveSelect::UserInfo
         if (m_oopartsType != OopartsType::Invalid) {
             m_ooparts
                 ->setPos(getOopartsPos())
-                .setForward(Forward::Left)
+                .setForward(Forward::Left())
                 .setTime(m_time)
                 .draw();
         }
         m_player
             ->setPos(m_pos)
-            .setForward(Forward::Left)
+            .setForward(Forward::Left())
             .setTime(m_time)
             .setMotion(Actor::Player::Motion::Stay)
             .draw();

@@ -43,13 +43,13 @@ namespace abyss::Actor::Enemy::LaunShark
     }
     void LaunSharkVM::drawSwim() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::SwimAnimeTimeSec, m_time));
         m_texture(U"wait")({ 0, 60 * time }, { 120, 60 }).mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
     void LaunSharkVM::drawAttack() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
 
         int32 page = static_cast<int32>(Periodic::Sawtooth0_1(Param::View::AttackAnimeTimeSec, m_time) * 8);
         m_texture(U"attack")({ 120 * (page / 4), 80 * (page %  4) }, { 120, 80 }).mirrored(isRight).drawAt(m_pos, m_colorMul);
@@ -57,7 +57,7 @@ namespace abyss::Actor::Enemy::LaunShark
     void LaunSharkVM::drawLauncher(double launcherTime) const
     {
         auto tex = m_texture(U"launcher");
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Square0_1(1s, m_time));
 
         auto mousePos = m_pos + Vec2{ isRight ? 30 : -60, page == 1 ? -26 : -30};

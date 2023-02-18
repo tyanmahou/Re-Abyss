@@ -269,11 +269,7 @@ namespace abyss::Actor
     }
     Body& Body::reversed()
     {
-        if (m_forward == Forward::Left) {
-            m_forward = Forward::Right;
-        } else if (m_forward == Forward::Right) {
-            m_forward = Forward::Left;
-        }
+        m_forward = m_forward.flipped();
         return *this;
     }
     bool Body::isForward(Forward f) const

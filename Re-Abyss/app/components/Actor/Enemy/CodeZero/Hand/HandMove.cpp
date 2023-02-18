@@ -100,7 +100,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         TimeLite::Timer timer{ 3.0 };
         co_await Coro::Loop([&] {
             timer.update(m_pActor->deltaTime());
-        m_body->setPos(initPos + Vec2{ 20 * (isLeft ? -1.0 : 1.0) ,20 } *timer.rate());
+            m_body->setPos(initPos + Vec2{ -20 * (isLeft ? -1.0 : 1.0) , -20 } * timer.rate());
         });
     }
     Coro::Fiber<> HandMove::movePursuit(bool slowStart)

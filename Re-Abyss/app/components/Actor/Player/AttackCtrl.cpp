@@ -56,7 +56,7 @@ namespace abyss::Actor::Player
 
         double charge = m_charge->pop();
         m_pActor->getModule<Actors>()->create<Shot::Builder>(
-            m_body->getPos() + Vec2{ 30 * m_body->getForward(), -1 }, 
+            m_body->getPos() + Vec2{ 30 * m_body->getForward().signH(), -1},
             m_body->getForward(), 
             charge
             );

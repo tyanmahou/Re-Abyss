@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         // 回転
         {
             auto rotate = pActor->attach<RotateCtrl>();
-            if (forward == Forward::Right) {
+            if (forward.isRight()) {
                 rotate->setRotate(s3d::Math::Constants::Pi);
             }
         }

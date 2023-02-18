@@ -3,7 +3,6 @@
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Color.hpp>
 #include <Siv3D/Optional.hpp>
-#include <abyss/values/Forward.hpp>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>
 
@@ -27,8 +26,8 @@ namespace abyss::Room
 		RoomData() = default;
 		RoomData(const s3d::RectF & region, s3d::uint8 passbleBits, const s3d::Optional<s3d::ColorF>& lightColor);
 
-		bool passable(Forward f) const;
-		double pos(Forward f) const;
+		bool passable(ColDirection f) const;
+		double pos(ColDirection f) const;
 		const s3d::RectF& getRegion()const;
 		s3d::RectF getRegion(double margin)const;
 

@@ -147,7 +147,7 @@ namespace abyss::Actor::Enemy
         pos(0, 0),
         bodySize(40, 40),
         bodyPivot(0, 0),
-        forward(Forward::Left),
+        forward(Forward::Left()),
         initHp(1),
         audioSettingGroupPath(U"Enemy/Enemy.aase")
     {}

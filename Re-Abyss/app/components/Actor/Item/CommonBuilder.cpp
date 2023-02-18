@@ -27,7 +27,7 @@ namespace abyss::Actor::Item
         {
             pActor->attach<Body>(pActor)
                 ->initPos(opt.pos)
-                .setForward(Forward::Left)
+                .setForward(Forward::Left())
                 .initSize(opt.bodySize)
                 .initPivot(opt.bodyPivot)
                 .setMaxVelocityY(20.0)

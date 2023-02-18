@@ -79,24 +79,24 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 				if (auto verticalCheck = Vec2::UnitY().dot(dir); Math::IsZeroLoose(verticalCheck)) {
 					// 左右向き
 					if (Vec2::UnitX().dot(dir) > 0) {
-						return Forward::Right;
+						return Forward::Right();
 					} else {
-						return Forward::Left;
+						return Forward::Left();
 					}
 				} else if (verticalCheck > 0) {
-					return Forward::Down;
+					return Forward::Down();
 				} else {
-					return Forward::Up;
+					return Forward::Up();
 				}
 			}();
-			const auto pivot = (forward == Forward::Down || forward == Forward::Right) ? roomRegion.tl() : roomRegion.br();
+			const auto pivot = (forward.isDown() || forward.isRight()) ? roomRegion.tl() : roomRegion.br();
 			const auto pivotToTip = shape.p0 - pivot;
-			const auto normal = ToVec2(forward);
+            const auto normal = forward.toVec2();
 
 			if (auto dist = normal.dot(pivotToTip); Math::IsZeroLoose(dist)) {
 				distFromRoom = 0;
 			} else {
-				if (forward == Forward::Up && dist <= 80) {
+				if (forward.isUp() && dist <= 80) {
 					// 先端が地面より下になった
 					m_isRetire = true;
 				}

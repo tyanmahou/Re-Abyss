@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             // ショット
             constexpr s3d::Vec2 offset{ -9, 4 };
             const s3d::Vec2 fixedOffset{
-                m_body->isForward(Forward::Left) ? offset.x : -offset.x,
+                m_body->isForward(Forward::Left()) ? offset.x : -offset.x,
                 offset.y
             };
             auto pos = m_body->getPos() + fixedOffset;

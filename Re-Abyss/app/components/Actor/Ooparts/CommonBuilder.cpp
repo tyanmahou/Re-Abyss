@@ -16,7 +16,7 @@ namespace abyss::Actor::Ooparts
             auto parentBody = parent->find<Body>();
             auto forward = parentBody->getForward();
             pActor->attach<Body>(pActor)
-                ->initPos(parentBody->getPos() + s3d::Vec2{ forward * -20, -40 })
+                ->initPos(parentBody->getPos() + s3d::Vec2{ forward.signH() * -20, -40 })
                 .setForward(forward);
 
             pActor->attach<PursuitCtrl>(pActor, parentBody);

@@ -43,9 +43,9 @@ namespace abyss::Actor::Player
         if (m_pTargetLocator) {
             auto toTarget = m_pTargetLocator->getCenterPos() - m_body->getCenterPos();
             if (toTarget.x >= 0) {
-                m_body->setForward(Forward::Right);
+                m_body->setForward(Forward::Right());
             } else {
-                m_body->setForward(Forward::Left);
+                m_body->setForward(Forward::Left());
             }
         }
         m_motion->set(Motion::Float);

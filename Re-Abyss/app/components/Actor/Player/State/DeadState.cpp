@@ -44,13 +44,13 @@ namespace abyss::Actor::Player
             if (const auto& damage = m_pActor->find<DamageCtrl>()->getData()) {
                 auto toPlayer = m_body->getCenterPos() - damage->pos;
                 if (toPlayer.x > 0) {
-                    nextForward = Forward::Left;
+                    nextForward = Forward::Left();
                 } else if (toPlayer.x < 0) {
-                    nextForward = Forward::Right;
+                    nextForward = Forward::Right();
                 }
             }
             const Vec2 velocity{
-                nextForward * -knockBackSpeed.x,
+                nextForward.signH() * -knockBackSpeed.x,
                 -knockBackSpeed.y
             };
             m_body

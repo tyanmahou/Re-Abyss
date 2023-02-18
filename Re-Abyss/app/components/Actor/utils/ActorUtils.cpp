@@ -21,7 +21,7 @@ namespace abyss::Actor::ActorUtils
     bool IsPlayerFrontByDistance(const ActorObj& actor, const Body& body, double range)
     {
         s3d::Vec2 d = ToPlayer(actor, body);
-        double f = body.isForward(Forward::Right) ? 1.0 : -1.0;
+        double f = body.isForward(Forward::Right()) ? 1.0 : -1.0;
         return f * d.x > 0 && d.length() <= range;
     }
 }

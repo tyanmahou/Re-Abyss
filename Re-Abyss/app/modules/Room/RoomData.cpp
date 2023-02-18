@@ -13,23 +13,25 @@ namespace abyss::Room
 		m_lightColor(lightColor)
 	{}
 
-	bool RoomData::passable(Forward f) const
+	bool RoomData::passable(ColDirection f) const
 	{
 		return (m_passbleBits & static_cast<uint8>(f)) != 0;
 	}
 
-	double RoomData::pos(Forward f) const
+	double RoomData::pos(ColDirection f) const
 	{
-		switch (f) {
-		case Forward::Up:return m_region.y;
-		case Forward::Down:return m_region.y + m_region.h;
-		case Forward::Left:return m_region.x;
-		case Forward::Right:return m_region.x + m_region.w;
-
-		default:
-
-			break;
-		}
+        if (f.isUp()) {
+            return m_region.y;
+        }
+        if (f.isDown()) {
+            return m_region.y + m_region.h;
+        }
+        if (f.isLeft()) {
+            return m_region.x;
+        }
+        if (f.isRight()) {
+            return m_region.x + m_region.w;
+        }
 		return 0.0;
 	}
 	const s3d::RectF& RoomData::getRegion() const
@@ -49,10 +51,10 @@ namespace abyss::Room
 		constexpr auto screenHarf = Constants::GameScreenSize / 2;
 
 		RoomBorders ret;
-		ret.up = pos(Forward::Up) + screenHarf.y;
-		ret.down = pos(Forward::Down) - screenHarf.y;
-		ret.left = pos(Forward::Left) + screenHarf.x;
-		ret.right = pos(Forward::Right) - screenHarf.x;
+		ret.up = pos(ColDirection::Up) + screenHarf.y;
+		ret.down = pos(ColDirection::Down) - screenHarf.y;
+		ret.left = pos(ColDirection::Left) + screenHarf.x;
+		ret.right = pos(ColDirection::Right) - screenHarf.x;
 		return ret;
 	}
 	s3d::Vec2 RoomData::cameraBorderAdjusted(s3d::Vec2 pos) const
@@ -78,25 +80,25 @@ namespace abyss::Room
 	RoomBorders RoomData::borders() const
 	{
 		RoomBorders ret;
-		ret.up = pos(Forward::Up);
-		ret.down = pos(Forward::Down);
-		ret.left = pos(Forward::Left);
-		ret.right = pos(Forward::Right);
+		ret.up = pos(ColDirection::Up);
+		ret.down = pos(ColDirection::Down);
+		ret.left = pos(ColDirection::Left);
+		ret.right = pos(ColDirection::Right);
 		return ret;
 	}
 	s3d::Vec2 RoomData::borderAdjusted(s3d::Vec2 pos) const
 	{
 		auto border = this->borders();
 		constexpr double epsilon = 1.0;
-		if (!this->passable(Forward::Left) && pos.x < border.left + epsilon) {
+		if (!this->passable(ColDirection::Left) && pos.x < border.left + epsilon) {
 			//左端
 			pos.x = border.left + epsilon;
-		} else if (!this->passable(Forward::Right) && pos.x > border.right - epsilon) {
+		} else if (!this->passable(ColDirection::Right) && pos.x > border.right - epsilon) {
 			//右端
 			pos.x = border.right - epsilon;
 		}
 
-		if (!this->passable(Forward::Up) && pos.y < border.up + epsilon) {
+		if (!this->passable(ColDirection::Up) && pos.y < border.up + epsilon) {
 			//上端
 			pos.y = border.up + epsilon;
 		}
@@ -151,13 +153,13 @@ namespace abyss::Room
 	ColDirection RoomData::getCol() const
 	{
 		ColDirection col = ColDirection::None;
-		if (!this->passable(Forward::Up)) {
+		if (!this->passable(ColDirection::Up)) {
 			col |= ColDirection::Down;
 		}
-		if (!this->passable(Forward::Left)) {
+		if (!this->passable(ColDirection::Left)) {
 			col |= ColDirection::Right;
 		}
-		if (!this->passable(Forward::Right)) {
+		if (!this->passable(ColDirection::Right)) {
 			col |= ColDirection::Left;
 		}
 		return col;

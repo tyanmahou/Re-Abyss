@@ -47,7 +47,7 @@ namespace abyss::Actor::Enemy::CaptainTako
 
     void CaptainTakoVM::drawWait() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
         auto tex = m_texture(40 * page, 0, 40, 40);
         tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
@@ -55,7 +55,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     void CaptainTakoVM::drawCharge() const
     {
         ColorF color = ColorF(1, 1 - m_chargeRate * 0.5, 1 - m_chargeRate * 0.5) * m_colorMul;
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
 
         constexpr Vec2 rawSize{40, 40};

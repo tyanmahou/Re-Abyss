@@ -110,7 +110,7 @@ namespace abyss::Actor
 			const Vec2 back = m_backOffset.value_or(frontRev);
 			const Vec2 backRev = Vec2{-back.x, back.y};
 
-			if (m_body->isForward(Forward::Left)) {
+			if (m_body->isForward(Forward::Left())) {
 				m_front->onPrePhysics(footPos + front);
 				m_back->onPrePhysics(footPos + back);
 			} else {

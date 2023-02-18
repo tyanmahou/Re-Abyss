@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     void HandVM::drawBase(const s3d::Color & color) const
     {
         m_texture(U"hand")
-            .mirrored(m_forward == Forward::Right)
+            .mirrored(m_forward.isRight())
             .rotated(m_rotate)
             .drawAt(m_pos, m_colorMul * color);
     }

@@ -14,24 +14,24 @@ namespace abyss
 
     bool Look::isForward(Forward f) const
     {
-        return m_value.dot(ToVec2(f)) > 0;
+        return m_value.dot(f.toVec2()) > 0;
     }
     Forward Look::verticalForward() const
     {
         if (m_value.y > 0) {
-            return Forward::Down;
+            return Forward::Down();
         } else if (m_value.y < 0) {
-            return Forward::Up;
+            return Forward::Up();
         }
-        return Forward::None;
+        return Forward::None();
     }
     Forward Look::horizonalForward() const
     {
         if (m_value.x > 0) {
-            return Forward::Right;
+            return Forward::Right();
         } else if (m_value.x < 0) {
-            return Forward::Left;
+            return Forward::Left();
         }
-        return Forward::None;
+        return Forward::None();
     }
 }

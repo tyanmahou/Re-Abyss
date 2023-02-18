@@ -49,7 +49,7 @@ namespace abyss::Actor::Enemy::Slime
 
     void SlimeVM::drawWalk() const
     {
-        bool isLeft = m_forward == Forward::Left;
+        bool isLeft = m_forward.isLeft();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::WalkAnimeTimeSec, m_time));
         auto tex = m_texture(40 * time, 0, 40, 40);
         (isLeft ? tex : tex.mirrored()).drawAt(m_pos, m_colorMul);
@@ -57,7 +57,7 @@ namespace abyss::Actor::Enemy::Slime
 
     void SlimeVM::drawJump() const
     {
-        bool isLeft = m_forward == Forward::Left;
+        bool isLeft = m_forward.isLeft();
 
         int32 page = m_velocity.y > 0 ? 1 : 0;
         auto tex = m_texture(40 * page, 40, 40, 40);

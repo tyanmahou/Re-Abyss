@@ -19,9 +19,9 @@ namespace abyss::Actor::Player
 
         auto nextForward = m_body->getForward();
         if (m_velocity.x > 0) {
-            nextForward = Forward::Left;
+            nextForward = Forward::Left();
         } else if (m_velocity.x < 0) {
-            nextForward = Forward::Right;
+            nextForward = Forward::Right();
         }
 
         m_body
@@ -32,7 +32,7 @@ namespace abyss::Actor::Player
         const Vec2& knockBackSpeed = Param::Damage::KnockBackSpeed;
 
         const Vec2 velocity{ 
-            nextForward *  -knockBackSpeed.x,
+            nextForward.signH() *  -knockBackSpeed.x,
             -knockBackSpeed.y
         };
         m_body->setVelocity(velocity);

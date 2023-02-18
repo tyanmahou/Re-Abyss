@@ -34,12 +34,12 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 {
     void Builder::Build(ActorObj* pActor, ActorObj* parent, HandKind kind)
     {
-        const auto forward = kind == HandKind::Left ? Forward::Left : Forward::Right;
+        const auto forward = kind == HandKind::Left ? Forward::Left() : Forward::Right();
 
         // Body
         {
             s3d::Vec2 offs = HandParam::Base::InitOffs;
-            offs.x = offs.x * forward;
+            offs.x = offs.x * forward.signH();
             pActor->attach<Body>(pActor)
                 ->initPos(parent->find<Body>()->getPos() + offs)
                 .noneResistanced();

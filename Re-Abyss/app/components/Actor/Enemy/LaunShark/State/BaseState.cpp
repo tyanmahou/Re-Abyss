@@ -12,9 +12,9 @@ namespace abyss::Actor::Enemy::LaunShark
         auto dt = m_pActor->deltaTime();
         m_timeCounter->update(dt);
         double accelX = Param::Base::AccelX;
-        if (m_body->isForward(Forward::Left)) {
+        if (m_body->isForward(Forward::Left())) {
             m_body->setAccelX(-accelX);
-        } else if (m_body->isForward(Forward::Right)) {
+        } else if (m_body->isForward(Forward::Right())) {
             m_body->setAccelX(accelX);
         }
     }

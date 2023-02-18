@@ -51,10 +51,10 @@ namespace abyss::Actor
 
         bool isHitWall(Forward forward) const
         {
-            if (forward == Forward::Left && m_col.isRight()) {
+            if (forward.isLeft() && m_col.isRight()) {
                 return true;
             }
-            if (forward == Forward::Right && m_col.isLeft()) {
+            if (forward.isRight() && m_col.isLeft()) {
                 return true;
             }
             return false;

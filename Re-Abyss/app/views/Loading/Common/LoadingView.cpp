@@ -28,7 +28,7 @@ namespace abyss::Loading::Common
             }
             m_slime
                 ->setPos(pos)
-                .setForward(Forward::Left)
+                .setForward(Forward::Left())
                 .setTime(0.5 + s3d::Math::Lerp(0.0, 1.0, (t - jumpSec) / (periodicSec - jumpSec)));
             if (t <= jumpSec) {
                 m_slime

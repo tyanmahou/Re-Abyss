@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::Schield
     }
     s3d::Circle FaceCtrl::getCollider() const
     {
-        s3d::Vec2 offset{ 53.0 * m_body->getForward(), 16 };
+        s3d::Vec2 offset{ 53.0 * m_body->getForward().signH(), 16};
         return s3d::Circle(m_body->getPos() + offset, Param::Wait::FaceColRadius);
     }
 

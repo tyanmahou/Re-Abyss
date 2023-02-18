@@ -26,7 +26,7 @@ namespace abyss::Actor::Ooparts
             auto dt = m_pActor->deltaTime();
             double time = m_pActor->getTimeSec();
 
-            auto localTarget = Vec2{ m_pParent->getForward() * -20 , -40 };
+            auto localTarget = Vec2{ m_pParent->getForward().signH() * -20 , -40 };
             localTarget += Vec2{
                 15 * s3d::Sin(time * 2.0),
                 10 * s3d::Sin(time * 4.0)

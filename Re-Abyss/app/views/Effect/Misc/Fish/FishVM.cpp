@@ -17,7 +17,7 @@ namespace abyss::Effect::Misc::Fish
     {
         auto scaleOffset = s3d::Periodic::Triangle0_1(2s, m_time) * 0.1;
         m_texture
-            .mirrored(m_forward == Forward::Right)
+            .mirrored(m_forward.isRight())
             .scaled(m_scale + scaleOffset)
             .drawAt(m_pos, color);
     }

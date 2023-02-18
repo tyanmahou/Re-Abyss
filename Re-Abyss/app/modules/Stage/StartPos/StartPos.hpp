@@ -35,7 +35,7 @@ namespace abyss
     private:
         s3d::int32 m_startId = -1;
         s3d::Vec2 m_pos{ 0, 0 };
-        Forward m_forward{ Forward::Right };
+        Forward m_forward{ Forward::Right()};
         bool m_isSave = true;
     };
 }

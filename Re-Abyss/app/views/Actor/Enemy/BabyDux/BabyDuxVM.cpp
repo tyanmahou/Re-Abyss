@@ -50,7 +50,7 @@ namespace abyss::Actor::Enemy::BabyDux
     {
         int32 page = AnimUtil::FrameFromTriangle(1.2, m_time, 3);
         m_texture(U"stay")(90 * page, 0, 90, 100)
-            .mirrored(m_forward == Forward::Right)
+            .mirrored(m_forward.isRight())
             .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawCharge() const
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::BabyDux
         int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
         m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100)
-            .mirrored(m_forward == Forward::Right)
+            .mirrored(m_forward.isRight())
             .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawJump() const
@@ -68,21 +68,21 @@ namespace abyss::Actor::Enemy::BabyDux
         int32 page = AnimUtil::FrameFromMap(m_animTime, mapping);
 
         m_texture(U"charge")(90 * (page % 3), 100 * (page / 3), 90, 100)
-            .mirrored(m_forward == Forward::Right)
+            .mirrored(m_forward.isRight())
             .drawAt(m_pos, m_colorMul);
     }
     void BabyDuxVM::drawEye() const
     {
         // 左目
         {
-            auto eyePos = m_pos + Param::Base::EyeL * -ToVec2(m_forward);
+            auto eyePos = m_pos + Param::Base::EyeL * -m_forward.toVec2();
             Circle(eyePos, 8).draw();
             Circle(eyePos + m_eyePosL, 5).draw(Palette::Black);
         }
 
         // 右目
         {
-            auto eyePos = m_pos + Param::Base::EyeR * -ToVec2(m_forward);
+            auto eyePos = m_pos + Param::Base::EyeR * -m_forward.toVec2();
             Circle(eyePos, 8).draw();
             Circle(eyePos + m_eyePosR, 5).draw(Palette::Black);
         }

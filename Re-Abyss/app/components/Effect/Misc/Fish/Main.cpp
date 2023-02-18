@@ -47,7 +47,7 @@ namespace abyss::Effect::Misc::Fish
     Main& Main::setVelocity(const s3d::Vec2& velocity)
     {
         m_velocity = velocity;
-        m_view->setForward(velocity.x > 0 ? Forward::Right : Forward::Left);
+        m_view->setForward(velocity.x > 0 ? Forward::Right() : Forward::Left());
         return *this;
     }
     Main& Main::setScale(double scale)

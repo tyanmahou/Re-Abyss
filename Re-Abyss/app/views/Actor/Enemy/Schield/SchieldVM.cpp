@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy::Schield
 
     void SchieldVM::drawWait() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
         {
             auto&& tex = m_texture(U"wait");
@@ -68,7 +68,7 @@ namespace abyss::Actor::Enemy::Schield
     void SchieldVM::drawToWait(double t) const
     {
         int32 page = Min(static_cast<int32>(t * 8.0), 7);
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         {
             auto&& tex = m_texture(U"wait_to_attack3");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
@@ -91,7 +91,7 @@ namespace abyss::Actor::Enemy::Schield
     void SchieldVM::drawToAttackPlus(double t) const
     {
         int32 page = Min(static_cast<int32>(t * 8.0), 7);
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         {
             auto&& tex = m_texture(U"wait_to_attack");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
@@ -114,7 +114,7 @@ namespace abyss::Actor::Enemy::Schield
     {
         int32 page = Min(static_cast<int32>(t * 8.0), 7);
         auto&& tex = m_texture(U"wait_to_attack2");
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         tex(120 * (page / 4), 60 * (page % 4), 120, 60)
             .mirrored(isRight)
             .drawAt(m_pos, m_colorMul);

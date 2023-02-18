@@ -29,9 +29,9 @@ namespace abyss::Actor::Player
         const bool rightPressed = InputManager::Right.pressed();
         const bool leftPressed = InputManager::Left.pressed();
         if (rightPressed) {
-            m_body->setForward(Forward::Right);
+            m_body->setForward(Forward::Right());
         } else if (leftPressed) {
-            m_body->setForward(Forward::Left);
+            m_body->setForward(Forward::Left());
         }
     }
 

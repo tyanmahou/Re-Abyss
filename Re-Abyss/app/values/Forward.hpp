@@ -4,52 +4,82 @@
 namespace abyss
 {
     /// <summary>
-    /// 方向
+    /// 方向クラス
     /// </summary>
-    enum class Forward
+    class Forward
     {
-        None = 0x0,
-        Up = 0x1,
-        Down = 0x2,
-        Left = 0x4,
-        Right = 0x8,
+    public:
+        constexpr static Forward None()
+        {
+            return Forward{};
+        }
+        constexpr static Forward Left()
+        {
+            return Forward{ -1, 0 };
+        }
+        constexpr static Forward Right()
+        {
+            return Forward{ 1, 0 };
+        }
+        constexpr static Forward Up()
+        {
+            return Forward{0, -1};
+        }
+        constexpr static Forward Down()
+        {
+            return Forward{ 0, 1 };
+        }
+    public:
+        constexpr Forward() :
+            m_value()
+        {
+        }
+        constexpr bool isRight() const
+        {
+            return m_value.x > 0;
+        }
+        constexpr bool isLeft() const
+        {
+            return m_value.x < 0;
+        }
+        constexpr bool isUp() const
+        {
+            return m_value.y < 0;
+        }
+        constexpr bool isDown() const
+        {
+            return m_value.y > 0;
+        }
+        constexpr double signH() const
+        {
+            return s3d::Sign(m_value.x);
+        }
+        constexpr double signV() const
+        {
+            return s3d::Sign(m_value.y);
+        }
+        constexpr Forward mirrored() const
+        {
+            return Forward{ -m_value.x, m_value.y };
+        }
+        constexpr Forward flipped() const
+        {
+            return Forward{ m_value.x, -m_value.y };
+        }
+        constexpr s3d::Vec2 toVec2() const
+        {
+            return m_value;
+        }
+        friend constexpr bool operator == (const Forward& a, const Forward& b)
+        {
+            return a.m_value == b.m_value;
+        }
+    private:
+        constexpr Forward(double x, double y) :
+            m_value(x, y)
+        {
+        }
+    private:
+        s3d::Vec2 m_value;
     };
-
-    inline double operator * (const Forward& a, double b)
-    {
-        if (a == Forward::Left) {
-            return -b;
-        }
-        if (a == Forward::Right) {
-            return b;
-        }
-        if (a == Forward::Up) {
-            return -b;
-        }
-        if (a == Forward::Down) {
-            return b;
-        }
-        return b;
-    }
-    inline double operator * (double a, const Forward& b)
-    {
-        return b * a;
-    }
-
-    inline s3d::Vec2 ToVec2(Forward a)
-    {
-        if (a == Forward::Left) {
-            return -s3d::Vec2::UnitX();
-        }
-        if (a == Forward::Right) {
-            return s3d::Vec2::UnitX();
-        }
-        if (a == Forward::Up) {
-            return -s3d::Vec2::UnitY();
-        }
-        if (a == Forward::Down) {
-            return s3d::Vec2::UnitY();
-        }
-        return s3d::Vec2::Zero();
-    }
 }

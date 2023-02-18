@@ -43,14 +43,14 @@ namespace abyss::Actor::Enemy::RollingTako
     }
     void RollingTakoVM::drawWait() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::WaitAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 0, 60, 60);
         tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
     }
     void RollingTakoVM::drawRun() const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::RunAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 60, 60, 60);
         tex.mirrored(isRight).drawAt(m_pos, m_colorMul);

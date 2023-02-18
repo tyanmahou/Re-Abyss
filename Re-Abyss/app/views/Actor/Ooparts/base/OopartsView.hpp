@@ -63,7 +63,7 @@ namespace abyss::Actor::Ooparts
         std::shared_ptr<BaseVM> m_character;
 
         s3d::Vec2 m_pos{ 0, 0 };
-        Forward m_forward{ Forward::Right };
+        Forward m_forward{ Forward::Right() };
         double m_time = 0;
 
         Pipeline m_pipeline = Pipeline::All;

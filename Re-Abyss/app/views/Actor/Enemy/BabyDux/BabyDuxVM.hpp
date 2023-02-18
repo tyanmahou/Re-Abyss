@@ -40,7 +40,7 @@ namespace abyss::Actor::Enemy::BabyDux
         s3d::Vec2 m_eyePosL{};
         s3d::Vec2 m_eyePosR{};
 
-        Forward m_forward = Forward::Left;
+        Forward m_forward = Forward::Left();
         double m_time = 0;
         double m_animTime = 0;
         Motion m_motion = Motion::Wait;

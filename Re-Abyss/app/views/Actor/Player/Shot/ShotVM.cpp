@@ -41,6 +41,6 @@ namespace abyss::Actor::Player::Shot
             size = 60;
         }
         auto tile = m_texture(x, y, size, size);
-        (m_forward == Forward::Right ? tile : tile.mirrored()).drawAt(m_pos);
+        (m_forward.isRight() ? tile : tile.mirrored()).drawAt(m_pos);
     }
 }

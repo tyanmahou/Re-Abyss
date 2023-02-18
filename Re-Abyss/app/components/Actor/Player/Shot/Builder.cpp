@@ -36,7 +36,7 @@ namespace abyss::Actor::Player::Shot
 				->initPos(pos)
 				.setForward(forward)
 				.noneResistanced()
-				.setVelocityX(forward * ShotParam::Base::Speed)
+				.setVelocityX(forward.signH() * ShotParam::Base::Speed)
 				;
 
 			pActor->attach<BodyUpdater>(pActor);

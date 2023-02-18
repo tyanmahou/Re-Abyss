@@ -9,7 +9,7 @@ namespace abyss::Actor::Ooparts::Nyan
     {}
     void NyanVM::draw(const s3d::ColorF & color) const
     {
-        bool isRight = m_forward == Forward::Right;
+        bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Square0_1(1s, m_time)) % 2;
         m_texture({ 0, 20 * page }, { 20, 20 }).mirrored(isRight).drawAt(m_pos, color);
     }

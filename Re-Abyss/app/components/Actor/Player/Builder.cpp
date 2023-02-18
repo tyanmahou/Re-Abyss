@@ -57,7 +57,7 @@ namespace abyss::Actor::Player
         pActor->setDestoryTiming(DestoryTiming::Never);
 
         Vec2 initPos{0, 0};
-        Forward forward = Forward::Right;
+        Forward forward = Forward::Right();
         if (desc.direct) {
             initPos = desc.direct->pos;
             forward = desc.direct->forward;
