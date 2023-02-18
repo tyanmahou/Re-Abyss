@@ -121,7 +121,8 @@ namespace abyss::Actor::Enemy::CodeZero
         }
         // 描画制御
         {
-            pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
+            pActor->find<VModel>()->setLayer(DrawLayer::Land)
+                .setOrder(DrawOrder::World::MostBack);
 
             pActor->find<ColorCtrl>()->resizeBuffer(4, 2);
             pActor->find<ColorAnim::DamageColor>()
@@ -189,6 +190,9 @@ namespace
                 this->bindHead()->draw();
             }
             {
+                // Viewport 決め打ち
+                s3d::ScopedViewport2D viewport{ Constants::GameScreenSize.asPoint() - Point{0, 80} };
+
                 Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
                 Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
                 m_rt.draw(m_colorCtrl->colorMul());
