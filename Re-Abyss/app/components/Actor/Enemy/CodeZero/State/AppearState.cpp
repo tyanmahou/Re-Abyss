@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::CodeZero
 			return;
 		}
 		m_parts->setMoveActive(true);
-		m_pActor->find<EyeCtrl>()->setVisible(true);
+		m_pActor->find<EyeCtrl>()->setVisible(false);
 		m_pActor->find<EyeCtrl>()->flush(0.0);
 		m_pActor->find<HideCtrl>()->setVisible(true);
 	}

@@ -23,6 +23,13 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 		return s3d::Math::Lerp(1.0, 1.2, m_flushTimer.invRate());
 	}
+    bool EyeCtrl::isVisible() const
+    {
+        if (!this->isAnimEnd()) {
+            return true;
+        }
+        return m_isVisible;
+    }
 	void EyeCtrl::onPreDraw()
 	{
 		auto dt = m_pActor->deltaTime();

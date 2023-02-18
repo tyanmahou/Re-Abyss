@@ -168,9 +168,11 @@ namespace
         }
         void onDraw() const override
         {
-            this->bindEye()->draw();
             this->bindBody()->draw();
             this->bindHead()->draw();
+            if (m_eye->isVisible()) {
+                this->bindEye()->draw();
+            }
         }
     private:
         BodyVM* bindBody() const

@@ -24,6 +24,8 @@ namespace abyss::Actor::Enemy::CodeZero
 		void flush(double timeSec = 1.0);
 
 		double scale() const;
+
+        bool isVisible() const;
 	public:
 		void onPreDraw() override;
 
