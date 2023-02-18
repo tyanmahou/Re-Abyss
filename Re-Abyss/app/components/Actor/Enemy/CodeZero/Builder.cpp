@@ -35,10 +35,6 @@
 namespace
 {
     class Presenter;
-    class PresenterHead;
-    class PresenterEye;
-
-    class BossFadeMaskDrawer;
 }
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -126,12 +122,6 @@ namespace abyss::Actor::Enemy::CodeZero
         {
             pActor->find<VModel>()->setOrder(DrawOrder::World::MostBack);
 
-            pActor->attach<VModelSub<1>>()
-                ->setPresenter<PresenterHead>(pActor);
-
-            pActor->attach<VModelSub<2>>()
-                ->setPresenter<PresenterEye>(pActor);
-
             pActor->find<ColorCtrl>()->resizeBuffer(3, 2);
             pActor->find<ColorAnim::DamageColor>()->setIndexMaskMul(0x1);
             // ボス撃破カラー
@@ -142,7 +132,7 @@ namespace abyss::Actor::Enemy::CodeZero
                 .setOrder(DrawOrder::DecorBack::MostFront);
 
             pActor->attach<BossFadeMask>(pActor)
-                ->setDrawer<BossFadeMaskDrawer>(pActor);
+                ->setDrawer<BossFadeMaskFromMainVModel>(pActor);
             pActor->attach<BossFadeHider>(pActor);
         }
     }
@@ -156,133 +146,73 @@ namespace
 
     using abyss::Actor::Enemy::CodeZero::Body::BodyVM;
 
-    class Presenter : public IVModelPresenter<BodyVM>
+    class Presenter final : public IVModelPresenterBase
     {
+    public:
+        Presenter(Actor::ActorObj* pActor) :
+            m_pActor(pActor),
+            m_viewBody(std::make_unique<BodyVM>()),
+            m_viewHead(std::make_unique<Head::HeadVM>()),
+            m_viewEye(std::make_unique<Head::EyeVM>())
+        {}
+    public:
+        void onStart() override
+        {
+            m_body = m_pActor->find<Actor::Body>();
+            m_wing = m_pActor->find<WingCtrl>();
+
+            m_head = m_pActor->find<HeadCtrl>();
+            m_eye = m_pActor->find<EyeCtrl>();
+
+            m_colorCtrl = m_pActor->find<ColorCtrl>();
+        }
+        void onDraw() const override
+        {
+            this->bindEye()->draw();
+            this->bindBody()->draw();
+            this->bindHead()->draw();
+        }
     private:
-        BodyVM* bind() const final
+        BodyVM* bindBody() const
         {
             auto pos = m_body->getPos();
-            return &m_view->setPos(pos)
+            return &m_viewBody->setPos(pos)
                 .setWingLPos(pos + m_wing->localL())
                 .setWingRPos(pos + m_wing->localR())
                 .setColorMul(m_colorCtrl->colorMul(1));
         }
-        void onStart() final
-        {
-            m_body = m_pActor->find<Actor::Body>();
-            m_wing = m_pActor->find<WingCtrl>();
-            m_colorCtrl = m_pActor->find<ColorCtrl>();
-        }
-    public:
-        Presenter(Actor::ActorObj* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<BodyVM>())
-        {}
-    private:
-        ActorObj* m_pActor = nullptr;
-        Ref<Actor::Body> m_body;
-        Ref<WingCtrl> m_wing;
-        Ref<ColorCtrl> m_colorCtrl;
-        std::unique_ptr<BodyVM> m_view;
-    };
 
-    class PresenterHead : public IVModelPresenter<Head::HeadVM>
-    {
-    private:
-        Head::HeadVM* bind() const final
+        Head::HeadVM* bindHead() const
         {
-            return &m_view->setTime(m_pActor->getTimeSec())
+            return &m_viewHead->setTime(m_pActor->getTimeSec())
                 .setPos(m_head->getPos())
                 .setLook(m_head->getLook())
                 .setColorMul(m_colorCtrl->colorMul())
                 .setColorAdd(m_colorCtrl->colorAdd())
                 ;
         }
-        void setup(Executer executer) final
-        {
-        }
-        void onStart() final
-        {
-            m_head = m_pActor->find<HeadCtrl>();
-            m_colorCtrl = m_pActor->find<ColorCtrl>();
-        }
-    public:
-        PresenterHead(ActorObj* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<Head::HeadVM>())
-        {}
-    private:
-        ActorObj* m_pActor = nullptr;
-        Ref<HeadCtrl> m_head;
-        Ref<ColorCtrl> m_colorCtrl;
-        std::unique_ptr<Head::HeadVM> m_view;
-    };
 
-    class PresenterEye : public IVModelPresenter<Head::EyeVM>
-    {
-    private:
-        Head::EyeVM* bind() const final
+        Head::EyeVM* bindEye() const
         {
-            return &m_view
+            return &m_viewEye
                 ->setPos(m_head->getPos())
                 .setScale(m_eye->scale())
                 .setColorMul(m_colorCtrl->colorMul(2))
                 .setColorAdd(m_colorCtrl->colorAdd(1))
                 ;
         }
-        void setup(Executer executer) final
-        {
-        }
-        void onStart() final
-        {
-            m_head = m_pActor->find<HeadCtrl>();
-            m_eye = m_pActor->find<EyeCtrl>();
-            m_colorCtrl = m_pActor->find<ColorCtrl>();
-        }
-    public:
-        PresenterEye(ActorObj* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<Head::EyeVM>())
-        {}
     private:
         ActorObj* m_pActor = nullptr;
+        Ref<Actor::Body> m_body;
+        Ref<WingCtrl> m_wing;
+
         Ref<HeadCtrl> m_head;
         Ref<EyeCtrl> m_eye;
+
         Ref<ColorCtrl> m_colorCtrl;
-        std::unique_ptr<Head::EyeVM> m_view;
-    };
-
-    class BossFadeMaskDrawer : public IBossFadeMaskDrawer
-    {
-    public:
-        BossFadeMaskDrawer(ActorObj* pActor):
-            m_pActor(pActor)
-        {}
-    public:
-        void setup(Executer executer) override{}
-        void onStart() override
-        {
-            m_view = m_pActor->find<VModel>();
-            m_view2 = m_pActor->find<VModelSub<1>>();
-        }
-
-        void onDraw() const override
-        {
-            m_view->onDraw();
-            m_view2->onDraw();
-        }
-        DrawLayer getLayer() const override
-        {
-            return m_view->getLayer();
-        }
-        double getOrder() const override
-        {
-            return m_view->getOrder();
-        }
-    private:
-        ActorObj* m_pActor;
-        Ref<VModel> m_view;
-        Ref<VModelSub<1>> m_view2;
+        std::unique_ptr<BodyVM> m_viewBody;
+        std::unique_ptr<Head::HeadVM> m_viewHead;
+        std::unique_ptr<Head::EyeVM> m_viewEye;
     };
 }
 
