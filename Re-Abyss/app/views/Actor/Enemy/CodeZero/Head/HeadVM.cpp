@@ -41,20 +41,20 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 
         TextureRegion tex = [&]() {
             constexpr Vec2 size{ 170, 170 };
-            if (m_look.isForward(Forward::Up())) {
-                if (auto f = m_look.horizonalForward(); f != Forward::None()) {
+            if (m_look.isUp()) {
+                if (auto f = m_look.horizonal(); f.isValid()) {
                     return m_texture(U"head")(0, 170, size).mirrored(f.isRight());
                 } else {
                     return m_texture(U"head")(0, 340, size);
                 }
-            } else if (m_look.isForward(Forward::Down())) {
-                if (auto f = m_look.horizonalForward(); f != Forward::None()) {
+            } else if (m_look.isDown()) {
+                if (auto f = m_look.horizonal(); f.isValid()) {
                     return m_texture(U"head")(170, 0, size).mirrored(f.isRight());
                 } else {
                     return m_texture(U"head")(170, 340, size);
                 }
             } else {
-                if (auto f = m_look.horizonalForward(); f != Forward::None()) {
+                if (auto f = m_look.horizonal(); f.isValid()) {
                     return m_texture(U"head")(170, 170, size).mirrored(f.isRight());
                 }
             }

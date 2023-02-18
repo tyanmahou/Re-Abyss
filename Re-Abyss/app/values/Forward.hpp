@@ -66,6 +66,14 @@ namespace abyss
             m_value(value)
         {
         }
+        constexpr bool isNone() const
+        {
+            return m_value == s3d::Vec2{0, 0};
+        }
+        constexpr bool isValid() const
+        {
+            return !this->isNone();
+        }
         constexpr bool isRight() const
         {
             return m_value.x > 0;
@@ -160,4 +168,6 @@ namespace abyss
     private:
         s3d::Vec2 m_value;
     };
+
+    using Look = Forward;
 }
