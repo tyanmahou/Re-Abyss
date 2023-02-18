@@ -2423,6 +2423,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\values\ForwardCtach.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">

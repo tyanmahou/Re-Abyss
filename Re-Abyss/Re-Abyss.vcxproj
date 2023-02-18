@@ -1011,6 +1011,7 @@
     <ClCompile Include="tests\tests\utils\NameOf\NameOfCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
+    <ClCompile Include="tests\tests\values\ForwardCtach.cpp" />
     <ClCompile Include="tests\tests\values\FpsCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
