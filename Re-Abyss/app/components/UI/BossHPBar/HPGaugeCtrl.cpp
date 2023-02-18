@@ -5,9 +5,10 @@
 
 namespace abyss::UI::BossHPBar
 {
-    HPGaugeCtrl::HPGaugeCtrl(UIObj* pUi, Ref<Actor::HP> hp):
+    HPGaugeCtrl::HPGaugeCtrl(UIObj* pUi, Ref<Actor::HP> hp, Ref<Actor::DamageCtrl> damage):
         m_pUi(pUi),
-        m_hpRef(hp)
+        m_hpRef(hp),
+        m_damageRef(damage)
     {}
     void HPGaugeCtrl::onStart()
     {
@@ -25,13 +26,33 @@ namespace abyss::UI::BossHPBar
         auto hp = static_cast<double>(m_hpRef->getHp());
 
         auto dt = m_pUi->getModule<GlobalTime>()->deltaTime();
-        double add = m_maxHp * dt;
-        if (m_hp - add >= hp) {
-            m_hp -= add;
-        } else if (m_hp + add <= hp) {
-            m_hp += add;
-        } else {
-            m_hp = hp;
+        {
+            double add = m_maxHp * dt;
+            if (m_hp - add >= hp) {
+                m_hp -= add;
+            } else if (m_hp + add <= hp) {
+                m_hp += add;
+            } else {
+                m_hp = hp;
+            }
+        }
+        if (m_damageRef) {
+
+            if (!m_damageRef->isInvincibleTime()) {
+                m_hpComboTarget = hp;
+            }
+
+            {
+                double add = m_maxHp * dt;
+                double sub = m_maxHp * dt * 0.2;
+                if (m_hpComboBuffer - sub >= m_hpComboTarget) {
+                    m_hpComboBuffer -= sub;
+                } else if (m_hpComboBuffer + add <= m_hpComboTarget) {
+                    m_hpComboBuffer += add;
+                } else {
+                    m_hpComboBuffer = m_hpComboTarget;
+                }
+            }
         }
     }
     bool HPGaugeCtrl::isFull() const

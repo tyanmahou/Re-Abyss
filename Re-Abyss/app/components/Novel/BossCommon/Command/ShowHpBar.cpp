@@ -24,7 +24,8 @@ namespace abyss::Novel::BossCommon
         auto actors = m_pTalk->getModule<Actors>();
         if (auto target = actors->find<Actor::Enemy::BossHpBarTarget>()) {
             if (auto hp = target->hp()) {
-                auto hpBar = m_pTalk->getModule<UIs>()->create<UI::BossHPBar::Builder>(hp);
+                auto damage = target->damageCtrl();
+                auto hpBar = m_pTalk->getModule<UIs>()->create<UI::BossHPBar::Builder>(hp, damage);
 
                 m_hpGauge = hpBar->find<UI::BossHPBar::HPGaugeCtrl>();
             }

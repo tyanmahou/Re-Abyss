@@ -1,6 +1,5 @@
 #include <abyss/components/UI/BossHPBar/Builder.hpp>
 
-#include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/UI/Common/VModel.hpp>
 #include <abyss/components/UI/BossHPBar/Main.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
@@ -15,9 +14,9 @@ namespace abyss::UI::BossHPBar
 {
     void Builder::Build(UIObj* pUi, Actor::ActorObj* pActor)
     {
-        Builder::Build(pUi, pActor->find<Actor::HP>());
+        Builder::Build(pUi, pActor->find<Actor::HP>(), pActor->find<Actor::DamageCtrl>());
     }
-    void Builder::Build(UIObj* pUi, Ref<Actor::HP> hp)
+    void Builder::Build(UIObj* pUi, Ref<Actor::HP> hp, Ref<Actor::DamageCtrl> damage)
     {
         pUi->setFilter(Filter::Game | Filter::Event);
 
@@ -27,7 +26,7 @@ namespace abyss::UI::BossHPBar
         }
         // HPゲージ制御
         {
-            pUi->attach<HPGaugeCtrl>(pUi, hp);
+            pUi->attach<HPGaugeCtrl>(pUi, hp, damage);
         }
         // ビュー制御
         {
@@ -55,6 +54,7 @@ namespace
         {
             return &m_view
                 ->setHp(m_hpGauge->getHp())
+                .setHpComboBuffer(m_hpGauge->getHpComboBuffer())
                 .setMaxHp(m_hpGauge->getMaxHp())
                 ;
         }

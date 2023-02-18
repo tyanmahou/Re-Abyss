@@ -29,9 +29,16 @@ namespace abyss::UI::BossHPBar
     void BossHPBarVM::draw() const
     {
         m_texture(U"base").draw(m_pos);
-        double rate = s3d::Saturate(m_hp / m_maxHp);
-        double offsetX = 216.0 * (1 - rate);
-        m_texture(GetType(m_hp, m_maxHp)).uv(1 - rate, 0, rate, 1).draw(m_pos + s3d::Vec2{44 + offsetX, 15});
+        {
+            double rate = s3d::Saturate(m_hpComboBuffer / m_maxHp);
+            double offsetX = 216.0 * (1 - rate);
+            RectF(m_pos + s3d::Vec2{ 44 + offsetX, 15 }, 216 * rate, 13).draw(ColorF(1, 0.95));
+        }
+        {
+            double rate = s3d::Saturate(m_hp / m_maxHp);
+            double offsetX = 216.0 * (1 - rate);
+            m_texture(GetType(m_hp, m_maxHp)).uv(1 - rate, 0, rate, 1).draw(m_pos + s3d::Vec2{ 44 + offsetX, 15 });
+        }
     }
 
 }

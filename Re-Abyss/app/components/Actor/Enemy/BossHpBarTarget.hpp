@@ -1,5 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/components/Actor/Common/HP.hpp>
+#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy
@@ -17,10 +19,15 @@ namespace abyss::Actor::Enemy
         {
             return m_hp;
         }
+        const Ref<DamageCtrl>& damageCtrl() const
+        {
+            return m_damageCtrl;
+        }
     public:
         void onStart() override;
     private:
         ActorObj* m_pActor;
         Ref<HP> m_hp;
+        Ref<DamageCtrl> m_damageCtrl;
     };
 }
