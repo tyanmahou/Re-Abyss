@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
-#include <abyss/utils/Look/Look.hpp>
+#include <abyss/values/Look.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Head
 {

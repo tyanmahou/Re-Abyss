@@ -851,7 +851,7 @@
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
     <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
     <ClCompile Include="app\utils\Env\Env.cpp" />
-    <ClCompile Include="app\utils\Look\Look.cpp" />
+    <ClCompile Include="app\values\Look.cpp" />
     <ClCompile Include="app\modules\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\utils\Random\RandUtil.cpp" />
@@ -2074,7 +2074,7 @@
     <ClInclude Include="app\utils\Env\Env.hpp" />
     <ClInclude Include="app\utils\JSON\JSONBind.hpp" />
     <ClInclude Include="app\utils\JSON\JSONUtil.hpp" />
-    <ClInclude Include="app\utils\Look\Look.hpp" />
+    <ClInclude Include="app\values\Look.hpp" />
     <ClInclude Include="app\modules\Novel\CharaKind.hpp" />
     <ClInclude Include="app\modules\Novel\Face.hpp" />
     <ClInclude Include="app\modules\Novel\Name.hpp" />
