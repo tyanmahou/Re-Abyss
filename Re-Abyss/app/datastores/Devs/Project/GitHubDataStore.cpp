@@ -79,21 +79,23 @@ namespace abyss::Devs::Project
 
         auto response = GitHub::GraphQL(query.replace(U"<PROJECT_ID>", m_projectId), m_token);
         if (response) {
-            for (auto&& node : response[U"data"][U"node"][U"items"][U"nodes"].arrayView()) {
-                auto&& content = node[U"content"];
-                auto&& status = node[U"fieldValueByName"][U"name"].getOpt<String>().value_or(U"No Status");
-                result << Issue{
-                    .title = content[U"title"].get<String>(),
-                    .url = content[U"url"].get<URL>(),
-                    .status = ::ToTaskStatus(status),
-                };
+            auto&& nodes = response[U"data"][U"node"][U"items"][U"nodes"];
+            if (nodes.isArray()) {
+                for (auto&& node : nodes.arrayView()) {
+                    auto&& content = node[U"content"];
+                    auto&& status = node[U"fieldValueByName"][U"name"].getOpt<String>().value_or(U"No Status");
+                    result << Issue{
+                        .title = content[U"title"].get<String>(),
+                        .url = content[U"url"].get<URL>(),
+                        .status = ::ToTaskStatus(status),
+                    };
+                }
+                return result;
             }
-            return result;
-        } else {
-#if ABYSS_DEBUG
-            Debug::Log::Error(U"[GitHub]Issueの取得に失敗しました");
-#endif
         }
+#if ABYSS_DEBUG
+        Debug::Log::Error(U"[GitHub]Issueの取得に失敗しました");
+#endif
         return result;
     }
     void GitHubDataStoreInstaller::onBinding(emaject::Container* container) const
