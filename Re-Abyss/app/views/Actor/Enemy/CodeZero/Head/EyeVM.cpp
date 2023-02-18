@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::CodeZero::Head
 		{
 			m_texture(U"eye")(58, 110, 16, 16)
 				.scaled(m_scale)
-				.drawAt(m_pos + Vec2{-21, 33}, m_colorMul);
+				.drawAt(m_pos + Vec2{-20, 33}, m_colorMul);
 		}
 		{
 			m_texture(U"eye")(95, 110, 16, 16)
