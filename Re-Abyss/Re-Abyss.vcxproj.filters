@@ -2420,6 +2420,9 @@
     <ClCompile Include="app\utils\Shake\SimpleShake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6291,6 +6294,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Shake\SimpleShake.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

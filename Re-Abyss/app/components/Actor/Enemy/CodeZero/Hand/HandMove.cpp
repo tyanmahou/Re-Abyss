@@ -12,6 +12,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/utils/Interp/InterpUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 #include <Siv3D.hpp>
 
@@ -44,6 +45,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     void HandMove::setActive(bool isActive)
     {
         m_isActive = isActive;
+    }
+    void HandMove::startAppear()
+    {
+        m_task.reset(std::bind(&HandMove::moveAppear, this));
     }
     void HandMove::startForPursuit(bool slowStart)
     {
@@ -87,6 +92,16 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     const Axis2& HandMove::getAxis() const
     {
         return m_param.axis;
+    }
+    Coro::Fiber<> HandMove::moveAppear()
+    {
+        Vec2 initPos = m_body->getPos();
+        bool isLeft = m_pActor->find<KindCtrl>()->isLeftHand();
+        TimeLite::Timer timer{ 3.0 };
+        co_await Coro::Loop([&] {
+            timer.update(m_pActor->deltaTime());
+        m_body->setPos(initPos + Vec2{ 20 * (isLeft ? -1.0 : 1.0) ,20 } *timer.rate());
+        });
     }
     Coro::Fiber<> HandMove::movePursuit(bool slowStart)
     {

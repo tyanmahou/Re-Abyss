@@ -43,6 +43,9 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         co_await TryToAppear(pActor);
 
+        // 追従開始
+        co_await ChangeHandsPhase1(pActor, true);
+
         // 待機
         co_await BehaviorUtil::WaitForSeconds(pActor, Param::Phase1::WaitRestart);
 

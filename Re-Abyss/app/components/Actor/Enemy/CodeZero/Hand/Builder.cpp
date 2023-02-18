@@ -23,7 +23,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
-#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AppearState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Hand/HandVM.hpp>
 namespace
@@ -74,12 +74,8 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         }
         // 状態
         {
-            constexpr bool slowStart = true;
-            auto desc = kind == HandKind::Left ? HandDesc::CreateLeftPhase1() :
-                HandDesc::CreateRightPhase1();
-
             pActor->attach<StateCtrl>(pActor)
-                ->changeState<PursuitState>(desc, slowStart);
+                ->changeState<AppearState>();
         }
 
         // 衝撃波

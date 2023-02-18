@@ -1,5 +1,4 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AngryState.hpp>
-#include <abyss/components/Actor/Common/Body.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {

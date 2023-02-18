@@ -28,6 +28,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         /// <summary>
         /// 追従開始
         /// </summary>
+        void startAppear();
+
+        /// <summary>
+        /// 追従開始
+        /// </summary>
         void startForPursuit(bool slowStart = false);
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 
         void onStateStart() override;
     private:
+        Coro::Fiber<> moveAppear();
         Coro::Fiber<> movePursuit(bool slowStart = false);
         Coro::Fiber<> moveAttackWait();
         Coro::Fiber<> moveAttack();
