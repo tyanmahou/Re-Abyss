@@ -98,20 +98,17 @@ namespace
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setScale(m_scale->get())
-                .setIsCharge(m_shot->isCharge())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();
-            m_shot = m_pActor->find<ShotProxy>();
         }
     private:
         ActorObj* m_pActor = nullptr;
         Ref<Body> m_body;
         Ref<ScaleCtrl> m_scale;
-        Ref<ShotProxy> m_shot;
         std::unique_ptr<ShotVM> m_view;
     };
 }
