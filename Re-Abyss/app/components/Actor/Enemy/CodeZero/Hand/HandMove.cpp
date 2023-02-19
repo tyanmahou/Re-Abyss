@@ -74,6 +74,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     {
         m_task.reset(std::bind(&HandMove::moveAngry, this));
     }
+    void HandMove::startAngryEnd()
+    {
+        m_task.reset(std::bind(&HandMove::moveAngryEnd, this));
+    }
     void HandMove::startDeadFall()
     {
         m_task.reset(std::bind(&HandMove::moveDeadFall, this));
@@ -301,6 +305,10 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
             m_body->setVelocity(initVec * (1 - rate));
             co_yield{};
         }
+        co_return;
+    }
+    Coro::Fiber<> HandMove::moveAngryEnd()
+    {
         co_return;
     }
     Coro::Fiber<> HandMove::moveDeadFall()

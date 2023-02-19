@@ -2423,6 +2423,9 @@
     <ClCompile Include="app\components\Actor\Enemy\BossHpBarTarget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6294,6 +6297,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\BossHpBarTarget.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

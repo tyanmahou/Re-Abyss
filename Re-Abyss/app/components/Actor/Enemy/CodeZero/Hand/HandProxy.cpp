@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/HandMove.hpp>
 
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AngryState.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AngryEndState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/PursuitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
@@ -26,7 +27,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_state->changeState<AngryState>();
         return true;
     }
-
+    bool HandProxy::tryAngryEnd()
+    {
+        m_state->changeState<AngryEndState>();
+        return true;
+    }
     bool HandProxy::tryAttack()
     {
         if (m_state->isState<PursuitState>()) {

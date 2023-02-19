@@ -61,6 +61,11 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void startAngry();
 
         /// <summary>
+        /// 怒り終わり開始
+        /// </summary>
+        void startAngryEnd();
+
+        /// <summary>
         /// 死亡落下開始
         /// </summary>
         void startDeadFall();
@@ -97,6 +102,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Coro::Fiber<> moveShotCharge();
         Coro::Fiber<> moveRollingAttack(bool isReverse = false);
         Coro::Fiber<> moveAngry();
+        Coro::Fiber<> moveAngryEnd();
         Coro::Fiber<> moveDeadFall();
     private:
         ActorObj* m_pActor = nullptr;

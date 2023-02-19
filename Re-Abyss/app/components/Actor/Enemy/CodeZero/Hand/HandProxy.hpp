@@ -13,6 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         void onStart()override;
 
         bool tryAngry();
+        bool tryAngryEnd();
         bool tryAttack();
         bool tryPursuit(bool slowStart = false);
         bool tryPursuit(const HandDesc& desc, bool slowStart = false);

@@ -35,8 +35,8 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 2.0);
 
-        m_parts->getLeftHand()->tryPursuit(true);
-        m_parts->getRightHand()->tryPursuit(true);
+        m_parts->getLeftHand()->tryAngryEnd();
+        m_parts->getRightHand()->tryAngryEnd();
         this->changeState<WaitState>();
     }
 
