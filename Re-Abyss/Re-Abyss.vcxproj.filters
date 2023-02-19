@@ -2429,6 +2429,9 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6309,6 +6312,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
