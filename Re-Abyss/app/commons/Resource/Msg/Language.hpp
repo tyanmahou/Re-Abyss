@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/String.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     class Language
     {

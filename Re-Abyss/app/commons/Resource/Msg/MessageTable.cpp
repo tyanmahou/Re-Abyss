@@ -1,6 +1,6 @@
-#include <abyss/commons/Msg/MessageTable.hpp>
+#include <abyss/commons/Resource/Msg/MessageTable.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     void MessageTable::add(const Label& label, s3d::String message)
     {

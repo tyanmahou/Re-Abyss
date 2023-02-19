@@ -1,8 +1,8 @@
 #include <abyss/scenes/Scene/Boot/Scene.hpp>
 
-#include <abyss/commons/Msg/Manager.hpp>
 #include <abyss/commons/Resource/UserData/Migration/Migration.hpp>
 #include <abyss/commons/Resource/Font/FontRegister.hpp>
+#include <abyss/commons/Resource/Msg/Manager.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
@@ -38,7 +38,7 @@ namespace abyss::Scene::Boot
             }
             // Meesage
             {
-                Msg::Manager::Load();
+                Resource::Msg::Manager::Load();
             }
             // 一度キャッシュ削除
             assets->release();

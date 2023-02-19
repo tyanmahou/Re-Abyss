@@ -1,6 +1,6 @@
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
-#include <abyss/commons/Msg/Manager.hpp>
+#include <abyss/commons/MsgUtil.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/Common/FooterTips.hpp>
@@ -28,8 +28,8 @@ namespace abyss::UI::SaveSelect::Main
         // フッター
         {
             pUi->attach<FooterTips>(U"Z…{} X…{}"_fmt(
-                Msg::Text(U"Common", U"Decide"),
-                Msg::Text(U"Common", U"Cancel")
+                MsgUtil::Decide,
+                MsgUtil::Cancel
             ));
         }
 

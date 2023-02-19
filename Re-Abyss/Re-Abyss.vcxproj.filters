@@ -1626,9 +1626,6 @@
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\values\UserPlayMode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2441,10 +2438,10 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Msg\MessageTable.cpp">
+    <ClCompile Include="app\commons\Resource\Msg\MessageTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Msg\Manager.cpp">
+    <ClCompile Include="app\commons\Resource\Msg\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6332,16 +6329,19 @@
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Msg\Label.hpp">
+    <ClInclude Include="app\commons\Resource\Msg\Label.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Msg\Manager.hpp">
+    <ClInclude Include="app\commons\Resource\Msg\Manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Msg\MessageTable.hpp">
+    <ClInclude Include="app\commons\Resource\Msg\MessageTable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Msg\Language.hpp">
+    <ClInclude Include="app\commons\Resource\Msg\Language.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\MsgUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

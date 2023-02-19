@@ -1,9 +1,9 @@
 #pragma once
-#include <abyss/commons/Msg/Label.hpp>
-#include <abyss/commons/Msg/Language.hpp>
+#include <abyss/commons/Resource/Msg/Label.hpp>
+#include <abyss/commons/Resource/Msg/Language.hpp>
 #include <abyss/utils/Singleton/DynamicSingleton.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     class Manager final : protected DynamicSingleton<Manager>
     {
@@ -18,7 +18,4 @@ namespace abyss::Msg
         class Impl;
         std::unique_ptr<Impl> m_pImpl;
     };
-
-    const s3d::String& Text(const Label& label);
-    const s3d::String& Text(const s3d::String& category, const s3d::String& key);
 }

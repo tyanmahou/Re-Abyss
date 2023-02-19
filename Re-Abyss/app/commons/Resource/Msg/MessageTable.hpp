@@ -1,9 +1,9 @@
 #pragma once
-#include <abyss/commons/Msg/Label.hpp>
+#include <abyss/commons/Resource/Msg/Label.hpp>
 #include <Siv3D/HashTable.hpp>
 #include <Siv3D/String.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     /// <summary>
     /// メッセージテーブル

@@ -1,6 +1,7 @@
 #include <abyss/views/UI/SaveSelect/UserInfo/UserInfoView.hpp>
 
 #include <abyss/commons/FontName.hpp>
+#include <abyss/commons/MsgUtil.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
 #include <abyss/utils/DateTime/DateTimeUtil.hpp>
@@ -39,7 +40,7 @@ namespace abyss::UI::SaveSelect::UserInfo
             .setOoparts(OopartsType::Nyan)
             .setTime(m_time)
             .draw();
-        FontAsset(FontName::UserInfo)(Name(user.getPlayMode())).draw(basePos + UserInfoParam::PlayMode::Pos);
+        FontAsset(FontName::UserInfo)(MsgUtil::Name(user.getPlayMode())).draw(basePos + UserInfoParam::PlayMode::Pos);
 
         FontAsset(FontName::UserInfo)(U"プレイタイム").draw(basePos + UserInfoParam::PlayTime::LabelPos);
         FontAsset(FontName::UserInfo)(FormatTime(user.getPlayTime(), U"HH:mm:ss")).draw(basePos + UserInfoParam::PlayTime::Pos);

@@ -1,7 +1,7 @@
 #include <abyss/components/UI/SaveSelect/CreateUserConfirm/Dialog.hpp>
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/commons/Msg/Manager.hpp>
+#include <abyss/commons/MsgUtil.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/params/UI/SaveSelect/Param.hpp>
@@ -46,11 +46,11 @@ namespace abyss::UI::SaveSelect::CreateUserConfirm
         board.draw(Palette::Black);
 
         auto msgPos = board.center() + Param::Confirm::MessagePos;
-        FontAsset(FontName::UserInfo)(Msg::Text(U"SaveSelect", U"CreateUser_Title")).drawAt(msgPos);
+        FontAsset(FontName::UserInfo)(MsgUtil::SaveSlect_CreateUser_Title).drawAt(msgPos);
 
         auto choicePos = board.center() + Param::Confirm::ChoiceBasePos;
-        FontAsset(FontName::UserInfo)(Msg::Text(U"Common", U"UserPlayMode_Normal")).drawAt(choicePos);
-        FontAsset(FontName::UserInfo)(Msg::Text(U"Common", U"UserPlayMode_Hard")).drawAt(choicePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
+        FontAsset(FontName::UserInfo)(MsgUtil::Name(UserPlayMode::Normal)).drawAt(choicePos);
+        FontAsset(FontName::UserInfo)(MsgUtil::Name(UserPlayMode::Hard)).drawAt(choicePos + Vec2{ 0, Param::Confirm::ChoiceOffset });
 
         {
             Vec2 pos = choicePos +

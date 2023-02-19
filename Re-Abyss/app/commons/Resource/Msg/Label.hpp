@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/StringView.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     /// <summary>
     /// メッセージラベル

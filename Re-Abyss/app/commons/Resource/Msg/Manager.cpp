@@ -1,9 +1,9 @@
-#include <abyss/commons/Msg/Manager.hpp>
-#include <abyss/commons/Msg/MessageTable.hpp>
+#include <abyss/commons/Resource/Msg/Manager.hpp>
+#include <abyss/commons/Resource/Msg/MessageTable.hpp>
 #include <abyss/commons/Path.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Msg
+namespace abyss::Resource::Msg
 {
     class Manager::Impl
     {
@@ -14,7 +14,7 @@ namespace abyss::Msg
             this->loadFile(U"SaveSelect", lang);
             this->loadFile(U"Title", lang);
         }
-        void loadFile(const s3d::String& category, const Language& lang)
+        void loadFile(s3d::StringView category, const Language& lang)
         {
             s3d::CSV csv(Path::MsgPath + category + U".csv");
             if (!csv) {
@@ -59,14 +59,5 @@ namespace abyss::Msg
     const s3d::String& Manager::Get(const Label& label)
     {
         return Instance()->m_pImpl->get(label);
-    }
-
-    const s3d::String& Text(const Label& label)
-    {
-        return Manager::Get(label);
-    }
-    const s3d::String& Text(const s3d::String& category, const s3d::String& key)
-    {
-        return Manager::Get({category, key });
     }
 }

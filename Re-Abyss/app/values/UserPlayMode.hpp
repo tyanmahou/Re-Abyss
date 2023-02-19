@@ -14,6 +14,4 @@ namespace abyss
         /// <summary>ハード</summary>
         Hard,
     };
-
-    s3d::String Name(UserPlayMode value);
 }

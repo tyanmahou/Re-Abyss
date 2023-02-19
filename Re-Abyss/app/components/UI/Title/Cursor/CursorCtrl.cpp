@@ -3,7 +3,7 @@
 #include <abyss/commons/FontName.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/commons/Constants.hpp>
-#include <abyss/commons/Msg/Manager.hpp>
+#include <abyss/commons/MsgUtil.hpp>
 #include <abyss/views/UI/Title/Cursor/CursorVM.hpp>
 #include <abyss/views/util/Anchor/AnchorUtil.hpp>
 
@@ -90,13 +90,13 @@ namespace abyss::UI::Title::Cursor
     {
         struct CursorViewParam
         {
-            const String& name;
+            MsgUtil::Text name;
             double posY;
         };
         static const std::array<CursorViewParam, ModeTerm> viewParams
         {
-            CursorViewParam{Msg::Text(U"Title", U"GameStart"), 90.0},
-            CursorViewParam{Msg::Text(U"Title", U"Exit"), 140.0},
+            CursorViewParam{MsgUtil::Title_GameStart, 90.0},
+            CursorViewParam{MsgUtil::Title_Exit, 140.0},
         };
         size_t modeIndex = static_cast<size_t>(m_mode);
         m_view->setPos(AnchorUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
