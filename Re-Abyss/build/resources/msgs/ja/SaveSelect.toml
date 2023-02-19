@@ -1,9 +1,0 @@
-[Mode]
-GameStart = "データ選択"
-Delete = "データ削除"
-
-[CreateUser]
-Title = "難易度をえらんでください"
-
-[EraseUser]
-Title = "本当に削除しますか？"

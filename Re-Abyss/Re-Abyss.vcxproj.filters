@@ -165,9 +165,6 @@
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Resource\Preload\Message.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Resource\Preload\Param.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2444,6 +2441,15 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Msg\MessageTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Msg\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Msg\Language.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -3092,22 +3098,10 @@
     <ClInclude Include="app\commons\InputManager\InputManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\commons\Msg\Common.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Msg\SaveSelect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Msg\Title.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\commons\Resource\Assets\Assets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Resource\Preload\Message.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp">
@@ -6339,6 +6333,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Msg\Label.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Msg\Manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Msg\MessageTable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Msg\Language.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
