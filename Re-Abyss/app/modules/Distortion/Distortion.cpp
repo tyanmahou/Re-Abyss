@@ -27,6 +27,18 @@ namespace abyss
     {
         m_view.addCircleFrame(circle, innerThickness, outerThickness, innerPower, outerPower);
     }
+    void Distortion::addCircleFrameGiza(const s3d::Circle& circle, double innerThickness, double outerThickness, double innerSpread, double outerSpread, double innerPower, double outerPower)
+    {
+        m_view.addCircleFrameGiza(
+            circle,
+            innerThickness,
+            outerThickness,
+            innerSpread,
+            outerSpread,
+            innerPower,
+            outerPower
+        );
+    }
     void Distortion::render() const
     {
         m_view.render();

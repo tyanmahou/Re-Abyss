@@ -46,4 +46,21 @@ namespace abyss::DistUtil
     {
         DrawFrame(circle, thickness * 0.5, thickness * 0.5, power);
     }
+    void DrawFrameGiza(const s3d::Circle& circle, double innerThickness, double outerThickness, double innerSpread, double outerSpread, double innerPower, double outerPower)
+    {
+        auto callback = [=](s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s) {
+            Float2 dir = (Float2{ c, s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
+            outer->color.set(dir.x, dir.y, static_cast<float>(outerPower) / 128.0f, 0.5f);
+            inner->color.set(dir.x, dir.y, static_cast<float>(innerPower) / 128.0f, 0.5f);
+        };
+        VertexUtil::DrawCircleFrameGiza(
+            circle,
+            innerThickness,
+            outerThickness,
+            innerSpread,
+            outerSpread,
+            callback,
+            nullptr
+        );
+    }
 }
