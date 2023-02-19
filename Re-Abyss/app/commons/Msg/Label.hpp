@@ -1,5 +1,6 @@
 #pragma once
-#include <Siv3D/String.hpp>
+#include <Siv3D/StringView.hpp>
+
 namespace abyss::Msg
 {
     /// <summary>
@@ -7,7 +8,12 @@ namespace abyss::Msg
     /// </summary>
     struct Label
     {
-        s3d::String category;
-        s3d::String key;
+        constexpr Label(s3d::StringView _category, s3d::StringView _key):
+            category(_category),
+            key(_key)
+        {
+        }
+        s3d::StringView category;
+        s3d::StringView key;
     };
 }

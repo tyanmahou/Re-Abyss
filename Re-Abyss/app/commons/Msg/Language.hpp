@@ -6,15 +6,20 @@ namespace abyss::Msg
     class Language
     {
     public:
-        [[nodiscard]] static Language Ja();
+        [[nodiscard]] static constexpr Language Ja()
+        {
+            return Language(U"ja");
+        }
     public:
-        const s3d::String& toStr() const
+        [[nodiscard]] constexpr s3d::StringView toStrView() const
         {
             return m_language;
         }
     private:
-        Language(const s3d::String& language);
+        constexpr Language(s3d::StringView language):
+            m_language(language)
+        {}
     public:
-        s3d::String m_language;
+        s3d::StringView m_language;
     };
 }

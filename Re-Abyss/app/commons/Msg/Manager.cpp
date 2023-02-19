@@ -25,7 +25,7 @@ namespace abyss::Msg
             }
             size_t langColumn = 0;
             for (auto&& l : csv.getRow(0)) {
-                if (l == lang.toStr()) {
+                if (l == lang.toStrView()) {
                     break;
                 }
                 langColumn++;

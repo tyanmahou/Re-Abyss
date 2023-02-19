@@ -12,7 +12,7 @@ namespace abyss::Msg
     {
     public:
         void add(const Label& label, s3d::String message);
-        void add(const s3d::String& category, const s3d::String& key, s3d::String message);
+        void add(s3d::StringView category, s3d::StringView key, s3d::String message);
 
         /// <summary>
         /// メッセージ取得
