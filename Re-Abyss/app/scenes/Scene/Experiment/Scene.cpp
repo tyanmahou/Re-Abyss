@@ -1,7 +1,6 @@
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/debugs/Debug.hpp>
-#include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Scene::Experiment
 {

@@ -46,7 +46,17 @@ namespace abyss::DistUtil
     {
         DrawFrame(circle, thickness * 0.5, thickness * 0.5, power);
     }
-    void DrawFrameGiza(const s3d::Circle& circle, double innerThickness, double outerThickness, double innerSpread, double outerSpread, double innerPower, double outerPower)
+    void DrawFrameGiza(
+        const s3d::Circle& circle,
+        double innerThickness,
+        double outerThickness,
+        double innerSpread,
+        double outerSpread,
+        double innerPower,
+        double outerPower,
+        double rotate,
+        double quality
+    )
     {
         auto callback = [=](s3d::Vertex2D* outer, s3d::Vertex2D* inner, float c, float s) {
             Float2 dir = (Float2{ c, s }.normalized() + Float2(1.0f, 1.0f)) / 2.0f;
@@ -59,8 +69,10 @@ namespace abyss::DistUtil
             outerThickness,
             innerSpread,
             outerSpread,
+            rotate,
             callback,
-            nullptr
+            nullptr,
+            quality
         );
     }
 }

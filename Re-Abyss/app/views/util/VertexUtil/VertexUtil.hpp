@@ -34,6 +34,7 @@ namespace abyss
             double outerThickness,
             double innerSpread,
             double outerSpread,
+            double rotate,
             const CircleFrameBuildCallback& callback,
             const VertexCallback& fixCallback = nullptr,
             double qualityRatio = 1.0

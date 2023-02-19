@@ -24,7 +24,9 @@ namespace abyss
             double innerSpread,
             double outerSpread,
             double innerPower,
-            double outerPower
+            double outerPower,
+            double rotate,
+            double quality
         );
 
         void render() const;

@@ -239,6 +239,7 @@ namespace
         const float thickness,
         const float innerSpread,
         const float outerSpread,
+        const float rotate,
         const VertexUtil::CircleFrameBuildCallback& callback,
         const VertexUtil::VertexCallback& fixCallback,
         const float qualityRatio
@@ -262,31 +263,13 @@ namespace
 
         const float centerX = center.x;
         const float centerY = center.y;
-
-        if (quality <= ::MaxSinCosTableQuality) {
-            const Float2* pCS = ::GetSinCosTableStartPtr(quality);
-            Vertex2D* pDst = pVertex;
-
-            for (Vertex2D::IndexType i = 0; i < quality; ++i) {
-                float offsetOuter = (i % 2 == 0) ? outerSpread + rOuter : rOuter;
-                float offsetInner = (i % 2 != 0) ? -innerSpread + rInner : rInner;
-                (pDst)->pos.set(centerX + offsetOuter * pCS->x, centerY + offsetOuter * pCS->y);
-                auto outerVertex = pDst++;
-                (pDst)->pos.set(centerX + offsetInner * pCS->x, centerY + offsetInner * pCS->y);
-                auto innerVertex = pDst++;
-                if (callback) {
-                    callback(outerVertex, innerVertex, pCS->x, pCS->y);
-                }
-
-                ++pCS;
-            }
-        } else {
+        {
             const float radDelta = Math::TwoPiF / quality;
             Vertex2D* pDst = pVertex;
 
             for (Vertex2D::IndexType i = 0; i < quality; ++i) {
                 const float rad = (radDelta * i);
-                const auto [s, c] = FastMath::SinCos(rad);
+                const auto [s, c] = FastMath::SinCos(rad + rotate);
 
                 float offsetOuter = (i % 2 == 0) ? outerSpread + rOuter : rOuter;
                 float offsetInner = (i % 2 != 0) ? -innerSpread + rInner : rInner;
@@ -352,7 +335,7 @@ namespace
 			for (Vertex2D::IndexType i = 0; i < quality; ++i) {
 				const float rad = start + (radDelta * i) * angleScale;
 				const auto [s, c] = FastMath::SinCos(rad);
-				(pDst)->pos.set(centerX + rOuter * c, centerY - rOuter * s);
+                (pDst)->pos.set(centerX + rOuter * c, centerY - rOuter * s);
 				auto outerVertex = pDst++;
 				(pDst)->pos.set(centerX + rInner * c, centerY - rInner * s);
 				auto innerVertex = pDst++;
@@ -409,6 +392,7 @@ namespace abyss
         double outerThickness,
         double innerSpread,
         double outerSpread,
+        double rotate,
         const CircleFrameBuildCallback& callback,
         const VertexCallback& fixCallback,
         double qualityRatio
@@ -420,6 +404,7 @@ namespace abyss
             static_cast<float>(innerThickness + outerThickness),
             static_cast<float>(innerSpread),
             static_cast<float>(outerSpread),
+            static_cast<float>(rotate),
             callback,
             fixCallback,
             static_cast<float>(qualityRatio)

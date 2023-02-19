@@ -44,10 +44,20 @@ namespace abyss
         });
     }
 
-    void DistortionView::addCircleFrameGiza(const s3d::Circle& circle, double innerThickness, double outerThickness, double innerSpread, double outerSpread, double innerPower, double outerPower)
+    void DistortionView::addCircleFrameGiza(
+        const s3d::Circle& circle,
+        double innerThickness,
+        double outerThickness,
+        double innerSpread,
+        double outerSpread,
+        double innerPower,
+        double outerPower,
+        double rotate,
+        double quality
+        )
     {
         m_drawer.push_back([=] {
-            DistUtil::DrawFrameGiza(circle, innerThickness, outerThickness, innerSpread, outerSpread, innerPower, outerPower);
+            DistUtil::DrawFrameGiza(circle, innerThickness, outerThickness, innerSpread, outerSpread, innerPower, outerPower, rotate, quality);
         });
     }
 

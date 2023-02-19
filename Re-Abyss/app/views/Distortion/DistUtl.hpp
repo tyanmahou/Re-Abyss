@@ -35,6 +35,8 @@ namespace abyss::DistUtil
         double innerSpread,
         double outerSpread,
         double innerPower,
-        double outerPower
+        double outerPower,
+        double rotate,
+        double quality
     );
 }
