@@ -7,13 +7,15 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/CameraTargetBase.hpp>
-#include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Builder.hpp>
+#include <abyss/components/Effect/Actor/Enemy/CodeZero/NegaPosi/Builder.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
+    using namespace Effect::Actor::Enemy::CodeZero;
+
     class WaitState::CameraTarget final : public CameraTargetBase
     {
     public:
@@ -60,7 +62,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     };
     void WaitState::start()
     {
-        using namespace Effect::Actor::Enemy::CodeZero;
         m_pActor
             ->getModule<Effects>()
             ->createWorldFront<ShotCharge::Builder>(m_body->getPos());
@@ -75,7 +76,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         if (m_quake) {
             m_quake->stop();
         }
-        m_pActor->getModule<PostEffects>()->getNegaPosiInv()->setIsValid(false);
     }
     Fiber<> WaitState::task()
     {
@@ -107,9 +107,10 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         // ズーム解除
         m_cameraTarget->unzoom();
 
-        // ネガポジ反転
-        m_pActor->getModule<PostEffects>()->getNegaPosiInv()->setIsValid(true);
-
+        // ネガポジエフェクト
+        m_pActor
+            ->getModule<Effects>()
+            ->createWorldFront<NegaPosi::Builder>(m_body->getPos());
 
         // ちょっとまってから
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
