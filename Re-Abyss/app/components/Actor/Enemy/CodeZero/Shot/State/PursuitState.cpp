@@ -1,8 +1,10 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/State/PursuitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/State/PursuitEndState.hpp>
 
+#include <abyss/components/Actor/Enemy/CodeZero/Shot/ShotProxy.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
+
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
     PursuitState::PursuitState():
@@ -11,6 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     }
     void PursuitState::start()
     {
+        m_pActor->find<ShotProxy>()->startPursuit();
     }
     void PursuitState::update()
     {

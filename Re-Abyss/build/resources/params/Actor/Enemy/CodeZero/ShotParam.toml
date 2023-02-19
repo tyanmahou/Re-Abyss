@@ -2,7 +2,7 @@
 colRadius = 70
 
 [Wait]
-scaleTime = 3.0
+scaleTime = 3.5
 
 [Pursuit]
 speed = 90

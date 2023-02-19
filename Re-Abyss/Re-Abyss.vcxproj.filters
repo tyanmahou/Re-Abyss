@@ -6302,6 +6302,9 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ShotProxy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

@@ -18,6 +18,7 @@
 
 #include <abyss/components/Actor/Enemy/CodeZero/ParentCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/MainCollider.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Shot/ShotProxy.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/State/WaitState.hpp>
 
 #include <abyss/views/Actor/Enemy/CodeZero/Shot/ShotVM.hpp>
@@ -66,6 +67,10 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         {
             pActor->attach<ParentCtrl>(parent);
         }
+        // プロキシ
+        {
+            pActor->attach<ShotProxy>(pActor);
+        }
         // 描画設定
         {
             pActor->attach<VModel>()
@@ -82,28 +87,31 @@ namespace
 
     class Presenter : public IVModelPresenter<ShotVM>
     {
-        ActorObj* m_pActor = nullptr;
-        Ref<Body> m_body;
-        Ref<ScaleCtrl> m_scale;
-        std::unique_ptr<ShotVM> m_view;
+    public:
+        Presenter(ActorObj* pActor) :
+            m_pActor(pActor),
+            m_view(std::make_unique<ShotVM>())
+        {}
     private:
         ShotVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
                 .setPos(m_body->getPos())
                 .setScale(m_scale->get())
-                .setIsCharge(m_scale->get() < 1.0)
+                .setIsCharge(m_shot->isCharge())
                 ;
         }
         void onStart() final
         {
             m_body = m_pActor->find<Body>();
             m_scale = m_pActor->find<ScaleCtrl>();
+            m_shot = m_pActor->find<ShotProxy>();
         }
-    public:
-        Presenter(ActorObj* pActor) :
-            m_pActor(pActor),
-            m_view(std::make_unique<ShotVM>())
-        {}
+    private:
+        ActorObj* m_pActor = nullptr;
+        Ref<Body> m_body;
+        Ref<ScaleCtrl> m_scale;
+        Ref<ShotProxy> m_shot;
+        std::unique_ptr<ShotVM> m_view;
     };
 }

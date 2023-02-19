@@ -3,8 +3,10 @@
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/Builder.hpp>
+#include <abyss/components/Actor/Enemy/CodeZero/Shot/ShotProxy.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -25,10 +27,13 @@ namespace abyss::Actor::Enemy::CodeZero
         co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Phase3::WaitShot);
 
         // ショット生成
-        m_pActor->getModule<Actors>()->create<Shot::Builder>(m_pActor);
+        auto shot = m_pActor->getModule<Actors>()->create<Shot::Builder>(m_pActor)
+            ->find<Shot::ShotProxy>();
 
         // 待機
-        co_await BehaviorUtil::WaitForSeconds(m_pActor, Param::Phase3::WaitPursuit);
+        co_await Coro::WaitWhile([&] {
+            return shot && !shot->isStartedPursuit();
+        });
 
         this->changeState<WaitState>();
     }

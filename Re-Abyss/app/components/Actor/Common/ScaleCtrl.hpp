@@ -46,6 +46,8 @@ namespace abyss::Actor
         ScaleCtrl& setTo(double scale, double timeSec);
         ScaleCtrl& setTo(double init, double to, double timeSec);
 
+        ScaleCtrl& setToImmediate(double scale);
+
         void update(double dt);
     };
 }

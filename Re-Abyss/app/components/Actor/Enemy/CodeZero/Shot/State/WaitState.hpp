@@ -4,11 +4,12 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-    class WaitState : public BaseState
+    class WaitState final: public BaseState
     {
     public:
-        void start();
-        void end();
+        void start()override;
+        void end()override;
+        Fiber<> task() override;
         void update() override;
     private:
         Ref<QuakeEpicenter> m_quake;

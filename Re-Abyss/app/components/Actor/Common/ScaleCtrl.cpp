@@ -28,6 +28,13 @@ namespace abyss::Actor
         m_scale = init;
         return this->setTo(to, timeSec);
     }
+    ScaleCtrl& ScaleCtrl::setToImmediate(double scale)
+    {
+        m_rate = 0;
+        m_scale = scale;
+        m_minScale = m_maxScale = s3d::none;
+        return *this;
+    }
     void ScaleCtrl::update(double dt)
     {
         m_scale += m_rate * dt;

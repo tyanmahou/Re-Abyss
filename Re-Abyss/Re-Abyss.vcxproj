@@ -1238,6 +1238,7 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ShotProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AngryState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\ShotState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp" />
