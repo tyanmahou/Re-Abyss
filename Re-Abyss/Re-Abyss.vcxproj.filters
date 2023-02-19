@@ -2444,6 +2444,15 @@
     <ClCompile Include="app\commons\Resource\Msg\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\datastores\Msg\CSVMessageDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Msg\MessageService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Factory\Message\Injector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6342,6 +6351,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\MsgUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Msg\MessageService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Msg\base\IMessageService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Msg\base\IMessageDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Msg\CSVMessageDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Factory\Message\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

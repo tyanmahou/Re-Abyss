@@ -83,6 +83,11 @@ namespace abyss::Resource
         /// </summary>
         /// <returns></returns>
         static Assets* Norelease();
+        /// <summary>
+        /// 一時使用アセット
+        /// </summary>
+        /// <returns></returns>
+        static Assets* Temporray();
     };
 
     /// <summary>

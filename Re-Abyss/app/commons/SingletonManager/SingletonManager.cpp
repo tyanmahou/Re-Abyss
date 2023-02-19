@@ -16,5 +16,6 @@ namespace abyss
         // リソースリリース
         Resource::Assets::Main()->free();
         Resource::Assets::Norelease()->free();
+        Resource::Assets::Temporray()->free();
     }
 }

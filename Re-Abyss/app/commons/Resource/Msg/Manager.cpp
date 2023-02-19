@@ -1,6 +1,9 @@
 #include <abyss/commons/Resource/Msg/Manager.hpp>
 #include <abyss/commons/Resource/Msg/MessageTable.hpp>
-#include <abyss/commons/Path.hpp>
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
+
+#include <abyss/services/Msg/base/IMessageService.hpp>
+#include <abyss/commons/Factory/Message/Injector.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Resource::Msg
@@ -10,33 +13,22 @@ namespace abyss::Resource::Msg
     public:
         void load(const Language& lang)
         {
-            this->loadFile(U"Common", lang);
-            this->loadFile(U"SaveSelect", lang);
-            this->loadFile(U"Title", lang);
+            auto* pAssets = Assets::Temporray();
+            {
+                Preload::Preloader preload(U"Common/Message");
+                preload.preload(pAssets);
+            }
+            if (auto service = Factory::Message::Injector(lang, pAssets).resolve<IMessageService>()) {
+                this->load(U"Common", service);
+                this->load(U"SaveSelect", service);
+                this->load(U"Title", service);
+            }
+            pAssets->release();
         }
-        void loadFile(s3d::StringView category, const Language& lang)
+        void load(s3d::StringView category, const std::shared_ptr<IMessageService>& service)
         {
-            s3d::CSV csv(Path::MsgPath + category + U".csv");
-            if (!csv) {
-                return;
-            }
-            if (csv.rows() <= 1) {
-                return;
-            }
-            size_t langColumn = 0;
-            for (auto&& l : csv.getRow(0)) {
-                if (l == lang.toStrView()) {
-                    break;
-                }
-                langColumn++;
-            }
-            if (langColumn == csv.columns(0)) {
-                return;
-            }
-            for (size_t row = 1; row < csv.rows(); ++row) {
-                if (auto&& msg = csv.get(row, langColumn)) {
-                    m_table.add(category, csv.get(row, 0),std::move(msg));
-                }
+            for (auto&& [key, message] : service->getMessages(category)) {
+                m_table.add(category, key, std::move(message));
             }
         }
         const s3d::String& get(const Label& label)

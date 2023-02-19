@@ -15,6 +15,8 @@ namespace abyss::Resource::Msg
         {
             return m_language;
         }
+        [[nodiscard]] auto operator<=> (const Language& other) const = default;
+
     private:
         constexpr Language(s3d::StringView language):
             m_language(language)

@@ -244,6 +244,7 @@
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
     <ClCompile Include="app\commons\ColorDef.cpp" />
+    <ClCompile Include="app\commons\Factory\Message\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Project\Injector.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp" />
@@ -320,6 +321,7 @@
     <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp" />
     <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
     <ClCompile Include="app\datastores\Devs\Project\GitHubDataStore.cpp" />
+    <ClCompile Include="app\datastores\Msg\CSVMessageDataStore.cpp" />
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\modules\Actor\Actors.cpp" />
@@ -835,6 +837,7 @@
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Devs\Project\ProjectService.cpp" />
     <ClCompile Include="app\services\Migration\DBMigrationService.cpp" />
+    <ClCompile Include="app\services\Msg\MessageService.cpp" />
     <ClCompile Include="app\services\Room\RoomService.cpp" />
     <ClCompile Include="app\services\User\UserService.cpp" />
     <ClCompile Include="app\stdafx.cpp">
@@ -1219,6 +1222,7 @@
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\Concepts.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
+    <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Fwd.hpp" />
@@ -1314,6 +1318,8 @@
     <ClInclude Include="app\components\UI\GamePause\Result.hpp" />
     <ClInclude Include="app\datastores\Devs\Project\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Devs\Project\GitHubDataStore.hpp" />
+    <ClInclude Include="app\datastores\Msg\base\IMessageDataStore.hpp" />
+    <ClInclude Include="app\datastores\Msg\CSVMessageDataStore.hpp" />
     <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
     <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
@@ -2058,6 +2064,8 @@
     <ClInclude Include="app\services\Devs\Project\ProjectService.hpp" />
     <ClInclude Include="app\services\Migration\base\IMigrationService.hpp" />
     <ClInclude Include="app\services\Migration\DBMigrationService.hpp" />
+    <ClInclude Include="app\services\Msg\base\IMessageService.hpp" />
+    <ClInclude Include="app\services\Msg\MessageService.hpp" />
     <ClInclude Include="app\services\Room\base\IRoomService.hpp" />
     <ClInclude Include="app\services\Room\RoomService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />

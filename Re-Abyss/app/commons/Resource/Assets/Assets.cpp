@@ -285,7 +285,11 @@ namespace abyss::Resource
         static Assets instance;
         return &instance;
     }
-
+    Assets* Assets::Temporray()
+    {
+        static Assets instance;
+        return &instance;
+    }
     // -------------------------------------------------
 
     AssetLoadProxy::AssetLoadProxy(const Assets& asset, const s3d::FilePath& path, const s3d::Optional<s3d::FilePath>& prefix) :
