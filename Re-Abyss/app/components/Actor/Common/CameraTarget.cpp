@@ -37,6 +37,6 @@ namespace abyss::Actor
     }
     void CameraTarget::onEnd()
     {
-        m_target->destory();
+        m_target = nullptr;
     }
 }

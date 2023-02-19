@@ -21,7 +21,7 @@ namespace  abyss
     {
         // 不要なもの削除
         m_targets.remove_if([](const Ref<ICameraTarget>& elm) {
-            return !elm || elm->isEnd();
+            return !elm;
         });
 
         // 現在のターゲット候補選出

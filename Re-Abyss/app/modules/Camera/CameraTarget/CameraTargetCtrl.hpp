@@ -27,8 +27,5 @@ namespace abyss
         s3d::Array<Ref<ICameraTarget>> m_targets;
         s3d::Vec2 m_targetPos;
         double m_zoomScale = 1.0;
-
-        s3d::Vec2 m_targetPosBuffer;
-        double m_zoomScaleBuffer = 1.0;
     };
 }

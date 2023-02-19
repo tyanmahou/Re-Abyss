@@ -38,18 +38,9 @@ namespace abyss
         {
             return m_isActive;
         }
-        void destory()
-        {
-            m_isEnd = true;
-        }
-        bool isEnd() const override
-        {
-            return m_isEnd;
-        }
     private:
         CameraTargetPriority m_priority;
         double m_interpRate = 1.0;
         bool m_isActive = true;
-        bool m_isEnd = false;
     };
 }

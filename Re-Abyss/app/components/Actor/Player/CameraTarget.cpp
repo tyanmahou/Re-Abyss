@@ -97,7 +97,7 @@ namespace abyss::Actor::Player
     }
     void CameraTarget::onEnd()
     {
-        m_target->destory();
+        m_target = nullptr;
     }
     void CameraTarget::onPostPhysics()
     {

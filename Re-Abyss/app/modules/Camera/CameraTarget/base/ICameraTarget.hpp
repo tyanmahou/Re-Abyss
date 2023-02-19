@@ -14,6 +14,5 @@ namespace abyss
         virtual double interpRate() const = 0;
 
         virtual bool isActive() const = 0;
-        virtual bool isEnd() const = 0;
     };
 }
