@@ -22,6 +22,7 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::FilePath> pixelShader;
         s3d::Array<s3d::FilePath> audio;
         s3d::Array<s3d::FilePath> audioSettingGroup;
+        s3d::Array<s3d::FilePath> csv;
         s3d::Array<s3d::FilePath> toml;
         s3d::Array<CustomPreload> custom;
 
@@ -41,6 +42,7 @@ namespace abyss::Resource::Preload
         &PreloadInfo::pixelShader,
         &PreloadInfo::audio,
         &PreloadInfo::audioSettingGroup,
+        & PreloadInfo::csv,
         &PreloadInfo::toml
     };
 }

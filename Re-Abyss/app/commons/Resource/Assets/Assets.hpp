@@ -5,6 +5,7 @@
 #include <Siv3D/VertexShader.hpp>
 #include <Siv3D/PixelShader.hpp>
 #include <Siv3D/String.hpp>
+#include <Siv3D/CSV.hpp>
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
@@ -50,6 +51,8 @@ namespace abyss::Resource
 
         const s3d::VertexShader& loadVs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
         const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
+
+        const s3d::CSV& loadCSV(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ResourcePath) const;
 
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ParamPath) const;
 
@@ -97,6 +100,7 @@ namespace abyss::Resource
         operator const AudioSettingGroup& () const;
         operator const s3d::VertexShader& () const;
         operator const s3d::PixelShader& () const;
+        operator const s3d::CSV& () const;
         operator const s3d::TOMLValue& () const;
     private:
         const Assets& m_asset;

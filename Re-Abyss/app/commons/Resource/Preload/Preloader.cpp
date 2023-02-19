@@ -35,6 +35,7 @@ namespace abyss::Resource::Preload
                 assets->loadAudio(as);
             }
         });
+        LOAD_ASSET(csv, CSV);
         LOAD_ASSET(toml, Toml);
 
         for (auto&& custom : m_info.custom) {
@@ -72,6 +73,7 @@ namespace abyss::Resource::Preload
                 assets->loadAudio(as);
             }
         });
+        LOAD_ASSET(csv, CSV);
         LOAD_ASSET(toml, Toml);
 
         for (auto&& custom : m_info.custom) {

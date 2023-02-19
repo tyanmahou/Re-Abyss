@@ -38,6 +38,8 @@ namespace
                 } else {
                     ret.audio << path;
                 }
+            } else if (kind == U"csv") {
+                ret.csv << path;
             } else if (kind == U"toml") {
                 ret.toml << path;
             }

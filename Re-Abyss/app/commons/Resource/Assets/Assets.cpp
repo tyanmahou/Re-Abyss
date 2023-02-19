@@ -42,22 +42,6 @@ namespace abyss::Resource
 {
     class Assets::Impl
     {
-        s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
-        s3d::HashTable<String, Texture> m_textureCache;
-        s3d::HashTable<String, TexturePacker> m_texturePackerCache;
-        s3d::HashTable<String, Wave> m_waveCache;
-        s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
-        s3d::HashTable<String, VertexShader> m_vsCache;
-        s3d::HashTable<String, PixelShader> m_psCache;
-        s3d::HashTable<String, TOMLValue> m_tomlCache;
-#if ABYSS_NO_BUILD_RESOURCE
-        bool m_isBuilded = false;
-#else
-        bool m_isBuilded = true;
-#endif
-#if ABYSS_DEBUG
-        bool m_isWarnMode = false;
-#endif
     public:
         template<class Type, class ReadType = Type, class ... Args> 
         const Type& load(s3d::HashTable<String, Type>& cache, const s3d::FilePath& path, Args&&... args)
@@ -149,6 +133,10 @@ namespace abyss::Resource
         {
             return this->load<PixelShader>(m_psCache, path);
         }
+        const CSV& loadCSV(const s3d::FilePath& path)
+        {
+            return this->load<CSV>(m_csvCache, path);
+        }
         const s3d::TOMLValue& loadToml(const s3d::FilePath& path)
         {
             return this->load<TOMLValue, TOMLReader>(m_tomlCache, path);
@@ -161,6 +149,7 @@ namespace abyss::Resource
             m_texturePackerCache.clear();
             m_vsCache.clear();
             m_psCache.clear();
+            m_csvCache.clear();
             m_tomlCache.clear();
             m_waveCache.clear();
             m_audioGroupCache.clear();
@@ -175,6 +164,24 @@ namespace abyss::Resource
         {
             m_isWarnMode = isWarnMode;
         }
+#endif
+        private:
+            s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
+            s3d::HashTable<String, Texture> m_textureCache;
+            s3d::HashTable<String, TexturePacker> m_texturePackerCache;
+            s3d::HashTable<String, Wave> m_waveCache;
+            s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
+            s3d::HashTable<String, VertexShader> m_vsCache;
+            s3d::HashTable<String, PixelShader> m_psCache;
+            s3d::HashTable<String, CSV> m_csvCache;
+            s3d::HashTable<String, TOMLValue> m_tomlCache;
+#if ABYSS_NO_BUILD_RESOURCE
+            bool m_isBuilded = false;
+#else
+            bool m_isBuilded = true;
+#endif
+#if ABYSS_DEBUG
+            bool m_isWarnMode = false;
 #endif
     };
 
@@ -240,6 +247,11 @@ namespace abyss::Resource
     const s3d::PixelShader& Assets::loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadPs(prefix + path);
+    }
+
+    const s3d::CSV& Assets::loadCSV(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadCSV(prefix + path);
     }
 
     const s3d::TOMLValue& Assets::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
@@ -329,6 +341,13 @@ namespace abyss::Resource
             return m_asset.loadPs(m_path, *m_prefix);
         }
         return m_asset.loadPs(m_path);
+    }
+    AssetLoadProxy::operator const s3d::CSV& () const
+    {
+        if (m_prefix) {
+            return m_asset.loadCSV(m_path, *m_prefix);
+        }
+        return m_asset.loadCSV(m_path);
     }
     AssetLoadProxy::operator const s3d::TOMLValue& () const
     {
