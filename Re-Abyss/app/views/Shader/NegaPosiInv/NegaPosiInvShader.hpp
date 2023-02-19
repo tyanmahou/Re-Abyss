@@ -4,14 +4,14 @@
 
 namespace abyss
 {
-    class DistortionShader
+    class NegaPosiInvShader
     {
         class Impl;
     public:
-        DistortionShader();
-        ~DistortionShader();
+        NegaPosiInvShader();
+        ~NegaPosiInvShader();
 
-        const DistortionShader& setDistTexture(const s3d::Texture& dist) const;
+        const NegaPosiInvShader& setMaskTexture(const s3d::Texture& mask) const;
         s3d::ScopedCustomShader2D start() const;
     private:
         std::unique_ptr<Impl> m_pImpl;

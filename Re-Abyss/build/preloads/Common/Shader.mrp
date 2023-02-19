@@ -8,6 +8,7 @@
 - ps"light.hlsl"
 - ps"mask.hlsl"
 - ps"moisture.hlsl"
+- ps"negaposi_inv.hlsl"
 - ps"outline.hlsl"
 - ps"rgb_shift.hlsl"
 - ps"scanline.hlsl"

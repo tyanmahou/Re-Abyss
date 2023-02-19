@@ -962,6 +962,7 @@
     <ClCompile Include="app\views\Shader\Light\LightShader.cpp" />
     <ClCompile Include="app\views\Shader\Mask\MaskShader.cpp" />
     <ClCompile Include="app\views\Shader\Moisture\MoistureShader.cpp" />
+    <ClCompile Include="app\views\Shader\NegaPosiInv\NegaPosiInvShader.cpp" />
     <ClCompile Include="app\views\Shader\OutLine\OutLineShader.cpp" />
     <ClCompile Include="app\views\Shader\RgbShift\RgbShiftShader.cpp" />
     <ClCompile Include="app\views\Shader\Scanline\ScanlineShader.cpp" />
@@ -2263,6 +2264,7 @@
     <ClInclude Include="app\views\Shader\Light\LightShader.hpp" />
     <ClInclude Include="app\views\Shader\Mask\MaskShader.hpp" />
     <ClInclude Include="app\views\Shader\Moisture\MoistureShader.hpp" />
+    <ClInclude Include="app\views\Shader\NegaPosiInv\NegaPosiInvShader.hpp" />
     <ClInclude Include="app\views\Shader\OutLine\OutLineShader.hpp" />
     <ClInclude Include="app\views\Shader\RgbShift\RgbShiftShader.hpp" />
     <ClInclude Include="app\views\Shader\Scanline\ScanlineShader.hpp" />
