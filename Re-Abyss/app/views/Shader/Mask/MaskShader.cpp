@@ -29,7 +29,7 @@ namespace abyss
 		{
 			m_rt.clear(ColorF(0.0, 0.0));
 			{
-				static BlendState blend{
+				static constexpr BlendState blend{
 					true,
 					Blend::Zero,
 					Blend::Zero,
@@ -47,7 +47,7 @@ namespace abyss
 			Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
 
 			{
-				static BlendState blend{
+				static constexpr BlendState blend{
 					true,
 					Blend::One,
 					Blend::SrcAlpha

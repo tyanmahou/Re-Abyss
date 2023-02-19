@@ -24,6 +24,6 @@ float4 PS(PSInput input) : SV_TARGET
 	float3 rgb = baseColor.rgb;
 	float3 rgbInv = float3(1, 1, 1) - rgb;
 
-	float mask = g_texture1.Sample(g_sampler0, input.uv).r;
+	float mask = g_texture1.Sample(g_sampler0, input.uv).a;
 	return float4(lerp(rgbInv, rgb, mask), baseColor.a);
 }

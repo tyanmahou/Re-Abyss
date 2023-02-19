@@ -24,6 +24,9 @@ namespace abyss::Sfx
         if (desc.useDeadEffect) {
             m_deadEffect = std::make_unique<DeadEffect>();
         }
+        if (desc.useNegaPosiInv) {
+            m_negaPosiInv = std::make_unique<NegaPosiInv>();
+        }
         if (desc.useScanline) {
             m_scanline = std::make_unique<Scanline>();
         }
@@ -37,6 +40,9 @@ namespace abyss::Sfx
     {
         if (m_decorFar) {
             m_decorFar->update(dt);
+        }
+        if (m_negaPosiInv){
+            m_negaPosiInv->update();
         }
         if (m_scanline) [[likely]] {
             m_scanline->update(dt);
@@ -67,7 +73,10 @@ namespace abyss::Sfx
     {
         return m_deadEffect.get();
     }
-
+    NegaPosiInv* PostEffects::getNegaPosiInv() const
+    {
+        return m_negaPosiInv.get();
+    }
     Scanline* PostEffects::getScanline() const
     {
         return m_scanline.get();

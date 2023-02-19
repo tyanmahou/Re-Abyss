@@ -32,7 +32,6 @@ namespace abyss
     private:
         s3d::RenderTexture m_rt;
         std::shared_ptr<LightShader> m_shader;
-        s3d::Array<std::function<void(double)>> m_lights;
         double m_time = 0;
     };
 }

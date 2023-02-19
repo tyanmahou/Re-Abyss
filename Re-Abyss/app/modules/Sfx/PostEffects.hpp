@@ -5,6 +5,7 @@
 #include <abyss/modules/Sfx/Blur/Blur.hpp>
 #include <abyss/modules/Sfx/DecorFar/DecorFar.hpp>
 #include <abyss/modules/Sfx/DeadEffect/DeadEffect.hpp>
+#include <abyss/modules/Sfx/NegaPosiInv/NegaPosiInv.hpp>
 #include <abyss/modules/Sfx/Scanline/Scanline.hpp>
 
 namespace abyss::Sfx
@@ -32,6 +33,7 @@ namespace abyss::Sfx
                 .useMoisture = true,
                 .useBlur = true,
                 .useDeadEffect = true,
+                .useNegaPosiInv = true,
                 .useScanline = true
             };
         }
@@ -40,6 +42,7 @@ namespace abyss::Sfx
         bool useMoisture = false;
         bool useBlur = false;
         bool useDeadEffect = false;
+        bool useNegaPosiInv = false;
         bool useScanline = false;
     };
 
@@ -60,6 +63,7 @@ namespace abyss::Sfx
         Moisture* getMoisture() const;
         Blur* getBlur() const;
         DeadEffect* getDeadEffect() const;
+        NegaPosiInv* getNegaPosiInv() const;
         Scanline* getScanline() const;
     private:
         Manager* m_pManager;
@@ -68,6 +72,7 @@ namespace abyss::Sfx
         std::unique_ptr<Moisture> m_moisture;
         std::unique_ptr<Blur> m_blur;
         std::unique_ptr<DeadEffect> m_deadEffect;
+        std::unique_ptr<NegaPosiInv> m_negaPosiInv;
         std::unique_ptr<Scanline> m_scanline;
     };
 }

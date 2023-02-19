@@ -2435,6 +2435,9 @@
     <ClCompile Include="app\views\Shader\NegaPosiInv\NegaPosiInvShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6321,6 +6324,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\NegaPosiInv\NegaPosiInvShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

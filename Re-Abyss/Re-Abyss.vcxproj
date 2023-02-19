@@ -330,6 +330,7 @@
     <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp" />
     <ClCompile Include="app\modules\Sfx\DecorFar\DecorFar.cpp" />
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
+    <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
     <ClCompile Include="app\scenes\Loading\Loader.cpp" />
@@ -1324,6 +1325,7 @@
     <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp" />
     <ClInclude Include="app\modules\Sfx\DecorFar\DecorFar.hpp" />
     <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
+    <ClInclude Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.hpp" />
     <ClInclude Include="app\modules\Stage\StageTranslator.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />

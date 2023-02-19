@@ -41,7 +41,6 @@ namespace abyss
     }
     void LightView::clear()
     {
-        m_lights.clear();
         m_rt.clear(ColorF(0, 1));
     }
     void LightView::add(std::function<void(double)> lightDraw)
