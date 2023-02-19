@@ -28,6 +28,16 @@ namespace abyss
             const VertexCallback& fixCallback
         );
 
+        static void DrawCircleFrameGiza(
+            const s3d::Circle& circle,
+            double innerThickness,
+            double outerThickness,
+            double innerSpread,
+            double outerSpread,
+            const CircleFrameBuildCallback& callback,
+            const VertexCallback& fixCallback = nullptr,
+            double qualityRatio = 1.0
+        );
         static void DrawCircleArc(
             const s3d::Circle& circle,
             double startAngle,

@@ -233,6 +233,86 @@ namespace
 		buffer.draw();
 	}
 
+    void DrawCircleFrameGiza(
+        const Float2& center,
+        const float rInner,
+        const float thickness,
+        const float innerSpread,
+        const float outerSpread,
+        const VertexUtil::CircleFrameBuildCallback& callback,
+        const VertexUtil::VertexCallback& fixCallback,
+        const float qualityRatio
+    ) {
+        const float rOuter = (rInner + thickness);
+
+        constexpr float scale = 1.0f;
+        Vertex2D::IndexType quality = ::CalculateCircleFrameQuality(rOuter * scale * qualityRatio);
+        if (quality % 2 != 0) {
+            quality += 1;
+        }
+        const Vertex2D::IndexType vertexSize = (quality * 2), indexSize = (quality * 6);
+
+        Buffer2D buffer(vertexSize, indexSize);
+        Vertex2D* pVertex = buffer.vertices.data();
+        Vertex2D::IndexType* pIndex = &buffer.indices.data()->i0;
+
+        if (!pVertex) {
+            return;
+        }
+
+        const float centerX = center.x;
+        const float centerY = center.y;
+
+        if (quality <= ::MaxSinCosTableQuality) {
+            const Float2* pCS = ::GetSinCosTableStartPtr(quality);
+            Vertex2D* pDst = pVertex;
+
+            for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+                float offsetOuter = (i % 2 == 0) ? outerSpread + rOuter : rOuter;
+                float offsetInner = (i % 2 != 0) ? -innerSpread + rInner : rInner;
+                (pDst)->pos.set(centerX + offsetOuter * pCS->x, centerY + offsetOuter * pCS->y);
+                auto outerVertex = pDst++;
+                (pDst)->pos.set(centerX + offsetInner * pCS->x, centerY + offsetInner * pCS->y);
+                auto innerVertex = pDst++;
+                if (callback) {
+                    callback(outerVertex, innerVertex, pCS->x, pCS->y);
+                }
+
+                ++pCS;
+            }
+        } else {
+            const float radDelta = Math::TwoPiF / quality;
+            Vertex2D* pDst = pVertex;
+
+            for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+                const float rad = (radDelta * i);
+                const auto [s, c] = FastMath::SinCos(rad);
+
+                float offsetOuter = (i % 2 == 0) ? outerSpread + rOuter : rOuter;
+                float offsetInner = (i % 2 != 0) ? -innerSpread + rInner : rInner;
+
+                (pDst)->pos.set(centerX + offsetOuter * c, centerY - offsetOuter * s);
+                auto outerVertex = pDst++;
+                (pDst)->pos.set(centerX + offsetInner * c, centerY - offsetInner * s);
+                auto innerVertex = pDst++;
+                if (callback) {
+                    callback(outerVertex, innerVertex, c, -s);
+                }
+            }
+        }
+
+        if (fixCallback) {
+            fixCallback(pVertex, vertexSize);
+        }
+
+        for (Vertex2D::IndexType i = 0; i < quality; ++i) {
+            for (Vertex2D::IndexType k = 0; k < 6; ++k) {
+                *pIndex++ = ((i * 2 + ::RectIndexTable[k]) % (quality * 2));
+            }
+        }
+
+        buffer.draw();
+    }
 	void DrawCircleArc(
 		const Float2& center,
 		const float rInner,
@@ -323,7 +403,29 @@ namespace abyss
 			fixCallback
 		);
 	}
-	void VertexUtil::DrawCircleArc(
+    void VertexUtil::DrawCircleFrameGiza(
+        const s3d::Circle& circle,
+        double innerThickness,
+        double outerThickness,
+        double innerSpread,
+        double outerSpread,
+        const CircleFrameBuildCallback& callback,
+        const VertexCallback& fixCallback,
+        double qualityRatio
+    )
+    {
+        ::DrawCircleFrameGiza(
+            circle.center,
+            static_cast<float>(circle.r - innerThickness),
+            static_cast<float>(innerThickness + outerThickness),
+            static_cast<float>(innerSpread),
+            static_cast<float>(outerSpread),
+            callback,
+            fixCallback,
+            static_cast<float>(qualityRatio)
+        );
+    }
+    void VertexUtil::DrawCircleArc(
 		const s3d::Circle& circle,
 		double startAngle,
 		double angle,

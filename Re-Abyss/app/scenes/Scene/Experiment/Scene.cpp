@@ -1,6 +1,7 @@
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/debugs/Debug.hpp>
+#include <abyss/views/util/VertexUtil/VertexUtil.hpp>
 #include <Siv3D.hpp>
 namespace abyss::Scene::Experiment
 {
@@ -19,6 +20,11 @@ namespace abyss::Scene::Experiment
         }
         void draw()
         {
+            VertexUtil::DrawCircleFrameGiza(Circle(s3d::Scene::CenterF(), 200.0), 0, 0, 100, 100, [](s3d::Vertex2D* o, s3d::Vertex2D* i, float c, float s) {
+                i->color.set(1, 1, 1, 1);
+                o->color.set(1, 1, 1, 1);
+            });
+
             m_font(U"[Experiment] Push Enter Start").draw();
         }
     private:
