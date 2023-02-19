@@ -20,8 +20,8 @@ namespace  abyss
     const s3d::Vec2& CameraTargetCtrl::update(double dt)
     {
         // 不要なもの削除
-        m_targets.remove_if([](const std::shared_ptr<ICameraTarget>& elm) {
-            return elm->isEnd();
+        m_targets.remove_if([](const Ref<ICameraTarget>& elm) {
+            return !elm || elm->isEnd();
         });
 
         // 現在のターゲット候補選出
@@ -31,7 +31,7 @@ namespace  abyss
                 continue;
             }
             if (!current || current->priority() <= target->priority()) {
-                current = target;
+                current = target.lock();
             }
         }
         // ターゲット座標更新

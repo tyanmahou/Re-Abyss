@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Array.hpp>
 #include <Siv3D/Vector2D.hpp>
 
@@ -23,7 +24,7 @@ namespace abyss
             return m_zoomScale;
         }
     private:
-        s3d::Array<std::shared_ptr<ICameraTarget>> m_targets;
+        s3d::Array<Ref<ICameraTarget>> m_targets;
         s3d::Vec2 m_targetPos;
         double m_zoomScale = 1.0;
 

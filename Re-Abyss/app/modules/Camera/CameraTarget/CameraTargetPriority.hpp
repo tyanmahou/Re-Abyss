@@ -8,6 +8,7 @@ namespace abyss
         Lowest = -999,
         Normal = 0,
         Player = 1,
-        Move = 2,
+        BossAction = 2,
+        Move = 3,
     };
 }

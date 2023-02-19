@@ -5,9 +5,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
-#include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Builder.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
@@ -34,6 +32,10 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         auto shot = m_pActor->find<ShotProxy>();
 
+        // カメラズーム
+        m_cameraTarget = std::make_shared<CameraTarget>(m_body->getPos());
+        m_pActor->getModule<Camera>()->addTarget(m_cameraTarget);
+
         // きゅ～～ん
         shot->setIsCharge(true);
         m_scale->setTo(0.2, ShotParam::Wait::ScaleTime);
@@ -52,7 +54,9 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         // どん！
         m_scale->setTo(1.0, 0.1);
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.1);
-
+        if (m_cameraTarget) {
+            m_cameraTarget = nullptr;
+        }
         // ちょっとまってから
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
@@ -63,6 +67,10 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         auto dt = m_pActor->deltaTime();
         m_scale->update(dt);
+
+        if (m_cameraTarget) {
+            m_cameraTarget->update(dt);
+        }
     }
 }
 
