@@ -3,6 +3,7 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/entities/Actor/Enemy/CodeZeroEntity.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 
 #include <abyss/components/Actor/Common/BehaviorTest.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -191,7 +192,8 @@ namespace
             }
             {
                 // Viewport 決め打ち
-                s3d::ScopedViewport2D viewport{ Constants::GameScreenSize.asPoint() - Point{0, 80} };
+                auto zoomScale = m_pActor->getModule<Camera>()->getZoomScale();
+                s3d::ScopedViewport2D viewport{ Vec2{(Constants::GameScreenSize - Vec2{0, 80}) * zoomScale}.asPoint()};
 
                 Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
                 Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
