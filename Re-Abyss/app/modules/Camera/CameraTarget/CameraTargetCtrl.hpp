@@ -18,8 +18,16 @@ namespace abyss
         {
             return m_targetPos;
         }
+        double zoomScale() const
+        {
+            return m_zoomScale;
+        }
     private:
         s3d::Array<std::shared_ptr<ICameraTarget>> m_targets;
         s3d::Vec2 m_targetPos;
+        double m_zoomScale = 1.0;
+
+        s3d::Vec2 m_targetPosBuffer;
+        double m_zoomScaleBuffer = 1.0;
     };
 }

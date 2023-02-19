@@ -42,7 +42,8 @@ namespace abyss
 
 			m_camera->setPos(Math::Round(cameraPos));
 			m_camera->setTargetPos(Math::Round(targetPos));
-		}
+            m_camera->setZoomScale(m_target->zoomScale());
+        }
 	}
 
 	const s3d::Vec2& Camera::getPos() const

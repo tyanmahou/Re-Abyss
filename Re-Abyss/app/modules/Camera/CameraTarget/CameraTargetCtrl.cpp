@@ -39,11 +39,15 @@ namespace  abyss
             auto interpRate = current->interpRate();
             if (interpRate >= 1.0) {
                 m_targetPos = current->targetPos();
+                m_zoomScale = current->zoomScale();
             } else if(interpRate <= 0.0){
                 // 更新なし
                 // m_targetPos = m_targetPos
+                // m_zoomScale = m_zoomScale
             } else {
-                m_targetPos = s3d::Math::Lerp(m_targetPos, current->targetPos(), InterpUtil::DampRatio(current->interpRate(), dt));
+                double damp = InterpUtil::DampRatio(current->interpRate(), dt, 120_fps);
+                m_targetPos = s3d::Math::Lerp(m_targetPos, current->targetPos(), damp);
+                m_zoomScale = s3d::Math::Lerp(m_zoomScale, current->zoomScale(), damp);
             }
         }
         return m_targetPos;

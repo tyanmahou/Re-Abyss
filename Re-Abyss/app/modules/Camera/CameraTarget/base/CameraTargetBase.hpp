@@ -13,6 +13,11 @@ namespace abyss
 
         virtual s3d::Vec2 targetPos() const = 0;
 
+        double zoomScale() const override
+        {
+            return 1.0;
+        }
+
         CameraTargetPriority priority() const override
         {
             return m_priority;
