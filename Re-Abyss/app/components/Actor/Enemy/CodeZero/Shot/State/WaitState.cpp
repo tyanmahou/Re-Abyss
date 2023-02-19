@@ -6,10 +6,57 @@
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
+#include <abyss/modules/Camera/CameraTarget/base/CameraTargetBase.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/ShotCharge/Builder.hpp>
+#include <abyss/params/Actor/Enemy/CodeZero/ShotParam.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
+    class WaitState::CameraTarget final : public CameraTargetBase
+    {
+    public:
+        CameraTarget(const s3d::Vec2& pos) :
+            CameraTargetBase(CameraTargetPriority::BossAction),
+            m_pos(pos)
+        {
+
+        }
+    public:
+        s3d::Vec2 targetPos() const override
+        {
+            return m_pos;
+        }
+        double zoomScale() const override
+        {
+            return m_zoomScale;
+        }
+    public:
+        void zoom()
+        {
+            m_timer.reset(ShotParam::Wait::ScaleTime);
+            m_isZoom = true;
+        }
+        void unzoom()
+        {
+            m_timer.reset(0.5);
+            m_isZoom = false;
+        }
+        void update(double dt)
+        {
+            m_timer.update(dt);
+            if (m_isZoom) {
+                m_zoomScale = s3d::Math::Lerp(1.0, 1.05, s3d::EaseOutCirc(m_timer.rate()));
+            } else {
+                m_zoomScale = s3d::Math::Lerp(1.05, 1.0, s3d::EaseOutCirc(m_timer.rate()));
+            }
+        }
+    private:
+        s3d::Vec2 m_pos;
+        double m_zoomScale = 1;
+        bool m_isZoom = true;
+        TimeLite::Timer m_timer{ };
+    };
     void WaitState::start()
     {
         using namespace Effect::Actor::Enemy::CodeZero;
@@ -34,6 +81,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
 
         // カメラズーム
         m_cameraTarget = std::make_shared<CameraTarget>(m_body->getPos());
+        m_cameraTarget->zoom();
         m_pActor->getModule<Camera>()->addTarget(m_cameraTarget);
 
         // きゅ～～ん
@@ -54,9 +102,9 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         // どん！
         m_scale->setTo(1.0, 0.1);
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.1);
-        if (m_cameraTarget) {
-            m_cameraTarget = nullptr;
-        }
+        // ズーム解除
+        m_cameraTarget->unzoom();
+
         // ちょっとまってから
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.5);
 
