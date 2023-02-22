@@ -10,6 +10,10 @@ namespace abyss::Nept
 
         /// <summary>/</summary>
         Slash,
+        /// <summary>\</summary>
+        BackSlash,
+        /// <summary>|</summary>
+        Pipe,
 
         /// <summary>#</summary>
         Sharp,

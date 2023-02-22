@@ -862,6 +862,8 @@
     <ClCompile Include="app\utils\Env\Env.cpp" />
     <ClCompile Include="app\modules\Novel\TagString.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Script\Script.cpp" />
     <ClCompile Include="app\utils\Random\RandUtil.cpp" />
     <ClCompile Include="app\utils\Shake\SimpleShake.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
@@ -1326,6 +1328,7 @@
     <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
     <ClInclude Include="app\modules\Actor\Actors.hpp" />
+    <ClInclude Include="app\modules\Adv\Adventures.hpp" />
     <ClInclude Include="app\modules\Devs\Project\base\Issue.hpp" />
     <ClInclude Include="app\modules\Devs\Project\Project.hpp" />
     <ClInclude Include="app\modules\Devs\Project\base\Tasks.hpp" />
@@ -2083,6 +2086,9 @@
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Script.hpp" />
     <ClInclude Include="app\utils\Random\RandUtil.hpp" />
     <ClInclude Include="app\utils\Shake\SimpleShake.hpp" />
     <ClInclude Include="app\values\Forward.hpp" />

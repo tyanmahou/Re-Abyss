@@ -2453,6 +2453,12 @@
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\NeptScript\Script\Script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6366,6 +6372,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Adventures.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Script.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
