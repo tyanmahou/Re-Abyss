@@ -54,8 +54,11 @@ namespace abyss::Nept
             line[pos] == U'@' ||
             line[pos] == U'/' ||
             line[pos] == U'\\'||
-            line[pos] == U'|'
-            ) {
+            line[pos] == U'|' ||
+            line[pos] == U'{' ||
+            line[pos] == U'}' ||
+            false
+        ) {
             isText = false;
         } else {
             isText = true;
