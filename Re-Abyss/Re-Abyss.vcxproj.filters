@@ -2459,6 +2459,27 @@
     <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Adv\Chara.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\CharaTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\TagString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\Adventures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\base\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\base\AdvObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6384,6 +6405,42 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\ICommand.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Chara.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\CharaKind.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\CharaTable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Face.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Name.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Serif.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Side.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\TagString.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\Engine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\AdvObj.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

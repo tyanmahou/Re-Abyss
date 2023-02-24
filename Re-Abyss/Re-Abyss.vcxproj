@@ -279,6 +279,7 @@
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
+    <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Home\Builder.cpp" />
@@ -325,6 +326,12 @@
     <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\modules\Actor\Actors.cpp" />
+    <ClCompile Include="app\modules\Adv\Adventures.cpp" />
+    <ClCompile Include="app\modules\Adv\base\Engine.cpp" />
+    <ClCompile Include="app\modules\Adv\base\AdvObj.cpp" />
+    <ClCompile Include="app\modules\Adv\Chara.cpp" />
+    <ClCompile Include="app\modules\Adv\CharaTable.cpp" />
+    <ClCompile Include="app\modules\Adv\TagString.cpp" />
     <ClCompile Include="app\modules\Devs\Project\base\Tasks.cpp" />
     <ClCompile Include="app\modules\Devs\Project\Project.cpp" />
     <ClCompile Include="app\modules\Devs\Project\TaskBoard.cpp" />
@@ -1271,6 +1278,7 @@
     <ClInclude Include="app\components\Actor\Land\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
+    <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Home\Builder.hpp" />
@@ -1329,6 +1337,17 @@
     <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
     <ClInclude Include="app\modules\Actor\Actors.hpp" />
     <ClInclude Include="app\modules\Adv\Adventures.hpp" />
+    <ClInclude Include="app\modules\Adv\base\Engine.hpp" />
+    <ClInclude Include="app\modules\Adv\base\ICommand.hpp" />
+    <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
+    <ClInclude Include="app\modules\Adv\Chara.hpp" />
+    <ClInclude Include="app\modules\Adv\CharaKind.hpp" />
+    <ClInclude Include="app\modules\Adv\CharaTable.hpp" />
+    <ClInclude Include="app\modules\Adv\Face.hpp" />
+    <ClInclude Include="app\modules\Adv\Name.hpp" />
+    <ClInclude Include="app\modules\Adv\Serif.hpp" />
+    <ClInclude Include="app\modules\Adv\Side.hpp" />
+    <ClInclude Include="app\modules\Adv\TagString.hpp" />
     <ClInclude Include="app\modules\Devs\Project\base\Issue.hpp" />
     <ClInclude Include="app\modules\Devs\Project\Project.hpp" />
     <ClInclude Include="app\modules\Devs\Project\base\Tasks.hpp" />

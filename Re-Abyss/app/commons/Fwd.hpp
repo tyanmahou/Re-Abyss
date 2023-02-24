@@ -95,6 +95,17 @@ namespace abyss
 	}
 	using Novel::Novels;
 
+    /// <summary>
+    /// Modules/Adv
+    /// </summary>
+    namespace Adv
+    {
+        class Adventures;
+        class CharaTable;
+        class AdvObj;
+    }
+    using Adv::Adventures;
+
 	namespace UI
 	{
 		class UIs;
