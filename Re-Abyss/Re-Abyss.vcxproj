@@ -296,6 +296,8 @@
     <ClCompile Include="app\components\Adv\Common\EventCtrl.cpp" />
     <ClCompile Include="app\components\Adv\Common\MessageBox.cpp" />
     <ClCompile Include="app\components\Adv\Common\TalkCtrl.cpp" />
+    <ClCompile Include="app\components\Adv\CommonUtil.cpp" />
+    <ClCompile Include="app\components\Adv\AdvBuilder.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
@@ -1313,6 +1315,8 @@
     <ClInclude Include="app\components\Adv\Common\EventCtrl.hpp" />
     <ClInclude Include="app\components\Adv\Common\MessageBox.hpp" />
     <ClInclude Include="app\components\Adv\Common\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Adv\CommonUtil.hpp" />
+    <ClInclude Include="app\components\Adv\AdvBuilder.hpp" />
     <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
