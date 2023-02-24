@@ -41,7 +41,7 @@ namespace abyss::Scene::Stage
             m_tempData = tempData;
             return *this;
         }
-        Booter& setCharaTable(std::shared_ptr<Novel::CharaTable> charaTable)
+        Booter& setCharaTable(std::shared_ptr<Adv::CharaTable> charaTable)
         {
             m_charaTable = charaTable;
             return *this;
@@ -53,7 +53,7 @@ namespace abyss::Scene::Stage
         std::shared_ptr<Event::EventObj> m_initEvent;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
-        std::shared_ptr<Novel::CharaTable> m_charaTable;
+        std::shared_ptr<Adv::CharaTable> m_charaTable;
     };
 
     using BooterNormal = Booter<BootKind::Normal>;

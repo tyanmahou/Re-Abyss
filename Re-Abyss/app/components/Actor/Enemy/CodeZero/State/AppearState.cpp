@@ -3,14 +3,14 @@
 
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Effect/base/EffectObj.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
+#include <abyss/modules/Adv/base/SkipCtrl.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/HideCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
-#include <abyss/components/Novel/Common/SkipCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
@@ -35,7 +35,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Fiber<> AppearState::task()
 	{
-		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
+		if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
             co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
 		}
 		this->changeState<WaitState>();
@@ -44,10 +44,10 @@ namespace abyss::Actor::Enemy::CodeZero
 	void AppearState::update()
 	{
 	}
-	Fiber<> AppearState::onDemo(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+	Fiber<> AppearState::onDemo(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
         // スキップコールバック登録
-        if (auto skipCtrl = signalCtrl->getObj()->find<Novel::SkipCtrl>()) {
+        if (auto skipCtrl = signalCtrl->getObj()->find<Adv::SkipCtrl>()) {
             skipCtrl->registCallback([
                 weak = this->getWeak(),
                 skipFade = m_pActor->getModule<SpecialEffects>()->skipFade()
@@ -71,7 +71,7 @@ namespace abyss::Actor::Enemy::CodeZero
         // バトル準備
         co_await this->onPrepareBattle(signalCtrl);
 	}
-    Fiber<> AppearState::onAppear(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+    Fiber<> AppearState::onAppear(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl)
     {
         while (signalCtrl && !signalCtrl->isRequestedAppear()) {
             co_yield{};
@@ -108,7 +108,7 @@ namespace abyss::Actor::Enemy::CodeZero
             co_yield{};
         }
     }
-    Fiber<> AppearState::onPrepareBattle(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+    Fiber<> AppearState::onPrepareBattle(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl)
     {
         m_parts->setMoveActive(true);
         m_wing->startAppear();

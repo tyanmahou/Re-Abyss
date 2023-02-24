@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/KingDux/State/BaseState.hpp>
-#include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
+#include <abyss/components/Adv/RoomGarder/SignalCtrl.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -21,7 +21,7 @@ namespace abyss::Actor::Enemy::KingDux
         Coro::Fiber<> task() override;
         void update() override;
     private:
-        Fiber<> onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl);
+        Fiber<> onDemo(Ref<Adv::RoomGarder::SignalCtrl> signalCtrl);
         Fiber<> commonDead();
     private:
         Phase m_phase = Phase::Wait;

@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Effect/Effects.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
@@ -10,7 +10,7 @@
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Enemy/MidBossDeadCtrl.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
-#include <abyss/components/Novel/Common/EventCtrl.hpp>
+#include <abyss/components/Adv/Common/EventCtrl.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -38,7 +38,7 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	Coro::Fiber<> DeadState::task()
 	{
-        if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
+        if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
             co_await this->onDemo(signalCtrl);
         } else {
             co_await this->commonDead();
@@ -59,7 +59,7 @@ namespace abyss::Actor::Enemy::KingDux
 			break;
 		}
 	}
-    Fiber<> DeadState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
+    Fiber<> DeadState::onDemo(Ref<Adv::RoomGarder::SignalCtrl> signalCtrl)
     {
         signalCtrl->requestBattleEnd();
         co_await this->commonDead();
@@ -68,7 +68,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         // 死亡通知
         m_pActor->find<MidBossDeadCtrl>()->notifyDead();
-        if (auto eventCtrl = signalCtrl->getObj()->find<Novel::EventCtrl>()) {
+        if (auto eventCtrl = signalCtrl->getObj()->find<Adv::EventCtrl>()) {
             eventCtrl->requestComplete();
         }
     }

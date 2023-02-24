@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 #include <abyss/components/Actor/utils/StatePriority.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
@@ -41,7 +41,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	}
 	Coro::Fiber<> DeadState::task()
 	{
-		if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
+		if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
 			co_await this->onEvent(signalCtrl);
 		} else {
 			co_await this->commonDead();
@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	{
 	}
 
-	Fiber<> DeadState::onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl)
+	Fiber<> DeadState::onEvent(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl)
 	{
         signalCtrl->requestBattleEnd();
         // スローモーション

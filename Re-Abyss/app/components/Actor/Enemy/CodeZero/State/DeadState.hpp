@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
-#include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
+#include <abyss/components/Adv/CodeZeroDemo/SignalCtrl.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CodeZero
         Coro::Fiber<> task() override;
         void update() override;
     private:
-        Fiber<> onEvent(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onEvent(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl);
         Fiber<> commonDead();
     };
 }

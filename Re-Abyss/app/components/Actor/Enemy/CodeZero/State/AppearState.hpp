@@ -1,6 +1,6 @@
 #pragma once
 #include <abyss/components/Actor/Enemy/CodeZero/State/BaseState.hpp>
-#include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
+#include <abyss/components/Adv/CodeZeroDemo/SignalCtrl.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -15,9 +15,9 @@ namespace abyss::Actor::Enemy::CodeZero
         Coro::Fiber<> task() override;
         void update() override;
     private:
-        Fiber<> onDemo(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
-        Fiber<> onAppear(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
-        Fiber<> onPrepareBattle(Ref<Novel::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onDemo(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onAppear(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl);
+        Fiber<> onPrepareBattle(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl);
 
         Ref<AppearState> getWeak()
         {

@@ -3,7 +3,7 @@
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::KingDux
 	}
 	Coro::Fiber<> AppearState::task()
 	{
-        if (auto signalCtrl = m_pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
+        if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
             co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
         }
 		this->changeState<WaitState>();
@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void AppearState::update()
 	{
 	}
-    Coro::Fiber<> AppearState::onDemo(Ref<Novel::RoomGarder::SignalCtrl> signalCtrl)
+    Coro::Fiber<> AppearState::onDemo(Ref<Adv::RoomGarder::SignalCtrl> signalCtrl)
     {
         Vec2 initPos = m_body->getPos();
         const Vec2 offset = Vec2{ 0, 400 };

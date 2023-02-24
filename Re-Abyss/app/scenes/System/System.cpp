@@ -98,7 +98,7 @@ namespace abyss::Sys
 
         // ノベル更新
         if constexpr (config.isStage) {
-            mod<Novels>()->update();
+            mod<Adventures>()->update();
         }
 
         // ui更新

@@ -2,7 +2,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
-namespace abyss::Novel
+namespace abyss::Adv
 {
     class Engine;
 }
@@ -12,7 +12,7 @@ namespace abyss::UI::Message
     {
         static void Build(
             UIObj* pUi,
-            const Ref<Novel::Engine>& engine
+            const Ref<Adv::Engine>& engine
         );
     };
 }

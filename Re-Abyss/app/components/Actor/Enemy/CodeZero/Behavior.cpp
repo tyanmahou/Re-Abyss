@@ -3,7 +3,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/State/WaitState.hpp>
@@ -13,7 +13,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/PartsCtrl.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 
-#include <abyss/components/Novel/CodeZeroDemo/SignalCtrl.hpp>
+#include <abyss/components/Adv/CodeZeroDemo/SignalCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
@@ -126,7 +126,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Fiber<> Behavior::TryToAppear(ActorObj* pActor)
     {
-        if (pActor->getModule<Novels>()->find<Novel::CodeZeroDemo::SignalCtrl>()) {
+        if (pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
             co_await Appear(pActor);
         }
     }

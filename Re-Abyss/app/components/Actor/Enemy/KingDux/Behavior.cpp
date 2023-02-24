@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Behavior.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 
 #include <abyss/components/Actor/Common/DeadCheacker.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/State/AppearState.hpp>
@@ -14,7 +14,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/params/Actor/Enemy/KingDux/Param.hpp>
 
-#include <abyss/components/Novel/RoomGarder/SignalCtrl.hpp>
+#include <abyss/components/Adv/RoomGarder/SignalCtrl.hpp>
 
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <Siv3D.hpp>
@@ -63,7 +63,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Fiber<> Behavior::TryToAppear(ActorObj* pActor)
     {
-        if (pActor->getModule<Novels>()->find<Novel::RoomGarder::SignalCtrl>()) {
+        if (pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
             co_await Appear(pActor);
         } else {
             co_await Wait(pActor);

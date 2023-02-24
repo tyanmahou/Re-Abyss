@@ -29,7 +29,7 @@ namespace abyss
         DrawManager* m_pDrawer = nullptr;
         CycleMaster* m_pCycleMaster = nullptr;
         RoomManager* m_pRoom = nullptr;
-        Novels* m_pNovels = nullptr;
+        Adventures* m_pAdv = nullptr;
         SpecialEffects* m_pSfx = nullptr;
         PostEffects* m_pPostEffects = nullptr;
         PauseManager* m_pPause = nullptr;
@@ -81,7 +81,7 @@ namespace abyss
 
         Manager& set(RoomManager* pRoom);
 
-        Manager& set(Novels* pNovels);
+        Manager& set(Adventures* pAdv);
 
         Manager& set(SpecialEffects* pSfx);
         Manager& set(PostEffects* pPostEffects);

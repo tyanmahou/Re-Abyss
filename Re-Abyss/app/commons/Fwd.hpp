@@ -84,17 +84,6 @@ namespace abyss
 		class EventObj;
 	}
 
-	/// <summary>
-	/// Modules/Novel
-	/// </summary>
-	namespace Novel
-	{
-		class Novels;
-		class CharaTable;
-		class TalkObj;
-	}
-	using Novel::Novels;
-
     /// <summary>
     /// Modules/Adv
     /// </summary>

@@ -4,7 +4,7 @@
 
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
-#include <abyss/modules/Novel/CharaTable.hpp>
+#include <abyss/modules/Adv/CharaTable.hpp>
 #include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
@@ -40,14 +40,14 @@ namespace abyss::Scene::Stage
         std::unique_ptr<System> m_systemNext;
 		std::shared_ptr<StageData> m_stageData;
 		std::shared_ptr<TemporaryData> m_tempData;
-		std::shared_ptr<Novel::CharaTable> m_charaTable;
+		std::shared_ptr<Adv::CharaTable> m_charaTable;
 
         Context m_context;
 		std::shared_ptr<Data_t> m_data;
 	public:
 		Impl(const Scene::InitData& init):
 			m_tempData(std::make_shared<TemporaryData>()),
-			m_charaTable(std::make_shared<Novel::CharaTable>()),
+			m_charaTable(std::make_shared<Adv::CharaTable>()),
 			m_data(init._s)
 		{
 			if (std::holds_alternative<Context>(m_data->context)) {

@@ -1080,54 +1080,6 @@
     <ClCompile Include="app\components\Event\Title\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Novel\base\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\CharaSetter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\ClearMessage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\ColorTag.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\MessageStream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\NameSetter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\ShakeTag.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\ShowHideMessage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\SignalReceive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\SignalSend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\SkipEnabled.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\WaitInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\WaitTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\MessageBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\SkipCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\TalkBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1359,9 +1311,6 @@
     <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Novel\Chara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Room\RoomData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1488,15 +1437,6 @@
     <ClCompile Include="app\modules\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Novel\base\TalkObj.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Novel\CharaTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Novel\Novels.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1618,9 +1558,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\scenes\System\System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\modules\Novel\TagString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
@@ -1852,9 +1789,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Light\LightView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\Novel\TagString\TagStringView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Shader\Distortion\DistortionShader.cpp">
@@ -2108,49 +2042,7 @@
     <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Novel\RoomGarder\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\RoomGarder\SignalCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\RoomGarder\Command\Setup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\RoomGarder\Command\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\TalkCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\NovelUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\SignalCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\Teardown.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Pause\PauseManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\PauseDisabled.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp">
@@ -2166,9 +2058,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\Command\Bgm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp">
@@ -2241,9 +2130,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\Common\EventCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.cpp">
@@ -2406,12 +2292,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\Novel\BossCommon\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\abyss\include\abyss\components\Novel\BossCommon\Command\ShowHpBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Actor\Enemy\BossHpBarTarget.cpp">
@@ -4373,57 +4253,6 @@
     <ClInclude Include="app\components\Event\Title\MainStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Novel\base\Engine.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\base\ICommand.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\CharaSetter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\ClearMessage.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\ColorTag.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\MessageStream.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\NameSetter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\ShakeTag.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\ShowHideMessage.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\SignalReceive.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\SignalSend.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\SkipEnabled.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\WaitInput.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\WaitTime.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\MessageBox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\SkipCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\TalkBuilder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\UI\base\IDraw.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -4826,12 +4655,6 @@
     <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Novel\Chara.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\Serif.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\Room\RoomData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5018,15 +4841,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Manager\Manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\base\TalkObj.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\CharaTable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\Novels.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp">
@@ -5309,21 +5123,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\System\System.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\CharaKind.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\Face.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\Name.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\Side.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Novel\TagString.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp">
@@ -5755,9 +5554,6 @@
     <ClInclude Include="app\views\Light\LightView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\Novel\TagString\TagStringView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\Shader\Distortion\DistortionShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6034,52 +5830,10 @@
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Novel\RoomGarder\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\RoomGarder\SignalCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\RoomGarder\Command\Setup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\RoomGarder\Command\Teardown.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\components\Event\base\IStashUpdate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\TalkCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\NovelUtil.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\SignalCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\Teardown.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearStart.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\AppearEnd.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\modules\Pause\PauseManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\PauseDisabled.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearStart.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\CodeZeroDemo\Command\DisappearEnd.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp">
@@ -6101,9 +5855,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\Command\Bgm.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp">
@@ -6209,9 +5960,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\Common\EventCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.hpp">
@@ -6423,12 +6171,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossCommon\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\Novel\BossCommon\Command\ShowHpBar.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\BossHpBarTarget.hpp">

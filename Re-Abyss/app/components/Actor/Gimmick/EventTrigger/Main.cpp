@@ -1,12 +1,12 @@
 #include <abyss/components/Actor/Gimmick/EventTrigger/Main.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 
 #include <abyss/components/Actor/Common/DeployId.hpp>
-#include <abyss/components/Novel/TalkBuilder.hpp>
-#include <abyss/components/Novel/Common/EventCtrl.hpp>
+#include <abyss/components/Adv/AdvBuilder.hpp>
+#include <abyss/components/Adv/Common/EventCtrl.hpp>
 
 namespace abyss::Actor::Gimmick::EventTrigger
 {
@@ -28,9 +28,9 @@ namespace abyss::Actor::Gimmick::EventTrigger
             return;
         }
 
-        auto pTalk = m_pActor->getModule<Novels>()->create<Novel::TalkBuilder>(m_path);
+        auto pTalk = m_pActor->getModule<Adventures>()->create<Adv::AdvBuilder>(m_path);
         // イベント制御も追加
-        pTalk->attach<Novel::EventCtrl>(pTalk.get(), m_eventId);
+        pTalk->attach<Adv::EventCtrl>(pTalk.get(), m_eventId);
 
         m_pActor->destroy();
     }

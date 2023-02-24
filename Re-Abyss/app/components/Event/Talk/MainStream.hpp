@@ -20,7 +20,7 @@ namespace abyss::Event::Talk
     private:
         EventObj* m_pEvent;
         s3d::String m_path;
-        Ref<Novel::TalkObj> m_talk;
+        Ref<Adv::AdvObj> m_talk;
     };
 }
 

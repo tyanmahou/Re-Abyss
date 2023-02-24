@@ -13,8 +13,8 @@
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 
-#include <abyss/modules/Novel/Novels.hpp>
-#include <abyss/modules/Novel/CharaTable.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
+#include <abyss/modules/Adv/CharaTable.hpp>
 
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Actor/God/Builder.hpp>
@@ -56,13 +56,13 @@ namespace abyss::Scene::Stage
             }
         }
 
-        // Novel初期化
+        // Adventures初期化
         {
-            auto* novel = pManager->getModule<Novels>();
+            auto* advs = pManager->getModule<Adventures>();
             if (m_charaTable) {
-                novel->setCharaTable(m_charaTable);
+                advs->setCharaTable(m_charaTable);
             } else {
-                novel->setCharaTable(std::make_shared<Novel::CharaTable>());
+                advs->setCharaTable(std::make_shared<Adv::CharaTable>());
             }
         }
 

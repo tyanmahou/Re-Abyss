@@ -1,12 +1,12 @@
 #include <abyss/components/UI/Message/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/modules/Novel/Novels.hpp>
+#include <abyss/modules/Adv/Adventures.hpp>
 
-#include <abyss/modules/Novel/base/Engine.hpp>
+#include <abyss/modules/Adv/base/Engine.hpp>
 
 #include <abyss/views/UI/Message/MessageBoxVM.hpp>
 #include <abyss/views/UI/Message/CursorVM.hpp>
-#include <abyss/views/Novel/TagString/TagStringView.hpp>
+#include <abyss/views/Adv/TagString/TagStringView.hpp>
 #include <abyss/views/util/Anchor/AnchorUtil.hpp>
 #include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
@@ -16,7 +16,7 @@ namespace abyss::UI::Message
 {
     Main::Main(
         UIObj* pUi,
-        const Ref<Novel::Engine>& engine
+        const Ref<Adv::Engine>& engine
     ) :
         m_pUi(pUi),
         m_engine(engine),
@@ -61,8 +61,8 @@ namespace abyss::UI::Message
             .setName(serif.getName())
             .setAlpha(alpha);
 
-        auto* novels = m_pUi->getModule<Novels>();
-        if (auto chara = novels->findChara(serif.getKind())) {
+        auto* advs = m_pUi->getModule<Adventures>();
+        if (auto chara = advs->findChara(serif.getKind())) {
             if (auto face = chara->getFace(serif.getFace())) {
                 m_boxView->setFaceIcon(face);
             } else {
@@ -76,7 +76,7 @@ namespace abyss::UI::Message
         auto&& font = FontAsset(FontName::Serif);
         const double messagePosX = serif.isLeft() ? -180 : -340;
 
-        Novel::TagStringView::DrawPrev(
+        Adv::TagStringView::DrawPrev(
             font,
             m_engine->getPrevMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
@@ -84,7 +84,7 @@ namespace abyss::UI::Message
             alpha
         );
 
-        Novel::TagStringView::Draw(
+        Adv::TagStringView::Draw(
             font,
             serif.getMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },

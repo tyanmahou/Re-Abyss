@@ -6,7 +6,7 @@ namespace abyss::UI::Message
 {
     void Builder::Build(
         UIObj* pUi,
-        const Ref<Novel::Engine>& engine
+        const Ref<Adv::Engine>& engine
     )
     {
         pUi->setFilter(Filter::Always);
