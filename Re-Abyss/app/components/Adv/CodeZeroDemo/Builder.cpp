@@ -12,28 +12,28 @@
 
 namespace abyss::Adv::CodeZeroDemo
 {
-    void Builder::Setup(AdvObj* pTalk)
+    void Builder::Setup(AdvObj* pObj)
     {
-        pTalk->attach<SignalCtrl>(pTalk);
+        pObj->attach<SignalCtrl>(pObj);
     }
-    void Builder::Appear::Start(AdvObj* pTalk)
+    void Builder::Appear::Start(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<CodeZeroDemo::AppearStart>();
+        pObj->engine()->addCommand<CodeZeroDemo::AppearStart>();
     }
-    void Builder::Appear::End(AdvObj* pTalk)
+    void Builder::Appear::End(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<CodeZeroDemo::AppearEnd>();
+        pObj->engine()->addCommand<CodeZeroDemo::AppearEnd>();
     }
-    void Builder::Disappear::Start(AdvObj* pTalk)
+    void Builder::Disappear::Start(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<CodeZeroDemo::DisappearStart>();
+        pObj->engine()->addCommand<CodeZeroDemo::DisappearStart>();
     }
-    void Builder::Disappear::End(AdvObj* pTalk)
+    void Builder::Disappear::End(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<CodeZeroDemo::DisappearEnd>();
+        pObj->engine()->addCommand<CodeZeroDemo::DisappearEnd>();
     }
-    void Builder::Teardown(AdvObj* pTalk)
+    void Builder::Teardown(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<CodeZeroDemo::Teardown>();
+        pObj->engine()->addCommand<CodeZeroDemo::Teardown>();
     }
 }

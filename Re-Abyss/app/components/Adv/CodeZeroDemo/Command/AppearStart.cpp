@@ -5,14 +5,14 @@
 
 namespace abyss::Adv::CodeZeroDemo
 {
-    AppearStart::AppearStart(AdvObj* pTalk) :
-        m_pTalk(pTalk)
+    AppearStart::AppearStart(AdvObj* pObj) :
+        m_pObj(pObj)
     {
     }
     void AppearStart::onStart()
     {
-        m_pTalk->find<TalkCtrl>()->request();
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
+        m_pObj->find<TalkCtrl>()->request();
+        m_pObj->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     Coro::Fiber<> AppearStart::onCommand()
     {

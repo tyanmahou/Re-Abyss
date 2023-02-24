@@ -4,12 +4,12 @@
 
 namespace abyss::Adv
 {
-    ClearMessage::ClearMessage(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    ClearMessage::ClearMessage(AdvObj* pObj):
+        m_pObj(pObj)
     {}
     void ClearMessage::onStart()
     {
-        m_pTalk->engine()->clearMessage();
+        m_pObj->engine()->clearMessage();
     }
     Coro::Fiber<> ClearMessage::onCommand()
     {

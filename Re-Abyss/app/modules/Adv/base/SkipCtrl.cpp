@@ -3,8 +3,8 @@
 
 namespace abyss::Adv
 {
-	SkipCtrl::SkipCtrl(AdvObj* pTalk):
-		m_pTalk(pTalk)
+	SkipCtrl::SkipCtrl(AdvObj* pObj):
+		m_pObj(pObj)
 	{
 	}
 	SkipCtrl& SkipCtrl::registCallback(const std::function<void()>& callback)

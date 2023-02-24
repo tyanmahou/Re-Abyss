@@ -28,9 +28,9 @@ namespace abyss::Actor::Gimmick::EventTrigger
             return;
         }
 
-        auto pTalk = m_pActor->getModule<Adventures>()->create<Adv::AdvBuilder>(m_path);
+        auto pObj = m_pActor->getModule<Adventures>()->create<Adv::AdvBuilder>(m_path);
         // イベント制御も追加
-        pTalk->attach<Adv::EventCtrl>(pTalk.get(), m_eventId);
+        pObj->attach<Adv::EventCtrl>(pObj.get(), m_eventId);
 
         m_pActor->destroy();
     }

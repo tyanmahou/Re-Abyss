@@ -5,14 +5,14 @@
 
 namespace abyss::Adv::CodeZeroDemo
 {
-    AppearEnd::AppearEnd(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    AppearEnd::AppearEnd(AdvObj* pObj):
+        m_pObj(pObj)
     {
     }
     void AppearEnd::onStart()
     {
-        m_pTalk->find<TalkCtrl>()->resume();
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Always);
+        m_pObj->find<TalkCtrl>()->resume();
+        m_pObj->getModule<UIs>()->setFilter(UI::Filter::Always);
     }
     Coro::Fiber<> AppearEnd::onCommand()
     {

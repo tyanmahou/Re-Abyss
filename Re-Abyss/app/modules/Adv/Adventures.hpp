@@ -9,9 +9,9 @@
 namespace abyss::Adv
 {
     template<class Type, class... Args>
-    concept AdvBuildable = requires(AdvObj * pTalk, Args&&... args)
+    concept AdvBuildable = requires(AdvObj * pObj, Args&&... args)
     {
-        Type::Build(pTalk, std::forward<Args>(args)...);
+        Type::Build(pObj, std::forward<Args>(args)...);
     };
 
     /// <summary>

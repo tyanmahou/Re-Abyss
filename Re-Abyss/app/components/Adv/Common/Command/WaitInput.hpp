@@ -8,13 +8,13 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        WaitInput(AdvObj* pTalk);
+        WaitInput(AdvObj* pObj);
 
         void onStart() override;
         void onEnd() override;
 
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
     };
 }

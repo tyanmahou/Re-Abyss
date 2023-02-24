@@ -3,14 +3,14 @@
 
 namespace abyss::Adv
 {
-    SignalSend::SignalSend(AdvObj* pTalk, FunctionType func):
-        m_pTalk(pTalk),
+    SignalSend::SignalSend(AdvObj* pObj, FunctionType func):
+        m_pObj(pObj),
         m_func(func)
     {}
     void SignalSend::onStart()
     {
         if (m_func) {
-            m_func(m_pTalk);
+            m_func(m_pObj);
         }
     }
     Coro::Fiber<> SignalSend::onCommand()

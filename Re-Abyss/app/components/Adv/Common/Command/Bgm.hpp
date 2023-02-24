@@ -19,7 +19,7 @@ namespace abyss::Adv
         };
     public:
         Bgm(
-            AdvObj* pTalk,
+            AdvObj* pObj,
             Kind kind,
             const s3d::String& path,
             const Duration& fade
@@ -28,7 +28,7 @@ namespace abyss::Adv
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         Kind m_kind;
         s3d::String m_path;
         s3d::Duration m_fade;

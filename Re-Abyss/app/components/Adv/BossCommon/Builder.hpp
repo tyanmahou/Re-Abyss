@@ -7,6 +7,6 @@ namespace abyss::Adv::BossCommon
     struct Builder
     {
         [[REFLECTION(ShowHpBar)]]
-        static void ShowHpBar(AdvObj* pTalk);
+        static void ShowHpBar(AdvObj* pObj);
     };
 }

@@ -4,8 +4,8 @@
 
 namespace abyss::Adv
 {
-    WaitTime::WaitTime(AdvObj* pTalk, const s3d::Duration& waitTime) :
-        m_pTalk(pTalk),
+    WaitTime::WaitTime(AdvObj* pObj, const s3d::Duration& waitTime) :
+        m_pObj(pObj),
         m_waitTime(waitTime)
     {}
     Coro::Fiber<> WaitTime::onCommand()

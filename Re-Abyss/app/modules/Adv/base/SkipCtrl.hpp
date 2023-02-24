@@ -12,7 +12,7 @@ namespace abyss::Adv
 	class SkipCtrl : public IComponent
 	{
 	public:
-		SkipCtrl(AdvObj* pTalk);
+		SkipCtrl(AdvObj* pObj);
 
 		SkipCtrl& registCallback(const std::function<void()>& callback);
 
@@ -29,7 +29,7 @@ namespace abyss::Adv
 			return *this;
 		}
 	private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
 		s3d::Array<std::function<void()>> m_callbacks;
 		bool m_isEnabled = false;
 	};

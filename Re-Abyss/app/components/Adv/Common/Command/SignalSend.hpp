@@ -10,12 +10,12 @@ namespace abyss::Adv
     private:
         using FunctionType = void(*)(AdvObj*);
     public:
-        SignalSend(AdvObj* pTalk, FunctionType func);
+        SignalSend(AdvObj* pObj, FunctionType func);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         FunctionType m_func;
     };
 }

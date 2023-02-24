@@ -7,8 +7,8 @@
 
 namespace abyss::Adv::BossCommon
 {
-    void Builder::ShowHpBar(AdvObj* pTalk)
+    void Builder::ShowHpBar(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<BossCommon::ShowHpBar>();
+        pObj->engine()->addCommand<BossCommon::ShowHpBar>();
     }
 }

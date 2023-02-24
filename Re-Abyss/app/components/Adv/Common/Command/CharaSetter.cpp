@@ -5,19 +5,19 @@
 namespace abyss::Adv
 {
     CharaSetter::CharaSetter(
-        AdvObj* pTalk,
+        AdvObj* pObj,
         const s3d::Optional<CharaKind>& kind,
         const s3d::Optional<Side>& side,
         const s3d::Optional<Face>& face
     ):
-        m_pTalk(pTalk),
+        m_pObj(pObj),
         m_kind(kind),
         m_side(side),
         m_face(face)
     {}
     void CharaSetter::onStart()
     {
-        auto* engine = m_pTalk->engine().get();
+        auto* engine = m_pObj->engine().get();
         if (m_kind) {
             engine->setCharaKind(*m_kind);
         }

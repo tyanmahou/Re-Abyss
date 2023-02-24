@@ -6,14 +6,14 @@
 
 namespace abyss::Adv::CodeZeroDemo
 {
-    DisappearStart::DisappearStart(AdvObj* pTalk) :
-        m_pTalk(pTalk)
+    DisappearStart::DisappearStart(AdvObj* pObj) :
+        m_pObj(pObj)
     {
     }
     void DisappearStart::onStart()
     {
-        m_pTalk->find<TalkCtrl>()->request();
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
+        m_pObj->find<TalkCtrl>()->request();
+        m_pObj->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     Coro::Fiber<> DisappearStart::onCommand()
     {

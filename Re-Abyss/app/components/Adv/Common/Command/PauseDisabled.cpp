@@ -4,14 +4,14 @@
 
 namespace abyss::Adv
 {
-    PauseDisabled::PauseDisabled(AdvObj* pTalk, bool isDisabled):
-        m_pTalk(pTalk),
+    PauseDisabled::PauseDisabled(AdvObj* pObj, bool isDisabled):
+        m_pObj(pObj),
         m_isDisabled(isDisabled)
     {
     }
     void PauseDisabled::onStart()
     {
-        if (auto* pPause = m_pTalk->getModule<Pause::PauseManager>()) {
+        if (auto* pPause = m_pObj->getModule<Pause::PauseManager>()) {
             pPause->setPausable(!m_isDisabled, Pause::PauseManager::DisableKind::Demo);
         }
     }

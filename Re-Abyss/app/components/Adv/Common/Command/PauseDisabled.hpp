@@ -8,12 +8,12 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        PauseDisabled(AdvObj* pTalk, bool isDisabled);
+        PauseDisabled(AdvObj* pObj, bool isDisabled);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         bool m_isDisabled = false;
     };
 }

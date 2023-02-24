@@ -6,19 +6,19 @@
 
 namespace abyss::Adv
 {
-    TalkCtrl::TalkCtrl(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    TalkCtrl::TalkCtrl(AdvObj* pObj):
+        m_pObj(pObj)
     {
     }
     void TalkCtrl::request()
     {
-        if (auto&& player = m_pTalk->getModule<Actor::Player::PlayerManager>()->getActor()) {
+        if (auto&& player = m_pObj->getModule<Actor::Player::PlayerManager>()->getActor()) {
             Actor::Player::TalkState::Change(player.get(), m_pTargetLocator);
         }
     }
     void TalkCtrl::resume()
     {
-        if (auto&& player = m_pTalk->getModule<Actor::Player::PlayerManager>()->getActor()) {
+        if (auto&& player = m_pObj->getModule<Actor::Player::PlayerManager>()->getActor()) {
             player->find<Actor::StateCtrl>()->changeState<Actor::Player::SwimState>();
         }
     }

@@ -11,21 +11,21 @@
 
 namespace abyss::Adv::BossCommon
 {
-    ShowHpBar::ShowHpBar(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    ShowHpBar::ShowHpBar(AdvObj* pObj):
+        m_pObj(pObj)
     {
     }
     void ShowHpBar::onStart()
     {
-        m_prevUiFilter = m_pTalk->getModule<UIs>()->getFilter();
+        m_prevUiFilter = m_pObj->getModule<UIs>()->getFilter();
         // UIレイヤーを変更
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Event);
+        m_pObj->getModule<UIs>()->setFilter(UI::Filter::Event);
 
-        auto actors = m_pTalk->getModule<Actors>();
+        auto actors = m_pObj->getModule<Actors>();
         if (auto target = actors->find<Actor::Enemy::BossHpBarTarget>()) {
             if (auto hp = target->hp()) {
                 auto damage = target->damageCtrl();
-                auto hpBar = m_pTalk->getModule<UIs>()->create<UI::BossHPBar::Builder>(hp, damage);
+                auto hpBar = m_pObj->getModule<UIs>()->create<UI::BossHPBar::Builder>(hp, damage);
 
                 m_hpGauge = hpBar->find<UI::BossHPBar::HPGaugeCtrl>();
             }
@@ -34,7 +34,7 @@ namespace abyss::Adv::BossCommon
     void ShowHpBar::onEnd()
     {
         // UIレイヤーを戻す
-        m_pTalk->getModule<UIs>()->setFilter(m_prevUiFilter);
+        m_pObj->getModule<UIs>()->setFilter(m_prevUiFilter);
 
         if (m_chargeSe) {
             m_chargeSe.stop();

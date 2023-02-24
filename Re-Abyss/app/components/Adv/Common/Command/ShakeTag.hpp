@@ -8,12 +8,12 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        ShakeTag(AdvObj* pTalk, bool isShake);
+        ShakeTag(AdvObj* pObj, bool isShake);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         bool m_isShake;
     };
 }

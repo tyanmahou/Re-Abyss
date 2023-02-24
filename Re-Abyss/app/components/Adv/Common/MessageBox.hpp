@@ -9,7 +9,7 @@ namespace abyss::Adv
     class MessageBox : public IComponent
     {
     public:
-        MessageBox(AdvObj* pTalk);
+        MessageBox(AdvObj* pObj);
 
         void onStart() override;
 
@@ -22,7 +22,7 @@ namespace abyss::Adv
         bool isBusyAnim() const;
         void animToTail() const;
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
         Ref<UI::UIObj> m_pUi;
         Ref<UI::Message::Main> m_msgMain;
 

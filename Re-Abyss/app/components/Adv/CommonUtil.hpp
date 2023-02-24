@@ -8,6 +8,6 @@ namespace abyss::Adv
     {
     public:
         [[REFLECTION(IsEventEnd)]]
-        static bool IsEventEnd(AdvObj* pTalk);
+        static bool IsEventEnd(AdvObj* pObj);
     };
 }

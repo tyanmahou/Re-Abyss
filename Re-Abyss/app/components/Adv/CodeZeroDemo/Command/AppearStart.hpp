@@ -9,13 +9,13 @@ namespace abyss::Adv::CodeZeroDemo
         public ICommand
     {
     public:
-        AppearStart(AdvObj* pTalk);
+        AppearStart(AdvObj* pObj);
 
         void onStart() override;
 
         Coro::Fiber<> onCommand() override;
 
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
     };
 }

@@ -4,13 +4,13 @@
 
 namespace abyss::Adv
 {
-    ShakeTag::ShakeTag(AdvObj* pTalk, bool isShake) :
-        m_pTalk(pTalk),
+    ShakeTag::ShakeTag(AdvObj* pObj, bool isShake) :
+        m_pObj(pObj),
         m_isShake(isShake)
     {}
     void ShakeTag::onStart()
     {
-        m_pTalk->engine()->setIsShake(m_isShake);
+        m_pObj->engine()->setIsShake(m_isShake);
     }
     Coro::Fiber<> ShakeTag::onCommand()
     {

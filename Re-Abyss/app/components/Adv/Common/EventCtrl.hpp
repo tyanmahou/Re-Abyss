@@ -12,7 +12,7 @@ namespace abyss::Adv
         public IComponent
     {
     public:
-        EventCtrl(AdvObj* pTalk, s3d::uint32 eventId);
+        EventCtrl(AdvObj* pObj, s3d::uint32 eventId);
 
         void requestComplete();
     public:
@@ -20,7 +20,7 @@ namespace abyss::Adv
     private:
         TempKey tempKey() const;
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
         s3d::uint32 m_eventId;
     };
 }

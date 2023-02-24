@@ -4,8 +4,8 @@
 
 namespace abyss::Adv
 {
-    bool CommonUtil::IsEventEnd(AdvObj* pTalk)
+    bool CommonUtil::IsEventEnd(AdvObj* pObj)
     {
-        return pTalk->getModule<Events>()->isEmpty();
+        return pObj->getModule<Events>()->isEmpty();
     }
 }

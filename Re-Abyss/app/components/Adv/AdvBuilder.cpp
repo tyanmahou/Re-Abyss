@@ -34,9 +34,9 @@ namespace
     class EvalImpl final : public IEvalImpl
     {
     public:
-        EvalImpl(AdvObj* pTalk):
-            m_pTalk(pTalk),
-            m_pEngine(pTalk->engine().get())
+        EvalImpl(AdvObj* pObj):
+            m_pObj(pObj),
+            m_pEngine(pObj->engine().get())
         {}
         ~EvalImpl()
         {
@@ -133,12 +133,12 @@ namespace
             } else if (tag == U"start" && tagValue) {
                 m_blocks.push(*tagValue);
                 if (auto blockFunc = this->findBlockFunc(*tagValue, U"Start")) {
-                    (*blockFunc)(m_pTalk);
+                    (*blockFunc)(m_pObj);
                 }
             } else if (tag == U"end") {
                 if (!m_blocks.empty()) {
                     if (auto blockFunc = this->findBlockFunc(m_blocks.top(), U"End")) {
-                        (*blockFunc)(m_pTalk);
+                        (*blockFunc)(m_pObj);
                     }
                     m_blocks.pop();
                 }
@@ -191,7 +191,7 @@ namespace
                 return true;
             }
             if (auto func = this->findFunc<void(AdvObj*)>(name)) {
-                (*func)(m_pTalk);
+                (*func)(m_pObj);
                 return true;
             }
             return false;
@@ -202,7 +202,7 @@ namespace
                 return false;
             }
             if (auto buildFunc = findBuildFunc(eventName)) {
-                (*buildFunc)(m_pTalk);
+                (*buildFunc)(m_pObj);
                 return true;
             }
             return false;
@@ -235,7 +235,7 @@ namespace
                 );
         }
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
         Engine* m_pEngine;
 
         bool m_isVisibleMessage = false;
@@ -248,16 +248,16 @@ namespace
 }
 namespace abyss::Adv
 {
-    void AdvBuilder::Build(AdvObj* pTalk, const s3d::String& path)
+    void AdvBuilder::Build(AdvObj* pObj, const s3d::String& path)
     {
         // スクリプトからロード
         {
             Mns::Script script(path);
-            EvalImpl eval(pTalk);
+            EvalImpl eval(pObj);
             script.eval(&eval);
         }
-        pTalk->attach<SkipCtrl>(pTalk);
-        pTalk->attach<MessageBox>(pTalk);
-        pTalk->attach<TalkCtrl>(pTalk);
+        pObj->attach<SkipCtrl>(pObj);
+        pObj->attach<MessageBox>(pObj);
+        pObj->attach<TalkCtrl>(pObj);
     }
 }

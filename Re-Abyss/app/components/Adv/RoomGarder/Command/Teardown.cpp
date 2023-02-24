@@ -5,13 +5,13 @@
 
 namespace abyss::Adv::RoomGarder
 {
-    Teardown::Teardown(AdvObj* pTalk) :
-        m_pTalk(pTalk)
+    Teardown::Teardown(AdvObj* pObj) :
+        m_pObj(pObj)
     {}
 
     void Teardown::onStart()
     {
-        m_pTalk->getModule<RoomManager>()->unlockRoomGarder();
+        m_pObj->getModule<RoomManager>()->unlockRoomGarder();
     }
 
     Coro::Fiber<> Teardown::onCommand()

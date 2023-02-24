@@ -5,16 +5,16 @@
 
 namespace abyss::Adv
 {
-    WaitInput::WaitInput(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    WaitInput::WaitInput(AdvObj* pObj):
+        m_pObj(pObj)
     {}
     void WaitInput::onStart()
     {
-        m_pTalk->engine()->setIsInputWait(true);
+        m_pObj->engine()->setIsInputWait(true);
     }
     void WaitInput::onEnd()
     {
-        m_pTalk->engine()->setIsInputWait(false);
+        m_pObj->engine()->setIsInputWait(false);
     }
     Coro::Fiber<> WaitInput::onCommand()
     {

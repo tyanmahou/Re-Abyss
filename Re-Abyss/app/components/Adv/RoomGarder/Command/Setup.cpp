@@ -5,13 +5,13 @@
 
 namespace abyss::Adv::RoomGarder
 {
-    Setup::Setup(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    Setup::Setup(AdvObj* pObj):
+        m_pObj(pObj)
     {}
 
     void Setup::onStart()
     {
-        m_pTalk->getModule<RoomManager>()->requestRoomGarder();
+        m_pObj->getModule<RoomManager>()->requestRoomGarder();
     }
 
     Coro::Fiber<> Setup::onCommand()

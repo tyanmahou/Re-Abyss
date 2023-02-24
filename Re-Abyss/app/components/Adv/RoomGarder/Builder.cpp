@@ -9,38 +9,38 @@
 
 namespace abyss::Adv::RoomGarder
 {
-    void Builder::Setup(AdvObj* pTalk)
+    void Builder::Setup(AdvObj* pObj)
     {
-        pTalk->attach<SignalCtrl>(pTalk);
+        pObj->attach<SignalCtrl>(pObj);
 
-        pTalk->engine()->addCommand<RoomGarder::Setup>();
+        pObj->engine()->addCommand<RoomGarder::Setup>();
     }
-    void Builder::Appear::Start(AdvObj* pTalk)
+    void Builder::Appear::Start(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand([](AdvObj* p) {
+        pObj->engine()->addCommand([](AdvObj* p) {
             p->find<TalkCtrl>()->request();
         });
     }
-    void Builder::Appear::End(AdvObj* pTalk)
+    void Builder::Appear::End(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand([](AdvObj* p) {
+        pObj->engine()->addCommand([](AdvObj* p) {
             p->find<TalkCtrl>()->resume();
         });
     }
-    void Builder::Disappear::Start(AdvObj* pTalk)
+    void Builder::Disappear::Start(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand([](AdvObj* p) {
+        pObj->engine()->addCommand([](AdvObj* p) {
             p->find<TalkCtrl>()->request();
         });
     }
-    void Builder::Disappear::End(AdvObj* pTalk)
+    void Builder::Disappear::End(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand([](AdvObj* p) {
+        pObj->engine()->addCommand([](AdvObj* p) {
             p->find<TalkCtrl>()->resume();
         });
     }
-    void Builder::Teardown(AdvObj* pTalk)
+    void Builder::Teardown(AdvObj* pObj)
     {
-        pTalk->engine()->addCommand<RoomGarder::Teardown>();
+        pObj->engine()->addCommand<RoomGarder::Teardown>();
     }
 }

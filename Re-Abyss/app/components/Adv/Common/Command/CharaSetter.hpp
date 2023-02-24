@@ -13,7 +13,7 @@ namespace abyss::Adv
     {
     public:
         CharaSetter(
-            AdvObj* pTalk,
+            AdvObj* pObj,
             const s3d::Optional<CharaKind>& kind,
             const s3d::Optional<Side>& side,
             const s3d::Optional<Face>& face
@@ -22,7 +22,7 @@ namespace abyss::Adv
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         s3d::Optional<CharaKind> m_kind;
         s3d::Optional<Side> m_side;
         s3d::Optional<Face> m_face;

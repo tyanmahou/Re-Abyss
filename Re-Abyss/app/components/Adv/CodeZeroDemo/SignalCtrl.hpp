@@ -9,28 +9,28 @@ namespace abyss::Adv::CodeZeroDemo
     {
     public:
         [[REFLECTION(RequestAppear)]]
-        static void RequestAppear(AdvObj* pTalk);
+        static void RequestAppear(AdvObj* pObj);
         [[REFLECTION(IsAppearEnd)]]
-        static bool IsAppearEnd(AdvObj* pTalk);
+        static bool IsAppearEnd(AdvObj* pObj);
 
         [[REFLECTION(RequestPrepareBattle)]]
-        static void RequestPrepareBattle(AdvObj* pTalk);
+        static void RequestPrepareBattle(AdvObj* pObj);
 
         [[REFLECTION(RequestBattleStart)]]
-        static void RequestBattleStart(AdvObj* pTalk);
+        static void RequestBattleStart(AdvObj* pObj);
         [[REFLECTION(IsBattleEnd)]]
-        static bool IsBattleEnd(AdvObj* pTalk);
+        static bool IsBattleEnd(AdvObj* pObj);
 
         [[REFLECTION(RequestDead)]]
-        static void RequestDead(AdvObj* pTalk);
+        static void RequestDead(AdvObj* pObj);
         [[REFLECTION(IsDeadEnd)]]
-        static bool IsDeadEnd(AdvObj* pTalk);
+        static bool IsDeadEnd(AdvObj* pObj);
     public:
-        SignalCtrl(AdvObj* pTalk);
+        SignalCtrl(AdvObj* pObj);
 
         const AdvObj* getObj() const
         {
-            return m_pTalk;
+            return m_pObj;
         }
 
         bool isRequestedAppear() const
@@ -91,7 +91,7 @@ namespace abyss::Adv::CodeZeroDemo
             return m_isDeadEnd;
         }
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
 
         bool m_requestedAppear = false;
         bool m_isAppearEnd = false;

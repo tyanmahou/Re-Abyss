@@ -4,13 +4,13 @@
 
 namespace abyss::Adv
 {
-	SkipEnabled::SkipEnabled(AdvObj* pTalk, bool isEnabled):
-		m_pTalk(pTalk),
+	SkipEnabled::SkipEnabled(AdvObj* pObj, bool isEnabled):
+		m_pObj(pObj),
 		m_isEnabled(isEnabled)
 	{}
 	void SkipEnabled::onStart()
 	{
-		if (auto skipCtrl = m_pTalk->find<SkipCtrl>()) {
+		if (auto skipCtrl = m_pObj->find<SkipCtrl>()) {
 			skipCtrl->setIsEnabled(m_isEnabled);
 		}
 	}

@@ -7,14 +7,14 @@
 
 namespace abyss::Adv::CodeZeroDemo
 {
-    Teardown::Teardown(AdvObj* pTalk) :
-        m_pTalk(pTalk)
+    Teardown::Teardown(AdvObj* pObj) :
+        m_pObj(pObj)
     {}
 
     void Teardown::onStart()
     {
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
-        m_pTalk->getModule<Events>()->create<Event::GameClear::Builder>();
+        m_pObj->getModule<UIs>()->setFilter(UI::Filter::Adv);
+        m_pObj->getModule<Events>()->create<Event::GameClear::Builder>();
     }
 
     Coro::Fiber<> Teardown::onCommand()

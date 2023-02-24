@@ -9,7 +9,7 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        MessageStream(AdvObj* pTalk, const s3d::String& message);
+        MessageStream(AdvObj* pObj, const s3d::String& message);
 
         void onStart() override;
         void onEnd() override;
@@ -19,7 +19,7 @@ namespace abyss::Adv
         Coro::Fiber<> stream();
         Coro::Fiber<> skip();
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         s3d::String m_message;
         size_t m_done = s3d::String::npos;
     };

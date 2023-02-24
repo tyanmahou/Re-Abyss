@@ -7,25 +7,25 @@ namespace abyss::Adv::RoomGarder
     struct Builder
     {
         [[REFLECTION(Setup)]]
-        static void Setup(AdvObj* pTalk);
+        static void Setup(AdvObj* pObj);
 
         class Appear
         {
             [[REFLECTION(Start)]]
-            static void Start(AdvObj* pTalk);
+            static void Start(AdvObj* pObj);
             [[REFLECTION(End)]]
-            static void End(AdvObj* pTalk);
+            static void End(AdvObj* pObj);
         };
 
         class Disappear
         {
             [[REFLECTION(Start)]]
-            static void Start(AdvObj* pTalk);
+            static void Start(AdvObj* pObj);
             [[REFLECTION(End)]]
-            static void End(AdvObj* pTalk);
+            static void End(AdvObj* pObj);
         };
 
         [[REFLECTION(Teardown)]]
-        static void Teardown(AdvObj* pTalk);
+        static void Teardown(AdvObj* pObj);
     };
 }

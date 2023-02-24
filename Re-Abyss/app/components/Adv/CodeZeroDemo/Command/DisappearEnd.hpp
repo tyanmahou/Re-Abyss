@@ -8,13 +8,13 @@ namespace abyss::Adv::CodeZeroDemo
         public ICommand
     {
     public:
-        DisappearEnd(AdvObj* pTalk);
+        DisappearEnd(AdvObj* pObj);
 
         void onStart() override;
 
         Coro::Fiber<> onCommand() override;
 
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
     };
 }

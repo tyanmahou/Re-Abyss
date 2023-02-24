@@ -8,13 +8,13 @@ namespace abyss::Adv::RoomGarder
         public ICommand
     {
     public:
-        Setup(AdvObj* pTalk);
+        Setup(AdvObj* pObj);
 
         void onStart() override;
 
         Coro::Fiber<> onCommand() override;
 
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
     };
 }

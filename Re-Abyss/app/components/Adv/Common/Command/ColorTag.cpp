@@ -4,13 +4,13 @@
 
 namespace abyss::Adv
 {
-    ColorTag::ColorTag(AdvObj* pTalk, const s3d::Optional<s3d::ColorF>& color):
-        m_pTalk(pTalk),
+    ColorTag::ColorTag(AdvObj* pObj, const s3d::Optional<s3d::ColorF>& color):
+        m_pObj(pObj),
         m_color(color)
     {}
     void ColorTag::onStart()
     {
-        m_pTalk->engine()->setColor(m_color);
+        m_pObj->engine()->setColor(m_color);
     }
     Coro::Fiber<> ColorTag::onCommand()
     {

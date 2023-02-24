@@ -10,12 +10,12 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        NameSetter(AdvObj* pTalk, const Name& name);
+        NameSetter(AdvObj* pObj, const Name& name);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         Name m_name;
     };
 }

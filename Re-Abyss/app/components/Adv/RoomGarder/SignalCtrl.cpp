@@ -3,23 +3,23 @@
 
 namespace abyss::Adv::RoomGarder
 {
-	SignalCtrl::SignalCtrl(AdvObj* pTalk) :
-		m_pTalk(pTalk)
+	SignalCtrl::SignalCtrl(AdvObj* pObj) :
+		m_pObj(pObj)
 	{}
-    bool SignalCtrl::IsAppearEnd(AdvObj* pTalk)
+    bool SignalCtrl::IsAppearEnd(AdvObj* pObj)
     {
-        return pTalk->find<SignalCtrl>()->isAppearEnd();
+        return pObj->find<SignalCtrl>()->isAppearEnd();
     }
-    void SignalCtrl::RequestBattleStart(AdvObj* pTalk)
+    void SignalCtrl::RequestBattleStart(AdvObj* pObj)
     {
-        pTalk->find<SignalCtrl>()->requestBattleStart();
+        pObj->find<SignalCtrl>()->requestBattleStart();
     }
-	bool SignalCtrl::IsBattleEnd(AdvObj* pTalk)
+	bool SignalCtrl::IsBattleEnd(AdvObj* pObj)
 	{
-		return pTalk->find<SignalCtrl>()->isBattleEnd();
+		return pObj->find<SignalCtrl>()->isBattleEnd();
 	}
-    bool SignalCtrl::IsDeadEnd(AdvObj* pTalk)
+    bool SignalCtrl::IsDeadEnd(AdvObj* pObj)
     {
-        return pTalk->find<SignalCtrl>()->isDeadEnd();
+        return pObj->find<SignalCtrl>()->isDeadEnd();
     }
 }

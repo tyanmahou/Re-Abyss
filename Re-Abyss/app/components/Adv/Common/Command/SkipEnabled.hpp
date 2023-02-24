@@ -8,12 +8,12 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        SkipEnabled(AdvObj* pTalk, bool isEnabled);
+        SkipEnabled(AdvObj* pObj, bool isEnabled);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         bool m_isEnabled = false;
     };
 }

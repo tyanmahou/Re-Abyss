@@ -15,13 +15,13 @@ namespace abyss::Adv::BossCommon
         public ICommand
     {
     public:
-        ShowHpBar(AdvObj* pTalk);
+        ShowHpBar(AdvObj* pObj);
 
         void onStart() override;
         void onEnd() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         UI::Filter m_prevUiFilter;
 
         s3d::Audio m_chargeSe;

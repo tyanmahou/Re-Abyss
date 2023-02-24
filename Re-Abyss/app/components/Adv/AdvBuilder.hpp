@@ -6,6 +6,6 @@ namespace abyss::Adv
 {
 	struct AdvBuilder
 	{
-		static void Build(AdvObj* pTalk, const s3d::String& path);
+		static void Build(AdvObj* pObj, const s3d::String& path);
 	};
 }

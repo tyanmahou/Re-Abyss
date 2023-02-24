@@ -7,14 +7,14 @@
 
 namespace abyss::Adv
 {
-    Engine::Engine(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    Engine::Engine(AdvObj* pObj):
+        m_pObj(pObj)
     {
         this->setColor(s3d::Palette::White);
     }
     void Engine::onStart()
     {
-        m_skip = m_pTalk->find<SkipCtrl>();
+        m_skip = m_pObj->find<SkipCtrl>();
 
         this->resetStream();
     }
@@ -34,7 +34,7 @@ namespace abyss::Adv
     }
     bool Engine::update()
     {
-        m_time += m_pTalk->getModule<GlobalTime>()->deltaTime();
+        m_time += m_pObj->getModule<GlobalTime>()->deltaTime();
         return m_stream.resume();
     }
     void Engine::addCommand(std::function<void(AdvObj*)> callback)
@@ -42,14 +42,14 @@ namespace abyss::Adv
         class Callback : public ICommand
         {
         public:
-            Callback(AdvObj* pTalk, std::function<void(AdvObj*)>&& callback):
-                m_pTalk(pTalk),
+            Callback(AdvObj* pObj, std::function<void(AdvObj*)>&& callback):
+                m_pObj(pObj),
                 m_callback(std::move(callback))
             {}
             void onStart() override
             {
                 if (m_callback) {
-                    m_callback(m_pTalk);
+                    m_callback(m_pObj);
                 }
             }
             Coro::Fiber<> onCommand()override
@@ -57,10 +57,10 @@ namespace abyss::Adv
                 co_return;
             }
         private:
-            AdvObj* m_pTalk;
+            AdvObj* m_pObj;
             std::function<void(AdvObj*)> m_callback;
         };
-        m_commands.push(std::make_shared<Callback>(m_pTalk, std::move(callback)));
+        m_commands.push(std::make_shared<Callback>(m_pObj, std::move(callback)));
     }
     void Engine::addCommand(std::shared_ptr<ICommand> command)
     {

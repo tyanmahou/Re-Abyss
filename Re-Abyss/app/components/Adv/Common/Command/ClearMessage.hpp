@@ -10,11 +10,11 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        ClearMessage(AdvObj* pTalk);
+        ClearMessage(AdvObj* pObj);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
     };
 }

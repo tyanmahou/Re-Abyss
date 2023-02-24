@@ -3,14 +3,14 @@
 #include <abyss/modules/Adv/base/Engine.hpp>
 namespace abyss::Adv
 {
-    NameSetter::NameSetter(AdvObj* pTalk, const Name& name):
-        m_pTalk(pTalk),
+    NameSetter::NameSetter(AdvObj* pObj, const Name& name):
+        m_pObj(pObj),
         m_name(name)
     {}
 
     void NameSetter::onStart()
     {
-        m_pTalk->engine()->setName(m_name);
+        m_pObj->engine()->setName(m_name);
     }
 
     Coro::Fiber<> NameSetter::onCommand()

@@ -9,7 +9,7 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        WaitTime(AdvObj* pTalk, const s3d::Duration& waitTime);
+        WaitTime(AdvObj* pObj, const s3d::Duration& waitTime);
 
         Coro::Fiber<> onCommand() override;
 
@@ -17,7 +17,7 @@ namespace abyss::Adv
         Coro::Fiber<> wait();
         Coro::Fiber<> skip();
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         s3d::Duration m_waitTime;
     };
 }

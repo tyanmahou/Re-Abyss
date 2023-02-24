@@ -7,19 +7,19 @@
 namespace abyss::Adv
 {
     Bgm::Bgm(
-        AdvObj* pTalk,
+        AdvObj* pObj,
         Kind kind,
         const s3d::String& path,
         const Duration& fade
     ):
-        m_pTalk(pTalk),
+        m_pObj(pObj),
         m_kind(kind),
         m_path(path),
         m_fade(fade)
     {}
     void Bgm::onStart()
     {
-        auto* pSound = m_pTalk->getModule<Sound>();
+        auto* pSound = m_pObj->getModule<Sound>();
         switch (m_kind)
         {
         case Kind::Play:

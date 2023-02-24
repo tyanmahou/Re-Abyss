@@ -13,7 +13,7 @@ namespace abyss::Adv
         public IComponent
     {
     public:
-        TalkCtrl(AdvObj* pTalk);
+        TalkCtrl(AdvObj* pObj);
 
         void request();
         void resume();
@@ -24,7 +24,7 @@ namespace abyss::Adv
             return *this;
         }
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
         Ref<Actor::ILocator> m_pTargetLocator;
     };
 }

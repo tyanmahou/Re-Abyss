@@ -9,21 +9,21 @@ namespace abyss::Adv::RoomGarder
     {
     public:
         [[REFLECTION(IsAppearEnd)]]
-        static bool IsAppearEnd(AdvObj* pTalk);
+        static bool IsAppearEnd(AdvObj* pObj);
 
         [[REFLECTION(RequestBattleStart)]]
-        static void RequestBattleStart(AdvObj* pTalk);
+        static void RequestBattleStart(AdvObj* pObj);
         [[REFLECTION(IsBattleEnd)]]
-        static bool IsBattleEnd(AdvObj* pTalk);
+        static bool IsBattleEnd(AdvObj* pObj);
 
         [[REFLECTION(IsDeadEnd)]]
-        static bool IsDeadEnd(AdvObj* pTalk);
+        static bool IsDeadEnd(AdvObj* pObj);
     public:
-        SignalCtrl(AdvObj* pTalk);
+        SignalCtrl(AdvObj* pObj);
 
         const AdvObj* getObj() const
         {
-            return m_pTalk;
+            return m_pObj;
         }
         void requestAppearEnd()
         {
@@ -59,7 +59,7 @@ namespace abyss::Adv::RoomGarder
             return m_isDeadEnd;
         }
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
 
         bool m_isAppearEnd = false;
 

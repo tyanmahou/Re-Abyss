@@ -8,15 +8,15 @@
 
 namespace abyss::Adv
 {
-    MessageStream::MessageStream(AdvObj* pTalk, const s3d::String& message):
-        m_pTalk(pTalk),
+    MessageStream::MessageStream(AdvObj* pObj, const s3d::String& message):
+        m_pObj(pObj),
         m_message(message)
     {}
     void MessageStream::onStart()
     {}
     void MessageStream::onEnd()
     {
-        const auto& engine = m_pTalk->engine();
+        const auto& engine = m_pObj->engine();
         for (size_t index = m_done + 1; index < m_message.size(); ++index) {
             engine->append(m_message[index]);
         }
@@ -28,8 +28,8 @@ namespace abyss::Adv
     }
     Coro::Fiber<> MessageStream::stream()
     {
-        const auto& engine = m_pTalk->engine();
-        auto* globalTime = m_pTalk->getModule<GlobalTime>();
+        const auto& engine = m_pObj->engine();
+        auto* globalTime = m_pObj->getModule<GlobalTime>();
         size_t index = 0;
         for (char32_t ch : m_message) {
             m_done = index;

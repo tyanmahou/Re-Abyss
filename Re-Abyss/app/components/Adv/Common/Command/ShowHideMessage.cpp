@@ -7,29 +7,29 @@
 
 namespace abyss::Adv
 {
-    ShowHideMessage::ShowHideMessage(AdvObj* pTalk, bool isShow):
-        m_pTalk(pTalk),
+    ShowHideMessage::ShowHideMessage(AdvObj* pObj, bool isShow):
+        m_pObj(pObj),
         m_isShow(isShow)
     {}
     void ShowHideMessage::onStart()
     {
-        if (auto messageBox = m_pTalk->find<MessageBox>()) {
+        if (auto messageBox = m_pObj->find<MessageBox>()) {
             messageBox->setVisible(m_isShow);
         }
     }
     void ShowHideMessage::onEnd()
     {
-        if (auto messageBox = m_pTalk->find<MessageBox>()) {
+        if (auto messageBox = m_pObj->find<MessageBox>()) {
             messageBox->animToTail();
         }
         if (!m_isShow) {
             // 非表示の場合は終わった時点でバッファクリア
-            m_pTalk->engine()->clearBuffer();
+            m_pObj->engine()->clearBuffer();
         }
     }
     Coro::Fiber<> ShowHideMessage::onCommand()
     {
-        auto messageBox = m_pTalk->find<MessageBox>();
+        auto messageBox = m_pObj->find<MessageBox>();
         co_await Coro::WaitWhile([&] {
             return messageBox && messageBox->isBusyAnim();
         });

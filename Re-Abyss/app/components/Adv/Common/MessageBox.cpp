@@ -7,13 +7,13 @@
 
 namespace abyss::Adv
 {
-    MessageBox::MessageBox(AdvObj* pTalk):
-        m_pTalk(pTalk)
+    MessageBox::MessageBox(AdvObj* pObj):
+        m_pObj(pObj)
     {}
 
     void MessageBox::onStart()
     {
-        m_pUi = m_pTalk->getModule<UIs>()->create<UI::Message::Builder>(m_pTalk->engine());
+        m_pUi = m_pObj->getModule<UIs>()->create<UI::Message::Builder>(m_pObj->engine());
         m_msgMain = m_pUi->find<UI::Message::Main>();
         if (m_msgMain) {
             m_msgMain->setVisible(m_isVisible);

@@ -16,7 +16,7 @@ namespace abyss::Adv
     class Engine : public IComponent
     {
     public:
-        Engine(AdvObj* pTalk);
+        Engine(AdvObj* pObj);
 
         void onStart() override;
         void onEnd() override;
@@ -26,7 +26,7 @@ namespace abyss::Adv
         template<class T, class ... Args>
         void addCommand(Args&&... args)
         {
-            addCommand(std::make_shared<T>(m_pTalk, std::forward<Args>(args)...));
+            addCommand(std::make_shared<T>(m_pObj, std::forward<Args>(args)...));
         }
 
         void addCommand(std::function<void(AdvObj*)> callback);
@@ -76,7 +76,7 @@ namespace abyss::Adv
     private:
         void resetStream();
     private:
-        AdvObj* m_pTalk;
+        AdvObj* m_pObj;
 
         Serif m_serif;
         TagString m_prevMessage;

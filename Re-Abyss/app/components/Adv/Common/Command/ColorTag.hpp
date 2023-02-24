@@ -10,12 +10,12 @@ namespace abyss::Adv
         public ICommand
     {
     public:
-        ColorTag(AdvObj* pTalk, const s3d::Optional<s3d::ColorF>& color);
+        ColorTag(AdvObj* pObj, const s3d::Optional<s3d::ColorF>& color);
 
         void onStart() override;
         Coro::Fiber<> onCommand() override;
     private:
-        AdvObj* m_pTalk = nullptr;
+        AdvObj* m_pObj = nullptr;
         s3d::Optional<s3d::ColorF> m_color;
     };
 }
