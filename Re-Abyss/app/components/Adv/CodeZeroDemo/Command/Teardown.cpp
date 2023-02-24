@@ -13,7 +13,7 @@ namespace abyss::Adv::CodeZeroDemo
 
     void Teardown::onStart()
     {
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Novel);
+        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
         m_pTalk->getModule<Events>()->create<Event::GameClear::Builder>();
     }
 

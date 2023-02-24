@@ -12,7 +12,7 @@ namespace abyss::Adv::CodeZeroDemo
     void AppearStart::onStart()
     {
         m_pTalk->find<TalkCtrl>()->request();
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Novel);
+        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     Coro::Fiber<> AppearStart::onCommand()
     {

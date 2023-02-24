@@ -13,7 +13,7 @@ namespace abyss::Adv::CodeZeroDemo
     void DisappearStart::onStart()
     {
         m_pTalk->find<TalkCtrl>()->request();
-        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Novel);
+        m_pTalk->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     Coro::Fiber<> DisappearStart::onCommand()
     {

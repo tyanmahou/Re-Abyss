@@ -16,7 +16,7 @@ namespace abyss::Event::Talk
     void MainStream::onStart()
     {
         m_talk = m_pEvent->getModule<Adventures>()->create<Adv::AdvBuilder>(m_path);
-        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Novel);
+        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     void MainStream::onEnd()
     {

@@ -24,7 +24,7 @@ namespace abyss::Event::GameClear
     }
     void MainStream::onStart()
     {
-        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Novel);
+        m_pEvent->getModule<UIs>()->setFilter(UI::Filter::Adv);
     }
     void MainStream::onEnd()
     {

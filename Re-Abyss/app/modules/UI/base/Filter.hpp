@@ -9,7 +9,7 @@ namespace abyss::UI
         inline static constexpr s3d::uint32 None = 0x00;
         inline static constexpr s3d::uint32 Game = 0x1;
         inline static constexpr s3d::uint32 Event = 0x2;
-        inline static constexpr s3d::uint32 Novel = 0x4;
+        inline static constexpr s3d::uint32 Adv = 0x4;
         inline static constexpr s3d::uint32 Always = ~None;
     public:
         constexpr Filter():
