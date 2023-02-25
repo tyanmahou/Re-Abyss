@@ -2459,6 +2459,9 @@
     <ClCompile Include="app\components\Adv\CodeZeroDemo\SignalCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\NeptScript\Script\Parser\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6375,6 +6378,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Adv\CodeZeroDemo\SignalCtrl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Root.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\BlockStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CharaStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CommandStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\SectionStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\TextStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\INode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\IStatement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

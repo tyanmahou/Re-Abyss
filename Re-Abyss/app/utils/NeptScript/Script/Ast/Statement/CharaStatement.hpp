@@ -15,6 +15,7 @@ namespace abyss::Nept::Ast
     {
         LookType look;
         s3d::String actor;
+        s3d::Optional<s3d::String> emote;
         s3d::Optional<s3d::String> displayName;
     };
 }

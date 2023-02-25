@@ -148,6 +148,9 @@ namespace abyss::Nept
             } else if (line[pos] == U'|') {
                 m_tokens.emplace_back(TokenType::Pipe, String(1, line[pos]));
                 ++pos;
+            } else if (line[pos] == U'.') {
+                m_tokens.emplace_back(TokenType::Dot, String(1, line[pos]));
+                ++pos;
             } else {
                 // 何もなければテキスト
                 const size_t start = pos;

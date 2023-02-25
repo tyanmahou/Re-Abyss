@@ -864,6 +864,7 @@
     <ClCompile Include="app\utils\Env\Env.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Script\Parser\Parser.cpp" />
     <ClCompile Include="app\utils\NeptScript\Script\Script.cpp" />
     <ClCompile Include="app\utils\Random\RandUtil.cpp" />
     <ClCompile Include="app\utils\Shake\SimpleShake.cpp" />
@@ -2088,8 +2089,17 @@
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\INode.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\IStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Root.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\BlockStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CharaStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CommandStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\SectionStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\TextStatement.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Script.hpp" />
     <ClInclude Include="app\utils\Random\RandUtil.hpp" />
     <ClInclude Include="app\utils\Shake\SimpleShake.hpp" />

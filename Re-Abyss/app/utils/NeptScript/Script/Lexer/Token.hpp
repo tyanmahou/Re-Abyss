@@ -40,6 +40,9 @@ namespace abyss::Nept
         /// <summary>=</summary>
         Colon,
 
+        /// <summary>.</summary>
+        Dot,
+
         /// <summary>テキスト</summary>
         Text
     };
