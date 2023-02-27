@@ -2462,6 +2462,9 @@
     <ClCompile Include="app\utils\NeptScript\Script\Parser\Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\NeptScript\Script\Evaluator\Evaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6405,6 +6408,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\IEvaluator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\Evaluator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

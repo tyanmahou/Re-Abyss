@@ -5,7 +5,7 @@ namespace abyss::Nept
     class IEvaluator;
     namespace Ast
     {
-        class Root;
+        struct Root;
     }
 
     class Evaluator

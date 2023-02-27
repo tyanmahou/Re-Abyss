@@ -863,6 +863,7 @@
     <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
     <ClCompile Include="app\utils\Env\Env.cpp" />
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Script\Evaluator\Evaluator.cpp" />
     <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\NeptScript\Script\Parser\Parser.cpp" />
     <ClCompile Include="app\utils\NeptScript\Script\Script.cpp" />
@@ -2097,6 +2098,8 @@
     <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CommandStatement.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\SectionStatement.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\TextStatement.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\Evaluator.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\IEvaluator.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp" />
