@@ -47,36 +47,24 @@ namespace
     public:
         void eval(const CharaStatement& statement)
         {
-            s3d::Optional<CharaKind> kind = Enum::Parse<CharaKind>(statement.actor);
+            // キャラ
+            {
+                s3d::Optional<CharaKind> kind = Enum::Parse<CharaKind>(statement.actor);
 
-            s3d::Optional<Side> side;
-            if (statement.look == LookType::Left) {
-                side = Side::Left;
-            } else {
-                side = Side::Right;
-            }
-            s3d::Optional<Face> face;
-            if (statement.emote) {
-                face = Face(*statement.emote);
-            }
-            // キャラか位置が変わったら切り替え
-            const bool isChangeChara = kind && kind != m_charaKind;
-            const bool isChangeSide = side && side != m_charaSide;
-            bool isHide = isChangeChara || isChangeSide;
-            if (isHide) {
-                this->showHideMessage(false);
-            }
-            if (isChangeChara && !side) {
-                side = Side::Left;
-            }
-            if (isChangeChara && !face) {
-                face = Face{};
+                s3d::Optional<Side> side;
+                if (statement.look == LookType::Left) {
+                    side = Side::Left;
+                } else {
+                    side = Side::Right;
+                }
+                s3d::Optional<Face> face;
+                if (statement.emote) {
+                    face = Face(*statement.emote);
+                }
+                this->buildChara(std::move(kind), std::move(side), std::move(face));
             }
 
-            m_pEngine->addCommand<CharaSetter>(kind, side, face);
-            m_charaKind = std::move(kind);
-            m_charaSide = std::move(side);
-
+            // 表示名
             if (statement.displayName) {
                 m_pEngine->addCommand<NameSetter>(*statement.displayName);
             }
@@ -125,22 +113,7 @@ namespace
                         face = Face(*value);
                     }
                 }
-                // キャラか位置が変わったら切り替え
-                const bool isChangeChara = kind && kind != m_charaKind;
-                const bool isChangeSide = side && side != m_charaSide;
-                bool isHide = isChangeChara || isChangeSide;
-                if (isHide) {
-                    this->showHideMessage(false);
-                }
-                if (isChangeChara && !side) {
-                    side = Side::Left;
-                }
-                if (isChangeChara && !face) {
-                    face = Face{};
-                }
-                m_pEngine->addCommand<CharaSetter>(kind, side, face);
-                m_charaKind = std::move(kind);
-                m_charaSide = std::move(side);
+                this->buildChara(std::move(kind), std::move(side), std::move(face));
             } else if (command == U"build" && param) {
                 this->buildTrigger(U"Teardown");
                 m_build = param;
@@ -210,6 +183,26 @@ namespace
             m_blocks.pop();
         }
     private:
+        void buildChara(s3d::Optional<CharaKind> kind, s3d::Optional<Side> side, s3d::Optional<Face> face)
+        {
+            // キャラか位置が変わったら切り替え
+            const bool isChangeChara = kind && kind != m_charaKind;
+            const bool isChangeSide = side && side != m_charaSide;
+            bool isHide = isChangeChara || isChangeSide;
+            if (isHide) {
+                this->showHideMessage(false);
+            }
+            if (isChangeChara && !side) {
+                side = Side::Left;
+            }
+            if (isChangeChara && !face) {
+                face = Face{};
+            }
+
+            m_pEngine->addCommand<CharaSetter>(kind, side, face);
+            m_charaKind = std::move(kind);
+            m_charaSide = std::move(side);
+        }
         void showHideMessage(bool isShow)
         {
             if (m_isVisibleMessage == isShow) {
