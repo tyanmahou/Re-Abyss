@@ -38,23 +38,28 @@ namespace abyss::Nept
         size_t pos = 0;
         const size_t length = line.length();
 
-        bool isText = false;
-
         // 事前
         // 空白スキップ
         while (IsSpace(line[pos])) {
             ++pos;
         }
-        if (pos < length) {
+        if (pos >= length) {
             return;
         }
 
+        bool isText = false;
+        bool isChara = false;
+        bool isCommand = false;
+
         // 行の最初が一部記号の場合はテキストではない
-        if (line[pos] == U'#' ||
-            line[pos] == U'@' ||
-            line[pos] == U'/' ||
+        if (line[pos] == U'/' ||
             line[pos] == U'\\'||
             line[pos] == U'|' ||
+            false
+        ) {
+            isChara = true;
+        } else if (line[pos] == U'#' ||
+            line[pos] == U'@' ||
             line[pos] == U'{' ||
             line[pos] == U'}' ||
             false
@@ -69,7 +74,7 @@ namespace abyss::Nept
             while (IsSpace(line[pos])) {
                 ++pos;
             }
-            if (pos < length) {
+            if (pos >= length) {
                 return;
             }
             if (line[pos] == U';') {
@@ -84,7 +89,16 @@ namespace abyss::Nept
                 while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_' || line[pos] == U'-')) {
                     ++pos;
                 }
-                m_tokens.emplace_back(TokenType::Ident, line.substr(start, pos - start));
+                auto tokenType = TokenType::Value;
+                if (isCommand) {
+                    // コマンドモード
+                    auto prevToken = m_tokens.back().type;
+                    if (prevToken != TokenType::Colon) {
+                        // 直前がコロンじゃなければ識別子
+                        tokenType = TokenType::Ident;
+                    }
+                }
+                m_tokens.emplace_back(tokenType, line.substr(start, pos - start));
             } else if (!isText && IsDigit(line[pos]) || line[pos] == U'-' && pos + 1 < length && IsDigit(line[pos + 1])) {
                 // 数
                 const size_t start = pos;
@@ -118,14 +132,17 @@ namespace abyss::Nept
                 ++pos;
             } else if (line[pos] == U'@') {
                 m_tokens.emplace_back(TokenType::At, String(1, line[pos]));
+                isCommand = true;
                 ++pos;
             } else if (line[pos] == U'[') {
                 m_tokens.emplace_back(TokenType::LBracket, String(1, line[pos]));
                 ++pos;
+                isCommand = true;
                 isText = false;
             } else if (line[pos] == U']') {
                 m_tokens.emplace_back(TokenType::RBracket, String(1, line[pos]));
                 ++pos;
+                isCommand = false;
                 isText = true;
             } else if (line[pos] == U'{') {
                 m_tokens.emplace_back(TokenType::LBrace, String(1, line[pos]));
@@ -155,7 +172,7 @@ namespace abyss::Nept
                 // 何もなければテキスト
                 const size_t start = pos;
                 while (pos < length) {
-                    if (IsSpace(line[pos]) || line[pos] == U'[' || line[pos] == U']') {
+                    if (line[pos] == U'[' || line[pos] == U']') {
                         break;
                     }
                     ++pos;

@@ -2465,6 +2465,9 @@
     <ClCompile Include="app\utils\NeptScript\Script\Evaluator\Evaluator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\NeptScript\LexerCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
