@@ -1,7 +1,7 @@
-#include <abyss/utils/NeptScript/Script/Script.hpp>
-#include <abyss/utils/NeptScript/Script/Lexer/Lexer.hpp>
-#include <abyss/utils/NeptScript/Script/Parser/Parser.hpp>
-#include <abyss/utils/NeptScript/Script/Evaluator/Evaluator.hpp>
+#include <abyss/utils/NeptScript/Script.hpp>
+#include <abyss/utils/NeptScript/Lexer/Lexer.hpp>
+#include <abyss/utils/NeptScript/Parser/Parser.hpp>
+#include <abyss/utils/NeptScript/Evaluator/Evaluator.hpp>
 
 namespace abyss::Nept
 {

@@ -1,11 +1,11 @@
 #include <memory>
-#include <abyss/utils/NeptScript/Script/Lexer/Token.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Root.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/SectionStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/CommandStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/CharaStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/TextStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Parser/Error.hpp>
+#include <abyss/utils/NeptScript/Lexer/Token.hpp>
+#include <abyss/utils/NeptScript/Ast/Root.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/SectionStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/CommandStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/CharaStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/TextStatement.hpp>
+#include <abyss/utils/NeptScript/Parser/Error.hpp>
 #include <Siv3D/Array.hpp>
 
 namespace abyss::Nept

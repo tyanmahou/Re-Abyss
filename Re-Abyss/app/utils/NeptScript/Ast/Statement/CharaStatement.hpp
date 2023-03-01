@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/NeptScript/Script/Ast/IStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/IStatement.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 

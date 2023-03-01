@@ -1,4 +1,4 @@
-#include <abyss/utils/NeptScript/Script/Lexer/Lexer.hpp>
+#include <abyss/utils/NeptScript/Lexer/Lexer.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Nept

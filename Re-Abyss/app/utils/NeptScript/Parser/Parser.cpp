@@ -1,4 +1,4 @@
-#include <abyss/utils/NeptScript/Script/Parser/Parser.hpp>
+#include <abyss/utils/NeptScript/Parser/Parser.hpp>
 
 namespace abyss::Nept
 {

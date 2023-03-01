@@ -2315,10 +2315,10 @@
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\NeptScript\Script\Script.cpp">
+    <ClCompile Include="app\utils\NeptScript\Script.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\NeptScript\Script\Lexer\Lexer.cpp">
+    <ClCompile Include="app\utils\NeptScript\Lexer\Lexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Adv\Chara.cpp">
@@ -2441,10 +2441,10 @@
     <ClCompile Include="app\components\Adv\CodeZeroDemo\SignalCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\NeptScript\Script\Parser\Parser.cpp">
+    <ClCompile Include="app\utils\NeptScript\Parser\Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\NeptScript\Script\Evaluator\Evaluator.cpp">
+    <ClCompile Include="app\utils\NeptScript\Evaluator\Evaluator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\utils\NeptScript\LexerCatch.cpp">
@@ -6218,13 +6218,13 @@
     <ClInclude Include="app\modules\Adv\Adventures.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Script.hpp">
+    <ClInclude Include="app\utils\NeptScript\Script.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp">
+    <ClInclude Include="app\utils\NeptScript\Lexer\Token.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp">
+    <ClInclude Include="app\utils\NeptScript\Lexer\Lexer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\base\ICommand.hpp">
@@ -6362,40 +6362,40 @@
     <ClInclude Include="app\components\Adv\CodeZeroDemo\SignalCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Root.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Root.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\BlockStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Statement\BlockStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CharaStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Statement\CharaStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\CommandStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Statement\CommandStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\SectionStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Statement\SectionStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\Statement\TextStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\Statement\TextStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\INode.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\INode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Ast\IStatement.hpp">
+    <ClInclude Include="app\utils\NeptScript\Ast\IStatement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp">
+    <ClInclude Include="app\utils\NeptScript\Parser\Parser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\IEvaluator.hpp">
+    <ClInclude Include="app\utils\NeptScript\Evaluator\IEvaluator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Evaluator\Evaluator.hpp">
+    <ClInclude Include="app\utils\NeptScript\Evaluator\Evaluator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\NeptScript\Script\Parser\Error.hpp">
+    <ClInclude Include="app\utils\NeptScript\Parser\Error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

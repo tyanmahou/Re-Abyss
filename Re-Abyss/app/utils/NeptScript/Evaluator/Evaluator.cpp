@@ -1,8 +1,8 @@
-#include <abyss/utils/NeptScript/Script/Evaluator/Evaluator.hpp>
-#include <abyss/utils/NeptScript/Script/Evaluator/IEvaluator.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Root.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/BlockStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/SectionStatement.hpp>
+#include <abyss/utils/NeptScript/Evaluator/Evaluator.hpp>
+#include <abyss/utils/NeptScript/Evaluator/IEvaluator.hpp>
+#include <abyss/utils/NeptScript/Ast/Root.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/BlockStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/SectionStatement.hpp>
 
 namespace
 {

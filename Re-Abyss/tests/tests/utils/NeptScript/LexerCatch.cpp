@@ -1,6 +1,6 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/utils/NeptScript/Script/Lexer/Lexer.hpp>
+#include <abyss/utils/NeptScript/Lexer/Lexer.hpp>
 
 namespace
 {

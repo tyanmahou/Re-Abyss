@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/NeptScript/Script/Lexer/Token.hpp>
+#include <abyss/utils/NeptScript/Lexer/Token.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Array.hpp>
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <abyss/utils/NeptScript/Script/Evaluator/IEvaluator.hpp>
+#include <abyss/utils/NeptScript/Evaluator/IEvaluator.hpp>
 
 namespace abyss::Nept
 {

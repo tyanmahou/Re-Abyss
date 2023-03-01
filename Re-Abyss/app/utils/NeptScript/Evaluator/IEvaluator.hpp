@@ -1,8 +1,8 @@
 #pragma once
-#include <abyss/utils/NeptScript/Script/Ast/Statement/CharaStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/CommandStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Ast/Statement/TextStatement.hpp>
-#include <abyss/utils/NeptScript/Script/Parser/Error.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/CharaStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/CommandStatement.hpp>
+#include <abyss/utils/NeptScript/Ast/Statement/TextStatement.hpp>
+#include <abyss/utils/NeptScript/Parser/Error.hpp>
 
 namespace abyss::Nept
 {

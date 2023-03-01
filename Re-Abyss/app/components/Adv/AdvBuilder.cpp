@@ -20,7 +20,7 @@
 #include <abyss/components/Adv/Common/MessageBox.hpp>
 #include <abyss/components/Adv/Common/TalkCtrl.hpp>
 
-#include <abyss/utils/NeptScript/Script/Script.hpp>
+#include <abyss/utils/NeptScript/Script.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
 #include <abyss/debugs/Debug.hpp>
